@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SecurityEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/securityevent.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Application Start for under service login "Grahame" (id: Grahame's Test HL7Connect)</div>
+  </text>
+  <event>
+    <identifier>
+      <system value="urn:oid:1.2.840.10008.6.1.903"/>
+      <code value="110100"/>
+      <display value="Application Activity"/>
+    </identifier>
+    <action value="E"/>
+    <dateTime value="2012-10-25T22:04:27+11:00"/>
+    <outcome value="0"/>
+    <code>
+      <system value="urn:oid:1.2.840.10008.6.1.904"/>
+      <code value="110120"/>
+      <display value="Application Start"/>
+    </code>
+  </event>
+  <participant>
+    <userId value="Grahame"/>
+    <requestor value="false"/>
+    <role>
+      <display value="Service User (Logon)"/>
+    </role>
+    <network>
+      <type value="ip"/>
+      <identifier value="127.0.0.1"/>
+    </network>
+  </participant>
+  <source>
+    <site value="Development"/>
+    <identifier value="Grahame's Laptop"/>
+    <type>
+      <system value="urn:ietf:rfc:3881"/>
+      <code value="4"/>
+    </type>
+  </source>
+  <object>
+    <type value="3"/>
+    <role value="4"/>
+    <lifecycle value="6"/>
+    <idType>
+      <system value="urn:ietf:rfc:3881"/>
+      <code value="12"/>
+      <display value="URI"/>
+    </idType>
+    <identifier value="urn:uuid:{798CF803-C39C-4C7E-A4A5-CEC87EC24162}"/>
+    <name value="Grahame's Test HL7Connect"/>
+  </object>
+</SecurityEvent>

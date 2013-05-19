@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+     <p>Value set for Marital Status. This value set includes all the v3 codes for MaritalStatus and the nullFlavor "UNK". The value set binding is dynamic (not fixed to a particular version)</p>
+    </div>
+  </text>
+  <!-- we use the FHIR specification url where this is published -->
+  <identifier value="http://hl7.org/fhir/marital-status"/>
+  <!--
+     The version is fixed to the day that this value set was described. 
+     Note that the members of this value set change over time whenever 
+     the V3 marital status codes change. When you use this value set in 
+     practice, and you care about versions, you have to quote both 
+     versions (this value set and the v3 code system)
+  -->
+  <version value="2013-05-09"/>
+
+  <name value="v3 Marital Status Codes + &quot;Unknown&quot;"/>
+  <publisher value="FHIR project team"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom> 
+  <description value="This value set includes all the codes in the v3 Marital Status code system"/>
+  <status value="review"/>
+  <date value="2013-05-09"/>
+
+  <kind value="composition"/>
+  <compose>
+
+    <include>
+      <!-- include all codes in the v3 code system "maritalstatus" -->    
+      <system value="http://hl7.org/v3/maritalstatus"/>
+      <!-- we don't specify a version. just whatever version. this means 
+        that the contents of this value set a dynamic - they change over time.
+        As new codes are added, they can be used.
+      <version value="xxxx"/> -->
+      
+      <!-- just include all the codes -->
+      <mode value="system"/>
+    </include>
+  
+    <include>
+      <!-- include UNK from v3 code system "nullFlavor" -->    
+      <system value="http://hl7.org/v3/nullflavor"/>
+      <!-- just include all the codes -->
+      <mode value="code"/>
+      <code value="UNK"/>
+    </include>  
+  </compose>
+</ValueSet>

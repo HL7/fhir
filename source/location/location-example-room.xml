@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Location xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/location.xsd"
+ xmlns="http://hl7.org/fhir">
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">UMCU, OK Oost 1-4</div>
+  </text>  
+  <name value="OK Oost 1-4"/>
+  <type>
+    <coding>
+      <system value="http://www.hl7.nl/locationTypeCodeNL" />
+      <code value="OR" />
+      <display value="Operation room" />
+    </coding>
+  </type>
+  <telecom>
+    <system value="phone" />
+    <value value="53321" />
+  </telecom>
+  <provider>
+    <type value="Organization" />
+    <reference value="organization/@2.16.840.1.113883.19.5" />
+  </provider>
+  <active value="true" />
+</Location>

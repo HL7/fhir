@@ -1,0 +1,13 @@
+[diagram]
+classes=Quantity,Attachment,Choice,Range,Period,Ratio,CodeableConcept,Coding
+title=Types
+
+[directions]
+Quantity=left
+Attachment=right
+Choice=down
+Range=up
+Period=up
+Ratio=up
+CodeableConcept=down
+Coding=down

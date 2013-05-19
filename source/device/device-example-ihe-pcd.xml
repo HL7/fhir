@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Device xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/device.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Acme Patient Monitor</p>
+    </div>
+  </text>
+  <type>
+    <text value="Vital Signs Monitor"/>
+  </type>
+  <manufacturer value="Acme Devices, Inc"/>
+  <model value="A.1.1"/>
+  <identity>
+    <gtin value="04012313012314"/>
+    <lot value="12345"/>
+    <serialNumber value="AMID-123-456"/>
+  </identity>
+</Device>

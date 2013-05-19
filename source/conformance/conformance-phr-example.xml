@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/conformance.xsd">
+  <text> 
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+     todo...
+    </div>
+  </text>
+  <date value="2012-01-04"/>
+  <publisher>
+    <name value="ACME Corporation"/>
+    <contact>
+      <system value="email"/>
+      <value value="wile@acme.org"/>
+    </contact>
+  </publisher>
+  <software>
+    <name value="EHR"/>
+    <version value="0.00.020.2134"/>
+  </software>
+
+  <!-- while the FHIR infrastructure is turning over prior to development, a version is 
+    required. Note that this may be rescinded later? -->
+  <version value="0.09"/>
+  
+  <!-- this is not particularly important for this usage (server doesn't accept any content), but we have to provide it anyway -->
+  <acceptUnknown value="false"/>
+  
+  <!--
+    default is just to use JSON (but XML is also allowed, of course). 
+
+    todo: even though this conformance statement says the system only uses JSON, it's written in XML.
+  -->  
+  <format value="json"/>
+  
+  <rest>
+    <!-- this is a server conformance statement. Note that servers are required to provide 
+      one of these. It can easily be edited by hand - copy this, replace the metadata above, 
+      delete the messaging and document stuff below, and then replace the details appropriately. -->
+    <mode value="server"/>
+    <!-- zero or more of these - declaration of support for a resource -->
+    <resource>
+      <type value="Patient"/>
+      <!-- let's assume that HL7 has stood up a profile registry at http://fhir.hl7.org/fhir 
+        - it's likely to have a registry, though this is not decided, nor is a URL decided. 
+        This application simply uses a profile registered directly with HL7. For the simplest 
+        case of a FHIR REST Server, just delete this profile reference. Profile references do 
+        not need to be a UUID, though a profile registry could insist that they are -->
+      <profile value="http://fhir.hl7.org/base/profile/@7896271d-57f6-4231-89dc-dcc91eab2416"/>
+      <operation>
+        <code value="read"/>
+      </operation>
+      <operation>
+        <code value="vread"/>
+      </operation>
+      <operation>
+        <code value="update"/>
+      </operation>
+      <operation>
+        <code value="history-instance"/>
+      </operation>
+      <operation>
+        <code value="create"/>
+      </operation>
+      <operation>
+        <code value="history-type"/>
+      </operation>
+    </resource>
+    <batch value="true"/>
+    <history value="true"/>
+  </rest>
+
+  <!-- a messaging conformance statement. Applications are not required to make a conformance 
+    statement with regard to messaging, though there is active argument that they should.  -->
+  <messaging>
+    <!-- how to tell whether this llp is a server or a client? -->
+    <event>
+      <code value="admin-notify"/>
+      <mode value="receiver"/> <!-- this a receiver - i.e. answers. Not neccessariy a serve" -->
+      <focus value="Patient"/>
+      <!-- specify a profile for the request person. Very often there's no point profiling 
+        the response, it's not interesting -->
+      <request value="http://fhir.hl7.org/base/profile/@7896271d-57f6-4231-89dc-dcc91eab2416"/>
+    </event>
+  </messaging>
+  
+  <!-- a document conformance statement -->
+  <document>
+    <mode value="consumer"/>
+    <documentation value="Basic rules for all documents in the EHR system"/>
+    <!-- this is the important element: a reference to a published document profile 
+       note that this is a version specific reference.-->
+    <profile value="http://fhir.hl7.org/base/profile/@bc054d23-75e1-4dc6-aca5-838b6b1ac81d/history/@b5fdd9fc-b021-4ea1-911a-721a60663796"/>
+  </document>  
+</Conformance>

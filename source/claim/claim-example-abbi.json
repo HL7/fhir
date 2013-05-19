@@ -1,0 +1,151 @@
+{ 
+ "Claim" : {
+    "identifier": {
+        "id" : { "value" : "9427984358334" } 
+    },
+    "type" : {
+        "coding" : {
+            "code" : "PartB"
+        }
+    },
+    "period" : {
+        "start" : { "value" : "2012-09-21" }
+    }, 
+    "patient" : {
+        "type" : "Patient", 
+        "id" : "example-abbi"
+    },
+    "billingProvider" : {
+      "Organization" : {
+        "identifier" : [ {
+           "label" : "Provider No",
+           "identifier" : {
+             "id" : "A300070363"
+           }
+        }, {
+           "use" : "official",
+           "label" : "Provider NPI",
+           "identifier" : {
+             "system" : "http://us.gov/NPI",
+             "id" : "1124324181"
+           }        
+        } ]
+        "name" : { value : "MANHATTAN ENDOSCOPY CENTER L" },
+        "address" : {
+          "line" : "CL #4685  PO BOX 95000",
+          "city" : "PHILADELPHIA",
+          "state" : "PA",
+          "dpid" : "191954685"
+        } 
+      }
+    },
+    "netAmount" : {
+        "value" : "386.60".
+        "units" : "$"
+    }
+    "allowedAmount" : {
+        "value" : "386.59",
+        "units" : "$"
+    }
+    "coveredAmount" : {
+        "value" : "386.59",
+        "units" : "$"
+    }
+
+    "line" : [ {
+      "code" : {
+        "coding" : {
+          "system" : "http://cms.gov/Medicare/Coding/type-of-service-codes",
+          "code" : "1",
+          "display" : "Medical Care"
+        }
+      }
+      "unitAmount" : {
+        "value" : "386.59",
+        "units" : "$"
+      }
+      "unitQuantity" : {
+        "value" : "1"
+      }
+      "netAmount" : {
+        "value" : "386.59",
+        "units" : "$"
+      }
+      "allowedAmount" : {
+        "value" : "386.59",
+        "units" : "$"
+      }
+      "service" : [ {
+        "type" : {
+          "coding" : {
+            "code" : "G0105",
+            "display" : "Colorectal Cancer Screening; Colonoscopy On Individual At High Risk"
+          }
+        }
+        "period" : {
+          "start" : "2012-09-21",
+          "end" : "2012-09-21"
+        }
+        "location" : {
+          "Location" : {
+             "code" : {
+               "coding" : {
+                 "code" : "24",
+                 "display" : "Ambulatory  Surgical Center"
+               }
+             }
+          }
+        }
+      } ]
+    },
+    {
+      "code" : {
+        "coding" : {
+          "system" : "http://cms.gov/Medicare/Coding/type-of-service-codes",
+          "code" : "2",
+          "display" : "Administrivia"
+        }
+      }
+      "unitAmount" : {
+        "value" : "0.01",
+        "units" : "$"
+      }
+      "unitQuantity" : {
+        "value" : "1"
+      }
+      "netAmount" : {
+        "value" : "0.01",
+        "units" : "$"
+      }
+      "allowedAmount" : {
+        "value" : "0.00",
+        "units" : "$"
+      }
+      "service" : {
+        "type" : {
+          "coding" : {
+            "code" : "G8907"
+          }
+        }
+        "period" : {
+          "start" : "2012-10-22",
+          "end" : "2012-10-22"
+        }
+        "location" : {
+          "Location" : {
+             "code" : {
+               "coding" : {
+                 "code" : "24",
+                 "display" : "Ambulatory  Surgical Center"
+               }
+             }
+          }
+        }
+      }
+    }],
+    "text" : {
+      "status" : "generated",
+      "div" : "..."
+    }
+  } 
+}

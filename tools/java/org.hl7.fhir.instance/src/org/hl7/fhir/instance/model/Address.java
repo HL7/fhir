@@ -1,0 +1,285 @@
+package org.hl7.fhir.instance.model;
+
+/*
+  Copyright (c) 2011-2013, HL7, Inc.
+  All rights reserved.
+  
+  Redistribution and use in source and binary forms, with or without modification, 
+  are permitted provided that the following conditions are met:
+  
+   * Redistributions of source code must retain the above copyright notice, this 
+     list of conditions and the following disclaimer.
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
+     and/or other materials provided with the distribution.
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
+     prior written permission.
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+  POSSIBILITY OF SUCH DAMAGE.
+  
+*/
+
+// Generated on Wed, May 15, 2013 09:11+1000 for FHIR v0.09
+
+import java.util.*;
+
+/**
+ * There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for addresses all around the world
+ */
+public class Address extends Type {
+
+    public enum AddressUse {
+        home, // A communication address at a home
+        work, // An office address. First choice for business related contacts during business hours
+        temp, // A temporary address. The period can provide more detailed information
+        old, // This address is no longer in use (or was never correct, but retained for records)
+        Null; // added to help the parsers
+        public static AddressUse fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("home".equals(codeString))
+          return home;
+        if ("work".equals(codeString))
+          return work;
+        if ("temp".equals(codeString))
+          return temp;
+        if ("old".equals(codeString))
+          return old;
+        throw new Exception("Unknown AddressUse code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case home: return "home";
+            case work: return "work";
+            case temp: return "temp";
+            case old: return "old";
+            default: return "?";
+          }
+        }
+    }
+
+  public class AddressUseEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("home".equals(codeString))
+          return AddressUse.home;
+        if ("work".equals(codeString))
+          return AddressUse.work;
+        if ("temp".equals(codeString))
+          return AddressUse.temp;
+        if ("old".equals(codeString))
+          return AddressUse.old;
+        throw new Exception("Unknown AddressUse code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == AddressUse.home)
+        return "home";
+      if (code == AddressUse.work)
+        return "work";
+      if (code == AddressUse.temp)
+        return "temp";
+      if (code == AddressUse.old)
+        return "old";
+      return "?";
+      }
+    }
+
+    /**
+     * Identifies the intended purpose of this address
+     */
+    private Enumeration<AddressUse> use;
+
+    /**
+     * A full text representation of the address
+     */
+    private String_ text;
+
+    /**
+     * A line of an address (typically used for street names & numbers, unit details, delivery hints, etc.) .
+     */
+    private List<String_> line = new ArrayList<String_>();
+
+    /**
+     * The name of the city, town, village or other community or delivery centre.
+     */
+    private String_ city;
+
+    /**
+     * Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).
+     */
+    private String_ state;
+
+    /**
+     * A postal code designating a region defined by the postal service.
+     */
+    private String_ zip;
+
+    /**
+     * Country. ISO 3166 3 letter codes can be used in place of a full country name.
+     */
+    private String_ country;
+
+    /**
+     * Time period when address was/is in use
+     */
+    private Period period;
+
+    public Enumeration<AddressUse> getUse() { 
+      return this.use;
+    }
+
+    public void setUse(Enumeration<AddressUse> value) { 
+      this.use = value;
+    }
+
+    public AddressUse getUseSimple() { 
+      return this.use == null ? null : this.use.getValue();
+    }
+
+    public void setUseSimple(AddressUse value) { 
+      if (value == null)
+        this.use = null;
+      else {
+        if (this.use == null)
+          this.use = new Enumeration<AddressUse>();
+        this.use.setValue(value);
+      }
+    }
+
+    public String_ getText() { 
+      return this.text;
+    }
+
+    public void setText(String_ value) { 
+      this.text = value;
+    }
+
+    public String getTextSimple() { 
+      return this.text == null ? null : this.text.getValue();
+    }
+
+    public void setTextSimple(String value) { 
+      if (value == null)
+        this.text = null;
+      else {
+        if (this.text == null)
+          this.text = new String_();
+        this.text.setValue(value);
+      }
+    }
+
+    public List<String_> getLine() { 
+      return this.line;
+    }
+
+    public String_ getCity() { 
+      return this.city;
+    }
+
+    public void setCity(String_ value) { 
+      this.city = value;
+    }
+
+    public String getCitySimple() { 
+      return this.city == null ? null : this.city.getValue();
+    }
+
+    public void setCitySimple(String value) { 
+      if (value == null)
+        this.city = null;
+      else {
+        if (this.city == null)
+          this.city = new String_();
+        this.city.setValue(value);
+      }
+    }
+
+    public String_ getState() { 
+      return this.state;
+    }
+
+    public void setState(String_ value) { 
+      this.state = value;
+    }
+
+    public String getStateSimple() { 
+      return this.state == null ? null : this.state.getValue();
+    }
+
+    public void setStateSimple(String value) { 
+      if (value == null)
+        this.state = null;
+      else {
+        if (this.state == null)
+          this.state = new String_();
+        this.state.setValue(value);
+      }
+    }
+
+    public String_ getZip() { 
+      return this.zip;
+    }
+
+    public void setZip(String_ value) { 
+      this.zip = value;
+    }
+
+    public String getZipSimple() { 
+      return this.zip == null ? null : this.zip.getValue();
+    }
+
+    public void setZipSimple(String value) { 
+      if (value == null)
+        this.zip = null;
+      else {
+        if (this.zip == null)
+          this.zip = new String_();
+        this.zip.setValue(value);
+      }
+    }
+
+    public String_ getCountry() { 
+      return this.country;
+    }
+
+    public void setCountry(String_ value) { 
+      this.country = value;
+    }
+
+    public String getCountrySimple() { 
+      return this.country == null ? null : this.country.getValue();
+    }
+
+    public void setCountrySimple(String value) { 
+      if (value == null)
+        this.country = null;
+      else {
+        if (this.country == null)
+          this.country = new String_();
+        this.country.setValue(value);
+      }
+    }
+
+    public Period getPeriod() { 
+      return this.period;
+    }
+
+    public void setPeriod(Period value) { 
+      this.period = value;
+    }
+
+
+}
+

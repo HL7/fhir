@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
+
+  <extension>
+    <url value="http://hl7.org/fhir/example-do-not-use#Patient.picture"/>
+    <valueResourceReference>
+      <type value="Binary"/>
+      <reference value="#pic1"/>
+      <display value="Duck image"/>
+    </valueResourceReference>
+  </extension>
+
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Patient Donald DUCK @ Acme Healthcare, Inc. MR = 654321</p>
+    </div>
+  </text>
+  
+  <contained>
+    <Binary id="pic1" contentType="image/gif">R0lGODlhEwARAPcAAAAAAAAA/+9aAO+1AP/WAP/eAP/eCP/eEP/eGP/nAP/nCP/nEP/nIf/nKf/nUv/nWv/vAP/vCP/vEP/vGP/vIf/vKf/vMf/vOf/vWv/vY//va//vjP/3c//3lP/3nP//tf//vf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAAEALAAAAAATABEAAAi+AAMIDDCgYMGBCBMSvMCQ4QCFCQcwDBGCA4cLDyEGECDxAoAQHjxwyKhQAMeGIUOSJJjRpIAGDS5wCDly4AALFlYOgHlBwwOSNydM0AmzwYGjBi8IHWoTgQYORg8QIGDAwAKhESI8HIDgwQaRDI1WXXAhK9MBBzZ8/XDxQoUFZC9IiCBh6wEHGz6IbNuwQoSpWxEgyLCXL8O/gAnylNlW6AUEBRIL7Og3KwQIiCXb9HsZQoIEUzUjNEiaNMKAAAA7</Binary>
+  </contained>
+
+  <link>
+    <type value="Patient"/>
+    <reference value="patient/@pat2"/>
+  </link>
+
+  <active value="true"/>
+
+  <identifier>
+    <use value="usual"/>
+    <label value="MRN"/>
+    <system value="oid:0.1.2.3.4.5.6.7"/>
+    <key value="654321"/>
+  </identifier>
+	
+  <details>
+    <name>
+      <use value="official"/>
+       <family value="Donald"/>
+       <given value="Duck"/>
+    </name>
+    <gender>
+      <system value="http://hl7.org/fhir/sid/v2-0001"/>
+      <code value="M"/>
+      <display value="Male"/>
+    </gender>  
+  </details>
+  
+  <provider>
+    <type value="Organization"/>
+    <reference value="organization/@1"/> 
+    <display value="ACME Healthcare, Inc"/>
+  </provider>
+</Patient>

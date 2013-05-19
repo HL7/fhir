@@ -1,0 +1,10 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h2>Open Issues</h2>
+<ul>
+  <li>This resource combines the concepts of "Care Plan" and "Care Team" into a single resource.  Is this appropriate?</li>
+  <li>This specification leaves the specific relationship between activites in the care plan to textual description.  Is more rigor required within the 80%?</li>
+</ul>
+<!-- insert xhtml content here -->
+
+</div>

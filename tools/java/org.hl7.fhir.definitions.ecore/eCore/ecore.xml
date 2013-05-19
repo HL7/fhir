@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhir:Definitions xmlns:fhir="http://hl7.org/fhir/definitions">
+  <resources name="test">
+    <definition name="t"/>
+  </resources>
+</fhir:Definitions>

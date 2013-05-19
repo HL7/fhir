@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
+
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Patient Donald D DUCK @ Acme Healthcare, Inc. MR = 123456</p>
+    </div>
+  </text>
+
+  <link>
+    <type value="Patient"/>
+    <reference value="patient/@pat1"/>
+  </link>
+
+  <active value="true"/>
+  <identifier>
+    <use value="usual"/>
+    <label value="MRN"/>
+    <system value="oid:0.1.2.3.4.5.6.7"/>
+    <key value="123456"/>
+  </identifier>
+
+  <details>
+    <name>
+      <use value="official"/>
+       <family value="Donald"/>
+       <given value="Duck"/>
+       <given value="D"/>
+    </name>
+    <gender>
+      <system value="http://hl7.org/fhir/sid/v2-0001"/>
+      <code value="M"/>
+      <display value="Male"/>
+    </gender>
+  </details>
+
+  <provider>
+    <type value="Organization"/>
+    <reference value="organization/@1"/>  
+    <display value="ACME Healthcare, Inc"/>
+  </provider>
+</Patient>

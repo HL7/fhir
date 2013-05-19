@@ -1,0 +1,54 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<p>
+FHIR resources can be used to build clinical documents that capture information about clinical observations and services. 
+A clinical document is a <a href="resources.htm#bundle">bundle</a> (a list of resources in an <a href="formats.htm#atom">atom feed</a>) that is 
+fixed in scope, frozen in time and authored and/or attested as a set of logically contained resources by humans, organisations and devices. Documents built in 
+this fashion may be exchanged between systems and also persisted in document storage and management 
+systems, including systems such as IHE XDS. Applications claiming conformance to this framework claim 
+to be conformant to "FHIR documents". 
+</p>
+
+<p>
+Note that FHIR defines both this document format and also a <a href="documentreference.htm">document reference resource</a>. FHIR documents are for documents 
+that are authored and assembled in FHIR, while the document reference resource is for general references to other documents. 
+</p>
+
+<h2>Document Content</h2>
+<p>
+All documents have the same structure: a <a href="resources.htm#bundle">bundle</a> that has a <i>Document</i> resource (see below) 
+first, followed by a series of other resources referenced from the <i>Document</i> 
+header that provides guidance on how they fit together. The bundle gathers all the content
+of the document into a single XML document which may be signed and managed as required. The resources
+include both human and computer readable portions.
+</p>
+<p>
+The document resource identifies the document and its purpose, sets the context of the document and 
+carries key information such as the subject and author. It also divides the document up into a 
+series of sections that contain other resources identified in this specification that 
+carry the content. Any resource referenced directly in the Document resource must be included
+in the bundle when the document is assembled. Other resources that these referenced resources refer to
+may also be included in the bundle if the document originator chooses to. 
+</p>
+<p>
+<a href="profile.htm">Document profiles</a> can make additional rules about which resources
+must be included in the bundle along with the resources that are directly referenced in the Document resource. 
+In addition, Document Profiles can specify what sections a document contains and what the 
+constraints on those contents are. Applications should consider publishing <a href="conformance.htm">conformance 
+statements</a> that identify particular documents they support.
+</p>
+<a name="bundle"> </a>
+<h2>Document End-Points</h2>
+
+<p>There are two RESTful end-points used for Documents:</p>
+
+<ul>
+ <li>[baseurl]/document/: a normal RESTful end point for document resources as standalone resources</li> 
+ <li>[baseurl]/binary/: for documents as <a href="resources.htm#bundle">bundles</a></li> 
+</ul>
+<p>
+Note: While these end-points are defined for use with document resources and document bundles, 
+it is not necessary to use them. Documents may be transferred between systems by using the 
+<a href="message.htm#mailbox">MailBox</a> target, or by using any other method desired. 
+</p>
+</div>

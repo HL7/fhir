@@ -1,0 +1,18 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<p>The Picture resource is suitable for stills or moving pictures (video).</p>
+
+<p>
+While it is clear that there needs to be a resource that handles the exchange in pictures, 
+it's not clear whether a resource should be created specifically for this task. In practice,
+the Picture resource here is a lot like a profile on an <a href="observation.htm">Observation</a> using
+an attachment as a value. In fact, such a <a href="observation-profile-picture.xml.htm">profile is defined</a> for comparison
+purposes. The FHIR project team is seeking comments on which makes for easier implementation:
+a resource, or a profile on the observation resource (use community input above).
+</p>
+
+<p>Alternative question: should this be renamed Media, and include sound recordings? (note what
+impact this should have on the properties when making comments on this)</p>
+
+
+</div>

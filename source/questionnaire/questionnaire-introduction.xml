@@ -1,0 +1,36 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<p>
+A Questionnaire is a structured set of answers to a predefined list of questions. The Questionnaire can be a flat list, or can be composed
+of (possibly named) sections and subsections, each containing answers. There may be multiple answers to the same question and even whole
+sections may be repeated. Anwers specify the question they answer and take the form of codes, values, dates or text. Answers may explicitly
+reference Observations, Procedures or other resources they are based on.</p>
+
+<p>Questionnaires cover the need to communicate data originating from forms used in medical history examinations, research questionnaires and sometimes full
+clinical speciality records. In many systems this data is collected using user-defined screens and forms. Although there is possible overlap between the 
+information covered by Questionnaires and other Resources (mainly Observation, Procedure and MedicationAdministration), the process of collection and 
+recording differ: Questionnaires record history while Resources are part of the registration of an ongoing clinical process. Because of this overlap,
+Questionnaire allows information both to be based on on-screen forms and/or actual Observations and other Resources using Answer.evidence.</p>
+
+<p>Questionnaires differ from Lists because Lists regroup or summarize existing information, while Questionnaires contain original, 
+clinician collected data. Questionnaires differ from Documents, in that Questionnaires are independent, versionable Resources, from which
+a Document may be composed.</p>
+
+<p>A Questionnaire contains names for sections and answers, which may refer externally defined names of questions and sections on
+predefined questionnaires. This way, it is not necessary to include the actual text of the questions asked or the textual captions of the
+sections on a questionnaire. However, if no such definition exist, or there is a need to explicitly include the text of the questions answered, 
+this text may be provided in the Answer.name and Section.name's CodeableConcept datatype. In addition, multiple-choice
+questions can be answered using the Choice datatype, which allows the sender to state the text of the possible choices.</p>
+
+<p>Examples of Questionnaires are:</p>
+<ul>
+<li>Past medical history (PMH)</li>
+<li>Family diseases</li>
+<li>Social history</li>
+<li>Research questionnaires</li>
+<li>Quality and evaluation forms</li>
+</ul>
+
+</div>
+
+

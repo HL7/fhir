@@ -1,0 +1,39 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h2>
+Notes:
+</h2>
+<ul>
+ <li>This conformance resource provides for an application to describe its use of the RESTful
+  paradigm messaging events, or FHIR documents. Usually, an application would only describe one, 
+  but more than one may be described</li>
+ <li>RESTful conformance rules:
+  <ul class="dense">
+   <li>RESTful servers are required to provide <a href="http.htm#conformance">this resource on demand</a>. 
+   Servers SHALL specify what resource types and operations are supported, and SHOULD also 
+   specify profiles for each resource type.</li>
+   <li>RESTful clients SHOULD publish a conformance statement</li>
+   <li>The search parameters that a server supports (or a client makes use of) are specified in the resource profile that the conformance statement references</li>
+   <li>Resource Types or operations that are not listed are not supported</li>
+  </ul>  
+ </li>
+ <li>Messaging conformance rules:
+  <ul class="dense">
+   <li>The interpretation of request and response depends on the mode. If the mode is sender, 
+   then request specifies what the application sends, and response specifies what it accepts. 
+   If the mode is "receiver", then this is reversed</li>
+   <li>If a request or response is not specified for an event, then no rules are made for it</li>
+   <li>Events that are not listed are not supported</li>
+  </ul>  
+ </li>
+ <li>Document conformance rules:
+  <ul class="dense">
+   <li>Document Profiles should directly constrain the Document.information.class &amp; type elements so  
+    so that there is no ambiguity concerning which profile any given document conforms to</li>
+  </ul>  
+ </li>
+ <li>Other service based use of resources: Due to the variability of these services, the <i>Conformance</i> resource 
+   does not attempt to describe service based use of resources. The various service specifications will need to describe this usage in their own way</li>
+</ul>  
+
+</div>

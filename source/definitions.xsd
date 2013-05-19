@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://hl7.org/fhir" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified">
+  <xs:element name="resourceDefinitions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="author" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Information about who authored this set of definitions</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element ref="resourceDefinition" minOccurs="1" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="resourceDefinition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The name of FHIR resource</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element ref="elementDefinitions" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>Definitions of the elements from FHIR itself (only in definitions published by HL7)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element ref="extensionDefinitions" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>Definitions of the extensions to the resource</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="elementDefinitions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="elementDefinition" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="elementDefinition">
+    <xs:annotation>
+      <xs:documentation>The definition of an element defined in FHIR itself</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="cardinality"/>
+        <xs:element ref="conformance"/>
+        <xs:element ref="types" minOccurs="0"/>
+        <xs:element ref="conceptDomain" minOccurs="0"/>
+        <xs:element ref="mustUnderstand"/>
+        <xs:element ref="definition"/>
+        <xs:element ref="requirements"/>
+        <xs:element ref="comments" minOccurs="0"/>
+        <xs:element ref="rim"/>
+        <xs:element ref="v2" minOccurs="0"/>
+        <xs:element ref="todo" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="extensionDefinitions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="extensionDefinition" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="extensionDefinition">
+    <xs:annotation>
+      <xs:documentation>The definition of an extension to a FHIR resource</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="code"/>
+        <xs:element ref="path"/>
+        <xs:element ref="cardinality"/>
+        <xs:element ref="conformance"/>
+        <xs:element ref="types"/>
+        <xs:element ref="conceptDomain" minOccurs="0"/>
+        <xs:element ref="mustUnderstand"/>
+        <xs:element ref="definition"/>
+        <xs:element ref="requirements"/>
+        <xs:element ref="comments" minOccurs="0"/>
+        <xs:element ref="rim" minOccurs="0"/>
+        <xs:element ref="v2" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name">
+    <xs:annotation>
+      <xs:documentation>The name of the element in FHIR (using dotted notation, i.e. Person.Name)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:normalizedString">
+        <xs:pattern value="\S|\S.*\S"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="code">
+    <xs:annotation>
+      <xs:documentation>The code for the extension</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:normalizedString">
+        <xs:pattern value="\S|\S.*\S"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="path">
+    <xs:annotation>
+      <xs:documentation>The path to the FHIR element (i.e. the FHIR name) that the extension applies to</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:normalizedString">
+        <xs:pattern value="\S|\S.*\S"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="cardinality">
+    <xs:annotation>
+      <xs:documentation>The cardinality of this extension</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="minOccurs"/>
+        <xs:element ref="maxOccurs"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="minOccurs">
+    <xs:annotation>
+      <xs:documentation>Specifying a minimum cardinality of 1 means that if the source system declares that it conform to the set of extensions containing this extension, it must be included in the resource</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:nonNegativeInteger"/>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="maxOccurs">
+    <xs:annotation>
+      <xs:documentation>The path to the FHIR element (i.e. the FHIR name) that the extension applies to</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:union memberTypes="xs:nonNegativeInteger">
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="unbounded"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:union>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="conformance">
+    <xs:annotation>
+      <xs:documentation>Whether the use of the extension is mandatory, conditional, optional, or prohibited. If the extension is conditional, the conditions must be described in the comments field. This field overlaps with the cardinality, and must be consistent with it</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value=""/>
+        <xs:enumeration value="Mandatory"/>
+        <xs:enumeration value="Conditional"/>
+        <xs:enumeration value="Optional"/>
+        <xs:enumeration value="Prohibited"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="types">
+    <xs:annotation>
+      <xs:documentation>The possible types of the extension. </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="type" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="type">
+    <xs:annotation>
+      <xs:documentation>This must be a valid FHIR data type as desribed above, or "Extension: x,y,z" which indicates that the extension codes x,y, and z will be contained in the extension</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="\S|\S.*\S"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="mustUnderstand">
+    <xs:annotation>
+      <xs:documentation>Whether the extension must be understood by any system reading the resource. There is 3 possible values: "true" - the extension must be understood, "false" - the extension does not need to be understood, and "sender" - the sender can decide whether the extension needs to be understood</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="true"/>
+        <xs:enumeration value="false"/>
+        <xs:enumeration value="sender"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="conceptDomain">
+    <xs:annotation>
+      <xs:documentation>For the types CodeableConcept and Coding. Terminologies</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="definition">
+    <xs:annotation>
+      <xs:documentation>A formal statement of the meaning of the content of the field</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="requirements">
+    <xs:annotation>
+      <xs:documentation>Discussion of the reason for the extension / what use cases it was defined to handle</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="comments">
+    <xs:annotation>
+      <xs:documentation>Additional other information about the extension, including information concerning it's conditionality if indicated in the conformance field</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="rim">
+    <xs:annotation>
+      <xs:documentation>The formal mapping from this extension to the RIM. Required for HL7 defined extensions, but may be optional in other contexts</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="v2">
+    <xs:annotation>
+      <xs:documentation>Mapping to a v2 segment/field/etc, if desired and appropriate</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="todo">
+    <xs:annotation>
+      <xs:documentation>Outstanding issues yet to be resolved</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+  </xs:element>
+</xs:schema>

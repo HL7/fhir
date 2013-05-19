@@ -1,0 +1,10 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<p>
+The provenance resource tracks information about the entities, activities, and people involved in producing a resource.
+This information can be used to form assessments about its quality, reliability or trustworthiness, or to provide 
+pointers for where to go to further investigate the origins of the resource and the information in it. 
+</p>
+
+<a name="resource"></a>
+</div>

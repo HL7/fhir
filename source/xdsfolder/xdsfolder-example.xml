@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XdsFolder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/xdsfolder.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Referrals for Patient 6578946</div>   
+  </text>
+  <code>
+    <system value="http://www.ihe.net/xds/connectathons"/>
+    <code value="Referrals"/>
+  </code>
+ <title value="Referrals"/>
+ <patientId>
+   <system value="oid:1.3.6.1.4.1.21367.2005.3.7"/>
+   <key value="6578946"/>
+ </patientId>
+</XdsFolder>

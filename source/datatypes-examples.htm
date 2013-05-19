@@ -1,0 +1,365 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Data Type Examples</title>
+    <link rel="Stylesheet" href="fhir.css" type="text/css"/>
+    <link rel="Stylesheet" href="fhir-print.css" type="text/css" media="print" />
+</head>
+
+<body>
+<%sidebar%>
+
+<%maindiv%>
+<%dtheader examples%>
+<h2>Data Type Examples</h2>
+
+<p>This page includes additional examples of the data types, based on common usages and questions</p>
+
+[%map alltypes%]
+<p align="left">
+<img alt="Data Type Index" src="alltypes.png"  usemap="#alltypes"/>
+</p>
+
+<a name="primitive"></a>
+<h3>Primitive Types</h3>
+
+<a name="strings"></a>
+<h3>String Patterns</h3>
+
+<a name="Attachment"></a>
+<h3>
+Attachment
+</h3>
+
+<a name="Identifier"></a>
+<h3>
+Identifier
+</h3>
+
+
+<a name="Coding"></a>
+<h3>Coding</h3>
+
+
+<a name="CodeableConcept"></a>
+<h3>
+CodeableConcept
+</h3>
+
+<a name="Choice"></a>
+<h3>
+Choice
+</h3>
+
+<a name="Quantity"></a>
+<h3>
+Quantity
+</h3>
+
+
+<a name="Range"></a>
+<h3>
+Range
+</h3>
+
+<a name="Ratio"></a>
+<h3>
+Ratio
+</h3>
+
+<a name="Period"></a>
+<h3>
+Period
+</h3>
+
+
+<a name="HumanName"></a>
+<h3>
+HumanName
+</h3>
+
+<div class="example">
+<p>A Simple example</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;family value="Everyman" /&gt;
+  &lt;given value="Adam" /&gt;
+  &lt;given value="A." /&gt;
+&lt;/name&gt;
+</pre>
+</div>
+
+<div class="example">
+<p>Composite names</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;family value="Contrata" /&gt;
+  &lt;given value="Mary Jane" /&gt;
+&lt;/name&gt;
+</pre>
+<p>
+These cases can be quite ambiguous - is "Mary Jane" one name, or two? Different systems, 
+and data enterers may treat this differently, and the person themselves may not know.
+Parts are allowed to contain spaces, but systems should consider how to treat
+these cases. Composite names separated by "-" should be treated as a single name part.
+</p>
+</div>
+
+   
+<div class="example">
+<p>A common pattern: a person is called by a name other than that expected from their official name (first given name in most cultures).</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;use value="official" /&gt;
+  &lt;family value="Chalmers" /&gt;
+  &lt;given value="Peter" /&gt;
+  &lt;given value="James" /&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;use value="usual" /&gt;
+  &lt;given value="Jim" /&gt;
+&lt;/name&gt;
+</pre>
+<p>
+This same pattern is often encountered with immigrants, who retains their real name for official use, but adopt a localized name for everyday use:
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;use value="official" /&gt;
+  &lt;given value="Piotr" /&gt;
+  &lt;given value="Andre" /&gt;
+  &lt;family value="Sczypinski" /&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;use value="usual" /&gt;
+  &lt;family value="Skipper" /&gt;
+  &lt;given value="Jim" /&gt;
+&lt;/name&gt;
+</pre>
+</div>
+
+<div class="example">
+<p>
+Karen van Hentenryck is of Dutch origin, and the "van" is a voorvoegsel.
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;use value=&quot;official&quot; /&gt;  
+  &lt;family value=&quot;van&quot;&gt;
+    &lt;extension&gt;
+	   &lt;url value=&quot;http://hl7.org/fhir/profile/@iso-21090#qualifier&quot; /&gt;
+	   &lt;valueCode value=&quot;VV&quot; /&gt;
+    &lt;/extension&gt;
+  &lt;/family&gt;
+  &lt;family value=&quot;Hentenryck&quot; /&gt;
+  &lt;given value=&quot;Karen&quot; /&gt;
+&lt;/name&gt;
+</pre>
+<p>See <a href="extensibility-examples.htm">the Extensibility Example for more information</a></p>
+</div>
+
+
+<div class="example">
+<p>Complex example from Germany: Dr.phil. Regina Johanna Maria Gräfin Hochheim-Weilenfels, NCFSA. This example shows extensive use of 
+multiple given names, prefixes, suffixes, for academic degrees, nobility titles, and professional designations.
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;use value=&quot;official&quot; /&gt;  
+  &lt;family value=&quot;Hochheim-Weilenfels&quot; /&gt;
+  &lt;given value=&quot;Regina&quot; /&gt;
+  &lt;given value=&quot;Johanna&quot; /&gt;
+  &lt;given value=&quot;Maria&quot; /&gt;
+  &lt;prefix value=&quot;Gräfin&quot;&gt;
+    &lt;extension&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/profile/@iso-21090#qualifier&quot; /&gt;
+      &lt;valueCoding&gt;
+         &lt;code value=&quot;NB&quot; /&gt;
+         &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
+      &lt;/valueCoding&gt;
+    &lt;/extension&gt;
+  &lt;/prefix&gt;
+  &lt;prefix value=&quot;Dr. phil.&quot;&gt;
+    &lt;extension&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/profile/@iso-21090#qualifier&quot; /&gt;
+      &lt;valueCoding&gt;
+         &lt;code value=&quot;AC&quot; /&gt;
+         &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
+      &lt;/valueCoding&gt;
+    &lt;/extension&gt;
+  &lt;/prefix&gt;
+  &lt;suffix value=&quot;NCFSA&quot; /&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;use value=&quot;maiden&quot; /&gt;  
+  &lt;family value=&quot;Hochheim&quot; /&gt;
+&lt;/name&gt;
+</pre>
+<p>
+This example makes use of the ISO 21090 extensions to carry the rare ISO 21090 qualifier attributes "AC" and "NB".
+</p>
+</div>
+
+<div class="example">
+<p>
+Japanese example in the three forms: ideographic (Kanji), syllabic (Hiragana) and alphabetic (Romaji).
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;family value="木村" /&gt;
+  &lt;given value="通男" /&gt;
+  &lt;/name&gt;
+&lt;name&gt;
+ &lt;family value="きむら" /&gt; 
+ &lt;given value="みちお" /&gt; 
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;family value="KIMURA" /&gt;
+  &lt;given value="MICHIO" /&gt;
+&lt;/name&gt;
+</pre>
+<p>
+The three forms are differentiated by the character subset each contains.
+</p>
+</div>
+
+<div class="example">
+<p>
+Russian example in the two forms: cyrillic, and latin:
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;family value="ЕМЕЛИН" /&gt;
+  &lt;given value="ИВАН" /&gt;
+  &lt;given value="ВЛАДИМИРОВИЧ" /&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;family value="EMELIN" /&gt;
+  &lt;given value="IVAN" /&gt;
+  &lt;given value="VLADIMIROV" /&gt;
+&lt;/name&gt;
+</pre>
+<p>
+In  Russian  usage, these names are known as 
+the domestic and foreign names respectively. The two forms are differentiated by the character subset each contains.
+</p>
+</div>
+
+<div class="example">
+<p>
+Scandinavian example: Erikson is the family name. Jan Erik are the given names, and Östlund the family name of the mother, which is taken as a Mellannamn.
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;use value=&quot;official&quot; /&gt;  
+  &lt;family value=&quot;Erikson&quot; /&gt;
+  &lt;given value=&quot;Jan&quot; /&gt;
+  &lt;given value=&quot;Erik&quot; /&gt;
+  &lt;given value=&quot;Östlund&quot;&gt;
+    &lt;extension&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/profile/@iso-20190#name-qualifier&quot; /&gt;
+      &lt;valueCoding&gt;
+         &lt;code value=&quot;MID&quot; /&gt;
+         &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
+      &lt;/valueCoding&gt;
+    &lt;/extension&gt;
+  &lt;/given&gt;
+&lt;/name&gt;
+</pre>
+<p>
+This example makes use of the ISO 21090 extension to carry the culture specific ISO 21090 qualifier attribute "MID" for the Mellannamn.
+</p>
+<p>
+Then Jan Erikson has a daughter, Karin, with his wife Margrete Hansen. The first communications of the new born 
+name is "Margrete Jente" (Margrete's Girl) and the mother's family name, not the given name (Karin). The 
+father's Family name is  not used at all. This is a known temporary name assigned directly after the birth of 
+the child.
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;use value="temp" /&gt;  
+  &lt;!-- use could be OR+OLD, depends how record keeping is done --&gt;
+  &lt;family value="Hansen" /&gt;
+  &lt;given value="Margrete Jente" /&gt;
+&lt;/name&gt;
+</pre>
+<p>
+The baby's name is subsequently changed to the fathers' family name, and to use the mother's name as 
+mellomnamn.
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;use value=&quot;official&quot; /&gt;  
+  &lt;family value=&quot;Erikson&quot; /&gt;
+  &lt;given value=&quot;Karin&quot; /&gt;
+  &lt;given value=&quot;Hansen&quot;&gt;
+    &lt;extension&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/profile/@iso-20190#name-qualifier&quot; /&gt;
+      &lt;valueCoding&gt;
+         &lt;code value=&quot;MID&quot; /&gt;
+         &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
+      &lt;/valueCoding&gt;
+    &lt;/extension&gt;
+  &lt;/given&gt;
+&lt;/name&gt;
+</pre>
+<p>
+Later, Karin gets married to Per Berg, and decides to adopts Berg as her family name, and also decides to use 
+Erikson as the mellom navn. (Note: Karin could have chosen to use another mellom navn, e.g. the family name of 
+her mother, her father or other family names as specified by naming laws of the country in question).
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;use value=&quot;old&quot; /&gt;  
+  &lt;family value=&quot;Erikson&quot; /&gt;
+  &lt;given value=&quot;Karin&quot; /&gt;
+  &lt;given value=&quot;Hansen&quot;&gt;
+    &lt;extension&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/profile/@iso-20190#name-qualifier&quot; /&gt;
+      &lt;valueCoding&gt;
+        &lt;code value=&quot;MID&quot; /&gt;
+        &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
+      &lt;/valueCoding&gt;
+    &lt;/extension&gt;
+  &lt;/given&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;use value=&quot;official&quot; /&gt;  
+  &lt;family value=&quot;Berg&quot; /&gt;
+  &lt;given value=&quot;Karin&quot; /&gt;
+  &lt;given value=&quot;Erikson&quot;&gt;
+    &lt;extension&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/profile/@iso-20190#name-qualifier&quot; /&gt;
+      &lt;valueCoding&gt;
+        &lt;code value=&quot;MID&quot; /&gt;
+        &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
+      &lt;/valueCoding&gt;
+    &lt;/extension&gt;
+  &lt;/given&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;use value=&quot;usual&quot; /&gt;  
+  &lt;family value=&quot;Berg&quot; /&gt;
+  &lt;given value=&quot;Karin&quot; /&gt;
+&lt;/name&gt;
+</pre>
+</div>
+
+<a name="Address"></a>
+<h3>
+Address
+</h3>
+
+<a name="Contact"></a>
+<h3>
+Contact
+</h3>
+
+<a name="Schedule"></a>
+<h3>
+Schedule
+</h3>
+<%footer%>
+
+<%/maindiv%>    
+</body>
+</html>

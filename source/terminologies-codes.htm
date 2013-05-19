@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Using Codes and Terminologies - FHIR v<%version%></title>
+    <link rel="Stylesheet" href="fhir.css" type="text/css"/>
+    <link rel="Stylesheet" href="fhir-print.css" type="text/css" media="print" />
+</head>
+
+
+<body>
+<%sidebar%>
+
+<%maindiv%>
+<%txheader codes%>
+
+<h2>FHIR Codes Registry</h2>
+
+<p>
+This table contains a list of all the namespaces that define codes in the FHIR specification. 
+When represented in a <a href="datatypes.htm#Coding">Coding</a> data type, the <i>system</i> element
+contains the namespace, and the <i>code</i> element contains the defined code. Note that all the 
+codes in these code systems are case sensitive and must be used in lowercase. 
+</p>
+
+<%codeslist%>
+
+
+
+<%footer%>
+
+
+<%/maindiv%>
+    
+</body>
+</html>

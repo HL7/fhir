@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_vSZkgMEGEeGhTfgToq6oQQ" type="EcoreTools" name="FHIRAnnotations.ecorediag" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_A-um4MEIEeGhTfgToq6oQQ" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_A-um48EIEeGhTfgToq6oQQ" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_A-um5MEIEeGhTfgToq6oQQ" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_A-um5cEIEeGhTfgToq6oQQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_A-um5sEIEeGhTfgToq6oQQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_A-um58EIEeGhTfgToq6oQQ"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_A-um6MEIEeGhTfgToq6oQQ" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_A-um6cEIEeGhTfgToq6oQQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_A-um6sEIEeGhTfgToq6oQQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_A-um68EIEeGhTfgToq6oQQ"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_A-um4cEIEeGhTfgToq6oQQ" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="FHIR.ecore#//Annotations"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_A-um4sEIEeGhTfgToq6oQQ" x="60" y="135"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_vSZkgcEGEeGhTfgToq6oQQ"/>
+  <element xmi:type="ecore:EPackage" href="FHIR.ecore#/"/>
+</notation:Diagram>

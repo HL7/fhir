@@ -1,0 +1,12 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<p>
+This resource summarises a series of images generated as part of an 
+imaging study, and provides references to where the images are available
+using WADO-RS (todo: reference). This resource is used to record that images 
+are available in other clinical contexts such as <a href="diagnosticreport.htm">diagnostic 
+reports</a>, <a href="careplan.htm">Care Plans</a>, etc. Also, see the use case 
+description below.
+</p>
+
+</div>

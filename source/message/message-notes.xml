@@ -1,0 +1,60 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h2>
+Notes:
+</h2>
+<ul>
+<li>The resource references enterer, author and responsible may 
+  all be included in the bundle or left out on the basis that the recipient (and any intermediaries) are able to locate/resolve the resources
+  independently. The former would be suitable for loosely coupled systems, and the latter for tightly coupled systems. The messaging conformance 
+  statement for an application may reference <a href="profile.htm">a profile</a> that describes how the bundling occurs</li>
+<li>The actual content of the data resource is specified for each message event. The data resource is always included in the bundle</li>
+</ul>  
+
+<a name="Events"></a>
+<a name="events"></a>
+<h2>Event List</h2>
+
+[%events%]
+
+<a name="mailbox"></a>
+<h2>Mailbox</h2>
+<p>
+The mailbox is the standard name for a service hosted on a RESTful server that accepts messages and processes 
+them as transactions and returns a message response appropriate for the message received. The server is under
+no obligation to do anything particular with the resources except as required by the semantics of the event code in the 
+message resource. A server may choose to retain the resources and make them available on a RESTful interface, but 
+is not required to do so. If the server returns 200 Ok, it must return a valid message that indicates what the outcome
+of the event processing is. An HTTP error indicates that the message was not processed successfully and that it should
+be resubmitted (and doing so should not result in a duplicate message response).  Repeated failures indicate either a
+fatal problem with the message or a problem with the receiving application.
+</p>
+<p>
+The mailbox can also be used to accept documents. In this case, the document is "accepted" (the server 
+takes responsibility for custody of the received document) and an HTTP status of 204 No Content is returned, 
+or an HTTP error is returned. The server is under no obligation to do anything with the document except as 
+specific trading partner agreements dictate.
+</p>
+<p>
+The following rules apply to the mailbox:
+</p>
+<ul>
+ <li>The mailbox only accepts POST transactions - any other HTTP method will result in an HTTP error</li>
+ <li>The request content type submitted is always <a href="resources.htm#bundle">a bundle</a> containing a message or document resource as the first resource</li>
+ <li>The response content type returned is always an HTTP error, <a href="resources.htm#bundle">a bundle</a> containing a message as the first resource, or empty (if a document was received)</li>
+ <li>If the response is an error, the body SHOULD be an <a href="operationoutcome.htm">Errors &amp; Warning</a> resource with full details</li> 
+ <li>The URL never takes any parameters</li>
+ <li>The mailbox may be authenticated using standard HTTP authentication methods, including OAuth</li>
+</ul>
+<p>
+This simple mailbox profile can be used by any HTTP end point that accepts FHIR messages or documents, not just 
+FHIR RESTful servers.
+</p>
+<p>
+In order to ensure consistency of processing, the <a href="#reliable">logical rules regarding processing of envelope id and 
+message id described above</a> SHALL be followed when messages are processed using the MailBox. No such rules apply regarding
+documents - if the client receives no response, it should continue to submit the document until it does. Servers SHALL 
+accept multiple document submissions and process them correctly.
+</p>
+
+</div>

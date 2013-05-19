@@ -1,0 +1,18 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+  <p>Observations are a central element in healthcare, used to support diagnosis, monitor progress, determine baselines and patterns 
+and even capture demographic characteristics.  Fundamentally, observations are simple name/value pair assertions with little structure, 
+though there are several resources such as <a href="diagnosticreport.htm">DiagnosticReport</a> to manage and represent rich aggregation
+patterns for observations. Expected uses for this resource include:</p>
+  <ul>
+    <li>Vital signs: temperature, blood pressure, respiration rate</li>
+	<li>Laboratory Data and other Diagnostic Measures</li>
+	<li>Measurements emitted by Devices</li>
+    <li>Clinical assessments such as APGAR</li>
+    <li>Personal characteristics: height, weight, eye-color</li>
+    <li>Diagnoses (Note: track-able conditions, allergies, adverse reactions and more complex structures are handled elsewhere)</li>
+    <li>Social history: tobacco use, family supports, cognitive status</li>
+    <li>Core characteristics: pregnancy status, death assertion</li>
+  </ul>
+</div>
+

@@ -1,0 +1,35 @@
+<Person xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-all.xsd">
+  <!--
+  source:
+Name: JACYLN BOURNE
+Date of Birth: 4/15/1941
+Address Line 1: 415 EAST 71ST ST
+Address Line 2: 
+City: NEW YORK
+State: NY
+Zip: 10021
+Phone Number: 
+Email: sample@bluebuttontrust.org
+Part A Effective Date: 11/1/2008
+Part B Effective Date: 2/1/2009
+  -->
+  <name>
+    <family>BOURNE</family>
+    <given>JACYLN</given>
+  </name>
+  <telecom>
+    <system>email</system>
+    <value>sample@bluebuttontrust.org</value>
+  </telecom>
+  <birthDate>1941-04-15</birthDate>
+  <address>
+    <line>415 EAST 71ST ST</line>
+    <city>NEW YORK</city>
+    <state>NY</state>
+    <zip>10021</zip>
+  </address>
+	<text>
+		<status>generated</status>
+		<xhtml:div/>
+	</text>
+</Person>

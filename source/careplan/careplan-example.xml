@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/CarePlan.xsd">
+    <text>
+        <status value="additional"></status>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            A simple care plan to indicate a patient taking their weight once a day because of obesity.
+            Some Notes:
+            <ul>
+            <li>It would be good to have some way of specifying/coding a goal. eg what the target weight is</li>
+            <li>In the codeable concepts I've been lazy and just put the text. There should, of course, be a code behind these</li>
+        </ul></div>
+    </text>
+    <contained>
+      <Problem id="p1">
+        <subject>
+          <type value="Patient"></type>
+          <reference value="patient/@example"/>
+          <display value="Peter James Chalmers"/>
+        </subject>
+        <code>
+          <text value="Obesity"/>
+        </code>
+      </Problem>
+    </contained>
+    <contained>
+      <Practitioner id="pr1">
+        <details>
+          <name>
+            <family value="Dietician"/>
+            <given value="Dorothy"/>
+          </name>
+        </details>
+        <specialty>
+          <text value="Dietician"/>
+        </specialty>
+      </Practitioner>
+    </contained>
+    <patient>
+        <type value="Patient"></type>
+        <reference value="patient/@example"/>
+        <display value="Peter James Chalmers"/>
+    </patient>
+    <status value="active"/>
+    <period>
+      <end value ="2013-01-01"/>
+    </period>
+    <concern>
+        <type value="Problem"></type>
+        <reference value="#p1"/>
+        <display value="obesity"/>
+    </concern>
+    <participant>
+        <role>
+            <text value='responsiblePerson'></text>
+        </role>
+        <member>
+          <type value="Patient"></type>
+          <reference value="patient/@example"/>
+          <display value="Peter James Chalmers"/>
+        </member>
+    </participant>
+    <participant>
+        <role>
+            <text value='adviser'></text>
+        </role>
+        <member>
+            <type value="Practitioner"></type>
+            <reference value="#pr1"/>
+            <display value="Dorothy Dietition"/>
+        </member>
+    </participant>
+    <goal>
+      <description value="Target weight is 80 kg. Note: be nice if this could be coded"/>
+    </goal>
+    <activity>
+        <category value="observation"></category>
+        <code>
+            <text value="a code for weight measurement"></text>
+        </code>
+        <prohibited value="false"></prohibited>
+        <timingSchedule>
+            <repeat>
+                <frequency value="1" />
+                <duration value="1" />
+                <units value="d" />
+            </repeat>
+        </timingSchedule>
+        <performer>
+          <type value="Patient"></type>
+          <reference value="patient/@example"/>
+          <display value="Peter James Chalmers"/>
+        </performer>
+    </activity>
+</CarePlan>
+

@@ -1,0 +1,23 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+
+<p>
+This specification describes a set of base resources that are used in many different
+contexts in healthcare. In order to make this manageable, applications and specifications need to be
+able to:
+</p>
+<ul class="dense">
+ <li>Explain how a set of resources is used in a particular context</li>
+ <li>Describe restrictions on the use of the elements defined as part of the resource(s)</li> 
+ <li>Define the extensions that are used with the resources</li>
+ <li>Describe how resources are bound to terminology in a particular context</li>
+</ul>
+<p>
+All these things are done using a Resource Profile, which itself is a resource that 
+describes how other resources are used in a particular context. Profiles have a 
+metadata section that describes who published the profile, and why, as well as optional
+lists of resources constraints, extension definitions, and vocabulary bindings. 
+</p>
+
+
+</div>

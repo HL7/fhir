@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Immunization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\immunization.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Authored by Joginder Madra</div>
+  </text>
+  <subject>
+    <type value="Patient"/>
+    <reference value="patient/@example"/>
+  </subject>
+  <performer>
+    <type value="Practitioner"/>
+    <reference value="practitioner/@example"/>
+  </performer>  
+  <date value="2013-01-10"/>
+  <reported value="false"/>
+  <vaccineType>
+    <coding>
+      <code value="396427003"/>
+    </coding>
+  </vaccineType> 
+  <lotNumber value="AAJN11K"/>
+  <expirationDate value="2015-02-15"/>  
+</Immunization>

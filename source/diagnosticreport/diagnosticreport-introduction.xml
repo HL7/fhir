@@ -1,0 +1,50 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<p>
+A diganostic report is used for the set of information that is typically provided by a diagnostic service 
+when investigations are complete. The information includes a mix of atomic results, text reports, images,
+and codes. The mix varies depending on the nature of the diagnostic procedure, and sometimes on the nature
+of the outcomes for a particular investigation. 
+</p>
+<p>
+The Diagnostic Report Resource is suitable for the following kinds of Diagnostic Reports:
+</p>
+<ul>
+ <li>Laboratory (Clinical Chemistry, Hematology, Microbiology, etc)</li>
+ <li>Pathology / Histopathology / related disciplines</li>
+ <li>Imaging Investigations (x-ray, CT, MRI etc)</li>
+ <li>Other diagnostics - Cardiology, Gastroenterology etc</li>
+</ul>
+<p>
+The Diagnostic Report is not intended to support:
+</p>
+<ul>
+ <li>Cumulative Result presentation</li>
+ <li>Genetic Sequencing and related reports</li>
+</ul>
+<p>
+Comments on the suitability of this resource and/or requirements analysis for that would be welcome 
+through the community input above.
+</p>
+<p>
+The actual atomic result data are delegated to the <a href="observation.htm">common Observation
+Resource</a> to make it easier to reuse them in a wider context. 
+</p>
+<p>
+There is a wide variety of names associated with the various parts of a diagnostic report. Doctors 
+request for "tests" or "results" to be done. What the diagnostic service returns is variously called
+the "tests" or "results" or the "report". The individual data items are called "results" or "tests"
+both collectively and individually. Collections of individual data items are sometimes called "batteries"
+or "panels", which have various implications in different contexts. The naming confusion is worsened 
+because of the wide variety of forms that the result of a diagnostic investigation can take, as 
+described above. Languages other than English have their own variations on this theme.
+</p>
+<p>
+This resource uses one particular set of terms. A practitioner "requests" a set of "tests". The
+diagnostic service returns a "report" which contains a "narrative" - a written summary of the 
+outcomes, and "results" - the individual pieces of atomic data. The results are assembled
+in a "group" which is a nested structure that can be used to define relationships between
+the individual data items.
+</p>
+<!-- profiles? -->
+</div>

@@ -1,0 +1,11 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+An Act whose immediate and primary outcome (post-condition) is the alteration of the physical condition of the subject.
+
+Used to record the details of procedures performed on a patient. This includes surgical procedures, 
+diagnostic procedures, endoscopic precedures, biopsies.
+
+It excludes things for which there are specific resources, such as immunizations, drug administrations
+
+
+</div>

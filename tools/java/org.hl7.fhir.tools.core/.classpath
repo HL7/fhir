@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="../imports/xmlpull_1_1_3_4b.jar"/>
+	<classpathentry kind="lib" path="../imports/xpp3_min-1.1.3.4.O.jar"/>
+	<classpathentry kind="lib" path="../imports/xpp3_xpath-1.1.3.4.O.jar"/>
+	<classpathentry kind="lib" path="../imports/xpp3-1.1.3.4.O.jar"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="lib" path="../imports/org.eclipse.emf.ecore_2.7.0.v20120127-1122.jar"/>
+	<classpathentry kind="lib" path="../imports/org.eclipse.emf.common_2.7.0.v20120127-1122.jar"/>
+	<classpathentry kind="lib" path="../imports/org.eclipse.emf.ecore.xmi_2.7.0.v20120127-1122.jar"/>
+	<classpathentry kind="lib" path="../imports/plantuml.jar"/>
+	<classpathentry kind="src" path="/org.hl7.fhir.implementation"/>
+	<classpathentry kind="src" path="/org.hl7.fhir.utilities"/>
+	<classpathentry kind="src" path="/org.hl7.fhir.definitions.ecore"/>
+	<classpathentry kind="lib" path="../imports/saxon9.jar"/>
+	<classpathentry kind="lib" path="../imports/saxon9-dom.jar"/>
+	<classpathentry kind="lib" path="../imports/sequence-library-1.0.2.jar"/>
+	<classpathentry kind="lib" path="../imports/sqljet-1.1.7.jar"/>
+	<classpathentry kind="lib" path="../imports/trilead-ssh2-1.0.0-build216.jar"/>
+	<classpathentry kind="lib" path="../imports/jna-3.4.0.jar"/>
+	<classpathentry kind="lib" path="../imports/svnkit-cli-1.7.9.jar"/>
+	<classpathentry kind="lib" path="../imports/svnkit-1.7.9.jar"/>
+	<classpathentry kind="lib" path="../imports/svnkit-javahl16-1.7.9.jar"/>
+	<classpathentry kind="lib" path="../imports/antlr-runtime-3.4.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

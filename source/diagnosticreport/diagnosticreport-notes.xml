@@ -1,0 +1,41 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h2>
+Notes:
+</h2>
+<ul>
+<li>
+This resource includes some elements that relate to the ordering cycle (request identifiers); these are only 
+included to the degree that it is useful for the final report to refer back to the orders. For explicit support 
+of the ordering cycle, see the Order, OrderResponse, and DiagnosticOrder resources.
+</li>
+<li>
+If the diagnostic procedure was performed on the patient directly, <i>diagnosticTime</i> is the time it was peformed. 
+If specimens were taken, the diagnostically relevant time can be derived from the specimen collection times, but 
+since the specimen information is not always available, and nor is the exact relationship always automatic, the
+reports must always include a <i>diagnosticTime</i> element.
+</li>
+<li>
+A report always contains a base group for individual results. As a minimum, this contains the name of the report 
+itself. The base group can then contain a mix of results and sub-groups. The group has a code that indicates the 
+nature of the grouping (e.g. organism isolate/sensitivity or antibody functional testing).  
+</li>
+<li>
+There is rarely a need for more than two levels of groups. Known uses of 3 levels include the antibody code for a 
+goup of antibody related test, or the organism code for a group of isolate/sensitivities, or a set of perinatal 
+measurements on a single fetus.
+</li>
+<li>
+Applications consuming diagnostic reports must take careful note of updates to them, and particularly note withdrawn reports. 
+</li>
+<li>
+For applications providing diagnostic reports, a report shouldn't be final until all the individual data items
+reported with it are final or amended. If a report is withdrawn, all the results should be withdrawn by replacing 
+every result value with the Concept "withdrawn" in the internal terminology <a href="terminologies.htm">"Special values"</a> 
+(url = "http://hl7.org/fhir/special-values"), and setting the conclusion (if provided) and the text narrative to some 
+text like "This report has been withdrawn" in the appropriate language. A reason for withdrawal may be provided in the 
+narrative. </li>
+</ul>
+
+
+</div>

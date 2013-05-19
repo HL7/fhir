@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdverseReaction xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/adversereaction.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Anaphylaxis Reaction to a bee sting</div>
+  </text>
+  <reactionDate value="2012-09-17"/>
+  <subject>
+    <type value="Patient"/>
+    <reference value="patient/@example"/>
+  </subject>
+  <didNotOccurFlag value="false"/>
+  <recorder>
+    <type value="Practitioner"/>
+    <reference value="practitioner/@example"/>
+  </recorder>
+  <symptom>
+    <code>
+      <coding>
+        <system value="http://hl7.org/fhir/sid/icd-10"/>
+        <code value="T78.2"/>
+        <display value="Anaphylactic shock, unspecified"/>
+      </coding>
+      <text value="Anaphylaxis reaction"/>
+    </code>
+    <severity value="moderate"/>
+  </symptom>
+  <exposure>
+    <exposureDate value="2012-09-17"/>
+    <exposureType value="coincidental"/>
+    <substance>
+      <type value="Substance"/>
+      <reference value="substance/@example"/>
+    </substance>
+  </exposure>
+</AdverseReaction>

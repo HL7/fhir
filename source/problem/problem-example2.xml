@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Problem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/problem.xsd">
+  <text>
+   <status value="generated"/>
+   <div xmlns="http://www.w3.org/1999/xhtml">Mild Asthma (Date: 21-Nov 2012)</div>   
+ </text>
+  <subject>
+    <type value="Patient"/>
+    <reference value="patient/@example"/>
+  </subject>
+  <code> 
+    <text value="Asthma"/>
+  </code>
+ <category>
+   <coding>
+    <system value="http://snomed.info"/>
+    <code value="439401001"/> 
+    <display value="Diagnosis"/>
+   </coding>
+ </category>
+ <status value="confirmed"/>
+ <severity>
+   <coding>
+    <system value="http://snomed.info"/>
+    <code value="255604002"/>
+    <display value="Mild"/>
+   </coding>
+ </severity>
+ <onsetDate value="2012-11-12"/>
+</Problem>

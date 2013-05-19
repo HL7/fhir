@@ -1,0 +1,10 @@
+[diagram]
+classes=Identifier,HumanName,Address,Contact,Schedule
+title=Types (2)
+
+[directions]
+Identifier=up
+HumanName=up
+Address=right
+Contact=down
+Schedule=left

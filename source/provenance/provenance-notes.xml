@@ -1,0 +1,88 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h3>Using the Provenance Resource</h3>
+
+<p>
+The provenance resource identifies information about another resource (the <i>reference</i> element). 
+The provenance resource may be used in several different ways:
+</p>
+<ul>
+ <li>As part of a <a href="document.htm#bundle">document bundle</a> where it identifies the provenance of part or all of the document</li>
+ <li>On a <a href="http.htm">RESTful system</a> where it keeps track of provenance information relating to resources</li>
+</ul>
+<p>
+When used in a document bundle, the <i>references</i> are often not explicitly versioned, but they always implicitly pertain to the version of the 
+resource found in the document. On a RESTful system, the target resource reference should be version specific, but this
+requires special care: For new resources that need to have a corresponding Provenance resource, the version-specific
+reference is often not knowable until after the target resource has been updated. This can create an 
+integrity problem for the system - what if the provenance resource cannot be created after the target 
+resource has been updated? To avoid any such integrity problems, the target resource and the provenance resources should be submitted 
+as a pair using a <a href="http.htm#transaction">transaction</a>. 
+</p>
+
+<h3>Digital Signatures</h3>
+
+<p>
+The provenance resource includes a signature element which contains an 
+<a href="http://www.w3.org/TR/xmldsig-core/">XML digital signature</a>. 
+If present, the signature is always a signature of the target resource XML representation. 
+The digital signature is always included as a plain string with appropriate escaping for both XML and JSON.
+</p>
+<p>
+Note that servers that modify the resource on submission will break the digital signature. 
+</p>
+<p>
+Todo: how can you sign tags as well as the resource?
+</p>
+
+<h3>Party References</h3>
+
+<p>
+Because the Provenance resource often refers to parties that are not represented 
+as FHIR resources, the <i>party</i> doesn't have a simple reference
+to other resources. Instead, if the party refers to a FHIR resource, the 
+party is represented like this:
+</p>
+<div class="example">
+<pre class="xml">
+  &lt;party&gt;
+    &lt;type&gt;
+	  &lt;system&gt;http://hl7.org/fhir/resource-types&lt;/system&gt;
+	  &lt;code&gt;Person&lt;/code&gt;
+	&lt;/type&gt;
+	&lt;id&gt;http://acme.org/fhir/person/@34/history/@3&lt;/id&gt;
+  &lt;/x&gt;
+</pre>
+</div>
+<p>
+This is the same pattern as a standard resource reference, but the type becomes extensible to allow referencing other kinds of resources.
+This form of reference is a reference to the real world concept represented by the resource. If, on the other hand, the reference was
+to the resource itself (i.e. as the source of information on another resource), then the reference would be represented like this:
+</p>
+<div class="example">
+<pre class="xml">
+  &lt;party&gt;
+    &lt;type&gt;
+	  &lt;system&gt;http://hl7.org/fhir/provenance-participant-type&lt;/system&gt;
+	  &lt;code&gt;resource&lt;/code&gt;
+	&lt;/type&gt;
+	&lt;id&gt;http://acme.org/fhir/person/@34/history/@3&lt;/id&gt;
+  &lt;/x&gt;
+</pre>
+</div>
+
+<h3>W3C Provenance Mappings</h3>
+<p>
+The provenance resource is based on known practices in the HL7 implementation space, particularly those found in the 
+v2 EVN segment, the v3 ControlAct Wrapper, the CDA header, and the IHE ATNA (<a href="http://www.rfc3881.net">RFC 3881</a>).
+The conceptual model underlying the design is the <a href="http://www.w3.org/2011/prov/wiki/Main_Page">W3C Provenance
+Specification</a>. Though the content and format of the resource is designed to meet specific requirements for FHIR, 
+all the parts of the resource are formally mapped to the PROV-O specification, and FHIR resources can be transformed 
+to their W3C PROV equivalent.
+</p>
+
+<div class="mapping">
+<p>Formal W3C Provenance Mappings - to do</p>
+</div>
+
+</div>

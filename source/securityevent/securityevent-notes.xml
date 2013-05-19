@@ -1,0 +1,28 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h3>Referring to FHIR Resources in Security Events</h3>
+
+<p>
+Because the Audit resource is typically used for auditing many things beyond events
+related to FHIR resources, the <i>object</i> doesn't have a a simple reference
+to other resources. Instead, if the target object is a FHIR resource, the 
+object is represented like this:
+</p>
+<div class="example">
+<pre class="xml">
+  &lt;object&gt;
+    &lt;idType&gt;
+	  &lt;system&gt;http://hl7.org/fhir/resource-types&lt;/system&gt;
+	  &lt;code&gt;Person&lt;/code&gt;
+	&lt;/idType&gt;
+	&lt;id&gt;http://acme.org/fhir/person/@34/history/@3&lt;/id&gt;
+  &lt;/x&gt;
+</pre>
+</div>
+<p>
+This is the same pattern as a resource reference, but the type becomes extensible to allow referencing other kinds of resources.
+Note that the id reference should be a version specific reference, but is not required to be so. Note that when using 
+RFC 3881 directly, the code system cannot be a URI, so use the OID 2.16.840.1.113883.6.306 in place of http://hl7.org/fhir/resource-types.
+</p>
+
+</div>

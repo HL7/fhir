@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Biopsy of suspected melanoma L) arm</div>
+  </text>
+  <subject>
+    <type value="Patient"/>
+    <reference value="patient/@example"/>
+  </subject>
+  <description>
+      <type>
+        <coding>
+          <system value="http://snomed.info"/>
+          <code value="90105005"/>
+          <display value="Biopsy of soft tissue of forearm (Procedure)"/>
+        </coding>
+        <text value='Biopsy of suspected melanoma L) arm'/>
+      </type>
+      <notes value='Standard Biopsy'/>
+    <bodySite>
+      <coding>
+        <system value="http://snomed.info"/>
+        <code value="368225008"/>
+        <display value="Entire Left Forearm"/>
+      </coding>
+      <text value='Left forearm'/>
+    </bodySite>
+  </description>
+  <indication value='Dark lesion l) forearm. getting darker last 3 months.'/>
+  <performer>
+    <person>
+      <type value="Practitioner"/>
+      <reference value="practitioner/@example"/>
+      <display value='Dr Bert Biopser'></display>
+    </person>
+   
+  </performer>
+
+  <date>
+    <start value="2014-02-03" />
+  </date>
+  <followUp value='Review in clinic'/>
+  
+</Procedure>

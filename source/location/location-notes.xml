@@ -1,0 +1,11 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- insert xhtml content here -->
+<h2>
+Notes:
+</h2>
+<ul>
+<li>Locations may range from whole buildings to cabinets; it's possible to relate smaller Locations to their containing bigger Location using the Location.partOf element.</li>
+<li>Location.position is expressed using the same syntax, datum and reference system as Google/OGS's <a href="http://www.opengeospatial.org/standards/kml">KML</a>.</li>
+</ul>
+</div>

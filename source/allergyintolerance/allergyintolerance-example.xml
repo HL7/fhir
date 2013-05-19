@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AllergyIntolerance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/allergyintolerance.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Sensitivity to Bee Stings</div>
+  </text>
+  <criticality value="fatal"/>
+  <sensitivityType value="allergy"/>
+  <recordedDate value="2012-09-17"/>
+  <status value="confirmed"/>
+  <subject>
+    <type value="Patient"/>
+    <reference value="patient/@example"/>
+  </subject>
+  <recorder>
+    <type value="Practitioner"/>
+    <reference value="practitioner/@example"/>
+  </recorder>
+  <substance>
+    <type value="Substance"/>
+    <reference value="substance/@example"/>
+  </substance>
+  <reactions>
+    <type value="AdverseReaction"/>
+    <reference value="adversereaction/@example"/>
+  </reactions>
+  <sensitivityTest>
+    <type value="Observation"/>
+    <reference value="observation/@example"/>
+  </sensitivityTest>
+</AllergyIntolerance>

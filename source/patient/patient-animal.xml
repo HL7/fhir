@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
+	<text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table>
+        <tbody>
+          <tr>
+            <td>Id</td>
+            <td>Kenzi (Dog: Golden Retriever)</td>
+          </tr>
+          <tr>
+            <td>Owner</td>
+            <td>Peter Chalmers, 534 Erewhon, Pleasantville, Vic, 3999</td>
+          </tr>
+          <tr>
+            <td>Contacts</td>
+            <td>Work: (03) 5555 6473</td>
+          </tr>
+          <tr>
+            <td>Id</td>
+            <td>Dog Tag: 1234123 (Maroondah City Council)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </text>
+	<active value="true"/>
+	
+  <!-- Dog tag, under Maroondah City council -->
+  <identifier>
+    <label value="Dog Tag"/>
+    <system value="http://www.maroondah.vic.gov.au/AnimalRegFees.aspx"/>
+    <key value="1234123"/>	    
+    <period>
+      <start value="2010-05-31"/>
+    </period>
+    <assigner>
+      <display value="Maroondah City Council"/>
+    </assigner>
+  </identifier>
+
+  <details>
+ 
+  <!-- Dog's name: Kenzi -->
+    <name>
+      <use value="usual"/>
+      <given value="Kenzi"/>
+    </name>
+    <gender>
+      <code value="F"/>
+    </gender>
+    <birthDate value="2010-03-23"/> 
+
+  </details>
+
+  <animal>
+  <species>
+    <coding>
+      <system value="http://en.wikipedia.org/wiki/Biological_classification"/>
+      <code value="Canis lupus familiaris"/>
+    </coding>
+  </species>
+  <breed>
+    <coding>
+      <system value="http://snomed.info"/>
+      <code value="58108001"/>              
+      <display value="Golden retriever"/>  
+    </coding>      
+  </breed>
+  </animal>
+  	
+  <!-- owner - commented out while related parties are sorted out
+  <relatedEntity>
+    <role>
+      <coding>
+        <system>http://hl7.org/fhir/sid/v2-0063</system>
+        <code>OWN</code>
+        <display>Owner</display>
+      </coding>
+    </role>
+    <name>
+      <use>official</use>
+      <family>Chalmers</family>
+      <given>Peter</given>
+      <given>James</given>
+    </name>
+    <address>
+      <use>home</use>
+      <line>534 Erewhon St</line>
+      <city>PleasantVille</city>
+      <state>Vic</state>
+      <zip>3999</zip>
+    </address>
+    <contact>
+      <system>phone</system>
+      <value>(03) 5555 6473</value>
+      <use>work</use>
+    </contact>
+  </relatedEntity>
+    -->
+  <provider>
+    <display value="Pete's Vetinary Services"/>
+  </provider>
+</Patient>

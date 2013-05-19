@@ -1,0 +1,72 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<p>An order resource describes an order that an action be performed. An order is 
+expected to lead to one or more <a href="orderresponse.htm">responses</a> that describe 
+the outcome of processing/handling the order. The order resource is focused on
+the process of actually requesting an action be performed; the actual action to 
+be perfomed  is detailed in a separate resource that contains the details. 
+Note that orders are often called "requests", but this name is not used here 
+since the word "request" is used differently elsewhere in this specification.</p>
+
+<p>
+Note that there is a variety of proceses associated with making and processing 
+orders. Some orders may be handled immediately by automated systems but most require 
+real world actions by one or more humnas. Some orders can only be processed when other real 
+world actions happen, such as a patient actually presenting themselves so that 
+the action to be performed. Often these real world dependencies are only 
+implicit in the order details. 
+</p>
+
+<h2>Separation of Order and Order details</h2>
+<p>
+In healthcare, information that a particular action has been requested is often widely 
+disseminated thoughout the context of a patient's healthcare. For example, the patients
+healthcare record will often include a list of prescriptions that have been made for 
+the patient. For this reason, the presence of a prescription record itself is not 
+enough to create an obligation for a dispense to occur. Most other things that can be
+ordered follow this same pattern. 
+</p>
+
+<p>
+For this reason, the information about what is requested is separated from the 
+actual request for an action to be taken. The various workflows around the
+actual order/fulfillment process are associated with this resource and the 
+<a href="orderresponse.htm">order response</a> resource, while the details
+of what is actually ordered are delegated to other resources.
+</p>
+
+<h2>Using Orders in a RESTful context</h2>
+
+<p>In a RESTful context, a server functions as a repository of requests. When the 
+server accepts the order, it has only stored the order; there is no direct 
+response to the order. Some other process detects the existence of the order, 
+processes it, and creates one or more responses as the order is processed. 
+Usually, these responses are made available on the same server as the order, so that
+the client can monitor the result of the original order.</p>
+
+<p>A client can determine that an order has not been performed by searching for order resources
+with no matching responses (see below)</p>
+
+<h2>Using Orders with messaging</h2>
+
+<p>Two message types are defined for sending orders: synchronous and asynchronous.</p>
+
+<p>
+In a synchronous message, an order message (i.e. a <a href="resources.htm#bundle">bundle</a> with a
+<a href="message.htm">message</a> resource, an order resource and a details resource) 
+is sent to a system, and it responds with a message that includes the <a href="orderresponse.htm">response</a> 
+(a message resource, and order response resource, along with additional details as appropriate). This 
+synchronous message exchange is simple, but only useful where there only needs to be one response, and where 
+the response can be made in a timely fashion.
+</p>
+
+<p>
+For more general use, an asynchronous message type is also defined. With this type, 
+the requesting system sends the order message, and receives a simple acknowledgement message (only 
+a message resource) that acknowledges that the order was received. Then the receiving 
+system sends one or more response messages as the order is processed. Each of these response messages
+is sent back to the originating system, which also acknowledges receipt of these messages with
+an acknowledgement message.
+</p>
+
+</div>

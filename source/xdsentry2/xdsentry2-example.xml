@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegister.b_Transaction.
+  <homeCommunity>1.2.36.1.1001.1.1.1.1</homeCommunity>
+  <comments>Annual physical</comments>
+--><XdsEntry2 xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/xdsentry2.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Text</div>
+  </text>
+  <id>
+    <system value="urn:ietf:rfc:3986"/>
+    <key value="urn:oid:1.3.6.1.4.1.21367.2005.3.7"/>
+  </id>
+  <information>
+    <created value="2005-12-24T09:35:00+11:00"/>
+    <class>
+      <system value="http://ihe.net/xds/connectathon/classCodes"/>
+      <code value="History and Physical"/>
+      <display value="History and Physical"/>
+    </class>
+    <type>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="34108-1"/>
+        <display value="Outpatient Evaluation And Management"/>
+      </coding>
+    </type>
+    <title value="Physical"/>
+    <confidentiality>
+      <system value="http://ihe.net/xds/connectathon/confidentialityCodes"/>
+      <code value="1.3.6.1.4.1.21367.2006.7.101"/>
+      <display value="Clinical-Staff"/>
+    </confidentiality>
+    <subject>
+      <type value="Patient"/>
+      <reference value="patient/@xcda"/>
+    </subject>
+  <!--
+  <author>
+    <name>
+      <family>Dopplemeyer</family>
+      <given>Sherry</given>
+    </name>
+    <role>Primary Surgon</role>
+    <specialty>Orthopedic</specialty>
+    <institution>
+      <name>Cleveland Clinic</name>
+    </institution>
+    <institution>
+      <name>Berea Community</name>
+    </institution>
+    <contact>
+      <system>phone</system>
+      <value>john.doe@healthcare.example.org</value>
+    </contact>
+  </author>
+  <author>
+    <name>
+      <family>Smitty</family>
+      <given>Gerald</given>
+    </name>
+    <role>Attending</role>
+    <specialty>Orthopedic</specialty>
+    <institution>
+      <name>Cleveland Clinic</name>
+    </institution>
+    <institution>
+      <name>Parma Community</name>
+    </institution>
+    <contact>
+      <system>phone</system>
+      <value>john.doe@healthcare.example.org</value>
+    </contact>
+  </author>
+
+  <authenticator>
+    <name>
+      <family>Welby</family>
+      <given>Marcus</given>
+      <prefix>Dr</prefix>
+      <suffix>MD</suffix>
+    </name>
+  </authenticator>
+
+    <author>
+      <type>Practitioner</type>
+      <id>xds-author-1</id>
+    </author>
+    <author>
+      <type>Patient</type>
+      <id>xds-author-2</id>
+    </author>
+    <attester>
+      <mode>professional</mode>
+      <party>
+         <type>Patient</type>
+         <id>xds-attester</id>
+      </party>      
+    </attester>-->
+    <author>
+      <type value="Practitioner"/>
+      <reference value="practitioner/@example"/>
+    </author>
+    <event>
+      <code>
+        <coding>
+          <system value="http://ihe.net/xds/connectathon/eventCodes"/>
+          <code value="todo"/>
+          <display value="to do"/>
+        </coding>
+      </code>
+      <period>
+        <start value="2004-12-23T08:00:00"/>
+        <end value="2004-12-23T08:01:00"/>
+      </period>
+    </event>
+    <facilityType>
+      <coding>
+        <system value="http://www.ihe.net/xds/connectathon/healthcareFacilityTypeCodes"/>
+        <code value="Outpatient"/>
+        <display value="Outpatient"/>
+      </coding>
+    </facilityType>
+    <practiceSetting>
+      <coding>
+        <system value="http://www.ihe.net/xds/connectathon/practiceSettingCodes"/>
+        <code value="General Medicine"/>
+        <display value="General Medicine"/>
+      </coding>
+    </practiceSetting>
+  </information>
+  <format>
+    <system value="http://ihe.net/xds/connectathon/formatCodes"/>
+    <code value="CDAR2/IHE 1.0"/>
+    <display value="CDAR2/IHE 1.0"/>
+  </format>
+  <availability value="Approved"/>
+  <folder>
+    <type value="XdsFolder"/>
+    <reference value="xdsfolder/@1.2.36.90146595217.4.2.1"/>
+  </folder>
+  <subject>
+    <type value="Patient"/>
+    <reference value="patient/@xcda"/>
+  </subject>
+  <content xml:lang="en-us">
+    <contentType value="text/plain"/>
+    <size value="3654"/>
+    <hash value="da39a3ee5e6b4b0d3255bfef95601890afd80709"/>
+  </content>
+</XdsEntry2>

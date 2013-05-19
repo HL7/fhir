@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Resource Index - FHIR v<%version%></title>
+    <link rel="Stylesheet" href="fhir.css" type="text/css"/>
+    <link rel="Stylesheet" href="fhir-print.css" type="text/css" media="print" />
+</head>
+
+<body>
+<%sidebar%>
+
+<%maindiv%>
+<%dtheader%>
+<h1>Resources</h1>
+
+<p>
+The FHIR specification presently defines the following resources:
+</p>
+<p>
+[%map resources%]
+<img alt="Resource Categories" src="resources.png"  usemap="#resources"/>
+</p>
+<p>
+The list of resources is growing as FHIR is developed. Over the coming months, the number of resources and the number of
+those that have been vetted by HL7 committees will grow.  A list of hypothesized list of resources can be found on the 
+<a href="http://wiki.hl7.org/index.php?title=FHIR_Resource_Types">HL7 wiki</a>.  Feel free to add any you feel are missing or engage with one 
+of the <a href="http://www.hl7.org/Special/committees/index.cfm">HL7 Work Groups</a> to submit a 
+<a href="http://wiki.hl7.org/index.php?title=Category:FHIR_Resource_Proposal">proposal</a> to define a resource of particular interest.
+</p>
+
+<table class="bare">
+[%res-category Administrative|Administrative resources tie clinical processes to the administrative process that support them - patient and provider management. These resources are also known as the attribution layer%]
+[%res-item Patient%]
+[%res-item Practitioner%]
+[%res-item Organization%]
+[%res-item Device%]
+[%res-item Group%]
+[%res-item Visit%]
+[%res-item Location%]
+[%res-category Foundation|Resources that create infrastructure intended for wider reuse%]
+[%res-item List%]
+[%res-item Category%]
+[%res-item Observation%]
+[%res-item Supply%] 
+[%res-item Substance%]
+[%res-item Picture%]
+[%res-item Provenance%]
+[%res-item Questionnaire%]
+[%res-category Clinical|Focused on the content of the provider/patient encounter%]
+[%res-item AdverseReaction%]
+[%res-item AllergyIntolerance%]
+[%res-item CarePlan%]
+[%res-item FamilyHistory%]
+[%res-item Immunization%]
+[%res-item ImmunizationProfile%]
+[%res-item Problem%]
+[%res-item Procedure%]
+[%res-category Medications|Pharmacy related medications%]
+[%res-item Medication%]
+[%res-item MedicationPrescription%]
+[%res-item MedicationAdministration%]
+[%res-item MedicationDispense%]
+[%res-item MedicationStatement%]
+[%res-category Diagnostics|Resources used in diagnostic service provision%]
+[%res-item DiagnosticReport%]
+[%res-item Specimen%]
+[%res-item DiagnosticOrder%]
+[%res-item ImagingStudy%]
+[%res-category Financial|Resources concerned with payments etc%]
+[%res-item Coverage%]
+[%res-category Device Communications|Resources concerned with the process of communications between devices and clinical sytsems%]
+[%res-item DeviceObservation%]
+[%res-item DeviceCapabilities%]
+[%res-item DeviceLog%]
+[%res-category Technical|Resources used to support exchange of other resources%]
+[%res-item Order%]
+[%res-item OrderResponse%]
+[%res-item SecurityEvent%]
+[%res-item Document%]
+[%res-item OperationOutcome%]
+[%res-item Message%]
+[%res-item DocumentReference%]
+<tr><td><a href="formats.htm#binary">Binary</a></td><td>Pure Binary Content (Special)</td></tr>
+
+[%res-category Conformance|Related to the process of specifying application behaviour and resource usage%]
+[%res-item Conformance%]
+[%res-item ValueSet%]
+[%res-item Profile%]
+
+
+</table>
+
+
+<%footer%>
+
+
+<%/maindiv%>    
+</body>
+</html>

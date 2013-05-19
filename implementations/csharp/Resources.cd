@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HL7.Fhir.Instance.Model.Observation" Collapsed="true">
+    <Position X="6.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAIAgAAAAAQAAIAAAAQBhRAAAAAA=</HashCode>
+      <FileName>Model\Observation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HL7.Fhir.Instance.Model.Person" Collapsed="true">
+    <Position X="2" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAACAAAAACAAAAAAAQAAAQAAAACAAAAQIAAAAA=</HashCode>
+      <FileName>Model\Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HL7.Fhir.Instance.Model.Prescription" Collapsed="true">
+    <Position X="4.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAMAAAAAAKAAAAAAAAAAAAAAAAABAAAQAAACAA=</HashCode>
+      <FileName>Model\Prescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HL7.Fhir.Instance.Model.Data" Collapsed="true">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Model.Support\FhirTypes.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HL7.Fhir.Instance.Model.Resource" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAACAAAAAA=</HashCode>
+      <FileName>Model.Support\FhirTypes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

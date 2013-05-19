@@ -1,0 +1,8 @@
+[diagram]
+classes=Extension,Narrative,ResourceReference
+title=Other Types
+
+[directions]
+Extension=right
+Narrative=left
+ResourceReference=down

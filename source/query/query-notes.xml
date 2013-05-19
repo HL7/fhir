@@ -1,0 +1,110 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<p>
+Notes about the Query resource:
+</p>
+<ul>
+ <li>The id is usually a UUID (urn:uuid:...). It's sole use is to match request and response logically</li>
+ <li>Parameter names are mandatory, and values are optional. Parameters with missing values are ignored when processing the query</li>
+ <li>Parameter names do not need to be unique. The interpretation of multiple search parameters depends on the query nethod that defines the parameters</li>
+ <li>There SHALL be at least one parameter provided with a search- a search request without any request cannot be processed</li>
+ <li>The search engine SHALL return the parameters used to process the search</li>
+ <li>The links to first, previous, next and last pages in the query result set are provided at the discretion of the server. 
+ The client would perform a new query using those parameters to retreive the specified pages. 
+ The server would usually add parameters to these calls that it can use to simplify proccessing </li>
+ <li>The references to the result set are usually version specific references.</li>
+</ul>
+
+<a name="details"> </a>
+<h2>Performing Search/Queries</h2>
+<p>
+FHIR defines 3 different ways in which a search through a respository of resources can be initiated:
+</p>
+<ul>
+ <li>Perform <a href="http.htm#search">search</a> operation on a RESTful interface</li>
+ <li>Send a query message, and receive a query response</li>
+ <li>On a RESTful interface, create a query resource with an order, and wait for the order response (this allows asynchronous queries across a RESTful interface)</li>
+</ul>
+<h3>RESTful Search</h3>
+<p>
+In this case, the client requests a search using an HTTP call, and 
+the parameters are a series of name'='value pairs encoded in the URL 
+or as an x-multi-part-form submission for a POST. 
+</p>
+<p>
+The server returns the results in the HTTP response. A HTTP status code
+of 403 signifies that the server refused to perform the query, 
+while some other 4xx or 5xx code signifies an error. There is no way 
+to indicate that the search was limited. 
+</p>
+<p>
+The search results are returned in a single bundle, and the page 
+references are <a href="http.htm#paging">embeded in the atom feed as links</a>.
+The information about which parameters the search engine processed is 
+represented as the self link on the atom feed:
+</p>
+<pre class="xml">
+  &lt;link rel="self" href="[service-url]/coverage/search?[parameters...]"/&gt;
+</pre>
+<p>
+The RESTful search is the simplest way to execute a query, but it does not 
+meet all use cases. Two other methods are defined to meet other use cases.
+</p>
+<h3>Messaging based Queries</h3>
+<p>
+In order to initiate a message-based query, a sender sends a message consisting
+of a <a href="message.htm">Message</a> resource, and a <i>Query</i> resource.
+The message resource routes the messasge to the correct destination, and the 
+query contains the parameters of the search that is requested. See <a href="query-examples.htm">the 
+examples</a> for an example query request message.
+</p>
+<p>
+The receiver processes the message, and then returns a message with a message
+header, a query with a response details, and a set of resources that meet the 
+query criteria. See <a href="query-examples.htm">the examples</a> for an example query response message.
+</p>
+<p>
+If the sender wishes to retrieve additional pages from the original search, 
+the sender constructs a new query with the parameters specified by the search
+processing system, and the cycle starts again.
+</p>
+<h3>Asynchronous Queries on a REST framework</h3>
+<p>
+The RESTful framework provides a simple convenient synchronous search based on
+request/response as described above. This works well as long it doesn't take 
+very long to process a query. As the query processing time gets longer, the
+synchronous search starts to take too long to manage in this kind of framework.
+In particular, some queries may require human intervention to process correctly,
+or may even by direct humna-human queries. For these, some asynchronous approach
+is required. The messaging solution discussed above can be used asynchronously, 
+but it's also possible to implement asynchronous queries in a RESTful environment.
+Here's how this would work:
+</p>
+<ol>
+ <li>The requester constructs a <i>Query</i> resource, and performs a create operation to the /query endpoint, and gets the id of the query resource on the server</li>
+ <li>The requester constructs an <a href="order.htm">Order</a> resource that contains details as appropriate, and which as the query resource as it's order detail, and creates that on the server</li>
+ <li>A responder picks up the existence of the order resource (either the server acting directly, or a client that is subscribed to the order feed on the server)</li>
+ <li>The responder retrieves the query, and then processes it, generating a new query resource that is the response, and then creates that on the server</li>
+ <li>The responder constructs an <a href="orderresponse.htm">Order Response</a> resource with a reference to the request from Step #2, a code of "complete", and a fulfillment that points to the query response from step #4</li>
+ <li>The requester sees the existence of the order response (e.g. by subscribing - watching the updates to <i>Order Response</i> on the server), and retrieves the query response</li>
+ <li>The requester retrieves the matching resources by iterating through the matching resources and retrieving them based on their reference.</li>
+</ol>
+<p>
+This pattern is more complex than the other uses, so will be used less. There are 
+several variations on this theme. For instance, the requester may choose to perform the
+first two operations as a <a href="http.htm#transaction">transaction</a>, or the responder may choose to 
+inform the requester that processing as commenced with an order response code of "accepted".
+</p>
+<p>
+Note that it's also possible to expose service end points in a SOA fashion
+that use the query resource and/or definitions in other ways, though such
+usages are not described in FHIR.
+</p>
+
+<p>
+Finally, search parameters for queries themselves - it is possible to 
+search on a set of stored queries, though there is probably no particular
+use case for this:
+</p>
+
+</div>

@@ -1,0 +1,729 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Resource Format - FHIR v[%version%]</title>
+    <link rel="Stylesheet" href="fhir.css" type="text/css"/>
+    <link rel="Stylesheet" href="fhir-print.css" type="text/css" media="print" />
+</head>
+
+<body>
+[%sidebar%]
+
+[%maindiv%]
+
+[%formatsheader%]
+
+[%onthispage Resource Definition#root|Narrative#Narrative|Internal References#idref|JSON#json|Atom (Bundle)#atom|JSON (Bundle)#json-bundles|Schema#schema%]
+
+<a name="root"> </a>
+<h1>Resource Formats</h1>
+<p>
+This page documents how the content of the resources are described, and how they are represented in XML and JSON. 
+</p>
+
+<h2>Resource Definition</h2>
+<p>
+The resources are described in two different ways: a UML diagram that summarises the content, and 
+an pseudo-XML syntax that provides a visual sense of what the end resource instances will look like in XML. 
+Note that although the description of the resources is based on their XML representation, other representations
+such as JSON are equally valid.
+</p>
+<a name="syntax"> </a>
+<h3>XML</h3>
+<p>
+The XML syntax uses the following notation:
+</p>
+<pre class="spec">
+ &lt;<b>name</b> xmlns="http://hl7.org/fhir" (attrA="value")&gt; 
+   &lt;<u><b title="Formal Definition (must tbe supported or understood)">nameA</b></u>&gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="Darkgreen">type</font> <font color="Navy">description of content</font> <font color="Gray"> --&gt;</font>&lt;nameA&gt;
+   &lt;<b title="Formal Definition">nameB[x]</b>&gt;<font color="Gray">&lt;!-- </font><font color="deeppink" title="Condition">0..1</font> <font color="darkgreen">type1</font>|<font color="darkgreen">type1</font> <font color="Navy">description</font> <font color="Gray"> --&gt;</font>&lt;/nameB&gt;
+   &lt;<b>nameC</b>&gt; <font color="Brown"><font color="Gray">&lt;!-- </font> <b>1..*</b> --&gt;</font>
+     &lt;<b>nameD</b> &gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="darkgreen">type</font>&gt;<font color="navy">Relevant records</font> <font color="Gray"> --&gt;</font>&lt;/nameD&gt;
+   &lt;/nameC&gt;
+ &lt;name&gt;
+</pre>
+<p>
+Notes:
+</p>
+<ul>
+ <li>To build a valid XML instance of a resource, simply replace the contents of the elements and attributes with valid content as described by the cardinality, type rules and content description found in the comment in each element</li>
+ <li>Note that the only properties that are represented as attributes are those defined in underlying specifications such as xml:lang and <a href="#atom">Atom (see below)</a>, which is used as the XML representation for bundles</li>
+ <li>Any elements that have a <a href="datatypes.htm#primitive">primitive type</a> will have a value attribute to contain the actual value of the element</li>
+ <li>Elements are assigned a cardinality that specifies how many times the element may or must appear. If the cardinality is shown in 
+    <font color="deeppink">Pink</font> then there is an additional condition that impacts on the allowed cardinality. This is available as a mouse-over text, or in the formal definitions</li>
+ <li>The elements are assigned one or more types. All of the types are defined in <a href="datatypes.htm">the data types</a> except for "Resource" and "Narrative" that are documented below. The type names are hyperlinked</li>
+ <li>When a logical element can have more than one type, it's name takes the form nnn[x]. The "nnn" part of the name is constant, and the [x] is replaced with the name of the type that is actually used. The types that are allowed are listed with a "|" used to separate them</li>
+ <li>Each element name in the pseudo-syntax is also a hyperlink to the formal definition of the element in the data dictionary that underlies the exchange formats. </li>
+ <li>If the element name is underlined, then applications are required to <a href="resources.htm#mustSupport">support</a> and/or <a href="resources.htm#mustUnderstand">understand</a> it</li>
+ <li>The character set for a resource is always Unicode, encoded in UTF-8. Specifying the character encoding in the XML is optional but recommended.</li>
+ <li>FHIR elements are always in the namespace <a href="http://hl7.org/fhir">http://hl7.org/fhir</a>.  This is usually specified as the default namespace on the root element. 
+   The only other namespaces that occur in FHIR resources are where some external content model is explicitly introduced into the resource content model. For example, XHTML is found in every resource - see below</li>
+ <li>Any of the XML elements may have an id attribute to serve as <a href="#idref">the target of an internal reference</a>. The id attribute is not shown in this format</li>
+ <li>FHIR elements are never empty. If an element is present in the resource, it must have either a value attribute, child elements as defined for its type, an id attribute that is the <a href="#idref">link target</a> of <a href="#narrative">narrative</a>, or 1 or more <a href="extensibility.htm">extensions</a></li>
+ <li>Attributes can never be empty. Either they are absent, or they are present with at least one character of non-whitespace content</li>
+ <li>The xml:lang attribute may appear on the root element, where it specifies the base language of the resource. It may also appear on <a href="datatypes.htm#Attachment">attachments</a> and in the XHTML content, but nowhere else</li>
+ <li>The formal MIME-type for FHIR resources represented in XML is application/fhir+xml</li>
+ <li>In addition to this descriptive syntax, other definitional forms are available, including W3C schema and Schematron</li>
+</ul>
+<p>
+When represented as XML, resources may be validated by schema and schemas are provided, but 
+operational systems are not required to do so (though the XML must always be 
+valid against this specification and the schema and Schematron). In addition to 
+the simple XML description, W3C Schema, UML models, and other definitional models 
+are provided that may be a useful aid for system implementation. 
+</p>
+<h3>UML</h3>
+<p>
+The UML diagrams represent the same content as a series of classes that represent
+XML elements. Elements are labeled with an "R" for resource, or a "D" for a data type.
+Classes without a label are normal classes that are just part of the content of a 
+resource or a data type. 
+</p>
+<p style="text-alignment: left">
+<img src="uml-example.png"/>
+</p>
+<p>
+Where an element can have a choice of data types, these are represented in the 
+choice using the same syntax as the xml syntax. Due to way UML works, the actual 
+order of the elements cannot be determined from the diagram, nor is it visible 
+whether a proprerty is an element or an attribute. 
+</p>
+<p>
+These UML diagrams are intended to communicate the contents of the resource
+to a human. An alternate set of diagrams that is more suited to code 
+generation is available as part of the <a href="implementation.htm#refimpl">eCore 
+reference platform</a>. 
+</p>
+
+
+<a name="Narrative"> </a>
+<a name="narrative"> </a>
+<h2>Narrative</h2>
+<p>
+Every resource SHALL include a human readable narrative that contains a summary of the resource, 
+and may be used to represent the content of the resource to a human. The narrative need 
+not encode all the structured data, but is required to contain sufficient detail to make 
+it "clinically safe" for a human to just read the narrative. Resource definitions may define 
+what content should be represented in the narrative to ensure clinical safety.
+</p>
+<p>
+The narrative for a resource is allowed to contain additional information that is not in 
+the structured data, including human-edited content. Such additional information must be 
+in the scope of the definition of the resource. In small, closed trading partner environments,
+there may be no need for a narrative text. In such cases, implementations are allowed to 
+populate the narrative with text equivalent to "[ResourceName] - No human readable text provided for this resource" in an appropriate language. 
+Implementers should note that small, closed trading partner environments are very likely 
+to open up during the lifetime of the resources they define.
+</p>
+<p>
+The narrative is an xhtml fragment that also includes images if appropriate:
+</p>
+[%dt Narrative%]
+<p>
+The contents of the <i>div</i> element are an XHTML fragment containing only the basic html formatting elements described in 
+chapters 7-11 (except section 4 of chapter 9) and 15 of the HTML 4.0 standard, &lt;a&gt; elements (either name or href),
+images and internally contained style attributes. The XHTML content must not contain
+a head, a body element, external stylesheet references, scripts, forms, base/link/xlink, frames, iframes,
+and objects. The div element must have some non-whitespace content.
+<!-- Todo: Formally encode these constraints in schematron -->
+</p>
+<div class="example">
+<pre class="xml" fragment="Narrative">
+  &lt;narrative&gt;
+    &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;This is a simple 
+          example with only plain text&lt;/div&gt;
+  &lt;/narrative&gt;
+   
+   &lt;narrative&gt;
+   &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;
+     &lt;p&gt;
+       This is an &lt;i&gt;example&lt;/i&gt; with some &lt;b&gt;xhtml&lt;/b&gt; formatting.
+     &lt;/p&gt;
+   &lt;/div&gt;
+  &lt;/narrative&gt;
+</pre>
+</div>
+<p>
+The inner portion of the div content is often used for the innerHTML property in a browser.
+In order to simplify processing, the narrative SHALL be encoded so that the character content
+between the first "&gt;" and the last "&lt;" characters is the content of the &lt;div&gt; element.
+</p>
+<p>
+Note that the XHTML is contained in general XML, and so there is no support for HTML entities
+like <i>&amp;nbsp;</i> or <i>&amp;copy;</i> etc. Unicode characters should be used instead. Note that 
+<i>&amp;#160;</i> substitutes for <i>&amp;nbsp;</i>. 
+</p>
+<p>
+The narrative content should be in the <a href="resources-definitions.htm#Resource.language">language of the resource</a>, but 
+there is no reason to expect that HTML type tooling would understand the resource <i>language</i> element. For this reason, 
+a lang attribute on the &lt;div&gt; should also be used (and see 
+<a href="http://www.w3.org/html/wg/drafts/html/master/dom.html#the-lang-and-xml:lang-attributes">the note in the HTML 5 specification about use of language</a>).
+</p>
+
+<p>
+The image source references may be a local reference within the resource:
+</p>
+<pre class="xml">
+  &lt;img src="#a5"/&gt;
+</pre>
+<p>
+This is an <a href="#idref">internal reference</a> to an id attribute on an element in the same resource, either in the binary attachments on the text element 
+directly, or an element of type "<a href="datatypes.htm#Attachment">Attachment</a>".
+</p>
+<div class="example">
+<pre class="xml" fragment="Narrative">
+  &lt;narrative&gt;
+    &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;
+      &lt;p&gt;
+        &lt;img src=&quot;#a1&quot;/&gt;.
+      &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;blob id=&quot;a1&quot;&gt;
+      &lt;mimeType value="image/png" /&gt;
+      &lt;content value="MEKH....SD/Z" /&gt;
+    &lt;/blob&gt;
+  &lt;/narrative&gt;
+</pre>
+</div>
+
+<p>
+Since the presence of images that are not part of the resource is not guaranteed, 
+images that are an essential part of the narrative should always be embedded like this.
+</p>
+
+<a name="css"></a>
+<h3>Styling the XHTML</h3>
+<p>
+The XHTML fragment in the narrative may be styled using CSS in the normal fashion, using a mix of classes, ids 
+and in-line style elements. Specific CSS stylesheets will be applied to the XHTML when it is extracted from
+the resource to be displayed to a human to create the presentation desired in the context of use. Authors
+may fix the following styling aspects of the content:
+</p>
+<ul>
+  <li>bold, italic, underline, strikethrough</li>
+  <li>font color, family, and size</li>
+  <li>background color, text alignment</li>
+  <li>whitespace interpretation</li>
+  <li>ordered list number format (since it may be referred to in text)</li>
+</ul>
+<p>
+These style properties are specified in-line using the style attribute. If an equivalent 
+html element exists, such as "i", or "pre", it may be used instead, but note that some of these 
+elements are deprecated in HTML 4 and must not be used in Narrative XHTML (including "u", and "font").
+</p>
+<p>
+Rendering systems are required to respect any of these rendering styles when they are specified in 
+the XHTML, though appropriate interpretation is allowed (e.g. a low-contrast display for dark 
+room contexts or a high-contrast display for the visually impaired may adjust colors accordingly). 
+</p>
+<p>
+Authors are allowed to specify additional styles and style properties as specified in the CSS specification,
+but these are extensions to this specification and renderers are not required to honor them. Note, however,
+the additional rules around styling that apply in the context of <a href="document.htm#css">documents</a>.
+</p>
+<p>
+Note: styles in resources can make use of the styles defined in the standard FHIR stylesheet, which
+lives here: <a href="http://hl7.org/implement/standards/fhir/fhir.css">http://hl7.org/implement/standards/fhir/fhir.css</a>.
+Since this stylesheet is not referred to directly, rendering systems may take their own copy if they wish. 
+Authoring systems should not depend on these styles being supported in order to render clinical content correctly without
+trading partner agreement. 
+</p>
+
+<hr/>
+
+
+<a name="idref"></a>
+<a name="id"></a>
+<h2>Internal References</h2>
+<p>
+There are 4 cases where elements inside a resource reference each other:
+</p>
+<ul>
+ <li>Inside a <a href="datatypes.htm#CodeableConcept">CodeableConcept data type to identify the primary encoding</a></li>
+ <li>An &lt;img src=""/&gt; reference in the narrative, referring to an image found in the resource</li>
+ <li>Between elements in the narrative and structured data elements</li>
+ <li>Between a ResourceReference and an <a href="resources.htm#contained">contained resource</a></li>
+</ul>
+<p>
+These references are done using an id/idref based approach, where a source element indicates that it 
+has the same content as the target element. The target element has an attribute "id" which must 
+have a unique value within the resource with regard to any other id attributes. The "id" attribute is not in any namespace.
+The source element reference must refer to an attribute in the same resource (or, for a CodeableConcept, inside the
+same datatype). 
+</p>
+<div class="example">
+<pre class="xml">
+  &lt;example&gt;
+    &lt;target id="a1"&gt;
+      &lt;child&gt;...&lt;/child&gt;
+    &lt;/target&gt;
+    &lt;-- other stuff --&gt;
+    &lt;source idref="a1"&gt;
+  &lt;/example&gt;
+</pre>
+</div>
+<p>
+In a single resource, this works like xml:id/idref, but there is an important difference: the 
+uniqueness and resolution scope of these id references is within the resource that contains them. If multiple
+resources are combined into a single piece of XML, such as an <a href="#atom">atom feed</a>, duplicate 
+values may occur between resources. This must be managed by applications reading the resources.
+</p>
+<p>
+Note that all references between the xhtml elements and the data elements must be understood to 
+establish a "derived from" relationship, where the derived content (whether text or data) refers 
+to the source content.  Note that this means some references may be forward references (references to 
+elements defined later in the instance).
+</p>
+
+
+<a name="json"> </a>
+<h2>Representing Resources in JSON</h2>
+<p>
+Though the representation of FHIR resources is described in XML, FHIR also defines
+a JSON representation of the resources. The JSON format for the resources follows 
+the standard XML format very closely to make interconversion easy, and so that 
+XPath queries can easily be mapped to query the JSON structures. The formal mime type
+for this format is application/fhir+json.
+</p>
+<p>
+Clients are free to choose whether to implement in XML or JSON. Servers must support XML, and can 
+choose to support JSON. Note that systems must declare which format(s) they 
+support. Also, the <a href="implementation.htm#refimpl">reference implementations</a>
+include bi-direction conversion functionality between the two formats.
+</p>
+<p>
+The JSON representation is described relative to the XML representation:
+</p>
+<ul>
+ <li>The names for the JSON object members are the same as the names of the elements and attributes in XML, including for elements that may repeat</li>
+ <li>In the data types, the <a href="datatypes.htm#primitive">primitive type</a> integer is represented using a native JSON int, while boolean is represented using JSON's "true" and "false" values. Other primitive types such as string, decimal, etc. are represented as a JSON string, using the same serialization as the XML form (including instant, which is represented as plain text, not in one of the proposed JSON custom date formats)</li>
+ <li>Just as in XML, JSON property attributes never have empty values; omit a value if it is empty</li>
+</ul>
+
+<p>There are differences too:</p>
+<ul>
+ <li>There are no namespaces in the JSON representation</li>
+ <li>Order is not significant in the JSON representation</li>
+ <li>JSON does not have a notion of attributes versus elements, so attributes (xml:id, value) are treated as JSON object members (see below for more details)</li>
+ <li>JSON has a notation for arrays, which are used to represent repeating elements. Note that this is the case, even if they do not repeat in the actual instance</li>
+ <li>The XHTML &lt;div&gt; element in the Narrative datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content etc. The XHTML most still conform to the rules described above</li>
+</ul>
+<p>These differences - particularly the repeating element one, which cannot be avoided - mean that generic XML --&gt; JSON converters are not 
+able to perform correctly. The <a href="implementation.htm#refimpl">reference platforms</a> provide XML &lt;--&gt; JSON conversion functionality that accommodates these FHIR-specific characteristics.</p>
+
+<h2>JSON representation of primitive elements</h2>
+<p>
+FHIR elements with primitive values are represented as a JSON object of the same name with a the value attribute of the element in a "value" property. Except for integer and boolean, native JSON types are not used and values are rendered as strings, to guarantee equivalence of the serialized representation 
+between XML and JSON. 
+</p>
+<pre class="xml">
+ &lt;<b>date</b> value="1972-11-30"/&gt;
+ &lt;<b>deceased</b> value="false" /&gt;
+ &lt;<b>count</b> value="23" /&gt;
+</pre>
+<p>is represented in JSON as</p>
+<pre class="json">
+ "date" : { value: "1972-11-30" }
+ "deceased" : { value: false }
+ "count" : { value: 23 }
+</pre>
+<p>
+ All XML elements <i>can</i> have an 'id' attribute, which is represented in JSON as a property of name "_id":
+</p>
+<pre class="xml">
+ &lt;<b>dob</b> id="314159" value="1972-11-30" /&gt;
+</pre>
+<p>is represented in JSON as:</p>
+<pre class="json">
+ "dob": { 
+   "_id": "314159", 
+   "value": "1972-11-30" 
+ }
+</pre>
+
+<h2>Repeating elements</h2>
+
+<p>Repeating elements are rendered within a JSON array with the name of the element, 
+so a repeating &lt;dob&gt; element in XML</p>
+<pre class="xml">
+ &lt;<b>dob</b> value="2011-11-30" /&gt;
+ &lt;<b>dob</b> id="314159" value="1972-11-30" /&gt;
+</pre>
+<p>is represented in JSON like so:</p>
+<pre class="json">
+"dob": [
+	{ "value": "2011-11-30" },
+	{ "_id": "314159", "value": "1972-11-30" }
+  ]
+</pre>
+
+<h2>JSON representation of Resources, Elements, and Data types</h2>
+
+<p>
+Resources, elements, and datatypes (types that contain named elements of other types) are represented using 
+a JSON object, containing a member for each element in the datatype. Composites can have id attributes, which are 
+converted to JSON members values, in the same manner as described for primitives. It comes before all other members. For example:</p>
+ <pre class="xml">
+&lt;Person&gt;
+  &lt;name&gt;
+    &lt;use value="official" /&gt;  
+    &lt;given value="Karen" /&gt;
+    &lt;family id=&quot;n1&quot; value="Van" /&gt;
+  &lt;/name&gt;
+  &lt;text&gt;
+    &lt;status value="generated" /&gt;
+    &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;...&lt;/div&gt;
+  &lt;/text&gt;
+&lt;/Person&gt;
+</pre>
+<p>is represented in JSON as:</p>
+<pre class="json">
+{
+  "Person" : {
+    "name" : [{
+      "use" : { "value" : "official" },
+      "given" : [{
+         "value" : "Karen" 
+        }],
+      "family" : [{
+         "_id" : "n1",
+         "value" : "van"
+        }]
+     }],
+    "text" : {
+      "status" : { "value" : "generated" },
+      "div" : "&lt;div xmlns='http://www.w3.org/1999/xhtml'&gt;...&lt;/div&gt;"
+    }
+}
+</pre>
+<p>Things to note here are:</p>
+<ul>
+<li>Both given and family are repeating XML elements, so they are serialised as an Array whether or not they repeat in this instance</li>
+<li>Because the primitive element 'id' is in a resource, it is serialized as a JSON object</li>
+<li>In the family part of 'name', the '_id' is added as the first member</li>
+<li>The XHTML content in the 'div' element which is in the Narrative element 'text' is represented 
+as an escaped string in the value property in JSON. The xhtml's root element needs to be a &lt;div&gt; in the xhtml namespace</li>
+</ul>
+
+<a name="bundle"> </a>
+
+<h2>Bundles</h2>
+<p>
+A bundle is a <a href="resources.htm#bundle">collection of resources in a single document</a>.
+</p>
+
+<a name="atom"> </a>
+<h3>Atom Bundle Representation</h3>
+<p>
+In XML bundles are represented using an Atom format (<a href="http://tools.ietf.org/html/rfc4287" target="_blank">http://tools.ietf.org/html/rfc4287</a>), following this template:
+</p>
+<pre class="spec">
+&lt;feed xmlns="http://www.w3.org/2005/Atom">
+  &lt;title&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.htm#string">string</a></span> <span style="color:navy;">Text statement of purpose</span><span style="color: Gray"> --&gt;</span>&lt;/title&gt;
+  &lt;updated&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.htm#instant">instant</a></span> <span style="color:navy;">When the bundle was built</span><span style="color: Gray"> --&gt;</span>&lt;/updated&gt;
+  &lt;id&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.htm#uri">uri</a></span> <span style="color:navy;">Unique uri for this bundle</span><span style="color: Gray"> --&gt;</span>&lt;/id&gt;
+  &lt;os:totalResults xmlns:os="http://a9.com/-/spec/opensearch/1.1/"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>0..1</b></span> <span style="color:darkgreen;"><a href="datatypes.htm#primitive">integer</a></span> <span style="color:navy;">
+              Paging: the total number of results</span><span style="color: Gray"> --&gt;</span>&lt;/os:totalResults&gt;
+  &lt;link rel="self" href="<span style="color:navy;">[building application url (Service base on REST)]</span>"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color: Gray"> --&gt;</span>
+  &lt;link rel="first" href="<span style="color:navy;">[paging: url for first page of result]</span>"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color: Gray"> --&gt;</span>
+  &lt;link rel="previous" href="<span style="color:navy;">[paging: url for previous page of result]</span>"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color: Gray"> --&gt;</span>
+  &lt;link rel="next" href="<span style="color:navy;">[paging: url for next page of result]</span>"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color: Gray"> --&gt;</span>
+  &lt;link rel="last" href="<span style="color:navy;">[paging: url for last page of result]</span>"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color: Gray"> --&gt;</span>
+  &lt;author&gt;<span style="color:Gray;">&lt;!-- 0..1 Who created resource? --&gt;</span>
+      &lt;name&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.htm#string">string</a></span> <span style="color:navy;">Name of Human or Device that authored the resource</span><span style="color: Gray"> --&gt;</span>&lt;/name&gt;
+      &lt;uri&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span> <span style="color:darkgreen;"><a href="datatypes.htm#uri">uri</a></span> <span style="color:navy;">Link to the resource for the author</span><span style="color: Gray"> --&gt;</span>&lt;/uri&gt;
+  &lt;/author>
+  &lt;entry&gt;<span style="color:Gray;">&lt;!-- Zero+ --&gt;</span>
+    &lt;title&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.htm#string">string</a></span> <span style="color:navy;">Text summary of resource</span><span style="color: Gray"> --&gt;</span>&lt;/title&gt;
+    &lt;link rel="self" href="<span style="color:navy;">Version Specific reference to Resource</span>"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color: Gray"> --&gt;</span>&lt;/link&gt;
+    &lt;id&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.htm#uri">uri</a></span> <span style="color:navy;">Logical Id (uri) for this resource</span><span style="color: Gray"> --&gt;</span>&lt;/id&gt;
+    &lt;updated&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.htm#instant">instant</a></span> <span style="color:navy;">Last Updated for resource</span><span style="color: Gray"> --&gt;</span>&lt;/updated&gt;
+    &lt;published&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span> <span style="color:darkgreen;"><a href="datatypes.htm#instant">instant</a></span> <span style="color:navy;">Time resource copied into the feed</span><span style="color: Gray"> --&gt;</span>&lt;/published&gt;
+    &lt;author&gt;<span style="color:Gray;">&lt;!-- 0..1 Who created resource? --&gt;</span>
+      &lt;name&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.htm#string">string</a></span> <span style="color:navy;">Name of Human or Device that authored the resource</span><span style="color: Gray"> --&gt;</span>&lt;/name&gt;
+      &lt;uri&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span> <span style="color:darkgreen;"><a href="datatypes.htm#uri">uri</a></span> <span style="color:navy;">Link to the resource for the author</span><span style="color: Gray"> --&gt;</span>&lt;/uri&gt;
+    &lt;/author>  <!--    &lt;category term="<span style="color:navy;">[Resource Type]</span>" scheme="http://hl7.org/fhir/resource-types"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span><span style="color: Gray"> --&gt;</span>&lt;/category&gt;   -->
+    <span style="color:Gray;">&lt;!-- </span><span style="color:navy;">Tags affixed to the resource (<span style="color: brown;"><b>0..*</b></span>): </span> <span style="color: Gray"> --&gt; </span>
+    &lt;category term="<span style="color:navy;">[Tag Uri]</span>" label="<span style="color:navy;">[Tag Label]</span>" scheme="http://hl7.org/fhir/tag"&gt; 
+    &lt;content type="text/xml"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span><span style="color: Gray"> --&gt;</span>
+      &lt;<span style="color:navy;">[ResourceName]</span> xmlns="http://hl7.org/fhir">
+        <span style="color: Gray">&lt;!-- </span><span style="color: navy">Content for the resource</span><span style="color: Gray"> --&gt;</span>
+      &lt;/<span style="color:navy;">[ResourceName]</span>>
+    &lt;/content>
+    &lt;summary type="xhtml"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color: Gray"> --&gt;</span>
+      &lt;div xmlns="http://www.w3.org/1999/xhtml"><span style="color:Gray;">&lt;!-- </span><span style="color:navy;">Narrative from resource</span><span style="color:Gray;"> --&gt;</span>&lt;/div>
+    &lt;/summary>
+  &lt;/entry&gt;
+  &lt;Signature xmlns="http://www.w3.org/2000/09/xmldsig#"&gt;
+    <span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span> <span style="color:navy;">Enveloped Digital Signature (see Atom section 5.1)</span><span style="color:Gray;"> --&gt;</span>
+  &lt;/Signature&gt;
+&lt;/feed&gt;
+</pre>
+<a name="atom-notes"> </a>
+<h4>Notes</h4>
+<ul>
+ <li>Logically, a bundle is a set of resources that are prepared to send somewhere for consumption - a "feed". There is no implication that the feed is a standing arrangement (though this is not precluded)</li>
+ <li>The order of elements does not matter in an atom feed (but not entries: the order of the entries is important). The order of elements in the atom namespace as documented above does not need to be followed</li>
+ <li>The title for the feed and the entry are arbitrary human readable content and not to be used for any automated processing. Applications may populate these in any useful way</li> 
+ <li>Every bundle must have a unique id and that id must be a valid absolute <a href="datatypes.htm#uri">uri</a>. UUIDs are recommended (urn:uuid:...)</li>
+ <li>The entry element carries the <a href="resources.htm#metadata">three pieces of resource metadata</a>: Id (.id), Version Id (.link), Last Updated (.updated)</li>
+ <li>Each entry also carries all the Tags affixed to the resource in the category element. The category element can be used in other ways too</li>
+ <li>The entry.id must be an absolute url, the tail element of which is the logical id of the resource. The id is a version independent reference</li>
+ <li>The entry.link to self is a version specific reference to the resource.</li>
+ <li>When used in a <a href="http.htm">RESTful implementation</a>, the entry.link and entry.id are the URLs of the resource on the system; the version specific link can be used as the basis synchronizing pub/sub systems using the atom bundle with the <a href="http.htm#history">updates operation</a>. In other contexts, the values should be literal references to a server if one is available</li>
+ <li>Note that the atom specification requires an author for each entry, but if an author is provided in the base feed element, an author is not needed on each entry</li>
+ <li>The author of a resource is not explicit in the FHIR resource model; instead it is delegated to the infrastructure. The name is the name of a human author or a device. The uri is a link to the author (possibly a Practitioner resource)</li> 
+ <li>xml:base elements SHOULD NOT be used and implementations do not need to support it</li>
+ <li>The entire bundle can be signed with a single Enveloped Digital Signature as described in the Atom specification (section 5.1)</li>
+ <li>The mime type for an bundle when represented in XML is application/atom+xml</li>
+ <li>The feed.link element with relationship "self" is assigned no particular meaning the FHIR specification, except in the case of a search operation, but may be used to provide a reference to the source of the feed</li>
+ <li>The feed.link elements with relationship "first", "last", "previous" and "next" are used to implement paging in the RESTful interface and allow a client to browse through a multi-page result. See <a href="query.htm">search/query</a></li>
+</ul>
+
+<a name="atom-deleted"> </a>
+<h4>Bundling versions - deletion</h4>
+<p>
+When returning a set of resources or versions of a resource, an entry might indicate that the entry has been <i>deleted</i>. Deleted resources are represented
+in an atom feed as defined by <a href="http://www.rfc-editor.org/rfc/rfc6721.txt">rfc6721.txt</a>: 
+</p>
+<pre class="spec">
+&lt;feed xmlns="http://www.w3.org/2005/Atom">
+  <span style="color:Gray;">... feed elements and other entries ...</span>
+  &lt;at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0"
+      ref="<span style="color:navy;">[Logical Id for deleted resource]</span>" when="<span style="color:navy;"><span style="color:darkgreen;"><a href="datatypes.htm#instant">instant</a></span> [when deleted]</span>"&gt;
+    &lt;link rel="self" href="<span style="color:navy;">[Version Specific reference to Resource]</span>"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color:Gray;"> --&gt;</span>&lt;/link&gt;
+  &lt;/at:deleted-entry>
+  <span style="color:Gray;">... other entries ...</span>
+</pre>
+<p>
+A deleted resource returns a 410 error if it is accessed through the RESTful interface. 
+</p>
+
+<a name="atom-refs"> </a>
+<h4>Resolving references to Resources</h4>
+<p>
+Readers of the resources bundles should always look through the resources in the 
+atom feed when a <a href="resources.htm#Resource">resource reference</a> is encountered. 
+The resource reference may have the resource type and a relative url, 
+which is the id of the target, like this:
+</p>
+<div class="example">
+<pre class="xml" fragment="ResourceReference">
+  &lt;institution&gt;
+    &lt;type value="Organization" /&gt;
+    &lt;reference value="organization/@23" /&gt;
+  &lt;/institution&gt;
+</pre>
+</div>
+<p>
+A reader trying to find the resource this <i>institution</i> element identifies 
+should always look through the entries in the atom feed prior to looking 
+anywhere else for the institution. If the feed.id for the resource that contains
+the link above is http://example.org/, then the absolute 
+URL is http://example.org/organization/@23. If that organization is in the feed, 
+it would look like this:
+</p>
+<div class="example">
+<pre class="xml">
+   .. feed ..
+  &lt;entry>
+    .. 
+    &lt;id>http://example.org/organization/@23&lt;id>
+    .. 
+
+    &lt;content type="text/xml">
+      &lt;Organization xmlns="http://hl7.org/fhir">
+         &lt;!-- Content for the resource --&gt;
+      &lt;/Organization>
+    &lt;/content>
+  ... feed ...
+</pre>
+</div>
+<p>
+It would also be possible to locate the resource by an absolute url. In this case, 
+the <i>id</i> element contains a direct reference to the location of the resource:
+</p>
+<div class="example">
+<pre class="xml" fragment="ResourceReference">
+  &lt;institution&gt;
+    &lt;type value="Organization" /&gt;
+    &lt;reference value="http://example.org/organization/@23" /&gt;
+  &lt;/institution&gt;
+</pre>
+</div>
+
+<p>
+If there is no resource in the atom feed with an appropriate URL, then 
+the application may try accessing the provided URL directly or use some 
+other implementation-specific method for resolving how to find the resource.
+</p>
+
+<a name="atom-impl"> </a>
+<h2>Implementation Notes</h2>
+<a name="digsig"> </a>
+<ul>
+<li>Atom Feeds may be signed following the rules described in the Atom specification. One consequence of 
+signing the document is that URLs, Identifiers and internal references are frozen and cannot be changed.
+This might be a desired feature, but it may also cripple interoperability between closed eco-systems where
+<a href="implementation.htm#identity">re-identification</a> frequently occurs. For this reason, it is recommended that only Document Bundles
+are signed and then only when all the related resources are found in the bundle.</li>
+<li>
+<a name="Ids"></a>
+FHIR resources make use of id attributes as targets for <a href="formats.htm#idref">internal references with resources</a>. 
+These id attributes are unique and resolved within the context of a single resource. When resources are 
+combined into a bundle, different resources may contain duplicate id attributes. Thus it is important to limit
+the scope of resolution of an id attribute to the resource in which the <i>id</i> attribute is declared.
+</li>
+</ul>
+
+<a name="json-bundles"></a>
+<h3>JSON Bundle Representation</h3>
+
+<p>
+In JSON bundles are represented using a JSON format that is tailored to the specific needs for bundles. 
+Each element in the Xml feed definition has a JSON corresponding JSON object member with the same name. 
+Here is an example feed returning search results for a person query:
+</p>
+
+<pre class="json">
+{
+  &quot;feed&quot; : {
+    &quot;title&quot; : &quot;Search result&quot;,
+    &quot;updated&quot; : &quot;2012-09-20T12:04:45.6787909+00:00&quot;,
+    &quot;id&quot; : &quot;urn:uuid:50ea3e5e-b6a7-4f55-956c-caef491bbc08&quot;,
+    &quot;link&quot; : [{
+      &quot;rel&quot; : &quot;self&quot;,
+	  &quot;href&quot; : &quot;http://ip-0a7a5abe:16287/fhir/person?format=json&quot;
+    }],
+    &quot;category&quot; : [{
+      &quot;term&quot; : &quot;[Tag Uri]&quot;,
+      &quot;label&quot; : &quot;[Tag Label]&quot;,
+      &quot;scheme&quot; : &quot;http://hl7.org/fhir/tag&quot;
+    }],
+    &quot;totalResults&quot; : 12,
+    &quot;entry&quot; : [{
+      &quot;title&quot; : &quot;Resource of type Person, with id = 1 and version = 1&quot;,
+      &quot;link&quot; : [{
+        &quot;rel&quot; : &quot;self&quot;,
+        &quot;href&quot; : &quot;http://fhir.furore.com/fhir/person/@1/history/@1&quot;
+      }],
+      &quot;id&quot; : &quot;http://fhir.furore.com/fhir/person/@1&quot;,
+      &quot;updated&quot; : &quot;2012-05-29T23:45:32+00:00&quot;,
+      &quot;published&quot; : &quot;2012-09-20T12:04:47.3012429+00:00&quot;,
+      &quot;author&quot; : [{
+        &quot;name&quot; : &quot;Grahame Grieve / HL7 publishing committee&quot;
+      }],
+      &quot;category&quot; : [{
+        &quot;term&quot; : &quot;[Tag Uri]&quot;,
+        &quot;label&quot; : &quot;[Tag Label]&quot;,
+        &quot;scheme&quot; : &quot;http://hl7.org/fhir/tag&quot;
+      }],
+      &quot;content&quot; : {
+        &quot;Person&quot; : { ...person content in JSON... }
+      },
+      &quot;summary&quot; : &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;(text summary)&lt;/div&gt;&quot;,
+    },
+    ... other entries ....
+    ]
+  }
+}
+</pre>
+
+<p>
+Note that property names for elements that can repeat are not pluralized for consistency of overall approach. The mime type for a json bundle is also application/fhir+json.
+</p>
+
+<a name="json-bundle-delete"> </a>
+<h4>Bundling versions - deletion</h4>
+<p>
+When returning a set of versions for a resource, a version might indicate a <i>deletion</i>. 
+While the XML format follows <a href="http://www.rfc-editor.org/rfc/rfc6721.txt">RFC 6721</a>,
+the JSON format needs to use an entry item to retain the logical order of entries:</p>
+<pre class="json">
+   .. feed ..
+   &quot;entry&quot; : [
+    ... other entries ....,    
+    {
+      &quot;deleted&quot; : &quot;2012-05-29T23:45:32+00:00&quot;,
+      &quot;id&quot; : &quot;http://fhir.furore.com/fhir/person/@1&quot;,
+      &quot;link&quot; : [{
+          &quot;rel&quot; : &quot;self&quot;,
+          &quot;href&quot; : &quot;http://fhir.furore.com/fhir/person/@1/history/@1&quot;
+        }],
+    }, ... other entries ....
+  ]
+  ... feed ...
+</pre>
+<p>
+The entry is known to be deleted because a date of deletion is given. An id must be provided, and a link may be provided.
+</p>
+
+<a name="binary"> </a>
+<h4>Binary Resources</h4>
+<p>
+There are situations where it is useful or required to handle pure binary content 
+as resources. Typically, this is when the binary content is referred to from other FHIR 
+Resources. The resource can contain any content, whether text, image, pdf, zip archive, etc. 
+These resources are <a href="http.htm#binary">served in their native form on the rest interface</a>,
+but can also be represented in XML or JSON, such as when including these resources in a bundle
+(used when it is convenient to include these in the feed directly rather than leaving them by reference).
+</p>
+<p>
+When binary resources is represented as XML, it is represented as base64 encoded content along 
+with a content-type, which is the mime-type as it would be specified in HTTP:
+</p>
+<pre class="spec">
+ &lt;Binary xmlns="http://hl7.org/fhir" contentType="<span style="color:navy;">[mime type]</span>"&gt;
+   <span style="color:navy;">[Base64 Content]</span>
+ &lt;/Binary&gt;
+</pre>
+<p>
+In JSON, the representation would look like this:
+</p>
+<pre class="json">
+  &quot;Binary&quot; : {
+    &quot;contentType&quot; : &quot;[mime type]&quot;,
+    &quot;content&quot; : &quot;[base64 of data]&quot;
+  }
+</pre>
+<p>
+Binary resources can also be embedded as <a href="resources.htm#contained">contained resources</a>.  
+If there's a desire to capture metadata about a binary object, an appropriate resource type must be used such as
+<a href="documentreference.htm">DocumentReference</a> or <a href="picture.htm">Picture</a>.
+</p>
+
+
+
+<a name="schema"> </a>
+<h2>XML Schema and Schematron</h2>
+<p>
+This specification provides schema definitions for all of the content models described here. 
+The base schema is called "<a href="fhir-base.xsd">fhir-base.xsd</a>" and defines all of the 
+datatypes and also the base infrastructure types described on this page. In addition, there 
+is a schema for each resource and a common schema <a href="fhir-all.xsd">fhir-all.xsd</a> 
+that includes all the resource schemas.  A customized atom schema <a href="fhir-atom.xsd">fhir-atom.xsd</a>
+is provided for validating <a href="#atom">bundles</a>.
+</p>
+<p>
+In addition to the w3c schema files, this specification also provides Schematron files that
+enforce the various constraints defined for the datatypes and resources.  These are packaged
+as files for each resource as well as a combined fhir-atom.sch file
+that incorporates the rules for all resources.
+</p>
+<p>
+XML that is exchanged must be valid against the w3c schema and Schematron, nor is being 
+valid against the schema and Schematron sufficient to be a conformant instance. 
+(This specification makes several rules that cannot be checked by either mechanism.) 
+Exchanged content must not specify the schema or even the schema instance namespace in 
+the resource itself. 
+</p>
+
+<!-- Todo: Relax NG, RDF, eCore -->
+
+
+[%footer%]
+[%/maindiv%]    
+</body>
+</html>

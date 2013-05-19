@@ -1,0 +1,1472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Profile xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/profile.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <pre>
+&lt;<a title="The findings and interpretation of a general lipid lab profile" class="dict" href="#DiagnosticReport">
+          <b>DiagnosticReport</b>
+        </a> xmlns="http://hl7.org/fhir"&gt;
+ <i class="inherited">&lt;<a title="Master Resource Id, always first in all resources" class="dict" href="#DiagnosticReport.id">
+            <b>id</b>
+          </a>&gt;<span style="color: Gray">&lt;!--</span>
+          <span style="color: brown">
+            <b>1..1</b>
+          </span>
+          <span style="color: darkgreen">
+            <a href="datatypes.htm#id">id</a>
+          </span>
+          <span style="color: navy">Master Resource Id, always first in all resources</span>
+          <span style="color: Gray"> --&gt;</span>&lt;/id&gt;</i>
+        <i class="inherited">&lt;<a title="The status of the pathology test result as a whole" class="dict" href="#DiagnosticReport.status">
+            <b>status</b>
+          </a>&gt;<span style="color: Gray">&lt;!--</span>
+          <span style="color: brown">
+            <b>1..1</b>
+          </span>
+          <span style="color: darkgreen">
+            <a href="datatypes.htm#code">code</a>
+          </span>
+          <span style="color: navy">registered|interim|final|amended|cancelled|withdrawn</span>
+          <span style="color: Gray"> --&gt;</span>&lt;/status&gt;</i>
+        <i class="inherited">&lt;<a title="The date and/or time that the result was issued from the source for the recorded â€˜Test result status" class="dict" href="#DiagnosticReport.issued">
+            <b>issued</b>
+          </a>&gt;<span style="color: Gray">&lt;!--</span>
+          <span style="color: brown">
+            <b>1..1</b>
+          </span>
+          <span style="color: darkgreen">
+            <a href="datatypes.htm#instant">instant</a>
+          </span>
+          <span style="color: navy">date issed for current status</span>
+          <span style="color: Gray"> --&gt;</span>&lt;/issued&gt;</i>
+        <i class="inherited">&lt;<a title="The patient about who the report is about" class="dict" href="#DiagnosticReport.patient">
+            <b>patient</b>
+          </a>&gt;<span style="color: Gray">&lt;!--</span>
+          <span style="color: brown">
+            <b>1..1</b>
+          </span>
+          <span style="color: darkgreen">
+            <a href="resources.htm#Resource">Resource</a>(<a href="Patient.htm#Patient">Patient</a>)</span>
+          <span style="color: navy">The patient the report is about</span>
+          <span style="color: Gray"> --&gt;</span>&lt;/patient&gt;</i>
+        <i class="inherited">&lt;<a title="The admission that this diagnostic investigation is associated with" class="dict" href="#DiagnosticReport.admission">
+            <b>admission</b>
+          </a>&gt;<span style="color: Gray">&lt;!--</span>
+          <span style="color: brown">
+            <b>0..1</b>
+          </span>
+          <span style="color: darkgreen">
+            <a href="resources.htm#Resource">Resource</a>(<a href="Admission.htm#Admission">Admission</a>)</span>
+          <span style="color: navy">Admission Context</span>
+          <span style="color: Gray"> --&gt;</span>&lt;/admission&gt;</i>
+        <i class="inherited">&lt;<a title="The laboratory service that issued the report" class="dict" href="#DiagnosticReport.laboratory">
+            <b>laboratory</b>
+          </a>&gt;<span style="color: Gray">&lt;!--</span>
+          <span style="color: brown">
+            <b>1..1</b>
+          </span>
+          <span style="color: darkgreen">
+            <a href="resources.htm#Resource">Resource</a>(<a href="Organization.htm#Organization">Organization</a>)</span>
+          <span style="color: navy">Responsible Laboratory</span>
+          <span style="color: Gray"> --&gt;</span>&lt;/laboratory&gt;</i>
+        <i class="inherited">&lt;<a title="The local ID assigned to the report by the order filler, usually by the Laboratory Information System (LIS)." class="dict" href="#DiagnosticReport.reportId">
+            <b>reportId</b>
+          </a>&gt;<span style="color: Gray">&lt;!--</span>
+          <span style="color: brown">
+            <b>0..1</b>
+          </span>
+          <span style="color: darkgreen">
+            <a href="datatypes.htm#Identifier">Identifier</a>
+          </span>
+          <span style="color: navy">Id for external references to this report</span>
+          <span style="color: Gray"> --&gt;</span>&lt;/reportId&gt;</i>
+        <i class="inherited">&lt;<a title="Details concerning a single pathology test requested." class="dict" href="#DiagnosticReport.requestDetail">
+            <b>requestDetail</b>
+          </a>&gt;  <span style="color: Gray">&lt;!-- <span style="color: brown">
+              <b>0..*</b>
+            </span> What was requested --&gt;</span>
+          <i class="inherited">&lt;<a title="The local ID assigned to the order by the order requester." class="dict" href="#DiagnosticReport.requestDetail.requestOrderId">
+              <b>requestOrderId</b>
+            </a>&gt;<span style="color: Gray">&lt;!--</span>
+            <span style="color: brown">
+              <b>0..1</b>
+            </span>
+            <span style="color: darkgreen">
+              <a href="datatypes.htm#Identifier">Identifier</a>
+            </span>
+            <span style="color: navy">Id assigned by requester</span>
+            <span style="color: Gray"> --&gt;</span>&lt;/requestOrderId&gt;</i>
+          <i class="inherited">&lt;<a title="The local ID assigned to the test order by the order filler, usually by the Laboratory Information System (LIS)." class="dict" href="#DiagnosticReport.requestDetail.receiverOrderId">
+              <b>receiverOrderId</b>
+            </a>&gt;<span style="color: Gray">&lt;!--</span>
+            <span style="color: brown">
+              <b>0..1</b>
+            </span>
+            <span style="color: darkgreen">
+              <a href="datatypes.htm#Identifier">Identifier</a>
+            </span>
+            <span style="color: navy">Receiver's Id for the request</span>
+            <span style="color: Gray"> --&gt;</span>&lt;/receiverOrderId&gt;</i>
+          <i class="inherited">&lt;<a title="Identification of pathology test requested," class="dict" href="#DiagnosticReport.requestDetail.requestTest">
+              <b>requestTest</b>
+            </a>&gt;<span style="color: Gray">&lt;!--</span>
+            <span style="color: brown">
+              <b>0..*</b>
+            </span>
+            <span style="color: darkgreen">
+              <a href="datatypes.htm#CodeableConcept">CodeableConcept</a>
+            </span>
+            <span style="color: navy">Test Requested</span>
+            <span style="color: Gray"> --&gt;</span>&lt;/requestTest&gt;</i>
+          <i class="inherited">&lt;<a title="Details of the clinician or organization requesting the laboratory test." class="dict" href="#DiagnosticReport.requestDetail.requester">
+              <b>requester</b>
+            </a>&gt;<span style="color: Gray">&lt;!--</span>
+            <span style="color: brown">
+              <b>0..1</b>
+            </span>
+            <span style="color: darkgreen">
+              <a href="resources.htm#Resource">Resource</a>(<a href="Practitioner.htm#Practitioner">Practitioner</a>|<a href="Organization.htm#Organization">Organization</a>)</span>
+            <span style="color: navy">Responsible for request</span>
+            <span style="color: Gray"> --&gt;</span>&lt;/requester&gt;</i>
+          <i class="inherited">&lt;<a title="Details of the clinical information provided to the laboratory along with the original request" class="dict" href="#DiagnosticReport.requestDetail.clinicalInfo">
+              <b>clinicalInfo</b>
+            </a>&gt;<span style="color: Gray">&lt;!--</span>
+            <span style="color: brown">
+              <b>0..1</b>
+            </span>
+            <span style="color: darkgreen">
+              <a href="resources.htm#Resource">Resource</a>(<a href="Any.htm#Any">Any</a>)</span>
+            <span style="color: navy">Clinical information provided</span>
+            <span style="color: Gray"> --&gt;</span>&lt;/clinicalInfo&gt;</i>
+ &lt;/requestDetail&gt;</i>
+ &lt;<a title="LOINC Code for Lipid Report with LDL (this element must be supported or understood)" class="dict" href="#DiagnosticReport.reportName">
+          <span style="text-decoration: underline">reportName</span>
+        </a>&gt;
+   &lt;coding&gt;
+     &lt;code&gt;57698-3&lt;/code&gt;
+     &lt;system&gt;http://LOINC.org&lt;/system&gt;
+     &lt;display&gt;Lipid panel with direct LDL&lt;/display&gt;
+   &lt;/coding&gt;
+ &lt;reportName/&gt;
+ <i class="inherited">&lt;<a title="The diagnostic service that performs the examination e.g. biochemistry, hematology." class="dict" href="#DiagnosticReport.service">
+            <b>service</b>
+          </a>&gt;<span style="color: Gray">&lt;!--</span>
+          <span style="color: brown">
+            <b>0..1</b>
+          </span>
+          <span style="color: darkgreen">
+            <a href="datatypes.htm#CodeableConcept">CodeableConcept</a>
+          </span>
+          <span style="color: navy">Biochemistry, Hematology, etc.</span>
+          <span style="color: Gray"> --&gt;</span>&lt;/service&gt;</i>
+        <i class="inherited">&lt;<a title="The diagnostically relevant time for this report" class="dict" href="#DiagnosticReport.diagnosticTime">
+            <b>diagnosticTime</b>
+          </a>&gt;<span style="color: Gray">&lt;!--</span>
+          <span style="color: brown">
+            <b>1..1</b>
+          </span>
+          <span style="color: darkgreen">
+            <a href="datatypes.htm#dateTime">dateTime</a>
+          </span>
+          <span style="color: navy">Effective time of diagnostic report</span>
+          <span style="color: Gray"> --&gt;</span>&lt;/diagnosticTime&gt;</i>
+        <i class="inherited">&lt;<a title="Details about the specimen if all individual test results are derived from the same specimen" class="dict" href="#DiagnosticReport.specimen">
+            <b>specimen</b>
+          </a>&gt;<span style="color: Gray">&lt;!--</span>
+          <span style="color: brown">
+            <b>0..*</b>
+          </span>
+          <span style="color: darkgreen">
+            <a href="resources.htm#Resource">Resource</a>(<a href="Specimen.htm#Specimen">Specimen</a>)</span>
+          <span style="color: navy">Specimen (incl. time of collection)</span>
+          <span style="color: Gray"> --&gt;</span>&lt;/specimen&gt;</i>
+ &lt;<a title="All the lipid panel results (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup">
+          <span style="text-decoration: underline">
+            <b>resultGroup</b>
+          </span>
+        </a>
+  &lt;<a title="No name needed for the result group (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.name">
+          <span style="text-decoration: underline">
+            <b>name</b>
+          </span>
+        </a>
+        <span style="color: brown">
+          <b>0..0</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="datatypes.htm#CodeableConcept">CodeableConcept</a>
+        </span>
+        <span style="color: navy">No name needed for the result group</span>
+        <span style="color: Gray"> --&gt;</span>&lt;/name&gt;
+  <i class="inherited">&lt;<a title="Details about the individual specimen to which these â€˜Result groupâ€™ test results refer, where testing of multiple specimens is required." class="dict" href="#DiagnosticReport.resultGroup.specimen">
+            <b>specimen</b>
+          </a>&gt;<span style="color: Gray">&lt;!--</span>
+          <span style="color: brown">
+            <b>0..1</b>
+          </span>
+          <span style="color: darkgreen">
+            <a href="resources.htm#Resource">Resource</a>(<a href="Specimen.htm#Specimen">Specimen</a>)</span>
+          <span style="color: navy">Specimen details</span>
+          <span style="color: Gray"> --&gt;</span>&lt;/specimen&gt;</i>
+  &lt;<a title="Group of elements for Cholesterol result (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result">
+          <span style="text-decoration: underline">
+            <b>result</b>
+          </span>
+        </a>
+        <span style="color: blue">"Cholesterol Group"</span>
+        <span style="color: Gray"> --&gt;</span>
+        <span style="color: Gray">&lt;!-- Cholesterol Result --&gt;</span>
+   &lt;<a title="Cholesterol (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.name">
+          <span style="text-decoration: underline">name</span>
+        </a>&gt;
+     &lt;coding&gt;
+       &lt;code&gt;35200-5&lt;/code&gt;
+       &lt;system&gt;http://LOINC.org&lt;/system&gt;
+       &lt;display&gt;Cholesterol&lt;/display&gt;
+     &lt;/coding&gt;
+   &lt;name/&gt;
+   &lt;<a title="Cholesterol value. If a result is not available, use the comments field (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.valueQuantity">
+          <span style="text-decoration: underline">
+            <b>valueQuantity</b>
+          </span>
+        </a>
+        <span style="color: brown">
+          <b>0..1</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="datatypes.htm#Quantity">Quantity</a>
+        </span>
+        <span style="color: navy">Cholesterol value</span>
+        <span style="color: Gray"> --&gt;</span>&lt;/valueQuantity&gt;
+   &lt;<a title="+ | ++ | +++ | - | -- | ---  (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.flag">
+          <span style="text-decoration: underline">
+            <b>flag</b>
+          </span>
+        </a>
+        <span style="color: brown">
+          <b>0..1</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="datatypes.htm#code">code</a>
+        </span>
+        <span style="color: navy">+ | ++ | +++ | - | -- | --- </span>
+        <span style="color: Gray"> --&gt;</span>&lt;/flag&gt;
+   <i class="inherited">&lt;<a title="The status of the result value" class="dict" href="#DiagnosticReport.resultGroup.result.status">
+            <b>status</b>
+          </a>&gt;<span style="color: Gray">&lt;!--</span>
+          <span style="color: brown">
+            <b>1..1</b>
+          </span>
+          <span style="color: darkgreen">
+            <a href="datatypes.htm#code">code</a>
+          </span>
+          <span style="color: navy">Registered|Interim|Final|Amended|Cancelled|Withdrawn</span>
+          <span style="color: Gray"> --&gt;</span>&lt;/status&gt;</i>
+   &lt;<a title="May include statements about significant, unexpected or unreliable. values, or information about the source of the value where this may be relevant to the interpretation of the result. (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.comments">
+          <span style="text-decoration: underline">
+            <b>comments</b>
+          </span>
+        </a>
+        <span style="color: brown">
+          <b>0..1</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="datatypes.htm#string">string</a>
+        </span>
+        <span style="color: navy">Comments about result</span>
+        <span style="color: Gray"> --&gt;</span>&lt;/comments&gt;
+   &lt;<a title="Guide for interpretation (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.referenceRange">
+          <span style="text-decoration: underline">
+            <b>referenceRange</b>
+          </span>
+        </a>
+    &lt;<a title="Range is a recommended range" class="dict" href="#DiagnosticReport.resultGroup.result.referenceRange.meaning">
+          <b>meaning</b>
+        </a>
+        <span style="color: brown">
+          <b>0..0</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="datatypes.htm#CodeableConcept">CodeableConcept</a>
+        </span>
+        <span style="color: navy">Range is a recommended range</span>
+        <span style="color: Gray"> --&gt;</span>&lt;/meaning&gt;
+    &lt;<a title="&lt;4.5 mmol/L" class="dict" href="#DiagnosticReport.resultGroup.result.referenceRange.rangeQuantity">rangeQuantity</a>&gt;
+      &lt;value&gt;4.5&lt;/value&gt;
+      &lt;status&gt;&amp;lt;&lt;/status&gt;
+      &lt;units&gt;mmol/L&lt;/units&gt;
+      &lt;code&gt;mmol/L&lt;/code&gt;
+      &lt;system&gt;http://unitsofmeasure.org&lt;/system&gt;
+    &lt;rangeQuantity/&gt;
+   &lt;/referenceRange&gt;
+  &lt;/result&gt;
+  &lt;<a title="Group of elements for Triglyceride result (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result">
+          <span style="text-decoration: underline">
+            <b>result</b>
+          </span>
+        </a>
+        <span style="color: blue">"Triglyceride Group"</span>
+        <span style="color: Gray"> --&gt;</span>
+        <span style="color: Gray">&lt;!-- Triglyceride Result --&gt;</span>
+   &lt;<a title="Triglyceride (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.name">
+          <span style="text-decoration: underline">name</span>
+        </a>&gt;
+     &lt;coding&gt;
+       &lt;code&gt;35217-9&lt;/code&gt;
+       &lt;system&gt;http://LOINC.org&lt;/system&gt;
+       &lt;display&gt;Triglyceride&lt;/display&gt;
+     &lt;/coding&gt;
+   &lt;name/&gt;
+   &lt;<a title="Triglyceride value. If a result is not available, use the comments field (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.valueQuantity">
+          <span style="text-decoration: underline">
+            <b>valueQuantity</b>
+          </span>
+        </a>
+        <span style="color: brown">
+          <b>0..1</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="datatypes.htm#Quantity">Quantity</a>
+        </span>
+        <span style="color: navy">Triglyceride value</span>
+        <span style="color: Gray"> --&gt;</span>&lt;/valueQuantity&gt;
+   &lt;<a title="+ | ++ | +++ | - | -- | ---  (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.flag">
+          <span style="text-decoration: underline">
+            <b>flag</b>
+          </span>
+        </a>
+        <span style="color: brown">
+          <b>0..1</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="datatypes.htm#code">code</a>
+        </span>
+        <span style="color: navy">+ | ++ | +++ | - | -- | --- </span>
+        <span style="color: Gray"> --&gt;</span>&lt;/flag&gt;
+   &lt;<a title="Comments about result (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.comments">
+          <span style="text-decoration: underline">
+            <b>comments</b>
+          </span>
+        </a>
+        <span style="color: brown">
+          <b>0..1</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="datatypes.htm#string">string</a>
+        </span>
+        <span style="color: navy">Comments about result</span>
+        <span style="color: Gray"> --&gt;</span>&lt;/comments&gt;
+   &lt;<a title="Guide for interpretation (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.referenceRange">
+          <span style="text-decoration: underline">
+            <b>referenceRange</b>
+          </span>
+        </a>
+    &lt;<a title="Range is a recommended range" class="dict" href="#DiagnosticReport.resultGroup.result.referenceRange.meaning">
+          <b>meaning</b>
+        </a>
+        <span style="color: brown">
+          <b>0..0</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="datatypes.htm#CodeableConcept">CodeableConcept</a>
+        </span>
+        <span style="color: navy">Range is a recommended range</span>
+        <span style="color: Gray"> --&gt;</span>&lt;/meaning&gt;
+    &lt;<a title="&lt;2.0 mmol/L" class="dict" href="#DiagnosticReport.resultGroup.result.referenceRange.rangeQuantity">rangeQuantity</a>&gt;
+      &lt;value&gt;2.0&lt;/value&gt;
+      &lt;status&gt;&amp;lt;&lt;/status&gt;
+      &lt;units&gt;mmol/L&lt;/units&gt;
+      &lt;code&gt;mmol/L&lt;/code&gt;
+      &lt;system&gt;http://unitsofmeasure.org&lt;/system&gt;
+    &lt;rangeQuantity/&gt;
+   &lt;/referenceRange&gt;
+  &lt;/result&gt;
+  &lt;<a title="Group of elements for HDL Cholesterol result (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result">
+          <span style="text-decoration: underline">
+            <b>result</b>
+          </span>
+        </a>
+        <span style="color: blue">"HDL Cholesteral Group"</span>
+        <span style="color: Gray"> --&gt;</span>
+        <span style="color: Gray">&lt;!-- HDL Cholesterol Result --&gt;</span>
+   &lt;<a title="HDL Cholesterol (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.name">
+          <span style="text-decoration: underline">name</span>
+        </a>&gt;
+     &lt;coding&gt;
+       &lt;code&gt;2085-9&lt;/code&gt;
+       &lt;system&gt;http://LOINC.org&lt;/system&gt;
+       &lt;display&gt;Cholesterol.in HDL&lt;/display&gt;
+     &lt;/coding&gt;
+   &lt;name/&gt;
+   &lt;<a title="HDL Cholesterol value. If a result is not available, use the comments field (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.valueQuantity">
+          <span style="text-decoration: underline">
+            <b>valueQuantity</b>
+          </span>
+        </a>
+        <span style="color: brown">
+          <b>0..1</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="datatypes.htm#Quantity">Quantity</a>
+        </span>
+        <span style="color: navy">HDL Cholesterol value</span>
+        <span style="color: Gray"> --&gt;</span>&lt;/valueQuantity&gt;
+   &lt;<a title="+ | ++ | +++ | - | -- | ---  (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.flag">
+          <span style="text-decoration: underline">
+            <b>flag</b>
+          </span>
+        </a>
+        <span style="color: brown">
+          <b>0..1</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="datatypes.htm#code">code</a>
+        </span>
+        <span style="color: navy">+ | ++ | +++ | - | -- | --- </span>
+        <span style="color: Gray"> --&gt;</span>&lt;/flag&gt;
+   &lt;<a title="Comments about result (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.comments">
+          <span style="text-decoration: underline">
+            <b>comments</b>
+          </span>
+        </a>
+        <span style="color: brown">
+          <b>0..1</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="datatypes.htm#string">string</a>
+        </span>
+        <span style="color: navy">Comments about result</span>
+        <span style="color: Gray"> --&gt;</span>&lt;/comments&gt;
+   &lt;<a title="Guide for interpretation (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.referenceRange">
+          <span style="text-decoration: underline">
+            <b>referenceRange</b>
+          </span>
+        </a>
+    &lt;<a title="Range is a recommended range" class="dict" href="#DiagnosticReport.resultGroup.result.referenceRange.meaning">
+          <b>meaning</b>
+        </a>
+        <span style="color: brown">
+          <b>0..0</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="datatypes.htm#CodeableConcept">CodeableConcept</a>
+        </span>
+        <span style="color: navy">Range is a recommended range</span>
+        <span style="color: Gray"> --&gt;</span>&lt;/meaning&gt;
+    &lt;<a title="" href="#DiagnosticReport.resultGroup.result.referenceRange.rangeQuantity">1.5 mmol/L" class="dict"&gt;rangeQuantity</a>&gt;
+      &lt;value&gt;1.5&lt;/value&gt;
+      &lt;status&gt;&gt;&lt;/status&gt;
+      &lt;units&gt;mmol/L&lt;/units&gt;
+      &lt;code&gt;mmol/L&lt;/code&gt;
+      &lt;system&gt;http://unitsofmeasure.org&lt;/system&gt;
+    &lt;rangeQuantity/&gt;
+   &lt;/referenceRange&gt;
+  &lt;/result&gt;
+  &lt;<a title="LDL Cholesterol result, if reported (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result">
+          <span style="text-decoration: underline">
+            <b>result</b>
+          </span>
+        </a>
+        <span style="color: blue">"LDL Cholesteral Group"</span>
+        <span style="color: Gray"> --&gt;</span>
+        <span style="color: Gray">&lt;!-- LDL Cholesterol result, if reported --&gt;</span>
+   &lt;<a title="Group of elements for LDL Cholesterol. LOINC code defines whether LDL is measured or calculated (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.name">
+          <span style="text-decoration: underline">
+            <b>name</b>
+          </span>
+        </a>
+        <span style="color: brown">
+          <b>1..1</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="datatypes.htm#CodeableConcept">CodeableConcept</a>
+        </span>
+        <span style="color: navy">LDL Cholesterol. LOINC code defines measured or calc</span>
+        <span style="color: Gray"> --&gt;</span>&lt;/name&gt;
+   &lt;<a title="LDL Cholesterol value. If a result is not available, use the comments field (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.valueQuantity">
+          <span style="text-decoration: underline">
+            <b>valueQuantity</b>
+          </span>
+        </a>
+        <span style="color: brown">
+          <b>0..1</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="datatypes.htm#Quantity">Quantity</a>
+        </span>
+        <span style="color: navy">LDL Cholesterol value</span>
+        <span style="color: Gray"> --&gt;</span>&lt;/valueQuantity&gt;
+   &lt;<a title="+ | ++ | +++ | - | -- | ---  (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.flag">
+          <span style="text-decoration: underline">
+            <b>flag</b>
+          </span>
+        </a>
+        <span style="color: brown">
+          <b>0..1</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="datatypes.htm#code">code</a>
+        </span>
+        <span style="color: navy">+ | ++ | +++ | - | -- | --- </span>
+        <span style="color: Gray"> --&gt;</span>&lt;/flag&gt;
+   &lt;<a title="Comments about result (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.comments">
+          <span style="text-decoration: underline">
+            <b>comments</b>
+          </span>
+        </a>
+        <span style="color: brown">
+          <b>0..1</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="datatypes.htm#string">string</a>
+        </span>
+        <span style="color: navy">Comments about result</span>
+        <span style="color: Gray"> --&gt;</span>&lt;/comments&gt;
+   &lt;<a title="Guide for interpretation (this element must be supported or understood)" class="dict" href="#DiagnosticReport.resultGroup.result.referenceRange">
+          <span style="text-decoration: underline">
+            <b>referenceRange</b>
+          </span>
+        </a>
+    &lt;<a title="Range is a recommended range" class="dict" href="#DiagnosticReport.resultGroup.result.referenceRange.meaning">
+          <b>meaning</b>
+        </a>
+        <span style="color: brown">
+          <b>0..0</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="datatypes.htm#CodeableConcept">CodeableConcept</a>
+        </span>
+        <span style="color: navy">Range is a recommended range</span>
+        <span style="color: Gray"> --&gt;</span>&lt;/meaning&gt;
+    &lt;<a title="&lt;3.0 mmol/L" class="dict" href="#DiagnosticReport.resultGroup.result.referenceRange.rangeQuantity">rangeQuantity</a>&gt;
+      &lt;value&gt;3.0&lt;/value&gt;
+      &lt;status&gt;&amp;lt;&lt;/status&gt;
+      &lt;units&gt;mmol/L&lt;/units&gt;
+      &lt;code&gt;mmol/L&lt;/code&gt;
+      &lt;system&gt;http://unitsofmeasure.org&lt;/system&gt;
+    &lt;rangeQuantity/&gt;
+   &lt;/referenceRange&gt;
+  &lt;/result&gt;
+ &lt;/resultGroup&gt;
+ &lt;<a title="May include diagnosis or suggestions for follow up testing (this element must be supported or understood)" class="dict" href="#DiagnosticReport.conclusion">
+          <span style="text-decoration: underline">
+            <b>conclusion</b>
+          </span>
+        </a>
+        <span style="color: brown">
+          <b>0..1</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="Narrative.htm#Narrative">Narrative</a>
+        </span>
+        <span style="color: navy">Clinical Interpretation of Lipid Panel</span>
+        <span style="color: Gray"> --&gt;</span>&lt;/conclusion&gt;
+ &lt;<a title="Codes for the conclusion" class="dict" href="#DiagnosticReport.codedDiagnosis">
+          <b>codedDiagnosis</b>
+        </a>
+        <span style="color: brown">
+          <b>0..0</b>
+        </span>
+        <span style="color: darkgreen">
+          <a href="datatypes.htm#CodeableConcept">CodeableConcept</a>
+        </span>
+        <span style="color: navy">Codes for the conclusion</span>
+        <span style="color: Gray"> --&gt;</span>&lt;/codedDiagnosis&gt;
+ <i class="inherited">&lt;<a title="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they must be semantically equivalent." class="dict" href="#DiagnosticReport.representation">
+            <b>representation</b>
+          </a>&gt;<span style="color: Gray">&lt;!--</span>
+          <span style="color: brown">
+            <b>0..*</b>
+          </span>
+          <span style="color: darkgreen">
+            <a href="datatypes.htm#Attachment">Attachment</a>
+          </span>
+          <span style="color: navy">Entire Report as issued</span>
+          <span style="color: Gray"> --&gt;</span>&lt;/representation&gt;</i>
+        <i class="inherited">&lt;<a title="See Extensions" class="dict" href="#DiagnosticReport.extension">
+            <b>extension</b>
+          </a>&gt;<span style="color: Gray">&lt;!--</span>
+          <a href="extensibility.htm">
+            <span style="color: navy">See Extensions</span>
+          </a>
+          <span style="color: Gray"> --&gt;</span>&lt;/extension&gt;</i>
+        <i class="inherited">&lt;<a title="Text summary of report, for human interpretation" class="dict" href="#DiagnosticReport.text">
+            <b>text</b>
+          </a>&gt;<span style="color: Gray">&lt;!--</span>
+          <span style="color: brown">
+            <b>1..1</b>
+          </span>
+          <span style="color: darkgreen">
+            <a href="Narrative.htm#Narrative">Narrative</a>
+          </span>
+          <span style="color: navy">Text summary of report, for human interpretation</span>
+          <span style="color: Gray"> --&gt;</span>&lt;/text&gt;</i>
+&lt;/DiagnosticReport&gt;
+</pre>
+    </div>
+  </text>
+  <name value="Lipid Profile"/>
+  <publisher value="Grahame Grieve"/>
+  <telecom>
+    <system value="email"/>
+    <value value="grahame@healthintersections.com.au"/>
+  </telecom>
+  <description value="Describes how the lab report is used for a standard Lipid Profile - Cholesterol, Triglyceride and Cholesterol fractions. Uses LOINC codes"/>
+  <status>
+    <code value="testing"/>
+    <date value="2012-05-12"/>
+    <comment value="Sample, never intended for real use"/>
+  </status>
+  <structure>
+    <type value="Resource"/>
+    <name value="Lipids"/>
+    <element>
+      <path value="DiagnosticReport"/>
+      <name value="Lipids"/>
+      <definition>
+        <short value="Lipid Lab Report"/>
+        <formal value="The findings and interpretation of a general lipid lab profile"/>
+        <comments value="Not to be used for reporting on non-pathology test results e.g. diagnostic imaging, ECG or respiratory function tests. Not to be used to represent an entire cumulative report. This Pathology test result archetype represents only one of the result sets that is usually viewed as a vertical in a cumulative test report. A cumulative report is a view that is constructed from the results represented by multiple OBSERVATION archetypes. This archetype is suitable for representation of general pathology test results, but not intended to cover full synoptic reports. For these, additional resources are required to represent the data properly"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="Resource"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.id"/>
+      <definition>
+        <short value="Master Resource Id, always first in all resources"/>
+        <formal value="Master Resource Id, always first in all resources"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="id"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.status"/>
+      <definition>
+        <short value="registered|interim|final|amended|cancelled|withdrawn"/>
+        <formal value="The status of the pathology test result as a whole"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="code"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+        <binding value="LabReportStatus"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.issued"/>
+      <definition>
+        <short value="date issed for current status"/>
+        <formal value="The date and/or time that the result was issued from the source for the recorded Test result status"/>
+        <comments value="May be different from DiagnosticReport.updated, because that is the status of this record, not the report the record is about"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="instant"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.patient"/>
+      <definition>
+        <short value="The patient the report is about"/>
+        <formal value="The patient about who the report is about"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="Resource(Patient)"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.admission"/>
+      <definition>
+        <short value="Admission Context"/>
+        <formal value="The admission that this diagnostic investigation is associated with"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Resource(Admission)"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.laboratory"/>
+      <definition>
+        <short value="Responsible Laboratory"/>
+        <formal value="The laboratory service that issued the report"/>
+        <comments value="This is not necessarily the source of the atomic reports - it's the lab that takes responsibility for the clinical report"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="Resource(Organization)"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.reportId"/>
+      <definition>
+        <short value="Id for external references to this report"/>
+        <formal value="The local ID assigned to the report by the order filler, usually by the Laboratory Information System (LIS)."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Identifier"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.requestDetail"/>
+      <definition>
+        <short value="What was requested"/>
+        <formal value="Details concerning a single pathology test requested."/>
+        <comments value="Note: Usually there is one test request for each result, however in some circumstances multiple test requests may be represented using a single Pathology test result resource"/>
+        <min value="0"/>
+        <max value="*"/>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.requestDetail.requestOrderId"/>
+      <definition>
+        <short value="Id assigned by requester"/>
+        <formal value="The local ID assigned to the order by the order requester."/>
+        <comments value="Equivalent to the Placer Order Identifier"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Identifier"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.requestDetail.receiverOrderId"/>
+      <definition>
+        <short value="Receiver's Id for the request"/>
+        <formal value="The local ID assigned to the test order by the order filler, usually by the Laboratory Information System (LIS)."/>
+        <comments value="Usually equivalent to the DICOM Accession Number and the Filler Order Identifier."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Identifier"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.requestDetail.requestTest"/>
+      <definition>
+        <short value="Test Requested"/>
+        <formal value="Identification of pathology test requested,"/>
+        <comments value="Useful where the test requested differs from the test actually performed."/>
+        <min value="0"/>
+        <max value="*"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+        <binding value="LabRequests"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.requestDetail.requester"/>
+      <definition>
+        <short value="Responsible for request"/>
+        <formal value="Details of the clinician or organization requesting the laboratory test."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Resource(Practitioner|Organization)"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.requestDetail.clinicalInfo"/>
+      <definition>
+        <short value="Clinical information provided"/>
+        <formal value="Details of the clinical information provided to the laboratory along with the original request"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Resource(Any)"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.reportName"/>
+      <definition>
+        <short value="LOINC Code for Lipid Report with LDL"/>
+        <formal value="LOINC Code for Lipid Report with LDL"/>
+        <comments value="LOINC code includes &#34;direct&#34; LDL - does this mean LDL derived by measuring VLDL by ultracentrifugation? This panel includes both measured and calculated LDL"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+        <binding value="LabReportNames"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.service"/>
+      <definition>
+        <short value="Biochemistry, Hematology, etc."/>
+        <formal value="The diagnostic service that performs the examination e.g. biochemistry, hematology."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+        <binding value="LabServices"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.diagnosticTime"/>
+      <definition>
+        <short value="Effective time of diagnostic report"/>
+        <formal value="The diagnostically relevant time for this report"/>
+        <comments value="The diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship is not always automatic"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="dateTime"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.specimen"/>
+      <definition>
+        <short value="Specimen (incl. time of collection)"/>
+        <formal value="Details about the specimen if all individual test results are derived from the same specimen"/>
+        <comments value="If the specimen is sufficiently specified with a code in the Test result name, then this additional data may be redundant. If there are multiple specimens, these may be represented per 'Result group'"/>
+        <min value="0"/>
+        <max value="*"/>
+        <type>
+          <code value="Resource(Specimen)"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup"/>
+      <definition>
+        <short value="All the results in one group"/>
+        <formal value="All the lipid panel results"/>
+        <comments value="Many (most) lab reports don't really have a meaningful group. In these cases, just create a single group with no specimen or name"/>
+        <min value="1"/>
+        <max value="1"/>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.name"/>
+      <definition>
+        <short value="No name needed for the result group"/>
+        <formal value="No name needed for the result group"/>
+        <comments value="For example, the antibody code for a goup of antibody related test, or the organism code for a group of isolate/sensitivities. Leave blank if there is no particular meaning associated with the group"/>
+        <min value="0"/>
+        <max value="0"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+        <binding value="LabResultGroupNames"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.specimen"/>
+      <definition>
+        <short value="Specimen details"/>
+        <formal value="Details about the individual specimen to which these Result group test results refer, where testing of multiple specimens is required."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Resource(Specimen)"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result"/>
+      <name value="Cholesterol Group"/>
+      <definition>
+        <short value="Cholesterol Result"/>
+        <formal value="Group of elements for Cholesterol result"/>
+        <min value="1"/>
+        <max value="1"/>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.name"/>
+      <definition>
+        <short value="Cholesterol"/>
+        <formal value="Cholesterol"/>
+        <comments value="results are fundamentally a name - value pair with additional clarifying information"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+        <binding value="LabResultNames"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.value[x]"/>
+      <definition>
+        <short value="Cholesterol value"/>
+        <formal value="Cholesterol value. If a result is not available, use the comments field"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Quantity"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.flag"/>
+      <definition>
+        <short value="+ | ++ | +++ | - | -- | --- "/>
+        <formal value="+ | ++ | +++ | - | -- | --- "/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="code"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+        <binding value="LabResultFlag"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.status"/>
+      <definition>
+        <short value="Registered|Interim|Final|Amended|Cancelled|Withdrawn"/>
+        <formal value="The status of the result value"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="code"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+        <binding value="LabReportStatus"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.comments"/>
+      <definition>
+        <short value="Comments about result"/>
+        <formal value="May include statements about significant, unexpected or unreliable. values, or information about the source of the value where this may be relevant to the interpretation of the result."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="string"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.referenceRange"/>
+      <definition>
+        <short value="Guide for interpretation"/>
+        <formal value="Guide for interpretation"/>
+        <comments value="Most results only have one reference range. Some non-numerical results don't have a reference range"/>
+        <min value="1"/>
+        <max value="1"/>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.referenceRange.meaning"/>
+      <definition>
+        <short value="Range is a recommended range"/>
+        <formal value="Range is a recommended range"/>
+        <comments value="yeah, so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code…"/>
+        <min value="0"/>
+        <max value="0"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+        <binding value="LabReferenceRanges"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.referenceRange.range[x]"/>
+      <definition>
+        <short value="Reference"/>
+        <formal value="&lt;4.5 mmol/L"/>
+        <comments value="Per Australian NHF Recommendations"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="Quantity"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result"/>
+      <name value="Triglyceride Group"/>
+      <definition>
+        <short value="Triglyceride Result"/>
+        <formal value="Group of elements for Triglyceride result"/>
+        <min value="1"/>
+        <max value="1"/>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.name"/>
+      <definition>
+        <short value="Triglyceride"/>
+        <formal value="Triglyceride"/>
+        <comments value="results are fundamentally a name - value pair with additional clarifying information"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+        <binding value="LabResultNames"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.value[x]"/>
+      <definition>
+        <short value="Triglyceride value"/>
+        <formal value="Triglyceride value. If a result is not available, use the comments field"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Quantity"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.flag"/>
+      <definition>
+        <short value="+ | ++ | +++ | - | -- | --- "/>
+        <formal value="+ | ++ | +++ | - | -- | --- "/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="code"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+        <binding value="LabResultFlag"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.comments"/>
+      <definition>
+        <short value="Comments about result"/>
+        <formal value="Comments about result"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="string"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.referenceRange"/>
+      <definition>
+        <short value="Guide for interpretation"/>
+        <formal value="Guide for interpretation"/>
+        <comments value="Most results only have one reference range. Some non-numerical results don't have a reference range"/>
+        <min value="1"/>
+        <max value="1"/>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.referenceRange.meaning"/>
+      <definition>
+        <short value="Range is a recommended range"/>
+        <formal value="Range is a recommended range"/>
+        <comments value="see note above"/>
+        <min value="0"/>
+        <max value="0"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+        <binding value="LabReferenceRanges"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.referenceRange.range[x]"/>
+      <definition>
+        <short value="Reference"/>
+        <formal value="&lt;2.0 mmol/L"/>
+        <comments value="Per Australian NHF Recommendations"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="Quantity"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result"/>
+      <name value="HDL Cholesteral Group"/>
+      <definition>
+        <short value="HDL Cholesterol Result"/>
+        <formal value="Group of elements for HDL Cholesterol result"/>
+        <min value="1"/>
+        <max value="1"/>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.name"/>
+      <definition>
+        <short value="HDL Cholesterol"/>
+        <formal value="HDL Cholesterol"/>
+        <comments value="results are fundamentally a name - value pair with additional clarifying information"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+        <binding value="LabResultNames"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.value[x]"/>
+      <definition>
+        <short value="HDL Cholesterol value"/>
+        <formal value="HDL Cholesterol value. If a result is not available, use the comments field"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Quantity"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.flag"/>
+      <definition>
+        <short value="+ | ++ | +++ | - | -- | --- "/>
+        <formal value="+ | ++ | +++ | - | -- | --- "/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="code"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+        <binding value="LabResultFlag"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.comments"/>
+      <definition>
+        <short value="Comments about result"/>
+        <formal value="Comments about result"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="string"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.referenceRange"/>
+      <definition>
+        <short value="Guide for interpretation"/>
+        <formal value="Guide for interpretation"/>
+        <comments value="Most results only have one reference range. Some non-numerical results don't have a reference range"/>
+        <min value="1"/>
+        <max value="1"/>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.referenceRange.meaning"/>
+      <definition>
+        <short value="Range is a recommended range"/>
+        <formal value="Range is a recommended range"/>
+        <comments value="See note above"/>
+        <min value="0"/>
+        <max value="0"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+        <binding value="LabReferenceRanges"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.referenceRange.range[x]"/>
+      <definition>
+        <short value="Reference"/>
+        <formal value="&gt;1.5 mmol/L"/>
+        <comments value="Per Australian NHF Recommendations"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="Quantity"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result"/>
+      <name value="LDL Cholesteral Group"/>
+      <definition>
+        <short value="LDL Cholesterol result, if reported"/>
+        <formal value="LDL Cholesterol result, if reported"/>
+        <min value="0"/>
+        <max value="1"/>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.name"/>
+      <definition>
+        <short value="LDL Cholesterol. LOINC code defines measured or calc"/>
+        <formal value="Group of elements for LDL Cholesterol. LOINC code defines whether LDL is measured or calculated"/>
+        <comments value="results are fundamentally a name - value pair with additional clarifying information"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+        <binding value="LOINC 35198-1 | LOINC 13457-7"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.value[x]"/>
+      <definition>
+        <short value="LDL Cholesterol value"/>
+        <formal value="LDL Cholesterol value. If a result is not available, use the comments field"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Quantity"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.flag"/>
+      <definition>
+        <short value="+ | ++ | +++ | - | -- | --- "/>
+        <formal value="+ | ++ | +++ | - | -- | --- "/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="code"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+        <binding value="LabResultFlag"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.comments"/>
+      <definition>
+        <short value="Comments about result"/>
+        <formal value="Comments about result"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="string"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.referenceRange"/>
+      <definition>
+        <short value="Guide for interpretation"/>
+        <formal value="Guide for interpretation"/>
+        <comments value="Most results only have one reference range. Some non-numerical results don't have a reference range"/>
+        <min value="1"/>
+        <max value="1"/>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.referenceRange.meaning"/>
+      <definition>
+        <short value="Range is a recommended range"/>
+        <formal value="Range is a recommended range"/>
+        <comments value="See Note above"/>
+        <min value="0"/>
+        <max value="0"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+        <binding value="LabReferenceRanges"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.resultGroup.result.referenceRange.range[x]"/>
+      <definition>
+        <short value="Reference"/>
+        <formal value="&lt;3.0 mmol/L"/>
+        <comments value="Per Australian NHF Recommendations"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="Quantity"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.conclusion"/>
+      <definition>
+        <short value="Clinical Interpretation of Lipid Panel"/>
+        <formal value="May include diagnosis or suggestions for follow up testing"/>
+        <comments value="common reports don't have a conclusion, but some do"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Narrative"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="true"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.codedDiagnosis"/>
+      <definition>
+        <short value="Codes for the conclusion"/>
+        <formal value="Codes for the conclusion"/>
+        <min value="0"/>
+        <max value="0"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+        <binding value="LabDiagnosisCodes"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.representation"/>
+      <definition>
+        <short value="Entire Report as issued"/>
+        <formal value="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they must be semantically equivalent."/>
+        <comments value="Possible formats: text/html, text/plain, text/rtf, application/msword, application/pdf, application/rtf, application/vnd.oasis.opendocument.text, application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
+        <min value="0"/>
+        <max value="*"/>
+        <type>
+          <code value="Attachment"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.extension"/>
+      <definition>
+        <short value="See Extensions"/>
+        <formal value="See Extensions"/>
+        <min value="0"/>
+        <max value="*"/>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="DiagnosticReport.text"/>
+      <definition>
+        <short value="Text summary of report, for human interpretation"/>
+        <formal value="Text summary of report, for human interpretation"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="Narrative"/>
+        </type>
+        <mustSupport value="false"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+  </structure>
+</Profile>

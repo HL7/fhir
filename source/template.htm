@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title><%title%> - FHIR v<%version%></title>
+    <link rel="Stylesheet" href="fhir.css" type="text/css"/>
+    <link rel="Stylesheet" href="fhir-print.css" type="text/css" media="print" />
+</head>
+
+<body>
+<%sidebar%>
+
+<div class="content">
+<%resheader%>
+<h1>Resource <%title%> - Content</h1>
+<p class="status">Status: <%status%></p>
+<p>
+<%definition%>.
+</p>
+
+<%resurl%>
+
+<%introduction%>
+<h2>
+Resource Content
+</h2>
+<a name="uml"> </a>
+<%map%>
+<p><img src="<%name%>.png" alt="UML Image" usemap="#<%name%>" /></p>
+
+<a name="def"> </a>
+<a name="<%name%>"> </a>
+<a name="<%title%>"> </a>
+<%xml%>
+
+<p>Alternate definitions: <a href="<%name%>.xsd">Schema</a>/<a href="<%name%>.sch">Schematron</a>, 
+RDF (to do), XMI (to do), <a href="<%name%>.profile.xml">Resource Profile</a></p>
+
+<a name="tx"> </a>
+<%tx%>
+
+<%inv%>
+
+<%notes%>
+
+<a name="search"/>
+<%search%>
+
+
+<%footer%>
+
+</div> 
+    
+</body>
+</html>

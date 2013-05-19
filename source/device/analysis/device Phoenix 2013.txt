@@ -1,0 +1,117 @@
+
+
+<Observation>
+  <obtainedDateTime>
+  <obtainedDatePeriod>
+
+
+MeasurementStatus ::= BITS-16 {
+
+invalid(0),
+
+questionable(1),
+
+not-available(2),
+
+calibration-ongoing(3),
+
+test-data(4),
+
+demo-data(5),
+
+validated-data(8), -- relevant, e.g., in an archive
+
+early-indication(9), -- early estimate of value
+
+msmt-ongoing(10), -- indicates that a new measurement is just being taken
+
+-- (episodic)
+
+msmt-state-in-alarm(14), -- indicates that the metric has an active alarm condition
+
+msmt-state-al-inhibited(15) -- metric supports alarming, and alarms are turned off
+
+-- (optional)
+
+}
+
+OO resources
+  order / order response
+  LabReport
+  Lab Order
+  Specimen
+  Observation
+
+
+
+
+Device
+  VMD
+    Channel
+      Metrics
+         Facet
+
+
+EUI64
+
+
+UDI:
+  GTIN - 14 digit numeric maybe leading 0 - 
+  LOT - alpahumeric maximum 20
+  S/N - alpahumeric maximum 20
+  expiry - date
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hl7connect.healthintersections.com.au/svc/fhir/person/search.xml?field=value&other=n
+
+
+<Person xmlns="http://hl7.org/fhir">
+  <name>
+    <family>Doe</family>
+    <given>John</given>
+  </name>
+  <gender>
+    <system>http://hl7.org/fhir/sid/v2-0001</system>
+    <code>M</code>
+  </gender>
+  <birthDate>1956-05-27</birthDate>
+  <address>
+    <line>100 Main St</line>
+    <city>Metropolis</city>
+    <state>Il</state>
+    <zip>44130</zip>
+    <country>USA</country>
+  </address>
+  <text>
+    <status>generated</status>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+		  
+      <p>John Doe, M, 27-May 1956. ID: 89765a87b</p>
+		
+    </div>
+  </text>
+</Person>
+
+
+code: 
+  concept: code::oid
+  valueset: oid
+  
+codeSystem:[own]

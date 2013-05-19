@@ -1,0 +1,9 @@
+Id,Code,Definition,Comment
+1,unknown,The value is not known,
+2,asked,The source human does not know the value,
+3,temp,There is reason to expect (from the workflow) that the value may become known,
+4,notasked,The workflow didn't lead to this value being known,
+5,masked,"The information is not available due to security, privacy or related reasons","Using ""masked"" may be breach of security or confidentiality, but there are times when its use is required to support alternate workflows for gaining access to denied information."
+6,unsupported,The source system wasn't capable of supporting this element,
+7,astext,The content of the data is represented as text,
+8,error,Some system or workflow process error means that the information is not available,

@@ -1,0 +1,16 @@
+Instructions for building FHIR:
+
+1: install graphviz from www.graphviz.org
+2: run publish.bat (windows) or publish.sh (OSX/Linux)
+3: wait for it to finish
+
+see also http://wiki.hl7.org/index.php?title=FHIR_Build_Process
+
+Instructions for building the tools jar in eclipse:
+
+1: file.. export... find runnable jar file
+2: choose your launch configuration.
+3: export destination = [root]\tools\bin\org.hl7.fhir.tools.jar
+4: package required libraries into generated jar
+5: finish
+6: not it generates warnings... ignore these

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Order xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\order.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Request for Prescription (on patient Donald DUCK @ Acme Healthcare, Inc. MR = 654321)</div>
+  </text>
+  <date value="2012-12-28T09:03:04+11:00"/>
+  <subject>
+    <type value="Patient"/>
+    <reference value="patient/@pat2"/>
+  </subject>
+  <source>
+    <type value="Practitioner"/>
+    <reference value="practitioner/@example"/>
+  </source>
+  <reason value="Standard admission testing"/>
+  
+  <!-- Institution local code meaning "do this today" -->
+  <when>
+    <code>
+      <coding>
+        <system value="http://acme.com/codes/request-priority"/>
+        <code value="today"/>        
+      </coding>
+    </code>
+  </when>
+  
+  <detail>
+    <type value="MedicationPrescription"/>
+    <reference value="medicationprescription/@example"/>
+  </detail>
+</Order>

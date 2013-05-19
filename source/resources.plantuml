@@ -1,0 +1,42 @@
+@startuml
+title Resource Categories
+skinparam nodesep 20
+skinparam ranksep 20
+skinparam classBackgroundColor Aliceblue
+skinparam classBorderColor Gray
+skinparam classArrowColor Navy
+
+Resources .up. Administrative
+Resources .up. Foundation
+Resources .up. Clinical
+Resources .left. Medications
+Resources .up. Diagnostics
+Resources .down. Financial
+Resources .right. DeviceCommunications
+Resources .down. Technical
+Resources .down. Conformance
+
+url of Administrative is [[#administrative]]
+url of Foundation is [[#foundation]]
+url of Clinical is [[#clinical]]
+url of Medications is [[#medications]]
+url of Diagnostics is [[#diagnostics]]
+url of Financial is [[#financial]]
+url of DeviceCommunications is [[#devicecommunications]]
+url of Technical is [[#technical]]
+url of Conformance is [[#conformance]]
+
+hide methods
+hide attributes
+hide Resources circle
+hide Administrative circle
+hide Foundation circle
+hide Clinical circle
+hide Medications circle
+hide Diagnostics circle
+hide Financial circle
+hide DeviceCommunications circle
+hide Technical circle
+hide Conformance circle
+
+@enduml

@@ -1,0 +1,3639 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>The method codes derived from LOINC. ?How to do this</p>
+    </div>
+  </text>
+  <name value="Loinc Methods"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="The method codes derived from LOINC. ?How to do this"/>
+  <status value="draft"/>
+  <!-- LOINC doesn't formally expose the methods as set of codes, but we want to use them here?
+     so we define this as a set of new codes. TODO: discuss this with LOINC -->
+  <kind value="code-system"/>
+  <define>
+    <system value="http://loinc.org/methods"/>
+    <!-- only codes here, though they are really display names. this is a matter for work yet -->
+   <concept>
+     <code value="15M reading"/>
+   </concept>
+   <concept>
+     <code value="18 deg C incubation"/>
+   </concept>
+   <concept>
+     <code value="1D cold incubation"/>
+   </concept>
+   <concept>
+     <code value="1st IRP"/>
+   </concept>
+   <concept>
+     <code value="1W 37 deg C incubation"/>
+   </concept>
+   <concept>
+     <code value="1W cold incubation"/>
+   </concept>
+   <concept>
+     <code value="22 deg C incubation"/>
+   </concept>
+   <concept>
+     <code value="28 deg C incubation"/>
+   </concept>
+   <concept>
+     <code value="2D cold incubation"/>
+   </concept>
+   <concept>
+     <code value="2D echo"/>
+   </concept>
+   <concept>
+     <code value="2D echo.visual estimate"/>
+   </concept>
+   <concept>
+     <code value="2nd IRP"/>
+   </concept>
+   <concept>
+     <code value="37 deg C incubation"/>
+   </concept>
+   <concept>
+     <code value="3D 37 deg C incubation"/>
+   </concept>
+   <concept>
+     <code value="3D cold incubation"/>
+   </concept>
+   <concept>
+     <code value="3D RT incubation"/>
+   </concept>
+   <concept>
+     <code value="3rd IS"/>
+   </concept>
+   <concept>
+     <code value="4D cold incubation"/>
+   </concept>
+   <concept>
+     <code value="4H cold incubation"/>
+   </concept>
+   <concept>
+     <code value="5D cold incubation"/>
+   </concept>
+   <concept>
+     <code value="5M RT incubation"/>
+   </concept>
+   <concept>
+     <code value="6D cold incubation"/>
+   </concept>
+   <concept>
+     <code value="7D cold incubation"/>
+   </concept>
+   <concept>
+     <code value="Acetate esterase stain"/>
+   </concept>
+   <concept>
+     <code value="Acid fast stain"/>
+   </concept>
+   <concept>
+     <code value="Acid fast stain.Kinyoun"/>
+   </concept>
+   <concept>
+     <code value="Acid fast stain.Kinyoun modified"/>
+   </concept>
+   <concept>
+     <code value="Acid fast stain.Ziehl-Neelsen"/>
+   </concept>
+   <concept>
+     <code value="Acid phosphatase stain"/>
+   </concept>
+   <concept>
+     <code value="ACMG"/>
+   </concept>
+   <concept>
+     <code value="Acridine orange and Giemsa stain"/>
+   </concept>
+   <concept>
+     <code value="Acridine orange stain"/>
+   </concept>
+   <concept>
+     <code value="Acute respiratory distress culture"/>
+   </concept>
+   <concept>
+     <code value="AD8"/>
+   </concept>
+   <concept>
+     <code value="Adolescent medicine"/>
+   </concept>
+   <concept>
+     <code value="Advanced heart failure and transplant cardiology"/>
+   </concept>
+   <concept>
+     <code value="Aerobic culture"/>
+   </concept>
+   <concept>
+     <code value="Aerobic culture 25 deg C incubation"/>
+   </concept>
+   <concept>
+     <code value="Agar diffusion"/>
+   </concept>
+   <concept>
+     <code value="Aggl"/>
+   </concept>
+   <concept>
+     <code value="Aggl RBC"/>
+   </concept>
+   <concept>
+     <code value="Aggl.adult RBC"/>
+   </concept>
+   <concept>
+     <code value="Aggl.card"/>
+   </concept>
+   <concept>
+     <code value="Aggl.cord RBC"/>
+   </concept>
+   <concept>
+     <code value="Aggl.micro"/>
+   </concept>
+   <concept>
+     <code value="Aggl.plate"/>
+   </concept>
+   <concept>
+     <code value="Aggl.plate.buffered acidified"/>
+   </concept>
+   <concept>
+     <code value="Aggl.rapid"/>
+   </concept>
+   <concept>
+     <code value="Aggl.ring test"/>
+   </concept>
+   <concept>
+     <code value="Aggl.ring test.heat inact"/>
+   </concept>
+   <concept>
+     <code value="Aggl.rivanol"/>
+   </concept>
+   <concept>
+     <code value="Aggl.serial ring test"/>
+   </concept>
+   <concept>
+     <code value="Aggl.slide"/>
+   </concept>
+   <concept>
+     <code value="Aggl.standard tube"/>
+   </concept>
+   <concept>
+     <code value="Aggr"/>
+   </concept>
+   <concept>
+     <code value="AHIC"/>
+   </concept>
+   <concept>
+     <code value="Airway pressure monitor"/>
+   </concept>
+   <concept>
+     <code value="Albumin technique"/>
+   </concept>
+   <concept>
+     <code value="Alcian blue stain"/>
+   </concept>
+   <concept>
+     <code value="Alcian blue stain.sulfated"/>
+   </concept>
+   <concept>
+     <code value="Alcian blue stain.with periodic acid-Schiff"/>
+   </concept>
+   <concept>
+     <code value="Alizarin red S stain"/>
+   </concept>
+   <concept>
+     <code value="Alkali denat"/>
+   </concept>
+   <concept>
+     <code value="Allergy and immunology"/>
+   </concept>
+   <concept>
+     <code value="ALSPAC"/>
+   </concept>
+   <concept>
+     <code value="Amniocentesis"/>
+   </concept>
+   <concept>
+     <code value="Amplification/Sequencing"/>
+   </concept>
+   <concept>
+     <code value="Anaerobic culture"/>
+   </concept>
+   <concept>
+     <code value="Anaerobic culture 25 deg C incubation"/>
+   </concept>
+   <concept>
+     <code value="Anaerobic+Aerobic culture"/>
+   </concept>
+   <concept>
+     <code value="Anesthesiology"/>
+   </concept>
+   <concept>
+     <code value="Angiogram"/>
+   </concept>
+   <concept>
+     <code value="Angiogram.visual estima"/>
+   </concept>
+   <concept>
+     <code value="Angiography.biplane"/>
+   </concept>
+   <concept>
+     <code value="Angiography.single plane"/>
+   </concept>
+   <concept>
+     <code value="Animal inoculation"/>
+   </concept>
+   <concept>
+     <code value="Anoscopy"/>
+   </concept>
+   <concept>
+     <code value="Antihuman globulin"/>
+   </concept>
+   <concept>
+     <code value="Apgar"/>
+   </concept>
+   <concept>
+     <code value="Apt-Downey"/>
+   </concept>
+   <concept>
+     <code value="Aramany classification"/>
+   </concept>
+   <concept>
+     <code value="Argentaffin stain"/>
+   </concept>
+   <concept>
+     <code value="arrCGH"/>
+   </concept>
+   <concept>
+     <code value="Arthroscopy"/>
+   </concept>
+   <concept>
+     <code value="ASQ"/>
+   </concept>
+   <concept>
+     <code value="Attending physician"/>
+   </concept>
+   <concept>
+     <code value="Audiology"/>
+   </concept>
+   <concept>
+     <code value="Auscultation"/>
+   </concept>
+   <concept>
+     <code value="Auto"/>
+   </concept>
+   <concept>
+     <code value="Automated"/>
+   </concept>
+   <concept>
+     <code value="Automated count"/>
+   </concept>
+   <concept>
+     <code value="Automated image cytometry"/>
+   </concept>
+   <concept>
+     <code value="Autorefractor.auto"/>
+   </concept>
+   <concept>
+     <code value="Autorefractor.man"/>
+   </concept>
+   <concept>
+     <code value="Autorefractor.sciascopy"/>
+   </concept>
+   <concept>
+     <code value="Azure-eosin stain"/>
+   </concept>
+   <concept>
+     <code value="Bacterial subtyping"/>
+   </concept>
+   <concept>
+     <code value="Bagolini test"/>
+   </concept>
+   <concept>
+     <code value="Banding"/>
+   </concept>
+   <concept>
+     <code value="Basic fuchsin stain"/>
+   </concept>
+   <concept>
+     <code value="BCG"/>
+   </concept>
+   <concept>
+     <code value="BCP"/>
+   </concept>
+   <concept>
+     <code value="Bennhold stain.Putchler modified"/>
+   </concept>
+   <concept>
+     <code value="Best estimate"/>
+   </concept>
+   <concept>
+     <code value="Bielschowsky stain"/>
+   </concept>
+   <concept>
+     <code value="BINS"/>
+   </concept>
+   <concept>
+     <code value="Bioassay"/>
+   </concept>
+   <concept>
+     <code value="Biopsy culture"/>
+   </concept>
+   <concept>
+     <code value="Bleach stain"/>
+   </concept>
+   <concept>
+     <code value="Bodian stain"/>
+   </concept>
+   <concept>
+     <code value="Body hood"/>
+   </concept>
+   <concept>
+     <code value="BOMC"/>
+   </concept>
+   <concept>
+     <code value="Branemark scale"/>
+   </concept>
+   <concept>
+     <code value="Brilliant cresyl blue"/>
+   </concept>
+   <concept>
+     <code value="Bronchoscopy"/>
+   </concept>
+   <concept>
+     <code value="Brown and Brenn stain"/>
+   </concept>
+   <concept>
+     <code value="BS II"/>
+   </concept>
+   <concept>
+     <code value="BSL-23"/>
+   </concept>
+   <concept>
+     <code value="Butyrate esterase stain"/>
+   </concept>
+   <concept>
+     <code value="C1q binding assay"/>
+   </concept>
+   <concept>
+     <code value="C3b binding assay"/>
+   </concept>
+   <concept>
+     <code value="C3d binding assay"/>
+   </concept>
+   <concept>
+     <code value="Calcofluor White preparation"/>
+   </concept>
+   <concept>
+     <code value="Calculated"/>
+   </concept>
+   <concept>
+     <code value="Calculated from oxygen partial pressure"/>
+   </concept>
+   <concept>
+     <code value="Calculated.HWL"/>
+   </concept>
+   <concept>
+     <code value="Calculated.PLN"/>
+   </concept>
+   <concept>
+     <code value="Calculation"/>
+   </concept>
+   <concept>
+     <code value="CAP cancer protocols"/>
+   </concept>
+   <concept>
+     <code value="Carbol-fuchsin stain"/>
+   </concept>
+   <concept>
+     <code value="Cardiac catheterization"/>
+   </concept>
+   <concept>
+     <code value="Cardiac echo"/>
+   </concept>
+   <concept>
+     <code value="Cardiovascular disease"/>
+   </concept>
+   <concept>
+     <code value="CARE"/>
+   </concept>
+   <concept>
+     <code value="Carmine stain.Best"/>
+   </concept>
+   <concept>
+     <code value="Case manager"/>
+   </concept>
+   <concept>
+     <code value="Categorization by comparison with standards"/>
+   </concept>
+   <concept>
+     <code value="CDI"/>
+   </concept>
+   <concept>
+     <code value="CDR"/>
+   </concept>
+   <concept>
+     <code value="Cell saver"/>
+   </concept>
+   <concept>
+     <code value="Cell wall fatty acid analysis"/>
+   </concept>
+   <concept>
+     <code value="Chemical separation"/>
+   </concept>
+   <concept>
+     <code value="Chest xray.calculated"/>
+   </concept>
+   <concept>
+     <code value="Child and adolescent psychiatry"/>
+   </concept>
+   <concept>
+     <code value="Chiropractic"/>
+   </concept>
+   <concept>
+     <code value="Chiropractor"/>
+   </concept>
+   <concept>
+     <code value="Chloracetate esterase stain"/>
+   </concept>
+   <concept>
+     <code value="Chromatography.column"/>
+   </concept>
+   <concept>
+     <code value="Chromo"/>
+   </concept>
+   <concept>
+     <code value="Churukian-Schenk stain"/>
+   </concept>
+   <concept>
+     <code value="CIE"/>
+   </concept>
+   <concept>
+     <code value="Clinical biochemical genetics"/>
+   </concept>
+   <concept>
+     <code value="Clinical genetics"/>
+   </concept>
+   <concept>
+     <code value="Clinical.estimated"/>
+   </concept>
+   <concept>
+     <code value="Clinical.estimated from prior assessment"/>
+   </concept>
+   <concept>
+     <code value="Clinical.estimated from prior gest age assessment"/>
+   </concept>
+   <concept>
+     <code value="Coag"/>
+   </concept>
+   <concept>
+     <code value="Coag inverse ratio"/>
+   </concept>
+   <concept>
+     <code value="Coag.derived"/>
+   </concept>
+   <concept>
+     <code value="Coag.saline 1:1"/>
+   </concept>
+   <concept>
+     <code value="Coag.two stage"/>
+   </concept>
+   <concept>
+     <code value="Coag-inverse ratio"/>
+   </concept>
+   <concept>
+     <code value="Cockcroft-Gault formula"/>
+   </concept>
+   <concept>
+     <code value="Cockcroft-Gault formula, BSA formula"/>
+   </concept>
+   <concept>
+     <code value="Cold absorption"/>
+   </concept>
+   <concept>
+     <code value="Cold incubation"/>
+   </concept>
+   <concept>
+     <code value="Colloidal ferric oxide stain.Hale"/>
+   </concept>
+   <concept>
+     <code value="Colonoscopy"/>
+   </concept>
+   <concept>
+     <code value="Colonoscopy.thru stoma"/>
+   </concept>
+   <concept>
+     <code value="Colposcopy"/>
+   </concept>
+   <concept>
+     <code value="Comp fix"/>
+   </concept>
+   <concept>
+     <code value="Comp of est fetal wgt W std pop dist at same estga"/>
+   </concept>
+   <concept>
+     <code value="Computed"/>
+   </concept>
+   <concept>
+     <code value="Computer assisted"/>
+   </concept>
+   <concept>
+     <code value="Concentration"/>
+   </concept>
+   <concept>
+     <code value="Concentration.Baerman"/>
+   </concept>
+   <concept>
+     <code value="Concentration.McMaster"/>
+   </concept>
+   <concept>
+     <code value="Confirm"/>
+   </concept>
+   <concept>
+     <code value="Confirm&gt;20 ng/mL"/>
+   </concept>
+   <concept>
+     <code value="Confirm&gt;200 ng/mL"/>
+   </concept>
+   <concept>
+     <code value="Confirm&gt;25 ng/mL"/>
+   </concept>
+   <concept>
+     <code value="Conglutinin assay"/>
+   </concept>
+   <concept>
+     <code value="Congo red stain"/>
+   </concept>
+   <concept>
+     <code value="Cover test"/>
+   </concept>
+   <concept>
+     <code value="CPHS"/>
+   </concept>
+   <concept>
+     <code value="CRAFFT"/>
+   </concept>
+   <concept>
+     <code value="Creatinine-based formula (CKD-EPI)"/>
+   </concept>
+   <concept>
+     <code value="Creatinine-based formula (MDRD)"/>
+   </concept>
+   <concept>
+     <code value="Creatinine-based formula (Schwartz)"/>
+   </concept>
+   <concept>
+     <code value="Cresyl echt violet stain"/>
+   </concept>
+   <concept>
+     <code value="Crithidia luciliae IF"/>
+   </concept>
+   <concept>
+     <code value="Critical care"/>
+   </concept>
+   <concept>
+     <code value="Critical care medicine"/>
+   </concept>
+   <concept>
+     <code value="Crystal violet stain"/>
+   </concept>
+   <concept>
+     <code value="CT"/>
+   </concept>
+   <concept>
+     <code value="CT spiral"/>
+   </concept>
+   <concept>
+     <code value="CT.3D"/>
+   </concept>
+   <concept>
+     <code value="CT.angio"/>
+   </concept>
+   <concept>
+     <code value="CT.cine"/>
+   </concept>
+   <concept>
+     <code value="CT.fast"/>
+   </concept>
+   <concept>
+     <code value="CT.measured"/>
+   </concept>
+   <concept>
+     <code value="Culture"/>
+   </concept>
+   <concept>
+     <code value="Culture @1:100"/>
+   </concept>
+   <concept>
+     <code value="Culture.FDA method"/>
+   </concept>
+   <concept>
+     <code value="Culture.standard plate count"/>
+   </concept>
+   <concept>
+     <code value="Cystatin-based formula"/>
+   </concept>
+   <concept>
+     <code value="Cystic fibrosis respiratory culture"/>
+   </concept>
+   <concept>
+     <code value="Cyto stain"/>
+   </concept>
+   <concept>
+     <code value="Cyto stain.thin prep"/>
+   </concept>
+   <concept>
+     <code value="Cytogenetics"/>
+   </concept>
+   <concept>
+     <code value="Cytology"/>
+   </concept>
+   <concept>
+     <code value="Cytology.non-gyn"/>
+   </concept>
+   <concept>
+     <code value="Cytotoxin tissue culture assay"/>
+   </concept>
+   <concept>
+     <code value="Dark field examination"/>
+   </concept>
+   <concept>
+     <code value="Dark red glass test"/>
+   </concept>
+   <concept>
+     <code value="Daugirdas II"/>
+   </concept>
+   <concept>
+     <code value="De Galantha stain"/>
+   </concept>
+   <concept>
+     <code value="DEEDS"/>
+   </concept>
+   <concept>
+     <code value="Dentistry"/>
+   </concept>
+   <concept>
+     <code value="Dentistry.hygienist"/>
+   </concept>
+   <concept>
+     <code value="Derived"/>
+   </concept>
+   <concept>
+     <code value="Dermatology"/>
+   </concept>
+   <concept>
+     <code value="Detection limit &lt;= 0.005 mIU/L"/>
+   </concept>
+   <concept>
+     <code value="Detection limit &lt;= 0.01 ng/mL"/>
+   </concept>
+   <concept>
+     <code value="Detection limit &lt;= 0.05 mIU/L"/>
+   </concept>
+   <concept>
+     <code value="Detection limit &lt;= 1.0 mg/L"/>
+   </concept>
+   <concept>
+     <code value="Detection limit &lt;= 1.0 ng/dL"/>
+   </concept>
+   <concept>
+     <code value="Detection limit &lt;= 20 mg/L"/>
+   </concept>
+   <concept>
+     <code value="Detection limit &lt;= 20 mg/L test strip"/>
+   </concept>
+   <concept>
+     <code value="Detection limit &lt;= 3.47 pmol/L"/>
+   </concept>
+   <concept>
+     <code value="Detection limit &lt;= 5 ng/L"/>
+   </concept>
+   <concept>
+     <code value="Developmental-behavioral pediatrics"/>
+   </concept>
+   <concept>
+     <code value="Diabetology"/>
+   </concept>
+   <concept>
+     <code value="Diagnostic imaging"/>
+   </concept>
+   <concept>
+     <code value="Dialysis"/>
+   </concept>
+   <concept>
+     <code value="Diepoxybutane"/>
+   </concept>
+   <concept>
+     <code value="Differential light absorption"/>
+   </concept>
+   <concept>
+     <code value="Digital model.measured"/>
+   </concept>
+   <concept>
+     <code value="Dilution"/>
+   </concept>
+   <concept>
+     <code value="Direct assay"/>
+   </concept>
+   <concept>
+     <code value="Direct spectrophotometry"/>
+   </concept>
+   <concept>
+     <code value="Doppler.calculated"/>
+   </concept>
+   <concept>
+     <code value="Doppler.measured"/>
+   </concept>
+   <concept>
+     <code value="Dry mount"/>
+   </concept>
+   <concept>
+     <code value="Duke"/>
+   </concept>
+   <concept>
+     <code value="Dye test"/>
+   </concept>
+   <concept>
+     <code value="EEG"/>
+   </concept>
+   <concept>
+     <code value="EGD"/>
+   </concept>
+   <concept>
+     <code value="EHI"/>
+   </concept>
+   <concept>
+     <code value="EIA"/>
+   </concept>
+   <concept>
+     <code value="EIA.3rd IS"/>
+   </concept>
+   <concept>
+     <code value="EIA.rapid"/>
+   </concept>
+   <concept>
+     <code value="EIA.RST"/>
+   </concept>
+   <concept>
+     <code value="EKG"/>
+   </concept>
+   <concept>
+     <code value="Electrical wave form"/>
+   </concept>
+   <concept>
+     <code value="Electromyogram"/>
+   </concept>
+   <concept>
+     <code value="Electronic"/>
+   </concept>
+   <concept>
+     <code value="Electrophoresis"/>
+   </concept>
+   <concept>
+     <code value="Electrophoresis pH 6.0"/>
+   </concept>
+   <concept>
+     <code value="Electrophoresis pH 6.3"/>
+   </concept>
+   <concept>
+     <code value="Electrophoresis pH 8.9"/>
+   </concept>
+   <concept>
+     <code value="Electrophoresis.agarose gel"/>
+   </concept>
+   <concept>
+     <code value="Electrophoresis.citrate agar"/>
+   </concept>
+   <concept>
+     <code value="Electrophysiology"/>
+   </concept>
+   <concept>
+     <code value="Elution"/>
+   </concept>
+   <concept>
+     <code value="Emergency medicine"/>
+   </concept>
+   <concept>
+     <code value="EMIA"/>
+   </concept>
+   <concept>
+     <code value="Endocrinology"/>
+   </concept>
+   <concept>
+     <code value="Endoscopy"/>
+   </concept>
+   <concept>
+     <code value="Enteroscopy"/>
+   </concept>
+   <concept>
+     <code value="Enteroscopy.thru stoma"/>
+   </concept>
+   <concept>
+     <code value="Environmental culture"/>
+   </concept>
+   <concept>
+     <code value="Enzy"/>
+   </concept>
+   <concept>
+     <code value="EPDS"/>
+   </concept>
+   <concept>
+     <code value="ERCP"/>
+   </concept>
+   <concept>
+     <code value="Esophagoscopy"/>
+   </concept>
+   <concept>
+     <code value="ESRD"/>
+   </concept>
+   <concept>
+     <code value="Esterase stain.combined"/>
+   </concept>
+   <concept>
+     <code value="Esterase stain.non-specific"/>
+   </concept>
+   <concept>
+     <code value="Estimate"/>
+   </concept>
+   <concept>
+     <code value="Estimated"/>
+   </concept>
+   <concept>
+     <code value="Estimated by palpation"/>
+   </concept>
+   <concept>
+     <code value="Estimated from abdominal circumference"/>
+   </concept>
+   <concept>
+     <code value="Estimated from conception date"/>
+   </concept>
+   <concept>
+     <code value="Estimated from date fundal height reaches umb"/>
+   </concept>
+   <concept>
+     <code value="Estimated from EDD"/>
+   </concept>
+   <concept>
+     <code value="Estimated from FL.Merz 1988"/>
+   </concept>
+   <concept>
+     <code value="Estimated from gestational age"/>
+   </concept>
+   <concept>
+     <code value="Estimated from gestational age.Merz 1987"/>
+   </concept>
+   <concept>
+     <code value="Estimated from glycated hemoglobin"/>
+   </concept>
+   <concept>
+     <code value="Estimated from jugular venous distention"/>
+   </concept>
+   <concept>
+     <code value="Estimated from last menstrual period"/>
+   </concept>
+   <concept>
+     <code value="Estimated from ovulation date"/>
+   </concept>
+   <concept>
+     <code value="Estimated from patient reported EDC"/>
+   </concept>
+   <concept>
+     <code value="Estimated from quickening date"/>
+   </concept>
+   <concept>
+     <code value="Estimated from selected delivery date"/>
+   </concept>
+   <concept>
+     <code value="Estimated.Bolton analysis"/>
+   </concept>
+   <concept>
+     <code value="Estimated.pop birth wgt gestational age corr.ref"/>
+   </concept>
+   <concept>
+     <code value="Exercise stress test"/>
+   </concept>
+   <concept>
+     <code value="Exopthalmometer.Hertel"/>
+   </concept>
+   <concept>
+     <code value="FaB"/>
+   </concept>
+   <concept>
+     <code value="FACIT"/>
+   </concept>
+   <concept>
+     <code value="Farr"/>
+   </concept>
+   <concept>
+     <code value="Fick"/>
+   </concept>
+   <concept>
+     <code value="FISH"/>
+   </concept>
+   <concept>
+     <code value="Fite-Faraco stain"/>
+   </concept>
+   <concept>
+     <code value="Flexible sigmoidoscopy"/>
+   </concept>
+   <concept>
+     <code value="Flotation"/>
+   </concept>
+   <concept>
+     <code value="Flow cytometry"/>
+   </concept>
+   <concept>
+     <code value="Fontana-Masson stain"/>
+   </concept>
+   <concept>
+     <code value="Forensic medicine"/>
+   </concept>
+   <concept>
+     <code value="Fouchet stain"/>
+   </concept>
+   <concept>
+     <code value="Framingham"/>
+   </concept>
+   <concept>
+     <code value="Framingham.D'Agostino"/>
+   </concept>
+   <concept>
+     <code value="Framingham.D'Agostino 1994"/>
+   </concept>
+   <concept>
+     <code value="Framingham.D'Agostino 2000"/>
+   </concept>
+   <concept>
+     <code value="Framingham.Kannel 1999"/>
+   </concept>
+   <concept>
+     <code value="Framingham.Murabito 1997"/>
+   </concept>
+   <concept>
+     <code value="Framingham.Schnabel 2009"/>
+   </concept>
+   <concept>
+     <code value="Framingham.The Adult Treatment Panel III 2001"/>
+   </concept>
+   <concept>
+     <code value="Framingham.Wang 2003"/>
+   </concept>
+   <concept>
+     <code value="Framingham.Wilson 1998"/>
+   </concept>
+   <concept>
+     <code value="Fungal subtyping"/>
+   </concept>
+   <concept>
+     <code value="Fungus stain"/>
+   </concept>
+   <concept>
+     <code value="Gas dilution.rebreathing"/>
+   </concept>
+   <concept>
+     <code value="Gastroenterology"/>
+   </concept>
+   <concept>
+     <code value="G-banded"/>
+   </concept>
+   <concept>
+     <code value="GC"/>
+   </concept>
+   <concept>
+     <code value="General medicine"/>
+   </concept>
+   <concept>
+     <code value="General surgery"/>
+   </concept>
+   <concept>
+     <code value="Genotyping"/>
+   </concept>
+   <concept>
+     <code value="Geriatric medicine"/>
+   </concept>
+   <concept>
+     <code value="Gerontology"/>
+   </concept>
+   <concept>
+     <code value="Giemsa stain"/>
+   </concept>
+   <concept>
+     <code value="Giemsa stain.3 micron"/>
+   </concept>
+   <concept>
+     <code value="Giemsa stain.May-Grunwald"/>
+   </concept>
+   <concept>
+     <code value="Gimenez stain"/>
+   </concept>
+   <concept>
+     <code value="Glickman classification"/>
+   </concept>
+   <concept>
+     <code value="Glock &amp; McLean"/>
+   </concept>
+   <concept>
+     <code value="Glucometer"/>
+   </concept>
+   <concept>
+     <code value="GNWCH"/>
+   </concept>
+   <concept>
+     <code value="Gomori stain"/>
+   </concept>
+   <concept>
+     <code value="Gradient strip"/>
+   </concept>
+   <concept>
+     <code value="Gram stain"/>
+   </concept>
+   <concept>
+     <code value="Gridley stain"/>
+   </concept>
+   <concept>
+     <code value="Guinea pig esophagus substrate"/>
+   </concept>
+   <concept>
+     <code value="Guthrie test"/>
+   </concept>
+   <concept>
+     <code value="Gynecology"/>
+   </concept>
+   <concept>
+     <code value="HA"/>
+   </concept>
+   <concept>
+     <code value="HAI"/>
+   </concept>
+   <concept>
+     <code value="Hall's stain"/>
+   </concept>
+   <concept>
+     <code value="Hand optometer"/>
+   </concept>
+   <concept>
+     <code value="Hansel stain"/>
+   </concept>
+   <concept>
+     <code value="HAQ"/>
+   </concept>
+   <concept>
+     <code value="Heat denaturation"/>
+   </concept>
+   <concept>
+     <code value="Heat stability"/>
+   </concept>
+   <concept>
+     <code value="Helium rebreathing"/>
+   </concept>
+   <concept>
+     <code value="Helium single breath"/>
+   </concept>
+   <concept>
+     <code value="Hematology+Oncology"/>
+   </concept>
+   <concept>
+     <code value="Hematoxylin and eosin stain"/>
+   </concept>
+   <concept>
+     <code value="Hematoxylin-eosin-Harris regressive stain"/>
+   </concept>
+   <concept>
+     <code value="Hematoxylin-eosin-Mayers progressive stain"/>
+   </concept>
+   <concept>
+     <code value="Hemosiderin stain"/>
+   </concept>
+   <concept>
+     <code value="Hep2 substrate"/>
+   </concept>
+   <concept>
+     <code value="Heparin protamine titration"/>
+   </concept>
+   <concept>
+     <code value="Heterometer test"/>
+   </concept>
+   <concept>
+     <code value="HHS.ACA Section 4302"/>
+   </concept>
+   <concept>
+     <code value="High resolution"/>
+   </concept>
+   <concept>
+     <code value="High sensitivity"/>
+   </concept>
+   <concept>
+     <code value="Highman stain"/>
+   </concept>
+   <concept>
+     <code value="Histomorphometry stain"/>
+   </concept>
+   <concept>
+     <code value="HITSP"/>
+   </concept>
+   <concept>
+     <code value="HIV-ART"/>
+   </concept>
+   <concept>
+     <code value="HKOI"/>
+   </concept>
+   <concept>
+     <code value="HL7v3.0"/>
+   </concept>
+   <concept>
+     <code value="Hoechst stain"/>
+   </concept>
+   <concept>
+     <code value="Holter monitor"/>
+   </concept>
+   <concept>
+     <code value="Holzer stain"/>
+   </concept>
+   <concept>
+     <code value="HOOS"/>
+   </concept>
+   <concept>
+     <code value="howRU"/>
+   </concept>
+   <concept>
+     <code value="HPLC"/>
+   </concept>
+   <concept>
+     <code value="Hume"/>
+   </concept>
+   <concept>
+     <code value="Hypotonic dilution"/>
+   </concept>
+   <concept>
+     <code value="IB"/>
+   </concept>
+   <concept>
+     <code value="ICA"/>
+   </concept>
+   <concept>
+     <code value="ID"/>
+   </concept>
+   <concept>
+     <code value="IDI"/>
+   </concept>
+   <concept>
+     <code value="IF"/>
+   </concept>
+   <concept>
+     <code value="IF Hep2 substrate"/>
+   </concept>
+   <concept>
+     <code value="IF rat kidney substrate"/>
+   </concept>
+   <concept>
+     <code value="IF rat liver substrate"/>
+   </concept>
+   <concept>
+     <code value="IF rat liver+stomach+kidney substrate"/>
+   </concept>
+   <concept>
+     <code value="IFCC"/>
+   </concept>
+   <concept>
+     <code value="Imaging"/>
+   </concept>
+   <concept>
+     <code value="Imm"/>
+   </concept>
+   <concept>
+     <code value="Immediate spin"/>
+   </concept>
+   <concept>
+     <code value="Immersion"/>
+   </concept>
+   <concept>
+     <code value="Immobilization"/>
+   </concept>
+   <concept>
+     <code value="Immune diffusion"/>
+   </concept>
+   <concept>
+     <code value="Immune stain"/>
+   </concept>
+   <concept>
+     <code value="Immunobead"/>
+   </concept>
+   <concept>
+     <code value="Immunoelectrophoresis"/>
+   </concept>
+   <concept>
+     <code value="Immunofixation"/>
+   </concept>
+   <concept>
+     <code value="Immunohistochemical"/>
+   </concept>
+   <concept>
+     <code value="Immunoperoxidase stain"/>
+   </concept>
+   <concept>
+     <code value="Immunophenotyping"/>
+   </concept>
+   <concept>
+     <code value="Impedance"/>
+   </concept>
+   <concept>
+     <code value="Incubation.1M"/>
+   </concept>
+   <concept>
+     <code value="India ink preparation"/>
+   </concept>
+   <concept>
+     <code value="Indicator dilution"/>
+   </concept>
+   <concept>
+     <code value="Infectious disease"/>
+   </concept>
+   <concept>
+     <code value="Infrared absorption"/>
+   </concept>
+   <concept>
+     <code value="Infrared spectroscopy"/>
+   </concept>
+   <concept>
+     <code value="Inspection"/>
+   </concept>
+   <concept>
+     <code value="Interventional radiology"/>
+   </concept>
+   <concept>
+     <code value="Intravascular line culture"/>
+   </concept>
+   <concept>
+     <code value="Investigation"/>
+   </concept>
+   <concept>
+     <code value="IQCODE"/>
+   </concept>
+   <concept>
+     <code value="Iron hematoxylin stain"/>
+   </concept>
+   <concept>
+     <code value="ISE"/>
+   </concept>
+   <concept>
+     <code value="Isoelectric focusing"/>
+   </concept>
+   <concept>
+     <code value="Isopropanol stability"/>
+   </concept>
+   <concept>
+     <code value="Ivy"/>
+   </concept>
+   <concept>
+     <code value="JDS/JSCC"/>
+   </concept>
+   <concept>
+     <code value="JP"/>
+   </concept>
+   <concept>
+     <code value="KCCQ"/>
+   </concept>
+   <concept>
+     <code value="Kennedy classification"/>
+   </concept>
+   <concept>
+     <code value="Kinesiotherapy"/>
+   </concept>
+   <concept>
+     <code value="Kinyoun iron hematoxylin stain"/>
+   </concept>
+   <concept>
+     <code value="Kleihauer-Betke"/>
+   </concept>
+   <concept>
+     <code value="KM"/>
+   </concept>
+   <concept>
+     <code value="KOH preparation"/>
+   </concept>
+   <concept>
+     <code value="KOOS"/>
+   </concept>
+   <concept>
+     <code value="Kremer"/>
+   </concept>
+   <concept>
+     <code value="LA"/>
+   </concept>
+   <concept>
+     <code value="Lactophenol blue"/>
+   </concept>
+   <concept>
+     <code value="Lap"/>
+   </concept>
+   <concept>
+     <code value="Lawson-Van Gieson stain"/>
+   </concept>
+   <concept>
+     <code value="LC/MS/MS"/>
+   </concept>
+   <concept>
+     <code value="Lee White"/>
+   </concept>
+   <concept>
+     <code value="Lekholm &amp; Zarb classification"/>
+   </concept>
+   <concept>
+     <code value="Levamisole inhibition"/>
+   </concept>
+   <concept>
+     <code value="LHR"/>
+   </concept>
+   <concept>
+     <code value="LISS"/>
+   </concept>
+   <concept>
+     <code value="Luxol fast blue/Cresyl violet stain"/>
+   </concept>
+   <concept>
+     <code value="Luxol fast blue/Periodic acid-Schiff stain"/>
+   </concept>
+   <concept>
+     <code value="M3"/>
+   </concept>
+   <concept>
+     <code value="Macchiavello stain"/>
+   </concept>
+   <concept>
+     <code value="Machine estimate"/>
+   </concept>
+   <concept>
+     <code value="Macro/Micro ID"/>
+   </concept>
+   <concept>
+     <code value="Maddox double prism test"/>
+   </concept>
+   <concept>
+     <code value="Maddox Stsbchen test"/>
+   </concept>
+   <concept>
+     <code value="Maddox wing"/>
+   </concept>
+   <concept>
+     <code value="Malachite green stain"/>
+   </concept>
+   <concept>
+     <code value="Malaria smear"/>
+   </concept>
+   <concept>
+     <code value="Malaria thick smear"/>
+   </concept>
+   <concept>
+     <code value="Malaria thin smear"/>
+   </concept>
+   <concept>
+     <code value="Mallory-Heidenhain stain"/>
+   </concept>
+   <concept>
+     <code value="Mam"/>
+   </concept>
+   <concept>
+     <code value="Mam.FFD"/>
+   </concept>
+   <concept>
+     <code value="Mam.FFD.tomosynthesis"/>
+   </concept>
+   <concept>
+     <code value="Manometry"/>
+   </concept>
+   <concept>
+     <code value="Manual"/>
+   </concept>
+   <concept>
+     <code value="Manual count"/>
+   </concept>
+   <concept>
+     <code value="MAST"/>
+   </concept>
+   <concept>
+     <code value="MAST-G"/>
+   </concept>
+   <concept>
+     <code value="MDS"/>
+   </concept>
+   <concept>
+     <code value="MDS.basic"/>
+   </concept>
+   <concept>
+     <code value="MDS.full"/>
+   </concept>
+   <concept>
+     <code value="MDSv3"/>
+   </concept>
+   <concept>
+     <code value="Measured"/>
+   </concept>
+   <concept>
+     <code value="Measured.Bolton analysis"/>
+   </concept>
+   <concept>
+     <code value="Medical student"/>
+   </concept>
+   <concept>
+     <code value="Medical student.cardiovascular disease"/>
+   </concept>
+   <concept>
+     <code value="Medical student.critical care"/>
+   </concept>
+   <concept>
+     <code value="Medical student.general medicine"/>
+   </concept>
+   <concept>
+     <code value="Medical student.general surgery"/>
+   </concept>
+   <concept>
+     <code value="Medical student.pulmonary disease"/>
+   </concept>
+   <concept>
+     <code value="Medical student.thoracic surgery"/>
+   </concept>
+   <concept>
+     <code value="MEIA"/>
+   </concept>
+   <concept>
+     <code value="MEMS Cap"/>
+   </concept>
+   <concept>
+     <code value="Mental health"/>
+   </concept>
+   <concept>
+     <code value="Mercury column"/>
+   </concept>
+   <concept>
+     <code value="Methenamine silver nitrate stain"/>
+   </concept>
+   <concept>
+     <code value="Methenamine silver stain.Grocott"/>
+   </concept>
+   <concept>
+     <code value="Methenamine silver stain.Jones"/>
+   </concept>
+   <concept>
+     <code value="Method for Slow-growing mycobacteria"/>
+   </concept>
+   <concept>
+     <code value="Methyl green stain"/>
+   </concept>
+   <concept>
+     <code value="Methyl green-pyronine Y stain"/>
+   </concept>
+   <concept>
+     <code value="Methyl violet stain"/>
+   </concept>
+   <concept>
+     <code value="Methylene blue stain"/>
+   </concept>
+   <concept>
+     <code value="Methylene blue stain.Loeffler"/>
+   </concept>
+   <concept>
+     <code value="M'Fadyean stain"/>
+   </concept>
+   <concept>
+     <code value="MIC"/>
+   </concept>
+   <concept>
+     <code value="Micro/Micro"/>
+   </concept>
+   <concept>
+     <code value="Microscopic count"/>
+   </concept>
+   <concept>
+     <code value="Microscopic observation"/>
+   </concept>
+   <concept>
+     <code value="Microscopy"/>
+   </concept>
+   <concept>
+     <code value="Microscopy.electron"/>
+   </concept>
+   <concept>
+     <code value="Microscopy.electron.negative stain"/>
+   </concept>
+   <concept>
+     <code value="Microscopy.electron.thin section"/>
+   </concept>
+   <concept>
+     <code value="Microscopy.light"/>
+   </concept>
+   <concept>
+     <code value="Microscopy.light.HPF"/>
+   </concept>
+   <concept>
+     <code value="Microscopy.light.LPF"/>
+   </concept>
+   <concept>
+     <code value="Miller classification"/>
+   </concept>
+   <concept>
+     <code value="Mini-Cog"/>
+   </concept>
+   <concept>
+     <code value="Minus glass"/>
+   </concept>
+   <concept>
+     <code value="Mixed antiglobulin reaction"/>
+   </concept>
+   <concept>
+     <code value="MLC"/>
+   </concept>
+   <concept>
+     <code value="MLHFQ"/>
+   </concept>
+   <concept>
+     <code value="MLPA"/>
+   </concept>
+   <concept>
+     <code value="MMSE"/>
+   </concept>
+   <concept>
+     <code value="MoCA"/>
+   </concept>
+   <concept>
+     <code value="Modified Giemsa"/>
+   </concept>
+   <concept>
+     <code value="Molgen"/>
+   </concept>
+   <concept>
+     <code value="Monkey esophagus substrate"/>
+   </concept>
+   <concept>
+     <code value="Morse Fall Scale"/>
+   </concept>
+   <concept>
+     <code value="Mouse bioassay"/>
+   </concept>
+   <concept>
+     <code value="Mouse bioassay.neutralization"/>
+   </concept>
+   <concept>
+     <code value="MRI"/>
+   </concept>
+   <concept>
+     <code value="MRI.angio"/>
+   </concept>
+   <concept>
+     <code value="MRI.function"/>
+   </concept>
+   <concept>
+     <code value="Mucicarmine stain"/>
+   </concept>
+   <concept>
+     <code value="Mucicarmine stain.Mayer"/>
+   </concept>
+   <concept>
+     <code value="Multidisciplinary"/>
+   </concept>
+   <concept>
+     <code value="Multidisk"/>
+   </concept>
+   <concept>
+     <code value="Multi-specialty program"/>
+   </concept>
+   <concept>
+     <code value="Mycobacterial subtyping"/>
+   </concept>
+   <concept>
+     <code value="Myeloperoxidase stain"/>
+   </concept>
+   <concept>
+     <code value="NAACCR v.11"/>
+   </concept>
+   <concept>
+     <code value="NAACCR v.12"/>
+   </concept>
+   <concept>
+     <code value="NAPIIA"/>
+   </concept>
+   <concept>
+     <code value="NCFS"/>
+   </concept>
+   <concept>
+     <code value="Neisser stain"/>
+   </concept>
+   <concept>
+     <code value="NEMSIS"/>
+   </concept>
+   <concept>
+     <code value="Neonatal perinatal medicine"/>
+   </concept>
+   <concept>
+     <code value="Nephelometry"/>
+   </concept>
+   <concept>
+     <code value="Nephrology"/>
+   </concept>
+   <concept>
+     <code value="Nerve conduction"/>
+   </concept>
+   <concept>
+     <code value="Neurological surgery"/>
+   </concept>
+   <concept>
+     <code value="Neurology"/>
+   </concept>
+   <concept>
+     <code value="Neurology w special qualifications in child neuro"/>
+   </concept>
+   <concept>
+     <code value="NeuroQol"/>
+   </concept>
+   <concept>
+     <code value="NeuroQol.Peds"/>
+   </concept>
+   <concept>
+     <code value="Neut"/>
+   </concept>
+   <concept>
+     <code value="Neutral red stain"/>
+   </concept>
+   <concept>
+     <code value="NHANES"/>
+   </concept>
+   <concept>
+     <code value="Night blue stain"/>
+   </concept>
+   <concept>
+     <code value="NIHSS"/>
+   </concept>
+   <concept>
+     <code value="Nile blue prusside"/>
+   </concept>
+   <concept>
+     <code value="Nottingham combined"/>
+   </concept>
+   <concept>
+     <code value="NPUAP"/>
+   </concept>
+   <concept>
+     <code value="Nuclear.blood pool"/>
+   </concept>
+   <concept>
+     <code value="Nuclear.myocardial"/>
+   </concept>
+   <concept>
+     <code value="Nurse practitioner"/>
+   </concept>
+   <concept>
+     <code value="Nurse.general medicine"/>
+   </concept>
+   <concept>
+     <code value="Nurse.surgery"/>
+   </concept>
+   <concept>
+     <code value="Nursing"/>
+   </concept>
+   <concept>
+     <code value="Nutrition and Dietetics"/>
+   </concept>
+   <concept>
+     <code value="Nutrition+Dietetics"/>
+   </concept>
+   <concept>
+     <code value="NVSS"/>
+   </concept>
+   <concept>
+     <code value="Nystagmogram"/>
+   </concept>
+   <concept>
+     <code value="OASIS"/>
+   </concept>
+   <concept>
+     <code value="OASIS-C"/>
+   </concept>
+   <concept>
+     <code value="OB US"/>
+   </concept>
+   <concept>
+     <code value="Observed"/>
+   </concept>
+   <concept>
+     <code value="Observed.BIMS"/>
+   </concept>
+   <concept>
+     <code value="Observed.BIMS.MDSv3"/>
+   </concept>
+   <concept>
+     <code value="Observed.Braden scale"/>
+   </concept>
+   <concept>
+     <code value="Observed.CAM.CARE"/>
+   </concept>
+   <concept>
+     <code value="Observed.CAM.MDSv3"/>
+   </concept>
+   <concept>
+     <code value="Observed.CCC"/>
+   </concept>
+   <concept>
+     <code value="Observed.FLACC"/>
+   </concept>
+   <concept>
+     <code value="Observed.MDSv3"/>
+   </concept>
+   <concept>
+     <code value="Observed.MERSTH"/>
+   </concept>
+   <concept>
+     <code value="Observed.OMAHA"/>
+   </concept>
+   <concept>
+     <code value="Observed.PHQ-9.MDSv3"/>
+   </concept>
+   <concept>
+     <code value="Observed.QAM"/>
+   </concept>
+   <concept>
+     <code value="Obstetrics and Gynecology"/>
+   </concept>
+   <concept>
+     <code value="Occupational health"/>
+   </concept>
+   <concept>
+     <code value="Occupational therapy"/>
+   </concept>
+   <concept>
+     <code value="OCT"/>
+   </concept>
+   <concept>
+     <code value="Oil red O stain"/>
+   </concept>
+   <concept>
+     <code value="OMB.1997"/>
+   </concept>
+   <concept>
+     <code value="Oncology"/>
+   </concept>
+   <concept>
+     <code value="Ophthalmology"/>
+   </concept>
+   <concept>
+     <code value="Ophthalmometer"/>
+   </concept>
+   <concept>
+     <code value="Ophthalmoscopy"/>
+   </concept>
+   <concept>
+     <code value="OPTIMAL"/>
+   </concept>
+   <concept>
+     <code value="Optometry"/>
+   </concept>
+   <concept>
+     <code value="Oral surgery"/>
+   </concept>
+   <concept>
+     <code value="Orcein stain"/>
+   </concept>
+   <concept>
+     <code value="Organism specific culture"/>
+   </concept>
+   <concept>
+     <code value="Organism specific culture.NPIP method"/>
+   </concept>
+   <concept>
+     <code value="Oromaxillofacial surgery"/>
+   </concept>
+   <concept>
+     <code value="Orthopedic surgery"/>
+   </concept>
+   <concept>
+     <code value="Orthopedics"/>
+   </concept>
+   <concept>
+     <code value="Otolaryngology"/>
+   </concept>
+   <concept>
+     <code value="Otorhinolaryngology"/>
+   </concept>
+   <concept>
+     <code value="Ova and parasite preparation"/>
+   </concept>
+   <concept>
+     <code value="Oximetry"/>
+   </concept>
+   <concept>
+     <code value="Oxygen analyzer"/>
+   </concept>
+   <concept>
+     <code value="P.E.D.S."/>
+   </concept>
+   <concept>
+     <code value="P.E.D.S.-DM"/>
+   </concept>
+   <concept>
+     <code value="PAGE"/>
+   </concept>
+   <concept>
+     <code value="Pain management"/>
+   </concept>
+   <concept>
+     <code value="Pain medicine"/>
+   </concept>
+   <concept>
+     <code value="Palpation"/>
+   </concept>
+   <concept>
+     <code value="Pastoral care"/>
+   </concept>
+   <concept>
+     <code value="Pathologist comment"/>
+   </concept>
+   <concept>
+     <code value="Pathology"/>
+   </concept>
+   <concept>
+     <code value="Patient"/>
+   </concept>
+   <concept>
+     <code value="PCL-C"/>
+   </concept>
+   <concept>
+     <code value="Peak flow meter"/>
+   </concept>
+   <concept>
+     <code value="Pediatric cardiology"/>
+   </concept>
+   <concept>
+     <code value="Pediatric critical care medicine"/>
+   </concept>
+   <concept>
+     <code value="Pediatric dermatology"/>
+   </concept>
+   <concept>
+     <code value="Pediatric endocrinology"/>
+   </concept>
+   <concept>
+     <code value="Pediatric gastroenterology"/>
+   </concept>
+   <concept>
+     <code value="Pediatric hematology-oncology"/>
+   </concept>
+   <concept>
+     <code value="Pediatric infectious diseases"/>
+   </concept>
+   <concept>
+     <code value="Pediatric nephrology"/>
+   </concept>
+   <concept>
+     <code value="Pediatric otolaryngology"/>
+   </concept>
+   <concept>
+     <code value="Pediatric pulmonology"/>
+   </concept>
+   <concept>
+     <code value="Pediatric rehabilitation medicine"/>
+   </concept>
+   <concept>
+     <code value="Pediatric rheumatology"/>
+   </concept>
+   <concept>
+     <code value="Pediatric surgery"/>
+   </concept>
+   <concept>
+     <code value="Pediatric transplant hepatology"/>
+   </concept>
+   <concept>
+     <code value="Pediatric urology"/>
+   </concept>
+   <concept>
+     <code value="Pediatrics"/>
+   </concept>
+   <concept>
+     <code value="Pedometer"/>
+   </concept>
+   <concept>
+     <code value="PEG"/>
+   </concept>
+   <concept>
+     <code value="PEG assay"/>
+   </concept>
+   <concept>
+     <code value="Pentachrome stain.movat"/>
+   </concept>
+   <concept>
+     <code value="Per age"/>
+   </concept>
+   <concept>
+     <code value="Per age and gender"/>
+   </concept>
+   <concept>
+     <code value="Per age, gender and height"/>
+   </concept>
+   <concept>
+     <code value="Percent of body weight"/>
+   </concept>
+   <concept>
+     <code value="Perimetry"/>
+   </concept>
+   <concept>
+     <code value="Perimetry.data interchange"/>
+   </concept>
+   <concept>
+     <code value="Perimetry.Dicon"/>
+   </concept>
+   <concept>
+     <code value="Perimetry.Goldman"/>
+   </concept>
+   <concept>
+     <code value="Perimetry.Humphrey"/>
+   </concept>
+   <concept>
+     <code value="Perimetry.Kowa"/>
+   </concept>
+   <concept>
+     <code value="Perimetry.octupus"/>
+   </concept>
+   <concept>
+     <code value="Perimetry.Perimat"/>
+   </concept>
+   <concept>
+     <code value="Perimetry.Peristat"/>
+   </concept>
+   <concept>
+     <code value="Perimetry.standard"/>
+   </concept>
+   <concept>
+     <code value="Perimetry.TEC"/>
+   </concept>
+   <concept>
+     <code value="Perimetry.Tuebinger automatic"/>
+   </concept>
+   <concept>
+     <code value="Periodic acid-Schiff stain"/>
+   </concept>
+   <concept>
+     <code value="Periodic acid-Schiff stain with diatase digestion"/>
+   </concept>
+   <concept>
+     <code value="Peritoneoscopy"/>
+   </concept>
+   <concept>
+     <code value="Perm mount"/>
+   </concept>
+   <concept>
+     <code value="Peroxidase stain"/>
+   </concept>
+   <concept>
+     <code value="PET scan"/>
+   </concept>
+   <concept>
+     <code value="PFGE"/>
+   </concept>
+   <concept>
+     <code value="Phage lysis"/>
+   </concept>
+   <concept>
+     <code value="Pharmacy"/>
+   </concept>
+   <concept>
+     <code value="Pharmacy records"/>
+   </concept>
+   <concept>
+     <code value="Phenotyping"/>
+   </concept>
+   <concept>
+     <code value="PhenX"/>
+   </concept>
+   <concept>
+     <code value="Phoropter"/>
+   </concept>
+   <concept>
+     <code value="Phosphotungstic acid hematoxyl"/>
+   </concept>
+   <concept>
+     <code value="PHQ-2.OASIS-C"/>
+   </concept>
+   <concept>
+     <code value="Physical medicine and rehabilitation"/>
+   </concept>
+   <concept>
+     <code value="Physical therapy"/>
+   </concept>
+   <concept>
+     <code value="Physician"/>
+   </concept>
+   <concept>
+     <code value="Physician attending"/>
+   </concept>
+   <concept>
+     <code value="Physician attending.cardiology"/>
+   </concept>
+   <concept>
+     <code value="Physician attending.cardiovascular disease"/>
+   </concept>
+   <concept>
+     <code value="Physician attending.critical care"/>
+   </concept>
+   <concept>
+     <code value="Physician attending.gastroenterology"/>
+   </concept>
+   <concept>
+     <code value="Physician attending.general medicine"/>
+   </concept>
+   <concept>
+     <code value="Physician attending.general surgery"/>
+   </concept>
+   <concept>
+     <code value="Physician attending.pulmonary disease"/>
+   </concept>
+   <concept>
+     <code value="Physician attending.thoracic surgery"/>
+   </concept>
+   <concept>
+     <code value="Physician consulting"/>
+   </concept>
+   <concept>
+     <code value="Pinworm examination"/>
+   </concept>
+   <concept>
+     <code value="Plastic surgery"/>
+   </concept>
+   <concept>
+     <code value="Platelet aggr"/>
+   </concept>
+   <concept>
+     <code value="Plethysmograph.body box"/>
+   </concept>
+   <concept>
+     <code value="Podiatry"/>
+   </concept>
+   <concept>
+     <code value="Polysomnography"/>
+   </concept>
+   <concept>
+     <code value="Post hydrolysis"/>
+   </concept>
+   <concept>
+     <code value="Potassium ferrocyanide stain"/>
+   </concept>
+   <concept>
+     <code value="Predicted"/>
+   </concept>
+   <concept>
+     <code value="Prewarmed"/>
+   </concept>
+   <concept>
+     <code value="Primary care"/>
+   </concept>
+   <concept>
+     <code value="Probe"/>
+   </concept>
+   <concept>
+     <code value="Probe insertion.Hagar"/>
+   </concept>
+   <concept>
+     <code value="Probe insertion.Pratt"/>
+   </concept>
+   <concept>
+     <code value="Probe.amp"/>
+   </concept>
+   <concept>
+     <code value="Probe.amp detection limit = 1.9 log copies/mL"/>
+   </concept>
+   <concept>
+     <code value="Probe.amp detection limit = 2.6 log copies/mL"/>
+   </concept>
+   <concept>
+     <code value="Probe.amp detection limit = 400 copies/mL"/>
+   </concept>
+   <concept>
+     <code value="Probe.amp detection limit = 75 copies/mL"/>
+   </concept>
+   <concept>
+     <code value="Probe.amp.sig"/>
+   </concept>
+   <concept>
+     <code value="Probe.amp.tar"/>
+   </concept>
+   <concept>
+     <code value="Probe.amp.tar detection limit = 0.5 log copies/mL"/>
+   </concept>
+   <concept>
+     <code value="Probe.amp.tar detection limit = 1.7 log copies/mL"/>
+   </concept>
+   <concept>
+     <code value="Probe.amp.tar detection limit = 2.6 log copies/mL"/>
+   </concept>
+   <concept>
+     <code value="Probe.amp.tar detection limit = 20 copies/mL"/>
+   </concept>
+   <concept>
+     <code value="Probe.amp.tar detection limit = 200 copies/mL"/>
+   </concept>
+   <concept>
+     <code value="Probe.amp.tar detection limit = 400 copies/mL"/>
+   </concept>
+   <concept>
+     <code value="Probe.amp.tar detection limit = 5 IU/mL"/>
+   </concept>
+   <concept>
+     <code value="Probe.amp.tar detection limit = 50 copies/mL"/>
+   </concept>
+   <concept>
+     <code value="Probe.amp.tar detection limit = 50 IU/mL"/>
+   </concept>
+   <concept>
+     <code value="Probe.amp.tar detection limit = 500 copies/mL"/>
+   </concept>
+   <concept>
+     <code value="Probe.amp.tar detection limit = 500 IU/mL"/>
+   </concept>
+   <concept>
+     <code value="PROCAM.HealthCheck.Cullen 1997"/>
+   </concept>
+   <concept>
+     <code value="PROCAM.QuickCheck.Cullen 1997"/>
+   </concept>
+   <concept>
+     <code value="Proctosigmoidoscopy.rigid"/>
+   </concept>
+   <concept>
+     <code value="PROMIS"/>
+   </concept>
+   <concept>
+     <code value="PROMIS.PEDS"/>
+   </concept>
+   <concept>
+     <code value="Prussian blue stain"/>
+   </concept>
+   <concept>
+     <code value="PSR scale"/>
+   </concept>
+   <concept>
+     <code value="Psychiatry"/>
+   </concept>
+   <concept>
+     <code value="Psychology"/>
+   </concept>
+   <concept>
+     <code value="Pulmonary"/>
+   </concept>
+   <concept>
+     <code value="Pulmonary disease"/>
+   </concept>
+   <concept>
+     <code value="Pulmonary function"/>
+   </concept>
+   <concept>
+     <code value="Pulse oximetry"/>
+   </concept>
+   <concept>
+     <code value="Quick method"/>
+   </concept>
+   <concept>
+     <code value="Quinacrine fluorescent stain"/>
+   </concept>
+   <concept>
+     <code value="Radiation oncology"/>
+   </concept>
+   <concept>
+     <code value="Radiology"/>
+   </concept>
+   <concept>
+     <code value="Radiology.XXX"/>
+   </concept>
+   <concept>
+     <code value="Radnuc"/>
+   </concept>
+   <concept>
+     <code value="Radnuc.PET"/>
+   </concept>
+   <concept>
+     <code value="Radnuc.SPECT"/>
+   </concept>
+   <concept>
+     <code value="Raji cell assay"/>
+   </concept>
+   <concept>
+     <code value="Rapid stain"/>
+   </concept>
+   <concept>
+     <code value="Rapid, less than 30 minutes"/>
+   </concept>
+   <concept>
+     <code value="RAST"/>
+   </concept>
+   <concept>
+     <code value="RBCs diluted"/>
+   </concept>
+   <concept>
+     <code value="Reaction: lactate to pyruvate"/>
+   </concept>
+   <concept>
+     <code value="Reaction: pyruvate to lactate"/>
+   </concept>
+   <concept>
+     <code value="Rearing/Culture"/>
+   </concept>
+   <concept>
+     <code value="Rebreathing"/>
+   </concept>
+   <concept>
+     <code value="Recreational therapy"/>
+   </concept>
+   <concept>
+     <code value="Rees-Ecker"/>
+   </concept>
+   <concept>
+     <code value="Refractometry"/>
+   </concept>
+   <concept>
+     <code value="Refractometry.automated"/>
+   </concept>
+   <concept>
+     <code value="Rehabilitation"/>
+   </concept>
+   <concept>
+     <code value="Reinsch"/>
+   </concept>
+   <concept>
+     <code value="Reported"/>
+   </concept>
+   <concept>
+     <code value="Reported.ACTG"/>
+   </concept>
+   <concept>
+     <code value="Reported.dispatch"/>
+   </concept>
+   <concept>
+     <code value="Reported.FPS-R"/>
+   </concept>
+   <concept>
+     <code value="Reported.GDS"/>
+   </concept>
+   <concept>
+     <code value="Reported.HIV-SSC"/>
+   </concept>
+   <concept>
+     <code value="Reported.howRU"/>
+   </concept>
+   <concept>
+     <code value="Reported.living-HIV"/>
+   </concept>
+   <concept>
+     <code value="Reported.PHQ"/>
+   </concept>
+   <concept>
+     <code value="Reported.PHQ-2.CARE"/>
+   </concept>
+   <concept>
+     <code value="Reported.PHQ-9.MDSv3"/>
+   </concept>
+   <concept>
+     <code value="Reported.visual analog score"/>
+   </concept>
+   <concept>
+     <code value="Reported.Wong-Baker FACES pain rating scale"/>
+   </concept>
+   <concept>
+     <code value="Research"/>
+   </concept>
+   <concept>
+     <code value="Respiratory culture"/>
+   </concept>
+   <concept>
+     <code value="Respiratory therapy"/>
+   </concept>
+   <concept>
+     <code value="Rest absorption"/>
+   </concept>
+   <concept>
+     <code value="Reticulin stain"/>
+   </concept>
+   <concept>
+     <code value="Retinal digital photography"/>
+   </concept>
+   <concept>
+     <code value="Reynolds.Ridker 2007"/>
+   </concept>
+   <concept>
+     <code value="RFC assessment"/>
+   </concept>
+   <concept>
+     <code value="RFLP"/>
+   </concept>
+   <concept>
+     <code value="RFLP probe"/>
+   </concept>
+   <concept>
+     <code value="RHEA"/>
+   </concept>
+   <concept>
+     <code value="Rheumatology"/>
+   </concept>
+   <concept>
+     <code value="Rhodamine stain"/>
+   </concept>
+   <concept>
+     <code value="Rhodamine-auramine fluorochrome stain"/>
+   </concept>
+   <concept>
+     <code value="RIA"/>
+   </concept>
+   <concept>
+     <code value="Ring and weigh"/>
+   </concept>
+   <concept>
+     <code value="RIPA"/>
+   </concept>
+   <concept>
+     <code value="Rodent substrate"/>
+   </concept>
+   <concept>
+     <code value="Rosette test"/>
+   </concept>
+   <concept>
+     <code value="Routine fungal culture"/>
+   </concept>
+   <concept>
+     <code value="RPR"/>
+   </concept>
+   <concept>
+     <code value="SAB"/>
+   </concept>
+   <concept>
+     <code value="Safranin stain"/>
+   </concept>
+   <concept>
+     <code value="Saline"/>
+   </concept>
+   <concept>
+     <code value="SAMHSA"/>
+   </concept>
+   <concept>
+     <code value="SAMHSA confirm"/>
+   </concept>
+   <concept>
+     <code value="SAMHSA screen"/>
+   </concept>
+   <concept>
+     <code value="SBT"/>
+   </concept>
+   <concept>
+     <code value="SCB"/>
+   </concept>
+   <concept>
+     <code value="Schirmer test"/>
+   </concept>
+   <concept>
+     <code value="Schmorl stain"/>
+   </concept>
+   <concept>
+     <code value="Schober test"/>
+   </concept>
+   <concept>
+     <code value="SCORE.PC.Conroy 2003"/>
+   </concept>
+   <concept>
+     <code value="SCORE.Quick.Conroy 2003"/>
+   </concept>
+   <concept>
+     <code value="Screen"/>
+   </concept>
+   <concept>
+     <code value="Screen&gt;100 ng/mL"/>
+   </concept>
+   <concept>
+     <code value="Screen&gt;1000 ng/mL"/>
+   </concept>
+   <concept>
+     <code value="Screen&gt;150 ng/mL"/>
+   </concept>
+   <concept>
+     <code value="Screen&gt;20 ng/mL"/>
+   </concept>
+   <concept>
+     <code value="Screen&gt;200 ng/mL"/>
+   </concept>
+   <concept>
+     <code value="Screen&gt;2000 ng/mL"/>
+   </concept>
+   <concept>
+     <code value="Screen&gt;25 ng/mL"/>
+   </concept>
+   <concept>
+     <code value="Screen&gt;300 ng/mL"/>
+   </concept>
+   <concept>
+     <code value="Screen&gt;50 ng/mL"/>
+   </concept>
+   <concept>
+     <code value="Screen&gt;500 ng/mL"/>
+   </concept>
+   <concept>
+     <code value="Sedimentation"/>
+   </concept>
+   <concept>
+     <code value="Senior review"/>
+   </concept>
+   <concept>
+     <code value="Sequencing"/>
+   </concept>
+   <concept>
+     <code value="Sevier-Munger stain"/>
+   </concept>
+   <concept>
+     <code value="Sheep cell aggl"/>
+   </concept>
+   <concept>
+     <code value="Shell vial culture"/>
+   </concept>
+   <concept>
+     <code value="Silver impregnation stain.Dieterle"/>
+   </concept>
+   <concept>
+     <code value="Silver nitrate stain"/>
+   </concept>
+   <concept>
+     <code value="Silver stain"/>
+   </concept>
+   <concept>
+     <code value="Silver stain.Fontana-Masson"/>
+   </concept>
+   <concept>
+     <code value="Silver stain.Grimelius"/>
+   </concept>
+   <concept>
+     <code value="Single breath.carbon monoxide+Helium"/>
+   </concept>
+   <concept>
+     <code value="Skin fold"/>
+   </concept>
+   <concept>
+     <code value="Slow-growing Mycobacteria"/>
+   </concept>
+   <concept>
+     <code value="SLUMS"/>
+   </concept>
+   <concept>
+     <code value="Smear"/>
+   </concept>
+   <concept>
+     <code value="Social service"/>
+   </concept>
+   <concept>
+     <code value="Social work"/>
+   </concept>
+   <concept>
+     <code value="Solubility test"/>
+   </concept>
+   <concept>
+     <code value="Spectrophotometry"/>
+   </concept>
+   <concept>
+     <code value="Speech pathology"/>
+   </concept>
+   <concept>
+     <code value="Speech therapy"/>
+   </concept>
+   <concept>
+     <code value="Speech therapy+Audiology"/>
+   </concept>
+   <concept>
+     <code value="Spirometry"/>
+   </concept>
+   <concept>
+     <code value="Spun"/>
+   </concept>
+   <concept>
+     <code value="Spun Westergren tube"/>
+   </concept>
+   <concept>
+     <code value="SSA"/>
+   </concept>
+   <concept>
+     <code value="Stated"/>
+   </concept>
+   <concept>
+     <code value="Steiner stain"/>
+   </concept>
+   <concept>
+     <code value="Sterile body fluid culture"/>
+   </concept>
+   <concept>
+     <code value="Sticky tape for environmental fungus"/>
+   </concept>
+   <concept>
+     <code value="Substance abuse"/>
+   </concept>
+   <concept>
+     <code value="Sudan black B stain"/>
+   </concept>
+   <concept>
+     <code value="Sudan black stain"/>
+   </concept>
+   <concept>
+     <code value="Sudan III stain"/>
+   </concept>
+   <concept>
+     <code value="Sudan IV stain"/>
+   </concept>
+   <concept>
+     <code value="Supravital stain"/>
+   </concept>
+   <concept>
+     <code value="Surgery"/>
+   </concept>
+   <concept>
+     <code value="Surgical pathology"/>
+   </concept>
+   <concept>
+     <code value="Tablet"/>
+   </concept>
+   <concept>
+     <code value="Tape measure"/>
+   </concept>
+   <concept>
+     <code value="Tartrate inhibited"/>
+   </concept>
+   <concept>
+     <code value="Tartrate-resistant acid phosphatase stain"/>
+   </concept>
+   <concept>
+     <code value="Terminal deoxynucleotidyl transferase stain"/>
+   </concept>
+   <concept>
+     <code value="Test strip"/>
+   </concept>
+   <concept>
+     <code value="Test strip manual"/>
+   </concept>
+   <concept>
+     <code value="Test strip.automated"/>
+   </concept>
+   <concept>
+     <code value="Tetrachrome stain"/>
+   </concept>
+   <concept>
+     <code value="Thick film"/>
+   </concept>
+   <concept>
+     <code value="Thin film"/>
+   </concept>
+   <concept>
+     <code value="Thioflavine-S stain"/>
+   </concept>
+   <concept>
+     <code value="Thoracic surgery"/>
+   </concept>
+   <concept>
+     <code value="Thromboelastography"/>
+   </concept>
+   <concept>
+     <code value="Tilt tube"/>
+   </concept>
+   <concept>
+     <code value="TIMP"/>
+   </concept>
+   <concept>
+     <code value="TLC"/>
+   </concept>
+   <concept>
+     <code value="Toluidine blue O stain"/>
+   </concept>
+   <concept>
+     <code value="Tonometry"/>
+   </concept>
+   <concept>
+     <code value="Tonometry.Goldmann appl"/>
+   </concept>
+   <concept>
+     <code value="Tonometry.non contact"/>
+   </concept>
+   <concept>
+     <code value="Tonometry.Schistz"/>
+   </concept>
+   <concept>
+     <code value="Transcutaneous CO2 monitor"/>
+   </concept>
+   <concept>
+     <code value="Transcutaneous meter"/>
+   </concept>
+   <concept>
+     <code value="Transcutaneous O2 monitor"/>
+   </concept>
+   <concept>
+     <code value="Transplant surgery"/>
+   </concept>
+   <concept>
+     <code value="Trichrome modified"/>
+   </concept>
+   <concept>
+     <code value="Trichrome stain"/>
+   </concept>
+   <concept>
+     <code value="Trichrome stain.Gomori-Wheatley"/>
+   </concept>
+   <concept>
+     <code value="Trichrome stain.Masson"/>
+   </concept>
+   <concept>
+     <code value="Trichrome stain.Masson modified"/>
+   </concept>
+   <concept>
+     <code value="Turbidimetry"/>
+   </concept>
+   <concept>
+     <code value="TWEAK"/>
+   </concept>
+   <concept>
+     <code value="Tzanck smear"/>
+   </concept>
+   <concept>
+     <code value="UKM"/>
+   </concept>
+   <concept>
+     <code value="UPPS"/>
+   </concept>
+   <concept>
+     <code value="UPPS-P"/>
+   </concept>
+   <concept>
+     <code value="Urology"/>
+   </concept>
+   <concept>
+     <code value="US"/>
+   </concept>
+   <concept>
+     <code value="US.2D"/>
+   </concept>
+   <concept>
+     <code value="US.2D.aortic root.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.2D.area-length"/>
+   </concept>
+   <concept>
+     <code value="US.2D.biplane ellipse"/>
+   </concept>
+   <concept>
+     <code value="US.2D.biplane ellipse.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.2D.bullet.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.2D.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.2D.left ventricular outflow tract.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.2D.LVOT area.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.2D.mitral valve flow area.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.2D.mitral valve.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.2D.mod"/>
+   </concept>
+   <concept>
+     <code value="US.2D.mod.biplane"/>
+   </concept>
+   <concept>
+     <code value="US.2D.mod.biplane ellipse.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.2D.mod.biplane.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.2D.mod.single-plane"/>
+   </concept>
+   <concept>
+     <code value="US.2D.mod.single-plane ellipse.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.2D.mod.single-plane.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.2D.modified Simpson.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.2D.planimetry"/>
+   </concept>
+   <concept>
+     <code value="US.2D.pulmonic valve flow area.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.2D.pulmonic valve.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.2D.single-plane ellipse"/>
+   </concept>
+   <concept>
+     <code value="US.2D.single-plane ellipse.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.2D.tricuspid valve"/>
+   </concept>
+   <concept>
+     <code value="US.2D.tricuspid valve.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.composite.estimated"/>
+   </concept>
+   <concept>
+     <code value="US.continuity"/>
+   </concept>
+   <concept>
+     <code value="US.continuity.Vmax+Area"/>
+   </concept>
+   <concept>
+     <code value="US.continuity.Vmax+Diameter"/>
+   </concept>
+   <concept>
+     <code value="US.continuity.VTI+Area"/>
+   </concept>
+   <concept>
+     <code value="US.continuity.VTI+Diameter"/>
+   </concept>
+   <concept>
+     <code value="US.cubed.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.derived"/>
+   </concept>
+   <concept>
+     <code value="US.derived from Chitty 1994"/>
+   </concept>
+   <concept>
+     <code value="US.derived from OFD&amp;O-I BPD"/>
+   </concept>
+   <concept>
+     <code value="US.derived from OFD&amp;O-O TD"/>
+   </concept>
+   <concept>
+     <code value="US.derived.AUT"/>
+   </concept>
+   <concept>
+     <code value="US.derived.EMP"/>
+   </concept>
+   <concept>
+     <code value="US.derived.HWL"/>
+   </concept>
+   <concept>
+     <code value="US.derived.LWT"/>
+   </concept>
+   <concept>
+     <code value="US.derived.planimetry"/>
+   </concept>
+   <concept>
+     <code value="US.derived.PLN"/>
+   </concept>
+   <concept>
+     <code value="US.derived.ROT"/>
+   </concept>
+   <concept>
+     <code value="US.doppler"/>
+   </concept>
+   <concept>
+     <code value="US.doppler.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.doppler.CW"/>
+   </concept>
+   <concept>
+     <code value="US.doppler.derived"/>
+   </concept>
+   <concept>
+     <code value="US.doppler.derived.full Bernoulli"/>
+   </concept>
+   <concept>
+     <code value="US.doppler.derived.simplified Bernoulli"/>
+   </concept>
+   <concept>
+     <code value="US.doppler.PISA"/>
+   </concept>
+   <concept>
+     <code value="US.doppler.pressure half time"/>
+   </concept>
+   <concept>
+     <code value="US.doppler.velocity+Area.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.doppler.velocity+Diameter.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.doppler.Vmax+Aorta.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.doppler.Vmax+Area.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.doppler.Vmax+Diameter.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.doppler.Vmax+LVOT.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.doppler.VTI+Aorta.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.doppler.VTI+Area.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.doppler.VTI+Diameter.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.doppler.VTI+LVOT.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.estimated"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;BPD"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;BPD&amp;FL"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;BPD&amp;FL&amp;HC"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;BPD&amp;FL&amp;HC.Hadlock 1985"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;BPD&amp;FL&amp;HC.Roberts 1985"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;BPD&amp;FL.Hadlock 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;BPD&amp;FL.Hadlock 1985"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;BPD&amp;FL.Woo 1985"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;BPD.Eik-Nes 1982"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;BPD.Hadlock 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;BPD.Shepard 1982"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;BPD.Thurnau 1983"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;BPD.Warsof 1977"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;BPD.Weinberger 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;FL"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;FL&amp;HC"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;FL&amp;HC.Hadlock 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;FL&amp;HC.Hadlock 1985"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;FL&amp;HC.Ott 1986"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;FL&amp;HC.Vintzileos 1987"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;FL&amp;HC.Weiner 1985"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;FL.Hadlock 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;FL.Hadlock 1985"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;FL.Woo 1985"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;HC"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;HC.Hadlock 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC&amp;HC.Jordaan 1983"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC.ASUM 2000"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC.Campbell 1975"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC.Hadlock 1982"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC.Hadlock 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC.Hansmann 1985"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC.Jeanty 1982"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC.Jeanty 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC.Lessoway 1998"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC.Merz 1988"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC.Shinozuka 1996"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC.Vintzileos 1987"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AC.Warsof 1977"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AD&amp;BPD"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AD&amp;BPD&amp;FL"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AD&amp;BPD&amp;FL.Rose 1987"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AD&amp;BPD.Rose 1987"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AD&amp;BPD.Vintzileos 1987"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AD&amp;FL"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AD&amp;FL.Rose 1987"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Alexander 1996"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Apad.Lessoway 1998"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Arbuckle 1993 female singleton"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Arbuckle 1993 female twins"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Arbuckle 1993 male singleton"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Arbuckle 1993 male twins"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from area corrected BPC"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from ASUM 2000"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from AXT.Shinozuka 1996"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BD"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BD.Jeanty 1982"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BD.Jeanty 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPC"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD&amp;FTA&amp;FL.Osaka 1990"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD&amp;TTD.Hansmann 1986"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD.ASUM 1989"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD.Campbell 1975"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD.Doubilet 1993"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD.Hadlock 1982"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD.Hadlock 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD.Hansmann 1985"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD.Hansmann 1986"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD.Hobbins 1983"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD.Jeanty 1982"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD.Jeanty 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD.Kurtz 1980"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD.Lessoway 1998"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD.Merz 1988"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD.Osaka 1989"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD.Rempen 1991"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD.Sabbagha 1978"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD.Shinozuka 1996"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from BPD.Tokyo 1986"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Brenner 1976"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Campbell 1991"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Campbell 1997"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from cerebellar diameter"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from cerebellum.Goldstein 1987"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Chitty 1994"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from clavicle length.Yarkoni 1985"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from CRL"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from CRL.ASUM 1991"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from CRL.ASUM 2000"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from CRL.Daya 1993"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from CRL.Hadlock 1992"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from CRL.Hansmann 1985"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from CRL.Hansmann 1986"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from CRL.Jeanty 1982"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from CRL.Jeanty 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from CRL.Nelson 1981"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from CRL.Osaka 1989"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from CRL.Rempen 1991"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from CRL.Robinson 1975"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from CRL.Shinozuka 1996"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from CRL.Tokyo 1986"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from CRL.Yeh 1988"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from EFW1.Shinozuka 1996"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from EFW2.Shinozuka 1996"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from EFW3.Shinozuka 1996"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from fibula length"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from fibula length.Jeanty 1983"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from fibula length.Jeanty 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from fibula length.Merz 1987"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from FL"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from FL.Chitty 1997"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from FL.Hadlock 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from FL.Hansmann 1985"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from FL.Hansmann 1986"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from FL.Hohler 1982"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from FL.Jeanty 1982"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from FL.Jeanty 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from FL.Lessoway 1998"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from FL.Mercer 1987"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from FL.Merz 1987"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from FL.Obrien 1982"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from FL.Osaka 1989"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from FL.Shinozuka 1996"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from FL.Tokyo 1986"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from FTA.Osaka 1989"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Goldstein 1987"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from GSD"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from GSD.Daya 1991"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from GSD.Hansmann 1982"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from GSD.Hellman 1969"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from GSD.Rempen 1991"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from GSD.Tokyo 1986"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from GSL.Hansmann 1979"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from GSL.Nyberg 1992"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Hadlock 1981"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Hadlock 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Hadlock 1985"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Hadlock 1991"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Hansmann 1986"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from HC"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from HC derived.Chitty 1997"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from HC measured.Chitty 1997"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from HC.ASUM 2000"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from HC.Hadlock 1982"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from HC.Hadlock 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from HC.Hansmann 1985"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from HC.Hansmann 1986"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from HC.Hoffbauer 1979"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from HC.Jeanty 1982"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from HC.Jeanty 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from HC.Lessoway 1998"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from HC.Merz 1988"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from HL"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from HL.ASUM 2000"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from HL.Jeanty 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from HL.Merz 1987"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from HL.Osaka 1989"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from IOD.Mayden 1982"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from IOD.Trout 1994"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Jeanty 1982"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Jeanty 1983"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from length of vertebra.Tokyo 1986"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Merz 1988"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from OFD.ASUM 2000"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from OFD.Hansmann 1985"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from OFD.Hansmann 1986"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from OFD.Lessoway 1998"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from O-I BPD.Chitty 1997"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from O-O BPD.Chitty 1997"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from OOD.Mayden 1982"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from OOD.Trout 1994"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from radius length"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from radius length.Jeanty 1983"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from radius length.Merz 1987"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Rempen 1991"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Shinozuka 1996"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from spine length.Tokyo 1989"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from TAD.Eriksen 1985"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from TAD.Hansmann 1979"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from TAD.Tokyo 1986"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from TC.Chitkara 1987"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from TC.Nimrod 1986"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from TCD.Chitty 1994"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from TCD.Goldstein 1987"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from TCD.Hill 1990"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from tibia length"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from tibia length.Jeanty 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from tibia length.Merz 1987"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Tokyo 1987"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from TTD.Hansmann 1985"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from TTD.Lessoway 1998"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from ulna length"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from ulna length.Jeanty 1984"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from ulna length.Merz 1987"/>
+   </concept>
+   <concept>
+     <code value="US.estimated from Williams 1982"/>
+   </concept>
+   <concept>
+     <code value="US.measured"/>
+   </concept>
+   <concept>
+     <code value="US.measured from Chitty 1994"/>
+   </concept>
+   <concept>
+     <code value="US.measured.ellipse overlay"/>
+   </concept>
+   <concept>
+     <code value="US.measured.M-mode"/>
+   </concept>
+   <concept>
+     <code value="US.measured.real time two dimension"/>
+   </concept>
+   <concept>
+     <code value="US.M-mode"/>
+   </concept>
+   <concept>
+     <code value="US.M-mode.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.M-mode.Teichholz"/>
+   </concept>
+   <concept>
+     <code value="US.mod.single-plane.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.modified Simpson.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.teicholz"/>
+   </concept>
+   <concept>
+     <code value="US.teicholz.calculated"/>
+   </concept>
+   <concept>
+     <code value="US.traced"/>
+   </concept>
+   <concept>
+     <code value="USSG-FHT"/>
+   </concept>
+   <concept>
+     <code value="VAERS"/>
+   </concept>
+   <concept>
+     <code value="Van Gieson stain"/>
+   </concept>
+   <concept>
+     <code value="VAP"/>
+   </concept>
+   <concept>
+     <code value="Vascular surgery"/>
+   </concept>
+   <concept>
+     <code value="Vassar-culling stain"/>
+   </concept>
+   <concept>
+     <code value="VC"/>
+   </concept>
+   <concept>
+     <code value="VDRL"/>
+   </concept>
+   <concept>
+     <code value="Verhoeff-Van Gieson stain"/>
+   </concept>
+   <concept>
+     <code value="Viability count"/>
+   </concept>
+   <concept>
+     <code value="Viability count.FDA method"/>
+   </concept>
+   <concept>
+     <code value="Viral subtyping"/>
+   </concept>
+   <concept>
+     <code value="Visual"/>
+   </concept>
+   <concept>
+     <code value="Visual.Reinsch"/>
+   </concept>
+   <concept>
+     <code value="Von Kossa stain"/>
+   </concept>
+   <concept>
+     <code value="VR"/>
+   </concept>
+   <concept>
+     <code value="VSP"/>
+   </concept>
+   <concept>
+     <code value="Wade stain"/>
+   </concept>
+   <concept>
+     <code value="Warm absorption"/>
+   </concept>
+   <concept>
+     <code value="Warm incubation"/>
+   </concept>
+   <concept>
+     <code value="Warthin-Starry stain"/>
+   </concept>
+   <concept>
+     <code value="Watson"/>
+   </concept>
+   <concept>
+     <code value="Wayson stain"/>
+   </concept>
+   <concept>
+     <code value="Westergren"/>
+   </concept>
+   <concept>
+     <code value="Westergren.2H reading"/>
+   </concept>
+   <concept>
+     <code value="Wet preparation"/>
+   </concept>
+   <concept>
+     <code value="WHI"/>
+   </concept>
+   <concept>
+     <code value="WHO method"/>
+   </concept>
+   <concept>
+     <code value="Wintrobe"/>
+   </concept>
+   <concept>
+     <code value="With P-5'-P"/>
+   </concept>
+   <concept>
+     <code value="With titration"/>
+   </concept>
+   <concept>
+     <code value="Without P-5'-P"/>
+   </concept>
+   <concept>
+     <code value="Without titration"/>
+   </concept>
+   <concept>
+     <code value="Worth test"/>
+   </concept>
+   <concept>
+     <code value="Wound care management"/>
+   </concept>
+   <concept>
+     <code value="Wright Giemsa stain"/>
+   </concept>
+   <concept>
+     <code value="Wright stain"/>
+   </concept>
+   <concept>
+     <code value="XR"/>
+   </concept>
+   <concept>
+     <code value="XR diffraction"/>
+   </concept>
+   <concept>
+     <code value="XR.DEXA"/>
+   </concept>
+   <concept>
+     <code value="XR.DXA"/>
+   </concept>
+   <concept>
+     <code value="XR.fluor"/>
+   </concept>
+   <concept>
+     <code value="XR.fluor.angio"/>
+   </concept>
+   <concept>
+     <code value="XR.fluor.video"/>
+   </concept>
+   <concept>
+     <code value="XR.measured"/>
+   </concept>
+   <concept>
+     <code value="XR.tomo"/>
+   </concept>
+   <concept>
+     <code value="XXX"/>
+   </concept>
+   <concept>
+     <code value="XXX stain"/>
+   </concept>
+   <concept>
+     <code value="Zetafuge"/>
+   </concept>
+  </define>
+</ValueSet>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Alert xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/familyhistory.xsd">
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Father died of a heart attack aged 74</div>
+  </text>
+  
+  <subject>
+    <type value="Patient"/>
+    <reference value="patient/@example"/>
+    <display value="Peter Patient"/>
+  </subject>
+  <note value="patient has a big dog at his home. Always carry a slab of meat to pacify it"/>
+</Alert>

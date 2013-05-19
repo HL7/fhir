@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Routine appendicectomy</div>
+  </text>
+  <subject>
+    <type value="Patient"/>
+    <reference value="patient/@example"/>
+  </subject>
+  <description>
+      <type>
+        <coding>
+          <system value="http://snomed.info"/>
+          <code value="80146002"/>
+          <display value="Appendectomy (Procedure)"/>
+        </coding>
+        <text value='Appendicectomy'/>
+      </type>
+      <notes value='Routine Appendicectomy. Appendix was inflamed and in retro-caecal position'/>
+  </description>
+  <indication value='Generalized abdominal pain 24 hours. Localized in RIF with rebound and guarding'/>
+  <performer>
+    <person>
+      <type value="Practitioner"/>
+      <reference value="practitioner/@example"/>
+      <display value='Dr Cyril Surgeon'></display>
+    </person>
+    
+  </performer>
+
+  <date>
+    <start value="2013-04-05" />
+  </date>
+  <followUp value='ROS 5 days  - 2013-04-10'/>
+  
+</Procedure>

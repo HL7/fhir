@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Using Codes and Terminologies - FHIR v<%version%></title>
+    <link rel="Stylesheet" href="fhir.css" type="text/css"/>
+    <link rel="Stylesheet" href="fhir-print.css" type="text/css" media="print" />
+</head>
+
+
+<body>
+<%sidebar%>
+
+<%maindiv%>
+<%txheader valuesets%>
+
+<h2>FHIR Codes Registry</h2>
+
+<p>
+This table contains a list of all the namespaces that define valuesets composed of codes from outside the FHIR specification. 
+When represented in a <a href="datatypes.htm#Coding">Coding</a> data type, the <i>code</i> element contains the code, and 
+the <i>system</i> element contains the system from which the code was taken
+</p>
+
+<%valuesetslist%> 
+
+
+
+<%footer%>
+
+
+<%/maindiv%>
+    
+</body>
+</html>

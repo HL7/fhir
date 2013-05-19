@@ -1,0 +1,44 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<p>
+The <i>identifier</i> and <i>version</i> elements may be used to reference this value set in a design, a profile, a 
+ CDA template or V3 message (valueSet and valueSetVersion). These different contexts may make additional restrictions 
+ on the possible values of these elements.
+</p>
+
+<h2>
+Notes for "Code System" kind:
+</h2>
+<ul>
+ <li>The "system" value for the defined codes is the <i>ValueSet.definition.system</i>. If that has no value, then 
+   it's the <i>ValueSet.identifier</i>, which must be a proper URI in this case. If that has no value, it's the URL of the resource itself</li>
+ <li>The usability of the codes is closely linked to the quality of the definitions. Although a definition is not required for each concept, 
+   providing a good definition is highly encouraged</li>
+</ul>
+
+<h2>
+Notes for "Composition" kind:
+</h2>
+<ul>
+<li>The content of the value set is a union of all the import and include statements and then with any excluded codes eliminated</li>
+<li>A value set needs to do something.  It can't simply include an existing value set without also including additional content or excluding content</li>
+<li>The point of declaring that this value set restricts another is that this value set can then replace the other in a profile 
+without changing the meaning. Declaring this explicitly allows profile tools to reason about the relationship without having 
+to compute the relationship, which might not be possible for a profile tool</li>
+<li>Using the property filters is only possible where the underlying code system defines appropriate properties. 
+  Note that in some cases, the underlying code system defines the logical concepts but not the literal codes for 
+  the concepts. In such cases, the literal definitions may be provided by a third party</li>
+<li>Within an include or exclude criterion, multiple filters and concept selections are intersected.  In other words, all the conditions specified must be true.</li>
+</ul>
+
+<h2>
+Notes for "Expansion" kind:
+</h2>
+<ul>
+ <li>When the codes are in a hierarchy, they </li>
+ <li></li>
+</ul>
+
+
+
+</div>

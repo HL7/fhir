@@ -1,0 +1,21 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<p>
+This Resource covers data about persons and animals involved in a wide range of health-related activities, including:
+<ul>
+<li>Curative activities</li>
+<li>Psychiatric care</li>
+<li>Social services</li>
+<li>Pregnancy care</li>
+<li>Nursing and assisted living</li>
+<li>Dietary services</li>
+<li>Tracking of personal health and excersise data</li>
+</ul>
+</p>
+<p>
+The data in a Patient Resource is generally kept in the interest of an organization, which also assigns a patient number and is responsible for the upkeep of the patient's record. A person or animal receiving care at multiple organisations will therefore have its information present in multiple Patient Resources.
+
+The data in the Resource covers the "who" information about the patient: Its attributes are focused on the demographic information necessary to support the administrative, financial and logistic procedures and does not contain medical or care-related information. 
+</p>
+
+</div>

@@ -1,0 +1,39 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h2>Notes:</h2>
+
+<ul>
+  <li>
+    The element that contains the actual value of the result has a variable name 
+	depending on the type. The name is "value" + the type name, ignoring parameters, 
+	with a capital on the first letter, e.g. valueInterval or valueString
+  </li>
+  <li>
+    The obtainedDateTime or obtainedPeriod is the time that the observation is most 
+    relevant as an observation of the subject. For a biological subject (e.g. a human patient), 
+    this is the physiologically relevant time of the observation. 
+	In the case of an observation on a specimen, this represents the start and 
+    end of the specimen collection (which may include multiple specimens). 
+    In the case of an observation obtained directly from a subject (e.g., BP, 
+    Chest X-ray), this represent the start and end time of the observation process.
+  </li>
+  <li>
+    At its simplest, these resource instances can consist of only a type and a value.  
+    The relevance of other properties will vary based on the type of observation.  
+	Normal range may be useful for systolic blood pressure, but has little 
+	relevance for something like "pregnancy status"
+  </li>
+  <li>
+    Profiles will be created to provide guidance on capturing certain types 
+    of simple observations.  This resource focuses on the level of detail
+    captured by most systems.  However, any "simple" observation can easily 
+	be broken into numerous components and sub-components to provide additional
+    information relevant in certain circumstances.  As with other resources, 
+	extensions can be used to introduce this additional complexity.
+ </li>
+</ul>
+
+</div>
+
+
+

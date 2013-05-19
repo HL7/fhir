@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\medicationdispense.xsd">
+  <!-- insert contents here -->
+   <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Penicillin VK 10ml suspension</p>
+      <p>dispensed 16:20 on 30 May 2012</p>
+      <p>by Dr Carfeful</p>
+      <p>picked up at 10:20 on 31 May 2012</p>
+      <p>on the authority of prescription ref: example</p>
+      <p>to patient ref: a23</p>
+    </div>
+  </text>  
+  
+  <patient>
+    <type value="Patient"/>
+    <reference value="patient/@example"/>
+  </patient>
+  <dispenser>
+    <type value="Practitioner"/>
+    <reference value="practitioner/@example"/>
+  </dispenser>
+  <authorizingPrescription>
+    <type value="MedicationPrescription"/>
+    <reference value="medicationprescription/@example" />
+  </authorizingPrescription>
+  <dispense>
+    <status >
+      <coding>
+        <system value="./MedDispStatus"/>
+        <code value="completed"/>
+        <display value="The dispensing of the medication has finished"/>
+      </coding>
+    </status>
+    <quantity>
+      <value value="10"/>
+      <units value="ml"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="ml"/>
+    </quantity>
+    <medication>
+      <type value="Medication"/>
+      <reference value="medication/@example"/>
+    </medication>
+    <whenPrepared>
+      <start value="2012-05-30T16:20:00"/>
+      <end value="2012-05-30T16:20:00"/>
+    </whenPrepared>
+    <whenHandedOver>
+      <start value="2012-05-31T10:20:00"/>
+      <end value="2012-05-31T10:20:00"/>
+    </whenHandedOver>
+  </dispense>
+  <substitution>
+    <type>
+      <coding>
+        <system value="./MedDispSubType"/>
+        <code value="NoSub"/>
+        <display value="No substitution made or expected"/>
+      </coding>
+    </type>
+  </substitution>  
+  
+</MedicationDispense>

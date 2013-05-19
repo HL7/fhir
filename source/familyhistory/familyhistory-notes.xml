@@ -1,0 +1,10 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h2>Genetic Family History</h2>
+<p>
+This resource represents a "bare bones" Family History as typically supported simple clinical systems.  
+A more elaborate version incorporating more detailed information as appropriate for genetic councilling
+will be developed as a profile on this resource.
+</p>
+
+</div>

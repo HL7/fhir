@@ -1,0 +1,220 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<!--
+this test was in the terminologies page, but was moved out when the specification level content was simplified.
+Needs to be introduced to the profile documentation somehow
+
+<p>
+Value set and code list bindings also have three additional properties that govern their use - <i>extensibility</i>, <i>conformance</i> and <i>change management</i>:
+</p>
+<ul>
+  <li><b>Extensibility</b><a name="extensibility"> </a>indicates whether additional codes are expected to be needed beyond those listed.  
+   It has two values:<br/><br/>
+    <table>
+      <tr><td>complete</td>
+          <td>No additional codes are to be used beyond the list provided</td>
+      </tr>
+      <tr><td>extensible</td>
+          <td>Some concepts won't be covered by the provided value set, so supplemental codes 
+          or plain text may be needed</td>
+      </tr>
+    </table>
+  </li>
+  <li><b>Conformance</b><a name="conformance"> </a>indicates the expectations for implementers of the specification.  
+    There are three possible values:<br/><br/>
+    <table>
+      <tr><td>required</td><td>
+        Only codes in the specified set are allowed. Profiles can only specify a subset of the 
+        defined codes.<br/>
+        If the strength is 'extensible', other codes may be used for concepts not covered by the 
+        value set but cannot be used for concepts covered by the bound code list, even 
+        if a profile constrains out some of those codes).<br/>
+        Specifications may render this as "SHALL"
+      </td></tr>
+      <tr><td>preferred</td><td>
+        For greater interoperability, implementers are strongly encouraged to use the bound set of
+        codes, however alternate codes may be used in profiles if necessary without being considered
+        non-conformant.<br/>
+        Specifications may render this as "SHOULD"
+      </td></tr>
+      <tr><td>example</td><td>
+        The codes in the set are an example to illustrate the meaning of the field.
+        There is no particular preference for its use.<br/>
+        Specifications may render this as "MAY"
+      </td></tr>
+    </table>
+  </li>
+  <li><b>Change Management</b><a name="management"> </a>describes how changes to the binding are managed over time. 
+    For a value set there are two possible values:<br/><br/>
+    <table>
+      <tr><td>static</td><td>The set of values is fixed to those defined in the identified value set as of the time the specification was published</td></tr>
+      <tr><td>dynamic</td><td>As the value sets changes by including new codes, or as codes that match the value set filters are added to the underlying code systems, any new codes can be used</td></tr>
+    </table>
+    For a code list, there are possible values:<br/><br/>
+    <table>
+      <tr><td>fixed</td><td>The list of defined codes will not change in the future</td></tr>
+      <tr><td>alterable</td><td>The list of defined codes may change in the future, and implementations should not depend on this value never changing</td></tr>
+    </table>
+  </li>
+</ul>
+
+this paragraph is not quite true:
+
+In <a href="profile.htm">Resource Profiles</a>, 
+the elements can be assigned a new binding name that defines a new set of possible codes. The set of codes 
+defined by a profile must be a subset of the set of codes defined in the base resource and those defined by 
+any imported profiles. 
+
+this paragraph is from ccd:
+
+Value-set bindings adhere to HL7 Vocabulary Working Group best practices, and 
+include both a conformance verb (SHALL, SHOULD, MAY, etc.) and an indication of 
+DYNAMIC vs. STATIC binding.  Value-set constraints can be STATIC, meaning that they are 
+bound to a specified version of a value set, or DYNAMIC, meaning that they are bound to 
+the most current version of the value set. A simplified constraint, used when the 
+binding is to a single code, includes the meaning of the code, as follows.
+
+-->
+
+<h2>Metadata Notes:</h2>
+<ul>
+<li>The name of the profile is not required to be globally unique, but the name should have some scoping information (i.e. Acme Inc. (USA), Allergy List)</li>
+<li>Multiple codes may be assigned to the profile. These may either describe the template, the focus of the template or both. They are solely to help find the profile by searching for structured concepts.</li>
+<li>
+When importing from other profiles, only the extensions and bindings defined in the explicitly referenced profiles are imported. 
+Any extensions and bindings that are defined in other resources must have import statements referencing the location of the profile. 
+</li>
+
+</ul>  
+
+<h2>Interpretation Notes:</h2>
+<ul>
+<li>The name of a resource constraint (Profile.resource.name) is only used as a logical target for .element.resource.profile. A reference may reference another resource 
+  constraint in the same Resource Profile by Profile.resource.name as #[name] or a different resource constraint in another profile by an absolute uri. In the case of an absolute uri, it 
+  must resolve literally or logically to a <a href="profile.htm">Resource Profile</a> and specify a #[name] portion in the URI that references a particular constraint in the target profile by name.</li>
+  
+<li>The constraint statement has a flat list of elements. The path element provides the overall structure and it must match the structure and names in the resource structure exactly.</li>
+
+<li>The condition element is used to assert that a constraint defined on another element affects the allowed cardinality of this element.</li>
+
+<li>The type is used to specify which types apply when the underlying resource allows a choice of types. 
+When the type of the element is fixed in the underlying resource definitions, it should still be stated in the profile. The type is optional because repeating groups of elements do not have a type.</li>
+
+<li>The definition (short, formal, comments and the mappings) for an element is provided so that the resource profile can provide a more specific definition for the field in a specific context. 
+  For instance, the underlying resource definition might be "Result value" and the more specific resource definition could be "Plasma Cholesterol Test Value".
+  The meaning needs to be consistent with the underlying definition, but narrower - a constraint on it.</li>
+  
+<li>For an element with a maximum cardinality of 1, there can only be one entry in the value list, which is either a literal fixed type (with an element name matching the type of the fixed value) or a name,
+  which is a reference to a named constraint pattern. If the element has a maximum cardinality of &gt;1, then there can be multiple values - again, either fixed values with a type or a named constraint. 
+  Each of these appears in the list with the order and cardinality specified. By this means, a list may be "sliced" into a series of different components.</li>
+
+<li>There can be more than one entry for each element path. The constraint specification can define multiple different constraints for any element and 
+  then use them in different places. In practice, this is useful when slicing a list and the differently named constraint profiles are invoked using the 
+  <i>values</i> element. The name of the element constraint must be unique within the constraint specification for that resource. If a constraint does not 
+  have a name, it applies to the base resource and must be found in the correct place in the structure.</li>
+<li>Closed is only relevant if the underlying element has a max cardinality > 1. </li> 
+<li>For an extension definition, the cardinality constraints are limits on the constraints of any reference to the extension in a profile. 
+For example, if the minimum cardinality of an extension is 1 when it is defined, then any profile that includes that extension in the instance
+must include it with a minimum cardinality of 1 and therefore any instance that conforms to the profile must include the extension. Note, however,
+that if the extension is simply directly referenced in an instance rather than applied through a profile, the minimum cardinality doesn't apply, 
+though the maximum one still does.
+</li>  
+<li>For xpath constraints, the prefix "f" should be used for "http://hl7.org/fhir", and "h" for "http://www.w3.org/1999/xhtml".</li>
+<li>When using xpath to make constraints about the relationship between the contents of the narrative and the contents of the data elements, 
+  the element against which the rule is expressed is the one against which the error will be reported.</li>
+</ul>
+
+<p>
+TODO: Is any control over narrative required?
+</p>
+
+<h2>Slicing</h2>
+<p>
+One common operation in a resource profile is to take an element that may occur more
+than once, and describe a series of different constraints on the elements in the list. 
+In this way, the list is split into a series of individual elements or sub-lists. 
+In FHIR, this operation is known as "Slicing" a collection. Here is an example to illustrate the 
+process:
+</p>
+<img alt="Slicing diagram" src="slicing.png"/>
+<p>
+In this example, the resource definition defines the "component" element which may occur
+multiple times. The profile for Acme, Inc. constrains the relationship element into 2 different named kinds: 
+an optional systolic and an optional diastolic observation component, which both have a value of type Quantity.
+Note that to avoid adding clutter to this example, the "type" attribute of Component is shown to be of
+type code, while its actual definition is CodeableConcept. 
+</p>
+<p>
+Note that in FHIR, only the resource is ever actually exchanged. The profile describes a way of 
+using the resource, but the item profile names ("systolic", etc. in this list) are never exchanged.
+The slicing description is more useful if it is "unambiguous": if systems are able to determine which 
+relationships in the relationship list that is actually exchanged are parent, child, or 
+guardian; in this particular case, the determination is allowed by fixing the value of the 
+relationship type element. Fixing a code value is the most common way to slice a list. 
+</p>
+
+<h2>Value set binding conformance expectations</h2>
+<p>
+There are three characteristics that influence what codes are permitted in an element bound to a value set.  
+Each of these characteristics are orthogonal.
+</p>
+<ul>
+<li>
+<b>isExtensible</b> indicates the "completeness" of the value set - Does the provided set of codes cover every allowed use-case for the element?
+</li>
+<li>
+<b>conformance</b> indicates how the value set is expected to be used:
+<i>example</i> means it is not being endorsed and may not even be complete.  
+<i>suggested</i> means the value set is endorsed and complete, but others can be used 
+where legacy solution, legislation or other guidelines dictate otherwise
+<i>required</i> means the value set must be use to be considered conformant
+</li>
+<li>
+<b>value set design &amp; reference</b> - value sets can be referenced by version or independent of version.  
+Furthermore, value sets may reference other value sets as well as code systems by version or independent of version.  
+Unless all references are version-specific, it is possible that the set of codes permitted in the value set could
+change over time
+</li>
+</ul>
+<p>
+At the resource level, minimal constraints are applied.  Value sets are either example or suggested, extensible and version-independent.
+A fully constrained value set - where all receivers know exactly what codes might appear - will be non-extensible, required and will have all references "version-specific".
+</p>
+
+
+
+<h2>Profiled FHIR</h2>
+<p>
+If a profile is unambiguous, then the FHIR profile tooling (ref to be provided when the tooling exists) 
+is able to generate reference implementation based object models that express 
+the profiled model natively, where the object interface does not include 
+prohibited elements, treats declared extensions as primary properties and 
+slices lists according to the profile. This eases the burden on an implementer, 
+though this object model can only be used with a sub-set of the possible resources.
+</p>
+<p>
+The tooling is also able to generate bi-directional transforms between the 
+<a href="formats.htm">normal XML format</a> and an XML representation of this 
+profiled object model and schema for this profiled XML representation. 
+This XML form has extensions promoted into the primary XML form by using the 
+extension code as the XML name and sliced lists are renamed to use the 
+Profile.resource.element.name as the XML element name. Profiles are only suitable
+for this use if they ensure that there are no clashing extension names when
+the extension definition spaces are ignored and that the sliced list names are 
+appropriate.
+</p>
+
+<p>
+Implementations are allowed to exchange this profiled XML format. Implementations
+that do so are not fully conformant to FHIR; instead they can claim to be conformant
+to "Profiled FHIR". Implementations should consider carefully before adopting this 
+approach; while it will reduce the amount of work required to initially implement 
+particular profiles, it will increase the amount of work required to exchange this
+data with other communities or to re-use tooling and applications that are also 
+used in other contexts. This cost should particularly be considered in light of the
+fact that the previously discussed tooling allows applications to be written as 
+though they are dealing with "Profiled FHIR" instances when they are in fact sending
+and receiving fully conformant FHIR instances.
+</p>
+
+</div>

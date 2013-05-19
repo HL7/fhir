@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Device xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/device.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>example</p>
+    </div>
+  </text>
+  <type>
+    <coding>
+      <system value="http://snomed.info"/>
+      <code value="86184003"/>
+      <display value="Electrocardiographic monitor and recorder"/>
+    </coding>
+    <text value="ECG"/>
+  </type>
+  <manufacturer value="Acme Devices, Inc"/>
+  <model value="AB 45-J"/>
+  <identity>
+    <gtin value="04012313012313"/>
+    <lot value="43453424"/>
+    <serialNumber value="AMID-342135-8464"/>
+    <!-- no expiry for a ECG machine -->
+  </identity>
+  <assignedId>
+    <system value="http://goodcare.org/devices/id"/>
+    <key value="345675"/>
+  </assignedId>
+  <contact>
+    <system value="phone"/>
+    <value value="ext 4352"/>
+  </contact>
+</Device>
