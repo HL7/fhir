@@ -1,4 +1,6 @@
 package org.hl7.fhir.definitions.parsers;
+import java.io.File;
+
 /*
 Copyright (c) 2011-2013, HL7, Inc
 All rights reserved.
@@ -36,7 +38,7 @@ public class BindingNameRegistry {
 
   public BindingNameRegistry(String srcDir, boolean forPublication) {
     this.forPublication = forPublication;
-    ini = new IniFile(srcDir+"bindings.ini");
+    ini = new IniFile(srcDir+File.separator+"bindings.ini");
   }
 
   public String idForName(String name) {
