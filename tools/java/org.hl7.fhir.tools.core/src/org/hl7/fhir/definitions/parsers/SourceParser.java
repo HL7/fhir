@@ -485,14 +485,19 @@ public class SourceParser {
 			checkFile("infrastructure definition", dtDir, n.toLowerCase() + ".xml",	errors,"all");
 
 		for (String n : ini.getPropertyNames("resources")) {
-			if (new CSFile(srcDir + n + File.separatorChar + n	+ "-spreadsheet.xml").exists()) {
-				checkFile("definition", srcDir + n+ File.separatorChar, n + "-spreadsheet.xml", errors, n);
-			} else
-				checkFile("definition", srcDir + n + File.separatorChar, n + "-def.xml", errors, n);
-			checkFile("example xml", srcDir + n + File.separatorChar,	n + "-example.xml", errors, n);
-			// now iterate all the files in the directory checking data
-			for (String fn : new File(srcDir + n + File.separatorChar).list())
- 	      checkFile("source", srcDir + n + File.separatorChar, fn, errors, n);
+		  if (!new File(srcDir + n).exists())
+		    errors.add("unable to find folder for resource "+n);
+		  else {
+		    if (new CSFile(srcDir + n + File.separatorChar + n	+ "-spreadsheet.xml").exists()) {
+		      checkFile("definition", srcDir + n+ File.separatorChar, n + "-spreadsheet.xml", errors, n);
+		    } else
+		      checkFile("definition", srcDir + n + File.separatorChar, n + "-def.xml", errors, n);
+		    checkFile("example xml", srcDir + n + File.separatorChar,	n + "-example.xml", errors, n);
+		    // now iterate all the files in the directory checking data
+
+		    for (String fn : new File(srcDir + n + File.separatorChar).list())
+		      checkFile("source", srcDir + n + File.separatorChar, fn, errors, n);
+		  }
 		}
 		for (String n : ini.getPropertyNames("special-resources")) {
 			if (new CSFile(srcDir + n + File.separatorChar + n+ "-spreadsheet.xml").exists())

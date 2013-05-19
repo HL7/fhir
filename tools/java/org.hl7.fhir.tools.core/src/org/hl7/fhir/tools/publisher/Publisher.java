@@ -508,15 +508,17 @@ public class Publisher {
       for (Example e : r.getExamples()) {
         if (!Utilities.noString(e.getId()))
           b.append(e.getId()+", ");
-        if (e.getXml().getDocumentElement().getLocalName().equals("feed")) {
-          List<Element> entries = new ArrayList<Element>();
-          XMLUtil.getNamedChildren(e.getXml().getDocumentElement(), "entry", entries);
-          for (Element c : entries) {
-            String id = XMLUtil.getNamedChild(c, "id").getTextContent();
-            if (id.startsWith("http://hl7.org/fhir/") && id.contains("@"))
-              b.append(id.substring(id.indexOf("@")+1)+", ");
-            else
-              b.append(id+", ");
+        if (e.getXml() != null) {
+          if (e.getXml().getDocumentElement().getLocalName().equals("feed")) {
+            List<Element> entries = new ArrayList<Element>();
+            XMLUtil.getNamedChildren(e.getXml().getDocumentElement(), "entry", entries);
+            for (Element c : entries) {
+              String id = XMLUtil.getNamedChild(c, "id").getTextContent();
+              if (id.startsWith("http://hl7.org/fhir/") && id.contains("@"))
+                b.append(id.substring(id.indexOf("@")+1)+", ");
+              else
+                b.append(id+", ");
+            }
           }
         }
       }
@@ -536,6 +538,9 @@ public class Publisher {
         String id = extractId(ref.getId(), ref.getType());
         if (id.equals(e.getId()))
           return true;
+        if (e.getXml() == null)
+          return false;
+        
         if (e.getXml().getDocumentElement().getLocalName().equals("feed")) {
           List<Element> entries = new ArrayList<Element>();
           XMLUtil.getNamedChildren(e.getXml().getDocumentElement(), "entry", entries);
