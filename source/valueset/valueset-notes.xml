@@ -7,19 +7,37 @@ The <i>identifier</i> and <i>version</i> elements may be used to reference this 
 </p>
 
 <h2>
-Notes for "Code System" kind:
+Notes for kind "Code System":
 </h2>
+<p>
+A value set of kind "Code System" is one that defines it's own codes - it includes all the codes it defines.
+This kind of value set is useful for simple sets of codes that are highly specific and context-dependent. 
+The value set and the code system are both given URI identifiers by which they may be identified from
+elsewhere (ValueSet.identifier and ValueSet.define.system). These identifiers may be the same.
+</p>
 <ul>
  <li>The "system" value for the defined codes is the <i>ValueSet.definition.system</i>. If that has no value, then 
    it's the <i>ValueSet.identifier</i>, which must be a proper URI in this case. If that has no value, it's the URL of the resource itself</li>
  <li>The usability of the codes is closely linked to the quality of the definitions. Although a definition is not required for each concept, 
    providing a good definition is highly encouraged</li>
+ <li>If concepts contain other concepts, then the contained concepts are "subsumed" by 
+   the containing concept (there is an "is-a" relationship between the codes).</li>
+  <li>A concept must have a code or contained concepts (or both). A concept that has no code is an 
+  abstract concept (a logical grouping concept that can't actually be used itself as it has no code)</li>
 </ul>
 
 <h2>
-Notes for "Composition" kind:
+Notes for kind "Composition":
 </h2>
+<p>
+This kind of value set includes codes that are defined in some other code system. It is most useful when 
+dealing with large general code systems such as Snomed-CT, LOINC, RxNorm, or various IETF code sets 
+including human language. The value set can be a simple list of included codes, or it can be some 
+kind of general selection criteria. 
+</p>
 <ul>
+<li>If the value set contains include statements with a mode other than "code" or any filters, 
+ then the contents of the value set are open and change over time as the underlying code systems are updated</li>
 <li>The content of the value set is a union of all the import and include statements and then with any excluded codes eliminated</li>
 <li>A value set needs to do something.  It can't simply include an existing value set without also including additional content or excluding content</li>
 <li>The point of declaring that this value set restricts another is that this value set can then replace the other in a profile 
@@ -28,15 +46,25 @@ to compute the relationship, which might not be possible for a profile tool</li>
 <li>Using the property filters is only possible where the underlying code system defines appropriate properties. 
   Note that in some cases, the underlying code system defines the logical concepts but not the literal codes for 
   the concepts. In such cases, the literal definitions may be provided by a third party</li>
-<li>Within an include or exclude criterion, multiple filters and concept selections are intersected.  In other words, all the conditions specified must be true.</li>
+<li>Within an include or exclude criterion, multiple filters and concept selections are intersected.  
+  In other words, all the conditions specified must be true.</li>
 </ul>
 
 <h2>
-Notes for "Expansion" kind:
+Notes for kind "Expansion":
 </h2>
+<p>
+A Composition value set is an expression that permit a specific 
+collection of coded concepts at a given point in time to be reliably reproduced.
+The collection of codes that are generated from the Value Set Definition is called 
+the Value Set Expansion. The expansion may be exchanged between systems and 
+also persisted for re-use and recording purposes. 
+</p>
 <ul>
- <li>When the codes are in a hierarchy, they </li>
- <li></li>
+ <li>If concepts contain other concepts, there is no implication about the logical 
+   relationship between them; this is guidance for helping human user navigate 
+   the choice of codes that may or may not relate to the logical definitions of the codes or concepts.</li>
+ <li>todo: does an expansion require a link to the value set from which it was expanded?</li>
 </ul>
 
 

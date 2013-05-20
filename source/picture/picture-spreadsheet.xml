@@ -20,7 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -630,7 +630,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell><Data ss:Type="String">Who the image is about</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Picture.subject</Data></Cell>
    </Row>
@@ -644,14 +644,14 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">identifier</Data></Cell>
     <Cell><Data ss:Type="String">the request id for the image</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Picture.identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">operator</Data></Cell>
     <Cell><Data ss:Type="String">person who gathered the image</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Picture.operator</Data></Cell>
    </Row>
@@ -672,25 +672,25 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">view</Data></Cell>
     <Cell><Data ss:Type="String">Imaging view e.g Lateral or Antero-posterior (AP)</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Picture.view</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">accession</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Picture.accessionNo</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">study</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Picture.studyId</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">series</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Picture.seriesId</Data></Cell>
    </Row>
@@ -762,6 +762,7 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -781,7 +782,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -823,7 +825,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

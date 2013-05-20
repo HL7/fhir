@@ -1,7 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<p>A value set specifies a set of codes drawn from one or more 
-code systems. There are three kinds of value sets:
+<p>There are three kinds of value sets:
 </p>
 <ol>
  <li>A value set that defines it's own codes as a <i>Code System</i></li>

@@ -20,7 +20,6 @@
   <WindowWidth>9570</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6195</WindowTopY>
-  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -316,6 +315,7 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <TopRowVisible>12</TopRowVisible>
    <Panes>
     <Pane>
@@ -427,102 +427,88 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="28" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="28" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
-   <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="354.75"/>
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="354.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
-    <Cell><Data ss:Type="String">Repeats</Data></Cell>
     <Cell><Data ss:Type="String">Path</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16.5">
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">code for the problem/diagnosis</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Problem.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16.5">
     <Cell><Data ss:Type="String">status</Data></Cell>
     <Cell><Data ss:Type="String">the status of the problem/diagnosis</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Problem.status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">severity</Data></Cell>
     <Cell><Data ss:Type="String">the severity of the problem</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Problem.severity</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">category</Data></Cell>
     <Cell><Data ss:Type="String">the category of the problem</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Problem.category</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">onset</Data></Cell>
     <Cell><Data ss:Type="String">when the problem started (if started on a date)</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell><Data ss:Type="String">single</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Problem.onset[x]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Problem.subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">visit</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Problem.visit</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">asserter</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Problem.asserter</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">dateAsserted</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">date</Data></Cell>
-    <Cell><Data ss:Type="String">single</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Problem.dateAsserted</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">evidence</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Problem.evidence.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">location</Data></Cell>
     <Cell ss:StyleID="s63"/>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Problem.location.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">target</Data></Cell>
     <Cell ss:StyleID="s63"/>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Problem.relatedItem.target</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">stage</Data></Cell>
     <Cell ss:StyleID="s63"/>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Problem.stage.summary</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -533,31 +519,31 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s63"/>
-    <Cell ss:Index="5" ss:StyleID="s63"/>
+    <Cell ss:Index="4" ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s63"/>
+    <Cell ss:Index="4" ss:StyleID="s63"/>
    </Row>
    <Row ss:Index="20" ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s63"/>
+    <Cell ss:Index="4" ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s63"/>
+    <Cell ss:Index="4" ss:StyleID="s63"/>
    </Row>
    <Row ss:Index="23" ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s63"/>
+    <Cell ss:Index="4" ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s63"/>
+    <Cell ss:Index="4" ss:StyleID="s63"/>
    </Row>
    <Row ss:Index="26" ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s63"/>
+    <Cell ss:Index="4" ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s63"/>
+    <Cell ss:Index="4" ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s63"/>
+    <Cell ss:Index="4" ss:StyleID="s63"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -571,7 +557,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>13</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -682,7 +668,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

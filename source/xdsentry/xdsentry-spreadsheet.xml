@@ -738,19 +738,19 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">format</Data></Cell>
     <Cell><Data ss:Type="String">format (urn:.. Following rules)</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">class</Data></Cell>
     <Cell><Data ss:Type="String">particular kind of document</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">type</Data></Cell>
     <Cell><Data ss:Type="String">precise kind of document</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -768,7 +768,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">confidentialityCode</Data></Cell>
     <Cell><Data ss:Type="String">as defined by Affinty Domain</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -780,7 +780,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">event</Data></Cell>
     <Cell><Data ss:Type="String">main clinical act(s)</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -792,20 +792,20 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">folderId</Data></Cell>
     <Cell><Data ss:Type="String">folders this document is in</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">XdsEntry.folder</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">patientId</Data></Cell>
     <Cell><Data ss:Type="String">subject of care of the document</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">patientInfo</Data></Cell>
     <Cell><Data ss:Type="String">demographic details</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">XdsEntry.patientInfo</Data></Cell>
    </Row>
@@ -818,19 +818,19 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">authorId</Data></Cell>
     <Cell><Data ss:Type="String">id of human/machine</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">facilityType</Data></Cell>
     <Cell><Data ss:Type="String">type of organizational setting</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">practiceSetting</Data></Cell>
     <Cell><Data ss:Type="String">clinical speciality of the act</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

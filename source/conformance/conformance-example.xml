@@ -58,7 +58,10 @@
         This application simply uses a profile registered directly with HL7. For the simplest 
         case of a FHIR REST Server, just delete this profile reference. Profile references do 
         not need to be a UUID, though a profile registry could insist that they are -->
-      <profile value="http://fhir.hl7.org/base/profile/@7896271d-57f6-4231-89dc-dcc91eab2416"/>
+      <profile>
+        <type value="Profile"/>
+        <reference value="http://fhir.hl7.org/base/profile/@7896271d-57f6-4231-89dc-dcc91eab2416"/>
+      </profile> 
       <operation>
         <code value="read"/>
       </operation>

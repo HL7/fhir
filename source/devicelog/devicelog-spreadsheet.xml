@@ -20,7 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -277,13 +277,13 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16.5">
     <Cell><Data ss:Type="String">key</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">DeviceLog.item.key</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16.5">
     <Cell><Data ss:Type="String">value</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">DeviceLog.item.value</Data></Cell>
    </Row>
@@ -301,13 +301,13 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">capabilities</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">DeviceLog.capabilities</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">DeviceLog.subject</Data></Cell>
    </Row>
@@ -331,10 +331,11 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
+     <ActiveRow>5</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
@@ -388,7 +389,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

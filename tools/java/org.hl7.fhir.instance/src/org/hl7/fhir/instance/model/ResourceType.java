@@ -4,6 +4,7 @@ public enum ResourceType {
     Provenance,
     CarePlan,
     Device,
+    Query,
     Order,
     Organization,
     Procedure,
@@ -40,10 +41,12 @@ public enum ResourceType {
     Specimen,
     OrderResponse,
     DeviceObservation,
+    Alert,
     Patient,
     Practitioner,
     AdverseReaction,
     ImagingStudy,
+    DiagnosticOrder,
     Appointment,
     InterestOfCare,
     RelatedPerson,
@@ -57,6 +60,8 @@ public enum ResourceType {
       return "careplan";
     case Device:
       return "device";
+    case Query:
+      return "query";
     case Order:
       return "order";
     case Organization:
@@ -129,6 +134,8 @@ public enum ResourceType {
       return "orderresponse";
     case DeviceObservation:
       return "deviceobservation";
+    case Alert:
+      return "alert";
     case Patient:
       return "patient";
     case Practitioner:
@@ -137,6 +144,8 @@ public enum ResourceType {
       return "adversereaction";
     case ImagingStudy:
       return "imagingstudy";
+    case DiagnosticOrder:
+      return "diagnosticorder";
     case Appointment:
       return "appointment";
     case InterestOfCare:

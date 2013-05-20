@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 15, 2013 09:11+1000 for FHIR v0.09
+// Generated on Tue, May 21, 2013 08:39+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -93,45 +93,26 @@ public class Organization extends Resource {
 
   }
 
-    public class OrganizationRelatedOrganizationComponent extends Element {
+    public class OrganizationContactEntityComponent extends Element {
         /**
-         * The organization that is related to this organization
-         */
-        private ResourceReference organization;
-
-        /**
-         * Code that specifies how this organization is related to the subject. A code is required.
-         */
-        private CodeableConcept relation;
-
-        public ResourceReference getOrganization() { 
-          return this.organization;
-        }
-
-        public void setOrganization(ResourceReference value) { 
-          this.organization = value;
-        }
-
-        public CodeableConcept getRelation() { 
-          return this.relation;
-        }
-
-        public void setRelation(CodeableConcept value) { 
-          this.relation = value;
-        }
-
-  }
-
-    public class OrganizationContactPersonComponent extends Element {
-        /**
-         * Indicates a purpose for which the person can be contacted.
+         * Indicates a purpose for which the contact can be reached
          */
         private CodeableConcept type;
 
         /**
-         * Details of the contact person
+         * A name associated with the contact
          */
-        private Demographics details;
+        private HumanName name;
+
+        /**
+         * A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.
+         */
+        private List<Contact> telecom = new ArrayList<Contact>();
+
+        /**
+         * Visiting or postal addresses for the contact
+         */
+        private Address address;
 
         public CodeableConcept getType() { 
           return this.type;
@@ -141,12 +122,24 @@ public class Organization extends Resource {
           this.type = value;
         }
 
-        public Demographics getDetails() { 
-          return this.details;
+        public HumanName getName() { 
+          return this.name;
         }
 
-        public void setDetails(Demographics value) { 
-          this.details = value;
+        public void setName(HumanName value) { 
+          this.name = value;
+        }
+
+        public List<Contact> getTelecom() { 
+          return this.telecom;
+        }
+
+        public Address getAddress() { 
+          return this.address;
+        }
+
+        public void setAddress(Address value) { 
+          this.address = value;
         }
 
   }
@@ -187,14 +180,14 @@ public class Organization extends Resource {
     private List<OrganizationAccreditationComponent> accreditation = new ArrayList<OrganizationAccreditationComponent>();
 
     /**
-     * Other organizations that are related to this organization. The relationship might be one of several types: sub- or super- orgnizations (i.e. ward in a hospital, owning corporation of a hospital) or partner organizations (i.e. the operating corporation for a hospital)
+     * The organization of which this organization forms a part
      */
-    private List<OrganizationRelatedOrganizationComponent> relatedOrganization = new ArrayList<OrganizationRelatedOrganizationComponent>();
+    private ResourceReference partOf;
 
     /**
-     * Contact details for a person acting as a contact for the organization
+     * Contact for the organization for a certain purpose
      */
-    private List<OrganizationContactPersonComponent> contactPerson = new ArrayList<OrganizationContactPersonComponent>();
+    private List<OrganizationContactEntityComponent> contactEntity = new ArrayList<OrganizationContactEntityComponent>();
 
     public List<Identifier> getIdentifier() { 
       return this.identifier;
@@ -246,12 +239,16 @@ public class Organization extends Resource {
       return this.accreditation;
     }
 
-    public List<OrganizationRelatedOrganizationComponent> getRelatedOrganization() { 
-      return this.relatedOrganization;
+    public ResourceReference getPartOf() { 
+      return this.partOf;
     }
 
-    public List<OrganizationContactPersonComponent> getContactPerson() { 
-      return this.contactPerson;
+    public void setPartOf(ResourceReference value) { 
+      this.partOf = value;
+    }
+
+    public List<OrganizationContactEntityComponent> getContactEntity() { 
+      return this.contactEntity;
     }
 
   @Override

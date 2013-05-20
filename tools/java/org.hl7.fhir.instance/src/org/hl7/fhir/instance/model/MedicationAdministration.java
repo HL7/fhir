@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 15, 2013 09:11+1000 for FHIR v0.09
+// Generated on Tue, May 21, 2013 08:39+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -40,13 +40,13 @@ Related resources tie this event to the authorizing prescription, and the specif
  */
 public class MedicationAdministration extends Resource {
 
-    public enum MedAdmStatus {
+    public enum MedicationAdminStatus {
         active, // The administration of the medication has started and is currently in progress.
         paused, // The administration of the medication has started but is currently stopped with a firm intention of restarting.
         completed, // The administration of the medication has finished
         nullified, // The administration of the medication was recorded in error and the record should now be disregarded.
         Null; // added to help the parsers
-        public static MedAdmStatus fromCode(String codeString) throws Exception {
+        public static MedicationAdminStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("active".equals(codeString))
@@ -57,7 +57,7 @@ public class MedicationAdministration extends Resource {
           return completed;
         if ("nullified".equals(codeString))
           return nullified;
-        throw new Exception("Unknown MedAdmStatus code '"+codeString+"'");
+        throw new Exception("Unknown MedicationAdminStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -70,29 +70,29 @@ public class MedicationAdministration extends Resource {
         }
     }
 
-  public class MedAdmStatusEnumFactory implements EnumFactory {
+  public class MedicationAdminStatusEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("active".equals(codeString))
-          return MedAdmStatus.active;
+          return MedicationAdminStatus.active;
         if ("paused".equals(codeString))
-          return MedAdmStatus.paused;
+          return MedicationAdminStatus.paused;
         if ("completed".equals(codeString))
-          return MedAdmStatus.completed;
+          return MedicationAdminStatus.completed;
         if ("nullified".equals(codeString))
-          return MedAdmStatus.nullified;
-        throw new Exception("Unknown MedAdmStatus code '"+codeString+"'");
+          return MedicationAdminStatus.nullified;
+        throw new Exception("Unknown MedicationAdminStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == MedAdmStatus.active)
+      if (code == MedicationAdminStatus.active)
         return "active";
-      if (code == MedAdmStatus.paused)
+      if (code == MedicationAdminStatus.paused)
         return "paused";
-      if (code == MedAdmStatus.completed)
+      if (code == MedicationAdminStatus.completed)
         return "completed";
-      if (code == MedAdmStatus.nullified)
+      if (code == MedicationAdminStatus.nullified)
         return "nullified";
       return "?";
       }
@@ -202,7 +202,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
      */
-    private Enumeration<MedAdmStatus> status;
+    private Enumeration<MedicationAdminStatus> status;
 
     /**
      * A link to a resource representing the person to whom the medication was given.
@@ -260,21 +260,21 @@ Use only if isNegated is set to TRUE
       return this.externalID;
     }
 
-    public Enumeration<MedAdmStatus> getStatus() { 
+    public Enumeration<MedicationAdminStatus> getStatus() { 
       return this.status;
     }
 
-    public void setStatus(Enumeration<MedAdmStatus> value) { 
+    public void setStatus(Enumeration<MedicationAdminStatus> value) { 
       this.status = value;
     }
 
-    public MedAdmStatus getStatusSimple() { 
+    public MedicationAdminStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
-    public void setStatusSimple(MedAdmStatus value) { 
+    public void setStatusSimple(MedicationAdminStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<MedAdmStatus>();
+          this.status = new Enumeration<MedicationAdminStatus>();
         this.status.setValue(value);
     }
 

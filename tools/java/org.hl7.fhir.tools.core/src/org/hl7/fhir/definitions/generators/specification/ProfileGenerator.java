@@ -62,7 +62,6 @@ import org.hl7.fhir.instance.model.Profile.ProfileBindingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureSearchParamComponent;
 import org.hl7.fhir.instance.model.Profile.SearchParamType;
-import org.hl7.fhir.instance.model.Profile.SearchRepeatBehavior;
 import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.Utilities;
@@ -173,8 +172,9 @@ public class ProfileGenerator {
     case string: return SearchParamType.string;
     case text: return SearchParamType.text;
     case date: return SearchParamType.date;
-    case token: return SearchParamType.qtoken;
-    case qtoken: return SearchParamType.qtoken;
+    case reference: return SearchParamType.reference;
+    case token: return SearchParamType.token;
+    case composite: return SearchParamType.composite;
     }
     return null;
   }

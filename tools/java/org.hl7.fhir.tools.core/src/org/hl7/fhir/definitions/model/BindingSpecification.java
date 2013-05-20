@@ -239,7 +239,9 @@ public class BindingSpecification {
   public DefinedCode getCode(String code) {
     for (DefinedCode c : codes) {
       if (code.equals(c.getCode()))
-          return c;
+        return c;
+      if (code.equals("#"+c.getId()))
+        return c;
     }
     return null;
   }

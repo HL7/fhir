@@ -535,7 +535,9 @@ public class ElementDefn {
 				throw new Exception("Improper path " + pathname);
 			ElementDefn t = null;
 
-			if (definitions.dataTypeIsSharedInfo(res.typeCode())) {
+			if (res.typeCode().startsWith("@")) {
+			  res = this.getElementForPath(res.typeCode().substring(1), definitions, purpose);
+			} else if (definitions.dataTypeIsSharedInfo(res.typeCode())) {
 				res = definitions.getElementDefn(res.typeCode());
 			} else if (definitions.hasType(res.typeCode())) {
 				res = definitions.getElementDefn(res.typeCode());

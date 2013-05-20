@@ -20,7 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -326,12 +326,12 @@
     <PaperSizeIndex>9</PaperSizeIndex>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <TopRowVisible>6</TopRowVisible>
+   <TopRowVisible>3</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>27</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -448,79 +448,69 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="10" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="10" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
-   <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="273"/>
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="273"/>
    <Column ss:AutoFitWidth="0" ss:Width="339.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
-    <Cell><Data ss:Type="String">Repeats</Data></Cell>
     <Cell><Data ss:Type="String">Path</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16.5">
     <Cell><Data ss:Type="String">name</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">DeviceCapabilities.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16.5">
     <Cell><Data ss:Type="String">type</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">DeviceCapabilities.type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">manufacturer</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">DeviceCapabilities.manufacturer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">identity</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">DeviceCapabilities.identity</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">The compatment code</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">DeviceCapabilities.virtualDevice.code</Data></Cell>
     <Cell ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">channel</Data></Cell>
     <Cell><Data ss:Type="String">The channel code</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">DeviceCapabilities.virtualDevice.channel.code</Data></Cell>
     <Cell ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">metric</Data></Cell>
     <Cell><Data ss:Type="String">The metric code</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">DeviceCapabilities.virtualDevice.channel.metric.code</Data></Cell>
     <Cell ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">datatype</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">DeviceCapabilities.virtualDevice.channel.metric.info.type</Data></Cell>
     <Cell ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">facet</Data></Cell>
     <Cell><Data ss:Type="String">The facet code</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">DeviceCapabilities.virtualDevice.channel.metric.facet.code</Data></Cell>
    </Row>
   </Table>
@@ -537,10 +527,12 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -604,7 +596,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

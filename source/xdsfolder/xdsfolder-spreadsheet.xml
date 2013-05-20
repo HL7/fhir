@@ -279,7 +279,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="16.5">
     <Cell><Data ss:Type="String">patientId</Data></Cell>
     <Cell><Data ss:Type="String">subject of care of the document</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16.5">
@@ -291,7 +291,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s67"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">a code that describes the folder</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

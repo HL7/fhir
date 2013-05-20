@@ -520,7 +520,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="15.9375">
     <Cell><Data ss:Type="String">identifier</Data></Cell>
     <Cell><Data ss:Type="String">A patient Identifier</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -550,13 +550,13 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">gender</Data></Cell>
     <Cell><Data ss:Type="String">gender of the person</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">single</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">language</Data></Cell>
     <Cell><Data ss:Type="String">language code (irrespective of use value)</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

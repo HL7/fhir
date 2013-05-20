@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 15, 2013 09:11+1000 for FHIR v0.09
+// Generated on Tue, May 21, 2013 08:39+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -160,8 +160,9 @@ public class Profile extends Resource {
         string, // Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces and are delineated by double quotes, e.g. "van Zanten".
         text, // Search parameter is on a long string. Used for text filter type search: it functions on searches within a body of text and may contain spaces to separate words. May match even if the separate words are found out of order. Text parameters are delineated by double quotes.
         date, // Search parameter is on a date (and should support -before and -after variants). The date format is the standard XML format, though other formats may be supported
-        qtoken, // Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). It's value is either a string or a pair of namespace and value, separated by a "!".
+        token, // Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). It's value is either a string or a pair of namespace and value, separated by a "!".
         reference, // A pair of resource type and resource id, separated by "/". Matches when the resource reference resolves to a resource of the given type and id.
+        composite, // A composite search parameter that combines other search parameters together
         Null; // added to help the parsers
         public static SearchParamType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -174,10 +175,12 @@ public class Profile extends Resource {
           return text;
         if ("date".equals(codeString))
           return date;
-        if ("qtoken".equals(codeString))
-          return qtoken;
+        if ("token".equals(codeString))
+          return token;
         if ("reference".equals(codeString))
           return reference;
+        if ("composite".equals(codeString))
+          return composite;
         throw new Exception("Unknown SearchParamType code '"+codeString+"'");
         }
         public String toCode() {
@@ -186,8 +189,9 @@ public class Profile extends Resource {
             case string: return "string";
             case text: return "text";
             case date: return "date";
-            case qtoken: return "qtoken";
+            case token: return "token";
             case reference: return "reference";
+            case composite: return "composite";
             default: return "?";
           }
         }
@@ -206,10 +210,12 @@ public class Profile extends Resource {
           return SearchParamType.text;
         if ("date".equals(codeString))
           return SearchParamType.date;
-        if ("qtoken".equals(codeString))
-          return SearchParamType.qtoken;
+        if ("token".equals(codeString))
+          return SearchParamType.token;
         if ("reference".equals(codeString))
           return SearchParamType.reference;
+        if ("composite".equals(codeString))
+          return SearchParamType.composite;
         throw new Exception("Unknown SearchParamType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -221,60 +227,12 @@ public class Profile extends Resource {
         return "text";
       if (code == SearchParamType.date)
         return "date";
-      if (code == SearchParamType.qtoken)
-        return "qtoken";
+      if (code == SearchParamType.token)
+        return "token";
       if (code == SearchParamType.reference)
         return "reference";
-      return "?";
-      }
-    }
-
-    public enum SearchRepeatBehavior {
-        single, // The search parameter may only occur once
-        union, // When the search parameter occurs more than once, match resources with any of the values
-        intersection, // When the search parameter occurs more than once, match resources with all of the values
-        Null; // added to help the parsers
-        public static SearchRepeatBehavior fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("single".equals(codeString))
-          return single;
-        if ("union".equals(codeString))
-          return union;
-        if ("intersection".equals(codeString))
-          return intersection;
-        throw new Exception("Unknown SearchRepeatBehavior code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case single: return "single";
-            case union: return "union";
-            case intersection: return "intersection";
-            default: return "?";
-          }
-        }
-    }
-
-  public class SearchRepeatBehaviorEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("single".equals(codeString))
-          return SearchRepeatBehavior.single;
-        if ("union".equals(codeString))
-          return SearchRepeatBehavior.union;
-        if ("intersection".equals(codeString))
-          return SearchRepeatBehavior.intersection;
-        throw new Exception("Unknown SearchRepeatBehavior code '"+codeString+"'");
-        }
-    public String toCode(Enum<?> code) throws Exception {
-      if (code == SearchRepeatBehavior.single)
-        return "single";
-      if (code == SearchRepeatBehavior.union)
-        return "union";
-      if (code == SearchRepeatBehavior.intersection)
-        return "intersection";
+      if (code == SearchParamType.composite)
+        return "composite";
       return "?";
       }
     }
@@ -1413,11 +1371,6 @@ public class Profile extends Resource {
         private Enumeration<SearchParamType> type;
 
         /**
-         * Whether multiple uses of the parameter are allowed in searches, and if they are, how the multiple values are understood
-         */
-        private Enumeration<SearchRepeatBehavior> repeats;
-
-        /**
          * For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does
          */
         private String_ documentation;
@@ -1456,24 +1409,6 @@ public class Profile extends Resource {
             if (this.type == null)
               this.type = new Enumeration<SearchParamType>();
             this.type.setValue(value);
-        }
-
-        public Enumeration<SearchRepeatBehavior> getRepeats() { 
-          return this.repeats;
-        }
-
-        public void setRepeats(Enumeration<SearchRepeatBehavior> value) { 
-          this.repeats = value;
-        }
-
-        public SearchRepeatBehavior getRepeatsSimple() { 
-          return this.repeats == null ? null : this.repeats.getValue();
-        }
-
-        public void setRepeatsSimple(SearchRepeatBehavior value) { 
-            if (this.repeats == null)
-              this.repeats = new Enumeration<SearchRepeatBehavior>();
-            this.repeats.setValue(value);
         }
 
         public String_ getDocumentation() { 
@@ -1669,9 +1604,13 @@ public class Profile extends Resource {
         }
 
         public void setIsExtensibleSimple(boolean value) { 
+          if (value == false)
+            this.isExtensible = null;
+          else {
             if (this.isExtensible == null)
               this.isExtensible = new Boolean();
             this.isExtensible.setValue(value);
+          }
         }
 
         public Enumeration<BindingConformance> getConformance() { 
@@ -1687,9 +1626,13 @@ public class Profile extends Resource {
         }
 
         public void setConformanceSimple(BindingConformance value) { 
+          if (value == null)
+            this.conformance = null;
+          else {
             if (this.conformance == null)
               this.conformance = new Enumeration<BindingConformance>();
             this.conformance.setValue(value);
+          }
         }
 
         public Type getReference() { 

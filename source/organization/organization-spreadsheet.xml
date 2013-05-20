@@ -20,7 +20,7 @@
   <WindowWidth>17490</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -471,94 +471,82 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="12" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="12" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="60"/>
-   <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="349.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="349.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
-    <Cell><Data ss:Type="String">Repeats</Data></Cell>
     <Cell><Data ss:Type="String">Path</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">name</Data></Cell>
     <Cell><Data ss:Type="String">A portion of the Organization's name</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Organization.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">phonetic</Data></Cell>
     <Cell><Data ss:Type="String">A portion of the Organization's name using some kind of phonetic matching algorithm</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">type</Data></Cell>
     <Cell><Data ss:Type="String">A code for the type of organization</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Organization.type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">identifier</Data></Cell>
     <Cell><Data ss:Type="String">Any identifier for the organization</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Organization.identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">telecom</Data></Cell>
     <Cell><Data ss:Type="String">The value in any kind of telecom information for the organization</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Organization.telecom</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">address</Data></Cell>
     <Cell><Data ss:Type="String">An address in any kind of address/part for the organization</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Organization.address</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">cname</Data></Cell>
     <Cell><Data ss:Type="String">A portion of the name of any contact person</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Organization.contactEntity.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ctelecom</Data></Cell>
     <Cell><Data ss:Type="String">The value in any kind of telecom information for any contact person of the organization</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Organization.contactEntity.telecom</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">caddress</Data></Cell>
     <Cell><Data ss:Type="String">An address in any kind of address/part for any contact person of the organization</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Organization.contactEntity.address</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">partOf</Data></Cell>
     <Cell><Data ss:Type="String">Search all organizations that are part of the given organization</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">single</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Organization.partOf</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">active</Data></Cell>
     <Cell><Data ss:Type="String">Whether the organization's record is active</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell><Data ss:Type="String">single</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Organization.active</Data></Cell>
    </Row>
   </Table>
@@ -575,10 +563,11 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>12</ActiveRow>
+     <ActiveRow>11</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
@@ -632,7 +621,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

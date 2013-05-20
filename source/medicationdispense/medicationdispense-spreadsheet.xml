@@ -20,7 +20,7 @@
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>60</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -653,11 +653,11 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
+   <TopRowVisible>5</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>16</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -777,220 +777,207 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="48" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="48" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s90" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s90" ss:Width="106.5"/>
    <Column ss:StyleID="s89" ss:AutoFitWidth="0" ss:Width="382.5"/>
-   <Column ss:Index="5" ss:StyleID="s89" ss:Width="260.25"/>
+   <Column ss:Index="4" ss:StyleID="s89" ss:Width="260.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
-    <Cell><Data ss:Type="String">Repeats</Data></Cell>
     <Cell><Data ss:Type="String">Path</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">patient</Data></Cell>
     <Cell><Data ss:Type="String">The identity of a patient to list dispenses  for</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">single</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">MedicationDispense.patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">prescription</Data></Cell>
     <Cell><Data ss:Type="String">The identity of a prescription to list dispenses from</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">single</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicationDispense.authorizingPrescription</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">whenPrepared</Data></Cell>
     <Cell><Data ss:Type="String">Date when medication prepared</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell><Data ss:Type="String">single</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">MedicationDispense.dispense.whenPrepared</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">whenHandedOver</Data></Cell>
     <Cell><Data ss:Type="String">Date when medication handed over to patient (outpatient setting), or supplied to ward or clinic (inpatient setting)</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell><Data ss:Type="String">single</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">MedicationDispense.dispense.whenHandedOver</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">status</Data></Cell>
     <Cell><Data ss:Type="String">Status of the dispense</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">MedicationDispense.dispense.status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">medicine</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">MedicationDispense.dispense.medication</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">identity</Data></Cell>
     <Cell><Data ss:Type="String">Return dispenses with this external identity</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationDispense.externalID</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">encounter</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">MedicationDispense.visit</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">dispenser</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">MedicationDispense.dispenser</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">type</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationDispense.dispense.type</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">destination</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">MedicationDispense.dispense.destination</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">responsibleParty</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">MedicationDispense.substitution.responsibleParty</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s69"/>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s69"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s73"/>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s73"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s73"/>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s73"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s77"/>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s77"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s64"/>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s78"/>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s78"/>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s64"/>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s83"/>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s83"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s64"/>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s64"/>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s64"/>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s64"/>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s86"/>
+    <Cell ss:Index="4" ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s78"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s78"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1006,11 +993,12 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1072,7 +1060,6 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

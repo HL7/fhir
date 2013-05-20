@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 15, 2013 09:11+1000 for FHIR v0.09
+// Generated on Tue, May 21, 2013 08:39+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -42,24 +42,14 @@ public class Immunization extends Resource {
         /**
          * Refusal or exemption reason
          */
-        private Code reason;
+        private CodeableConcept reason;
 
-        public Code getReason() { 
+        public CodeableConcept getReason() { 
           return this.reason;
         }
 
-        public void setReason(Code value) { 
+        public void setReason(CodeableConcept value) { 
           this.reason = value;
-        }
-
-        public String getReasonSimple() { 
-          return this.reason == null ? null : this.reason.getValue();
-        }
-
-        public void setReasonSimple(String value) { 
-            if (this.reason == null)
-              this.reason = new Code();
-            this.reason.setValue(value);
         }
 
   }
@@ -163,17 +153,17 @@ public class Immunization extends Resource {
         /**
          * The targeted disease
          */
-        private Code doseTarget;
+        private CodeableConcept doseTarget;
 
         /**
          * Should this count??
          */
-        private Code doseStatus;
+        private CodeableConcept doseStatus;
 
         /**
          * Dose Status Reason
          */
-        private Code doseStatusReason;
+        private CodeableConcept doseStatusReason;
 
         public Integer getDoseSequence() { 
           return this.doseSequence;
@@ -267,66 +257,28 @@ public class Immunization extends Resource {
           }
         }
 
-        public Code getDoseTarget() { 
+        public CodeableConcept getDoseTarget() { 
           return this.doseTarget;
         }
 
-        public void setDoseTarget(Code value) { 
+        public void setDoseTarget(CodeableConcept value) { 
           this.doseTarget = value;
         }
 
-        public String getDoseTargetSimple() { 
-          return this.doseTarget == null ? null : this.doseTarget.getValue();
-        }
-
-        public void setDoseTargetSimple(String value) { 
-          if (value == null)
-            this.doseTarget = null;
-          else {
-            if (this.doseTarget == null)
-              this.doseTarget = new Code();
-            this.doseTarget.setValue(value);
-          }
-        }
-
-        public Code getDoseStatus() { 
+        public CodeableConcept getDoseStatus() { 
           return this.doseStatus;
         }
 
-        public void setDoseStatus(Code value) { 
+        public void setDoseStatus(CodeableConcept value) { 
           this.doseStatus = value;
         }
 
-        public String getDoseStatusSimple() { 
-          return this.doseStatus == null ? null : this.doseStatus.getValue();
-        }
-
-        public void setDoseStatusSimple(String value) { 
-            if (this.doseStatus == null)
-              this.doseStatus = new Code();
-            this.doseStatus.setValue(value);
-        }
-
-        public Code getDoseStatusReason() { 
+        public CodeableConcept getDoseStatusReason() { 
           return this.doseStatusReason;
         }
 
-        public void setDoseStatusReason(Code value) { 
+        public void setDoseStatusReason(CodeableConcept value) { 
           this.doseStatusReason = value;
-        }
-
-        public String getDoseStatusReasonSimple() { 
-          return this.doseStatusReason == null ? null : this.doseStatusReason.getValue();
-        }
-
-        public void setDoseStatusReasonSimple(String value) { 
-          if (value == null)
-            this.doseStatusReason = null;
-          else {
-            if (this.doseStatusReason == null)
-              this.doseStatusReason = new Code();
-            this.doseStatusReason.setValue(value);
-          }
         }
 
   }
@@ -369,7 +321,7 @@ public class Immunization extends Resource {
     /**
      * Vaccine administered
      */
-    private Code vaccineType;
+    private CodeableConcept vaccineType;
 
     /**
      * Lot number for vaccine
@@ -384,12 +336,12 @@ public class Immunization extends Resource {
     /**
      * Body site where vaccine was administered
      */
-    private Code site;
+    private CodeableConcept site;
 
     /**
      * Route of administration
      */
-    private Code route;
+    private CodeableConcept route;
 
     /**
      * Vaccine dosage
@@ -491,26 +443,12 @@ public class Immunization extends Resource {
         this.reported.setValue(value);
     }
 
-    public Code getVaccineType() { 
+    public CodeableConcept getVaccineType() { 
       return this.vaccineType;
     }
 
-    public void setVaccineType(Code value) { 
+    public void setVaccineType(CodeableConcept value) { 
       this.vaccineType = value;
-    }
-
-    public String getVaccineTypeSimple() { 
-      return this.vaccineType == null ? null : this.vaccineType.getValue();
-    }
-
-    public void setVaccineTypeSimple(String value) { 
-      if (value == null)
-        this.vaccineType = null;
-      else {
-        if (this.vaccineType == null)
-          this.vaccineType = new Code();
-        this.vaccineType.setValue(value);
-      }
     }
 
     public String_ getLotNumber() { 
@@ -557,48 +495,20 @@ public class Immunization extends Resource {
       }
     }
 
-    public Code getSite() { 
+    public CodeableConcept getSite() { 
       return this.site;
     }
 
-    public void setSite(Code value) { 
+    public void setSite(CodeableConcept value) { 
       this.site = value;
     }
 
-    public String getSiteSimple() { 
-      return this.site == null ? null : this.site.getValue();
-    }
-
-    public void setSiteSimple(String value) { 
-      if (value == null)
-        this.site = null;
-      else {
-        if (this.site == null)
-          this.site = new Code();
-        this.site.setValue(value);
-      }
-    }
-
-    public Code getRoute() { 
+    public CodeableConcept getRoute() { 
       return this.route;
     }
 
-    public void setRoute(Code value) { 
+    public void setRoute(CodeableConcept value) { 
       this.route = value;
-    }
-
-    public String getRouteSimple() { 
-      return this.route == null ? null : this.route.getValue();
-    }
-
-    public void setRouteSimple(String value) { 
-      if (value == null)
-        this.route = null;
-      else {
-        if (this.route == null)
-          this.route = new Code();
-        this.route.setValue(value);
-      }
     }
 
     public Quantity getDoseQuantity() { 

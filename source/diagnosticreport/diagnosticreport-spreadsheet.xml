@@ -20,7 +20,7 @@
   <WindowWidth>17490</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -33,17 +33,17 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s57">
+  <Style ss:ID="s62">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s58">
+  <Style ss:ID="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s59">
+  <Style ss:ID="s64">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -53,12 +53,12 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s60">
+  <Style ss:ID="s65">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s61">
+  <Style ss:ID="s66">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
@@ -67,21 +67,21 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s63">
+  <Style ss:ID="s68">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s64">
+  <Style ss:ID="s69">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s65">
+  <Style ss:ID="s70">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s66">
+  <Style ss:ID="s71">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s67">
+  <Style ss:ID="s72">
    <Alignment ss:Vertical="Top"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
@@ -93,21 +93,21 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="27" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s57" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s58" ss:AutoFitWidth="0" ss:Width="196.5"/>
-   <Column ss:StyleID="s57" ss:AutoFitWidth="0" ss:Width="30"/>
-   <Column ss:StyleID="s57" ss:AutoFitWidth="0" ss:Width="25.5"/>
-   <Column ss:StyleID="s57" ss:AutoFitWidth="0" ss:Width="36.75" ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s57" ss:AutoFitWidth="0" ss:Width="98.25"/>
-   <Column ss:StyleID="s57" ss:AutoFitWidth="0" ss:Width="82.5"/>
-   <Column ss:StyleID="s57" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="2"/>
-   <Column ss:Index="11" ss:StyleID="s57" ss:AutoFitWidth="0" ss:Width="161.25"/>
-   <Column ss:StyleID="s57" ss:AutoFitWidth="0" ss:Width="290.25"/>
-   <Column ss:StyleID="s57" ss:AutoFitWidth="0" ss:Width="666.75"/>
-   <Column ss:StyleID="s57" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="16" ss:StyleID="s57" ss:AutoFitWidth="0" ss:Width="164.25"/>
-   <Column ss:StyleID="s57" ss:AutoFitWidth="0" ss:Width="722.25"/>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s59">
+   x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="196.5"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="30"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="25.5"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="36.75" ss:Span="1"/>
+   <Column ss:Index="6" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="98.25"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="82.5"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="2"/>
+   <Column ss:Index="11" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="290.25"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="666.75"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Column ss:Index="16" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="164.25"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="722.25"/>
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Card.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Inv.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -137,10 +137,10 @@
    <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell><Data ss:Type="String">DiagnosticReport</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s60"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s60"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s60"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s60"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A Diagnostic report - a combination of request information, atomic results, images, interpretation, and formatted reports</Data><NamedCell
@@ -157,7 +157,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">It's not clear how to handle cumulative reports</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s61"><ss:Data ss:Type="String"
+    <Cell ss:StyleID="s66"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">isNormalAct</Font></B><Font
        html:Color="#000000"> is a short-cut meaning:&#10;not(actionNegationInd=&quot;true&quot; or isCriterionInd=&quot;true&quot;)</Font></ss:Data></Cell>
    </Row>
@@ -179,7 +179,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">This is labelled as &quot;Is Modifier&quot; because applications need to take appropriate action if a report is withdrawn</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s61"><ss:Data ss:Type="String"
+    <Cell ss:StyleID="s66"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">registered: </Font></B><Font
        html:Color="#000000">./statusCode[isNormalDatatype()]=&quot;new&quot;;&#10;&#10;</Font><B><Font
         html:Color="#000000">interim:</Font></B><Font html:Color="#000000"> ./statusCode[isNormalDatatype()]=&quot;active&quot;;&#10;&#10;</Font><B><Font
@@ -188,7 +188,7 @@
         html:Color="#000000">cancelled: &#10;</Font></B><Font html:Color="#000000">./statusCode[isNormalDatatype()]=&quot;aborted&quot;;&#10;&#10;</Font><B><Font
         html:Color="#000000">withdrawn: </Font></B><Font html:Color="#000000">./statusCode[isNormalDatatype()]=&quot;obsolete&quot;</Font></ss:Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s61"><ss:Data ss:Type="String"
+    <Cell ss:Index="17" ss:StyleID="s66"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">isNormalActRelationship</Font></B><Font
        html:Color="#000000"> is a short-cut meaning:&#10;not(inversionInd=&quot;true&quot; or negationInd=&quot;true&quot; or subsetCode[not(nullFlavor=&quot;NA&quot;)])</Font></ss:Data></Cell>
    </Row>
@@ -210,7 +210,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">firstOf(unique(./participation[isHighest(priorityCode) and typeCode=&quot;VRF&quot; and isNormalParticipation()]/time[type=&quot;TS&quot;]), &#10;unique(./participation[isHighest(priorityCode) and typeCode=&quot;AUT&quot; and isNormalParticipation()]/time[type=&quot;TS&quot;]))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s58"><ss:Data ss:Type="String"
+    <Cell ss:Index="17" ss:StyleID="s63"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">isHighest</Font></B><Font
        html:Color="#000000"> is a short-cut that indicates that, in the event there are multiple occurrences that match the remaining constraints, the data element is the one with the highest non-null value for the indicated property.&#10;&#10;</Font><B><Font
         html:Color="#000000">isNormalParticipation</Font></B><Font
@@ -233,7 +233,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">unique(./participation[isHighest(priorityCode) and typeCode=&quot;SBJ&quot; and isNormalParticipation()]/role[classCode=&quot;PAT&quot;])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s61"><ss:Data ss:Type="String"
+    <Cell ss:Index="17" ss:StyleID="s66"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">Question: </Font></B><Font
        html:Color="#000000">Said this should be highest priority.  Is that appropriate?</Font></ss:Data></Cell>
    </Row>
@@ -255,7 +255,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">unique(./participation[isHighest(priorityCode) and typeCode=&quot;AUT&quot; and isNormalParticipation()]/role[subsumesCode(&quot;RoleClass#ASSIGN&quot;, classCode)]/scoper[subsumesCode(&quot;EntityClass#ORG&quot;, classCode) and determinerCode=&quot;INSTANCE&quot;])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s61"><ss:Data ss:Type="String"
+    <Cell ss:Index="17" ss:StyleID="s66"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">Question: </Font></B><Font
        html:Color="#000000">Said this should be highest priority.  Is that appropriate?</Font></ss:Data></Cell>
    </Row>
@@ -292,7 +292,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">unique(./outboundRelationship[typeCode=&quot;FLFS&quot; and isNormalActRelationship()]/target[subsumesCode(&quot;ActClass#OBS&quot;, classCode) and subsumes(&quot;ActMood#PRMS&quot;, moodCode) and isNormalAct()])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s61"><ss:Data ss:Type="String"
+    <Cell ss:Index="17" ss:StyleID="s66"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">Question: </Font></B><Font
        html:Color="#000000">Should this be by priorityCode too?</Font></ss:Data></Cell>
    </Row>
@@ -314,7 +314,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Question whether this is 80%</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s61"><ss:Data ss:Type="String"
+    <Cell ss:Index="17" ss:StyleID="s66"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">Question: </Font></B><Font
        html:Color="#000000">Said this should be highest priority.  Is that appropriate?</Font></ss:Data></Cell>
    </Row>
@@ -338,7 +338,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Reckon this is not 80%</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s61"><ss:Data ss:Type="String"
+    <Cell ss:Index="17" ss:StyleID="s66"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">Question: </Font></B><Font
        html:Color="#000000">Should this be by priorityCode too?</Font></ss:Data></Cell>
    </Row>
@@ -414,7 +414,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The requesting clinician may need to be contacted concerning the method or interpretation of the diagnostic service, and is frequently used for billing purposes too</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s61"><ss:Data ss:Type="String"
+    <Cell ss:Index="13" ss:StyleID="s66"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">Practitioner: </Font></B><Font
        html:Color="#000000">unique(./participation[isHighest(priorityCode) and typeCode=&quot;AUT&quot; and isNormalParticipation()]/role[subsumesCode(&quot;RoleClass#ASSIGN&quot;, classCode)]&#10;&#10;</Font><B><Font
         html:Color="#000000">Organization:</Font></B><Font html:Color="#000000"> unique(./participation[isHighest(priorityCode) and typeCode=&quot;AUT&quot; and isNormalParticipation()]/role[subsumesCode(&quot;RoleClass#ASSIGN&quot;, classCode)]/scoper[subsumesCode(&quot;EntityClass#ORG&quot;, classCode) and determinerCode=&quot;INSTANCE&quot; and code[isNormalDatatype]])&#10;</Font></ss:Data><NamedCell
@@ -679,10 +679,10 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
-   <Column ss:Index="4" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="143.25"/>
-   <Column ss:Index="6" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="179.25"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s59">
+   x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="15">
+   <Column ss:Index="4" ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="143.25"/>
+   <Column ss:Index="6" ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="179.25"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Context</Data></Cell>
@@ -691,7 +691,7 @@
     <Cell><Data ss:Type="String">XPath</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s64"/>
+    <Cell ss:Index="3" ss:StyleID="s69"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -720,14 +720,14 @@
  </Worksheet>
  <Worksheet ss:Name="Events">
   <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="2" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s65" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="73.5"/>
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="130.5"/>
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="118.5"/>
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="156.75" ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="125.25"
+   x:FullRows="1" ss:StyleID="s70" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="73.5"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="130.5"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="118.5"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="156.75" ss:Span="1"/>
+   <Column ss:Index="6" ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="125.25"
     ss:Span="1"/>
-   <Column ss:Index="8" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="102"/>
+   <Column ss:Index="8" ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="102"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Event Code</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
@@ -770,114 +770,99 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="15" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="15" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
-   <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="230.25"/>
-   <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s59">
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="230.25"/>
+   <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
-    <Cell><Data ss:Type="String">Repeats</Data></Cell>
     <Cell><Data ss:Type="String">Path</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">status</Data></Cell>
     <Cell><Data ss:Type="String">The status of the report</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">issued</Data></Cell>
     <Cell><Data ss:Type="String">when the report was issued</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell><Data ss:Type="String">single</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.issued</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell><Data ss:Type="String">the subject of the report</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">performer</Data></Cell>
     <Cell><Data ss:Type="String">who was the source of the report (organization)</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">identifier</Data></Cell>
     <Cell><Data ss:Type="String">an identifier for the report</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.reportId</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">test</Data></Cell>
     <Cell><Data ss:Type="String">a test requested that the report is in response to</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.requestDetail.requestTest</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">requester</Data></Cell>
     <Cell><Data ss:Type="String">who made a request that lead to the report</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.requestDetail.requester</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">service</Data></Cell>
     <Cell><Data ss:Type="String">which diagnostic discipline/department created the report</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.serviceCategory</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">date</Data></Cell>
     <Cell><Data ss:Type="String">the clinically relevant time of the report</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell><Data ss:Type="String">single</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.diagnosticTime</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">specimen</Data></Cell>
     <Cell><Data ss:Type="String">the specimen details</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.results.specimen</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">name</Data></Cell>
     <Cell><Data ss:Type="String">the name/code of the report</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.results.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">group</Data></Cell>
     <Cell><Data ss:Type="String">name /code of a group in the report</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">!DiagnosticReport.results.group.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">result</Data></Cell>
     <Cell><Data ss:Type="String">link to an atomic result</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.results.result</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">a coded diagnosis on the report</Data></Cell>
-    <Cell><Data ss:Type="String">qtoken</Data></Cell>
-    <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.codedDiagnosis</Data></Cell>
    </Row>
   </Table>
@@ -888,10 +873,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -900,62 +887,62 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="7" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s66" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="149.25"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="336.75"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="52.5" ss:Span="1"/>
-   <Column ss:Index="5" ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="126.75"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="346.5"/>
+   x:FullRows="1" ss:StyleID="s71" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="149.25"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="336.75"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="52.5" ss:Span="1"/>
+   <Column ss:Index="5" ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="126.75"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="346.5"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Binding Name</Data></Cell>
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Example</Data></Cell>
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Reference</Data></Cell>
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Binding Name</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Example</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Reference</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s58"><Data ss:Type="String">DiagnosisCodes</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Diagnoses codes provided as adjuncts to the report</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">DiagnosisCodes</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Diagnoses codes provided as adjuncts to the report</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">valueset-clinical-findings</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">SNOMED-CT Clinical Findings</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">SNOMED-CT Clinical Findings</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s58"><Data ss:Type="String">DiagnosticReportNames</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Codes that describe Diagnostic Reports</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">DiagnosticReportNames</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Codes that describe Diagnostic Reports</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">valueset-report-names</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">LOINC Codes for Diagnostic Reports</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">LOINC Codes for Diagnostic Reports</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s58"><Data ss:Type="String">DiagnosticRequests</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">codes for tests/services that can be performed by diagnostic services</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">DiagnosticRequests</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">codes for tests/services that can be performed by diagnostic services</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">valueset-diagnostic-requests</Data></Cell>
     <Cell><Data ss:Type="String">LOINC Order Codes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s58"><Data ss:Type="String">DiagnosticResultGroupNames</Data></Cell>
-    <Cell ss:StyleID="s57"><Data ss:Type="String">DiagnosticResultGroupNames</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">DiagnosticResultGroupNames</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">DiagnosticResultGroupNames</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">valueset-report-names</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">LOINC Codes for Diagnostic Reports</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">LOINC Codes for Diagnostic Reports</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s58"><Data ss:Type="String">DiagnosticServiceSection</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">codes for diagnostic service sections</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">DiagnosticServiceSection</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">codes for diagnostic service sections</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">valueset-diagnostic-service-sections</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">HL7 v2 table 0074</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">HL7 v2 table 0074</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">BodySite</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">BodySite</Data></Cell>
     <Cell><Data ss:Type="String">Codes describing anatomical locations. May include laterality</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
@@ -976,7 +963,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -996,12 +982,12 @@
    <Column ss:AutoFitWidth="0" ss:Width="228"/>
    <Column ss:AutoFitWidth="0" ss:Width="68.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Identity</Data></Cell>
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s59"><Data ss:Type="String">In Book</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">General</Data></Cell>
@@ -1050,11 +1036,11 @@
    <Column ss:AutoFitWidth="0" ss:Width="75"/>
    <Column ss:AutoFitWidth="0" ss:Width="297.75"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Example</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Example</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Example Lipid Profile</Data></Cell>

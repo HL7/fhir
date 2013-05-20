@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 15, 2013 09:11+1000 for FHIR v0.09
+// Generated on Tue, May 21, 2013 08:39+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -434,7 +434,7 @@ public class Visit extends Resource {
         /**
          * Time period during which the patient was present at the location
          */
-        private DateTime period;
+        private Period period;
 
         public ResourceReference getLocation() { 
           return this.location;
@@ -444,22 +444,12 @@ public class Visit extends Resource {
           this.location = value;
         }
 
-        public DateTime getPeriod() { 
+        public Period getPeriod() { 
           return this.period;
         }
 
-        public void setPeriod(DateTime value) { 
+        public void setPeriod(Period value) { 
           this.period = value;
-        }
-
-        public String getPeriodSimple() { 
-          return this.period == null ? null : this.period.getValue();
-        }
-
-        public void setPeriodSimple(String value) { 
-            if (this.period == null)
-              this.period = new DateTime();
-            this.period.setValue(value);
         }
 
   }

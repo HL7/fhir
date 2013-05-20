@@ -298,33 +298,65 @@ public class SpreadsheetParser {
 
 	private void readSearchParams(ResourceDefn root2, Sheet sheet)
 			throws Exception {
-		root2.getSearchParams().put("_id", new SearchParameter("_id","The logical resource id associated with the resource (must be supported by all servers)",SearchType.token, null));
+		root2.getSearchParams().put("_id", new SearchParameter("_id","The logical resource id associated with the resource (must be supported by all servers)",SearchType.token));
 
 		if (sheet != null)
 			for (int row = 0; row < sheet.rows.size(); row++) {
 
 				if (!sheet.hasColumn(row, "Name"))
 					throw new Exception("Search Param has no name "+ getLocation(row));
+        String n = sheet.getColumn(row, "Name");
 
 				if (!sheet.hasColumn(row, "Type"))
-					throw new Exception("Search Param has no type "+ getLocation(row));
-				String n = sheet.getColumn(row, "Name");
+					throw new Exception("Search Param "+root2.getName()+"/"+n+" has no type "+ getLocation(row));
 				if (n.endsWith("-before") || n.endsWith("-after"))
-					throw new Exception("Search Param includes relative time "+ getLocation(row));
-				String p = sheet.getColumn(row, "Path");
-				ElementDefn e = null;
-				if (!Utilities.noString(p) && !p.startsWith("!"))
-				  e = root2.getRoot().getElementForPath(p, definitions, "search param"); 
-				String d = sheet.getColumn(row, "Description");
-				if (Utilities.noString(d)) {
-				  if (e != null)
-				    d = e.getShortDefn();
-				  else
-				    throw new Exception("Search Param has no description "+ getLocation(row));
-				}
-				SearchType t = readSearchType(sheet.getColumn(row, "Type"), row);
+					throw new Exception("Search Param "+root2.getName()+"/"+n+" includes relative time "+ getLocation(row));
+        String d = sheet.getColumn(row, "Description");
+        SearchType t = readSearchType(sheet.getColumn(row, "Type"), row);
+        List<String> pn = new ArrayList<String>(); 
+        SearchParameter sp = null;
+				if (t == SearchType.composite) {
+	        String[] pl = sheet.getColumn(row, "Path").split("\\&");
+				  if (Utilities.noString(d)) 
+				    throw new Exception("Search Param "+root2.getName()+"/"+n+" has no description "+ getLocation(row));
+				  for (String pi : pl) {
+				    String p = pi.trim();
+				    if (!root2.getSearchParams().containsKey(p)) 
+				      throw new Exception("Composite Search Param "+root2.getName()+"/"+n+"  refers to an unknown component "+p+" at "+ getLocation(row));
+				    pn.add(p);
+				    sp = new SearchParameter(n, d, t);
+				    sp.getComposites().addAll(pn);
+				  }
+				} else {
+	        String[] pl = sheet.getColumn(row, "Path").split("\\|");
+				  for (String pi : pl) {
+				    String p = pi.trim();
+		        ElementDefn e = null;
+		        if (!Utilities.noString(p) && !p.startsWith("!"))
+		          e = root2.getRoot().getElementForPath(p, definitions, "search param"); 
+		        if (Utilities.noString(d) && e != null)
+		          d = e.getShortDefn();
+            if (d == null)
+              throw new Exception("Search Param "+root2.getName()+"/"+n+" has no description "+ getLocation(row));
+				    if (e != null)
+				      pn.add(p);
+				    if (t == SearchType.reference) {
+				      if (e == null)
+		            throw new Exception("Search Param "+root2.getName()+"/"+n+" of type reference has wrong path "+ getLocation(row));
+				      if (!e.typeCode().startsWith("Resource("))
+                throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is reference, but the element type is "+e.typeCode());
+				    } else if (e != null && e.typeCode().startsWith("Resource("))
+              throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is "+t.toString()+", but the element type is "+e.typeCode());
+				  }
+          if (t == SearchType.reference && pn.size() == 0)
+            throw new Exception("Search Param "+root2.getName()+"/"+n+" of type reference has no path(s) "+ getLocation(row));
 
-				root2.getSearchParams().put(n, new SearchParameter(n, d, t, p));
+				  sp = new SearchParameter(n, d, t);
+				  sp.getPaths().addAll(pn);
+				}
+				
+
+				root2.getSearchParams().put(n, sp);
 			}
 	}
 
@@ -337,10 +369,12 @@ public class SpreadsheetParser {
 			return SearchType.text;
 		if ("date".equals(s))
 			return SearchType.date;
-		if ("token".equals(s))
-			return SearchType.token;
-		if ("qtoken".equals(s))
-			return SearchType.qtoken;
+		if ("reference".equals(s))
+			return SearchType.reference;
+    if ("token".equals(s))
+      return SearchType.token;
+    if ("composite".equals(s))
+      return SearchType.composite;
 		throw new Exception("Unknown Search Type '" + s + "': " + getLocation(row));
 	}
 
@@ -665,7 +699,11 @@ public class SpreadsheetParser {
       if (binding != null && !binding.getUseContexts().contains(name))
         binding.getUseContexts().add(name);
 	    }
-		e.setShortDefn(sheet.getColumn(row, "Short Name"));
+    if (!Utilities.noString(sheet.getColumn(row, "Short Label")))
+      e.setShortDefn(sheet.getColumn(row, "Short Label"));
+    else // todo: make this a warning when a fair chunk of the spreadsheets have been converted 
+      e.setShortDefn(sheet.getColumn(row, "Short Name"));
+    
 		e.setDefinition(sheet.getColumn(row, "Definition"));
 		
 		if (isRoot) {

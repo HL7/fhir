@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 15, 2013 09:11+1000 for FHIR v0.09
+// Generated on Tue, May 21, 2013 08:39+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -58,7 +58,7 @@ public class Provenance extends Resource {
         /**
          * Where the activity occurred, if relevant
          */
-        private ProvenanceActivityLocationComponent location;
+        private ResourceReference location;
 
         /**
          * Policy or plan the activity was defined by
@@ -99,11 +99,11 @@ public class Provenance extends Resource {
           this.reason = value;
         }
 
-        public ProvenanceActivityLocationComponent getLocation() { 
+        public ResourceReference getLocation() { 
           return this.location;
         }
 
-        public void setLocation(ProvenanceActivityLocationComponent value) { 
+        public void setLocation(ResourceReference value) { 
           this.location = value;
         }
 
@@ -126,89 +126,6 @@ public class Provenance extends Resource {
             if (this.policy == null)
               this.policy = new Uri();
             this.policy.setValue(value);
-          }
-        }
-
-  }
-
-    public class ProvenanceActivityLocationComponent extends Element {
-        /**
-         * The type of location - a classification of the kind of location at which the activity took place
-         */
-        private CodeableConcept type;
-
-        /**
-         * An identifier for the location
-         */
-        private Identifier identifier;
-
-        /**
-         * Human readable description of location at which the activity occurred
-         */
-        private String_ description;
-
-        /**
-         * Geospatial coordinates of the location
-         */
-        private String_ coords;
-
-        public CodeableConcept getType() { 
-          return this.type;
-        }
-
-        public void setType(CodeableConcept value) { 
-          this.type = value;
-        }
-
-        public Identifier getIdentifier() { 
-          return this.identifier;
-        }
-
-        public void setIdentifier(Identifier value) { 
-          this.identifier = value;
-        }
-
-        public String_ getDescription() { 
-          return this.description;
-        }
-
-        public void setDescription(String_ value) { 
-          this.description = value;
-        }
-
-        public String getDescriptionSimple() { 
-          return this.description == null ? null : this.description.getValue();
-        }
-
-        public void setDescriptionSimple(String value) { 
-          if (value == null)
-            this.description = null;
-          else {
-            if (this.description == null)
-              this.description = new String_();
-            this.description.setValue(value);
-          }
-        }
-
-        public String_ getCoords() { 
-          return this.coords;
-        }
-
-        public void setCoords(String_ value) { 
-          this.coords = value;
-        }
-
-        public String getCoordsSimple() { 
-          return this.coords == null ? null : this.coords.getValue();
-        }
-
-        public void setCoordsSimple(String value) { 
-          if (value == null)
-            this.coords = null;
-          else {
-            if (this.coords == null)
-              this.coords = new String_();
-            this.coords.setValue(value);
           }
         }
 
@@ -294,9 +211,9 @@ public class Provenance extends Resource {
   }
 
     /**
-     * The resource that this provenance information pertains to
+     * The resource(s) that this provenance information pertains to. A provenance can point to more than one target if multiple resources were created/updated by the same action
      */
-    private ResourceReference target;
+    private List<ResourceReference> target = new ArrayList<ResourceReference>();
 
     /**
      * The activity that was being undertaken that led to the creation of the resource being referenced
@@ -313,12 +230,8 @@ public class Provenance extends Resource {
      */
     private String_ signature;
 
-    public ResourceReference getTarget() { 
+    public List<ResourceReference> getTarget() { 
       return this.target;
-    }
-
-    public void setTarget(ResourceReference value) { 
-      this.target = value;
     }
 
     public ProvenanceActivityComponent getActivity() { 

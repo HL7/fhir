@@ -628,14 +628,14 @@ public void generate(Definitions definitions, String destDir, String implDir, St
         String n = p.getCode().replace("$", "_");
         String d = Utilities.normaliseEolns(p.getDescription());
         String nf = n.replace("-", "_");
-        String t = getTarget(p.getPath(), r);
+        String t = getTarget(p.getPathSummary(), r);
         if (i == l) {
           def.append("    "+prefix+getTitle(nf)+"); {@enum.value "+prefix+getTitle(nf)+" "+d+" }\r\n");
           con.append("'"+defCodeType.escape(d)+"');");
           con2.append(" "+prefix+getTitle(nf)+");");
           con4.append(" SearchParamType"+getTitle(p.getType().toString())+");");
           con3.append("'"+defCodeType.escape(n)+"');");
-          con6.append("'"+defCodeType.escape(n+": "+p.getPath())+"');");
+          con6.append("'"+defCodeType.escape(n+": "+t)+"');");
           con7.append(""+t+");");
         }
         else {
@@ -644,7 +644,7 @@ public void generate(Definitions definitions, String destDir, String implDir, St
           con2.append(" "+prefix+getTitle(nf)+", ");
           con4.append(" SearchParamType"+getTitle(p.getType().toString())+", ");
           con3.append("'"+defCodeType.escape(n)+"', ");
-          con6.append("'"+defCodeType.escape(n+": "+p.getPath())+"',\r\n     ");
+          con6.append("'"+defCodeType.escape(n+": "+t)+"',\r\n     ");
           con7.append(""+t+", ");
         }
       }

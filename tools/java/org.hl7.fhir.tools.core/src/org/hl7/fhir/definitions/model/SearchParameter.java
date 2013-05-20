@@ -1,4 +1,7 @@
 package org.hl7.fhir.definitions.model;
+
+import java.util.ArrayList;
+import java.util.List;
 /*
 Copyright (c) 2011-2013, HL7, Inc
 All rights reserved.
@@ -30,40 +33,55 @@ POSSIBILITY OF SUCH DAMAGE.
 
 public class SearchParameter {
   public enum SearchType {
+    composite, // search parameter is a composite of others
     integer,  // search parameter must be a simple name 
     string,   // search parameter is a simple string, like a name part
     text,     // search parameter is into a long string - text filter
     date,     // search parameter is onto a date
-    quantity, // search parameter is onto a quantity (= qtoken + -lower & -upper, and canonical)
-    token,    // search parameter is on a fixed value string
-    qtoken;   // search parameter is onto a pair of fixed value strings, space and value. Space is optional
+    quantity, // search parameter is onto a quantity (= token + -lower & -upper, and canonical)
+    reference,// search parameter refers to a resource reference
+    token;   // search parameter is onto a pair of fixed value strings, space and value. Space is optional
   }
+  
   private String code;
   private String description;
   private SearchType type;
-  private String path;
+  private List<String> paths = new ArrayList<String>();
+  private List<String> composites = new ArrayList<String>();
   
   public String getCode() {
     return code;
   }
+  
   public void setCode(String code) {
     this.code = code;
   }
+  
   public String getDescription() {
     return description;
   }
+  
   public SearchType getType() {
     return type;
   }
-  public SearchParameter(String code, String description, SearchType type, String path) {
+  
+  public SearchParameter(String code, String description, SearchType type) {
     super();
     this.code = code;
     this.description = description;
     this.type = type;
-    this.path = path;
   }
-  public String getPath() {
-    return path;
+  
+  public List<String> getPaths() {
+    return paths;
+  }
+
+  public List<String> getComposites() {
+    return composites;
+  }
+
+  public String getPathSummary() {
+    return paths.toString();
   }
   
   

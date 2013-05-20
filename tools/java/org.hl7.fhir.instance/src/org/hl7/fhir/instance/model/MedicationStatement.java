@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 15, 2013 09:11+1000 for FHIR v0.09
+// Generated on Tue, May 21, 2013 08:39+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -137,7 +137,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
      */
-    private List<Identifier> externalID = new ArrayList<Identifier>();
+    private List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * A link to a resource representing the person to whom the medication was given.
@@ -176,8 +176,8 @@ Use only if isNegated is set to TRUE
      */
     private List<MedicationStatementDosageComponent> dosage = new ArrayList<MedicationStatementDosageComponent>();
 
-    public List<Identifier> getExternalID() { 
-      return this.externalID;
+    public List<Identifier> getIdentifier() { 
+      return this.identifier;
     }
 
     public ResourceReference getPatient() { 

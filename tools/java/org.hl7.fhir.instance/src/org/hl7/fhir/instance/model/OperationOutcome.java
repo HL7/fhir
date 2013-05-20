@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 15, 2013 09:11+1000 for FHIR v0.09
+// Generated on Tue, May 21, 2013 08:39+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -97,7 +97,7 @@ public class OperationOutcome extends Resource {
         /**
          * A code indicating the type of error, warning or information message.
          */
-        private CodeableConcept type;
+        private Coding type;
 
         /**
          * Additional description of the issue
@@ -127,11 +127,11 @@ public class OperationOutcome extends Resource {
             this.severity.setValue(value);
         }
 
-        public CodeableConcept getType() { 
+        public Coding getType() { 
           return this.type;
         }
 
-        public void setType(CodeableConcept value) { 
+        public void setType(Coding value) { 
           this.type = value;
         }
 

@@ -1,0 +1,32 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<p>
+A <i>Diagnostic Order</i> is a record of a request for a set of diagnostic investigations to be performed. 
+The investigation will lead to a <a href="diagnosticreport.htm">Diagnostic Report</a> that summarizes the 
+outcome of the investigation, and includes any useful data and/or images that are relevant to the 
+treatment/management of the subject.
+</p>
+<p>
+The principal intention of the <i>Diagnostic Order</i> is to support ordering diagnosic investigations
+on patients (which includes non-human patients in veterinary medicine. However in many contexts, 
+healthcare related processes include performing diagnostic  investigations on groups of subjects, 
+devices involved in the provision of healthcare, and even environmental locations such as ducts, 
+bodies of water, etc. The <i>Diagnostic Order</i> supports all these usages.
+</p>
+<p>
+The general work flow that this resource facilitates is that a clinical system creates a diagnostic
+order. The diagnostic order is then exchanged, perhaps via intermediaries, with a system that 
+represents a diagnostic service that can perform the investigation as a request to do so. 
+The diagnostic service will update the request as the work is performed, and then finally
+issue a report that references the requests that it fulfills.
+</p>
+<p>
+Note that the Diagnostic Order itself is not a request to perform the 
+investigation - it is just a record of the fact that a request was made. 
+The Diagnostic Request must be paired with an <a href="order.htm">Order</a>
+resource to convey the actual instruction, or part of an explicit messaging
+or service workflow that carries the instruction.
+</p>
+
+<!-- profiles? -->
+</div>

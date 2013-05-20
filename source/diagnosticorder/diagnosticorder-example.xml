@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- lab report example: a CBC -->
+
+<DiagnosticOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticorder.xsd">
+  <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml"> 
+        Example Diagnostic Order
+        </div>
+  </text>
+  <subject>
+   <type value="Patient"/>
+    <reference value="patient/@1"/>
+  </subject>
+  <orderer>
+    <type value="Practitioner"/>
+    <reference value="practitioner/@example"/>
+  </orderer>
+  <identifier>
+    <label value="Placer"/>
+    <system value="urn:oid:1.3.4.5.6.7"/>
+    <key value="2345234234234"/>
+  </identifier>
+  <status value="received"/>
+  <event>
+    <status value="requested"/>
+    <date value="2013-05-02T16:16:00"/>
+  </event>
+  <item>
+    <code>
+      <coding>
+        <system value="http://acme.org/tests"/>
+        <code value="LIPID"/>
+      </coding>
+      <text value="Lipid Panel"/>
+    </code>
+  </item>
+</DiagnosticOrder>

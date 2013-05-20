@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 15, 2013 09:11+1000 for FHIR v0.09
+// Generated on Tue, May 21, 2013 08:39+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -37,6 +37,40 @@ import java.util.*;
  * An immunization profile
  */
 public class ImmunizationProfile extends Resource {
+
+    public enum ImmunizationForecastStatus {
+        dUE, // 
+        Null; // added to help the parsers
+        public static ImmunizationForecastStatus fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("DUE".equals(codeString))
+          return dUE;
+        throw new Exception("Unknown ImmunizationForecastStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case dUE: return "DUE";
+            default: return "?";
+          }
+        }
+    }
+
+  public class ImmunizationForecastStatusEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("DUE".equals(codeString))
+          return ImmunizationForecastStatus.dUE;
+        throw new Exception("Unknown ImmunizationForecastStatus code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == ImmunizationForecastStatus.dUE)
+        return "DUE";
+      return "?";
+      }
+    }
 
     public class ImmunizationProfileRecommendationComponent extends Element {
         /**
@@ -47,7 +81,7 @@ public class ImmunizationProfile extends Resource {
         /**
          * Vaccine administered
          */
-        private Code vaccineType;
+        private CodeableConcept vaccineType;
 
         /**
          * Recommended dose number
@@ -57,7 +91,7 @@ public class ImmunizationProfile extends Resource {
         /**
          * Vaccine administration status
          */
-        private Code forecastStatus;
+        private Enumeration<ImmunizationForecastStatus> forecastStatus;
 
         /**
          * Pertinent dates
@@ -106,22 +140,12 @@ public class ImmunizationProfile extends Resource {
           }
         }
 
-        public Code getVaccineType() { 
+        public CodeableConcept getVaccineType() { 
           return this.vaccineType;
         }
 
-        public void setVaccineType(Code value) { 
+        public void setVaccineType(CodeableConcept value) { 
           this.vaccineType = value;
-        }
-
-        public String getVaccineTypeSimple() { 
-          return this.vaccineType == null ? null : this.vaccineType.getValue();
-        }
-
-        public void setVaccineTypeSimple(String value) { 
-            if (this.vaccineType == null)
-              this.vaccineType = new Code();
-            this.vaccineType.setValue(value);
         }
 
         public Integer getDoseNumber() { 
@@ -146,21 +170,21 @@ public class ImmunizationProfile extends Resource {
           }
         }
 
-        public Code getForecastStatus() { 
+        public Enumeration<ImmunizationForecastStatus> getForecastStatus() { 
           return this.forecastStatus;
         }
 
-        public void setForecastStatus(Code value) { 
+        public void setForecastStatus(Enumeration<ImmunizationForecastStatus> value) { 
           this.forecastStatus = value;
         }
 
-        public String getForecastStatusSimple() { 
+        public ImmunizationForecastStatus getForecastStatusSimple() { 
           return this.forecastStatus == null ? null : this.forecastStatus.getValue();
         }
 
-        public void setForecastStatusSimple(String value) { 
+        public void setForecastStatusSimple(ImmunizationForecastStatus value) { 
             if (this.forecastStatus == null)
-              this.forecastStatus = new Code();
+              this.forecastStatus = new Enumeration<ImmunizationForecastStatus>();
             this.forecastStatus.setValue(value);
         }
 
@@ -194,29 +218,19 @@ public class ImmunizationProfile extends Resource {
         /**
          * Date classification of recommendation
          */
-        private Code code;
+        private CodeableConcept code;
 
         /**
          * Date recommendation
          */
         private DateTime value;
 
-        public Code getCode() { 
+        public CodeableConcept getCode() { 
           return this.code;
         }
 
-        public void setCode(Code value) { 
+        public void setCode(CodeableConcept value) { 
           this.code = value;
-        }
-
-        public String getCodeSimple() { 
-          return this.code == null ? null : this.code.getValue();
-        }
-
-        public void setCodeSimple(String value) { 
-            if (this.code == null)
-              this.code = new Code();
-            this.code.setValue(value);
         }
 
         public DateTime getValue() { 
@@ -345,7 +359,7 @@ public class ImmunizationProfile extends Resource {
         /**
          * Adverse event report classification
          */
-        private Code reportType;
+        private CodeableConcept reportType;
 
         /**
          * Adverse event report date
@@ -366,26 +380,12 @@ public class ImmunizationProfile extends Resource {
           return this.identifier;
         }
 
-        public Code getReportType() { 
+        public CodeableConcept getReportType() { 
           return this.reportType;
         }
 
-        public void setReportType(Code value) { 
+        public void setReportType(CodeableConcept value) { 
           this.reportType = value;
-        }
-
-        public String getReportTypeSimple() { 
-          return this.reportType == null ? null : this.reportType.getValue();
-        }
-
-        public void setReportTypeSimple(String value) { 
-          if (value == null)
-            this.reportType = null;
-          else {
-            if (this.reportType == null)
-              this.reportType = new Code();
-            this.reportType.setValue(value);
-          }
         }
 
         public DateTime getReportDate() { 

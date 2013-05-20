@@ -29,13 +29,13 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 15, 2013 09:11+1000 for FHIR v0.09
+// Generated on Tue, May 21, 2013 08:39+1000 for FHIR v0.09
 
 import java.util.*;
 
 import java.net.*;
 /**
- * Value Set - a set of defined codes that may be used in some context
+ * A value set specifies a set of codes drawn from one or more code systems
  */
 public class ValueSet extends Resource {
 
@@ -677,7 +677,7 @@ public class ValueSet extends Resource {
     private List<Contact> telecom = new ArrayList<Contact>();
 
     /**
-     * A free text natural language description of the value set - contents, reason for definition, conditions of use, etc.
+     * A free text natural language description of the use of the value set - reason for definition, conditions of use, etc.
      */
     private String_ description;
 

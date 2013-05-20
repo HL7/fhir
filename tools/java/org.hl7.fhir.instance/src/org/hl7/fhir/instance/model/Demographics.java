@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 15, 2013 09:11+1000 for FHIR v0.09
+// Generated on Tue, May 21, 2013 08:39+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -123,12 +123,12 @@ public class Demographics extends Type {
     private List<Contact> telecom = new ArrayList<Contact>();
 
     /**
-     * Administrative Gender - the gender that the patient is considered to have for administration / record keeping purposes
+     * Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
      */
     private Coding gender;
 
     /**
-     * The birth date for the individual, to the degre of precision now
+     * The date and time of birth for the individual
      */
     private DateTime birthDate;
 
@@ -138,7 +138,7 @@ public class Demographics extends Type {
     private Boolean deceased;
 
     /**
-     * One or more addresses for the individual
+     * Addresses for the individual
      */
     private List<Address> address = new ArrayList<Address>();
 
