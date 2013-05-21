@@ -120,6 +120,7 @@ import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XhtmlGenerator;
 import org.hl7.fhir.utilities.xml.XmlGenerator;
 import org.json.JSONObject;
+import org.tigris.subversion.javahl.ClientException;
 import org.tigris.subversion.javahl.SVNClient;
 import org.tigris.subversion.javahl.Status;
 import org.w3c.dom.Document;
@@ -233,13 +234,19 @@ public class Publisher {
     }
 	}
 
-	private void checkSubversion(String folder) throws Exception {
+	private void checkSubversion(String folder) {
+	  
 	  SVNClient svnClient = new SVNClient();
-	  Status [] status = svnClient.status(folder, true, false, true);
+	  Status[] status;
+    try {
+      status = svnClient.status(folder, true, false, true);
+      for(Status stat : status)
+        revNumber = (revNumber < stat.getRevisionNumber()) ? stat.getRevisionNumber() : revNumber;
+       page.setSvnRevision(Long.toString(revNumber));
+    } catch (ClientException e) {
+      page.setSvnRevision("????");
+    }
 
-	  for(Status stat : status)
-	    revNumber = (revNumber < stat.getRevisionNumber()) ? stat.getRevisionNumber() : revNumber;
-	   page.setSvnRevision(Long.toString(revNumber));
 	}
 	
 	private static boolean hasParam(String[] args, String param) {

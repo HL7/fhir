@@ -429,7 +429,7 @@ public class PageProcessor implements Logger  {
       if (select) {
         s.append(code+"</td><td>"+display+"</td><td>");
       } else
-        s.append("*</td><td><font color=\"grey\">"+display+"</font></td><td>");
+        s.append("<font color=\"grey\"><i>("+code+")</i></font></td><td>&nbsp;</td><td>");
       if (definition != null)
         s.append(definition);
       s.append("</td></tr>\r\n");
