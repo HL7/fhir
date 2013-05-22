@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Protocol xmlns="http://hl7.org/fhir">
+  <extension id="arm-pio30mgs">
+    <url value="http://hl7.org/fhir/profile/@studyprotocol#arm"/>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#arm.name"/>
+      <valueString value="PIO30MGS"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#arm.description"/>
+      <valueString value="Pioglitazone 30mg QD + Sulfonylurea as OBT"/>
+    </extension>
+  </extension>
+  <extension id="arm-pio45mgs">
+    <url value="http://hl7.org/fhir/profile/@studyprotocol#arm"/>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#arm.name"/>
+      <valueString value="PIO45MGS"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#arm.description"/>
+      <valueString value="Pioglitazone 45mg QD + Sulfonylurea as OBT"/>
+    </extension>
+  </extension>
+  <extension id="epoch-screening">
+    <url value="http://hl7.org/fhir/profile/@studyprotocol#epoch"/>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#epoch.name"/>
+      <valueString value="SCREENING"/>
+    </extension>
+  </extension>
+  <extension id="epoch-single-blind-run-in">
+    <url value="http://hl7.org/fhir/profile/@studyprotocol#epoch"/>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#epoch.name"/>
+      <valueString value="SINGLE BLIND RUN-IN"/>
+    </extension>
+  </extension>
+  <extension id="epoch-treatment-phase">
+    <url value="http://hl7.org/fhir/profile/@studyprotocol#epoch"/>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#epoch.name"/>
+      <valueString value="TREATMENT PHASE"/>
+    </extension>
+  </extension>
+  <extension id="epoch-follow-up">
+    <url value="http://hl7.org/fhir/profile/@studyprotocol#epoch"/>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#epoch.name"/>
+      <valueString value="FOLLOW-UP"/>
+    </extension>
+  </extension>
+  <type value="study"/>
+  <status value="production"/>
+  <purpose value="Defines the execution of study AD-4833PNFP-341"/>
+  <step>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.arm"/>
+      <valueUri value="#arm-pio30mgs"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.epoch"/>
+      <valueUri value="#epoch-screening"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armSequence"/>
+      <valueInteger value="1"/>
+    </extension>
+    <name value="SCRN"/>
+    <description value="Screen"/>
+    <precondition>
+      <description value="Informed Consent"/>
+    </precondition>
+    <exit>
+      <description value="Screening assessments complete"/>
+    </exit>
+  </step>
+  <step>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.arm"/>
+      <valueUri value="#arm-pio30mgs"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.epoch"/>
+      <valueUri value="#epoch-single-blind-run-in"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armSequence"/>
+      <valueInteger value="2"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armAssignment"/>
+      <valueString value="Randomized to PIO30MGS"/>
+    </extension>
+    <name value="SBRI"/>
+    <description value="Single Blind Run-In"/>
+    <duration>
+      <value value="1"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="wk"/>
+    </duration>
+    <precondition>
+      <description value="First dose of Single Blind Placebo"/>
+    </precondition>
+    <exit>
+      <description value="1 week after start of Element"/>
+    </exit>
+  </step>
+  <step>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.arm"/>
+      <valueUri value="#arm-pio30mgs"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.epoch"/>
+      <valueUri value="#epoch-treatment-phase"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armSequence"/>
+      <valueInteger value="3"/>
+    </extension>
+    <name value="PIO30MGS"/>
+    <description value="Pioglitazone 30mg QD + Sulfonylurea as OBT"/>
+    <duration>
+      <value value="24"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="wk"/>
+    </duration>
+    <precondition>
+      <description value="First dose of treatment where total drug dose of Pioglitazone per day is 30 mg."/>
+    </precondition>
+    <exit>
+      <description value="24 weeks after start of Element"/>
+    </exit>
+  </step>
+  <step>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.arm"/>
+      <valueUri value="#arm-pio30mgs"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.epoch"/>
+      <valueUri value="#epoch-follow-up"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armSequence"/>
+      <valueInteger value="4"/>
+    </extension>
+    <name value="FLWUP"/>
+    <description value="Follow-Up"/>
+    <precondition>
+      <description value="Last dose of treatment"/>
+    </precondition>
+    <exit>
+      <description value="2 weeks after start of Element"/>
+    </exit>
+  </step>
+  <step>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.arm"/>
+      <valueUri value="#arm-pio45mgs"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.epoch"/>
+      <valueUri value="#epoch-screening"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armSequence"/>
+      <valueInteger value="1"/>
+    </extension>
+    <name value="SCRN"/>
+    <description value="Screen"/>
+    <precondition>
+      <description value="Informed Consent"/>
+    </precondition>
+    <exit>
+      <description value="Screening assessments complete"/>
+    </exit>
+  </step>
+  <step>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.arm"/>
+      <valueUri value="#arm-pio45mgs"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.epoch"/>
+      <valueUri value="#epoch-single-blind-run-in"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armSequence"/>
+      <valueInteger value="2"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armAssignment"/>
+      <valueString value="Randomized to PIO45MGS"/>
+    </extension>
+    <name value="SBRI"/>
+    <description value="Single Blind Run-In"/>
+    <duration>
+      <value value="1"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="wk"/>
+    </duration>
+    <precondition>
+      <description value="First dose of Single Blind Placebo"/>
+    </precondition>
+    <exit>
+      <description value="1 week after start of Element"/>
+    </exit>
+  </step>
+  <step>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.arm"/>
+      <valueUri value="#arm-pio45mgs"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.epoch"/>
+      <valueUri value="#epoch-treatment-phase"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armSequence"/>
+      <valueInteger value="3"/>
+    </extension>
+    <name value="PIO45MGS"/>
+    <description value="Pioglitazone 45mg QD + Sulfonylurea as OBT"/>
+    <duration>
+      <value value="24"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="wk"/>
+    </duration>
+    <precondition>
+      <description value="First dose of treatment where total drug dose of Pioglitazone per day is 45 mg."/>
+    </precondition>
+    <exit>
+      <description value="24 weeks after start of Element"/>
+    </exit>
+  </step>
+  <step>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.arm"/>
+      <valueUri value="#arm-pio45mgs"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.epoch"/>
+      <valueUri value="#epoch-follow-up"/>
+    </extension>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armSequence"/>
+      <valueInteger value="4"/>
+    </extension>
+    <name value="FLWUP"/>
+    <description value="Follow-Up"/>
+    <precondition>
+      <description value="Last dose of treatment"/>
+    </precondition>
+    <exit>
+      <description value="2 weeks after start of Element"/>
+    </exit>
+  </step>
+  <step>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armSequence"/>
+      <valueInteger value="1"/>
+    </extension>
+    <name value="VISIT 1"/>
+    <precondition>
+      <description value="START OF SCREEN EPOCH"/>
+    </precondition>
+    <activity>
+      <detail>
+        <category value="visit"/>
+      </detail>
+    </activity>
+  </step>
+  <step>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armSequence"/>
+      <valueInteger value="2"/>
+    </extension>
+    <name value="VISIT 2"/>
+    <precondition>
+      <description value="START OF SINGLE-BLIND PLACEBO EPOCH"/>
+    </precondition>
+    <activity>
+      <detail>
+        <category value="visit"/>
+      </detail>
+    </activity>
+  </step>
+  <step>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armSequence"/>
+      <valueInteger value="3"/>
+    </extension>
+    <name value="VISIT 3"/>
+    <precondition>
+      <description value="START OF TREATMENT EPOCH"/>
+    </precondition>
+    <activity>
+      <detail>
+        <category value="visit"/>
+      </detail>
+    </activity>
+  </step>
+  <step>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armSequence"/>
+      <valueInteger value="4"/>
+    </extension>
+    <name value="VISIT 4"/>
+    <precondition>
+      <description value="4 WEEKS AFTER START OF TREATMENT EPOCH"/>
+    </precondition>
+    <activity>
+      <detail>
+        <category value="visit"/>
+      </detail>
+    </activity>
+  </step>
+  <step>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armSequence"/>
+      <valueInteger value="5"/>
+    </extension>
+    <name value="VISIT 5"/>
+    <precondition>
+      <description value="8 WEEKS AFTER START OF TREATMENT EPOCH"/>
+    </precondition>
+    <activity>
+      <detail>
+        <category value="visit"/>
+      </detail>
+    </activity>
+  </step>
+  <step>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armSequence"/>
+      <valueInteger value="6"/>
+    </extension>
+    <name value="VISIT 6"/>
+    <precondition>
+      <description value="12 WEEKS AFTER START OF TREATMENT EPOCH"/>
+    </precondition>
+    <activity>
+      <detail>
+        <category value="visit"/>
+      </detail>
+    </activity>
+  </step>
+  <step>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armSequence"/>
+      <valueInteger value="7"/>
+    </extension>
+    <name value="VISIT 7"/>
+    <precondition>
+      <description value="16 WEEKS AFTER START OF TREATMENT EPOCH"/>
+    </precondition>
+    <activity>
+      <detail>
+        <category value="visit"/>
+      </detail>
+    </activity>
+  </step>
+  <step>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armSequence"/>
+      <valueInteger value="8"/>
+    </extension>
+    <name value="VISIT 8"/>
+    <precondition>
+      <description value="20 WEEKS AFTER START OF TREATMENT EPOCH"/>
+    </precondition>
+    <activity>
+      <detail>
+        <category value="visit"/>
+      </detail>
+    </activity>
+  </step>
+  <step>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armSequence"/>
+      <valueInteger value="9"/>
+    </extension>
+    <name value="VISIT 9"/>
+    <precondition>
+      <description value="24 WEEKS AFTER START OF TREATMENT EPOCH"/>
+    </precondition>
+    <activity>
+      <detail>
+        <category value="visit"/>
+      </detail>
+    </activity>
+  </step>
+  <step>
+    <extension>
+      <url value="http://hl7.org/fhir/profile/@studyprotocol#step.armSequence"/>
+      <valueInteger value="10"/>
+    </extension>
+    <name value="VISIT 10"/>
+    <precondition>
+      <description value="START OF FOLLOW-UP EPOCH"/>
+    </precondition>
+    <activity>
+      <detail>
+        <category value="visit"/>
+      </detail>
+    </activity>
+  </step>
+</Protocol>
