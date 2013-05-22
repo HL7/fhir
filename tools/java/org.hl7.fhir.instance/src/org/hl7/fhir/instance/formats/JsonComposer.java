@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, May 21, 2013 08:39+1000 for FHIR v0.09
+// Generated on Wed, May 22, 2013 17:49+1000 for FHIR v0.09
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -689,7 +689,11 @@ public class JsonComposer extends JsonComposerBase {
     if (element != null) {
       open(name);
       composeResourceElements(element);
+      composeCodeableConcept("category", element.getCategory());
+      if (element.getStatus() != null)
+        composeEnumeration("status", element.getStatus(), new Alert().new AlertStatusEnumFactory());
       composeResourceReference("subject", element.getSubject());
+      composeResourceReference("author", element.getAuthor());
       composeString("note", element.getNote());
       close();
     }
@@ -3528,10 +3532,9 @@ public class JsonComposer extends JsonComposerBase {
       if (element.getStatus() != null)
         composeEnumeration("status", element.getStatus(), new ValueSet().new ValuesetStatusEnumFactory());
       composeDateTime("date", element.getDate());
-      if (element.getKind() != null)
-        composeEnumeration("kind", element.getKind(), new ValueSet().new ValuesetKindEnumFactory());
       composeValueSetValueSetDefineComponent("define", element.getDefine());
       composeValueSetValueSetComposeComponent("compose", element.getCompose());
+      composeValueSetValueSetExpansionComponent("expansion", element.getExpansion());
       close();
     }
   }
@@ -3555,8 +3558,8 @@ public class JsonComposer extends JsonComposerBase {
     if (element != null) {
       open(name);
       composeElement(element);
-      composeUri("system", element.getSystem());
       composeCode("code", element.getCode());
+      composeBoolean("abstract", element.getAbstract());
       composeString("display", element.getDisplay());
       composeString("definition", element.getDefinition());
       if (element.getConcept().size() > 0) {
@@ -3573,12 +3576,6 @@ public class JsonComposer extends JsonComposerBase {
     if (element != null) {
       open(name);
       composeElement(element);
-      if (element.getRestricts().size() > 0) {
-        openArray("restricts");
-        for (Uri e : element.getRestricts()) 
-          composeUri(null, e);
-        closeArray();
-      };
       if (element.getImport().size() > 0) {
         openArray("import");
         for (Uri e : element.getImport()) 
@@ -3633,6 +3630,38 @@ public class JsonComposer extends JsonComposerBase {
       if (element.getOp() != null)
         composeEnumeration("op", element.getOp(), new ValueSet().new FilterOperatorEnumFactory());
       composeCode("value", element.getValue());
+      close();
+    }
+  }
+
+  private void composeValueSetValueSetExpansionComponent(String name, ValueSet.ValueSetExpansionComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeInstant("timestamp", element.getTimestamp());
+      if (element.getContains().size() > 0) {
+        openArray("contains");
+        for (ValueSet.ValueSetExpansionContainsComponent e : element.getContains()) 
+          composeValueSetValueSetExpansionContainsComponent(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeValueSetValueSetExpansionContainsComponent(String name, ValueSet.ValueSetExpansionContainsComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeUri("system", element.getSystem());
+      composeCode("code", element.getCode());
+      composeString("display", element.getDisplay());
+      if (element.getContains().size() > 0) {
+        openArray("contains");
+        for (ValueSet.ValueSetExpansionContainsComponent e : element.getContains()) 
+          composeValueSetValueSetExpansionContainsComponent(null, e);
+        closeArray();
+      };
       close();
     }
   }

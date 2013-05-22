@@ -14108,7 +14108,6 @@
       <item id="2" code="AM" desc="American Express"/>
       <item id="3" code="AMA" desc="American Medical Association Number"/>
       <item id="4" code="AN" desc="Account number"/>
-      <item id="79" code="An Identifier for a provi" desc=""/>
       <item id="6" code="ANC" desc="Account number Creditor"/>
       <item id="7" code="AND" desc="Account number debitor"/>
       <item id="5" code="ANON" desc="Anonymous identifier"/>

@@ -71,14 +71,17 @@ public class XhtmlGenerator {
     return out.toString();
   }
 
-  public void generate(Document doc, File xhtml, String name, String desc) throws Exception {
+  public void generate(Document doc, File xhtml, String name, String desc, int level) throws Exception {
 		FileOutputStream outs = new FileOutputStream(xhtml);
 		OutputStreamWriter out = new OutputStreamWriter(outs);
 		
 		out.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n");
 		out.write("<head>\r\n");
 		out.write(" <title>Example Instance for "+name+"</title>\r\n");
-		out.write(" <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n");
+		out.write(" <link rel=\"Stylesheet\" href=\"");
+		for (int i = 0; i < level; i++)
+		  out.write("../");
+		out.write("fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n");
 		out.write("</head>\r\n");
 		out.write("<body>\r\n");
     out.write("<p>&nbsp;</p>\r\n");	

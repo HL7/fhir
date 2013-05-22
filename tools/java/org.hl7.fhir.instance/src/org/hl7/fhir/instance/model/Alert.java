@@ -29,12 +29,72 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, May 21, 2013 08:39+1000 for FHIR v0.09
+// Generated on Wed, May 22, 2013 17:49+1000 for FHIR v0.09
 
 /**
  * Prospective warnings of things that should be taken notice of when providing care to the patient
  */
 public class Alert extends Resource {
+
+    public enum AlertStatus {
+        active, // A current alert that should be displayed to a user. A system may use the category to determine whoch roles should view the alert
+        inactive, // The alert does not need to be displayed any more
+        error, // The alert was added in error, and should no longer be displayed
+        Null; // added to help the parsers
+        public static AlertStatus fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("active".equals(codeString))
+          return active;
+        if ("inactive".equals(codeString))
+          return inactive;
+        if ("error".equals(codeString))
+          return error;
+        throw new Exception("Unknown AlertStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case active: return "active";
+            case inactive: return "inactive";
+            case error: return "error";
+            default: return "?";
+          }
+        }
+    }
+
+  public class AlertStatusEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("active".equals(codeString))
+          return AlertStatus.active;
+        if ("inactive".equals(codeString))
+          return AlertStatus.inactive;
+        if ("error".equals(codeString))
+          return AlertStatus.error;
+        throw new Exception("Unknown AlertStatus code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == AlertStatus.active)
+        return "active";
+      if (code == AlertStatus.inactive)
+        return "inactive";
+      if (code == AlertStatus.error)
+        return "error";
+      return "?";
+      }
+    }
+
+    /**
+     * Allows an alert to be divided int different categories like clinical, administartive etc.
+     */
+    private CodeableConcept category;
+
+    /**
+     * Supports basic workflow
+     */
+    private Enumeration<AlertStatus> status;
 
     /**
      * The person who this alert concerns
@@ -42,9 +102,40 @@ public class Alert extends Resource {
     private ResourceReference subject;
 
     /**
-     * The textua component of the alert to display to the user
+     * The person or device that created the alert
+     */
+    private ResourceReference author;
+
+    /**
+     * The textual component of the alert to display to the user
      */
     private String_ note;
+
+    public CodeableConcept getCategory() { 
+      return this.category;
+    }
+
+    public void setCategory(CodeableConcept value) { 
+      this.category = value;
+    }
+
+    public Enumeration<AlertStatus> getStatus() { 
+      return this.status;
+    }
+
+    public void setStatus(Enumeration<AlertStatus> value) { 
+      this.status = value;
+    }
+
+    public AlertStatus getStatusSimple() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    public void setStatusSimple(AlertStatus value) { 
+        if (this.status == null)
+          this.status = new Enumeration<AlertStatus>();
+        this.status.setValue(value);
+    }
 
     public ResourceReference getSubject() { 
       return this.subject;
@@ -52,6 +143,14 @@ public class Alert extends Resource {
 
     public void setSubject(ResourceReference value) { 
       this.subject = value;
+    }
+
+    public ResourceReference getAuthor() { 
+      return this.author;
+    }
+
+    public void setAuthor(ResourceReference value) { 
+      this.author = value;
     }
 
     public String_ getNote() { 

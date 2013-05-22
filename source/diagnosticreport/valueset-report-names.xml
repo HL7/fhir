@@ -14,7 +14,6 @@
   </telecom>
   <description value="This value set includes all the LOINC codes which relate to Diagnostic Observations"/>
   <status value="review"/>
-  <kind value="composition"/>
   <compose>
     <include>
       <!-- all lab codes. TODO: can we get just the panel ones? -->

@@ -14,12 +14,11 @@
   </telecom>
   <description value="This value set includes all the codes in HL7 v2 table 0074"/>
   <status value="review"/>
-  <kind value="composition"/>
   <compose>
     <include>
       <!-- all codes -->
       <system value="http://hl7.org/fhir/v2/0074"/>
-      <mode value="all"/>
+      <mode value="system"/>
     </include>
   </compose>
 </ValueSet>

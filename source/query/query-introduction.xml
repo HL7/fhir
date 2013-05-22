@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-[%onthispage Search/Query#base|Standard Parameters#standard|Default Query Method#default|Query Resource#query|Executing Queries#details%]
+[%onthispage Search/Query#base|Standard Parameters#standard|Default Query Method#default|Query Resource#query|Executing Queries#details|Managing Search Results#results%]
 
 <a name="base"> </a>
 <p>
@@ -14,13 +14,24 @@ note: known issues relating to this page:
 <p>
 One operation that is fundamental to the way FHIR works is to query or search 
 for a set of resources that match some particular set of criteria. Search/query
-operations can span complexity from a simple index based criteria, through to complex
-decision support based requests, and also direct queries that need to be handled by humans.
-More complex search/queries may have side effects such as creating new clinical resources
-(all searches are allowed/expected to have side effects in audit trails etc too).
+operations can span complexity from a simple search based on indexed criteria, 
+through to complex decision support based requests, and also direct queries 
+that need to be handled by humans.
 </p>
 <p>
-FHIR defines 3 different ways in which a search through a respository of 
+All these search and query operations are handled by a single framework described
+in this page. The complexity of the implementation is a direct function of the 
+sophistication of the task - simple indexed searches consist of a search on a 
+resource type with a list of parameters, but support for asynchronous queries 
+or custom fully specified queries requires additional considerations.
+</p>
+<p>
+Some search/queries may have side effects such as creating new clinical resources
+that may be persistent or transitory. Note that all searches are allowed/expected to have 
+side effects in audit trails etc too.
+</p>
+<p>
+FHIR defines 3 different ways in which a search through a repository of 
 resources can be initiated:
 </p>
 <ul>
@@ -34,29 +45,20 @@ The operations are <a href="#details">discussed in further detail below</a>.
 <p>
 In all 3 cases, the basic operation is simple: given a set of parameters
 which are name/value pairs, perform a query against a repository of 
-resorces, and return the set of matching resources, possibly with 
-some additional related resources.
-</p>
-<p>
-Once the query has been performed the engine that is handling the search
-returns a set of results, the resources that meet to specified criteria. 
-In order to keep the load on clients, servers and the network minimised,
-the engine may choose to return the results in a series of pages. Each 
-search returns a single page of results, along with parameter lists 
-that can be used in order to retrieve other pages in the search result
-set. These parameter lists can include additional parameters not specified
-by the server.
+resources, and return the set of matching resources, possibly with 
+some additional related resources. In order to keep the load on 
+clients, servers and the network minimized, the engine may choose 
+to return the results in a series of pages. <a href="#details">See below</a> 
+for how to implement paging.
 </p>
 <p>
 In order to allow the client to be confident about what search parameters 
 were used as a criteria by the server, the server SHALL return the parameters 
-that were actually used to process the search.
-</p>
-<p>Applications processing search results SHALL treat thse parameters as a 
-mustUnderstand field. For example, if the server did not support some of the 
-filters specified in the search, a client might manually apply those filters 
-to the retrieved result set, display a warning message to the user or take 
-some other action. 
+that were actually used to process the search. Applications processing search 
+results SHALL check these returned values where necessary. For example, if 
+the server did not support some of the filters specified in the search, a 
+client might manually apply those filters to the retrieved result set, 
+display a warning message to the user or take some other action. 
 </p>
 <p>
 In the case of a RESTful search, these parameters are encoded in the 
@@ -65,8 +67,10 @@ self link in the atom feed that is returned:
 <pre class="xml">
   &lt;link rel="self" href="http://example.org/patient/search?name=peter"/&gt;
 </pre>
-<a name="standard"> </a>
 
+<h2>Handling Returned Resources</h2>
+
+<a name="standard"> </a>
 <h2>Standard Parameters</h2>
 <p>
 There are a few FHIR parameters that are defined for all search contexts:
@@ -101,8 +105,9 @@ named method.
 </p>
 <p>
 There can only ever be one _query parameter in a set of search
-parameters. Engines must refuse to proces a search request if
-they do not recognise the _query parameter value.
+parameters. Applications processing search requests must 
+refuse to process a search request if they do not recognise 
+the _query parameter value.
 </p>
 <h3>Page Count</h3>
 <p>
@@ -113,7 +118,7 @@ support paging) but are allowed to return less than the client
 asked for. Note that it is at the discretion of the search engine 
 how to handle ongoing updates to the resources while the search 
 is proceeding. <a href="#details">See below</a> for how to implement 
-paging on server and client.
+paging.
 </p>
 
 <a name="include" />
@@ -145,7 +150,7 @@ resources for the patients returned, as shown above.
 Include paths are processed only in the context of a single resource - they can not include 
 paths such as Resource.name1.name2 where name2 is a name in a resource pointed to by name1.
 Include paths may include wild cards, such as DiagnosticReport.results.*, or even _include=*,
-though both servers and clients need to take care not to request or return to much in the 
+though both servers and clients need to take care not to request or return too much in the 
 latter case.
 </p>
 <p>
@@ -177,8 +182,22 @@ If no value is provided for the _query parameter, then the search is executed
 according to the specifications provided in this section. The default search
 method consists of a set of search parameters defined by each resource, and 
 an overall method for relating these to each other and the contents of the 
-stored resources.
+stored resources. The default search always searches existing resources, and 
+the only new resources that may be created are <a href="securityevent.htm">Security 
+Event</a> resources auditing the search.
 </p>
+<p>
+The default search is always performed against a particular resource type. 
+In the RESTful interface, the resource type is always implicit because the
+search is performed on a particular type. When using the query resource,
+the resource type is specified by the _resource parameter:
+</p>
+<pre class="xml">
+  &lt;parameter&gt;
+    &lt;name value=&quot;_resource&quot;/&gt;
+    &lt;value value=&quot;Patient&quot;/&gt;
+  &lt;/parameter&gt;
+</pre>
 <p>
 Each FHIR resource type defines a set of applicable search parameters with 
 their names, types, and meanings. Mostly, the defined search parameters 
@@ -218,7 +237,7 @@ separated from the parameter name by a dot. Modifiers are:</p>
 <ul>
 <li>For all parameters: "missing". E.g. gender.missing=true (or false). 
   Seaching for "gender-missing=true" will return all the resources that don't have any value for the gender parameter (which usually 
-  equates to not having the relevent element in the resource). Searching for "gender-missing=false"
+  equates to not having the relevant element in the resource). Searching for "gender-missing=false"
   will return all the resources that have a value for the "gender" parameter. </li>
 <li>For dates: "before" and "after". E.g. birthdate.before=1972-11-30. See below for how date searches are interpreted.</li>
 <li>For string: "exact" (the match needs to be exact, no partial matches, case sensitive and accent-sensitive) and  "partial" (the search may function on partial matches). TODO: left partial?</li>
@@ -234,9 +253,9 @@ value, separated by a "!".
 </p>
 <p>
 Without modifier, the search will use the textual parameter 
-to do a partial match on code, text or displayname. With 
+to do a partial match on code, text or display. With 
 modifier ‘text’ the search will do a partial match on text 
-or displayname. With the ‘code’ modifier, the search will 
+or display. With the ‘code’ modifier, the search will 
 work as follows:
 </p>
 <ul>
@@ -293,14 +312,14 @@ need to be sure that they do not create unprocessible combinations.
  </li>
  <li>Date parameter searches are always matches based on the behaviour of intervals, as follows:
    <ul>
-     <li>For [date]=[value], the requirement is that the ssearch interval fully contains the time of the target. i.e. 2013-01-14 includes 2013-01-14T10:00 but not 2013-01-15T00:00</li>
+     <li>For [date]=[value], the requirement is that the search interval fully contains the time of the target. i.e. 2013-01-14 includes 2013-01-14T10:00 but not 2013-01-15T00:00</li>
 	 <li>For [date]-before=[value], the requirement is that the interval of the time before [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
 	    For instance, the resource time 2013-01-14 is included in the set of values that come before 2013-01-14T10:00, because it includes the part of 14-Jan 2013 before 10am </li>
 	 <li>For [date]-after=[value], the requirement is that the interval of the time after [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
 	    For instance, the resource time 2013-01-14 is included in the set of values that come after 2013-01-14T10:00, because it includes the part of 14-Jan 2013 after 10am </li>
    </ul>
    If the bounds of the interval are not known (i.e. a range with no start, or a schedule like "every two days" with neither start or end), 
-   then the boundaries are implicitly considered above or below calculatable time, and so these count as intersections. For instance, the
+   then the boundaries are implicitly considered above or below calculable time, and so these count as intersections. For instance, the
    period from 21-Jan 2013 onwards is included in matches for date-after=2013-03-14 because it may include times after 14-Mar 2013.
  </li>
  <li>Similarly, when the date parameter is not fully specified, matches against it are based on the behaviour of intervals, where:
@@ -364,7 +383,7 @@ Servers have considerable discretion with regards to supporting to the default s
 <h2>Query Resource</h2>
 <p>
 The resource is used to perform queries using messaging-based exchanges, 
-and to perform asynchronous searches using the RESTful interface.
+and to perform asynchronous searches using the RESTful interface. 
 </p>
 
 </div>

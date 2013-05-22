@@ -132,6 +132,10 @@ public class Utilities {
    }
   }
 	
+  public static void copyFile(String source, String dest) throws IOException {
+    copyFile(new File(source), new File(dest));
+  }
+
 	public static void copyFile(File sourceFile, File destFile) throws IOException {
 		if(!destFile.exists()) {
 			if (!new CSFile(destFile.getParent()).exists()) {
@@ -352,6 +356,8 @@ public class Utilities {
     return s.toString();
     
   }
+
+
 
 //  public static void checkCase(String filename) {
 //    File f = new CSFile(filename);

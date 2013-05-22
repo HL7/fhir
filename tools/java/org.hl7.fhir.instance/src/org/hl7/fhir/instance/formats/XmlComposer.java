@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, May 21, 2013 08:39+1000 for FHIR v0.09
+// Generated on Wed, May 22, 2013 17:49+1000 for FHIR v0.09
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -671,7 +671,11 @@ public class XmlComposer extends XmlComposerBase {
       composeResourceAttributes(element);
       xml.open(FHIR_NS, name);
       composeResourceElements(element);
+      composeCodeableConcept("category", element.getCategory());
+      if (element.getStatus() != null)
+        composeEnumeration("status", element.getStatus(), new Alert().new AlertStatusEnumFactory());
       composeResourceReference("subject", element.getSubject());
+      composeResourceReference("author", element.getAuthor());
       composeString("note", element.getNote());
       xml.close(FHIR_NS, name);
     }
@@ -3025,10 +3029,9 @@ public class XmlComposer extends XmlComposerBase {
       if (element.getStatus() != null)
         composeEnumeration("status", element.getStatus(), new ValueSet().new ValuesetStatusEnumFactory());
       composeDateTime("date", element.getDate());
-      if (element.getKind() != null)
-        composeEnumeration("kind", element.getKind(), new ValueSet().new ValuesetKindEnumFactory());
       composeValueSetValueSetDefineComponent("define", element.getDefine());
       composeValueSetValueSetComposeComponent("compose", element.getCompose());
+      composeValueSetValueSetExpansionComponent("expansion", element.getExpansion());
       xml.close(FHIR_NS, name);
     }
   }
@@ -3050,8 +3053,8 @@ public class XmlComposer extends XmlComposerBase {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeElementElements(element);
-      composeUri("system", element.getSystem());
       composeCode("code", element.getCode());
+      composeBoolean("abstract", element.getAbstract());
       composeString("display", element.getDisplay());
       composeString("definition", element.getDefinition());
       for (ValueSet.ValueSetDefineConceptComponent e : element.getConcept()) 
@@ -3065,8 +3068,6 @@ public class XmlComposer extends XmlComposerBase {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeElementElements(element);
-      for (Uri e : element.getRestricts()) 
-        composeUri("restricts", e);
       for (Uri e : element.getImport()) 
         composeUri("import", e);
       for (ValueSet.ConceptSetComponent e : element.getInclude()) 
@@ -3103,6 +3104,32 @@ public class XmlComposer extends XmlComposerBase {
       if (element.getOp() != null)
         composeEnumeration("op", element.getOp(), new ValueSet().new FilterOperatorEnumFactory());
       composeCode("value", element.getValue());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeValueSetValueSetExpansionComponent(String name, ValueSet.ValueSetExpansionComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeElementElements(element);
+      composeInstant("timestamp", element.getTimestamp());
+      for (ValueSet.ValueSetExpansionContainsComponent e : element.getContains()) 
+        composeValueSetValueSetExpansionContainsComponent("contains", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeValueSetValueSetExpansionContainsComponent(String name, ValueSet.ValueSetExpansionContainsComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeElementElements(element);
+      composeUri("system", element.getSystem());
+      composeCode("code", element.getCode());
+      composeString("display", element.getDisplay());
+      for (ValueSet.ValueSetExpansionContainsComponent e : element.getContains()) 
+        composeValueSetValueSetExpansionContainsComponent("contains", e);
       xml.close(FHIR_NS, name);
     }
   }

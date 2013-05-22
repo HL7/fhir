@@ -14,7 +14,6 @@
   </telecom>
   <description value="This value set includes all the LOINC Order codes"/>
   <status value="review"/>
-  <kind value="composition"/>
   <compose>
     <include>
       <!-- all codes with scale type "order" -->

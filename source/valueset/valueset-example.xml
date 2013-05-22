@@ -35,14 +35,16 @@
   <description value="This is an example value set that includes &#xA;      all the LOINC codes for serum cholesterol from v2.36"/>
   <status value="testing"/>
   <date value="2012-06-13"/>
-  <kind value="composition"/>
   <compose>
+
     <!-- we claim that this value set is a constraint on this other value set 
     this actual URL is a reference to a fictitious value set definition on a 
     fictitious FHIR value set registry. We claim here, simply for illustrative 
     purposes, that the value set referred to here is all LOINC codes for serum
-    tests, and that this value set is therefor a constraint on that one -->
-    <restricts value="http://hl7.org/svc/fhir/valueset/@03acace4-5206-4c8f-a8b4-df27a4c18b09"/>
+    tests, and that this value set is therefor a constraint on that one 
+
+     Currently this is not included in the resource pending further investigation
+    <restricts value="http://hl7.org/svc/fhir/valueset/@03acace4-5206-4c8f-a8b4-df27a4c18b09"/> -->
     <!-- given that this value set is small, it doesn't make 
    sense to import another one - what would it say? But if that made sense, 
    we'd do it like this: 

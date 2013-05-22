@@ -14,12 +14,11 @@
   </telecom>
   <description value="This value set includes all LOINC codes"/>
   <status value="review"/>
-  <kind value="composition"/>
   <compose>
     <include>
       <!-- all lab codes. TODO: can we get just the panel ones? -->
       <system value="http://loinc.org"/>
-      <mode value="all"/>
+      <mode value="system"/>
     </include>
   </compose>
 </ValueSet>

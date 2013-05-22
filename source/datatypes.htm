@@ -249,7 +249,7 @@ or a formal ontology.
 <p>
 The <i>system</i> is a URI that references the enumeration, terminology 
 or ontology that defines the <i>code</i>. The URI may be an OID (urn:oid:) or 
-a UUID (urn:uuid:), a specially defined URI from <a href="terminologies.htm#codesystems">the 
+a UUID (urn:uuid:), a specially defined URI from <a href="terminologies-systems.htm">the 
 named systems list</a>, a url that references a definition of the system or any other URI 
 that uniquely identifies the definitions. OIDs and UUIDs may be registered in the <a href="http://hl7.org/oid">HL7 OID 
 registry</a> and should be if the content is shared or exchanged across institutional boundaries.
@@ -284,7 +284,7 @@ determined by consulting the definitions of the system(s) and any mappings avail
 The correct value to use in the <i>system</i> for a given code-system can be determined by:
 </p>
 <ul>
- <li>the <a href="terminologies.htm#codesystems">Named Systems List</a> section</li>
+ <li>the <a href="terminologies-systems.htm">Named Systems List</a> section</li>
  <li>the <a href="http://www.hl7.org/oid/index.cfm?ref=common">HL7 OID Registry</a></li>
  <li>the documentation associated with the code system</li>
  <li>consulting the owner of the code system</li>
@@ -792,7 +792,7 @@ or a way of making identifiers unique. The <i>key</i> must be unique within the 
 and have a consistent meaning wherever it appears. Both <i>system</i> and <i>key</i> values are always case sensitive.
 </p>
 <p>
-FHIR defines <a href="terminologies.htm#codesystems">some useful URIs directly</a>. OIDs (urn:oid:) and UUIDs (urn:uuid:) 
+FHIR defines <a href="terminologies-systems.htm">some useful URIs directly</a>. OIDs (urn:oid:) and UUIDs (urn:uuid:) 
 may be registered in the <a href="http://hl7.org/oid">HL7 OID registry</a> and should be if the 
 content is shared or exchanged across institutional boundaries. If the identifier itself 
 is naturally globally unique (i.e. an OID, a UUID, or a URI with no trailing local part), 

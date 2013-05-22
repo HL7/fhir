@@ -19,7 +19,6 @@
   </telecom>
   <description value="This value set defines a set of codes that can be used to indicate the meaning/use of a reference range"/>
   <status value="draft"/>
-  <kind value="code-system"/>
   <define>
     <system value="http://hl7.org/fhir/referencerange-meaning"/>
     <concept>

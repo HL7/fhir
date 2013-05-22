@@ -98,7 +98,6 @@ import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.CodeSelectionMode;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValuesetKind;
 import org.hl7.fhir.instance.model.ValueSet.ValuesetStatus;
 import org.hl7.fhir.tools.implementations.ECoreOclGenerator;
 import org.hl7.fhir.tools.implementations.csharp.CSharpGenerator;
@@ -201,6 +200,8 @@ public class Publisher {
 	private boolean isGenerate;
 	private boolean web;
 	private AtomFeed profileFeed;
+  private AtomFeed v2Valuesets;
+  private AtomFeed v3Valuesets; 
   private List<Fragment> fragments = new ArrayList<Publisher.Fragment>();
   private Map<String, String> xmls = new HashMap<String, String>();
   private Map<String, Long> dates = new HashMap<String, Long>();
@@ -309,7 +310,7 @@ public class Publisher {
 		}
 	}
 
-	private IniFile ini; 
+	private IniFile ini;
 	
 	private void defineSpecialValues() throws Exception {
 	  for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
@@ -779,6 +780,19 @@ public class Publisher {
 	    profileFeed.setTitle("Resources as Profiles");
 	    profileFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/profiles-resources.xml");
 	    profileFeed.setUpdated(Calendar.getInstance());
+      v2Valuesets = new AtomFeed();
+      v2Valuesets.setId("http://hl7.org/fhir/v2/valuesets");
+      v2Valuesets.setTitle("v2 tables as ValueSets");
+      v2Valuesets.getLinks().put("self", "http://hl7.org/implement/standards/fhir/v2-tables.xml");
+      v2Valuesets.setUpdated(Calendar.getInstance());
+      page.setV2Valuesets(v2Valuesets);
+      v3Valuesets = new AtomFeed();
+      v3Valuesets.setId("http://hl7.org/fhir/v3/valuesets");
+      v3Valuesets.setTitle("v3 code systems as ValueSets");
+      v3Valuesets.getLinks().put("self", "http://hl7.org/implement/standards/fhir/v3-codesystems.xml");
+      v3Valuesets.setUpdated(Calendar.getInstance());
+      page.setv3Valuesets(v3Valuesets);
+      
 	    for (String n : page.getDefinitions().getDiagrams().keySet()) {
 	      log(" ...diagram "+n);
 	      page.getImageMaps().put(n, new DiagramGenerator(page).generateFromSource(n, page.getFolders().srcDir + page.getDefinitions().getDiagrams().get(n)));
@@ -805,13 +819,6 @@ public class Publisher {
 	    }
 	  }
 
-	  if (buildFlags.get("all")) {
-	    new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.xml"), profileFeed, true, false);
-	    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.json"), profileFeed);
-	    // all the profiles are already individually in the examples, so no need to add this one to them as well
-	    // Utilities.copyFile(new CSFile(page.getFolders().dstDir + "profiles-resources.xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + "profiles-resources.xml"));
-	    cloneToXhtml("profiles-resources", "Base Resources defined as profiles (implementation assistance, for derivation and product development)");
-	  }
 	  for (String n : page.getIni().getPropertyNames("pages")) {
 	    if (buildFlags.get("all") || buildFlags.get("page-"+n.toLowerCase())) {
 	      log(" ...page "+n);
@@ -829,6 +836,19 @@ public class Publisher {
       produceV2();
       produceV3();
       
+      log(" ...collections ");
+      new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.xml"), profileFeed, true, false);
+      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.json"), profileFeed);
+      cloneToXhtml("profiles-resources", "Base Resources defined as profiles (implementation assistance, for derivation and product development)");
+      new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.xml"), v2Valuesets, true, false);
+      Utilities.copyFile(page.getFolders().dstDir + "v2-tables.xml", page.getFolders().dstDir + "examples"+ File.separator+"v2-tables.xml");
+      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.json"), v2Valuesets);
+      cloneToXhtml("v2-tables", "V2 Tables defined as value sets (implementation assistance, for derivation and product development)");
+      new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.xml"), v3Valuesets, true, false);
+      Utilities.copyFile(page.getFolders().dstDir + "v3-codesystems.xml", page.getFolders().dstDir + "examples"+ File.separator+"v3-codesystems.xml");
+      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.json"), v3Valuesets);
+      cloneToXhtml("v3-codesystems", "v3 Code Systems defined as value sets (implementation assistance, for derivation and product development)");
+
       log(" ...zips");
 	    ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "examples.zip");
 	    zip.addFiles(page.getFolders().dstDir + "examples" + File.separator, "", null);
@@ -1155,7 +1175,7 @@ public class Publisher {
 		xhtml.generate(xdoc,
 				new CSFile(page.getFolders().dstDir + n + ".xml.htm"), n
 						.toUpperCase().substring(0, 1) + n.substring(1),
-				description);
+				description, 0);
 	}
 
 	private void processExample(Example e) throws Exception {
@@ -1207,7 +1227,7 @@ public class Publisher {
 		builder = factory.newDocumentBuilder();
 		xdoc = builder.parse(new CSFileInputStream(new CSFile(page.getFolders().dstDir + n + ".xml")));
 		XhtmlGenerator xhtml = new XhtmlGenerator(new ExampleAdorner(page.getDefinitions()));
-		xhtml.generate(xdoc, new CSFile(page.getFolders().dstDir + n + ".xml.htm"), n.toUpperCase().substring(0, 1) + n.substring(1), Utilities.noString(e.getId()) ? e.getDescription() : e.getDescription()+" (id = \""+e.getId()+"\")");
+		xhtml.generate(xdoc, new CSFile(page.getFolders().dstDir + n + ".xml.htm"), n.toUpperCase().substring(0, 1) + n.substring(1), Utilities.noString(e.getId()) ? e.getDescription() : e.getDescription()+" (id = \""+e.getId()+"\")", 0);
 		if (e.isInBook()) {
 			XhtmlDocument d = new XhtmlParser().parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml.htm"), "html");
 			XhtmlNode pre = d.getElement("html").getElement("body").getElement("div");
@@ -1374,7 +1394,7 @@ public class Publisher {
 		xdoc = builder.parse(new CSFileInputStream(tmp.getAbsolutePath()));
 		XhtmlGenerator xhtml = new XhtmlGenerator(null);
 		xhtml.generate(xdoc, new CSFile(page.getFolders().dstDir + filename
-				+ ".profile.xml.htm"), "Profile", profile.metadata("name"));
+				+ ".profile.xml.htm"), "Profile", profile.metadata("name"), 0);
 		// // xml to json
 		// JsonGenerator jsongen = new JsonGenerator();
 		// jsongen.generate(new CSFile(page.getFolders().dstDir+n+".xml"), new
@@ -1828,7 +1848,6 @@ public class Publisher {
     vs.setDate(org.hl7.fhir.instance.model.Factory.nowDateTime());
     vs.setText(Factory.newNarrative(NarrativeStatus.generated, cd.getDescription()));
     if (cd.isValueSet()) {
-      vs.setKindSimple(ValuesetKind.composition);
       vs.setCompose(vs.new ValueSetComposeComponent());
       for (String n : cd.getVSSources()) {
         ConceptSetComponent cc = vs.new ConceptSetComponent();
@@ -1842,7 +1861,6 @@ public class Publisher {
       }
     }
     else {
-      vs.setKindSimple(ValuesetKind.codeMinussystem);
       vs.setDefine(vs.new ValueSetDefineComponent());
       vs.getDefine().setSystemSimple(new URI("http://hl7.org/fhir/"+Utilities.fileTitle(filename)));
       for (DefinedCode c : cd.getCodes()) {

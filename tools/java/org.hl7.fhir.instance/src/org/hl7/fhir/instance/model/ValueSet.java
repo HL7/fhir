@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, May 21, 2013 08:39+1000 for FHIR v0.09
+// Generated on Wed, May 22, 2013 17:49+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -109,56 +109,6 @@ public class ValueSet extends Resource {
         return "withdrawn";
       if (code == ValuesetStatus.superseded)
         return "superseded";
-      return "?";
-      }
-    }
-
-    public enum ValuesetKind {
-        codeMinussystem, // this value set defines a code system
-        composition, // this value set is a composition of codes defined in other code systems
-        expansion, // this value set is an expansion from a composition value set
-        Null; // added to help the parsers
-        public static ValuesetKind fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("code-system".equals(codeString))
-          return codeMinussystem;
-        if ("composition".equals(codeString))
-          return composition;
-        if ("expansion".equals(codeString))
-          return expansion;
-        throw new Exception("Unknown ValuesetKind code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case codeMinussystem: return "code-system";
-            case composition: return "composition";
-            case expansion: return "expansion";
-            default: return "?";
-          }
-        }
-    }
-
-  public class ValuesetKindEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("code-system".equals(codeString))
-          return ValuesetKind.codeMinussystem;
-        if ("composition".equals(codeString))
-          return ValuesetKind.composition;
-        if ("expansion".equals(codeString))
-          return ValuesetKind.expansion;
-        throw new Exception("Unknown ValuesetKind code '"+codeString+"'");
-        }
-    public String toCode(Enum<?> code) throws Exception {
-      if (code == ValuesetKind.codeMinussystem)
-        return "code-system";
-      if (code == ValuesetKind.composition)
-        return "composition";
-      if (code == ValuesetKind.expansion)
-        return "expansion";
       return "?";
       }
     }
@@ -328,17 +278,17 @@ public class ValueSet extends Resource {
 
     public class ValueSetDefineConceptComponent extends Element {
         /**
-         * System if concept not in system above
-         */
-        private Uri system;
-
-        /**
-         * Code that is exchanged between systems
+         * Code that identifies concept
          */
         private Code code;
 
         /**
-         * Display for the user
+         * If this code is not for use as a real concept
+         */
+        private Boolean abstract_;
+
+        /**
+         * Text to Display to the user
          */
         private String_ display;
 
@@ -351,28 +301,6 @@ public class ValueSet extends Resource {
          * Child Concepts (is-a / contains)
          */
         private List<ValueSetDefineConceptComponent> concept = new ArrayList<ValueSetDefineConceptComponent>();
-
-        public Uri getSystem() { 
-          return this.system;
-        }
-
-        public void setSystem(Uri value) { 
-          this.system = value;
-        }
-
-        public URI getSystemSimple() { 
-          return this.system == null ? null : this.system.getValue();
-        }
-
-        public void setSystemSimple(URI value) { 
-          if (value == null)
-            this.system = null;
-          else {
-            if (this.system == null)
-              this.system = new Uri();
-            this.system.setValue(value);
-          }
-        }
 
         public Code getCode() { 
           return this.code;
@@ -387,12 +315,30 @@ public class ValueSet extends Resource {
         }
 
         public void setCodeSimple(String value) { 
-          if (value == null)
-            this.code = null;
-          else {
             if (this.code == null)
               this.code = new Code();
             this.code.setValue(value);
+        }
+
+        public Boolean getAbstract() { 
+          return this.abstract_;
+        }
+
+        public void setAbstract(Boolean value) { 
+          this.abstract_ = value;
+        }
+
+        public boolean getAbstractSimple() { 
+          return this.abstract_ == null ? null : this.abstract_.getValue();
+        }
+
+        public void setAbstractSimple(boolean value) { 
+          if (value == false)
+            this.abstract_ = null;
+          else {
+            if (this.abstract_ == null)
+              this.abstract_ = new Boolean();
+            this.abstract_.setValue(value);
           }
         }
 
@@ -448,11 +394,6 @@ public class ValueSet extends Resource {
 
     public class ValueSetComposeComponent extends Element {
         /**
-         * An assertion that this value set is a restriction on another value set - that it only includes codes that are part of the other value set. The value set itself must ensure that this is true - the contents of the value set are not automatically bounded by the contents of any value set identified here. This allows profile tooling to reason about the relationships between value sets without having to determine the value set contents
-         */
-        private List<Uri> restricts = new ArrayList<Uri>();
-
-        /**
          * Includes the contents of the referenced value set as part of the contents of this value set
          */
         private List<Uri> import_ = new ArrayList<Uri>();
@@ -466,10 +407,6 @@ public class ValueSet extends Resource {
          * Exclude one or more codes from the value set
          */
         private List<ConceptSetComponent> exclude = new ArrayList<ConceptSetComponent>();
-
-        public List<Uri> getRestricts() { 
-          return this.restricts;
-        }
 
         public List<Uri> getImport() { 
           return this.import_;
@@ -651,6 +588,134 @@ public class ValueSet extends Resource {
 
   }
 
+    public class ValueSetExpansionComponent extends Element {
+        /**
+         * Time valueset expansion happened
+         */
+        private Instant timestamp;
+
+        /**
+         * Codes in the value set
+         */
+        private List<ValueSetExpansionContainsComponent> contains = new ArrayList<ValueSetExpansionContainsComponent>();
+
+        public Instant getTimestamp() { 
+          return this.timestamp;
+        }
+
+        public void setTimestamp(Instant value) { 
+          this.timestamp = value;
+        }
+
+        public Calendar getTimestampSimple() { 
+          return this.timestamp == null ? null : this.timestamp.getValue();
+        }
+
+        public void setTimestampSimple(Calendar value) { 
+            if (this.timestamp == null)
+              this.timestamp = new Instant();
+            this.timestamp.setValue(value);
+        }
+
+        public List<ValueSetExpansionContainsComponent> getContains() { 
+          return this.contains;
+        }
+
+  }
+
+    public class ValueSetExpansionContainsComponent extends Element {
+        /**
+         * System value for the code
+         */
+        private Uri system;
+
+        /**
+         * Code - if blank, this is not a choosable code
+         */
+        private Code code;
+
+        /**
+         * User display for the concept
+         */
+        private String_ display;
+
+        /**
+         * Codes contained in this concept
+         */
+        private List<ValueSetExpansionContainsComponent> contains = new ArrayList<ValueSetExpansionContainsComponent>();
+
+        public Uri getSystem() { 
+          return this.system;
+        }
+
+        public void setSystem(Uri value) { 
+          this.system = value;
+        }
+
+        public URI getSystemSimple() { 
+          return this.system == null ? null : this.system.getValue();
+        }
+
+        public void setSystemSimple(URI value) { 
+          if (value == null)
+            this.system = null;
+          else {
+            if (this.system == null)
+              this.system = new Uri();
+            this.system.setValue(value);
+          }
+        }
+
+        public Code getCode() { 
+          return this.code;
+        }
+
+        public void setCode(Code value) { 
+          this.code = value;
+        }
+
+        public String getCodeSimple() { 
+          return this.code == null ? null : this.code.getValue();
+        }
+
+        public void setCodeSimple(String value) { 
+          if (value == null)
+            this.code = null;
+          else {
+            if (this.code == null)
+              this.code = new Code();
+            this.code.setValue(value);
+          }
+        }
+
+        public String_ getDisplay() { 
+          return this.display;
+        }
+
+        public void setDisplay(String_ value) { 
+          this.display = value;
+        }
+
+        public String getDisplaySimple() { 
+          return this.display == null ? null : this.display.getValue();
+        }
+
+        public void setDisplaySimple(String value) { 
+          if (value == null)
+            this.display = null;
+          else {
+            if (this.display == null)
+              this.display = new String_();
+            this.display.setValue(value);
+          }
+        }
+
+        public List<ValueSetExpansionContainsComponent> getContains() { 
+          return this.contains;
+        }
+
+  }
+
     /**
      * The identifier that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI)
      */
@@ -692,19 +757,19 @@ public class ValueSet extends Resource {
     private DateTime date;
 
     /**
-     * What kind of value set this is - a combination code system / value set, a value set composition of codes from other code systems, or an expansion into a ready to use form
-     */
-    private Enumeration<ValuesetKind> kind;
-
-    /**
-     * When kind = code system / expansion
+     * When value set defines it's own codes
      */
     private ValueSetDefineComponent define;
 
     /**
-     * When kind = composition (codes from elsewhere)
+     * When value set includes codes from elsewhere
      */
     private ValueSetComposeComponent compose;
+
+    /**
+     * When value set is an expansion
+     */
+    private ValueSetExpansionComponent expansion;
 
     public String_ getIdentifier() { 
       return this.identifier;
@@ -852,24 +917,6 @@ public class ValueSet extends Resource {
       }
     }
 
-    public Enumeration<ValuesetKind> getKind() { 
-      return this.kind;
-    }
-
-    public void setKind(Enumeration<ValuesetKind> value) { 
-      this.kind = value;
-    }
-
-    public ValuesetKind getKindSimple() { 
-      return this.kind == null ? null : this.kind.getValue();
-    }
-
-    public void setKindSimple(ValuesetKind value) { 
-        if (this.kind == null)
-          this.kind = new Enumeration<ValuesetKind>();
-        this.kind.setValue(value);
-    }
-
     public ValueSetDefineComponent getDefine() { 
       return this.define;
     }
@@ -884,6 +931,14 @@ public class ValueSet extends Resource {
 
     public void setCompose(ValueSetComposeComponent value) { 
       this.compose = value;
+    }
+
+    public ValueSetExpansionComponent getExpansion() { 
+      return this.expansion;
+    }
+
+    public void setExpansion(ValueSetExpansionComponent value) { 
+      this.expansion = value;
     }
 
   @Override

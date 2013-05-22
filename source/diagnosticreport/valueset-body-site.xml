@@ -15,7 +15,6 @@
   </telecom>
   <description value="This value set includes all the &quot;Clinical finding&quot; Snomed-CT codes (i.e. codes with an is-a relationship with 91723000: Anatomical structure)"/>
   <status value="review"/>
-  <kind value="composition"/>
   <compose>
     <include>
       <!-- all the descendents of clinical finding, not include itself -->

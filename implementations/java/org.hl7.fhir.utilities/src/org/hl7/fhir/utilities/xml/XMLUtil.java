@@ -28,11 +28,20 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.utilities.xml;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 
+import javax.management.modelmbean.XMLParseException;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.hl7.fhir.utilities.CSFileInputStream;
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xhtml.XhtmlParser;
+import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -301,6 +310,45 @@ public class XMLUtil {
         set.add(c);
       c = getNextSibling(c);
     }
+  }
+
+  public static String htmlToXmlEscapedPlainText(Element r) {
+    StringBuilder s = new StringBuilder();
+    Node n = r.getFirstChild();
+    boolean ws = false;
+    while (n != null) {
+      if (n.getNodeType() == Node.TEXT_NODE) {
+        String t = n.getTextContent().trim();
+        if (Utilities.noString(t))
+          ws = true;
+        else {
+          if (ws)
+            s.append(" ");
+          ws = false;
+          s.append(t);
+        }
+      }
+      if (n.getNodeType() == Node.ELEMENT_NODE) {
+        if (ws)
+          s.append(" ");
+        ws = false;
+        s.append(htmlToXmlEscapedPlainText((Element) n));
+        if (r.getNodeName().equals("br") || r.getNodeName().equals("p"))
+          s.append("\r\n");
+      }
+      n = n.getNextSibling();      
+    }
+    return s.toString();
+  }
+
+  public static String htmlToXmlEscapedPlainText(String definition) throws Exception {
+    
+    
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    factory.setNamespaceAware(false);
+    DocumentBuilder builder = factory.newDocumentBuilder();
+    Document xdoc = builder.parse(new ByteArrayInputStream(("<div>"+definition+"</div>").getBytes()));
+    return htmlToXmlEscapedPlainText(xdoc.getDocumentElement());
   }
 	
 }

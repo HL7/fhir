@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, May 21, 2013 08:39+1000 for FHIR v0.09
+// Generated on Wed, May 22, 2013 17:49+1000 for FHIR v0.09
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -711,8 +711,14 @@ public class JsonParser extends JsonParserBase {
   private Alert parseAlert(JSONObject json) throws Exception {
     Alert res = new Alert();
     parseResourceProperties(json, res);
+    if (json.has("category"))
+      res.setCategory(parseCodeableConcept(json.getJSONObject("category")));
+    if (json.has("status"))
+      res.setStatus(parseEnumeration(json.getJSONObject("status"), Alert.AlertStatus.Null, new Alert().new AlertStatusEnumFactory()));
     if (json.has("subject"))
       res.setSubject(parseResourceReference(json.getJSONObject("subject")));
+    if (json.has("author"))
+      res.setAuthor(parseResourceReference(json.getJSONObject("author")));
     if (json.has("note"))
       res.setNote(parseString(json.getJSONObject("note")));
     return res;
@@ -3883,12 +3889,12 @@ public class JsonParser extends JsonParserBase {
       res.setStatus(parseEnumeration(json.getJSONObject("status"), ValueSet.ValuesetStatus.Null, new ValueSet().new ValuesetStatusEnumFactory()));
     if (json.has("date"))
       res.setDate(parseDateTime(json.getJSONObject("date")));
-    if (json.has("kind"))
-      res.setKind(parseEnumeration(json.getJSONObject("kind"), ValueSet.ValuesetKind.Null, new ValueSet().new ValuesetKindEnumFactory()));
     if (json.has("define"))
       res.setDefine(parseValueSetValueSetDefineComponent(json.getJSONObject("define"), res));
     if (json.has("compose"))
       res.setCompose(parseValueSetValueSetComposeComponent(json.getJSONObject("compose"), res));
+    if (json.has("expansion"))
+      res.setExpansion(parseValueSetValueSetExpansionComponent(json.getJSONObject("expansion"), res));
     return res;
   }
 
@@ -3909,10 +3915,10 @@ public class JsonParser extends JsonParserBase {
   private ValueSet.ValueSetDefineConceptComponent parseValueSetValueSetDefineConceptComponent(JSONObject json, ValueSet owner) throws Exception {
     ValueSet.ValueSetDefineConceptComponent res = owner.new ValueSetDefineConceptComponent();
     parseElementProperties(json, res);
-    if (json.has("system"))
-      res.setSystem(parseUri(json.getJSONObject("system")));
     if (json.has("code"))
       res.setCode(parseCode(json.getJSONObject("code")));
+    if (json.has("abstract"))
+      res.setAbstract(parseBoolean(json.getJSONObject("abstract")));
     if (json.has("display"))
       res.setDisplay(parseString(json.getJSONObject("display")));
     if (json.has("definition"))
@@ -3929,12 +3935,6 @@ public class JsonParser extends JsonParserBase {
   private ValueSet.ValueSetComposeComponent parseValueSetValueSetComposeComponent(JSONObject json, ValueSet owner) throws Exception {
     ValueSet.ValueSetComposeComponent res = owner.new ValueSetComposeComponent();
     parseElementProperties(json, res);
-    if (json.has("restricts")) {
-      JSONArray array = json.getJSONArray("restricts");
-      for (int i = 0; i < array.length(); i++) {
-        res.getRestricts().add(parseUri(array.getJSONObject(i)));
-      }
-    };
     if (json.has("import")) {
       JSONArray array = json.getJSONArray("import");
       for (int i = 0; i < array.length(); i++) {
@@ -3989,6 +3989,38 @@ public class JsonParser extends JsonParserBase {
       res.setOp(parseEnumeration(json.getJSONObject("op"), ValueSet.FilterOperator.Null, new ValueSet().new FilterOperatorEnumFactory()));
     if (json.has("value"))
       res.setValue(parseCode(json.getJSONObject("value")));
+    return res;
+  }
+
+  private ValueSet.ValueSetExpansionComponent parseValueSetValueSetExpansionComponent(JSONObject json, ValueSet owner) throws Exception {
+    ValueSet.ValueSetExpansionComponent res = owner.new ValueSetExpansionComponent();
+    parseElementProperties(json, res);
+    if (json.has("timestamp"))
+      res.setTimestamp(parseInstant(json.getJSONObject("timestamp")));
+    if (json.has("contains")) {
+      JSONArray array = json.getJSONArray("contains");
+      for (int i = 0; i < array.length(); i++) {
+        res.getContains().add(parseValueSetValueSetExpansionContainsComponent(array.getJSONObject(i), owner));
+      }
+    };
+    return res;
+  }
+
+  private ValueSet.ValueSetExpansionContainsComponent parseValueSetValueSetExpansionContainsComponent(JSONObject json, ValueSet owner) throws Exception {
+    ValueSet.ValueSetExpansionContainsComponent res = owner.new ValueSetExpansionContainsComponent();
+    parseElementProperties(json, res);
+    if (json.has("system"))
+      res.setSystem(parseUri(json.getJSONObject("system")));
+    if (json.has("code"))
+      res.setCode(parseCode(json.getJSONObject("code")));
+    if (json.has("display"))
+      res.setDisplay(parseString(json.getJSONObject("display")));
+    if (json.has("contains")) {
+      JSONArray array = json.getJSONArray("contains");
+      for (int i = 0; i < array.length(); i++) {
+        res.getContains().add(parseValueSetValueSetExpansionContainsComponent(array.getJSONObject(i), owner));
+      }
+    };
     return res;
   }
 
