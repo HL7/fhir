@@ -8,7 +8,7 @@
   <!-- this is an extermely simple query - a request to execute the query 'example' on the responder -->
   <id value="urn:uuid:42b253f5-fa17-40d0-8da5-44aeb4230376"/>
   <parameter>
-    <name value="query"/>
+    <name value="_query"/>
     <value value="example"/>
   </parameter>
 </Query>

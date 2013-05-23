@@ -55,6 +55,7 @@ to compute the relationship, which might not be possible for a profile tool</li>
   are intersected. In other words, all the conditions specified must be true.</li>
 </ul>
 
+<a name="expansion"> </a>
 <h2>Value Set Expansion</h2>
 <p>
 A value set can be "expanded", where the definition of the value set is 

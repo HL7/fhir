@@ -1,237 +1,83 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-[%onthispage Search/Query#base|Standard Parameters#standard|Default Query Method#default|Query Resource#query|Executing Queries#details|Managing Search Results#results%]
+[%onthispage Search/Query#base|Standard Parameters#standard|Managing Returned Resources#return|Conformance#conformance|Advanced Query#advanced|Query Resource#query|Managing Search Results#results%]
 
 <a name="base"> </a>
-<p>
-note: known issues relating to this page:
-</p>
-<ul>
- <li>The question of searching on a particular resource (as described by the RESTful interface). is this a parameter? Should the restful search operate at the system level as well?</li>
- <li>The overlap between query response and operation outcome in the case of errors in them messasging context</li>
-</ul>
 <h2>Search / Query</h2>
 <p>
-One operation that is fundamental to the way FHIR works is to query or search 
-for a set of resources that match some particular set of criteria. Search/query
-operations can span complexity from a simple search based on indexed criteria, 
-through to complex decision support based requests, and also direct queries 
-that need to be handled by humans.
+One operation that is fundamental to the way FHIR works is to search (find 
+existing resources by filter criteria) or query (more detailed questions
+based on existing data). Search/query operations can span complexity 
+from a simple search based on indexed criteria, through to complex 
+decision support based requests, and also direct queries that need to 
+be handled by humans. This page documents the FHIR search framework,
+starting with the simple cases, and working into the increased complexity.
+Implementations need only implement the amount of complexity that they 
+require.
 </p>
 <p>
-All these search and query operations are handled by a single framework described
-in this page. The complexity of the implementation is a direct function of the 
-sophistication of the task - simple indexed searches consist of a search on a 
-resource type with a list of parameters, but support for asynchronous queries 
-or custom fully specified queries requires additional considerations.
+In the simplest case, a search is executed by performing a GET operation
+in the RESTful framework:
 </p>
-<p>
-Some search/queries may have side effects such as creating new clinical resources
-that may be persistent or transitory. Note that all searches are allowed/expected to have 
-side effects in audit trails etc too.
-</p>
-<p>
-FHIR defines 3 different ways in which a search through a repository of 
-resources can be initiated:
-</p>
-<ul>
- <li>Perform <a href="http.htm#search">search</a> operation on a RESTful interface</li>
- <li>Send a query message, and receive a query response</li>
- <li>On a RESTful interface, create a query resource with an order, and wait for the order response (this allows asynchronous queries across a RESTful interface)</li>
-</ul>
-<p>
-The operations are <a href="#details">discussed in further detail below</a>.
-</p>
-<p>
-In all 3 cases, the basic operation is simple: given a set of parameters
-which are name/value pairs, perform a query against a repository of 
-resources, and return the set of matching resources, possibly with 
-some additional related resources. In order to keep the load on 
-clients, servers and the network minimized, the engine may choose 
-to return the results in a series of pages. <a href="#details">See below</a> 
-for how to implement paging.
-</p>
-<p>
-In order to allow the client to be confident about what search parameters 
-were used as a criteria by the server, the server SHALL return the parameters 
-that were actually used to process the search. Applications processing search 
-results SHALL check these returned values where necessary. For example, if 
-the server did not support some of the filters specified in the search, a 
-client might manually apply those filters to the retrieved result set, 
-display a warning message to the user or take some other action. 
-</p>
-<p>
-In the case of a RESTful search, these parameters are encoded in the 
-self link in the atom feed that is returned:
-</p>
-<pre class="xml">
-  &lt;link rel="self" href="http://example.org/patient/search?name=peter"/&gt;
+<pre>
+ GET .../[resourcetype]/(?parameters)
 </pre>
-
-<h2>Handling Returned Resources</h2>
+<p>
+Search/Query operations can also be initiated by other more complex and flexible
+methods described below.
+</p>
+<p>
+In the RESTful search, the client requests that a search be
+performed using an HTTP call, and the parameters are a series 
+of name=value pairs encoded in the URL or as an 
+x-multi-part-form submission for a POST. 
+</p>
+<p>
+The server returns the results in the HTTP response. A HTTP status code
+of 403 signifies that the server refused to perform the query, 
+while some other 4xx or 5xx code signifies an error. 
+</p>
 
 <a name="standard"> </a>
-<h2>Standard Parameters</h2>
+<h2>Default Search Parameters</h2>
 <p>
-There are a few FHIR parameters that are defined for all search contexts:
-</p>
-<table class="list">
-  <tr><td>_query :</td><td>The kind of query that the engine should execute.</td></tr>
-  <tr><td>_count :</td><td>Number of return records requested per page</td></tr>
-  <tr><td>_include : </td><td>Include additional resources related to those that match the query</td></tr>
-</table>
-<p>
-Names may appear more than once in a set of search parameters. Whether this is allowed 
-and/or meaningful depends on the search being performed, and on the particular parameter 
-name.
-</p>
-
-<h3>Query Selection</h3>
-<p>
-The engine that handles the search request must interpret 
-the named parameters and perform some meaningful search. 
-The _query parameter names the particular method that the 
-engine uses to process the parameters.
-</p>
-<p>
-FHIR defines a default query method, documented below, and 
-servers can implement this, and/or define their own named 
-queries that clients can invoke to perform searches other 
-than those provided for by the default search method. If
-servers define additional searches, they should declare these
-in their conformance statement. The definition will need to 
-describe what parameters are meaningful in the context of the 
-named method.
-</p>
-<p>
-There can only ever be one _query parameter in a set of search
-parameters. Applications processing search requests must 
-refuse to process a search request if they do not recognise 
-the _query parameter value.
-</p>
-<h3>Page Count</h3>
-<p>
-The _count parameter is a hint to the query engine regarding
-how many resources should be returned in a single page. Servers
-SHALL not return more resources than requested (even if they don't
-support paging) but are allowed to return less than the client
-asked for. Note that it is at the discretion of the search engine 
-how to handle ongoing updates to the resources while the search 
-is proceeding. <a href="#details">See below</a> for how to implement 
-paging.
-</p>
-
-<a name="include" />
-<h3>Including other resources in result (_include)</h3>
-<p>
-Clients may request that the engine return additional resources related to 
-the search results, in order to reduce the overall network query time. 
-A typical case where this is useful is where the client is querying on 
-some type of clinical resource, but for every such resource returned, 
-the client will also need the subject (patient) resource that the 
-clinical resource refers to. The client requests that the subject 
-resources be included in the results set by providing one or more 
-_include parameters.
-</p>
-<p>  
-Each _include parameter specifies a path to a url (usually a resource reference):
+The search parameter _id which refers to the logical id of the resource. 
 </p>
 <pre>
- diagnosticreport/search?_include=DiagnosticReport.subject&amp;_include=Patient.provider
-</pre>
-<p> 
-For each returned resource, the server collects the elements described by the path, 
-and any resources they point to that the server also holds are added to the results.
-Note that _include parameters may be recursive. For instance, a client may request to return all the 
-subjects associated with a search on lab reports, and then to include all the provider organization
-resources for the patients returned, as shown above. 
-</p>
-<p>
-Include paths are processed only in the context of a single resource - they can not include 
-paths such as Resource.name1.name2 where name2 is a name in a resource pointed to by name1.
-Include paths may include wild cards, such as DiagnosticReport.results.*, or even _include=*,
-though both servers and clients need to take care not to request or return too much in the 
-latter case.
-</p>
-<p>
-For servers, Recursive and wildcard parameters are demanding and may slow the search 
-response time significantly. Servers are not obliged to honor requests to include 
-additional resources in the search results.
-</p>
-<p>
-If the _include path matches an url that points to a resource that the server itself does 
-not hold itself, the server may still elect to include the target of the uri reference in 
-the returned results as a Binary resource. For example, the include path may point to an 
-attachment which is by reference, like this:
-</p>
-<pre>
- &lt;content&gt;
-   &lt;contentType&gt;image/jpeg&lt;/contentType&gt;
-   &lt;url&gt;http://example.org/images/2343434/234234.jpg&lt;/url&gt;
- &lt;/content&gt;
+ GET .../patient?_id=23
 </pre>
 <p>
-The server can retrieve the target of this reference on behalf of the client, and add this to the 
-results for the convenience of the client. 
-</p>
-
-<a name="default"> </a>
-<h2>Default Search Method</h2>
-<p>
-If no value is provided for the _query parameter, then the search is executed 
-according to the specifications provided in this section. The default search
-method consists of a set of search parameters defined by each resource, and 
-an overall method for relating these to each other and the contents of the 
-stored resources. The default search always searches existing resources, and 
-the only new resources that may be created are <a href="securityevent.htm">Security 
-Event</a> resources auditing the search.
+This search finds the resource with the given id (there can only be one 
+resource for a given id)
 </p>
 <p>
-The default search is always performed against a particular resource type. 
-In the RESTful interface, the resource type is always implicit because the
-search is performed on a particular type. When using the query resource,
-the resource type is specified by the _resource parameter:
-</p>
-<pre class="xml">
-  &lt;parameter&gt;
-    &lt;name value=&quot;_resource&quot;/&gt;
-    &lt;value value=&quot;Patient&quot;/&gt;
-  &lt;/parameter&gt;
-</pre>
-<p>
-Each FHIR resource type defines a set of applicable search parameters with 
-their names, types, and meanings. Mostly, the defined search parameters 
-correspond to a single element in the resource, but this is not required, 
-and some search parameters refer to the same type of element in multiple 
+In addition to this resource, each FHIR resource type defines a 
+set of applicable search parameters with their names, types, and 
+meanings. Mostly, the defined search parameters correspond to a 
+single element in the resource, but this is not required, and some 
+search parameters refer to the same type of element in multiple 
 places, or refer to derived values.
 </p>
-
-<h3>Combining Search Parameters</h3>
 <p>
-The result of the search operation is the intersection of the resources that match the criteria specified by each 
-individual search parameter. If a search parameter may match a number of possible values, these values are combined into 
-set of parameter value, separated by a ','. e.g. language=FR,NL. These constructs may be combined to have repeating 
-parameters (interpreted as intersection), each having a set of possible values.
+Servers are not required to implement any of these search parameters
+(except for the _id parameter described above), and may define their own 
+additional parameters if they wish. 
 </p>
-<p>
-Most search parameters accept a single value as a parameter, but a resource may also specify searches that take sequences 
-of single values as an argument. The meaning of each component in such a sequence is documented in the definition of the 
-parameter. An example of such an operation is the key/value tuples used to search on Group.characteristic: you need find a 
-combination of key/value, not an intersection of separate matches on key and value. Another example is spatial coordinates 
-when doing geographical searches. These sequences are formed by joining the single values with a "$".  Note that this 
-sequence still forms a single parameter (albeit a composite one) and thus differs from parameters that may match a set 
-of values of the same type, e.g. multiple matching state-on-date parameters can be specified as state-on-date=new$2013-05-04,
-active$2013-05-05.
-</p>
-
 
 <a name="ptypes" />
 <h3>Search Parameter Types</h3>
-<p>The table below lists all the possible parameter types:</p>
+<p>Each search parameter is defined a type that defines how the search parameter
+behaves. These are the defined parameter types:
+</p>
 <%codelist SearchParamType%>
+<p>
+The search parameters can also have "modifiers" appended to them that control
+their behaviour. The kind of modifiers that can be used depend on the type
+of parameter.
+</p>
 
 <a name="modifiers" />
-<h3>Modifiers</h3>
+<h4>Modifiers</h4>
 <p>Parameters are defined per resource, and their names may additionally specify a modifier as a suffix, 
 separated from the parameter name by a dot. Modifiers are:</p>
 <ul>
@@ -244,19 +90,31 @@ separated from the parameter name by a dot. Modifiers are:</p>
 <li>For token: "text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), "code" (a match on code and system of the coding/codeable concept).</li>
 </ul>
 
+<h4>integer</h4>
+<p>
+The prefixes &gt;, &gt;=, =&lt;, and &lt; may be used on the parameter value, 
+and has the usual meaning. Note that '=" must be escaped in the 
+value in a URL.
+</p>
+
 <h4>token</h4>
+<p>
+A token type is a parameter that searches on a code or identifier 
+value where the value may have a URI that scopes it's meaning
+(from a <a href="datatypes.htm#Coding">Coding</a> or an 
+<a href="datatypes.htm#Identifier">Identifier</a> type, and also 
+from a <a href="datatypes.htm#code">code</a> where the URI is 
+implicit).
+</p>
 <p>
 If the parameter has no modifier, or the modifier 'text', the 
 search parameter is a string, if the modifier is ‘code’ the 
 parameter is a pair of fixed value strings, namespace and 
-value, separated by a "!".
-</p>
-<p>
-Without modifier, the search will use the textual parameter 
-to do a partial match on code, text or display. With 
-modifier ‘text’ the search will do a partial match on text 
-or display. With the ‘code’ modifier, the search will 
-work as follows:
+value, separated by a "!". Without modifier, the search will 
+use the textual parameter to do a partial match on code, 
+text or display. With modifier ‘text’ the search will do 
+a partial match on text or display. With the ‘code’ 
+modifier, the search will work as follows:
 </p>
 <ul>
  <li><b>name=namespace#code</b> specifies matches on both the namespace and the code</li>
@@ -265,37 +123,12 @@ work as follows:
 </ul>
 <p>For token, you need (at least) to escape the ":" and possibly “#” (the fragment identifier) in the url of the code system.</p>
 
-<a name="chaining" />
-<h4>reference</h4>
-<p>
-The interpretation of a <i>reference</i> parameter is either:
-</p>
-<ul>
- <li><b>name=id</b> the id of a resource (not including the @ the goes in the URL)</li>
- <li><b>name=type:id</b> matches a specific target type. This is useful if the resource reference can refer to multiple different resource types.</li>
-</ul>
-<p>
-Reference parameters may be "chained" by appending them with modifiers which are parameters defined
-for the target resource. This can be done recursively, following a logical path through a graph of related resources.
-For instance, given that the resource <a href="diagnosticreport.htm">DiagnosticReport</a> has a search parameter named <i>subject</i>, 
-which is usually a reference to a <a href="patient.htm">Patient</a> resource, and the Patient resource includes a parameter 
-<i>name</i> which searches on patient name, then the search
-</p>
-<pre>
- diagnosticreport/search?subject.name=peter
-</pre>
-<p>
-is a request to return all the lab reports that have a subject whose name includes "peter". 
-</p>
-<p>
-Where a chained parameter searches a resource reference that may have more than on 
-different type of resource as it's target, the parameter chain may refer to search 
-parameters on more than one kind of resource at once. The parameters defined in FHIR
-have consistent types wherever they are used. Implementers defining their own names 
-need to be sure that they do not create unprocessible combinations. 
-</p>
-
 <h4>date</h4>
+<p>
+A date parameter searches on a date/time or period. As is usual, while the 
+concept is straight-forward, there are a number of subtleties involved in 
+ensuring consistent behavior.
+</p>
 <ul>
  <li>The date parameter format is yyyy-mm-ddThh:nn:ss(TZ) (the standard XML format). Any degree of precision can be provided, but it must be populated from the left (e.g. can't specify a month without a year)</li>
 <li>Note that to use these values, you need to escape the “:” in the time part.</li>
@@ -339,6 +172,71 @@ need to be sure that they do not create unprocessible combinations.
  </li>
 </ul>
 
+<a name="chaining" />
+<h4>reference</h4>
+<p>
+A reference parameter refers to references between resources, e.g. find all 
+problems where the subject reference is a particular patient by the patient id.
+</p>
+<p>
+The interpretation of a <i>reference</i> parameter is either:
+</p>
+<ul>
+ <li><b>name=id</b> the id of a resource (not including the @ the goes in the URL)</li>
+ <li><b>name=type:id</b> matches a specific target type. This is useful if the resource reference can refer to multiple different resource types.</li>
+</ul>
+<p>
+In order to save a client from doing a series of search operations, 
+reference parameters may be "chained" by appending them with 
+modifiers which are search parameters defined for the target 
+resource. This can be done recursively, following a logical path 
+through a graph of related resources. For instance, given that 
+the resource <a href="diagnosticreport.htm">DiagnosticReport</a> 
+has a search parameter named <i>subject</i>, which is usually a 
+reference to a <a href="patient.htm">Patient</a> resource, and 
+the Patient resource includes a parameter <i>name</i> which 
+searches on patient name, then the search
+</p>
+<pre>
+ diagnosticreport/search?subject.name=peter
+</pre>
+<p>
+is a request to return all the lab reports that have a subject whose name includes "peter". 
+</p>
+<p>
+Advanced Search Note: 
+Where a chained parameter searches a resource reference that may have more than one 
+different type of resource as it's target, the parameter chain may end up referring 
+to search parameters with the same name on more than one kind of resource at once. 
+The parameter names defined in FHIR have consistent types wherever they are used. 
+Implementers defining their own names need to be sure that they do not create 
+unprocessible combinations. 
+</p>
+
+<h3>Combining Search Parameters</h3>
+<p>
+The result of the search operation is the intersection of the resources that match the criteria specified by each 
+individual search parameter. If a parameter repeats, such as /patient?language=FR&amp;language=NL, then 
+this matches a patient who speaks both languages. If, instead, the search is to find patients that speak either 
+language, then this is a single parameter with multiple values, separated by a ',':  /patient?language=FR,NL. 
+</p>
+<p>
+This allows for simple combinations of and/or values, but doesn't allow a search based on 
+a pair of values, such as all observations with a sodium value >150 mmol/L (particularly
+as the end criteria of a chained search), or searching on Group.characteristic: you need 
+find a combination of key/value, not an intersection of separate matches on key and value. 
+Another example is spatial coordinates when doing geographical searches. 
+</p>
+<p>
+To allow these searches, a resource may also specify searches that take sequences 
+of single values as an argument. The meaning of each component in such a sequence 
+is documented in the definition of the parameter. These sequences are formed by 
+joining the single values with a "$".  Note that this sequence is a single 
+value and itself can be composed into a set of values, so that, for example, 
+multiple matching state-on-date parameters can be specified as 
+state-on-date=new$2013-05-04,active$2013-05-05.
+</p>
+
 <h3>Selecting resources by Tag</h3>
 
 <p>
@@ -354,29 +252,202 @@ The _tag search parameter may have the modifiers .partial and .text, which mean
 to only match on the left side of the target tags, or to search the label part of the tag respectively.
 </p>
 
+<a name="return"> </a>
+<h2>Managing Returned Resources</h2>
 
 <a name="sort" />
 <h3>Sorting</h3>
 <p>
-The client can indicate which order to return the results in using the parameter "search-sort". This can be set to one 
-of the search parameters. Where the search parameter returns multiple values, the lowest value will be used when ordering
-the returned records. Note that the actual sort value used is not returned explicitly by the server.
+The client can indicate which order to return the results in 
+using the parameter "_sort". This can be set to one of the 
+search parameters. Where the search parameter returns multiple 
+values, the lowest value will be used when ordering the 
+returned records. Note that the actual sort value used is 
+not returned explicitly by the server.
+</p>
+
+<h3>Page Count</h3>
+
+<p>
+In order to keep the load on clients, servers and the network 
+minimized, the server may choose to return the results in 
+a series of pages. The search result set contains the URLs
+that the client uses to request additional pages from the 
+search set. For a simple RESTful search, the page links are 
+<a href="http.htm#paging">contained in the returned bundle as links</a>.
+</p>
+<p>
+Typically a server will it's own parameters to the links
+that it uses to manage the state of the query as pages are 
+retrieved. These parameters do not need to be understood 
+or processed by the client.
+</p>
+
+<p>
+The parameter _count is defined as a hint to the server 
+regarding how many resources should be returned in a 
+single page. Servers SHALL not return more resources than 
+requested (even if they don't support paging) but are 
+allowed to return less than the client asked for. Note 
+that it is at the discretion of the search engine how to 
+handle ongoing updates to the resources while the search 
+is proceeding. 
+</p>
+
+<a name="include" />
+<h3>Including other resources in result (_include)</h3>
+<p>
+Clients may request that the engine return additional resources related to 
+the search results, in order to reduce the overall network query time. 
+A typical case where this is useful is where the client is querying on 
+some type of clinical resource, but for every such resource returned, 
+the client will also need the subject (patient) resource that the 
+clinical resource refers to. The client requests that the subject 
+resources be included in the results set by providing one or more 
+_include parameters.
+</p>
+<p>  
+Each _include parameter specifies a path to a url (usually a resource reference):
+</p>
+<pre>
+ GET .../medicationprescription/search?_include=MedicationDispense.prescription
+    &amp;_include=MedicationPrescription.prescriber&amp;criteria...
+</pre>
+<p>
+For each returned resource, the server collects the elements described by the path, 
+and any resources they point to that the server also holds are added to the results.
+This search returns all the <a href="medicationprescription.htm">Medication 
+Prescription</a> resources and their <a href="practitioner.htm">prescribing Practitioner</a> Resources
+for the matching <a href="medicationdispense.htm">Medication Dispense</a> resources.
+</p>
+<p>
+Include paths are processed only in the context of a single resource - they can not include 
+paths such as Resource.name1.name2 where name2 is a name in a resource pointed to by name1.
+Include paths may include wild cards, such as MedicationDispense.results.*, or even _include=*,
+though both servers and clients need to take care not to request or return too many resources 
+when doing this.
+</p>
+<p>
+For servers, recursive and wildcard _includes are demanding and may slow the search 
+response time significantly. Servers are not obliged to honor requests to include 
+additional resources in the search results.
+</p>
+<h4>External References</h4>
+<p>
+If the _include path matches an url that points to a resource that the server itself does 
+not hold itself, the server may still elect to include the target of the uri reference in 
+the returned results as a Binary resource. For example, the include path may point to an 
+attachment which is by reference, like this:
+</p>
+<pre>
+ &lt;content&gt;
+   &lt;contentType&gt;image/jpeg&lt;/contentType&gt;
+   &lt;url&gt;http://example.org/images/2343434/234234.jpg&lt;/url&gt;
+ &lt;/content&gt;
+</pre>
+<p>
+The server can retrieve the target of this reference on behalf of the client, and add this to the 
+results for the convenience of the client. 
 </p>
 
 <a name="conformance" />
-<h3>Server Conformance</h3>
+<h2>Server Conformance</h2>
 <p>
-Servers have considerable discretion with regards to supporting to the default search:
+In order to allow the client to be confident about what search parameters 
+were used as a criteria by the server, the server SHALL return the parameters 
+that were actually used to process the search. Applications processing search 
+results SHALL check these returned values where necessary. For example, if 
+the server did not support some of the filters specified in the search, a 
+client might manually apply those filters to the retrieved result set, 
+display a warning message to the user or take some other action. 
+</p>
+<p>
+In the case of a RESTful search, these parameters are encoded in the 
+self link in the atom feed that is returned:
+</p>
+<pre class="xml">
+  &lt;link rel="self" href="http://example.org/patient/search?name=peter"/&gt;
+</pre>
+<p>
+In other respects, servers have considerable discretion with regards 
+to supporting search:
 </p>
 <ul>
  <li>Servers can choose which parameters to support (other than _id above)</li>
  <li>Servers can choose when and where to implement parameter chaining, and when and where they support the _include parameter</li>
  <li>Servers are able to declare additional parameters in the profiles referenced from their conformance statements. Servers should define search parameters 
-    with a "-" character in them to ensure that the names they choose do not clash with future parameters defined by this specification</li>
+    starting with a "-" character to ensure that the names they choose do not clash with future parameters defined by this specification</li>
  <li>Servers are not required to enforce case sensitivity on parameter names, though the names are case sensitive (and URLs are generally case-sensitive)</li>
  <li>Servers may choose how many results to return, though the client can use _count as above</li>
- <li>Servers can choose how to sort the return results</li>
+ <li>Servers can choose how to sort the return results, though they SHOULD honour the _sort parameter</li>
 </ul>
+
+<hr/>
+<a name="advanced"> </a>
+<h2>Advanced Search/Query</h2>
+<p>
+The search framework described above is a useful framework 
+for providing a simple search based on indexed criteria, 
+but more sophistication is needed to handle precise 
+queries, complex decision support based requests, and 
+direct queries that have human resolution.
+</p>
+<p>
+More advanced search/query operations are specified by the 
+_query parameter:
+</p>
+<pre>
+   GET .../patient?_query=name&amp;parameters...
+</pre>
+<p>
+The _query parameter names a custom search profile that
+describes a specific search/query operation. The named query
+may define additional parameters that are used with that 
+particular named query, and  will define their type and 
+behavior on repetition and omission. 
+</p>
+<p>
+FHIR defines some named queries:
+</p>
+<ul>
+ <li><a href="valueset.htm#expansion">Value Set Expansion</a></li>
+</ul>
+<p>
+In addition, servers can define their own additional named
+queries to meet their own uses.
+</p>
+<p>
+There can only ever be one _query parameter in a set of search
+parameters. Servers processing search requests must 
+refuse to process a search request if they do not recognise 
+the _query parameter value.
+</p>
+<p>
+Some named queries may have side effects such as creating 
+new clinical resources that may be persistent or transitory. 
+The general search defined above always searches existing 
+resources, and the only new resources that may be created 
+are <a href="securityevent.htm">Security Event</a> resources 
+auditing the search.
+</p>
+
+<h2>Executing Search / Query</h2>
+<p>
+FHIR defines 3 different ways in which a search through a repository of 
+resources can be initiated:
+</p>
+<ul>
+ <li>Perform <a href="http.htm#search">search</a> operation on a RESTful interface (as described above)</li>
+ <li>Send a query message, and receive a query response</li>
+ <li>On a RESTful interface, create a query resource with an order, and wait for the order response (this allows asynchronous queries across a RESTful interface)</li>
+</ul>
+<p>
+In all 3 cases, the basic operation is simple: given a set of parameters
+which are name/value pairs, perform a query against a repository of 
+resources, and return the set of matching resources, possibly with 
+some additional related resources. The second two search methods are
+implemented using the <i>Query</i> Resource.
+</p>
 
 <a name="query"> </a>
 
