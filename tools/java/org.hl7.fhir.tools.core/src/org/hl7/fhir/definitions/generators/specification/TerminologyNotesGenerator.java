@@ -144,6 +144,8 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
             write("<a href=\""+cd.getReference()+".htm\">http://hl7.org/fhir/"+cd.getReference()+"</a>");            
           else
             write("??");
+          if (cd.isExample())
+            write(" (Example only)");
         }
         if (cd.getBinding() == BindingSpecification.Binding.CodeList) {
           write("<a href=\""+cd.getReference().substring(1)+".htm\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a>");            

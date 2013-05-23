@@ -20,7 +20,6 @@
   <WindowWidth>22455</WindowWidth>
   <WindowTopX>3465</WindowTopX>
   <WindowTopY>2265</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -135,7 +134,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="46" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="48" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="337.5"/>
@@ -408,7 +407,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Each study has one or more series of image instances</Data></Cell>
+    <Cell><Data ss:Type="String">Each study has one or more series of instances</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -630,7 +629,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">down</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">A single image taken from a patient</Data></Cell>
+    <Cell><Data ss:Type="String">A single instance taken from a patient (image or other)</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">A single image taken from a patient</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="15" ss:StyleID="Default"/>
@@ -645,7 +644,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">The number of this image in the series (0020,0013)</Data></Cell>
+    <Cell><Data ss:Type="String">The number of this instance in the series (0020,0013)</Data></Cell>
     <Cell><Data ss:Type="String">0020,0013</Data></Cell>
     <Cell><Data ss:Type="String">Instance Number</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="Number">1</Data></Cell>
@@ -663,7 +662,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">oid</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Formal identifier for this image (0008,0018)</Data></Cell>
+    <Cell><Data ss:Type="String">Formal identifier for this instance (0008,0018)</Data></Cell>
     <Cell><Data ss:Type="String">0008,0018</Data></Cell>
     <Cell><Data ss:Type="String">SOP Instance UID</Data></Cell>
     <Cell><Data ss:Type="String">2.16.124.113543.6003.189642796.63084.16748.2599092903</Data></Cell>
@@ -681,7 +680,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">oid</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">DICOM Image type (0008,0016)</Data></Cell>
+    <Cell><Data ss:Type="String">DICOM instance type (0008,0016)</Data></Cell>
     <Cell><Data ss:Type="String">0008,0016</Data></Cell>
     <Cell><Data ss:Type="String">SOP Class UID</Data></Cell>
     <Cell><Data ss:Type="String">1.2.840.10008.5.1.4.1.1.2</Data></Cell>
@@ -692,12 +691,14 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!ImagingStudy.series.instance.definition (dicomDir)</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell><Data ss:Type="String">ImagingStudy.series.instance.definition </Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="7" ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">(dicomDir) (what is this?)</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell ss:Index="15" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -718,7 +719,49 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ImagingStudy.series.instance.rows</Data></Cell>
+    <Cell><Data ss:Type="String">ImagingStudy.series.instance.availability</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">InstanceAvailability</Data></Cell>
+    <Cell><Data ss:Type="String">Instance Availability (0008,0056)</Data></Cell>
+    <Cell><Data ss:Type="String">0008,0056</Data></Cell>
+    <Cell><Data ss:Type="String">InstanceAvailability</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Availability of instance (online, offline or nearlnie)</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ImagingStudy.series.instance.dateTime</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">When this image was taken</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"/>
+    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ImagingStudy.series.instance.image</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">left</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">When instance is an image</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ImagingStudy.series.instance.image.rows</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -733,7 +776,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ImagingStudy.series.instance.columns</Data></Cell>
+    <Cell><Data ss:Type="String">ImagingStudy.series.instance.image.columns</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -748,7 +791,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ImagingStudy.series.instance.bitsAllocated</Data></Cell>
+    <Cell><Data ss:Type="String">ImagingStudy.series.instance.image.bitsAllocated</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -763,7 +806,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ImagingStudy.series.instance.numberOfFrames</Data></Cell>
+    <Cell><Data ss:Type="String">ImagingStudy.series.instance.image.numberOfFrames</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -773,20 +816,6 @@
     <Cell><Data ss:Type="String">Number of Frames (0028,0008)</Data></Cell>
     <Cell><Data ss:Type="String">(0028,0008)</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:Index="15" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ImagingStudy.series.instance.availability</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">InstanceAvailability</Data></Cell>
-    <Cell><Data ss:Type="String">Instance Availability (0008,0056)</Data></Cell>
-    <Cell><Data ss:Type="String">0008,0056</Data></Cell>
-    <Cell><Data ss:Type="String">InstanceAvailability</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Availability of instance (online, offline or nearlnie)</Data></Cell>
-    <Cell ss:StyleID="Default"/>
     <Cell ss:Index="15" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -810,19 +839,10 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ImagingStudy.series.instance.dateTime</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">When this image was taken</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"/>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:Index="15" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">ImagingStudy.series.instance.attachment</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">A FHIR resource with content for this instance</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -839,10 +859,11 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Zoom>110</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>12</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -855,10 +876,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>26</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
@@ -1246,7 +1268,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

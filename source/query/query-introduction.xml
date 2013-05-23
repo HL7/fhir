@@ -117,11 +117,11 @@ a partial match on text or display. With the ‘code’
 modifier, the search will work as follows:
 </p>
 <ul>
- <li><b>name=namespace#code</b> specifies matches on both the namespace and the code</li>
- <li><b>name=#code</b> matches a code that has no specified namespace</li>
+ <li><b>name=namespace!code</b> specifies matches on both the namespace and the code</li>
+ <li><b>name=!code</b> matches a code that has no specified namespace</li>
  <li><b>name=code</b> matches all codes irrespective of the namespace</li>
 </ul>
-<p>For token, you need (at least) to escape the ":" and possibly “#” (the fragment identifier) in the url of the code system.</p>
+<p>In the url of the code system, you need to escape the ":" and, if present, the “#” (fragment identifier).</p>
 
 <h4>date</h4>
 <p>
