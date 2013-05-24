@@ -1,21 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CarePlan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd"
- xmlns="http://hl7.org/fhir">
+ xmlns="http://hl7.org/fhir" id="cp1">
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>Asthma Care Plan</p>
       <p>The target peak flow is a minimum of 500.</p>
-      <p>If the Peakflow drops below 300, then start a course of oral prednisone, with
+      <p>If the Peakflow drops below 350, then start a course of oral prednisone, with
       a starting dose of 30mg, reducing by 5 mg every 2 days.</p>
+      <p>If the peakflow drops below 250, seek urgent medical assistance</p>
     </div>
   </text>
+  
+  <!-- The provenance resource. Identifies the author and date created-->
   <contained>
-    <!-- Problems could be further encoded and detailed.  
-      Could also be handled as references to external resources.
-      And not essential to have them captured at all.
-      For purposes of example, will represent this way. -->
+    <Provenance>
+      <target>
+        <type value="CarePlan"/>
+        <reference value="#cp1"/>
+        <display value="This Careplan"/>
+      </target>
+      <activity> 
+        <recorded value="2013-05-09T15:20:00-07:00"/>
+      </activity>
+      <party>
+        <role>
+          <system value="http://hl7.org/fhir/provenance-participant-role"/>
+          <code value="author"/>
+        </role>
+        <type>
+          <system value="http://hl7.org/fhir/provenance-participant-type"/>
+          <code value="practitioner"/>
+        </type>
+        <identifier value="mailto:david.hay25@gmail.com"/>
+        <description value="David Hay"/>
+      </party>
+    </Provenance>
+  </contained>
+  
+  <contained>
     <Problem id="p1">
       <subject>
         <type value="Patient"/>
@@ -23,7 +47,12 @@
         <display value="Eve Everywoman"/>
       </subject>
       <code>
-        <text value="GERDS"/>
+        <coding>
+          <system value="http://snomed.info"/>
+          <code value="195967001"/>
+          <display value="Asthma (disorder)"></display>
+        </coding>
+        <text value="Asthma"/>
       </code>
     </Problem>
   </contained>
@@ -156,7 +185,7 @@
   </concern>
 
   <goal id="g1">
-    <!-- An extension that specifice the minimum peak flow. Its coded so that UI's can display this in charts for example-->
+    <!-- An extension that specifies the minimum peak flow target for this person. Its coded so that UI's can display this in charts for example-->
     <extension>
       <url value='www.moh.govt.nz/fhir/asthma#minimumPF'></url>
       <valueInteger value="500"></valueInteger>
@@ -167,7 +196,7 @@
   
  
   <activity>
-    <!-- Specifies that this activity (start a reducing dose of steriods) is only triggered when the peak flow drops below 300-->
+    <!-- Specifies that this activity (start a reducing dose of steriods) is only triggered when the peak flow drops below 350-->
     <extension>
       <url value="www.moh.govt.nz/fhir/trigger"/>
       <isModifier value="true"/>
@@ -175,20 +204,18 @@
         <url value="www.moh.govt.nz/fhir/trigger#code"/>
         <valueCoding>
           <system value="http://snomed.info"/>
-          <code value="313193002"/>
+          <code value="313193502"/>
           <display value="Respiratory flow rate (observable entity)"></display>
         </valueCoding>
       </extension>
       <extension>
         <url value="www.moh.govt.nz/fhir/trigger#value"/>
         <valueQuantity>
-          <value value="300"/>
+          <value value="350"/>
           <comparator value="&lt;"/>
         </valueQuantity>
       </extension>
     </extension>
-    
-    
     <category value="drug"/>
     <status value="not started"/>
     <prohibited value="false"/>
@@ -198,7 +225,35 @@
         <reference value="#rx1"/>
         <display value="Reducing dose of prednisone, start with 30mg, reduce by 5mg every 2 days"/>
     </actionTaken>
-    <notes value="In response to a peakflow below 300, a reducing dose of prednisone starting at 30mg, and reducing by 5mg every 2 days"/>
+    <notes value="In response to a peakflow below 350, a reducing dose of prednisone starting at 30mg, and reducing by 5mg every 2 days"/>
+  </activity>
+  
+  <activity>
+    <!-- Specifies that this activity (get medical help) is only triggered when the peak flow drops below 250-->
+    <extension>
+      <url value="www.moh.govt.nz/fhir/trigger"/>
+      <isModifier value="true"/>
+      <extension>
+        <url value="www.moh.govt.nz/fhir/trigger#code"/>
+        <valueCoding>
+          <system value="http://snomed.info"/>
+          <code value="313193502"/>
+          <display value="Respiratory flow rate (observable entity)"></display>
+        </valueCoding>
+      </extension>
+      <extension>
+        <url value="www.moh.govt.nz/fhir/trigger#value"/>
+        <valueQuantity>
+          <value value="250"/>
+          <comparator value="&lt;"/>
+        </valueQuantity>
+      </extension>
+    </extension>
+    <category value="visit"/>
+    <status value="not started"/>
+    <prohibited value="false"/>
+    <details value="Get Medical assistance immediately"/>
+    <notes value="In response to a peakflow below 250, seek urgent Medical Assistance. This can be life threatening."/>
   </activity>
   
 </CarePlan>
