@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:/C:/SVN/schema/diagnosticreport.xsd">
+    <status value="final"/> <!-- OID: 2.16.840.1.113883.4.642.1.7 -->
+    <issued value="2013-05-15T19:32:52+00:00"/> <!-- ISO 8601 -->
+    <subject> <!-- Linked to a RESOURCE Patient -->
+        <type value="Patient"/> <!-- OID: 2.16.840.1.113883.4.642.1.4 -->
+        <url></url>
+        <display></display>
+    </subject>
+    <performer> <!-- Linked to a RESOURCE Organization -->
+        <type value="Organization"/>
+        <url></url>
+        <display value="AMC"/>
+    </performer>
+    <reportId></reportId>
+    <requestDetail>
+        <visit>
+            <type value="Visit"/>
+            <url></url>
+            <display></display>
+        </visit>
+        <requestOrderId>
+            <use value="official"/>
+            <system value="http://www.amc.nl/zorgportal/identifiers/labresults"/>
+            <id value="37u2q203497"/>
+        </requestOrderId>
+        <receiverOrderId>
+            <use value="official"/>
+            <system value="http://www.amc.nl/zorgportal/diagnostics"/>
+            <id value="234987fws478"/>
+        </receiverOrderId>
+        <requestTest> <!-- Moet dit gecodeerd worden met LOINC??? -->
+            <coding>
+                <system value=""></system>
+                <code></code>
+                <display></display>
+            </coding>
+        </requestTest>
+        <requestTest></requestTest>
+    </requestDetail>
+    <diagnosticTime></diagnosticTime>    
+    <results>
+        <name></name>
+    </results>
+</DiagnosticReport>

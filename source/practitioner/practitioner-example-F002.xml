@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Practitioner xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/practitioner.xsd">
+    <identifier>
+        <use value="official"/>
+        <system value="OID 2.16.528.1.1007.3.1"/> <!-- Identificatiesysteem Zorgverlener UZI -->
+        <!-- Key value??? -->
+    </identifier>
+    <details>
+        <identifier>
+            <use value="usual"/>
+            <system value="OID 2.16.840.1.113883.2.4.6.3"/> <!-- BSN identification system -->
+            <!-- key value -->
+        </identifier>
+        <name>
+            <use value="official"/>
+            <family value="Voigt"/>
+            <given value="Pieter"/>
+            <suffix value="MD"/>
+        </name>
+        <telecom>
+            <system value="phone"/>
+            <value value="0205569336"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="p.voigt@amc.nl"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="fax"/>
+            <value value="0205669382"/>
+            <use value="work"/>
+        </telecom>
+        <gender>
+            <system value="OID 2.16.840.1.113883.4.642.1.24"/> <!-- OID gender =2.16.840.1.113883.4.642.1.24 -->
+            <code value="M"/>
+            <display value="Male"/>  
+        </gender>
+        <birthDate value="1979-04-29"/>
+        <deceased value="false"/>
+        <address>
+            <use value="work"/>
+            <line value="Meibergdreef 9"/>
+            <city value="Amsterdam"/>
+            <zip value="1105 AZ"/>
+            <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
+        </address>
+        <maritalStatus>
+            <coding>
+                <system value="OID: 2.16.840.1.113883.5.2"/>
+                <code value="W"/>
+                <display value="Widowed"/>
+            </coding>
+            <text value="Widowed"/>
+            <!-- <primary value=""> -->
+        </maritalStatus>
+        <language>
+            <language>
+                <coding>
+                    <system value="OID 2.16.840.1.113883.6.121"/> <!-- List of ISO 639-1 language codes (ISO 3066) -->
+                    <code value="nl"/>
+                    <display value="Netherlands"/>
+                </coding>
+                <text value="Language"/>
+            </language> 
+            <mode>
+                <coding>
+                    <system value="2.16.840.1.113883.6.60"/> <!-- OID resistry -->
+                    <code value="ESP"/>
+                    <display value="Expressed spoken"/>
+                </coding>
+                <text value="Expression"></text>
+            </mode>
+            <proficiencyLevel>
+                <coding>
+                    <system value="OID 2.16.840.1.113883.5.61"/> <!-- OID resistry -->
+                    <code value="G"/>
+                    <display value="Good"/>
+                </coding>
+                <text value="skill level"></text>
+            </proficiencyLevel>
+            <preference value="true"/>
+        </language>
+    </details>
+    <organization>
+        <type value="Organization"/> <!-- deze moet gekoppeld worden aan een RESOURCE ORGANIZATION -->
+        <url value="organization/@F001"/>
+        <display value="AMC"/>
+    </organization>
+    <role>
+        <coding>
+            <system value="OID 2.16.840.1.113883.2.4.15.111"/> <!-- "AssignedRoleType" coding system -->
+            <code value="01.000"/>
+            <display value="Arts"/>
+        </coding>
+        <text value="CareRole"/>
+    </role>
+    <specialty>
+        <coding>
+            <system value="OID 2.16.840.1.113883.2.4.15.111"/> <!-- "AssignedRoleType" coding system -->
+            <code value="01.011"/>
+            <display value="Cardiothoracaal chirurg"/>
+        </coding>
+        <text value="specialisation"/>
+    </specialty>
+    <qualification></qualification>
+</Practitioner>

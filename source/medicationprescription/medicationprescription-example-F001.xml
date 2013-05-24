@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationPrescription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationprescription.xsd">
+    <status>
+        <coding>
+            <system value="OID: 2.16.840.1.113883.4.642.1.107"/>
+            <code value="active"/>
+            <display value="the medication is actively described"/>
+        </coding>
+    </status>
+    <patient> <!-- Linked to the resource patient who needs the medication -->
+        <type value="Patient"/> <!-- OID: 2.16.840.1.113883.4.642.1.4 -->
+        <url></url>
+        <display></display>         
+    </patient>
+    <prescriber> <!-- Linked to the practitioner who treats patient -->
+        <type value="Prescriber"/> <!-- OID: 2.16.840.1.113883.4.642.1.4 -->
+        <url></url>
+        <display></display>
+    </prescriber>
+    <reasonForPrescribing value="narrowing of airways"/>
+    <!-- <medication></medication> --> <!-- Linked to a RESOURCE Medication -->
+    <dispense>
+        <validityPeriod>
+            <start value="2013-04-08"/>
+            <end value="2013-05-30"/>
+        </validityPeriod>
+        <numberOfRepeatsAllowed value="200"/>
+        <quantity>
+            <value value="100"/>
+            <units value="mcg"/>
+            <system value="OID: 2.16.840.1.113883.6.8"/> <!-- http://unitsofmeasure.org (UCUM code system) -->
+            <code value="ug"/>
+        </quantity>
+        <expectedSupplyDuration>
+            <value value="40"/>
+            <units value="days"/>
+            <system value="OID: 2.16.840.1.113883.6.8"/> <!-- http://unitsofmeasure.org (UCUM code system) -->
+            <code value="d"/>
+        </expectedSupplyDuration>
+    </dispense>   
+</MedicationPrescription>
