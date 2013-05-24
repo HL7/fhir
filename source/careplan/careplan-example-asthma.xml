@@ -42,6 +42,12 @@
   </contained>
   <contained>
     <MedicationPrescription id="rx1">
+      <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <p>A reducing dose of steroids, starting with 30mg and reducing by 5 mg every 2 days</p>
+        </div>
+      </text>
       <patient>
         <type value="Patient"/>
         <reference value="patient/@1"/>
@@ -73,6 +79,9 @@
             <count value="2"/>
           </repeat>
         </timing>
+        <doseQuantity>
+          <value value="5"/>          
+        </doseQuantity>
       </dosageInstructions>
       <dosageInstructions>
         <dosageInstructionsText value="Take 4 tablets once a day for 2 days"/>
@@ -84,6 +93,9 @@
             <count value="2"/>
           </repeat>
         </timing>
+        <doseQuantity>
+          <value value="4"/>          
+        </doseQuantity>
       </dosageInstructions>
       <dosageInstructions>
         <dosageInstructionsText value="Take 3 tablets once a day for 2 days"/>
@@ -95,6 +107,9 @@
             <count value="2"/>
           </repeat>
         </timing>
+        <doseQuantity>
+          <value value="3"/>          
+        </doseQuantity>
       </dosageInstructions>
       <dosageInstructions>
         <dosageInstructionsText value="Take 2 tablets once a day for 2 days"/>
@@ -106,6 +121,9 @@
             <count value="2"/>
           </repeat>
         </timing>
+        <doseQuantity>
+          <value value="2"/>          
+        </doseQuantity>
       </dosageInstructions>
       <dosageInstructions>
         <dosageInstructionsText value="Take 1 tablet once a day for 2 days"/>
@@ -117,6 +135,9 @@
             <count value="2"/>
           </repeat>
         </timing>
+        <doseQuantity>
+          <value value="1"/>          
+        </doseQuantity>
       </dosageInstructions>
     </MedicationPrescription>
   </contained>
@@ -177,7 +198,7 @@
         <reference value="#rx1"/>
         <display value="Reducing dose of prednisone, start with 30mg, reduce by 5mg every 2 days"/>
     </actionTaken>
-    <notes value="A reducing dose of prednisone starting at 30mg, and reducing by 5mg every 2 days"/>
+    <notes value="In response to a peakflow below 300, a reducing dose of prednisone starting at 30mg, and reducing by 5mg every 2 days"/>
   </activity>
   
 </CarePlan>
