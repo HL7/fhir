@@ -167,21 +167,16 @@
       </extension>
     </extension>
     
-    <!-- This extension points to the medicationPrescription that is used when this activity is triggered-->
-    <extension>
-      <url value="www.moh.govt.nz/fhir/triggerResponse#rx"/>
-      <valueResourceReference>
-        <type value="MedicationPrescription"/>
-        <reference value="#rx1"/>
-        <display value="Reducing dose of prednisone, start with 30mg, reduce by 5mg every 2 days"/>
-      </valueResourceReference>
-
-    </extension>
     
     <category value="drug"/>
     <status value="not started"/>
     <prohibited value="false"/>
     <details value="Eve will start oral steroids if the peakflow drops below 350"/>
+    <actionTaken>
+        <type value="MedicationPrescription"/>
+        <reference value="#rx1"/>
+        <display value="Reducing dose of prednisone, start with 30mg, reduce by 5mg every 2 days"/>
+    </actionTaken>
     <notes value="A reducing dose of prednisone starting at 30mg, and reducing by 5mg every 2 days"/>
   </activity>
   
