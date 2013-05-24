@@ -3,13 +3,13 @@
     <identifier>
         <use value="official"/>
         <system value="OID 2.16.528.1.1007.3.1"/> <!-- Identificatiesysteem Zorgverlener UZI -->
-        <id value="938273695"/>
+        <key value="938273695"/>
     </identifier>
     <details>
         <identifier>
             <use value="usual"/>
             <system value="OID 2.16.840.1.113883.2.4.6.3"/> <!-- BSN identification system -->
-            <id value="ZRU4BR513"></id>
+            <key value="ZRU4BR513"></key>
         </identifier>
         <name>
             <use value="official"/>
@@ -84,8 +84,8 @@
         </language>
     </details>
     <organization>
-        <type value="2.16.528.1.1006"/> <!-- Linked to a RESOURCE ORGANIZATION -->
-        <url></url>
+        <type value="Organization"/> <!-- Linked to a RESOURCE ORGANIZATION -->
+        <url value="organization/@F001" />
         <display value="AMC"/>
     </organization>
     <role>
