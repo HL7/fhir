@@ -33,13 +33,13 @@ of name=value pairs encoded in the URL or as an
 x-multi-part-form submission for a POST. 
 </p>
 <p>
-The server returns the results in the HTTP response. A HTTP status code
-of 403 signifies that the server refused to perform the query, 
-while some other 4xx or 5xx code signifies an error. 
+The server returns the results in the HTTP response as a bundle (in XML, an atom feed). 
+A HTTP status code of 403 signifies that the server refused to perform the query, 
+while some other 4xx or 5xx code signifies that some error occurred. 
 </p>
 
 <a name="standard"> </a>
-<h2>Default Search Parameters</h2>
+<h2>Standard Parameters</h2>
 <p>
 The search parameter _id which refers to the logical id of the resource. 
 </p>
@@ -81,8 +81,8 @@ of parameter.
 <p>Parameters are defined per resource, and their names may additionally specify a modifier as a suffix, 
 separated from the parameter name by a dot. Modifiers are:</p>
 <ul>
-<li>For all parameters: "missing". E.g. gender.missing=true (or false). 
-  Seaching for "gender-missing=true" will return all the resources that don't have any value for the gender parameter (which usually 
+<li>For all parameters (<i>except combination</i>): "missing". E.g. gender.missing=true (or false). 
+  Searching for "gender-missing=true" will return all the resources that don't have any value for the gender parameter (which usually 
   equates to not having the relevant element in the resource). Searching for "gender-missing=false"
   will return all the resources that have a value for the "gender" parameter. </li>
 <li>For dates: "before" and "after". E.g. birthdate.before=1972-11-30. See below for how date searches are interpreted.</li>
@@ -131,10 +131,10 @@ ensuring consistent behavior.
 </p>
 <ul>
  <li>The date parameter format is yyyy-mm-ddThh:nn:ss(TZ) (the standard XML format). Any degree of precision can be provided, but it must be populated from the left (e.g. can't specify a month without a year)</li>
-<li>Note that to use these values, you need to escape the “:” in the time part.</li>
- <li>All date parameters have an implicit -before and -after parameter. [date]=[value] searches for where the date is within
-   the given date value. [date]-after=[value] searches for all resources where the specified date is after [value]. 
-   [date]-before=[value] searches for all resources where the specified date is before [value]. </li>
+<li>Note that to use these values, you need to escape the “:” characters in the URL.</li>
+ <li>Date parameters have the .before and .after modifiers. [date]=[value] searches for where the date is within
+   the given date value. [date].after=[value] searches for all resources where the specified date is after [value]. 
+   [date].before=[value] searches for all resources where the specified date is before [value]. </li>
  <li>The element the search refers to may be a date, a dateTime, a Period, or a Schedule. All of these time related 
    types actually specify an interval of time, as does the search parameter itself.
   <ul>
@@ -143,7 +143,7 @@ ensuring consistent behavior.
     <li>An instant (which is the same as a fully specified dateTime with milliseconds) is considered a fixed point in time with an interval smaller than the precision of the system, i.e. an interval with an effective width of 0.</li>
    </ul>
  </li>
- <li>Date parameter searches are always matches based on the behaviour of intervals, as follows:
+ <li>Date parameter searches are always matches based on the behavior of intervals, as follows:
    <ul>
      <li>For [date]=[value], the requirement is that the search interval fully contains the time of the target. i.e. 2013-01-14 includes 2013-01-14T10:00 but not 2013-01-15T00:00</li>
 	 <li>For [date]-before=[value], the requirement is that the interval of the time before [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
@@ -155,9 +155,9 @@ ensuring consistent behavior.
    then the boundaries are implicitly considered above or below calculable time, and so these count as intersections. For instance, the
    period from 21-Jan 2013 onwards is included in matches for date-after=2013-03-14 because it may include times after 14-Mar 2013.
  </li>
- <li>Similarly, when the date parameter is not fully specified, matches against it are based on the behaviour of intervals, where:
+ <li>Similarly, when the date parameter is not fully specified, matches against it are based on the behavior of intervals, where:
 	<ul>
-		<li>Dates with just the year specified are equivalent to an interval that starts at the first instant of January 1st to the last instant of December 31st, eg. 2000 is equivalent to an interval of [2000-01-01T00:00, 2000-12-31T23:59]</li>
+		<li>Dates with just the year specified are equivalent to an interval that starts at the first instant of January 1st to the last instant of December 31st, e.g. 2000 is equivalent to an interval of [2000-01-01T00:00, 2000-12-31T23:59]</li>
 		<li>Dates with the year and month are equivalent to an interval that starts at the first instant of the first day of the month and ends on the last instant of the last day of the month, eg. 2000-04 is equivalent to an interval of [2000-04-01T00:00, 2000-04-30T23:59]</li>
 	</ul>
  </li>
@@ -228,8 +228,9 @@ find a combination of key/value, not an intersection of separate matches on key 
 Another example is spatial coordinates when doing geographical searches. 
 </p>
 <p>
-To allow these searches, a resource may also specify searches that take sequences 
-of single values as an argument. The meaning of each component in such a sequence 
+To allow these searches, a resource may also specify <i>combination</i> parameters 
+that take sequences of single values that match other defined parameters as an 
+argument. The matching parameter of each component in such a sequence 
 is documented in the definition of the parameter. These sequences are formed by 
 joining the single values with a "$".  Note that this sequence is a single 
 value and itself can be composed into a set of values, so that, for example, 

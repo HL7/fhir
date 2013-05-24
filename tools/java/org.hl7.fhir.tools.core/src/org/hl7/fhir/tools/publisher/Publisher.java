@@ -546,16 +546,15 @@ public class Publisher {
         String id = extractId(ref.getId(), ref.getType());
         if (id.equals(e.getId()))
           return true;
-        if (e.getXml() == null)
-          return false;
-        
-        if (e.getXml().getDocumentElement().getLocalName().equals("feed")) {
-          List<Element> entries = new ArrayList<Element>();
-          XMLUtil.getNamedChildren(e.getXml().getDocumentElement(), "entry", entries);
-          for (Element c : entries) {
-            String _id = XMLUtil.getNamedChild(c, "id").getTextContent();
-            if (id.equals(_id) || _id.equals("http://hl7.org/fhir/"+ref.getType().toLowerCase()+"/@"+id))
-              return true;
+        if (e.getXml() != null) {
+          if (e.getXml().getDocumentElement().getLocalName().equals("feed")) {
+            List<Element> entries = new ArrayList<Element>();
+            XMLUtil.getNamedChildren(e.getXml().getDocumentElement(), "entry", entries);
+            for (Element c : entries) {
+              String _id = XMLUtil.getNamedChild(c, "id").getTextContent();
+              if (id.equals(_id) || _id.equals("http://hl7.org/fhir/"+ref.getType().toLowerCase()+"/@"+id))
+                return true;
+            }
           }
         }
       }
