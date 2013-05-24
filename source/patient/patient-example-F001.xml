@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
+  <active value="true"/>
+  <identifier>
+    <use value="usual"/>
+    <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/> <!-- BSN identification system -->
+    <!-- <key value="738472983"/> -->
+  </identifier>
+  <details>
+    <identifier>
+      <use value="usual"/>
+      <system value="OID 2.16.840.1.113883.2.4.6.3"/> <!-- BSN identification system -->
+    </identifier>
+    <name>
+      <use value="usual"/>
+      <family value="van de Heuvel"/>
+      <given value="Pieter"/>
+      <suffix value="MSc"/>
+    </name>
+    <telecom>
+      <system value="phone"/>
+      <value value="0648352638"/>
+      <use value="mobile"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="p.heuvel@gmail.com"/>
+      <use value="home"/>
+    </telecom>
+    <gender>
+      <system value="OID 2.16.840.1.113883.4.642.1.24"/> <!-- OID gender =2.16.840.1.113883.4.642.1.24 -->
+      <code value="M"/>
+      <display value="Male"/>  
+    </gender>
+    <birthDate value="1944-11-17"/>
+    <deceased value="false"/>
+    <address>
+      <use value="home"/>
+      <line value="van egmondkade 23"/>
+      <city value="Amsterdam"/>
+      <zip value="1024 RJ"/>
+      <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
+    </address>
+    <maritalStatus>
+      <coding>
+        <system value="OID: 2.16.840.1.113883.5.2"/>
+        <code value="M"/>
+        <display value="Married"/>
+      </coding>
+      <text value="Married"/>
+      <!-- <primary value=""> -->
+    </maritalStatus>
+    <language>
+      <language>
+        <coding>
+          <system value="urn:oid:2.16.840.1.113883.6.121"/> <!-- List of ISO 639-1 language codes (ISO 3066) -->
+          <code value="nl"/>
+          <display value="Netherlands"/>
+        </coding>
+        <text value="Language"/>
+      </language> 
+      <mode>
+        <coding>
+          <system value="urn:oid:2.16.840.1.113883.6.60"/> <!-- OID resistry -->
+          <code value="ESP"/>
+          <display value="Expressed spoken"/>
+        </coding>
+        <text value="Expression"></text>
+      </mode>
+      <proficiencyLevel>
+        <coding>
+          <system value="OID 2.16.840.1.113883.5.61"/> <!-- OID resistry -->
+          <code value="E"/>
+          <display value="Excellent"/>
+        </coding>
+        <text value="skill level"></text>
+      </proficiencyLevel>
+      <preference value="true"/>
+    </language>
+  </details>
+  <contact>
+    <relationship>
+      <coding>
+        <system value="OID 2.16.840.1.114222.4.11.813"/> <!-- OID resistry -->
+        <code value="partner"/>
+      </coding>
+    </relationship>
+    <details>
+      <identifier>
+        <use value="official"/>
+        <label value="OID 2.16.840.1.113883.2.4.6.3"/> <!-- BSN identification system -->
+      </identifier>
+      <name>
+        <use value="usual"/>
+        <family value="Abels"/>
+        <given value="Sarah"/>
+      </name>
+      <telecom>
+        <system value="phone"/>
+        <value value="0690383372"/>
+        <use value="mobile"/>
+      </telecom>
+      <telecom>
+        <system value="email"/>
+        <value value="s.abels@kpn.nl"/>
+        <use value="home"/>
+      </telecom>
+      <gender>
+        <system value="OID 2.16.840.1.113883.4.642.1.24"/> <!-- OID gender =2.16.840.1.113883.4.642.1.24 -->
+        <code value="F"/>
+        <display value="Female"/>  
+      </gender>
+      <birthDate value="1949-03-05"/>
+      <deceased value="false"/>
+      <address>
+        <use value="home"/>
+        <line value="van egmondkade 23"/>
+        <city value="Amsterdam"/>
+        <zip value="1024 RJ"/>
+        <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
+      </address>
+      <maritalStatus>
+        <coding>
+          <system value="OID: 2.16.840.1.113883.5.2"/>
+          <code value="M"/>
+          <display value="Married"/>
+        </coding>
+        <text value="Married"/>
+      </maritalStatus>
+      <language>
+        <language>
+          <coding>
+            <system value="OID 2.16.840.1.113883.6.121"/> <!-- List of ISO 639-1 language codes (ISO 3066) -->
+            <code value="nl"/>
+            <display value="Netherlands"/>
+          </coding>
+          <text value="Language"/>
+        </language> 
+        <mode>
+          <coding>
+            <system value="2.16.840.1.113883.6.60"/> <!-- OID resistry -->
+            <code value="ESP"/>
+            <display value="Expressed spoken"/>
+          </coding>
+          <text value="Expression"></text>
+        </mode>
+        <proficiencyLevel>
+          <coding>
+            <system value="OID 2.16.840.1.113883.5.61"/> <!-- OID resistry -->
+            <code value="E"/>
+            <display value="Excellent"/>
+          </coding>
+          <text value="skill level"></text>
+        </proficiencyLevel>
+        <preference value="true"/>
+      </language>
+    </details>
+    <organization>
+      <type value="OID 2.16.840.1.113883.2.4"/> <!-- deze moet gekoppeld worden aan een RESOURCE ORGANIZATION -->
+      <url></url>
+      <display value="Stichting HL7"/>
+    </organization>    
+  </contact>
+  <provider>
+    <type value="OID 2.16.528.1.1006"/> <!-- deze moet gekoppeld worden aan een RESOURCE ORGANIZATION -->
+    <url></url>
+    <display value="AMC Amsterdam"/>
+  </provider>
+  <multipleBirthBoolean value="true"/>
+</Patient>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
