@@ -20,7 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>4560</WindowTopX>
   <WindowTopY>4155</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -636,8 +636,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -668,7 +668,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">dose for food or drug</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">CarePlan.activity</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">DailyDose can only be specified if activity category is drug or food</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="Default"><Data ss:Type="String">(f:category/@value=('drug','food')) = exists(f:dailyAmount)</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="Default"><Data ss:Type="String">(f:category/@value=('drug','food')) or not(exists(f:dailyAmount))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="Number">2</Data></Cell>
@@ -676,7 +676,7 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">CarePlan.activity</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Quantity can only be specified if activity category is supply</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">(f:category/@value=('supply')) = exists(f:quantity)</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">(f:category/@value=('supply')) or not(exists(f:quantity))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
@@ -715,6 +715,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -734,7 +735,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -965,7 +967,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
