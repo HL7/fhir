@@ -16,7 +16,7 @@
   
   <!-- The provenance resource. Identifies the author and date created-->
   <contained>
-    <Provenance>
+    <Provenance id='prov1'>
       <target>
         <type value="CarePlan"/>
         <reference value="#cp1"/>
