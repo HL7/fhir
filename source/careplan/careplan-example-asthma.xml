@@ -5,8 +5,9 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>Asthma Care Plan</p>
+      <p>Eves Asthma Care Plan. Authored by Eve and David.</p>
       <p>The target peak flow is a minimum of 500.</p>
+      <p>Eve will take daily peak flow measurements.</p>
       <p>If the Peakflow drops below 350, then start a course of oral prednisone, with
       a starting dose of 30mg, reducing by 5 mg every 2 days.</p>
       <p>If the peakflow drops below 250, seek urgent medical assistance</p>
@@ -36,9 +37,23 @@
         <identifier value="mailto:david.hay25@gmail.com"/>
         <description value="David Hay"/>
       </party>
+      <!-- Indicate that the patient (Eve) was also an author of this plan -->
+      <party>
+        <role>
+          <system value="http://hl7.org/fhir/provenance-participant-role"/>
+          <code value="author"/>
+        </role>
+        <type>
+          <system value="http://hl7.org/fhir/provenance-participant-type"/>
+          <code value="person"/>
+        </type>
+        <identifier value="patient/@1"/>
+        <description value="Eve Everywoman"/>
+      </party>
     </Provenance>
   </contained>
   
+  <!-- The problem that this careplan refers to. It is referenced from the concern. -->
   <contained>
     <Problem id="p1">
       <subject>
@@ -56,6 +71,8 @@
       </code>
     </Problem>
   </contained>
+  
+  <!-- The medication that the prescription refers to -->
   <contained>
     <Medication id="med1">
       <name value="Prednisone 5mg tablet"/>
@@ -69,6 +86,7 @@
       </code>
     </Medication>
   </contained>
+  <!-- The sliding scale of steroids -->
   <contained>
     <MedicationPrescription id="rx1">
       <text>
@@ -177,6 +195,7 @@
   </patient>
   <status value="active"/>
   <modified value="2012-09-10"/>
+  
   <concern>
     <!-- The concern points to the contained problem. Other options are to point to a 'real' problem resource-->
     <type value="Problem"/>
@@ -194,7 +213,37 @@
     <status value="in progress"/>
   </goal>
   
- 
+  <goal>
+    <description value="Eve will aim to record Peak Flow daily. An activity is created to prompt her."/>
+  </goal>
+  
+ <!-- This activity specifies that the patient take a peak flow daily --> 
+ <activity>
+   <category value="observation"/>
+   <code>
+     <coding>
+       <system value="http://snomed.info"/>
+       <code value="313193502"/>
+       <display value="Respiratory flow rate (observable entity)"></display>
+     </coding>
+    <text value="Peak Flow"></text>
+   </code>
+   <prohibited value="false"/>
+   <timingSchedule>
+     <repeat>
+       <frequency value="1" />
+       <duration value="1" />
+       <units value="d" />
+     </repeat>
+   </timingSchedule>
+   <performer>
+     <type value="Patient"/>
+     <reference value="patient/@1"/>
+     <display value="Eve Everywoman"/>
+   </performer>
+   <details value="Daily Peak Flow Measurement"/>
+ </activity>
+  
   <activity>
     <!-- Specifies that this activity (start a reducing dose of steriods) is only triggered when the peak flow drops below 350-->
     <extension>
