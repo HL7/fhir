@@ -9,7 +9,10 @@ There are 2 resources that provide for constructing collections of other resourc
 </ul>
 
 <p>
-List resources are used in many places, including for allergies, medications, alerts, medical history, etc. 
+List resources are used in many places and can refer to many different resources, including for allergies, medications, alerts, medical history, etc. 
 </p>
+ 
+ <p>Another common use for a List is in recording Social history - which is modelled as a List of observations. 
+  Refer to the examples section for an example of this.</p>
 
 </div>
