@@ -15,10 +15,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6220</WindowHeight>
+  <WindowHeight>6560</WindowHeight>
   <WindowWidth>22760</WindowWidth>
-  <WindowTopX>3340</WindowTopX>
-  <WindowTopY>1960</WindowTopY>
+  <WindowTopX>6940</WindowTopX>
+  <WindowTopY>-12520</WindowTopY>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -162,7 +163,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:Index="13" ss:StyleID="s66"><Data ss:Type="String">Act[normalAct() and subsumes(ActClass#_ActClassRecordOrganizer, classCode) and moodCode=EVN]</Data></Cell>
     <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">RIM harmonization proposal to move LIST under GROUPER&#10;&#10;RIM harmonization proposal to allow organizers to group roles as well as acts.</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">RIM harmonization proposal to move LIST under GROUPER&#13;&#13;RIM harmonization proposal to allow organizers to group roles as well as acts.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">List.code</Data></Cell>
@@ -192,7 +193,7 @@
     <Cell><Data ss:Type="String">The entity responsible for deciding what the contents of the list were</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">Allows follow-up as well as context</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">The primary and important source is the entity that made the decisions what items are in the list. This may be software or user</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">unique(.participation[isNormalParticipation() and typeCode=ParticipationTypeCode#AUT]/role[isNormalRole() and classCode=REL]/player[isNormalEntity() and classCode=PSN and determinerCode=INST]&#10;&#10;or&#10;&#10;.participation[isNormalParticipation() and typeCode=ParticipationTypeCode#AUT]/role[isNormalRole() and classCode=ASSIGNED][player[classCode!=DEV and determinerCode=INST and isNormalEntity()]]&#10;&#10;or&#10;&#10;.participation[isNormalParticipation() and typeCode=ParticipationTypeCode#AUT]/role[isNormalRole() and classCode=ASSIGNED]/player[classCode=DEV and determinerCode=INST and isNormalEntity()])</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">unique(.participation[isNormalParticipation() and typeCode=ParticipationTypeCode#AUT]/role[isNormalRole() and classCode=REL]/player[isNormalEntity() and classCode=PSN and determinerCode=INST]&#13;&#13;or&#13;&#13;.participation[isNormalParticipation() and typeCode=ParticipationTypeCode#AUT]/role[isNormalRole() and classCode=ASSIGNED][player[classCode!=DEV and determinerCode=INST and isNormalEntity()]]&#13;&#13;or&#13;&#13;.participation[isNormalParticipation() and typeCode=ParticipationTypeCode#AUT]/role[isNormalRole() and classCode=ASSIGNED]/player[classCode=DEV and determinerCode=INST and isNormalEntity()])</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
    </Row>
@@ -224,7 +225,7 @@
     <Cell><Data ss:Type="String">Whether items in the list have a meaningful order</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">Important for presentation and rendering.  Lists may be sorted to place more important information first or to group related entries.</Data></Cell>
     <Cell><Data ss:Type="String">Applications SHOULD render ordered lists in the order provided, but MAY allow users to re-order based on their own preferences as well</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">count(distinct-values(./outboundRelationship[typeCode=COMP and isNormalActRelationship()]/sequenceNumber))&gt;1 &#10;or &#10;count(./participation[isNormalParticipation() and typeCode=SBJ]/sequenceNumber))&gt;1</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">count(distinct-values(./outboundRelationship[typeCode=COMP and isNormalActRelationship()]/sequenceNumber))&gt;1 &#13;or &#13;count(./participation[isNormalParticipation() and typeCode=SBJ]/sequenceNumber))&gt;1</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
    </Row>
@@ -254,7 +255,7 @@
     <Cell><Data ss:Type="String">Entries in this list</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">If there are no entries in the list, an emptyReason SHOULD be provided</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">./outboundRelationship[typeCode=COMP and isNormalActRelationship()]&#10;or &#10;./participation[isNormalParticipation() and typeCode=SBJ</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">./outboundRelationship[typeCode=COMP and isNormalActRelationship()]&#13;or &#13;./participation[isNormalParticipation() and typeCode=SBJ</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
    </Row>
@@ -288,11 +289,11 @@
     <Cell><Data ss:Type="String">If the flag means that the entry has actually been deleted from the list, the deleted element must be true. Both flag and deleted can only be used if the List.mode is &quot;changes&quot;. A deleted entry should be displayed in narrative as deleted</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String"><B
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">added: </Font></B><Font
-       html:Color="#000000" xmlns="http://www.w3.org/TR/REC-html40">./updateMode=(&quot;A&quot;,&quot;AR&quot;)&#10;&#10;</Font><B
+       html:Color="#000000" xmlns="http://www.w3.org/TR/REC-html40">./updateMode=(&quot;A&quot;,&quot;AR&quot;)&#13;&#13;</Font><B
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">retained: </Font></B><Font
-       html:Color="#000000" xmlns="http://www.w3.org/TR/REC-html40">./updateMode=&quot;NC&quot;&#10;&#10;</Font><B
+       html:Color="#000000" xmlns="http://www.w3.org/TR/REC-html40">./updateMode=&quot;NC&quot;&#13;&#13;</Font><B
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">updated:</Font></B><Font
-       html:Color="#000000" xmlns="http://www.w3.org/TR/REC-html40"> ./updateMode=&quot;R&quot;&#10;&#10;</Font><B
+       html:Color="#000000" xmlns="http://www.w3.org/TR/REC-html40"> ./updateMode=&quot;R&quot;&#13;&#13;</Font><B
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">deleted:</Font></B><Font
        html:Color="#000000" xmlns="http://www.w3.org/TR/REC-html40"> ./updateMode=&quot;D&quot;</Font></Data></Cell>
     <Cell ss:StyleID="s66"/>
@@ -309,7 +310,7 @@
     <Cell><Data ss:Type="String">Actual entry</Data></Cell>
     <Cell><Data ss:Type="String">A reference to the actual resource from which data was derived</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"/>
-    <Cell ss:Index="13" ss:StyleID="s66"><Data ss:Type="String">./target&#10;or&#10;./role&#10;or&#10;./role/entity</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s66"><Data ss:Type="String">./target&#13;or&#13;./role&#13;or&#13;./role/entity</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
    </Row>
@@ -344,7 +345,6 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -780,12 +780,12 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="80"/>
    <Column ss:AutoFitWidth="0" ss:Width="128"/>
    <Column ss:AutoFitWidth="0" ss:Width="80"/>
-   <Column ss:Width="117"/>
+   <Column ss:AutoFitWidth="0" ss:Width="183"/>
    <Column ss:Width="28"/>
    <Column ss:Width="40"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -810,6 +810,13 @@
     <Cell><Data ss:Type="String">list-example-empty.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">social History</Data></Cell>
+    <Cell><Data ss:Type="String">Example of social history</Data></Cell>
+    <Cell><Data ss:Type="String">example-social</Data></Cell>
+    <Cell><Data ss:Type="String">list-example-socialhistory.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -819,10 +826,11 @@
    </PageSetup>
    <Unsynced/>
    <PageLayoutZoom>0</PageLayoutZoom>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
