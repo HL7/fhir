@@ -516,6 +516,7 @@
                 <subject>
                     <type value="Patient"/>
                     <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1"/>
+                    <display value="Eve Everywoman"/>
                 </subject>
                 <substance>
                     <type value="Substance"/>
@@ -587,8 +588,5 @@
             </Substance>
         </content>
     </entry>
-    
-    
-    
-    
+ 
 </feed>
