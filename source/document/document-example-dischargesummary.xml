@@ -3,13 +3,19 @@
  xsi:schemaLocation="http://www.w3.org/2005/Atom ../../schema/fhir-atom.xsd"
  xmlns="http://www.w3.org/2005/Atom">
     <title>Discharge Summary</title>
-    <id>urn:uuid:500bee81-d973-4afe-b592-d39fe71e38</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1/history" rel="self"/>
     <updated>2013-05-28T22:12:21Z</updated>
+    <id>urn:uuid:500bee81-d973-4afe-b592-d39fe71e38</id>
+    <link rel="self" href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1/history"/>
+    <author>
+        <name>Dr Dave</name>
+    </author>
     <!-- The document resource -->
     <entry>
         <title>Document</title>
+        <id>urn:guid:180f219f-97a8-486d-99d9-ed631fe4fc57</id>
+        <updated>2013-05-28T22:12:21Z</updated>
         <category scheme="http://hl7.org/fhir/resource-types" term="Document"/>
+        
         <content type="text/xml">
             <Document xmlns="http://hl7.org/fhir">
                 <created value="2013-02-01T12:30:02"/>
@@ -28,6 +34,7 @@
                 <subject>
                     <type value="Patient"/>
                     <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1"/>
+                    <display value="Eve Everywoman"/>
                 </subject>
                 <author>
                     <type value="Practitioner"/>
@@ -102,8 +109,8 @@
     recipient knows where to go and get it if they need it - assuming it is available on-line of course.-->
     <entry>
         <title>Written by Doctor Dave</title>
+        <link  rel="self" href="http://hl7connect.healthintersections.com.au/svc/fhir/practitioner/@example/history/@1"/>
         <id>http://hl7connect.healthintersections.com.au/svc/fhir/practitioner/@example</id>
-        <link href="http://hl7connect.healthintersections.com.au/svc/fhir/practitioner/@example/history/@1" rel="self"/>
         <updated>2013-05-05T16:13:03Z</updated>
         <published>2013-05-28T22:12:21Z</published>
         <author>
@@ -130,7 +137,7 @@
     <!-- The Patient who is the subject of the document. Same coments as practitioner. -->
     <entry>
         <title>About Eve Everywoman</title>
-        <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1/history/@10" rel="self"/>
+        <link rel="self" href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1/history/@10"/>
         <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1</id>
         
         <updated>2013-05-05T16:13:03Z</updated>
@@ -189,8 +196,9 @@
     <!-- The visit that is being documented.-->
     <entry>
         <title>Admission to Middlemore </title>
+        
+        <link rel="self" href="http://hl7connect.healthintersections.com.au/svc/fhir/visit/@example/history/@1"/>
         <id>http://hl7connect.healthintersections.com.au/svc/fhir/visit/@example</id>
-        <link href="http://hl7connect.healthintersections.com.au/svc/fhir/visit/@example/history/@1" rel="self"/>
         <updated>2013-05-05T16:13:03Z</updated>
         <author>
             <name>68.151.217.168</name>
