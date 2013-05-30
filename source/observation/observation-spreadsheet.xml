@@ -913,9 +913,9 @@
     <Cell ss:StyleID="Default"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">value or components</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Observation</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Must have either a value or components but not both</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Must have at least one of value or components</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">exists(*[starts-with(local-name(.), 'value')])!=exists(f:component)</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">exists(*[starts-with(local-name(.), 'value')]) or exists(f:component)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="Number">2</Data></Cell>
