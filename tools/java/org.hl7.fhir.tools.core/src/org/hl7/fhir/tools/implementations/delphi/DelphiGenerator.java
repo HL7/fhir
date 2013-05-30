@@ -618,6 +618,7 @@ public void generate(Definitions definitions, String destDir, String implDir, St
 
       int l = r.getSearchParams().size();
       int i = 0;
+      int w = 0;
 
       List<String> names = new ArrayList<String>();
       names.addAll(r.getSearchParams().keySet());
@@ -641,6 +642,11 @@ public void generate(Definitions definitions, String destDir, String implDir, St
         else {
           def.append("    "+prefix+getTitle(nf)+", {@enum.value "+prefix+getTitle(nf)+" "+d+" }\r\n");
           con.append("'"+defCodeType.escape(d)+"', ");
+          if (w > 120) {
+            con.append("\r\n      ");
+            w = 0;
+          }
+          w = w + d.length();
           con2.append(" "+prefix+getTitle(nf)+", ");
           con4.append(" SearchParamType"+getTitle(p.getType().toString())+", ");
           con3.append("'"+defCodeType.escape(n)+"', ");
@@ -1350,15 +1356,15 @@ private void generateEnum(ElementDefn e) throws Exception {
           int t = e.getTypes().size();
           int i = 0;
           for (TypeRef td : e.getTypes()) {
-            if (td.hasParams()) {
-              for (String ptn : td.getParams()) {
-                workingParserX.append("      else if (child.baseName = '"+pfx+getTitle(td.getName())+"_"+getTitle(ptn)+"') then\r\n        result."+s+" := Parse"+getTitle(td.getName())+"_"+getTitle(ptn)+"(child) {a}\r\n");
-                workingComposerX.append("  "+(i==0 ? "if" : "else if")+" elem."+s+" is TFhir"+getTitle(td.getName())+"_"+getTitle(ptn)+" {2} then\r\n    Compose"+getTitle(td.getName())+"_"+getTitle(ptn)+"(xml, '"+pfx+getTitle(td.getName())+"_"+getTitle(ptn)+"', TFhir"+getTitle(td.getName())+"_"+getTitle(ptn)+"(elem."+s+"))"+(i == t-1?";" : "")+"\r\n");
-                workingParserJ.append("      else if (json.ItemName = '"+pfx+getTitle(td.getName())+"_"+getTitle(ptn)+"') then\r\n        result."+s+" := Parse"+getTitle(td.getName())+"_"+getTitle(ptn)+"\r\n");
-                workingComposerJ.append("  "+(i==0 ? "if" : "else if")+" elem."+s+" is TFhir"+getTitle(td.getName())+"_"+getTitle(ptn)+" then\r\n    Compose"+getTitle(td.getName())+"_"+getTitle(ptn)+"(json, '"+pfx+getTitle(td.getName())+"_"+getTitle(ptn)+"', TFhir"+getTitle(td.getName())+"_"+getTitle(ptn)+"(elem."+s+"))"+(i == t-1?";" : "")+"\r\n");
-              }
+            if (td.isResourceReference()) {
+              workingParserX.append("      else if (child.baseName = '"+pfx+"Resource') then\r\n        result."+s+" := ParseResourceReference(child) {a}\r\n");
+              workingComposerX.append("  "+(i==0 ? "if" : "else if")+" elem."+s+" is TFhirResourceReference {2} then\r\n    ComposeResourceReference(xml, '"+pfx+"Resource', TFhirResourceReference(elem."+s+"))"+(i == t-1?";" : "")+"\r\n");
+              workingParserJ.append("      else if (json.ItemName = '"+pfx+"Resource') then\r\n        result."+s+" := ParseResourceReference\r\n");
+              workingComposerJ.append("  "+(i==0 ? "if" : "else if")+" elem."+s+" is TFhirResourceReference then\r\n    ComposeResourceReference(json, '"+pfx+"Resource', TFhirResourceReference(elem."+s+"))"+(i == t-1?";" : "")+"\r\n");
             }
-            else { 
+            else {
+              if (td.hasParams())
+                throw new Exception("Type "+td.summary()+" has parameters");                
               workingParserX.append("      else if (child.baseName = '"+pfx+getTitle(td.getName())+"') then\r\n        result."+s+" := Parse"+getTitle(td.getName())+"(child)\r\n");
 //              if (td.getName().equalsIgnoreCase("string")) {
 //                workingComposerX.append("  "+(i==0 ? "if" : "else if")+" elem."+s+" is TFHIR"+getTitle(td.getName())+" {3}  then\r\n    Text(xml, '"+pfx+getTitle(td.getName())+"', TFHIR"+getTitle(td.getName())+"(elem."+s+").value)"+(i == t-1?";" : "")+"\r\n");

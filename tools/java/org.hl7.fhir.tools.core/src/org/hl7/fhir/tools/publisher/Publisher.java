@@ -54,6 +54,8 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
+import net.sourceforge.plantuml.golem.Path;
+
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.XMLResource;
@@ -199,6 +201,7 @@ public class Publisher {
   private long revNumber;
 	private boolean isGenerate;
 	private boolean web;
+	private String diffProgram;
 	private AtomFeed profileFeed;
   private AtomFeed v2Valuesets;
   private AtomFeed v3Valuesets; 
@@ -220,18 +223,21 @@ public class Publisher {
 		}
 		pub.isGenerate = !(args.length > 1 && hasParam(args, "-nogen"));
 		pub.web = (args.length > 1 && hasParam(args, "-web"));
+		pub.diffProgram = getNamedParam(args, "-diff");
 		try {
       pub.execute(args[0]);
     } catch (Exception e) {
-      e.printStackTrace();
+      System.out.println("Errror running build: "+e.getMessage());
       File f;
       try {
-        f = new File("fhir-error-dump.txt");
+        f = new File(Utilities.appendSlash(args[0])+ "fhir-error-dump.txt");
         PrintStream p = new PrintStream(f);
         e.printStackTrace(p);
-        System.out.println("Stack Trace saved as fhir-error-dump.txt");
+        System.out.println("Stack Trace saved as "+Utilities.appendSlash(args[0])+ " fhir-error-dump.txt");
       } catch (IOException e1) {
       }
+      if (hasParam(args, "-debug"))
+        e.printStackTrace();
     }
 	}
 
@@ -256,6 +262,18 @@ public class Publisher {
 				return true;
 		return false;
 	}
+
+  private static String getNamedParam(String[] args, String param) {
+    boolean found = false; 
+    for (String a : args) {
+      if (found) 
+        return a;
+      if (a.equals(param)) {
+        found = true;
+      }
+    }
+    return null;
+  }
 
 	public void execute(String folder) throws Exception {
 
@@ -1698,8 +1716,8 @@ public class Publisher {
 	private void validateRoundTrip(Schema schema, String n) throws Exception {
 		for (PlatformGenerator gen : page.getReferenceImplementations()) {
 			if (gen.doesTest()) {
-				gen.loadAndSave(page.getFolders().dstDir, page.getFolders().dstDir + n + ".xml", page.getFolders().tmpResDir + "tmp.xml");
-				compareXml(n, gen.getName(), page.getFolders().dstDir + n	+ ".xml", page.getFolders().tmpResDir + "tmp.xml");
+				gen.loadAndSave(page.getFolders().dstDir, page.getFolders().dstDir + n + ".xml", page.getFolders().tmpDir + n+"-tmp.xml");
+				compareXml(n, gen.getName(), page.getFolders().dstDir + n	+ ".xml", page.getFolders().tmpDir + n+"-tmp.xml");
 			}
 		}
 	}
@@ -1737,11 +1755,10 @@ public class Publisher {
 		if (!TextFile.fileToString(tmp1.getAbsolutePath()).equals(
 				TextFile.fileToString(tmp2.getAbsolutePath()))) {
 			page.log("file " + t+ " did not round trip perfectly in XML in platform " + n);
-			if (new CSFile(System.getenv("ProgramFiles(X86)")+sc+"WinMerge"+sc+"WinMergeU.exe")
-					.exists()) {
-
+			String diff = diffProgram != null ? diffProgram : System.getenv("ProgramFiles(X86)")+sc+"WinMerge"+sc+"WinMergeU.exe";
+			if (new CSFile(diff).exists()) {
 				List<String> command = new ArrayList<String>();
-				command.add("\""+System.getenv("ProgramFiles(X86)")+sc+"WinMerge"+sc+"WinMergeU.exe"+"\" \""
+				command.add("\""+diff+"\" \""
 						+ tmp1.getAbsolutePath()
 						+ "\" \""
 						+ tmp2.getAbsolutePath() + "\"");
@@ -1750,8 +1767,10 @@ public class Publisher {
 				builder.directory(new CSFile(page.getFolders().rootDir));
 				final Process process = builder.start();
 				process.waitFor();
+			} else {
+			  // no diff program
+			  page.log("Files for diff: '"+fn1+"' and '"+fn2+"'");
 			}
-
 		}
 	}
 

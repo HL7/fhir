@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 22, 2013 17:49+1000 for FHIR v0.09
+// Generated on Thu, May 30, 2013 06:48+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -884,29 +884,14 @@ public class ImagingStudy extends Resource {
         private Oid sopclass;
 
         /**
+         * (dicomDir) (what is this?)
+         */
+        private String_ definition;
+
+        /**
          * Description to be provided
          */
         private String_ title;
-
-        /**
-         * Rows (0028,0010)
-         */
-        private Integer rows;
-
-        /**
-         * Columns (0028,0011)
-         */
-        private Integer columns;
-
-        /**
-         * Bits Allocated (0028,0100)
-         */
-        private Integer bitsAllocated;
-
-        /**
-         * Number of Frames (0028,0008)
-         */
-        private Integer numberOfFrames;
 
         /**
          * Availability of instance (online, offline or nearlnie)
@@ -914,14 +899,24 @@ public class ImagingStudy extends Resource {
         private Enumeration<InstanceAvailability> availability;
 
         /**
+         * When this image was taken
+         */
+        private DateTime dateTime;
+
+        /**
+         * When instance is an image
+         */
+        private ImagingStudySeriesInstanceImageComponent image;
+
+        /**
          * WADO url where image is available
          */
         private Uri url;
 
         /**
-         * When this image was taken
+         * A FHIR resource with content for this instance
          */
-        private DateTime dateTime;
+        private ResourceReference attachment;
 
         public Integer getNumber() { 
           return this.number;
@@ -981,6 +976,28 @@ public class ImagingStudy extends Resource {
             this.sopclass.setValue(value);
         }
 
+        public String_ getDefinition() { 
+          return this.definition;
+        }
+
+        public void setDefinition(String_ value) { 
+          this.definition = value;
+        }
+
+        public String getDefinitionSimple() { 
+          return this.definition == null ? null : this.definition.getValue();
+        }
+
+        public void setDefinitionSimple(String value) { 
+          if (value == null)
+            this.definition = null;
+          else {
+            if (this.definition == null)
+              this.definition = new String_();
+            this.definition.setValue(value);
+          }
+        }
+
         public String_ getTitle() { 
           return this.title;
         }
@@ -1002,6 +1019,111 @@ public class ImagingStudy extends Resource {
             this.title.setValue(value);
           }
         }
+
+        public Enumeration<InstanceAvailability> getAvailability() { 
+          return this.availability;
+        }
+
+        public void setAvailability(Enumeration<InstanceAvailability> value) { 
+          this.availability = value;
+        }
+
+        public InstanceAvailability getAvailabilitySimple() { 
+          return this.availability == null ? null : this.availability.getValue();
+        }
+
+        public void setAvailabilitySimple(InstanceAvailability value) { 
+          if (value == null)
+            this.availability = null;
+          else {
+            if (this.availability == null)
+              this.availability = new Enumeration<InstanceAvailability>();
+            this.availability.setValue(value);
+          }
+        }
+
+        public DateTime getDateTime() { 
+          return this.dateTime;
+        }
+
+        public void setDateTime(DateTime value) { 
+          this.dateTime = value;
+        }
+
+        public String getDateTimeSimple() { 
+          return this.dateTime == null ? null : this.dateTime.getValue();
+        }
+
+        public void setDateTimeSimple(String value) { 
+          if (value == null)
+            this.dateTime = null;
+          else {
+            if (this.dateTime == null)
+              this.dateTime = new DateTime();
+            this.dateTime.setValue(value);
+          }
+        }
+
+        public ImagingStudySeriesInstanceImageComponent getImage() { 
+          return this.image;
+        }
+
+        public void setImage(ImagingStudySeriesInstanceImageComponent value) { 
+          this.image = value;
+        }
+
+        public Uri getUrl() { 
+          return this.url;
+        }
+
+        public void setUrl(Uri value) { 
+          this.url = value;
+        }
+
+        public URI getUrlSimple() { 
+          return this.url == null ? null : this.url.getValue();
+        }
+
+        public void setUrlSimple(URI value) { 
+          if (value == null)
+            this.url = null;
+          else {
+            if (this.url == null)
+              this.url = new Uri();
+            this.url.setValue(value);
+          }
+        }
+
+        public ResourceReference getAttachment() { 
+          return this.attachment;
+        }
+
+        public void setAttachment(ResourceReference value) { 
+          this.attachment = value;
+        }
+
+  }
+
+    public class ImagingStudySeriesInstanceImageComponent extends Element {
+        /**
+         * Rows (0028,0010)
+         */
+        private Integer rows;
+
+        /**
+         * Columns (0028,0011)
+         */
+        private Integer columns;
+
+        /**
+         * Bits Allocated (0028,0100)
+         */
+        private Integer bitsAllocated;
+
+        /**
+         * Number of Frames (0028,0008)
+         */
+        private Integer numberOfFrames;
 
         public Integer getRows() { 
           return this.rows;
@@ -1088,72 +1210,6 @@ public class ImagingStudy extends Resource {
             if (this.numberOfFrames == null)
               this.numberOfFrames = new Integer();
             this.numberOfFrames.setValue(value);
-          }
-        }
-
-        public Enumeration<InstanceAvailability> getAvailability() { 
-          return this.availability;
-        }
-
-        public void setAvailability(Enumeration<InstanceAvailability> value) { 
-          this.availability = value;
-        }
-
-        public InstanceAvailability getAvailabilitySimple() { 
-          return this.availability == null ? null : this.availability.getValue();
-        }
-
-        public void setAvailabilitySimple(InstanceAvailability value) { 
-          if (value == null)
-            this.availability = null;
-          else {
-            if (this.availability == null)
-              this.availability = new Enumeration<InstanceAvailability>();
-            this.availability.setValue(value);
-          }
-        }
-
-        public Uri getUrl() { 
-          return this.url;
-        }
-
-        public void setUrl(Uri value) { 
-          this.url = value;
-        }
-
-        public URI getUrlSimple() { 
-          return this.url == null ? null : this.url.getValue();
-        }
-
-        public void setUrlSimple(URI value) { 
-          if (value == null)
-            this.url = null;
-          else {
-            if (this.url == null)
-              this.url = new Uri();
-            this.url.setValue(value);
-          }
-        }
-
-        public DateTime getDateTime() { 
-          return this.dateTime;
-        }
-
-        public void setDateTime(DateTime value) { 
-          this.dateTime = value;
-        }
-
-        public String getDateTimeSimple() { 
-          return this.dateTime == null ? null : this.dateTime.getValue();
-        }
-
-        public void setDateTimeSimple(String value) { 
-          if (value == null)
-            this.dateTime = null;
-          else {
-            if (this.dateTime == null)
-              this.dateTime = new DateTime();
-            this.dateTime.setValue(value);
           }
         }
 

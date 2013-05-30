@@ -48,6 +48,7 @@ public class FolderManager {
     imgDir = root+sl+"images"+sl;
     xsdDir = root+sl+"schema"+sl;
     tmpResDir = xsdDir+"datatypes"+sl;
+    tmpDir = root+sl+"temp"+sl;
     dstDir = root+sl+"publish"+sl;
     umlDir = root+sl+"uml"+sl;
     javaDir = root+sl+"tools"+sl+"java"+sl+"org.hl7.fhir.tools.core"+sl+"src"+ sl;
@@ -68,6 +69,7 @@ public class FolderManager {
   public String termDir;
   public String dtDir;
   public String tmpResDir;
+  public String tmpDir;
   public String javaDir;
   public String archiveDir;
   

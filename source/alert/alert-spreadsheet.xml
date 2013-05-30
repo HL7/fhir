@@ -83,7 +83,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="9" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="151"/>
@@ -175,13 +175,6 @@
     <Cell ss:Index="8"><Data ss:Type="String">Alert creator</Data></Cell>
     <Cell><Data ss:Type="String">The person or device that created the alert</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Alert.dateRecorded</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Recorded date</Data></Cell>
-    <Cell><Data ss:Type="String">The date that the alert was entered into the system </Data></Cell>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28">
     <Cell><Data ss:Type="String">Alert.note</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
@@ -235,7 +228,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
+     <ActiveRow>5</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>

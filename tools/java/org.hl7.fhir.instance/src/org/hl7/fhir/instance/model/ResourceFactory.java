@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, May 22, 2013 17:49+1000 for FHIR v0.09
+// Generated on Thu, May 30, 2013 06:48+1000 for FHIR v0.09
 
 public class ResourceFactory {
 
@@ -42,6 +42,8 @@ public class ResourceFactory {
             return new ValueSet();
         if ("Coverage".equals(name))
             return new Coverage();
+        if ("Test".equals(name))
+            return new Test();
         if ("Appointment".equals(name))
             return new Appointment();
         if ("MedicationDispense".equals(name))
@@ -54,22 +56,26 @@ public class ResourceFactory {
             return new DeviceCapabilities();
         if ("MedicationStatement".equals(name))
             return new MedicationStatement();
+        if ("Protocol".equals(name))
+            return new Protocol();
         if ("Questionnaire".equals(name))
             return new Questionnaire();
         if ("OperationOutcome".equals(name))
             return new OperationOutcome();
         if ("Conformance".equals(name))
             return new Conformance();
+        if ("Other".equals(name))
+            return new Other();
         if ("Profile".equals(name))
             return new Profile();
-        if ("Visit".equals(name))
-            return new Visit();
         if ("DocumentReference".equals(name))
             return new DocumentReference();
-        if ("Immunization".equals(name))
-            return new Immunization();
+        if ("Visit".equals(name))
+            return new Visit();
         if ("InterestOfCare".equals(name))
             return new InterestOfCare();
+        if ("Immunization".equals(name))
+            return new Immunization();
         if ("Problem".equals(name))
             return new Problem();
         if ("OrderResponse".equals(name))
@@ -96,6 +102,8 @@ public class ResourceFactory {
             return new DiagnosticReport();
         if ("Medication".equals(name))
             return new Medication();
+        if ("Study".equals(name))
+            return new Study();
         if ("MedicationAdministration".equals(name))
             return new MedicationAdministration();
         if ("SecurityEvent".equals(name))
@@ -112,10 +120,10 @@ public class ResourceFactory {
             return new FamilyHistory();
         if ("Location".equals(name))
             return new Location();
-        if ("Observation".equals(name))
-            return new Observation();
         if ("AllergyIntolerance".equals(name))
             return new AllergyIntolerance();
+        if ("Observation".equals(name))
+            return new Observation();
         if ("ImmunizationProfile".equals(name))
             return new ImmunizationProfile();
         if ("RelatedPerson".equals(name))
@@ -159,6 +167,8 @@ public class ResourceFactory {
             return new Contact();
         if ("Array".equals(name))
             return new Array();
+        if ("ActivityDefinition".equals(name))
+            return new ActivityDefinition();
         if ("Demographics".equals(name))
             return new Demographics();
         if ("Extension".equals(name))

@@ -311,6 +311,8 @@ public class SpreadsheetParser {
             throw new Exception("Search Param "+root2.getName()+"/"+n+" has no type "+ getLocation(row));
           if (n.endsWith("-before") || n.endsWith("-after"))
             throw new Exception("Search Param "+root2.getName()+"/"+n+" includes relative time "+ getLocation(row));
+          if (root2.getSearchParams().containsKey(n))
+            throw new Exception("Search Param "+root2.getName()+"/"+n+": duplicate name "+ getLocation(row));
           String d = sheet.getColumn(row, "Description");
           SearchType t = readSearchType(sheet.getColumn(row, "Type"), row);
           List<String> pn = new ArrayList<String>(); 

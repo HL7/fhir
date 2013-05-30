@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, May 22, 2013 17:49+1000 for FHIR v0.09
+// Generated on Thu, May 30, 2013 06:48+1000 for FHIR v0.09
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -559,6 +559,28 @@ public class JsonComposer extends JsonComposerBase {
     }
   }
 
+  private void composeActivityDefinition(String name, ActivityDefinition element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      if (element.getCategory() != null)
+        composeEnumeration("category", element.getCategory(), new ActivityDefinition().new ActivityDefinitionCategoryEnumFactory());
+      composeCodeableConcept("code", element.getCode());
+      composeType("timing", element.getTiming());
+      composeResourceReference("location", element.getLocation());
+      if (element.getPerformer().size() > 0) {
+        openArray("performer");
+        for (ResourceReference e : element.getPerformer()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
+      composeResourceReference("product", element.getProduct());
+      composeQuantity("quantity", element.getQuantity());
+      composeString("details", element.getDetails());
+      close();
+    }
+  }
+
   private void composeDemographics(String name, Demographics element) throws Exception {
     if (element != null) {
       open(name);
@@ -694,6 +716,7 @@ public class JsonComposer extends JsonComposerBase {
         composeEnumeration("status", element.getStatus(), new Alert().new AlertStatusEnumFactory());
       composeResourceReference("subject", element.getSubject());
       composeResourceReference("author", element.getAuthor());
+      composeDate("dateRecorded", element.getDateRecorded());
       composeString("note", element.getNote());
       close();
     }
@@ -1778,15 +1801,26 @@ public class JsonComposer extends JsonComposerBase {
       composeInteger("number", element.getNumber());
       composeOid("uid", element.getUid());
       composeOid("sopclass", element.getSopclass());
+      composeString("definition", element.getDefinition());
       composeString("title", element.getTitle());
+      if (element.getAvailability() != null)
+        composeEnumeration("availability", element.getAvailability(), new ImagingStudy().new InstanceAvailabilityEnumFactory());
+      composeDateTime("dateTime", element.getDateTime());
+      composeImagingStudyImagingStudySeriesInstanceImageComponent("image", element.getImage());
+      composeUri("url", element.getUrl());
+      composeResourceReference("attachment", element.getAttachment());
+      close();
+    }
+  }
+
+  private void composeImagingStudyImagingStudySeriesInstanceImageComponent(String name, ImagingStudy.ImagingStudySeriesInstanceImageComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
       composeInteger("rows", element.getRows());
       composeInteger("columns", element.getColumns());
       composeInteger("bitsAllocated", element.getBitsAllocated());
       composeInteger("numberOfFrames", element.getNumberOfFrames());
-      if (element.getAvailability() != null)
-        composeEnumeration("availability", element.getAvailability(), new ImagingStudy().new InstanceAvailabilityEnumFactory());
-      composeUri("url", element.getUrl());
-      composeDateTime("dateTime", element.getDateTime());
       close();
     }
   }
@@ -2634,6 +2668,15 @@ public class JsonComposer extends JsonComposerBase {
     }
   }
 
+  private void composeOther(String name, Other element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeResourceElements(element);
+      composeCodeableConcept("code", element.getCode());
+      close();
+    }
+  }
+
   private void composePatient(String name, Patient element) throws Exception {
     if (element != null) {
       open(name);
@@ -3167,6 +3210,142 @@ public class JsonComposer extends JsonComposerBase {
     }
   }
 
+  private void composeProtocol(String name, Protocol element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeResourceElements(element);
+      composeString("title", element.getTitle());
+      if (element.getType() != null)
+        composeEnumeration("type", element.getType(), new Protocol().new ProtocolTypeEnumFactory());
+      if (element.getStatus() != null)
+        composeEnumeration("status", element.getStatus(), new Protocol().new ProtocolStatusEnumFactory());
+      composeResourceReference("author", element.getAuthor());
+      composeString("purpose", element.getPurpose());
+      composeResourceReference("subject", element.getSubject());
+      composeResourceReference("group", element.getGroup());
+      if (element.getStep().size() > 0) {
+        openArray("step");
+        for (Protocol.ProtocolStepComponent e : element.getStep()) 
+          composeProtocolProtocolStepComponent(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeProtocolProtocolStepComponent(String name, Protocol.ProtocolStepComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("name", element.getName());
+      composeString("description", element.getDescription());
+      composeDuration("duration", element.getDuration());
+      composeProtocolProtocolStepPreconditionComponent("precondition", element.getPrecondition());
+      composeProtocolProtocolStepPreconditionComponent("exit", element.getExit());
+      composeString("firstActivity", element.getFirstActivity());
+      if (element.getActivity().size() > 0) {
+        openArray("activity");
+        for (Protocol.ProtocolStepActivityComponent e : element.getActivity()) 
+          composeProtocolProtocolStepActivityComponent(null, e);
+        closeArray();
+      };
+      if (element.getNext().size() > 0) {
+        openArray("next");
+        for (Protocol.ProtocolStepNextComponent e : element.getNext()) 
+          composeProtocolProtocolStepNextComponent(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeProtocolProtocolStepPreconditionComponent(String name, Protocol.ProtocolStepPreconditionComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("description", element.getDescription());
+      composeProtocolProtocolStepPreconditionConditionComponent("condition", element.getCondition());
+      if (element.getIntersection().size() > 0) {
+        openArray("intersection");
+        for (Protocol.ProtocolStepPreconditionComponent e : element.getIntersection()) 
+          composeProtocolProtocolStepPreconditionComponent(null, e);
+        closeArray();
+      };
+      if (element.getUnion().size() > 0) {
+        openArray("union");
+        for (Protocol.ProtocolStepPreconditionComponent e : element.getUnion()) 
+          composeProtocolProtocolStepPreconditionComponent(null, e);
+        closeArray();
+      };
+      if (element.getExclude().size() > 0) {
+        openArray("exclude");
+        for (Protocol.ProtocolStepPreconditionComponent e : element.getExclude()) 
+          composeProtocolProtocolStepPreconditionComponent(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeProtocolProtocolStepPreconditionConditionComponent(String name, Protocol.ProtocolStepPreconditionConditionComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeCodeableConcept("type", element.getType());
+      composeType("value", element.getValue());
+      close();
+    }
+  }
+
+  private void composeProtocolProtocolStepActivityComponent(String name, Protocol.ProtocolStepActivityComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      if (element.getAlternative().size() > 0) {
+        openArray("alternative");
+        for (String_ e : element.getAlternative()) 
+          composeString(null, e);
+        closeArray();
+      };
+      if (element.getComponent().size() > 0) {
+        openArray("component");
+        for (Protocol.ProtocolStepActivityComponentComponent e : element.getComponent()) 
+          composeProtocolProtocolStepActivityComponentComponent(null, e);
+        closeArray();
+      };
+      if (element.getFollowing().size() > 0) {
+        openArray("following");
+        for (String_ e : element.getFollowing()) 
+          composeString(null, e);
+        closeArray();
+      };
+      composeDuration("wait", element.getWait());
+      composeActivityDefinition("detail", element.getDetail());
+      close();
+    }
+  }
+
+  private void composeProtocolProtocolStepActivityComponentComponent(String name, Protocol.ProtocolStepActivityComponentComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeInteger("sequence", element.getSequence());
+      composeString("activity", element.getActivity());
+      close();
+    }
+  }
+
+  private void composeProtocolProtocolStepNextComponent(String name, Protocol.ProtocolStepNextComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("description", element.getDescription());
+      composeString("id", element.getId());
+      composeProtocolProtocolStepPreconditionComponent("condition", element.getCondition());
+      close();
+    }
+  }
+
   private void composeProvenance(String name, Provenance element) throws Exception {
     if (element != null) {
       open(name);
@@ -3503,6 +3682,101 @@ public class JsonComposer extends JsonComposerBase {
     }
   }
 
+  private void composeStudy(String name, Study element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeResourceElements(element);
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      composeString("sponsor", element.getSponsor());
+      composeString("title", element.getTitle());
+      composeString("description", element.getDescription());
+      composeCodeableConcept("type", element.getType());
+      if (element.getCondition().size() > 0) {
+        openArray("condition");
+        for (CodeableConcept e : element.getCondition()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getTreatment().size() > 0) {
+        openArray("treatment");
+        for (Study.StudyTreatmentComponent e : element.getTreatment()) 
+          composeStudyStudyTreatmentComponent(null, e);
+        closeArray();
+      };
+      if (element.getControlType().size() > 0) {
+        openArray("controlType");
+        for (CodeableConcept e : element.getControlType()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getObjective().size() > 0) {
+        openArray("objective");
+        for (String_ e : element.getObjective()) 
+          composeString(null, e);
+        closeArray();
+      };
+      if (element.getOutcomeMeasure().size() > 0) {
+        openArray("outcomeMeasure");
+        for (String_ e : element.getOutcomeMeasure()) 
+          composeString(null, e);
+        closeArray();
+      };
+      if (element.getEligibility().size() > 0) {
+        openArray("eligibility");
+        for (ResourceReference e : element.getEligibility()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
+      composePeriod("period", element.getPeriod());
+      composeDuration("duration", element.getDuration());
+      composeInteger("plannedEnrollment", element.getPlannedEnrollment());
+      composeStudyStudyInterventionComponent("intervention", element.getIntervention());
+      if (element.getProtocol().size() > 0) {
+        openArray("protocol");
+        for (ResourceReference e : element.getProtocol()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
+      composeResourceReference("dataStructure", element.getDataStructure());
+      if (element.getData().size() > 0) {
+        openArray("data");
+        for (ResourceReference e : element.getData()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeStudyStudyTreatmentComponent(String name, Study.StudyTreatmentComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      if (element.getRole() != null)
+        composeEnumeration("role", element.getRole(), new Study().new StudyTreatmentRoleEnumFactory());
+      composeActivityDefinition("detail", element.getDetail());
+      close();
+    }
+  }
+
+  private void composeStudyStudyInterventionComponent(String name, Study.StudyInterventionComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeCodeableConcept("type", element.getType());
+      composeCodeableConcept("model", element.getModel());
+      composeBoolean("randomized", element.getRandomized());
+      composeCodeableConcept("blindingScheme", element.getBlindingScheme());
+      composeType("randomizationQuotient", element.getRandomizationQuotient());
+      close();
+    }
+  }
+
   private void composeSubstance(String name, Substance element) throws Exception {
     if (element != null) {
       open(name);
@@ -3510,6 +3784,99 @@ public class JsonComposer extends JsonComposerBase {
       composeIdentifier("identifier", element.getIdentifier());
       composeString("name", element.getName());
       composeCoding("type", element.getType());
+      close();
+    }
+  }
+
+  private void composeTest(String name, Test element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeResourceElements(element);
+      if (element.getStringErr().size() > 0) {
+        openArray("stringErr");
+        for (String_ e : element.getStringErr()) 
+          composeString(null, e);
+        closeArray();
+      };
+      if (element.getStringCorr().size() > 0) {
+        openArray("stringCorr");
+        for (String_ e : element.getStringCorr()) 
+          composeString(null, e);
+        closeArray();
+      };
+      if (element.getBooleanErr().size() > 0) {
+        openArray("booleanErr");
+        for (Boolean e : element.getBooleanErr()) 
+          composeBoolean(null, e);
+        closeArray();
+      };
+      if (element.getBooleanCorr().size() > 0) {
+        openArray("booleanCorr");
+        for (Boolean e : element.getBooleanCorr()) 
+          composeBoolean(null, e);
+        closeArray();
+      };
+      if (element.getIntegerErr().size() > 0) {
+        openArray("integerErr");
+        for (Integer e : element.getIntegerErr()) 
+          composeInteger(null, e);
+        closeArray();
+      };
+      if (element.getIntegerCorr().size() > 0) {
+        openArray("integerCorr");
+        for (Integer e : element.getIntegerCorr()) 
+          composeInteger(null, e);
+        closeArray();
+      };
+      if (element.getDecimalErr().size() > 0) {
+        openArray("decimalErr");
+        for (Decimal e : element.getDecimalErr()) 
+          composeDecimal(null, e);
+        closeArray();
+      };
+      if (element.getDecimalCorr().size() > 0) {
+        openArray("decimalCorr");
+        for (Decimal e : element.getDecimalCorr()) 
+          composeDecimal(null, e);
+        closeArray();
+      };
+      if (element.getB64Err().size() > 0) {
+        openArray("b64Err");
+        for (Base64Binary e : element.getB64Err()) 
+          composeBase64Binary(null, e);
+        closeArray();
+      };
+      if (element.getB64Corr().size() > 0) {
+        openArray("b64Corr");
+        for (Base64Binary e : element.getB64Corr()) 
+          composeBase64Binary(null, e);
+        closeArray();
+      };
+      if (element.getInstantErr().size() > 0) {
+        openArray("instantErr");
+        for (Instant e : element.getInstantErr()) 
+          composeInstant(null, e);
+        closeArray();
+      };
+      if (element.getInstantCorr().size() > 0) {
+        openArray("instantCorr");
+        for (Instant e : element.getInstantCorr()) 
+          composeInstant(null, e);
+        closeArray();
+      };
+      if (element.getUriErr().size() > 0) {
+        openArray("uriErr");
+        for (Uri e : element.getUriErr()) 
+          composeUri(null, e);
+        closeArray();
+      };
+      if (element.getUriCorr().size() > 0) {
+        openArray("uriCorr");
+        for (Uri e : element.getUriCorr()) 
+          composeUri(null, e);
+        closeArray();
+      };
+      composeString("idrefSingle", element.getIdrefSingle());
       close();
     }
   }
@@ -3841,6 +4208,8 @@ public class JsonComposer extends JsonComposerBase {
       composeOrderResponse("OrderResponse", (OrderResponse)resource);
     else if (resource instanceof Organization)
       composeOrganization("Organization", (Organization)resource);
+    else if (resource instanceof Other)
+      composeOther("Other", (Other)resource);
     else if (resource instanceof Patient)
       composePatient("Patient", (Patient)resource);
     else if (resource instanceof Picture)
@@ -3853,6 +4222,8 @@ public class JsonComposer extends JsonComposerBase {
       composeProcedure("Procedure", (Procedure)resource);
     else if (resource instanceof Profile)
       composeProfile("Profile", (Profile)resource);
+    else if (resource instanceof Protocol)
+      composeProtocol("Protocol", (Protocol)resource);
     else if (resource instanceof Provenance)
       composeProvenance("Provenance", (Provenance)resource);
     else if (resource instanceof Query)
@@ -3863,8 +4234,12 @@ public class JsonComposer extends JsonComposerBase {
       composeSecurityEvent("SecurityEvent", (SecurityEvent)resource);
     else if (resource instanceof Specimen)
       composeSpecimen("Specimen", (Specimen)resource);
+    else if (resource instanceof Study)
+      composeStudy("Study", (Study)resource);
     else if (resource instanceof Substance)
       composeSubstance("Substance", (Substance)resource);
+    else if (resource instanceof Test)
+      composeTest("Test", (Test)resource);
     else if (resource instanceof ValueSet)
       composeValueSet("ValueSet", (ValueSet)resource);
     else if (resource instanceof Visit)
@@ -3940,6 +4315,8 @@ public class JsonComposer extends JsonComposerBase {
       composeOrderResponse(name, (OrderResponse)resource);
     else if (resource instanceof Organization)
       composeOrganization(name, (Organization)resource);
+    else if (resource instanceof Other)
+      composeOther(name, (Other)resource);
     else if (resource instanceof Patient)
       composePatient(name, (Patient)resource);
     else if (resource instanceof Picture)
@@ -3952,6 +4329,8 @@ public class JsonComposer extends JsonComposerBase {
       composeProcedure(name, (Procedure)resource);
     else if (resource instanceof Profile)
       composeProfile(name, (Profile)resource);
+    else if (resource instanceof Protocol)
+      composeProtocol(name, (Protocol)resource);
     else if (resource instanceof Provenance)
       composeProvenance(name, (Provenance)resource);
     else if (resource instanceof Query)
@@ -3962,8 +4341,12 @@ public class JsonComposer extends JsonComposerBase {
       composeSecurityEvent(name, (SecurityEvent)resource);
     else if (resource instanceof Specimen)
       composeSpecimen(name, (Specimen)resource);
+    else if (resource instanceof Study)
+      composeStudy(name, (Study)resource);
     else if (resource instanceof Substance)
       composeSubstance(name, (Substance)resource);
+    else if (resource instanceof Test)
+      composeTest(name, (Test)resource);
     else if (resource instanceof ValueSet)
       composeValueSet(name, (ValueSet)resource);
     else if (resource instanceof Visit)
@@ -4018,6 +4401,8 @@ public class JsonComposer extends JsonComposerBase {
        composeAddress(prefix+"Address", (Address) type);
     else if (type instanceof HumanName)
        composeHumanName(prefix+"HumanName", (HumanName) type);
+    else if (type instanceof ActivityDefinition)
+       composeActivityDefinition(prefix+"ActivityDefinition", (ActivityDefinition) type);
     else if (type instanceof Demographics)
        composeDemographics(prefix+"Demographics", (Demographics) type);
     else if (type instanceof Integer)
