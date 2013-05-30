@@ -20,6 +20,7 @@
   <WindowWidth>23250</WindowWidth>
   <WindowTopX>3360</WindowTopX>
   <WindowTopY>3510</WindowTopY>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -466,7 +467,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -571,39 +571,47 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="activity-definition-category">
-  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="8" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:Width="60.75"/>
+   <Column ss:Index="2" ss:Width="60.75"/>
    <Column ss:Width="453"/>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Code</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Definition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">diet</Data></Cell>
     <Cell><Data ss:Type="String">To consume food of a specified nature</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">drug</Data></Cell>
     <Cell><Data ss:Type="String">To consume/receive a drug, vaccine or other product</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">visit</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">To meet or communicate with the patient (in-patient, out-patient, phone call, etc.)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">observation</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">To capture information about a patient (vitals, labs, diagnostic images, etc.)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="String">procedure</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">To modify the patient in some way (surgery, physio-therapy, education, counselling, etc.)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="String">supply</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">To provide something to the patient (medication, medical supply, etc.)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell><Data ss:Type="String">other</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Some other form of action</Data></Cell>
    </Row>
@@ -615,11 +623,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>6</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
