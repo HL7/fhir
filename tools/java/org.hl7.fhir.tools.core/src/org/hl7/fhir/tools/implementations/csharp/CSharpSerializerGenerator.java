@@ -127,7 +127,7 @@ public class CSharpSerializerGenerator extends GenBlock
 			
 			firstTime = false;
 			
-			String typeName = GeneratorUtils.generateCSharpTypeName(type.getName());
+			String typeName = GeneratorUtils.buildFullyScopedTypeName(type);
 			nl("(value.GetType() == typeof(");
 			nl( typeName + "))");
 			bs();

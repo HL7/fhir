@@ -82,6 +82,16 @@ namespace Hl7.Fhir.Serializers
             jw.WriteValue(value);
         }
 
+        public void WriteBinaryContentType(string contentType)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void WriteBinaryBase64TextContents(string b64)
+        {
+            throw new NotImplementedException();
+        }
+
         public void WriteXhtmlContents(string xhtml)
         {
             // In Json, the serialization of Xhtml is the same as other elements

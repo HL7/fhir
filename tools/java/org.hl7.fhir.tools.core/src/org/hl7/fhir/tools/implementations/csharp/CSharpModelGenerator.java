@@ -196,7 +196,7 @@ public class CSharpModelGenerator extends GenBlock
 		}
 		else 
 		{
-			nl( GeneratorUtils.generateCSharpTypeName(tref.getName()) );
+			nl( GeneratorUtils.buildFullyScopedTypeName(tref) );
 		}
 
 		if( member.getMaxCardinality() == -1 ) nl(">");

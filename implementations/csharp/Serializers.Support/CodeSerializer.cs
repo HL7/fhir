@@ -52,20 +52,20 @@ namespace Hl7.Fhir.Serializers
         public static void SerializeCode<T>(Code<T> value, IFhirWriter writer) where T : struct
         {
             writer.WriteStartComplexContent();
-            
+
             // Serialize element's localId attribute
-            if( value.InternalId != null && !String.IsNullOrEmpty(value.InternalId.Contents) )
-            	writer.WriteRefIdContents(value.InternalId.Contents);
-            
+            if (value.InternalId != null && !String.IsNullOrEmpty(value.InternalId.Contents))
+                writer.WriteRefIdContents(value.InternalId.Contents);
+
             // Serialize element's primitive contents
-            if(value.Contents != null)
-            	writer.WritePrimitiveContents(value.ToString());
-            
+            if (value.Contents != null)
+                writer.WritePrimitiveContents(value.ToString());
+
             // Serialize element extension
-            if(value.Extension != null && value.Extension.Count > 0)
+            if (value.Extension != null && value.Extension.Count > 0)
             {
                 writer.WriteStartArrayElement("extension");
-                foreach(var item in value.Extension)
+                foreach (var item in value.Extension)
                 {
                     writer.WriteStartArrayMember("extension");
                     ExtensionSerializer.SerializeExtension(item, writer);

@@ -62,7 +62,7 @@ namespace Hl7.Fhir.Parsers
                 string base64Contents = reader.ReadBinaryBase64TextContents();
 
                 if (base64Contents != null)
-                    result.Content = Binary.Parse(reader.ReadBinaryBase64TextContents()).Content;
+                    result.Content = Binary.Parse(base64Contents).Content;
                 else
                     result.Content = null;
 

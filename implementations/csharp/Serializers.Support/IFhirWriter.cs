@@ -55,5 +55,9 @@ namespace Hl7.Fhir.Serializers
         void WriteStartArrayMember(string name);
         void WriteEndArrayMember();
         void WriteEndArrayElement();
+
+        void WriteBinaryContentType(string p);
+
+        void WriteBinaryBase64TextContents(string b64);
     }
 }

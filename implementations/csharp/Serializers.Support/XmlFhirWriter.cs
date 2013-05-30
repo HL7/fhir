@@ -95,6 +95,16 @@ namespace Hl7.Fhir.Serializers
             xw.WriteAttributeString(Parsers.XmlFhirReader.IDATTR, id);
         }
 
+        public void WriteBinaryContentType(string contentType)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void WriteBinaryBase64TextContents(string b64)
+        {
+            throw new NotImplementedException();
+        }
+
         public void WriteStartArrayElement(string name)
         {
             // Nothing

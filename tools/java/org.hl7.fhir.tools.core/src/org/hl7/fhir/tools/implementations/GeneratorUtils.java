@@ -382,15 +382,18 @@ public class GeneratorUtils {
 		return buildFullyScopedTypeName(type.getFullName());
 	}
 	
+	
+	private static final String HL7NAMESPACE = "Hl7.Fhir.Model";
+	
 	public static String buildFullyScopedTypeName( String fullName ) throws Exception
 	{		
 		String[] nameParts = fullName.split("\\.");
 		
 		if( nameParts.length == 1 )
 			// Globally defined name
-			return GeneratorUtils.generateCSharpTypeName(nameParts[0]);
+			return HL7NAMESPACE + "." + GeneratorUtils.generateCSharpTypeName(nameParts[0]);
 		else
-			return GeneratorUtils.generateCSharpTypeName(nameParts[0]) +
+			return HL7NAMESPACE + "." + GeneratorUtils.generateCSharpTypeName(nameParts[0]) +
 				 "." + GeneratorUtils.generateCSharpTypeName(nameParts[1]);
 	}
 
