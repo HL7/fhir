@@ -20,7 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -913,7 +913,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">value or components</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Observation</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Can have value or components but not both</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Must have either a value or components but not both</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">exists(*[starts-with(local-name(.), 'value')])!=exists(f:component)</Data></Cell>
    </Row>
@@ -949,6 +949,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -968,6 +969,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
@@ -1191,7 +1193,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
