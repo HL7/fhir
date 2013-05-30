@@ -76,6 +76,7 @@
 	<Compile Include="Parsers.Support\FhirParser.cs" />
 	<Compile Include="Parsers.Support\BinaryParser.cs" />
     <Compile Include="Serializers.Support\IFhirWriter.cs" />
+	<Compile Include="Serializers.Support\BinarySerializer.cs" />
 	<Compile Include="Serializers.Support\CodeSerializer.cs" />
     <Compile Include="Serializers.Support\JsonFhirWriter.cs" />
     <Compile Include="Serializers.Support\XmlFhirWriter.cs" />
