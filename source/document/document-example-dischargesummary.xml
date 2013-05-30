@@ -48,6 +48,10 @@
                 
                 <section>
                     <code>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="46241-6"/>
+                        </coding>
                         <text value="Reason for admission"/>                      
                     </code>
                     <content>
@@ -71,6 +75,22 @@
                         <reference value="urn:guid:673f8db5-0ffd-4395-9657-6da00420bbc1"/>
                     </content>
                 </section>
+                
+                <!-- Points to the list that groups the allergies -->
+                <section>
+                    <code>
+                        <coding>
+                            <system value="http://loinc.org"/>   
+                            <code value="48765-2"/>
+                        </coding>
+                        <text value="Known allergies"/>                      
+                    </code>
+                    <content>
+                        <type value="List"/>
+                        <reference value="urn:guid:68f86194-e6e1-4f65-b64a-5314256f8d7b"/>
+                    </content>
+                </section>
+                
             </Document>
         </content>
     </entry>
@@ -227,8 +247,13 @@
                     </div>
                 </text>
                 <name>
+                    <coding>
+                        <system value="http://loinc.org"/>
+                        <code value="46241-6"/>
+                    </coding>
                     <text value="Reason for admission"/>
                 </name>
+                <valueString value="Acute Asthmatic attack. Was wheezing for days prior to admission."/>
                 <status value="final"/>
                 <reliability value="ok"/>
             </Observation>
@@ -247,11 +272,25 @@
         <content type="text/xml">
             <List xmlns="http://hl7.org/fhir">
                 <text>
-                    <status value="generated"/>
+                    <status value="additional"/>
                     <div xmlns="http://www.w3.org/1999/xhtml">
-                        <ul>
-                            <li>Theophylline 200mg BD after meals</li>
-                        </ul>
+                        <table>
+                            <thead>
+                                <tr><td>Medication</td><td>Last Change</td><td>Last ChangeReason</td></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Theophylline 200mg BD after meals</td>
+                                    <td>continued</td>
+                                </tr>
+                                <tr>
+                                    <td>Ventolin Inhaler</td>
+                                    <td>stopped</td>
+                                    <td>Getting side effect of tremor</td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
                     </div>
                 </text>
                 <code>
@@ -263,10 +302,41 @@
                     
                 </code>
                 <mode value="working"/>
+                <!-- This is an entry that refers to a MedicationPrescription resource in this document.
+                It is a new medication (as indicated by the flag)-->
                 <entry>
-                    <item>
+                    <flag>                       
+                        <coding>
+                            <!-- The flag refers to the valueset containing permissable codes for changes
+                            to medication status that occurred during this visit. Possible values are started,
+                            continued, stopped, changed-->
+                            <system value="http://www.ithealthboard.health.nz/fhir/valueset/@medicationStatus"/>
+                            <code value="started"/>
+                        </coding>
+                    </flag>
+                    <item>                      
                         <type value="MedicationPrescription"/>
                         <reference value="urn:guid:124a6916-5d84-4b8c-b250-10cefb8e6e86"/>
+                    </item>
+                </entry>
+                
+                <!-- This is an entry that refers to a medicationPrescription that is available on an external server.
+                In practice, you may still want an entry in the document as well, but it's not necessary. The medication
+                was stopped on this admission. Note that the deleted element is also true. Because the resource is
+                no longer active, we assume that it was deleted on the server, so following the link would result 
+                in an http status code of 410 (Though you can always use the history to get previous versions)-->
+                <entry>
+                    <flag>                       
+                        <coding>
+                            <system value="http://www.ithealthboard.health.nz/fhir/valueset/@medicationStatus"/>
+                            <code value="stopped"/>
+                        </coding>
+                    </flag>
+                    <deleted value="true"/>
+                    <item>
+                        <type value="MedicationPrescription"/>
+                        <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/medicationprescription/@1"/>
+                        <display value="use of Ventolin Inhaler was discontinued"></display>
                     </item>
                 </entry>
             </List>
@@ -366,6 +436,158 @@
             </MedicationPrescription>
         </content>
     </entry>
+    
+    
+    
+    <!-- The list of known allergies-->
+    <entry>
+        <title>List of Allergies</title>
+        <id>urn:guid:68f86194-e6e1-4f65-b64a-5314256f8d7b</id>
+        <updated>2013-05-05T16:13:03Z</updated>
+        <author>
+            <name>Dr Dave</name>
+        </author>
+        <category scheme="http://hl7.org/fhir/resource-types" term="List"/>
+        <content type="text/xml">
+            <List xmlns="http://hl7.org/fhir">
+                <text>
+                    <status value="additional"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">
+                        <table>
+                            <thead>
+                                <tr><td>Allergen</td><td>Reaction</td></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Doxycycline</td>
+                                    <td>Hives</td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                    </div>
+                </text>
+                <code>
+                    <coding>
+                        <system value="http://loinc.org"/>   
+                        <code value="48765-2"/>
+                        <display value="Allergies"/>
+                    </coding>
+                    
+                </code>
+                <mode value="working"/>
+                <!-- This is an entry that refers to an allergy resource in this document. -->
+                <entry>
+                    <item>                      
+                        <type value="AllergyIntolerance"/>
+                        <reference value="urn:guid:47600e0f-b6b5-4308-84b5-5dec157f7637"/>
+                    </item>
+                </entry>
+                
+
+            </List>
+            
+        </content>
+    </entry>
+    
+    
+    
+    
+    <!-- The Allergy.-->
+    <entry>
+        <title>Allergy to Doxycycline</title>
+        <id>urn:guid:47600e0f-b6b5-4308-84b5-5dec157f7637</id>       
+        <updated>2013-05-05T16:13:03Z</updated>
+        <author>
+            <name>Dr Dave</name>
+        </author>
+        <category scheme="http://hl7.org/fhir/resource-types" term="Observation"/>
+        <content type="text/xml">
+            <AllergyIntolerance  xmlns="http://hl7.org/fhir">
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">Sensitivity to Doxycycline : Hives</div>
+                </text>
+
+                <criticality value="fatal"/>
+                <sensitivityType value="allergy"/>
+                <recordedDate value="2012-09-17"/>
+                <status value="confirmed"/>
+                <subject>
+                    <type value="Patient"/>
+                    <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1"/>
+                </subject>
+                <substance>
+                    <type value="Substance"/>
+                    <reference value="urn:guid:4c2d16c0-b102-486c-aa7c-b266ce98709f"/>
+                    <display value="Doxycycline"/>
+                </substance>
+                <reactions>
+                    <type value="AdverseReaction"/>                   
+                    <reference value="urn:guid:25be7cdf-7055-40fa-80ac-defd531180dd"/>
+                    <display value="Hives"/>
+                </reactions>
+                
+            </AllergyIntolerance>
+        </content>
+    </entry>
+    
+    <!--  The adverse reaction  -->
+    <entry>
+        <title>Adverse Reaction</title>
+        <id>urn:guid:25be7cdf-7055-40fa-80ac-defd531180dd</id>       
+        <updated>2013-05-05T16:13:03Z</updated>
+        <author>
+            <name>Dr Dave</name>
+        </author>
+        <category scheme="http://hl7.org/fhir/resource-types" term="AdverseReaction"/>
+        <content type="text/xml">
+            <AdverseReaction xmlns="http://hl7.org/fhir">
+                <subject>
+                    <type value="Patient"/>
+                    <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1"/>
+                    <display value="Eve Everywoman"/>
+                </subject>
+                <didNotOccurFlag value="false"/>
+                <symptom>
+                    <code>
+                        <coding>
+                            <system value="sys"/>
+                            <code value="xxx"/>
+                            <display value="Hives"></display>
+                        </coding>
+                        <text value="Hives"/>
+                    </code>
+                </symptom>
+            </AdverseReaction>
+        </content>
+    </entry>
+    
+    <!-- Substance -->
+    <entry>
+        <title>Substance</title>
+        <id>urn:guid:4c2d16c0-b102-486c-aa7c-b266ce98709f</id>       
+        <updated>2013-05-05T16:13:03Z</updated>
+        <author>
+            <name>Dr Dave</name>
+        </author>
+        <category scheme="http://hl7.org/fhir/resource-types" term="Substance"/>
+        <content type="text/xml">
+            <Substance  xmlns="http://hl7.org/fhir">
+                <text>
+                    <status value="generated"></status>
+                    <div xmlns="http://www.w3.org/1999/xhtml">Doxycycline</div>
+                </text>
+                <name value="Doxycycline"/>
+                <type>
+                    <system value="codesys"/>
+                    <code value="123445"/>
+                    <display value="Doxycycline"/>
+                </type>
+            </Substance>
+        </content>
+    </entry>
+    
     
     
     
