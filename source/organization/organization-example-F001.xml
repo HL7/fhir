@@ -2,25 +2,25 @@
 <Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
     <identifier>
         <use value="official"/>
-        <system value="OID 2.16.528.1.1006"/>
+        <system value="urn:oid:2.16.528.1.1006"/>
     </identifier>
     <name value="Academisch Medisch Centrum Amsterdam"/>
     <type>
         <coding>
-            <system value="OID 2.16.840.1.113883.2.4.6.1"/> <!-- VEKTIS AGB-Z  (alternatief OID 2.16.840.1.113883.2.4.6.2 Prismant/SIG code) -->
-            <code value="OID 2.16.528.1.1006"/>
+            <system value="urn:oid:2.16.840.1.113883.2.4.6.1"/> <!-- VEKTIS AGB-Z  (alternatief OID 2.16.840.1.113883.2.4.6.2 Prismant/SIG code) -->
+            <code value="urn:oid:2.16.528.1.1006"/>
             <display value="AMC universiteit Amsterdam"/>
         </coding>       
     </type>
     <!-- 
     <type>
         <coding>
-        <system value="OID 2.16.840.1.113883.2.4.15.1060"/>    (zorgaanbiedertype systeem code) 
+        <system value="urn:oid:2.16.840.1.113883.2.4.15.1060"/>    (zorgaanbiedertype systeem code) 
           <code value="V4"/>
           <display value="ziekenhuis"/>
        </coding>       
     </type> -->
-        <address>
+    <address>
         <use value="home"/>
         <line value="Meibergdreef 9"/>
         <city value="Amsterdam"/>
@@ -32,11 +32,12 @@
         <value value="0205669111"/>
         <use value="home"/>
     </telecom>
-    <accreditation>
+    <active value="true"/>
+    <accreditation> <!-- lastige entity om in te vullen.................... -->
         <identifier>
             <use value="official"/>
-            <system value="OID 2.16.840.1.113883.2.4.6.1"/> <!-- VEKTIS AGB-Z  (alternatief OID 2.16.840.1.113883.2.4.6.2 Prismant/SIG code) -->
-            <key value="????"></key>
+            <system value="urn:oid:2.16.840.1.113883.2.4.6.1"/> <!-- VEKTIS AGB-Z  (alternatief OID 2.16.840.1.113883.2.4.6.2 Prismant/SIG code) -->
+            <key value="????"/>
         </identifier>
         <code>
             <coding>
@@ -45,104 +46,40 @@
                 <display value="???"/>
             </coding>
             <text value="???"/>
-            <!-- <primary value="???"/> -->
         </code>
         <issuer></issuer>
         <period></period>
     </accreditation>
-    <relatedOrganization>
-        <organization>
-            <type value="Organization"/>
-            <url value="http://vumc.nl"/>
-            <display value="VU Medisch Centrum"/>
-        </organization>
-        <relation>
-            <coding>
-                <system value="urn:oid:2.16.840.1.113883.5.110"/>
-                <code value="TERR"/>
-            </coding>
-        </relation>
-    </relatedOrganization>
-    <contactPerson>
+    <contactEntity> <!-- lastige entity om in te vullen.................... -->
         <type>
             <coding>
-                <system></system>
+                <system value="???"></system>
                 <code></code>
                 <display></display>
             </coding>
         </type>
-        <details>
-            <identifier>
-                <use value="official"/>
-                <system value="OID 2.16.840.1.113883.2.4.6.3"/> <!-- BSN identification system -->
-                <!-- key value??? BSN nummer -->
-            </identifier>
-            <name>
-                <use value="usual"/>
-                <family value="De Vucht"/>
-                <given value="Maarten"/>
-                <suffix value="MD"/>
-            </name>
-            <telecom>
-                <system value="phone"/>
-                <value value="0208837462"/>
-                <use value="work"/>
-            </telecom>
-            <telecom>
-                <system value="email"/>
-                <value value="m.vanvucht@gmail.com"/>
-                <use value="work"/>
-            </telecom>
-            <gender>
-                <system value="OID 2.16.840.1.113883.11.1"/> <!-- OID gender =2.16.840.1.113883.11.1 -->
-                <code value="M"/>
-                <display value="Male"/>  
-            </gender>
-            <birthDate value="1963-01-21"/>
-            <deceased value="false"/>
-            <address>
-                <use value="home"/>
-                <line value="Prinsegracht 24"/>
-                <city value="Amsterdam"/>
-                <zip value="1032 HB"/>
-                <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
-            </address>
-            <maritalStatus>
-                <coding>
-                    <system value="OID: 2.16.840.1.113883.5.2"/>
-                    <code value="D"/>
-                    <display value="Divorced"/>
-                </coding>
-                <text value="Divorced"/>
-                <!-- <primary value=""> -->
-            </maritalStatus>
-            <language>
-                <language>
-                    <coding>
-                        <system value="OID 2.16.840.1.113883.6.121"/> <!-- List of ISO 639-1 language codes (ISO 3066) -->
-                        <code value="nl"/>
-                        <display value="Netherlands"/>
-                    </coding>
-                    <text value="Language"/>
-                </language> 
-                <mode>
-                    <coding>
-                        <system value="2.16.840.1.113883.6.60"/> <!-- OID resistry -->
-                        <code value="ESP"/>
-                        <display value="Expressed spoken"/>
-                    </coding>
-                    <text value="Expression"></text>
-                </mode>
-                <proficiencyLevel>
-                    <coding>
-                        <system value="OID 2.16.840.1.113883.5.61"/> <!-- OID resistry -->
-                        <code value="E"/>
-                        <display value="Excellent"/>
-                    </coding>
-                    <text value="skill level"></text>
-                </proficiencyLevel>
-                <preference value="true"/>
-            </language>
-        </details>
-    </contactPerson>
+        <name>
+            <use value="usual"/>
+            <family value="De Vucht"/>
+            <given value="Maarten"/>
+            <suffix value="MD"/>
+        </name>
+        <telecom>
+            <system value="phone"/>
+            <value value="0208837462"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="m.vanvucht@gmail.com"/>
+            <use value="work"/>
+        </telecom>
+        <address>
+             <use value="home"/>
+             <line value="Prinsegracht 24"/>
+             <city value="Amsterdam"/>
+             <zip value="1032 HB"/>
+             <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
+        </address>
+    </contactEntity>
 </Organization>

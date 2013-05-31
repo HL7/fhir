@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
+    <name>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="2339-0"/>
+            <display value="glucose observation from blood system"/>
+        </coding>
+    </name>
+    <value>
+        <value value="6,3"/>
+        <units value=""/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value=""/>
+    </value>
+    <interpretation>
+        <coding>
+            <system value="urn:oid:2.16.840.1.113883.4.642.2.117"/>
+            <code value="A"/>
+            <display value="abnormal"/>
+        </coding>
+    </interpretation>
+    <applies>
+        <start value="2013-04-02T09:30:10+01:00"/>
+        <end value="2013-04-05T09:30:10+01:00"/>
+    </applies>
+    <issued value="2013-04-03T15:30:10+01:00"/>
+    <status value="final"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.7 -->
+    <reliability value="ok"/> <!-- 2.16.840.1.113883.4.642.1.118 -->
+    <bodysite>
+        <coding>
+            <system value="http://snomed.info"/>
+            <code value="308046002"/>
+            <display value="Superficial forearm vein"/>
+        </coding>
+    </bodysite>
+    <observationMethod>
+        <coding>
+            <system value=""/>
+            <code value="120220003"/>
+            <display value="Injection to forearm"/>
+        </coding>
+    </observationMethod>
+    

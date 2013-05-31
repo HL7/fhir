@@ -4,12 +4,12 @@
   <identifier>
     <use value="usual"/>
     <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/> <!-- BSN identification system -->
-    <!-- <key value="738472983"/> -->
+    <key value="738472983"/>
   </identifier>
   <details>
     <identifier>
       <use value="usual"/>
-      <system value="OID 2.16.840.1.113883.2.4.6.3"/> <!-- BSN identification system -->
+      <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/> <!-- BSN identification system -->
     </identifier>
     <name>
       <use value="usual"/>
@@ -28,7 +28,7 @@
       <use value="home"/>
     </telecom>
     <gender>
-      <system value="OID 2.16.840.1.113883.4.642.1.24"/> <!-- OID gender =2.16.840.1.113883.4.642.1.24 -->
+      <system value="urn:oid:2.16.840.1.113883.4.642.1.24"/> <!-- OID gender -->
       <code value="M"/>
       <display value="Male"/>  
     </gender>
@@ -43,12 +43,11 @@
     </address>
     <maritalStatus>
       <coding>
-        <system value="OID: 2.16.840.1.113883.5.2"/>
+        <system value="urn:oid:2.16.840.1.113883.5.2"/>
         <code value="M"/>
         <display value="Married"/>
       </coding>
       <text value="Married"/>
-      <!-- <primary value=""> -->
     </maritalStatus>
     <language>
       <language>
@@ -69,7 +68,7 @@
       </mode>
       <proficiencyLevel>
         <coding>
-          <system value="OID 2.16.840.1.113883.5.61"/> <!-- OID resistry -->
+          <system value="urn:oid:2.16.840.1.113883.5.61"/> <!-- OID resistry -->
           <code value="E"/>
           <display value="Excellent"/>
         </coding>
@@ -81,14 +80,14 @@
   <contact>
     <relationship>
       <coding>
-        <system value="OID 2.16.840.1.114222.4.11.813"/> <!-- OID resistry -->
+        <system value="urn:oid:2.16.840.1.114222.4.11.813"/> <!-- OID resistry -->
         <code value="partner"/>
       </coding>
     </relationship>
     <details>
       <identifier>
         <use value="official"/>
-        <label value="OID 2.16.840.1.113883.2.4.6.3"/> <!-- BSN identification system -->
+        <label value="urn:oid:2.16.840.1.113883.2.4.6.3"/> <!-- BSN identification system -->
       </identifier>
       <name>
         <use value="usual"/>
@@ -106,7 +105,7 @@
         <use value="home"/>
       </telecom>
       <gender>
-        <system value="OID 2.16.840.1.113883.4.642.1.24"/> <!-- OID gender =2.16.840.1.113883.4.642.1.24 -->
+        <system value="urn:oid:2.16.840.1.113883.4.642.1.24"/> <!-- OID gender =2.16.840.1.113883.4.642.1.24 -->
         <code value="F"/>
         <display value="Female"/>  
       </gender>
@@ -121,7 +120,7 @@
       </address>
       <maritalStatus>
         <coding>
-          <system value="OID: 2.16.840.1.113883.5.2"/>
+          <system value="urn:oid:2.16.840.1.113883.5.2"/>
           <code value="M"/>
           <display value="Married"/>
         </coding>
@@ -130,7 +129,7 @@
       <language>
         <language>
           <coding>
-            <system value="OID 2.16.840.1.113883.6.121"/> <!-- List of ISO 639-1 language codes (ISO 3066) -->
+            <system value="urn:oid:2.16.840.1.113883.6.121"/> <!-- List of ISO 639-1 language codes (ISO 3066) -->
             <code value="nl"/>
             <display value="Netherlands"/>
           </coding>
@@ -138,7 +137,7 @@
         </language> 
         <mode>
           <coding>
-            <system value="2.16.840.1.113883.6.60"/> <!-- OID resistry -->
+            <system value="urn:oid:2.16.840.1.113883.6.60"/> <!-- OID resistry -->
             <code value="ESP"/>
             <display value="Expressed spoken"/>
           </coding>
@@ -146,7 +145,7 @@
         </mode>
         <proficiencyLevel>
           <coding>
-            <system value="OID 2.16.840.1.113883.5.61"/> <!-- OID resistry -->
+            <system value="urn:oid:2.16.840.1.113883.5.61"/> <!-- OID resistry -->
             <code value="E"/>
             <display value="Excellent"/>
           </coding>
@@ -156,14 +155,14 @@
       </language>
     </details>
     <organization>
-      <type value="OID 2.16.840.1.113883.2.4"/> <!-- deze moet gekoppeld worden aan een RESOURCE ORGANIZATION -->
-      <url></url>
-      <display value="Stichting HL7"/>
+      <type value="organisation"/> <!-- deze moet gekoppeld worden aan een RESOURCE ORGANIZATION -->
+      <url value="organisation/F001"/>
+      <display value="AMC"/>
     </organization>    
   </contact>
   <provider>
-    <type value="OID 2.16.528.1.1006"/> <!-- deze moet gekoppeld worden aan een RESOURCE ORGANIZATION -->
-    <url></url>
+    <type value="organisation"/> <!-- deze moet gekoppeld worden aan een RESOURCE ORGANIZATION -->
+    <url value="organisation/F001"/>
     <display value="AMC Amsterdam"/>
   </provider>
   <multipleBirthBoolean value="true"/>

@@ -2,14 +2,14 @@
 <Practitioner xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/practitioner.xsd">
     <identifier>
         <use value="official"/>
-        <system value="OID 2.16.528.1.1007.3.1"/> <!-- Identificatiesysteem Zorgverlener UZI -->
+        <system value="urn:oid:2.16.528.1.1007.3.1"/> <!-- Identificatiesysteem Zorgverlener UZI -->
         <key value="938273695"/>
     </identifier>
     <details>
         <identifier>
             <use value="usual"/>
-            <system value="OID 2.16.840.1.113883.2.4.6.3"/> <!-- BSN identification system -->
-            <key value="ZRU4BR513"></key>
+            <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/> <!-- BSN identification system -->
+            <key value="129IDH4OP733"/>
         </identifier>
         <name>
             <use value="official"/>
@@ -33,7 +33,7 @@
             <use value="work"/>
         </telecom>
         <gender>
-            <system value="OID 2.16.840.1.113883.4.642.1.24"/> <!-- OID gender =2.16.840.1.113883.4.642.1.24 -->
+            <system value="urn:oid:2.16.840.1.113883.4.642.1.24"/> <!-- OID gender -->
             <code value="M"/>
             <display value="Male"/>  
         </gender>
@@ -48,17 +48,16 @@
         </address>
         <maritalStatus>
             <coding>
-                <system value="OID: 2.16.840.1.113883.5.2"/>
+                <system value="urn:oid:2.16.840.1.113883.5.2"/>
                 <code value="M"/>
                 <display value="Married"/>
             </coding>
             <text value="Married"/>
-            <!-- <primary value=""> -->
         </maritalStatus>
         <language>
             <language>
                 <coding>
-                    <system value="OID 2.16.840.1.113883.6.121"/> <!-- List of ISO 639-1 language codes (ISO 3066) -->
+                    <system value="urn:oid:2.16.840.1.113883.6.121"/> <!-- List of ISO 639-1 language codes (ISO 3066) -->
                     <code value="nl"/>
                     <display value="Netherlands"/>
                 </coding>
@@ -66,7 +65,7 @@
             </language> 
             <mode>
                 <coding>
-                    <system value="2.16.840.1.113883.6.60"/> <!-- OID resistry -->
+                    <system value="urn:oid:2.16.840.1.113883.6.60"/> <!-- OID resistry -->
                     <code value="ESP"/>
                     <display value="Expressed spoken"/>
                 </coding>
@@ -74,7 +73,7 @@
             </mode>
             <proficiencyLevel>
                 <coding>
-                    <system value="OID 2.16.840.1.113883.5.61"/> <!-- OID resistry -->
+                    <system value="urn:oid:2.16.840.1.113883.5.61"/> <!-- OID resistry -->
                     <code value="E"/>
                     <display value="Excellent"/>
                 </coding>
@@ -84,13 +83,13 @@
         </language>
     </details>
     <organization>
-        <type value="Organization"/> <!-- Linked to a RESOURCE ORGANIZATION -->
-        <url value="organization/@F001" />
+        <type value="organisation"/> <!-- deze moet gekoppeld worden aan een RESOURCE ORGANIZATION -->
+        <url value="organisation/F001"/>
         <display value="AMC"/>
     </organization>
     <role>
     <coding>
-        <system value="OID 2.16.840.1.113883.2.4.15.111"/> <!-- "AssignedRoleType" coding system -->
+        <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/> <!-- "AssignedRoleType" coding system -->
         <code value="01.000"/>
         <display value="Arts"/>
     </coding>
@@ -98,7 +97,7 @@
     </role>
     <specialty>
         <coding>
-            <system value="OID 2.16.840.1.113883.2.4.15.111"/> <!-- "AssignedRoleType" coding system -->
+            <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/> <!-- "AssignedRoleType" coding system -->
             <code value="01.018"/>
             <display value="Keel- neus- en oorarts"/>
         </coding>

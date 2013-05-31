@@ -3,7 +3,7 @@
     <name value="Combivent"/>
     <code>
         <coding>
-            <system value="OID: 2.16.840.1.113883.6.96"/>
+            <system value="http://snomed.info"/>
             <code value="320442002"/> <!-- SNOMED CT classification code -->
             <display value="Salbutamol+ipratropium bromide 100micrograms/20micrograms inhaler"/>
         </coding>
@@ -11,14 +11,14 @@
     <isBrand value="true"/>
     <manufacturer> <!-- Linked to a RESOURCE Organization -->
         <type value="Organisation"/> <!-- OID: 2.16.840.1.113883.4.642.1.4 -->
-        <url></url>
+        <reference value="organisation/F001"/>
         <display value="Eureco-Pharma B.V."/>
     </manufacturer>
-    <kind value="product"/> <!-- OID: 2.16.840.1.113883.4.642.1.110 -->
+    <kind value="product"/> 
     <product>
         <form>
             <coding>
-                <system value="OID: 2.16.840.1.113883.6.96"/>
+                <system value="http://snomed.info"/>
                 <code value="420317006"/> <!-- SNOMED CT classification code -->
                 <display value="Inhaler (qualifier value)"/>
             </coding>
@@ -26,14 +26,14 @@
         <ingredient>
             <item> <!-- Linked to a RESOURCE Medication -->
                 <type value="Medication"/> <!-- OID: 2.16.840.1.113883.4.642.1.4 -->
-                <url></url>
+                <reference value="medication/F00?"/> <!-- deze resource moet naar een Medicatie resource verwijzen -->
                 <display value="Combivent"/>
             </item> 
             <amount>
                 <numerator>
                     <value value="100"/>
                     <units value="ml"/>
-                    <system value="OID=2.16.840.1.113883.6.8"/> <!-- UnitsOfMeasure.org clasification system -->
+                    <system value="http://unitsofmeasure.org"/> <!-- UnitsOfMeasure.org clasification system -->
                     <code value="ml"/>
                 </numerator>
             </amount>
