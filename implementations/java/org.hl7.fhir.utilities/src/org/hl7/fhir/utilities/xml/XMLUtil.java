@@ -34,16 +34,15 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 
-import javax.management.modelmbean.XMLParseException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.w3c.dom.ls.DOMImplementationLS;
+import org.w3c.dom.ls.LSSerializer;
 
 public class XMLUtil {
 
@@ -349,6 +348,16 @@ public class XMLUtil {
     DocumentBuilder builder = factory.newDocumentBuilder();
     Document xdoc = builder.parse(new ByteArrayInputStream(("<div>"+definition+"</div>").getBytes()));
     return htmlToXmlEscapedPlainText(xdoc.getDocumentElement());
+  }
+
+  public static String elementToString(Element el) {
+    if (el == null)
+      return "";
+    Document document = el.getOwnerDocument();
+    DOMImplementationLS domImplLS = (DOMImplementationLS) document
+        .getImplementation();
+    LSSerializer serializer = domImplLS.createLSSerializer();
+    return serializer.writeToString(el);
   }
 	
 }

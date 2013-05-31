@@ -5,29 +5,33 @@
     <div xmlns="http://www.w3.org/1999/xhtml">Application Start for under service login "Grahame" (id: Grahame's Test HL7Connect)</div>
   </text>
   <event>
-    <identifier>
-      <system value="urn:oid:1.2.840.10008.6.1.903"/>
-      <code value="110100"/>
-      <display value="Application Activity"/>
-    </identifier>
+    <eventId>
+      <coding>
+        <system value="urn:oid:1.2.840.10008.6.1.903"/>
+        <code value="110100"/>
+        <display value="Application Activity"/>
+      </coding>
+    </eventId>
+    <code>
+      <coding>
+        <system value="urn:oid:1.2.840.10008.6.1.904"/>
+        <code value="110120"/>
+        <display value="Application Start"/>
+      </coding>
+    </code>
     <action value="E"/>
     <dateTime value="2012-10-25T22:04:27+11:00"/>
     <outcome value="0"/>
-    <code>
-      <system value="urn:oid:1.2.840.10008.6.1.904"/>
-      <code value="110120"/>
-      <display value="Application Start"/>
-    </code>
   </event>
   <participant>
+    <role>
+      <text value="Service User (Logon)"/>
+    </role>
     <userId value="Grahame"/>
     <requestor value="false"/>
-    <role>
-      <display value="Service User (Logon)"/>
-    </role>
     <network>
-      <type value="ip"/>
       <identifier value="127.0.0.1"/>
+      <type value="ip"/>
     </network>
   </participant>
   <source>
@@ -39,14 +43,12 @@
     </type>
   </source>
   <object>
-    <type value="3"/>
+    <idType>
+      <system value="http://nema.org/dicom/dicm"/>
+      <code value="4"/>
+    </idType>
     <role value="4"/>
     <lifecycle value="6"/>
-    <idType>
-      <system value="urn:ietf:rfc:3881"/>
-      <code value="12"/>
-      <display value="URI"/>
-    </idType>
     <identifier value="urn:uuid:{798CF803-C39C-4C7E-A4A5-CEC87EC24162}"/>
     <name value="Grahame's Test HL7Connect"/>
   </object>

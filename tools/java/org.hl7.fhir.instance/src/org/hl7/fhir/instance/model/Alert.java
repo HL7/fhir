@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, May 30, 2013 06:48+1000 for FHIR v0.09
+// Generated on Fri, May 31, 2013 07:30+1000 for FHIR v0.09
 
 /**
  * Prospective warnings of things that should be taken notice of when providing care to the patient
@@ -107,11 +107,6 @@ public class Alert extends Resource {
     private ResourceReference author;
 
     /**
-     * The date that the alert was entered into the system
-     */
-    private Date dateRecorded;
-
-    /**
      * The textual component of the alert to display to the user
      */
     private String_ note;
@@ -156,28 +151,6 @@ public class Alert extends Resource {
 
     public void setAuthor(ResourceReference value) { 
       this.author = value;
-    }
-
-    public Date getDateRecorded() { 
-      return this.dateRecorded;
-    }
-
-    public void setDateRecorded(Date value) { 
-      this.dateRecorded = value;
-    }
-
-    public String getDateRecordedSimple() { 
-      return this.dateRecorded == null ? null : this.dateRecorded.getValue();
-    }
-
-    public void setDateRecordedSimple(String value) { 
-      if (value == null)
-        this.dateRecorded = null;
-      else {
-        if (this.dateRecorded == null)
-          this.dateRecorded = new Date();
-        this.dateRecorded.setValue(value);
-      }
     }
 
     public String_ getNote() { 

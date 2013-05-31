@@ -151,7 +151,7 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
           for (Example e : r.getExamples()) {
             if (id.equals(e.getId()))
               return new ExampleAdornerState(State.Reference, s.getDefinition(), "<a href=\""+e.getFileTitle()+".xml.htm\">", "</a>");
-            if (e.getXml().getDocumentElement().getLocalName().equals("feed")) {
+            if (e.getXml() != null && e.getXml().getDocumentElement().getLocalName().equals("feed")) {
               List<Element> entries = new ArrayList<Element>();
               XMLUtil.getNamedChildren(e.getXml().getDocumentElement(), "entry", entries);
               String url = "http://hl7.org/fhir/"+type.toLowerCase()+"/@"+id;

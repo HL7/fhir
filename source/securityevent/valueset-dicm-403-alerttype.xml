@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+    
+    </div>
+  </text>
+  <identifier value="http://nema.org/dicom/dcid/403"/>
+  <version value="20100826"/>
+  <name value="Security Alert Type Code"/>
+  <publisher value="NEMA/DICOM"/>
+  <description value="Security Alert Type Code"/>
+  <status value="production"/>
+  <date value="2010-08-26"/>
+  <compose>
+    <include>
+      <system value="http://nema.org/dicom/dcid"/>
+      <mode value="code"/>
+      <code value="110126"/>
+      <code value="110127"/>
+      <code value="110128"/>
+      <code value="110129"/>
+      <code value="110130"/>
+      <code value="110131"/>
+      <code value="110132"/>
+      <code value="110133"/>
+      <code value="110134"/>
+      <code value="110135"/>
+      <code value="110136"/>
+      <code value="110137"/>
+      <code value="110138"/>
+      <code value="110139"/>
+      <code value="110140"/>
+      <code value="110141"/>
+      <code value="110142"/>
+    </include>
+  </compose>
+</ValueSet>

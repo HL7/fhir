@@ -114,10 +114,10 @@ public class CCDAConverter {
 			Visit visit = new Visit();
 			for (Element e : cda.getChildren(ee, "id"))
 				visit.getIdentifier().add(convert.makeIdentifierFromII(e));
-			visit.setPeriod(convert.makePeriodFromIVL(cda.getChild(ee, "effectiveTime")));
+			visit.getHospitalization().setPeriod(convert.makePeriodFromIVL(cda.getChild(ee, "effectiveTime")));
 			document.setEvent(document.new DocumentEventComponent());
 			document.getEvent().getCode().add(convert.makeCodeableConceptFromCD(cda.getChild(ee, "code")));
-			document.getEvent().setPeriod(visit.getPeriod());
+			document.getEvent().setPeriod(visit.getHospitalization().getPeriod());
 			document.getEvent().getDetail().add(Factory.makeResourceReference("Visit", addResource(visit, "Encounter", UUID.randomUUID().toString())));			
 		}
 		

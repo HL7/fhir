@@ -411,16 +411,16 @@ public class SpreadsheetParser {
 			}
 			
 			if (cd.getBinding() == Binding.ValueSet && !Utilities.noString(cd.getReference())) {
-			  if (new File(folder+File.separator+cd.getReference()+".xml").exists()) {
+			  if (new File(Utilities.appendSlash(folder)+cd.getReference()+".xml").exists()) {
 			    XmlParser p = new XmlParser();
-			    FileInputStream input = new FileInputStream(folder+File.separator+cd.getReference()+".xml");
+			    FileInputStream input = new FileInputStream(Utilities.appendSlash(folder)+cd.getReference()+".xml");
 	        cd.setReferredValueSet((ValueSet) p.parse(input));
-			  } else if (new File(folder+File.separator+cd.getReference()+".json").exists()) {
+			  } else if (new File(Utilities.appendSlash(folder)+cd.getReference()+".json").exists()) {
 			    JsonParser p = new JsonParser();
-			    FileInputStream input = new FileInputStream(folder+File.separator+cd.getReference()+".json");
+			    FileInputStream input = new FileInputStream(Utilities.appendSlash(folder)+cd.getReference()+".json");
 	        cd.setReferredValueSet((ValueSet) p.parse(input));
 			  } else
-			    throw new Exception("Unable to find source for "+cd.getReference()+" ("+folder+File.separator+cd.getReference()+".xml/json)");
+			    throw new Exception("Unable to find source for "+cd.getReference()+" ("+Utilities.appendSlash(folder)+cd.getReference()+".xml/json)");
 			  
 			}
 			if (definitions.getBindingByName(cd.getName()) != null) {

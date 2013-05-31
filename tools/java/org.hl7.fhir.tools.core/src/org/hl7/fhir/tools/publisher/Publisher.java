@@ -47,14 +47,13 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.imageio.stream.FileImageInputStream;
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
-
-import net.sourceforge.plantuml.golem.Path;
 
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMIResource;
@@ -95,12 +94,16 @@ import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
+import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.CodeSelectionMode;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValuesetStatus;
+import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.tools.implementations.ECoreOclGenerator;
 import org.hl7.fhir.tools.implementations.csharp.CSharpGenerator;
 import org.hl7.fhir.tools.implementations.delphi.DelphiGenerator;
@@ -791,7 +794,6 @@ public class Publisher {
 	      Utilities.copyFile(new CSFile(page.getFolders().imgDir + n),
 	          new CSFile(page.getFolders().dstDir + n));
 
-
 	    profileFeed = new AtomFeed();
 	    profileFeed.setId("http://hl7.org/fhir/profile/resources");
 	    profileFeed.setTitle("Resources as Profiles");
@@ -815,12 +817,20 @@ public class Publisher {
 	      page.getImageMaps().put(n, new DiagramGenerator(page).generateFromSource(n, page.getFolders().srcDir + page.getDefinitions().getDiagrams().get(n)));
 	    }
 
-      generateValueSets();
-      generateCodeSystems();
+      log(" ...vocab");
+      analyseV2();
+      analyseV3();
 	    log(" ...profiles");
+      log(" ...resource ValueSet");
+      generateCodeSystems();
+      ResourceDefn r = page.getDefinitions().getResources().get("ValueSet"); 
+      produceResource1(r);      
+      produceResource2(r);
+      generateValueSets();
 	  }
+	  
 	  for (String rname : page.getDefinitions().sortedResourceNames()) {
-	    if (wantBuild(rname)) {
+	    if (!rname.equals("ValueSet") && wantBuild(rname)) {
 	      ResourceDefn r = page.getDefinitions().getResources().get(rname); 
 	      produceResource1(r);      
 	    }
@@ -829,7 +839,7 @@ public class Publisher {
 	    produceBaseProfile();
 	  }
 	  for (String rname : page.getDefinitions().sortedResourceNames()) {
-	    if (wantBuild(rname)) {
+	    if (!rname.equals("ValueSet") && wantBuild(rname)) {
 	      ResourceDefn r = page.getDefinitions().getResources().get(rname); 
 	      log(" ...resource "+r.getName());
 	      produceResource2(r);
@@ -898,12 +908,185 @@ public class Publisher {
     }
   }
 
-  private void produceV3() throws Exception {
-    log(" ...v3 Code Systems");
+  private static String nodeToString(Element node) throws Exception {
+    StringBuilder b = new StringBuilder();
+    Node n = node.getFirstChild();
+    while (n != null) {
+      if (n.getNodeType() == Node.ELEMENT_NODE) {
+        b.append(nodeToString((Element) n));
+      } else if (n.getNodeType() == Node.TEXT_NODE) {
+        b.append(Utilities.escapeXml(n.getTextContent()));
+      }
+      n = n.getNextSibling();
+    }
+    if (node.getNodeName().equals("p"))
+      b.append("<br/>\r\n");
+    return b.toString();
+  }
+
+  private static String nodeToText(Element node) throws Exception {
+  StringBuilder b = new StringBuilder();
+  Node n = node.getFirstChild();
+  while (n != null) {
+    if (n.getNodeType() == Node.ELEMENT_NODE) {
+      b.append(nodeToText((Element) n));
+    } else if (n.getNodeType() == Node.TEXT_NODE) {
+      b.append(n.getTextContent());
+    }
+    n = n.getNextSibling();
+  }
+  if (node.getNodeName().equals("p"))
+    b.append("\r\n");
+  return b.toString();
+}
+
+  private class CodeInfo {
+    boolean select;
+    String code;
+    String display;
+    String definition;
+    String textDefinition;
+    List<String> parents = new ArrayList<String>();
+    List<CodeInfo> children = new ArrayList<CodeInfo>();
+    public void write(int lvl, StringBuilder s, ValueSet vs, List<ValueSetDefineConceptComponent> list) throws Exception {
+      if (!select && children.size() == 0) 
+        return;
+
+      ValueSetDefineConceptComponent concept = vs.new ValueSetDefineConceptComponent();
+      concept.setCodeSimple(code);
+      concept.setDisplaySimple(display); 
+      concept.setDefinitionSimple(textDefinition);
+      concept.setAbstractSimple(!select);
+      list.add(concept);
+      
+      s.append(" <tr><td>"+Integer.toString(lvl)+"</td><td>");
+      for (int i = 1; i < lvl; i++) 
+        s.append("&nbsp;&nbsp;");
+      if (select) {
+        s.append(Utilities.escapeXml(code)+"</td><td><a name=\""+Utilities.escapeXml(code)+"\">"+Utilities.escapeXml(display)+"</a></td><td>");
+      } else
+        s.append("<font color=\"grey\"><i>("+Utilities.escapeXml(code)+")</i></font></td><td><a name=\""+Utilities.escapeXml(code)+"\">&nbsp;</a></td><td>");
+      if (definition != null)
+        s.append(definition);
+      s.append("</td></tr>\r\n");
+      for (CodeInfo child : children) {
+        child.write(lvl+1, s, vs, concept.getConcept());
+      }
+    }
+  }
+    
+  
+  private ValueSet buildV3Valueset(String id, String date, Element e) throws Exception {
+    StringBuilder s = new StringBuilder();
+    ValueSet vs = new ValueSet();
+    vs.setIdentifierSimple("http://hl7.org/fhir/v3/"+id);
+    vs.setNameSimple("v3 Code System "+id);
+    vs.setPublisherSimple("HL7, Inc");
+    vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org"));
+    vs.setStatusSimple(ValuesetStatus.production);
+    ValueSetDefineComponent def = vs.new ValueSetDefineComponent();
+    vs.setDefine(def);
+    def.setSystemSimple(new URI("http://hl7.org/fhir/v3/"+id));
+        
+    Element r = XMLUtil.getNamedChild(e, "releasedVersion");
+    if (r != null) {
+      s.append("<p>Release Date: "+r.getAttribute("releaseDate")+"</p>\r\n");
+    }
+    r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"), "text");
+    if (r != null) {
+      s.append("<h2>Description</h2>\r\n");
+      s.append("<p>"+nodeToString(r)+"</p>\r\n");
+      s.append("<hr/>\r\n");
+      vs.setDescriptionSimple(XMLUtil.htmlToXmlEscapedPlainText(r));
+    }
+
+    List<CodeInfo> codes = new ArrayList<CodeInfo>();
+    // first, collate all the codes
+    Element c = XMLUtil.getFirstChild(XMLUtil.getNamedChild(e, "releasedVersion"));
+    while (c != null) {
+      if (c.getNodeName().equals("concept")) {
+        CodeInfo ci = new CodeInfo();
+        ci.select = !"false".equals(c.getAttribute("isSelectable"));
+        r = XMLUtil.getNamedChild(c, "code");
+        ci.code = r == null ? null : r.getAttribute("code");
+        r = XMLUtil.getNamedChild(c, "printName");
+        ci.display = r == null ? null : r.getAttribute("text");
+        r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(c, "annotations"), "documentation"), "definition"), "text");
+        ci.definition = r == null ? null : nodeToString(r);
+        ci.textDefinition = r == null ? null : nodeToText(r).trim();
+        List<Element> pl = new ArrayList<Element>();
+        XMLUtil.getNamedChildren(c, "conceptRelationship", pl);
+        for (Element p : pl) {
+          if (p.getAttribute("relationshipName").equals("Specializes"))
+            ci.parents.add(XMLUtil.getFirstChild(p).getAttribute("code"));
+        }
+        if (!"retired".equals(XMLUtil.getNamedChild(c, "code").getAttribute("status")))
+          codes.add(ci);
+      }
+      c = XMLUtil.getNextSibling(c);
+    }
+    
+    // now, organise the heirarchy
+    for (CodeInfo ci : codes) {
+      for (String p : ci.parents) {
+        CodeInfo pi = null;
+        for (CodeInfo cip : codes) {
+          if (cip.code != null && cip.code.equals(p))
+            pi = cip;
+        }
+        if (pi != null)
+          pi.children.add(ci);
+      }
+    }
+    
+    s.append("<table class=\"grid\">\r\n");
+    s.append(" <tr><td><b>Level</b></td><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr>\r\n");
+    for (CodeInfo ci : codes) {
+      if (ci.parents.size() == 0) {
+        ci.write(1, s, vs, def.getConcept());
+      }
+    }
+    s.append("</table>\r\n");
+        
+    vs.setText(new Narrative());
+    vs.getText().setStatusSimple(NarrativeStatus.generated); 
+    vs.getText().setDiv(new XhtmlParser().parse("<div>"+s.toString()+"</div>", "div").getElement("div"));
+    return vs;
+  }
+  
+  private void analyseV3() throws Exception {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     factory.setNamespaceAware(true);
     DocumentBuilder builder = factory.newDocumentBuilder();
     page.setV3src(builder.parse(new CSFileInputStream(new CSFile(page.getFolders().srcDir + "v3"+File.separator+"source.xml"))));
+    String dt = null;
+        
+    Element e = XMLUtil.getFirstChild(page.getV3src().getDocumentElement());
+    while (e != null) {
+      
+      if (e.getNodeName().equals("header")) {
+        Element d = XMLUtil.getNamedChild(e, "renderingInformation");
+        if (d != null)
+          dt = d.getAttribute("renderingTime");          
+      }
+      
+      if (e.getNodeName().equals("codeSystem")) {
+        Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "header"), "responsibleGroup");
+        if (r != null && "Health Level 7".equals(r.getAttribute("organizationName"))) {
+          String id = e.getAttribute("name");
+          AtomEntry ae = new AtomEntry();
+          ae.getLinks().put("self", "v3"+File.separator+id+File.separator+"index.htm");
+          ValueSet vs = buildV3Valueset(id, dt, e);
+          ae.setResource(vs);
+          page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
+        }
+      }
+      e = XMLUtil.getNextSibling(e);
+    }    
+  }
+
+  private void produceV3() throws Exception {
+    log(" ...v3 Code Systems");
     
     Utilities.createDirectory(page.getFolders().dstDir + "v3");
     Utilities.clearDirectory(page.getFolders().dstDir + "v3");
@@ -925,17 +1108,188 @@ public class Publisher {
         }
       }
       e = XMLUtil.getNextSibling(e);
-    }
-    
+    }    
   }
   
-  private void produceV2() throws Exception {
-    log(" ...v2 Tables");
+  private ValueSet buildV2Valueset(String id, Element e) throws Exception {
+    ValueSet vs = new ValueSet();
+    vs.setIdentifierSimple("http://hl7.org/fhir/v2/"+id);
+    vs.setNameSimple("v2 table "+id);
+    vs.setPublisherSimple("HL7, Inc");
+    vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org"));
+    vs.setStatusSimple(ValuesetStatus.production);
+    vs.setDateSimple("2011-01-28"); // v2.7 version
+    ValueSetDefineComponent def = vs.new ValueSetDefineComponent();
+    vs.setDefine(def);
+    def.setSystemSimple(new URI("http://hl7.org/fhir/v2/"+id));
+    StringBuilder s = new StringBuilder();
+       
+    String desc = "";
+    // we use the latest description of the table
+    Element c = XMLUtil.getFirstChild(e);
+    Map<String, String> codes = new HashMap<String, String>();
+    while (c != null) {
+      desc = c.getAttribute("desc");
+      vs.setDescriptionSimple("FHIR Value set/code system definition for HL7 v2 table "+id+" ( "+desc+")");
+
+      Element g = XMLUtil.getFirstChild(c);
+      while (g != null) {
+        codes.put(g.getAttribute("code"), g.getAttribute("desc"));            
+        g = XMLUtil.getNextSibling(g);
+      }
+      c = XMLUtil.getNextSibling(c);
+    }
+    s.append("<p>"+Utilities.escapeXml(desc)+"</p>\r\n");
+    s.append("<table class=\"grid\">\r\n");
+    s.append(" <tr><td><b>Code</b></td><td><b>Description</b></td><td><b>Version</b></td></tr>\r\n");
+    List<String> cs = new ArrayList<String>();
+    cs.addAll(codes.keySet());
+    Collections.sort(cs);
+    for (String cd : cs) {
+      String min = null;
+      String max = null;
+      c = XMLUtil.getFirstChild(e);
+      while (c != null) {
+        Element g = XMLUtil.getFirstChild(c);
+        while (g != null) {
+          if (cd.equals(g.getAttribute("code"))) {
+            if (min == null)
+              min = c.getAttribute("version");
+            max = c.getAttribute("version");
+          }
+          g = XMLUtil.getNextSibling(g);
+        }
+        c = XMLUtil.getNextSibling(c);
+      }
+      String ver = ("2.1".equals(min) ? "from v2.1" : "added v"+min) + ("2.7".equals(max) ? "" : ", removed after v"+max);
+      ValueSetDefineConceptComponent concept = vs.new ValueSetDefineConceptComponent();
+      concept.setCodeSimple(cd);
+      concept.setDisplaySimple(codes.get(cd)); // we deem the v2 description to be display name, not definition. Open for consideration
+      def.getConcept().add(concept);
+      s.append(" <tr><td><a name=\""+Utilities.escapeXml(cd)+"\">"+Utilities.escapeXml(cd)+"</a></td><td>"+Utilities.escapeXml(codes.get(cd))+"</td><td>"+ver+"</td></tr>\r\n");
+    }
+    s.append("</table>\r\n");
+    vs.setText(new Narrative());
+    vs.getText().setStatusSimple(NarrativeStatus.additional); // because we add v2 versioning information
+    vs.getText().setDiv(new XhtmlParser().parse("<div>"+s.toString()+"</div>", "div").getElement("div"));
+    return vs;
+  }
     
+  private ValueSet buildV2ValuesetVersioned(String id, String version, Element e) throws Exception {
+    StringBuilder s = new StringBuilder();
+
+    ValueSet vs = new ValueSet();
+    vs.setIdentifierSimple("http://hl7.org/fhir/v2/"+id+"/"+version);
+    vs.setNameSimple("v2 table "+id+", Version "+version);
+    vs.setPublisherSimple("HL7, Inc");
+    vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org"));
+    vs.setStatusSimple(ValuesetStatus.production);
+    vs.setDateSimple("2011-01-28"); // v2.7 version
+    ValueSetDefineComponent def = vs.new ValueSetDefineComponent();
+    vs.setDefine(def);
+    def.setSystemSimple(new URI("http://hl7.org/fhir/v2/"+id+"/"+version));
+        
+
+        String desc = "";
+        String minlim = null;
+        String maxlim = null;
+        
+        // we use the latest description of the table
+        Element c = XMLUtil.getFirstChild(e);
+        Map<String, String> codes = new HashMap<String, String>();
+        while (c != null) {
+          if (version.equals(c.getAttribute("namespace"))) {
+            if (minlim == null)
+              minlim = c.getAttribute("version");
+            maxlim = c.getAttribute("version");
+            desc = c.getAttribute("desc");
+            vs.setDescriptionSimple("FHIR Value set/code system definition for HL7 v2 table "+id+" ver "+version+" ( "+desc+")");
+            Element g = XMLUtil.getFirstChild(c);
+            while (g != null) {
+              codes.put(g.getAttribute("code"), g.getAttribute("desc"));            
+              g = XMLUtil.getNextSibling(g);
+            }
+          }
+          c = XMLUtil.getNextSibling(c);
+        }
+        
+        s.append("<p>"+Utilities.escapeXml(desc)+"</p>\r\n");
+        s.append("<table class=\"grid\">\r\n");
+        s.append(" <tr><td><b>Code</b></td><td><b>Description</b></td><td><b>Version</b></td></tr>\r\n");
+        List<String> cs = new ArrayList<String>();
+        cs.addAll(codes.keySet());
+        Collections.sort(cs);
+        for (String cd : cs) {
+          String min = null;
+          String max = null;
+          c = XMLUtil.getFirstChild(e);
+          while (c != null) {
+            if (version.equals(c.getAttribute("namespace"))) {
+              Element g = XMLUtil.getFirstChild(c);
+              while (g != null) {
+                if (cd.equals(g.getAttribute("code"))) {
+                  if (min == null)
+                    min = c.getAttribute("version");
+                  max = c.getAttribute("version");
+                }
+                g = XMLUtil.getNextSibling(g);
+              }
+            }
+            c = XMLUtil.getNextSibling(c);
+          }
+          String ver = (minlim.equals(min) ? "from v"+minlim : "added v"+min) + (maxlim.equals(max) ? "" : ", removed after v"+max);
+          ValueSetDefineConceptComponent concept = vs.new ValueSetDefineConceptComponent();
+          concept.setCodeSimple(cd);
+          concept.setDisplaySimple(codes.get(cd)); // we deem the v2 description to be display name, not definition. Open for consideration
+          def.getConcept().add(concept);
+          s.append(" <tr><td><a name=\""+Utilities.escapeXml(cd)+"\">"+Utilities.escapeXml(cd)+"</a></td><td>"+Utilities.escapeXml(codes.get(cd))+"</td><td>"+ver+"</td></tr>\r\n");
+        }
+        s.append("</table>\r\n");
+    vs.setText(new Narrative());
+    vs.getText().setStatusSimple(NarrativeStatus.additional); // because we add v2 versioning information
+    vs.getText().setDiv(new XhtmlParser().parse("<div>"+s.toString()+"</div>", "div").getElement("div"));
+    return vs;
+  }
+  private void analyseV2() throws Exception {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     factory.setNamespaceAware(true);
     DocumentBuilder builder = factory.newDocumentBuilder();
     page.setV2src(builder.parse(new CSFileInputStream(new CSFile(page.getFolders().srcDir + "v2"+File.separator+"source.xml"))));
+    
+    Element e = XMLUtil.getFirstChild(page.getV2src().getDocumentElement());
+    while (e != null) {
+      String st = e.getAttribute("state");
+      if ("include".equals(st)) {
+        String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
+        AtomEntry ae = new AtomEntry();
+        ae.getLinks().put("self", "v2"+File.separator+id+File.separator+"index.htm");
+        ValueSet vs = buildV2Valueset(id, e);
+        ae.setResource(vs);
+        page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
+      } else if ("versioned".equals(st)) {
+        String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
+        List<String> versions = new ArrayList<String>();
+        Element c = XMLUtil.getFirstChild(e);
+        while (c != null) {
+          if (XMLUtil.getFirstChild(c) != null && !versions.contains(c.getAttribute("namespace"))) {
+            versions.add(c.getAttribute("namespace"));
+          }
+          c = XMLUtil.getNextSibling(c);
+        }
+        for (String ver : versions) {
+          AtomEntry ae = new AtomEntry();
+          ae.getLinks().put("self", "v2"+File.separator+id+File.separator+ver+File.separator+"index.htm");
+          ValueSet vs = buildV2ValuesetVersioned(id, ver, e);
+          ae.setResource(vs);
+          page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
+        }        
+      }
+      e = XMLUtil.getNextSibling(e);
+    }
+  }
+
+  private void produceV2() throws Exception {
+    log(" ...v2 Tables");
 
     Utilities.createDirectory(page.getFolders().dstDir + "v2");
     Utilities.clearDirectory(page.getFolders().dstDir + "v2");
@@ -1217,6 +1571,22 @@ public class Publisher {
 		  xmlgen.generate(xdoc.getDocumentElement(), new CSFile(page.getFolders().dstDir + n + ".xml"), "http://hl7.org/fhir", xdoc.getDocumentElement().getLocalName());
 		}
 
+		if (xdoc.getDocumentElement().getLocalName().equals("ValueSet")) {
+		  XmlParser xml = new XmlParser();
+		  ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
+		  if (vs.getDefine() != null) {
+		    AtomEntry ae = new AtomEntry();
+		    ae.getLinks().put("self", n+".htm");
+		    ae.setResource(vs);
+		    page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
+		  }
+		}
+    Element el = xdoc.getDocumentElement();
+    el = XMLUtil.getNamedChild(el, "text");
+    el = XMLUtil.getNamedChild(el, "div");
+    String narrative = XMLUtil.elementToString(el); 
+    
+
 		// generate the json version (use the java reference platform)
     try {
       javaReferencePlatform.convertToJson(page.getFolders().dstDir, page.getFolders().dstDir + n + ".xml", page.getFolders().dstDir + n + ".json");
@@ -1254,6 +1624,15 @@ public class Publisher {
       Utilities.copyFile(new CSFile(page.getFolders().dstDir + n + ".xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + n + "("+e.getId()+").xml"));
 		else
 		  Utilities.copyFile(new CSFile(page.getFolders().dstDir + n + ".xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + n + ".xml"));
+		
+		// now, we create an html page from the narrative
+    head = 
+      "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>"+Utilities.escapeXml(e.getDescription())+"</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
+      "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<p>"+Utilities.escapeXml(e.getDescription())+"</p>\r\n"+
+      "<p><a href=\""+n+".xml\">XML</a> <a href=\""+n+".xml.htm\">(for browser)</a> <a href=\""+n+".json\">JSON</a> <a href=\""+n+".json.htm\">(for browser)</a></p>\r\n";
+    tail = "\r\n</body>\r\n</html>\r\n";
+    TextFile.stringToFile(head+narrative+tail, page.getFolders().dstDir + n + ".htm");
+		
 	}
 
 	private void generateProfile(ResourceDefn root, String n, String xmlSpec, boolean addBase)	throws Exception, FileNotFoundException {
@@ -1827,7 +2206,10 @@ public class Publisher {
     else
       n = name;
     cd.getReferredValueSet().setIdentifierSimple("http://hl7.org/fhir/valuesets/"+n);
-    addToResourceFeed(cd.getReferredValueSet(), n);
+    ValueSet vs = cd.getReferredValueSet();
+    if (vs.getText().getDiv().allChildrenAreText() && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
+      new NarrativeGenerator().generate(vs, page.getCodeSystems());
+    addToResourceFeed(vs, n);
     
     // todo - create the redirect
     TextFile.stringToFile(page.processPageIncludes(cd.getName()+".htm", TextFile.fileToString(page.getFolders().srcDir+"template-vs.htm")), page.getFolders().dstDir+name+".htm");
@@ -1839,9 +2221,9 @@ public class Publisher {
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(page.getFolders().dstDir+name+".xml"), cd.getReferredValueSet(), true);
     cloneToXhtml(name, "Definition for Value Set"+cd.getReferredValueSet().getNameSimple());
-    
-      
   }
+  
+ 
   private void generateCodeSystems() throws Exception {
     log(" ...code lists");
     for (BindingSpecification bs : page.getDefinitions().getBindings().values())
@@ -1892,6 +2274,10 @@ public class Publisher {
       }
     }
     addToResourceFeed(vs, Utilities.fileTitle(filename));
+    AtomEntry e = new AtomEntry();
+    e.setResource(vs);
+    e.getLinks().put("self", Utilities.changeFileExt(filename, ".htm"));
+    page.getCodeSystems().put("http://hl7.org/fhir/"+Utilities.fileTitle(filename), e);
 
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, ".json")), vs);

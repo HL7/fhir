@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, May 30, 2013 06:48+1000 for FHIR v0.09
+// Generated on Fri, May 31, 2013 07:30+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -884,9 +884,9 @@ public class ImagingStudy extends Resource {
         private Oid sopclass;
 
         /**
-         * (dicomDir) (what is this?)
+         * Type of instance (0004,1430)
          */
-        private String_ definition;
+        private String_ type;
 
         /**
          * Description to be provided
@@ -976,25 +976,25 @@ public class ImagingStudy extends Resource {
             this.sopclass.setValue(value);
         }
 
-        public String_ getDefinition() { 
-          return this.definition;
+        public String_ getType() { 
+          return this.type;
         }
 
-        public void setDefinition(String_ value) { 
-          this.definition = value;
+        public void setType(String_ value) { 
+          this.type = value;
         }
 
-        public String getDefinitionSimple() { 
-          return this.definition == null ? null : this.definition.getValue();
+        public String getTypeSimple() { 
+          return this.type == null ? null : this.type.getValue();
         }
 
-        public void setDefinitionSimple(String value) { 
+        public void setTypeSimple(String value) { 
           if (value == null)
-            this.definition = null;
+            this.type = null;
           else {
-            if (this.definition == null)
-              this.definition = new String_();
-            this.definition.setValue(value);
+            if (this.type == null)
+              this.type = new String_();
+            this.type.setValue(value);
           }
         }
 

@@ -35,7 +35,6 @@ import java.util.List;
 
 import org.hl7.fhir.definitions.ecore.fhir.FhirFactory;
 import org.hl7.fhir.definitions.ecore.fhir.SearchParameter;
-import org.hl7.fhir.definitions.ecore.fhir.SearchRepeatMode;
 import org.hl7.fhir.definitions.ecore.fhir.SearchType;
 import org.hl7.fhir.utilities.Utilities;
 
