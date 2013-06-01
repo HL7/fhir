@@ -95,8 +95,14 @@
       <focus value="Patient"/>
       <!-- specify a profile for the request person. Very often there's no point profiling 
         the response, it's not interesting -->
-      <request value="http://fhir.hl7.org/base/profile/@7896271d-57f6-4231-89dc-dcc91eab2416"/>
-      <response value="http://fhir.hl7.org/base/profile/@07b1ad1d-8f6e-4e5b-9219-98758046760e"/>
+      <request>
+        <type value="Profile"/>
+        <reference value="profile/@101"/>
+      </request> 
+      <response>
+        <type value="Profile"/>
+        <reference value="profile/@101"/>
+      </response> 
     </event>
   </messaging>
   
@@ -106,6 +112,9 @@
     <documentation value="Basic rules for all documents in the EHR system"/>
     <!-- this is the important element: a reference to a published document profile 
        note that this is a version specific reference.-->
-    <profile value="http://fhir.hl7.org/base/profile/@bc054d23-75e1-4dc6-aca5-838b6b1ac81d/history/@b5fdd9fc-b021-4ea1-911a-721a60663796"/>
+    <profile>
+      <type value="Profile"/>
+      <reference value="http://fhir.hl7.org/base/profile/@bc054d23-75e1-4dc6-aca5-838b6b1ac81d/history/@b5fdd9fc-b021-4ea1-911a-721a60663796"/>
+    </profile>
   </document>  
 </Conformance>

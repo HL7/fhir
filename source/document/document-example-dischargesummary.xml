@@ -3,7 +3,7 @@
     <title>Discharge Summary</title>
     
     <id>urn:uuid:500bee81-d973-4afe-b592-d39fe71e38</id>
-    <link rel="self" href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1/history"/>
+    <link rel="self" href="urn:guid:180f219f-97a8-486d-99d9-ed631fe4fc52"/>
     <updated>2013-05-28T22:12:21Z</updated>
     
     <author>
@@ -33,7 +33,7 @@
                 </confidentiality>
                 <subject>
                     <type value="Patient"/>
-                    <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1"/>
+                    <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@d1"/>
                     <display value="Eve Everywoman"/>
                 </subject>
                 <author>
@@ -138,8 +138,8 @@
     <!-- The Patient who is the subject of the document. Same coments as practitioner. -->
     <entry>
         <title>About Eve Everywoman</title>
-        <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1</id>
-        <link rel="self" href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1/history/@10"/>
+        <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@d1</id>
+        <link rel="self" href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@d1/history/@10"/>
         
         
         <updated>2013-05-05T16:13:03Z</updated>
@@ -223,7 +223,7 @@
                 </type>
                 <subject>
                     <type value="Patient"/>
-                    <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1"/>
+                    <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@d1"/>
                 </subject>
                 <hospitalization>
                     <period>
@@ -395,7 +395,7 @@
         point to a patient resource on a server-->
                 <patient>
                     <type value="Patient"/>
-                    <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1"/>
+                    <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@d1"/>
                     <display value="Peter Patient"/>
                 </patient>
                 
@@ -525,7 +525,7 @@
                 <status value="confirmed"/>
                 <subject>
                     <type value="Patient"/>
-                    <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1"/>
+                    <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@d1"/>
                     <display value="Eve Everywoman"/>
                 </subject>
                 <substance>
@@ -556,7 +556,7 @@
             <AdverseReaction xmlns="http://hl7.org/fhir">
                 <subject>
                     <type value="Patient"/>
-                    <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1"/>
+                    <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@d1"/>
                     <display value="Eve Everywoman"/>
                 </subject>
                 <didNotOccurFlag value="false"/>

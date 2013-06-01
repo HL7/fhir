@@ -208,7 +208,7 @@
     <Cell ss:Index="14"><Data ss:Type="String">CombinedMedicationRequest</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">MedicationPrescription.externalID</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">MedicationPrescription.identifier</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Identifier</Data></Cell>
@@ -262,7 +262,7 @@
     <Cell ss:Index="13" ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicationPrescription.encounter</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicationPrescription.visit</Data></Cell>
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s70"/>
@@ -500,9 +500,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
+     <ActiveRow>7</ActiveRow>
      <ActiveCol>0</ActiveCol>
-     <RangeSelection>R1:R1048576</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -656,7 +655,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="55" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="54" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Width="116.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
@@ -688,17 +687,10 @@
     <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s81"><Data ss:Type="String">identity</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">identifier</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Return dispenses with this external identity</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">MedicationPrescription.externalID</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="s64"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s81"><Data ss:Type="String">encounter</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Return dispenses with this encounter identity</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">MedicationPrescription.encounter</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">MedicationPrescription.identifier</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -708,6 +700,10 @@
     <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s81"><Data ss:Type="String">visit</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Return dispenses with this encounter identity</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">MedicationPrescription.visit</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -802,7 +798,7 @@
     <Cell ss:Index="4" ss:StyleID="s64"/>
     <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
-   <Row ss:Index="39" ss:AutoFitHeight="0">
+   <Row ss:Index="38" ss:AutoFitHeight="0">
     <Cell ss:Index="4" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -887,8 +883,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>6</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

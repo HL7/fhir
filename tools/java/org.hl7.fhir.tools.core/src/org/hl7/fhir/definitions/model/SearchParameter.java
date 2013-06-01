@@ -81,7 +81,11 @@ public class SearchParameter {
   }
 
   public String getPathSummary() {
-    return paths.toString();
+    StringBuilder b = new StringBuilder();
+    for (String s : paths) {
+      b.append(", "+s);
+    }
+    return b.length() == 0 ? "" : b.toString().substring(2);
   }
   
   
