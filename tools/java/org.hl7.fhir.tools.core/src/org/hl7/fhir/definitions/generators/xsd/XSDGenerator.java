@@ -186,18 +186,14 @@ public class XSDGenerator  {
 	private void generateAny(ElementDefn root, ElementDefn e, String prefix) throws Exception {
 		for (TypeRef t : definitions.getKnownTypes()) {
 			if (!definitions.getInfrastructure().containsKey(t.getName()) && !definitions.getConstraints().containsKey(t.getName())) {
-				String en = prefix != null ? prefix + upFirst(t.getName()) : t.getName();
-				if (t.hasParams()) {
-					for (String p : t.getParams()) {
-						write("       <xs:element name=\""+en+"_"+upFirst(p)+"\" type=\""+t.getName()+"_"+upFirst(p)+"\"/>\r\n");        
-					}
-				} else {
-					//write("       <xs:element name=\""+t.getName()+"\" type=\""+t.getName()+"\"/>\r\n");        
-					write("       <xs:element name=\""+en+"\" type=\""+t.getName()+"\"/>\r\n");
-				}
+			  String en = prefix != null ? prefix + upFirst(t.getName()) : t.getName();
+			  //write("       <xs:element name=\""+t.getName()+"\" type=\""+t.getName()+"\"/>\r\n");        
+			  if (t.getName().equals("ResourceReference"))
+			    write("            <xs:element name=\"" + prefix + "Resource\" type=\"" + t.getName()+ "\"/>\r\n");
+			  else
+			    write("            <xs:element name=\""+en+"\" type=\""+t.getName()+"\"/>\r\n");
 			}
 		}
-		write("       <xs:element name=\""+(prefix == null ? "" : prefix)+"Resource\" type=\"ResourceReference\"/>\r\n");       
 	}
 
 	private void generateElement(ElementDefn root, ElementDefn e) throws Exception {
@@ -218,7 +214,9 @@ public class XSDGenerator  {
 				for (TypeRef t : e.getTypes()) {
 					String tn = encodeType(e, t, true);
 					String n = e.getName().replace("[x]", tn.toUpperCase().substring(0, 1) + tn.substring(1));
-					write("            <xs:element name=\""+n+"\" type=\""+encodeType(e, t, true)+"\"/>\r\n");
+					if (t.getName().equals("Resource"))
+ 	          n = e.getName().replace("[x]", "Resource");
+  			  write("            <xs:element name=\""+n+"\" type=\""+encodeType(e, t, true)+"\"/>\r\n");
 				}
 			write("          </xs:choice>\r\n");
 		} else {

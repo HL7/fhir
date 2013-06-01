@@ -125,6 +125,8 @@ public class SpreadsheetParser {
 		    log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" has no context");
 		  else {
 		    ElementDefn ed = findContext(resource.getRoot(), inv.getContext(), "Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" Context");
+		    if (ed.getName().endsWith("[x]") && !inv.getContext().endsWith("[x]"))
+		      inv.setFixedName(inv.getContext().substring(inv.getContext().lastIndexOf(".")+1));
 		    ed.getInvariants().put(inv.getId(), inv);
 		    if (Utilities.noString(inv.getXpath()))
 	        log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no XPath statement");

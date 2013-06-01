@@ -3,11 +3,11 @@
 
   <extension>
     <url value="http://hl7.org/fhir/example-do-not-use#Patient.picture"/>
-    <valueResourceReference>
+    <valueResource>
       <type value="Binary"/>
       <reference value="#pic1"/>
       <display value="Duck image"/>
-    </valueResourceReference>
+    </valueResource>
   </extension>
 
   <text>

@@ -89,9 +89,10 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     
     for (ElementDefn n : definitions.getTypes().values()) {
       generate(n, JavaGenClass.Type);
-      regt.append("    else if (json.has(prefix+\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(json.getJSONObject(prefix+\""+n.getName()+"\"));\r\n");
+      String an = n.getName().equals("ResourceReference") ? "Resource" : n.getName();
+      regt.append("    else if (json.has(prefix+\""+an+"\"))\r\n      return parse"+n.getName()+"(json.getJSONObject(prefix+\""+an+"\"));\r\n");
       regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
-      regn.append("    if (json.has(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
+      regn.append("    if (json.has(prefix+\""+an+"\"))\r\n      return true;\r\n");
     }
 
     for (DefinedCode n : definitions.getConstraints().values()) {

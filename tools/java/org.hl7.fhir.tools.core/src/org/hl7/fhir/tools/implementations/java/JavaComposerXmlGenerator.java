@@ -102,7 +102,10 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
       } else {
         generate(n, JavaGenClass.Type);
         String nn = javaClassName(n.getName());
-        regtn.append("    else if (type instanceof "+nn+")\r\n       compose"+nn+"(prefix+\""+n.getName()+"\", ("+nn+") type);\r\n");
+        if (nn.equals("ResourceReference"))
+          regtn.append("    else if (type instanceof "+nn+")\r\n       compose"+nn+"(prefix+\"Resource\", ("+nn+") type);\r\n");
+        else
+          regtn.append("    else if (type instanceof "+nn+")\r\n       compose"+nn+"(prefix+\""+n.getName()+"\", ("+nn+") type);\r\n");
 //        regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
       }
     }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, May 31, 2013 07:30+1000 for FHIR v0.09
+// Generated on Sat, Jun 1, 2013 09:23+1000 for FHIR v0.09
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -3769,26 +3769,36 @@ public class JsonParser extends JsonParserBase {
   private SecurityEvent.SecurityEventEventComponent parseSecurityEventSecurityEventEventComponent(JSONObject json, SecurityEvent owner) throws Exception {
     SecurityEvent.SecurityEventEventComponent res = owner.new SecurityEventEventComponent();
     parseElementProperties(json, res);
-    if (json.has("identifier"))
-      res.setIdentifier(parseCoding(json.getJSONObject("identifier")));
-    if (json.has("action"))
-      res.setAction(parseEnumeration(json.getJSONObject("action"), SecurityEvent.SecurityEventEventAction.Null, new SecurityEvent().new SecurityEventEventActionEnumFactory()));
-    if (json.has("dateTime"))
-      res.setDateTime(parseInstant(json.getJSONObject("dateTime")));
-    if (json.has("outcome"))
-      res.setOutcome(parseEnumeration(json.getJSONObject("outcome"), SecurityEvent.SecurityEventEventOutcome.Null, new SecurityEvent().new SecurityEventEventOutcomeEnumFactory()));
+    if (json.has("eventId"))
+      res.setEventId(parseCodeableConcept(json.getJSONObject("eventId")));
     if (json.has("code")) {
       JSONArray array = json.getJSONArray("code");
       for (int i = 0; i < array.length(); i++) {
-        res.getCode().add(parseCoding(array.getJSONObject(i)));
+        res.getCode().add(parseCodeableConcept(array.getJSONObject(i)));
       }
     };
+    if (json.has("action"))
+      res.setAction(parseEnumeration(json.getJSONObject("action"), SecurityEvent.SecurityEventAction.Null, new SecurityEvent().new SecurityEventActionEnumFactory()));
+    if (json.has("dateTime"))
+      res.setDateTime(parseInstant(json.getJSONObject("dateTime")));
+    if (json.has("outcome"))
+      res.setOutcome(parseEnumeration(json.getJSONObject("outcome"), SecurityEvent.SecurityEventOutcome.Null, new SecurityEvent().new SecurityEventOutcomeEnumFactory()));
+    if (json.has("outcomeDesc"))
+      res.setOutcomeDesc(parseString(json.getJSONObject("outcomeDesc")));
     return res;
   }
 
   private SecurityEvent.SecurityEventParticipantComponent parseSecurityEventSecurityEventParticipantComponent(JSONObject json, SecurityEvent owner) throws Exception {
     SecurityEvent.SecurityEventParticipantComponent res = owner.new SecurityEventParticipantComponent();
     parseElementProperties(json, res);
+    if (json.has("role")) {
+      JSONArray array = json.getJSONArray("role");
+      for (int i = 0; i < array.length(); i++) {
+        res.getRole().add(parseCodeableConcept(array.getJSONObject(i)));
+      }
+    };
+    if (json.has("mediaId"))
+      res.setMediaId(parseCodeableConcept(json.getJSONObject("mediaId")));
     if (json.has("userId"))
       res.setUserId(parseString(json.getJSONObject("userId")));
     if (json.has("otherUserId"))
@@ -3797,14 +3807,6 @@ public class JsonParser extends JsonParserBase {
       res.setName(parseString(json.getJSONObject("name")));
     if (json.has("requestor"))
       res.setRequestor(parseBoolean(json.getJSONObject("requestor")));
-    if (json.has("role")) {
-      JSONArray array = json.getJSONArray("role");
-      for (int i = 0; i < array.length(); i++) {
-        res.getRole().add(parseCoding(array.getJSONObject(i)));
-      }
-    };
-    if (json.has("mediaId"))
-      res.setMediaId(parseCodeableConcept(json.getJSONObject("mediaId")));
     if (json.has("network"))
       res.setNetwork(parseSecurityEventSecurityEventParticipantNetworkComponent(json.getJSONObject("network"), owner));
     return res;
@@ -3813,10 +3815,10 @@ public class JsonParser extends JsonParserBase {
   private SecurityEvent.SecurityEventParticipantNetworkComponent parseSecurityEventSecurityEventParticipantNetworkComponent(JSONObject json, SecurityEvent owner) throws Exception {
     SecurityEvent.SecurityEventParticipantNetworkComponent res = owner.new SecurityEventParticipantNetworkComponent();
     parseElementProperties(json, res);
-    if (json.has("type"))
-      res.setType(parseEnumeration(json.getJSONObject("type"), SecurityEvent.NetworkType.Null, new SecurityEvent().new NetworkTypeEnumFactory()));
     if (json.has("identifier"))
       res.setIdentifier(parseString(json.getJSONObject("identifier")));
+    if (json.has("type"))
+      res.setType(parseEnumeration(json.getJSONObject("type"), SecurityEvent.NetworkType.Null, new SecurityEvent().new NetworkTypeEnumFactory()));
     return res;
   }
 
@@ -3839,14 +3841,14 @@ public class JsonParser extends JsonParserBase {
   private SecurityEvent.SecurityEventObjectComponent parseSecurityEventSecurityEventObjectComponent(JSONObject json, SecurityEvent owner) throws Exception {
     SecurityEvent.SecurityEventObjectComponent res = owner.new SecurityEventObjectComponent();
     parseElementProperties(json, res);
+    if (json.has("idType"))
+      res.setIdType(parseCoding(json.getJSONObject("idType")));
     if (json.has("type"))
       res.setType(parseEnumeration(json.getJSONObject("type"), SecurityEvent.ObjectType.Null, new SecurityEvent().new ObjectTypeEnumFactory()));
     if (json.has("role"))
       res.setRole(parseEnumeration(json.getJSONObject("role"), SecurityEvent.ObjectRole.Null, new SecurityEvent().new ObjectRoleEnumFactory()));
     if (json.has("lifecycle"))
       res.setLifecycle(parseEnumeration(json.getJSONObject("lifecycle"), SecurityEvent.ObjectLifecycle.Null, new SecurityEvent().new ObjectLifecycleEnumFactory()));
-    if (json.has("idType"))
-      res.setIdType(parseCoding(json.getJSONObject("idType")));
     if (json.has("identifier"))
       res.setIdentifier(parseString(json.getJSONObject("identifier")));
     if (json.has("sensitivity"))
@@ -3855,6 +3857,22 @@ public class JsonParser extends JsonParserBase {
       res.setName(parseString(json.getJSONObject("name")));
     if (json.has("query"))
       res.setQuery(parseBase64Binary(json.getJSONObject("query")));
+    if (json.has("details")) {
+      JSONArray array = json.getJSONArray("details");
+      for (int i = 0; i < array.length(); i++) {
+        res.getDetails().add(parseSecurityEventSecurityEventObjectDetailsComponent(array.getJSONObject(i), owner));
+      }
+    };
+    return res;
+  }
+
+  private SecurityEvent.SecurityEventObjectDetailsComponent parseSecurityEventSecurityEventObjectDetailsComponent(JSONObject json, SecurityEvent owner) throws Exception {
+    SecurityEvent.SecurityEventObjectDetailsComponent res = owner.new SecurityEventObjectDetailsComponent();
+    parseElementProperties(json, res);
+    if (json.has("type"))
+      res.setType(parseString(json.getJSONObject("type")));
+    if (json.has("value"))
+      res.setValue(parseBase64Binary(json.getJSONObject("value")));
     return res;
   }
 
@@ -4275,8 +4293,8 @@ public class JsonParser extends JsonParserBase {
       return parseRatio(json.getJSONObject(prefix+"Ratio"));
     else if (json.has(prefix+"Array"))
       return parseArray(json.getJSONObject(prefix+"Array"));
-    else if (json.has(prefix+"ResourceReference"))
-      return parseResourceReference(json.getJSONObject(prefix+"ResourceReference"));
+    else if (json.has(prefix+"Resource"))
+      return parseResourceReference(json.getJSONObject(prefix+"Resource"));
     else if (json.has(prefix+"CodeableConcept"))
       return parseCodeableConcept(json.getJSONObject(prefix+"CodeableConcept"));
     else if (json.has(prefix+"Identifier"))
@@ -4347,7 +4365,7 @@ public class JsonParser extends JsonParserBase {
       return true;
     if (json.has(prefix+"Array"))
       return true;
-    if (json.has(prefix+"ResourceReference"))
+    if (json.has(prefix+"Resource"))
       return true;
     if (json.has(prefix+"CodeableConcept"))
       return true;

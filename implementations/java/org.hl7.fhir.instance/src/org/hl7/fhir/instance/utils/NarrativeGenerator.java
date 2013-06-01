@@ -61,7 +61,7 @@ public class NarrativeGenerator {
   private void addDefineRowToTable(XhtmlNode t, ValueSetDefineConceptComponent c, int i) {
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
-    String s = Utilities.padLeft("", (char) 160, i*2);
+    String s = Utilities.padLeft("", '.', i*2);
     td.addText(s+c.getCodeSimple());
     td = tr.addTag("td");
     td.addText(c.getDisplaySimple());

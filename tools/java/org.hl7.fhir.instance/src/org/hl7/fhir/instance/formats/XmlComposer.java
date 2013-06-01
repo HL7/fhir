@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, May 31, 2013 07:30+1000 for FHIR v0.09
+// Generated on Sat, Jun 1, 2013 09:23+1000 for FHIR v0.09
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -2930,14 +2930,15 @@ public class XmlComposer extends XmlComposerBase {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeElementElements(element);
-      composeCoding("identifier", element.getIdentifier());
+      composeCodeableConcept("eventId", element.getEventId());
+      for (CodeableConcept e : element.getCode()) 
+        composeCodeableConcept("code", e);
       if (element.getAction() != null)
-        composeEnumeration("action", element.getAction(), new SecurityEvent().new SecurityEventEventActionEnumFactory());
+        composeEnumeration("action", element.getAction(), new SecurityEvent().new SecurityEventActionEnumFactory());
       composeInstant("dateTime", element.getDateTime());
       if (element.getOutcome() != null)
-        composeEnumeration("outcome", element.getOutcome(), new SecurityEvent().new SecurityEventEventOutcomeEnumFactory());
-      for (Coding e : element.getCode()) 
-        composeCoding("code", e);
+        composeEnumeration("outcome", element.getOutcome(), new SecurityEvent().new SecurityEventOutcomeEnumFactory());
+      composeString("outcomeDesc", element.getOutcomeDesc());
       xml.close(FHIR_NS, name);
     }
   }
@@ -2947,13 +2948,13 @@ public class XmlComposer extends XmlComposerBase {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeElementElements(element);
+      for (CodeableConcept e : element.getRole()) 
+        composeCodeableConcept("role", e);
+      composeCodeableConcept("mediaId", element.getMediaId());
       composeString("userId", element.getUserId());
       composeString("otherUserId", element.getOtherUserId());
       composeString("name", element.getName());
       composeBoolean("requestor", element.getRequestor());
-      for (Coding e : element.getRole()) 
-        composeCoding("role", e);
-      composeCodeableConcept("mediaId", element.getMediaId());
       composeSecurityEventSecurityEventParticipantNetworkComponent("network", element.getNetwork());
       xml.close(FHIR_NS, name);
     }
@@ -2964,9 +2965,9 @@ public class XmlComposer extends XmlComposerBase {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeElementElements(element);
+      composeString("identifier", element.getIdentifier());
       if (element.getType() != null)
         composeEnumeration("type", element.getType(), new SecurityEvent().new NetworkTypeEnumFactory());
-      composeString("identifier", element.getIdentifier());
       xml.close(FHIR_NS, name);
     }
   }
@@ -2989,17 +2990,30 @@ public class XmlComposer extends XmlComposerBase {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeElementElements(element);
+      composeCoding("idType", element.getIdType());
       if (element.getType() != null)
         composeEnumeration("type", element.getType(), new SecurityEvent().new ObjectTypeEnumFactory());
       if (element.getRole() != null)
         composeEnumeration("role", element.getRole(), new SecurityEvent().new ObjectRoleEnumFactory());
       if (element.getLifecycle() != null)
         composeEnumeration("lifecycle", element.getLifecycle(), new SecurityEvent().new ObjectLifecycleEnumFactory());
-      composeCoding("idType", element.getIdType());
       composeString("identifier", element.getIdentifier());
       composeString("sensitivity", element.getSensitivity());
       composeString("name", element.getName());
       composeBase64Binary("query", element.getQuery());
+      for (SecurityEvent.SecurityEventObjectDetailsComponent e : element.getDetails()) 
+        composeSecurityEventSecurityEventObjectDetailsComponent("details", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeSecurityEventSecurityEventObjectDetailsComponent(String name, SecurityEvent.SecurityEventObjectDetailsComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeElementElements(element);
+      composeString("type", element.getType());
+      composeBase64Binary("value", element.getValue());
       xml.close(FHIR_NS, name);
     }
   }
@@ -3363,7 +3377,7 @@ public class XmlComposer extends XmlComposerBase {
     else if (type instanceof Array)
        composeArray(prefix+"Array", (Array) type);
     else if (type instanceof ResourceReference)
-       composeResourceReference(prefix+"ResourceReference", (ResourceReference) type);
+       composeResourceReference(prefix+"Resource", (ResourceReference) type);
     else if (type instanceof CodeableConcept)
        composeCodeableConcept(prefix+"CodeableConcept", (CodeableConcept) type);
     else if (type instanceof Identifier)

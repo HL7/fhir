@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, May 31, 2013 07:30+1000 for FHIR v0.09
+// Generated on Sat, Jun 1, 2013 09:23+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -38,14 +38,14 @@ import java.util.*;
  */
 public class SecurityEvent extends Resource {
 
-    public enum SecurityEventEventAction {
-        C, // Create
-        R, // Read/View/Print/Query
-        U, // Update
-        D, // Delete
-        E, // Execute
+    public enum SecurityEventAction {
+        C, // Create a new database object, such as Placing an Order.
+        R, // Display or print data, such as a Doctor Census
+        U, // Update data, such as Revise Patient Information
+        D, // Delete items, such as a doctor master file record
+        E, // Perform a system or application function such as log-on, program execution or use of an object's method
         Null; // added to help the parsers
-        public static SecurityEventEventAction fromCode(String codeString) throws Exception {
+        public static SecurityEventAction fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("C".equals(codeString))
@@ -58,7 +58,7 @@ public class SecurityEvent extends Resource {
           return D;
         if ("E".equals(codeString))
           return E;
-        throw new Exception("Unknown SecurityEventEventAction code '"+codeString+"'");
+        throw new Exception("Unknown SecurityEventAction code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -72,45 +72,45 @@ public class SecurityEvent extends Resource {
         }
     }
 
-  public class SecurityEventEventActionEnumFactory implements EnumFactory {
+  public class SecurityEventActionEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("C".equals(codeString))
-          return SecurityEventEventAction.C;
+          return SecurityEventAction.C;
         if ("R".equals(codeString))
-          return SecurityEventEventAction.R;
+          return SecurityEventAction.R;
         if ("U".equals(codeString))
-          return SecurityEventEventAction.U;
+          return SecurityEventAction.U;
         if ("D".equals(codeString))
-          return SecurityEventEventAction.D;
+          return SecurityEventAction.D;
         if ("E".equals(codeString))
-          return SecurityEventEventAction.E;
-        throw new Exception("Unknown SecurityEventEventAction code '"+codeString+"'");
+          return SecurityEventAction.E;
+        throw new Exception("Unknown SecurityEventAction code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == SecurityEventEventAction.C)
+      if (code == SecurityEventAction.C)
         return "C";
-      if (code == SecurityEventEventAction.R)
+      if (code == SecurityEventAction.R)
         return "R";
-      if (code == SecurityEventEventAction.U)
+      if (code == SecurityEventAction.U)
         return "U";
-      if (code == SecurityEventEventAction.D)
+      if (code == SecurityEventAction.D)
         return "D";
-      if (code == SecurityEventEventAction.E)
+      if (code == SecurityEventAction.E)
         return "E";
       return "?";
       }
     }
 
-    public enum SecurityEventEventOutcome {
+    public enum SecurityEventOutcome {
         _0, // Success
         _4, // Minor failure
         _8, // Serious failure
         _12, // Major failure
         Null; // added to help the parsers
-        public static SecurityEventEventOutcome fromCode(String codeString) throws Exception {
+        public static SecurityEventOutcome fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("0".equals(codeString))
@@ -121,7 +121,7 @@ public class SecurityEvent extends Resource {
           return _8;
         if ("12".equals(codeString))
           return _12;
-        throw new Exception("Unknown SecurityEventEventOutcome code '"+codeString+"'");
+        throw new Exception("Unknown SecurityEventOutcome code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -134,29 +134,29 @@ public class SecurityEvent extends Resource {
         }
     }
 
-  public class SecurityEventEventOutcomeEnumFactory implements EnumFactory {
+  public class SecurityEventOutcomeEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("0".equals(codeString))
-          return SecurityEventEventOutcome._0;
+          return SecurityEventOutcome._0;
         if ("4".equals(codeString))
-          return SecurityEventEventOutcome._4;
+          return SecurityEventOutcome._4;
         if ("8".equals(codeString))
-          return SecurityEventEventOutcome._8;
+          return SecurityEventOutcome._8;
         if ("12".equals(codeString))
-          return SecurityEventEventOutcome._12;
-        throw new Exception("Unknown SecurityEventEventOutcome code '"+codeString+"'");
+          return SecurityEventOutcome._12;
+        throw new Exception("Unknown SecurityEventOutcome code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == SecurityEventEventOutcome._0)
+      if (code == SecurityEventOutcome._0)
         return "0";
-      if (code == SecurityEventEventOutcome._4)
+      if (code == SecurityEventOutcome._4)
         return "4";
-      if (code == SecurityEventEventOutcome._8)
+      if (code == SecurityEventOutcome._8)
         return "8";
-      if (code == SecurityEventEventOutcome._12)
+      if (code == SecurityEventOutcome._12)
         return "12";
       return "?";
       }
@@ -166,6 +166,8 @@ public class SecurityEvent extends Resource {
         name, // Machine Name, including DNS name
         ip, // IP Address
         phone, // Telephone Number
+        email, // Email address
+        uri, // URI (User directory, HTTP-PUT, ftp, etc.)
         Null; // added to help the parsers
         public static NetworkType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -176,6 +178,10 @@ public class SecurityEvent extends Resource {
           return ip;
         if ("phone".equals(codeString))
           return phone;
+        if ("email".equals(codeString))
+          return email;
+        if ("uri".equals(codeString))
+          return uri;
         throw new Exception("Unknown NetworkType code '"+codeString+"'");
         }
         public String toCode() {
@@ -183,6 +189,8 @@ public class SecurityEvent extends Resource {
             case name: return "name";
             case ip: return "ip";
             case phone: return "phone";
+            case email: return "email";
+            case uri: return "uri";
             default: return "?";
           }
         }
@@ -199,6 +207,10 @@ public class SecurityEvent extends Resource {
           return NetworkType.ip;
         if ("phone".equals(codeString))
           return NetworkType.phone;
+        if ("email".equals(codeString))
+          return NetworkType.email;
+        if ("uri".equals(codeString))
+          return NetworkType.uri;
         throw new Exception("Unknown NetworkType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -208,6 +220,10 @@ public class SecurityEvent extends Resource {
         return "ip";
       if (code == NetworkType.phone)
         return "phone";
+      if (code == NetworkType.email)
+        return "email";
+      if (code == NetworkType.uri)
+        return "uri";
       return "?";
       }
     }
@@ -638,12 +654,17 @@ public class SecurityEvent extends Resource {
         /**
          * Identifier for a specific audited event
          */
-        private Coding identifier;
+        private CodeableConcept eventId;
+
+        /**
+         * Identifier for the category of event
+         */
+        private List<CodeableConcept> code = new ArrayList<CodeableConcept>();
 
         /**
          * Indicator for type of action performed during the event that generated the audit
          */
-        private Enumeration<SecurityEventEventAction> action;
+        private Enumeration<SecurityEventAction> action;
 
         /**
          * The time when the event occurred on the source
@@ -653,39 +674,43 @@ public class SecurityEvent extends Resource {
         /**
          * Indicates whether the event succeeded or failed
          */
-        private Enumeration<SecurityEventEventOutcome> outcome;
+        private Enumeration<SecurityEventOutcome> outcome;
 
         /**
-         * Identifier for the category of event
+         * A description of the event outcome
          */
-        private List<Coding> code = new ArrayList<Coding>();
+        private String_ outcomeDesc;
 
-        public Coding getIdentifier() { 
-          return this.identifier;
+        public CodeableConcept getEventId() { 
+          return this.eventId;
         }
 
-        public void setIdentifier(Coding value) { 
-          this.identifier = value;
+        public void setEventId(CodeableConcept value) { 
+          this.eventId = value;
         }
 
-        public Enumeration<SecurityEventEventAction> getAction() { 
+        public List<CodeableConcept> getCode() { 
+          return this.code;
+        }
+
+        public Enumeration<SecurityEventAction> getAction() { 
           return this.action;
         }
 
-        public void setAction(Enumeration<SecurityEventEventAction> value) { 
+        public void setAction(Enumeration<SecurityEventAction> value) { 
           this.action = value;
         }
 
-        public SecurityEventEventAction getActionSimple() { 
+        public SecurityEventAction getActionSimple() { 
           return this.action == null ? null : this.action.getValue();
         }
 
-        public void setActionSimple(SecurityEventEventAction value) { 
+        public void setActionSimple(SecurityEventAction value) { 
           if (value == null)
             this.action = null;
           else {
             if (this.action == null)
-              this.action = new Enumeration<SecurityEventEventAction>();
+              this.action = new Enumeration<SecurityEventAction>();
             this.action.setValue(value);
           }
         }
@@ -708,31 +733,59 @@ public class SecurityEvent extends Resource {
             this.dateTime.setValue(value);
         }
 
-        public Enumeration<SecurityEventEventOutcome> getOutcome() { 
+        public Enumeration<SecurityEventOutcome> getOutcome() { 
           return this.outcome;
         }
 
-        public void setOutcome(Enumeration<SecurityEventEventOutcome> value) { 
+        public void setOutcome(Enumeration<SecurityEventOutcome> value) { 
           this.outcome = value;
         }
 
-        public SecurityEventEventOutcome getOutcomeSimple() { 
+        public SecurityEventOutcome getOutcomeSimple() { 
           return this.outcome == null ? null : this.outcome.getValue();
         }
 
-        public void setOutcomeSimple(SecurityEventEventOutcome value) { 
+        public void setOutcomeSimple(SecurityEventOutcome value) { 
             if (this.outcome == null)
-              this.outcome = new Enumeration<SecurityEventEventOutcome>();
+              this.outcome = new Enumeration<SecurityEventOutcome>();
             this.outcome.setValue(value);
         }
 
-        public List<Coding> getCode() { 
-          return this.code;
+        public String_ getOutcomeDesc() { 
+          return this.outcomeDesc;
+        }
+
+        public void setOutcomeDesc(String_ value) { 
+          this.outcomeDesc = value;
+        }
+
+        public String getOutcomeDescSimple() { 
+          return this.outcomeDesc == null ? null : this.outcomeDesc.getValue();
+        }
+
+        public void setOutcomeDescSimple(String value) { 
+          if (value == null)
+            this.outcomeDesc = null;
+          else {
+            if (this.outcomeDesc == null)
+              this.outcomeDesc = new String_();
+            this.outcomeDesc.setValue(value);
+          }
         }
 
   }
 
     public class SecurityEventParticipantComponent extends Element {
+        /**
+         * Specification of the role(s) the user plays when performing the event, as assigned in role-based access control security
+         */
+        private List<CodeableConcept> role = new ArrayList<CodeableConcept>();
+
+        /**
+         * Used when the event is about exporting/importing onto media
+         */
+        private CodeableConcept mediaId;
+
         /**
          * Unique identifier for the user actively participating in the event
          */
@@ -754,19 +807,21 @@ public class SecurityEvent extends Resource {
         private Boolean requestor;
 
         /**
-         * Specification of the role(s) the user plays when performing the event, as assigned in role-based access control security
-         */
-        private List<Coding> role = new ArrayList<Coding>();
-
-        /**
-         * Used when the event is about exporting/importing onto media
-         */
-        private CodeableConcept mediaId;
-
-        /**
          * Logical network location for application activity, if the activity has a network location
          */
         private SecurityEventParticipantNetworkComponent network;
+
+        public List<CodeableConcept> getRole() { 
+          return this.role;
+        }
+
+        public CodeableConcept getMediaId() { 
+          return this.mediaId;
+        }
+
+        public void setMediaId(CodeableConcept value) { 
+          this.mediaId = value;
+        }
 
         public String_ getUserId() { 
           return this.userId;
@@ -848,18 +903,6 @@ public class SecurityEvent extends Resource {
             this.requestor.setValue(value);
         }
 
-        public List<Coding> getRole() { 
-          return this.role;
-        }
-
-        public CodeableConcept getMediaId() { 
-          return this.mediaId;
-        }
-
-        public void setMediaId(CodeableConcept value) { 
-          this.mediaId = value;
-        }
-
         public SecurityEventParticipantNetworkComponent getNetwork() { 
           return this.network;
         }
@@ -872,36 +915,14 @@ public class SecurityEvent extends Resource {
 
     public class SecurityEventParticipantNetworkComponent extends Element {
         /**
-         * An identifier for the type of network access point that originated the audit event
-         */
-        private Enumeration<NetworkType> type;
-
-        /**
          * An identifier for the network access point of the user device for the audit event
          */
         private String_ identifier;
 
-        public Enumeration<NetworkType> getType() { 
-          return this.type;
-        }
-
-        public void setType(Enumeration<NetworkType> value) { 
-          this.type = value;
-        }
-
-        public NetworkType getTypeSimple() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        public void setTypeSimple(NetworkType value) { 
-          if (value == null)
-            this.type = null;
-          else {
-            if (this.type == null)
-              this.type = new Enumeration<NetworkType>();
-            this.type.setValue(value);
-          }
-        }
+        /**
+         * An identifier for the type of network access point that originated the audit event
+         */
+        private Enumeration<NetworkType> type;
 
         public String_ getIdentifier() { 
           return this.identifier;
@@ -922,6 +943,28 @@ public class SecurityEvent extends Resource {
             if (this.identifier == null)
               this.identifier = new String_();
             this.identifier.setValue(value);
+          }
+        }
+
+        public Enumeration<NetworkType> getType() { 
+          return this.type;
+        }
+
+        public void setType(Enumeration<NetworkType> value) { 
+          this.type = value;
+        }
+
+        public NetworkType getTypeSimple() { 
+          return this.type == null ? null : this.type.getValue();
+        }
+
+        public void setTypeSimple(NetworkType value) { 
+          if (value == null)
+            this.type = null;
+          else {
+            if (this.type == null)
+              this.type = new Enumeration<NetworkType>();
+            this.type.setValue(value);
           }
         }
 
@@ -991,6 +1034,11 @@ public class SecurityEvent extends Resource {
 
     public class SecurityEventObjectComponent extends Element {
         /**
+         * Describes the identifier that is contained in Participant Object ID
+         */
+        private Coding idType;
+
+        /**
          * Object type being audited
          */
         private Enumeration<ObjectType> type;
@@ -1004,11 +1052,6 @@ public class SecurityEvent extends Resource {
          * Identifier for the data life-cycle stage for the participant object
          */
         private Enumeration<ObjectLifecycle> lifecycle;
-
-        /**
-         * Describes the identifier that is contained in Participant Object ID
-         */
-        private Coding idType;
 
         /**
          * Identifies a specific instance of the participant object
@@ -1029,6 +1072,19 @@ public class SecurityEvent extends Resource {
          * The actual query for a query-type participant object
          */
         private Base64Binary query;
+
+        /**
+         * Additional Information about the Object
+         */
+        private List<SecurityEventObjectDetailsComponent> details = new ArrayList<SecurityEventObjectDetailsComponent>();
+
+        public Coding getIdType() { 
+          return this.idType;
+        }
+
+        public void setIdType(Coding value) { 
+          this.idType = value;
+        }
 
         public Enumeration<ObjectType> getType() { 
           return this.type;
@@ -1094,14 +1150,6 @@ public class SecurityEvent extends Resource {
               this.lifecycle = new Enumeration<ObjectLifecycle>();
             this.lifecycle.setValue(value);
           }
-        }
-
-        public Coding getIdType() { 
-          return this.idType;
-        }
-
-        public void setIdType(Coding value) { 
-          this.idType = value;
         }
 
         public String_ getIdentifier() { 
@@ -1186,6 +1234,59 @@ public class SecurityEvent extends Resource {
               this.query = new Base64Binary();
             this.query.setValue(value);
           }
+        }
+
+        public List<SecurityEventObjectDetailsComponent> getDetails() { 
+          return this.details;
+        }
+
+  }
+
+    public class SecurityEventObjectDetailsComponent extends Element {
+        /**
+         * Name of the property
+         */
+        private String_ type;
+
+        /**
+         * Property value
+         */
+        private Base64Binary value;
+
+        public String_ getType() { 
+          return this.type;
+        }
+
+        public void setType(String_ value) { 
+          this.type = value;
+        }
+
+        public String getTypeSimple() { 
+          return this.type == null ? null : this.type.getValue();
+        }
+
+        public void setTypeSimple(String value) { 
+            if (this.type == null)
+              this.type = new String_();
+            this.type.setValue(value);
+        }
+
+        public Base64Binary getValue() { 
+          return this.value;
+        }
+
+        public void setValue(Base64Binary value) { 
+          this.value = value;
+        }
+
+        public byte[] getValueSimple() { 
+          return this.value == null ? null : this.value.getValue();
+        }
+
+        public void setValueSimple(byte[] value) { 
+            if (this.value == null)
+              this.value = new Base64Binary();
+            this.value.setValue(value);
         }
 
   }

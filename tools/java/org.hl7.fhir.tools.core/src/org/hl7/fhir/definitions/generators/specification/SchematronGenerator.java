@@ -130,7 +130,7 @@ public class SchematronGenerator  extends TextStreamWriter {
 	    genChildren(path, null, ed, definitions, parents);
 	  } else {
 	    for (TypeRef tr : ed.typeCode().equals("*") ? allTypes() : ed.getTypes()) {
-	      String en = name.replace("[x]", tr.summary());
+	      String en = name.replace("[x]", Utilities.capitalize(tr.summary()));
 	      if (en.contains("("))
 	        en = en.substring(0, en.indexOf("("));
 	      String sPath = path + "/f:"+en;
@@ -149,10 +149,17 @@ public class SchematronGenerator  extends TextStreamWriter {
   }
 
   private void genInvs(String path, ElementDefn ed) throws IOException {
-    if (ed.getInvariants().size() > 0) {
+    
+    int c = 0;
+    for (Invariant inv : ed.getInvariants().values()) {
+      if (inv.getFixedName() == null || path.endsWith(inv.getFixedName()))
+        c++;
+    }
+    if (c > 0) {
 	    ln_i("<sch:rule context=\""+path+"\">");
 	    for (Invariant inv : ed.getInvariants().values()) {
-	      ln("<sch:assert test=\""+inv.getXpath().replace("\"", "'")+"\">Inv-"+inv.getId()+": "+inv.getEnglish()+"</sch:assert>");	      
+	      if (inv.getFixedName() == null || path.endsWith(inv.getFixedName()))
+  	      ln("<sch:assert test=\""+inv.getXpath().replace("\"", "'")+"\">Inv-"+inv.getId()+": "+inv.getEnglish()+"</sch:assert>");	      
 	    }
       ln_o("</sch:rule>");
       //"/f:"+root.getName()

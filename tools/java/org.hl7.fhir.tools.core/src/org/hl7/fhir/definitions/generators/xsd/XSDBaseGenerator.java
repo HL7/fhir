@@ -506,7 +506,10 @@ public class XSDBaseGenerator {
                 + upFirst(p) + "\" type=\""+ t.getName() + "_" + upFirst(p) + "\"/>\r\n");
           }
         } else if (!definitions.getShared().contains(t.getName()) && !t.getName().equals("oid") && !t.getName().equals("uuid") && !t.getName().equals("id") ) {
-          write("           <xs:element name=\"" + en + "\" type=\"" + t.getName()+ "\"/>\r\n");
+          if (t.getName().equals("ResourceReference"))
+            write("           <xs:element name=\"" + prefix + "Resource\" type=\"" + t.getName()+ "\"/>\r\n");
+          else
+            write("           <xs:element name=\"" + en + "\" type=\"" + t.getName()+ "\"/>\r\n");
         }
       }
     }

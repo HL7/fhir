@@ -35,7 +35,7 @@ public class Invariant {
   private String ocl;
   private String xpath;
   private String id;
-  private boolean onlyIfNoDar;
+  private String fixedName; // when the invariant is only one one of a set of choices
   
   public String getId()
   {
@@ -87,13 +87,14 @@ public class Invariant {
     this.xpath = xpath;
   }
 
-  public boolean isOnlyIfNoDar() {
-    return onlyIfNoDar;
+  public String getFixedName() {
+    return fixedName;
   }
 
-  public void setOnlyIfNoDar(boolean onlyIfNoDar) {
-    this.onlyIfNoDar = onlyIfNoDar;
+  public void setFixedName(String fixedName) {
+    this.fixedName = fixedName;
   }
+
   
   
 }
