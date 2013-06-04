@@ -18,9 +18,8 @@
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>8700</WindowHeight>
   <WindowWidth>28800</WindowWidth>
-  <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <WindowTopX>165</WindowTopX>
+  <WindowTopY>1605</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -38,6 +37,14 @@
     ss:Underline="Single"/>
   </Style>
   <Style ss:ID="s63" ss:Name="Normal 2">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s80" ss:Name="Normal 3">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -107,6 +114,9 @@
   <Style ss:ID="s75">
    <Alignment ss:Vertical="Top"/>
   </Style>
+  <Style ss:ID="s154" ss:Parent="s80">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="12" x:FullColumns="1"
@@ -171,7 +181,7 @@
     <Cell><Data ss:Type="String">An external identifier for the sensitivity</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s69"/>
     <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">IAM-7-Allergy Unique Identifier (Overloaded concept)</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s68"/>
    </Row>
@@ -201,7 +211,7 @@
     <Cell><Data ss:Type="String">Type of the sensitivity</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s69"/>
     <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">IAM-9-Sensitivity to Causative Agent Code</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s68"/>
    </Row>
@@ -216,7 +226,7 @@
     <Cell><Data ss:Type="String">Date when the sensitivity was recorded</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s69"/>
     <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">IAM-20-Statused at Date/Time</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s68"/>
    </Row>
@@ -232,7 +242,7 @@
     <Cell><Data ss:Type="String">Suspected, Confirmed, Refuted, Resolved</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s69"/>
     <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">IAM-17-Allergy Clinical Status Code</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s68"/>
    </Row>
@@ -246,7 +256,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Who the sensitivity is for</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">PID-3-Patient ID List</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s68"/>
    </Row>
@@ -261,7 +271,7 @@
     <Cell><Data ss:Type="String">Who recorded the sensitivity</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s69"/>
     <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">IAM-14-Reported By (if patient) / IAM-18-Statused By Person (if practitioner)&#10;</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s68"/>
    </Row>
@@ -276,7 +286,7 @@
     <Cell><Data ss:Type="String">The substance that causes the sensitivity</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s69"/>
     <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">AL1-3-Allergen Code/Mnemonic/Description / IAM-3-Allergen Code/Mnemonic/Description</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s68"/>
    </Row>
@@ -289,7 +299,7 @@
     <Cell><Data ss:Type="String">Resource(AdverseReaction)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Reactions associated with the sensitivity</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">IAM-7-Allergy Unique Identifier (Overloaded concept)</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s68"/>
    </Row>
@@ -302,7 +312,7 @@
     <Cell><Data ss:Type="String">Resource(Observation)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Observations that confirm or refute the sensitivity</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">OBX-21-Observation Instance Identifier&#10;(Subject to Ch7 caveats)</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s68"/>
    </Row>
@@ -319,12 +329,13 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -332,14 +343,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -645,7 +657,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

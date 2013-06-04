@@ -527,10 +527,12 @@ are not reflected in the history list.
 http header "Category" is used, following the method described for <a href="http://tools.ietf.org/html/draft-johnston-http-category-header-02">Web Categories</a>.
 </p>
 <pre>
-  Category: [Tag URI]; scheme="http://hl7.org/fhir/tag"; label="[Tag Uri]"
+  Category: [Tag URI]; scheme="http://hl7.org/fhir/tag"; label="[Tag Uri]"(, ...)
 </pre>
 <p>
 The label portion is optional. Note that label may come before scheme. 
+Although Category is described as a repeating header, many implementations 
+require unique header names, so multiple tags are representing using the one header.
 </p>
 <table class="grid">
  <tr><td>read/vread</td><td>The server returns all tags associated with the resource in the headers</td></tr>
@@ -547,10 +549,11 @@ The following operations provide specific support for Tags:
 <table class="grid">
  <tr><td><pre>GET [service-url]/tags</pre></td><td valign="center">get a list of all tags</td></tr>
  <tr><td><pre>GET [service-url]/[type]/tags</pre></td><td valign="center">get a list of all tags used for the nominated resource type</td></tr>
- <tr><td><pre>GET [service-url]/[type]/@[id]/tags</pre></td><td valign="center">get a list of all tags affixed to the nominated resource type. This duplicates the HTTP header entries</td></tr>
+ <tr><td><pre>GET [service-url]/[type]/@[id]/tags</pre></td><td valign="center">get a list of all tags affixed to the nominated resource. This duplicates the HTTP header entries</td></tr>
+ <tr><td><pre>GET [service-url]/[type]/@[id]/history/@[vid]/tags</pre></td><td valign="center">get a list of all tags affixed to the nominated version of the resource. This duplicates the HTTP header entries</td></tr>
  <tr><td><pre>POST service-url]/[type]/@[id]/tags</pre></td><td valign="center">Affix tags in the list to the nominated resource</td></tr>
  <tr><td><pre>POST service-url]/[type]/@[id]/history/@[vid]/tags</pre></td><td valign="center">Affix tags in the list to the nominated version of the resource</td></tr>
- <tr><td><pre>DELETE service-url]/[type]/@[id]/tags</pre></td><td valign="center">Remove tags in the list to the nominated resource</td></tr>
+ <tr><td><pre>DELETE service-url]/[type]/@[id]/tags</pre></td><td valign="center">Remove tags in the list affixed to the nominated resource</td></tr>
  <tr><td><pre>DELETE service-url]/[type]/@[id]/history/@[vid]/tags</pre></td><td valign="center">Remove tags in the list to the nominated version of the resource</td></tr>
 </table>  
 <p>

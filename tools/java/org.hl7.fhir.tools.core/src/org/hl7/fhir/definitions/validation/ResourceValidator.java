@@ -29,7 +29,11 @@ package org.hl7.fhir.definitions.validation;
 
  */
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
@@ -40,6 +44,7 @@ import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
+import org.hl7.fhir.definitions.model.SearchParameter;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -57,6 +62,10 @@ import org.hl7.fhir.utilities.Utilities;
  */
 public class ResourceValidator {
 
+  public class Usage {
+    public Set<SearchParameter.SearchType> usage= new HashSet<SearchParameter.SearchType>();
+  }
+  
   public enum Level {
     Hint,
     Warning,
@@ -65,6 +74,7 @@ public class ResourceValidator {
 
   private Definitions definitions;
 	private List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
+	private Map<String, Usage> usages = new HashMap<String, Usage>();
 
 	public ResourceValidator(Definitions definitions) {
 		super();
@@ -100,6 +110,9 @@ public class ResourceValidator {
     rule(parent.getName(), !name.equals("History"), "The name 'History' is not a legal name for a resource");
     rule(parent.getName(), !name.equals("Tag"), "The name 'Tag  ' is not a legal name for a resource");
     rule(parent.getName(), !name.equals("Tags"), "The name 'Tags' is not a legal name for a resource");
+    rule(parent.getName(), !name.equals("MailBox"), "The name 'MailBox' is not a legal name for a resource");
+    rule(parent.getName(), !name.equals("Validation"), "The name 'Validation' is not a legal name for a resource");
+    
     rule(parent.getName(), name.toLowerCase().substring(0, 1) != name.substring(0, 1), "Resource Name must start with an uppercase alpha character");
 
     checkElement(parent.getName(), parent.getRoot(), parent, null);
@@ -108,6 +121,9 @@ public class ResourceValidator {
     if (parent.getRoot().getElementByName("subject") != null && parent.getRoot().getElementByName("subject").typeCode().startsWith("Resource"))
       rule(parent.getName(), parent.getSearchParams().containsKey("subject"), "A resource that contains a subject reference must have a search parameter 'subject'");
     for (org.hl7.fhir.definitions.model.SearchParameter p : parent.getSearchParams().values()) {
+      if (!usages.containsKey(p.getCode()))
+        usages.put(p.getCode(), new Usage());
+      usages.get(p.getCode()).usage.add(p.getType());
       warning(parent.getName(), !p.getCode().contains("."), "Search Parameter Names cannot contain a '.' (\""+p.getCode()+"\")");
     }
 //    rule(parent.getName(), !parent.getSearchParams().containsKey("id"), "A resource cannot have a search parameter 'id'");
@@ -306,4 +322,9 @@ public class ResourceValidator {
     return errors;
   }
 
+  public void dumpParams() {
+    for (String s : usages.keySet()) {
+      System.out.println(s+": "+usages.get(s).usage.toString());
+    }
+  }
 }

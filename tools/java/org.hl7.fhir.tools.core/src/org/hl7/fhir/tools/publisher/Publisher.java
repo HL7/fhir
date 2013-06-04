@@ -487,6 +487,8 @@ public class Publisher {
       checkExampleLinks(errors, r);
    }
 		
+   // val.dumpParams();
+   
    for (ValidationMessage e : errors) {
      if (e.getLevel() == Level.Hint) {
        System.out.println(e.getLevel().toString()+": "+e.getMessage());
@@ -604,7 +606,7 @@ public class Publisher {
         throw new Exception("The example reference '"+id+"' is not valid (version id length 1 - 36)");
       if (!parts[3].substring(1).matches("[a-z0-9\\-\\.]{1,36}"))
         throw new Exception("The example reference '"+id+"' is not valid (version id doesn't match regular expression for id)");
-    }
+    } 
     return parts[1].substring(1);
   }
 

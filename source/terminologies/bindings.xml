@@ -78,18 +78,10 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s76">
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
+  <Style ss:ID="s71">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
-  <Style ss:ID="s78">
-   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
-  </Style>
-  <Style ss:ID="s82">
+  <Style ss:ID="s72">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -99,10 +91,7 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s83">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
-  </Style>
-  <Style ss:ID="s84" ss:Parent="s62">
+  <Style ss:ID="s73" ss:Parent="s62">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -110,11 +99,11 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s85">
+  <Style ss:ID="s74">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:WrapText="1"/>
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s86" ss:Parent="s62">
+  <Style ss:ID="s75" ss:Parent="s62">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -122,8 +111,19 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s87">
+  <Style ss:ID="s76">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s77">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s79">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Bindings">
@@ -295,10 +295,10 @@
  </Worksheet>
  <Worksheet ss:Name="search-param-type">
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="8" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s83" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="84"/>
-   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="578.25"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s82">
+   x:FullRows="1" ss:StyleID="s71" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="84"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="578.25"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s72">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
@@ -306,34 +306,34 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">integer</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Search parameter must be a simple whole number</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">integer</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Search parameter must be a simple whole number</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="33.75">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces and are delineated by double quotes, e.g. &quot;van Zanten&quot;.</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces and are delineated by double quotes, e.g. &quot;van Zanten&quot;.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">text</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Search parameter is on a long string. Used for text filter type search: it functions on searches within a body of text and may contain spaces to separate words. May match even if the separate words are found out of order. Text parameters are delineated by double quotes.</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">text</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Search parameter is on a long string. Used for text filter type search: it functions on searches within a body of text and may contain spaces to separate words. May match even if the separate words are found out of order. Text parameters are delineated by double quotes.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Search parameter is on a date (and should support -before and -after variants). The date format is the standard XML format, though other formats may be supported</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Search parameter is on a date (and should support :before and :after modifiers). The date format is the standard XML format, though other formats may be supported</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). It's value is either a string or a pair of namespace and value, separated by a &quot;!&quot;. </Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). It's value is either a string or a pair of namespace and value, separated by a &quot;!&quot;. </Data></Cell>
     <Cell><Data ss:Type="String"> </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="24" ss:StyleID="s87">
+   <Row ss:AutoFitHeight="0" ss:Height="24" ss:StyleID="s76">
     <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">A pair of resource type and resource id, separated by &quot;/&quot;. Matches when the resource reference resolves to a resource of the given type and id.</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">A pair of resource type and resource id, separated by &quot;/&quot;. Matches when the resource reference resolves to a resource of the given type and id.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">7</Data></Cell>
@@ -358,7 +358,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
+     <ActiveRow>7</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
@@ -372,7 +372,7 @@
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="63.75"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="75.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="78.75"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s76">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s77">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Display</Data></Cell>
@@ -383,38 +383,38 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">true</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">true</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Boolean true</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Boolean true</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">false</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">false</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Boolean false</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Boolean false</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">trace</Data></Cell>
     <Cell><Data ss:Type="String">Trace Amount Detected</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The content is greater than zero, but too small to be quantified</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The content is greater than zero, but too small to be quantified</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">sufficient</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">sufficient</Data></Cell>
     <Cell><Data ss:Type="String">Sufficient Quantity</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">used in formulations (e.g. 'Add 10mg of ingredient X, 50mg of ingredient Y, and sufficient quantity of water to 100mL.' This code would be used to express the quantity of water. )</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">used in formulations (e.g. 'Add 10mg of ingredient X, 50mg of ingredient Y, and sufficient quantity of water to 100mL.' This code would be used to express the quantity of water. )</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="String">withdrawn</Data></Cell>
     <Cell><Data ss:Type="String">Value Withdrawn</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The value is no longer available</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The value is no longer available</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">nil known</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">nil known</Data></Cell>
     <Cell><Data ss:Type="String">Nil Known</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The are no known applicable values in this context</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The are no known applicable values in this context</Data></Cell>
     <Cell><Data ss:Type="String">The existence of this subject to review</Data></Cell>
    </Row>
   </Table>

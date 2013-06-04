@@ -63,7 +63,7 @@
       <Query xmlns="http://hl7.org/fhir">
         <!-- In the message we choose, for convenience, to make the query.id 
             the same as the query resource id. In other contexts that wouldn't be appropriate -->
-        <id value="urn:uuid:16fddf81-f792-47ba-b02e-3fa2a3024519"/> 
+        <identifier value="urn:uuid:16fddf81-f792-47ba-b02e-3fa2a3024519"/> 
         
         <!-- the parameters that the server received -->
         <parameter>
@@ -76,7 +76,7 @@
         </parameter>
 
         <response>
-          <id value="urn:uuid:7cb73a48-090d-469a-a2b2-04f1e6b11ea2"/>
+          <identifier value="urn:uuid:7cb73a48-090d-469a-a2b2-04f1e6b11ea2"/>
           <outcome value="ok"/>
           <total value="653"/> <!-- the total number of matching records -->
           

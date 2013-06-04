@@ -20,7 +20,6 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6195</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -34,6 +33,14 @@
    <Protection/>
   </Style>
   <Style ss:ID="s62" ss:Name="Normal 2">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s75" ss:Name="Normal 3">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -92,6 +99,9 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s82" ss:Parent="s75">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="26" x:FullColumns="1"
@@ -104,9 +114,9 @@
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
    <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="161.25"
     ss:Span="1"/>
-   <Column ss:Index="12" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135"
-    ss:Span="1"/>
-   <Column ss:Index="14" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="100.5"/>
+   <Column ss:Index="12" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="269.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="100.5"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="113.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="60" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
@@ -136,7 +146,7 @@
     <Cell><Data ss:Type="String">A transmission requesting action on a bundle of one or more resources or a response to such a request</Data></Cell>
     <Cell><Data ss:Type="String">Many implementations are not prepared to use REST and need a message based infrastructure</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Message</Data></Cell>
-    <Cell><Data ss:Type="String">MSH</Data></Cell>
+    <Cell><Data ss:Type="String">MSH / MSA / ERR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Message.identifier</Data></Cell>
@@ -146,6 +156,7 @@
     <Cell><Data ss:Type="String">The identifier of this message</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">This must be unique within the scope of this stream of messages</Data></Cell>
     <Cell><Data ss:Type="String">Message.id</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MSH-10-message control ID</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Message.timestamp</Data></Cell>
@@ -155,7 +166,7 @@
     <Cell><Data ss:Type="String">The time that the message was sent</Data></Cell>
     <Cell><Data ss:Type="String">Allows limited detection of out-of-order and delayed transmission.  Also supports audit.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">./creationTime[isNormalDatatype()]</Data></Cell>
-    <Cell><Data ss:Type="String">MSH.7</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MSH-7-message date/time</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Message.event</Data></Cell>
@@ -167,7 +178,7 @@
     <Cell><Data ss:Type="String">Code that identifies the event this message represents and connects it with the event definition in the FHIR specification</Data></Cell>
     <Cell><Data ss:Type="String">Drives the behavior associated with this message</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">./payload[classCode=&quot;CACT&quot; and moodCode=&quot;EVN&quot; and isNormalAct()]/code[isNormalDatatype()]/code</Data></Cell>
-    <Cell><Data ss:Type="String">MSH.9.2</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MSH-9.2-message type.trigger event</Data></Cell>
     <Cell><Data ss:Type="String">Consider changing to Coding to support profile-defined events</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -188,7 +199,7 @@
     <Cell><Data ss:Type="String">The id of the message that this a response to</Data></Cell>
     <Cell><Data ss:Type="String">Allows receiver to know what message is being responded to</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">./acknowledges.id[isNormalDatatype()]</Data></Cell>
-    <Cell><Data ss:Type="String">MSA.2</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MSA-2-message control ID</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Message.response.code</Data></Cell>
@@ -201,7 +212,7 @@
     <Cell><Data ss:Type="String">Allows the sender of the acknowledge message to know if the request was successful or if action is needed.</Data></Cell>
     <Cell><Data ss:Type="String">This is a generic response to the request Message. Specific data for the response will be found in Message.data</Data></Cell>
     <Cell><Data ss:Type="String">./typeCode[isNormalDatatype()]</Data></Cell>
-    <Cell><Data ss:Type="String">MSA.1 | </Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MSA-1-acknowledgment code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Message.response.details</Data></Cell>
@@ -233,7 +244,7 @@
     <Cell><Data ss:Type="String">Human readable name for the target system</Data></Cell>
     <Cell><Data ss:Type="String">May be used to support audit</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">unique(./entity[determinerCode=&quot;INST&quot; and classCode=&quot;DEV&quot;]/name[type='ST' and isNormalDatatype()])</Data></Cell>
-    <Cell><Data ss:Type="String">(Not supported)</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MSH-3-sending application</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Message.source.software</Data></Cell>
@@ -243,7 +254,7 @@
     <Cell><Data ss:Type="String">May include configuration or other information useful in debugging.</Data></Cell>
     <Cell><Data ss:Type="String">Supports audit and possibly interface engine behavior</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">unique(./entity[determinerCode=&quot;INST&quot; and classCode=&quot;DEV&quot;]/softwareName[isNormalDatatype()])</Data></Cell>
-    <Cell><Data ss:Type="String">SFT.3</Data></Cell>
+    <Cell><Data ss:Type="String">SFT-3-software product name ( +SFT-1-software vendor organization)&#10;&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Message.source.version</Data></Cell>
@@ -253,7 +264,7 @@
     <Cell><Data ss:Type="String">Can convey versions of multiple systems in situations where a message passes through multiple hands.</Data></Cell>
     <Cell><Data ss:Type="String">Supports audit and possibly interface engine behavior</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">(Not supported)</Data></Cell>
-    <Cell><Data ss:Type="String">SFT.4</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">SFT-2-software certified version or release number</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Version is not captured as a distinct property in v3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
@@ -264,7 +275,7 @@
     <Cell><Data ss:Type="String">An e-mail, phone, website or other contact point to use to resolve issues with message communications.</Data></Cell>
     <Cell><Data ss:Type="String">Allows escalation of technical issues.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">unique(./entity[determinerCode=&quot;INST&quot; and classCode=&quot;DEV&quot;]/scopesRole[normalRole() and classCode=&quot;CON&quot; and layer[classCode=&quot;PSN&quot;]/telecom[isNormalDatatype()])</Data></Cell>
-    <Cell><Data ss:Type="String">(Not supported)</Data></Cell>
+    <Cell><Data ss:Type="String">(MSH-22?)</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Should actually have a code for the role in the v3 mapping to indicate that the contact is for &quot;problems&quot;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -276,7 +287,7 @@
     <Cell><Data ss:Type="String">Identifies where to send responses, may influence security permissions</Data></Cell>
     <Cell><Data ss:Type="String">The id may be a non-resolvable URI for systems that do not use standard network-based addresses</Data></Cell>
     <Cell><Data ss:Type="String">./telecom[isNormalDatatype()]</Data></Cell>
-    <Cell><Data ss:Type="String">(Not supported)</Data></Cell>
+    <Cell><Data ss:Type="String">MSH-24-sending network address&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Message.destination</Data></Cell>
@@ -297,7 +308,7 @@
     <Cell><Data ss:Type="String">Human readable name for the source system</Data></Cell>
     <Cell><Data ss:Type="String">May be used for routing of response and/or to support audit</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">unique(./entity[determinerCode=&quot;INST&quot; and (classCode=(&quot;DEV&quot;, &quot;PSN&quot;, &quot;ORG&quot;]/name[type='ST' and isNormalDatatype()])</Data></Cell>
-    <Cell><Data ss:Type="String">(Not supported)</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MSH-5-receiving application</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Message.destination.target</Data></Cell>
@@ -307,7 +318,6 @@
     <Cell><Data ss:Type="String">Identifies the target end system in situations where the initial message transmission is to an intermediary system.</Data></Cell>
     <Cell><Data ss:Type="String">Supports multi-hop routing</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">unique(./entity[determinerCode=&quot;INST&quot; and (classCode=(&quot;DEV&quot;, &quot;PSN&quot;, &quot;ORG&quot;]</Data></Cell>
-    <Cell><Data ss:Type="String">varies</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Message.destination.endpoint</Data></Cell>
@@ -318,7 +328,7 @@
     <Cell><Data ss:Type="String">Identifies where to route the message</Data></Cell>
     <Cell><Data ss:Type="String">The id may be a non-resolvable URI for systems that do not use standard network-based addresses</Data></Cell>
     <Cell><Data ss:Type="String">./telecom</Data></Cell>
-    <Cell><Data ss:Type="String">(Not supported)</Data></Cell>
+    <Cell><Data ss:Type="String">MSH-25-receiving network address (or MSH-6-receiving facility by implication)&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="195">
     <Cell><Data ss:Type="String">Message.enterer</Data></Cell>
@@ -329,7 +339,7 @@
     <Cell><Data ss:Type="String">Need to know for audit/traceback requirements and possibly for authorization.</Data></Cell>
     <Cell><Data ss:Type="String">Usually only for the request, but can be used in a response</Data></Cell>
     <Cell><Data ss:Type="String">unique(./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/participation[typeCode=&quot;ENT&quot; and isNormalParticipation]/role[classCode=&quot;ASSIGNED&quot; and isNormalRole()]/player[isNormalEntity() and classCode=(&quot;DEV&quot;, &quot;PSN&quot;) and determinerCode=&quot;INST&quot;])</Data></Cell>
-    <Cell><Data ss:Type="String">ROL where ROL.3 is EP or ORC.10</Data></Cell>
+    <Cell><Data ss:Type="String">EVN-5-operator ID / ORC-10-entered by / PRT-5-Participation Person:PRT-4-Participation='EP' / ROL where ROL.3 is EP or ORC.10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="210">
     <Cell><Data ss:Type="String">Message.author</Data></Cell>
@@ -340,7 +350,7 @@
     <Cell><Data ss:Type="String">Need to know for audit/traceback requirements and possibly for authorization.</Data></Cell>
     <Cell><Data ss:Type="String">Usually only for the request, but can be used in a response</Data></Cell>
     <Cell><Data ss:Type="String">unique(./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=&quot;AUT&quot; and isNormalParticipation]/role[classCode=&quot;ASSIGNED&quot; and isNormalRole()]/player[isNormalEntity() and classCode=(&quot;DEV&quot;, &quot;PSN&quot;) and determinerCode=&quot;INST&quot;])</Data></Cell>
-    <Cell><Data ss:Type="String">ROL where ROL.3 is IP or ORC.12</Data></Cell>
+    <Cell><Data ss:Type="String">ORC-19-action by / PRT-5-Participation Person:PRT-4-Participation='AUT' / ROL where ROL.3 is IP or ORC.12</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Message.receiver</Data></Cell>
@@ -349,6 +359,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Intended &quot;real-world&quot; recipient for the data</Data></Cell>
     <Cell><Data ss:Type="String">Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.</Data></Cell>
     <Cell><Data ss:Type="String">Allows routing beyond just to the application level</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">PRT-5-Participation Person:PRT-4-Participation='WAYR' / PRT-8-Participation Organization:PRT-4-Participation='WAYR'&#10;</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Is this in the 80%?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="405">
@@ -360,7 +371,7 @@
     <Cell><Data ss:Type="String">Need to know for audit/traceback requirements and possibly for authorization.</Data></Cell>
     <Cell><Data ss:Type="String">Usually only for the request, but can be used in a response</Data></Cell>
     <Cell><Data ss:Type="String">unique(./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=&quot;RESP&quot; and isNormalParticipation]/role[classCode=&quot;ASSIGNED&quot; and isNormalRole()]/player[isNormalEntity() and classCode=&quot;PSN&quot; and determinerCode=&quot;INST&quot;] or ./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=&quot;RESP&quot; and isNormalParticipation]/role[classCode=&quot;ASSIGNED&quot; and isNormalRole()]/scoper[isNormalEntity() and classCode=&quot;ORG&quot; and determinerCode=&quot;INST&quot;])</Data></Cell>
-    <Cell><Data ss:Type="String">ROL where ROL.3 is RO or ORC.11</Data></Cell>
+    <Cell><Data ss:Type="String">ORC-12-ordering provider / &#10;PRT-5-Participation Person:PRT-4-Participation='OP' / &#10;PRT-8-Participation Organization:PRT-4-Participation='OP'&#10;/ ROL where ROL.3 is RO or ORC.11</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Message.effective</Data></Cell>
@@ -371,7 +382,7 @@
     <Cell><Data ss:Type="String">Need to know for understanding the content of the message, may govern receiver's behavior.</Data></Cell>
     <Cell><Data ss:Type="String">Usually only for the request, but can be used in a response</Data></Cell>
     <Cell><Data ss:Type="String">unique(./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/effectiveTime[isNormalDatatype() and type=&quot;IVL_TS&quot;])</Data></Cell>
-    <Cell><Data ss:Type="String">EVN.3 or EVN.6 or ORC.15</Data></Cell>
+    <Cell><Data ss:Type="String">EVN.3 or EVN.6 or ORC.15 / TQ1-7-start date/time + TQ1-8-end date/time&#10;</Data></Cell>
     <Cell><Data ss:Type="String">Grahame thinks this is not 80/20. Also, that it really should be domain modeled, not tucked away here</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -383,7 +394,7 @@
     <Cell><Data ss:Type="String">The cause of the event - a reason for the event that is a focus of this message occurred</Data></Cell>
     <Cell><Data ss:Type="String">Need to be able to track why resources are being changed and report in the audit log / history of the resource.  May affect authorization.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">unique(./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/reasonCode[isNormalDatatype()])</Data></Cell>
-    <Cell><Data ss:Type="String">EVN.4 or ORC.16</Data></Cell>
+    <Cell><Data ss:Type="String">EVN.4 / ORC.16 / OBR-31-reason for study / BPO-13-BP indication for use / RXO-20-indication / RXE-27-give indication / RXD-21-indication / RXG-22-indication / RXA-19-indication&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="240">
     <Cell><Data ss:Type="String">Message.data</Data></Cell>
@@ -394,7 +405,6 @@
     <Cell><Data ss:Type="String">Every message event is about actual data, a single resource, that is identified in the definition of the event, and perhaps some or all linked resources</Data></Cell>
     <Cell><Data ss:Type="String">The data is defined where the transaction type is defined. The transaction data is always included in the bundle that is the full message.  Only the root resource is specified.  The tree of referenced resources conveyed in the atom feed is determined by navigating the tree and consulting the &quot;bundled&quot; property of the profile, not by listing all resources here.  Multiple repetitions are provided for merges and other situations with multiple focal targets</Data></Cell>
     <Cell><Data ss:Type="String">unique(./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/participation[typeCode=&quot;SUBJ&quot; and isNormalParticipation]/role or ./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/outboundRelationship[typeCode=&quot;SBJ&quot; and isNormalActRelatoinship]/target)</Data></Cell>
-    <Cell><Data ss:Type="String">varies</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -404,12 +414,13 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>9</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -417,15 +428,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -496,7 +507,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

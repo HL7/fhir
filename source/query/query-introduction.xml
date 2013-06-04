@@ -81,13 +81,13 @@ of parameter.
 <p>Parameters are defined per resource, and their names may additionally specify a modifier as a suffix, 
 separated from the parameter name by a dot. Modifiers are:</p>
 <ul>
-<li>For all parameters (<i>except combination</i>): "missing". E.g. gender.missing=true (or false). 
-  Searching for "gender-missing=true" will return all the resources that don't have any value for the gender parameter (which usually 
-  equates to not having the relevant element in the resource). Searching for "gender-missing=false"
+<li>For all parameters (<i>except combination</i>): "missing". E.g. gender:missing=true (or false). 
+  Searching for "gender:missing=true" will return all the resources that don't have any value for the gender parameter (which usually 
+  equates to not having the relevant element in the resource). Searching for "gender:missing=false"
   will return all the resources that have a value for the "gender" parameter. </li>
-<li>For dates: "before" and "after". E.g. birthdate.before=1972-11-30. See below for how date searches are interpreted.</li>
-<li>For string: "exact" (the match needs to be exact, no partial matches, case sensitive and accent-sensitive) and  "partial" (the search may function on partial matches). TODO: left partial?</li>
-<li>For token: "text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), "code" (a match on code and system of the coding/codeable concept).</li>
+<li>For dates: ":before" and ":after". E.g. birthdate:before=1972-11-30. See below for how date searches are interpreted.</li>
+<li>For string: ":exact" (the match needs to be exact, no partial matches, case sensitive and accent-sensitive) and  ":partial" (the search may function on partial matches). It is at the descretion of the server whether to do a left-partial search</li>
+<li>For token: ":text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), ":code" (a match on code and system of the coding/codeable concept).</li>
 </ul>
 
 <h4>integer</h4>
@@ -107,13 +107,13 @@ from a <a href="datatypes.htm#code">code</a> where the URI is
 implicit).
 </p>
 <p>
-If the parameter has no modifier, or the modifier 'text', the 
-search parameter is a string, if the modifier is ‘code’ the 
+If the parameter has no modifier, or the modifier ":text", the 
+search parameter is a string, if the modifier is ":code" the 
 parameter is a pair of fixed value strings, namespace and 
 value, separated by a "!". Without modifier, the search will 
 use the textual parameter to do a partial match on code, 
-text or display. With modifier ‘text’ the search will do 
-a partial match on text or display. With the ‘code’ 
+text or display. With modifier ":text" the search will do 
+a partial match on text or display. With the ":code"
 modifier, the search will work as follows:
 </p>
 <ul>
@@ -126,15 +126,15 @@ modifier, the search will work as follows:
 <h4>date</h4>
 <p>
 A date parameter searches on a date/time or period. As is usual, while the 
-concept is straight-forward, there are a number of subtleties involved in 
-ensuring consistent behavior.
+concepts are relatively straight-forward, there are a number of subtleties involved in 
+ensuring consistent behavior with dates.
 </p>
 <ul>
  <li>The date parameter format is yyyy-mm-ddThh:nn:ss(TZ) (the standard XML format). Any degree of precision can be provided, but it must be populated from the left (e.g. can't specify a month without a year)</li>
-<li>Note that to use these values, you need to escape the “:” characters in the URL.</li>
- <li>Date parameters have the .before and .after modifiers. [date]=[value] searches for where the date is within
-   the given date value. [date].after=[value] searches for all resources where the specified date is after [value]. 
-   [date].before=[value] searches for all resources where the specified date is before [value]. </li>
+<li>Note that to use these values, you may need to escape the ":" characters in the URL.</li>
+ <li>Date parameters have the :before and :after modifiers. [date]=[value] searches for where the date is within
+   the given date value. [date]:after=[value] searches for all resources where the specified date is after [value]. 
+   [date]:before=[value] searches for all resources where the specified date is before [value]. </li>
  <li>The element the search refers to may be a date, a dateTime, a Period, or a Schedule. All of these time related 
    types actually specify an interval of time, as does the search parameter itself.
   <ul>
@@ -146,9 +146,9 @@ ensuring consistent behavior.
  <li>Date parameter searches are always matches based on the behavior of intervals, as follows:
    <ul>
      <li>For [date]=[value], the requirement is that the search interval fully contains the time of the target. i.e. 2013-01-14 includes 2013-01-14T10:00 but not 2013-01-15T00:00</li>
-	 <li>For [date]-before=[value], the requirement is that the interval of the time before [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
+	 <li>For [date]:before=[value], the requirement is that the interval of the time before [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
 	    For instance, the resource time 2013-01-14 is included in the set of values that come before 2013-01-14T10:00, because it includes the part of 14-Jan 2013 before 10am </li>
-	 <li>For [date]-after=[value], the requirement is that the interval of the time after [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
+	 <li>For [date]:after=[value], the requirement is that the interval of the time after [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
 	    For instance, the resource time 2013-01-14 is included in the set of values that come after 2013-01-14T10:00, because it includes the part of 14-Jan 2013 after 10am </li>
    </ul>
    If the bounds of the interval are not known (i.e. a range with no start, or a schedule like "every two days" with neither start or end), 
@@ -177,13 +177,11 @@ ensuring consistent behavior.
 <p>
 A reference parameter refers to references between resources, e.g. find all 
 problems where the subject reference is a particular patient by the patient id.
-</p>
-<p>
 The interpretation of a <i>reference</i> parameter is either:
 </p>
 <ul>
  <li><b>name=id</b> the id of a resource (not including the @ the goes in the URL)</li>
- <li><b>name=type:id</b> matches a specific target type. This is useful if the resource reference can refer to multiple different resource types.</li>
+ <li><b>name:type=id</b> matches an id of a resource with a specific target type. This is useful if the resource reference can refer to multiple different resource types.</li>
 </ul>
 <p>
 In order to save a client from doing a series of search operations, 
@@ -201,8 +199,13 @@ searches on patient name, then the search
  diagnosticreport/search?subject.name=peter
 </pre>
 <p>
-is a request to return all the lab reports that have a subject whose name includes "peter". 
+is a request to return all the lab reports that have a subject whose name includes "peter". Because 
+the Diagnostic Report subject can be one of a set of different resources, it's possible to limit
+the search to a particular type:
 </p>
+<pre>
+ diagnosticreport/search?subject:patient.name=peter
+</pre>
 <p>
 Advanced Search Note: 
 Where a chained parameter searches a resource reference that may have more than one 
@@ -249,7 +252,7 @@ For example:
 </pre>
 <p>
 This searches for all problem resources with the tag "http://acme.org/fhir/tags/needs-review". 
-The _tag search parameter may have the modifiers .partial and .text, which mean 
+The _tag search parameter may have the modifiers :partial and :text, which mean 
 to only match on the left side of the target tags, or to search the label part of the tag respectively.
 </p>
 

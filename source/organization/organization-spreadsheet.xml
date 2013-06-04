@@ -20,7 +20,6 @@
   <WindowWidth>17490</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -36,6 +35,14 @@
   <Style ss:ID="s62" ss:Name="Goed">
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="12" ss:Color="#008000"/>
    <Interior ss:Color="#CCFFCC" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s80" ss:Name="Normal 2">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
   </Style>
   <Style ss:ID="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
@@ -117,6 +124,9 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s105" ss:Parent="s80">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="19" x:FullColumns="1"
@@ -161,6 +171,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">A grouping of people or organizations with a common purpose</Data></Cell>
     <Cell><Data ss:Type="String">A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Organization(classCode=ORG, determinerCode=INST)</Data></Cell>
+    <Cell><Data ss:Type="String">(also see master files messages)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Organization.identifier</Data></Cell>
@@ -171,6 +182,7 @@
     <Cell><Data ss:Type="String">Identifier for the organization that is used to identify the organization across multiple disparate systems</Data></Cell>
     <Cell><Data ss:Type="String">Organizations are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the organization.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.scopes[Role](classCode=IDENT)</Data></Cell>
+    <Cell><Data ss:Type="String">XON.10 Organization Identifier / XON.3 ID Number&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Organization.name</Data></Cell>
@@ -181,6 +193,7 @@
     <Cell><Data ss:Type="String">A name associated with the organization</Data></Cell>
     <Cell><Data ss:Type="String">Need to use the name as the label of the organization</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.name</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">XON.1 Organization Name</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Don't use HumanName since that has many non-organization things in it</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="180">
@@ -363,12 +376,20 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <TopRowVisible>13</TopRowVisible>
+   <Selected/>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitVertical>1</SplitVertical>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <ActivePane>1</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -563,7 +584,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

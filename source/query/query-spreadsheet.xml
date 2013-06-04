@@ -116,7 +116,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Query.id</Data></Cell>
+    <Cell><Data ss:Type="String">Query.identifier</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -179,7 +179,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">If this is a response to a query</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Query.response.id</Data></Cell>
+    <Cell><Data ss:Type="String">Query.response.identifier</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Links response to source query</Data></Cell>
@@ -281,8 +281,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -457,12 +457,12 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">id</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
-    <Cell><Data ss:Type="String">Query.id</Data></Cell>
+    <Cell><Data ss:Type="String">Query.identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">response</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
-    <Cell><Data ss:Type="String">Query.response.id</Data></Cell>
+    <Cell><Data ss:Type="String">Query.response.identifier</Data></Cell>
    </Row>
    <Row ss:Index="6" ss:AutoFitHeight="0">
     <Cell ss:Index="8" ss:StyleID="s63"/>
@@ -599,9 +599,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>3</ActiveCol>
-     <RangeSelection>C4</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -749,13 +748,15 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Request</Data></Cell>
     <Cell><Data ss:Type="String">Request Message Example</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">query-example-request.xml</Data></Cell>
+    <Cell><Data ss:Type="String">req</Data></Cell>
+    <Cell><Data ss:Type="String">query-example-request.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Response</Data></Cell>
     <Cell><Data ss:Type="String">Response Message Example</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">query-example-response.xml</Data></Cell>
+    <Cell><Data ss:Type="String">resp</Data></Cell>
+    <Cell><Data ss:Type="String">query-example-response.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
   </Table>
@@ -770,8 +771,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

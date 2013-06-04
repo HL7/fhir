@@ -20,7 +20,7 @@
   <WindowWidth>15585</WindowWidth>
   <WindowTopX>1200</WindowTopX>
   <WindowTopY>1125</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -645,7 +645,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">description</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Human language description of the value set</Data></Cell>
-    <Cell><Data ss:Type="String">token</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">ValueSet.description</Data></Cell>
    </Row>
   </Table>
@@ -662,10 +662,12 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -994,7 +996,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

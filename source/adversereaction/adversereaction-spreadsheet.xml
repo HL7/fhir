@@ -20,7 +20,6 @@
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -38,6 +37,14 @@
     ss:Underline="Single"/>
   </Style>
   <Style ss:ID="s63" ss:Name="Normal 2">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s80" ss:Name="Normal 3">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -155,7 +162,7 @@
     <Cell><Data ss:Type="String">AdverseReaction</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s69"/>
     <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">IAM-11-Onset Date (Does not allow for IAM-12-Onset Date Text)</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s68"/>
    </Row>
@@ -185,7 +192,7 @@
     <Cell><Data ss:Type="String">The subject of the adverse reaction</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s69"/>
     <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">PID-3-Patient ID List</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s68"/>
    </Row>
@@ -215,7 +222,7 @@
     <Cell><Data ss:Type="String">Who recorded the reaction</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s69"/>
     <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">IAM-14-Reported By (if patient) / IAM-18-Statused By Person (if practitioner)&#10;</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s68"/>
    </Row>
@@ -245,7 +252,7 @@
     <Cell><Data ss:Type="String">Indicates the specific sign or symptom that was observed</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s69"/>
     <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">IAR-1</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s68"/>
    </Row>
@@ -259,7 +266,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">ReactionSeverity</Data></Cell>
     <Cell><Data ss:Type="String">The severity of the sign or symptom</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">AL1-4-Allergy Severity Code / IAM-4-Allergy Severity Code</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s68"/>
    </Row>
@@ -286,7 +293,7 @@
     <Cell><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When the exposure occurred</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">(V2 does not define distinct concepts of exposure date and reaction date)</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s68"/>
    </Row>
@@ -315,7 +322,7 @@
     <Cell><Data ss:Type="String">CausalityExpectation</Data></Cell>
     <Cell><Data ss:Type="String">A statement of how confident that the recorder was that this exposure caused the reaction</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">IAM-17-Allergy Clinical Status Code</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s68"/>
    </Row>
@@ -330,7 +337,7 @@
     <Cell><Data ss:Type="String">Substance(s) that is presumed to have caused the adverse reaction</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s69"/>
     <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">AL1-3 / IAM-3 Allergen Code/Mnemonic/Description</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s68"/>
    </Row>
@@ -380,12 +387,13 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -393,14 +401,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -698,7 +707,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -718,8 +726,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

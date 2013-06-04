@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Hugh Glover</LastAuthor>
+  <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-05-09T20:46:02Z</LastSaved>
+  <LastSaved>2013-06-04T22:38:05Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,6 @@
   <WindowWidth>27255</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -34,6 +33,14 @@
    <Protection/>
   </Style>
   <Style ss:ID="s62" ss:Name="Normal 2">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s86" ss:Name="Normal 3">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -161,6 +168,9 @@
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Color="#000000"/>
   </Style>
+  <Style ss:ID="s93" ss:Parent="s86">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="30" x:FullColumns="1"
@@ -179,6 +189,7 @@
    <Column ss:StyleID="s63" ss:Hidden="1" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="195.75"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="510"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="350.25"/>
    <Column ss:Index="17" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="288"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Element</Data></Cell>
@@ -215,6 +226,7 @@
     <Cell ss:Index="9"><Data ss:Type="String">External identifier</Data></Cell>
     <Cell><Data ss:Type="String">External identifier - FHIR will generate its own internal IDs which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an erntire workflow process where records have to be tracked through an entire system.</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">CombinedMedicationRequest.id</Data></Cell>
+    <Cell><Data ss:Type="String">ORC-2-Placer Order Number / ORC-3-Filler Order Number&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s68"><Data ss:Type="String">MedicationPrescription.dateWritten</Data></Cell>
@@ -224,6 +236,7 @@
     <Cell ss:Index="9"><Data ss:Type="String">Prescription date</Data></Cell>
     <Cell><Data ss:Type="String">The date (and perhaps time) when the prescription was written</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">CombinedMedicationRequest.Author.time</Data></Cell>
+    <Cell><Data ss:Type="String">RXE-32-Original Order Date/Time / ORC-9-Date/Time of Transaction&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s68"><Data ss:Type="String">MedicationPrescription.status</Data></Cell>
@@ -247,6 +260,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Patient</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">A link to a resource representing the person to whom the medication will be given.</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s63"><Data ss:Type="String">SubstanceAdministration-&gt;subject-&gt;Patient</Data></Cell>
+    <Cell ss:Index="15" ss:StyleID="s93"><Data ss:Type="String">PID-3-Patient ID List</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s71"><Data ss:Type="String">MedicationPrescription.prescriber</Data></Cell>
@@ -260,6 +274,7 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">Prescriber</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">The healthcare professional responsible for authorising the prescription</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s63"/>
+    <Cell ss:Index="15"><Data ss:Type="String">RXE-13-Ordering Provider's DEA Number / RXO-14-Ordering Provider's DEA Number / RXE-14-Pharmacist/Treatment Supplier's Verifier ID / RXO-15-Pharmacist/Treatment Supplier's Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation='OP' (all but last deprecated)&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s71"><Data ss:Type="String">MedicationPrescription.visit</Data></Cell>
@@ -273,6 +288,7 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">Encounter / Admission / Stay</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">A link to a resource that identifies the particular occurrence of contact between patient and health care provider.</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s63"><Data ss:Type="String">SubstanceAdministration-&gt;component-&gt;EncounterEvent</Data></Cell>
+    <Cell ss:Index="15" ss:StyleID="s93"><Data ss:Type="String">PV1-19-Visit Number</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">MedicationPrescription.reasonForPrescribing[x]</Data></Cell>
@@ -282,6 +298,7 @@
     <Cell ss:Index="9"><Data ss:Type="String">Reason or indication for writing the prescription</Data></Cell>
     <Cell><Data ss:Type="String">Can be the reason or the indication for writing the prescription.   </Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">CombinedMedicationRequest.RSON.A_SupportingClinicalInformation</Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">ORC-16-Order Control Code Reason</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">MedicationPrescription.medication</Data></Cell>
@@ -292,6 +309,7 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">Medication to be taken</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">CombinedMedicationRequest.component1.administration.consumable</Data></Cell>
+    <Cell><Data ss:Type="String">RXE-2-Give Code / RXO-1-Requested Give Code / RXD-2-Dispense/Give Code&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">MedicationPrescription.dosageInstructions</Data></Cell>
@@ -310,6 +328,7 @@
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Dosage text</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Free text dosage instructions for cases where the instructions are too complex to code.</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">RXE-7.2-Provider's Administration Instructions.text / RXO-7.2-Provider's Administration Instructions.text / TQ1-10-Condition Text / TQ1-11-Text Instruction&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">MedicationPrescription.dosageInstructions.additionalInstructions[x]</Data></Cell>
@@ -319,6 +338,7 @@
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Additional dosage instructions</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Additional instructions such as &quot;Swallow with plenty of water&quot; which may or may not be coded.</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">RXE-7.2-Provider's Administration Instructions.text / RXO-7.2-Provider's Administration Instructions.text / TQ1-10-Condition Text / TQ1-11-Text Instruction ?&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">MedicationPrescription.dosageInstructions.timing</Data></Cell>
@@ -328,6 +348,7 @@
     <Cell ss:Index="9"><Data ss:Type="String">Medication timing</Data></Cell>
     <Cell><Data ss:Type="String">The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  &quot;Every  8 hours&quot;; &quot;Three times a day&quot;; &quot;1/2 an hour before breakfast for 10 days from 23-Dec 2011:&quot;;  &quot;15 Oct 2013, 17 Oct 2013 and 1 Nov 2013&quot;</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">CombinedMedicationRequest.component1.administration.effectiveTime</Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">RDS:TQ1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">MedicationPrescription.dosageInstructions.site</Data></Cell>
@@ -338,6 +359,7 @@
     <Cell><Data ss:Type="String">Entry site</Data></Cell>
     <Cell><Data ss:Type="String">A coded specification of the anatomic site where the medication first enters the body</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">CombinedMedicationRequest.component1.administration.approachSiteCode</Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">RXR-2-Administration Site</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">MedicationPrescription.dosageInstructions.route</Data></Cell>
@@ -348,6 +370,7 @@
     <Cell><Data ss:Type="String">Rout of administration</Data></Cell>
     <Cell><Data ss:Type="String">A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject. </Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">CombinedMedicationRequest.component1.administration.routeCode</Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">RXR-1-Route</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">MedicationPrescription.dosageInstructions.method</Data></Cell>
@@ -361,6 +384,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Administration method</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.&#10;&#10;Terminologies used often pre-coordinate this term with the route and or form of administration.</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s63"><Data ss:Type="String">SubstanceAdministration.methodCode</Data></Cell>
+    <Cell ss:Index="15" ss:StyleID="s93"><Data ss:Type="String">RXR-4-Administration Method</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">MedicationPrescription.dosageInstructions.doseQuantity</Data></Cell>
@@ -370,6 +394,7 @@
     <Cell ss:Index="9"><Data ss:Type="String">Dose quantity per dose</Data></Cell>
     <Cell><Data ss:Type="String">The amount of the therapeutic or other substance given at one administration event. </Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">CombinedMedicationRequest.component1.administration.doseQuantity</Data></Cell>
+    <Cell><Data ss:Type="String">RXE-23-Give Rate Amount / RXE-24.1-Give Rate Units.code / RXE-24.3-Give Rate Units.name of coding system&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">MedicationPrescription.dosageInstructions.rate</Data></Cell>
@@ -379,6 +404,7 @@
     <Cell ss:Index="9"><Data ss:Type="String">Dose quantity per unit of time</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">CombinedMedicationRequest.component1.administration.rateQuantity</Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">RXE-22-Give Per (Time Unit)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">MedicationPrescription.dosageInstructions.maxDosePerPeriod</Data></Cell>
@@ -388,6 +414,7 @@
     <Cell ss:Index="9"><Data ss:Type="String">Total dose that should be consumed per unit of time</Data></Cell>
     <Cell><Data ss:Type="String">The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">CombinedMedicationRequest.component1.administration.maxDoseQuantity</Data></Cell>
+    <Cell><Data ss:Type="String">RXE-4-Give Amount - Maximum / RXE-5-Give Units&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationPrescription.dispense</Data></Cell>
@@ -406,6 +433,7 @@
     <Cell ss:Index="9"><Data ss:Type="String">Validity period</Data></Cell>
     <Cell><Data ss:Type="String">Design Comments: This indicates the validity period of a prescription (stale dating the Prescription) &#10;It reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations. &#10;Rationale: Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription. &#10;</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">CombinedMedicationRequest.component2.dispense.effectiveTime</Data></Cell>
+    <Cell><Data ss:Type="String">RXD-3-Date/Time Dispensed ? / RXD-19-Substance Expiration Date&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">MedicationPrescription.dispense.numberOfRepeatsAllowed</Data></Cell>
@@ -415,6 +443,7 @@
     <Cell ss:Index="9"><Data ss:Type="String">Number of repeats allowed</Data></Cell>
     <Cell><Data ss:Type="String">An integer indicating the number of repeats of the Dispense. &#10;UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill. &#10;</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">CombinedMedicationRequest.component2.dispense.repeatNumber</Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">RXE-12-Number of Refills</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationPrescription.dispense.quantity</Data></Cell>
@@ -424,6 +453,7 @@
     <Cell ss:Index="9"><Data ss:Type="String">Quanity</Data></Cell>
     <Cell><Data ss:Type="String">The amount that is to be dispensed. </Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">CombinedMedicationRequest.component2.dispense.quantity</Data></Cell>
+    <Cell><Data ss:Type="String">RXD-4-Actual Dispense Amount / RXD-5.1-Actual Dispense Units.code / RXD-5.3-Actual Dispense Units.name of coding system&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="195">
     <Cell><Data ss:Type="String">MedicationPrescription.dispense.expectedSupplyDuration</Data></Cell>
@@ -450,6 +480,7 @@
     <Cell ss:StyleID="s63"><Data ss:Type="String">Type of substitiution</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">A code signifying whether a different drug should be dispensed from what was prescribed.</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">CombinedMedicationRequest.subjectOf.SubstitutionPermission.code</Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">RXO-9-Allow Substitutions / RXE-9-Substitution Status?&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s68"><Data ss:Type="String">MedicationPrescription.substitution.reason</Data></Cell>
@@ -481,12 +512,13 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>22</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -494,14 +526,16 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>27</ActiveRow>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -863,7 +897,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

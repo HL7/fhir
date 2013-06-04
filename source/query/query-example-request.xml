@@ -56,7 +56,7 @@
       <Query xmlns="http://hl7.org/fhir">
         <!-- In the message we choose, for convenience, to make the query.id 
             the same as the query resource id. In other contexts that wouldn't be appropriate -->
-        <id value="urn:uuid:7cb73a48-090d-469a-a2b2-04f1e6b11ea2"/> 
+        <identifier value="urn:uuid:7cb73a48-090d-469a-a2b2-04f1e6b11ea2"/> 
         
         <!-- now, the actual search criteria -->
         <!-- this is a simple search, search on patients for the gender "m" using the default query method -->

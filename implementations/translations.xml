@@ -12,6 +12,194 @@
    italian: origama
 
 -->
+  <item id="AdverseReaction">
+    <translation lang="en">AdverseReaction</translation>
+  </item>
+
+  <item id="Alert">
+    <translation lang="en">Alert</translation>
+  </item>
+
+  <item id="AllergyIntolerance">
+    <translation lang="en">AllergyIntolerance</translation>
+  </item>
+
+  <item id="CarePlan">
+    <translation lang="en">CarePlan</translation>
+  </item>
+
+  <item id="Conformance">
+    <translation lang="en">Conformance</translation>
+  </item>
+
+  <item id="Coverage">
+    <translation lang="en">Coverage</translation>
+  </item>
+
+  <item id="Device">
+    <translation lang="en">Device</translation>
+  </item>
+
+  <item id="DeviceCapabilities">
+    <translation lang="en">DeviceCapabilities</translation>
+  </item>
+
+  <item id="DeviceLog">
+    <translation lang="en">DeviceLog</translation>
+  </item>
+
+  <item id="DeviceObservation">
+    <translation lang="en">DeviceObservation</translation>
+  </item>
+
+  <item id="DiagnosticOrder">
+    <translation lang="en">DiagnosticOrder</translation>
+  </item>
+
+  <item id="DiagnosticReport">
+    <translation lang="en">DiagnosticReport</translation>
+  </item>
+
+  <item id="Document">
+    <translation lang="en">Document</translation>
+  </item>
+
+  <item id="DocumentReference">
+    <translation lang="en">DocumentReference</translation>
+  </item>
+
+  <item id="FamilyHistory">
+    <translation lang="en">FamilyHistory</translation>
+  </item>
+
+  <item id="Group">
+    <translation lang="en">Group</translation>
+  </item>
+
+  <item id="ImagingStudy">
+    <translation lang="en">ImagingStudy</translation>
+  </item>
+
+  <item id="Immunization">
+    <translation lang="en">Immunization</translation>
+  </item>
+
+  <item id="ImmunizationProfile">
+    <translation lang="en">ImmunizationProfile</translation>
+  </item>
+
+  <item id="List">
+    <translation lang="en">List</translation>
+  </item>
+
+  <item id="Location">
+    <translation lang="en">Location</translation>
+  </item>
+
+  <item id="Medication">
+    <translation lang="en">Medication</translation>
+  </item>
+
+  <item id="MedicationAdministration">
+    <translation lang="en">MedicationAdministration</translation>
+  </item>
+
+  <item id="MedicationDispense">
+    <translation lang="en">MedicationDispense</translation>
+  </item>
+
+  <item id="MedicationPrescription">
+    <translation lang="en">MedicationPrescription</translation>
+  </item>
+
+  <item id="MedicationStatement">
+    <translation lang="en">MedicationStatement</translation>
+  </item>
+
+  <item id="Message">
+    <translation lang="en">Message</translation>
+  </item>
+
+  <item id="Observation">
+    <translation lang="en">Observation</translation>
+  </item>
+
+  <item id="OperationOutcome">
+    <translation lang="en">OperationOutcome</translation>
+  </item>
+
+  <item id="Order">
+    <translation lang="en">Order</translation>
+  </item>
+
+  <item id="OrderResponse">
+    <translation lang="en">OrderResponse</translation>
+  </item>
+
+  <item id="Organization">
+    <translation lang="en">Organization</translation>
+  </item>
+
+  <item id="Patient">
+    <translation lang="en">Patient</translation>
+  </item>
+
+  <item id="Picture">
+    <translation lang="en">Picture</translation>
+  </item>
+
+  <item id="Practitioner">
+    <translation lang="en">Practitioner</translation>
+  </item>
+
+  <item id="Problem">
+    <translation lang="en">Problem</translation>
+  </item>
+
+  <item id="Procedure">
+    <translation lang="en">Procedure</translation>
+  </item>
+
+  <item id="Profile">
+    <translation lang="en">Profile</translation>
+  </item>
+
+  <item id="Provenance">
+    <translation lang="en">Provenance</translation>
+  </item>
+
+  <item id="Query">
+    <translation lang="en">Query</translation>
+  </item>
+
+  <item id="Questionnaire">
+    <translation lang="en">Questionnaire</translation>
+  </item>
+
+  <item id="SecurityEvent">
+    <translation lang="en">SecurityEvent</translation>
+  </item>
+
+  <item id="Specimen">
+    <translation lang="en">Specimen</translation>
+  </item>
+
+  <item id="Substance">
+    <translation lang="en">Substance</translation>
+  </item>
+
+  <item id="ValueSet">
+    <translation lang="en">ValueSet</translation>
+  </item>
+
+  <item id="Visit">
+    <translation lang="en">Visit</translation>
+  </item>
+
+  <item id="Binary">
+    <translation lang="en">Binary</translation>
+  </item>
+
   <item id="MSG_BACK_HOME">
     <translation lang="du">Terug naar startpagina</translation>
     <translation lang="en">Back to Home</translation>
@@ -84,6 +272,23 @@
     <translation lang="it">Il valore %s per la data non � nel formato corretto (richiesto il Formato Data Xml)</translation>
   </item>
 
+  <item id="SYSTEM_TAGS">
+    <translation lang="en">Tags defined on this System</translation>
+  </item>
+  
+  <item id="RESOURCE_TYPE_TAGS">
+    <translation lang="en">Tags defined on this System for the resource type %s</translation>
+  </item>
+  
+  <item id="RESOURCE_TAGS">
+    <translation lang="en">Tags defined on this System for the resource type %s ID %s</translation>
+  </item>
+
+  <item id="RESOURCE_VER_TAGS">
+    <translation lang="en">Tags defined on this System for the resource type %s ID %s version %s</translation>
+  </item>
+
+  
   <item id="MSG_DELETED_DONE">
     <translation lang="du">Resource verwijderd</translation>
     <translation lang="en">Resource deleted</translation>
@@ -246,6 +451,12 @@
     <translation lang="it">Tipo Risorsa non corrispondente</translation>
   </item>
 
+  
+  <item id="MSG_SEARCH_RESULTS_ALL">
+    <translation lang="en">Search results for all resources</translation>
+  </item>
+
+  
   <item id="MSG_SEARCH_RESULTS">
     <translation lang="du">Zoekresultaten voor resourcetype %s</translation>
     <translation lang="en">Search results for resource type %s</translation>
@@ -434,6 +645,10 @@
     <translation lang="it">Tipo</translation>
   </item>
 
+  <item id="NAME_TAGS">
+    <translation lang="en">Tags</translation>
+  </item>
+  
   <item id="NAME_UPDATES">
     <translation lang="du">Updates</translation>
     <translation lang="en">Updates</translation>
@@ -450,6 +665,10 @@
     <translation lang="du">Valideren</translation>
     <translation lang="en">Validate</translation>
     <translation lang="it">Valida</translation>
+  </item>
+
+  <item id="NAME_LINKS">
+    <translation lang="en">Links</translation>
   </item>
 
   <item id="NAME_VERSION">
