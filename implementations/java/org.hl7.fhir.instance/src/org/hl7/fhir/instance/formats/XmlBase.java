@@ -38,7 +38,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import org.apache.commons.codec.binary.Base64;
-import org.hl7.fhir.utilities.xml.DateHelper;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
@@ -72,10 +71,9 @@ public class XmlBase {
     // String res = new SimpleDateFormat(XML_DATE_PATTERN).format(date);
     // return res.substring(0, 22)+":"+res.substring(22);
  
-  	// javax.xml.bind. isn't available on android
-    // return javax.xml.bind.DatatypeConverter.printDateTime(date);
+  	// javax.xml.bind. isn't available on android..
+    return javax.xml.bind.DatatypeConverter.printDateTime(date);
   	
-  	return DateHelper.toISODateString(date.getTime());
   }
   
   protected java.util.Calendar xmlToDate(String date) throws ParseException {
@@ -86,11 +84,8 @@ public class XmlBase {
   	
   	
   	// javax.xml.bind. isn't available on android
-    // return javax.xml.bind.DatatypeConverter.parseDateTime(date);
+    return javax.xml.bind.DatatypeConverter.parseDateTime(date);
 
-  	Calendar res = Calendar.getInstance();
-  	res.setTime(DateHelper.fromISODateString(date));
-  	return res;
   }
 
   protected void skipEmptyElement(XmlPullParser xpp) throws Exception {

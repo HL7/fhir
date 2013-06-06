@@ -41,7 +41,7 @@ import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceType;
-import org.hl7.fhir.utilities.xml.DateHelper;
+
 
 /**
  * no security. no proxy
@@ -82,9 +82,7 @@ public class FHIRSimpleClient implements FHIRClient {
 			Resource r = new XmlParser().parse(client.getInputStream());
 			AtomEntry e = new AtomEntry();
 			e.setCategory(r.getResourceType().toString());
-			Calendar cal = Calendar.getInstance();
-			cal.setTime(DateHelper.fromISODateString(client.getHeaderField("Last-Updated")));
-			e.setUpdated(cal);
+			e.setUpdated(javax.xml.bind.DatatypeConverter.parseDateTime(client.getHeaderField("Last-Updated")));
 			e.setId(id);
 			e.getLinks().put("self", client.getHeaderField("Content-Location"));
 			e.setResource(r);
