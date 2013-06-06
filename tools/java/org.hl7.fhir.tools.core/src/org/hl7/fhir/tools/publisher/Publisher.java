@@ -2209,6 +2209,10 @@ public class Publisher {
       n = name;
     cd.getReferredValueSet().setIdentifierSimple("http://hl7.org/fhir/valuesets/"+n);
     ValueSet vs = cd.getReferredValueSet();
+    if (vs.getText() == null) {
+      vs.setText(new Narrative());
+      vs.getText().setStatusSimple(NarrativeStatus.empty);
+    }
     if (vs.getText().getDiv() == null) {
       vs.getText().setDiv(new XhtmlNode());
       vs.getText().getDiv().setName("div");
