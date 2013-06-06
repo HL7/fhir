@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 1, 2013 09:23+1000 for FHIR v0.09
+// Generated on Wed, Jun 5, 2013 08:57+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -279,7 +279,7 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * External identifier - FHIR will generate its own internal IDs which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an erntire workflow process where records have to be tracked through an entire system.
      */
-    private List<Identifier> externalID = new ArrayList<Identifier>();
+    private List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * The date (and perhaps time) when the prescription was written
@@ -304,7 +304,7 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * A link to a resource that identifies the particular occurrence of contact between patient and health care provider.
      */
-    private ResourceReference encounter;
+    private ResourceReference visit;
 
     /**
      * Can be the reason or the indication for writing the prescription.
@@ -331,8 +331,8 @@ In some situations, this attribute may be used instead of quantity to identify t
      */
     private MedicationPrescriptionSubstitutionComponent substitution;
 
-    public List<Identifier> getExternalID() { 
-      return this.externalID;
+    public List<Identifier> getIdentifier() { 
+      return this.identifier;
     }
 
     public DateTime getDateWritten() { 
@@ -381,12 +381,12 @@ In some situations, this attribute may be used instead of quantity to identify t
       this.prescriber = value;
     }
 
-    public ResourceReference getEncounter() { 
-      return this.encounter;
+    public ResourceReference getVisit() { 
+      return this.visit;
     }
 
-    public void setEncounter(ResourceReference value) { 
-      this.encounter = value;
+    public void setVisit(ResourceReference value) { 
+      this.visit = value;
     }
 
     public Type getReasonForPrescribing() { 

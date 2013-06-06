@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 1, 2013 09:23+1000 for FHIR v0.09
+// Generated on Wed, Jun 5, 2013 08:57+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -197,7 +197,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
      */
-    private List<Identifier> externalID = new ArrayList<Identifier>();
+    private List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
@@ -256,8 +256,8 @@ Use only if isNegated is set to TRUE
      */
     private List<MedicationAdministrationDosageComponent> dosage = new ArrayList<MedicationAdministrationDosageComponent>();
 
-    public List<Identifier> getExternalID() { 
-      return this.externalID;
+    public List<Identifier> getIdentifier() { 
+      return this.identifier;
     }
 
     public Enumeration<MedicationAdminStatus> getStatus() { 

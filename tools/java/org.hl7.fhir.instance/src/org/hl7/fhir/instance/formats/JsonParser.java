@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sat, Jun 1, 2013 09:23+1000 for FHIR v0.09
+// Generated on Wed, Jun 5, 2013 08:57+1000 for FHIR v0.09
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -1101,9 +1101,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("focus"))
       res.setFocus(parseCode(json.getJSONObject("focus")));
     if (json.has("request"))
-      res.setRequest(parseUri(json.getJSONObject("request")));
+      res.setRequest(parseResourceReference(json.getJSONObject("request")));
     if (json.has("response"))
-      res.setResponse(parseUri(json.getJSONObject("response")));
+      res.setResponse(parseResourceReference(json.getJSONObject("response")));
     if (json.has("documentation"))
       res.setDocumentation(parseString(json.getJSONObject("documentation")));
     return res;
@@ -1117,7 +1117,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("documentation"))
       res.setDocumentation(parseString(json.getJSONObject("documentation")));
     if (json.has("profile"))
-      res.setProfile(parseUri(json.getJSONObject("profile")));
+      res.setProfile(parseResourceReference(json.getJSONObject("profile")));
     return res;
   }
 
@@ -2293,10 +2293,10 @@ public class JsonParser extends JsonParserBase {
   private MedicationAdministration parseMedicationAdministration(JSONObject json) throws Exception {
     MedicationAdministration res = new MedicationAdministration();
     parseResourceProperties(json, res);
-    if (json.has("externalID")) {
-      JSONArray array = json.getJSONArray("externalID");
+    if (json.has("identifier")) {
+      JSONArray array = json.getJSONArray("identifier");
       for (int i = 0; i < array.length(); i++) {
-        res.getExternalID().add(parseIdentifier(array.getJSONObject(i)));
+        res.getIdentifier().add(parseIdentifier(array.getJSONObject(i)));
       }
     };
     if (json.has("status"))
@@ -2359,8 +2359,8 @@ public class JsonParser extends JsonParserBase {
   private MedicationDispense parseMedicationDispense(JSONObject json) throws Exception {
     MedicationDispense res = new MedicationDispense();
     parseResourceProperties(json, res);
-    if (json.has("externalID"))
-      res.setExternalID(parseIdentifier(json.getJSONObject("externalID")));
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getJSONObject("identifier")));
     if (json.has("status"))
       res.setStatus(parseCodeableConcept(json.getJSONObject("status")));
     if (json.has("patient"))
@@ -2389,8 +2389,8 @@ public class JsonParser extends JsonParserBase {
   private MedicationDispense.MedicationDispenseDispenseComponent parseMedicationDispenseMedicationDispenseDispenseComponent(JSONObject json, MedicationDispense owner) throws Exception {
     MedicationDispense.MedicationDispenseDispenseComponent res = owner.new MedicationDispenseDispenseComponent();
     parseElementProperties(json, res);
-    if (json.has("externalID"))
-      res.setExternalID(parseIdentifier(json.getJSONObject("externalID")));
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getJSONObject("identifier")));
     if (json.has("status"))
       res.setStatus(parseCodeableConcept(json.getJSONObject("status")));
     if (json.has("type"))
@@ -2463,10 +2463,10 @@ public class JsonParser extends JsonParserBase {
   private MedicationPrescription parseMedicationPrescription(JSONObject json) throws Exception {
     MedicationPrescription res = new MedicationPrescription();
     parseResourceProperties(json, res);
-    if (json.has("externalID")) {
-      JSONArray array = json.getJSONArray("externalID");
+    if (json.has("identifier")) {
+      JSONArray array = json.getJSONArray("identifier");
       for (int i = 0; i < array.length(); i++) {
-        res.getExternalID().add(parseIdentifier(array.getJSONObject(i)));
+        res.getIdentifier().add(parseIdentifier(array.getJSONObject(i)));
       }
     };
     if (json.has("dateWritten"))
@@ -2477,8 +2477,8 @@ public class JsonParser extends JsonParserBase {
       res.setPatient(parseResourceReference(json.getJSONObject("patient")));
     if (json.has("prescriber"))
       res.setPrescriber(parseResourceReference(json.getJSONObject("prescriber")));
-    if (json.has("encounter"))
-      res.setEncounter(parseResourceReference(json.getJSONObject("encounter")));
+    if (json.has("visit"))
+      res.setVisit(parseResourceReference(json.getJSONObject("visit")));
     Type reasonForPrescribing = parseType("reasonForPrescribing", json);
     if (reasonForPrescribing != null)
       res.setReasonForPrescribing(reasonForPrescribing);
@@ -3572,8 +3572,8 @@ public class JsonParser extends JsonParserBase {
   private Query parseQuery(JSONObject json) throws Exception {
     Query res = new Query();
     parseResourceProperties(json, res);
-    if (json.has("id"))
-      res.setId(parseUri(json.getJSONObject("id")));
+    if (json.has("identifier"))
+      res.setIdentifier(parseUri(json.getJSONObject("identifier")));
     if (json.has("parameter")) {
       JSONArray array = json.getJSONArray("parameter");
       for (int i = 0; i < array.length(); i++) {
@@ -3598,8 +3598,8 @@ public class JsonParser extends JsonParserBase {
   private Query.QueryResponseComponent parseQueryQueryResponseComponent(JSONObject json, Query owner) throws Exception {
     Query.QueryResponseComponent res = owner.new QueryResponseComponent();
     parseElementProperties(json, res);
-    if (json.has("id"))
-      res.setId(parseUri(json.getJSONObject("id")));
+    if (json.has("identifier"))
+      res.setIdentifier(parseUri(json.getJSONObject("identifier")));
     if (json.has("outcome"))
       res.setOutcome(parseEnumeration(json.getJSONObject("outcome"), Query.QueryOutcome.Null, new Query().new QueryOutcomeEnumFactory()));
     if (json.has("total"))

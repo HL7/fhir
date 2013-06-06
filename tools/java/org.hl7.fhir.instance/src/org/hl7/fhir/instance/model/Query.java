@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 1, 2013 09:23+1000 for FHIR v0.09
+// Generated on Wed, Jun 5, 2013 08:57+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -154,7 +154,7 @@ public class Query extends Resource {
         /**
          * Links response to source query
          */
-        private Uri id;
+        private Uri identifier;
 
         /**
          * Outcome of processing the query
@@ -196,22 +196,22 @@ public class Query extends Resource {
          */
         private List<ResourceReference> reference = new ArrayList<ResourceReference>();
 
-        public Uri getId() { 
-          return this.id;
+        public Uri getIdentifier() { 
+          return this.identifier;
         }
 
-        public void setId(Uri value) { 
-          this.id = value;
+        public void setIdentifier(Uri value) { 
+          this.identifier = value;
         }
 
-        public URI getIdSimple() { 
-          return this.id == null ? null : this.id.getValue();
+        public URI getIdentifierSimple() { 
+          return this.identifier == null ? null : this.identifier.getValue();
         }
 
-        public void setIdSimple(URI value) { 
-            if (this.id == null)
-              this.id = new Uri();
-            this.id.setValue(value);
+        public void setIdentifierSimple(URI value) { 
+            if (this.identifier == null)
+              this.identifier = new Uri();
+            this.identifier.setValue(value);
         }
 
         public Enumeration<QueryOutcome> getOutcome() { 
@@ -347,7 +347,7 @@ public class Query extends Resource {
     /**
      * Links query and it's response(s)
      */
-    private Uri id;
+    private Uri identifier;
 
     /**
      * Set of query parameters
@@ -359,22 +359,22 @@ public class Query extends Resource {
      */
     private QueryResponseComponent response;
 
-    public Uri getId() { 
-      return this.id;
+    public Uri getIdentifier() { 
+      return this.identifier;
     }
 
-    public void setId(Uri value) { 
-      this.id = value;
+    public void setIdentifier(Uri value) { 
+      this.identifier = value;
     }
 
-    public URI getIdSimple() { 
-      return this.id == null ? null : this.id.getValue();
+    public URI getIdentifierSimple() { 
+      return this.identifier == null ? null : this.identifier.getValue();
     }
 
-    public void setIdSimple(URI value) { 
-        if (this.id == null)
-          this.id = new Uri();
-        this.id.setValue(value);
+    public void setIdentifierSimple(URI value) { 
+        if (this.identifier == null)
+          this.identifier = new Uri();
+        this.identifier.setValue(value);
     }
 
     public List<QueryParameterComponent> getParameter() { 

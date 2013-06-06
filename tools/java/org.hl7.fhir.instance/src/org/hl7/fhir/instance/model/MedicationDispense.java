@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 1, 2013 09:23+1000 for FHIR v0.09
+// Generated on Wed, Jun 5, 2013 08:57+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -42,7 +42,7 @@ public class MedicationDispense extends Resource {
         /**
          * Identifier assigned by the dispensing facility.   This is an identifier assigned outside FHIR.
          */
-        private Identifier externalID;
+        private Identifier identifier;
 
         /**
          * A code specifying the state of the dispense event.
@@ -89,12 +89,12 @@ public class MedicationDispense extends Resource {
          */
         private List<MedicationDispenseDispenseDosageComponent> dosage = new ArrayList<MedicationDispenseDispenseDosageComponent>();
 
-        public Identifier getExternalID() { 
-          return this.externalID;
+        public Identifier getIdentifier() { 
+          return this.identifier;
         }
 
-        public void setExternalID(Identifier value) { 
-          this.externalID = value;
+        public void setIdentifier(Identifier value) { 
+          this.identifier = value;
         }
 
         public CodeableConcept getStatus() { 
@@ -296,7 +296,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR.
      */
-    private Identifier externalID;
+    private Identifier identifier;
 
     /**
      * A code specifying the state of the set of dispense events.
@@ -333,12 +333,12 @@ Terminologies used often pre-coordinate this term with the route and or form of 
      */
     private MedicationDispenseSubstitutionComponent substitution;
 
-    public Identifier getExternalID() { 
-      return this.externalID;
+    public Identifier getIdentifier() { 
+      return this.identifier;
     }
 
-    public void setExternalID(Identifier value) { 
-      this.externalID = value;
+    public void setIdentifier(Identifier value) { 
+      this.identifier = value;
     }
 
     public CodeableConcept getStatus() { 

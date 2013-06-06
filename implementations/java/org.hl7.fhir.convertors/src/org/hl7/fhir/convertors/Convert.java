@@ -22,6 +22,7 @@ import org.hl7.fhir.instance.model.Address.AddressUse;
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.String_;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xml.DateHelper;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -289,7 +290,7 @@ public class Convert {
     SimpleDateFormat sdf = new SimpleDateFormat(m);
     cal.setTime(sdf.parse(v));
     //sdf = new SimpleDateFormat(t ? tz != null ? "yyyy-MM-dd'T'hh:mm:ssZ" : "yyyy-MM-dd'T'hh:mm:ss" : "yyyy-MM-dd");
-	  d.setValue(javax.xml.bind.DatatypeConverter.printDateTime(cal));
+	  d.setValue(DateHelper.toISODateString(cal.getTime()));
     return d;
   }
 

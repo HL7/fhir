@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 1, 2013 09:23+1000 for FHIR v0.09
+// Generated on Wed, Jun 5, 2013 08:57+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -183,7 +183,7 @@ public class Conformance extends Resource {
         integer, // Search parameter must be a simple whole number
         string, // Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces and are delineated by double quotes, e.g. "van Zanten".
         text, // Search parameter is on a long string. Used for text filter type search: it functions on searches within a body of text and may contain spaces to separate words. May match even if the separate words are found out of order. Text parameters are delineated by double quotes.
-        date, // Search parameter is on a date (and should support -before and -after variants). The date format is the standard XML format, though other formats may be supported
+        date, // Search parameter is on a date (and should support :before and :after modifiers). The date format is the standard XML format, though other formats may be supported
         token, // Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). It's value is either a string or a pair of namespace and value, separated by a "!".
         reference, // A pair of resource type and resource id, separated by "/". Matches when the resource reference resolves to a resource of the given type and id.
         composite, // A composite search parameter that combines other search parameters together
@@ -1131,12 +1131,12 @@ public class Conformance extends Resource {
         /**
          * Information about the request for this event
          */
-        private Uri request;
+        private ResourceReference request;
 
         /**
          * Information about the response for this event
          */
-        private Uri response;
+        private ResourceReference response;
 
         /**
          * Guidance on how this event is handled, such as internal system trigger points, business rules, etc.
@@ -1201,40 +1201,20 @@ public class Conformance extends Resource {
             this.focus.setValue(value);
         }
 
-        public Uri getRequest() { 
+        public ResourceReference getRequest() { 
           return this.request;
         }
 
-        public void setRequest(Uri value) { 
+        public void setRequest(ResourceReference value) { 
           this.request = value;
         }
 
-        public URI getRequestSimple() { 
-          return this.request == null ? null : this.request.getValue();
-        }
-
-        public void setRequestSimple(URI value) { 
-            if (this.request == null)
-              this.request = new Uri();
-            this.request.setValue(value);
-        }
-
-        public Uri getResponse() { 
+        public ResourceReference getResponse() { 
           return this.response;
         }
 
-        public void setResponse(Uri value) { 
+        public void setResponse(ResourceReference value) { 
           this.response = value;
-        }
-
-        public URI getResponseSimple() { 
-          return this.response == null ? null : this.response.getValue();
-        }
-
-        public void setResponseSimple(URI value) { 
-            if (this.response == null)
-              this.response = new Uri();
-            this.response.setValue(value);
         }
 
         public String_ getDocumentation() { 
@@ -1275,7 +1255,7 @@ public class Conformance extends Resource {
         /**
          * Constraint on a resource used in the document
          */
-        private Uri profile;
+        private ResourceReference profile;
 
         public Enumeration<DocumentMode> getMode() { 
           return this.mode;
@@ -1317,22 +1297,12 @@ public class Conformance extends Resource {
           }
         }
 
-        public Uri getProfile() { 
+        public ResourceReference getProfile() { 
           return this.profile;
         }
 
-        public void setProfile(Uri value) { 
+        public void setProfile(ResourceReference value) { 
           this.profile = value;
-        }
-
-        public URI getProfileSimple() { 
-          return this.profile == null ? null : this.profile.getValue();
-        }
-
-        public void setProfileSimple(URI value) { 
-            if (this.profile == null)
-              this.profile = new Uri();
-            this.profile.setValue(value);
         }
 
   }

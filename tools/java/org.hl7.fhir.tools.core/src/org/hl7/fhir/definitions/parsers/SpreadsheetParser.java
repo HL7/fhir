@@ -75,6 +75,7 @@ public class SpreadsheetParser {
 	private Logger log;
 	private String sheetname;
 	private BindingNameRegistry registry;
+  private String dataTypesFolder;
 
 	public SpreadsheetParser(InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry) throws Exception {
 		this.name = name;
@@ -87,6 +88,7 @@ public class SpreadsheetParser {
 		else
 		  title = name;
 		this.folder = root + title + File.separator;
+		this.dataTypesFolder =  root + "datatypes" + File.separator;
 		this.log = log;
 		this.registry = registry;
 	}
@@ -421,7 +423,15 @@ public class SpreadsheetParser {
 			    JsonParser p = new JsonParser();
 			    FileInputStream input = new FileInputStream(Utilities.appendSlash(folder)+cd.getReference()+".json");
 	        cd.setReferredValueSet((ValueSet) p.parse(input));
-			  } else
+			  } else if (new File(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".xml").exists()) {
+	          XmlParser p = new XmlParser();
+	          FileInputStream input = new FileInputStream(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".xml");
+	          cd.setReferredValueSet((ValueSet) p.parse(input));
+	        } else if (new File(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".json").exists()) {
+	          JsonParser p = new JsonParser();
+	          FileInputStream input = new FileInputStream(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".json");
+	          cd.setReferredValueSet((ValueSet) p.parse(input));
+	        } else
 			    throw new Exception("Unable to find source for "+cd.getReference()+" ("+Utilities.appendSlash(folder)+cd.getReference()+".xml/json)");
 			  
 			}
