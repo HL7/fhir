@@ -73,7 +73,8 @@ namespace Hl7.Fhir.Tests
                     System = new Uri("http://hl7.org/fhir/sid/us-ssn"),
                     Key = "000111111",
                     Period = new Period() { Start = new FhirDateTime(2001, 1, 2), End = new FhirDateTime(2010, 3, 4) },
-                    Assigner = new ResourceReference { Type = "Organization", Url = new Uri("../organization/@123", UriKind.Relative), Display = "HL7, Inc" }
+                    Assigner = new ResourceReference { Type = "Organization", Reference = "organization/@123",
+                                        Display = "HL7, Inc" }
                 };
 
 
@@ -82,16 +83,16 @@ namespace Hl7.Fhir.Tests
                         @"<use value=""official"" />" +
                         @"<label value=""SSN"" />" +
                         @"<system value=""http://hl7.org/fhir/sid/us-ssn"" />" +
-                        @"<id value=""000111111"" />" +
+                        @"<key value=""000111111"" />" +
                         @"<period><start value=""2001-01-02"" /><end value=""2010-03-04"" /></period>" +
-                        @"<assigner><type value=""Organization"" /><url value=""../organization/@123"" /><display value=""HL7, Inc"" /></assigner>" +
+                        @"<assigner><type value=""Organization"" /><reference value=""organization/@123"" /><display value=""HL7, Inc"" /></assigner>" +
                      @"</element>", FhirSerializer.SerializeElementAsXml(id));
 
             Assert.AreEqual(
                 @"{""_id"":""3141"",""use"":{""value"":""official""},""label"":{""value"":""SSN""}," +
-                @"""system"":{""value"":""http://hl7.org/fhir/sid/us-ssn""},""id"":{""value"":""000111111""}," +
+                @"""system"":{""value"":""http://hl7.org/fhir/sid/us-ssn""},""key"":{""value"":""000111111""}," +
                 @"""period"":{""start"":{""value"":""2001-01-02""},""end"":{""value"":""2010-03-04""}}," +
-                @"""assigner"":{""type"":{""value"":""Organization""},""url"":{""value"":""../organization/@123""}," +
+                @"""assigner"":{""type"":{""value"":""Organization""},""reference"":{""value"":""organization/@123""}," +
                 @"""display"":{""value"":""HL7, Inc""}}}", FhirSerializer.SerializeElementAsJson(id));
         }
 
@@ -192,7 +193,7 @@ namespace Hl7.Fhir.Tests
                 @"<Patient id=""Ab4"" xmlns=""http://hl7.org/fhir"">" +
                 @"<text><status value=""generated"" /><div xmlns='http://www.w3.org/1999/xhtml'>Patient 3141 - Wouter Gert, nov. 30th, 1972</div></text>" +
                 @"<contained><List><mode value=""snapshot"" /></List></contained>" +
-                @"<identifier><id value=""3141"" /></identifier>" +
+                @"<identifier><key value=""3141"" /></identifier>" +
                 @"<details><name>" +
                     @"<family value=""van der"">" +
                         @"<extension><url value=""http://hl7.org/fhir/profile/@iso-21090#name-qualifier"" /><valueCode value=""VV"" /></extension>" +
@@ -204,7 +205,7 @@ namespace Hl7.Fhir.Tests
                  @"""text"":{""status"":{""value"":""generated""},""div"":""<div xmlns='http://www.w3.org/1999/xhtml'>" +
                     @"Patient 3141 - Wouter Gert, nov. 30th, 1972</div>""},"+
                  @"""contained"":[{""List"":{""mode"":{""value"":""snapshot""}}}],"+
-                @"""identifier"":[{""id"":{""value"":""3141""}}]," +
+                @"""identifier"":[{""key"":{""value"":""3141""}}]," +
                 @"""details"":{""name"":[{""family"":[{""value"":""van der""," +
                     @"""extension"":[{""url"":{""value"":""http://hl7.org/fhir/profile/@iso-21090#name-qualifier""},""valueCode"":{""value"":""VV""}}]}," +
                     @"{""value"":""Vlies""}],""given"":[{""value"":""Wouter""},{""value"":""Gert""}]}],""birthDate"":{""value"":""1972-11-30""}}" +

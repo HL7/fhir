@@ -146,9 +146,11 @@ namespace Hl7.Fhir.Support
 
             if (Id == null || String.IsNullOrWhiteSpace(Id.ToString()))
                 errors.Add("Entry must have an id");
-
-            if (!Id.IsAbsoluteUri)
-                errors.Add("Entry id must be an absolute URI");
+            else
+            {
+                if (!Id.IsAbsoluteUri)
+                    errors.Add("Entry id must be an absolute URI");
+            }
 
             foreach (var link in Links)
                 if (!link.Uri.IsAbsoluteUri)

@@ -1,0 +1,39 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        This example value set defines a set of codes that can be used to indicate species of animal patients. 
+        It's taken from a <a href="http://en.wikipedia.org/wiki/List_of_domesticated_animals">list of animals on Wikipedia</a>       
+      </p>
+    </div>
+  </text>
+  <name value="AnimalSpecies"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This example value set defines a set of codes that can be used to indicate species of animal patients."/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/animal-species"/>
+    <concept>
+      <code value="dog"/>
+      <display value="Dog"/>
+      <definition value="Canis lupus familiaris"/>
+    </concept>
+    <concept>
+      <code value="sheep"/>
+      <display value="Sheep"/>
+      <definition value="Ovis aries"/>
+    </concept>
+    <concept>
+      <code value="canary"/>
+      <display value="Domestic Canary"/>
+      <definition value="Serinus canaria domestica"/>
+    </concept>    
+  </define>
+</ValueSet>
+

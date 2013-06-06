@@ -8,8 +8,6 @@ Notes:
 Patient.identifier contains zero or more identifiers that are used to identify the patient's record within 
 an organisation, while the Demographics.identifier are identifiers that identify the person that is receiving care. Demographics.identifier are normally also used outside the context of healthcare and are often assigned by 
 external, possibly national bodies.</li>
-<li>The patient may be a person or an animal (in order to support veterinary medicine). Either a person or an animal resource link must be provided, but not both.</li> 
-<li>The dietary restrictions are not for specifying medical diets, but for casual dietary restrictions such as vegetarian, diary-free, nut-free, etc.</li>
 <li>multipleBirth can be either expressed as a boolean (just indicating whether the patient is part of a multiple birth) or as an integer, indicating the actual birth order.</li>
 <li>Patient records may only be in one of two statuses: in use (active=true) and not in use (active=false). 
 A normal record is active-it is in use. Active is set to 'false' when a record is created as a duplicate or in error. A record does not need to be linked to be inactivated.
