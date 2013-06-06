@@ -248,7 +248,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Coding</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">AdministrativeGender</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Gender for administrative purposes</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes. </Data></Cell>
@@ -482,7 +482,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>3</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -499,8 +499,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame</LastAuthor>
+  <LastAuthor>Ewout Kramer</LastAuthor>
   <Created>2012-03-19T11:15:11Z</Created>
-  <LastSaved>2013-04-12T11:05:10Z</LastSaved>
+  <LastSaved>2013-06-06T14:55:32Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -26,6 +26,7 @@
   <WindowWidth>19440</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -166,17 +167,17 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Other patients linked to this resource</Data></Cell>
-    <Cell><Data ss:Type="String">A linked patient record is a record that concerns the same patient. Records are linked after it is realized that at least one was created in error.</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Other patient resources linked to this resource</Data></Cell>
+    <Cell><Data ss:Type="String">A linked patient resource is a resource that concerns the same patient. Resources are linked after it is realized that at least one was created in error.</Data></Cell>
     <Cell><Data ss:Type="String">Due to the clerical errors associated with the difficulties of identifying humans consistently, duplicate patient records are frequently created in error</Data></Cell>
-    <Cell><Data ss:Type="String">More then two patient records may be linked. Note that there is a special transaction for linking patient records in the RESTful context, as record linking consistency must be maintained</Data></Cell>
+    <Cell><Data ss:Type="String">More then two patient resources may be linked. Note that there is a special transaction for linking patient resources in the RESTful context, as resource linking consistency must be maintained</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Patient.active</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">boolean</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Whether this patient record is in active use</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Whether this patient's record is in active use</Data></Cell>
     <Cell><Data ss:Type="String">Whether this patient record is in active use</Data></Cell>
     <Cell><Data ss:Type="String">Need to be able to mark a patient record as not to be used because it was created in error</Data></Cell>
     <Cell><Data ss:Type="String">If a record is inactive, and linked to an active record, then future patient/person/record updates should occur on the other patient</Data></Cell>
@@ -335,13 +336,13 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
-   <TopRowVisible>1</TopRowVisible>
+   <TopRowVisible>7</TopRowVisible>
+   <LeftColumnVisible>1</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -368,7 +369,7 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">ContactNeedsDetails</Data></Cell>
     <Cell><Data ss:Type="String">Patient.contact</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Need contact details or at least a reference to an organization</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Must at least contain a contact's details or a reference to an organization</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">f:details or f:organization</Data></Cell>
    </Row>
   </Table>
@@ -379,6 +380,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

@@ -6,13 +6,15 @@ Notes:
 <ul>
 <li>Both Patient and Demographics have an identifier element, and these server different roles: the
 Patient.identifier contains zero or more identifiers that are used to identify the patient's record within 
-an organisation, while the Demographics.identifier are identifiers that identify the person that is receiving care. Demographics.identifier are normally also used outside the context of healthcare and are often assigned by 
+an organisation, while the Demographics.identifier are identifiers that uniquely identify the individual that is receiving care. 
+Demographics.identifier are normally also used outside the context of healthcare and are often assigned by 
 external, possibly national bodies.</li>
 <li>multipleBirth can be either expressed as a boolean (just indicating whether the patient is part of a multiple birth) or as an integer, indicating the actual birth order.</li>
 <li>Patient records may only be in one of two statuses: in use (active=true) and not in use (active=false). 
 A normal record is active-it is in use. Active is set to 'false' when a record is created as a duplicate or in error. A record does not need to be linked to be inactivated.
 </li>
 <li>The <i>link</i> element is used to assert that two or more Patient resources are both about the same actual person. See below for further discussion</li>
+<li>There should be only one preferred language (Language.preference = true) per mode of expression.</li>
 </ul>
 
 <a name="links"> </a>
