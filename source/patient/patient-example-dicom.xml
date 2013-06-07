@@ -27,7 +27,7 @@
       Patient MINT_TEST, ID = MINT1234. Age = 56y, Size = 1.83m, Weight = 72.58kg
     </div>
   </text>
-  <active value="true"/>
+ 
   <identifier>
     <system value="http://nema.org/examples/patients"/>
     <key value="MINT1234"/>
@@ -37,12 +37,22 @@
       <family value="MINT_TEST"/>
     </name>
     <gender>
-      <system value="http://nema.org/examples/gender"/>
-      <code value="M"/>
+      <coding>
+        <system value="http://hl7.org/fhir/v2/0001"/>
+        <code value="M"/>        
+      </coding>
+      <coding id="nemagender">
+        <system value="http://nema.org/examples/gender"/>
+        <code value="M"/>
+      </coding>
+   <!--   <primary value="nemagender" /> --> 
     </gender>
   </details>
+  
   <provider>
     <type value="Organization"/>
     <reference value="organization/@1"/>
   </provider>
+  
+  <active value="true"/>
 </Patient>

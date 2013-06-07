@@ -5,7 +5,6 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Albert Brooks, Id: AB60001</div>
   </text>
-  <active value="true"/>
  
   <!-- MRN assigned by ACME healthcare on 6-May 2001 -->
   <identifier>
@@ -20,5 +19,6 @@
       <given value="ALBERT"/>
     </name>
   </details>
-  
+ 
+  <active value="true"/> 
 </Patient>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
+<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -25,13 +26,12 @@
       </table>
     </div>
   </text>
-  <active value="true"/>
- 
+
   <!-- MRN assigned by ACME healthcare on 6-May 2001 -->
   <identifier>
     <use value="usual"/>
     <label value="MRN"/>
-    <system value="oid:1.2.36.146.595.217.0.1"/>
+    <system value="urn:oid:1.2.36.146.595.217.0.1"/>
     <key value="12345"/>
     <period>
       <start value="2001-05-06"/>
@@ -63,12 +63,14 @@
       <value value="(03) 5555 6473"/>
       <use value="work"/>
     </telecom>
-    
-    <!-- use v2 code system for male / female -->
+
+    <!-- use FHIR code system for male / female -->
     <gender>
-      <system value="http://hl7.org/fhir/sid/v2-0001"/>
-      <code value="M"/>
-      <display value="Male"/>
+      <coding>
+        <system value="http://hl7.org/fhir/v2/0001"/>
+        <code value="M"/>
+        <display value="Male"/>
+      </coding>
     </gender>
     <birthDate value="1974-12-25"/>
     <deceased value="false"/>
@@ -85,25 +87,34 @@
   <contact>
     <relationship>
       <coding>
-        <system value="http://hl7.org/fhir/contact-relationship" />
-        <code value="partner" />
+        <system value="http://hl7.org/fhir/contact-relationship"/>
+        <code value="partner"/>
       </coding>
     </relationship>
     <details>
       <name>
-        <family value="du" />
-        <family value="Marché" />
-        <given value="Bénédicte" />
+        <family value="du">
+          <!-- the "du" part is a family name prefix (VV in iso 21090) -->
+          <extension>
+            <url value="http://hl7.org/fhir/profile/@iso-21090#qualifier"/>
+            <valueCode value="VV"/>
+          </extension>
+        </family>
+        <family value="Marché"/>
+        <given value="Bénédicte"/>
       </name>
       <telecom>
-        <system value="phone" />
-        <value value="+33 (237) 998327"></value>        
+        <system value="phone"/>
+        <value value="+33 (237) 998327"/>
       </telecom>
     </details>
   </contact>
-  
+
   <provider>
     <type value="Organization"/>
     <reference value="organization/@1"/>
   </provider>
+
+  <active value="true"/>
+
 </Patient>

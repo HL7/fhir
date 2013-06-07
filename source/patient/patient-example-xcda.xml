@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
+<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>Henry Levin the 7th</p>
     </div>
   </text>
-  <active value="true"/>
   <identifier>
     <use value="usual"/>
     <label value="MRN"/>
@@ -19,14 +19,17 @@
       <given value="Henry"/>
     </name>
     <gender>
-      <system value="urn:oid:2.16.840.1.113883.5.1"/>
-      <code value="M"/>
+      <coding>
+        <system value="http://hl7.org/fhir/v2/0001"/>
+        <code value="M"/>
+      </coding>
     </gender>
     <birthDate value="1932-09-24"/>
   </details>
   <provider>
     <type value="Organization"/>
-    <reference value="organization/@2.16.840.1.113883.19.5"/>  
+    <reference value="organization/@2.16.840.1.113883.19.5"/>
     <display value="Good Health Clinic"/>
   </provider>
+  <active value="true"/>
 </Patient>

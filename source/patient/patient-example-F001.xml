@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
-  <active value="true"/>
+<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
   <identifier>
     <use value="usual"/>
-    <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/> <!-- BSN identification system -->
+    <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
+    <!-- BSN identification system -->
     <key value="738472983"/>
   </identifier>
   <details>
     <identifier>
       <use value="usual"/>
-      <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/> <!-- BSN identification system -->
+      <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
+      <!-- BSN identification system -->
     </identifier>
     <name>
       <use value="usual"/>
@@ -28,51 +30,59 @@
       <use value="home"/>
     </telecom>
     <gender>
-      <system value="urn:oid:2.16.840.1.113883.4.642.1.24"/> <!-- OID gender -->
-      <code value="M"/>
-      <display value="Male"/>  
+      <coding>
+        <system value="http://hl7.org/fhir/v2/0001"/>
+        <code value="M"/>
+        <display value="Male"/>
+      </coding>
     </gender>
     <birthDate value="1944-11-17"/>
     <deceased value="false"/>
     <address>
       <use value="home"/>
-      <line value="van egmondkade 23"/>
+      <line value="Van Egmondkade 23"/>
       <city value="Amsterdam"/>
       <zip value="1024 RJ"/>
       <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
     </address>
     <maritalStatus>
       <coding>
-        <system value="urn:oid:2.16.840.1.113883.5.2"/>
+        <system value="http://hl7.org/fhir/v3/MaritalStatus"/>
         <code value="M"/>
         <display value="Married"/>
       </coding>
-      <text value="Married"/>
+      <text value="Getrouwd"/>
     </maritalStatus>
     <language>
       <language>
         <coding>
-          <system value="urn:oid:2.16.840.1.113883.6.121"/> <!-- List of ISO 639-1 language codes (ISO 3066) -->
+          <system value="urn:ietf:bcp:47"/>
+          <!-- IETF language tag -->
           <code value="nl"/>
-          <display value="Netherlands"/>
+          <display value="Dutch"/>
         </coding>
-        <text value="Language"/>
-      </language> 
+        <text value="Nederlands"/>
+      </language>
       <mode>
         <coding>
-          <system value="urn:oid:2.16.840.1.113883.6.60"/> <!-- OID resistry -->
+          <system value="http://hl7.org/fhir/v3/LanguageAbilityMode"/>
           <code value="ESP"/>
           <display value="Expressed spoken"/>
         </coding>
-        <text value="Expression"></text>
+      </mode>
+      <mode>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/LanguageAbilityMode"/>
+          <code value="EWR"/>
+          <display value="Expressed written"/>
+        </coding>
       </mode>
       <proficiencyLevel>
         <coding>
-          <system value="urn:oid:2.16.840.1.113883.5.61"/> <!-- OID resistry -->
+          <system value="http://hl7.org/fhir/v3/LanguageAbilityProficiency"/>
           <code value="E"/>
           <display value="Excellent"/>
         </coding>
-        <text value="skill level"></text>
       </proficiencyLevel>
       <preference value="true"/>
     </language>
@@ -80,14 +90,16 @@
   <contact>
     <relationship>
       <coding>
-        <system value="urn:oid:2.16.840.1.114222.4.11.813"/> <!-- OID resistry -->
+        <system value="http://hl7.org/fhir/contact-relationship"/>
         <code value="partner"/>
       </coding>
     </relationship>
     <details>
       <identifier>
         <use value="official"/>
-        <label value="urn:oid:2.16.840.1.113883.2.4.6.3"/> <!-- BSN identification system -->
+        <label value="BSN"/>
+        <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
+        <!-- Dutch BSN identification system -->
       </identifier>
       <name>
         <use value="usual"/>
@@ -105,79 +117,22 @@
         <use value="home"/>
       </telecom>
       <gender>
-        <system value="urn:oid:2.16.840.1.113883.4.642.1.24"/> <!-- OID gender =2.16.840.1.113883.4.642.1.24 -->
-        <code value="F"/>
-        <display value="Female"/>  
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0001"/>
+          <code value="F"/>
+          <display value="Female"/>
+        </coding>
       </gender>
       <birthDate value="1949-03-05"/>
       <deceased value="false"/>
-      <address>
-        <use value="home"/>
-        <line value="van egmondkade 23"/>
-        <city value="Amsterdam"/>
-        <zip value="1024 RJ"/>
-        <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
-      </address>
-      <maritalStatus>
-        <coding>
-          <system value="urn:oid:2.16.840.1.113883.5.2"/>
-          <code value="M"/>
-          <display value="Married"/>
-        </coding>
-        <text value="Married"/>
-      </maritalStatus>
-      <language>
-        <language>
-          <coding>
-            <system value="urn:oid:2.16.840.1.113883.6.121"/> <!-- List of ISO 639-1 language codes (ISO 3066) -->
-            <code value="nl"/>
-            <display value="Netherlands"/>
-          </coding>
-          <text value="Language"/>
-        </language> 
-        <mode>
-          <coding>
-            <system value="urn:oid:2.16.840.1.113883.6.60"/> <!-- OID resistry -->
-            <code value="ESP"/>
-            <display value="Expressed spoken"/>
-          </coding>
-          <text value="Expression"></text>
-        </mode>
-        <proficiencyLevel>
-          <coding>
-            <system value="urn:oid:2.16.840.1.113883.5.61"/> <!-- OID resistry -->
-            <code value="E"/>
-            <display value="Excellent"/>
-          </coding>
-          <text value="skill level"></text>
-        </proficiencyLevel>
-        <preference value="true"/>
-      </language>
     </details>
-    <organization>
-      <type value="organisation"/> <!-- deze moet gekoppeld worden aan een RESOURCE ORGANIZATION -->
-      <url value="organisation/F001"/>
-      <display value="AMC"/>
-    </organization>    
   </contact>
   <provider>
-    <type value="organisation"/> <!-- deze moet gekoppeld worden aan een RESOURCE ORGANIZATION -->
-    <url value="organisation/F001"/>
+    <type value="Organization"/>
+    <!--TODO refer to Furore test organization -->
+    <reference value="organization/@1"/>
     <display value="AMC Amsterdam"/>
   </provider>
   <multipleBirthBoolean value="true"/>
+  <active value="true"/>
 </Patient>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
+<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>Patient John Doe, M, 27-May 1956. ID: 89765a87b</p>
     </div>
   </text>
-  <active value="true"/>
   <identifier>
     <use value="usual"/>
     <label value="MRN"/>
@@ -19,8 +19,10 @@
       <given value="John"/>
     </name>
     <gender>
-      <system value="http://hl7.org/fhir/sid/v2-0001"/>
-      <code value="M"/>
+      <coding>
+        <system value="http://hl7.org/fhir/v2/0001"/>
+        <code value="M"/>
+      </coding>
     </gender>
     <birthDate value="1956-05-27"/>
     <address>
@@ -35,4 +37,5 @@
     <type value="Organization"/>
     <reference value="organization/@2"/>
   </provider>
+  <active value="true"/>
 </Patient>

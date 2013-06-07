@@ -26,7 +26,7 @@
   <WindowWidth>19440</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -80,19 +80,15 @@
     ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s71">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s72">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s73">
+  <Style ss:ID="s72">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s74">
+  <Style ss:ID="s73">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s74">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -100,7 +96,7 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s75">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -108,15 +104,15 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s77">
+  <Style ss:ID="s76">
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s78">
+  <Style ss:ID="s77">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="18" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="17" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="214.5"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="56.25"/>
@@ -161,26 +157,6 @@
     <Cell><Data ss:Type="String">Tracking patient is the center of the healthcare process</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">SubjectOfCare</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Patient</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell><Data ss:Type="String">Patient.link</Data></Cell>
-    <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Other patient resources linked to this resource</Data></Cell>
-    <Cell><Data ss:Type="String">A linked patient resource is a resource that concerns the same patient. Resources are linked after it is realized that at least one was created in error.</Data></Cell>
-    <Cell><Data ss:Type="String">Due to the clerical errors associated with the difficulties of identifying humans consistently, duplicate patient records are frequently created in error</Data></Cell>
-    <Cell><Data ss:Type="String">More then two patient resources may be linked. Note that there is a special transaction for linking patient resources in the RESTful context, as resource linking consistency must be maintained</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">Patient.active</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">boolean</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Whether this patient's record is in active use</Data></Cell>
-    <Cell><Data ss:Type="String">Whether this patient record is in active use</Data></Cell>
-    <Cell><Data ss:Type="String">Need to be able to mark a patient record as not to be used because it was created in error</Data></Cell>
-    <Cell><Data ss:Type="String">If a record is inactive, and linked to an active record, then future patient/person/record updates should occur on the other patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Patient.identifier</Data></Cell>
@@ -314,7 +290,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">boolean|integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Indicates whether patient is part of a multiple birth</Data></Cell>
     <Cell><Data ss:Type="String">Indicates whether the patient is part of a multiple or indicates the actual birth order.</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">TODO</Data></Cell>
+    <Cell><Data ss:Type="String">For disambiguation of multiple-birth children, especially relevant where the care provider doesn't meet the patient, such as labs.</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.multipleBirthInd</Data></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">Requirements</Data></Cell>
    </Row>
@@ -324,10 +300,29 @@
     <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Date of death of patient</Data></Cell>
     <Cell><Data ss:Type="String">Date of death of patient. May include time.</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">TODO</Data></Cell>
+    <Cell><Data ss:Type="String">The date of death influences the the clinical process.</Data></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">Requirements</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45"/>
+   <Row ss:AutoFitHeight="0" ss:Height="90">
+    <Cell><Data ss:Type="String">Patient.link</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Other patient resources linked to this resource</Data></Cell>
+    <Cell><Data ss:Type="String">A linked patient resource is a resource that concerns the same patient. Resources are linked after it is realized that at least one was created in error.</Data></Cell>
+    <Cell><Data ss:Type="String">Due to the clerical errors associated with the difficulties of identifying humans consistently, duplicate patient records are frequently created in error</Data></Cell>
+    <Cell><Data ss:Type="String">More then two patient resources may be linked. Note that there is a special transaction for linking patient resources in the RESTful context, as resource linking consistency must be maintained</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell><Data ss:Type="String">Patient.active</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Whether this patient's record is in active use</Data></Cell>
+    <Cell><Data ss:Type="String">Whether this patient record is in active use</Data></Cell>
+    <Cell><Data ss:Type="String">Need to be able to mark a patient record as not to be used because it was created in error</Data></Cell>
+    <Cell><Data ss:Type="String">If a record is inactive, and linked to an active record, then future patient/person/record updates should occur on the other patient</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -336,12 +331,17 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <TopRowVisible>7</TopRowVisible>
-   <LeftColumnVisible>1</LeftColumnVisible>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>-3</HorizontalResolution>
+    <VerticalResolution>-3</VerticalResolution>
+   </Print>
+   <TopRowVisible>2</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>16</ActiveRow>
+     <ActiveRow>11</ActiveRow>
      <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
@@ -369,7 +369,7 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">ContactNeedsDetails</Data></Cell>
     <Cell><Data ss:Type="String">Patient.contact</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Must at least contain a contact's details or a reference to an organization</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Must at least contain a contact's details or a reference to an organization</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">f:details or f:organization</Data></Cell>
    </Row>
   </Table>
@@ -380,7 +380,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -409,10 +408,10 @@
     <Cell><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="110.25">
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -536,13 +535,13 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="5" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s74" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="114.75"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="363"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="107.25"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="130.5"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="214.5"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="139.5"/>
+   x:FullRows="1" ss:StyleID="s73" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="114.75"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="363"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="107.25"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="130.5"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="214.5"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="139.5"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
@@ -550,28 +549,28 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">AnimalGenderStatus</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">The state of the animal's reproductive organs</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">unbound</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">AnimalGenderStatus</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The state of the animal's reproductive organs</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">valueset-animal-genderstatus</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">AnimalSpecies</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">The species of an animal</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">valueset-animal-species</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">AnimalSpecies</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The species of an animal</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">valueset-animal-species</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">AnimalBreed</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">The breed of an animal</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">valueset-animal-breeds</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">AnimalBreed</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The breed of an animal</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">valueset-animal-breeds</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ContactRelationship</Data></Cell>
@@ -587,10 +586,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <LeftColumnVisible>1</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -598,7 +599,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="11" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="12" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="150"/>
    <Column ss:AutoFitWidth="0" ss:Width="247.5"/>
@@ -618,27 +619,27 @@
     <Cell><Data ss:Type="String">General</Data></Cell>
     <Cell><Data ss:Type="String">General Person Example</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">patient-example.xml</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">patient-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Patient1</Data></Cell>
     <Cell><Data ss:Type="String">Patient 1 for linking</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">pat1</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">pat1</Data></Cell>
     <Cell><Data ss:Type="String">patient-example-a.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Patient2</Data></Cell>
     <Cell><Data ss:Type="String">Patient 2 for linking</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">pat2</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">pat2</Data></Cell>
     <Cell><Data ss:Type="String">patient-example-b.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Publishing</Data></Cell>
     <Cell><Data ss:Type="String">Stock people (defined by HL7 publishing)</Data></Cell>
-    <Cell ss:Index="4" ss:StyleID="s77"><Data ss:Type="String">patient-examples.xml</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s76"><Data ss:Type="String">patient-examples.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -652,21 +653,21 @@
     <Cell><Data ss:Type="String">x-cda</Data></Cell>
     <Cell><Data ss:Type="String">2nd person example</Data></Cell>
     <Cell><Data ss:Type="String">xcda</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">patient-xcda.xml</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">patient-example-xcda.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">xds</Data></Cell>
     <Cell><Data ss:Type="String">XDS Patient</Data></Cell>
     <Cell><Data ss:Type="String">xds</Data></Cell>
-    <Cell><Data ss:Type="String">patient-xds.xml</Data></Cell>
+    <Cell><Data ss:Type="String">patient-example-xds.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Animal</Data></Cell>
     <Cell><Data ss:Type="String">An example of an animal</Data></Cell>
     <Cell><Data ss:Type="String">animal</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">patient-animal.xml</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">patient-example-animal.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -680,7 +681,14 @@
     <Cell><Data ss:Type="String">ihd-pcd</Data></Cell>
     <Cell><Data ss:Type="String">Example from IHE-PCD example</Data></Cell>
     <Cell><Data ss:Type="String">ihe-pcd</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">patient-example-ihe-pcd.xml</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">patient-example-ihe-pcd.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">FurorePatient1</Data></Cell>
+    <Cell><Data ss:Type="String">Patient 1 from the Furore examples</Data></Cell>
+    <Cell><Data ss:Type="String">F001</Data></Cell>
+    <Cell><Data ss:Type="String">patient-example-F001.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
   </Table>
@@ -691,10 +699,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>34</ActiveRow>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
