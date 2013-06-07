@@ -38,6 +38,9 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 import org.hl7.fhir.definitions.Config;
+import org.hl7.fhir.definitions.model.BindingSpecification;
+import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
+import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
@@ -56,16 +59,20 @@ public class WebMaker {
   private List<String> past = new ArrayList<String>();
   private IniFile ini;
   private ZipGenerator zip;  
-  public WebMaker(FolderManager folders, String version, IniFile iniFile) {
+  private Definitions definitions;
+  
+  public WebMaker(FolderManager folders, String version, IniFile iniFile, Definitions definitions) {
     super();
     this.folders = folders;
     this.version = version;
     this.ini = iniFile;
+    this.definitions = definitions;
   }
 
   private static final String SEARCH_FORM_HOLDER = "<p id=\"srch\">&nbsp;</p>";
 
   public void produceHL7Copy() throws Exception {
+    List<String> folderList = new ArrayList<String>();
     Utilities.clearDirectory(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"dload");
     Utilities.clearDirectory(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web");
     File fw = new CSFile(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"fhir-web-"+version+".zip");
@@ -108,27 +115,57 @@ public class WebMaker {
       }
     }
 
+    folderList.add("vs");
+    folderList.add("cs");
+    for (String n : definitions.getBindings().keySet()) {
+      BindingSpecification bs = definitions.getBindings().get(n);
+      if ((bs.getBinding() == Binding.CodeList && !bs.isValueSet()) || (bs.getBinding() == Binding.Special)) {
+        String ref = bs.getReference().startsWith("#") ? bs.getReference().substring(1) : bs.getReference();
+        String dn = folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+ref;
+        folderList.add(ref);
+        buildRedirect(n, ref+".htm", dn);
+        dn = folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"cs"+File.separator+ref;
+        buildRedirect(n, ref+".htm", dn);
+        dn = folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"vs"+File.separator+ref;
+        buildRedirect(n, ref+".htm", dn);
+      }
+    }
+
+    for (String n : definitions.getBindings().keySet()) {
+      BindingSpecification bs = definitions.getBindings().get(n);
+      if ((bs.getBinding() == Binding.ValueSet) && bs.getReference().startsWith("valueset-")) {
+        String ref = bs.getReference().substring(9);
+        String dn = folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"vs"+File.separator+ref;
+        buildRedirect(n, ref+".htm", dn);
+      }
+    }
+
     for (String n : ini.getPropertyNames("redirects")) {
       String dn = folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+n;
-      Utilities.createDirectory(dn);
-      String p = "<html>\r\n<head>\r\n<title>Redirect Page</title>\r\n<meta http-equiv=\"REFRESH\" content=\"0;url=http://hl7.org/implement/standards/fhir/"+
-         ini.getStringProperty("redirects", n)+
-         "\"></HEAD>\r\n</head>\r\n<body>\r\nThis page is a redirect to http://hl7.org/implement/standards/fhir/"+
-         ini.getStringProperty("redirects", n)+
-         "\r\n</body>\r\n</html>\r\n";
-      TextFile.stringToFile(p, dn+File.separator+"index.htm");
+      buildRedirect(n, ini.getStringProperty("redirects", n), dn);
+      folderList.add(n); 
     }
     zip = new ZipGenerator(fw.getAbsolutePath());
     zip.addFiles(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator, "", null);
     for (String v : past)
       zip.addFiles(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"v"+v+File.separator, "v"+v+File.separator, null);
-    for (String n : ini.getPropertyNames("redirects")) 
-      zip.addFiles(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+n+File.separator, n+File.separator, null);
+    for (String n : folderList) 
+      zip.addFolder(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+n+File.separator, n+File.separator);
     zip.addFolder(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"v2"+File.separator, "v2"+File.separator); 
     zip.addFolder(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"v3"+File.separator, "v3"+File.separator); 
     ZipGenerator zipd = new ZipGenerator(fd.getAbsolutePath());
     zipd.addFiles(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"dload"+File.separator, "", null);
     zipd.close();    
+  }
+
+  private void buildRedirect(String n, String d, String dn) throws Exception {
+    Utilities.createDirectory(dn);
+    String p = "<html>\r\n<head>\r\n<title>Redirect Page</title>\r\n<meta http-equiv=\"REFRESH\" content=\"0;url=http://hl7.org/implement/standards/fhir/"+
+       d+
+       "\"></HEAD>\r\n</head>\r\n<body>\r\nThis page is a redirect to http://hl7.org/implement/standards/fhir/"+
+       d+
+       "\r\n</body>\r\n</html>\r\n";
+    TextFile.stringToFile(p, dn+File.separator+"index.htm");
   }
 
   private void insertTargetImages(XhtmlNode node, XhtmlNode parent, String pagename) {

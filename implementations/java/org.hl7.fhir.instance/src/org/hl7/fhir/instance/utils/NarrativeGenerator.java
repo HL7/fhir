@@ -5,11 +5,13 @@ import java.util.Map;
 
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.Code;
+import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
+import org.hl7.fhir.instance.model.ValueSet.FilterOperator;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
@@ -17,6 +19,15 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 public class NarrativeGenerator {
 
+	/**
+	 * This generate is optimised for the FHIR build process itself in as much as it 
+	 * generates hyperlinks in the narrative that are only going to be correct for
+	 * the purposes of the build. This is to be reviewed in the future.
+	 *  
+	 * @param vs
+	 * @param codeSystems
+	 * @throws Exception
+	 */
   public void generate(ValueSet vs, Map<String, AtomEntry> codeSystems) throws Exception {
     XhtmlNode x = new XhtmlNode();
     x.setNodeType(NodeType.Element);
@@ -27,6 +38,8 @@ public class NarrativeGenerator {
       generateComposition(x, vs, codeSystems);
     if (vs.getDefine() != null)
       generateDefinition(x, vs);
+    if (vs.getText() == null)
+      vs.setText(new Narrative());
     vs.getText().setDiv(x);
     vs.getText().setStatusSimple(NarrativeStatus.generated);
   }
@@ -125,12 +138,29 @@ public class NarrativeGenerator {
       for (ConceptSetFilterComponent f : inc.getFilter()) {
         li.addText(type+" codes from ");
         addCsRef(inc, li, e);
-        li.addText(type+" where "+f.getPropertySimple()+" "+f.getOpSimple().toString()+" "+f.getValueSimple());
+        li.addText(" where "+f.getPropertySimple()+" "+describe(f.getOpSimple())+" ");
+        if (e != null && codeExistsInValueSet(e, f.getValueSimple())) {
+        	XhtmlNode a = li.addTag("a");
+        	a.addTag(f.getValueSimple());
+        	a.setAttribute("href", getCsRef(e)+"#"+f.getValueSimple());
+        } else
+        	li.addText(f.getValueSimple());
       }
     }
   }
 
-  private ValueSetDefineConceptComponent getConceptForCode(AtomEntry e, String code) {
+	private String describe(FilterOperator opSimple) {
+	  switch (opSimple) {
+	  case equal: return " = ";
+	  case isA: return " is-a ";
+	  case isNotA: return " is-not-a ";
+	  case regex: return " matches (by regex) ";
+	  
+	  }
+	  return null;
+  }
+
+	private ValueSetDefineConceptComponent getConceptForCode(AtomEntry e, String code) {
     if (e == null)
       return null;
     ValueSet vs = (ValueSet) e.getResource();
@@ -160,10 +190,33 @@ public class NarrativeGenerator {
   private void addCsRef(ConceptSetComponent inc, XhtmlNode li, AtomEntry cs) {
     if (cs != null && cs.getLinks().get("self") != null) {
       XhtmlNode a = li.addTag("a");
-      a.setAttribute("href", cs.getLinks().get("self"));
+      a.setAttribute("href", cs.getLinks().get("self").replace("\\", "/"));
       a.addText(inc.getSystemSimple().toString());
     } else 
       li.addText(inc.getSystemSimple().toString());
+  }
+
+  private String getCsRef(AtomEntry cs) {
+	  return cs.getLinks().get("self").replace("\\", "/");
+  }
+
+	private boolean codeExistsInValueSet(AtomEntry cs, String code) {
+		ValueSet vs = (ValueSet) cs.getResource();
+		for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
+			if (inConcept(code, c))
+				return true;
+		}
+	  return false;
+  }
+
+	private boolean inConcept(String code, ValueSetDefineConceptComponent c) {
+	  if (c.getCodeSimple() != null && c.getCodeSimple().equals(code))
+	  	return true;
+	  for (ValueSetDefineConceptComponent g : c.getConcept()) {
+			if (inConcept(code, g))
+				return true;
+	  }
+	  return false;
   }
 
 

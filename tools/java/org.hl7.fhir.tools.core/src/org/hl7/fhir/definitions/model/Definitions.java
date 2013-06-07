@@ -34,6 +34,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.instance.model.ValueSet;
+
 /**
  * This class is the root to all the definitions in FHIR. There are the
  * following kinds of items: DefinedResources - a named list of resources that
@@ -67,6 +69,7 @@ public class Definitions {
 	private Map<String, EventDefn> events = new HashMap<String, EventDefn>();
 	private Map<String, ProfileDefn> profiles = new HashMap<String, ProfileDefn>();
   private Map<String, String> diagrams = new HashMap<String, String>();
+  private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
 
 	// Returns the root ElementDefn of a CompositeType or Resource,
 	// excluding future Resources (as they don't have definitions yet).
@@ -268,6 +271,10 @@ public class Definitions {
       Collections.sort(sortedNames);
     }
     return sortedNames;
+  }
+
+  public Map<String, ValueSet> getValuesets() {
+    return valuesets;
   }
 
   

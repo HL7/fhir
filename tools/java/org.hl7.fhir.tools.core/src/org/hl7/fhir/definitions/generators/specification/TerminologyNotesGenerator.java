@@ -144,7 +144,12 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
             write("??");
           else if (cd.getReference().startsWith("valueset-"))
             write("<a href=\""+cd.getReference()+".htm\">http://hl7.org/fhir/vs/"+cd.getReference().substring(9)+"</a>");            
-          else
+          else if (cd.getReference().startsWith("http://hl7.org/fhir")) {
+            if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs/"))
+              write("<a href=\"v3/"+cd.getReference().substring(26)+"/index.htm\">"+cd.getReference()+"</a>");
+            else
+              throw new Exception("Internal reference "+cd.getReference()+" not handled yet");
+          } else
             write("<a href=\""+cd.getReference()+".htm\">http://hl7.org/fhir/"+cd.getReference()+"</a>");            
           if (cd.isExample())
             write(" (Example only)");
@@ -181,13 +186,15 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     if (cd.getBinding() == BindingSpecification.Binding.ValueSet) {
       if (Utilities.noString(cd.getReference())) 
         return cd.getDescription();
+      else if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs/"))
+        return cd.getDefinition()+" (<a href=\"v3/"+cd.getReference().substring(26)+"/index.htm\">Value Set Definition</a>)";
       else
-        return cd.getDescription()+" <a href=\""+cd.getReference()+".htm\">(Value Set Definition)</a>";
+        return cd.getDescription()+" (<a href=\""+cd.getReference()+".htm\">Value Set Definition</a>)";
     }
     if (cd.getBinding() == BindingSpecification.Binding.CodeList) {
       if (Utilities.noString(cd.getReference())) 
         return cd.getDefinition()+" ("+cd.getDescription()+")";
-      else 
+      else
         return cd.getDefinition()+" (see <a href=\""+cd.getReference().substring(1)+".htm\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a> for values)";
     }
     if (cd.getBinding() == BindingSpecification.Binding.Reference) {

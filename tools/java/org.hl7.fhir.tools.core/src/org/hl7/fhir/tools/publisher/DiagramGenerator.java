@@ -71,6 +71,7 @@ public class DiagramGenerator {
 
       List<org.hl7.fhir.definitions.model.ElementDefn> queue = new ArrayList<org.hl7.fhir.definitions.model.ElementDefn>();
       List<String> elementClasses = new ArrayList<String>();
+      Map<String, String> replacements = new HashMap<String, String>();
       Map<org.hl7.fhir.definitions.model.ElementDefn, String> names = new HashMap<org.hl7.fhir.definitions.model.ElementDefn, String>();
       Map<org.hl7.fhir.definitions.model.ElementDefn, String> defns = new HashMap<org.hl7.fhir.definitions.model.ElementDefn, String>();
       s.append("\r\n"+s2);
@@ -78,7 +79,7 @@ public class DiagramGenerator {
         queue.add(page.getDefinitions().getElementDefn(c));
         names.put(page.getDefinitions().getElementDefn(c), c);
         
-        if (c.startsWith("Resourc"))
+        if (c.startsWith("Resource"))
           defns.put(page.getDefinitions().getElementDefn(c), "resources-definitions.htm#"+c);
         else if (c.equals("Narrative")) 
             defns.put(page.getDefinitions().getElementDefn(c), "formats-definitions.htm#"+c);
@@ -91,7 +92,7 @@ public class DiagramGenerator {
       while (queue.size() > 0) {
         org.hl7.fhir.definitions.model.ElementDefn r = queue.get(0);
         queue.remove(0);
-        generateDiagramClass(r, queue, names, defns, s, s2, elementClasses, null, false, true);
+        generateDiagramClass(r, queue, names, defns, s, s2, elementClasses, null, false, true, replacements);
       }  
       s.append("\r\n"+s2);
       s.append("hide methods\r\n");
@@ -148,6 +149,7 @@ public class DiagramGenerator {
     
     List<org.hl7.fhir.definitions.model.ElementDefn> queue = new ArrayList<org.hl7.fhir.definitions.model.ElementDefn>();
     List<String> elementClasses = new ArrayList<String>();
+    Map<String, String> replacements = new HashMap<String, String>();
     Map<org.hl7.fhir.definitions.model.ElementDefn, String> names = new HashMap<org.hl7.fhir.definitions.model.ElementDefn, String>(); 
     Map<org.hl7.fhir.definitions.model.ElementDefn, String> defns = new HashMap<org.hl7.fhir.definitions.model.ElementDefn, String>(); 
     queue.add(resource.getRoot());
@@ -157,12 +159,13 @@ public class DiagramGenerator {
     while (queue.size() > 0) {
       org.hl7.fhir.definitions.model.ElementDefn r = queue.get(0);
       queue.remove(0);
-      generateDiagramClass(r, queue, names, defns, s, s2, elementClasses, resource.getRoot(), r == resource.getRoot(), true);
+      generateDiagramClass(r, queue, names, defns, s, s2, elementClasses, resource.getRoot(), r == resource.getRoot(), true, replacements);
     }  
     s.append("\r\n"+s2);
     s.append("hide methods\r\n");
     for (String en : elementClasses) {
-      s.append("hide "+en+" circle\r\n");
+      if (!replacements.containsKey(en))
+        s.append("hide "+en+" circle\r\n");
     }
     s.append("@enduml\r\n");
     return produceImageFromSource(resource.getName(), s.toString(), s.toString() +"####"+getDefns(), page.getFolders().dstDir + n + ".png");
@@ -179,18 +182,27 @@ private String getDefns() {
  
   private void generateDiagramClass(org.hl7.fhir.definitions.model.ElementDefn r, List<org.hl7.fhir.definitions.model.ElementDefn> queue, 
       Map<org.hl7.fhir.definitions.model.ElementDefn, String> names, Map<org.hl7.fhir.definitions.model.ElementDefn, String> defns, 
-      StringBuilder s, StringBuilder s2, List<String> elementClasses, ElementDefn root, boolean entry, boolean resource) throws Exception {
+      StringBuilder s, StringBuilder s2, List<String> elementClasses, ElementDefn root, boolean entry, boolean resource, Map<String, String> replacements) throws Exception {
     String rn; 
     if (names.keySet().contains(r))
       rn = names.get(r);
-    else 
+//    else if (!Utilities.noString(r.getDeclaredTypeName()))
+//      rn = r.getDeclaredTypeName();
+    else
       rn = Utilities.capitalize(r.getName());
     String dn;
     if (defns.keySet().contains(r))
       dn = defns.get(r);
     else 
       dn = "??";
-
+    if (r.hasStatedType() && !r.getStatedType().equals(rn)) {
+      elementClasses.add(r.getStatedType());
+      replacements.put(rn,r.getStatedType());
+    }
+    String cn = rn;
+    if (replacements.containsKey(rn))
+      cn = replacements.get(rn);
+    
     for (org.hl7.fhir.definitions.model.ElementDefn e : r.getElements()) {
       if (e.getTypes().size() == 0 || e.typeCode().startsWith("@") || page.getDefinitions().dataTypeIsSharedInfo(e.typeCode())) {
         String n;
@@ -223,25 +235,32 @@ private String getDefns() {
         if (n == null)
         	n = "??";
         String ta = t != null ? "(D, #FFD700)" : "(E, Aliceblue)";
+        if (e.hasStatedType() && !e.getStatedType().equals(n)) {
+          replacements.put(n, e.getStatedType());
+          elementClasses.add(e.getStatedType());
+        }
+
+        if (replacements.containsKey(n))
+          n = replacements.get(n);
         if (page.getDefinitions().hasType(rn))
-          s.append(rn+" << (D, #FFA500) >> *-"+e.getDir()+"- \""+e.describeCardinality()+"\" "+n+"  << "+ta+" >> : "+e.getName()+"\r\n");
+          s.append(cn+" << (D, #FFA500) >> *-"+e.getDir()+"- \""+e.describeCardinality()+"\" "+n+"  << "+ta+" >> : "+e.getName()+"\r\n");
         else if (!entry)
-          s.append(rn+" << (E, Aliceblue) >>  *-"+e.getDir()+"- \""+e.describeCardinality()+"\" "+n+"  << "+ta+" >> : "+e.getName()+"\r\n");
+          s.append(cn+" << (E, Aliceblue) >>  *-"+e.getDir()+"- \""+e.describeCardinality()+"\" "+n+"  << "+ta+" >> : "+e.getName()+"\r\n");
         else if (resource)
-          s.append(rn+" << (R, #FF7700) >> *-"+e.getDir()+"- \""+e.describeCardinality()+"\" "+n+"  << "+ta+" >> : "+e.getName()+"\r\n");
+          s.append(cn+" << (R, #FF7700) >> *-"+e.getDir()+"- \""+e.describeCardinality()+"\" "+n+"  << "+ta+" >> : "+e.getName()+"\r\n");
         else
-          s.append(rn+" << (D, #FFA500) >> *-"+e.getDir()+"- \""+e.describeCardinality()+"\" "+n+"  << "+ta+" >> : "+e.getName()+"\r\n");
+          s.append(cn+" << (D, #FFA500) >> *-"+e.getDir()+"- \""+e.describeCardinality()+"\" "+n+"  << "+ta+" >> : "+e.getName()+"\r\n");
       }
     }
-    s2.append("url of "+rn+" is [["+dn+"]]\r\n");
+    s2.append("url of "+cn+" is [["+dn+"]]\r\n");
     founddefinitions.put(dn, r.getEnhancedDefinition());
     if (entry)
-      s2.append("class "+rn+" << (R, #FF7700) >> {\r\n");
+      s2.append("class "+cn+" << (R, #FF7700) >> {\r\n");
     else if (page.getDefinitions().dataTypeIsSharedInfo(r.typeCode()) || page.getDefinitions().hasType(rn)) {
-      s2.append("class "+rn+" << (D, #FFD700) >> {\r\n");
+      s2.append("class "+cn+" << (D, #FFD700) >> {\r\n");
       elementClasses.add(rn);
     } else {
-      s2.append("class "+rn+" << (E, Aliceblue ) >> {\r\n");
+      s2.append("class "+cn+" << (E, Aliceblue ) >> {\r\n");
       elementClasses.add(rn);
     }
     for (org.hl7.fhir.definitions.model.ElementDefn e : r.getElements()) {

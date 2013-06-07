@@ -160,10 +160,10 @@ public class SpreadsheetParser {
 		
 				// If user has given an explicit name, use it, otherwise  automatically
 				// generated name for this nested type
-				if( element.typeCode().startsWith("=") )
+				if( element.typeCode().startsWith("=") ) {
+				  element.setStatedType(element.typeCode().substring(1));
 					nestedTypeName = element.typeCode().substring(1);
-				else
-				{
+				} else {
 					nestedTypeName = parentName + Utilities.capitalize(element.getName());
 					newCompositeType.setAnonymousTypedGroup(true);
 				}
@@ -415,7 +415,11 @@ public class SpreadsheetParser {
 			}
 			
 			if (cd.getBinding() == Binding.ValueSet && !Utilities.noString(cd.getReference())) {
-			  if (new File(Utilities.appendSlash(folder)+cd.getReference()+".xml").exists()) {
+			  if (cd.getReference().startsWith("http://hl7.org/fhir")) {
+			    // ok, it's a reference to a value set defined within this build. Since it's an absolute 
+			    // reference, it's into the base infrastructure. That's not loaded yet, so we will try
+			    // to resolve it later
+			  } else if (new File(Utilities.appendSlash(folder)+cd.getReference()+".xml").exists()) {
 			    XmlParser p = new XmlParser();
 			    FileInputStream input = new FileInputStream(Utilities.appendSlash(folder)+cd.getReference()+".xml");
 	        cd.setReferredValueSet((ValueSet) p.parse(input));
@@ -432,7 +436,7 @@ public class SpreadsheetParser {
 	          FileInputStream input = new FileInputStream(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".json");
 	          cd.setReferredValueSet((ValueSet) p.parse(input));
 	        } else
-			    throw new Exception("Unable to find source for "+cd.getReference()+" ("+Utilities.appendSlash(folder)+cd.getReference()+".xml/json)");
+	          throw new Exception("Unable to find source for "+cd.getReference()+" ("+Utilities.appendSlash(folder)+cd.getReference()+".xml/json)");
 			  
 			}
 			if (definitions.getBindingByName(cd.getName()) != null) {

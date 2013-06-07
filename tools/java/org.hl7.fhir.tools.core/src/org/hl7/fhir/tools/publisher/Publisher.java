@@ -99,6 +99,9 @@ import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
+import org.hl7.fhir.instance.model.ValueSet.FilterOperator;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValuesetStatus;
@@ -126,6 +129,7 @@ import org.json.JSONObject;
 import org.tigris.subversion.javahl.ClientException;
 import org.tigris.subversion.javahl.SVNClient;
 import org.tigris.subversion.javahl.Status;
+import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -729,7 +733,7 @@ public class Publisher {
 	        throw new Exception("Unable to build HL7 copy with no archive directory (sync svn at one level up the tree)");
 
 		    log("Produce HL7 copy");
-		    wm = new WebMaker(page.getFolders(), page.getVersion(), page.getIni());
+		    wm = new WebMaker(page.getFolders(), page.getVersion(), page.getIni(), page.getDefinitions());
 		    wm.produceHL7Copy();
 		  }
       if (new File(page.getFolders().archiveDir).exists()) {
@@ -808,8 +812,8 @@ public class Publisher {
       page.setV2Valuesets(v2Valuesets);
       v3Valuesets = new AtomFeed();
       v3Valuesets.setId("http://hl7.org/fhir/v3/valuesets");
-      v3Valuesets.setTitle("v3 code systems as ValueSets");
-      v3Valuesets.getLinks().put("self", "http://hl7.org/implement/standards/fhir/v3-codesystems.xml");
+      v3Valuesets.setTitle("v3 Code Systems and ValueSets");
+      v3Valuesets.getLinks().put("self", "http://hl7.org/implement/standards/fhir/v3-valuesets.xml");
       v3Valuesets.setUpdated(Calendar.getInstance());
       page.setv3Valuesets(v3Valuesets);
       
@@ -824,10 +828,19 @@ public class Publisher {
 	    log(" ...profiles");
       log(" ...resource ValueSet");
       generateCodeSystems();
+      for (BindingSpecification cd : page.getDefinitions().getBindings().values()) {
+        if (cd.getBinding() == Binding.ValueSet && !Utilities.noString(cd.getReference())
+            && cd.getReference().startsWith("http://hl7.org/fhir")) {
+          if (!page.getDefinitions().getValuesets().containsKey(cd.getReference()))         
+            throw new Exception("Reference "+cd.getReference()+" canot be resolved");
+          cd.setReferredValueSet(page.getDefinitions().getValuesets().get(cd.getReference()));
+        }
+      }
       ResourceDefn r = page.getDefinitions().getResources().get("ValueSet"); 
       produceResource1(r);      
       produceResource2(r);
       generateValueSets();
+      
 	  }
 	  
 	  for (String rname : page.getDefinitions().sortedResourceNames()) {
@@ -977,7 +990,7 @@ public class Publisher {
   }
     
   
-  private ValueSet buildV3Valueset(String id, String date, Element e) throws Exception {
+  private ValueSet buildV3CodeSystem(String id, String date, Element e) throws Exception {
     StringBuilder s = new StringBuilder();
     ValueSet vs = new ValueSet();
     vs.setIdentifierSimple("http://hl7.org/fhir/v3/vs/"+id);
@@ -1061,7 +1074,10 @@ public class Publisher {
     DocumentBuilder builder = factory.newDocumentBuilder();
     page.setV3src(builder.parse(new CSFileInputStream(new CSFile(page.getFolders().srcDir + "v3"+File.separator+"source.xml"))));
     String dt = null;
+    Map<String, ValueSet> codesystems = new HashMap<String, ValueSet>();
         
+    IniFile ini = new IniFile(page.getFolders().srcDir + "v3"+File.separator+"valuesets.ini");
+    
     Element e = XMLUtil.getFirstChild(page.getV3src().getDocumentElement());
     while (e != null) {
       
@@ -1073,17 +1089,88 @@ public class Publisher {
       
       if (e.getNodeName().equals("codeSystem")) {
         Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "header"), "responsibleGroup");
-        if (r != null && "Health Level 7".equals(r.getAttribute("organizationName"))) {
+        if (!ini.getBooleanProperty("Exclude", e.getAttribute("name"))) {
+          if (r != null && "Health Level 7".equals(r.getAttribute("organizationName"))) {
+            String id = e.getAttribute("name");
+            AtomEntry ae = new AtomEntry();
+            ae.getLinks().put("self", "v3"+File.separator+id+File.separator+"index.htm");
+            ae.getLinks().put("oid", e.getAttribute("codeSystemId"));
+            ValueSet vs = buildV3CodeSystem(id, dt, e);
+            ae.setResource(vs);
+            page.getV3Valuesets().getEntryList().add(ae);
+            page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
+            page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
+            codesystems.put(e.getAttribute("codeSystemId"), vs);
+          }
+        }
+      }
+      
+      if (e.getNodeName().equals("valueSet")) {
+        if (ini.getBooleanProperty("ValueSets", e.getAttribute("name"))) {
           String id = e.getAttribute("name");
           AtomEntry ae = new AtomEntry();
-          ae.getLinks().put("self", "v3"+File.separator+id+File.separator+"index.htm");
-          ValueSet vs = buildV3Valueset(id, dt, e);
+          ae.getLinks().put("self", "v3"+File.separator+"vs"+File.separator+id+File.separator+"index.htm");
+          ValueSet vs = buildV3ValueSet(id, dt, e, codesystems);
+          ae.getLinks().put("oid", e.getAttribute("id"));
           ae.setResource(vs);
-          page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
+          page.getV3Valuesets().getEntryList().add(ae);
+          page.getValueSets().put(vs.getIdentifierSimple().toString(), ae);
+          page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);         
         }
       }
       e = XMLUtil.getNextSibling(e);
     }    
+  }
+
+  
+  private ValueSet buildV3ValueSet(String id, String dt, Element e, Map<String, ValueSet> codesystems) throws DOMException, Exception {
+    ValueSet vs = new ValueSet();
+    vs.setIdentifierSimple("http://hl7.org/fhir/v3/vs/"+id);
+    vs.setNameSimple(id);
+    Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"), "text");
+    if (r != null) {
+      vs.setDescriptionSimple(XMLUtil.htmlToXmlEscapedPlainText(r)+" (OID = "+e.getAttribute("id")+")");
+    }
+    vs.setPublisherSimple("HL7 v3");
+    vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://www.hl7.org"));
+    vs.setStatusSimple(ValuesetStatus.production);
+    
+    r = XMLUtil.getNamedChild(e, "version");
+    if (r != null) {
+      vs.setVersionSimple(r.getAttribute("versionDate"));
+      
+      ValueSet cs = codesystems.get(XMLUtil.getNamedChild(r, "supportedCodeSystem").getTextContent());
+      if (cs == null)
+        throw new Exception("Error Processing ValueSet "+id+", unable to resolve code system '"+XMLUtil.getNamedChild(e, "supportedCodeSystem").getTextContent()+"'");
+      // ok, now the content
+      ValueSetComposeComponent compose = vs.new ValueSetComposeComponent();
+      vs.setCompose(compose);
+      ConceptSetComponent imp = vs.new ConceptSetComponent();
+      compose.getInclude().add(imp);
+      imp.setSystemSimple(cs.getDefine().getSystemSimple());
+      Element content = XMLUtil.getNamedChild(r, "content");
+      if (content == null)
+        throw new Exception("Unable to find content for ValueSet "+id);
+      if (!XMLUtil.getNamedChild(r, "supportedCodeSystem").getTextContent().equals(content.getAttribute("codeSystem")))
+        throw new Exception("Unexpected codeSystem oid on content for ValueSet "+id+": expected '"+XMLUtil.getNamedChild(r, "supportedCodeSystem").getTextContent()+"', found '"+content.getAttribute("codeSystem")+"'");
+      Element cnt = XMLUtil.getFirstChild(content);
+      while (cnt != null) {
+        if (cnt.getNodeName().equals("codeBasedContent") && (XMLUtil.getNamedChild(cnt, "includeRelatedCodes") != null)) {
+          // common case: include a child and all or some of it's descendants
+          ConceptSetFilterComponent f = vs.new ConceptSetFilterComponent();
+          f.setOpSimple(FilterOperator.isA);
+          f.setPropertySimple("concept");
+          f.setValueSimple(cnt.getAttribute("code"));
+          imp.getFilter().add(f);
+        }
+        cnt = XMLUtil.getNextSibling(cnt);
+      }
+    }
+    NarrativeGenerator gen = new NarrativeGenerator();
+    gen.generate(vs, page.getCodeSystems());
+    return vs;
+
+    
   }
 
   private void produceV3() throws Exception {
@@ -1095,22 +1182,39 @@ public class Publisher {
     TextFile.stringToFile(page.processPageIncludes("v3/template.htm", src), page.getFolders().dstDir+"terminologies-v3.htm");
     src = TextFile.fileToString(page.getFolders().srcDir+ "v3"+File.separator+"template.htm");
     cachePage("terminologies-v3.htm", page.processPageIncludesForBook("v3/template.htm", src));
+    IniFile ini = new IniFile(page.getFolders().srcDir + "v3"+File.separator+"valuesets.ini");
     
     Element e = XMLUtil.getFirstChild(page.getV3src().getDocumentElement());
     while (e != null) {
       if (e.getNodeName().equals("codeSystem")) {
-        Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "header"), "responsibleGroup");
-        if (r != null && "Health Level 7".equals(r.getAttribute("organizationName"))) {
+        if (!ini.getBooleanProperty("Exclude", e.getAttribute("name"))) {
+          Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "header"), "responsibleGroup");
+          if (r != null && "Health Level 7".equals(r.getAttribute("organizationName"))) {
+            String id = e.getAttribute("name");
+            Utilities.createDirectory(page.getFolders().dstDir + "v3"+File.separator+id);
+            Utilities.clearDirectory(page.getFolders().dstDir + "v3"+File.separator+id);
+            src = TextFile.fileToString(page.getFolders().srcDir+ "v3"+File.separator+"template-cs.htm");
+            TextFile.stringToFile(page.processPageIncludes(id+".htm", src), page.getFolders().dstDir + "v3"+File.separator+id+File.separator+"index.htm");
+          }
+        }
+      }
+      if (e.getNodeName().equals("valueSet")) {
+        if (ini.getBooleanProperty("ValueSets", e.getAttribute("name"))) {
           String id = e.getAttribute("name");
           Utilities.createDirectory(page.getFolders().dstDir + "v3"+File.separator+id);
           Utilities.clearDirectory(page.getFolders().dstDir + "v3"+File.separator+id);
-          src = TextFile.fileToString(page.getFolders().srcDir+ "v3"+File.separator+"template-cs.htm");
+          src = TextFile.fileToString(page.getFolders().srcDir+ "v3"+File.separator+"template-vs.htm");
           TextFile.stringToFile(page.processPageIncludes(id+".htm", src), page.getFolders().dstDir + "v3"+File.separator+id+File.separator+"index.htm");
         }
       }
       e = XMLUtil.getNextSibling(e);
     }    
   }
+  
+   
+ 
+  
+  
   
   private ValueSet buildV2Valueset(String id, Element e) throws Exception {
     ValueSet vs = new ValueSet();
@@ -1266,6 +1370,7 @@ public class Publisher {
         ae.getLinks().put("self", "v2"+File.separator+id+File.separator+"index.htm");
         ValueSet vs = buildV2Valueset(id, e);
         ae.setResource(vs);
+        page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
         page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
       } else if ("versioned".equals(st)) {
         String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
@@ -1282,6 +1387,7 @@ public class Publisher {
           ae.getLinks().put("self", "v2"+File.separator+id+File.separator+ver+File.separator+"index.htm");
           ValueSet vs = buildV2ValuesetVersioned(id, ver, e);
           ae.setResource(vs);
+          page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
           page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
         }        
       }
@@ -2196,7 +2302,7 @@ public class Publisher {
   private void generateValueSets() throws Exception {
     log(" ...value sets");
     for (BindingSpecification bs : page.getDefinitions().getBindings().values())
-      if (bs.getBinding() == Binding.ValueSet && bs.getReferredValueSet() != null)
+      if (bs.getBinding() == Binding.ValueSet && bs.getReferredValueSet() != null && !bs.getReference().startsWith("http://hl7.org/fhir"))
         generateValueSet(bs.getReference(), bs);
   }
   
@@ -2220,7 +2326,6 @@ public class Publisher {
       new NarrativeGenerator().generate(vs, page.getCodeSystems());
     addToResourceFeed(vs, n);
     
-    // todo - create the redirect
     TextFile.stringToFile(page.processPageIncludes(cd.getName()+".htm", TextFile.fileToString(page.getFolders().srcDir+"template-vs.htm")), page.getFolders().dstDir+name+".htm");
     String src = page.processPageIncludesForBook(cd.getName()+".htm", TextFile.fileToString(page.getFolders().srcDir+"template-vs-book.htm"));
     cachePage(name+".htm", src);
@@ -2241,9 +2346,6 @@ public class Publisher {
   }
   
   private void generateCodeSystem(String filename, BindingSpecification cd) throws Exception {
-    TextFile.stringToFile(page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx.htm")), page.getFolders().dstDir+filename);
-    String src = page.processPageIncludesForBook(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx-book.htm"));
-    cachePage(filename, src);
 
     ValueSet vs = new ValueSet();
     vs.setIdentifierSimple("http://hl7.org/fhir/vs/"+Utilities.fileTitle(filename));
@@ -2281,6 +2383,13 @@ public class Publisher {
           d.setDefinitionSimple(c.getDefinition());       
       }
     }
+    new NarrativeGenerator().generate(vs, page.getCodeSystems());
+    
+    cd.setReferredValueSet(vs);
+    TextFile.stringToFile(page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx.htm")), page.getFolders().dstDir+filename);
+    String src = page.processPageIncludesForBook(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx-book.htm"));
+    cachePage(filename, src);
+
     addToResourceFeed(vs, Utilities.fileTitle(filename));
     AtomEntry e = new AtomEntry();
     e.setResource(vs);

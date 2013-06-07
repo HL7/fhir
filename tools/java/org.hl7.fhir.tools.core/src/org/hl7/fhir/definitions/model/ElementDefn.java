@@ -76,7 +76,7 @@ public class ElementDefn {
 	private boolean inherited; // in a profile, was this element add from the
 								// base definition (true) or was it specifically
 								// constrained in the profile (false)
-
+  private String statedType; // explicitly stated type (=xxxx)
 	private boolean isCoveredByExample; // true if an example has hit this
 	
 	public ElementDefn() {
@@ -662,6 +662,18 @@ public class ElementDefn {
 
   public void setRegex(String regex) {
     this.regex = regex;
+  }
+
+  public boolean hasStatedType() {
+    return statedType != null;
+  }
+
+  public String getStatedType() {
+    return statedType;
+  }
+
+  public void setStatedType(String statedType) {
+    this.statedType = statedType;
   }
    
 	

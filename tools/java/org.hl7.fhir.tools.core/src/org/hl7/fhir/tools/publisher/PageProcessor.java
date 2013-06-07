@@ -117,6 +117,7 @@ public class PageProcessor implements Logger  {
   private AtomFeed v3Valuesets;
   private AtomFeed v2Valuesets;
   private Map<String, AtomEntry> codeSystems = new HashMap<String, AtomEntry>();
+  private Map<String, AtomEntry> valueSets = new HashMap<String, AtomEntry>();
   
 //  private boolean notime;
   
@@ -350,6 +351,8 @@ public class PageProcessor implements Logger  {
         src = s1+genV2TableVer(name)+s3;
       else if (com[0].equals("v3CodeSystem"))
         src = s1+genV3CodeSystem(name)+s3;
+      else if (com[0].equals("v3ValueSet"))
+        src = s1+genV3ValueSet(name)+s3;      
       else if (com[0].equals("events"))
         src = s1 + getEventsTable()+ s3;
       else if (com[0].equals("resourcecodes"))
@@ -416,10 +419,7 @@ public class PageProcessor implements Logger  {
   }
 
   private String genV3CodeSystem(String name) throws Exception {
-    StringBuilder s = new StringBuilder();
-
     ValueSet vs = (ValueSet) codeSystems.get("http://hl7.org/fhir/v3/"+name).getResource();
-    addToValuesets(v3Valuesets, vs, vs.getIdentifierSimple());    
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml"), vs, true);
     cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 2);
@@ -427,6 +427,17 @@ public class PageProcessor implements Logger  {
     json.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs);
 
     return new XhtmlComposer().compose(vs.getText().getDiv());
+  }
+
+  private String genV3ValueSet(String name) throws Exception {
+    ValueSet vs = (ValueSet) valueSets.get("http://hl7.org/fhir/v3/vs/"+name).getResource();
+    XmlComposer xml = new XmlComposer();
+    xml.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml"), vs, true);
+    cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 2);
+    JsonComposer json = new JsonComposer();
+    json.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs);
+
+    return new XhtmlComposer().compose(vs.getText().getDiv()).replace("href=\"v3/", "href=\"../");
   }
 
   private String genV2TableVer(String name) throws Exception {
@@ -508,22 +519,35 @@ public class PageProcessor implements Logger  {
   private String genV3Index() {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"grid\">\r\n");
-    s.append(" <tr><td><b>Name</b></td><td><b>OID</b></td></tr>\r\n");
-    Element e = XMLUtil.getFirstChild(v3src.getDocumentElement());
-    while (e != null) {
-      if (e.getNodeName().equals("codeSystem")) {
-        Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "header"), "responsibleGroup");
-        if (r != null && "Health Level 7".equals(r.getAttribute("organizationName"))) {
-          String id = e.getAttribute("name");
-          String oid = e.getAttribute("codeSystemId");
-          s.append(" <tr><td><a href=\"v3/"+id+"/index.htm\">"+id+"</a></td><td>"+oid+"</td></tr>\r\n");
-        }
-      }
-      e = XMLUtil.getNextSibling(e);
+    s.append(" <tr><td><b>Name</b></td><td><b>Type</b></td><td><b>OID</b></td></tr>\r\n");
+    
+    List<String> names = new ArrayList<String>();
+    Map<String, AtomEntry> map = new HashMap<String, AtomEntry>();
+    
+    for (AtomEntry e : v3Valuesets.getEntryList()) {
+      ValueSet vs = (ValueSet)e.getResource();
+      String n = tail(vs.getIdentifierSimple()).toLowerCase(); // sort is case insensitive
+      names.add(n);
+      map.put(n, e);
+    }
+    Collections.sort(names);
+
+    for (String n : names) {
+      AtomEntry e = map.get(n);
+      ValueSet vs = (ValueSet)e.getResource();
+      String name = tail(vs.getIdentifierSimple());
+      String t = vs.getDefine() != null ? "Code System" : "Value Set";
+      String oid = e.getLinks().get("oid");
+      s.append(" <tr><td><a href=\"v3/"+name+"/index.htm\">"+name+"</a></td><td>"+t+"</td><td>"+oid+"</td></tr>\r\n");
     }
     
     s.append("</table>\r\n");
     return s.toString();
+  }
+
+  private String tail(String id) {
+    int i = id.lastIndexOf("/");
+    return id.substring(i+1);
   }
 
   private String genDataTypeMappings() {
@@ -690,38 +714,42 @@ private String resItem(String name) throws Exception {
 
   private String generateCodeTable(String name) throws Exception {
     BindingSpecification cd = definitions.getBindingByReference("#"+name);
-    StringBuilder s = new StringBuilder();
-    s.append("    <table class=\"codes\">\r\n");
-    boolean hasComment = false;
-    boolean hasDefinition = false;
-    boolean hasParent = false;
-    for (DefinedCode c : cd.getCodes()) {
-      hasComment = hasComment || c.hasComment();
-      hasDefinition = hasDefinition || c.hasDefinition();
-      hasParent = hasParent || c.hasParent();
+    if (cd.getReferredValueSet() != null) {
+      return new XhtmlComposer().compose(cd.getReferredValueSet().getText().getDiv());
+    } else {
+      StringBuilder s = new StringBuilder();
+      s.append("    <table class=\"codes\">\r\n");
+      boolean hasComment = false;
+      boolean hasDefinition = false;
+      boolean hasParent = false;
+      for (DefinedCode c : cd.getCodes()) {
+        hasComment = hasComment || c.hasComment();
+        hasDefinition = hasDefinition || c.hasDefinition();
+        hasParent = hasParent || c.hasParent();
+      }
+      String src;
+      String lvl;
+      if (cd.isValueSet()) {
+        src = "Source";
+      } else
+        src = "Id";
+      if (hasParent)
+        lvl = "<td><b>Level</b></td>";
+      else
+        lvl = "";
+      if (hasComment)
+        s.append("    <tr><td><b>"+src+"</b></td>"+lvl+"<td><b>Code</b></td><td><b>Definition</b></td><td><b>Comments</b></td></tr>");
+      else if (hasDefinition)
+        s.append("    <tr><td><b>"+src+"</b></td>"+lvl+"<td><b>Code</b></td><td colspan=\"2\"><b>Definition</b></td></tr>");
+      else
+        s.append("    <tr><td><b>"+src+"</b></td>"+lvl+"<td colspan=\"3\"><b>Code</b></td></tr>");
+
+      for (DefinedCode c : cd.getChildCodes()) {
+        generateCode(cd, s, hasComment, hasDefinition, hasParent, 1, c);
+      }
+      s.append("    </table>\r\n");
+      return s.toString();
     }
-    String src;
-    String lvl;
-    if (cd.isValueSet()) {
-      src = "Source";
-    } else
-      src = "Id";
-    if (hasParent)
-      lvl = "<td><b>Level</b></td>";
-    else
-      lvl = "";
-    if (hasComment)
-      s.append("    <tr><td><b>"+src+"</b></td>"+lvl+"<td><b>Code</b></td><td><b>Definition</b></td><td><b>Comments</b></td></tr>");
-    else if (hasDefinition)
-      s.append("    <tr><td><b>"+src+"</b></td>"+lvl+"<td><b>Code</b></td><td colspan=\"2\"><b>Definition</b></td></tr>");
-    else
-      s.append("    <tr><td><b>"+src+"</b></td>"+lvl+"<td colspan=\"3\"><b>Code</b></td></tr>");
-    
-    for (DefinedCode c : cd.getChildCodes()) {
-      generateCode(cd, s, hasComment, hasDefinition, hasParent, 1, c);
-    }
-    s.append("    </table>\r\n");
-    return s.toString();
   }
 
   private void generateCode(BindingSpecification cd, StringBuilder s, boolean hasComment, boolean hasDefinition, boolean hasParent, int level, DefinedCode c) {
@@ -1140,9 +1168,17 @@ private String resItem(String name) throws Exception {
 
           } else if (cd.getBinding() == Binding.CodeList)
             s.append("</td><td><a href=\""+cd.getReference().substring(1)+".htm\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a></td></tr>\r\n");          
-          else if (cd.getBinding() == Binding.ValueSet && cd.getReferredValueSet() != null)
-            s.append("</td><td><a href=\""+cd.getReference()+".htm\">"+Utilities.escapeXml(cd.getDescription())+"</a></td></tr>\r\n");          
-          else if (cd.hasReference())
+          else if (cd.getBinding() == Binding.ValueSet) { 
+            if (cd.getReferredValueSet() != null) {
+              if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs")) 
+                s.append("</td><td><a href=\"v3/"+cd.getReference().substring(26)+"/index.htm\">"+cd.getReference()+"</a></td></tr>\r\n");          
+              else if (cd.getReference().startsWith("http://hl7.org/fhir")) 
+                s.append("</td><td><a href=\"??.htm\">??</a></td></tr>\r\n");          
+              else
+                s.append("</td><td><a href=\""+cd.getReference()+".htm\">"+cd.getReferredValueSet().getIdentifierSimple()+"</a></td></tr>\r\n");          
+            } else 
+              s.append("</td><td><a href=\""+cd.getReference()+".htm\">??</a></td></tr>\r\n");          
+          } else if (cd.hasReference())
             s.append("</td><td><a href=\""+cd.getReference()+"\">"+Utilities.escapeXml(cd.getDescription())+"</a></td></tr>\r\n");
           else if (Utilities.noString(cd.getDescription()))
             s.append("</td><td style=\"color: grey\">??</td></tr>\r\n");
@@ -2036,6 +2072,18 @@ public void log(String content) {
 
   public Map<String, AtomEntry> getCodeSystems() {
     return codeSystems;
+  }
+
+  public Map<String, AtomEntry> getValueSets() {
+    return valueSets;
+  }
+
+  public AtomFeed getV3Valuesets() {
+    return v3Valuesets;
+  }
+
+  public AtomFeed getV2Valuesets() {
+    return v2Valuesets;
   }
 
   
