@@ -18,7 +18,6 @@
     <include>
       <!-- all lab codes. TODO: can we get just the panel ones? -->
       <system value="http://loinc.org"/>
-      <mode value="system"/>
     </include>
   </compose>
 </ValueSet>

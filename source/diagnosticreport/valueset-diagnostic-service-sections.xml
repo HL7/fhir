@@ -18,7 +18,6 @@
     <include>
       <!-- all codes -->
       <system value="http://hl7.org/fhir/v2/0074"/>
-      <mode value="system"/>
     </include>
   </compose>
 </ValueSet>

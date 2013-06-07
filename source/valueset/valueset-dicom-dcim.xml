@@ -8369,7 +8369,7 @@
     </table>    
     </div>
   </text>
-  <identifier value="http://nema.org/dicom/dcid"/>
+  <identifier value="http://nema.org/dicom/vs/dcid"/>
   <version value="01"/>
   <name value="DICOM Code Definitions (DCM)"/>
   <publisher value="NEMA/DICOM"/>

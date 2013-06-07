@@ -348,52 +348,52 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">Definition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">HS</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] before the hour of sleep (or trying to)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">WAKE</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] after waking</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">AC</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] before a meal (from the Latin ante cibus)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">ACM</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] before breakfast (from the Latin ante cibus matutinus)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">ACD</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] before lunch (from the Latin ante cibus diurnus)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">ACV</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] before dinner (from the Latin ante cibus vespertinus)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">PC</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] after a meal (from the Latin post cibus)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">PCM</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] after breakfast (from the Latin post cibus matutinus)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">PCD</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] after lunch (from the Latin post cibus diurnus)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">PCV</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] after dinner (from the Latin post cibus vespertinus) </Data></Cell>
    </Row>

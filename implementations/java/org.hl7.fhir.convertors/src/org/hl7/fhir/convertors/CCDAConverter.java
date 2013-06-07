@@ -170,7 +170,7 @@ public class CCDAConverter {
 	  cc.getCoding().add(c);
 		lang.setLanguage(cc); 
 
-		lang.setMode(convert.makeCodeableConceptFromCD(cda.getChild(l, "modeCode")));
+		// todo: this got broken.... lang.setMode(convert.makeCodeableConceptFromCD(cda.getChild(l, "modeCode")));
 		lang.setProficiencyLevel(convert.makeCodeableConceptFromCD(cda.getChild(l, "modeCode")));
 		pat.getDetails().getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/religious-affiliation", convert.makeCodeableConceptFromCD(cda.getChild(p, "religiousAffiliationCode")), false));
 		pat.setProvider(Factory.makeResourceReference("Organization", makeOrganization(cda.getChild(pr, "providerOrganization"), "Provider")));

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Jun 7, 2013 00:21+1000 for FHIR v0.09
+// Generated on Fri, Jun 7, 2013 08:44+1000 for FHIR v0.09
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -598,7 +598,8 @@ public class XmlComposer extends XmlComposerBase {
       xml.open(FHIR_NS, name);
       composeElementElements(element);
       composeCodeableConcept("language", element.getLanguage());
-      composeCodeableConcept("mode", element.getMode());
+      for (CodeableConcept e : element.getMode()) 
+        composeCodeableConcept("mode", e);
       composeCodeableConcept("proficiencyLevel", element.getProficiencyLevel());
       composeBoolean("preference", element.getPreference());
       xml.close(FHIR_NS, name);
@@ -3111,8 +3112,6 @@ public class XmlComposer extends XmlComposerBase {
       composeElementElements(element);
       composeUri("system", element.getSystem());
       composeString("version", element.getVersion());
-      if (element.getMode() != null)
-        composeEnumeration("mode", element.getMode(), new ValueSet().new CodeSelectionModeEnumFactory());
       for (Code e : element.getCode()) 
         composeCode("code", e);
       for (ValueSet.ConceptSetFilterComponent e : element.getFilter()) 

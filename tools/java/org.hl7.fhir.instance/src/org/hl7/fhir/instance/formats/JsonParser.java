@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Jun 7, 2013 00:21+1000 for FHIR v0.09
+// Generated on Fri, Jun 7, 2013 08:44+1000 for FHIR v0.09
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -635,8 +635,12 @@ public class JsonParser extends JsonParserBase {
     parseElementProperties(json, res);
     if (json.has("language"))
       res.setLanguage(parseCodeableConcept(json.getJSONObject("language")));
-    if (json.has("mode"))
-      res.setMode(parseCodeableConcept(json.getJSONObject("mode")));
+    if (json.has("mode")) {
+      JSONArray array = json.getJSONArray("mode");
+      for (int i = 0; i < array.length(); i++) {
+        res.getMode().add(parseCodeableConcept(array.getJSONObject(i)));
+      }
+    };
     if (json.has("proficiencyLevel"))
       res.setProficiencyLevel(parseCodeableConcept(json.getJSONObject("proficiencyLevel")));
     if (json.has("preference"))
@@ -3993,8 +3997,6 @@ public class JsonParser extends JsonParserBase {
       res.setSystem(parseUri(json.getJSONObject("system")));
     if (json.has("version"))
       res.setVersion(parseString(json.getJSONObject("version")));
-    if (json.has("mode"))
-      res.setMode(parseEnumeration(json.getJSONObject("mode"), ValueSet.CodeSelectionMode.Null, new ValueSet().new CodeSelectionModeEnumFactory()));
     if (json.has("code")) {
       JSONArray array = json.getJSONArray("code");
       for (int i = 0; i < array.length(); i++) {

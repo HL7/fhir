@@ -98,7 +98,6 @@ import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
-import org.hl7.fhir.instance.model.ValueSet.CodeSelectionMode;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
@@ -981,7 +980,7 @@ public class Publisher {
   private ValueSet buildV3Valueset(String id, String date, Element e) throws Exception {
     StringBuilder s = new StringBuilder();
     ValueSet vs = new ValueSet();
-    vs.setIdentifierSimple("http://hl7.org/fhir/v3/"+id);
+    vs.setIdentifierSimple("http://hl7.org/fhir/v3/vs/"+id);
     vs.setNameSimple("v3 Code System "+id);
     vs.setPublisherSimple("HL7, Inc");
     vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org"));
@@ -1115,7 +1114,7 @@ public class Publisher {
   
   private ValueSet buildV2Valueset(String id, Element e) throws Exception {
     ValueSet vs = new ValueSet();
-    vs.setIdentifierSimple("http://hl7.org/fhir/v2/"+id);
+    vs.setIdentifierSimple("http://hl7.org/fhir/v2/vs/"+id);
     vs.setNameSimple("v2 table "+id);
     vs.setPublisherSimple("HL7, Inc");
     vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org"));
@@ -1181,7 +1180,7 @@ public class Publisher {
     StringBuilder s = new StringBuilder();
 
     ValueSet vs = new ValueSet();
-    vs.setIdentifierSimple("http://hl7.org/fhir/v2/"+id+"/"+version);
+    vs.setIdentifierSimple("http://hl7.org/fhir/v2/vs/"+id+"/"+version);
     vs.setNameSimple("v2 table "+id+", Version "+version);
     vs.setPublisherSimple("HL7, Inc");
     vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org"));
@@ -2207,7 +2206,7 @@ public class Publisher {
       n = name.substring(9);
     else
       n = name;
-    cd.getReferredValueSet().setIdentifierSimple("http://hl7.org/fhir/valuesets/"+n);
+    cd.getReferredValueSet().setIdentifierSimple("http://hl7.org/fhir/vs/"+n);
     ValueSet vs = cd.getReferredValueSet();
     if (vs.getText() == null) {
       vs.setText(new Narrative());
@@ -2247,7 +2246,7 @@ public class Publisher {
     cachePage(filename, src);
 
     ValueSet vs = new ValueSet();
-    vs.setIdentifierSimple("http://hl7.org/fhir/"+Utilities.fileTitle(filename));
+    vs.setIdentifierSimple("http://hl7.org/fhir/vs/"+Utilities.fileTitle(filename));
     // no version?? vs.setVersion(...
     vs.setNameSimple(cd.getName());
     vs.setPublisherSimple("HL7 (FHIR Project)");
@@ -2263,7 +2262,6 @@ public class Publisher {
         ConceptSetComponent cc = vs.new ConceptSetComponent();
         vs.getCompose().getInclude().add(cc);
         cc.setSystemSimple(new URI(n));
-        cc.setModeSimple(CodeSelectionMode.code);
         for (DefinedCode c : cd.getCodes()) {
           if (n.equals(c.getSystem()))
             cc.getCode().add(org.hl7.fhir.instance.model.Factory.newCode(c.getCode()));

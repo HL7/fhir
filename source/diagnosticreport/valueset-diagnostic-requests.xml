@@ -18,7 +18,6 @@
     <include>
       <!-- all codes with scale type "order" -->
       <system value="http://loinc.org"/>
-      <mode value="code"/>
       <filter>
         <property value="SCALE_TYP"/>
         <op value="="/>

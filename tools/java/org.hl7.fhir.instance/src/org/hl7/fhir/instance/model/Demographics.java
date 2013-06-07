@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jun 7, 2013 00:21+1000 for FHIR v0.09
+// Generated on Fri, Jun 7, 2013 08:44+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -47,10 +47,10 @@ public class Demographics extends Type {
         /**
          * A value representing the person's method of expression of this language. Examples: expressed spoken, expressed written, expressed signed, received spoken, received written, received signed
          */
-        private CodeableConcept mode;
+        private List<CodeableConcept> mode = new ArrayList<CodeableConcept>();
 
         /**
-         * A code that describes how well the language is spoken
+         * A code that describes how well the language is expressed or understood
          */
         private CodeableConcept proficiencyLevel;
 
@@ -67,12 +67,8 @@ public class Demographics extends Type {
           this.language = value;
         }
 
-        public CodeableConcept getMode() { 
+        public List<CodeableConcept> getMode() { 
           return this.mode;
-        }
-
-        public void setMode(CodeableConcept value) { 
-          this.mode = value;
         }
 
         public CodeableConcept getProficiencyLevel() { 

@@ -19,8 +19,12 @@
     <include>
       <!-- all the descendents of clinical finding, not include itself -->
       <system value="http://snomed.info"/>
-      <mode value="descendants"/>
-      <code value="91723000"/>
+      <filter>
+        <!-- todo: work this over. what this means is any concepts where they have is_a with 91723000. how should this be done? -->
+        <property value="concept"/>
+        <op value="is_a"/>
+        <value value="91723000"/>
+      </filter>
     </include>
   </compose>
 </ValueSet>

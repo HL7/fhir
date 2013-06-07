@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jun 7, 2013 00:21+1000 for FHIR v0.09
+// Generated on Fri, Jun 7, 2013 08:44+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -119,7 +119,7 @@ public class Patient extends Resource {
   }
 
     /**
-     * A linked patient record is a record that concerns the same patient. Records are linked after it is realized that at least one was created in error.
+     * A linked patient resource is a resource that concerns the same patient. Resources are linked after it is realized that at least one was created in error.
      */
     private List<ResourceReference> link = new ArrayList<ResourceReference>();
 

@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:19:17Z</Created>
-  <LastSaved>2013-05-22T22:05:18Z</LastSaved>
+  <LastSaved>2013-06-06T21:51:46Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,7 @@
   <WindowWidth>15585</WindowWidth>
   <WindowTopX>1200</WindowTopX>
   <WindowTopY>1125</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -243,7 +243,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet.define</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell><Data ss:Type="String">4,5</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When value set defines it's own codes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -292,7 +292,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">ValueSet.compose</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell><Data ss:Type="String">4,5</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="String">right</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When value set includes codes from elsewhere</Data></Cell>
    </Row>
@@ -321,7 +321,8 @@
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=ConceptSet</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Include one or more codes from a code system</Data></Cell>
     <Cell><Data ss:Type="String">Include one or more codes from a code system</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">N/A</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">If there are no codes or filters, the entire code system is included</Data></Cell>
+    <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">ValueSet.compose.include.system</Data></Cell>
@@ -346,7 +347,7 @@
       ss:Type="String">ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/@Version</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell><Data ss:Type="String">ValueSet.compose.include.mode</Data></Cell>
+    <Cell><Data ss:Type="String">!ValueSet.compose.include.mode</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">CodeSelectionMode</Data></Cell>
@@ -358,20 +359,18 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">ValueSet.compose.include.code</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">!</Data></Cell>
     <Cell><Data ss:Type="String">Code or concept</Data></Cell>
-    <Cell><Data ss:Type="String">Specifies a code or concept to be included or excluded as specified by the mode from the value set</Data></Cell>
+    <Cell><Data ss:Type="String">Specifies a code or concept to be included or excluded</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">expressions are allowed if defined by the underlying code system</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="165">
     <Cell><Data ss:Type="String">ValueSet.compose.include.filter</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Select codes/concepts by their properties</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Select concepts by specify a matching criteria based on the properties defined by the system. If multiple filters are specified, they must all be true</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Select codes/concepts by their properties (including relationships)</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they must all be true.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Selecting codes by specifying filters based on properties is only possible where the underlying code system defines appropriate properties. Note that in some cases, the underlying code system defines the logical concepts but not the literal codes for the concepts. In such cases, the literal definitions may be provided by a third party</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
@@ -477,7 +476,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>22</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -494,8 +493,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>25</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -504,12 +503,12 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="7" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s72" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:Index="3" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="137.25"/>
+   <Column ss:Index="3" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="162.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="309.75"/>
-   <Column ss:Index="6" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="348"/>
+   <Column ss:Index="6" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="447"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -521,27 +520,14 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">ValueSet.compose</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">A value set must have an include or an import</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">A value set composition must have an include or an import</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:include) or exists(f:import)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">ValueSet.compose</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">A value set with only one import must also have an include and/or an exclude</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">count(f:import)!=1 or exists(f:include) or exists(f:exclude)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">ValueSet.compose.include</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">A selection criteria must have at least one code or filter unless it is of type 'system' in which case it must not have either</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">(count(f:code|f:filter)=0)  = (f:mode/@value='system')</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell><Data ss:Type="String">Cannot have both a define or a compose element</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:define)) or not(exists(f:compose))</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">A value set with only one import must also have an include and/or an exclude unless the value set defines it's own codes</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:compose)) or (count(f:compose/f:import)!=1 or exists(f:compose/f:include) or exists(f:compose/f:exclude) or exists(f:define))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
@@ -554,6 +540,12 @@
     <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">ValueSet.expansion.contains</Data></Cell>
     <Cell><Data ss:Type="String">Must have a code or a display</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:code) or exists(f:display)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">ValueSet</Data></Cell>
+    <Cell><Data ss:Type="String">A defined code system (if present) must have a different identifier to the value set itself</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:define)) or (f:define/f:system/@value != f:identifier/@value)</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -569,11 +561,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -662,7 +655,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -863,8 +855,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">testing</Data></Cell>
-    <Cell><Data ss:Type="String">This valueset was authored for testing purposes (or education/evaluation/evangelisation)</Data></Cell>
+    <Cell><Data ss:Type="String">experimental</Data></Cell>
+    <Cell><Data ss:Type="String">This valueset was authored for experimentation/testing purposes (or education/evaluation/evangelisation)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
@@ -897,7 +889,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

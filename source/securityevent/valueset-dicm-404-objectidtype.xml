@@ -17,7 +17,6 @@
   <compose>
     <include>
       <system value="http://nema.org/dicom/dcid"/>
-      <mode value="code"/>
       <code value="110180"/>
       <code value="110181"/>
       <code value="110182"/>

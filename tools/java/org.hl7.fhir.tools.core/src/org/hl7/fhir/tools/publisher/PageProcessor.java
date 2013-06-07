@@ -374,11 +374,13 @@ public class PageProcessor implements Logger  {
         src = s1 + genReferenceImplList() + s3;
       else if (com[0].equals("txurl"))
         src = s1 + "http://hl7.org/fhir/"+Utilities.fileTitle(file) + s3;
+      else if (com[0].equals("vstxurl"))
+        src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsurl")) {
         String reference = definitions.getBindingByName(Utilities.fileTitle(file)).getReference();
         if (reference.startsWith("valueset-"))
             reference = reference.substring(9);
-        src = s1 + "http://hl7.org/fhir/valuesets/"+reference + s3;
+        src = s1 + "http://hl7.org/fhir/vs/"+reference + s3;
       } else if (com[0].equals("toc"))
         src = s1 + generateToc() + s3;
       else if (com[0].equals("txdef"))
@@ -1087,7 +1089,10 @@ private String resItem(String name) throws Exception {
         s.append(" <tr><td>"+cd.getName()+"</td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>"+Utilities.escapeXml(cd.getDescription())+"</td></tr>\r\n");
       else {
         String ref = cd.getReference().startsWith("#") ? cd.getReference().substring(1) : cd.getReference();
-        s.append(" <tr><td>"+cd.getName()+"</td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td><a href=\""+ref+".htm\">http://hl7.org/fhir/"+ref+"</a></td></tr>\r\n");
+        if (ref.startsWith("valueset-"))        
+          s.append(" <tr><td>"+cd.getName()+"</td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td><a href=\""+ref+".htm\">http://hl7.org/fhir/vs/"+ref.substring(9)+"</a></td></tr>\r\n");
+        else
+          s.append(" <tr><td>"+cd.getName()+"</td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td><a href=\""+ref+".htm\">http://hl7.org/fhir/"+ref+"</a></td></tr>\r\n");
       }
     }
     s.append("</table>\r\n");
@@ -1406,6 +1411,8 @@ private String resItem(String name) throws Exception {
         src = s1 + genReferenceImplList() + s3;
       else if (com[0].equals("txurl"))
         src = s1 + "http://hl7.org/fhir/"+Utilities.fileTitle(file) + s3;
+      else if (com[0].equals("vstxurl"))
+        src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsurl"))
         src = s1 + "http://hl7.org/fhir/"+definitions.getBindingByName(Utilities.fileTitle(file)).getReference() + s3;
       else if (com[0].equals("txdef"))
@@ -1563,6 +1570,8 @@ private String resItem(String name) throws Exception {
         src = s1 + genReferenceImplList() + s3;
       else if (com[0].equals("txurl"))
         src = s1 + "http://hl7.org/fhir/"+Utilities.fileTitle(file) + s3;
+      else if (com[0].equals("vstxurl"))
+        src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsurl"))
         src = s1 + "http://hl7.org/fhir/"+definitions.getBindingByName(Utilities.fileTitle(file)).getReference() + s3;
       else if (com[0].equals("txdef"))
@@ -2013,8 +2022,8 @@ public void log(String content) {
 
   private void addToValuesets(AtomFeed atom, ValueSet vs, String id) {
     AtomEntry e = new AtomEntry();
-    e.setId("http://hl7.org/fhir/valueset/" + id);
-    e.getLinks().put("self", "http://hl7.org/implement/standards/fhir/valueset/" + id);
+    e.setId("http://hl7.org/fhir/vs/" + id);
+    e.getLinks().put("self", "http://hl7.org/fhir/vs/" + id);
     e.setTitle("Valueset \"" + id+ "\" to support automated processing");
     e.setUpdated(genDate);
     e.setPublished(genDate);

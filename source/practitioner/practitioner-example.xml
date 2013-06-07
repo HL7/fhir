@@ -28,7 +28,7 @@
   <!-- Referring Practitioner for the first 3 months of 2012 -->
   <role>
     <coding>
-      <system value="http://hl7.org/fhir/sid/v2-0286"/>
+      <system value="http://hl7.org/fhir/v2/0286"/>
       <code value="RP"/>
     </coding>
   </role>

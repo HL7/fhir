@@ -140,10 +140,12 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
             throw new Exception("Unknown special type "+cd.getName());
         } 
         if (cd.getBinding() == BindingSpecification.Binding.ValueSet) {
-          if (!Utilities.noString(cd.getReference())) 
-            write("<a href=\""+cd.getReference()+".htm\">http://hl7.org/fhir/"+cd.getReference()+"</a>");            
-          else
+          if (Utilities.noString(cd.getReference())) 
             write("??");
+          else if (cd.getReference().startsWith("valueset-"))
+            write("<a href=\""+cd.getReference()+".htm\">http://hl7.org/fhir/vs/"+cd.getReference().substring(9)+"</a>");            
+          else
+            write("<a href=\""+cd.getReference()+".htm\">http://hl7.org/fhir/"+cd.getReference()+"</a>");            
           if (cd.isExample())
             write(" (Example only)");
         }

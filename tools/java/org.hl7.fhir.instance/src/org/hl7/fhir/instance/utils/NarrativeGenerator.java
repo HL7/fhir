@@ -8,8 +8,8 @@ import org.hl7.fhir.instance.model.Code;
 import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
-import org.hl7.fhir.instance.model.ValueSet.CodeSelectionMode;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
@@ -61,7 +61,7 @@ public class NarrativeGenerator {
   private void addDefineRowToTable(XhtmlNode t, ValueSetDefineConceptComponent c, int i) {
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
-    String s = Utilities.padLeft("", (char) 160, i*2);
+    String s = Utilities.padLeft("", '.', i*2);
     td.addText(s+c.getCodeSimple());
     td = tr.addTag("td");
     td.addText(c.getDisplaySimple());
@@ -73,7 +73,7 @@ public class NarrativeGenerator {
   }
 
 
-  private void generateComposition(XhtmlNode x, ValueSet vs, Map<String, AtomEntry> codeSystems) {
+  private void generateComposition(XhtmlNode x, ValueSet vs, Map<String, AtomEntry> codeSystems) throws Exception {
     XhtmlNode h = x.addTag("h2");
     h.addText(vs.getNameSimple());
     XhtmlNode p = x.addTag("p");
@@ -94,27 +94,19 @@ public class NarrativeGenerator {
     }
   }
 
-  private void genInclude(XhtmlNode ul, ConceptSetComponent inc, String type, Map<String, AtomEntry> codeSystems) {
+  private void genInclude(XhtmlNode ul, ConceptSetComponent inc, String type, Map<String, AtomEntry> codeSystems) throws Exception {
     XhtmlNode li;
     li = ul.addTag("li");
     AtomEntry e = codeSystems.get(inc.getSystemSimple().toString());
     
-    if (inc.getModeSimple() == CodeSelectionMode.system) { 
+    if (inc.getCode().size() == 0 && inc.getFilter().size() == 0) { 
       li.addText(type+" all codes defined in ");
       addCsRef(inc, li, e);
     } else { 
-      
-      if (inc.getModeSimple() == CodeSelectionMode.children)
-        li.addText(type+" immediate Children of the following codes as defined in ");
-      else if (inc.getModeSimple() == CodeSelectionMode.descendants)
-        li.addText(type+" all descendents of the following codes (but not the codes themselves) as defined in ");
-      else if (inc.getModeSimple() == CodeSelectionMode.all)
-        li.addText(type+" these codes and all their descendents as defined in ");
-      else // if (inc.getModeSimple() == CodeSelectionMode.code)
-        li.addText(type+" these codes as defined in ");
-      addCsRef(inc, li, e);
-      
       if (inc.getCode().size() > 0) {
+        li.addText(type+" these codes as defined in ");
+        addCsRef(inc, li, e);
+      
         XhtmlNode t = li.addTag("table");
         addTableHeaderRowStandard(t);
         for (Code c : inc.getCode()) {
@@ -129,6 +121,11 @@ public class NarrativeGenerator {
             td.addText(cc.getDefinitionSimple());
           }
         }
+      }
+      for (ConceptSetFilterComponent f : inc.getFilter()) {
+        li.addText(type+" codes from ");
+        addCsRef(inc, li, e);
+        li.addText(type+" where "+f.getPropertySimple()+" "+f.getOpSimple().toString()+" "+f.getValueSimple());
       }
     }
   }

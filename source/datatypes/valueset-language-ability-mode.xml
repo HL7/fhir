@@ -13,7 +13,6 @@
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/LanguageAbilityMode"/>
-      <mode value="system"/>    
     </include>
   </compose>
 </ValueSet>

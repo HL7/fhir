@@ -667,7 +667,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </reportId>
     <serviceCategory>
       <coding>
-        <system value="http://hl7.org/fhir/sid/v2-0074"/>
+        <system value="http://hl7.org/fhir/v2/0074"/>
       <code value="HM"/>
     </coding>
     </serviceCategory>

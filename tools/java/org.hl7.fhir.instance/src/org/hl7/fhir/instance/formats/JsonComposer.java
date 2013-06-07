@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Jun 7, 2013 00:21+1000 for FHIR v0.09
+// Generated on Fri, Jun 7, 2013 08:44+1000 for FHIR v0.09
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -612,7 +612,12 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeElement(element);
       composeCodeableConcept("language", element.getLanguage());
-      composeCodeableConcept("mode", element.getMode());
+      if (element.getMode().size() > 0) {
+        openArray("mode");
+        for (CodeableConcept e : element.getMode()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
       composeCodeableConcept("proficiencyLevel", element.getProficiencyLevel());
       composeBoolean("preference", element.getPreference());
       close();
@@ -3632,8 +3637,6 @@ public class JsonComposer extends JsonComposerBase {
       composeElement(element);
       composeUri("system", element.getSystem());
       composeString("version", element.getVersion());
-      if (element.getMode() != null)
-        composeEnumeration("mode", element.getMode(), new ValueSet().new CodeSelectionModeEnumFactory());
       if (element.getCode().size() > 0) {
         openArray("code");
         for (Code e : element.getCode()) 

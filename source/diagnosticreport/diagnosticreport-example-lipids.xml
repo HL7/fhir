@@ -159,9 +159,9 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
   </reportId>
   <serviceCategory>
     <coding>
-      <system value="http://hl7.org/fhir/sid/v2-0074"/>
-    <code value="HM"/>
-  </coding>
+      <system value="http://hl7.org/fhir/v2/0074"/>
+      <code value="HM"/>
+    </coding>
   </serviceCategory>
   <diagnosticTime value="2011-03-04T08:30:00+11:00"/>
   <results>

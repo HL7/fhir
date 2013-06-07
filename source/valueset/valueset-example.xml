@@ -33,7 +33,7 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   <description value="This is an example value set that includes &#xA;      all the LOINC codes for serum cholesterol from v2.36"/>
-  <status value="testing"/>
+  <status value="experimental"/>
   <date value="2012-06-13"/>
   <compose>
 
@@ -55,7 +55,6 @@
       <system value="http://loinc.org"/>
       <version value="2.36"/>
       <!-- for LOINC, we simply include the listed codes - no subsumption in LOINC -->
-      <mode value="code"/>
       <!-- these were selected by hand -->
       <code value="14647-2"/>
       <code value="2093-3"/>

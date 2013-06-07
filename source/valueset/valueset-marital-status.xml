@@ -38,14 +38,12 @@
       <version value="xxxx"/> -->
       
       <!-- just include all the codes -->
-      <mode value="system"/>
     </include>
   
     <include>
       <!-- include UNK from v3 code system "nullFlavor" -->    
       <system value="http://hl7.org/v3/nullflavor"/>
       <!-- just include all the codes -->
-      <mode value="code"/>
       <code value="UNK"/>
     </include>  
   </compose>

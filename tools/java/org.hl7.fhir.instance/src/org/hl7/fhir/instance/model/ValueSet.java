@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jun 7, 2013 00:21+1000 for FHIR v0.09
+// Generated on Fri, Jun 7, 2013 08:44+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -41,7 +41,7 @@ public class ValueSet extends Resource {
 
     public enum ValuesetStatus {
         draft, // This valueset is still under development
-        testing, // This valueset was authored for testing purposes (or education/evaluation/evangelisation)
+        experimental, // This valueset was authored for experimentation/testing purposes (or education/evaluation/evangelisation)
         review, // This valueset is undergoing review to check that it is ready for production use
         production, // This valueset is ready for use in production systems
         withdrawn, // This valueset has been withdrawn and should no longer be used
@@ -52,8 +52,8 @@ public class ValueSet extends Resource {
                 return null;
         if ("draft".equals(codeString))
           return draft;
-        if ("testing".equals(codeString))
-          return testing;
+        if ("experimental".equals(codeString))
+          return experimental;
         if ("review".equals(codeString))
           return review;
         if ("production".equals(codeString))
@@ -67,7 +67,7 @@ public class ValueSet extends Resource {
         public String toCode() {
           switch (this) {
             case draft: return "draft";
-            case testing: return "testing";
+            case experimental: return "experimental";
             case review: return "review";
             case production: return "production";
             case withdrawn: return "withdrawn";
@@ -84,8 +84,8 @@ public class ValueSet extends Resource {
                 return null;
         if ("draft".equals(codeString))
           return ValuesetStatus.draft;
-        if ("testing".equals(codeString))
-          return ValuesetStatus.testing;
+        if ("experimental".equals(codeString))
+          return ValuesetStatus.experimental;
         if ("review".equals(codeString))
           return ValuesetStatus.review;
         if ("production".equals(codeString))
@@ -99,8 +99,8 @@ public class ValueSet extends Resource {
     public String toCode(Enum<?> code) throws Exception {
       if (code == ValuesetStatus.draft)
         return "draft";
-      if (code == ValuesetStatus.testing)
-        return "testing";
+      if (code == ValuesetStatus.experimental)
+        return "experimental";
       if (code == ValuesetStatus.review)
         return "review";
       if (code == ValuesetStatus.production)
@@ -109,72 +109,6 @@ public class ValueSet extends Resource {
         return "withdrawn";
       if (code == ValuesetStatus.superseded)
         return "superseded";
-      return "?";
-      }
-    }
-
-    public enum CodeSelectionMode {
-        code, // Only this code is selected
-        children, // Only the immediate children (codes with a is_a relationship) are selected, but not this code itself
-        descendants, // All descendants of this code are selected, but not this code itself
-        all, // This code and any descendants are selected
-        system, // All codes from the specified code system
-        Null; // added to help the parsers
-        public static CodeSelectionMode fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("code".equals(codeString))
-          return code;
-        if ("children".equals(codeString))
-          return children;
-        if ("descendants".equals(codeString))
-          return descendants;
-        if ("all".equals(codeString))
-          return all;
-        if ("system".equals(codeString))
-          return system;
-        throw new Exception("Unknown CodeSelectionMode code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case code: return "code";
-            case children: return "children";
-            case descendants: return "descendants";
-            case all: return "all";
-            case system: return "system";
-            default: return "?";
-          }
-        }
-    }
-
-  public class CodeSelectionModeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("code".equals(codeString))
-          return CodeSelectionMode.code;
-        if ("children".equals(codeString))
-          return CodeSelectionMode.children;
-        if ("descendants".equals(codeString))
-          return CodeSelectionMode.descendants;
-        if ("all".equals(codeString))
-          return CodeSelectionMode.all;
-        if ("system".equals(codeString))
-          return CodeSelectionMode.system;
-        throw new Exception("Unknown CodeSelectionMode code '"+codeString+"'");
-        }
-    public String toCode(Enum<?> code) throws Exception {
-      if (code == CodeSelectionMode.code)
-        return "code";
-      if (code == CodeSelectionMode.children)
-        return "children";
-      if (code == CodeSelectionMode.descendants)
-        return "descendants";
-      if (code == CodeSelectionMode.all)
-        return "all";
-      if (code == CodeSelectionMode.system)
-        return "system";
       return "?";
       }
     }
@@ -430,17 +364,12 @@ public class ValueSet extends Resource {
         private String_ version;
 
         /**
-         * The mode of selection - whether the code itself, and/or its descendants are being selected
-         */
-        private Enumeration<CodeSelectionMode> mode;
-
-        /**
-         * Specifies a code or concept to be included or excluded as specified by the mode from the value set
+         * Specifies a code or concept to be included or excluded
          */
         private List<Code> code = new ArrayList<Code>();
 
         /**
-         * Select concepts by specify a matching criteria based on the properties defined by the system. If multiple filters are specified, they must all be true
+         * Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they must all be true.
          */
         private List<ConceptSetFilterComponent> filter = new ArrayList<ConceptSetFilterComponent>();
 
@@ -482,24 +411,6 @@ public class ValueSet extends Resource {
               this.version = new String_();
             this.version.setValue(value);
           }
-        }
-
-        public Enumeration<CodeSelectionMode> getMode() { 
-          return this.mode;
-        }
-
-        public void setMode(Enumeration<CodeSelectionMode> value) { 
-          this.mode = value;
-        }
-
-        public CodeSelectionMode getModeSimple() { 
-          return this.mode == null ? null : this.mode.getValue();
-        }
-
-        public void setModeSimple(CodeSelectionMode value) { 
-            if (this.mode == null)
-              this.mode = new Enumeration<CodeSelectionMode>();
-            this.mode.setValue(value);
         }
 
         public List<Code> getCode() { 

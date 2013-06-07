@@ -13,8 +13,8 @@ A value set that defines codes automatically includes all the codes it defines.
 This kind of value set is useful for simple sets of codes that are highly 
 specific and context-dependent. The value set and the code system are both 
 given URI identifiers by which they may be identified from elsewhere 
-(ValueSet.identifier and ValueSet.define.system). These identifiers may 
-be the same.
+(ValueSet.identifier and ValueSet.define.system). These identifiers must 
+be different.
 </p>
 <ul>
  <li><i>ValueSet.define.system</i> is the URI that identifies these codes 
@@ -35,6 +35,12 @@ including human language. The value set can be a simple list of included codes, 
 kind of general selection criteria using the facilities provided by the code system. 
 </p>
 <ul>
+ <li>Within an include or exclude criterion, 
+   multiple filters and concept selections are intersected. In other words, all the 
+   conditions specified must be true.</li>
+ <li>The value set always includes any codes it defines itself. A typical use for this
+    is including a set of codes, and adding a few additional ones that are not covered 
+    by the included codes</li>
  <li>If the value set contains include statements with a mode other than "code" or any filters, 
   and the system reference is not version specific, then the contents of the value set are open 
   and change over time as the underlying code systems are updated</li>
@@ -51,8 +57,6 @@ to compute the relationship, which might not be possible for a profile tool</li>
   appropriate properties. Note that in some cases, the underlying code system defines the 
   logical concepts but not the syntax for exercising them. In such cases, the literal 
   definitions may be provided by a third party</li>
- <li>Within an include or exclude criterion, multiple filters and concept selections 
-  are intersected. In other words, all the conditions specified must be true.</li>
 </ul>
 
 <a name="expansion"> </a>
