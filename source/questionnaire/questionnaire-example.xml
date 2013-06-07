@@ -31,8 +31,10 @@
           <key value="188912345"/>
         </identifier>
         <gender>
-          <system value="http://hl7.org/fhir/administrative-gender"/>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0001"/>
           <code value="M"/>
+          </coding>
         </gender>
         <birthDate value="1972-11-30"/>
       </details>

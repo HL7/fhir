@@ -36,10 +36,10 @@
             <value value="555-555-1002"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1002 Healthcare Drive"/>
@@ -88,10 +88,10 @@
             <value value="555-555-1021"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1020 Healthcare Drive"/>
@@ -140,10 +140,10 @@
             <value value="555-555-1003"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1003 Healthcare Drive"/>
@@ -192,10 +192,10 @@
             <value value="555-555-1004"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1004 Healthcare Drive"/>
@@ -244,10 +244,10 @@
             <value value="555-555-1005"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1005 Healthcare Drive"/>
@@ -296,10 +296,10 @@
             <value value="555-555-1006"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1006 Healthcare Drive"/>
@@ -348,10 +348,10 @@
             <value value="555-555-1007"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1007 Healthcare Drive"/>
@@ -400,10 +400,10 @@
             <value value="555-555-1022"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1021 Healthcare Drive"/>
@@ -452,10 +452,10 @@
             <value value="555-555-1023"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1022 Healthcare Drive"/>
@@ -504,10 +504,10 @@
             <value value="555-555-1024"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1023 Healthcare Drive"/>
@@ -556,10 +556,10 @@
             <value value="555-555-1008"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1008 Healthcare Drive"/>
@@ -608,10 +608,10 @@
             <value value="555-555-1009"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1009 Healthcare Drive"/>
@@ -660,10 +660,10 @@
             <value value="555-555-1025"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1024 Healthcare Drive"/>
@@ -712,10 +712,10 @@
             <value value="555-555-1012"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1012 Healthcare Drive"/>
@@ -764,10 +764,10 @@
             <value value="555-555-1027"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1025 Healthcare Drive"/>
@@ -816,10 +816,10 @@
             <value value="555-555-1028"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1026 Healthcare Drive"/>
@@ -868,10 +868,10 @@
             <value value="555-555-1029"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1027 Healthcare Drive"/>
@@ -920,10 +920,10 @@
             <value value="555-555-1030"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1028 Healthcare Drive"/>
@@ -972,10 +972,10 @@
             <value value="555-555-1031"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1029 Healthcare Drive"/>
@@ -1024,10 +1024,10 @@
             <value value="555-555-1032"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1030 Healthcare Drive"/>
@@ -1076,10 +1076,10 @@
             <value value="555-555-1033"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1031 Healthcare Drive"/>
@@ -1128,10 +1128,10 @@
             <value value="555-555-1034"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1032 Healthcare Drive"/>
@@ -1180,10 +1180,10 @@
             <value value="555-555-1035"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1033 Healthcare Drive"/>
@@ -1232,10 +1232,10 @@
             <value value="555-555-1036"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1034 Healthcare Drive"/>
@@ -1284,10 +1284,10 @@
             <value value="555-555-1037"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1035 Healthcare Drive"/>
@@ -1336,10 +1336,10 @@
             <value value="555-555-1038"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1036 Healthcare Drive"/>
@@ -1388,10 +1388,10 @@
             <value value="555-555-1039"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1037 Healthcare Drive"/>
@@ -1440,10 +1440,10 @@
             <value value="555-555-1040"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1038 Healthcare Drive"/>
@@ -1492,10 +1492,10 @@
             <value value="555-555-1041"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1039 Healthcare Drive"/>
@@ -1544,10 +1544,10 @@
             <value value="555-555-2003"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1040 Healthcare Drive"/>
@@ -1596,10 +1596,10 @@
             <value value="555-555-1043"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1041 Healthcare Drive"/>
@@ -1648,10 +1648,10 @@
             <value value="555-555-1044"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1042 Healthcare Drive"/>
@@ -1700,10 +1700,10 @@
             <value value="555-555-1045"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1043 Healthcare Drive"/>
@@ -1752,10 +1752,10 @@
             <value value="555-555-1010"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1010 Healthcare Drive"/>
@@ -1804,10 +1804,10 @@
             <value value="555-555-1046"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1044 Healthcare Drive"/>
@@ -1856,10 +1856,10 @@
             <value value="555-555-1047"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1045 Healthcare Drive"/>
@@ -1908,10 +1908,10 @@
             <value value="555-555-1048"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1046 Healthcare Drive"/>
@@ -1960,10 +1960,10 @@
             <value value="555-555-1049"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1047 Healthcare Drive"/>
@@ -2012,10 +2012,10 @@
             <value value="555-555-1011"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1011 Healthcare Drive"/>
@@ -2064,10 +2064,10 @@
             <value value="555-555-1050"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1048 Healthcare Drive"/>
@@ -2116,10 +2116,10 @@
             <value value="555-555-1013"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1013 Healthcare Drive"/>
@@ -2168,10 +2168,10 @@
             <value value="555-555-1051"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1049 Healthcare Drive"/>
@@ -2220,10 +2220,10 @@
             <value value="555-555-1052"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1050 Healthcare Drive"/>
@@ -2272,10 +2272,10 @@
             <value value="555-555-1014"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1014 Healthcare Drive"/>
@@ -2324,10 +2324,10 @@
             <value value="555-555-1015"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1015 Healthcare Drive"/>
@@ -2376,10 +2376,10 @@
             <value value="555-555-1053"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1051 Healthcare Drive"/>
@@ -2428,10 +2428,10 @@
             <value value="555-555-1054"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1052 Healthcare Drive"/>
@@ -2480,10 +2480,10 @@
             <value value="555-555-1055"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1053 Healthcare Drive"/>
@@ -2532,10 +2532,10 @@
             <value value="555-555-1056"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1054 Healthcare Drive"/>
@@ -2584,10 +2584,10 @@
             <value value="555-555-1016"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1016 Healthcare Drive"/>
@@ -2636,10 +2636,10 @@
             <value value="555-555-1057"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1055 Healthcare Drive"/>
@@ -2688,10 +2688,10 @@
             <value value="555-555-1058"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1056 Healthcare Drive"/>
@@ -2740,10 +2740,10 @@
             <value value="555-555-1017"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1017 Healthcare Drive"/>
@@ -2792,10 +2792,10 @@
             <value value="555-555-1018"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1018 Healthcare Drive"/>
@@ -2844,10 +2844,10 @@
             <value value="555-555-1019"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1019 Healthcare Drive"/>
@@ -2896,10 +2896,10 @@
             <value value="555-555-1059"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1057 Healthcare Drive"/>
@@ -2948,10 +2948,10 @@
             <value value="555-555-1060"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="M"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1058 Healthcare Drive"/>
@@ -3000,10 +3000,10 @@
             <value value="555-555-1020"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <system value="http://hl7.org/fhir/sid/v2-0001"/>
+           <gender><coding>
+    <system value="http://hl7.org/fhir/v2/0001"/>
             <code value="F"/>
-          </gender>
+ </coding>         </gender>
           <address>
             <use value="home"/>
             <line value="1058 Healthcare Drive"/>

@@ -26,7 +26,6 @@
   <WindowWidth>19440</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -40,6 +39,14 @@
    <Protection/>
   </Style>
   <Style ss:ID="s62" ss:Name="Normal 2">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s80" ss:Name="Normal 3">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -110,6 +117,9 @@
   <Style ss:ID="s77">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
+  <Style ss:ID="s87" ss:Parent="s80">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="17" x:FullColumns="1"
@@ -126,6 +136,7 @@
     ss:Span="2"/>
    <Column ss:Index="13" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Column ss:Index="17" ss:StyleID="s63" ss:Width="88.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="29.25" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -165,6 +176,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">An identifier for the person as this patient</Data></Cell>
     <Cell><Data ss:Type="String">An identifier that applies to this person as a patient</Data></Cell>
     <Cell><Data ss:Type="String">Patients are almost always assigned specific numerical identifiers</Data></Cell>
+    <Cell ss:Index="15" ss:StyleID="s87"><Data ss:Type="String">PID-3-patient ID list</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Patient.details</Data></Cell>
@@ -173,7 +185,6 @@
     <Cell><Data ss:Type="String">Demographics</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Patient demographics</Data></Cell>
     <Cell><Data ss:Type="String">Patient Demographic details</Data></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">Requirements</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Patient.contact</Data></Cell>
@@ -193,6 +204,7 @@
     <Cell><Data ss:Type="String">The kind of relationship</Data></Cell>
     <Cell><Data ss:Type="String">The nature of the relationship between the patient and the contactperson</Data></Cell>
     <Cell><Data ss:Type="String">Used to determine which contactperson is most relevant approach, depending on circumstances</Data></Cell>
+    <Cell ss:Index="15" ss:StyleID="s87"><Data ss:Type="String">NK1-3-relationship</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Patient.contact.details</Data></Cell>
@@ -201,7 +213,6 @@
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">Demographics</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Details about the contact person</Data></Cell>
     <Cell><Data ss:Type="String">Details about the contact person</Data></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">Requirements</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Patient.contact.organization</Data></Cell>
@@ -255,7 +266,7 @@
     <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">.code</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">PID.37</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Not sure why this is ED in the RIM.  Should probably change to SC.</Data></Cell>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -282,7 +293,6 @@
     <Cell ss:Index="8"><Data ss:Type="String">Organization managing the patient</Data></Cell>
     <Cell><Data ss:Type="String">The provider for whom this is a patient record</Data></Cell>
     <Cell><Data ss:Type="String">Need to know who recognises this patient record</Data></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">But is thie same as institution above?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Patient.multipleBirth[x]</Data></Cell>
@@ -292,7 +302,6 @@
     <Cell><Data ss:Type="String">Indicates whether the patient is part of a multiple or indicates the actual birth order.</Data></Cell>
     <Cell><Data ss:Type="String">For disambiguation of multiple-birth children, especially relevant where the care provider doesn't meet the patient, such as labs.</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.multipleBirthInd</Data></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">Requirements</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Patient.deceasedDate</Data></Cell>
@@ -301,7 +310,6 @@
     <Cell ss:Index="8"><Data ss:Type="String">Date of death of patient</Data></Cell>
     <Cell><Data ss:Type="String">Date of death of patient. May include time.</Data></Cell>
     <Cell><Data ss:Type="String">The date of death influences the the clinical process.</Data></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">Requirements</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Patient.link</Data></Cell>
@@ -312,6 +320,8 @@
     <Cell><Data ss:Type="String">A linked patient resource is a resource that concerns the same patient. Resources are linked after it is realized that at least one was created in error.</Data></Cell>
     <Cell><Data ss:Type="String">Due to the clerical errors associated with the difficulties of identifying humans consistently, duplicate patient records are frequently created in error</Data></Cell>
     <Cell><Data ss:Type="String">More then two patient resources may be linked. Note that there is a special transaction for linking patient resources in the RESTful context, as resource linking consistency must be maintained</Data></Cell>
+    <Cell ss:Index="15" ss:StyleID="s87"><Data ss:Type="String">PID-3-patient ID list</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s87"><Data ss:Type="String">From 2nd instance of PID segment in ADT^A24 (patient link) message</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Patient.active</Data></Cell>
@@ -337,12 +347,21 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <TopRowVisible>2</TopRowVisible>
+   <Selected/>
+   <TopRowVisible>4</TopRowVisible>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitVertical>1</SplitVertical>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <ActivePane>1</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -699,7 +718,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

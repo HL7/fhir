@@ -100,6 +100,12 @@
         <display value="Golden retriever"/>
       </coding>
     </breed>
+    <genderStatus>
+      <coding>
+        <system value="http://hl7.org/fhir/animal-species" />
+        <code value="neutered"/>
+      </coding>
+    </genderStatus>
   </animal>
 
   <provider>

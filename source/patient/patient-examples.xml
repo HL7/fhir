@@ -486,11 +486,12 @@
             <use value="home"/>
             <line value="4444 Home Street"/>
           </address>
-        </details>
+        </details>      
         <provider>
           <type value="Organization"/>
           <reference value="organization/@hl7"/>
         </provider>
+        <deceasedDate value="2002-08-24" />
         <active value="true"/>
       </Patient>
     </content>
