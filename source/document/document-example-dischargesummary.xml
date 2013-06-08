@@ -181,7 +181,7 @@
                         <coding>
                             <system value="http://hl7.org/fhir/v2/0001"/>
                             <code value="F"/>
-                            <display value="F"/>
+                            <display value="Female"/>
                         </coding>
                     </gender>
                     <birthDate value="1955-01-06"/>

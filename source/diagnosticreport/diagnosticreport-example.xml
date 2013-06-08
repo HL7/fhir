@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
 
 <!-- lab report example: a CBC -->
 
@@ -140,7 +140,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <interpretation>
           <coding> 
              <system value="http://hl7.org/fhir/v2/0078"/>
-             <code value="+"/>
+             <code value="H"/>
           </coding>
         </interpretation>
         <status value="final"/>
@@ -181,7 +181,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <interpretation>
           <coding> 
              <system value="http://hl7.org/fhir/v2/0078"/>
-             <code value="+"/>
+             <code value="H"/>
           </coding>
         </interpretation>
         <status value="final"/>
@@ -226,7 +226,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
               <interpretation>
           <coding> 
              <system value="http://hl7.org/fhir/v2/0078"/>
-             <code value="+"/>
+             <code value="H"/>
           </coding>
         </interpretation>
         <status value="final"/>
@@ -372,7 +372,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <interpretation>
           <coding> 
              <system value="http://hl7.org/fhir/v2/0078"/>
-             <code value="---"/>
+             <code value="LL"/>
           </coding>
         </interpretation>
         <status value="final"/>
@@ -440,7 +440,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <interpretation>
           <coding> 
              <system value="http://hl7.org/fhir/v2/0078"/>
-             <code value="-"/>
+             <code value="L"/>
           </coding>
         </interpretation>
         <status value="final"/>
@@ -570,7 +570,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <interpretation>
           <coding> 
              <system value="http://hl7.org/fhir/v2/0078"/>
-             <code value="++"/>
+             <code value="HH"/>
           </coding>
         </interpretation>
         <status value="final"/>

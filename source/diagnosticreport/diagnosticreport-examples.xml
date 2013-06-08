@@ -511,7 +511,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -702,7 +702,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -1041,7 +1041,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="--"/>
+                <code value="LL"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -1734,7 +1734,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -1814,7 +1814,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -1931,7 +1931,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -1974,7 +1974,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -2017,7 +2017,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -2060,7 +2060,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -2362,7 +2362,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="-"/>
+                <code value="L"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -2919,7 +2919,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -3036,7 +3036,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -3079,7 +3079,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -3122,7 +3122,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -3461,7 +3461,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="--"/>
+                <code value="LL"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -4019,7 +4019,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -4136,7 +4136,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -4179,7 +4179,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -4555,7 +4555,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="---"/>
+                <code value="LL"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -5150,7 +5150,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -5193,7 +5193,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -5236,7 +5236,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -5279,7 +5279,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -5322,7 +5322,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -5365,7 +5365,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -5667,7 +5667,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -6183,7 +6183,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -6226,7 +6226,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -6269,7 +6269,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -6312,7 +6312,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -6355,7 +6355,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -6398,7 +6398,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -6441,7 +6441,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -6743,7 +6743,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -7259,7 +7259,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -7302,7 +7302,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -7345,7 +7345,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -7388,7 +7388,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -7431,7 +7431,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -7474,7 +7474,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -7776,7 +7776,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -7819,7 +7819,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -8335,7 +8335,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -8526,7 +8526,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -8864,7 +8864,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="--"/>
+                <code value="LL"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -9347,7 +9347,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -9427,7 +9427,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -9544,7 +9544,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -9587,7 +9587,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -9630,7 +9630,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -9673,7 +9673,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -9975,7 +9975,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="-"/>
+                <code value="L"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -10532,7 +10532,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -10649,7 +10649,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -10692,7 +10692,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -10735,7 +10735,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -11074,7 +11074,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="--"/>
+                <code value="LL"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -11632,7 +11632,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -11749,7 +11749,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -11792,7 +11792,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -12168,7 +12168,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="---"/>
+                <code value="LL"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -12763,7 +12763,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -12806,7 +12806,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -12849,7 +12849,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -12892,7 +12892,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -12935,7 +12935,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -12978,7 +12978,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -13280,7 +13280,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -13796,7 +13796,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -13839,7 +13839,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -13882,7 +13882,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -13925,7 +13925,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -13968,7 +13968,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -14011,7 +14011,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -14054,7 +14054,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -14356,7 +14356,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -14872,7 +14872,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -14915,7 +14915,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -14958,7 +14958,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -15001,7 +15001,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -15044,7 +15044,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -15087,7 +15087,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="++"/>
+                <code value="HH"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -15389,7 +15389,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -15432,7 +15432,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="+"/>
+                <code value="H"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -15689,7 +15689,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="SS"/>
+                <code value="S"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -15744,7 +15744,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="SS"/>
+                <code value="S"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -15772,7 +15772,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="SS"/>
+                <code value="S"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -15800,7 +15800,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="SS"/>
+                <code value="S"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -15828,7 +15828,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="SS"/>
+                <code value="S"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -15856,7 +15856,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="SS"/>
+                <code value="S"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -15884,7 +15884,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="SS"/>
+                <code value="S"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -15912,7 +15912,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="SS"/>
+                <code value="S"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -15940,7 +15940,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="SS"/>
+                <code value="S"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -15968,7 +15968,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="SS"/>
+                <code value="S"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -15996,7 +15996,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="SS"/>
+                <code value="S"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -16023,7 +16023,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="SS"/>
+                <code value="S"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -16051,7 +16051,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="SS"/>
+                <code value="S"/>
               </coding>
             </interpretation>
             <status value="final"/>
@@ -16079,7 +16079,7 @@
             <interpretation>
               <coding>
                 <system value="http://hl7.org/fhir/v2/0078"/>
-                <code value="SS"/>
+                <code value="S"/>
               </coding>
             </interpretation>
             <status value="final"/>

@@ -60,20 +60,15 @@ import org.hl7.fhir.utilities.Utilities;
  * @author Grahame
  *
  */
-public class ResourceValidator {
+public class ResourceValidator extends BaseValidator {
 
   public class Usage {
     public Set<SearchParameter.SearchType> usage= new HashSet<SearchParameter.SearchType>();
   }
   
-  public enum Level {
-    Hint,
-    Warning,
-    Error
-  }
+ 
 
   private Definitions definitions;
-	private List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
 	private Map<String, Usage> usages = new HashMap<String, Usage>();
 
 	public ResourceValidator(Definitions definitions) {
@@ -250,27 +245,7 @@ public class ResourceValidator {
 				(parent != null && parent.getRoot().hasNestedType(name));
 	}
 
-	private boolean rule(String path, boolean b, String msg) {
-		if (!b)
-			errors.add(new ValidationMessage(path + ": " + msg, Level.Error));
-		return b;
-
-	}
-  private boolean hint(String path, boolean b, String msg) {
-    if (!b)
-      errors.add(new ValidationMessage(path + ": " + msg, Level.Hint));
-    return b;
-    
-  }
-
-  private boolean warning(String path, boolean b, String msg) {
-    if (!b)
-      errors.add(new ValidationMessage(path + ": " + msg, Level.Warning));
-    return b;
-    
-  }
-
-  public List<ValidationMessage> check(String n, BindingSpecification cd) throws Exception {
+	public List<ValidationMessage> check(String n, BindingSpecification cd) throws Exception {
     errors.clear();
 
     // basic integrity checks

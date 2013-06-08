@@ -140,7 +140,7 @@ public class CCDAConverter {
 			pat.getDetails().getTelecom().add(convert.makeContactFromTEL(e));
 		for (Element e : cda.getChildren(p, "name"))
 			pat.getDetails().getName().add(convert.makeNameFromEN(e));
-		pat.getDetails().setGender(convert.makeCodingFromCV(cda.getChild(p, "administrativeGenderCode")));
+		pat.getDetails().setGender(convert.makeCodeableConceptFromCD(cda.getChild(p, "administrativeGenderCode")));
 		pat.getDetails().setBirthDate(convert.makeDateTimeFromTS(cda.getChild(p, "birthTime")));
 		pat.getDetails().setMaritalStatus(convert.makeCodeableConceptFromCD(cda.getChild(p, "maritalStatusCode")));
 		pat.getDetails().getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/religious-affiliation", convert.makeCodeableConceptFromCD(cda.getChild(p, "religiousAffiliationCode")), false));

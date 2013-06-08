@@ -131,9 +131,11 @@ public class NarrativeGenerator {
           ValueSetDefineConceptComponent cc = getConceptForCode(e, c.getValue());
           if (cc != null) {
             td = tr.addTag("td");
-            td.addText(cc.getDisplaySimple());
+            if (cc.getDisplaySimple() != null)
+              td.addText(cc.getDisplaySimple());
             td = tr.addTag("td");
-            td.addText(cc.getDefinitionSimple());
+            if (cc.getDefinitionSimple() != null)
+              td.addText(cc.getDefinitionSimple());
           }
         }
       }

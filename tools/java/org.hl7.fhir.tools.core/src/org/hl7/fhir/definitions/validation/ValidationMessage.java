@@ -1,9 +1,13 @@
 package org.hl7.fhir.definitions.validation;
 
-import org.hl7.fhir.definitions.validation.ResourceValidator.Level;
-
 public class ValidationMessage 
 {
+  public enum Level {
+    Hint,
+    Warning,
+    Error
+  }
+  
   private String message;
   private Level level;
   public ValidationMessage(String message, Level level) {

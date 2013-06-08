@@ -4370,7 +4370,7 @@
       <item id="5" code="U" desc="Unknown"/>
     </version>
   </table>
-  <table id="63" state="exclude">
+  <table id="63" state="include">
     <version version="2.1" desc="RELATIONSHIP"/>
     <version version="2.2" desc="RELATIONSHIP"/>
     <version version="2.3" desc="Relationship"/>

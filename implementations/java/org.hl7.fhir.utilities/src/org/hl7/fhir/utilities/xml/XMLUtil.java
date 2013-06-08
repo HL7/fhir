@@ -359,5 +359,10 @@ public class XMLUtil {
     LSSerializer serializer = domImplLS.createLSSerializer();
     return serializer.writeToString(el);
   }
+
+  public static String getNamedChildValue(Element element, String name) {
+    Element e = getNamedChild(element, name);
+    return e == null ? null : e.getAttribute("value");
+  }
 	
 }

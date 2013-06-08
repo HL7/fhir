@@ -81,10 +81,11 @@ import org.hl7.fhir.definitions.model.RegisteredProfile;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.parsers.SourceParser;
+import org.hl7.fhir.definitions.validation.InstanceValidator;
 import org.hl7.fhir.definitions.validation.ProfileValidator;
 import org.hl7.fhir.definitions.validation.ResourceValidator;
-import org.hl7.fhir.definitions.validation.ResourceValidator.Level;
 import org.hl7.fhir.definitions.validation.ValidationMessage;
+import org.hl7.fhir.definitions.validation.ValidationMessage.Level;
 import org.hl7.fhir.instance.formats.AtomComposer;
 import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.XmlComposer;
@@ -206,6 +207,7 @@ public class Publisher {
 
   private long revNumber;
 	private boolean isGenerate;
+	private boolean noArchive;
 	private boolean web;
 	private String diffProgram;
 	private AtomFeed profileFeed;
@@ -227,7 +229,8 @@ public class Publisher {
 			System.out.println("Please specify the FHIR directory");
 			return;
 		}
-		pub.isGenerate = !(args.length > 1 && hasParam(args, "-nogen"));
+    pub.isGenerate = !(args.length > 1 && hasParam(args, "-nogen"));
+    pub.noArchive = !(args.length > 1 && hasParam(args, "-noarchive"));
 		pub.web = (args.length > 1 && hasParam(args, "-web"));
 		pub.diffProgram = getNamedParam(args, "-diff");
 		try {
@@ -324,7 +327,8 @@ public class Publisher {
 					String eCorePath = page.getFolders().dstDir + "ECoreDefinitions.xml";
 					generateECore(prsr.getECoreParseResults(), eCorePath);
 					produceSpecification(eCorePath);
-				}
+				} else
+				  loadValueSets();
 				validateXml();
 		    if (buildFlags.get("all")) 
   		    produceQA();
@@ -334,7 +338,44 @@ public class Publisher {
 		}
 	}
 
-	private IniFile ini;
+	private void loadValueSets() throws Exception {
+    v2Valuesets = new AtomFeed();
+    v2Valuesets.setId("http://hl7.org/fhir/v2/valuesets");
+    v2Valuesets.setTitle("v2 tables as ValueSets");
+    v2Valuesets.getLinks().put("self", "http://hl7.org/implement/standards/fhir/v2-tables.xml");
+    v2Valuesets.setUpdated(Calendar.getInstance());
+    page.setV2Valuesets(v2Valuesets);
+    v3Valuesets = new AtomFeed();
+    v3Valuesets.setId("http://hl7.org/fhir/v3/valuesets");
+    v3Valuesets.setTitle("v3 Code Systems and ValueSets");
+    v3Valuesets.getLinks().put("self", "http://hl7.org/implement/standards/fhir/v3-valuesets.xml");
+    v3Valuesets.setUpdated(Calendar.getInstance());
+    page.setv3Valuesets(v3Valuesets);
+    
+    log(" ...vocab");
+    analyseV2();
+    analyseV3();
+    log(" ...profiles");
+    log(" ...resource ValueSet");
+    generateCodeSystems();
+    for (BindingSpecification cd : page.getDefinitions().getBindings().values()) {
+      if (cd.getBinding() == Binding.ValueSet && !Utilities.noString(cd.getReference())
+          && cd.getReference().startsWith("http://hl7.org/fhir")) {
+        if (!page.getDefinitions().getValuesets().containsKey(cd.getReference()))         
+          throw new Exception("Reference "+cd.getReference()+" canot be resolved");
+        cd.setReferredValueSet(page.getDefinitions().getValuesets().get(cd.getReference()));
+      }
+    }
+    ResourceDefn r = page.getDefinitions().getResources().get("ValueSet");
+    if (isGenerate) {
+      produceResource1(r);      
+      produceResource2(r);
+    }
+    generateValueSets();
+
+  }
+
+  private IniFile ini;
 	
 	private void defineSpecialValues() throws Exception {
 	  for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
@@ -736,7 +777,7 @@ public class Publisher {
 		    wm = new WebMaker(page.getFolders(), page.getVersion(), page.getIni(), page.getDefinitions());
 		    wm.produceHL7Copy();
 		  }
-      if (new File(page.getFolders().archiveDir).exists()) {
+      if (new File(page.getFolders().archiveDir).exists() && !noArchive) {
 		    log("Produce Archive copy");
 		    produceArchive();
       }
@@ -804,43 +845,12 @@ public class Publisher {
 	    profileFeed.setTitle("Resources as Profiles");
 	    profileFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/profiles-resources.xml");
 	    profileFeed.setUpdated(Calendar.getInstance());
-      v2Valuesets = new AtomFeed();
-      v2Valuesets.setId("http://hl7.org/fhir/v2/valuesets");
-      v2Valuesets.setTitle("v2 tables as ValueSets");
-      v2Valuesets.getLinks().put("self", "http://hl7.org/implement/standards/fhir/v2-tables.xml");
-      v2Valuesets.setUpdated(Calendar.getInstance());
-      page.setV2Valuesets(v2Valuesets);
-      v3Valuesets = new AtomFeed();
-      v3Valuesets.setId("http://hl7.org/fhir/v3/valuesets");
-      v3Valuesets.setTitle("v3 Code Systems and ValueSets");
-      v3Valuesets.getLinks().put("self", "http://hl7.org/implement/standards/fhir/v3-valuesets.xml");
-      v3Valuesets.setUpdated(Calendar.getInstance());
-      page.setv3Valuesets(v3Valuesets);
-      
-	    for (String n : page.getDefinitions().getDiagrams().keySet()) {
-	      log(" ...diagram "+n);
-	      page.getImageMaps().put(n, new DiagramGenerator(page).generateFromSource(n, page.getFolders().srcDir + page.getDefinitions().getDiagrams().get(n)));
-	    }
-
-      log(" ...vocab");
-      analyseV2();
-      analyseV3();
-	    log(" ...profiles");
-      log(" ...resource ValueSet");
-      generateCodeSystems();
-      for (BindingSpecification cd : page.getDefinitions().getBindings().values()) {
-        if (cd.getBinding() == Binding.ValueSet && !Utilities.noString(cd.getReference())
-            && cd.getReference().startsWith("http://hl7.org/fhir")) {
-          if (!page.getDefinitions().getValuesets().containsKey(cd.getReference()))         
-            throw new Exception("Reference "+cd.getReference()+" canot be resolved");
-          cd.setReferredValueSet(page.getDefinitions().getValuesets().get(cd.getReference()));
-        }
+      for (String n : page.getDefinitions().getDiagrams().keySet()) {
+        log(" ...diagram "+n);
+        page.getImageMaps().put(n, new DiagramGenerator(page).generateFromSource(n, page.getFolders().srcDir + page.getDefinitions().getDiagrams().get(n)));
       }
-      ResourceDefn r = page.getDefinitions().getResources().get("ValueSet"); 
-      produceResource1(r);      
-      produceResource2(r);
-      generateValueSets();
-      
+
+      loadValueSets();      
 	  }
 	  
 	  for (String rname : page.getDefinitions().sortedResourceNames()) {
@@ -2087,7 +2097,7 @@ public class Publisher {
 	static final String JAXP_SCHEMA_SOURCE = "http://java.sun.com/xml/jaxp/properties/schemaSource";
 
 	private void validateXml() throws Exception {
-    if (buildFlags.get("all"))
+    if (buildFlags.get("all") && isGenerate)
   	  produceCoverageWarnings();
 		log("Validating XML");
 		log(".. Loading schemas");
@@ -2170,6 +2180,8 @@ public class Publisher {
 		Document doc = builder.parse(new CSFileInputStream(new CSFile(page.getFolders().dstDir + n + ".xml")));
 		if (err.getErrors().size() > 0)
 			throw new Exception("Resource Example " + n	+ " failed schema validation");
+    Element root = doc.getDocumentElement();
+		
 		File tmpTransform = File.createTempFile("tmp", ".xslt");
 		tmpTransform.deleteOnExit();
 		File tmpOutput = File.createTempFile("tmp", ".xml");
@@ -2196,7 +2208,19 @@ public class Publisher {
 				Element e = (Element) nl.item(i);
 				page.log("  @" + e.getAttribute("location") + ": "+ e.getTextContent());
 			}
+      throw new Exception("Resource Example " + n + " failed invariant validation");
 		}
+		
+		// now, finally, we validate the resource ourselves.
+		// the build tool validation focuses on codes and identifiers
+		List<ValidationMessage> issues = new InstanceValidator(page.getDefinitions()).validateInstance(root);
+		boolean abort = false;
+		for (ValidationMessage m : issues) {
+		  page.log("  " +m.getLevel().toString()+": "+ m.getMessage());
+		  abort = abort || m.getLevel().equals(Level.Error);
+		}
+		if (abort)
+		  throw new Exception("Resource Example " + n + " failed instance validation");
 	}
 
 	private void validateRoundTrip(Schema schema, String n) throws Exception {
@@ -2324,17 +2348,26 @@ public class Publisher {
     }
     if (vs.getText().getDiv().allChildrenAreText() && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
       new NarrativeGenerator().generate(vs, page.getCodeSystems());
-    addToResourceFeed(vs, n);
-    
-    TextFile.stringToFile(page.processPageIncludes(cd.getName()+".htm", TextFile.fileToString(page.getFolders().srcDir+"template-vs.htm")), page.getFolders().dstDir+name+".htm");
-    String src = page.processPageIncludesForBook(cd.getName()+".htm", TextFile.fileToString(page.getFolders().srcDir+"template-vs-book.htm"));
-    cachePage(name+".htm", src);
-    
-    JsonComposer json = new JsonComposer();
-    json.compose(new FileOutputStream(page.getFolders().dstDir+name+".json"), cd.getReferredValueSet());
-    XmlComposer xml = new XmlComposer();
-    xml.compose(new FileOutputStream(page.getFolders().dstDir+name+".xml"), cd.getReferredValueSet(), true);
-    cloneToXhtml(name, "Definition for Value Set"+cd.getReferredValueSet().getNameSimple());
+
+    AtomEntry ae = new AtomEntry();
+    ae.getLinks().put("self", "??");
+    // ae.getLinks().put("oid", );
+    ae.setResource(vs);
+    page.getValueSets().put(vs.getIdentifierSimple(), ae);
+
+    if (isGenerate) {
+      addToResourceFeed(vs, n);
+
+      TextFile.stringToFile(page.processPageIncludes(cd.getName()+".htm", TextFile.fileToString(page.getFolders().srcDir+"template-vs.htm")), page.getFolders().dstDir+name+".htm");
+      String src = page.processPageIncludesForBook(cd.getName()+".htm", TextFile.fileToString(page.getFolders().srcDir+"template-vs-book.htm"));
+      cachePage(name+".htm", src);
+
+      JsonComposer json = new JsonComposer();
+      json.compose(new FileOutputStream(page.getFolders().dstDir+name+".json"), cd.getReferredValueSet());
+      XmlComposer xml = new XmlComposer();
+      xml.compose(new FileOutputStream(page.getFolders().dstDir+name+".xml"), cd.getReferredValueSet(), true);
+      cloneToXhtml(name, "Definition for Value Set"+cd.getReferredValueSet().getNameSimple());
+    }
   }
   
  
@@ -2386,22 +2419,26 @@ public class Publisher {
     new NarrativeGenerator().generate(vs, page.getCodeSystems());
     
     cd.setReferredValueSet(vs);
-    TextFile.stringToFile(page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx.htm")), page.getFolders().dstDir+filename);
-    String src = page.processPageIncludesForBook(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx-book.htm"));
-    cachePage(filename, src);
-
-    addToResourceFeed(vs, Utilities.fileTitle(filename));
     AtomEntry e = new AtomEntry();
     e.setResource(vs);
     e.getLinks().put("self", Utilities.changeFileExt(filename, ".htm"));
     page.getCodeSystems().put("http://hl7.org/fhir/"+Utilities.fileTitle(filename), e);
 
-    JsonComposer json = new JsonComposer();
-    json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, ".json")), vs);
-    XmlComposer xml = new XmlComposer();
-    xml.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, ".xml")), vs, true);
-    cloneToXhtml(Utilities.fileTitle(filename), "Definition for Value Set"+vs.getNameSimple());
+    page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
+    if (isGenerate) {
+      addToResourceFeed(vs, Utilities.fileTitle(filename));
 
+      TextFile.stringToFile(page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx.htm")), page.getFolders().dstDir+filename);
+      String src = page.processPageIncludesForBook(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx-book.htm"));
+      cachePage(filename, src);
+
+
+      JsonComposer json = new JsonComposer();
+      json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, ".json")), vs);
+      XmlComposer xml = new XmlComposer();
+      xml.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, ".xml")), vs, true);
+      cloneToXhtml(Utilities.fileTitle(filename), "Definition for Value Set"+vs.getNameSimple());
+    }
   }
 
 }
