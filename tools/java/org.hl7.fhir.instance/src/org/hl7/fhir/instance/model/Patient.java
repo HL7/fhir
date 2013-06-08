@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jun 7, 2013 08:44+1000 for FHIR v0.09
+// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -119,16 +119,6 @@ public class Patient extends Resource {
   }
 
     /**
-     * A linked patient resource is a resource that concerns the same patient. Resources are linked after it is realized that at least one was created in error.
-     */
-    private List<ResourceReference> link = new ArrayList<ResourceReference>();
-
-    /**
-     * Whether this patient record is in active use
-     */
-    private Boolean active;
-
-    /**
      * An identifier that applies to this person as a patient
      */
     private List<Identifier> identifier = new ArrayList<Identifier>();
@@ -163,31 +153,15 @@ public class Patient extends Resource {
      */
     private DateTime deceasedDate;
 
-    public List<ResourceReference> getLink() { 
-      return this.link;
-    }
+    /**
+     * A linked patient resource is a resource that concerns the same patient. Resources are linked after it is realized that at least one was created in error.
+     */
+    private List<ResourceReference> link = new ArrayList<ResourceReference>();
 
-    public Boolean getActive() { 
-      return this.active;
-    }
-
-    public void setActive(Boolean value) { 
-      this.active = value;
-    }
-
-    public boolean getActiveSimple() { 
-      return this.active == null ? null : this.active.getValue();
-    }
-
-    public void setActiveSimple(boolean value) { 
-      if (value == false)
-        this.active = null;
-      else {
-        if (this.active == null)
-          this.active = new Boolean();
-        this.active.setValue(value);
-      }
-    }
+    /**
+     * Whether this patient record is in active use
+     */
+    private Boolean active;
 
     public List<Identifier> getIdentifier() { 
       return this.identifier;
@@ -248,6 +222,32 @@ public class Patient extends Resource {
         if (this.deceasedDate == null)
           this.deceasedDate = new DateTime();
         this.deceasedDate.setValue(value);
+      }
+    }
+
+    public List<ResourceReference> getLink() { 
+      return this.link;
+    }
+
+    public Boolean getActive() { 
+      return this.active;
+    }
+
+    public void setActive(Boolean value) { 
+      this.active = value;
+    }
+
+    public boolean getActiveSimple() { 
+      return this.active == null ? null : this.active.getValue();
+    }
+
+    public void setActiveSimple(boolean value) { 
+      if (value == false)
+        this.active = null;
+      else {
+        if (this.active == null)
+          this.active = new Boolean();
+        this.active.setValue(value);
       }
     }
 

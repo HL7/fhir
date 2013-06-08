@@ -123,9 +123,12 @@ public class AtomComposer extends XmlBase {
         xml.element(ATOM_NS, "uri", e.getAuthorUri());
       xml.close(ATOM_NS, "author");
     }
-    if (e.getCategory() != null) {      
-      xml.attribute("scheme", "http://hl7.org/fhir/resource-types");
-      xml.attribute("term", e.getCategory());
+    for (String uri : e.getTags().keySet()) {      
+      xml.attribute("scheme", "http://hl7.org/fhir/tag");
+      xml.attribute("term", uri);
+      String lbl = e.getTags().get(uri);
+      if (!Utilities.noString(lbl))
+        xml.attribute("label", lbl);
       xml.element(ATOM_NS, "category", null);
     }
 

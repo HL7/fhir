@@ -12,7 +12,6 @@
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <DiagnosticReport xmlns="http://hl7.org/fhir">
         <text>
@@ -1480,7 +1479,6 @@
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <DiagnosticReport xmlns="http://hl7.org/fhir">
         <text>
@@ -2591,7 +2589,6 @@
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <DiagnosticReport xmlns="http://hl7.org/fhir">
         <text>
@@ -3691,7 +3688,6 @@
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <DiagnosticReport xmlns="http://hl7.org/fhir">
         <text>
@@ -4785,7 +4781,6 @@
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <DiagnosticReport xmlns="http://hl7.org/fhir">
         <text>
@@ -5855,7 +5850,6 @@
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <DiagnosticReport xmlns="http://hl7.org/fhir">
         <text>
@@ -6931,7 +6925,6 @@
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <DiagnosticReport xmlns="http://hl7.org/fhir">
         <text>
@@ -8007,7 +8000,6 @@
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <DiagnosticReport xmlns="http://hl7.org/fhir">
         <text>
@@ -9093,7 +9085,6 @@
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <DiagnosticReport xmlns="http://hl7.org/fhir">
         <text>
@@ -10204,7 +10195,6 @@
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <DiagnosticReport xmlns="http://hl7.org/fhir">
         <text>
@@ -11304,7 +11294,6 @@
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <DiagnosticReport xmlns="http://hl7.org/fhir">
         <text>
@@ -12398,7 +12387,6 @@
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <DiagnosticReport xmlns="http://hl7.org/fhir">
         <text>
@@ -13468,7 +13456,6 @@
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <DiagnosticReport xmlns="http://hl7.org/fhir">
         <text>
@@ -14544,7 +14531,6 @@
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <DiagnosticReport xmlns="http://hl7.org/fhir">
         <text>
@@ -15620,7 +15606,6 @@
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <DiagnosticReport xmlns="http://hl7.org/fhir">
         <text>
@@ -16229,7 +16214,6 @@
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <DiagnosticReport xmlns="http://hl7.org/fhir">
         <text>
@@ -16308,7 +16292,6 @@
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <DiagnosticReport xmlns="http://hl7.org/fhir">
         <text>

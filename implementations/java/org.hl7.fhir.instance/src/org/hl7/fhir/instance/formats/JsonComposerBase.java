@@ -42,6 +42,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Boolean;
 import org.hl7.fhir.instance.model.Integer;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.*;
 import org.hl7.fhir.utilities.xml.*;
 import org.json.JSONWriter;
@@ -153,12 +154,17 @@ public abstract class JsonComposerBase extends XmlBase {
     }
 
 
-		if (e.getCategory() != null) {
+		if (e.getTags().size() > 0) {
 			openArray("categories");
-			json.object();
-			prop("term", e.getCategory());
-			prop("scheme", "http://hl7.org/fhir/resource-types");
-			json.endObject();
+			for (String uri : e.getTags().keySet()) {
+				json.object();
+				prop("scheme", "http://hl7.org/fhir/tag");
+				prop("term", uri);
+				String label = e.getTags().get(uri);
+				if (!Utilities.noString(label))
+					prop("label", label);
+				json.endObject();
+			}
 			closeArray();
 		}
 

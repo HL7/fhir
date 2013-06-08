@@ -131,10 +131,10 @@ public class NarrativeGenerator {
           ValueSetDefineConceptComponent cc = getConceptForCode(e, c.getValue());
           if (cc != null) {
             td = tr.addTag("td");
-            if (cc.getDisplaySimple() != null)
+            if (!Utilities.noString(cc.getDisplaySimple()))
               td.addText(cc.getDisplaySimple());
             td = tr.addTag("td");
-            if (cc.getDefinitionSimple() != null)
+            if (!Utilities.noString(cc.getDefinitionSimple()))
               td.addText(cc.getDefinitionSimple());
           }
         }
@@ -145,7 +145,7 @@ public class NarrativeGenerator {
         li.addText(" where "+f.getPropertySimple()+" "+describe(f.getOpSimple())+" ");
         if (e != null && codeExistsInValueSet(e, f.getValueSimple())) {
           XhtmlNode a = li.addTag("a");
-          a.addText(f.getValueSimple());
+          a.addTag(f.getValueSimple());
           a.setAttribute("href", getCsRef(e)+"#"+f.getValueSimple());
         } else
           li.addText(f.getValueSimple());

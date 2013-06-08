@@ -81,7 +81,6 @@ public class CCDAConverter {
 		e.setResource(r);
 		e.setTitle(title);
 		e.setId(id);
-		e.setCategory(r.getResourceType().toString());
 		feed.getEntryList().add(e);
 		return id;
 	}

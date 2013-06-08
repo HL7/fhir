@@ -185,8 +185,8 @@ public class AtomParser extends XmlBase {
     }
     if (json.has("categories")) {
       JSONObject cat = json.getJSONArray("categories").getJSONObject(0);
-      if (cat.has("term"))
-        res.setCategory(cat.getString("term"));
+      if (cat.has("term") && cat.has("scheme") && cat.getString("scheme").equals("http://hl7.org/fhir/tag"))
+        res.getTags().put(cat.getString("term"), cat.has("label") ? cat.getString("label") : null);
     }
     if (json.has("summary"))
       res.setSummary(new XhtmlParser().parse(json.getString("summary"), "div").getChildNodes().get(0));
@@ -213,8 +213,8 @@ public class AtomParser extends XmlBase {
       else if(eventType == XmlPullParser.START_TAG && xpp.getName().equals("published"))
         res.setPublished(parseDate(xpp));
       else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
-        if ("http://hl7.org/fhir/resource-types".equals(xpp.getAttributeValue(null, "scheme"))) 
-         res.setCategory(xpp.getAttributeValue(null, "term"));
+        if ("http://hl7.org/fhir/tag".equals(xpp.getAttributeValue(null, "scheme"))) 
+         res.getTags().put(xpp.getAttributeValue(null, "term"), xpp.getAttributeValue(null, "label"));
          skipEmptyElement(xpp);
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("author")) {
         xpp.next();

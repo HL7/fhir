@@ -42,6 +42,7 @@ import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Boolean;
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.CarePlan.CarePlanStatusEnumFactory;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.*;
 import org.hl7.fhir.utilities.xml.*;
 
@@ -171,9 +172,15 @@ public abstract class XmlComposerBase extends XmlBase {
 	        xml.element("uri", entry.getAuthorUri());
 	      xml.close("author");
 	    }
-	    xml.attribute("scheme", "http://hl7.org/fhir/resource-types");
-	    xml.attribute("term", entry.getCategory());
-	    xml.element("category", null);
+			for (String uri : entry.getTags().keySet()) {
+				xml.attribute("scheme", "http://hl7.org/fhir/tag");
+				xml.attribute("term", uri);
+				String label = entry.getTags().get(uri);
+				if (!Utilities.noString(label))
+					xml.attribute("label", label);
+		    xml.element("category", null);
+			}
+	    
 	    xml.attribute("type", "text/xml");
 	    xml.open("content");
 	    xml.setDefaultNamespace(FHIR_NS); 

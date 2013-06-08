@@ -81,7 +81,6 @@ public class FHIRSimpleClient implements FHIRClient {
 			URLConnection client = makeClient("/"+type.toString().toLowerCase()+"/@"+id);
 			Resource r = new XmlParser().parse(client.getInputStream());
 			AtomEntry e = new AtomEntry();
-			e.setCategory(r.getResourceType().toString());
 			e.setUpdated(javax.xml.bind.DatatypeConverter.parseDateTime(client.getHeaderField("Last-Updated")));
 			e.setId(id);
 			e.getLinks().put("self", client.getHeaderField("Content-Location"));

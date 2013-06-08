@@ -12,7 +12,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -64,7 +63,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -116,7 +114,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -168,7 +165,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -220,7 +216,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -272,7 +267,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -324,7 +318,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -376,7 +369,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -428,7 +420,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -480,7 +471,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -532,7 +522,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -584,7 +573,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -636,7 +624,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -688,7 +675,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -740,7 +726,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -792,7 +777,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -844,7 +828,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -896,7 +879,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -948,7 +930,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1000,7 +981,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1052,7 +1032,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1104,7 +1083,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1156,7 +1134,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1208,7 +1185,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1260,7 +1236,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1312,7 +1287,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1364,7 +1338,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1416,7 +1389,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1468,7 +1440,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1520,7 +1491,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1572,7 +1542,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1624,7 +1593,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1676,7 +1644,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1728,7 +1695,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1780,7 +1746,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1832,7 +1797,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1884,7 +1848,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1936,7 +1899,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -1988,7 +1950,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -2040,7 +2001,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -2092,7 +2052,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -2144,7 +2103,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -2196,7 +2154,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -2248,7 +2205,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -2300,7 +2256,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -2352,7 +2307,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -2404,7 +2358,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -2456,7 +2409,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -2508,7 +2460,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -2560,7 +2511,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -2612,7 +2562,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -2664,7 +2613,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -2716,7 +2664,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -2768,7 +2715,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -2820,7 +2766,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -2872,7 +2817,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -2924,7 +2868,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -2976,7 +2919,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Practitioner" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>

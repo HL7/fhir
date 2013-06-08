@@ -358,6 +358,20 @@ public class Utilities {
   }
 
 
+  public static String path(String... args) {
+    StringBuilder s = new StringBuilder();
+    boolean d = false;
+    for(String arg: args) {
+      if (!d)
+        d = true;
+      else if (!s.toString().endsWith(File.separator))
+        s.append(File.separator);
+      s.append(arg);
+    }
+    return s.toString();
+  }
+
+
 
 //  public static void checkCase(String filename) {
 //    File f = new CSFile(filename);

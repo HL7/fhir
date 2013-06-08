@@ -36,6 +36,8 @@ import java.util.Stack;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.parsers.TypeParser;
+import org.hl7.fhir.instance.model.AtomEntry;
+import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
@@ -74,7 +76,7 @@ public class ProfileValidator {
   
   private ResourceDefn candidate;
   private Profile profile;
-  private Profile types;
+  private AtomFeed types;
   private ArrayList<String> errors;
 
   private Stack<TypeState> typePoints = new Stack<ProfileValidator.TypeState>();
@@ -83,17 +85,17 @@ public class ProfileValidator {
     this.candidate = candidate; 
   }
 
+  public void setTypes(AtomFeed types) {
+    this.types = types;
+  }
+
+
+  public Profile getProfile() {
+    return profile;
+  }
+
   public void setProfile(Profile profile) {
     this.profile = profile;
-  }
-
-  
-  public Profile getTypes() {
-    return types;
-  }
-
-  public void setTypes(Profile types) {
-    this.types = types;
   }
 
   public List<String> evaluate() throws Exception {
@@ -234,7 +236,15 @@ public class ProfileValidator {
   }
 
   private ProfileStructureComponent getTypeProfile(String type) {
-    for (ProfileStructureComponent p : types.getStructure()) {
+    Profile pr = null;
+    for (AtomEntry e : types.getEntryList()) {
+      if (("http://hl7.org/fhir/profile/"+type.toLowerCase()).equals(e.getId())) {
+        pr = (Profile) e.getResource();
+      }
+    }
+    if (pr == null)
+      return null;
+    for (ProfileStructureComponent p : pr.getStructure()) {
       if (p.getType().getValue().equals(type))
         return p;
     }
@@ -242,11 +252,7 @@ public class ProfileValidator {
   }
 
   private boolean hasTypeProfile(String type) {
-    for (ProfileStructureComponent p : types.getStructure()) {
-      if (p.getType().getValue().equals(type))
-        return true;
-    }
-    return false;
+    return getTypeProfile(type) != null;
   }
 
   private void completeFromDerivation(ElementDefn target, ElementComponent source) {

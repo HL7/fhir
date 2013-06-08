@@ -28,6 +28,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -38,7 +39,7 @@ public class AtomEntry {
   private boolean deleted;
   private String title;
   private Map<String, String> links = new LinkedHashMap<String, String>();
-  private String category;
+  private Map<String, String> tags = new HashMap<String, String>();
   private String authorName;
   private String authorUri;
   private java.util.Calendar published;
@@ -65,12 +66,6 @@ public class AtomEntry {
     return links;
   }
   
-  public String getCategory() {
-    return category;
-  }
-  public void setCategory(String category) {
-    this.category = category;
-  }
   public String getAuthorName() {
     return authorName;
   }
@@ -113,5 +108,9 @@ public class AtomEntry {
 	public void setDeleted(boolean deleted) {
 		this.deleted = deleted;
 	}
+	public Map<String, String> getTags() {
+		return tags;
+	}
+
 	
 }

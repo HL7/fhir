@@ -410,7 +410,6 @@
     <author>
       <name>68.151.217.168</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -469,7 +468,6 @@
     <author>
       <name>68.151.217.168</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -526,7 +524,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -574,7 +571,6 @@
     <author>
       <name>68.151.217.168</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -622,7 +618,6 @@
     <author>
       <name>68.151.217.168</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -670,7 +665,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -718,7 +712,6 @@
     <author>
       <name>68.151.217.168</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -766,7 +759,6 @@
     <author>
       <name>68.151.217.168</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -814,7 +806,6 @@
     <author>
       <name>216.138.103.10</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -867,7 +858,6 @@
     <author>
       <name>68.151.217.168</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -915,7 +905,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -963,7 +952,6 @@
     <author>
       <name>68.151.217.168</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1011,7 +999,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1066,7 +1053,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1114,7 +1100,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1162,7 +1147,6 @@
     <author>
       <name>68.151.217.168</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1210,7 +1194,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1258,7 +1241,6 @@
     <author>
       <name>68.151.217.168</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1306,7 +1288,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1354,7 +1335,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1402,7 +1382,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1450,7 +1429,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1498,7 +1476,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1547,7 +1524,6 @@
     <author>
       <name>216.138.103.10</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1593,7 +1569,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1648,7 +1623,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1696,7 +1670,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1744,7 +1717,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1792,7 +1764,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1840,7 +1811,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1888,7 +1858,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1936,7 +1905,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -1984,7 +1952,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -2032,7 +1999,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -2080,7 +2046,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -2128,7 +2093,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -2176,7 +2140,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -2224,7 +2187,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -2272,7 +2234,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -2320,7 +2281,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -2368,7 +2328,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -2416,7 +2375,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -2464,7 +2422,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -2512,7 +2469,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -2560,7 +2516,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -2608,7 +2563,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -2656,7 +2610,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -2704,7 +2657,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -2752,7 +2704,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -2800,7 +2751,6 @@
     <author>
       <name>Cypress Project</name>
     </author>
-    <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>

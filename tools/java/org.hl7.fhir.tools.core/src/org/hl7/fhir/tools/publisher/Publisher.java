@@ -210,7 +210,9 @@ public class Publisher {
 	private boolean noArchive;
 	private boolean web;
 	private String diffProgram;
-	private AtomFeed profileFeed;
+  private AtomFeed profileFeed;
+  private AtomFeed typeFeed;
+  private AtomFeed valueSetsFeed;
   private AtomFeed v2Valuesets;
   private AtomFeed v3Valuesets; 
   private List<Fragment> fragments = new ArrayList<Publisher.Fragment>();
@@ -236,7 +238,7 @@ public class Publisher {
 		try {
       pub.execute(args[0]);
     } catch (Exception e) {
-      System.out.println("Errror running build: "+e.getMessage());
+      System.out.println("Error running build: "+e.getMessage());
       File f;
       try {
         f = new File(Utilities.appendSlash(args[0])+ "fhir-error-dump.txt");
@@ -287,9 +289,10 @@ public class Publisher {
 	public void execute(String folder) throws Exception {
 
 		log("Publish FHIR in folder " + folder+" @ "+Config.DATE_FORMAT().format(page.getGenDate().getTime()));
-		checkSubversion(folder);
-    
+		if (isGenerate) 
+		  checkSubversion(folder);    
 		registerReferencePlatforms();
+		
 
 		if (initialize(folder)) {
 	    log("Version "+page.getVersion()+"-"+page.getSvnRevision());
@@ -845,6 +848,17 @@ public class Publisher {
 	    profileFeed.setTitle("Resources as Profiles");
 	    profileFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/profiles-resources.xml");
 	    profileFeed.setUpdated(Calendar.getInstance());
+      typeFeed = new AtomFeed();
+      typeFeed.setId("http://hl7.org/fhir/profile/types");
+      typeFeed.setTitle("Resources as Profiles");
+      typeFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/profiles-types.xml");
+      typeFeed.setUpdated(Calendar.getInstance());
+      valueSetsFeed = new AtomFeed();
+      valueSetsFeed.setId("http://hl7.org/fhir/profile/valuesets");
+      valueSetsFeed.setTitle("FHIR Core Valuesets");
+      valueSetsFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/valuesets.xml");
+      valueSetsFeed.setUpdated(Calendar.getInstance());
+      
       for (String n : page.getDefinitions().getDiagrams().keySet()) {
         log(" ...diagram "+n);
         page.getImageMaps().put(n, new DiagramGenerator(page).generateFromSource(n, page.getFolders().srcDir + page.getDefinitions().getDiagrams().get(n)));
@@ -890,7 +904,13 @@ public class Publisher {
       log(" ...collections ");
       new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.xml"), profileFeed, true, false);
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.json"), profileFeed);
-      cloneToXhtml("profiles-resources", "Base Resources defined as profiles (implementation assistance, for derivation and product development)");
+      cloneToXhtml("profiles-resources", "Base Resources defined as profiles (implementation assistance, for for validation, derivation and product development)");
+      new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-types.xml"), typeFeed, true, false);
+      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-types.json"), typeFeed);
+      cloneToXhtml("profiles-types", "Base Types defined as profiles (implementation assistance, for validation, derivation and product development)");
+      new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.xml"), valueSetsFeed, true, false);
+      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.json"), valueSetsFeed);
+      cloneToXhtml("valuesets", "Base Valuesets (implementation assistance, for validation, derivation and product development)");
       new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.xml"), v2Valuesets, true, false);
       Utilities.copyFile(page.getFolders().dstDir + "v2-tables.xml", page.getFolders().dstDir + "examples"+ File.separator+"v2-tables.xml");
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.json"), v2Valuesets);
@@ -900,8 +920,24 @@ public class Publisher {
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.json"), v3Valuesets);
       cloneToXhtml("v3-codesystems", "v3 Code Systems defined as value sets (implementation assistance, for derivation and product development)");
 
+      log("....validator");
+      ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "validation.zip");
+      zip.addFileName("org.hl7.fhir.validator.jar", Utilities.path(page.getFolders().rootDir, "tools", "bin", "org.hl7.fhir.validator.jar"));
+      zip.addFileName("profiles-types.xml", page.getFolders().dstDir + "profiles-types.xml");
+      zip.addFileName("profiles-types.json", page.getFolders().dstDir + "profiles-types.json");
+      zip.addFileName("profiles-resources.xml", page.getFolders().dstDir + "profiles-resources.xml");
+      zip.addFileName("profiles-resources.json", page.getFolders().dstDir + "profiles-resources.json");
+      zip.addFileName("valuesets.xml", page.getFolders().dstDir + "valuesets.xml");
+      zip.addFileName("valuesets.json", page.getFolders().dstDir + "valuesets.json");
+      zip.addFileName("v2-tables.xml", page.getFolders().dstDir + "v2-tables.xml");
+      zip.addFileName("v2-tables.json", page.getFolders().dstDir + "v2-tables.json");
+      zip.addFileName("v3-codesystems.xml", page.getFolders().dstDir + "v3-codesystems.xml");
+      zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json");
+      // todo: schemas
+      zip.close();
+      
       log(" ...zips");
-	    ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "examples.zip");
+	    zip = new ZipGenerator(page.getFolders().dstDir + "examples.zip");
 	    zip.addFiles(page.getFolders().dstDir + "examples" + File.separator, "", null);
 	    zip.close();
 
@@ -1103,6 +1139,7 @@ public class Publisher {
           if (r != null && "Health Level 7".equals(r.getAttribute("organizationName"))) {
             String id = e.getAttribute("name");
             AtomEntry ae = new AtomEntry();
+            ae.setId("http://hl7.org/fhir/v3/vs/"+id);
             ae.getLinks().put("self", "v3"+File.separator+id+File.separator+"index.htm");
             ae.getLinks().put("oid", e.getAttribute("codeSystemId"));
             ValueSet vs = buildV3CodeSystem(id, dt, e);
@@ -1119,6 +1156,7 @@ public class Publisher {
         if (ini.getBooleanProperty("ValueSets", e.getAttribute("name"))) {
           String id = e.getAttribute("name");
           AtomEntry ae = new AtomEntry();
+          ae.setId("http://hl7.org/fhir/v3/vs/"+id);
           ae.getLinks().put("self", "v3"+File.separator+"vs"+File.separator+id+File.separator+"index.htm");
           ValueSet vs = buildV3ValueSet(id, dt, e, codesystems);
           ae.getLinks().put("oid", e.getAttribute("id"));
@@ -1454,21 +1492,59 @@ public class Publisher {
   }
 
   private void produceBaseProfile() throws Exception {
+    for (ElementDefn e : page.getDefinitions().getTypes().values())
+      produceTypeProfile(e);
+    for (ElementDefn e : page.getDefinitions().getInfrastructure().values())
+      produceTypeProfile(e);
+    for (ElementDefn e : page.getDefinitions().getStructures().values())
+      produceTypeProfile(e);
+    for (DefinedCode c : page.getDefinitions().getConstraints().values())
+      produceProfiledTypeProfile(c);
+  }
+  
+  private void produceProfiledTypeProfile(DefinedCode c) throws Exception {
     ProfileDefn p = new ProfileDefn();
-    p.putMetadata("id", "fhir.types");
-    p.putMetadata("name", "Base Type Profiles");
+    p.putMetadata("id", c.getCode());
+    p.putMetadata("name", "Profile for "+c.getCode()+" on "+c.getComment());
     p.putMetadata("author.name", "FHIR Specification");
     p.putMetadata("author.ref", "http://hl7.org/fhir");
-    p.putMetadata("description", "Basic Profile for the FHIR types - distributed to assist with implementation");
+    p.putMetadata("description", "Basic Profile for "+c.getCode()+" on "+c.getComment()+" for validation support");
     p.putMetadata("status", "testing");
     p.putMetadata("date", new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "US")).format(new Date()));
-    for (ElementDefn e : page.getDefinitions().getTypes().values())
-      p.getElements().add(e);
+    ElementDefn type = page.getDefinitions().getElementDefn(c.getComment());
+    p.getElements().add(type);
     ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
-    Profile rp = pgen.generate(p, new FileOutputStream(page.getFolders().dstDir + "types.profile.xml"), "<div>Type definitions from <a href=\"http://hl7.org/fhir/datatypes.htm\">FHIR Specification</a></div>", false);
-    Utilities.copyFile(new CSFile(page.getFolders().dstDir + "types.profile.xml"), new CSFile(page.getFolders().dstDir+ "examples" + File.separator + "types.profile.xml"));
-    addToResourceFeed(rp, "types");
-    saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html" + File.separator + "datatypes.htm"));    
+    String fn = "type-"+c.getCode()+".profile.xml";
+    Profile rp = pgen.generate(p, "<div>Type definition for "+type.getName()+" from <a href=\"http://hl7.org/fhir/datatypes.htm#"+type.getName()+"\">FHIR Specification</a></div>", false);
+    rp.getStructure().get(0).setNameSimple(c.getCode());
+    
+    XmlComposer comp = new XmlComposer();
+    comp.compose(new FileOutputStream(page.getFolders().dstDir + fn), rp, true, false);
+    
+    Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
+    addToResourceFeed(rp, c.getCode().toLowerCase(), typeFeed);
+    
+  }
+
+  private void produceTypeProfile(ElementDefn type) throws Exception {
+    ProfileDefn p = new ProfileDefn();
+    p.putMetadata("id", type.getName());
+    p.putMetadata("name", "Basic Profile for "+type.getName());
+    p.putMetadata("author.name", "FHIR Specification");
+    p.putMetadata("author.ref", "http://hl7.org/fhir");
+    p.putMetadata("description", "Basic Profile for "+type.getName()+" for validation support");
+    p.putMetadata("status", "testing");
+    p.putMetadata("date", new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "US")).format(new Date()));
+    p.getElements().add(type);
+    ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
+    String fn = "type-"+type.getName()+".profile.xml";
+    Profile rp = pgen.generate(p, "<div>Type definition for "+type.getName()+" from <a href=\"http://hl7.org/fhir/datatypes.htm#"+type.getName()+"\">FHIR Specification</a></div>", false);
+    XmlComposer comp = new XmlComposer();
+    comp.compose(new FileOutputStream(page.getFolders().dstDir + fn), rp, true, false);
+
+    Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
+    addToResourceFeed(rp, type.getName().toLowerCase(), typeFeed);
+    // saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html" + File.separator + "datatypes.htm"));    
   }
 
   protected XmlPullParser loadXml(InputStream stream) throws Exception {
@@ -1763,10 +1839,13 @@ public class Publisher {
 		p.putMetadata("date", new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "US")).format(new Date()));
 		p.getResources().add(root);
 		ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
-		Profile rp = pgen.generate(p, new FileOutputStream(page.getFolders().dstDir + n + ".profile.xml"), xmlSpec, addBase);
-		Utilities.copyFile(new CSFile(page.getFolders().dstDir + n+ ".profile.xml"), new CSFile(page.getFolders().dstDir+ "examples" + File.separator + n + ".profile.xml"));
+		Profile rp = pgen.generate(p, xmlSpec, addBase);
+    XmlComposer comp = new XmlComposer();
+    comp.compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.xml"), rp, true, false);
+
+    Utilities.copyFile(new CSFile(page.getFolders().dstDir + n+ ".profile.xml"), new CSFile(page.getFolders().dstDir+ "examples" + File.separator + n + ".profile.xml"));
 		if (buildFlags.get("all"))
-		  addToResourceFeed(rp, root.getName().toLowerCase());
+		  addToResourceFeed(rp, root.getName().toLowerCase(), profileFeed);
 		saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html" + File.separator + n + ".htm"));
 	}
 
@@ -1793,22 +1872,21 @@ public class Publisher {
 		xml.compose(stream, html);
 	}
 
-  private void addToResourceFeed(Profile profile, String id) {
+  private void addToResourceFeed(Profile profile, String id, AtomFeed dest) {
     AtomEntry e = new AtomEntry();
     e.setId("http://hl7.org/fhir/profile/" + id);
     e.getLinks().put("self", "http://hl7.org/implement/standards/fhir/" + id+ ".profile.xml");
-    e.setTitle("Resource \"" + id+ "\" as a profile (to help derivation)");
+    e.setTitle("\"" + id+ "\" as a profile (to help derivation)");
     e.setUpdated(page.getGenDate());
     e.setPublished(page.getGenDate());
     e.setAuthorName("HL7, Inc");
     e.setAuthorUri("http://hl7.org");
-    e.setCategory("Profile");
     e.setResource(profile);
     e.setSummary(profile.getText().getDiv());
-    profileFeed.getEntryList().add(e);
+    dest.getEntryList().add(e);
   }
 
-  private void addToResourceFeed(ValueSet vs, String id) {
+  private void addToResourceFeed(ValueSet vs, String id, AtomFeed dest) {
     AtomEntry e = new AtomEntry();
     e.setId("http://hl7.org/fhir/valueset/" + id);
     e.getLinks().put("self", "http://hl7.org/implement/standards/fhir/valueset/" + id);
@@ -1819,7 +1897,7 @@ public class Publisher {
     e.setAuthorUri("http://hl7.org");
     e.setResource(vs);
     e.setSummary(vs.getText().getDiv());
-    profileFeed.getEntryList().add(e);
+    dest.getEntryList().add(e);
   }
 
 	private void produceProfile(String filename, ProfileDefn profile, String example)
@@ -1837,7 +1915,9 @@ public class Publisher {
 		String xml = TextFile.fileToString(tmp.getAbsolutePath());
 
 		ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
-		pgen.generate(profile, new FileOutputStream(page.getFolders().dstDir + filename + ".profile.xml"), xml, false);
+    XmlComposer comp = new XmlComposer();
+    comp.compose(new FileOutputStream(page.getFolders().dstDir + filename + ".profile.xml"), 
+          pgen.generate(profile, xml, false), true, false);
 		Utilities.copyFile(new CSFile(page.getFolders().dstDir + filename + ".profile.xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + filename + ".profile.xml"));
 
 		TerminologyNotesGenerator tgen = new TerminologyNotesGenerator(new FileOutputStream(tmp), page);
@@ -1924,7 +2004,7 @@ public class Publisher {
 			ProfileValidator v = new ProfileValidator();
 			v.setCandidate(c);
 			v.setProfile(resource);
-			v.setTypes(loadResourceProfile("types"));
+			v.setTypes(typeFeed);
 			List<String> errors = v.evaluate();
 			if (errors.size() > 0)
 				throw new Exception("Error validating "+ profile.metadata("name") + ": " + errors.toString());
@@ -2112,6 +2192,7 @@ public class Publisher {
 		schemaFactory.setResourceResolver(new MyResourceResolver(page
 				.getFolders().dstDir));
 		Schema schema = schemaFactory.newSchema(sources);
+    InstanceValidator validator = new InstanceValidator(page.getFolders().dstDir+"validation.zip");
 		log(".... done");
 
 		for (String rname : page.getDefinitions().sortedResourceNames()) {
@@ -2120,13 +2201,13 @@ public class Publisher {
 		    for (Example e : r.getExamples()) {
 		      String n = e.getFileTitle();
 		      log(" ...validate " + n);
-		      validateXmlFile(schema, n);
+		      validateXmlFile(schema, n, validator);
 		    }
 		  }
 		}
 		if (buildFlags.get("all")) {
 		  log(" ...validate " + "profiles-resources");
-		  validateXmlFile(schema, "profiles-resources");
+		  validateXmlFile(schema, "profiles-resources", validator);
 		}
 		log("Reference Platform Validation.");
 
@@ -2168,7 +2249,7 @@ public class Publisher {
     }    
   }
 
-  private void validateXmlFile(Schema schema, String n) throws Exception {
+  private void validateXmlFile(Schema schema, String n, InstanceValidator validator) throws Exception {
 		char sc = File.separatorChar;
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setNamespaceAware(true);
@@ -2213,7 +2294,7 @@ public class Publisher {
 		
 		// now, finally, we validate the resource ourselves.
 		// the build tool validation focuses on codes and identifiers
-		List<ValidationMessage> issues = new InstanceValidator(page.getDefinitions()).validateInstance(root);
+    List<ValidationMessage> issues = validator.validateInstance(root);
 		boolean abort = false;
 		for (ValidationMessage m : issues) {
 		  page.log("  " +m.getLevel().toString()+": "+ m.getMessage());
@@ -2356,7 +2437,7 @@ public class Publisher {
     page.getValueSets().put(vs.getIdentifierSimple(), ae);
 
     if (isGenerate) {
-      addToResourceFeed(vs, n);
+      addToResourceFeed(vs, n, valueSetsFeed);
 
       TextFile.stringToFile(page.processPageIncludes(cd.getName()+".htm", TextFile.fileToString(page.getFolders().srcDir+"template-vs.htm")), page.getFolders().dstDir+name+".htm");
       String src = page.processPageIncludesForBook(cd.getName()+".htm", TextFile.fileToString(page.getFolders().srcDir+"template-vs-book.htm"));
@@ -2426,7 +2507,7 @@ public class Publisher {
 
     page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
     if (isGenerate) {
-      addToResourceFeed(vs, Utilities.fileTitle(filename));
+      addToResourceFeed(vs, Utilities.fileTitle(filename), valueSetsFeed);
 
       TextFile.stringToFile(page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx.htm")), page.getFolders().dstDir+filename);
       String src = page.processPageIncludesForBook(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx-book.htm"));

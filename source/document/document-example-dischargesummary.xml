@@ -15,7 +15,6 @@
         <title>Document</title>
         <id>urn:guid:180f219f-97a8-486d-99d9-ed631fe4fc57</id>
         <updated>2013-05-28T22:12:21Z</updated>
-        <category scheme="http://hl7.org/fhir/resource-types" term="Document"/>
 
         <content type="text/xml">
             <Document xmlns="http://hl7.org/fhir">
@@ -123,7 +122,6 @@
         <author>
             <name>68.151.217.168</name>
         </author>
-        <category scheme="http://hl7.org/fhir/resource-types" term="Practitioner"/>
         <content type="text/xml">
             <Practitioner xmlns="http://hl7.org/fhir">
                 <text>
@@ -154,7 +152,6 @@
         <author>
             <name>68.151.217.168</name>
         </author>
-        <category scheme="http://hl7.org/fhir/resource-types" term="Patient"/>
         <content type="text/xml">
             <Patient xmlns="http://hl7.org/fhir">
                 <text>
@@ -211,7 +208,6 @@
         <author>
             <name>68.151.217.168</name>
         </author>
-        <category scheme="http://hl7.org/fhir/resource-types" term="Practitioner"/>
         <content type="text/xml">
             <Visit xmlns="http://hl7.org/fhir">
                 <text>
@@ -253,7 +249,6 @@
         <author>
             <name>Dr Dave</name>
         </author>
-        <category scheme="http://hl7.org/fhir/resource-types" term="Observation"/>
         <content type="text/xml">
             <Observation xmlns="http://hl7.org/fhir">
                 <text>
@@ -284,7 +279,6 @@
         <author>
             <name>Dr Dave</name>
         </author>
-        <category scheme="http://hl7.org/fhir/resource-types" term="List"/>
         <content type="text/xml">
             <List xmlns="http://hl7.org/fhir">
                 <text>
@@ -374,7 +368,6 @@
         <author>
             <name>Dr Dave</name>
         </author>
-        <category scheme="http://hl7.org/fhir/resource-types" term="MedicationPrescription"/>
         <content type="text/xml">
             <MedicationPrescription xmlns="http://hl7.org/fhir">
 
@@ -470,7 +463,6 @@
         <author>
             <name>Dr Dave</name>
         </author>
-        <category scheme="http://hl7.org/fhir/resource-types" term="List"/>
         <content type="text/xml">
             <List xmlns="http://hl7.org/fhir">
                 <text>
@@ -526,7 +518,6 @@
         <author>
             <name>Dr Dave</name>
         </author>
-        <category scheme="http://hl7.org/fhir/resource-types" term="Observation"/>
         <content type="text/xml">
             <AllergyIntolerance xmlns="http://hl7.org/fhir">
                 <text>
@@ -568,7 +559,6 @@
         <author>
             <name>Dr Dave</name>
         </author>
-        <category scheme="http://hl7.org/fhir/resource-types" term="AdverseReaction"/>
         <content type="text/xml">
             <AdverseReaction xmlns="http://hl7.org/fhir">
                 <subject>
@@ -600,7 +590,6 @@
         <author>
             <name>Dr Dave</name>
         </author>
-        <category scheme="http://hl7.org/fhir/resource-types" term="Substance"/>
         <content type="text/xml">
             <Substance xmlns="http://hl7.org/fhir">
                 <text>

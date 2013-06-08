@@ -13,7 +13,6 @@
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -98,7 +97,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -207,7 +205,6 @@ Comment: *PLEASE NOTE AMENDED REPORT*
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -311,7 +308,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -390,7 +386,6 @@ Anti-Factor Xa Comment:
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -463,7 +458,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -544,7 +538,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -623,7 +616,6 @@ CK                828     IU/L   ( &lt;175     )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -686,7 +678,6 @@ TSH                       0.01    L  mIU/L   ( 0.1-4.0  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -777,7 +768,6 @@ Baso         0.1      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -851,7 +841,6 @@ C-React Prot      152     mg/L   ( &lt;5       )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -947,7 +936,6 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -1019,7 +1007,6 @@ Urea             10.0     mmol/L ( 2.5-8.3  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -1167,7 +1154,6 @@ Film Comment : Mild neutrophilia with mild toxic changes. Manual
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -1252,7 +1238,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -1323,7 +1308,6 @@ Comment: The Potassium result has been checked.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -1414,7 +1398,6 @@ Baso         0.1      0.0      0.1      0.1      0.1   x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -1534,7 +1517,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -1603,7 +1585,6 @@ Troponin I       &lt;0.02    ug/L   (See Below )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -1694,7 +1675,6 @@ Baso                  0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -1768,7 +1748,6 @@ Troponin I       &lt;0.02    ug/L   (See Below )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -1864,7 +1843,6 @@ Baso         0.1                                       x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -1948,7 +1926,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -2036,7 +2013,6 @@ Troponin I        0.03    ug/L   (See Below )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -2124,7 +2100,6 @@ Troponin I        0.03    ug/L   (See Below )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -2258,7 +2233,6 @@ Comment: Please note moderate thrombocytopenia persists. Please
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -2344,7 +2318,6 @@ Protein Total      65     g/L    ( 65-85    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -2486,7 +2459,6 @@ Conclusion: Suggestive of infection.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -2564,7 +2536,6 @@ Hrs Since Dose No Info  No Info                            HH:MM
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -2652,7 +2623,6 @@ Lipase             87     IU/L   ( &lt;60      )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -2776,7 +2746,6 @@ Comment: Instrument differential and parameters reported.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -2839,7 +2808,6 @@ INR               1.2                                            0.8-1.3
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -2914,7 +2882,6 @@ Albumin            26     g/L    ( 35-50    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -3018,7 +2985,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -3086,7 +3052,6 @@ INR               3.0H                                           0.8-1.3
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -3158,7 +3123,6 @@ Urea              8.0     mmol/L ( 2.5-8.3  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -3254,7 +3218,6 @@ Baso         0.1                                       x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -3374,7 +3337,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -3452,7 +3414,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -3540,7 +3501,6 @@ Protein Total      77     g/L    ( 65-85    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -3636,7 +3596,6 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -3728,7 +3687,6 @@ Salicylate       &lt;0.30             &lt;0.30                   mmol/L &lt;2.9
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -3820,7 +3778,6 @@ Protein Total      70     g/L    ( 65-85    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -3946,7 +3903,6 @@ Comment: Mild neutropenia.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -4066,7 +4022,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -4186,7 +4141,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -4306,7 +4260,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -4426,7 +4379,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -4530,7 +4482,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -4642,7 +4593,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -4762,7 +4712,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -4888,7 +4837,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -4944,7 +4892,6 @@ Specimen Type:  Serum
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -5024,7 +4971,6 @@ HBsAB Titre                                            :      44 IU/L
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -5144,7 +5090,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -5212,7 +5157,6 @@ TSH                       0.08    L  mIU/L   ( 0.1-4.0  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -5332,7 +5276,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -5405,7 +5348,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -5473,7 +5415,6 @@ Anaerobic bottle             4   days                 Negative
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -5593,7 +5534,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -5741,7 +5681,6 @@ perinatal or neonatal infection.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -5861,7 +5800,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -5944,7 +5882,6 @@ Comment: sample not protected from light ward notified for
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -6023,7 +5960,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -6100,7 +6036,6 @@ C-React Prot        2     mg/L   ( &lt;5       )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -6215,7 +6150,6 @@ Conclusion: No clinical information provided.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -6331,7 +6265,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -6403,7 +6336,6 @@ Urea             12.2     mmol/L ( 2.5-8.3  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -6517,7 +6449,6 @@ Conclusion: Common causes of macrocytosis include liver disease,
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -6595,7 +6526,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -6683,7 +6613,6 @@ C-React Prot        4     mg/L   ( &lt;5       )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -6779,7 +6708,6 @@ Baso         0.1      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -6899,7 +6827,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -6980,7 +6907,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -7067,7 +6993,6 @@ Protein Total      69     g/L    ( 65-85    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -7184,7 +7109,6 @@ Comment: Note neutrophilia.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -7242,7 +7166,6 @@ Troponin I        0.02    ug/L   (See Below )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -7300,7 +7223,6 @@ Troponin I       &lt;0.02    ug/L   (See Below )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -7358,7 +7280,6 @@ NTRC
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -7430,7 +7351,6 @@ Urea              5.3     mmol/L ( 2.5-8.3  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -7526,7 +7446,6 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -7593,7 +7512,6 @@ Urea              6.1     mmol/L ( 2.5-8.3  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -7684,7 +7602,6 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -7822,7 +7739,6 @@ culture.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -7942,7 +7858,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -8009,7 +7924,6 @@ Protein/Creat Ratio              30   mg/mmol Creat   ( 15-35    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -8081,7 +7995,6 @@ GROIN SWAB                    VRE not detected
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -8154,7 +8067,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -8245,7 +8157,6 @@ CK                 43     IU/L   ( &lt;175     )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -8374,7 +8285,6 @@ Conclusion: Known beta thalassaemia minor. Suggest repeat FBE for an
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -8452,7 +8362,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -8568,7 +8477,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -8635,7 +8543,6 @@ Protein/Creat Ratio             232 H mg/mmol Creat   ( 15-35    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -8742,7 +8649,6 @@ No Growth -Detection limit 10^7 CFU/L
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -8828,7 +8734,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -8900,7 +8805,6 @@ Urea              7.5     mmol/L ( 2.5-8.3  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -8996,7 +8900,6 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -9065,7 +8968,6 @@ Troponin I        0.04    ug/L   (See Below )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -9176,7 +9078,6 @@ Conclusion: Note persistent anaemia.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -9251,7 +9152,6 @@ Albumin            28     g/L    ( 35-50    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -9348,7 +9248,6 @@ Comment: Intra-op
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -9437,7 +9336,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -9557,7 +9455,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -9661,7 +9558,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -9751,7 +9647,6 @@ C-React Prot        5     mg/L   ( &lt;5       )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -9847,7 +9742,6 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -9909,7 +9803,6 @@ LIPIDS
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -9997,7 +9890,6 @@ investigation, please contact the Microbiology Registrar.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -10090,7 +9982,6 @@ Standard culture:   ++ Mixed upper respiratory tract flora
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -10197,7 +10088,6 @@ No Growth -Detection limit 10^7 CFU/L
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -10260,7 +10150,6 @@ Anaerobic bottle             4   days                 Negative
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -10326,7 +10215,6 @@ Comment: The requested tests were not completed as no
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -10428,7 +10316,6 @@ Xanthochromia Comment:   Oxyhaemoglobin present but no significant
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -10528,7 +10415,6 @@ culture or special media are required.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -10612,7 +10498,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -10686,7 +10571,6 @@ Troponin I        0.02    ug/L   (See Below )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -10788,7 +10672,6 @@ Comment: * Please note: no specimen received.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -10872,7 +10755,6 @@ COMMENT: This serum sample has been stored for 3 months.  If clinically
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -10992,7 +10874,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -11112,7 +10993,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -11179,7 +11059,6 @@ Urea              7.0     mmol/L ( 2.5-8.3  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -11302,7 +11181,6 @@ Comment: Please note fall in haemoglobin and platelet count since
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -11369,7 +11247,6 @@ Urea              9.1     mmol/L ( 2.5-8.3  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -11436,7 +11313,6 @@ Urea              9.1     mmol/L ( 2.5-8.3  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -11551,7 +11427,6 @@ Conclusion: Please note fall in haemoglobin since the previous
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -11634,7 +11509,6 @@ Antithrombin (Functional)         88     %      (80-120)
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -11707,7 +11581,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -11799,7 +11672,6 @@ Presumptive  negative for pneumococcal pneumonia.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -11866,7 +11738,6 @@ Urea             16.4     mmol/L ( 2.5-8.3  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -11955,7 +11826,6 @@ yeasts                                    Occasional
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -12075,7 +11945,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -12139,7 +12008,6 @@ TSH                       2.52       mIU/L   ( 0.1-4.0  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -12246,7 +12114,6 @@ No Growth -Detection limit 10^7 CFU/L
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -12358,7 +12225,6 @@ No Growth -Detection limit 10^7 CFU/L
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -12465,7 +12331,6 @@ No Growth -Detection limit 10^7 CFU/L
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -12538,7 +12403,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -12625,7 +12489,6 @@ Protein Total      55     g/L    ( 65-85    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -12752,7 +12615,6 @@ Conclusion: Increase in leucocyte count since the last examination.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -12864,7 +12726,6 @@ No Growth -Detection limit 10^7 CFU/L
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -12927,7 +12788,6 @@ Cortisol Diurnal Variation:AM (0800 - 0900): 150 - 650 nmol/L
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -12996,7 +12856,6 @@ Osmolality        290     mosm/kg( 280-300  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -13063,7 +12922,6 @@ Urine Osmolality                618   mmol/L          ( 50-1200  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -13183,7 +13041,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -13250,7 +13107,6 @@ Urine Osmolality                612   mmol/L          ( 50-1200  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -13319,7 +13175,6 @@ Osmolality        295     mosm/kg( 280-300  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -13405,7 +13260,6 @@ Protein Total      73     g/L    ( 65-85    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -13521,7 +13375,6 @@ Conclusion: Features suggestive of infection / inflammation. Suggest
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -13588,7 +13441,6 @@ Urea              4.1     mmol/L ( 2.5-8.3  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -13679,7 +13531,6 @@ Baso         0.1                                       x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -13799,7 +13650,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -13919,7 +13769,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -14010,7 +13859,6 @@ call 1-800-555-2123 to contact the State Department of Health.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -14078,7 +13926,6 @@ Anaerobic bottle             4   days                 Negative
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -14182,7 +14029,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -14240,7 +14086,6 @@ Troponin I        0.02    ug/L   (See Below )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -14298,7 +14143,6 @@ C-React Prot      149     mg/L   ( &lt;5       )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -14366,7 +14210,6 @@ Anaerobic bottle             4   days                 Negative
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -14428,7 +14271,6 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -14524,7 +14366,6 @@ Old Ref Ranges prior to 27th April 2004
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -14624,7 +14465,6 @@ LIPIDS
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -14720,7 +14560,6 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -14792,7 +14631,6 @@ Urea              4.4     mmol/L ( 2.5-8.3  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -14906,7 +14744,6 @@ Comment: Instrument differential and parameters reported.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -14974,7 +14811,6 @@ Anaerobic bottle             4   days                 Negative
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -15104,7 +14940,6 @@ Timentin         S
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -15201,7 +15036,6 @@ Standard culture:   +++  Mixed upper respiratory tract flora
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -15321,7 +15155,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -15395,7 +15228,6 @@ C-React Prot        2     mg/L   ( &lt;5       )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -15458,7 +15290,6 @@ Anaerobic bottle             4   days                 Negative
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -15545,7 +15376,6 @@ Protein Total      56     g/L    ( 65-85    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -15686,7 +15516,6 @@ Film Comment : Red cells show some microcytes, elongated cells and mildly
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -15788,7 +15617,6 @@ CULTURE
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -15908,7 +15736,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -15980,7 +15807,6 @@ RECTAL SWAB                   VRE not detected
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -16038,7 +15864,6 @@ Troponin I       &lt;0.02    ug/L   (See Below )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -16111,7 +15936,6 @@ Comment: The requested tests were not completed as the
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -16184,7 +16008,6 @@ Comment: The specimen received was mislabelled. The ward has  been
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -16280,7 +16103,6 @@ Old Ref Ranges prior to 27th April 2004
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -16358,7 +16180,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -16420,7 +16241,6 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -16516,7 +16336,6 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -16604,7 +16423,6 @@ C-React Prot       12     mg/L   ( &lt;5       )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -16672,7 +16490,6 @@ Anaerobic bottle             4   days                 Negative
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -16763,7 +16580,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -16850,7 +16666,6 @@ Protein Total      51     g/L    ( 65-85    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -16965,7 +16780,6 @@ Conclusion: Please note fall in haemoglobin since the previous
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -17085,7 +16899,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -17205,7 +17018,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -17269,7 +17081,6 @@ TSH                       1.55       mIU/L   ( 0.1-4.0  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -17365,7 +17176,6 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -17447,7 +17257,6 @@ Troponin I        0.03    ug/L   (See Below )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -17556,7 +17365,6 @@ streptococci and diphtheroid bacilli.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -17676,7 +17484,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -17746,7 +17553,6 @@ G1691A Substitution Result:
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -17819,7 +17625,6 @@ MicroAlb/Creat Ratio           5.66 H mg/mmol creat   ( &lt;2.5     )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -17939,7 +17744,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -18020,7 +17824,6 @@ Protein Total      64     g/L    ( 65-85    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -18111,7 +17914,6 @@ Baso         0.0      0.1      0.0      0.0      0.0   x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -18231,7 +18033,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -18317,7 +18118,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -18409,7 +18209,6 @@ Protein Total      65     g/L    ( 65-85    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -18511,7 +18310,6 @@ Film Comment : Film scanned. The blood film shows no diagnostic features.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -18650,7 +18448,6 @@ emergence of resistance  and clinical failure.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -18719,7 +18516,6 @@ C-React Prot       24     mg/L   ( &lt;5       )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -18836,7 +18632,6 @@ Comment: FBE with BMAT. Report to follow.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -18902,7 +18697,6 @@ Comment: The requested tests were not completed as no sample was
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -18974,7 +18768,6 @@ Urea              6.5     mmol/L ( 2.5-8.3  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -19070,7 +18863,6 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -19128,7 +18920,6 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -19204,7 +18995,6 @@ Comment: The requested tests were not completed as no
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -19282,7 +19072,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -19376,7 +19165,6 @@ Comment: Haemolysed. Some tests (*) unavailable.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -19486,7 +19274,6 @@ Comment: * Specimen clotted. ED informed.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -19606,7 +19393,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -19700,7 +19486,6 @@ No Growth After 2 Days.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -19778,7 +19563,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -19850,7 +19634,6 @@ Urea              4.3     mmol/L ( 2.5-8.3  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -19952,7 +19735,6 @@ Comment: Please note mild neutrophilia
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -20041,7 +19823,6 @@ Pathologist: To Follow
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -20132,7 +19913,6 @@ Pathologist: To Follow
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -20210,7 +19990,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -20298,7 +20077,6 @@ C-React Prot      109     mg/L   ( &lt;5       )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -20414,7 +20192,6 @@ Comment: Please note mild neutrophilia and mild monocytosis
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -20486,7 +20263,6 @@ Protein/Creat Ratio             190 H mg/mmol Creat   ( 15-35    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -20582,7 +20358,6 @@ Pathologist: To Follow
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -20682,7 +20457,6 @@ the Blood Bank.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -20786,7 +20560,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -20845,7 +20618,6 @@ Albumin            22     g/L    ( 35-50    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -20959,7 +20731,6 @@ and diphtheroid bacilli.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -21048,7 +20819,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -21148,7 +20918,6 @@ the Blood Bank.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -21252,7 +21021,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -21346,7 +21114,6 @@ Comment: The CKMB was not measured on this sample. It has
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -21450,7 +21217,6 @@ Comment: Please note fall in haemoglobin and platelet count since
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -21544,7 +21310,6 @@ Comment
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -21664,7 +21429,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -21732,7 +21496,6 @@ INR               1.1      1.1      1.1      1.1      2.6H       0.8-1.3
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -21800,7 +21563,6 @@ Comment: A troponin has been measured for this patient in
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -21902,7 +21664,6 @@ Hrs Since Dose          No Info    02:00                   HH:MM
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -21980,7 +21741,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -22072,7 +21832,6 @@ Protein Total      47     g/L    ( 65-85    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -22176,7 +21935,6 @@ Comment: Please note fall in haemoglobin and platelet count since
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -22234,7 +21992,6 @@ NTRC
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -22314,7 +22071,6 @@ Albumin            34     g/L    ( 35-50    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -22410,7 +22166,6 @@ Baso         0.0      0.0                              x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -22478,7 +22233,6 @@ Anaerobic bottle             4   days                 Negative
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -22558,7 +22312,6 @@ General Comments:
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -22657,7 +22410,6 @@ Standard culture:   +++  Mixed upper respiratory tract flora
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -22805,7 +22557,6 @@ Comment: Post platelet increment
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -22860,7 +22611,6 @@ Lipase            741     IU/L   ( &lt;60      )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -22940,7 +22690,6 @@ Albumin            27     g/L    ( 35-50    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -23052,7 +22801,6 @@ Comment: Instrument differential and parameters reported.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -23159,7 +22907,6 @@ Conclusion: ? Post-op.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -23279,7 +23026,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -23337,7 +23083,6 @@ NTRS
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -23419,7 +23164,6 @@ Post Dose (Peak) level : Not recommended
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -23507,7 +23251,6 @@ C-React Prot       19     mg/L   ( &lt;5       )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -23611,7 +23354,6 @@ Comment: Note: mild neutrophilia. Instrument differential and
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -23723,7 +23465,6 @@ No Growth -Detection limit 10^7 CFU/L
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -23796,7 +23537,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -23881,7 +23621,6 @@ Comment: The CKMB was not measured on this sample. It has
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -23980,7 +23719,6 @@ Comment: Please note fall in haemoglobin and platelet count since
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -24031,7 +23769,6 @@ Blank Report?
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -24116,7 +23853,6 @@ sera. This serum sample has been stored for 3 months.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -24173,7 +23909,6 @@ HIV-1/2 Ag/Ab Combo by Architect:
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -24240,7 +23975,6 @@ Antinuclear abs     TF
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -24319,7 +24053,6 @@ Old Ref Ranges prior to 27th April 2004
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -24412,7 +24145,6 @@ Baso         0.1                                       x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -24470,7 +24202,6 @@ NTRESR
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -24528,7 +24259,6 @@ NTRESR
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -24601,7 +24331,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -24668,7 +24397,6 @@ Urea              6.8     mmol/L ( 2.5-8.3  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -24759,7 +24487,6 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -24827,7 +24554,6 @@ Anaerobic bottle             4   days                 Negative
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -24882,7 +24608,6 @@ NTRF
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -24945,7 +24670,6 @@ Anaerobic bottle             4   days                 Negative
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -25018,7 +24742,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -25111,7 +24834,6 @@ C-React Prot      184     mg/L   ( &lt;5       )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -25224,7 +24946,6 @@ Conclusion: Please note fall in haemoglobin since the previous
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -25296,7 +25017,6 @@ Urea             11.7     mmol/L ( 2.5-8.3  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -25416,7 +25136,6 @@ Film Comment : Neutrophils show mild toxic changes. Manual differential.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -25504,7 +25223,6 @@ Troponin I       &lt;0.02    ug/L   (See Below )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -25600,7 +25318,6 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -25663,7 +25380,6 @@ Anaerobic bottle             4   days                 Negative
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -25746,7 +25462,6 @@ C-React Prot       54     mg/L   ( &lt;5       )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -25849,7 +25564,6 @@ Conclusion: ? Cause of persistent mild thrombocytopenia.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -25917,7 +25631,6 @@ INR               4.3H     4.0H     6.2H     6.6H     6.9H       0.8-1.3
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -26003,7 +25716,6 @@ Protein Total      80     g/L    ( 65-85    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -26099,7 +25811,6 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -26195,7 +25906,6 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -26264,7 +25974,6 @@ Troponin I        1.02    ug/L   (See Below )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -26327,7 +26036,6 @@ Anaerobic bottle             4   days                 Negative
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -26395,7 +26103,6 @@ INR               1.0                                            0.8-1.3
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -26459,7 +26166,6 @@ Quant Pregnancy (hCG) &lt;2           IU/L    ( &lt;5       )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -26561,7 +26267,6 @@ Comment: Please note mild neutrophilia
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -26647,7 +26352,6 @@ Protein Total      67     g/L    ( 65-85    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -26723,7 +26427,6 @@ Comments / Steps Taken
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -26827,7 +26530,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -26940,7 +26642,6 @@ Conclusion: * Film shows fibrin strands suggestive of a partially
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -27012,7 +26713,6 @@ Urea              4.2     mmol/L ( 2.5-8.3  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -27114,7 +26814,6 @@ Comment: Please note mild monocytosis
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -27186,7 +26885,6 @@ to STAGO D-Dimer reagents (LIATEST). NB the reference range is unchanged
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -27253,7 +26951,6 @@ HbA1c(HPLC)               %      (See Below)
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -27402,7 +27099,6 @@ Conclusion: Recent tissue damage/trauma.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -27487,7 +27183,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -27574,7 +27269,6 @@ Amylase            51     IU/L   ( 22-100   )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -27680,7 +27374,6 @@ Standard culture:   +  Mixed upper respiratory tract flora
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -27800,7 +27493,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -27862,7 +27554,6 @@ Amylase           390 IU/L
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -27971,7 +27662,6 @@ streptococci, diphtheroid bacilli \T\ gram negative bacilli.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -28051,7 +27741,6 @@ No Beta haemolytic streptococci isolated.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -28139,7 +27828,6 @@ be processed.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -28218,7 +27906,6 @@ sera. This serum sample has been stored for 3 months.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -28281,7 +27968,6 @@ Anaerobic bottle             4   days                 Negative
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -28364,7 +28050,6 @@ C-React Prot       44     mg/L   ( &lt;5       )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -28465,7 +28150,6 @@ Conclusion: Suggest repeat FBE to confirm platelet count.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -28539,7 +28223,6 @@ Troponin I       &lt;0.02    ug/L   (See Below )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -28635,7 +28318,6 @@ Baso         0.0                                       x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -28755,7 +28437,6 @@ Note: Reference Ranges shown are for arterial blood only.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -28825,7 +28506,6 @@ G1691A Substitution Result:
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -28899,7 +28579,6 @@ Lactate           1.2     mmol/L ( 0.2-1.8  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -28987,7 +28666,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -29101,7 +28779,6 @@ Conclusion: Common causes of macrocytosis include liver disease,
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -29187,7 +28864,6 @@ Please contact the immunopathology registrar for further advice on 9342 8023.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -29275,7 +28951,6 @@ Lupus Inhibitor Comment:
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -29326,7 +29001,6 @@ Blank Report?
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -29401,7 +29075,6 @@ Albumin            23     g/L    ( 35-50    )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -29517,7 +29190,6 @@ Conclusion: Suggestive of iron deficiency anaemia. Suggest correlation
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -29613,7 +29285,6 @@ Baso         0.0      0.0      0.0                     x10^9/L   0.0-0.1
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -29691,7 +29362,6 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -29785,7 +29455,6 @@ EtOH              0.02    gm%
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -29881,7 +29550,6 @@ Old Ref Ranges prior to 27th April 2004
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>
@@ -29945,7 +29613,6 @@ TSH                       1.09       mIU/L   ( 0.1-4.0  )
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <category term="DiagnosticReport" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
     <DiagnosticReport xmlns="http://hl7.org/fhir">
     <text>

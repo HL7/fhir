@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jun 7, 2013 08:44+1000 for FHIR v0.09
+// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -121,7 +121,7 @@ public class Demographics extends Type {
     /**
      * Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
      */
-    private Coding gender;
+    private CodeableConcept gender;
 
     /**
      * The date and time of birth for the individual
@@ -165,11 +165,11 @@ public class Demographics extends Type {
       return this.telecom;
     }
 
-    public Coding getGender() { 
+    public CodeableConcept getGender() { 
       return this.gender;
     }
 
-    public void setGender(Coding value) { 
+    public void setGender(CodeableConcept value) { 
       this.gender = value;
     }
 

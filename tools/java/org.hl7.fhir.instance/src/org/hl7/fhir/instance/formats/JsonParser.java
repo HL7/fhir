@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Jun 7, 2013 08:44+1000 for FHIR v0.09
+// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -602,7 +602,7 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("gender"))
-      res.setGender(parseCoding(json.getJSONObject("gender")));
+      res.setGender(parseCodeableConcept(json.getJSONObject("gender")));
     if (json.has("birthDate"))
       res.setBirthDate(parseDateTime(json.getJSONObject("birthDate")));
     if (json.has("deceased"))
@@ -2929,14 +2929,6 @@ public class JsonParser extends JsonParserBase {
   private Patient parsePatient(JSONObject json) throws Exception {
     Patient res = new Patient();
     parseResourceProperties(json, res);
-    if (json.has("link")) {
-      JSONArray array = json.getJSONArray("link");
-      for (int i = 0; i < array.length(); i++) {
-        res.getLink().add(parseResourceReference(array.getJSONObject(i)));
-      }
-    };
-    if (json.has("active"))
-      res.setActive(parseBoolean(json.getJSONObject("active")));
     if (json.has("identifier")) {
       JSONArray array = json.getJSONArray("identifier");
       for (int i = 0; i < array.length(); i++) {
@@ -2960,6 +2952,14 @@ public class JsonParser extends JsonParserBase {
       res.setMultipleBirth(multipleBirth);
     if (json.has("deceasedDate"))
       res.setDeceasedDate(parseDateTime(json.getJSONObject("deceasedDate")));
+    if (json.has("link")) {
+      JSONArray array = json.getJSONArray("link");
+      for (int i = 0; i < array.length(); i++) {
+        res.getLink().add(parseResourceReference(array.getJSONObject(i)));
+      }
+    };
+    if (json.has("active"))
+      res.setActive(parseBoolean(json.getJSONObject("active")));
     return res;
   }
 

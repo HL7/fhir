@@ -14,7 +14,6 @@
     <author>
       <name>Grahame Grieve / HL7 publishing committee</name>
     </author>
-    <category term="Patient" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -70,7 +69,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Patient" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -125,7 +123,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Patient" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -179,7 +176,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Patient" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -234,7 +230,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Patient" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -289,7 +284,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Patient" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -343,7 +337,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Patient" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -398,7 +391,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Patient" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -452,7 +444,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Patient" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -507,7 +498,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Patient" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -562,7 +552,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Patient" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>
@@ -617,7 +606,6 @@
     <author>
       <name>Grahame Grieve</name>
     </author>
-    <category term="Patient" scheme="http://hl7.org/fhir/resource-types"/>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <text>

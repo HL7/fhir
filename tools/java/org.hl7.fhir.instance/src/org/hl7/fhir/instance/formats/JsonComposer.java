@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Jun 7, 2013 08:44+1000 for FHIR v0.09
+// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -581,7 +581,7 @@ public class JsonComposer extends JsonComposerBase {
           composeContact(null, e);
         closeArray();
       };
-      composeCoding("gender", element.getGender());
+      composeCodeableConcept("gender", element.getGender());
       composeDateTime("birthDate", element.getBirthDate());
       composeBoolean("deceased", element.getDeceased());
       if (element.getAddress().size() > 0) {
@@ -2654,13 +2654,6 @@ public class JsonComposer extends JsonComposerBase {
     if (element != null) {
       open(name);
       composeResourceElements(element);
-      if (element.getLink().size() > 0) {
-        openArray("link");
-        for (ResourceReference e : element.getLink()) 
-          composeResourceReference(null, e);
-        closeArray();
-      };
-      composeBoolean("active", element.getActive());
       if (element.getIdentifier().size() > 0) {
         openArray("identifier");
         for (Identifier e : element.getIdentifier()) 
@@ -2678,6 +2671,13 @@ public class JsonComposer extends JsonComposerBase {
       composeResourceReference("provider", element.getProvider());
       composeType("multipleBirth", element.getMultipleBirth());
       composeDateTime("deceasedDate", element.getDeceasedDate());
+      if (element.getLink().size() > 0) {
+        openArray("link");
+        for (ResourceReference e : element.getLink()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
+      composeBoolean("active", element.getActive());
       close();
     }
   }

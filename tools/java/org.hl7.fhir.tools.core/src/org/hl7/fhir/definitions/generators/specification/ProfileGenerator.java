@@ -81,7 +81,7 @@ public class ProfileGenerator {
     this.definitions = definitions;
   }
 
-  public Profile generate(ProfileDefn profile, OutputStream stream, String html, boolean addBase) throws Exception {
+  public Profile generate(ProfileDefn profile, String html, boolean addBase) throws Exception {
     Profile p = new Profile();
     p.setName(Factory.newString_(profile.metadata("name")));
     p.setPublisher(Factory.newString_(profile.metadata("author.name")));
@@ -150,9 +150,6 @@ public class ProfileGenerator {
     p.setText(new Narrative());
     p.getText().setStatusSimple(NarrativeStatus.generated);
     p.getText().setDiv(div);
-    XmlComposer comp = new XmlComposer();
-    comp.compose(stream, p, true, false);
-
     return p;
   }
 
