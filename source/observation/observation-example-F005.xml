@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:/C:/SVN/schema/observation.xsd">
     <name>
         <coding>
             <system value="http://loinc.org"/>
-            <code value="2339-0"/>
-            <display value="glucose observation from blood system"/>
+            <code value="30350-3"/>
+            <display value="Hemoglobin [Mass/​volume] in Venous blood"/>
         </coding>
     </name>
     <valueQuantity>
-        <value value="6.3"/>
-        <units value="mmol/l"/>
+        <value value="7.2"/>
+        <units value="g/dl"/>
         <system value="http://unitsofmeasure.org"/>
-        <code value="mmol/l"/>
+        <code value="g/dl"/>
     </valueQuantity>
     <interpretation>
         <coding>
             <system value="urn:oid:2.16.840.1.113883.4.642.2.117"/>
-            <code value="A"/>
-            <display value="abnormal"/>
+            <code value="L"/>
+            <display value="low"/>
         </coding>
     </interpretation>
     <appliesPeriod> 
-        <start value="2013-04-02T09:30:10+01:00"/>
-        <end value="2013-04-05T09:30:10+01:00"/>
+        <start value="2013-04-02T10:30:10+01:00"/>
+        <end value="2013-04-05T10:30:10+01:00"/>
     </appliesPeriod>
     <issued value="2013-04-03T15:30:10+01:00"/>
     <status value="final"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.7 -->
@@ -43,8 +43,8 @@
     </method>
     <identifier>
         <use value="official"/>
-        <system value="http://www.amc.nl/zorgportal/identifiers/observations"/>
-        <key value="6323"/>
+        <system value="http://www.amc.nl/zorgportal/identifiers/observations"/> 
+        <key value="6327"/>
     </identifier>
     <subject>
         <type value="Patient"/> 
@@ -59,20 +59,17 @@
     <referenceRange>
         <rangeRange>
             <low>
-                <value value="3.1"/>
-                <units value="mmol/l"/>
+                <value value="7.5"/>
+                <units value="g/dl"/>
                 <system value="http://unitsofmeasure.org"/>
-                <code value="mmol/l"/>
+                <code value="g/dl"/>
             </low>
             <high>
-                <value value="6.4"/>
-                <units value="mmol/l"/>
+                <value value="10"/>
+                <units value="g/dl"/>
                 <system value="http://unitsofmeasure.org"/>
-                <code value="mmol/l"/>
+                <code value="g/dl"/>
             </high>
         </rangeRange>
     </referenceRange>
 </Observation>
-
-    
-        

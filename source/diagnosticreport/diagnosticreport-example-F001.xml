@@ -7,7 +7,7 @@
         <reference value="patient/F001"/>       
         <display value="P. van den Heuvel"/>
     </subject>
-    <performer> <!-- Linked to a RESOURCE Organization -->
+    <performer> 
         <type value="Organization"/>
         <reference value="organization/F001"/>
         <display value="AMC"/>

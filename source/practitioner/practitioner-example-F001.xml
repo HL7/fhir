@@ -78,7 +78,7 @@
                     <display value="Excellent"/>
                 </coding>
                 <text value="skill level"></text>
-            </proficiencyLevel>
+            </proficiencyLevel>    
             <preference value="true"/>
         </language>
     </details>
@@ -93,7 +93,7 @@
         <code value="01.000"/>
         <display value="Arts"/>
     </coding>
-    <text value="CareRole"/>
+    <text value="Care role"/>
     </role>
     <specialty>
         <coding>

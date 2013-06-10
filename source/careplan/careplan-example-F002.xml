@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:/C:/SVN/schema/careplan.xsd">
+    <identifier>
+        <use value="official"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.36 -->
+        <system value="http://www.amc.nl/zorgportal/identifiers/careplans"/>
+        <key value="CP2934"/>
+    </identifier>
+    <patient>        
+        <type value="Patient"/>
+        <reference value="patient/F001"/>
+        <display value="P. van de Heuvel"/>
+    </patient>
+    <status value="ended"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.36 -->
+    <period>
+        <start value="2011-07-06"/>
+        <end value="2013-07-07"/>
+    </period>
+    <modified value="2011-07-07T09:30:10+01:00"/>
+    <concern>
+        <type value="Problem"/>
+        <reference value="problem/F002"/>
+        <display value="?????"/>
+    </concern>
+    <participant>
+        <role></role>
+        <member>    
+            <type value="Practitioner"/>
+            <reference value="practitioner/F003"/>
+            <display value="M.I.M. Versteegh"/>
+        </member>
+    </participant>
+    <goal>    
+        <description value="succesful surgery on lung of patient"/>
+        <status value="achieved"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.38 -->
+        <notes value="goal accomplished with minor complications"/>
+    </goal>
+    <activity>
+        <category value="procedure"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.39 -->
+        <code>
+            <coding>
+                <system value="http://snomed.info"/>
+                <code value="359615001"/>
+                <display value="Partial lobectomy of lung"/>
+            </coding>
+        </code>
+        <status value="completed"/>
+        <prohibited value="true"/>
+        <timingString value="2011-07-07T09:30:10+01:00"/>
+        <performer>
+            <type value="Practitioner"/>
+            <reference value="practitioner/F003"/>
+            <display value="M.I.M. Versteegh"/>
+        </performer>
+        <actionTaken></actionTaken>
+    </activity>
+</CarePlan>
