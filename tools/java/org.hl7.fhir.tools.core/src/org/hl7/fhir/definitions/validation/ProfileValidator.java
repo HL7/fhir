@@ -36,13 +36,14 @@ import java.util.Stack;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.parsers.TypeParser;
-import org.hl7.fhir.definitions.validation.ValidationMessage.Source;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
+import org.hl7.fhir.instance.validation.BaseValidator;
+import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 
 /**
  * Given a candidate profile, and the actual base profile for a resource, check that the candidate is valid.

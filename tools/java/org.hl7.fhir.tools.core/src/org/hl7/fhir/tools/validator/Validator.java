@@ -56,9 +56,6 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
-import org.hl7.fhir.definitions.validation.InstanceValidator;
-import org.hl7.fhir.definitions.validation.ValidationMessage;
-import org.hl7.fhir.definitions.validation.ValidationMessage.Source;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.AtomEntry;
@@ -69,6 +66,11 @@ import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
+import org.hl7.fhir.instance.validation.InstanceValidator;
+import org.hl7.fhir.instance.validation.ValidationEngine;
+import org.hl7.fhir.instance.validation.ValidationErrorHandler;
+import org.hl7.fhir.instance.validation.ValidationMessage;
+import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.SchemaInputSource;
 import org.hl7.fhir.utilities.Utilities;
 import org.w3c.dom.Document;
@@ -114,19 +116,25 @@ public class Validator {
       }
       exe.process();
       if (output == null) {
-        System.out.println("Validating "+args[0]+": "+Integer.toString(exe.outputs.size())+" messages");
-        for (ValidationMessage v : exe.outputs) {
+        System.out.println("Validating "+args[0]+": "+Integer.toString(exe.outputs().size())+" messages");
+        for (ValidationMessage v : exe.outputs()) {
           System.out.println(v.summary());
         }
-        if (exe.outputs.size() == 0)
+        if (exe.outputs().size() == 0)
           System.out.println(" ...success");
         else
           System.out.println(" ...failure");
       } else {
-        new XmlComposer().compose(new FileOutputStream(output), exe.outcome, true);
+        new XmlComposer().compose(new FileOutputStream(output), exe.engine.getOutcome(), true);
       }
     }
   }
+
+
+  private List<ValidationMessage> outputs() {
+    return engine.getOutputs();
+  }
+
 
   /**
    * The source (file name, folder name, url) of the FHIR validation pack. This can be the 
@@ -142,127 +150,19 @@ public class Validator {
    * will all be validated
    */
   private String source;
-   
-  /**
-   * A list of output messages from the validator
-   */
-  private List<ValidationMessage> outputs;
-  
-  private OperationOutcome outcome;
-  
+
+  ValidationEngine engine = new ValidationEngine();
   static final String MASTER_SOURCE = "??";
-  static final String JAXP_SCHEMA_LANGUAGE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";
-  static final String W3C_XML_SCHEMA = "http://www.w3.org/2001/XMLSchema";
-  static final String JAXP_SCHEMA_SOURCE = "http://java.sun.com/xml/jaxp/properties/schemaSource";
 
-  public class ValidatorResourceResolver implements LSResourceResolver {
-
-    private Map<String, byte[]> files;
-
-    public ValidatorResourceResolver(Map<String, byte[]> files) {
-      this.files = files;
-    }
-
-    @Override
-	public LSInput resolveResource(final String type, final String namespaceURI, final String publicId, String systemId, final String baseURI) {
-//      if (!(namespaceURI.equals("http://hl7.org/fhir"))) //|| namespaceURI.equals("http://www.w3.org/1999/xhtml")))
-      if (!files.containsKey(systemId))
-        return null;
-      return new SchemaInputSource(new ByteArrayInputStream(files.get(systemId)), publicId, systemId, namespaceURI);
-    }
-  }
-
-  private Map<String, byte[]> defns = new HashMap<String, byte[]>();
-  
   public void process() throws Exception {
-    outputs = new ArrayList<ValidationMessage>();
-    // first, locate the source
-    if (source == null)
-      throw new Exception("no source provided");
     byte[] src = loadSource();
     byte[] defn = loadDefinitions();
-    readDefinitions(defn);
-    Schema schema = readSchema();
-    // ok all loaded
-    
-    // 1. schema validation 
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    factory.setNamespaceAware(true);
-    factory.setValidating(false);
-    factory.setSchema(schema);
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    builder.setErrorHandler(new ValidationErrorHandler(outputs));
-    Document doc = builder.parse(new ByteArrayInputStream(src));
-
-    // 2. schematron validation
-    String sch = doc.getDocumentElement().getNodeName().toLowerCase();
-    if (sch.equals("feed"))
-      sch = "fhir-atom";
-    byte[] tmp = Utilities.transform(defns, defns.get(sch+".sch"), defns.get("iso_svrl_for_xslt1.xsl"));
-    byte[] out = Utilities.transform(defns, src, tmp);
-    processSchematronOutput(out);    
-      
-    // 3. internal validation
-    outputs.addAll(new InstanceValidator(defns).validateInstance(doc.getDocumentElement()));
-    
-    OperationOutcome op = new OperationOutcome();
-    for (ValidationMessage vm : outputs) {
-      op.getIssue().add(vm.asIssue(op));
-    }
-    new NarrativeGenerator().generate(op);
-    outcome = op;
+    readDefinitions(engine, defn);
+    engine.process();
   }
 
-  private void processSchematronOutput(byte[] out)
-      throws ParserConfigurationException, SAXException, IOException {
-    DocumentBuilderFactory factory;
-    DocumentBuilder builder;
-    Document doc;
-    factory = DocumentBuilderFactory.newInstance();
-    factory.setNamespaceAware(true);
-    builder = factory.newDocumentBuilder();
-    doc = builder.parse(new ByteArrayInputStream(out));
-    NodeList nl = doc.getDocumentElement().getElementsByTagNameNS("http://purl.oclc.org/dsdl/svrl", "failed-assert");
-    if (nl.getLength() > 0) {
-      for (int i = 0; i < nl.getLength(); i++) {
-        Element e = (Element) nl.item(i);
-        ValidationMessage o = new ValidationMessage();
-        o.setSource(Source.Schematron);
-        o.setType("invariant");
-        o.setLevel(IssueSeverity.error);
-        o.setLocation(e.getAttribute("location"));
-        o.setMessage(e.getTextContent());
-        outputs.add(o);
-      }
-    }
-  }
-
-  private Schema readSchema() throws SAXException {
-//    int t = 0;
-//    for (String n : files.keySet())
-//      if (n.endsWith(".xsd") && !n.equals("xml.xsd"))
-//        t++;
-//
-//    StreamSource[] sources = new StreamSource[t];
-//    int i = 0;
-//    for (String n : files.keySet()) {
-//      if (n.endsWith(".xsd") && !n.equals("xml.xsd")) {
-//        sources[i] = new StreamSource(new ByteArrayInputStream(files.get(n)));
-//        i++;
-//      }
-//    }
-    StreamSource[] sources = new StreamSource[2];
-    sources[0] = new StreamSource(new ByteArrayInputStream(defns.get("fhir-all.xsd")));
-    sources[1] = new StreamSource(new ByteArrayInputStream(defns.get("fhir-atom.xsd")));
-
-    SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-    schemaFactory.setErrorHandler(new ValidationErrorHandler(outputs));
-    schemaFactory.setResourceResolver(new ValidatorResourceResolver(defns));
-    Schema schema = schemaFactory.newSchema(sources);
-    return schema;
-  }
-
-  private void readDefinitions(byte[] defn) throws Exception {
+ 
+  private void readDefinitions(ValidationEngine engine, byte[] defn) throws Exception {
     ZipInputStream zip = new ZipInputStream(new ByteArrayInputStream(defn));
     ZipEntry ze;
     while ((ze = zip.getNextEntry()) != null) {
@@ -275,7 +175,7 @@ public class Validator {
         while ((n = in.read(buf, 0, 1024)) > -1) {
           b.write(buf, 0, n);
         }        
-        defns.put(name, b.toByteArray());
+        engine.getDefinitions().put(name, b.toByteArray());
       }
       zip.closeEntry();
     }
@@ -333,7 +233,7 @@ public class Validator {
 
   public String getOutcome() throws Exception {
     ByteArrayOutputStream b = new ByteArrayOutputStream();
-    new XmlComposer().compose(b, outcome, true); 
+    new XmlComposer().compose(b, engine.getOutcome(), true); 
     return b.toString();
   }
 

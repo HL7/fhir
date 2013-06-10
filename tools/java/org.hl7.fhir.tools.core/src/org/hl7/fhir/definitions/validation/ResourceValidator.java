@@ -46,7 +46,9 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameter;
 import org.hl7.fhir.definitions.model.TypeRef;
-import org.hl7.fhir.definitions.validation.ValidationMessage.Source;
+import org.hl7.fhir.instance.validation.BaseValidator;
+import org.hl7.fhir.instance.validation.ValidationMessage;
+import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.Utilities;
 
 

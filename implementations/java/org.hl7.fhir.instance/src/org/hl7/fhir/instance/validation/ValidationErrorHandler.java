@@ -1,4 +1,4 @@
-package org.hl7.fhir.tools.validator;
+package org.hl7.fhir.instance.validation;
 /*
 Copyright (c) 2011-2013, HL7, Inc
 All rights reserved.
@@ -30,9 +30,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 import java.util.List;
 
-import org.hl7.fhir.definitions.validation.ValidationMessage;
-import org.hl7.fhir.definitions.validation.ValidationMessage.Source;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;

@@ -1,22 +1,15 @@
-package org.hl7.fhir.definitions.validation;
+package org.hl7.fhir.instance.validation;
 
   
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
-import java.util.jar.JarEntry;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
   
-import org.hl7.fhir.definitions.validation.ValidationMessage.Source;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
@@ -33,9 +26,8 @@ import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
-import org.hl7.fhir.instance.utils.ValueSetExpander;
 import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
-import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Element;
   
@@ -44,7 +36,6 @@ import org.w3c.dom.Element;
  * check urn's don't start oid: or uuid: 
  */
 public class InstanceValidator extends BaseValidator {
-  
     private Map<String, Profile> types = new HashMap<String, Profile>();
     private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
     private Map<String, ValueSet> codesystems = new HashMap<String, ValueSet>();

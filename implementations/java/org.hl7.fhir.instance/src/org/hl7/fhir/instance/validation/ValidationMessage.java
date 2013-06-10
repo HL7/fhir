@@ -1,4 +1,4 @@
-package org.hl7.fhir.definitions.validation;
+package org.hl7.fhir.instance.validation;
 
 import java.net.URI;
 import java.net.URISyntaxException;

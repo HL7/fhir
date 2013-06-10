@@ -1,10 +1,10 @@
-package org.hl7.fhir.definitions.validation;
+package org.hl7.fhir.instance.validation;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hl7.fhir.definitions.validation.ValidationMessage.Source;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 
 public class BaseValidator {
 
