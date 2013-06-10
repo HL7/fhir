@@ -57,5 +57,14 @@ public class Boolean extends Type {
     this.original = original;
   } 
 	
+	public Boolean copy() {
+		Boolean dst = new Boolean();
+		dst.value = value;
+		return dst;
+	}
 	
+	protected Type typedCopy() {
+		return copy();
+	}
+
 }

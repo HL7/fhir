@@ -40,4 +40,14 @@ public class Code extends Type {
 		this.value = value;
 	}
 	
+	public Code copy() {
+		Code dst = new Code();
+		dst.value = value;
+		return dst;
+	}
+	
+	protected Type typedCopy() {
+		return copy();
+	}
+
 }

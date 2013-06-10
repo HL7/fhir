@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 /**
  * Prospective warnings of things that should be taken notice of when providing care to the patient
@@ -89,27 +89,27 @@ public class Alert extends Resource {
     /**
      * Allows an alert to be divided int different categories like clinical, administartive etc.
      */
-    private CodeableConcept category;
+    protected CodeableConcept category;
 
     /**
      * Supports basic workflow
      */
-    private Enumeration<AlertStatus> status;
+    protected Enumeration<AlertStatus> status;
 
     /**
      * The person who this alert concerns
      */
-    private ResourceReference subject;
+    protected ResourceReference subject;
 
     /**
      * The person or device that created the alert
      */
-    private ResourceReference author;
+    protected ResourceReference author;
 
     /**
      * The textual component of the alert to display to the user
      */
-    private String_ note;
+    protected String_ note;
 
     public CodeableConcept getCategory() { 
       return this.category;
@@ -170,6 +170,20 @@ public class Alert extends Resource {
           this.note = new String_();
         this.note.setValue(value);
     }
+
+      public Alert copy() {
+        Alert dst = new Alert();
+        dst.category = category == null ? null : category.copy();
+        dst.status = status == null ? null : status.copy();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.author = author == null ? null : author.copy();
+        dst.note = note == null ? null : note.copy();
+        return dst;
+      }
+
+      protected Alert typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

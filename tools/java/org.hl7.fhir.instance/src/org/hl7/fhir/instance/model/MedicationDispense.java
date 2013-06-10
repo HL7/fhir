@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -42,52 +42,52 @@ public class MedicationDispense extends Resource {
         /**
          * Identifier assigned by the dispensing facility.   This is an identifier assigned outside FHIR.
          */
-        private Identifier identifier;
+        protected Identifier identifier;
 
         /**
          * A code specifying the state of the dispense event.
          */
-        private CodeableConcept status;
+        protected CodeableConcept status;
 
         /**
          * Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
          */
-        private CodeableConcept type;
+        protected CodeableConcept type;
 
         /**
          * The amount of medication that has been dispensed. Includes unit of measure.
          */
-        private Quantity quantity;
+        protected Quantity quantity;
 
         /**
          * Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
          */
-        private ResourceReference medication;
+        protected ResourceReference medication;
 
         /**
          * The time the dispense event occurred.
          */
-        private Period whenPrepared;
+        protected Period whenPrepared;
 
         /**
          * The time the dispense event occurred.
          */
-        private Period whenHandedOver;
+        protected Period whenHandedOver;
 
         /**
          * Identification of the facility/location where the medication was shipped to, as part of the dispense event.
          */
-        private ResourceReference destination;
+        protected ResourceReference destination;
 
         /**
          * Identifies the person who picked up the medication.
          */
-        private List<ResourceReference> receiver = new ArrayList<ResourceReference>();
+        protected List<ResourceReference> receiver = new ArrayList<ResourceReference>();
 
         /**
          * Indicates how the medication is to be used by the patient
          */
-        private List<MedicationDispenseDispenseDosageComponent> dosage = new ArrayList<MedicationDispenseDispenseDosageComponent>();
+        protected List<MedicationDispenseDispenseDosageComponent> dosage = new ArrayList<MedicationDispenseDispenseDosageComponent>();
 
         public Identifier getIdentifier() { 
           return this.identifier;
@@ -161,45 +161,64 @@ public class MedicationDispense extends Resource {
           return this.dosage;
         }
 
+      public MedicationDispenseDispenseComponent copy(MedicationDispense e) {
+        MedicationDispenseDispenseComponent dst = e.new MedicationDispenseDispenseComponent();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.status = status == null ? null : status.copy();
+        dst.type = type == null ? null : type.copy();
+        dst.quantity = quantity == null ? null : quantity.copy();
+        dst.medication = medication == null ? null : medication.copy();
+        dst.whenPrepared = whenPrepared == null ? null : whenPrepared.copy();
+        dst.whenHandedOver = whenHandedOver == null ? null : whenHandedOver.copy();
+        dst.destination = destination == null ? null : destination.copy();
+        dst.receiver = new ArrayList<ResourceReference>();
+        for (ResourceReference i : receiver)
+          dst.receiver.add(i.copy());
+        dst.dosage = new ArrayList<MedicationDispenseDispenseDosageComponent>();
+        for (MedicationDispenseDispenseDosageComponent i : dosage)
+          dst.dosage.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     public class MedicationDispenseDispenseDosageComponent extends Element {
         /**
          * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013"
          */
-        private Schedule timing;
+        protected Schedule timing;
 
         /**
          * A coded specification of the anatomic site where the medication first enters the body
          */
-        private CodeableConcept site;
+        protected CodeableConcept site;
 
         /**
          * A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
          */
-        private CodeableConcept route;
+        protected CodeableConcept route;
 
         /**
          * A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.
 
 Terminologies used often pre-coordinate this term with the route and or form of administration.
          */
-        private CodeableConcept method;
+        protected CodeableConcept method;
 
         /**
          * The amount of the therapeutic or other substance given at one administration event.
          */
-        private Quantity quantity;
+        protected Quantity quantity;
 
         /**
          * Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.
          */
-        private Ratio rate;
+        protected Ratio rate;
 
         /**
          * The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.
          */
-        private Ratio maxDosePerPeriod;
+        protected Ratio maxDosePerPeriod;
 
         public Schedule getTiming() { 
           return this.timing;
@@ -257,23 +276,35 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           this.maxDosePerPeriod = value;
         }
 
+      public MedicationDispenseDispenseDosageComponent copy(MedicationDispense e) {
+        MedicationDispenseDispenseDosageComponent dst = e.new MedicationDispenseDispenseDosageComponent();
+        dst.timing = timing == null ? null : timing.copy();
+        dst.site = site == null ? null : site.copy();
+        dst.route = route == null ? null : route.copy();
+        dst.method = method == null ? null : method.copy();
+        dst.quantity = quantity == null ? null : quantity.copy();
+        dst.rate = rate == null ? null : rate.copy();
+        dst.maxDosePerPeriod = maxDosePerPeriod == null ? null : maxDosePerPeriod.copy();
+        return dst;
+      }
+
   }
 
     public class MedicationDispenseSubstitutionComponent extends Element {
         /**
          * A code signifying whether a different drug was dispensed from what was prescribed.
          */
-        private CodeableConcept type;
+        protected CodeableConcept type;
 
         /**
          * Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.
          */
-        private List<CodeableConcept> reason = new ArrayList<CodeableConcept>();
+        protected List<CodeableConcept> reason = new ArrayList<CodeableConcept>();
 
         /**
          * The person or organization that has primary responsibility for the substitution
          */
-        private List<ResourceReference> responsibleParty = new ArrayList<ResourceReference>();
+        protected List<ResourceReference> responsibleParty = new ArrayList<ResourceReference>();
 
         public CodeableConcept getType() { 
           return this.type;
@@ -291,47 +322,59 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           return this.responsibleParty;
         }
 
+      public MedicationDispenseSubstitutionComponent copy(MedicationDispense e) {
+        MedicationDispenseSubstitutionComponent dst = e.new MedicationDispenseSubstitutionComponent();
+        dst.type = type == null ? null : type.copy();
+        dst.reason = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : reason)
+          dst.reason.add(i.copy());
+        dst.responsibleParty = new ArrayList<ResourceReference>();
+        for (ResourceReference i : responsibleParty)
+          dst.responsibleParty.add(i.copy());
+        return dst;
+      }
+
   }
 
     /**
      * Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR.
      */
-    private Identifier identifier;
+    protected Identifier identifier;
 
     /**
      * A code specifying the state of the set of dispense events.
      */
-    private CodeableConcept status;
+    protected CodeableConcept status;
 
     /**
      * A link to a resource representing the person to whom the medication will be given.
      */
-    private ResourceReference patient;
+    protected ResourceReference patient;
 
     /**
      * The individual reponsible for dispensing the medication
      */
-    private ResourceReference dispenser;
+    protected ResourceReference dispenser;
 
     /**
      * A link to a resource that identifies the particular occurrence of contact between patient and health care provider.
      */
-    private ResourceReference visit;
+    protected ResourceReference visit;
 
     /**
      * Indicates the medication order that is being dispensed against.
      */
-    private List<ResourceReference> authorizingPrescription = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> authorizingPrescription = new ArrayList<ResourceReference>();
 
     /**
      * Indicates the details of the dispense event such as the days supply and quantity of medication dispensed.
      */
-    private List<MedicationDispenseDispenseComponent> dispense = new ArrayList<MedicationDispenseDispenseComponent>();
+    protected List<MedicationDispenseDispenseComponent> dispense = new ArrayList<MedicationDispenseDispenseComponent>();
 
     /**
      * Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but doesn't happen, in other cases substitution is not expected but does happen.  This block explains what substitition did or did not happen and why.
      */
-    private MedicationDispenseSubstitutionComponent substitution;
+    protected MedicationDispenseSubstitutionComponent substitution;
 
     public Identifier getIdentifier() { 
       return this.identifier;
@@ -388,6 +431,27 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     public void setSubstitution(MedicationDispenseSubstitutionComponent value) { 
       this.substitution = value;
     }
+
+      public MedicationDispense copy() {
+        MedicationDispense dst = new MedicationDispense();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.status = status == null ? null : status.copy();
+        dst.patient = patient == null ? null : patient.copy();
+        dst.dispenser = dispenser == null ? null : dispenser.copy();
+        dst.visit = visit == null ? null : visit.copy();
+        dst.authorizingPrescription = new ArrayList<ResourceReference>();
+        for (ResourceReference i : authorizingPrescription)
+          dst.authorizingPrescription.add(i.copy());
+        dst.dispense = new ArrayList<MedicationDispenseDispenseComponent>();
+        for (MedicationDispenseDispenseComponent i : dispense)
+          dst.dispense.add(i.copy(dst));
+        dst.substitution = substitution == null ? null : substitution.copy(dst);
+        return dst;
+      }
+
+      protected MedicationDispense typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

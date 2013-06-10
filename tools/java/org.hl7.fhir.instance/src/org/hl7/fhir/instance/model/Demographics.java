@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -42,22 +42,22 @@ public class Demographics extends Type {
         /**
          * The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case. E.g. "en" for English, or "en-US" for American English versus "en-EN" for England English
          */
-        private CodeableConcept language;
+        protected CodeableConcept language;
 
         /**
          * A value representing the person's method of expression of this language. Examples: expressed spoken, expressed written, expressed signed, received spoken, received written, received signed
          */
-        private List<CodeableConcept> mode = new ArrayList<CodeableConcept>();
+        protected List<CodeableConcept> mode = new ArrayList<CodeableConcept>();
 
         /**
          * A code that describes how well the language is expressed or understood
          */
-        private CodeableConcept proficiencyLevel;
+        protected CodeableConcept proficiencyLevel;
 
         /**
          * Indicates whether or not the Person prefers this language (over other languages he masters up a certain level)
          */
-        private Boolean preference;
+        protected Boolean preference;
 
         public CodeableConcept getLanguage() { 
           return this.language;
@@ -101,57 +101,68 @@ public class Demographics extends Type {
           }
         }
 
+      public DemographicsLanguageComponent copy(Demographics e) {
+        DemographicsLanguageComponent dst = e.new DemographicsLanguageComponent();
+        dst.language = language == null ? null : language.copy();
+        dst.mode = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : mode)
+          dst.mode.add(i.copy());
+        dst.proficiencyLevel = proficiencyLevel == null ? null : proficiencyLevel.copy();
+        dst.preference = preference == null ? null : preference.copy();
+        return dst;
+      }
+
   }
 
     /**
      * Identifier for a natural person, in contrast to the identifier in a specific context.
      */
-    private List<Identifier> identifier = new ArrayList<Identifier>();
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * A name associated with the individual.
      */
-    private List<HumanName> name = new ArrayList<HumanName>();
+    protected List<HumanName> name = new ArrayList<HumanName>();
 
     /**
      * A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.
      */
-    private List<Contact> telecom = new ArrayList<Contact>();
+    protected List<Contact> telecom = new ArrayList<Contact>();
 
     /**
      * Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
      */
-    private CodeableConcept gender;
+    protected CodeableConcept gender;
 
     /**
      * The date and time of birth for the individual
      */
-    private DateTime birthDate;
+    protected DateTime birthDate;
 
     /**
      * Indicates if the individual is deceased or not
      */
-    private Boolean deceased;
+    protected Boolean deceased;
 
     /**
      * Addresses for the individual
      */
-    private List<Address> address = new ArrayList<Address>();
+    protected List<Address> address = new ArrayList<Address>();
 
     /**
      * Image of the person
      */
-    private List<ResourceReference> photo = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> photo = new ArrayList<ResourceReference>();
 
     /**
      * This field contains a patient's most recent marital (civil) status.
      */
-    private CodeableConcept maritalStatus;
+    protected CodeableConcept maritalStatus;
 
     /**
      * A language spoken by the person, with proficiency
      */
-    private List<DemographicsLanguageComponent> language = new ArrayList<DemographicsLanguageComponent>();
+    protected List<DemographicsLanguageComponent> language = new ArrayList<DemographicsLanguageComponent>();
 
     public List<Identifier> getIdentifier() { 
       return this.identifier;
@@ -236,6 +247,37 @@ public class Demographics extends Type {
     public List<DemographicsLanguageComponent> getLanguage() { 
       return this.language;
     }
+
+      public Demographics copy() {
+        Demographics dst = new Demographics();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
+        dst.name = new ArrayList<HumanName>();
+        for (HumanName i : name)
+          dst.name.add(i.copy());
+        dst.telecom = new ArrayList<Contact>();
+        for (Contact i : telecom)
+          dst.telecom.add(i.copy());
+        dst.gender = gender == null ? null : gender.copy();
+        dst.birthDate = birthDate == null ? null : birthDate.copy();
+        dst.deceased = deceased == null ? null : deceased.copy();
+        dst.address = new ArrayList<Address>();
+        for (Address i : address)
+          dst.address.add(i.copy());
+        dst.photo = new ArrayList<ResourceReference>();
+        for (ResourceReference i : photo)
+          dst.photo.add(i.copy());
+        dst.maritalStatus = maritalStatus == null ? null : maritalStatus.copy();
+        dst.language = new ArrayList<DemographicsLanguageComponent>();
+        for (DemographicsLanguageComponent i : language)
+          dst.language.add(i.copy(dst));
+        return dst;
+      }
+
+      protected Demographics typedCopy() {
+        return copy();
+      }
 
 
 }

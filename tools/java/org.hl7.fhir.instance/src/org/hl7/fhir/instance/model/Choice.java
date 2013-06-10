@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -42,12 +42,12 @@ public class Choice extends Type {
         /**
          * A possible code or value that the user could have chosen
          */
-        private Code code;
+        protected Code code;
 
         /**
          * A set of words associated with the code to give it meaning and displayed to the user
          */
-        private String_ display;
+        protected String_ display;
 
         public Code getCode() { 
           return this.code;
@@ -89,22 +89,29 @@ public class Choice extends Type {
           }
         }
 
+      public ChoiceOptionComponent copy(Choice e) {
+        ChoiceOptionComponent dst = e.new ChoiceOptionComponent();
+        dst.code = code == null ? null : code.copy();
+        dst.display = display == null ? null : display.copy();
+        return dst;
+      }
+
   }
 
     /**
      * The code or value that the user selected from the list of possible codes
      */
-    private Code code;
+    protected Code code;
 
     /**
      * A list of possible values for the code
      */
-    private List<ChoiceOptionComponent> option = new ArrayList<ChoiceOptionComponent>();
+    protected List<ChoiceOptionComponent> option = new ArrayList<ChoiceOptionComponent>();
 
     /**
      * Whether the order of the values has an assigned meaning
      */
-    private Boolean isOrdered;
+    protected Boolean isOrdered;
 
     public Code getCode() { 
       return this.code;
@@ -153,6 +160,20 @@ public class Choice extends Type {
         this.isOrdered.setValue(value);
       }
     }
+
+      public Choice copy() {
+        Choice dst = new Choice();
+        dst.code = code == null ? null : code.copy();
+        dst.option = new ArrayList<ChoiceOptionComponent>();
+        for (ChoiceOptionComponent i : option)
+          dst.option.add(i.copy(dst));
+        dst.isOrdered = isOrdered == null ? null : isOrdered.copy();
+        return dst;
+      }
+
+      protected Choice typedCopy() {
+        return copy();
+      }
 
 
 }

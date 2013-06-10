@@ -29,11 +29,10 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
-import java.net.*;
 /**
  * A transmission requesting action on a bundle of one or more resources or a response to such a request
  */
@@ -109,17 +108,17 @@ public class Message extends Resource {
         /**
          * The id of the message that this a response to
          */
-        private Id identifier;
+        protected Id identifier;
 
         /**
          * Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not
          */
-        private Enumeration<ResponseCode> code;
+        protected Enumeration<ResponseCode> code;
 
         /**
          * Full details of any issues found in the message
          */
-        private ResourceReference details;
+        protected ResourceReference details;
 
         public Id getIdentifier() { 
           return this.identifier;
@@ -165,33 +164,41 @@ public class Message extends Resource {
           this.details = value;
         }
 
+      public MessageResponseComponent copy(Message e) {
+        MessageResponseComponent dst = e.new MessageResponseComponent();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.code = code == null ? null : code.copy();
+        dst.details = details == null ? null : details.copy();
+        return dst;
+      }
+
   }
 
     public class MessageSourceComponent extends Element {
         /**
          * Human readable name for the target system
          */
-        private String_ name;
+        protected String_ name;
 
         /**
          * May include configuration or other information useful in debugging.
          */
-        private String_ software;
+        protected String_ software;
 
         /**
          * Can convey versions of multiple systems in situations where a message passes through multiple hands.
          */
-        private String_ version;
+        protected String_ version;
 
         /**
          * An e-mail, phone, website or other contact point to use to resolve issues with message communications.
          */
-        private Contact contact;
+        protected Contact contact;
 
         /**
          * Identifies the routing target to send acknowledgements to.
          */
-        private Uri endpoint;
+        protected Uri endpoint;
 
         public String_ getName() { 
           return this.name;
@@ -271,15 +278,25 @@ public class Message extends Resource {
           this.endpoint = value;
         }
 
-        public URI getEndpointSimple() { 
+        public String getEndpointSimple() { 
           return this.endpoint == null ? null : this.endpoint.getValue();
         }
 
-        public void setEndpointSimple(URI value) { 
+        public void setEndpointSimple(String value) { 
             if (this.endpoint == null)
               this.endpoint = new Uri();
             this.endpoint.setValue(value);
         }
+
+      public MessageSourceComponent copy(Message e) {
+        MessageSourceComponent dst = e.new MessageSourceComponent();
+        dst.name = name == null ? null : name.copy();
+        dst.software = software == null ? null : software.copy();
+        dst.version = version == null ? null : version.copy();
+        dst.contact = contact == null ? null : contact.copy();
+        dst.endpoint = endpoint == null ? null : endpoint.copy();
+        return dst;
+      }
 
   }
 
@@ -287,17 +304,17 @@ public class Message extends Resource {
         /**
          * Human readable name for the source system
          */
-        private String_ name;
+        protected String_ name;
 
         /**
          * Identifies the target end system in situations where the initial message transmission is to an intermediary system.
          */
-        private ResourceReference target;
+        protected ResourceReference target;
 
         /**
          * Indicates where the message should be routed to.
          */
-        private Uri endpoint;
+        protected Uri endpoint;
 
         public String_ getName() { 
           return this.name;
@@ -337,82 +354,90 @@ public class Message extends Resource {
           this.endpoint = value;
         }
 
-        public URI getEndpointSimple() { 
+        public String getEndpointSimple() { 
           return this.endpoint == null ? null : this.endpoint.getValue();
         }
 
-        public void setEndpointSimple(URI value) { 
+        public void setEndpointSimple(String value) { 
             if (this.endpoint == null)
               this.endpoint = new Uri();
             this.endpoint.setValue(value);
         }
+
+      public MessageDestinationComponent copy(Message e) {
+        MessageDestinationComponent dst = e.new MessageDestinationComponent();
+        dst.name = name == null ? null : name.copy();
+        dst.target = target == null ? null : target.copy();
+        dst.endpoint = endpoint == null ? null : endpoint.copy();
+        return dst;
+      }
 
   }
 
     /**
      * The identifier of this message
      */
-    private Id identifier;
+    protected Id identifier;
 
     /**
      * The time that the message was sent
      */
-    private Instant timestamp;
+    protected Instant timestamp;
 
     /**
      * Code that identifies the event this message represents and connects it with the event definition in the FHIR specification
      */
-    private Code event;
+    protected Code event;
 
     /**
      * Information about the message that this message is a response to.  Only present if this message is a response.
      */
-    private MessageResponseComponent response;
+    protected MessageResponseComponent response;
 
     /**
      * The source application from which this message originated
      */
-    private MessageSourceComponent source;
+    protected MessageSourceComponent source;
 
     /**
      * The destination application which the message is intended for
      */
-    private MessageDestinationComponent destination;
+    protected MessageDestinationComponent destination;
 
     /**
      * The person or device that performed the data entry leading to this Message. Where there is more than one candidate, pick the most proximal to the Message. Can provide other enterers in extensions
      */
-    private ResourceReference enterer;
+    protected ResourceReference enterer;
 
     /**
      * The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the Message. Can provide other authors in extensions
      */
-    private ResourceReference author;
+    protected ResourceReference author;
 
     /**
      * Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.
      */
-    private ResourceReference receiver;
+    protected ResourceReference receiver;
 
     /**
      * The person or organization that accepts overall responsibility for the contents of the Message. The implication is that the message event happened under the policies of the responsible party
      */
-    private ResourceReference responsible;
+    protected ResourceReference responsible;
 
     /**
      * The effective time - the real world time of the event that the message represents. Usually this is just a starting time, but some message events also have an end time (do x for period y)
      */
-    private Period effective;
+    protected Period effective;
 
     /**
      * The cause of the event - a reason for the event that is a focus of this message occurred
      */
-    private CodeableConcept reason;
+    protected CodeableConcept reason;
 
     /**
      * The actual data of the message - a reference to the root/focus class of the event.
      */
-    private List<ResourceReference> data = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> data = new ArrayList<ResourceReference>();
 
     public Id getIdentifier() { 
       return this.identifier;
@@ -543,6 +568,30 @@ public class Message extends Resource {
     public List<ResourceReference> getData() { 
       return this.data;
     }
+
+      public Message copy() {
+        Message dst = new Message();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.timestamp = timestamp == null ? null : timestamp.copy();
+        dst.event = event == null ? null : event.copy();
+        dst.response = response == null ? null : response.copy(dst);
+        dst.source = source == null ? null : source.copy(dst);
+        dst.destination = destination == null ? null : destination.copy(dst);
+        dst.enterer = enterer == null ? null : enterer.copy();
+        dst.author = author == null ? null : author.copy();
+        dst.receiver = receiver == null ? null : receiver.copy();
+        dst.responsible = responsible == null ? null : responsible.copy();
+        dst.effective = effective == null ? null : effective.copy();
+        dst.reason = reason == null ? null : reason.copy();
+        dst.data = new ArrayList<ResourceReference>();
+        for (ResourceReference i : data)
+          dst.data.add(i.copy());
+        return dst;
+      }
+
+      protected Message typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

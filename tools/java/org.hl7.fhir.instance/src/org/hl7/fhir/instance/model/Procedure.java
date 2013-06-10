@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -84,17 +84,17 @@ public class Procedure extends Resource {
         /**
          * The specific procedure that is perfromed
          */
-        private CodeableConcept type;
+        protected CodeableConcept type;
 
         /**
          * Any other notes about the procedure - eg the operative notes
          */
-        private String_ notes;
+        protected String_ notes;
 
         /**
          * Detailed and structured anatomical location information. Multiple locations are allowed - eg multiple punch biopsies of a lesion
          */
-        private List<CodeableConcept> bodySite = new ArrayList<CodeableConcept>();
+        protected List<CodeableConcept> bodySite = new ArrayList<CodeableConcept>();
 
         public CodeableConcept getType() { 
           return this.type;
@@ -130,18 +130,28 @@ public class Procedure extends Resource {
           return this.bodySite;
         }
 
+      public ProcedureDescriptionComponent copy(Procedure e) {
+        ProcedureDescriptionComponent dst = e.new ProcedureDescriptionComponent();
+        dst.type = type == null ? null : type.copy();
+        dst.notes = notes == null ? null : notes.copy();
+        dst.bodySite = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : bodySite)
+          dst.bodySite.add(i.copy());
+        return dst;
+      }
+
   }
 
     public class ProcedurePerformerComponent extends Element {
         /**
          * The practitioner who was involved in the procedure
          */
-        private ResourceReference person;
+        protected ResourceReference person;
 
         /**
          * Eg surgeon, anaethetist, endoscopist
          */
-        private CodeableConcept role;
+        protected CodeableConcept role;
 
         public ResourceReference getPerson() { 
           return this.person;
@@ -159,18 +169,25 @@ public class Procedure extends Resource {
           this.role = value;
         }
 
+      public ProcedurePerformerComponent copy(Procedure e) {
+        ProcedurePerformerComponent dst = e.new ProcedurePerformerComponent();
+        dst.person = person == null ? null : person.copy();
+        dst.role = role == null ? null : role.copy();
+        return dst;
+      }
+
   }
 
     public class ProcedureRelatedItemComponent extends Element {
         /**
          * The nature of the relationship
          */
-        private Enumeration<ProcedureRelationshipType> type;
+        protected Enumeration<ProcedureRelationshipType> type;
 
         /**
          * The related item - eg a procedure
          */
-        private ResourceReference target;
+        protected ResourceReference target;
 
         public Enumeration<ProcedureRelationshipType> getType() { 
           return this.type;
@@ -202,62 +219,69 @@ public class Procedure extends Resource {
           this.target = value;
         }
 
+      public ProcedureRelatedItemComponent copy(Procedure e) {
+        ProcedureRelatedItemComponent dst = e.new ProcedureRelatedItemComponent();
+        dst.type = type == null ? null : type.copy();
+        dst.target = target == null ? null : target.copy();
+        return dst;
+      }
+
   }
 
     /**
      * The person on whom the procedure was performed
      */
-    private ResourceReference subject;
+    protected ResourceReference subject;
 
     /**
      * Describes the procedure that was performed
      */
-    private ProcedureDescriptionComponent description;
+    protected ProcedureDescriptionComponent description;
 
     /**
      * The reason why the procedure was performed. This may be due to a problem, may be coded entity of some type, or may simply be present as text
      */
-    private String_ indication;
+    protected String_ indication;
 
     /**
      * This is limited to 'real' people rather than equipment
      */
-    private List<ProcedurePerformerComponent> performer = new ArrayList<ProcedurePerformerComponent>();
+    protected List<ProcedurePerformerComponent> performer = new ArrayList<ProcedurePerformerComponent>();
 
     /**
      * The dates over which the period was perfromed. Allows a period to support complex procedures that span more that one date, and also allows for the length of the procedure to be captured.
      */
-    private Period date;
+    protected Period date;
 
     /**
      * The visit during which the procedure was performed
      */
-    private ResourceReference visit;
+    protected ResourceReference visit;
 
     /**
      * What was the outcome of the procedure - did it resolve reasons why the procedure was performed?
      */
-    private String_ outcome;
+    protected String_ outcome;
 
     /**
      * This could be a histology result. There could potentially be multiple reports - eg if this was a procedure that made multiple biopsies
      */
-    private List<ResourceReference> report = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> report = new ArrayList<ResourceReference>();
 
     /**
      * Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, whicg typically will describe the procedure itself rather than any 'post procedure' issues
      */
-    private String_ complication;
+    protected String_ complication;
 
     /**
      * If the procedure required specific follow up - eg removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used
      */
-    private String_ followUp;
+    protected String_ followUp;
 
     /**
      * Procedures may be related to other items such as procedures or medciations. For example treating wound dehiscence following a previous procedure
      */
-    private List<ProcedureRelatedItemComponent> relatedItem = new ArrayList<ProcedureRelatedItemComponent>();
+    protected List<ProcedureRelatedItemComponent> relatedItem = new ArrayList<ProcedureRelatedItemComponent>();
 
     public ResourceReference getSubject() { 
       return this.subject;
@@ -390,6 +414,32 @@ public class Procedure extends Resource {
     public List<ProcedureRelatedItemComponent> getRelatedItem() { 
       return this.relatedItem;
     }
+
+      public Procedure copy() {
+        Procedure dst = new Procedure();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.description = description == null ? null : description.copy(dst);
+        dst.indication = indication == null ? null : indication.copy();
+        dst.performer = new ArrayList<ProcedurePerformerComponent>();
+        for (ProcedurePerformerComponent i : performer)
+          dst.performer.add(i.copy(dst));
+        dst.date = date == null ? null : date.copy();
+        dst.visit = visit == null ? null : visit.copy();
+        dst.outcome = outcome == null ? null : outcome.copy();
+        dst.report = new ArrayList<ResourceReference>();
+        for (ResourceReference i : report)
+          dst.report.add(i.copy());
+        dst.complication = complication == null ? null : complication.copy();
+        dst.followUp = followUp == null ? null : followUp.copy();
+        dst.relatedItem = new ArrayList<ProcedureRelatedItemComponent>();
+        for (ProcedureRelatedItemComponent i : relatedItem)
+          dst.relatedItem.add(i.copy(dst));
+        return dst;
+      }
+
+      protected Procedure typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

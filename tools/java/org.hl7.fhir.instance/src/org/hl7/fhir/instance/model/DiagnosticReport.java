@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -116,37 +116,37 @@ public class DiagnosticReport extends Resource {
         /**
          * The visit that this diagnostic investigation is associated with
          */
-        private ResourceReference visit;
+        protected ResourceReference visit;
 
         /**
          * The local ID assigned to the order by the order requester.
          */
-        private Identifier requestOrderId;
+        protected Identifier requestOrderId;
 
         /**
          * The local ID assigned to the test order by the diagnostic service provider
          */
-        private Identifier receiverOrderId;
+        protected Identifier receiverOrderId;
 
         /**
          * Identification of pathology test requested,
          */
-        private List<CodeableConcept> requestTest = new ArrayList<CodeableConcept>();
+        protected List<CodeableConcept> requestTest = new ArrayList<CodeableConcept>();
 
         /**
          * Anatomical location where the request test should be performed
          */
-        private CodeableConcept bodySite;
+        protected CodeableConcept bodySite;
 
         /**
          * Details of the clinician or organisation requesting the diagnostic service
          */
-        private ResourceReference requester;
+        protected ResourceReference requester;
 
         /**
          * Details of the clinical information provided to the diagnostic service along with the original request
          */
-        private String_ clinicalInfo;
+        protected String_ clinicalInfo;
 
         public ResourceReference getVisit() { 
           return this.visit;
@@ -214,28 +214,42 @@ public class DiagnosticReport extends Resource {
           }
         }
 
+      public DiagnosticReportRequestDetailComponent copy(DiagnosticReport e) {
+        DiagnosticReportRequestDetailComponent dst = e.new DiagnosticReportRequestDetailComponent();
+        dst.visit = visit == null ? null : visit.copy();
+        dst.requestOrderId = requestOrderId == null ? null : requestOrderId.copy();
+        dst.receiverOrderId = receiverOrderId == null ? null : receiverOrderId.copy();
+        dst.requestTest = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : requestTest)
+          dst.requestTest.add(i.copy());
+        dst.bodySite = bodySite == null ? null : bodySite.copy();
+        dst.requester = requester == null ? null : requester.copy();
+        dst.clinicalInfo = clinicalInfo == null ? null : clinicalInfo.copy();
+        return dst;
+      }
+
   }
 
     public class ResultGroupComponent extends Element {
         /**
          * A code or name that describes this group of results. For the base group, this is the report name
          */
-        private CodeableConcept name;
+        protected CodeableConcept name;
 
         /**
          * Details about the individual specimen to which these 'Result group' test results refer
          */
-        private ResourceReference specimen;
+        protected ResourceReference specimen;
 
         /**
          * A sub-group in a report group. Sub groups can be grouped in arbitrary ways. The group.name defines the purpose and interpretation of the grouping
          */
-        private List<ResultGroupComponent> group = new ArrayList<ResultGroupComponent>();
+        protected List<ResultGroupComponent> group = new ArrayList<ResultGroupComponent>();
 
         /**
          * Specific detailed result, including both the value of the result item and additional information that may be useful for clinical interpretation. Results include whatever specific data items pathology labs report as part of the clinical service; it is not confined to measurements.
          */
-        private List<ResourceReference> result = new ArrayList<ResourceReference>();
+        protected List<ResourceReference> result = new ArrayList<ResourceReference>();
 
         public CodeableConcept getName() { 
           return this.name;
@@ -261,72 +275,85 @@ public class DiagnosticReport extends Resource {
           return this.result;
         }
 
+      public ResultGroupComponent copy(DiagnosticReport e) {
+        ResultGroupComponent dst = e.new ResultGroupComponent();
+        dst.name = name == null ? null : name.copy();
+        dst.specimen = specimen == null ? null : specimen.copy();
+        dst.group = new ArrayList<ResultGroupComponent>();
+        for (ResultGroupComponent i : group)
+          dst.group.add(i.copy(e));
+        dst.result = new ArrayList<ResourceReference>();
+        for (ResourceReference i : result)
+          dst.result.add(i.copy());
+        return dst;
+      }
+
   }
 
     /**
      * The status of the diagnostic report as a whole
      */
-    private Enumeration<ObservationStatus> status;
+    protected Enumeration<ObservationStatus> status;
 
     /**
      * The date and/or time that this version of the report was released from the source diagnostic service
      */
-    private Instant issued;
+    protected Instant issued;
 
     /**
      * The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources
      */
-    private ResourceReference subject;
+    protected ResourceReference subject;
 
     /**
      * The diagnostic service that is responsible for issuing the report
      */
-    private ResourceReference performer;
+    protected ResourceReference performer;
 
     /**
      * The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider
      */
-    private Identifier reportId;
+    protected Identifier reportId;
 
     /**
      * Details concerning a single pathology test requested.
      */
-    private List<DiagnosticReportRequestDetailComponent> requestDetail = new ArrayList<DiagnosticReportRequestDetailComponent>();
+    protected List<DiagnosticReportRequestDetailComponent> requestDetail = new ArrayList<DiagnosticReportRequestDetailComponent>();
 
     /**
      * The section of the diagnostic service that performs the examination e.g. biochemistry, haematology, MRI
      */
-    private CodeableConcept serviceCategory;
+    protected CodeableConcept serviceCategory;
 
     /**
      * The diagnostically relevant time for this report
      */
-    private DateTime diagnosticTime;
+    protected DateTime diagnosticTime;
 
     /**
      * A group of results. Results may be grouped by specimen, or by some value in DiagnosticReport.resultGroup.name to describe what binds all the results together.
      */
-    private ResultGroupComponent results;
+    protected ResultGroupComponent results;
 
     /**
      * A list of key images associated with this report. The images are generally created during the diagnostic process, and maybe directly of the patient, or of treated specimens (i.e. slides of interest)
      */
-    private List<ResourceReference> image = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> image = new ArrayList<ResourceReference>();
 
     /**
      * Concise and clinically contextualised narrative interpretation of the diagnostic report
      */
-    private String_ conclusion;
+    protected String_ conclusion;
 
     /**
      * Codes for the conclusion
      */
-    private List<CodeableConcept> codedDiagnosis = new ArrayList<CodeableConcept>();
+    protected List<CodeableConcept> codedDiagnosis = new ArrayList<CodeableConcept>();
 
     /**
      * Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they must be semantically equivalent.
      */
-    private List<Attachment> representation = new ArrayList<Attachment>();
+    protected List<Attachment> representation = new ArrayList<Attachment>();
 
     public Enumeration<ObservationStatus> getStatus() { 
       return this.status;
@@ -459,6 +486,36 @@ public class DiagnosticReport extends Resource {
     public List<Attachment> getRepresentation() { 
       return this.representation;
     }
+
+      public DiagnosticReport copy() {
+        DiagnosticReport dst = new DiagnosticReport();
+        dst.status = status == null ? null : status.copy();
+        dst.issued = issued == null ? null : issued.copy();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.performer = performer == null ? null : performer.copy();
+        dst.reportId = reportId == null ? null : reportId.copy();
+        dst.requestDetail = new ArrayList<DiagnosticReportRequestDetailComponent>();
+        for (DiagnosticReportRequestDetailComponent i : requestDetail)
+          dst.requestDetail.add(i.copy(dst));
+        dst.serviceCategory = serviceCategory == null ? null : serviceCategory.copy();
+        dst.diagnosticTime = diagnosticTime == null ? null : diagnosticTime.copy();
+        dst.results = results == null ? null : results.copy(dst);
+        dst.image = new ArrayList<ResourceReference>();
+        for (ResourceReference i : image)
+          dst.image.add(i.copy());
+        dst.conclusion = conclusion == null ? null : conclusion.copy();
+        dst.codedDiagnosis = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : codedDiagnosis)
+          dst.codedDiagnosis.add(i.copy());
+        dst.representation = new ArrayList<Attachment>();
+        for (Attachment i : representation)
+          dst.representation.add(i.copy());
+        return dst;
+      }
+
+      protected DiagnosticReport typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

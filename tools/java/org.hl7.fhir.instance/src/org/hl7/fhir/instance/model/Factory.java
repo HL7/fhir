@@ -61,7 +61,7 @@ public class Factory {
     if (value == null)
       return null;
     Uri res = new Uri();
-    res.setValue(new URI(value));
+    res.setValue(value);
     return res;
   }
 
@@ -120,7 +120,7 @@ public class Factory {
 		if (!evenIfNull && value == null)
 			return null;
 		Extension e = new Extension();
-		e.setUrlSimple(new URI(uri));
+		e.setUrlSimple(uri);
 		e.setValue(value);
 	  return e;
   }
@@ -129,7 +129,7 @@ public class Factory {
 		CodeableConcept cc = new CodeableConcept();
 		Coding c = new Coding();
 		c.setCodeSimple(code);
-		c.setSystemSimple(new URI(system));
+		c.setSystemSimple(system);
 		c.setDisplaySimple(display);
 		cc.getCoding().add(c);
 	  return cc;

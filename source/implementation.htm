@@ -15,18 +15,54 @@
 <%maindiv%>
 <%pageheader%>
 
-<%onthispage Using SOA#soa|Managing Identity#identity|Reference Implementations#Use%>
+<%onthispage Reference Implementations#Use|Using SOA#soa|Managing Identity#identity|Icons#icons%>
 
 <h1>Implementation Details</h1>
 
+<a name="Use"></a>
+<ul>
+ <li><a href="fhir-all-xsd.zip">All schemas as a .zip</a> (includes support schemas, resource schemas, modular &amp; combined schemas, and Schematrons</li>
+ <li><a href="validation.zip">Validation Pack</a> The FHIR validator (java jar), along with everything it needs to operate (including the correct version of Saxon)</li>
+ <li><a href="translations.xml">Translation File</a> Translations of common FHIR names and messages into multiple languages (see <a href="http://wiki.hl7.org/index.php?title=FHIR_Implementation_Page">wiki</a> for instructions on how to add to this)</li>
+ <li><a href="profiles-resources.xml">Single combined feed with resource profiles</a>. The resource profiles may be useful as a starting point for authoring profiles on the resources or with conformance statements</li>
+ <li><a href="examples.zip">All resource examples as a zip file</a> (<a href="examples-json.zip">JSON equivalent examples</a>)</li>
+</ul>
+<p>
+TODO: add RDF &amp; OWL renditions, eCore definitions, ADL versions, anything anyone else asks for
+</p>
+
+<a name="refimpl"> </a>
+<h3>Reference Implementations</h3>
+<p>
+These reference implementations are provided for implementer interest and assistance. 
+They may be used in production instances, though HL7 and its contributors accept no liability for this 
+use.  All these implementations are provided under a standard OSI approved BSD license (BSD-3-Clause).
+</p>
+<p>
+These reference implementations are limited to code for representing the 
+resource contents in their native form and parsing &amp; serializing them as 
+XML and JSON. In addition, some of the implementations provide support for 
+building, using and reasoning with resource definitions. 
+Full blown open source implementations for FHIR, some of which use these reference implementations, are
+listed on the <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">HL7 wiki</a>.
+</p>
+<p>
+It is not necessary to use these particular implementations in order to be conformant. Any other approach 
+may be used, including code generated from the schemas.
+</p>
+<ul>
+<%impllist%>
+</ul>
+
+
+<a name="SOA"> </a>
+<a name="soa"> </a>
+<h2>Service Orientated use of Resources</h2>
 <p>
 While the FHIR Resources are designed with a simple <a href="http.htm">RESTful HTTP-based implementation</a> 
 in mind, it is not necessary to use this implementation framework. This specification also defines a 
 straight <a href="message.htm">messaging based implementation framework</a> for FHIR resources and a <a href="document.htm">document-based framework</a>.
 </p>
-<a name="SOA"> </a>
-<a name="soa"> </a>
-<h2>Service Orientated use of Resources</h2>
 <p>
 Alternatively, it is not necessary to use any of these approaches. Resources can be exchanged or persisted
 using any technical means that is appropriate to the context at hand. A common use of FHIR 
@@ -124,46 +160,8 @@ There are many ways to implement any particular workflow and there are many ways
 <li>The resources can be embedded in HTML pages or other web content such as content feeds</li>
 </ul>
 
-<a name="Use"></a>
-<h2>Implementation Support</h2>
-<p>
-This section contains links to content that assist implementers make FHIR work in production:
-</p>
-<ul>
- <li><a href="fhir-all-xsd.zip">All schemas as a .zip</a> (includes support schemas, resource schemas, modular &amp; combined schemas, and Schematrons</li>
- <li><a href="validation.zip">Validation Pack</a> The FHIR validator (java jar), along with everything it needs to operate</li>
- <li><a href="translations.xml">Translation File</a> Translations of common FHIR names and messages into multiple languages (see <a href="http://wiki.hl7.org/index.php?title=FHIR_Implementation_Page">wiki</a> for instructions on how to add to this)</li>
- <li><a href="profiles-resources.xml">Single combined feed with resource profiles</a>. The resource profiles may be useful as a starting point for authoring profiles on the resources or with conformance statements</li>
- <li><a href="examples.zip">All resource examples as a zip file</a> (<a href="examples-json.zip">JSON equivalent examples</a>)</li>
-</ul>
-<p>
-TODO: add RDF &amp; OWL renditions, eCore definitions, ADL versions, anything anyone else asks for
-</p>
+<a name="icons"></a>
 
-<a name="refimpl"> </a>
-<h3>Reference Implementations</h3>
-<p>
-These reference implementations are provided for implementer interest and assistance. 
-They may be used in production instances, though HL7 and its contributors accept no liability for this 
-use.  All these implementations are provided under a standard OSI approved BSD license (BSD-3-Clause).
-</p>
-<p>
-These reference implementations are limited to code for representing the 
-resource contents in their native form and parsing &amp; serializing them as 
-XML and JSON. In addition, some of the implementations provide support for 
-building, using and reasoning with resource definitions. 
-Full blown open source implementations for FHIR, some of which use these reference implementations, are
-listed on the <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">HL7 wiki</a>.
-</p>
-<p>
-It is not necessary to use these particular implementations in order to be conformant. Any other approach 
-may be used, including code generated from the schemas.
-</p>
-<ul>
-<%impllist%>
-</ul>
-<p>
-</p>
 <h3><img src="flame16.png"/>Icons</h3>
 <p>
 Any (conformant?) FHIR Implementation is allowed to use the FHIR icon in association with the FHIR implementation. 

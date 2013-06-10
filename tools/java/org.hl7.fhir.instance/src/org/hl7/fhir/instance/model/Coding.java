@@ -29,10 +29,8 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
-
-import java.net.*;
 /**
  * A reference to a code defined by a terminology system
  */
@@ -41,17 +39,17 @@ public class Coding extends Type {
     /**
      * The identification of the system that defines the meaning of the symbol in the code. Can be a simple list of enumerations, a list of codes with meanings or all the way to a complex semantic web such as SNOMED-CT, whether classification, terminology, or ontology
      */
-    private Uri system;
+    protected Uri system;
 
     /**
      * A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system
      */
-    private Code code;
+    protected Code code;
 
     /**
      * A representation of the meaning of the code in the system, following the rules laid out by the system.
      */
-    private String_ display;
+    protected String_ display;
 
     public Uri getSystem() { 
       return this.system;
@@ -61,11 +59,11 @@ public class Coding extends Type {
       this.system = value;
     }
 
-    public URI getSystemSimple() { 
+    public String getSystemSimple() { 
       return this.system == null ? null : this.system.getValue();
     }
 
-    public void setSystemSimple(URI value) { 
+    public void setSystemSimple(String value) { 
       if (value == null)
         this.system = null;
       else {
@@ -118,6 +116,18 @@ public class Coding extends Type {
         this.display.setValue(value);
       }
     }
+
+      public Coding copy() {
+        Coding dst = new Coding();
+        dst.system = system == null ? null : system.copy();
+        dst.code = code == null ? null : code.copy();
+        dst.display = display == null ? null : display.copy();
+        return dst;
+      }
+
+      protected Coding typedCopy() {
+        return copy();
+      }
 
 
 }

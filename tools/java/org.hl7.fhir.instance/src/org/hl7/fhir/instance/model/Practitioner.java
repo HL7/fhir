@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -42,17 +42,17 @@ public class Practitioner extends Resource {
         /**
          * Coded representation of the qualification
          */
-        private CodeableConcept code;
+        protected CodeableConcept code;
 
         /**
          * Period during which the qualification is valid
          */
-        private Period period;
+        protected Period period;
 
         /**
          * Organization that regulates and issues the qualification
          */
-        private ResourceReference issuer;
+        protected ResourceReference issuer;
 
         public CodeableConcept getCode() { 
           return this.code;
@@ -78,42 +78,50 @@ public class Practitioner extends Resource {
           this.issuer = value;
         }
 
+      public PractitionerQualificationComponent copy(Practitioner e) {
+        PractitionerQualificationComponent dst = e.new PractitionerQualificationComponent();
+        dst.code = code == null ? null : code.copy();
+        dst.period = period == null ? null : period.copy();
+        dst.issuer = issuer == null ? null : issuer.copy();
+        return dst;
+      }
+
   }
 
     /**
      * An identifier that applies to this person in this role
      */
-    private List<Identifier> identifier = new ArrayList<Identifier>();
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * Practitioner Demographic details
      */
-    private Demographics details;
+    protected Demographics details;
 
     /**
      * The organisation that the practitioner represents
      */
-    private ResourceReference organization;
+    protected ResourceReference organization;
 
     /**
      * The way in which the person represents the organisation - what role do they have?
      */
-    private List<CodeableConcept> role = new ArrayList<CodeableConcept>();
+    protected List<CodeableConcept> role = new ArrayList<CodeableConcept>();
 
     /**
      * Specific specialty of the practitioner
      */
-    private List<CodeableConcept> specialty = new ArrayList<CodeableConcept>();
+    protected List<CodeableConcept> specialty = new ArrayList<CodeableConcept>();
 
     /**
      * The period during which the person is authorized to perform the service
      */
-    private Period period;
+    protected Period period;
 
     /**
      * Qualifications relevant to the provided service
      */
-    private List<PractitionerQualificationComponent> qualification = new ArrayList<PractitionerQualificationComponent>();
+    protected List<PractitionerQualificationComponent> qualification = new ArrayList<PractitionerQualificationComponent>();
 
     public List<Identifier> getIdentifier() { 
       return this.identifier;
@@ -154,6 +162,30 @@ public class Practitioner extends Resource {
     public List<PractitionerQualificationComponent> getQualification() { 
       return this.qualification;
     }
+
+      public Practitioner copy() {
+        Practitioner dst = new Practitioner();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
+        dst.details = details == null ? null : details.copy();
+        dst.organization = organization == null ? null : organization.copy();
+        dst.role = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : role)
+          dst.role.add(i.copy());
+        dst.specialty = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : specialty)
+          dst.specialty.add(i.copy());
+        dst.period = period == null ? null : period.copy();
+        dst.qualification = new ArrayList<PractitionerQualificationComponent>();
+        for (PractitionerQualificationComponent i : qualification)
+          dst.qualification.add(i.copy(dst));
+        return dst;
+      }
+
+      protected Practitioner typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

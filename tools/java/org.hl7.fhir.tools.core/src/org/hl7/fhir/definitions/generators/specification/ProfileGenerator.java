@@ -197,7 +197,12 @@ public class ProfileGenerator {
         throw new Exception("not done yet");
     case ValueSet: 
       if (!Utilities.noString(src.getReference()))
-        return Factory.makeResourceReference("ValueSet", "http://hl7.org/fhir/valueset/"+src.getReference());
+        if (src.getReference().startsWith("http"))
+          return Factory.makeResourceReference("ValueSet", src.getReference());
+        else if (src.getReference().startsWith("valueset-"))
+          return Factory.makeResourceReference("ValueSet", "http://hl7.org/fhir/vs/"+src.getReference().substring(9));
+        else
+          return Factory.makeResourceReference("ValueSet", "http://hl7.org/fhir/vs/"+src.getReference());
       else
         return null;
     case Reference: return Factory.newUri(src.getReference());

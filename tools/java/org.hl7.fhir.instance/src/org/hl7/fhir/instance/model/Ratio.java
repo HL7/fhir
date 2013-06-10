@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 /**
  * A ratio of two Quantity values - a numerator and a denominator.
@@ -39,12 +39,12 @@ public class Ratio extends Type {
     /**
      * The numerator
      */
-    private Quantity numerator;
+    protected Quantity numerator;
 
     /**
      * The denominator
      */
-    private Quantity denominator;
+    protected Quantity denominator;
 
     public Quantity getNumerator() { 
       return this.numerator;
@@ -61,6 +61,17 @@ public class Ratio extends Type {
     public void setDenominator(Quantity value) { 
       this.denominator = value;
     }
+
+      public Ratio copy() {
+        Ratio dst = new Ratio();
+        dst.numerator = numerator == null ? null : numerator.copy();
+        dst.denominator = denominator == null ? null : denominator.copy();
+        return dst;
+      }
+
+      protected Ratio typedCopy() {
+        return copy();
+      }
 
 
 }

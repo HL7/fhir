@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -172,17 +172,17 @@ public class DeviceLog extends Resource {
         /**
          * Reference to a device capabilities declaration
          */
-        private String_ key;
+        protected String_ key;
 
         /**
          * The value of the data item, if available. Irrespective of the logical format of the data item, the value is always represented as a string
          */
-        private String_ value;
+        protected String_ value;
 
         /**
          * Information about the quality of the data etc
          */
-        private List<Enumeration<DeviceValueFlag>> flag = new ArrayList<Enumeration<DeviceValueFlag>>();
+        protected List<Enumeration<DeviceValueFlag>> flag = new ArrayList<Enumeration<DeviceValueFlag>>();
 
         public String_ getKey() { 
           return this.key;
@@ -228,27 +228,37 @@ public class DeviceLog extends Resource {
           return this.flag;
         }
 
+      public DeviceLogItemComponent copy(DeviceLog e) {
+        DeviceLogItemComponent dst = e.new DeviceLogItemComponent();
+        dst.key = key == null ? null : key.copy();
+        dst.value = value == null ? null : value.copy();
+        dst.flag = new ArrayList<Enumeration<DeviceValueFlag>>();
+        for (Enumeration<DeviceValueFlag> i : flag)
+          dst.flag.add(i.copy());
+        return dst;
+      }
+
   }
 
     /**
      * The point in time that the values are reported
      */
-    private Instant instant;
+    protected Instant instant;
 
     /**
      * An explicit reference  to the capabilities
      */
-    private ResourceReference capabilities;
+    protected ResourceReference capabilities;
 
     /**
      * The subject of the measurement
      */
-    private ResourceReference subject;
+    protected ResourceReference subject;
 
     /**
      * An item of data that the device produces
      */
-    private List<DeviceLogItemComponent> item = new ArrayList<DeviceLogItemComponent>();
+    protected List<DeviceLogItemComponent> item = new ArrayList<DeviceLogItemComponent>();
 
     public Instant getInstant() { 
       return this.instant;
@@ -291,6 +301,21 @@ public class DeviceLog extends Resource {
     public List<DeviceLogItemComponent> getItem() { 
       return this.item;
     }
+
+      public DeviceLog copy() {
+        DeviceLog dst = new DeviceLog();
+        dst.instant = instant == null ? null : instant.copy();
+        dst.capabilities = capabilities == null ? null : capabilities.copy();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.item = new ArrayList<DeviceLogItemComponent>();
+        for (DeviceLogItemComponent i : item)
+          dst.item.add(i.copy(dst));
+        return dst;
+      }
+
+      protected DeviceLog typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -42,17 +42,17 @@ public class Patient extends Resource {
         /**
          * The nature of the relationship between the patient and the contactperson
          */
-        private List<CodeableConcept> relationship = new ArrayList<CodeableConcept>();
+        protected List<CodeableConcept> relationship = new ArrayList<CodeableConcept>();
 
         /**
          * Details about the contact person
          */
-        private Demographics details;
+        protected Demographics details;
 
         /**
          * Organization on behalf of which the contact is acting or for which the contact is working.
          */
-        private ResourceReference organization;
+        protected ResourceReference organization;
 
         public List<CodeableConcept> getRelationship() { 
           return this.relationship;
@@ -74,23 +74,33 @@ public class Patient extends Resource {
           this.organization = value;
         }
 
+      public ContactComponent copy(Patient e) {
+        ContactComponent dst = e.new ContactComponent();
+        dst.relationship = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : relationship)
+          dst.relationship.add(i.copy());
+        dst.details = details == null ? null : details.copy();
+        dst.organization = organization == null ? null : organization.copy();
+        return dst;
+      }
+
   }
 
     public class AnimalComponent extends Element {
         /**
          * Identifies the high level categorization of the kind of animal
          */
-        private CodeableConcept species;
+        protected CodeableConcept species;
 
         /**
          * Identifies the detailed categorization of the kind of animal.
          */
-        private CodeableConcept breed;
+        protected CodeableConcept breed;
 
         /**
          * Indicates the current state of the animal's reproductive organs
          */
-        private CodeableConcept genderStatus;
+        protected CodeableConcept genderStatus;
 
         public CodeableConcept getSpecies() { 
           return this.species;
@@ -116,52 +126,60 @@ public class Patient extends Resource {
           this.genderStatus = value;
         }
 
+      public AnimalComponent copy(Patient e) {
+        AnimalComponent dst = e.new AnimalComponent();
+        dst.species = species == null ? null : species.copy();
+        dst.breed = breed == null ? null : breed.copy();
+        dst.genderStatus = genderStatus == null ? null : genderStatus.copy();
+        return dst;
+      }
+
   }
 
     /**
      * An identifier that applies to this person as a patient
      */
-    private List<Identifier> identifier = new ArrayList<Identifier>();
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * Patient Demographic details
      */
-    private Demographics details;
+    protected Demographics details;
 
     /**
      * A contact party (e.g. guardian, partner, friend) for the patient
      */
-    private List<ContactComponent> contact = new ArrayList<ContactComponent>();
+    protected List<ContactComponent> contact = new ArrayList<ContactComponent>();
 
     /**
      * This element has a value if the patient is an animal
      */
-    private AnimalComponent animal;
+    protected AnimalComponent animal;
 
     /**
      * The provider for whom this is a patient record
      */
-    private ResourceReference provider;
+    protected ResourceReference provider;
 
     /**
      * Indicates whether the patient is part of a multiple or indicates the actual birth order.
      */
-    private Type multipleBirth;
+    protected Type multipleBirth;
 
     /**
      * Date of death of patient. May include time.
      */
-    private DateTime deceasedDate;
+    protected DateTime deceasedDate;
 
     /**
      * A linked patient resource is a resource that concerns the same patient. Resources are linked after it is realized that at least one was created in error.
      */
-    private List<ResourceReference> link = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> link = new ArrayList<ResourceReference>();
 
     /**
      * Whether this patient record is in active use
      */
-    private Boolean active;
+    protected Boolean active;
 
     public List<Identifier> getIdentifier() { 
       return this.identifier;
@@ -250,6 +268,30 @@ public class Patient extends Resource {
         this.active.setValue(value);
       }
     }
+
+      public Patient copy() {
+        Patient dst = new Patient();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
+        dst.details = details == null ? null : details.copy();
+        dst.contact = new ArrayList<ContactComponent>();
+        for (ContactComponent i : contact)
+          dst.contact.add(i.copy(dst));
+        dst.animal = animal == null ? null : animal.copy(dst);
+        dst.provider = provider == null ? null : provider.copy();
+        dst.multipleBirth = multipleBirth == null ? null : multipleBirth.copy();
+        dst.deceasedDate = deceasedDate == null ? null : deceasedDate.copy();
+        dst.link = new ArrayList<ResourceReference>();
+        for (ResourceReference i : link)
+          dst.link.add(i.copy());
+        dst.active = active == null ? null : active.copy();
+        return dst;
+      }
+
+      protected Patient typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

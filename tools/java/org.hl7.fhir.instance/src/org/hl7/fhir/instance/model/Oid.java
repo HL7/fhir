@@ -30,5 +30,13 @@ package org.hl7.fhir.instance.model;
 
 public class Oid extends Id {
 
+	protected Type typedCopy() {
+		return copy();
+	}
 	
+	public Oid copy() {
+		Oid dst = new Oid();
+		dst.value = value;
+		return dst;
+	}
 }

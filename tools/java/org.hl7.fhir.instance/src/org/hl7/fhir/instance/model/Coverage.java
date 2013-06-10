@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 /**
  * Financial instrument by which payment information for health care
@@ -40,17 +40,17 @@ public class Coverage extends Resource {
         /**
          * The name of the PolicyHolder
          */
-        private HumanName name;
+        protected HumanName name;
 
         /**
          * The mailing address, typically home, of the PolicyHolder
          */
-        private Address address;
+        protected Address address;
 
         /**
          * The date of birth of the PolicyHolder
          */
-        private Date birthdate;
+        protected Date birthdate;
 
         public HumanName getName() { 
           return this.name;
@@ -90,57 +90,65 @@ public class Coverage extends Resource {
           }
         }
 
+      public CoverageSubscriberComponent copy(Coverage e) {
+        CoverageSubscriberComponent dst = e.new CoverageSubscriberComponent();
+        dst.name = name == null ? null : name.copy();
+        dst.address = address == null ? null : address.copy();
+        dst.birthdate = birthdate == null ? null : birthdate.copy();
+        return dst;
+      }
+
   }
 
     /**
      * The program or plan underwriter or payor.
      */
-    private ResourceReference issuer;
+    protected ResourceReference issuer;
 
     /**
      * Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force.
      */
-    private Period period;
+    protected Period period;
 
     /**
      * The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health.
      */
-    private Coding type;
+    protected Coding type;
 
     /**
      * The main (and possibly only) identifier for the coverage - often referred to as a Subscriber Id, Certificate number or Personal Health Number or Case ID.
      */
-    private Identifier identifier;
+    protected Identifier identifier;
 
     /**
      * Todo
      */
-    private Identifier group;
+    protected Identifier group;
 
     /**
      * Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.
      */
-    private Identifier plan;
+    protected Identifier plan;
 
     /**
      * Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.
      */
-    private Identifier subplan;
+    protected Identifier subplan;
 
     /**
      * A unique identifier for a dependent under the coverage.
      */
-    private Integer dependent;
+    protected Integer dependent;
 
     /**
      * An optional counter for a particular instance of the identified coverage which increments upon each renewal.
      */
-    private Integer sequence;
+    protected Integer sequence;
 
     /**
      * Planholder information
      */
-    private CoverageSubscriberComponent subscriber;
+    protected CoverageSubscriberComponent subscriber;
 
     public ResourceReference getIssuer() { 
       return this.issuer;
@@ -249,6 +257,25 @@ public class Coverage extends Resource {
     public void setSubscriber(CoverageSubscriberComponent value) { 
       this.subscriber = value;
     }
+
+      public Coverage copy() {
+        Coverage dst = new Coverage();
+        dst.issuer = issuer == null ? null : issuer.copy();
+        dst.period = period == null ? null : period.copy();
+        dst.type = type == null ? null : type.copy();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.group = group == null ? null : group.copy();
+        dst.plan = plan == null ? null : plan.copy();
+        dst.subplan = subplan == null ? null : subplan.copy();
+        dst.dependent = dependent == null ? null : dependent.copy();
+        dst.sequence = sequence == null ? null : sequence.copy();
+        dst.subscriber = subscriber == null ? null : subscriber.copy(dst);
+        return dst;
+      }
+
+      protected Coverage typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

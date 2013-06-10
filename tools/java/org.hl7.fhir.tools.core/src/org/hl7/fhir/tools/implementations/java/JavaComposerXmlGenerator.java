@@ -378,9 +378,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
         else if (tn.equals("code")) {
           tn = "Code";
           comp = "composeCode";
-        } else if (tn.equalsIgnoreCase("uri"))
-          tn = "Uri";
-        else if (tn.equals("instant"))
+        } else if (tn.equals("instant"))
           tn = "Instant";
         if (tn.contains("Resource(")) {
           comp = "composeResourceReference";

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 /**
  * A set of ordered Quantities defined by a low and high limit.
@@ -39,12 +39,12 @@ public class Range extends Type {
     /**
      * The low limit. The boundary is inclusive.
      */
-    private Quantity low;
+    protected Quantity low;
 
     /**
      * The high limit. The boundary is inclusive.
      */
-    private Quantity high;
+    protected Quantity high;
 
     public Quantity getLow() { 
       return this.low;
@@ -61,6 +61,17 @@ public class Range extends Type {
     public void setHigh(Quantity value) { 
       this.high = value;
     }
+
+      public Range copy() {
+        Range dst = new Range();
+        dst.low = low == null ? null : low.copy();
+        dst.high = high == null ? null : high.copy();
+        return dst;
+      }
+
+      protected Range typedCopy() {
+        return copy();
+      }
 
 
 }

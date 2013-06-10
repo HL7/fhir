@@ -36,6 +36,7 @@ import java.util.Stack;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.parsers.TypeParser;
+import org.hl7.fhir.definitions.validation.ValidationMessage.Source;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Profile;
@@ -53,7 +54,7 @@ import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
  * @author Grahame
  *
  */
-public class ProfileValidator {
+public class ProfileValidator extends BaseValidator {
 
   public class TypeState {
     private String prefix;
@@ -69,7 +70,11 @@ public class ProfileValidator {
     public ProfileStructureComponent getType() {
       return type;
     }
+  }
 
+  public ProfileValidator() {
+    super();
+    source = Source.ProfileValidator;
   }
 
   private Map<Profile.ElementComponent, ArrayList<ElementDefn>> map = new HashMap<Profile.ElementComponent, ArrayList<ElementDefn>>();

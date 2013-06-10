@@ -85,7 +85,7 @@ import org.hl7.fhir.definitions.validation.InstanceValidator;
 import org.hl7.fhir.definitions.validation.ProfileValidator;
 import org.hl7.fhir.definitions.validation.ResourceValidator;
 import org.hl7.fhir.definitions.validation.ValidationMessage;
-import org.hl7.fhir.definitions.validation.ValidationMessage.Level;
+import org.hl7.fhir.definitions.validation.ValidationMessage.Source;
 import org.hl7.fhir.instance.formats.AtomComposer;
 import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.XmlComposer;
@@ -95,6 +95,7 @@ import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Uri;
@@ -183,10 +184,13 @@ public class Publisher {
   public class ExampleReference {
 	  private String type;
 	  private String id;
-    public ExampleReference(String type, String id) {
+	  private String path;
+	  
+    public ExampleReference(String type, String id, String path) {
       super();
       this.type = type;
       this.id = id;
+      this.path = path;
     }
     public String describe() {
       return type+"|"+id;
@@ -196,6 +200,9 @@ public class Publisher {
     }
     public String getId() {
       return id;
+    }
+    public String getPath() {
+      return path;
     }
     
   }
@@ -537,21 +544,21 @@ public class Publisher {
    // val.dumpParams();
    
    for (ValidationMessage e : errors) {
-     if (e.getLevel() == Level.Hint) {
-       System.out.println(e.getLevel().toString()+": "+e.getMessage());
-       page.getQa().hint(e.getMessage());
+     if (e.getLevel() == IssueSeverity.information) {
+       System.out.println(e.summary());
+       page.getQa().hint(e.summary());
      }
     }
    for (ValidationMessage e : errors) {
-     if (e.getLevel() == Level.Warning) {
-       System.out.println(e.getLevel().toString()+": "+e.getMessage());
-       page.getQa().warning(e.getMessage());
+     if (e.getLevel() == IssueSeverity.warning) {
+       System.out.println(e.summary());
+       page.getQa().warning(e.summary());
      }
     }
    int t = 0;
    for (ValidationMessage e : errors) {
-     if (e.getLevel() == Level.Error) {
-       System.out.println(e.getLevel().toString()+": "+e.getMessage());
+     if (e.getLevel() == IssueSeverity.error || e.getLevel() == IssueSeverity.fatal) {
+       System.out.println(e.summary());
        t++;
      }
 		}
@@ -568,8 +575,8 @@ public class Publisher {
 	        listLinks(e.getXml().getDocumentElement(), refs);
 	        for (ExampleReference ref : refs) {
 	          if (!ref.getId().startsWith("cid:") && !ref.getId().startsWith("urn:") && !ref.getId().startsWith("http:") && !resolveLink(ref)) { 
-	            errors.add(new ValidationMessage("Unable to resolve example reference to "+ref.describe()+" in "+e.getPath()
-	                  +"\r\n   Possible Ids: "+listTargetIds(ref.getType()), Level.Error));
+	            errors.add(new ValidationMessage(Source.ExampleValidator, "business-rule", ref.getPath(), "Unable to resolve example reference to "+ref.describe()+" in "+e.getPath()
+	                  +"\r\n   Possible Ids: "+listTargetIds(ref.getType()), IssueSeverity.error));
 	          }
 	        }
 	      } 
@@ -693,7 +700,7 @@ public class Publisher {
     if (d.typeCode().contains("Resource") && !d.typeCode().equals("Resource")) {
       for (Element m : set) {
         if (XMLUtil.getNamedChild(m, "type") != null && XMLUtil.getNamedChild(m, "reference") != null) {
-          refs.add(new ExampleReference(XMLUtil.getNamedChild(m, "type").getAttribute("value"), XMLUtil.getNamedChild(m, "reference").getAttribute("value")));
+          refs.add(new ExampleReference(XMLUtil.getNamedChild(m, "type").getAttribute("value"), XMLUtil.getNamedChild(m, "reference").getAttribute("value"), path));
         }
       }
     }    
@@ -922,7 +929,6 @@ public class Publisher {
 
       log("....validator");
       ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "validation.zip");
-      zip.addFileName("org.hl7.fhir.validator.jar", Utilities.path(page.getFolders().rootDir, "tools", "bin", "org.hl7.fhir.validator.jar"));
       zip.addFileName("profiles-types.xml", page.getFolders().dstDir + "profiles-types.xml");
       zip.addFileName("profiles-types.json", page.getFolders().dstDir + "profiles-types.json");
       zip.addFileName("profiles-resources.xml", page.getFolders().dstDir + "profiles-resources.xml");
@@ -933,9 +939,20 @@ public class Publisher {
       zip.addFileName("v2-tables.json", page.getFolders().dstDir + "v2-tables.json");
       zip.addFileName("v3-codesystems.xml", page.getFolders().dstDir + "v3-codesystems.xml");
       zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json");
-      // todo: schemas
+      zip.addFiles(page.getFolders().dstDir, "", ".xsd");
+      zip.addFiles(page.getFolders().dstDir, "", ".sch");
+      zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xsl");
+      zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xslt");
       zip.close();
       
+      zip = new ZipGenerator(page.getFolders().dstDir + "validator.zip");
+      zip.addFileName("readme.txt", Utilities.path(page.getFolders().srcDir, "tools", "readme.txt"));
+      zip.addFileName("org.hl7.fhir.validator.jar", Utilities.path(page.getFolders().rootDir, "tools", "bin", "org.hl7.fhir.validator.jar"));
+      zip.addFileName("validation.zip", page.getFolders().dstDir + "validation.zip");
+      zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".zip"); // saxon too - always make this last
+      zip.close();
+      
+
       log(" ...zips");
 	    zip = new ZipGenerator(page.getFolders().dstDir + "examples.zip");
 	    zip.addFiles(page.getFolders().dstDir + "examples" + File.separator, "", null);
@@ -1046,7 +1063,7 @@ public class Publisher {
     vs.setStatusSimple(ValuesetStatus.production);
     ValueSetDefineComponent def = vs.new ValueSetDefineComponent();
     vs.setDefine(def);
-    def.setSystemSimple(new URI("http://hl7.org/fhir/v3/"+id));
+    def.setSystemSimple("http://hl7.org/fhir/v3/"+id);
         
     Element r = XMLUtil.getNamedChild(e, "releasedVersion");
     if (r != null) {
@@ -1274,7 +1291,7 @@ public class Publisher {
     vs.setDateSimple("2011-01-28"); // v2.7 version
     ValueSetDefineComponent def = vs.new ValueSetDefineComponent();
     vs.setDefine(def);
-    def.setSystemSimple(new URI("http://hl7.org/fhir/v2/"+id));
+    def.setSystemSimple("http://hl7.org/fhir/v2/"+id);
     StringBuilder s = new StringBuilder();
        
     String desc = "";
@@ -1340,7 +1357,7 @@ public class Publisher {
     vs.setDateSimple("2011-01-28"); // v2.7 version
     ValueSetDefineComponent def = vs.new ValueSetDefineComponent();
     vs.setDefine(def);
-    def.setSystemSimple(new URI("http://hl7.org/fhir/v2/"+id+"/"+version));
+    def.setSystemSimple("http://hl7.org/fhir/v2/"+id+"/"+version);
         
 
         String desc = "";
@@ -2193,6 +2210,7 @@ public class Publisher {
 				.getFolders().dstDir));
 		Schema schema = schemaFactory.newSchema(sources);
     InstanceValidator validator = new InstanceValidator(page.getFolders().dstDir+"validation.zip");
+    validator.setSuppressLoincSnomedMessages(true);
 		log(".... done");
 
 		for (String rname : page.getDefinitions().sortedResourceNames()) {
@@ -2297,8 +2315,8 @@ public class Publisher {
     List<ValidationMessage> issues = validator.validateInstance(root);
 		boolean abort = false;
 		for (ValidationMessage m : issues) {
-		  page.log("  " +m.getLevel().toString()+": "+ m.getMessage());
-		  abort = abort || m.getLevel().equals(Level.Error);
+		  page.log("  " +m.summary());
+		  abort = abort || m.getLevel().equals(IssueSeverity.error);
 		}
 		if (abort)
 		  throw new Exception("Resource Example " + n + " failed instance validation");
@@ -2477,7 +2495,7 @@ public class Publisher {
       for (String n : cd.getVSSources()) {
         ConceptSetComponent cc = vs.new ConceptSetComponent();
         vs.getCompose().getInclude().add(cc);
-        cc.setSystemSimple(new URI(n));
+        cc.setSystemSimple(n);
         for (DefinedCode c : cd.getCodes()) {
           if (n.equals(c.getSystem()))
             cc.getCode().add(org.hl7.fhir.instance.model.Factory.newCode(c.getCode()));
@@ -2486,15 +2504,9 @@ public class Publisher {
     }
     else {
       vs.setDefine(vs.new ValueSetDefineComponent());
-      vs.getDefine().setSystemSimple(new URI("http://hl7.org/fhir/"+Utilities.fileTitle(filename)));
-      for (DefinedCode c : cd.getCodes()) {
-        ValueSetDefineConceptComponent d = vs.new ValueSetDefineConceptComponent();
-        vs.getDefine().getConcept().add(d);
-        d.setCodeSimple(c.getCode());
-        if (!Utilities.noString(c.getDisplay()))
-          d.setDisplaySimple(c.getDisplay());
-        if (!Utilities.noString(c.getDefinition()))
-          d.setDefinitionSimple(c.getDefinition());       
+      vs.getDefine().setSystemSimple("http://hl7.org/fhir/"+Utilities.fileTitle(filename));
+      for (DefinedCode c : cd.getChildCodes()) {
+        addCode(vs, vs.getDefine().getConcept(), c);       
       }
     }
     new NarrativeGenerator().generate(vs, page.getCodeSystems());
@@ -2519,6 +2531,19 @@ public class Publisher {
       XmlComposer xml = new XmlComposer();
       xml.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, ".xml")), vs, true);
       cloneToXhtml(Utilities.fileTitle(filename), "Definition for Value Set"+vs.getNameSimple());
+    }
+  }
+
+  private void addCode(ValueSet vs, List<ValueSetDefineConceptComponent> list, DefinedCode c) {
+    ValueSetDefineConceptComponent d = vs.new ValueSetDefineConceptComponent();
+    list.add(d);
+    d.setCodeSimple(c.getCode());
+    if (!Utilities.noString(c.getDisplay()))
+      d.setDisplaySimple(c.getDisplay());
+    if (!Utilities.noString(c.getDefinition()))
+      d.setDefinitionSimple(c.getDefinition());
+    for (DefinedCode g : c.getChildCodes()) {
+      addCode(vs, d.getConcept(), g);             
     }
   }
 

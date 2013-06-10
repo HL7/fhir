@@ -29,11 +29,10 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
-import java.net.*;
 /**
  * Optional Extensions Element - found in all resources
  */
@@ -42,22 +41,22 @@ public class Extension extends Element {
     /**
      * Source of the definition for the extension code - a logical name or a URL
      */
-    private Uri url;
+    protected Uri url;
 
     /**
      * This value should be set to true if the value of the extension qualifies or negates data in other content
      */
-    private Boolean isModifier;
+    protected Boolean isModifier;
 
     /**
      * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list)
      */
-    private org.hl7.fhir.instance.model.Type value;
+    protected org.hl7.fhir.instance.model.Type value;
 
     /**
      * Nested Complex extensions
      */
-    private List<Extension> extension = new ArrayList<Extension>();
+    protected List<Extension> extension = new ArrayList<Extension>();
 
     public Uri getUrl() { 
       return this.url;
@@ -67,11 +66,11 @@ public class Extension extends Element {
       this.url = value;
     }
 
-    public URI getUrlSimple() { 
+    public String getUrlSimple() { 
       return this.url == null ? null : this.url.getValue();
     }
 
-    public void setUrlSimple(URI value) { 
+    public void setUrlSimple(String value) { 
         if (this.url == null)
           this.url = new Uri();
         this.url.setValue(value);
@@ -110,6 +109,21 @@ public class Extension extends Element {
     public List<Extension> getExtension() { 
       return this.extension;
     }
+
+      public Extension copy() {
+        Extension dst = new Extension();
+        dst.url = url == null ? null : url.copy();
+        dst.isModifier = isModifier == null ? null : isModifier.copy();
+        dst.value = value == null ? null : value.copy();
+        dst.extension = new ArrayList<Extension>();
+        for (Extension i : extension)
+          dst.extension.add(i.copy());
+        return dst;
+      }
+
+      protected Extension typedCopy() {
+        return copy();
+      }
 
 
 }

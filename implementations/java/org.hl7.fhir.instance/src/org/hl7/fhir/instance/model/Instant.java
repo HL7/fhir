@@ -48,5 +48,12 @@ public class Instant extends Type {
 	public void setValue(Calendar value) {
 		this.value = value;
 	} 
-	
+	protected Type typedCopy() {
+		return copy();
+	}
+	public Instant copy() {
+		Instant dst = new Instant();
+		dst.value = value;
+		return dst;
+	}
 }

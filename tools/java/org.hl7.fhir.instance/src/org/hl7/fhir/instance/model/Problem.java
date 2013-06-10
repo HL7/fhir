@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -142,12 +142,12 @@ public class Problem extends Resource {
         /**
          * A simple summary of the stage such as "Stage 3". The determination of the stage is disease-specific
          */
-        private CodeableConcept summary;
+        protected CodeableConcept summary;
 
         /**
          * Reference to a formal record of the evidence on which the staging assessment is based
          */
-        private List<ResourceReference> assessment = new ArrayList<ResourceReference>();
+        protected List<ResourceReference> assessment = new ArrayList<ResourceReference>();
 
         public CodeableConcept getSummary() { 
           return this.summary;
@@ -161,18 +161,27 @@ public class Problem extends Resource {
           return this.assessment;
         }
 
+      public ProblemStageComponent copy(Problem e) {
+        ProblemStageComponent dst = e.new ProblemStageComponent();
+        dst.summary = summary == null ? null : summary.copy();
+        dst.assessment = new ArrayList<ResourceReference>();
+        for (ResourceReference i : assessment)
+          dst.assessment.add(i.copy());
+        return dst;
+      }
+
   }
 
     public class ProblemEvidenceComponent extends Element {
         /**
          * A manifestion or symptom that led to the recording of this problem/diagnosis
          */
-        private CodeableConcept code;
+        protected CodeableConcept code;
 
         /**
          * Links to other relevant information, including pathology reports
          */
-        private List<ResourceReference> details = new ArrayList<ResourceReference>();
+        protected List<ResourceReference> details = new ArrayList<ResourceReference>();
 
         public CodeableConcept getCode() { 
           return this.code;
@@ -186,18 +195,27 @@ public class Problem extends Resource {
           return this.details;
         }
 
+      public ProblemEvidenceComponent copy(Problem e) {
+        ProblemEvidenceComponent dst = e.new ProblemEvidenceComponent();
+        dst.code = code == null ? null : code.copy();
+        dst.details = new ArrayList<ResourceReference>();
+        for (ResourceReference i : details)
+          dst.details.add(i.copy());
+        return dst;
+      }
+
   }
 
     public class ProblemLocationComponent extends Element {
         /**
          * Code that identifies the structural location
          */
-        private CodeableConcept code;
+        protected CodeableConcept code;
 
         /**
          * Detailed anatomical location information
          */
-        private String_ details;
+        protected String_ details;
 
         public CodeableConcept getCode() { 
           return this.code;
@@ -229,18 +247,25 @@ public class Problem extends Resource {
           }
         }
 
+      public ProblemLocationComponent copy(Problem e) {
+        ProblemLocationComponent dst = e.new ProblemLocationComponent();
+        dst.code = code == null ? null : code.copy();
+        dst.details = details == null ? null : details.copy();
+        return dst;
+      }
+
   }
 
     public class ProblemRelatedItemComponent extends Element {
         /**
          * The type of relationship that this problem/diagnosis has to the related item
          */
-        private Enumeration<ProblemRelationshipType> type;
+        protected Enumeration<ProblemRelationshipType> type;
 
         /**
          * Target of the relationship
          */
-        private ResourceReference target;
+        protected ResourceReference target;
 
         public Enumeration<ProblemRelationshipType> getType() { 
           return this.type;
@@ -268,82 +293,89 @@ public class Problem extends Resource {
           this.target = value;
         }
 
+      public ProblemRelatedItemComponent copy(Problem e) {
+        ProblemRelatedItemComponent dst = e.new ProblemRelatedItemComponent();
+        dst.type = type == null ? null : type.copy();
+        dst.target = target == null ? null : target.copy();
+        return dst;
+      }
+
   }
 
     /**
      * Subject of this problem
      */
-    private ResourceReference subject;
+    protected ResourceReference subject;
 
     /**
      * Visit during which the problem was first asserted
      */
-    private ResourceReference visit;
+    protected ResourceReference visit;
 
     /**
      * Person who asserts this problem
      */
-    private ResourceReference asserter;
+    protected ResourceReference asserter;
 
     /**
      * Estimated or actual date the problem/diagnosis was first detected/suspected
      */
-    private Date dateAsserted;
+    protected Date dateAsserted;
 
     /**
      * Identification of the problem or diagnosis.
      */
-    private CodeableConcept code;
+    protected CodeableConcept code;
 
     /**
      * A category assigned to the problem/diagnosis. E.g. finding | problem | diagnosis | concern | condition
      */
-    private CodeableConcept category;
+    protected CodeableConcept category;
 
     /**
      * The clinical status of the problem or diagnosis
      */
-    private Enumeration<ProblemStatus> status;
+    protected Enumeration<ProblemStatus> status;
 
     /**
      * The degree of confidence that this problem/diagnosis is correct
      */
-    private CodeableConcept certainty;
+    protected CodeableConcept certainty;
 
     /**
      * A subjective assessment of the severity of the Problem/Diagnosis as evaluated by the clinician.
      */
-    private CodeableConcept severity;
+    protected CodeableConcept severity;
 
     /**
      * Estimated or actual date the problem/diagnosis began, in the opinion of the clinician
      */
-    private Type onset;
+    protected Type onset;
 
     /**
      * The date or estimated date that the problem/diagnosis resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - problems are never really resolved, but they can abate.
      */
-    private Type abatement;
+    protected Type abatement;
 
     /**
      * Clinical stage or grade of a problem/diagnosis. May include formal severity assessments
      */
-    private ProblemStageComponent stage;
+    protected ProblemStageComponent stage;
 
     /**
      * Supporting Evidence / manfiestions that are the basis on which this problem/diagnosis is suspected or confirmed
      */
-    private List<ProblemEvidenceComponent> evidence = new ArrayList<ProblemEvidenceComponent>();
+    protected List<ProblemEvidenceComponent> evidence = new ArrayList<ProblemEvidenceComponent>();
 
     /**
      * The anatomical location where this problem/diagnosis manifests itself
      */
-    private List<ProblemLocationComponent> location = new ArrayList<ProblemLocationComponent>();
+    protected List<ProblemLocationComponent> location = new ArrayList<ProblemLocationComponent>();
 
     /**
      * Further problems, diagnoses, procedures or events that are related in some way to this problem/diagnosis, or the substance that caused/triggered this problem
      */
-    private List<ProblemRelatedItemComponent> relatedItem = new ArrayList<ProblemRelatedItemComponent>();
+    protected List<ProblemRelatedItemComponent> relatedItem = new ArrayList<ProblemRelatedItemComponent>();
 
     public ResourceReference getSubject() { 
       return this.subject;
@@ -480,6 +512,36 @@ public class Problem extends Resource {
     public List<ProblemRelatedItemComponent> getRelatedItem() { 
       return this.relatedItem;
     }
+
+      public Problem copy() {
+        Problem dst = new Problem();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.visit = visit == null ? null : visit.copy();
+        dst.asserter = asserter == null ? null : asserter.copy();
+        dst.dateAsserted = dateAsserted == null ? null : dateAsserted.copy();
+        dst.code = code == null ? null : code.copy();
+        dst.category = category == null ? null : category.copy();
+        dst.status = status == null ? null : status.copy();
+        dst.certainty = certainty == null ? null : certainty.copy();
+        dst.severity = severity == null ? null : severity.copy();
+        dst.onset = onset == null ? null : onset.copy();
+        dst.abatement = abatement == null ? null : abatement.copy();
+        dst.stage = stage == null ? null : stage.copy(dst);
+        dst.evidence = new ArrayList<ProblemEvidenceComponent>();
+        for (ProblemEvidenceComponent i : evidence)
+          dst.evidence.add(i.copy(dst));
+        dst.location = new ArrayList<ProblemLocationComponent>();
+        for (ProblemLocationComponent i : location)
+          dst.location.add(i.copy(dst));
+        dst.relatedItem = new ArrayList<ProblemRelatedItemComponent>();
+        for (ProblemRelatedItemComponent i : relatedItem)
+          dst.relatedItem.add(i.copy(dst));
+        return dst;
+      }
+
+      protected Problem typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

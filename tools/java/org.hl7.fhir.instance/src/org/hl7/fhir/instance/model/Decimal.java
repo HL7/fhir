@@ -59,4 +59,14 @@ public class Decimal extends Type {
     this.original = original;
   } 
 
+	public Decimal copy() {
+		Decimal dst = new Decimal();
+		dst.value = value;
+		dst.original = original;
+		return dst;
+	}
+	protected Type typedCopy() {
+		return copy();
+	}
+
 }

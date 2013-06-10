@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -654,32 +654,32 @@ public class SecurityEvent extends Resource {
         /**
          * Identifier for a specific audited event
          */
-        private CodeableConcept eventId;
+        protected CodeableConcept eventId;
 
         /**
          * Identifier for the category of event
          */
-        private List<CodeableConcept> code = new ArrayList<CodeableConcept>();
+        protected List<CodeableConcept> code = new ArrayList<CodeableConcept>();
 
         /**
          * Indicator for type of action performed during the event that generated the audit
          */
-        private Enumeration<SecurityEventAction> action;
+        protected Enumeration<SecurityEventAction> action;
 
         /**
          * The time when the event occurred on the source
          */
-        private Instant dateTime;
+        protected Instant dateTime;
 
         /**
          * Indicates whether the event succeeded or failed
          */
-        private Enumeration<SecurityEventOutcome> outcome;
+        protected Enumeration<SecurityEventOutcome> outcome;
 
         /**
          * A description of the event outcome
          */
-        private String_ outcomeDesc;
+        protected String_ outcomeDesc;
 
         public CodeableConcept getEventId() { 
           return this.eventId;
@@ -773,43 +773,56 @@ public class SecurityEvent extends Resource {
           }
         }
 
+      public SecurityEventEventComponent copy(SecurityEvent e) {
+        SecurityEventEventComponent dst = e.new SecurityEventEventComponent();
+        dst.eventId = eventId == null ? null : eventId.copy();
+        dst.code = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : code)
+          dst.code.add(i.copy());
+        dst.action = action == null ? null : action.copy();
+        dst.dateTime = dateTime == null ? null : dateTime.copy();
+        dst.outcome = outcome == null ? null : outcome.copy();
+        dst.outcomeDesc = outcomeDesc == null ? null : outcomeDesc.copy();
+        return dst;
+      }
+
   }
 
     public class SecurityEventParticipantComponent extends Element {
         /**
          * Specification of the role(s) the user plays when performing the event, as assigned in role-based access control security
          */
-        private List<CodeableConcept> role = new ArrayList<CodeableConcept>();
+        protected List<CodeableConcept> role = new ArrayList<CodeableConcept>();
 
         /**
          * Used when the event is about exporting/importing onto media
          */
-        private CodeableConcept mediaId;
+        protected CodeableConcept mediaId;
 
         /**
          * Unique identifier for the user actively participating in the event
          */
-        private String_ userId;
+        protected String_ userId;
 
         /**
          * User identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available
          */
-        private String_ otherUserId;
+        protected String_ otherUserId;
 
         /**
          * Human-meaningful name for the user
          */
-        private String_ name;
+        protected String_ name;
 
         /**
          * Indicator that the user is or is not the requestor, or initiator, for the event being audited.
          */
-        private Boolean requestor;
+        protected Boolean requestor;
 
         /**
          * Logical network location for application activity, if the activity has a network location
          */
-        private SecurityEventParticipantNetworkComponent network;
+        protected SecurityEventParticipantNetworkComponent network;
 
         public List<CodeableConcept> getRole() { 
           return this.role;
@@ -911,18 +924,32 @@ public class SecurityEvent extends Resource {
           this.network = value;
         }
 
+      public SecurityEventParticipantComponent copy(SecurityEvent e) {
+        SecurityEventParticipantComponent dst = e.new SecurityEventParticipantComponent();
+        dst.role = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : role)
+          dst.role.add(i.copy());
+        dst.mediaId = mediaId == null ? null : mediaId.copy();
+        dst.userId = userId == null ? null : userId.copy();
+        dst.otherUserId = otherUserId == null ? null : otherUserId.copy();
+        dst.name = name == null ? null : name.copy();
+        dst.requestor = requestor == null ? null : requestor.copy();
+        dst.network = network == null ? null : network.copy(e);
+        return dst;
+      }
+
   }
 
     public class SecurityEventParticipantNetworkComponent extends Element {
         /**
          * An identifier for the network access point of the user device for the audit event
          */
-        private String_ identifier;
+        protected String_ identifier;
 
         /**
          * An identifier for the type of network access point that originated the audit event
          */
-        private Enumeration<NetworkType> type;
+        protected Enumeration<NetworkType> type;
 
         public String_ getIdentifier() { 
           return this.identifier;
@@ -968,23 +995,30 @@ public class SecurityEvent extends Resource {
           }
         }
 
+      public SecurityEventParticipantNetworkComponent copy(SecurityEvent e) {
+        SecurityEventParticipantNetworkComponent dst = e.new SecurityEventParticipantNetworkComponent();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.type = type == null ? null : type.copy();
+        return dst;
+      }
+
   }
 
     public class SecurityEventSourceComponent extends Element {
         /**
          * Logical source location within the healthcare enterprise network
          */
-        private String_ site;
+        protected String_ site;
 
         /**
          * Identifier of the source where the event originated
          */
-        private String_ identifier;
+        protected String_ identifier;
 
         /**
          * Code specifying the type of source where event originated
          */
-        private List<Coding> type = new ArrayList<Coding>();
+        protected List<Coding> type = new ArrayList<Coding>();
 
         public String_ getSite() { 
           return this.site;
@@ -1030,53 +1064,63 @@ public class SecurityEvent extends Resource {
           return this.type;
         }
 
+      public SecurityEventSourceComponent copy(SecurityEvent e) {
+        SecurityEventSourceComponent dst = e.new SecurityEventSourceComponent();
+        dst.site = site == null ? null : site.copy();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.type = new ArrayList<Coding>();
+        for (Coding i : type)
+          dst.type.add(i.copy());
+        return dst;
+      }
+
   }
 
     public class SecurityEventObjectComponent extends Element {
         /**
          * Describes the identifier that is contained in Participant Object ID
          */
-        private Coding idType;
+        protected Coding idType;
 
         /**
          * Object type being audited
          */
-        private Enumeration<ObjectType> type;
+        protected Enumeration<ObjectType> type;
 
         /**
          * Code representing the functional application role of Participant Object being audited
          */
-        private Enumeration<ObjectRole> role;
+        protected Enumeration<ObjectRole> role;
 
         /**
          * Identifier for the data life-cycle stage for the participant object
          */
-        private Enumeration<ObjectLifecycle> lifecycle;
+        protected Enumeration<ObjectLifecycle> lifecycle;
 
         /**
          * Identifies a specific instance of the participant object
          */
-        private String_ identifier;
+        protected String_ identifier;
 
         /**
          * Denotes policy-defined sensitivity for the Participant Object ID such as VIP, HIV status, mental health status or similar topics
          */
-        private String_ sensitivity;
+        protected String_ sensitivity;
 
         /**
          * An instance-specific descriptor of the Participant Object ID audited, such as a person's name
          */
-        private String_ name;
+        protected String_ name;
 
         /**
          * The actual query for a query-type participant object
          */
-        private Base64Binary query;
+        protected Base64Binary query;
 
         /**
          * Additional Information about the Object
          */
-        private List<SecurityEventObjectDetailsComponent> details = new ArrayList<SecurityEventObjectDetailsComponent>();
+        protected List<SecurityEventObjectDetailsComponent> details = new ArrayList<SecurityEventObjectDetailsComponent>();
 
         public Coding getIdType() { 
           return this.idType;
@@ -1240,18 +1284,34 @@ public class SecurityEvent extends Resource {
           return this.details;
         }
 
+      public SecurityEventObjectComponent copy(SecurityEvent e) {
+        SecurityEventObjectComponent dst = e.new SecurityEventObjectComponent();
+        dst.idType = idType == null ? null : idType.copy();
+        dst.type = type == null ? null : type.copy();
+        dst.role = role == null ? null : role.copy();
+        dst.lifecycle = lifecycle == null ? null : lifecycle.copy();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.sensitivity = sensitivity == null ? null : sensitivity.copy();
+        dst.name = name == null ? null : name.copy();
+        dst.query = query == null ? null : query.copy();
+        dst.details = new ArrayList<SecurityEventObjectDetailsComponent>();
+        for (SecurityEventObjectDetailsComponent i : details)
+          dst.details.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     public class SecurityEventObjectDetailsComponent extends Element {
         /**
          * Name of the property
          */
-        private String_ type;
+        protected String_ type;
 
         /**
          * Property value
          */
-        private Base64Binary value;
+        protected Base64Binary value;
 
         public String_ getType() { 
           return this.type;
@@ -1289,27 +1349,34 @@ public class SecurityEvent extends Resource {
             this.value.setValue(value);
         }
 
+      public SecurityEventObjectDetailsComponent copy(SecurityEvent e) {
+        SecurityEventObjectDetailsComponent dst = e.new SecurityEventObjectDetailsComponent();
+        dst.type = type == null ? null : type.copy();
+        dst.value = value == null ? null : value.copy();
+        return dst;
+      }
+
   }
 
     /**
      * Identifies the name, action type, time, and disposition of the audited event
      */
-    private SecurityEventEventComponent event;
+    protected SecurityEventEventComponent event;
 
     /**
      * A person, a hardware device or software process
      */
-    private List<SecurityEventParticipantComponent> participant = new ArrayList<SecurityEventParticipantComponent>();
+    protected List<SecurityEventParticipantComponent> participant = new ArrayList<SecurityEventParticipantComponent>();
 
     /**
      * Application systems and processes
      */
-    private SecurityEventSourceComponent source;
+    protected SecurityEventSourceComponent source;
 
     /**
      * Specific instances of data or objects that have been accessed
      */
-    private List<SecurityEventObjectComponent> object = new ArrayList<SecurityEventObjectComponent>();
+    protected List<SecurityEventObjectComponent> object = new ArrayList<SecurityEventObjectComponent>();
 
     public SecurityEventEventComponent getEvent() { 
       return this.event;
@@ -1334,6 +1401,23 @@ public class SecurityEvent extends Resource {
     public List<SecurityEventObjectComponent> getObject() { 
       return this.object;
     }
+
+      public SecurityEvent copy() {
+        SecurityEvent dst = new SecurityEvent();
+        dst.event = event == null ? null : event.copy(dst);
+        dst.participant = new ArrayList<SecurityEventParticipantComponent>();
+        for (SecurityEventParticipantComponent i : participant)
+          dst.participant.add(i.copy(dst));
+        dst.source = source == null ? null : source.copy(dst);
+        dst.object = new ArrayList<SecurityEventObjectComponent>();
+        for (SecurityEventObjectComponent i : object)
+          dst.object.add(i.copy(dst));
+        return dst;
+      }
+
+      protected SecurityEvent typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

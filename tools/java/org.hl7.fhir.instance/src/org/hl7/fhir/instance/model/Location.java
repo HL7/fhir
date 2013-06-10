@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -43,17 +43,17 @@ public class Location extends Resource {
         /**
          * Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML
          */
-        private Decimal longitude;
+        protected Decimal longitude;
 
         /**
          * Lattitude. The value domain and the interpretation are the same as for the text of the lattitude element in KML
          */
-        private Decimal latitude;
+        protected Decimal latitude;
 
         /**
          * Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML
          */
-        private Decimal altitude;
+        protected Decimal altitude;
 
         public Decimal getLongitude() { 
           return this.longitude;
@@ -113,52 +113,60 @@ public class Location extends Resource {
           }
         }
 
+      public LocationPositionComponent copy(Location e) {
+        LocationPositionComponent dst = e.new LocationPositionComponent();
+        dst.longitude = longitude == null ? null : longitude.copy();
+        dst.latitude = latitude == null ? null : latitude.copy();
+        dst.altitude = altitude == null ? null : altitude.copy();
+        return dst;
+      }
+
   }
 
     /**
      * Name of the location which identifies it to its users
      */
-    private String_ name;
+    protected String_ name;
 
     /**
      * Description of the Location, which helps in finding or referencing the place
      */
-    private String_ description;
+    protected String_ description;
 
     /**
      * Classification of the location
      */
-    private List<CodeableConcept> type = new ArrayList<CodeableConcept>();
+    protected List<CodeableConcept> type = new ArrayList<CodeableConcept>();
 
     /**
      * The contact details of the main communication devices present at the location
      */
-    private Contact telecom;
+    protected Contact telecom;
 
     /**
      * Physical location
      */
-    private Address address;
+    protected Address address;
 
     /**
      * The absolute geographic location of the Location, expressed in a KML compatible manner
      */
-    private LocationPositionComponent position;
+    protected LocationPositionComponent position;
 
     /**
      * The organization that provides services at the location
      */
-    private ResourceReference provider;
+    protected ResourceReference provider;
 
     /**
      * Whether the location is still used to provide services
      */
-    private Boolean active;
+    protected Boolean active;
 
     /**
      * Another Location which this Location is physically inside of
      */
-    private ResourceReference partOf;
+    protected ResourceReference partOf;
 
     public String_ getName() { 
       return this.name;
@@ -265,6 +273,26 @@ public class Location extends Resource {
     public void setPartOf(ResourceReference value) { 
       this.partOf = value;
     }
+
+      public Location copy() {
+        Location dst = new Location();
+        dst.name = name == null ? null : name.copy();
+        dst.description = description == null ? null : description.copy();
+        dst.type = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : type)
+          dst.type.add(i.copy());
+        dst.telecom = telecom == null ? null : telecom.copy();
+        dst.address = address == null ? null : address.copy();
+        dst.position = position == null ? null : position.copy(dst);
+        dst.provider = provider == null ? null : provider.copy();
+        dst.active = active == null ? null : active.copy();
+        dst.partOf = partOf == null ? null : partOf.copy();
+        return dst;
+      }
+
+      protected Location typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

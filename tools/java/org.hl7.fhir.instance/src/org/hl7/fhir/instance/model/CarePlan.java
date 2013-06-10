@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -306,12 +306,12 @@ public class CarePlan extends Resource {
         /**
          * Indicates specific responsibility of an individual within the care plan.  E.g. "Primary physician", "Team coordinator", "Caregiver", etc.
          */
-        private CodeableConcept role;
+        protected CodeableConcept role;
 
         /**
          * The specific person or organization who is participating/expected to participate in the care plan.
          */
-        private ResourceReference member;
+        protected ResourceReference member;
 
         public CodeableConcept getRole() { 
           return this.role;
@@ -329,23 +329,30 @@ public class CarePlan extends Resource {
           this.member = value;
         }
 
+      public CarePlanParticipantComponent copy(CarePlan e) {
+        CarePlanParticipantComponent dst = e.new CarePlanParticipantComponent();
+        dst.role = role == null ? null : role.copy();
+        dst.member = member == null ? null : member.copy();
+        return dst;
+      }
+
   }
 
     public class CarePlanGoalComponent extends Element {
         /**
          * Human readable description of a specific desired objective of the care plan.
          */
-        private String_ description;
+        protected String_ description;
 
         /**
          * Indicates whether the goal has been reached and is still considered relevant
          */
-        private Enumeration<CarePlanGoalStatus> status;
+        protected Enumeration<CarePlanGoalStatus> status;
 
         /**
          * Any comments related to the goal
          */
-        private String_ notes;
+        protected String_ notes;
 
         public String_ getDescription() { 
           return this.description;
@@ -409,73 +416,81 @@ public class CarePlan extends Resource {
           }
         }
 
+      public CarePlanGoalComponent copy(CarePlan e) {
+        CarePlanGoalComponent dst = e.new CarePlanGoalComponent();
+        dst.description = description == null ? null : description.copy();
+        dst.status = status == null ? null : status.copy();
+        dst.notes = notes == null ? null : notes.copy();
+        return dst;
+      }
+
   }
 
     public class CarePlanActivityComponent extends Element {
         /**
          * High-level categorization of the type of activity in a care plan.
          */
-        private Enumeration<CarePlanActivityCategory> category;
+        protected Enumeration<CarePlanActivityCategory> category;
 
         /**
          * Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of visit.
          */
-        private CodeableConcept code;
+        protected CodeableConcept code;
 
         /**
          * Identifies what progress is being made for the specific activity.
          */
-        private Enumeration<CarePlanActivityStatus> status;
+        protected Enumeration<CarePlanActivityStatus> status;
 
         /**
          * If true, indicates that the described activity is one that must NOT be engaged in when following the plan.
          */
-        private Boolean prohibited;
+        protected Boolean prohibited;
 
         /**
          * The period, timing or frequency upon which the described activity is to occur.
          */
-        private Type timing;
+        protected Type timing;
 
         /**
          * Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.
          */
-        private ResourceReference location;
+        protected ResourceReference location;
 
         /**
          * Identifies who's expected to be involved in the activity.
          */
-        private List<ResourceReference> performer = new ArrayList<ResourceReference>();
+        protected List<ResourceReference> performer = new ArrayList<ResourceReference>();
 
         /**
          * Identifies the food, drug or other product being consumed or supplied in the activity.
          */
-        private ResourceReference product;
+        protected ResourceReference product;
 
         /**
          * Identifies the quantity expected to be consumed in a given day.
          */
-        private Quantity dailyAmount;
+        protected Quantity dailyAmount;
 
         /**
          * Identifies the quantity expected to be supplied.
          */
-        private Quantity quantity;
+        protected Quantity quantity;
 
         /**
          * This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.
          */
-        private String_ details;
+        protected String_ details;
 
         /**
          * Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, visit records, appointments, etc.
          */
-        private List<ResourceReference> actionTaken = new ArrayList<ResourceReference>();
+        protected List<ResourceReference> actionTaken = new ArrayList<ResourceReference>();
 
         /**
          * Notes about the execution of the activity
          */
-        private String_ notes;
+        protected String_ notes;
 
         public Enumeration<CarePlanActivityCategory> getCategory() { 
           return this.category;
@@ -635,57 +650,79 @@ public class CarePlan extends Resource {
           }
         }
 
+      public CarePlanActivityComponent copy(CarePlan e) {
+        CarePlanActivityComponent dst = e.new CarePlanActivityComponent();
+        dst.category = category == null ? null : category.copy();
+        dst.code = code == null ? null : code.copy();
+        dst.status = status == null ? null : status.copy();
+        dst.prohibited = prohibited == null ? null : prohibited.copy();
+        dst.timing = timing == null ? null : timing.copy();
+        dst.location = location == null ? null : location.copy();
+        dst.performer = new ArrayList<ResourceReference>();
+        for (ResourceReference i : performer)
+          dst.performer.add(i.copy());
+        dst.product = product == null ? null : product.copy();
+        dst.dailyAmount = dailyAmount == null ? null : dailyAmount.copy();
+        dst.quantity = quantity == null ? null : quantity.copy();
+        dst.details = details == null ? null : details.copy();
+        dst.actionTaken = new ArrayList<ResourceReference>();
+        for (ResourceReference i : actionTaken)
+          dst.actionTaken.add(i.copy());
+        dst.notes = notes == null ? null : notes.copy();
+        return dst;
+      }
+
   }
 
     /**
      * Unique identifier by which the care plan is known in different business contexts.
      */
-    private Identifier identifier;
+    protected Identifier identifier;
 
     /**
      * Identifies the patient/subject whose intended care is described by the plan.
      */
-    private ResourceReference patient;
+    protected ResourceReference patient;
 
     /**
      * Indicates whether the plan is currently being acted upon, represents future intentions or is now just historical record.
      */
-    private Enumeration<CarePlanStatus> status;
+    protected Enumeration<CarePlanStatus> status;
 
     /**
      * Indicates when the plan did (or is intended to) come into effect and end.
      */
-    private Period period;
+    protected Period period;
 
     /**
      * Identifies the most recent date on which the plan has been revised.
      */
-    private DateTime modified;
+    protected DateTime modified;
 
     /**
      * Identifies the problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.
      */
-    private List<ResourceReference> concern = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> concern = new ArrayList<ResourceReference>();
 
     /**
      * Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.
      */
-    private List<CarePlanParticipantComponent> participant = new ArrayList<CarePlanParticipantComponent>();
+    protected List<CarePlanParticipantComponent> participant = new ArrayList<CarePlanParticipantComponent>();
 
     /**
      * Describes the intended objective(s) of carrying out the Care Plan.
      */
-    private List<CarePlanGoalComponent> goal = new ArrayList<CarePlanGoalComponent>();
+    protected List<CarePlanGoalComponent> goal = new ArrayList<CarePlanGoalComponent>();
 
     /**
      * Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.
      */
-    private List<CarePlanActivityComponent> activity = new ArrayList<CarePlanActivityComponent>();
+    protected List<CarePlanActivityComponent> activity = new ArrayList<CarePlanActivityComponent>();
 
     /**
      * General notes about the care plan not covered elsewhere
      */
-    private String_ notes;
+    protected String_ notes;
 
     public Identifier getIdentifier() { 
       return this.identifier;
@@ -788,6 +825,33 @@ public class CarePlan extends Resource {
         this.notes.setValue(value);
       }
     }
+
+      public CarePlan copy() {
+        CarePlan dst = new CarePlan();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.patient = patient == null ? null : patient.copy();
+        dst.status = status == null ? null : status.copy();
+        dst.period = period == null ? null : period.copy();
+        dst.modified = modified == null ? null : modified.copy();
+        dst.concern = new ArrayList<ResourceReference>();
+        for (ResourceReference i : concern)
+          dst.concern.add(i.copy());
+        dst.participant = new ArrayList<CarePlanParticipantComponent>();
+        for (CarePlanParticipantComponent i : participant)
+          dst.participant.add(i.copy(dst));
+        dst.goal = new ArrayList<CarePlanGoalComponent>();
+        for (CarePlanGoalComponent i : goal)
+          dst.goal.add(i.copy(dst));
+        dst.activity = new ArrayList<CarePlanActivityComponent>();
+        for (CarePlanActivityComponent i : activity)
+          dst.activity.add(i.copy(dst));
+        dst.notes = notes == null ? null : notes.copy();
+        return dst;
+      }
+
+      protected CarePlan typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

@@ -30,7 +30,7 @@ package org.hl7.fhir.instance.model;
 
 public class Id extends Type {
 
-	private String value;
+	protected String value;
 
 	public String getValue() {
 		return value;
@@ -40,5 +40,13 @@ public class Id extends Type {
 		this.value = value;
 	}
 	
+	protected Type typedCopy() {
+		return copy();
+	}
 	
+	public Id copy() {
+		Id dst = new Id();
+		dst.value = value;
+		return dst;
+	}
 }

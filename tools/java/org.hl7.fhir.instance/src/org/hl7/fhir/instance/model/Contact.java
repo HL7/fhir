@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 /**
  * All kinds of technology mediated contact details for a person or organisation, including telephone, email, etc.
@@ -163,22 +163,22 @@ public class Contact extends Type {
     /**
      * What kind of contact this is - what communications system is required to make use of the contact
      */
-    private Enumeration<ContactSystem> system;
+    protected Enumeration<ContactSystem> system;
 
     /**
      * The actual contact details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
      */
-    private String_ value;
+    protected String_ value;
 
     /**
      * Identifies the context for the address
      */
-    private Enumeration<ContactUse> use;
+    protected Enumeration<ContactUse> use;
 
     /**
      * Time period when the contact was/is in use
      */
-    private Period period;
+    protected Period period;
 
     public Enumeration<ContactSystem> getSystem() { 
       return this.system;
@@ -253,6 +253,19 @@ public class Contact extends Type {
     public void setPeriod(Period value) { 
       this.period = value;
     }
+
+      public Contact copy() {
+        Contact dst = new Contact();
+        dst.system = system == null ? null : system.copy();
+        dst.value = value == null ? null : value.copy();
+        dst.use = use == null ? null : use.copy();
+        dst.period = period == null ? null : period.copy();
+        return dst;
+      }
+
+      protected Contact typedCopy() {
+        return copy();
+      }
 
 
 }

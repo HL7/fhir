@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -42,27 +42,27 @@ public class FamilyHistory extends Resource {
         /**
          * This will either be a name or a description.  E.g. "Aunt Susan", "my cousin with the red hair"
          */
-        private String_ name;
+        protected String_ name;
 
         /**
          * The type of relationship this person has to the patient (father, mother, brother etc.) At the moment this is a code linking to a fixed set of values. I'm not sure if there is an international standard for this. A fixed (possibly extensible) set of codes feels better than a codeable concept for somehting like this...
          */
-        private CodeableConcept relationship;
+        protected CodeableConcept relationship;
 
         /**
          * If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outomce code of the condition - in this case the deceased property should still be set.
          */
-        private Type deceased;
+        protected Type deceased;
 
         /**
          * This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.
          */
-        private String_ note;
+        protected String_ note;
 
         /**
          * The significant problemss (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.
          */
-        private List<FamilyHistoryRelationConditionComponent> condition = new ArrayList<FamilyHistoryRelationConditionComponent>();
+        protected List<FamilyHistoryRelationConditionComponent> condition = new ArrayList<FamilyHistoryRelationConditionComponent>();
 
         public String_ getName() { 
           return this.name;
@@ -128,28 +128,40 @@ public class FamilyHistory extends Resource {
           return this.condition;
         }
 
+      public FamilyHistoryRelationComponent copy(FamilyHistory e) {
+        FamilyHistoryRelationComponent dst = e.new FamilyHistoryRelationComponent();
+        dst.name = name == null ? null : name.copy();
+        dst.relationship = relationship == null ? null : relationship.copy();
+        dst.deceased = deceased == null ? null : deceased.copy();
+        dst.note = note == null ? null : note.copy();
+        dst.condition = new ArrayList<FamilyHistoryRelationConditionComponent>();
+        for (FamilyHistoryRelationConditionComponent i : condition)
+          dst.condition.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     public class FamilyHistoryRelationConditionComponent extends Element {
         /**
          * The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like 'cancer' depending on how much is known about the condition and the capabilities of the creating system
          */
-        private CodeableConcept type;
+        protected CodeableConcept type;
 
         /**
          * Indicates what happened as a result of this condition.  If the condition resulted in death, deceased date is captured on the relation.
          */
-        private CodeableConcept outcome;
+        protected CodeableConcept outcome;
 
         /**
          * Either the age of onset, range of approximate age or descriptive string can be recorded.
          */
-        private Type onset;
+        protected Type onset;
 
         /**
          * An area where general notes can be placed about this specific condition.
          */
-        private String_ note;
+        protected String_ note;
 
         public CodeableConcept getType() { 
           return this.type;
@@ -197,22 +209,31 @@ public class FamilyHistory extends Resource {
           }
         }
 
+      public FamilyHistoryRelationConditionComponent copy(FamilyHistory e) {
+        FamilyHistoryRelationConditionComponent dst = e.new FamilyHistoryRelationConditionComponent();
+        dst.type = type == null ? null : type.copy();
+        dst.outcome = outcome == null ? null : outcome.copy();
+        dst.onset = onset == null ? null : onset.copy();
+        dst.note = note == null ? null : note.copy();
+        return dst;
+      }
+
   }
 
     /**
      * The person who this history concerns
      */
-    private ResourceReference subject;
+    protected ResourceReference subject;
 
     /**
      * The related person. Each FamilyHistory resource contains the entire family history for a single person.
      */
-    private List<FamilyHistoryRelationComponent> relation = new ArrayList<FamilyHistoryRelationComponent>();
+    protected List<FamilyHistoryRelationComponent> relation = new ArrayList<FamilyHistoryRelationComponent>();
 
     /**
      * Conveys information about family history not specific to individual relations.
      */
-    private String_ note;
+    protected String_ note;
 
     public ResourceReference getSubject() { 
       return this.subject;
@@ -247,6 +268,20 @@ public class FamilyHistory extends Resource {
         this.note.setValue(value);
       }
     }
+
+      public FamilyHistory copy() {
+        FamilyHistory dst = new FamilyHistory();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.relation = new ArrayList<FamilyHistoryRelationComponent>();
+        for (FamilyHistoryRelationComponent i : relation)
+          dst.relation.add(i.copy(dst));
+        dst.note = note == null ? null : note.copy();
+        return dst;
+      }
+
+      protected FamilyHistory typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

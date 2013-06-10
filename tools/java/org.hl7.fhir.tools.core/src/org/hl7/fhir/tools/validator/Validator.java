@@ -46,6 +46,7 @@ import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
+import java.util.zip.ZipInputStream;
 
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
@@ -55,6 +56,19 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
+import org.hl7.fhir.definitions.validation.InstanceValidator;
+import org.hl7.fhir.definitions.validation.ValidationMessage;
+import org.hl7.fhir.definitions.validation.ValidationMessage.Source;
+import org.hl7.fhir.instance.formats.XmlComposer;
+import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.model.AtomEntry;
+import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.instance.model.OperationOutcome;
+import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.utilities.SchemaInputSource;
 import org.hl7.fhir.utilities.Utilities;
 import org.w3c.dom.Document;
@@ -77,10 +91,18 @@ public class Validator {
     String output = null;
     if (args.length == 0) {
       System.out.println("FHIR Validation tool. ");
+      System.out.println("");
+      System.out.println("The FHIR validation tool validates a FHIR resource or bundle.");
+      System.out.println("Schema and schematron checking is performed, then some additional checks are performed");
+      System.out.println("");
+      System.out.println("JSON is not supported at this time");
+      System.out.println("");
       System.out.println("Usage: FHIRValidator.jar [source] (-defn [definitions]) (-output [output]) where: ");
-      System.out.println("* [source] is a file name or url of the resource or atom feed to validate");
-      System.out.println("* [definitions] is a folder name or url of the FHIR source (http://hl7.org/fhir is default)");
-      System.out.println("* [output] is a filename for the results. If no output, they are just sent to the std out.");
+      System.out.println("* [source] is a file name or url of the resource or bundle feed to validate");
+      System.out.println("* [definitions] is the file name or url of the validation pack (validation.zip). Default: get it from hl7.org");
+      System.out.println("* [output] is a filename for the results (OperationOutcome). Default: results are sent to the std out.");
+      System.out.println("");
+      System.out.println("Master Source for the validation pack: "+MASTER_SOURCE);
     } else {
       Validator exe = new Validator();
       exe.setSource(args[0]);
@@ -92,26 +114,22 @@ public class Validator {
       }
       exe.process();
       if (output == null) {
-        System.out.println("Validating "+args[0]+": "+Integer.toString(exe.getOutputs().size())+" messages");
-        for (ValidationOutput v : exe.getOutputs()) {
+        System.out.println("Validating "+args[0]+": "+Integer.toString(exe.outputs.size())+" messages");
+        for (ValidationMessage v : exe.outputs) {
           System.out.println(v.summary());
         }
-        if (exe.getOutputs().size() == 0)
+        if (exe.outputs.size() == 0)
           System.out.println(" ...success");
         else
           System.out.println(" ...failure");
       } else {
-        OutputStreamWriter w = new OutputStreamWriter(new FileOutputStream(output));
-        w.append("<validation>\r\n");
-        for (ValidationOutput v : exe.getOutputs()) 
-          v.xml(w);
-        w.append("</validation>\r\n"); 
+        new XmlComposer().compose(new FileOutputStream(output), exe.outcome, true);
       }
     }
   }
 
   /**
-   * The source (file name, folder name, url) of the FHIR source. This can be the 
+   * The source (file name, folder name, url) of the FHIR validation pack. This can be the 
    * fhir url, an alternative url of a local copy of the fhir spec, the name of 
    * a zip file containing the fhir spec, the name of a directory containing the
    * fhir spec 
@@ -124,15 +142,15 @@ public class Validator {
    * will all be validated
    */
   private String source;
-  
-  private Map<String, byte[]> files = new HashMap<String, byte[]>();
-  
+   
   /**
    * A list of output messages from the validator
    */
-  private List<ValidationOutput> outputs;
+  private List<ValidationMessage> outputs;
   
+  private OperationOutcome outcome;
   
+  static final String MASTER_SOURCE = "??";
   static final String JAXP_SCHEMA_LANGUAGE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";
   static final String W3C_XML_SCHEMA = "http://www.w3.org/2001/XMLSchema";
   static final String JAXP_SCHEMA_SOURCE = "http://java.sun.com/xml/jaxp/properties/schemaSource";
@@ -154,8 +172,10 @@ public class Validator {
     }
   }
 
+  private Map<String, byte[]> defns = new HashMap<String, byte[]>();
+  
   public void process() throws Exception {
-    outputs = new ArrayList<ValidationOutput>();
+    outputs = new ArrayList<ValidationMessage>();
     // first, locate the source
     if (source == null)
       throw new Exception("no source provided");
@@ -178,17 +198,19 @@ public class Validator {
     String sch = doc.getDocumentElement().getNodeName().toLowerCase();
     if (sch.equals("feed"))
       sch = "fhir-atom";
-    byte[] tmp = Utilities.transform(files, files.get(sch+".sch"), files.get("iso_svrl_for_xslt1.xsl"));
-    byte[] out = Utilities.transform(files, src, tmp);
+    byte[] tmp = Utilities.transform(defns, defns.get(sch+".sch"), defns.get("iso_svrl_for_xslt1.xsl"));
+    byte[] out = Utilities.transform(defns, src, tmp);
     processSchematronOutput(out);    
       
-    // second, locate the definitions
-    // now, run against
-    // * schema
-    // * schematron
-    // * java parser
-    // * internal rules
+    // 3. internal validation
+    outputs.addAll(new InstanceValidator(defns).validateInstance(doc.getDocumentElement()));
     
+    OperationOutcome op = new OperationOutcome();
+    for (ValidationMessage vm : outputs) {
+      op.getIssue().add(vm.asIssue(op));
+    }
+    new NarrativeGenerator().generate(op);
+    outcome = op;
   }
 
   private void processSchematronOutput(byte[] out)
@@ -204,8 +226,10 @@ public class Validator {
     if (nl.getLength() > 0) {
       for (int i = 0; i < nl.getLength(); i++) {
         Element e = (Element) nl.item(i);
-        ValidationOutput o = new ValidationOutput();
-        o.setLevel(ValidationOutput.Strength.Error);
+        ValidationMessage o = new ValidationMessage();
+        o.setSource(Source.Schematron);
+        o.setType("invariant");
+        o.setLevel(IssueSeverity.error);
         o.setLocation(e.getAttribute("location"));
         o.setMessage(e.getTextContent());
         outputs.add(o);
@@ -228,58 +252,46 @@ public class Validator {
 //      }
 //    }
     StreamSource[] sources = new StreamSource[2];
-    sources[0] = new StreamSource(new ByteArrayInputStream(files.get("fhir-all.xsd")));
-    sources[1] = new StreamSource(new ByteArrayInputStream(files.get("fhir-atom.xsd")));
+    sources[0] = new StreamSource(new ByteArrayInputStream(defns.get("fhir-all.xsd")));
+    sources[1] = new StreamSource(new ByteArrayInputStream(defns.get("fhir-atom.xsd")));
 
     SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
     schemaFactory.setErrorHandler(new ValidationErrorHandler(outputs));
-    schemaFactory.setResourceResolver(new ValidatorResourceResolver(files));
+    schemaFactory.setResourceResolver(new ValidatorResourceResolver(defns));
     Schema schema = schemaFactory.newSchema(sources);
     return schema;
   }
 
-  private void readDefinitions(byte[] defn) throws IOException,
-      FileNotFoundException, ZipException {
-    File tmp = File.createTempFile("fhir-val", ".zip");
-    tmp.deleteOnExit();
-    FileOutputStream out = new FileOutputStream(tmp);
-    out.write(defn);
-    out.close();
-    ZipFile zf = new ZipFile(tmp);
-    try {
-      for (Enumeration<? extends ZipEntry> e = zf.entries(); e.hasMoreElements();) {
-        ZipEntry ze = e.nextElement();
+  private void readDefinitions(byte[] defn) throws Exception {
+    ZipInputStream zip = new ZipInputStream(new ByteArrayInputStream(defn));
+    ZipEntry ze;
+    while ((ze = zip.getNextEntry()) != null) {
+      if (!ze.getName().endsWith(".zip") && !ze.getName().endsWith(".jar") ) { // skip saxon .zip
         String name = ze.getName();
-        InputStream in = zf.getInputStream(ze);
+        InputStream in = zip;
         ByteArrayOutputStream b = new ByteArrayOutputStream();
         int n;
         byte[] buf = new byte[1024];
         while ((n = in.read(buf, 0, 1024)) > -1) {
           b.write(buf, 0, n);
         }        
-        files.put(name, b.toByteArray());
-
+        defns.put(name, b.toByteArray());
       }
-    } finally {
-      zf.close();
+      zip.closeEntry();
     }
+    zip.close();    
   }
 
   private byte[] loadDefinitions() throws Exception {
     byte[] defn;
-    if (Utilities.noString(definitions) || definitions.startsWith("https:") || definitions.startsWith("http:")) {
-      if (Utilities.noString(definitions) || definitions.equals("http://hl7.org/fhir"))
-        definitions = "http://hl7.org/implement/standards/fhir";
-      definitions = definitions+"/fhir-all-xsd.zip";
-      if (definitions.equals("http://hl7.org/implement/standards/fhir"))
-        definitions = "http://hl7.org/documentcenter/public/standards/FHIR/fhir-all-xsd.zip";
-      else
-        definitions = definitions+"/fhir-all-xsd.zip";
+    if (Utilities.noString(definitions)) {
+      defn = loadFromUrl(MASTER_SOURCE);
+    } else if (definitions.startsWith("https:") || definitions.startsWith("http:")) {
       defn = loadFromUrl(definitions);
-    } else if (new File(Utilities.appendSlash(definitions)+"fhir-all-xsd.zip").exists())
-      defn = loadFromFile(Utilities.appendSlash(definitions)+"fhir-all-xsd.zip");
-    else
-      throw new Exception("Unable to find FHIR specification at "+definitions);
+    } else if (new File(definitions).exists()) {
+      defn = loadFromFile(definitions);      
+    } else
+      throw new Exception("Unable to find FHIR validation Pack (source = "+definitions+")");
     return defn;
   }
 
@@ -319,8 +331,10 @@ public class Validator {
   }
 
 
-  public List<ValidationOutput> getOutputs() {
-    return outputs;
+  public String getOutcome() throws Exception {
+    ByteArrayOutputStream b = new ByteArrayOutputStream();
+    new XmlComposer().compose(b, outcome, true); 
+    return b.toString();
   }
 
   public String getDefinitions() {

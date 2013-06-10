@@ -40,4 +40,15 @@ public class String_ extends Type {
 		this.value = value;
 	}
 	
+	public String_ copy() {
+		String_ dst = new String_();
+		dst.value = value;
+		return dst;
+	}
+	
+	protected Type typedCopy() {
+		return copy();
+	}
+
+	
 }

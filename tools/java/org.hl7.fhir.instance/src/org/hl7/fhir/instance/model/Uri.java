@@ -32,17 +32,24 @@ import java.net.URI;
 
 public class Uri extends Type {
 	
-	private URI value;
+	private String value;
 
-	public URI getValue() {
+	public String getValue() {
 		return value;
 	}
 
-	public void setValue(URI value) {
+	public void setValue(String value) {
 		this.value = value;
 	}
 	
+	public Uri copy() {
+		Uri dst = new Uri();
+		dst.value = value;
+		return dst;
+	}
 	
-	
-	
+	protected Type typedCopy() {
+		return copy();
+	}
+
 }

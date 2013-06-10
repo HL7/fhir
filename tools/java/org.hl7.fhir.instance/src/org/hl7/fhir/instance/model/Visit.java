@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -214,12 +214,12 @@ public class Visit extends Resource {
         /**
          * Kind of involvement of the participant
          */
-        private List<CodeableConcept> type = new ArrayList<CodeableConcept>();
+        protected List<CodeableConcept> type = new ArrayList<CodeableConcept>();
 
         /**
          * The practitioner that is involved
          */
-        private ResourceReference practitioner;
+        protected ResourceReference practitioner;
 
         public List<CodeableConcept> getType() { 
           return this.type;
@@ -233,68 +233,77 @@ public class Visit extends Resource {
           this.practitioner = value;
         }
 
+      public VisitParticipantComponent copy(Visit e) {
+        VisitParticipantComponent dst = e.new VisitParticipantComponent();
+        dst.type = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : type)
+          dst.type.add(i.copy());
+        dst.practitioner = practitioner == null ? null : practitioner.copy();
+        return dst;
+      }
+
   }
 
     public class VisitHospitalizationComponent extends Element {
         /**
          * Pre-admission identifier
          */
-        private Identifier preAdmissionIdentifier;
+        protected Identifier preAdmissionIdentifier;
 
         /**
          * Tests to be done before admission
          */
-        private CodeableConcept preAdmissionTest;
+        protected CodeableConcept preAdmissionTest;
 
         /**
          * The location the patient came from before admission
          */
-        private ResourceReference origin;
+        protected ResourceReference origin;
 
         /**
          * Where the patient was admitted from (physician referral, transfer)
          */
-        private CodeableConcept admitSource;
+        protected CodeableConcept admitSource;
 
         /**
          * Priod of hospitalization
          */
-        private Period period;
+        protected Period period;
 
         /**
          * Where the
          */
-        private List<VisitHospitalizationAccomodationComponent> accomodation = new ArrayList<VisitHospitalizationAccomodationComponent>();
+        protected List<VisitHospitalizationAccomodationComponent> accomodation = new ArrayList<VisitHospitalizationAccomodationComponent>();
 
         /**
          * Dietary restrictions for the patient
          */
-        private CodeableConcept diet;
+        protected CodeableConcept diet;
 
         /**
          * Special courtesies (vip, hospital board member)
          */
-        private List<CodeableConcept> specialCourtesy = new ArrayList<CodeableConcept>();
+        protected List<CodeableConcept> specialCourtesy = new ArrayList<CodeableConcept>();
 
         /**
          * Special arrangements (wheelchair, translator, stretcher)
          */
-        private List<CodeableConcept> specialArrangement = new ArrayList<CodeableConcept>();
+        protected List<CodeableConcept> specialArrangement = new ArrayList<CodeableConcept>();
 
         /**
          * Location the patient is discharged to
          */
-        private ResourceReference destination;
+        protected ResourceReference destination;
 
         /**
          * Disposition a patient was released into
          */
-        private CodeableConcept dischargeDisposition;
+        protected CodeableConcept dischargeDisposition;
 
         /**
          * Is readmission?
          */
-        private Boolean reAdmission;
+        protected Boolean reAdmission;
 
         public Identifier getPreAdmissionIdentifier() { 
           return this.preAdmissionIdentifier;
@@ -394,18 +403,41 @@ public class Visit extends Resource {
           }
         }
 
+      public VisitHospitalizationComponent copy(Visit e) {
+        VisitHospitalizationComponent dst = e.new VisitHospitalizationComponent();
+        dst.preAdmissionIdentifier = preAdmissionIdentifier == null ? null : preAdmissionIdentifier.copy();
+        dst.preAdmissionTest = preAdmissionTest == null ? null : preAdmissionTest.copy();
+        dst.origin = origin == null ? null : origin.copy();
+        dst.admitSource = admitSource == null ? null : admitSource.copy();
+        dst.period = period == null ? null : period.copy();
+        dst.accomodation = new ArrayList<VisitHospitalizationAccomodationComponent>();
+        for (VisitHospitalizationAccomodationComponent i : accomodation)
+          dst.accomodation.add(i.copy(e));
+        dst.diet = diet == null ? null : diet.copy();
+        dst.specialCourtesy = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : specialCourtesy)
+          dst.specialCourtesy.add(i.copy());
+        dst.specialArrangement = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : specialArrangement)
+          dst.specialArrangement.add(i.copy());
+        dst.destination = destination == null ? null : destination.copy();
+        dst.dischargeDisposition = dischargeDisposition == null ? null : dischargeDisposition.copy();
+        dst.reAdmission = reAdmission == null ? null : reAdmission.copy();
+        return dst;
+      }
+
   }
 
     public class VisitHospitalizationAccomodationComponent extends Element {
         /**
          * Bed
          */
-        private ResourceReference bed;
+        protected ResourceReference bed;
 
         /**
          * Period during which the patient was assigned the bed
          */
-        private Period period;
+        protected Period period;
 
         public ResourceReference getBed() { 
           return this.bed;
@@ -423,18 +455,25 @@ public class Visit extends Resource {
           this.period = value;
         }
 
+      public VisitHospitalizationAccomodationComponent copy(Visit e) {
+        VisitHospitalizationAccomodationComponent dst = e.new VisitHospitalizationAccomodationComponent();
+        dst.bed = bed == null ? null : bed.copy();
+        dst.period = period == null ? null : period.copy();
+        return dst;
+      }
+
   }
 
     public class VisitLocationComponent extends Element {
         /**
          * The location the visit takes place
          */
-        private ResourceReference location;
+        protected ResourceReference location;
 
         /**
          * Time period during which the patient was present at the location
          */
-        private Period period;
+        protected Period period;
 
         public ResourceReference getLocation() { 
           return this.location;
@@ -452,77 +491,84 @@ public class Visit extends Resource {
           this.period = value;
         }
 
+      public VisitLocationComponent copy(Visit e) {
+        VisitLocationComponent dst = e.new VisitLocationComponent();
+        dst.location = location == null ? null : location.copy();
+        dst.period = period == null ? null : period.copy();
+        return dst;
+      }
+
   }
 
     /**
      * Identifier(s) by which this visit is known
      */
-    private List<Identifier> identifier = new ArrayList<Identifier>();
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * E.g. active, aborted, finished
      */
-    private Enumeration<EncounterState> status;
+    protected Enumeration<EncounterState> status;
 
     /**
      * Inpatient | Outpatient etc
      */
-    private Enumeration<EncounterClass> class_;
+    protected Enumeration<EncounterClass> class_;
 
     /**
      * Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)
      */
-    private CodeableConcept type;
+    protected CodeableConcept type;
 
     /**
      * The patient present at the visit
      */
-    private ResourceReference subject;
+    protected ResourceReference subject;
 
     /**
      * The main practitioner responsible for providing the service
      */
-    private List<VisitParticipantComponent> participant = new ArrayList<VisitParticipantComponent>();
+    protected List<VisitParticipantComponent> participant = new ArrayList<VisitParticipantComponent>();
 
     /**
      * The appointment that scheduled this visit
      */
-    private ResourceReference fulfills;
+    protected ResourceReference fulfills;
 
     /**
      * Quantity of time the visit lasted. This excludes the time during leaves of absence.
      */
-    private Duration length;
+    protected Duration length;
 
     /**
      * Reason the visit takes place
      */
-    private Type reason;
+    protected Type reason;
 
     /**
      * Reason the visit takes place
      */
-    private ResourceReference indication;
+    protected ResourceReference indication;
 
     /**
      * Indicates the urgency of the encounter
      */
-    private CodeableConcept priority;
+    protected CodeableConcept priority;
 
     /**
      * Details about an admission to a clinic
      */
-    private VisitHospitalizationComponent hospitalization;
+    protected VisitHospitalizationComponent hospitalization;
 
     /**
      * List of locations the patient has been at.
      */
-    private List<VisitLocationComponent> location = new ArrayList<VisitLocationComponent>();
+    protected List<VisitLocationComponent> location = new ArrayList<VisitLocationComponent>();
 
     /**
      * The department or team that is providing care
      */
-    private ResourceReference serviceProvider;
+    protected ResourceReference serviceProvider;
 
     public List<Identifier> getIdentifier() { 
       return this.identifier;
@@ -647,6 +693,35 @@ public class Visit extends Resource {
     public void setServiceProvider(ResourceReference value) { 
       this.serviceProvider = value;
     }
+
+      public Visit copy() {
+        Visit dst = new Visit();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
+        dst.status = status == null ? null : status.copy();
+        dst.class_ = class_ == null ? null : class_.copy();
+        dst.type = type == null ? null : type.copy();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.participant = new ArrayList<VisitParticipantComponent>();
+        for (VisitParticipantComponent i : participant)
+          dst.participant.add(i.copy(dst));
+        dst.fulfills = fulfills == null ? null : fulfills.copy();
+        dst.length = length == null ? null : length.copy();
+        dst.reason = reason == null ? null : reason.copy();
+        dst.indication = indication == null ? null : indication.copy();
+        dst.priority = priority == null ? null : priority.copy();
+        dst.hospitalization = hospitalization == null ? null : hospitalization.copy(dst);
+        dst.location = new ArrayList<VisitLocationComponent>();
+        for (VisitLocationComponent i : location)
+          dst.location.add(i.copy(dst));
+        dst.serviceProvider = serviceProvider == null ? null : serviceProvider.copy();
+        return dst;
+      }
+
+      protected Visit typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

@@ -29,10 +29,8 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
-
-import java.net.*;
 /**
  * A technical identifier - identifies some entity uniquely and unambiguously
  */
@@ -91,32 +89,32 @@ public class Identifier extends Type {
     /**
      * Identifies the use for this identifier, if known
      */
-    private Enumeration<IdentifierUse> use;
+    protected Enumeration<IdentifierUse> use;
 
     /**
      * A label for the identifier that can be displayed to a human so they can recognise the identifier
      */
-    private String_ label;
+    protected String_ label;
 
     /**
      * Establishes the namespace in which set of possible id values is unique.
      */
-    private Uri system;
+    protected Uri system;
 
     /**
      * The portion of the identifier typically displayed to the user and which is unique within the context of the system.
      */
-    private String_ key;
+    protected String_ key;
 
     /**
      * Time period during which identifier was valid for use
      */
-    private Period period;
+    protected Period period;
 
     /**
      * Organisation that issued/manages the identifier
      */
-    private ResourceReference assigner;
+    protected ResourceReference assigner;
 
     public Enumeration<IdentifierUse> getUse() { 
       return this.use;
@@ -170,11 +168,11 @@ public class Identifier extends Type {
       this.system = value;
     }
 
-    public URI getSystemSimple() { 
+    public String getSystemSimple() { 
       return this.system == null ? null : this.system.getValue();
     }
 
-    public void setSystemSimple(URI value) { 
+    public void setSystemSimple(String value) { 
       if (value == null)
         this.system = null;
       else {
@@ -221,6 +219,21 @@ public class Identifier extends Type {
     public void setAssigner(ResourceReference value) { 
       this.assigner = value;
     }
+
+      public Identifier copy() {
+        Identifier dst = new Identifier();
+        dst.use = use == null ? null : use.copy();
+        dst.label = label == null ? null : label.copy();
+        dst.system = system == null ? null : system.copy();
+        dst.key = key == null ? null : key.copy();
+        dst.period = period == null ? null : period.copy();
+        dst.assigner = assigner == null ? null : assigner.copy();
+        return dst;
+      }
+
+      protected Identifier typedCopy() {
+        return copy();
+      }
 
 
 }

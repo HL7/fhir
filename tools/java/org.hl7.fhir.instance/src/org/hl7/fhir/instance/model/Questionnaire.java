@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -116,22 +116,22 @@ public class Questionnaire extends Resource {
         /**
          * Code of the answer, used to relate an answer to a question in the questionnaire and/or the actual question text
          */
-        private CodeableConcept name;
+        protected CodeableConcept name;
 
         /**
          * The actual answer data
          */
-        private Type value;
+        protected Type value;
 
         /**
          * Data captured from the care process which supports the given answer.
          */
-        private ResourceReference evidence;
+        protected ResourceReference evidence;
 
         /**
          * The remark contains information about the answer given. This is additional information about the anwer the author wishes to convey, but should not be used to contain information that is part of the answer itself.
          */
-        private String_ remarks;
+        protected String_ remarks;
 
         public CodeableConcept getName() { 
           return this.name;
@@ -179,23 +179,32 @@ public class Questionnaire extends Resource {
           }
         }
 
+      public AnswerComponent copy(Questionnaire e) {
+        AnswerComponent dst = e.new AnswerComponent();
+        dst.name = name == null ? null : name.copy();
+        dst.value = value == null ? null : value.copy();
+        dst.evidence = evidence == null ? null : evidence.copy();
+        dst.remarks = remarks == null ? null : remarks.copy();
+        return dst;
+      }
+
   }
 
     public class SectionComponent extends Element {
         /**
          * Structured name for a section of a predefined list of questions this questionnaire is responding to.
          */
-        private CodeableConcept name;
+        protected CodeableConcept name;
 
         /**
          * Answers to questions on a section of a questionnaire
          */
-        private List<AnswerComponent> answer = new ArrayList<AnswerComponent>();
+        protected List<AnswerComponent> answer = new ArrayList<AnswerComponent>();
 
         /**
          * A sub-section within a section in a questionnaire
          */
-        private List<SectionComponent> section = new ArrayList<SectionComponent>();
+        protected List<SectionComponent> section = new ArrayList<SectionComponent>();
 
         public CodeableConcept getName() { 
           return this.name;
@@ -213,57 +222,69 @@ public class Questionnaire extends Resource {
           return this.section;
         }
 
+      public SectionComponent copy(Questionnaire e) {
+        SectionComponent dst = e.new SectionComponent();
+        dst.name = name == null ? null : name.copy();
+        dst.answer = new ArrayList<AnswerComponent>();
+        for (AnswerComponent i : answer)
+          dst.answer.add(i.copy(e));
+        dst.section = new ArrayList<SectionComponent>();
+        for (SectionComponent i : section)
+          dst.section.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     /**
      * The status of the questionnaire as a whole
      */
-    private Enumeration<ObservationStatus> status;
+    protected Enumeration<ObservationStatus> status;
 
     /**
      * The date and/or time that this version of the questionnaire was authored
      */
-    private Instant authored;
+    protected Instant authored;
 
     /**
      * The subject of the questionnaires: this is the patient that the answers apply to, but this person is not necessarily the source of information
      */
-    private ResourceReference subject;
+    protected ResourceReference subject;
 
     /**
      * Person that collected the answers to the questions in the Questionnaire
      */
-    private ResourceReference author;
+    protected ResourceReference author;
 
     /**
      * The person that answered the questions about the subject. Only used when this is not the subject him/herself
      */
-    private ResourceReference source;
+    protected ResourceReference source;
 
     /**
      * Structured name for a predefined list of questions this questionnaire is responding to
      */
-    private CodeableConcept name;
+    protected CodeableConcept name;
 
     /**
      * An identifier that identifier this specific set of answers
      */
-    private Identifier identifier;
+    protected Identifier identifier;
 
     /**
      * Visit during which this questionnaireanswers were collected. When there were multiple visits, this is the one considered most relevant to the context of the answers.
      */
-    private ResourceReference visit;
+    protected ResourceReference visit;
 
     /**
      * Answers to questions on a questionnaire
      */
-    private List<AnswerComponent> answer = new ArrayList<AnswerComponent>();
+    protected List<AnswerComponent> answer = new ArrayList<AnswerComponent>();
 
     /**
      * A group of anwers to a possibly similarly grouped set of question in the questionnaire
      */
-    private List<SectionComponent> section = new ArrayList<SectionComponent>();
+    protected List<SectionComponent> section = new ArrayList<SectionComponent>();
 
     public Enumeration<ObservationStatus> getStatus() { 
       return this.status;
@@ -356,6 +377,29 @@ public class Questionnaire extends Resource {
     public List<SectionComponent> getSection() { 
       return this.section;
     }
+
+      public Questionnaire copy() {
+        Questionnaire dst = new Questionnaire();
+        dst.status = status == null ? null : status.copy();
+        dst.authored = authored == null ? null : authored.copy();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.author = author == null ? null : author.copy();
+        dst.source = source == null ? null : source.copy();
+        dst.name = name == null ? null : name.copy();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.visit = visit == null ? null : visit.copy();
+        dst.answer = new ArrayList<AnswerComponent>();
+        for (AnswerComponent i : answer)
+          dst.answer.add(i.copy(dst));
+        dst.section = new ArrayList<SectionComponent>();
+        for (SectionComponent i : section)
+          dst.section.add(i.copy(dst));
+        return dst;
+      }
+
+      protected Questionnaire typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

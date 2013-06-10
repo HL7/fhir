@@ -29,11 +29,10 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
-import java.net.*;
 /**
  * A value set specifies a set of codes drawn from one or more code systems
  */
@@ -175,12 +174,12 @@ public class ValueSet extends Resource {
         /**
          * URI to identify the code system
          */
-        private Uri system;
+        protected Uri system;
 
         /**
          * Concepts in the code system
          */
-        private List<ValueSetDefineConceptComponent> concept = new ArrayList<ValueSetDefineConceptComponent>();
+        protected List<ValueSetDefineConceptComponent> concept = new ArrayList<ValueSetDefineConceptComponent>();
 
         public Uri getSystem() { 
           return this.system;
@@ -190,11 +189,11 @@ public class ValueSet extends Resource {
           this.system = value;
         }
 
-        public URI getSystemSimple() { 
+        public String getSystemSimple() { 
           return this.system == null ? null : this.system.getValue();
         }
 
-        public void setSystemSimple(URI value) { 
+        public void setSystemSimple(String value) { 
             if (this.system == null)
               this.system = new Uri();
             this.system.setValue(value);
@@ -204,33 +203,42 @@ public class ValueSet extends Resource {
           return this.concept;
         }
 
+      public ValueSetDefineComponent copy(ValueSet e) {
+        ValueSetDefineComponent dst = e.new ValueSetDefineComponent();
+        dst.system = system == null ? null : system.copy();
+        dst.concept = new ArrayList<ValueSetDefineConceptComponent>();
+        for (ValueSetDefineConceptComponent i : concept)
+          dst.concept.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     public class ValueSetDefineConceptComponent extends Element {
         /**
          * Code that identifies concept
          */
-        private Code code;
+        protected Code code;
 
         /**
          * If this code is not for use as a real concept
          */
-        private Boolean abstract_;
+        protected Boolean abstract_;
 
         /**
          * Text to Display to the user
          */
-        private String_ display;
+        protected String_ display;
 
         /**
          * Formal Definition
          */
-        private String_ definition;
+        protected String_ definition;
 
         /**
          * Child Concepts (is-a / contains)
          */
-        private List<ValueSetDefineConceptComponent> concept = new ArrayList<ValueSetDefineConceptComponent>();
+        protected List<ValueSetDefineConceptComponent> concept = new ArrayList<ValueSetDefineConceptComponent>();
 
         public Code getCode() { 
           return this.code;
@@ -320,23 +328,35 @@ public class ValueSet extends Resource {
           return this.concept;
         }
 
+      public ValueSetDefineConceptComponent copy(ValueSet e) {
+        ValueSetDefineConceptComponent dst = e.new ValueSetDefineConceptComponent();
+        dst.code = code == null ? null : code.copy();
+        dst.abstract_ = abstract_ == null ? null : abstract_.copy();
+        dst.display = display == null ? null : display.copy();
+        dst.definition = definition == null ? null : definition.copy();
+        dst.concept = new ArrayList<ValueSetDefineConceptComponent>();
+        for (ValueSetDefineConceptComponent i : concept)
+          dst.concept.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     public class ValueSetComposeComponent extends Element {
         /**
          * Includes the contents of the referenced value set as part of the contents of this value set
          */
-        private List<Uri> import_ = new ArrayList<Uri>();
+        protected List<Uri> import_ = new ArrayList<Uri>();
 
         /**
          * Include one or more codes from a code system
          */
-        private List<ConceptSetComponent> include = new ArrayList<ConceptSetComponent>();
+        protected List<ConceptSetComponent> include = new ArrayList<ConceptSetComponent>();
 
         /**
          * Exclude one or more codes from the value set
          */
-        private List<ConceptSetComponent> exclude = new ArrayList<ConceptSetComponent>();
+        protected List<ConceptSetComponent> exclude = new ArrayList<ConceptSetComponent>();
 
         public List<Uri> getImport() { 
           return this.import_;
@@ -350,28 +370,42 @@ public class ValueSet extends Resource {
           return this.exclude;
         }
 
+      public ValueSetComposeComponent copy(ValueSet e) {
+        ValueSetComposeComponent dst = e.new ValueSetComposeComponent();
+        dst.import_ = new ArrayList<Uri>();
+        for (Uri i : import_)
+          dst.import_.add(i.copy());
+        dst.include = new ArrayList<ConceptSetComponent>();
+        for (ConceptSetComponent i : include)
+          dst.include.add(i.copy(e));
+        dst.exclude = new ArrayList<ConceptSetComponent>();
+        for (ConceptSetComponent i : exclude)
+          dst.exclude.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     public class ConceptSetComponent extends Element {
         /**
          * The code system from which the selected codes come from
          */
-        private Uri system;
+        protected Uri system;
 
         /**
          * The version of the code system that the codes are selected from
          */
-        private String_ version;
+        protected String_ version;
 
         /**
          * Specifies a code or concept to be included or excluded
          */
-        private List<Code> code = new ArrayList<Code>();
+        protected List<Code> code = new ArrayList<Code>();
 
         /**
          * Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they must all be true.
          */
-        private List<ConceptSetFilterComponent> filter = new ArrayList<ConceptSetFilterComponent>();
+        protected List<ConceptSetFilterComponent> filter = new ArrayList<ConceptSetFilterComponent>();
 
         public Uri getSystem() { 
           return this.system;
@@ -381,11 +415,11 @@ public class ValueSet extends Resource {
           this.system = value;
         }
 
-        public URI getSystemSimple() { 
+        public String getSystemSimple() { 
           return this.system == null ? null : this.system.getValue();
         }
 
-        public void setSystemSimple(URI value) { 
+        public void setSystemSimple(String value) { 
             if (this.system == null)
               this.system = new Uri();
             this.system.setValue(value);
@@ -421,23 +455,36 @@ public class ValueSet extends Resource {
           return this.filter;
         }
 
+      public ConceptSetComponent copy(ValueSet e) {
+        ConceptSetComponent dst = e.new ConceptSetComponent();
+        dst.system = system == null ? null : system.copy();
+        dst.version = version == null ? null : version.copy();
+        dst.code = new ArrayList<Code>();
+        for (Code i : code)
+          dst.code.add(i.copy());
+        dst.filter = new ArrayList<ConceptSetFilterComponent>();
+        for (ConceptSetFilterComponent i : filter)
+          dst.filter.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     public class ConceptSetFilterComponent extends Element {
         /**
          * A code that identifies a property defined in the code system
          */
-        private Code property;
+        protected Code property;
 
         /**
          * The kind of operation to perform as part of the filter criteria
          */
-        private Enumeration<FilterOperator> op;
+        protected Enumeration<FilterOperator> op;
 
         /**
          * The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value
          */
-        private Code value;
+        protected Code value;
 
         public Code getProperty() { 
           return this.property;
@@ -493,18 +540,26 @@ public class ValueSet extends Resource {
             this.value.setValue(value);
         }
 
+      public ConceptSetFilterComponent copy(ValueSet e) {
+        ConceptSetFilterComponent dst = e.new ConceptSetFilterComponent();
+        dst.property = property == null ? null : property.copy();
+        dst.op = op == null ? null : op.copy();
+        dst.value = value == null ? null : value.copy();
+        return dst;
+      }
+
   }
 
     public class ValueSetExpansionComponent extends Element {
         /**
          * Time valueset expansion happened
          */
-        private Instant timestamp;
+        protected Instant timestamp;
 
         /**
          * Codes in the value set
          */
-        private List<ValueSetExpansionContainsComponent> contains = new ArrayList<ValueSetExpansionContainsComponent>();
+        protected List<ValueSetExpansionContainsComponent> contains = new ArrayList<ValueSetExpansionContainsComponent>();
 
         public Instant getTimestamp() { 
           return this.timestamp;
@@ -528,28 +583,37 @@ public class ValueSet extends Resource {
           return this.contains;
         }
 
+      public ValueSetExpansionComponent copy(ValueSet e) {
+        ValueSetExpansionComponent dst = e.new ValueSetExpansionComponent();
+        dst.timestamp = timestamp == null ? null : timestamp.copy();
+        dst.contains = new ArrayList<ValueSetExpansionContainsComponent>();
+        for (ValueSetExpansionContainsComponent i : contains)
+          dst.contains.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     public class ValueSetExpansionContainsComponent extends Element {
         /**
          * System value for the code
          */
-        private Uri system;
+        protected Uri system;
 
         /**
          * Code - if blank, this is not a choosable code
          */
-        private Code code;
+        protected Code code;
 
         /**
          * User display for the concept
          */
-        private String_ display;
+        protected String_ display;
 
         /**
          * Codes contained in this concept
          */
-        private List<ValueSetExpansionContainsComponent> contains = new ArrayList<ValueSetExpansionContainsComponent>();
+        protected List<ValueSetExpansionContainsComponent> contains = new ArrayList<ValueSetExpansionContainsComponent>();
 
         public Uri getSystem() { 
           return this.system;
@@ -559,11 +623,11 @@ public class ValueSet extends Resource {
           this.system = value;
         }
 
-        public URI getSystemSimple() { 
+        public String getSystemSimple() { 
           return this.system == null ? null : this.system.getValue();
         }
 
-        public void setSystemSimple(URI value) { 
+        public void setSystemSimple(String value) { 
           if (value == null)
             this.system = null;
           else {
@@ -621,62 +685,73 @@ public class ValueSet extends Resource {
           return this.contains;
         }
 
+      public ValueSetExpansionContainsComponent copy(ValueSet e) {
+        ValueSetExpansionContainsComponent dst = e.new ValueSetExpansionContainsComponent();
+        dst.system = system == null ? null : system.copy();
+        dst.code = code == null ? null : code.copy();
+        dst.display = display == null ? null : display.copy();
+        dst.contains = new ArrayList<ValueSetExpansionContainsComponent>();
+        for (ValueSetExpansionContainsComponent i : contains)
+          dst.contains.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     /**
      * The identifier that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI)
      */
-    private String_ identifier;
+    protected String_ identifier;
 
     /**
      * The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp
      */
-    private String_ version;
+    protected String_ version;
 
     /**
      * A free text natural language name describing the value set
      */
-    private String_ name;
+    protected String_ name;
 
     /**
      * The name of the individual or organization that published the value set
      */
-    private String_ publisher;
+    protected String_ publisher;
 
     /**
      * Contacts of the publisher to assist a user in finding and communicating with the publisher
      */
-    private List<Contact> telecom = new ArrayList<Contact>();
+    protected List<Contact> telecom = new ArrayList<Contact>();
 
     /**
      * A free text natural language description of the use of the value set - reason for definition, conditions of use, etc.
      */
-    private String_ description;
+    protected String_ description;
 
     /**
      * The status of the value set
      */
-    private Enumeration<ValuesetStatus> status;
+    protected Enumeration<ValuesetStatus> status;
 
     /**
      * The date that the value set status was last changed
      */
-    private DateTime date;
+    protected DateTime date;
 
     /**
      * When value set defines it's own codes
      */
-    private ValueSetDefineComponent define;
+    protected ValueSetDefineComponent define;
 
     /**
      * When value set includes codes from elsewhere
      */
-    private ValueSetComposeComponent compose;
+    protected ValueSetComposeComponent compose;
 
     /**
      * When value set is an expansion
      */
-    private ValueSetExpansionComponent expansion;
+    protected ValueSetExpansionComponent expansion;
 
     public String_ getIdentifier() { 
       return this.identifier;
@@ -847,6 +922,28 @@ public class ValueSet extends Resource {
     public void setExpansion(ValueSetExpansionComponent value) { 
       this.expansion = value;
     }
+
+      public ValueSet copy() {
+        ValueSet dst = new ValueSet();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.version = version == null ? null : version.copy();
+        dst.name = name == null ? null : name.copy();
+        dst.publisher = publisher == null ? null : publisher.copy();
+        dst.telecom = new ArrayList<Contact>();
+        for (Contact i : telecom)
+          dst.telecom.add(i.copy());
+        dst.description = description == null ? null : description.copy();
+        dst.status = status == null ? null : status.copy();
+        dst.date = date == null ? null : date.copy();
+        dst.define = define == null ? null : define.copy(dst);
+        dst.compose = compose == null ? null : compose.copy(dst);
+        dst.expansion = expansion == null ? null : expansion.copy(dst);
+        return dst;
+      }
+
+      protected ValueSet typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

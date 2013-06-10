@@ -29,12 +29,26 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 /**
  * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies
  */
 public class Count extends Quantity {
+
+      public Count copy() {
+        Count dst = new Count();
+        dst.value = value == null ? null : value.copy();
+        dst.comparator = comparator == null ? null : comparator.copy();
+        dst.units = units == null ? null : units.copy();
+        dst.system = system == null ? null : system.copy();
+        dst.code = code == null ? null : code.copy();
+        return dst;
+      }
+
+      protected Count typedCopy() {
+        return copy();
+      }
 
 
 }

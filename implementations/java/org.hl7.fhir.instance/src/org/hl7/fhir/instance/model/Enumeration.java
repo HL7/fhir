@@ -18,4 +18,10 @@ public class Enumeration<T extends Enum> extends Element {
   public void setValue(T value) {
     this.value = value;
   }
+  
+	public Enumeration<T> copy() {
+		Enumeration<T> dst = new Enumeration<T>();
+		dst.value = value;
+		return dst;
+	}
 }

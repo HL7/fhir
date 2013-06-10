@@ -42,4 +42,13 @@ public class Date extends Type {
 		this.value = value;
 	}
 	
+	protected Type typedCopy() {
+		return copy();
+	}
+
+	public Date copy() {
+		Date dst = new Date();
+		dst.value = value;
+		return dst;
+	}
 }

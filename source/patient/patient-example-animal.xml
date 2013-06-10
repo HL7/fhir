@@ -49,7 +49,7 @@
     </name>
     <gender>
       <coding>
-        <system value="http://hl7.org/fhir/v2/0001"/>
+        <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
         <code value="F"/>
       </coding>
     </gender>

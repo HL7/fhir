@@ -17,9 +17,9 @@
  </period>
 
  <type>
-      <system value="http://hl7.org/vocab/v3/ActCoverageTypeCode"/>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
       <code value="EHCPOL"/>
-      <display value="Extended Health Policy"/>
+      <display value="extended healthcare"/>
  </type>
  
  <identifier>

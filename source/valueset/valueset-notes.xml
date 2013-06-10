@@ -35,15 +35,14 @@ including human language. The value set can be a simple list of included codes, 
 kind of general selection criteria using the facilities provided by the code system. 
 </p>
 <ul>
- <li>Within an include or exclude criterion, 
-   multiple filters and concept selections are intersected. In other words, all the 
+ <li>Within an include or exclude criterion, multiple filters and concept selections are intersected. All the 
    conditions specified must be true.</li>
  <li>The value set always includes any codes it defines itself. A typical use for this
-    is including a set of codes, and adding a few additional ones that are not covered 
-    by the included codes</li>
- <li>If the value set contains include statements with a mode other than "code" or any filters, 
-  and the system reference is not version specific, then the contents of the value set are open 
-  and change over time as the underlying code systems are updated</li>
+    is when including a set of codes from elsewhere, and adding a few additional codes to cover
+    cases not catered for  by the included codes</li>
+ <li>An include statement includes any enumerated codes and any codes that meet the filter criteria</li>
+ <li>If the system reference is not version specific and filters are present, then the contents of the value set are open and change 
+    over time as the underlying code systems are updated</li>
  <li>The content of the value set is a union of all the import and include statements and then 
   with any excluded codes eliminated</li>
  <li>A value set needs to do something.  It can't simply include an existing value set without 
@@ -56,7 +55,7 @@ to compute the relationship, which might not be possible for a profile tool</li>
  <li>Using the property filters is only possible where the underlying code system defines 
   appropriate properties. Note that in some cases, the underlying code system defines the 
   logical concepts but not the syntax for exercising them. In such cases, the literal 
-  definitions may be provided by a third party</li>
+  definitions may be provided by a third party. See below for notes about it's use against common code systems</li>
 </ul>
 
 <a name="expansion"> </a>

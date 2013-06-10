@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 /**
  * A reference from one resource to another
@@ -39,17 +39,17 @@ public class ResourceReference extends Type {
     /**
      * The name of one of the resource types defined in this specification to identify the type of the resource being referenced
      */
-    private Code type;
+    protected Code type;
 
     /**
      * A reference to a location at which the other resource is found. The reference may a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources
      */
-    private String_ reference;
+    protected String_ reference;
 
     /**
      * Plain text narrative that identifies the resource in addition to the resource reference
      */
-    private String_ display;
+    protected String_ display;
 
     public Code getType() { 
       return this.type;
@@ -116,6 +116,18 @@ public class ResourceReference extends Type {
         this.display.setValue(value);
       }
     }
+
+      public ResourceReference copy() {
+        ResourceReference dst = new ResourceReference();
+        dst.type = type == null ? null : type.copy();
+        dst.reference = reference == null ? null : reference.copy();
+        dst.display = display == null ? null : display.copy();
+        return dst;
+      }
+
+      protected ResourceReference typedCopy() {
+        return copy();
+      }
 
 
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -207,52 +207,52 @@ public class AllergyIntolerance extends Resource {
     /**
      * An external identifier for the sensitivity
      */
-    private Identifier identifier;
+    protected Identifier identifier;
 
     /**
      * Criticality of the sensitivity
      */
-    private Enumeration<Criticality> criticality;
+    protected Enumeration<Criticality> criticality;
 
     /**
      * Type of the sensitivity
      */
-    private Enumeration<Sensitivitytype> sensitivityType;
+    protected Enumeration<Sensitivitytype> sensitivityType;
 
     /**
      * Date when the sensitivity was recorded
      */
-    private DateTime recordedDate;
+    protected DateTime recordedDate;
 
     /**
      * Suspected, Confirmed, Refuted, Resolved
      */
-    private Enumeration<Sensitivitystatus> status;
+    protected Enumeration<Sensitivitystatus> status;
 
     /**
      * Who the sensitivity is for
      */
-    private ResourceReference subject;
+    protected ResourceReference subject;
 
     /**
      * Who recorded the sensitivity
      */
-    private ResourceReference recorder;
+    protected ResourceReference recorder;
 
     /**
      * The substance that causes the sensitivity
      */
-    private ResourceReference substance;
+    protected ResourceReference substance;
 
     /**
      * Reactions associated with the sensitivity
      */
-    private List<ResourceReference> reactions = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> reactions = new ArrayList<ResourceReference>();
 
     /**
      * Observations that confirm or refute the sensitivity
      */
-    private List<ResourceReference> sensitivityTest = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> sensitivityTest = new ArrayList<ResourceReference>();
 
     public Identifier getIdentifier() { 
       return this.identifier;
@@ -373,6 +373,29 @@ public class AllergyIntolerance extends Resource {
     public List<ResourceReference> getSensitivityTest() { 
       return this.sensitivityTest;
     }
+
+      public AllergyIntolerance copy() {
+        AllergyIntolerance dst = new AllergyIntolerance();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.criticality = criticality == null ? null : criticality.copy();
+        dst.sensitivityType = sensitivityType == null ? null : sensitivityType.copy();
+        dst.recordedDate = recordedDate == null ? null : recordedDate.copy();
+        dst.status = status == null ? null : status.copy();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.recorder = recorder == null ? null : recorder.copy();
+        dst.substance = substance == null ? null : substance.copy();
+        dst.reactions = new ArrayList<ResourceReference>();
+        for (ResourceReference i : reactions)
+          dst.reactions.add(i.copy());
+        dst.sensitivityTest = new ArrayList<ResourceReference>();
+        for (ResourceReference i : sensitivityTest)
+          dst.sensitivityTest.add(i.copy());
+        return dst;
+      }
+
+      protected AllergyIntolerance typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

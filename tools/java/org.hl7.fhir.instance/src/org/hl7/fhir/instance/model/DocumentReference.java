@@ -29,11 +29,10 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
-import java.net.*;
 /**
  * A reference to a document
  */
@@ -93,12 +92,12 @@ public class DocumentReference extends Resource {
         /**
          * The type of the service that can be used to access the documents
          */
-        private CodeableConcept type;
+        protected CodeableConcept type;
 
         /**
          * A list of named parameters that is used in the service call
          */
-        private List<DocumentReferenceServiceParameterComponent> parameter = new ArrayList<DocumentReferenceServiceParameterComponent>();
+        protected List<DocumentReferenceServiceParameterComponent> parameter = new ArrayList<DocumentReferenceServiceParameterComponent>();
 
         public CodeableConcept getType() { 
           return this.type;
@@ -112,18 +111,27 @@ public class DocumentReference extends Resource {
           return this.parameter;
         }
 
+      public DocumentReferenceServiceComponent copy(DocumentReference e) {
+        DocumentReferenceServiceComponent dst = e.new DocumentReferenceServiceComponent();
+        dst.type = type == null ? null : type.copy();
+        dst.parameter = new ArrayList<DocumentReferenceServiceParameterComponent>();
+        for (DocumentReferenceServiceParameterComponent i : parameter)
+          dst.parameter.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     public class DocumentReferenceServiceParameterComponent extends Element {
         /**
          * The name of a parameter
          */
-        private String_ name;
+        protected String_ name;
 
         /**
          * The value of the named parameter
          */
-        private String_ value;
+        protected String_ value;
 
         public String_ getName() { 
           return this.name;
@@ -165,23 +173,30 @@ public class DocumentReference extends Resource {
           }
         }
 
+      public DocumentReferenceServiceParameterComponent copy(DocumentReference e) {
+        DocumentReferenceServiceParameterComponent dst = e.new DocumentReferenceServiceParameterComponent();
+        dst.name = name == null ? null : name.copy();
+        dst.value = value == null ? null : value.copy();
+        return dst;
+      }
+
   }
 
     public class DocumentReferenceContextComponent extends Element {
         /**
          * The type of clinical context, such as a kind of surgery, or a kind of speciality, or a clinical type
          */
-        private List<CodeableConcept> code = new ArrayList<CodeableConcept>();
+        protected List<CodeableConcept> code = new ArrayList<CodeableConcept>();
 
         /**
          * The time period of the patient's care that is described by the document
          */
-        private Period period;
+        protected Period period;
 
         /**
          * The kind of facility where the patient was seen
          */
-        private CodeableConcept facilityType;
+        protected CodeableConcept facilityType;
 
         public List<CodeableConcept> getCode() { 
           return this.code;
@@ -203,117 +218,127 @@ public class DocumentReference extends Resource {
           this.facilityType = value;
         }
 
+      public DocumentReferenceContextComponent copy(DocumentReference e) {
+        DocumentReferenceContextComponent dst = e.new DocumentReferenceContextComponent();
+        dst.code = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : code)
+          dst.code.add(i.copy());
+        dst.period = period == null ? null : period.copy();
+        dst.facilityType = facilityType == null ? null : facilityType.copy();
+        return dst;
+      }
+
   }
 
     /**
      * Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document
      */
-    private Identifier masterIdentifier;
+    protected Identifier masterIdentifier;
 
     /**
      * Other identifiers associated with the record
      */
-    private List<Identifier> identifier = new ArrayList<Identifier>();
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * Who or what the document is about
      */
-    private ResourceReference subject;
+    protected ResourceReference subject;
 
     /**
      * Specifies the particular kind of document (e.g. Patient Summary, Discharge Summary, Prescription, etc)
      */
-    private CodeableConcept type;
+    protected CodeableConcept type;
 
     /**
      * Identifies who is responsible for adding the information to the document
      */
-    private List<ResourceReference> author = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> author = new ArrayList<ResourceReference>();
 
     /**
      * Identifies the organization or group who is responsible for ongoing maintenance of and access to the document
      */
-    private ResourceReference custodian;
+    protected ResourceReference custodian;
 
     /**
      * Which person or organization authenticates that this document is valid
      */
-    private ResourceReference authenticator;
+    protected ResourceReference authenticator;
 
     /**
      * When the document was created
      */
-    private DateTime created;
+    protected DateTime created;
 
     /**
      * When the document reference was created
      */
-    private Instant indexed;
+    protected Instant indexed;
 
     /**
      * The status of this document reference
      */
-    private Enumeration<DocumentReferenceStatus> status;
+    protected Enumeration<DocumentReferenceStatus> status;
 
     /**
      * The status of the underlying document
      */
-    private CodeableConcept docStatus;
+    protected CodeableConcept docStatus;
 
     /**
      * If this document replaces another
      */
-    private ResourceReference supercedes;
+    protected ResourceReference supercedes;
 
     /**
      * Human Readable description of the source document
      */
-    private String_ description;
+    protected String_ description;
 
     /**
      * A code specifying the level of confidentiality of the XDS Document
      */
-    private CodeableConcept confidentiality;
+    protected CodeableConcept confidentiality;
 
     /**
      * The primary language in which the source document is written
      */
-    private Code primaryLanguage;
+    protected Code primaryLanguage;
 
     /**
      * The mime type of the source document
      */
-    private Code mimeType;
+    protected Code mimeType;
 
     /**
      * The format of the document. This is used when the mimeType of the document does not provide enough differentiating information (typically, when the mime type of the document is text/xml)
      */
-    private CodeableConcept format;
+    protected CodeableConcept format;
 
     /**
      * The size of the source document in bytes
      */
-    private Integer size;
+    protected Integer size;
 
     /**
      * A hash of the source document to ensure that changes have not occurred
      */
-    private String_ hash;
+    protected String_ hash;
 
     /**
      * A url at which the document can be accessed
      */
-    private Uri location;
+    protected Uri location;
 
     /**
      * A description of a service call that can be used to retrieve the document
      */
-    private DocumentReferenceServiceComponent service;
+    protected DocumentReferenceServiceComponent service;
 
     /**
      * The clinical context in which the document was prepared
      */
-    private DocumentReferenceContextComponent context;
+    protected DocumentReferenceContextComponent context;
 
     public Identifier getMasterIdentifier() { 
       return this.masterIdentifier;
@@ -567,11 +592,11 @@ public class DocumentReference extends Resource {
       this.location = value;
     }
 
-    public URI getLocationSimple() { 
+    public String getLocationSimple() { 
       return this.location == null ? null : this.location.getValue();
     }
 
-    public void setLocationSimple(URI value) { 
+    public void setLocationSimple(String value) { 
       if (value == null)
         this.location = null;
       else {
@@ -596,6 +621,41 @@ public class DocumentReference extends Resource {
     public void setContext(DocumentReferenceContextComponent value) { 
       this.context = value;
     }
+
+      public DocumentReference copy() {
+        DocumentReference dst = new DocumentReference();
+        dst.masterIdentifier = masterIdentifier == null ? null : masterIdentifier.copy();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
+        dst.subject = subject == null ? null : subject.copy();
+        dst.type = type == null ? null : type.copy();
+        dst.author = new ArrayList<ResourceReference>();
+        for (ResourceReference i : author)
+          dst.author.add(i.copy());
+        dst.custodian = custodian == null ? null : custodian.copy();
+        dst.authenticator = authenticator == null ? null : authenticator.copy();
+        dst.created = created == null ? null : created.copy();
+        dst.indexed = indexed == null ? null : indexed.copy();
+        dst.status = status == null ? null : status.copy();
+        dst.docStatus = docStatus == null ? null : docStatus.copy();
+        dst.supercedes = supercedes == null ? null : supercedes.copy();
+        dst.description = description == null ? null : description.copy();
+        dst.confidentiality = confidentiality == null ? null : confidentiality.copy();
+        dst.primaryLanguage = primaryLanguage == null ? null : primaryLanguage.copy();
+        dst.mimeType = mimeType == null ? null : mimeType.copy();
+        dst.format = format == null ? null : format.copy();
+        dst.size = size == null ? null : size.copy();
+        dst.hash = hash == null ? null : hash.copy();
+        dst.location = location == null ? null : location.copy();
+        dst.service = service == null ? null : service.copy(dst);
+        dst.context = context == null ? null : context.copy(dst);
+        return dst;
+      }
+
+      protected DocumentReference typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

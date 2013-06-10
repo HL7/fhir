@@ -29,11 +29,10 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
-import java.net.*;
 /**
  * A conformance statement about how an application or implementation supports FHIR or the set of requirements for a desired implementation
  */
@@ -349,17 +348,17 @@ public class Conformance extends Resource {
         /**
          * Name software is known by
          */
-        private String_ name;
+        protected String_ name;
 
         /**
          * Version covered by this statement
          */
-        private String_ version;
+        protected String_ version;
 
         /**
          * Date this version of the software released
          */
-        private DateTime releaseDate;
+        protected DateTime releaseDate;
 
         public String_ getName() { 
           return this.name;
@@ -423,23 +422,31 @@ public class Conformance extends Resource {
           }
         }
 
+      public ConformanceSoftwareComponent copy(Conformance e) {
+        ConformanceSoftwareComponent dst = e.new ConformanceSoftwareComponent();
+        dst.name = name == null ? null : name.copy();
+        dst.version = version == null ? null : version.copy();
+        dst.releaseDate = releaseDate == null ? null : releaseDate.copy();
+        return dst;
+      }
+
   }
 
     public class ConformanceImplementationComponent extends Element {
         /**
          * Information about the specific installation that this conformance statement relates to
          */
-        private String_ description;
+        protected String_ description;
 
         /**
          * The base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.
          */
-        private Uri url;
+        protected Uri url;
 
         /**
          * The software running this instance
          */
-        private ConformanceSoftwareComponent software;
+        protected ConformanceSoftwareComponent software;
 
         public String_ getDescription() { 
           return this.description;
@@ -467,11 +474,11 @@ public class Conformance extends Resource {
           this.url = value;
         }
 
-        public URI getUrlSimple() { 
+        public String getUrlSimple() { 
           return this.url == null ? null : this.url.getValue();
         }
 
-        public void setUrlSimple(URI value) { 
+        public void setUrlSimple(String value) { 
           if (value == null)
             this.url = null;
           else {
@@ -489,13 +496,21 @@ public class Conformance extends Resource {
           this.software = value;
         }
 
+      public ConformanceImplementationComponent copy(Conformance e) {
+        ConformanceImplementationComponent dst = e.new ConformanceImplementationComponent();
+        dst.description = description == null ? null : description.copy();
+        dst.url = url == null ? null : url.copy();
+        dst.software = software == null ? null : software.copy(e);
+        return dst;
+      }
+
   }
 
     public class ConformanceProposalComponent extends Element {
         /**
          * Provides details about the intention and scope of the proposal
          */
-        private String_ description;
+        protected String_ description;
 
         public String_ getDescription() { 
           return this.description;
@@ -515,38 +530,44 @@ public class Conformance extends Resource {
             this.description.setValue(value);
         }
 
+      public ConformanceProposalComponent copy(Conformance e) {
+        ConformanceProposalComponent dst = e.new ConformanceProposalComponent();
+        dst.description = description == null ? null : description.copy();
+        return dst;
+      }
+
   }
 
     public class ConformanceRestComponent extends Element {
         /**
          * Identifies whether this portion of the statement is describing ability to initiate or receive restful operations
          */
-        private Enumeration<RestfulConformanceMode> mode;
+        protected Enumeration<RestfulConformanceMode> mode;
 
         /**
          * Provides documentation about the system's restful capabilities that apply across all applications, such as security
          */
-        private String_ documentation;
+        protected String_ documentation;
 
         /**
          * Information about security of implementation
          */
-        private ConformanceRestSecurityComponent security;
+        protected ConformanceRestSecurityComponent security;
 
         /**
          * Identifies the restful capabilities of the solution for a specific resource type
          */
-        private List<ConformanceRestResourceComponent> resource = new ArrayList<ConformanceRestResourceComponent>();
+        protected List<ConformanceRestResourceComponent> resource = new ArrayList<ConformanceRestResourceComponent>();
 
         /**
          * If batches are supported
          */
-        private Boolean batch;
+        protected Boolean batch;
 
         /**
          * If a system wide history list is supported
          */
-        private Boolean history;
+        protected Boolean history;
 
         public Enumeration<RestfulConformanceMode> getMode() { 
           return this.mode;
@@ -644,23 +665,36 @@ public class Conformance extends Resource {
           }
         }
 
+      public ConformanceRestComponent copy(Conformance e) {
+        ConformanceRestComponent dst = e.new ConformanceRestComponent();
+        dst.mode = mode == null ? null : mode.copy();
+        dst.documentation = documentation == null ? null : documentation.copy();
+        dst.security = security == null ? null : security.copy(e);
+        dst.resource = new ArrayList<ConformanceRestResourceComponent>();
+        for (ConformanceRestResourceComponent i : resource)
+          dst.resource.add(i.copy(e));
+        dst.batch = batch == null ? null : batch.copy();
+        dst.history = history == null ? null : history.copy();
+        return dst;
+      }
+
   }
 
     public class ConformanceRestSecurityComponent extends Element {
         /**
          * What type of security services are supported/required
          */
-        private List<CodeableConcept> service = new ArrayList<CodeableConcept>();
+        protected List<CodeableConcept> service = new ArrayList<CodeableConcept>();
 
         /**
          * General description of how security works
          */
-        private String_ description;
+        protected String_ description;
 
         /**
          * Certificates associated with security profiles
          */
-        private List<ConformanceRestSecurityCertificateComponent> certificate = new ArrayList<ConformanceRestSecurityCertificateComponent>();
+        protected List<ConformanceRestSecurityCertificateComponent> certificate = new ArrayList<ConformanceRestSecurityCertificateComponent>();
 
         public List<CodeableConcept> getService() { 
           return this.service;
@@ -692,18 +726,30 @@ public class Conformance extends Resource {
           return this.certificate;
         }
 
+      public ConformanceRestSecurityComponent copy(Conformance e) {
+        ConformanceRestSecurityComponent dst = e.new ConformanceRestSecurityComponent();
+        dst.service = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : service)
+          dst.service.add(i.copy());
+        dst.description = description == null ? null : description.copy();
+        dst.certificate = new ArrayList<ConformanceRestSecurityCertificateComponent>();
+        for (ConformanceRestSecurityCertificateComponent i : certificate)
+          dst.certificate.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     public class ConformanceRestSecurityCertificateComponent extends Element {
         /**
          * Mime type for certificate
          */
-        private Code type;
+        protected Code type;
 
         /**
          * Actual certificate
          */
-        private Base64Binary blob;
+        protected Base64Binary blob;
 
         public Code getType() { 
           return this.type;
@@ -749,38 +795,45 @@ public class Conformance extends Resource {
           }
         }
 
+      public ConformanceRestSecurityCertificateComponent copy(Conformance e) {
+        ConformanceRestSecurityCertificateComponent dst = e.new ConformanceRestSecurityCertificateComponent();
+        dst.type = type == null ? null : type.copy();
+        dst.blob = blob == null ? null : blob.copy();
+        return dst;
+      }
+
   }
 
     public class ConformanceRestResourceComponent extends Element {
         /**
          * Identifies the resource exposed via the restful interface
          */
-        private Code type;
+        protected Code type;
 
         /**
          * Identifies the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations
          */
-        private ResourceReference profile;
+        protected ResourceReference profile;
 
         /**
          * Identifies a restful operation supported by the solution
          */
-        private List<ConformanceRestResourceOperationComponent> operation = new ArrayList<ConformanceRestResourceOperationComponent>();
+        protected List<ConformanceRestResourceOperationComponent> operation = new ArrayList<ConformanceRestResourceOperationComponent>();
 
         /**
          * A flag for whether the server is able to return past versions as part of the vRead operation
          */
-        private Boolean readHistory;
+        protected Boolean readHistory;
 
         /**
          * _include values supported by the server
          */
-        private List<String_> searchInclude = new ArrayList<String_>();
+        protected List<String_> searchInclude = new ArrayList<String_>();
 
         /**
          * Defines additional search parameters for implementations to support and/or make use of
          */
-        private List<ConformanceRestResourceSearchParamComponent> searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
+        protected List<ConformanceRestResourceSearchParamComponent> searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
 
         public Code getType() { 
           return this.type;
@@ -842,18 +895,35 @@ public class Conformance extends Resource {
           return this.searchParam;
         }
 
+      public ConformanceRestResourceComponent copy(Conformance e) {
+        ConformanceRestResourceComponent dst = e.new ConformanceRestResourceComponent();
+        dst.type = type == null ? null : type.copy();
+        dst.profile = profile == null ? null : profile.copy();
+        dst.operation = new ArrayList<ConformanceRestResourceOperationComponent>();
+        for (ConformanceRestResourceOperationComponent i : operation)
+          dst.operation.add(i.copy(e));
+        dst.readHistory = readHistory == null ? null : readHistory.copy();
+        dst.searchInclude = new ArrayList<String_>();
+        for (String_ i : searchInclude)
+          dst.searchInclude.add(i.copy());
+        dst.searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
+        for (ConformanceRestResourceSearchParamComponent i : searchParam)
+          dst.searchParam.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     public class ConformanceRestResourceOperationComponent extends Element {
         /**
          * Identifies which operation is supported
          */
-        private Enumeration<RestfulOperation> code;
+        protected Enumeration<RestfulOperation> code;
 
         /**
          * Provides guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'
          */
-        private String_ documentation;
+        protected String_ documentation;
 
         public Enumeration<RestfulOperation> getCode() { 
           return this.code;
@@ -895,38 +965,45 @@ public class Conformance extends Resource {
           }
         }
 
+      public ConformanceRestResourceOperationComponent copy(Conformance e) {
+        ConformanceRestResourceOperationComponent dst = e.new ConformanceRestResourceOperationComponent();
+        dst.code = code == null ? null : code.copy();
+        dst.documentation = documentation == null ? null : documentation.copy();
+        return dst;
+      }
+
   }
 
     public class ConformanceRestResourceSearchParamComponent extends Element {
         /**
          * Corresponds to the name of the standard or custom search parameter
          */
-        private String_ name;
+        protected String_ name;
 
         /**
          * A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter
          */
-        private Uri source;
+        protected Uri source;
 
         /**
          * The type of value a search parameter refers to, and how the content is interpreted
          */
-        private Enumeration<SearchParamType> type;
+        protected Enumeration<SearchParamType> type;
 
         /**
          * For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does
          */
-        private String_ documentation;
+        protected String_ documentation;
 
         /**
          * Types of resource (if a resource reference)
          */
-        private List<Code> target = new ArrayList<Code>();
+        protected List<Code> target = new ArrayList<Code>();
 
         /**
          * Chained names supported
          */
-        private List<String_> chain = new ArrayList<String_>();
+        protected List<String_> chain = new ArrayList<String_>();
 
         public String_ getName() { 
           return this.name;
@@ -954,11 +1031,11 @@ public class Conformance extends Resource {
           this.source = value;
         }
 
-        public URI getSourceSimple() { 
+        public String getSourceSimple() { 
           return this.source == null ? null : this.source.getValue();
         }
 
-        public void setSourceSimple(URI value) { 
+        public void setSourceSimple(String value) { 
           if (value == null)
             this.source = null;
           else {
@@ -1012,28 +1089,43 @@ public class Conformance extends Resource {
           return this.chain;
         }
 
+      public ConformanceRestResourceSearchParamComponent copy(Conformance e) {
+        ConformanceRestResourceSearchParamComponent dst = e.new ConformanceRestResourceSearchParamComponent();
+        dst.name = name == null ? null : name.copy();
+        dst.source = source == null ? null : source.copy();
+        dst.type = type == null ? null : type.copy();
+        dst.documentation = documentation == null ? null : documentation.copy();
+        dst.target = new ArrayList<Code>();
+        for (Code i : target)
+          dst.target.add(i.copy());
+        dst.chain = new ArrayList<String_>();
+        for (String_ i : chain)
+          dst.chain.add(i.copy());
+        return dst;
+      }
+
   }
 
     public class ConformanceMessagingComponent extends Element {
         /**
          * The address to which messages and/or replies are to be sent.
          */
-        private Uri endpoint;
+        protected Uri endpoint;
 
         /**
          * The length if the receiver's reliable messaging cache length (if a receiver) or how long the cache length on the receiver should be (if a sender)
          */
-        private Integer reliableCache;
+        protected Integer reliableCache;
 
         /**
          * Provides documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.
          */
-        private String_ documentation;
+        protected String_ documentation;
 
         /**
          * Describes the solution's support for an event at this end point.
          */
-        private List<ConformanceMessagingEventComponent> event = new ArrayList<ConformanceMessagingEventComponent>();
+        protected List<ConformanceMessagingEventComponent> event = new ArrayList<ConformanceMessagingEventComponent>();
 
         public Uri getEndpoint() { 
           return this.endpoint;
@@ -1043,11 +1135,11 @@ public class Conformance extends Resource {
           this.endpoint = value;
         }
 
-        public URI getEndpointSimple() { 
+        public String getEndpointSimple() { 
           return this.endpoint == null ? null : this.endpoint.getValue();
         }
 
-        public void setEndpointSimple(URI value) { 
+        public void setEndpointSimple(String value) { 
           if (value == null)
             this.endpoint = null;
           else {
@@ -1105,43 +1197,54 @@ public class Conformance extends Resource {
           return this.event;
         }
 
+      public ConformanceMessagingComponent copy(Conformance e) {
+        ConformanceMessagingComponent dst = e.new ConformanceMessagingComponent();
+        dst.endpoint = endpoint == null ? null : endpoint.copy();
+        dst.reliableCache = reliableCache == null ? null : reliableCache.copy();
+        dst.documentation = documentation == null ? null : documentation.copy();
+        dst.event = new ArrayList<ConformanceMessagingEventComponent>();
+        for (ConformanceMessagingEventComponent i : event)
+          dst.event.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     public class ConformanceMessagingEventComponent extends Element {
         /**
          * Identifies the supported messaging event
          */
-        private Code code;
+        protected Code code;
 
         /**
          * The mode of this event declaration - whether application is sender or receiver
          */
-        private Enumeration<MessageConformanceEventMode> mode;
+        protected Enumeration<MessageConformanceEventMode> mode;
 
         /**
          * Identifies the messaging transport protocol(s) supported by this endpoint
          */
-        private List<Coding> protocol = new ArrayList<Coding>();
+        protected List<Coding> protocol = new ArrayList<Coding>();
 
         /**
          * Identifies the resource associated with the event.  This is the resource that defines the event.
          */
-        private Code focus;
+        protected Code focus;
 
         /**
          * Information about the request for this event
          */
-        private ResourceReference request;
+        protected ResourceReference request;
 
         /**
          * Information about the response for this event
          */
-        private ResourceReference response;
+        protected ResourceReference response;
 
         /**
          * Guidance on how this event is handled, such as internal system trigger points, business rules, etc.
          */
-        private String_ documentation;
+        protected String_ documentation;
 
         public Code getCode() { 
           return this.code;
@@ -1239,23 +1342,37 @@ public class Conformance extends Resource {
           }
         }
 
+      public ConformanceMessagingEventComponent copy(Conformance e) {
+        ConformanceMessagingEventComponent dst = e.new ConformanceMessagingEventComponent();
+        dst.code = code == null ? null : code.copy();
+        dst.mode = mode == null ? null : mode.copy();
+        dst.protocol = new ArrayList<Coding>();
+        for (Coding i : protocol)
+          dst.protocol.add(i.copy());
+        dst.focus = focus == null ? null : focus.copy();
+        dst.request = request == null ? null : request.copy();
+        dst.response = response == null ? null : response.copy();
+        dst.documentation = documentation == null ? null : documentation.copy();
+        return dst;
+      }
+
   }
 
     public class ConformanceDocumentComponent extends Element {
         /**
          * The mode of this event declaration - whether application is sender or receiver
          */
-        private Enumeration<DocumentMode> mode;
+        protected Enumeration<DocumentMode> mode;
 
         /**
          * Describes how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.
          */
-        private String_ documentation;
+        protected String_ documentation;
 
         /**
          * Constraint on a resource used in the document
          */
-        private ResourceReference profile;
+        protected ResourceReference profile;
 
         public Enumeration<DocumentMode> getMode() { 
           return this.mode;
@@ -1305,77 +1422,85 @@ public class Conformance extends Resource {
           this.profile = value;
         }
 
+      public ConformanceDocumentComponent copy(Conformance e) {
+        ConformanceDocumentComponent dst = e.new ConformanceDocumentComponent();
+        dst.mode = mode == null ? null : mode.copy();
+        dst.documentation = documentation == null ? null : documentation.copy();
+        dst.profile = profile == null ? null : profile.copy();
+        return dst;
+      }
+
   }
 
     /**
      * The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI)
      */
-    private String_ identifier;
+    protected String_ identifier;
 
     /**
      * The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp
      */
-    private String_ version;
+    protected String_ version;
 
     /**
      * Date that the conformance statement is published
      */
-    private DateTime date;
+    protected DateTime date;
 
     /**
      * Name of Organization
      */
-    private String_ publisher;
+    protected String_ publisher;
 
     /**
      * Contacts for Organization relevant to this conformance statement.  May be website, email, phone numbers, etc.
      */
-    private List<Contact> telecom = new ArrayList<Contact>();
+    protected List<Contact> telecom = new ArrayList<Contact>();
 
     /**
      * Describes the software that is covered by this conformance statement.  Used when the profile describes the capabilities of a particular software version, independent of an installation.
      */
-    private ConformanceSoftwareComponent software;
+    protected ConformanceSoftwareComponent software;
 
     /**
      * Used when the statement describes the capabilities of a specific implementation instance - i.e. a particular installation, rather than the capabilities of a software program
      */
-    private ConformanceImplementationComponent implementation;
+    protected ConformanceImplementationComponent implementation;
 
     /**
      * Describes the proposed solution described by this conformance statement.  Used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
      */
-    private ConformanceProposalComponent proposal;
+    protected ConformanceProposalComponent proposal;
 
     /**
      * The version of the FHIR specification on which this conformance statement is based
      */
-    private Id fhirVersion;
+    protected Id fhirVersion;
 
     /**
      * Whether the application accepts unknown non-"must understand" elements as part of a resource. This does not include extensions, but genuine new additions to a resource
      */
-    private Boolean acceptUnknown;
+    protected Boolean acceptUnknown;
 
     /**
      * The formats supported by this implementation
      */
-    private List<Code> format = new ArrayList<Code>();
+    protected List<Code> format = new ArrayList<Code>();
 
     /**
      * Defines the restful capabilities of the solution, if any
      */
-    private List<ConformanceRestComponent> rest = new ArrayList<ConformanceRestComponent>();
+    protected List<ConformanceRestComponent> rest = new ArrayList<ConformanceRestComponent>();
 
     /**
      * Describes the messaging capabilities of the solution
      */
-    private List<ConformanceMessagingComponent> messaging = new ArrayList<ConformanceMessagingComponent>();
+    protected List<ConformanceMessagingComponent> messaging = new ArrayList<ConformanceMessagingComponent>();
 
     /**
      * A document definition
      */
-    private List<ConformanceDocumentComponent> document = new ArrayList<ConformanceDocumentComponent>();
+    protected List<ConformanceDocumentComponent> document = new ArrayList<ConformanceDocumentComponent>();
 
     public String_ getIdentifier() { 
       return this.identifier;
@@ -1536,6 +1661,39 @@ public class Conformance extends Resource {
     public List<ConformanceDocumentComponent> getDocument() { 
       return this.document;
     }
+
+      public Conformance copy() {
+        Conformance dst = new Conformance();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.version = version == null ? null : version.copy();
+        dst.date = date == null ? null : date.copy();
+        dst.publisher = publisher == null ? null : publisher.copy();
+        dst.telecom = new ArrayList<Contact>();
+        for (Contact i : telecom)
+          dst.telecom.add(i.copy());
+        dst.software = software == null ? null : software.copy(dst);
+        dst.implementation = implementation == null ? null : implementation.copy(dst);
+        dst.proposal = proposal == null ? null : proposal.copy(dst);
+        dst.fhirVersion = fhirVersion == null ? null : fhirVersion.copy();
+        dst.acceptUnknown = acceptUnknown == null ? null : acceptUnknown.copy();
+        dst.format = new ArrayList<Code>();
+        for (Code i : format)
+          dst.format.add(i.copy());
+        dst.rest = new ArrayList<ConformanceRestComponent>();
+        for (ConformanceRestComponent i : rest)
+          dst.rest.add(i.copy(dst));
+        dst.messaging = new ArrayList<ConformanceMessagingComponent>();
+        for (ConformanceMessagingComponent i : messaging)
+          dst.messaging.add(i.copy(dst));
+        dst.document = new ArrayList<ConformanceDocumentComponent>();
+        for (ConformanceDocumentComponent i : document)
+          dst.document.add(i.copy(dst));
+        return dst;
+      }
+
+      protected Conformance typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

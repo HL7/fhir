@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 /**
  * Sample for analysis
@@ -39,7 +39,7 @@ public class Specimen extends Resource {
     /**
      * Id for specimen
      */
-    private Identifier identifier;
+    protected Identifier identifier;
 
     public Identifier getIdentifier() { 
       return this.identifier;
@@ -48,6 +48,16 @@ public class Specimen extends Resource {
     public void setIdentifier(Identifier value) { 
       this.identifier = value;
     }
+
+      public Specimen copy() {
+        Specimen dst = new Specimen();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        return dst;
+      }
+
+      protected Specimen typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

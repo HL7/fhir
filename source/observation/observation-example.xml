@@ -13,9 +13,9 @@
   </name>
   <interpretation>
     <coding>
-      <system value="http://hl7.org/v3/ObservationInterpretation"/>
+      <system value="http://hl7.org/fhir/v2/0078"/>
       <code value="N"/>
-      <display value="normal"/>
+      <display value="Normal (applies to non-numeric results)"/>
     </coding>
   </interpretation>
   <appliesDateTime value="2012-09-17"/>

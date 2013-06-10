@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -108,17 +108,17 @@ public class Group extends Resource {
         /**
          * Identifies the kind of trait being asserted
          */
-        private CodeableConcept type;
+        protected CodeableConcept type;
 
         /**
          * The value of the trait that holds (or does not hold - see 'exclude') for members of the group
          */
-        private Type value;
+        protected Type value;
 
         /**
          * If true, indicates the characteristic is one that is NOT held by members of the group
          */
-        private Boolean exclude;
+        protected Boolean exclude;
 
         public CodeableConcept getType() { 
           return this.type;
@@ -154,47 +154,55 @@ public class Group extends Resource {
             this.exclude.setValue(value);
         }
 
+      public GroupCharacteristicComponent copy(Group e) {
+        GroupCharacteristicComponent dst = e.new GroupCharacteristicComponent();
+        dst.type = type == null ? null : type.copy();
+        dst.value = value == null ? null : value.copy();
+        dst.exclude = exclude == null ? null : exclude.copy();
+        return dst;
+      }
+
   }
 
     /**
      * A unique business identifier for this group
      */
-    private Identifier identifier;
+    protected Identifier identifier;
 
     /**
      * Identifies the broad classification of the kind of resources the group includes
      */
-    private Enumeration<GroupType> type;
+    protected Enumeration<GroupType> type;
 
     /**
      * If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals
      */
-    private Boolean actual;
+    protected Boolean actual;
 
     /**
      * Provides a specific type of resource the group includes.  E.g. "cow", "syringe", etc.
      */
-    private CodeableConcept code;
+    protected CodeableConcept code;
 
     /**
      * A label assigned to the group for human identification and communication
      */
-    private String_ name;
+    protected String_ name;
 
     /**
      * A count of the number of resource instances that are part of the group
      */
-    private Integer quantity;
+    protected Integer quantity;
 
     /**
      * Identifies the traits shared by members of the group
      */
-    private List<GroupCharacteristicComponent> characteristic = new ArrayList<GroupCharacteristicComponent>();
+    protected List<GroupCharacteristicComponent> characteristic = new ArrayList<GroupCharacteristicComponent>();
 
     /**
      * Identifies the resource instances that are members of the group.
      */
-    private List<ResourceReference> member = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> member = new ArrayList<ResourceReference>();
 
     public Identifier getIdentifier() { 
       return this.identifier;
@@ -299,6 +307,27 @@ public class Group extends Resource {
     public List<ResourceReference> getMember() { 
       return this.member;
     }
+
+      public Group copy() {
+        Group dst = new Group();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.type = type == null ? null : type.copy();
+        dst.actual = actual == null ? null : actual.copy();
+        dst.code = code == null ? null : code.copy();
+        dst.name = name == null ? null : name.copy();
+        dst.quantity = quantity == null ? null : quantity.copy();
+        dst.characteristic = new ArrayList<GroupCharacteristicComponent>();
+        for (GroupCharacteristicComponent i : characteristic)
+          dst.characteristic.add(i.copy(dst));
+        dst.member = new ArrayList<ResourceReference>();
+        for (ResourceReference i : member)
+          dst.member.add(i.copy());
+        return dst;
+      }
+
+      protected Group typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

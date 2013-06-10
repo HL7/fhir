@@ -39,5 +39,9 @@ public abstract class Type extends Element {
 	    this.namedConstraint = namedConstraint;
 	  }
 	  
-	  
+	  public Type copy() {
+	  	return typedCopy();
+	  }
+
+		protected abstract Type typedCopy();
 }

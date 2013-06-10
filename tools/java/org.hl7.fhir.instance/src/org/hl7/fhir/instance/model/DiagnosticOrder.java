@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -140,17 +140,17 @@ public class DiagnosticOrder extends Resource {
         /**
          * The status for the event
          */
-        private Enumeration<DiagnosticOrderStatus> status;
+        protected Enumeration<DiagnosticOrderStatus> status;
 
         /**
          * The date/time at which the event occurred
          */
-        private DateTime date;
+        protected DateTime date;
 
         /**
          * The person who was responsible for performing or recording the action
          */
-        private ResourceReference actor;
+        protected ResourceReference actor;
 
         public Enumeration<DiagnosticOrderStatus> getStatus() { 
           return this.status;
@@ -196,33 +196,41 @@ public class DiagnosticOrder extends Resource {
           this.actor = value;
         }
 
+      public DiagnosticOrderEventComponent copy(DiagnosticOrder e) {
+        DiagnosticOrderEventComponent dst = e.new DiagnosticOrderEventComponent();
+        dst.status = status == null ? null : status.copy();
+        dst.date = date == null ? null : date.copy();
+        dst.actor = actor == null ? null : actor.copy();
+        return dst;
+      }
+
   }
 
     public class DiagnosticOrderItemComponent extends Element {
         /**
          * A code that identifies a particular diagnostic investigation that has been requested
          */
-        private CodeableConcept code;
+        protected CodeableConcept code;
 
         /**
          * If the item is related to a specific speciment
          */
-        private List<ResourceReference> specimen = new ArrayList<ResourceReference>();
+        protected List<ResourceReference> specimen = new ArrayList<ResourceReference>();
 
         /**
          * Anatomical location where the request test should be performed
          */
-        private CodeableConcept bodySite;
+        protected CodeableConcept bodySite;
 
         /**
          * The status of this individual item within the order
          */
-        private Enumeration<DiagnosticOrderStatus> status;
+        protected Enumeration<DiagnosticOrderStatus> status;
 
         /**
          * A summary of the events of interest that have occurred as this item of the request is processed
          */
-        private List<DiagnosticOrderEventComponent> event = new ArrayList<DiagnosticOrderEventComponent>();
+        protected List<DiagnosticOrderEventComponent> event = new ArrayList<DiagnosticOrderEventComponent>();
 
         public CodeableConcept getCode() { 
           return this.code;
@@ -270,52 +278,66 @@ public class DiagnosticOrder extends Resource {
           return this.event;
         }
 
+      public DiagnosticOrderItemComponent copy(DiagnosticOrder e) {
+        DiagnosticOrderItemComponent dst = e.new DiagnosticOrderItemComponent();
+        dst.code = code == null ? null : code.copy();
+        dst.specimen = new ArrayList<ResourceReference>();
+        for (ResourceReference i : specimen)
+          dst.specimen.add(i.copy());
+        dst.bodySite = bodySite == null ? null : bodySite.copy();
+        dst.status = status == null ? null : status.copy();
+        dst.event = new ArrayList<DiagnosticOrderEventComponent>();
+        for (DiagnosticOrderEventComponent i : event)
+          dst.event.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     /**
      * Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans)
      */
-    private ResourceReference subject;
+    protected ResourceReference subject;
 
     /**
      * The practitioner that holds legal responsibility for ordering the investigation
      */
-    private ResourceReference orderer;
+    protected ResourceReference orderer;
 
     /**
      * Identifiers assigned to this order by the order or by the receiver
      */
-    private List<Identifier> identifier = new ArrayList<Identifier>();
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * A visit that provides additional informaton about the healthcare context in which this request is made
      */
-    private ResourceReference visit;
+    protected ResourceReference visit;
 
     /**
      * An explanation or justification for why this diagnostic investigation is being requested
      */
-    private String_ clinicalNotes;
+    protected String_ clinicalNotes;
 
     /**
      * One or more specimens that the diagnostic investigation is about
      */
-    private List<ResourceReference> specimen = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> specimen = new ArrayList<ResourceReference>();
 
     /**
      * The status of the order
      */
-    private Enumeration<DiagnosticOrderStatus> status;
+    protected Enumeration<DiagnosticOrderStatus> status;
 
     /**
      * A summary of the events of interest that have occurred as the request is processed
      */
-    private List<DiagnosticOrderEventComponent> event = new ArrayList<DiagnosticOrderEventComponent>();
+    protected List<DiagnosticOrderEventComponent> event = new ArrayList<DiagnosticOrderEventComponent>();
 
     /**
      * The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested
      */
-    private List<DiagnosticOrderItemComponent> item = new ArrayList<DiagnosticOrderItemComponent>();
+    protected List<DiagnosticOrderItemComponent> item = new ArrayList<DiagnosticOrderItemComponent>();
 
     public ResourceReference getSubject() { 
       return this.subject;
@@ -400,6 +422,32 @@ public class DiagnosticOrder extends Resource {
     public List<DiagnosticOrderItemComponent> getItem() { 
       return this.item;
     }
+
+      public DiagnosticOrder copy() {
+        DiagnosticOrder dst = new DiagnosticOrder();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.orderer = orderer == null ? null : orderer.copy();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
+        dst.visit = visit == null ? null : visit.copy();
+        dst.clinicalNotes = clinicalNotes == null ? null : clinicalNotes.copy();
+        dst.specimen = new ArrayList<ResourceReference>();
+        for (ResourceReference i : specimen)
+          dst.specimen.add(i.copy());
+        dst.status = status == null ? null : status.copy();
+        dst.event = new ArrayList<DiagnosticOrderEventComponent>();
+        for (DiagnosticOrderEventComponent i : event)
+          dst.event.add(i.copy(dst));
+        dst.item = new ArrayList<DiagnosticOrderItemComponent>();
+        for (DiagnosticOrderItemComponent i : item)
+          dst.item.add(i.copy(dst));
+        return dst;
+      }
+
+      protected DiagnosticOrder typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

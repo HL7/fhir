@@ -140,16 +140,16 @@ public class XhtmlNode {
 
   public XhtmlNode addText(String content)
   {
-    if (!(nodeType == NodeType.Element || nodeType == NodeType.Document)) 
-      throw new Error("Wrong node type");
-    if (content == null)
-      throw new Error("Content cannot be null");
-    
-    XhtmlNode node = new XhtmlNode();
-    node.setNodeType(NodeType.Text);
-    node.setContent(content);
-    childNodes.add(node);
-    return node;
+  	if (!(nodeType == NodeType.Element || nodeType == NodeType.Document)) 
+  		throw new Error("Wrong node type");
+  	if (content != null) {
+  		XhtmlNode node = new XhtmlNode();
+  		node.setNodeType(NodeType.Text);
+  		node.setContent(content);
+  		childNodes.add(node);
+  		return node;
+    } else 
+    	return null;
   }
 
   public XhtmlNode addText(int index, String content)
@@ -209,5 +209,18 @@ public class XhtmlNode {
   public void setAttribute(String name, String value) {
     getAttributes().put(name, value);
     
+  }
+  
+  public XhtmlNode copy() {
+  	XhtmlNode dst = new XhtmlNode();
+  	dst.nodeType = nodeType;
+  	dst.name = name;
+  	for (String n : Attributes.keySet()) {
+  		dst.Attributes.put(n, Attributes.get(n));
+  	}
+    for (XhtmlNode n : childNodes)
+    	dst.childNodes.add(n.copy());
+    dst.content = content;
+    return dst;
   }
 }

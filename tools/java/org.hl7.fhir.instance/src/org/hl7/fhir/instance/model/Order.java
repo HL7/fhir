@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -42,12 +42,12 @@ public class Order extends Resource {
         /**
          * Code specifies when request should be done. The code may simply be a priority code
          */
-        private CodeableConcept code;
+        protected CodeableConcept code;
 
         /**
          * A formal schedule
          */
-        private Schedule schedule;
+        protected Schedule schedule;
 
         public CodeableConcept getCode() { 
           return this.code;
@@ -65,52 +65,59 @@ public class Order extends Resource {
           this.schedule = value;
         }
 
+      public OrderWhenComponent copy(Order e) {
+        OrderWhenComponent dst = e.new OrderWhenComponent();
+        dst.code = code == null ? null : code.copy();
+        dst.schedule = schedule == null ? null : schedule.copy();
+        return dst;
+      }
+
   }
 
     /**
      * When the order was made
      */
-    private DateTime date;
+    protected DateTime date;
 
     /**
      * Patient this order is about
      */
-    private ResourceReference subject;
+    protected ResourceReference subject;
 
     /**
      * Who initiated the order
      */
-    private ResourceReference source;
+    protected ResourceReference source;
 
     /**
      * Who is intended to fulfill the order
      */
-    private ResourceReference target;
+    protected ResourceReference target;
 
     /**
      * Text - why the order was made
      */
-    private String_ reason;
+    protected String_ reason;
 
     /**
      * If required by policy
      */
-    private ResourceReference authority;
+    protected ResourceReference authority;
 
     /**
      * How action is financed (if required)
      */
-    private ResourceReference payment;
+    protected ResourceReference payment;
 
     /**
      * When order should be filfulled
      */
-    private OrderWhenComponent when;
+    protected OrderWhenComponent when;
 
     /**
      * What action is being ordered
      */
-    private List<ResourceReference> detail = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> detail = new ArrayList<ResourceReference>();
 
     public DateTime getDate() { 
       return this.date;
@@ -207,6 +214,26 @@ public class Order extends Resource {
     public List<ResourceReference> getDetail() { 
       return this.detail;
     }
+
+      public Order copy() {
+        Order dst = new Order();
+        dst.date = date == null ? null : date.copy();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.source = source == null ? null : source.copy();
+        dst.target = target == null ? null : target.copy();
+        dst.reason = reason == null ? null : reason.copy();
+        dst.authority = authority == null ? null : authority.copy();
+        dst.payment = payment == null ? null : payment.copy();
+        dst.when = when == null ? null : when.copy(dst);
+        dst.detail = new ArrayList<ResourceReference>();
+        for (ResourceReference i : detail)
+          dst.detail.add(i.copy());
+        return dst;
+      }
+
+      protected Order typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

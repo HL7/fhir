@@ -27,6 +27,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
+import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -62,6 +63,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	private List<String> enumNames = new ArrayList<String>();
 	private List<ElementDefn> strucs  = new ArrayList<ElementDefn>();
 
+  private String classname;
+
 
 	public Map<ElementDefn, String> getTypeNames() {
 		return typeNames;
@@ -81,16 +84,13 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     if (clss != JavaGenClass.Constraint) {
       boolean l = hasList(root);
       boolean h = hasXhtml(root);
-      boolean u = hasUri(root);
       boolean d = hasDecimal(root);
-      if (l || h || u || d) {
+      if (l || h || d) {
         if (l)
           write("import java.util.*;\r\n");
         if (h)
           write("import org.hl7.fhir.utilities.xhtml.XhtmlNode;\r\n");
         write("\r\n");
-        if (u)
-          write("import java.net.*;\r\n");
         if (d)
           write("import java.math.*;\r\n");
       }
@@ -98,6 +98,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		write("/**\r\n");
 		write(" * "+root.getDefinition()+"\r\n");
 		write(" */\r\n");
+		classname = upFirst(name);
 		if (clss == JavaGenClass.Resource)
 			write("public class "+upFirst(name)+" extends Resource {\r\n");
 		else if (clss == JavaGenClass.Structure)
@@ -133,6 +134,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 			}
 		}
 
+		generateCopy(root, classname, false);
 		if (clss == JavaGenClass.Resource) {
 		  write("  @Override\r\n");
 		  write("  public ResourceType getResourceType() {\r\n");
@@ -196,14 +198,6 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		return false;
 	}
 
-  private boolean hasUri(ElementDefn root) {
-    for (ElementDefn e : root.getElements()) {
-      if (e.typeCode().equals("uri") || hasUriInner(e))
-        return true;
-    }
-    return false;
-  }
-
   private boolean hasDecimal(ElementDefn root) {
     for (ElementDefn e : root.getElements()) {
       if (e.typeCode().equals("decimal") || hasDecimalInner(e))
@@ -237,15 +231,6 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
 		return false;
 	}
-
-  private boolean hasUriInner(ElementDefn e) {
-    for (ElementDefn c : e.getElements()) {
-      if (c.typeCode().equals("uri") || hasUriInner(c))
-        return true;
-    }
-
-    return false;
-  }
 
   private boolean hasDecimalInner(ElementDefn e) {
     for (ElementDefn c : e.getElements()) {
@@ -412,12 +397,46 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		for (ElementDefn c : e.getElements()) {
 			generateAccessors(e, c, "        ");
 		}
+		generateCopy(e, tn, true);
     write("  }\r\n");
 		write("\r\n");
 
 	}
 
-	private void scanNestedTypes(ElementDefn root, String path, ElementDefn e, Map<String, BindingSpecification> conceptDomains) throws Exception {
+	private void generateCopy(ElementDefn e, String tn, boolean owner) throws IOException {
+	  if (owner) {
+      write("      public "+tn+" copy("+classname+" e) {\r\n");
+      write("        "+tn+" dst = e.new "+tn+"();\r\n");
+	  } else {
+      write("      public "+tn+" copy() {\r\n");
+      write("        "+tn+" dst = new "+tn+"();\r\n");
+	  }
+    for (ElementDefn c : e.getElements()) {
+      String params = "";
+      if (((c.getElements().size() > 0) || c.typeCode().startsWith("@")) && !definitions.dataTypeIsSharedInfo(c.typeCode()))
+        params = owner ? "e" : "dst";
+      String name = getElementName(c.getName(), true);
+      if (c.unbounded()) {
+        write("        dst."+name+" = new ArrayList<"+typeNames.get(c)+">();\r\n");
+        write("        for ("+typeNames.get(c)+" i : "+name+")\r\n");
+        write("          dst."+name+".add(i.copy("+params+"));\r\n");
+      } else {
+        if (name.endsWith("[x]"))
+          name = name.substring(0, name.length()-3);
+        write("        dst."+name+" = "+name+" == null ? null : "+name+".copy("+params+");\r\n");
+      }
+    }
+    write("        return dst;\r\n");
+    write("      }\r\n\r\n");
+    if (!owner) {
+      write("      protected "+tn+" typedCopy() {\r\n");
+      write("        return copy();\r\n");
+      write("      }\r\n\r\n");
+      
+    }
+  }
+
+  private void scanNestedTypes(ElementDefn root, String path, ElementDefn e, Map<String, BindingSpecification> conceptDomains) throws Exception {
 		String tn = null;
 		if (e.typeCode().equals("code") && e.hasBinding()) {
 			BindingSpecification cd = getConceptDomain(conceptDomains, e.getBindingName());
@@ -549,15 +568,15 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 			write(indent+" * "+e.getDefinition()+"\r\n");
 			write(indent+" */\r\n");
 			if (tn == null && e.usesCompositeType())
-				write(indent+"/*1*/private List<"+root.getName()+"> "+getElementName(e.getName(), true)+" = new ArrayList<"+root.getName()+">();\r\n");
+				write(indent+"/*1*/protected List<"+root.getName()+"> "+getElementName(e.getName(), true)+" = new ArrayList<"+root.getName()+">();\r\n");
 			else
-				write(indent+"private List<"+tn+"> "+getElementName(e.getName(), true)+" = new ArrayList<"+tn+">();\r\n");
+				write(indent+"protected List<"+tn+"> "+getElementName(e.getName(), true)+" = new ArrayList<"+tn+">();\r\n");
 			write("\r\n");
 		} else {
 			write(indent+"/**\r\n");
 			write(indent+" * "+e.getDefinition()+"\r\n");
 			write(indent+" */\r\n");
-			write(indent+"private "+tn+" "+getElementName(e.getName(), true)+";\r\n");
+			write(indent+"protected "+tn+" "+getElementName(e.getName(), true)+";\r\n");
 			write("\r\n");
 		}
 
@@ -572,7 +591,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     if (n.equals("Base64Binary"))
       return "byte[]";
     if (n.equals("Uri"))
-      return "URI";
+      return "String";
     if (n.equals("Oid"))
       return "String";
     if (n.equals("Integer"))

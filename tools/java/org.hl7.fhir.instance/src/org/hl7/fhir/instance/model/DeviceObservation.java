@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -41,32 +41,32 @@ public class DeviceObservation extends Resource {
     /**
      * A code that identifies what type of device observation this is
      */
-    private CodeableConcept code;
+    protected CodeableConcept code;
 
     /**
      * Identifiers assigned to this observation
      */
-    private List<Identifier> identifier = new ArrayList<Identifier>();
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * Date the measurements were made
      */
-    private Instant issued;
+    protected Instant issued;
 
     /**
      * The subject of the measurements. Usually, but not always, this is a patient. However devices are also used to make measurements on other things as well
      */
-    private ResourceReference subject;
+    protected ResourceReference subject;
 
     /**
      * Device that produced the results
      */
-    private ResourceReference device;
+    protected ResourceReference device;
 
     /**
      * The actual measurements that the device produced
      */
-    private List<ResourceReference> measurement = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> measurement = new ArrayList<ResourceReference>();
 
     public CodeableConcept getCode() { 
       return this.code;
@@ -117,6 +117,25 @@ public class DeviceObservation extends Resource {
     public List<ResourceReference> getMeasurement() { 
       return this.measurement;
     }
+
+      public DeviceObservation copy() {
+        DeviceObservation dst = new DeviceObservation();
+        dst.code = code == null ? null : code.copy();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
+        dst.issued = issued == null ? null : issued.copy();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.device = device == null ? null : device.copy();
+        dst.measurement = new ArrayList<ResourceReference>();
+        for (ResourceReference i : measurement)
+          dst.measurement.add(i.copy());
+        return dst;
+      }
+
+      protected DeviceObservation typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

@@ -29,11 +29,10 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
-import java.net.*;
 import java.math.*;
 /**
  * Describes the set of data produced by a device
@@ -110,12 +109,12 @@ public class DeviceCapabilities extends Resource {
         /**
          * Describes the compartment
          */
-        private CodeableConcept code;
+        protected CodeableConcept code;
 
         /**
          * Groups together physiological measurement data and derived data
          */
-        private List<DeviceCapabilitiesVirtualDeviceChannelComponent> channel = new ArrayList<DeviceCapabilitiesVirtualDeviceChannelComponent>();
+        protected List<DeviceCapabilitiesVirtualDeviceChannelComponent> channel = new ArrayList<DeviceCapabilitiesVirtualDeviceChannelComponent>();
 
         public CodeableConcept getCode() { 
           return this.code;
@@ -129,18 +128,27 @@ public class DeviceCapabilities extends Resource {
           return this.channel;
         }
 
+      public DeviceCapabilitiesVirtualDeviceComponent copy(DeviceCapabilities e) {
+        DeviceCapabilitiesVirtualDeviceComponent dst = e.new DeviceCapabilitiesVirtualDeviceComponent();
+        dst.code = code == null ? null : code.copy();
+        dst.channel = new ArrayList<DeviceCapabilitiesVirtualDeviceChannelComponent>();
+        for (DeviceCapabilitiesVirtualDeviceChannelComponent i : channel)
+          dst.channel.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     public class DeviceCapabilitiesVirtualDeviceChannelComponent extends Element {
         /**
          * Describes the channel
          */
-        private CodeableConcept code;
+        protected CodeableConcept code;
 
         /**
          * A piece of measured or derived data that will be reported by the machine
          */
-        private List<DeviceCapabilitiesVirtualDeviceChannelMetricComponent> metric = new ArrayList<DeviceCapabilitiesVirtualDeviceChannelMetricComponent>();
+        protected List<DeviceCapabilitiesVirtualDeviceChannelMetricComponent> metric = new ArrayList<DeviceCapabilitiesVirtualDeviceChannelMetricComponent>();
 
         public CodeableConcept getCode() { 
           return this.code;
@@ -154,28 +162,37 @@ public class DeviceCapabilities extends Resource {
           return this.metric;
         }
 
+      public DeviceCapabilitiesVirtualDeviceChannelComponent copy(DeviceCapabilities e) {
+        DeviceCapabilitiesVirtualDeviceChannelComponent dst = e.new DeviceCapabilitiesVirtualDeviceChannelComponent();
+        dst.code = code == null ? null : code.copy();
+        dst.metric = new ArrayList<DeviceCapabilitiesVirtualDeviceChannelMetricComponent>();
+        for (DeviceCapabilitiesVirtualDeviceChannelMetricComponent i : metric)
+          dst.metric.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     public class DeviceCapabilitiesVirtualDeviceChannelMetricComponent extends Element {
         /**
          * Describes the metrics
          */
-        private CodeableConcept code;
+        protected CodeableConcept code;
 
         /**
          * Used to link to data in device log
          */
-        private String_ key;
+        protected String_ key;
 
         /**
          * How to interpret this metric value
          */
-        private DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent info;
+        protected DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent info;
 
         /**
          * Additional data that qualifies the metric, or contributes to it's assessment
          */
-        private List<DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent> facet = new ArrayList<DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent>();
+        protected List<DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent> facet = new ArrayList<DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent>();
 
         public CodeableConcept getCode() { 
           return this.code;
@@ -215,33 +232,44 @@ public class DeviceCapabilities extends Resource {
           return this.facet;
         }
 
+      public DeviceCapabilitiesVirtualDeviceChannelMetricComponent copy(DeviceCapabilities e) {
+        DeviceCapabilitiesVirtualDeviceChannelMetricComponent dst = e.new DeviceCapabilitiesVirtualDeviceChannelMetricComponent();
+        dst.code = code == null ? null : code.copy();
+        dst.key = key == null ? null : key.copy();
+        dst.info = info == null ? null : info.copy(e);
+        dst.facet = new ArrayList<DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent>();
+        for (DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent i : facet)
+          dst.facet.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     public class DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent extends Element {
         /**
          * Type of data for this metric
          */
-        private Enumeration<DeviceDataType> type;
+        protected Enumeration<DeviceDataType> type;
 
         /**
          * Units for this data item (if a quantity or a range)
          */
-        private String_ units;
+        protected String_ units;
 
         /**
          * UCUM units (if a quantity or a range)
          */
-        private Code ucum;
+        protected Code ucum;
 
         /**
          * A template containing the fixed values for an array output (all the values but the data)
          */
-        private Array array;
+        protected Array array;
 
         /**
          * System of the codes, if the type is a Coding
          */
-        private Uri system;
+        protected Uri system;
 
         public Enumeration<DeviceDataType> getType() { 
           return this.type;
@@ -321,11 +349,11 @@ public class DeviceCapabilities extends Resource {
           this.system = value;
         }
 
-        public URI getSystemSimple() { 
+        public String getSystemSimple() { 
           return this.system == null ? null : this.system.getValue();
         }
 
-        public void setSystemSimple(URI value) { 
+        public void setSystemSimple(String value) { 
           if (value == null)
             this.system = null;
           else {
@@ -335,28 +363,38 @@ public class DeviceCapabilities extends Resource {
           }
         }
 
+      public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent copy(DeviceCapabilities e) {
+        DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent dst = e.new DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent();
+        dst.type = type == null ? null : type.copy();
+        dst.units = units == null ? null : units.copy();
+        dst.ucum = ucum == null ? null : ucum.copy();
+        dst.array = array == null ? null : array.copy();
+        dst.system = system == null ? null : system.copy();
+        return dst;
+      }
+
   }
 
     public class DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent extends Element {
         /**
          * Describes the facet
          */
-        private CodeableConcept code;
+        protected CodeableConcept code;
 
         /**
          * The factor to apply to the raw values to get the correct value
          */
-        private Decimal scale;
+        protected Decimal scale;
 
         /**
          * Used to link to data in device log
          */
-        private String_ key;
+        protected String_ key;
 
         /**
          * How to interpret this facet value
          */
-        private DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent info;
+        protected DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent info;
 
         public CodeableConcept getCode() { 
           return this.code;
@@ -414,32 +452,41 @@ public class DeviceCapabilities extends Resource {
           this.info = value;
         }
 
+      public DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent copy(DeviceCapabilities e) {
+        DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent dst = e.new DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent();
+        dst.code = code == null ? null : code.copy();
+        dst.scale = scale == null ? null : scale.copy();
+        dst.key = key == null ? null : key.copy();
+        dst.info = info == null ? null : info.copy(e);
+        return dst;
+      }
+
   }
 
     /**
      * The name of this device
      */
-    private String_ name;
+    protected String_ name;
 
     /**
      * The kind of device - what kind of functionality it provides
      */
-    private CodeableConcept type;
+    protected CodeableConcept type;
 
     /**
      * The company that built this device
      */
-    private String_ manufacturer;
+    protected String_ manufacturer;
 
     /**
      * Identifies this particular device uniquely
      */
-    private ResourceReference identity;
+    protected ResourceReference identity;
 
     /**
      * A medical-related subsystem of a medical device
      */
-    private List<DeviceCapabilitiesVirtualDeviceComponent> virtualDevice = new ArrayList<DeviceCapabilitiesVirtualDeviceComponent>();
+    protected List<DeviceCapabilitiesVirtualDeviceComponent> virtualDevice = new ArrayList<DeviceCapabilitiesVirtualDeviceComponent>();
 
     public String_ getName() { 
       return this.name;
@@ -504,6 +551,22 @@ public class DeviceCapabilities extends Resource {
     public List<DeviceCapabilitiesVirtualDeviceComponent> getVirtualDevice() { 
       return this.virtualDevice;
     }
+
+      public DeviceCapabilities copy() {
+        DeviceCapabilities dst = new DeviceCapabilities();
+        dst.name = name == null ? null : name.copy();
+        dst.type = type == null ? null : type.copy();
+        dst.manufacturer = manufacturer == null ? null : manufacturer.copy();
+        dst.identity = identity == null ? null : identity.copy();
+        dst.virtualDevice = new ArrayList<DeviceCapabilitiesVirtualDeviceComponent>();
+        for (DeviceCapabilitiesVirtualDeviceComponent i : virtualDevice)
+          dst.virtualDevice.add(i.copy(dst));
+        return dst;
+      }
+
+      protected DeviceCapabilities typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

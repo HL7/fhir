@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -208,12 +208,12 @@ public class AdverseReaction extends Resource {
         /**
          * Indicates the specific sign or symptom that was observed
          */
-        private CodeableConcept code;
+        protected CodeableConcept code;
 
         /**
          * The severity of the sign or symptom
          */
-        private Enumeration<ReactionSeverity> severity;
+        protected Enumeration<ReactionSeverity> severity;
 
         public CodeableConcept getCode() { 
           return this.code;
@@ -245,28 +245,35 @@ public class AdverseReaction extends Resource {
           }
         }
 
+      public AdverseReactionSymptomComponent copy(AdverseReaction e) {
+        AdverseReactionSymptomComponent dst = e.new AdverseReactionSymptomComponent();
+        dst.code = code == null ? null : code.copy();
+        dst.severity = severity == null ? null : severity.copy();
+        return dst;
+      }
+
   }
 
     public class AdverseReactionExposureComponent extends Element {
         /**
          * When the exposure occurred
          */
-        private DateTime exposureDate;
+        protected DateTime exposureDate;
 
         /**
          * Drug Administration, Immunization, Coincidental
          */
-        private Enumeration<ExposureType> exposureType;
+        protected Enumeration<ExposureType> exposureType;
 
         /**
          * A statement of how confident that the recorder was that this exposure caused the reaction
          */
-        private Enumeration<CausalityExpectation> causalityExpectation;
+        protected Enumeration<CausalityExpectation> causalityExpectation;
 
         /**
          * Substance(s) that is presumed to have caused the adverse reaction
          */
-        private ResourceReference substance;
+        protected ResourceReference substance;
 
         public DateTime getExposureDate() { 
           return this.exposureDate;
@@ -342,37 +349,46 @@ public class AdverseReaction extends Resource {
           this.substance = value;
         }
 
+      public AdverseReactionExposureComponent copy(AdverseReaction e) {
+        AdverseReactionExposureComponent dst = e.new AdverseReactionExposureComponent();
+        dst.exposureDate = exposureDate == null ? null : exposureDate.copy();
+        dst.exposureType = exposureType == null ? null : exposureType.copy();
+        dst.causalityExpectation = causalityExpectation == null ? null : causalityExpectation.copy();
+        dst.substance = substance == null ? null : substance.copy();
+        return dst;
+      }
+
   }
 
     /**
      * When the reaction occurred
      */
-    private DateTime reactionDate;
+    protected DateTime reactionDate;
 
     /**
      * The subject of the adverse reaction
      */
-    private ResourceReference subject;
+    protected ResourceReference subject;
 
     /**
      * To say that a reaction to substance did not occur
      */
-    private Boolean didNotOccurFlag;
+    protected Boolean didNotOccurFlag;
 
     /**
      * Who recorded the reaction
      */
-    private ResourceReference recorder;
+    protected ResourceReference recorder;
 
     /**
      * The signs and symptoms that were observed as part of the reaction
      */
-    private List<AdverseReactionSymptomComponent> symptom = new ArrayList<AdverseReactionSymptomComponent>();
+    protected List<AdverseReactionSymptomComponent> symptom = new ArrayList<AdverseReactionSymptomComponent>();
 
     /**
      * An exposure to a substance that preceded a reaction occurrence
      */
-    private List<AdverseReactionExposureComponent> exposure = new ArrayList<AdverseReactionExposureComponent>();
+    protected List<AdverseReactionExposureComponent> exposure = new ArrayList<AdverseReactionExposureComponent>();
 
     public DateTime getReactionDate() { 
       return this.reactionDate;
@@ -437,6 +453,25 @@ public class AdverseReaction extends Resource {
     public List<AdverseReactionExposureComponent> getExposure() { 
       return this.exposure;
     }
+
+      public AdverseReaction copy() {
+        AdverseReaction dst = new AdverseReaction();
+        dst.reactionDate = reactionDate == null ? null : reactionDate.copy();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.didNotOccurFlag = didNotOccurFlag == null ? null : didNotOccurFlag.copy();
+        dst.recorder = recorder == null ? null : recorder.copy();
+        dst.symptom = new ArrayList<AdverseReactionSymptomComponent>();
+        for (AdverseReactionSymptomComponent i : symptom)
+          dst.symptom.add(i.copy(dst));
+        dst.exposure = new ArrayList<AdverseReactionExposureComponent>();
+        for (AdverseReactionExposureComponent i : exposure)
+          dst.exposure.add(i.copy(dst));
+        return dst;
+      }
+
+      protected AdverseReaction typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

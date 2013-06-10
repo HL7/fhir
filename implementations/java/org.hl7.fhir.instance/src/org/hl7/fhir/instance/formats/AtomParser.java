@@ -214,8 +214,8 @@ public class AtomParser extends XmlBase {
         res.setPublished(parseDate(xpp));
       else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
         if ("http://hl7.org/fhir/tag".equals(xpp.getAttributeValue(null, "scheme"))) 
-         res.getTags().put(xpp.getAttributeValue(null, "term"), xpp.getAttributeValue(null, "label"));
-         skipEmptyElement(xpp);
+          res.getTags().put(xpp.getAttributeValue(null, "term"), xpp.getAttributeValue(null, "label"));
+        skipEmptyElement(xpp);
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("author")) {
         xpp.next();
         eventType = nextNoWhitespace(xpp);

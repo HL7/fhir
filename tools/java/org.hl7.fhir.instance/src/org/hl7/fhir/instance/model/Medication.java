@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -84,12 +84,12 @@ public class Medication extends Resource {
         /**
          * Describes the form of the item.  Powder; tables; carton
          */
-        private CodeableConcept form;
+        protected CodeableConcept form;
 
         /**
          * The ingredients of the medication
          */
-        private List<MedicationProductIngredientComponent> ingredient = new ArrayList<MedicationProductIngredientComponent>();
+        protected List<MedicationProductIngredientComponent> ingredient = new ArrayList<MedicationProductIngredientComponent>();
 
         public CodeableConcept getForm() { 
           return this.form;
@@ -103,18 +103,27 @@ public class Medication extends Resource {
           return this.ingredient;
         }
 
+      public MedicationProductComponent copy(Medication e) {
+        MedicationProductComponent dst = e.new MedicationProductComponent();
+        dst.form = form == null ? null : form.copy();
+        dst.ingredient = new ArrayList<MedicationProductIngredientComponent>();
+        for (MedicationProductIngredientComponent i : ingredient)
+          dst.ingredient.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     public class MedicationProductIngredientComponent extends Element {
         /**
          * The actual ingredient - either a substance (simple ingredient) or another medication
          */
-        private ResourceReference item;
+        protected ResourceReference item;
 
         /**
          * Specifies how many (or how much) of the items there are in this Medication.  E.g. 250 mg per tablet
          */
-        private Ratio amount;
+        protected Ratio amount;
 
         public ResourceReference getItem() { 
           return this.item;
@@ -132,18 +141,25 @@ public class Medication extends Resource {
           this.amount = value;
         }
 
+      public MedicationProductIngredientComponent copy(Medication e) {
+        MedicationProductIngredientComponent dst = e.new MedicationProductIngredientComponent();
+        dst.item = item == null ? null : item.copy();
+        dst.amount = amount == null ? null : amount.copy();
+        return dst;
+      }
+
   }
 
     public class MedicationPackageComponent extends Element {
         /**
          * The kind of container that this package comes as
          */
-        private CodeableConcept container;
+        protected CodeableConcept container;
 
         /**
          * A set of components that go to make up the described item.
          */
-        private List<MedicationPackageContentComponent> content = new ArrayList<MedicationPackageContentComponent>();
+        protected List<MedicationPackageContentComponent> content = new ArrayList<MedicationPackageContentComponent>();
 
         public CodeableConcept getContainer() { 
           return this.container;
@@ -157,18 +173,27 @@ public class Medication extends Resource {
           return this.content;
         }
 
+      public MedicationPackageComponent copy(Medication e) {
+        MedicationPackageComponent dst = e.new MedicationPackageComponent();
+        dst.container = container == null ? null : container.copy();
+        dst.content = new ArrayList<MedicationPackageContentComponent>();
+        for (MedicationPackageContentComponent i : content)
+          dst.content.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     public class MedicationPackageContentComponent extends Element {
         /**
          * The product that is in the package
          */
-        private ResourceReference item;
+        protected ResourceReference item;
 
         /**
          * The amount of the product that is in the package
          */
-        private Quantity amount;
+        protected Quantity amount;
 
         public ResourceReference getItem() { 
           return this.item;
@@ -186,42 +211,49 @@ public class Medication extends Resource {
           this.amount = value;
         }
 
+      public MedicationPackageContentComponent copy(Medication e) {
+        MedicationPackageContentComponent dst = e.new MedicationPackageContentComponent();
+        dst.item = item == null ? null : item.copy();
+        dst.amount = amount == null ? null : amount.copy();
+        return dst;
+      }
+
   }
 
     /**
      * The common name of the medication
      */
-    private String_ name;
+    protected String_ name;
 
     /**
      * References to codes for this medication in standard medication terminologies, drug dictionaries, etc
      */
-    private CodeableConcept code;
+    protected CodeableConcept code;
 
     /**
      * Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is)
      */
-    private Boolean isBrand;
+    protected Boolean isBrand;
 
     /**
      * Describes the details of the manufacturer
      */
-    private ResourceReference manufacturer;
+    protected ResourceReference manufacturer;
 
     /**
      * product | package
      */
-    private Enumeration<MedicationKind> kind;
+    protected Enumeration<MedicationKind> kind;
 
     /**
      * If is a product
      */
-    private MedicationProductComponent product;
+    protected MedicationProductComponent product;
 
     /**
      * Specifies Ingredient / Product / Package
      */
-    private MedicationPackageComponent package_;
+    protected MedicationPackageComponent package_;
 
     public String_ getName() { 
       return this.name;
@@ -320,6 +352,22 @@ public class Medication extends Resource {
     public void setPackage(MedicationPackageComponent value) { 
       this.package_ = value;
     }
+
+      public Medication copy() {
+        Medication dst = new Medication();
+        dst.name = name == null ? null : name.copy();
+        dst.code = code == null ? null : code.copy();
+        dst.isBrand = isBrand == null ? null : isBrand.copy();
+        dst.manufacturer = manufacturer == null ? null : manufacturer.copy();
+        dst.kind = kind == null ? null : kind.copy();
+        dst.product = product == null ? null : product.copy(dst);
+        dst.package_ = package_ == null ? null : package_.copy(dst);
+        return dst;
+      }
+
+      protected Medication typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

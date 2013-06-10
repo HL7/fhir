@@ -338,9 +338,9 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
               prsr = "parse"+upFirst(tn)+"(json.getJSONObject(\""+name+"\"), res)";
               aprsr = "parse"+upFirst(tn)+"(array.getJSONObject(i), res)";
           }
-        } else if ("Uri".equals(tn)) {
-            prsr = "parseURI(json.getJSONObject(\""+name+"\"))";
-            aprsr = "parseURI(array.getJSONObject(i))";
+        } else if ("Uri".equalsIgnoreCase(tn)) {
+            prsr = "parseUri(json.getJSONObject(\""+name+"\"))";
+            aprsr = "parseUri(array.getJSONObject(i))";
         } else if ("Instant".equals(tn)) {
             prsr = "parseInstant(json.getJSONObject(\""+name+"\"))";
             aprsr = "parseInstant(array.getJSONObject(i))";

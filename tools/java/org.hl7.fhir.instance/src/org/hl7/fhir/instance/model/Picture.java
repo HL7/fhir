@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 /**
  * An Image used in healthcare. The actual pixels maybe inline or provided by direct reference
@@ -553,92 +553,92 @@ public class Picture extends Resource {
     /**
      * Who/What this image is taken of
      */
-    private ResourceReference subject;
+    protected ResourceReference subject;
 
     /**
      * When the image was taken
      */
-    private DateTime dateTime;
+    protected DateTime dateTime;
 
     /**
      * The person who generated the image
      */
-    private ResourceReference operator;
+    protected ResourceReference operator;
 
     /**
      * Identifier for the image
      */
-    private Identifier identifier;
+    protected Identifier identifier;
 
     /**
      * An identifier for the order that is used by the application/system that requested the image to link back to the original context (if there was such a system). This is not the identity of the image, but of the "request for an image to be generated"
      */
-    private Identifier accessionNo;
+    protected Identifier accessionNo;
 
     /**
      * The session in which the picture was taken.
      */
-    private Identifier studyId;
+    protected Identifier studyId;
 
     /**
      * The series of images in which this picture was taken
      */
-    private Identifier seriesId;
+    protected Identifier seriesId;
 
     /**
      * A reference to the method/protocol that was followed when the images were taken
      */
-    private CodeableConcept method;
+    protected CodeableConcept method;
 
     /**
      * Who asked that this image be collected
      */
-    private ResourceReference requester;
+    protected ResourceReference requester;
 
     /**
      * Type of the image capturing machinery
      */
-    private Enumeration<ImageModality> modality;
+    protected Enumeration<ImageModality> modality;
 
     /**
      * Name of the manufacturer
      */
-    private String_ deviceName;
+    protected String_ deviceName;
 
     /**
      * Height of the image
      */
-    private Integer height;
+    protected Integer height;
 
     /**
      * Width of the image
      */
-    private Integer width;
+    protected Integer width;
 
     /**
      * Number of bits of colour (2..32)
      */
-    private Integer bits;
+    protected Integer bits;
 
     /**
      * Number of frames
      */
-    private Integer frames;
+    protected Integer frames;
 
     /**
      * Length of time between frames
      */
-    private Duration frameDelay;
+    protected Duration frameDelay;
 
     /**
      * The name of the imaging view e.g Lateral or Antero-posterior (AP).
      */
-    private CodeableConcept view;
+    protected CodeableConcept view;
 
     /**
      * Actual picture - reference or data
      */
-    private Attachment content;
+    protected Attachment content;
 
     public ResourceReference getSubject() { 
       return this.subject;
@@ -877,6 +877,33 @@ public class Picture extends Resource {
     public void setContent(Attachment value) { 
       this.content = value;
     }
+
+      public Picture copy() {
+        Picture dst = new Picture();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.dateTime = dateTime == null ? null : dateTime.copy();
+        dst.operator = operator == null ? null : operator.copy();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.accessionNo = accessionNo == null ? null : accessionNo.copy();
+        dst.studyId = studyId == null ? null : studyId.copy();
+        dst.seriesId = seriesId == null ? null : seriesId.copy();
+        dst.method = method == null ? null : method.copy();
+        dst.requester = requester == null ? null : requester.copy();
+        dst.modality = modality == null ? null : modality.copy();
+        dst.deviceName = deviceName == null ? null : deviceName.copy();
+        dst.height = height == null ? null : height.copy();
+        dst.width = width == null ? null : width.copy();
+        dst.bits = bits == null ? null : bits.copy();
+        dst.frames = frames == null ? null : frames.copy();
+        dst.frameDelay = frameDelay == null ? null : frameDelay.copy();
+        dst.view = view == null ? null : view.copy();
+        dst.content = content == null ? null : content.copy();
+        return dst;
+      }
+
+      protected Picture typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

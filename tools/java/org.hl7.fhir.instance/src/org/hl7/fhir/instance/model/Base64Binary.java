@@ -40,6 +40,13 @@ public class Base64Binary extends Type {
 		this.value = value;
 	}
 	
+	public Base64Binary copy() {
+		Base64Binary dst = new Base64Binary();
+		dst.value = value;
+		return dst;
+	}
 	
-	
+	protected Type typedCopy() {
+		return copy();
+	}
 }

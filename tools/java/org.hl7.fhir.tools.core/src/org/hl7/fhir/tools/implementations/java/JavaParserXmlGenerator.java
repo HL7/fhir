@@ -368,8 +368,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
           else
             prsr = "parse"+upFirst(tn)+"(xpp, res)";
         } else
-          if ("Uri".equals(tn))
-            prsr = "parseURI(xpp)";
+          if ("Uri".equalsIgnoreCase(tn))
+            prsr = "parseUri(xpp)";
           else if ("Instant".equals(tn))
             prsr = "parseInstant(xpp)";
           else

@@ -38,7 +38,7 @@ public class Convert {
 		Identifier id = new Identifier();
 		String r = e.getAttribute("root");
 		if (Utilities.noString(e.getAttribute("extension"))) {
-			id.setSystemSimple(new URI("urn:ietf:rfc:3986"));
+			id.setSystemSimple("urn:ietf:rfc:3986");
 			if (isGuid(r)) 
 				id.setKeySimple("urn:uuid:"+r);
 			else if (UriForOid(r) != null)
@@ -47,11 +47,11 @@ public class Convert {
 				id.setKeySimple(UriForOid(r));
 		} else {
 			if (isGuid(r)) 
-				id.setSystemSimple(new URI("urn:uuid:"+r));
+				id.setSystemSimple("urn:uuid:"+r);
 			else if (UriForOid(r) != null)
-				id.setSystemSimple(new URI(UriForOid(r)));
+				id.setSystemSimple(UriForOid(r));
 			else 
-				id.setSystemSimple(new URI("urn:oid:"+r));
+				id.setSystemSimple("urn:oid:"+r);
 			id.setKeySimple(e.getAttribute("extension"));
 		}
 		return id;
@@ -113,11 +113,11 @@ public class Convert {
 	  c.setDisplaySimple(cd.getAttribute("displayName"));
 	  String r = cd.getAttribute("codeSystem");
 		if (isGuid(r)) 
-			c.setSystemSimple(new URI("urn:uuid:"+r));
+			c.setSystemSimple("urn:uuid:"+r);
 		else if (UriForOid(r) != null)
-			c.setSystemSimple(new URI(UriForOid(r)));
+			c.setSystemSimple(UriForOid(r));
 		else 
-			c.setSystemSimple(new URI("urn:oid:"+r));
+			c.setSystemSimple("urn:oid:"+r);
 	  return c;
   }
 

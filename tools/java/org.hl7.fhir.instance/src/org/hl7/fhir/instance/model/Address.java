@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -99,42 +99,42 @@ public class Address extends Type {
     /**
      * Identifies the intended purpose of this address
      */
-    private Enumeration<AddressUse> use;
+    protected Enumeration<AddressUse> use;
 
     /**
      * A full text representation of the address
      */
-    private String_ text;
+    protected String_ text;
 
     /**
      * A line of an address (typically used for street names & numbers, unit details, delivery hints, etc.) .
      */
-    private List<String_> line = new ArrayList<String_>();
+    protected List<String_> line = new ArrayList<String_>();
 
     /**
      * The name of the city, town, village or other community or delivery centre.
      */
-    private String_ city;
+    protected String_ city;
 
     /**
      * Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).
      */
-    private String_ state;
+    protected String_ state;
 
     /**
      * A postal code designating a region defined by the postal service.
      */
-    private String_ zip;
+    protected String_ zip;
 
     /**
      * Country. ISO 3166 3 letter codes can be used in place of a full country name.
      */
-    private String_ country;
+    protected String_ country;
 
     /**
      * Time period when address was/is in use
      */
-    private Period period;
+    protected Period period;
 
     public Enumeration<AddressUse> getUse() { 
       return this.use;
@@ -279,6 +279,25 @@ public class Address extends Type {
     public void setPeriod(Period value) { 
       this.period = value;
     }
+
+      public Address copy() {
+        Address dst = new Address();
+        dst.use = use == null ? null : use.copy();
+        dst.text = text == null ? null : text.copy();
+        dst.line = new ArrayList<String_>();
+        for (String_ i : line)
+          dst.line.add(i.copy());
+        dst.city = city == null ? null : city.copy();
+        dst.state = state == null ? null : state.copy();
+        dst.zip = zip == null ? null : zip.copy();
+        dst.country = country == null ? null : country.copy();
+        dst.period = period == null ? null : period.copy();
+        return dst;
+      }
+
+      protected Address typedCopy() {
+        return copy();
+      }
 
 
 }

@@ -29,10 +29,8 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
-
-import java.net.*;
 /**
  * For referring to data content defined in other formats.
  */
@@ -41,37 +39,37 @@ public class Attachment extends Type {
     /**
      * Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate
      */
-    private Code contentType;
+    protected Code contentType;
 
     /**
      * The human language of the content. The value can be any valid value according to BCP 47
      */
-    private Code language;
+    protected Code language;
 
     /**
      * The actual data of the attachment - a sequence of bytes. In XML, represented using base64
      */
-    private Base64Binary data;
+    protected Base64Binary data;
 
     /**
      * An alternative location where the data can be accessed
      */
-    private Uri url;
+    protected Uri url;
 
     /**
      * The number of bytes of data that make up this attachment.
      */
-    private Integer size;
+    protected Integer size;
 
     /**
      * The calculated hash of the data using SHA-1. Represented using base64
      */
-    private Base64Binary hash;
+    protected Base64Binary hash;
 
     /**
      * A label or set of text to display in place of the data
      */
-    private String_ title;
+    protected String_ title;
 
     public Code getContentType() { 
       return this.contentType;
@@ -143,11 +141,11 @@ public class Attachment extends Type {
       this.url = value;
     }
 
-    public URI getUrlSimple() { 
+    public String getUrlSimple() { 
       return this.url == null ? null : this.url.getValue();
     }
 
-    public void setUrlSimple(URI value) { 
+    public void setUrlSimple(String value) { 
       if (value == null)
         this.url = null;
       else {
@@ -222,6 +220,22 @@ public class Attachment extends Type {
         this.title.setValue(value);
       }
     }
+
+      public Attachment copy() {
+        Attachment dst = new Attachment();
+        dst.contentType = contentType == null ? null : contentType.copy();
+        dst.language = language == null ? null : language.copy();
+        dst.data = data == null ? null : data.copy();
+        dst.url = url == null ? null : url.copy();
+        dst.size = size == null ? null : size.copy();
+        dst.hash = hash == null ? null : hash.copy();
+        dst.title = title == null ? null : title.copy();
+        return dst;
+      }
+
+      protected Attachment typedCopy() {
+        return copy();
+      }
 
 
 }

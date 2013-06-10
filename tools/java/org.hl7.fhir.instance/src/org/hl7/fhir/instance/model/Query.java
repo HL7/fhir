@@ -29,11 +29,10 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
-import java.net.*;
 /**
  * A description of a query with a set of parameters
  */
@@ -101,12 +100,12 @@ public class Query extends Resource {
         /**
          * Name of parameter
          */
-        private String_ name;
+        protected String_ name;
 
         /**
          * Value of parameter
          */
-        private String_ value;
+        protected String_ value;
 
         public String_ getName() { 
           return this.name;
@@ -148,53 +147,60 @@ public class Query extends Resource {
           }
         }
 
+      public QueryParameterComponent copy(Query e) {
+        QueryParameterComponent dst = e.new QueryParameterComponent();
+        dst.name = name == null ? null : name.copy();
+        dst.value = value == null ? null : value.copy();
+        return dst;
+      }
+
   }
 
     public class QueryResponseComponent extends Element {
         /**
          * Links response to source query
          */
-        private Uri identifier;
+        protected Uri identifier;
 
         /**
          * Outcome of processing the query
          */
-        private Enumeration<QueryOutcome> outcome;
+        protected Enumeration<QueryOutcome> outcome;
 
         /**
          * Total number of matching records
          */
-        private Integer total;
+        protected Integer total;
 
         /**
          * Parameters server used
          */
-        private List<QueryParameterComponent> parameter = new ArrayList<QueryParameterComponent>();
+        protected List<QueryParameterComponent> parameter = new ArrayList<QueryParameterComponent>();
 
         /**
          * To get first page
          */
-        private QueryResponseFirstComponent first;
+        protected QueryResponseFirstComponent first;
 
         /**
          * To get previous page
          */
-        private QueryResponsePreviousComponent previous;
+        protected QueryResponsePreviousComponent previous;
 
         /**
          * To get next page
          */
-        private QueryResponseNextComponent next;
+        protected QueryResponseNextComponent next;
 
         /**
          * To get last page
          */
-        private QueryResponseLastComponent last;
+        protected QueryResponseLastComponent last;
 
         /**
          * Resources that are the results of the search
          */
-        private List<ResourceReference> reference = new ArrayList<ResourceReference>();
+        protected List<ResourceReference> reference = new ArrayList<ResourceReference>();
 
         public Uri getIdentifier() { 
           return this.identifier;
@@ -204,11 +210,11 @@ public class Query extends Resource {
           this.identifier = value;
         }
 
-        public URI getIdentifierSimple() { 
+        public String getIdentifierSimple() { 
           return this.identifier == null ? null : this.identifier.getValue();
         }
 
-        public void setIdentifierSimple(URI value) { 
+        public void setIdentifierSimple(String value) { 
             if (this.identifier == null)
               this.identifier = new Uri();
             this.identifier.setValue(value);
@@ -294,17 +300,43 @@ public class Query extends Resource {
           return this.reference;
         }
 
+      public QueryResponseComponent copy(Query e) {
+        QueryResponseComponent dst = e.new QueryResponseComponent();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.outcome = outcome == null ? null : outcome.copy();
+        dst.total = total == null ? null : total.copy();
+        dst.parameter = new ArrayList<QueryParameterComponent>();
+        for (QueryParameterComponent i : parameter)
+          dst.parameter.add(i.copy(e));
+        dst.first = first == null ? null : first.copy(e);
+        dst.previous = previous == null ? null : previous.copy(e);
+        dst.next = next == null ? null : next.copy(e);
+        dst.last = last == null ? null : last.copy(e);
+        dst.reference = new ArrayList<ResourceReference>();
+        for (ResourceReference i : reference)
+          dst.reference.add(i.copy());
+        return dst;
+      }
+
   }
 
     public class QueryResponseFirstComponent extends Element {
         /**
          * Parameter list
          */
-        private List<QueryParameterComponent> parameter = new ArrayList<QueryParameterComponent>();
+        protected List<QueryParameterComponent> parameter = new ArrayList<QueryParameterComponent>();
 
         public List<QueryParameterComponent> getParameter() { 
           return this.parameter;
         }
+
+      public QueryResponseFirstComponent copy(Query e) {
+        QueryResponseFirstComponent dst = e.new QueryResponseFirstComponent();
+        dst.parameter = new ArrayList<QueryParameterComponent>();
+        for (QueryParameterComponent i : parameter)
+          dst.parameter.add(i.copy(e));
+        return dst;
+      }
 
   }
 
@@ -312,11 +344,19 @@ public class Query extends Resource {
         /**
          * Parameter list
          */
-        private List<QueryParameterComponent> parameter = new ArrayList<QueryParameterComponent>();
+        protected List<QueryParameterComponent> parameter = new ArrayList<QueryParameterComponent>();
 
         public List<QueryParameterComponent> getParameter() { 
           return this.parameter;
         }
+
+      public QueryResponsePreviousComponent copy(Query e) {
+        QueryResponsePreviousComponent dst = e.new QueryResponsePreviousComponent();
+        dst.parameter = new ArrayList<QueryParameterComponent>();
+        for (QueryParameterComponent i : parameter)
+          dst.parameter.add(i.copy(e));
+        return dst;
+      }
 
   }
 
@@ -324,11 +364,19 @@ public class Query extends Resource {
         /**
          * Parameter list
          */
-        private List<QueryParameterComponent> parameter = new ArrayList<QueryParameterComponent>();
+        protected List<QueryParameterComponent> parameter = new ArrayList<QueryParameterComponent>();
 
         public List<QueryParameterComponent> getParameter() { 
           return this.parameter;
         }
+
+      public QueryResponseNextComponent copy(Query e) {
+        QueryResponseNextComponent dst = e.new QueryResponseNextComponent();
+        dst.parameter = new ArrayList<QueryParameterComponent>();
+        for (QueryParameterComponent i : parameter)
+          dst.parameter.add(i.copy(e));
+        return dst;
+      }
 
   }
 
@@ -336,28 +384,36 @@ public class Query extends Resource {
         /**
          * Parameter list
          */
-        private List<QueryParameterComponent> parameter = new ArrayList<QueryParameterComponent>();
+        protected List<QueryParameterComponent> parameter = new ArrayList<QueryParameterComponent>();
 
         public List<QueryParameterComponent> getParameter() { 
           return this.parameter;
         }
+
+      public QueryResponseLastComponent copy(Query e) {
+        QueryResponseLastComponent dst = e.new QueryResponseLastComponent();
+        dst.parameter = new ArrayList<QueryParameterComponent>();
+        for (QueryParameterComponent i : parameter)
+          dst.parameter.add(i.copy(e));
+        return dst;
+      }
 
   }
 
     /**
      * Links query and it's response(s)
      */
-    private Uri identifier;
+    protected Uri identifier;
 
     /**
      * Set of query parameters
      */
-    private List<QueryParameterComponent> parameter = new ArrayList<QueryParameterComponent>();
+    protected List<QueryParameterComponent> parameter = new ArrayList<QueryParameterComponent>();
 
     /**
      * If this is a response to a query
      */
-    private QueryResponseComponent response;
+    protected QueryResponseComponent response;
 
     public Uri getIdentifier() { 
       return this.identifier;
@@ -367,11 +423,11 @@ public class Query extends Resource {
       this.identifier = value;
     }
 
-    public URI getIdentifierSimple() { 
+    public String getIdentifierSimple() { 
       return this.identifier == null ? null : this.identifier.getValue();
     }
 
-    public void setIdentifierSimple(URI value) { 
+    public void setIdentifierSimple(String value) { 
         if (this.identifier == null)
           this.identifier = new Uri();
         this.identifier.setValue(value);
@@ -388,6 +444,20 @@ public class Query extends Resource {
     public void setResponse(QueryResponseComponent value) { 
       this.response = value;
     }
+
+      public Query copy() {
+        Query dst = new Query();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.parameter = new ArrayList<QueryParameterComponent>();
+        for (QueryParameterComponent i : parameter)
+          dst.parameter.add(i.copy(dst));
+        dst.response = response == null ? null : response.copy(dst);
+        return dst;
+      }
+
+      protected Query typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

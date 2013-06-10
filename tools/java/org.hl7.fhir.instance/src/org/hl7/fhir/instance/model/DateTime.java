@@ -45,4 +45,14 @@ public class DateTime extends Type {
 		this.value = value;
 	}
 	
+	public DateTime copy() {
+		DateTime dst = new DateTime();
+		dst.value = value;
+		return dst;
+	}
+	
+	protected Type typedCopy() {
+		return copy();
+	}
+
 }

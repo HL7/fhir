@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -39,6 +39,7 @@ import java.util.*;
 public class OperationOutcome extends Resource {
 
     public enum IssueSeverity {
+        fatal, // The issue caused the action to fail, and no further checking could be performed
         error, // The issue is sufficiently important to cause the action to fail
         warning, // The issue is not important enough to cause the action to fail, but may cause it to be performed suboptimally or in a way that is not as desired
         information, // The issue has no relation to the degree of success of the action
@@ -46,6 +47,8 @@ public class OperationOutcome extends Resource {
         public static IssueSeverity fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("fatal".equals(codeString))
+          return fatal;
         if ("error".equals(codeString))
           return error;
         if ("warning".equals(codeString))
@@ -56,6 +59,7 @@ public class OperationOutcome extends Resource {
         }
         public String toCode() {
           switch (this) {
+            case fatal: return "fatal";
             case error: return "error";
             case warning: return "warning";
             case information: return "information";
@@ -69,6 +73,8 @@ public class OperationOutcome extends Resource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("fatal".equals(codeString))
+          return IssueSeverity.fatal;
         if ("error".equals(codeString))
           return IssueSeverity.error;
         if ("warning".equals(codeString))
@@ -78,6 +84,8 @@ public class OperationOutcome extends Resource {
         throw new Exception("Unknown IssueSeverity code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
+      if (code == IssueSeverity.fatal)
+        return "fatal";
       if (code == IssueSeverity.error)
         return "error";
       if (code == IssueSeverity.warning)
@@ -92,22 +100,22 @@ public class OperationOutcome extends Resource {
         /**
          * Indicates whether the issue indicates a variation from successful processing
          */
-        private Enumeration<IssueSeverity> severity;
+        protected Enumeration<IssueSeverity> severity;
 
         /**
          * A code indicating the type of error, warning or information message.
          */
-        private Coding type;
+        protected Coding type;
 
         /**
          * Additional description of the issue
          */
-        private String_ details;
+        protected String_ details;
 
         /**
          * A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.
          */
-        private List<String_> location = new ArrayList<String_>();
+        protected List<String_> location = new ArrayList<String_>();
 
         public Enumeration<IssueSeverity> getSeverity() { 
           return this.severity;
@@ -161,16 +169,39 @@ public class OperationOutcome extends Resource {
           return this.location;
         }
 
+      public OperationOutcomeIssueComponent copy(OperationOutcome e) {
+        OperationOutcomeIssueComponent dst = e.new OperationOutcomeIssueComponent();
+        dst.severity = severity == null ? null : severity.copy();
+        dst.type = type == null ? null : type.copy();
+        dst.details = details == null ? null : details.copy();
+        dst.location = new ArrayList<String_>();
+        for (String_ i : location)
+          dst.location.add(i.copy());
+        return dst;
+      }
+
   }
 
     /**
      * An error, warning or information message that results from a system action
      */
-    private List<OperationOutcomeIssueComponent> issue = new ArrayList<OperationOutcomeIssueComponent>();
+    protected List<OperationOutcomeIssueComponent> issue = new ArrayList<OperationOutcomeIssueComponent>();
 
     public List<OperationOutcomeIssueComponent> getIssue() { 
       return this.issue;
     }
+
+      public OperationOutcome copy() {
+        OperationOutcome dst = new OperationOutcome();
+        dst.issue = new ArrayList<OperationOutcomeIssueComponent>();
+        for (OperationOutcomeIssueComponent i : issue)
+          dst.issue.add(i.copy(dst));
+        return dst;
+      }
+
+      protected OperationOutcome typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

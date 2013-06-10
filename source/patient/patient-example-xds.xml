@@ -10,7 +10,7 @@
   <identifier>
     <use value="usual"/>
     <label value="MRN"/>
-    <system value="oid:3.4.5"/>
+    <system value="urn:oid:1.2.3.4.5"/>
     <key value="89765a87b"/>
   </identifier>
   <details>
@@ -20,7 +20,7 @@
     </name>
     <gender>
       <coding>
-        <system value="http://hl7.org/fhir/v2/0001"/>
+        <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
         <code value="M"/>
       </coding>
     </gender>

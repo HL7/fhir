@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -42,49 +42,49 @@ public class MedicationPrescription extends Resource {
         /**
          * Free text dosage instructions for cases where the instructions are too complex to code.
          */
-        private String_ dosageInstructionsText;
+        protected String_ dosageInstructionsText;
 
         /**
          * Additional instructions such as "Swallow with plenty of water" which may or may not be coded.
          */
-        private Type additionalInstructions;
+        protected Type additionalInstructions;
 
         /**
          * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013"
          */
-        private Schedule timing;
+        protected Schedule timing;
 
         /**
          * A coded specification of the anatomic site where the medication first enters the body
          */
-        private CodeableConcept site;
+        protected CodeableConcept site;
 
         /**
          * A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
          */
-        private CodeableConcept route;
+        protected CodeableConcept route;
 
         /**
          * A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.
 
 Terminologies used often pre-coordinate this term with the route and or form of administration.
          */
-        private CodeableConcept method;
+        protected CodeableConcept method;
 
         /**
          * The amount of the therapeutic or other substance given at one administration event.
          */
-        private Quantity doseQuantity;
+        protected Quantity doseQuantity;
 
         /**
          * Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.
          */
-        private Ratio rate;
+        protected Ratio rate;
 
         /**
          * The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.
          */
-        private Ratio maxDosePerPeriod;
+        protected Ratio maxDosePerPeriod;
 
         public String_ getDosageInstructionsText() { 
           return this.dosageInstructionsText;
@@ -172,6 +172,20 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           this.maxDosePerPeriod = value;
         }
 
+      public MedicationPrescriptionDosageInstructionsComponent copy(MedicationPrescription e) {
+        MedicationPrescriptionDosageInstructionsComponent dst = e.new MedicationPrescriptionDosageInstructionsComponent();
+        dst.dosageInstructionsText = dosageInstructionsText == null ? null : dosageInstructionsText.copy();
+        dst.additionalInstructions = additionalInstructions == null ? null : additionalInstructions.copy();
+        dst.timing = timing == null ? null : timing.copy();
+        dst.site = site == null ? null : site.copy();
+        dst.route = route == null ? null : route.copy();
+        dst.method = method == null ? null : method.copy();
+        dst.doseQuantity = doseQuantity == null ? null : doseQuantity.copy();
+        dst.rate = rate == null ? null : rate.copy();
+        dst.maxDosePerPeriod = maxDosePerPeriod == null ? null : maxDosePerPeriod.copy();
+        return dst;
+      }
+
   }
 
     public class MedicationPrescriptionDispenseComponent extends Element {
@@ -180,24 +194,24 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 It reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations. 
 Rationale: Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription.
          */
-        private Period validityPeriod;
+        protected Period validityPeriod;
 
         /**
          * An integer indicating the number of repeats of the Dispense. 
 UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.
          */
-        private Integer numberOfRepeatsAllowed;
+        protected Integer numberOfRepeatsAllowed;
 
         /**
          * The amount that is to be dispensed.
          */
-        private Quantity quantity;
+        protected Quantity quantity;
 
         /**
          * Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last. 
 In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued. E.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.
          */
-        private Duration expectedSupplyDuration;
+        protected Duration expectedSupplyDuration;
 
         public Period getValidityPeriod() { 
           return this.validityPeriod;
@@ -245,18 +259,27 @@ In some situations, this attribute may be used instead of quantity to identify t
           this.expectedSupplyDuration = value;
         }
 
+      public MedicationPrescriptionDispenseComponent copy(MedicationPrescription e) {
+        MedicationPrescriptionDispenseComponent dst = e.new MedicationPrescriptionDispenseComponent();
+        dst.validityPeriod = validityPeriod == null ? null : validityPeriod.copy();
+        dst.numberOfRepeatsAllowed = numberOfRepeatsAllowed == null ? null : numberOfRepeatsAllowed.copy();
+        dst.quantity = quantity == null ? null : quantity.copy();
+        dst.expectedSupplyDuration = expectedSupplyDuration == null ? null : expectedSupplyDuration.copy();
+        return dst;
+      }
+
   }
 
     public class MedicationPrescriptionSubstitutionComponent extends Element {
         /**
          * A code signifying whether a different drug should be dispensed from what was prescribed.
          */
-        private CodeableConcept type;
+        protected CodeableConcept type;
 
         /**
          * Indicates the reason for the substitution why substitution must or must not be performed.
          */
-        private CodeableConcept reason;
+        protected CodeableConcept reason;
 
         public CodeableConcept getType() { 
           return this.type;
@@ -274,62 +297,69 @@ In some situations, this attribute may be used instead of quantity to identify t
           this.reason = value;
         }
 
+      public MedicationPrescriptionSubstitutionComponent copy(MedicationPrescription e) {
+        MedicationPrescriptionSubstitutionComponent dst = e.new MedicationPrescriptionSubstitutionComponent();
+        dst.type = type == null ? null : type.copy();
+        dst.reason = reason == null ? null : reason.copy();
+        return dst;
+      }
+
   }
 
     /**
      * External identifier - FHIR will generate its own internal IDs which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an erntire workflow process where records have to be tracked through an entire system.
      */
-    private List<Identifier> identifier = new ArrayList<Identifier>();
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * The date (and perhaps time) when the prescription was written
      */
-    private DateTime dateWritten;
+    protected DateTime dateWritten;
 
     /**
      * A code specifying the state of the order.  Generally this will be active or completed state
      */
-    private CodeableConcept status;
+    protected CodeableConcept status;
 
     /**
      * A link to a resource representing the person to whom the medication will be given.
      */
-    private ResourceReference patient;
+    protected ResourceReference patient;
 
     /**
      * The healthcare professional responsible for authorising the prescription
      */
-    private ResourceReference prescriber;
+    protected ResourceReference prescriber;
 
     /**
      * A link to a resource that identifies the particular occurrence of contact between patient and health care provider.
      */
-    private ResourceReference visit;
+    protected ResourceReference visit;
 
     /**
      * Can be the reason or the indication for writing the prescription.
      */
-    private Type reasonForPrescribing;
+    protected Type reasonForPrescribing;
 
     /**
      * Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
      */
-    private ResourceReference medication;
+    protected ResourceReference medication;
 
     /**
      * Indicates how the medication is to be used by the patient
      */
-    private List<MedicationPrescriptionDosageInstructionsComponent> dosageInstructions = new ArrayList<MedicationPrescriptionDosageInstructionsComponent>();
+    protected List<MedicationPrescriptionDosageInstructionsComponent> dosageInstructions = new ArrayList<MedicationPrescriptionDosageInstructionsComponent>();
 
     /**
      * Deals with details of the dispense part of the order
      */
-    private MedicationPrescriptionDispenseComponent dispense;
+    protected MedicationPrescriptionDispenseComponent dispense;
 
     /**
      * Indicates whether or not substitution can or should as part of the dispense.  In some cases substitution must  happen, in other cases substitution must not happen, and in others it does not matter.  This block explains the prescribers intent.  If nothing is specified substitution may be done.
      */
-    private MedicationPrescriptionSubstitutionComponent substitution;
+    protected MedicationPrescriptionSubstitutionComponent substitution;
 
     public List<Identifier> getIdentifier() { 
       return this.identifier;
@@ -424,6 +454,30 @@ In some situations, this attribute may be used instead of quantity to identify t
     public void setSubstitution(MedicationPrescriptionSubstitutionComponent value) { 
       this.substitution = value;
     }
+
+      public MedicationPrescription copy() {
+        MedicationPrescription dst = new MedicationPrescription();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
+        dst.dateWritten = dateWritten == null ? null : dateWritten.copy();
+        dst.status = status == null ? null : status.copy();
+        dst.patient = patient == null ? null : patient.copy();
+        dst.prescriber = prescriber == null ? null : prescriber.copy();
+        dst.visit = visit == null ? null : visit.copy();
+        dst.reasonForPrescribing = reasonForPrescribing == null ? null : reasonForPrescribing.copy();
+        dst.medication = medication == null ? null : medication.copy();
+        dst.dosageInstructions = new ArrayList<MedicationPrescriptionDosageInstructionsComponent>();
+        for (MedicationPrescriptionDosageInstructionsComponent i : dosageInstructions)
+          dst.dosageInstructions.add(i.copy(dst));
+        dst.dispense = dispense == null ? null : dispense.copy(dst);
+        dst.substitution = substitution == null ? null : substitution.copy(dst);
+        return dst;
+      }
+
+      protected MedicationPrescription typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

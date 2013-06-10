@@ -29,11 +29,10 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
-import java.net.*;
 /**
  * This resource identifies an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a machine, an insert, a computer, an application, etc. This includes durable (reusable) medical equipment as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.
  */
@@ -43,22 +42,22 @@ public class Device extends Resource {
         /**
          * The number assigned to this device by an authorised issuer of Device GITNs
          */
-        private String_ gtin;
+        protected String_ gtin;
 
         /**
          * Lot number of manufacture
          */
-        private String_ lot;
+        protected String_ lot;
 
         /**
          * The serial number assigned by the organisation when the device was manufactured
          */
-        private String_ serialNumber;
+        protected String_ serialNumber;
 
         /**
          * Date of expiry of this device (if applicable)
          */
-        private Date expiry;
+        protected Date expiry;
 
         public String_ getGtin() { 
           return this.gtin;
@@ -144,62 +143,71 @@ public class Device extends Resource {
           }
         }
 
+      public DeviceIdentityComponent copy(Device e) {
+        DeviceIdentityComponent dst = e.new DeviceIdentityComponent();
+        dst.gtin = gtin == null ? null : gtin.copy();
+        dst.lot = lot == null ? null : lot.copy();
+        dst.serialNumber = serialNumber == null ? null : serialNumber.copy();
+        dst.expiry = expiry == null ? null : expiry.copy();
+        return dst;
+      }
+
   }
 
     /**
      * Describes what kind of device that this
      */
-    private CodeableConcept type;
+    protected CodeableConcept type;
 
     /**
      * The name of the manufacturer
      */
-    private String_ manufacturer;
+    protected String_ manufacturer;
 
     /**
      * The "model" - an identifier assigned by the manufacturer to identify the product by it's type. This number is shared by the all devices sold as the same type
      */
-    private String_ model;
+    protected String_ model;
 
     /**
      * The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware
      */
-    private String_ version;
+    protected String_ version;
 
     /**
      * Universal Device Id fields
      */
-    private DeviceIdentityComponent identity;
+    protected DeviceIdentityComponent identity;
 
     /**
      * The organization that is responsible for the provision and ongoing maintenance of the device
      */
-    private ResourceReference owner;
+    protected ResourceReference owner;
 
     /**
      * Identifiers assigned to this device by various organizations (unless other specific fields exist for them)
      */
-    private List<Identifier> assignedId = new ArrayList<Identifier>();
+    protected List<Identifier> assignedId = new ArrayList<Identifier>();
 
     /**
      * The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. "in/with the patient"), or a coded location
      */
-    private ResourceReference location;
+    protected ResourceReference location;
 
     /**
      * If the resource is affixed to a person
      */
-    private ResourceReference patient;
+    protected ResourceReference patient;
 
     /**
      * Contact details for an organization or a particular human that is responsible for the device
      */
-    private List<Contact> contact = new ArrayList<Contact>();
+    protected List<Contact> contact = new ArrayList<Contact>();
 
     /**
      * A network address on which the device may be contacted directly
      */
-    private Uri url;
+    protected Uri url;
 
     public CodeableConcept getType() { 
       return this.type;
@@ -323,11 +331,11 @@ public class Device extends Resource {
       this.url = value;
     }
 
-    public URI getUrlSimple() { 
+    public String getUrlSimple() { 
       return this.url == null ? null : this.url.getValue();
     }
 
-    public void setUrlSimple(URI value) { 
+    public void setUrlSimple(String value) { 
       if (value == null)
         this.url = null;
       else {
@@ -336,6 +344,30 @@ public class Device extends Resource {
         this.url.setValue(value);
       }
     }
+
+      public Device copy() {
+        Device dst = new Device();
+        dst.type = type == null ? null : type.copy();
+        dst.manufacturer = manufacturer == null ? null : manufacturer.copy();
+        dst.model = model == null ? null : model.copy();
+        dst.version = version == null ? null : version.copy();
+        dst.identity = identity == null ? null : identity.copy(dst);
+        dst.owner = owner == null ? null : owner.copy();
+        dst.assignedId = new ArrayList<Identifier>();
+        for (Identifier i : assignedId)
+          dst.assignedId.add(i.copy());
+        dst.location = location == null ? null : location.copy();
+        dst.patient = patient == null ? null : patient.copy();
+        dst.contact = new ArrayList<Contact>();
+        for (Contact i : contact)
+          dst.contact.add(i.copy());
+        dst.url = url == null ? null : url.copy();
+        return dst;
+      }
+
+      protected Device typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

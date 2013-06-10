@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -131,42 +131,42 @@ public class OrderResponse extends Resource {
     /**
      * The order this is a response to
      */
-    private ResourceReference request;
+    protected ResourceReference request;
 
     /**
      * When the response was made
      */
-    private DateTime date;
+    protected DateTime date;
 
     /**
      * Who made the rResponse
      */
-    private ResourceReference who;
+    protected ResourceReference who;
 
     /**
      * If required by policy
      */
-    private ResourceReference authority;
+    protected ResourceReference authority;
 
     /**
      * How much the request will/did cost
      */
-    private Money cost;
+    protected Money cost;
 
     /**
      * The status of the response
      */
-    private Enumeration<OrderOutcomeCode> code;
+    protected Enumeration<OrderOutcomeCode> code;
 
     /**
      * Additional description of the response
      */
-    private String_ description;
+    protected String_ description;
 
     /**
      * Details of the outcome of performing the order
      */
-    private List<ResourceReference> fulfillment = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> fulfillment = new ArrayList<ResourceReference>();
 
     public ResourceReference getRequest() { 
       return this.request;
@@ -265,6 +265,25 @@ public class OrderResponse extends Resource {
     public List<ResourceReference> getFulfillment() { 
       return this.fulfillment;
     }
+
+      public OrderResponse copy() {
+        OrderResponse dst = new OrderResponse();
+        dst.request = request == null ? null : request.copy();
+        dst.date = date == null ? null : date.copy();
+        dst.who = who == null ? null : who.copy();
+        dst.authority = authority == null ? null : authority.copy();
+        dst.cost = cost == null ? null : cost.copy();
+        dst.code = code == null ? null : code.copy();
+        dst.description = description == null ? null : description.copy();
+        dst.fulfillment = new ArrayList<ResourceReference>();
+        for (ResourceReference i : fulfillment)
+          dst.fulfillment.add(i.copy());
+        return dst;
+      }
+
+      protected OrderResponse typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

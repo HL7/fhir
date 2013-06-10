@@ -5,7 +5,14 @@ import java.util.Map;
 
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.Code;
+import org.hl7.fhir.instance.model.Coding;
+import org.hl7.fhir.instance.model.Element;
+import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Narrative;
+import org.hl7.fhir.instance.model.OperationOutcome;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
+import org.hl7.fhir.instance.model.String_;
 import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
@@ -14,6 +21,7 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.instance.model.ValueSet.FilterOperator;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.tests.XhtmlParserTests;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
@@ -99,7 +107,7 @@ public class NarrativeGenerator {
     XhtmlNode li;
     for (Uri imp : vs.getCompose().getImport()) {
       li = ul.addTag("li");
-      li.addText("Import all the codes that are part of "+imp.toString());
+      li.addText("Import all the codes that are part of "+imp.getValue());
     }
     for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
       genInclude(ul, inc, "Include", codeSystems);      
@@ -221,6 +229,97 @@ public class NarrativeGenerator {
         return true;
     }
     return false;
+  }
+
+  /**
+   * This generate is optimised for the build tool in that it tracks the source extension. 
+   * But it can be used for any other use.
+   *  
+   * @param vs
+   * @param codeSystems
+   * @throws Exception
+   */
+  public void generate(OperationOutcome op) throws Exception {
+    XhtmlNode x = new XhtmlNode();
+    x.setNodeType(NodeType.Element);
+    x.setName("div");
+    boolean hasSource = false;
+    boolean hasType = false;
+    boolean success = true;
+    for (OperationOutcomeIssueComponent i : op.getIssue()) {
+    	success = success && i.getSeveritySimple() != IssueSeverity.information;
+    	hasSource = hasSource || hasExtension(i, "http://hl7.org/fhir/tools#issue-source");
+    	hasType = hasType || i.getType() != null;
+    }
+    if (success)
+    	x.addTag("p").addText("All OK");
+    if (op.getIssue().size() > 0) {
+    		XhtmlNode tbl = x.addTag("table");
+    		tbl.setAttribute("class", "grid"); // on the basis that we'll most likely be rendered using the standard fhir css, but it doesn't really matter
+    		XhtmlNode tr = tbl.addTag("tr");
+    		tr.addTag("td").addTag("b").addText("Severity");
+    		tr.addTag("td").addTag("b").addText("Location");
+    		tr.addTag("td").addTag("b").addText("Details");
+    		if (hasType)
+    			tr.addTag("td").addTag("b").addText("Type");
+    		if (hasSource)
+    			tr.addTag("td").addTag("b").addText("Source");
+    		for (OperationOutcomeIssueComponent i : op.getIssue()) {
+    			tr = tbl.addTag("tr");
+    			tr.addTag("td").addText(i.getSeverity().toString());
+    			XhtmlNode td = tr.addTag("td");
+    			boolean d = false;
+    			for (String_ s : i.getLocation()) {
+    				if (d)
+    					td.addText(", ");
+    				else
+    					d = true;
+    				td.addText(s.getValue());      		
+    			}
+    			tr.addTag("td").addText(i.getDetailsSimple());
+    			if (hasType)
+    				tr.addTag("td").addText(gen(i.getType()));
+    			if (hasSource)
+    				tr.addTag("td").addText(gen(getExtension(i, "http://hl7.org/fhir/tools#issue-source")));
+    		}    
+    	}
+    if (op.getText() == null)
+      op.setText(new Narrative());
+    op.getText().setDiv(x);
+    op.getText().setStatusSimple(hasSource ? NarrativeStatus.extensions :  NarrativeStatus.generated);
+  	
+  }
+
+	private boolean hasExtension(Element e, String url) {
+	  return getExtension(e, url) != null;
+  }
+
+	private Extension getExtension(Element e, String url) {
+	  for (Extension ex : e.getExtensions()) {
+	  	if (url.equals(ex.getUrlSimple().toString())) {
+	  		return ex;
+	  	}
+	  }
+	  return null;
+  }
+
+	private String gen(Extension extension) throws Exception {
+		if (extension.getValue() instanceof Code)
+			return ((Code) extension.getValue()).getValue();
+		if (extension.getValue() instanceof Coding)
+			return gen((Coding) extension.getValue());
+
+	  throw new Exception("Unhandled type "+extension.getValue().getClass().getName());
+  }
+
+	private String gen(Coding type) {
+	  if (type == null)
+	  	return null;
+	  if (type.getDisplay() != null)
+	  	return type.getDisplaySimple();
+	  if (type.getCode() != null)
+	  	return type.getCodeSimple();
+	  return null;
   }
 
 

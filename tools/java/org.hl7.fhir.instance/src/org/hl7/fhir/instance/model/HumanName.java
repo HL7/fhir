@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -123,37 +123,37 @@ public class HumanName extends Type {
     /**
      * Identifies the purpose for this name
      */
-    private Enumeration<NameUse> use;
+    protected Enumeration<NameUse> use;
 
     /**
      * A full text representation of the name
      */
-    private String_ text;
+    protected String_ text;
 
     /**
      * Family name, this is the name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.
      */
-    private List<String_> family = new ArrayList<String_>();
+    protected List<String_> family = new ArrayList<String_>();
 
     /**
      * Given name. NOTE: Not to be called "first name" since given names do not always come first.
      */
-    private List<String_> given = new ArrayList<String_>();
+    protected List<String_> given = new ArrayList<String_>();
 
     /**
      * Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the start of the name
      */
-    private List<String_> prefix = new ArrayList<String_>();
+    protected List<String_> prefix = new ArrayList<String_>();
 
     /**
      * Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the end of the name
      */
-    private List<String_> suffix = new ArrayList<String_>();
+    protected List<String_> suffix = new ArrayList<String_>();
 
     /**
      * Indicates the period of time when this name was valid for the named person.
      */
-    private Period period;
+    protected Period period;
 
     public Enumeration<NameUse> getUse() { 
       return this.use;
@@ -222,6 +222,30 @@ public class HumanName extends Type {
     public void setPeriod(Period value) { 
       this.period = value;
     }
+
+      public HumanName copy() {
+        HumanName dst = new HumanName();
+        dst.use = use == null ? null : use.copy();
+        dst.text = text == null ? null : text.copy();
+        dst.family = new ArrayList<String_>();
+        for (String_ i : family)
+          dst.family.add(i.copy());
+        dst.given = new ArrayList<String_>();
+        for (String_ i : given)
+          dst.given.add(i.copy());
+        dst.prefix = new ArrayList<String_>();
+        for (String_ i : prefix)
+          dst.prefix.add(i.copy());
+        dst.suffix = new ArrayList<String_>();
+        for (String_ i : suffix)
+          dst.suffix.add(i.copy());
+        dst.period = period == null ? null : period.copy();
+        return dst;
+      }
+
+      protected HumanName typedCopy() {
+        return copy();
+      }
 
 
 }

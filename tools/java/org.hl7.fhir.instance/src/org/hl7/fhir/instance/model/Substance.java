@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 /**
  * Substance
@@ -39,17 +39,17 @@ public class Substance extends Resource {
     /**
      * Identifier of the substance
      */
-    private Identifier identifier;
+    protected Identifier identifier;
 
     /**
      * Name of the substance
      */
-    private String_ name;
+    protected String_ name;
 
     /**
      * Type of the substance
      */
-    private Coding type;
+    protected Coding type;
 
     public Identifier getIdentifier() { 
       return this.identifier;
@@ -84,6 +84,18 @@ public class Substance extends Resource {
     public void setType(Coding value) { 
       this.type = value;
     }
+
+      public Substance copy() {
+        Substance dst = new Substance();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.name = name == null ? null : name.copy();
+        dst.type = type == null ? null : type.copy();
+        return dst;
+      }
+
+      protected Substance typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

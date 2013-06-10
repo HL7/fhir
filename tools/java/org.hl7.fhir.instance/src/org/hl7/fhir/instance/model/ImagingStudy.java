@@ -29,11 +29,10 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
-import java.net.*;
 /**
  * Manifest of a set of images produced in study. The set of images may include every image in the study, or it may be an incomplete sample, such as a list of key images
  */
@@ -615,57 +614,57 @@ public class ImagingStudy extends Resource {
         /**
          * The number of this series in the overall sequence
          */
-        private Integer number;
+        protected Integer number;
 
         /**
          * The modality of this sequence
          */
-        private Enumeration<ImageModality> modality;
+        protected Enumeration<ImageModality> modality;
 
         /**
          * Formal identifier for this series
          */
-        private Oid uid;
+        protected Oid uid;
 
         /**
          * A description of the series
          */
-        private String_ description;
+        protected String_ description;
 
         /**
          * Sequence that contains attributes from the
          */
-        private Integer numberOfInstances;
+        protected Integer numberOfInstances;
 
         /**
          * Availability of series (online, offline or nearlnie)
          */
-        private Enumeration<InstanceAvailability> availability;
+        protected Enumeration<InstanceAvailability> availability;
 
         /**
          * WADO-RS URI where Series is available
          */
-        private Uri url;
+        protected Uri url;
 
         /**
          * WADO-RS URI where Series is available
          */
-        private Oid locationUID;
+        protected Oid locationUID;
 
         /**
          * Body part examined
          */
-        private Coding bodySite;
+        protected Coding bodySite;
 
         /**
          * When the series started
          */
-        private DateTime dateTime;
+        protected DateTime dateTime;
 
         /**
          * A single image taken from a patient
          */
-        private List<ImagingStudySeriesInstanceComponent> instance = new ArrayList<ImagingStudySeriesInstanceComponent>();
+        protected List<ImagingStudySeriesInstanceComponent> instance = new ArrayList<ImagingStudySeriesInstanceComponent>();
 
         public Integer getNumber() { 
           return this.number;
@@ -795,11 +794,11 @@ public class ImagingStudy extends Resource {
           this.url = value;
         }
 
-        public URI getUrlSimple() { 
+        public String getUrlSimple() { 
           return this.url == null ? null : this.url.getValue();
         }
 
-        public void setUrlSimple(URI value) { 
+        public void setUrlSimple(String value) { 
           if (value == null)
             this.url = null;
           else {
@@ -865,58 +864,76 @@ public class ImagingStudy extends Resource {
           return this.instance;
         }
 
+      public ImagingStudySeriesComponent copy(ImagingStudy e) {
+        ImagingStudySeriesComponent dst = e.new ImagingStudySeriesComponent();
+        dst.number = number == null ? null : number.copy();
+        dst.modality = modality == null ? null : modality.copy();
+        dst.uid = uid == null ? null : uid.copy();
+        dst.description = description == null ? null : description.copy();
+        dst.numberOfInstances = numberOfInstances == null ? null : numberOfInstances.copy();
+        dst.availability = availability == null ? null : availability.copy();
+        dst.url = url == null ? null : url.copy();
+        dst.locationUID = locationUID == null ? null : locationUID.copy();
+        dst.bodySite = bodySite == null ? null : bodySite.copy();
+        dst.dateTime = dateTime == null ? null : dateTime.copy();
+        dst.instance = new ArrayList<ImagingStudySeriesInstanceComponent>();
+        for (ImagingStudySeriesInstanceComponent i : instance)
+          dst.instance.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     public class ImagingStudySeriesInstanceComponent extends Element {
         /**
          * The number of this image in the series
          */
-        private Integer number;
+        protected Integer number;
 
         /**
          * Formal identifier for this image
          */
-        private Oid uid;
+        protected Oid uid;
 
         /**
          * DICOM Image type
          */
-        private Oid sopclass;
+        protected Oid sopclass;
 
         /**
          * Type of instance (0004,1430)
          */
-        private String_ type;
+        protected String_ type;
 
         /**
          * Description to be provided
          */
-        private String_ title;
+        protected String_ title;
 
         /**
          * Availability of instance (online, offline or nearlnie)
          */
-        private Enumeration<InstanceAvailability> availability;
+        protected Enumeration<InstanceAvailability> availability;
 
         /**
          * When this image was taken
          */
-        private DateTime dateTime;
+        protected DateTime dateTime;
 
         /**
          * When instance is an image
          */
-        private ImagingStudySeriesInstanceImageComponent image;
+        protected ImagingStudySeriesInstanceImageComponent image;
 
         /**
          * WADO url where image is available
          */
-        private Uri url;
+        protected Uri url;
 
         /**
          * A FHIR resource with content for this instance
          */
-        private ResourceReference attachment;
+        protected ResourceReference attachment;
 
         public Integer getNumber() { 
           return this.number;
@@ -1080,11 +1097,11 @@ public class ImagingStudy extends Resource {
           this.url = value;
         }
 
-        public URI getUrlSimple() { 
+        public String getUrlSimple() { 
           return this.url == null ? null : this.url.getValue();
         }
 
-        public void setUrlSimple(URI value) { 
+        public void setUrlSimple(String value) { 
           if (value == null)
             this.url = null;
           else {
@@ -1102,28 +1119,43 @@ public class ImagingStudy extends Resource {
           this.attachment = value;
         }
 
+      public ImagingStudySeriesInstanceComponent copy(ImagingStudy e) {
+        ImagingStudySeriesInstanceComponent dst = e.new ImagingStudySeriesInstanceComponent();
+        dst.number = number == null ? null : number.copy();
+        dst.uid = uid == null ? null : uid.copy();
+        dst.sopclass = sopclass == null ? null : sopclass.copy();
+        dst.type = type == null ? null : type.copy();
+        dst.title = title == null ? null : title.copy();
+        dst.availability = availability == null ? null : availability.copy();
+        dst.dateTime = dateTime == null ? null : dateTime.copy();
+        dst.image = image == null ? null : image.copy(e);
+        dst.url = url == null ? null : url.copy();
+        dst.attachment = attachment == null ? null : attachment.copy();
+        return dst;
+      }
+
   }
 
     public class ImagingStudySeriesInstanceImageComponent extends Element {
         /**
          * Rows (0028,0010)
          */
-        private Integer rows;
+        protected Integer rows;
 
         /**
          * Columns (0028,0011)
          */
-        private Integer columns;
+        protected Integer columns;
 
         /**
          * Bits Allocated (0028,0100)
          */
-        private Integer bitsAllocated;
+        protected Integer bitsAllocated;
 
         /**
          * Number of Frames (0028,0008)
          */
-        private Integer numberOfFrames;
+        protected Integer numberOfFrames;
 
         public Integer getRows() { 
           return this.rows;
@@ -1213,82 +1245,91 @@ public class ImagingStudy extends Resource {
           }
         }
 
+      public ImagingStudySeriesInstanceImageComponent copy(ImagingStudy e) {
+        ImagingStudySeriesInstanceImageComponent dst = e.new ImagingStudySeriesInstanceImageComponent();
+        dst.rows = rows == null ? null : rows.copy();
+        dst.columns = columns == null ? null : columns.copy();
+        dst.bitsAllocated = bitsAllocated == null ? null : bitsAllocated.copy();
+        dst.numberOfFrames = numberOfFrames == null ? null : numberOfFrames.copy();
+        return dst;
+      }
+
   }
 
     /**
      * Date and Time the study took place
      */
-    private DateTime dateTime;
+    protected DateTime dateTime;
 
     /**
      * Who the images are of
      */
-    private ResourceReference subject;
+    protected ResourceReference subject;
 
     /**
      * Formal identifier for the study
      */
-    private Oid uid;
+    protected Oid uid;
 
     /**
      * Accession Number
      */
-    private Identifier accessionNo;
+    protected Identifier accessionNo;
 
     /**
      * Other identifiers for the study
      */
-    private List<Identifier> identifier = new ArrayList<Identifier>();
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * The requesting/referring physician
      */
-    private ResourceReference referrer;
+    protected ResourceReference referrer;
 
     /**
      * Availability of study (online, offline or nearlnie)
      */
-    private Enumeration<InstanceAvailability> availability;
+    protected Enumeration<InstanceAvailability> availability;
 
     /**
      * WADO-RS URI where Study is available
      */
-    private Uri url;
+    protected Uri url;
 
     /**
      * Number of Series in Study
      */
-    private Integer numberOfSeries;
+    protected Integer numberOfSeries;
 
     /**
      * Number of SOP Instances in Study
      */
-    private Integer numberOfInstances;
+    protected Integer numberOfInstances;
 
     /**
      * Diagnoses etc provided with request
      */
-    private String_ clinicalInformation;
+    protected String_ clinicalInformation;
 
     /**
      * Type of procedure performed
      */
-    private List<Coding> procedure = new ArrayList<Coding>();
+    protected List<Coding> procedure = new ArrayList<Coding>();
 
     /**
      * Who read study and interpreted the images
      */
-    private ResourceReference interpreter;
+    protected ResourceReference interpreter;
 
     /**
      * Institution-generated description or classification of the Study (component) performed
      */
-    private String_ description;
+    protected String_ description;
 
     /**
      * Each study has one or more series of image instances
      */
-    private List<ImagingStudySeriesComponent> series = new ArrayList<ImagingStudySeriesComponent>();
+    protected List<ImagingStudySeriesComponent> series = new ArrayList<ImagingStudySeriesComponent>();
 
     public DateTime getDateTime() { 
       return this.dateTime;
@@ -1388,11 +1429,11 @@ public class ImagingStudy extends Resource {
       this.url = value;
     }
 
-    public URI getUrlSimple() { 
+    public String getUrlSimple() { 
       return this.url == null ? null : this.url.getValue();
     }
 
-    public void setUrlSimple(URI value) { 
+    public void setUrlSimple(String value) { 
       if (value == null)
         this.url = null;
       else {
@@ -1497,6 +1538,36 @@ public class ImagingStudy extends Resource {
     public List<ImagingStudySeriesComponent> getSeries() { 
       return this.series;
     }
+
+      public ImagingStudy copy() {
+        ImagingStudy dst = new ImagingStudy();
+        dst.dateTime = dateTime == null ? null : dateTime.copy();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.uid = uid == null ? null : uid.copy();
+        dst.accessionNo = accessionNo == null ? null : accessionNo.copy();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
+        dst.referrer = referrer == null ? null : referrer.copy();
+        dst.availability = availability == null ? null : availability.copy();
+        dst.url = url == null ? null : url.copy();
+        dst.numberOfSeries = numberOfSeries == null ? null : numberOfSeries.copy();
+        dst.numberOfInstances = numberOfInstances == null ? null : numberOfInstances.copy();
+        dst.clinicalInformation = clinicalInformation == null ? null : clinicalInformation.copy();
+        dst.procedure = new ArrayList<Coding>();
+        for (Coding i : procedure)
+          dst.procedure.add(i.copy());
+        dst.interpreter = interpreter == null ? null : interpreter.copy();
+        dst.description = description == null ? null : description.copy();
+        dst.series = new ArrayList<ImagingStudySeriesComponent>();
+        for (ImagingStudySeriesComponent i : series)
+          dst.series.add(i.copy(dst));
+        return dst;
+      }
+
+      protected ImagingStudy typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

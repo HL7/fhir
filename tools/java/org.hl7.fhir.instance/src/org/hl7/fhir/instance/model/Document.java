@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -100,17 +100,17 @@ public class Document extends Resource {
         /**
          * The type of attestation the authenticator offers
          */
-        private Enumeration<DocumentAttestationMode> mode;
+        protected Enumeration<DocumentAttestationMode> mode;
 
         /**
          * When document was attested by the party
          */
-        private DateTime time;
+        protected DateTime time;
 
         /**
          * Who attested the document in the specified way
          */
-        private ResourceReference party;
+        protected ResourceReference party;
 
         public Enumeration<DocumentAttestationMode> getMode() { 
           return this.mode;
@@ -160,23 +160,31 @@ public class Document extends Resource {
           this.party = value;
         }
 
+      public DocumentAttesterComponent copy(Document e) {
+        DocumentAttesterComponent dst = e.new DocumentAttesterComponent();
+        dst.mode = mode == null ? null : mode.copy();
+        dst.time = time == null ? null : time.copy();
+        dst.party = party == null ? null : party.copy();
+        return dst;
+      }
+
   }
 
     public class DocumentEventComponent extends Element {
         /**
          * This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a "History and Physical Report" in which the procedure being documented is necessarily a "History and Physical" act.
          */
-        private List<CodeableConcept> code = new ArrayList<CodeableConcept>();
+        protected List<CodeableConcept> code = new ArrayList<CodeableConcept>();
 
         /**
          * The period of time covered by the document. There is no assertion that the document is a complete representation for this period, only that it documents events during this time
          */
-        private Period period;
+        protected Period period;
 
         /**
          * Full details for the event(s) the document concents
          */
-        private List<ResourceReference> detail = new ArrayList<ResourceReference>();
+        protected List<ResourceReference> detail = new ArrayList<ResourceReference>();
 
         public List<CodeableConcept> getCode() { 
           return this.code;
@@ -194,28 +202,40 @@ public class Document extends Resource {
           return this.detail;
         }
 
+      public DocumentEventComponent copy(Document e) {
+        DocumentEventComponent dst = e.new DocumentEventComponent();
+        dst.code = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : code)
+          dst.code.add(i.copy());
+        dst.period = period == null ? null : period.copy();
+        dst.detail = new ArrayList<ResourceReference>();
+        for (ResourceReference i : detail)
+          dst.detail.add(i.copy());
+        return dst;
+      }
+
   }
 
     public class SectionComponent extends Element {
         /**
          * A code identifying the kind of content contained within the section
          */
-        private CodeableConcept code;
+        protected CodeableConcept code;
 
         /**
          * Identifies the primary subject of the section.
          */
-        private ResourceReference subject;
+        protected ResourceReference subject;
 
         /**
          * Identifies the discrete data that provides the content for the section.
          */
-        private ResourceReference content;
+        protected ResourceReference content;
 
         /**
          * Identifies a subtopic within the section as part of the document's table of contents
          */
-        private List<SectionComponent> section = new ArrayList<SectionComponent>();
+        protected List<SectionComponent> section = new ArrayList<SectionComponent>();
 
         public CodeableConcept getCode() { 
           return this.code;
@@ -245,97 +265,108 @@ public class Document extends Resource {
           return this.section;
         }
 
+      public SectionComponent copy(Document e) {
+        SectionComponent dst = e.new SectionComponent();
+        dst.code = code == null ? null : code.copy();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.content = content == null ? null : content.copy();
+        dst.section = new ArrayList<SectionComponent>();
+        for (SectionComponent i : section)
+          dst.section.add(i.copy(e));
+        return dst;
+      }
+
   }
 
     /**
      * Logical Identifier for the document, assigned when created. This identifier stays constant when subsequent versions of the document are created
      */
-    private Identifier identifier;
+    protected Identifier identifier;
 
     /**
      * Version specific identifier for the document, assigned when created. This identifier changes when subsequent versions of the document are created
      */
-    private Identifier versionIdentifier;
+    protected Identifier versionIdentifier;
 
     /**
      * The document creation time, when the document first came into being. Where the document is a transform from an original document in some other format, the ClinicalDocument.effectiveTime is the time the original document is created.
      */
-    private Instant created;
+    protected Instant created;
 
     /**
      * The code specifying the particular kind of document (e.g., Prescription, Discharge Summary, Report).
      */
-    private Coding class_;
+    protected Coding class_;
 
     /**
      * Specifies the particular kind of document (e.g. History and Physical, Discharge Summary, Progress Note)
      */
-    private CodeableConcept type;
+    protected CodeableConcept type;
 
     /**
      * Official human-readable label for the document
      */
-    private String_ title;
+    protected String_ title;
 
     /**
      * The code specifying the level of confidentiality of the XDS Document. These codes are specific to an XDS Affinity Domain.
      */
-    private Coding confidentiality;
+    protected Coding confidentiality;
 
     /**
      * Identifies the primary subject of the document.
      */
-    private ResourceReference subject;
+    protected ResourceReference subject;
 
     /**
      * Identifies who is responsible for the information in the document.  (Not necessarily who typed it in.)
      */
-    private List<ResourceReference> author = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> author = new ArrayList<ResourceReference>();
 
     /**
      * A participant who has attested to the accuracy of the document
      */
-    private List<DocumentAttesterComponent> attester = new ArrayList<DocumentAttesterComponent>();
+    protected List<DocumentAttesterComponent> attester = new ArrayList<DocumentAttesterComponent>();
 
     /**
      * Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.
      */
-    private ResourceReference custodian;
+    protected ResourceReference custodian;
 
     /**
      * The main event/act/item, such as a colonoscopy or an appendectomy, being documented
      */
-    private DocumentEventComponent event;
+    protected DocumentEventComponent event;
 
     /**
      * Describes the clinical visit or type of care this document is associated with.
      */
-    private ResourceReference visit;
+    protected ResourceReference visit;
 
     /**
      * Identifies the document this document supersedes, if any.
      */
-    private Id replaces;
+    protected Id replaces;
 
     /**
      * Additional provenance about the document and the resources that are the sections
      */
-    private List<ResourceReference> provenance = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> provenance = new ArrayList<ResourceReference>();
 
     /**
      * A fixed CSS stylesheet to use when rendering the documents
      */
-    private Attachment stylesheet;
+    protected Attachment stylesheet;
 
     /**
      * An alternative representation of the document that can be used in place of the html based rendering
      */
-    private Attachment representation;
+    protected Attachment representation;
 
     /**
      * Identifies a main topic within the document's table of contents
      */
-    private List<SectionComponent> section = new ArrayList<SectionComponent>();
+    protected List<SectionComponent> section = new ArrayList<SectionComponent>();
 
     public Identifier getIdentifier() { 
       return this.identifier;
@@ -502,6 +533,41 @@ public class Document extends Resource {
     public List<SectionComponent> getSection() { 
       return this.section;
     }
+
+      public Document copy() {
+        Document dst = new Document();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.versionIdentifier = versionIdentifier == null ? null : versionIdentifier.copy();
+        dst.created = created == null ? null : created.copy();
+        dst.class_ = class_ == null ? null : class_.copy();
+        dst.type = type == null ? null : type.copy();
+        dst.title = title == null ? null : title.copy();
+        dst.confidentiality = confidentiality == null ? null : confidentiality.copy();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.author = new ArrayList<ResourceReference>();
+        for (ResourceReference i : author)
+          dst.author.add(i.copy());
+        dst.attester = new ArrayList<DocumentAttesterComponent>();
+        for (DocumentAttesterComponent i : attester)
+          dst.attester.add(i.copy(dst));
+        dst.custodian = custodian == null ? null : custodian.copy();
+        dst.event = event == null ? null : event.copy(dst);
+        dst.visit = visit == null ? null : visit.copy();
+        dst.replaces = replaces == null ? null : replaces.copy();
+        dst.provenance = new ArrayList<ResourceReference>();
+        for (ResourceReference i : provenance)
+          dst.provenance.add(i.copy());
+        dst.stylesheet = stylesheet == null ? null : stylesheet.copy();
+        dst.representation = representation == null ? null : representation.copy();
+        dst.section = new ArrayList<SectionComponent>();
+        for (SectionComponent i : section)
+          dst.section.add(i.copy(dst));
+        return dst;
+      }
+
+      protected Document typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

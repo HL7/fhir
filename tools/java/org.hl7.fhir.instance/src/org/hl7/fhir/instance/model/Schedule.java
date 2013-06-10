@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -231,32 +231,32 @@ public class Schedule extends Type {
         /**
          * Indicates how often the event should occur.
          */
-        private Integer frequency;
+        protected Integer frequency;
 
         /**
          * Identifies the occurrence of daily life that determine timing
          */
-        private Enumeration<EventTiming> when;
+        protected Enumeration<EventTiming> when;
 
         /**
          * How long each repetition should last
          */
-        private Decimal duration;
+        protected Decimal duration;
 
         /**
          * The units of time for the duration
          */
-        private Enumeration<UnitsOfTime> units;
+        protected Enumeration<UnitsOfTime> units;
 
         /**
          * A total count of the desired number of repetitions
          */
-        private Integer count;
+        protected Integer count;
 
         /**
          * When to stop repeats
          */
-        private DateTime end;
+        protected DateTime end;
 
         public Integer getFrequency() { 
           return this.frequency;
@@ -382,17 +382,28 @@ public class Schedule extends Type {
           }
         }
 
+      public ScheduleRepeatComponent copy(Schedule e) {
+        ScheduleRepeatComponent dst = e.new ScheduleRepeatComponent();
+        dst.frequency = frequency == null ? null : frequency.copy();
+        dst.when = when == null ? null : when.copy();
+        dst.duration = duration == null ? null : duration.copy();
+        dst.units = units == null ? null : units.copy();
+        dst.count = count == null ? null : count.copy();
+        dst.end = end == null ? null : end.copy();
+        return dst;
+      }
+
   }
 
     /**
      * Identifies specific time periods when the event should occur
      */
-    private List<Period> event = new ArrayList<Period>();
+    protected List<Period> event = new ArrayList<Period>();
 
     /**
      * Identifies a repeating pattern to the intended time periods.
      */
-    private ScheduleRepeatComponent repeat;
+    protected ScheduleRepeatComponent repeat;
 
     public List<Period> getEvent() { 
       return this.event;
@@ -405,6 +416,19 @@ public class Schedule extends Type {
     public void setRepeat(ScheduleRepeatComponent value) { 
       this.repeat = value;
     }
+
+      public Schedule copy() {
+        Schedule dst = new Schedule();
+        dst.event = new ArrayList<Period>();
+        for (Period i : event)
+          dst.event.add(i.copy());
+        dst.repeat = repeat == null ? null : repeat.copy(dst);
+        return dst;
+      }
+
+      protected Schedule typedCopy() {
+        return copy();
+      }
 
 
 }

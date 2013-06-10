@@ -57,5 +57,15 @@ public class Integer extends Type {
     this.original = original;
   } 
 	
+	public Integer copy() {
+		Integer dst = new Integer();
+		dst.value = value;
+		dst.original = original;
+		return dst;
+	}
 	
+	protected Type typedCopy() {
+		return copy();
+	}
+
 }

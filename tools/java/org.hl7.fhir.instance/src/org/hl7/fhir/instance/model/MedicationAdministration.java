@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -102,39 +102,39 @@ public class MedicationAdministration extends Resource {
         /**
          * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013"
          */
-        private Schedule timing;
+        protected Schedule timing;
 
         /**
          * A coded specification of the anatomic site where the medication first enters the body
          */
-        private CodeableConcept site;
+        protected CodeableConcept site;
 
         /**
          * A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
          */
-        private CodeableConcept route;
+        protected CodeableConcept route;
 
         /**
          * A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.
 
 Terminologies used often pre-coordinate this term with the route and or form of administration.
          */
-        private CodeableConcept method;
+        protected CodeableConcept method;
 
         /**
          * The amount of the therapeutic or other substance given at one administration event.
          */
-        private Quantity quantity;
+        protected Quantity quantity;
 
         /**
          * Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.
          */
-        private Ratio rate;
+        protected Ratio rate;
 
         /**
          * The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.
          */
-        private Ratio maxDosePerPeriod;
+        protected Ratio maxDosePerPeriod;
 
         public Schedule getTiming() { 
           return this.timing;
@@ -192,69 +192,81 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           this.maxDosePerPeriod = value;
         }
 
+      public MedicationAdministrationDosageComponent copy(MedicationAdministration e) {
+        MedicationAdministrationDosageComponent dst = e.new MedicationAdministrationDosageComponent();
+        dst.timing = timing == null ? null : timing.copy();
+        dst.site = site == null ? null : site.copy();
+        dst.route = route == null ? null : route.copy();
+        dst.method = method == null ? null : method.copy();
+        dst.quantity = quantity == null ? null : quantity.copy();
+        dst.rate = rate == null ? null : rate.copy();
+        dst.maxDosePerPeriod = maxDosePerPeriod == null ? null : maxDosePerPeriod.copy();
+        return dst;
+      }
+
   }
 
     /**
      * External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
      */
-    private List<Identifier> identifier = new ArrayList<Identifier>();
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
      */
-    private Enumeration<MedicationAdminStatus> status;
+    protected Enumeration<MedicationAdminStatus> status;
 
     /**
      * A link to a resource representing the person to whom the medication was given.
      */
-    private ResourceReference patient;
+    protected ResourceReference patient;
 
     /**
      * This is the individual who is responsible for giving the medication to the patient.
      */
-    private ResourceReference practitioner;
+    protected ResourceReference practitioner;
 
     /**
      * An link to a resource that identifies the particular occurrence of contact between patient and health care provider.
      */
-    private ResourceReference visit;
+    protected ResourceReference visit;
 
     /**
      * A link to a resource that provides the original request, instruction and authority to perform the administration.
      */
-    private ResourceReference prescription;
+    protected ResourceReference prescription;
 
     /**
      * Set this to true if the record is saying that the medication was NOT administered.
      */
-    private Boolean wasNotGiven;
+    protected Boolean wasNotGiven;
 
     /**
      * A code indicating why the administration has been negated.
 
 Use only if isNegated is set to TRUE
      */
-    private List<CodeableConcept> reasonNotGiven = new ArrayList<CodeableConcept>();
+    protected List<CodeableConcept> reasonNotGiven = new ArrayList<CodeableConcept>();
 
     /**
      * An interval of time during which the administration takes place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.
      */
-    private Period whenGiven;
+    protected Period whenGiven;
 
     /**
      * Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
      */
-    private ResourceReference medication;
+    protected ResourceReference medication;
 
     /**
      * An identifier or a link to a resource that identifies a device used in administering the medication to the patient.
      */
-    private List<ResourceReference> administrationDevice = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> administrationDevice = new ArrayList<ResourceReference>();
 
     /**
      * Indicates how the medication is to be used by the patient
      */
-    private List<MedicationAdministrationDosageComponent> dosage = new ArrayList<MedicationAdministrationDosageComponent>();
+    protected List<MedicationAdministrationDosageComponent> dosage = new ArrayList<MedicationAdministrationDosageComponent>();
 
     public List<Identifier> getIdentifier() { 
       return this.identifier;
@@ -359,6 +371,35 @@ Use only if isNegated is set to TRUE
     public List<MedicationAdministrationDosageComponent> getDosage() { 
       return this.dosage;
     }
+
+      public MedicationAdministration copy() {
+        MedicationAdministration dst = new MedicationAdministration();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
+        dst.status = status == null ? null : status.copy();
+        dst.patient = patient == null ? null : patient.copy();
+        dst.practitioner = practitioner == null ? null : practitioner.copy();
+        dst.visit = visit == null ? null : visit.copy();
+        dst.prescription = prescription == null ? null : prescription.copy();
+        dst.wasNotGiven = wasNotGiven == null ? null : wasNotGiven.copy();
+        dst.reasonNotGiven = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : reasonNotGiven)
+          dst.reasonNotGiven.add(i.copy());
+        dst.whenGiven = whenGiven == null ? null : whenGiven.copy();
+        dst.medication = medication == null ? null : medication.copy();
+        dst.administrationDevice = new ArrayList<ResourceReference>();
+        for (ResourceReference i : administrationDevice)
+          dst.administrationDevice.add(i.copy());
+        dst.dosage = new ArrayList<MedicationAdministrationDosageComponent>();
+        for (MedicationAdministrationDosageComponent i : dosage)
+          dst.dosage.add(i.copy(dst));
+        return dst;
+      }
+
+      protected MedicationAdministration typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

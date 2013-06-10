@@ -29,10 +29,9 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 
-import java.net.*;
 import java.math.*;
 /**
  * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies
@@ -100,27 +99,27 @@ public class Quantity extends Type {
     /**
      * The value of the measured amount. The value includes an implicit precision in the presentation of the value
      */
-    private Decimal value;
+    protected Decimal value;
 
     /**
      * How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is "<" , then the real value is < stated value
      */
-    private Enumeration<QuantityComparator> comparator;
+    protected Enumeration<QuantityComparator> comparator;
 
     /**
      * A human readable form of the units
      */
-    private String_ units;
+    protected String_ units;
 
     /**
      * The identification of the system that provides the coded form of the unit
      */
-    private Uri system;
+    protected Uri system;
 
     /**
      * A computer processable form of the units in some unit representation system
      */
-    private Code code;
+    protected Code code;
 
     public Decimal getValue() { 
       return this.value;
@@ -196,11 +195,11 @@ public class Quantity extends Type {
       this.system = value;
     }
 
-    public URI getSystemSimple() { 
+    public String getSystemSimple() { 
       return this.system == null ? null : this.system.getValue();
     }
 
-    public void setSystemSimple(URI value) { 
+    public void setSystemSimple(String value) { 
       if (value == null)
         this.system = null;
       else {
@@ -231,6 +230,20 @@ public class Quantity extends Type {
         this.code.setValue(value);
       }
     }
+
+      public Quantity copy() {
+        Quantity dst = new Quantity();
+        dst.value = value == null ? null : value.copy();
+        dst.comparator = comparator == null ? null : comparator.copy();
+        dst.units = units == null ? null : units.copy();
+        dst.system = system == null ? null : system.copy();
+        dst.code = code == null ? null : code.copy();
+        return dst;
+      }
+
+      protected Quantity typedCopy() {
+        return copy();
+      }
 
 
 }

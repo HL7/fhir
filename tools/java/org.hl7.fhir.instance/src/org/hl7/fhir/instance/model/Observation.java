@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -198,12 +198,12 @@ public class Observation extends Resource {
         /**
          * Code for the meaning of the reference range
          */
-        private CodeableConcept meaning;
+        protected CodeableConcept meaning;
 
         /**
          * Actual value of the reference range.  May be a quantity (<20mg/L), an range (10-20 umol/L), or some text
          */
-        private Type range;
+        protected Type range;
 
         public CodeableConcept getMeaning() { 
           return this.meaning;
@@ -221,18 +221,25 @@ public class Observation extends Resource {
           this.range = value;
         }
 
+      public ObservationReferenceRangeComponent copy(Observation e) {
+        ObservationReferenceRangeComponent dst = e.new ObservationReferenceRangeComponent();
+        dst.meaning = meaning == null ? null : meaning.copy();
+        dst.range = range == null ? null : range.copy();
+        return dst;
+      }
+
   }
 
     public class ObservationComponentComponent extends Element {
         /**
          * Identifies what type of sub-observation was performed
          */
-        private CodeableConcept name;
+        protected CodeableConcept name;
 
         /**
          * The information determined as a result of making the sub-observation
          */
-        private Type value;
+        protected Type value;
 
         public CodeableConcept getName() { 
           return this.name;
@@ -250,82 +257,89 @@ public class Observation extends Resource {
           this.value = value;
         }
 
+      public ObservationComponentComponent copy(Observation e) {
+        ObservationComponentComponent dst = e.new ObservationComponentComponent();
+        dst.name = name == null ? null : name.copy();
+        dst.value = value == null ? null : value.copy();
+        return dst;
+      }
+
   }
 
     /**
      * Identifies what type of observation was performed
      */
-    private CodeableConcept name;
+    protected CodeableConcept name;
 
     /**
      * The information determined as a result of making the observation
      */
-    private Type value;
+    protected Type value;
 
     /**
      * The assessment made based on the result of the observation.
      */
-    private CodeableConcept interpretation;
+    protected CodeableConcept interpretation;
 
     /**
      * May include statements about significant, unexpected or unreliable. values, or information about the source of the value where this may be relevant to the interpretation of the result.
      */
-    private String_ comments;
+    protected String_ comments;
 
     /**
      * The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time".
      */
-    private Type applies;
+    protected Type applies;
 
     /**
      * Date/Time this was made available
      */
-    private Instant issued;
+    protected Instant issued;
 
     /**
      * The status of the result value
      */
-    private Enumeration<ObservationStatus> status;
+    protected Enumeration<ObservationStatus> status;
 
     /**
      * An estimate of the degree to which quality issues have impacted on the value reported
      */
-    private Enumeration<ObservationReliability> reliability;
+    protected Enumeration<ObservationReliability> reliability;
 
     /**
      * Indicates where on the subject's body the observation was made.
      */
-    private CodeableConcept bodySite;
+    protected CodeableConcept bodySite;
 
     /**
      * Indicates the mechanism used to perform the observation
      */
-    private CodeableConcept method;
+    protected CodeableConcept method;
 
     /**
      * A unique identifier for the simple observation
      */
-    private Identifier identifier;
+    protected Identifier identifier;
 
     /**
      * The thing the observation is being made about
      */
-    private ResourceReference subject;
+    protected ResourceReference subject;
 
     /**
      * Who was responsible for asserting the observed value as "true"
      */
-    private ResourceReference performer;
+    protected ResourceReference performer;
 
     /**
      * Guidance on how to interpret the value by comparison to a normal or recommended range
      */
-    private List<ObservationReferenceRangeComponent> referenceRange = new ArrayList<ObservationReferenceRangeComponent>();
+    protected List<ObservationReferenceRangeComponent> referenceRange = new ArrayList<ObservationReferenceRangeComponent>();
 
     /**
      * Component observation
      */
-    private List<ObservationComponentComponent> component = new ArrayList<ObservationComponentComponent>();
+    protected List<ObservationComponentComponent> component = new ArrayList<ObservationComponentComponent>();
 
     public CodeableConcept getName() { 
       return this.name;
@@ -486,6 +500,34 @@ public class Observation extends Resource {
     public List<ObservationComponentComponent> getComponent() { 
       return this.component;
     }
+
+      public Observation copy() {
+        Observation dst = new Observation();
+        dst.name = name == null ? null : name.copy();
+        dst.value = value == null ? null : value.copy();
+        dst.interpretation = interpretation == null ? null : interpretation.copy();
+        dst.comments = comments == null ? null : comments.copy();
+        dst.applies = applies == null ? null : applies.copy();
+        dst.issued = issued == null ? null : issued.copy();
+        dst.status = status == null ? null : status.copy();
+        dst.reliability = reliability == null ? null : reliability.copy();
+        dst.bodySite = bodySite == null ? null : bodySite.copy();
+        dst.method = method == null ? null : method.copy();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.performer = performer == null ? null : performer.copy();
+        dst.referenceRange = new ArrayList<ObservationReferenceRangeComponent>();
+        for (ObservationReferenceRangeComponent i : referenceRange)
+          dst.referenceRange.add(i.copy(dst));
+        dst.component = new ArrayList<ObservationComponentComponent>();
+        for (ObservationComponentComponent i : component)
+          dst.component.add(i.copy(dst));
+        return dst;
+      }
+
+      protected Observation typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

@@ -29,11 +29,10 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
-import java.net.*;
 /**
  * Provenance information associated with another resource that can be used to help determine its reliability or trace where the information in it came from. The focus of the provenance resource is record keeping, audit and traceability, not clinical meaning
  */
@@ -43,27 +42,27 @@ public class Provenance extends Resource {
         /**
          * The period during which the activity occurred
          */
-        private Period period;
+        protected Period period;
 
         /**
          * The instant of time at which the activity was recorded
          */
-        private Instant recorded;
+        protected Instant recorded;
 
         /**
          * The reason that the activity was taking place
          */
-        private CodeableConcept reason;
+        protected CodeableConcept reason;
 
         /**
          * Where the activity occurred, if relevant
          */
-        private ResourceReference location;
+        protected ResourceReference location;
 
         /**
          * Policy or plan the activity was defined by
          */
-        private Uri policy;
+        protected Uri policy;
 
         public Period getPeriod() { 
           return this.period;
@@ -115,11 +114,11 @@ public class Provenance extends Resource {
           this.policy = value;
         }
 
-        public URI getPolicySimple() { 
+        public String getPolicySimple() { 
           return this.policy == null ? null : this.policy.getValue();
         }
 
-        public void setPolicySimple(URI value) { 
+        public void setPolicySimple(String value) { 
           if (value == null)
             this.policy = null;
           else {
@@ -129,28 +128,38 @@ public class Provenance extends Resource {
           }
         }
 
+      public ProvenanceActivityComponent copy(Provenance e) {
+        ProvenanceActivityComponent dst = e.new ProvenanceActivityComponent();
+        dst.period = period == null ? null : period.copy();
+        dst.recorded = recorded == null ? null : recorded.copy();
+        dst.reason = reason == null ? null : reason.copy();
+        dst.location = location == null ? null : location.copy();
+        dst.policy = policy == null ? null : policy.copy();
+        return dst;
+      }
+
   }
 
     public class ProvenancePartyComponent extends Element {
         /**
          * The role that the participant played
          */
-        private Coding role;
+        protected Coding role;
 
         /**
          * The type of the participant
          */
-        private Coding type;
+        protected Coding type;
 
         /**
          * Identity of participant. May be a logical or physical uri and maybe absolute or relative
          */
-        private Uri identifier;
+        protected Uri identifier;
 
         /**
          * Human readable description of the participant
          */
-        private String_ description;
+        protected String_ description;
 
         public Coding getRole() { 
           return this.role;
@@ -176,11 +185,11 @@ public class Provenance extends Resource {
           this.identifier = value;
         }
 
-        public URI getIdentifierSimple() { 
+        public String getIdentifierSimple() { 
           return this.identifier == null ? null : this.identifier.getValue();
         }
 
-        public void setIdentifierSimple(URI value) { 
+        public void setIdentifierSimple(String value) { 
             if (this.identifier == null)
               this.identifier = new Uri();
             this.identifier.setValue(value);
@@ -208,27 +217,36 @@ public class Provenance extends Resource {
           }
         }
 
+      public ProvenancePartyComponent copy(Provenance e) {
+        ProvenancePartyComponent dst = e.new ProvenancePartyComponent();
+        dst.role = role == null ? null : role.copy();
+        dst.type = type == null ? null : type.copy();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.description = description == null ? null : description.copy();
+        return dst;
+      }
+
   }
 
     /**
      * The resource(s) that this provenance information pertains to. A provenance can point to more than one target if multiple resources were created/updated by the same action
      */
-    private List<ResourceReference> target = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> target = new ArrayList<ResourceReference>();
 
     /**
      * The activity that was being undertaken that led to the creation of the resource being referenced
      */
-    private ProvenanceActivityComponent activity;
+    protected ProvenanceActivityComponent activity;
 
     /**
      * An entity that is involved in the provenance of the target resource
      */
-    private List<ProvenancePartyComponent> party = new ArrayList<ProvenancePartyComponent>();
+    protected List<ProvenancePartyComponent> party = new ArrayList<ProvenancePartyComponent>();
 
     /**
      * A digital signature on the target resource. The signature should reference a participant by xml:id. The signature is only added to support checking cryptographic integrity of the provenance, and not to represent workflow and clinical aspects of the signing process
      */
-    private String_ signature;
+    protected String_ signature;
 
     public List<ResourceReference> getTarget() { 
       return this.target;
@@ -267,6 +285,23 @@ public class Provenance extends Resource {
         this.signature.setValue(value);
       }
     }
+
+      public Provenance copy() {
+        Provenance dst = new Provenance();
+        dst.target = new ArrayList<ResourceReference>();
+        for (ResourceReference i : target)
+          dst.target.add(i.copy());
+        dst.activity = activity == null ? null : activity.copy(dst);
+        dst.party = new ArrayList<ProvenancePartyComponent>();
+        for (ProvenancePartyComponent i : party)
+          dst.party.add(i.copy(dst));
+        dst.signature = signature == null ? null : signature.copy();
+        return dst;
+      }
+
+      protected Provenance typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

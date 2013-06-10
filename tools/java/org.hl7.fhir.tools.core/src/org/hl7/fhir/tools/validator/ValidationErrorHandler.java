@@ -30,42 +30,51 @@ POSSIBILITY OF SUCH DAMAGE.
 
 import java.util.List;
 
+import org.hl7.fhir.definitions.validation.ValidationMessage;
+import org.hl7.fhir.definitions.validation.ValidationMessage.Source;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 public class ValidationErrorHandler implements ErrorHandler {
 
-  private List<ValidationOutput> outputs;
+  private List<ValidationMessage> outputs;
 
-  public ValidationErrorHandler(List<ValidationOutput> outputs) {
+  public ValidationErrorHandler(List<ValidationMessage> outputs) {
     this.outputs = outputs;
   }
 
   @Override
 public void error(SAXParseException arg0) throws SAXException {
-    ValidationOutput o = new ValidationOutput();
-    o.setLevel(ValidationOutput.Strength.Error);
+    ValidationMessage o = new ValidationMessage();
+    o.setType("invalid");
+    o.setLevel(IssueSeverity.error);
     o.setLocation("line "+Integer.toString(arg0.getLineNumber())+", column "+Integer.toString(arg0.getColumnNumber()));
     o.setMessage(arg0.getMessage());
+    o.setSource(Source.Schema);
     outputs.add(o);
   }
 
   @Override
 public void fatalError(SAXParseException arg0) throws SAXException {
-    ValidationOutput o = new ValidationOutput();
-    o.setLevel(ValidationOutput.Strength.Fatal);
+    ValidationMessage o = new ValidationMessage();
+    o.setType("invalid");
+    o.setLevel(IssueSeverity.fatal);
     o.setLocation("line "+Integer.toString(arg0.getLineNumber())+", column "+Integer.toString(arg0.getColumnNumber()));
     o.setMessage(arg0.getMessage());
+    o.setSource(Source.Schema);
     outputs.add(o);
   }
 
   @Override
 public void warning(SAXParseException arg0) throws SAXException {
-    ValidationOutput o = new ValidationOutput();
-    o.setLevel(ValidationOutput.Strength.Warning);
+    ValidationMessage o = new ValidationMessage();
+    o.setType("invalid");
+    o.setLevel(IssueSeverity.warning);
     o.setLocation("line "+Integer.toString(arg0.getLineNumber())+", column "+Integer.toString(arg0.getColumnNumber()));
     o.setMessage(arg0.getMessage());
+    o.setSource(Source.Schema);
     outputs.add(o);
   }
 

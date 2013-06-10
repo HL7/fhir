@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -92,17 +92,17 @@ public class List_ extends Resource {
         /**
          * The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list
          */
-        private List<CodeableConcept> flag = new ArrayList<CodeableConcept>();
+        protected List<CodeableConcept> flag = new ArrayList<CodeableConcept>();
 
         /**
          * True if this item is marked as deleted in the list.
          */
-        private Boolean deleted;
+        protected Boolean deleted;
 
         /**
          * A reference to the actual resource from which data was derived
          */
-        private ResourceReference item;
+        protected ResourceReference item;
 
         public List<CodeableConcept> getFlag() { 
           return this.flag;
@@ -138,42 +138,52 @@ public class List_ extends Resource {
           this.item = value;
         }
 
+      public ListEntryComponent copy(List_ e) {
+        ListEntryComponent dst = e.new ListEntryComponent();
+        dst.flag = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : flag)
+          dst.flag.add(i.copy());
+        dst.deleted = deleted == null ? null : deleted.copy();
+        dst.item = item == null ? null : item.copy();
+        return dst;
+      }
+
   }
 
     /**
      * This code defines the purpose of the list - why it was created
      */
-    private CodeableConcept code;
+    protected CodeableConcept code;
 
     /**
      * The entity responsible for deciding what the contents of the list were
      */
-    private ResourceReference source;
+    protected ResourceReference source;
 
     /**
      * The date that the list was prepared
      */
-    private DateTime date;
+    protected DateTime date;
 
     /**
      * Whether items in the list have a meaningful order
      */
-    private Boolean ordered;
+    protected Boolean ordered;
 
     /**
      * How this list was prepared - whether it is a working list that is suitable for being maintained in an ongoing basis, or if it represents a snapshort of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted
      */
-    private Enumeration<ListMode> mode;
+    protected Enumeration<ListMode> mode;
 
     /**
      * Entries in this list
      */
-    private List<ListEntryComponent> entry = new ArrayList<ListEntryComponent>();
+    protected List<ListEntryComponent> entry = new ArrayList<ListEntryComponent>();
 
     /**
      * If the list is empty, why the list is empty
      */
-    private CodeableConcept emptyReason;
+    protected CodeableConcept emptyReason;
 
     public CodeableConcept getCode() { 
       return this.code;
@@ -264,6 +274,24 @@ public class List_ extends Resource {
     public void setEmptyReason(CodeableConcept value) { 
       this.emptyReason = value;
     }
+
+      public List_ copy() {
+        List_ dst = new List_();
+        dst.code = code == null ? null : code.copy();
+        dst.source = source == null ? null : source.copy();
+        dst.date = date == null ? null : date.copy();
+        dst.ordered = ordered == null ? null : ordered.copy();
+        dst.mode = mode == null ? null : mode.copy();
+        dst.entry = new ArrayList<ListEntryComponent>();
+        for (ListEntryComponent i : entry)
+          dst.entry.add(i.copy(dst));
+        dst.emptyReason = emptyReason == null ? null : emptyReason.copy();
+        return dst;
+      }
+
+      protected List_ typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {

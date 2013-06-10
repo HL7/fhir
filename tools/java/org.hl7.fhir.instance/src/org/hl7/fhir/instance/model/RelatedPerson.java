@@ -29,12 +29,21 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Jun 8, 2013 18:38+1000 for FHIR v0.09
+// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
 
 /**
  * null
  */
 public class RelatedPerson extends Resource {
+
+      public RelatedPerson copy() {
+        RelatedPerson dst = new RelatedPerson();
+        return dst;
+      }
+
+      protected RelatedPerson typedCopy() {
+        return copy();
+      }
 
   @Override
   public ResourceType getResourceType() {
