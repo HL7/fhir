@@ -300,6 +300,11 @@ public class Utilities {
   }
 
 
+  public static String systemEol()
+  {
+	  return System.getProperty("line.separator");
+  }
+
   public static String normaliseEolns(String value) {
     return value.replace("\r\n", "\r").replace("\n", "\r").replace("\r", "\r\n");
   }

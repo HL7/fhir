@@ -28,6 +28,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 import java.io.File;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -40,9 +41,12 @@ import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
+import org.hl7.fhir.tools.publisher.DotNetFramework;
+import org.hl7.fhir.tools.publisher.DotNetFramework.DotNetCompileResult;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.Logger;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
 
 public class CSharpGenerator extends BaseGenerator implements PlatformGenerator {
@@ -75,10 +79,14 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 		return true;
 	}
 
+  private Logger logger = null;
+  
 	@Override
 	public void generate(org.hl7.fhir.definitions.ecore.fhir.Definitions definitions, String destDir,
 			String implDir, Logger logger) throws Exception {
-	
+
+	  this.logger = logger;
+
 		char sl = File.separatorChar;
 		String modelDir = "Model" + sl;
 		String parsersDir = "Parsers" + sl;
@@ -226,12 +234,28 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 
   @Override
 public boolean doesCompile() {
-    return false;
+    return true;
   }
 
   @Override
 public boolean compile(String rootDir, List<String> errors) {
-    return false;
+    
+    String solutionFile = Utilities.path(rootDir, "implementations", "csharp", "Hl7.Fhir.sln");
+    DotNetCompileResult result = DotNetFramework.compile(solutionFile, this.logger);
+
+    // If result == null, the compile function will have logged the reason
+    if( result == null )
+      return false;    
+
+    else if(result.exitValue == 0)
+      return true;
+    
+    // If there was an error, print the message
+    else
+    {
+      logger.log(result.message);
+      return false;
+    }
   }
 
   @Override

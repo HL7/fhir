@@ -390,11 +390,16 @@ public class SpreadsheetParser {
 	// newly found bindings in the sheet.
 	private Map<String, BindingSpecification> readBindings(Sheet sheet) throws Exception {
 		Map<String, BindingSpecification> result = new HashMap<String,BindingSpecification>();
-		
+	
 		for (int row = 0; row < sheet.rows.size(); row++) {
+		  String bindingName = sheet.getColumn(row, "Binding Name"); 
+		  
+		  // Ignore bindings whose name start with "!"
+		  if (bindingName.startsWith("!")) continue;
+	      
 			BindingSpecification cd = new BindingSpecification();
 
-			cd.setName(sheet.getColumn(row, "Binding Name"));
+			cd.setName(bindingName);
 			cd.setDefinition(sheet.getColumn(row, "Definition"));
 			cd.setBinding(BindingsParser.readBinding(sheet.getColumn(row, "Binding")));
 //    these are derived from the way they are used

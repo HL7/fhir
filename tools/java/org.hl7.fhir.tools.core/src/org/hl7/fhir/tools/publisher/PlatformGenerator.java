@@ -93,6 +93,7 @@ public interface PlatformGenerator {
    */
   public boolean doesCompile();
   
+ 
   /**
    * Compile the generated code.
    * 

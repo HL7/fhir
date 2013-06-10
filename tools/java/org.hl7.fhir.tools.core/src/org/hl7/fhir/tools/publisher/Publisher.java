@@ -231,6 +231,7 @@ public class Publisher {
   
 	public static void main(String[] args) {
 		//
+	    
 		Publisher pub = new Publisher();
 		
 		if( args.length == 0 )
@@ -754,9 +755,14 @@ public class Publisher {
 		for (PlatformGenerator gen : page.getReferenceImplementations()) {
 			if (gen.doesCompile()) {
 				log("Compile " + gen.getName() + " Reference Implementation");
-				if (!gen.compile(page.getFolders().rootDir, new ArrayList<String>())) {
-					// log("Compile " + gen.getName() + " failed, still going on.");
-					throw new Exception("Compile " + gen.getName() + " failed");
+				if (!gen.compile(page.getFolders().rootDir, new ArrayList<String>())) 
+				{
+				  // Must always be able to compile Java to go on. Also, if we're building
+				  // the web build, all generators that can compile, must compile without error.				  
+				  if( gen.getName().equals("java") || web )
+				    throw new Exception("Compile " + gen.getName() + " failed");
+				  else
+				    log("Compile " + gen.getName() + " failed, still going on.");
 				}
 			}
 		}
