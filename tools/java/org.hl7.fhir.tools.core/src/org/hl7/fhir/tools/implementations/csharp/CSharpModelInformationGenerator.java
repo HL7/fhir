@@ -112,7 +112,7 @@ public class CSharpModelInformationGenerator extends GenBlock
 		bs();
 			ln("new Dictionary<string,Type>()");
 			bs("{");
-				for( TypeDefn type : definitions.getTypes() )
+				for( TypeDefn type : definitions.getType() )
 				{
 					String cSharpName;
 
@@ -131,7 +131,7 @@ public class CSharpModelInformationGenerator extends GenBlock
 		bs();
 			ln("new Dictionary<Type,string>()");
 			bs("{");
-				for( TypeDefn type : definitions.getTypes() )
+				for( TypeDefn type : definitions.getType() )
 				{
 					String cSharpName;
 

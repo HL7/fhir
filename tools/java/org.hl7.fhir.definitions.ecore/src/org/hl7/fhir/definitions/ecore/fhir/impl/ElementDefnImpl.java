@@ -36,14 +36,13 @@ import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getMinCardinality <em>Min Cardinality</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getMaxCardinality <em>Max Cardinality</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#isMustUnderstand <em>Must Understand</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#isMustSupport <em>Must Support</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getTypes <em>Types</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#isIsModifier <em>Is Modifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getMappings <em>Mappings</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getExampleValue <em>Example Value</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getAnnotation <em>Annotation</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getInvariants <em>Invariants</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getInvariant <em>Invariant</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getParentType <em>Parent Type</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getParentElement <em>Parent Element</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#isInternalId <em>Internal Id</em>}</li>
@@ -133,54 +132,34 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	protected boolean maxCardinalityESet;
 
 	/**
-	 * The default value of the '{@link #isMustUnderstand() <em>Must Understand</em>}' attribute.
+	 * The default value of the '{@link #isIsModifier() <em>Is Modifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isMustUnderstand()
+	 * @see #isIsModifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean MUST_UNDERSTAND_EDEFAULT = false;
+	protected static final boolean IS_MODIFIER_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isMustUnderstand() <em>Must Understand</em>}' attribute.
+	 * The cached value of the '{@link #isIsModifier() <em>Is Modifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isMustUnderstand()
+	 * @see #isIsModifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean mustUnderstand = MUST_UNDERSTAND_EDEFAULT;
+	protected boolean isModifier = IS_MODIFIER_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isMustSupport() <em>Must Support</em>}' attribute.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isMustSupport()
+	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean MUST_SUPPORT_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isMustSupport() <em>Must Support</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isMustSupport()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean mustSupport = MUST_SUPPORT_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTypes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TypeRef> types;
+	protected EList<TypeRef> type;
 
 	/**
 	 * The cached value of the '{@link #getMappings() <em>Mappings</em>}' containment reference list.
@@ -233,16 +212,16 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	protected Annotations annotation;
 
 	/**
-	 * The cached value of the '{@link #getInvariants() <em>Invariants</em>}' containment reference list.
+	 * The cached value of the '{@link #getInvariant() <em>Invariant</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @see #getInvariants()
+	 * <!-- end-user-doc -->
+	 * @see #getInvariant()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<InvariantRef> invariants;
+	protected EList<InvariantRef> invariant;
 
-  /**
+	/**
 	 * The cached value of the '{@link #getParentElement() <em>Parent Element</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -366,6 +345,27 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isIsModifier() {
+		return isModifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsModifier(boolean newIsModifier) {
+		boolean oldIsModifier = isModifier;
+		isModifier = newIsModifier;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFN__IS_MODIFIER, oldIsModifier, isModifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public int getMinCardinality() {
 		return minCardinality;
@@ -416,29 +416,6 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public boolean isMustUnderstand() {
-		return mustUnderstand;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setMustUnderstand(boolean newMustUnderstand) {
-		boolean oldMustUnderstand = mustUnderstand;
-		mustUnderstand = newMustUnderstand;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFN__MUST_UNDERSTAND, oldMustUnderstand, mustUnderstand));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public CompositeTypeDefn getParentTypeGen() {
 		if (eContainerFeatureID() != FhirPackage.ELEMENT_DEFN__PARENT_TYPE) return null;
 		return (CompositeTypeDefn)eContainer();
@@ -480,7 +457,7 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newParentType != null)
-				msgs = ((InternalEObject)newParentType).eInverseAdd(this, FhirPackage.COMPOSITE_TYPE_DEFN__ELEMENTS, CompositeTypeDefn.class, msgs);
+				msgs = ((InternalEObject)newParentType).eInverseAdd(this, FhirPackage.COMPOSITE_TYPE_DEFN__ELEMENT, CompositeTypeDefn.class, msgs);
 			msgs = basicSetParentType(newParentType, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -609,7 +586,7 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 */
 	@Override
 	public boolean isPolymorph() {
-		return getTypes() != null && (getTypes().size() > 1 || getTypes().get(0).getName().equals(TypeRef.ELEMENT_TYPE_NAME));
+		return getType() != null && (getType().size() > 1 || getType().get(0).getName().equals(TypeRef.ELEMENT_TYPE_NAME));
 	}
 
 	/**
@@ -618,8 +595,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * @generated NOT
 	 */
 	public boolean containsResource() {
-		return getTypes() != null && getTypes().size() == 1 &&
-				getTypes().get(0).getName().equals("Resource");
+		return getType() != null && getType().size() == 1 &&
+				getType().get(0).getName().equals("Resource");
 	}
 
 	/**
@@ -629,9 +606,9 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 */
 	public boolean isXhtml() 
 	{
-		if( this.getTypes() == null || this.getTypes().size() != 1 ) return false;
+		if( this.getType() == null || this.getType().size() != 1 ) return false;
 		
-		return getTypes().get(0).getName().equals(TypeRef.XHTML_PSEUDOTYPE_NAME);	
+		return getType().get(0).getName().equals(TypeRef.XHTML_PSEUDOTYPE_NAME);	
 	}
 
 	/**
@@ -656,35 +633,11 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public boolean isMustSupport() {
-		return mustSupport;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setMustSupport(boolean newMustSupport) {
-		boolean oldMustSupport = mustSupport;
-		mustSupport = newMustSupport;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFN__MUST_SUPPORT, oldMustSupport, mustSupport));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<TypeRef> getTypes() {
-		if (types == null) {
-			types = new EObjectContainmentEList<TypeRef>(TypeRef.class, this, FhirPackage.ELEMENT_DEFN__TYPES);
+	public EList<TypeRef> getType() {
+		if (type == null) {
+			type = new EObjectContainmentEList<TypeRef>(TypeRef.class, this, FhirPackage.ELEMENT_DEFN__TYPE);
 		}
-		return types;
+		return type;
 	}
 
 	/**
@@ -734,17 +687,17 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 
 	/**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public EList<InvariantRef> getInvariants() {
-		if (invariants == null) {
-			invariants = new EObjectContainmentEList<InvariantRef>(InvariantRef.class, this, FhirPackage.ELEMENT_DEFN__INVARIANTS);
+	public EList<InvariantRef> getInvariant() {
+		if (invariant == null) {
+			invariant = new EObjectContainmentEList<InvariantRef>(InvariantRef.class, this, FhirPackage.ELEMENT_DEFN__INVARIANT);
 		}
-		return invariants;
+		return invariant;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -851,14 +804,14 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.ELEMENT_DEFN__TYPES:
-				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ELEMENT_DEFN__TYPE:
+				return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ELEMENT_DEFN__MAPPINGS:
 				return ((InternalEList<?>)getMappings()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ELEMENT_DEFN__ANNOTATION:
 				return basicSetAnnotation(null, msgs);
-			case FhirPackage.ELEMENT_DEFN__INVARIANTS:
-				return ((InternalEList<?>)getInvariants()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ELEMENT_DEFN__INVARIANT:
+				return ((InternalEList<?>)getInvariant()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ELEMENT_DEFN__PARENT_TYPE:
 				return basicSetParentType(null, msgs);
 		}
@@ -874,7 +827,7 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case FhirPackage.ELEMENT_DEFN__PARENT_TYPE:
-				return eInternalContainer().eInverseRemove(this, FhirPackage.COMPOSITE_TYPE_DEFN__ELEMENTS, CompositeTypeDefn.class, msgs);
+				return eInternalContainer().eInverseRemove(this, FhirPackage.COMPOSITE_TYPE_DEFN__ELEMENT, CompositeTypeDefn.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -893,12 +846,10 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 				return getMinCardinality();
 			case FhirPackage.ELEMENT_DEFN__MAX_CARDINALITY:
 				return getMaxCardinality();
-			case FhirPackage.ELEMENT_DEFN__MUST_UNDERSTAND:
-				return isMustUnderstand();
-			case FhirPackage.ELEMENT_DEFN__MUST_SUPPORT:
-				return isMustSupport();
-			case FhirPackage.ELEMENT_DEFN__TYPES:
-				return getTypes();
+			case FhirPackage.ELEMENT_DEFN__IS_MODIFIER:
+				return isIsModifier();
+			case FhirPackage.ELEMENT_DEFN__TYPE:
+				return getType();
 			case FhirPackage.ELEMENT_DEFN__MAPPINGS:
 				return getMappings();
 			case FhirPackage.ELEMENT_DEFN__EXAMPLE_VALUE:
@@ -908,8 +859,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 				return basicGetContent();
 			case FhirPackage.ELEMENT_DEFN__ANNOTATION:
 				return getAnnotation();
-			case FhirPackage.ELEMENT_DEFN__INVARIANTS:
-				return getInvariants();
+			case FhirPackage.ELEMENT_DEFN__INVARIANT:
+				return getInvariant();
 			case FhirPackage.ELEMENT_DEFN__PARENT_TYPE:
 				return getParentType();
 			case FhirPackage.ELEMENT_DEFN__PARENT_ELEMENT:
@@ -941,15 +892,12 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 			case FhirPackage.ELEMENT_DEFN__MAX_CARDINALITY:
 				setMaxCardinality((Integer)newValue);
 				return;
-			case FhirPackage.ELEMENT_DEFN__MUST_UNDERSTAND:
-				setMustUnderstand((Boolean)newValue);
+			case FhirPackage.ELEMENT_DEFN__IS_MODIFIER:
+				setIsModifier((Boolean)newValue);
 				return;
-			case FhirPackage.ELEMENT_DEFN__MUST_SUPPORT:
-				setMustSupport((Boolean)newValue);
-				return;
-			case FhirPackage.ELEMENT_DEFN__TYPES:
-				getTypes().clear();
-				getTypes().addAll((Collection<? extends TypeRef>)newValue);
+			case FhirPackage.ELEMENT_DEFN__TYPE:
+				getType().clear();
+				getType().addAll((Collection<? extends TypeRef>)newValue);
 				return;
 			case FhirPackage.ELEMENT_DEFN__MAPPINGS:
 				getMappings().clear();
@@ -964,9 +912,9 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 			case FhirPackage.ELEMENT_DEFN__ANNOTATION:
 				setAnnotation((Annotations)newValue);
 				return;
-			case FhirPackage.ELEMENT_DEFN__INVARIANTS:
-				getInvariants().clear();
-				getInvariants().addAll((Collection<? extends InvariantRef>)newValue);
+			case FhirPackage.ELEMENT_DEFN__INVARIANT:
+				getInvariant().clear();
+				getInvariant().addAll((Collection<? extends InvariantRef>)newValue);
 				return;
 			case FhirPackage.ELEMENT_DEFN__PARENT_TYPE:
 				setParentType((CompositeTypeDefn)newValue);
@@ -1001,14 +949,11 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 			case FhirPackage.ELEMENT_DEFN__MAX_CARDINALITY:
 				unsetMaxCardinality();
 				return;
-			case FhirPackage.ELEMENT_DEFN__MUST_UNDERSTAND:
-				setMustUnderstand(MUST_UNDERSTAND_EDEFAULT);
+			case FhirPackage.ELEMENT_DEFN__IS_MODIFIER:
+				setIsModifier(IS_MODIFIER_EDEFAULT);
 				return;
-			case FhirPackage.ELEMENT_DEFN__MUST_SUPPORT:
-				setMustSupport(MUST_SUPPORT_EDEFAULT);
-				return;
-			case FhirPackage.ELEMENT_DEFN__TYPES:
-				getTypes().clear();
+			case FhirPackage.ELEMENT_DEFN__TYPE:
+				getType().clear();
 				return;
 			case FhirPackage.ELEMENT_DEFN__MAPPINGS:
 				getMappings().clear();
@@ -1022,8 +967,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 			case FhirPackage.ELEMENT_DEFN__ANNOTATION:
 				setAnnotation((Annotations)null);
 				return;
-			case FhirPackage.ELEMENT_DEFN__INVARIANTS:
-				getInvariants().clear();
+			case FhirPackage.ELEMENT_DEFN__INVARIANT:
+				getInvariant().clear();
 				return;
 			case FhirPackage.ELEMENT_DEFN__PARENT_TYPE:
 				setParentType((CompositeTypeDefn)null);
@@ -1055,12 +1000,10 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 				return isSetMinCardinality();
 			case FhirPackage.ELEMENT_DEFN__MAX_CARDINALITY:
 				return isSetMaxCardinality();
-			case FhirPackage.ELEMENT_DEFN__MUST_UNDERSTAND:
-				return mustUnderstand != MUST_UNDERSTAND_EDEFAULT;
-			case FhirPackage.ELEMENT_DEFN__MUST_SUPPORT:
-				return mustSupport != MUST_SUPPORT_EDEFAULT;
-			case FhirPackage.ELEMENT_DEFN__TYPES:
-				return types != null && !types.isEmpty();
+			case FhirPackage.ELEMENT_DEFN__IS_MODIFIER:
+				return isModifier != IS_MODIFIER_EDEFAULT;
+			case FhirPackage.ELEMENT_DEFN__TYPE:
+				return type != null && !type.isEmpty();
 			case FhirPackage.ELEMENT_DEFN__MAPPINGS:
 				return mappings != null && !mappings.isEmpty();
 			case FhirPackage.ELEMENT_DEFN__EXAMPLE_VALUE:
@@ -1069,8 +1012,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 				return content != null;
 			case FhirPackage.ELEMENT_DEFN__ANNOTATION:
 				return annotation != null;
-			case FhirPackage.ELEMENT_DEFN__INVARIANTS:
-				return invariants != null && !invariants.isEmpty();
+			case FhirPackage.ELEMENT_DEFN__INVARIANT:
+				return invariant != null && !invariant.isEmpty();
 			case FhirPackage.ELEMENT_DEFN__PARENT_TYPE:
 				return getParentType() != null;
 			case FhirPackage.ELEMENT_DEFN__PARENT_ELEMENT:
@@ -1099,10 +1042,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 		if (minCardinalityESet) result.append(minCardinality); else result.append("<unset>");
 		result.append(", maxCardinality: ");
 		if (maxCardinalityESet) result.append(maxCardinality); else result.append("<unset>");
-		result.append(", mustUnderstand: ");
-		result.append(mustUnderstand);
-		result.append(", mustSupport: ");
-		result.append(mustSupport);
+		result.append(", isModifier: ");
+		result.append(isModifier);
 		result.append(", exampleValue: ");
 		result.append(exampleValue);
 		result.append(", internalId: ");

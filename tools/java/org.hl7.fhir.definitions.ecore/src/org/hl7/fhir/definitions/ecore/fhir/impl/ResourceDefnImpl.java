@@ -30,7 +30,7 @@ import org.hl7.fhir.definitions.ecore.fhir.SearchParameter;
  * <ul>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ResourceDefnImpl#isSandbox <em>Sandbox</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ResourceDefnImpl#getExample <em>Example</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ResourceDefnImpl#getSearches <em>Searches</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ResourceDefnImpl#getSearch <em>Search</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ResourceDefnImpl#isFuture <em>Future</em>}</li>
  * </ul>
  * </p>
@@ -69,14 +69,14 @@ public class ResourceDefnImpl extends CompositeTypeDefnImpl implements ResourceD
 	protected EList<Example> example;
 
 	/**
-	 * The cached value of the '{@link #getSearches() <em>Searches</em>}' containment reference list.
+	 * The cached value of the '{@link #getSearch() <em>Search</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSearches()
+	 * @see #getSearch()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SearchParameter> searches;
+	protected EList<SearchParameter> search;
 
 	/**
 	 * The default value of the '{@link #isFuture() <em>Future</em>}' attribute.
@@ -135,6 +135,18 @@ public class ResourceDefnImpl extends CompositeTypeDefnImpl implements ResourceD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<SearchParameter> getSearch() {
+		if (search == null) {
+			search = new EObjectContainmentEList<SearchParameter>(SearchParameter.class, this, FhirPackage.RESOURCE_DEFN__SEARCH);
+		}
+		return search;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public boolean isSandbox() {
 		return sandbox;
@@ -151,19 +163,6 @@ public class ResourceDefnImpl extends CompositeTypeDefnImpl implements ResourceD
 		sandbox = newSandbox;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_DEFN__SANDBOX, oldSandbox, sandbox));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<SearchParameter> getSearches() {
-		if (searches == null) {
-			searches = new EObjectContainmentEList<SearchParameter>(SearchParameter.class, this, FhirPackage.RESOURCE_DEFN__SEARCHES);
-		}
-		return searches;
 	}
 
 	/**
@@ -201,8 +200,8 @@ public class ResourceDefnImpl extends CompositeTypeDefnImpl implements ResourceD
 		switch (featureID) {
 			case FhirPackage.RESOURCE_DEFN__EXAMPLE:
 				return ((InternalEList<?>)getExample()).basicRemove(otherEnd, msgs);
-			case FhirPackage.RESOURCE_DEFN__SEARCHES:
-				return ((InternalEList<?>)getSearches()).basicRemove(otherEnd, msgs);
+			case FhirPackage.RESOURCE_DEFN__SEARCH:
+				return ((InternalEList<?>)getSearch()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -219,8 +218,8 @@ public class ResourceDefnImpl extends CompositeTypeDefnImpl implements ResourceD
 				return isSandbox();
 			case FhirPackage.RESOURCE_DEFN__EXAMPLE:
 				return getExample();
-			case FhirPackage.RESOURCE_DEFN__SEARCHES:
-				return getSearches();
+			case FhirPackage.RESOURCE_DEFN__SEARCH:
+				return getSearch();
 			case FhirPackage.RESOURCE_DEFN__FUTURE:
 				return isFuture();
 		}
@@ -243,9 +242,9 @@ public class ResourceDefnImpl extends CompositeTypeDefnImpl implements ResourceD
 				getExample().clear();
 				getExample().addAll((Collection<? extends Example>)newValue);
 				return;
-			case FhirPackage.RESOURCE_DEFN__SEARCHES:
-				getSearches().clear();
-				getSearches().addAll((Collection<? extends SearchParameter>)newValue);
+			case FhirPackage.RESOURCE_DEFN__SEARCH:
+				getSearch().clear();
+				getSearch().addAll((Collection<? extends SearchParameter>)newValue);
 				return;
 			case FhirPackage.RESOURCE_DEFN__FUTURE:
 				setFuture((Boolean)newValue);
@@ -268,8 +267,8 @@ public class ResourceDefnImpl extends CompositeTypeDefnImpl implements ResourceD
 			case FhirPackage.RESOURCE_DEFN__EXAMPLE:
 				getExample().clear();
 				return;
-			case FhirPackage.RESOURCE_DEFN__SEARCHES:
-				getSearches().clear();
+			case FhirPackage.RESOURCE_DEFN__SEARCH:
+				getSearch().clear();
 				return;
 			case FhirPackage.RESOURCE_DEFN__FUTURE:
 				setFuture(FUTURE_EDEFAULT);
@@ -290,8 +289,8 @@ public class ResourceDefnImpl extends CompositeTypeDefnImpl implements ResourceD
 				return sandbox != SANDBOX_EDEFAULT;
 			case FhirPackage.RESOURCE_DEFN__EXAMPLE:
 				return example != null && !example.isEmpty();
-			case FhirPackage.RESOURCE_DEFN__SEARCHES:
-				return searches != null && !searches.isEmpty();
+			case FhirPackage.RESOURCE_DEFN__SEARCH:
+				return search != null && !search.isEmpty();
 			case FhirPackage.RESOURCE_DEFN__FUTURE:
 				return future != FUTURE_EDEFAULT;
 		}

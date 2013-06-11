@@ -35,10 +35,10 @@ import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.CompositeTypeDefnImpl#getTypes <em>Types</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.CompositeTypeDefnImpl#getBindings <em>Bindings</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.CompositeTypeDefnImpl#getElements <em>Elements</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.CompositeTypeDefnImpl#getInvariants <em>Invariants</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.CompositeTypeDefnImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.CompositeTypeDefnImpl#getBinding <em>Binding</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.CompositeTypeDefnImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.CompositeTypeDefnImpl#getInvariant <em>Invariant</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.CompositeTypeDefnImpl#isUnnamedElementGroup <em>Unnamed Element Group</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.CompositeTypeDefnImpl#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.CompositeTypeDefnImpl#getBaseType <em>Base Type</em>}</li>
@@ -50,41 +50,41 @@ import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
  */
 public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeTypeDefn {
 	/**
-	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTypes()
+	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TypeDefn> types;
+	protected EList<TypeDefn> type;
 	/**
-	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
+	 * The cached value of the '{@link #getBinding() <em>Binding</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBindings()
+	 * @see #getBinding()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<BindingDefn> bindings;
+	protected EList<BindingDefn> binding;
 	/**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElements()
+	 * @see #getElement()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ElementDefn> elements;
+	protected EList<ElementDefn> element;
 	/**
-	 * The cached value of the '{@link #getInvariants() <em>Invariants</em>}' containment reference list.
+	 * The cached value of the '{@link #getInvariant() <em>Invariant</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInvariants()
+	 * @see #getInvariant()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Invariant> invariants;
+	protected EList<Invariant> invariant;
 	/**
 	 * The default value of the '{@link #isUnnamedElementGroup() <em>Unnamed Element Group</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -172,12 +172,11 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EList<TypeDefn> getTypes() {
-		if (types == null) {
-			types = new EObjectContainmentWithInverseEList<TypeDefn>(TypeDefn.class, this, FhirPackage.COMPOSITE_TYPE_DEFN__TYPES, FhirPackage.TYPE_DEFN__SCOPE);
+	public EList<TypeDefn> getType() {
+		if (type == null) {
+			type = new EObjectContainmentWithInverseEList<TypeDefn>(TypeDefn.class, this, FhirPackage.COMPOSITE_TYPE_DEFN__TYPE, FhirPackage.TYPE_DEFN__SCOPE);
 		}
-		return types;
+		return type;
 	}
 
 	/**
@@ -185,12 +184,11 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EList<BindingDefn> getBindings() {
-		if (bindings == null) {
-			bindings = new EObjectContainmentWithInverseEList<BindingDefn>(BindingDefn.class, this, FhirPackage.COMPOSITE_TYPE_DEFN__BINDINGS, FhirPackage.BINDING_DEFN__PARENT);
+	public EList<BindingDefn> getBinding() {
+		if (binding == null) {
+			binding = new EObjectContainmentWithInverseEList<BindingDefn>(BindingDefn.class, this, FhirPackage.COMPOSITE_TYPE_DEFN__BINDING, FhirPackage.BINDING_DEFN__PARENT);
 		}
-		return bindings;
+		return binding;
 	}
 
 	/**
@@ -198,12 +196,11 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EList<ElementDefn> getElements() {
-		if (elements == null) {
-			elements = new EObjectContainmentWithInverseEList<ElementDefn>(ElementDefn.class, this, FhirPackage.COMPOSITE_TYPE_DEFN__ELEMENTS, FhirPackage.ELEMENT_DEFN__PARENT_TYPE);
+	public EList<ElementDefn> getElement() {
+		if (element == null) {
+			element = new EObjectContainmentWithInverseEList<ElementDefn>(ElementDefn.class, this, FhirPackage.COMPOSITE_TYPE_DEFN__ELEMENT, FhirPackage.ELEMENT_DEFN__PARENT_TYPE);
 		}
-		return elements;
+		return element;
 	}
 
 	/**
@@ -211,12 +208,11 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EList<Invariant> getInvariants() {
-		if (invariants == null) {
-			invariants = new EObjectContainmentEList<Invariant>(Invariant.class, this, FhirPackage.COMPOSITE_TYPE_DEFN__INVARIANTS);
+	public EList<Invariant> getInvariant() {
+		if (invariant == null) {
+			invariant = new EObjectContainmentEList<Invariant>(Invariant.class, this, FhirPackage.COMPOSITE_TYPE_DEFN__INVARIANT);
 		}
-		return invariants;
+		return invariant;
 	}
 
 	/**
@@ -343,7 +339,7 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 			result.addAll(base.getAllElements());
 		}
 		
-		result.addAll(this.getElements());
+		result.addAll(this.getElement());
 		
 		return result;
 	}
@@ -402,12 +398,12 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.COMPOSITE_TYPE_DEFN__TYPES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTypes()).basicAdd(otherEnd, msgs);
-			case FhirPackage.COMPOSITE_TYPE_DEFN__BINDINGS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getBindings()).basicAdd(otherEnd, msgs);
-			case FhirPackage.COMPOSITE_TYPE_DEFN__ELEMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
+			case FhirPackage.COMPOSITE_TYPE_DEFN__TYPE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getType()).basicAdd(otherEnd, msgs);
+			case FhirPackage.COMPOSITE_TYPE_DEFN__BINDING:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getBinding()).basicAdd(otherEnd, msgs);
+			case FhirPackage.COMPOSITE_TYPE_DEFN__ELEMENT:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElement()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -420,14 +416,14 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.COMPOSITE_TYPE_DEFN__TYPES:
-				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
-			case FhirPackage.COMPOSITE_TYPE_DEFN__BINDINGS:
-				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
-			case FhirPackage.COMPOSITE_TYPE_DEFN__ELEMENTS:
-				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
-			case FhirPackage.COMPOSITE_TYPE_DEFN__INVARIANTS:
-				return ((InternalEList<?>)getInvariants()).basicRemove(otherEnd, msgs);
+			case FhirPackage.COMPOSITE_TYPE_DEFN__TYPE:
+				return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
+			case FhirPackage.COMPOSITE_TYPE_DEFN__BINDING:
+				return ((InternalEList<?>)getBinding()).basicRemove(otherEnd, msgs);
+			case FhirPackage.COMPOSITE_TYPE_DEFN__ELEMENT:
+				return ((InternalEList<?>)getElement()).basicRemove(otherEnd, msgs);
+			case FhirPackage.COMPOSITE_TYPE_DEFN__INVARIANT:
+				return ((InternalEList<?>)getInvariant()).basicRemove(otherEnd, msgs);
 			case FhirPackage.COMPOSITE_TYPE_DEFN__BASE_TYPE:
 				return basicSetBaseType(null, msgs);
 		}
@@ -442,14 +438,14 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.COMPOSITE_TYPE_DEFN__TYPES:
-				return getTypes();
-			case FhirPackage.COMPOSITE_TYPE_DEFN__BINDINGS:
-				return getBindings();
-			case FhirPackage.COMPOSITE_TYPE_DEFN__ELEMENTS:
-				return getElements();
-			case FhirPackage.COMPOSITE_TYPE_DEFN__INVARIANTS:
-				return getInvariants();
+			case FhirPackage.COMPOSITE_TYPE_DEFN__TYPE:
+				return getType();
+			case FhirPackage.COMPOSITE_TYPE_DEFN__BINDING:
+				return getBinding();
+			case FhirPackage.COMPOSITE_TYPE_DEFN__ELEMENT:
+				return getElement();
+			case FhirPackage.COMPOSITE_TYPE_DEFN__INVARIANT:
+				return getInvariant();
 			case FhirPackage.COMPOSITE_TYPE_DEFN__UNNAMED_ELEMENT_GROUP:
 				return isUnnamedElementGroup();
 			case FhirPackage.COMPOSITE_TYPE_DEFN__ABSTRACT:
@@ -471,21 +467,21 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.COMPOSITE_TYPE_DEFN__TYPES:
-				getTypes().clear();
-				getTypes().addAll((Collection<? extends TypeDefn>)newValue);
+			case FhirPackage.COMPOSITE_TYPE_DEFN__TYPE:
+				getType().clear();
+				getType().addAll((Collection<? extends TypeDefn>)newValue);
 				return;
-			case FhirPackage.COMPOSITE_TYPE_DEFN__BINDINGS:
-				getBindings().clear();
-				getBindings().addAll((Collection<? extends BindingDefn>)newValue);
+			case FhirPackage.COMPOSITE_TYPE_DEFN__BINDING:
+				getBinding().clear();
+				getBinding().addAll((Collection<? extends BindingDefn>)newValue);
 				return;
-			case FhirPackage.COMPOSITE_TYPE_DEFN__ELEMENTS:
-				getElements().clear();
-				getElements().addAll((Collection<? extends ElementDefn>)newValue);
+			case FhirPackage.COMPOSITE_TYPE_DEFN__ELEMENT:
+				getElement().clear();
+				getElement().addAll((Collection<? extends ElementDefn>)newValue);
 				return;
-			case FhirPackage.COMPOSITE_TYPE_DEFN__INVARIANTS:
-				getInvariants().clear();
-				getInvariants().addAll((Collection<? extends Invariant>)newValue);
+			case FhirPackage.COMPOSITE_TYPE_DEFN__INVARIANT:
+				getInvariant().clear();
+				getInvariant().addAll((Collection<? extends Invariant>)newValue);
 				return;
 			case FhirPackage.COMPOSITE_TYPE_DEFN__UNNAMED_ELEMENT_GROUP:
 				setUnnamedElementGroup((Boolean)newValue);
@@ -511,17 +507,17 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.COMPOSITE_TYPE_DEFN__TYPES:
-				getTypes().clear();
+			case FhirPackage.COMPOSITE_TYPE_DEFN__TYPE:
+				getType().clear();
 				return;
-			case FhirPackage.COMPOSITE_TYPE_DEFN__BINDINGS:
-				getBindings().clear();
+			case FhirPackage.COMPOSITE_TYPE_DEFN__BINDING:
+				getBinding().clear();
 				return;
-			case FhirPackage.COMPOSITE_TYPE_DEFN__ELEMENTS:
-				getElements().clear();
+			case FhirPackage.COMPOSITE_TYPE_DEFN__ELEMENT:
+				getElement().clear();
 				return;
-			case FhirPackage.COMPOSITE_TYPE_DEFN__INVARIANTS:
-				getInvariants().clear();
+			case FhirPackage.COMPOSITE_TYPE_DEFN__INVARIANT:
+				getInvariant().clear();
 				return;
 			case FhirPackage.COMPOSITE_TYPE_DEFN__UNNAMED_ELEMENT_GROUP:
 				setUnnamedElementGroup(UNNAMED_ELEMENT_GROUP_EDEFAULT);
@@ -547,14 +543,14 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.COMPOSITE_TYPE_DEFN__TYPES:
-				return types != null && !types.isEmpty();
-			case FhirPackage.COMPOSITE_TYPE_DEFN__BINDINGS:
-				return bindings != null && !bindings.isEmpty();
-			case FhirPackage.COMPOSITE_TYPE_DEFN__ELEMENTS:
-				return elements != null && !elements.isEmpty();
-			case FhirPackage.COMPOSITE_TYPE_DEFN__INVARIANTS:
-				return invariants != null && !invariants.isEmpty();
+			case FhirPackage.COMPOSITE_TYPE_DEFN__TYPE:
+				return type != null && !type.isEmpty();
+			case FhirPackage.COMPOSITE_TYPE_DEFN__BINDING:
+				return binding != null && !binding.isEmpty();
+			case FhirPackage.COMPOSITE_TYPE_DEFN__ELEMENT:
+				return element != null && !element.isEmpty();
+			case FhirPackage.COMPOSITE_TYPE_DEFN__INVARIANT:
+				return invariant != null && !invariant.isEmpty();
 			case FhirPackage.COMPOSITE_TYPE_DEFN__UNNAMED_ELEMENT_GROUP:
 				return unnamedElementGroup != UNNAMED_ELEMENT_GROUP_EDEFAULT;
 			case FhirPackage.COMPOSITE_TYPE_DEFN__ABSTRACT:
@@ -576,8 +572,8 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == NameScope.class) {
 			switch (derivedFeatureID) {
-				case FhirPackage.COMPOSITE_TYPE_DEFN__TYPES: return FhirPackage.NAME_SCOPE__TYPES;
-				case FhirPackage.COMPOSITE_TYPE_DEFN__BINDINGS: return FhirPackage.NAME_SCOPE__BINDINGS;
+				case FhirPackage.COMPOSITE_TYPE_DEFN__TYPE: return FhirPackage.NAME_SCOPE__TYPE;
+				case FhirPackage.COMPOSITE_TYPE_DEFN__BINDING: return FhirPackage.NAME_SCOPE__BINDING;
 				default: return -1;
 			}
 		}
@@ -593,8 +589,8 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == NameScope.class) {
 			switch (baseFeatureID) {
-				case FhirPackage.NAME_SCOPE__TYPES: return FhirPackage.COMPOSITE_TYPE_DEFN__TYPES;
-				case FhirPackage.NAME_SCOPE__BINDINGS: return FhirPackage.COMPOSITE_TYPE_DEFN__BINDINGS;
+				case FhirPackage.NAME_SCOPE__TYPE: return FhirPackage.COMPOSITE_TYPE_DEFN__TYPE;
+				case FhirPackage.NAME_SCOPE__BINDING: return FhirPackage.COMPOSITE_TYPE_DEFN__BINDING;
 				default: return -1;
 			}
 		}

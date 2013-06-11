@@ -68,12 +68,12 @@ namespace Hl7.Fhir.Model
 
         public override string ValidateData()
         {
-            if (Contents == null)
+            if (Value == null)
                 return "Code values cannot be empty";
 
             Code dummy;
 
-            if (!TryParse( this.Contents, out dummy ))
+            if (!TryParse( Value, out dummy ))
                 return "Not an correctly formatted code value";
             
             return null; 
@@ -81,7 +81,7 @@ namespace Hl7.Fhir.Model
 
         public override string ToString()
         {
-            return Contents;
+            return Value;
         }
     }
 
@@ -90,7 +90,7 @@ namespace Hl7.Fhir.Model
     public class Code<T> : Element  where T : struct
     {
         // Primitive value of element
-        public T? Contents { get; set; }
+        public T? Value { get; set; }
 
         public Code() : this(null) {}
 
@@ -103,7 +103,7 @@ namespace Hl7.Fhir.Model
 #endif
                 throw new ArgumentException("T must be an enumerated type");
 
-            Contents = value;
+            Value = value;
         }
 
         public static implicit operator Code<T>(T? value)
@@ -113,15 +113,15 @@ namespace Hl7.Fhir.Model
 
         public static explicit operator T(Code<T> source)
         {
-            if (source.Contents.HasValue)
-                return source.Contents.Value;
+            if (source.Value.HasValue)
+                return source.Value.Value;
             else
                 throw new InvalidCastException();
         }
 
         public static explicit operator T?(Code<T> source)
         {
-            return source.Contents;
+            return source.Value;
         }
 
 
@@ -164,8 +164,8 @@ namespace Hl7.Fhir.Model
 
         public override string ToString()
         {
-            if (this.Contents.HasValue)
-                return EnumHelper.EnumToString(this.Contents, typeof(T));
+            if (this.Value.HasValue)
+                return EnumHelper.EnumToString(this.Value, typeof(T));
             else
                 return null;
         }

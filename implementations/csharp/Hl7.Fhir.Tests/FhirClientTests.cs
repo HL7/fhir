@@ -26,8 +26,8 @@ namespace Hl7.Fhir.Tests
             Conformance c = client.Conformance();
 
             Assert.IsNotNull(c);
-            Assert.AreEqual("HL7Connect", c.Software.Name.Contents);
-            Assert.AreEqual(Conformance.RestfulConformanceMode.Server, c.Rest[0].Mode.Contents);
+            Assert.AreEqual("HL7Connect", c.Software.Name.Value);
+            Assert.AreEqual(Conformance.RestfulConformanceMode.Server, c.Rest[0].Mode.Value);
             Assert.AreEqual("text/xml+fhir", client.LastResponseDetails.ContentType.ToLower());
             Assert.AreEqual(HttpStatusCode.OK, client.LastResponseDetails.Result);
         }
@@ -70,7 +70,7 @@ namespace Hl7.Fhir.Tests
 
             Patient eve = client.Read<Patient>("1");
             Assert.IsNotNull(eve);
-            Assert.AreEqual("Eve", eve.Details.Name[0].Given[0].Contents);
+            Assert.AreEqual("Eve", eve.Details.Name[0].Given[0].Value);
 
             string version = new ResourceLocation(client.LastResponseDetails.ContentLocation).VersionId;               
             Assert.AreEqual("1", version);

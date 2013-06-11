@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ResourceDefn#isSandbox <em>Sandbox</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ResourceDefn#getExample <em>Example</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ResourceDefn#getSearches <em>Searches</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ResourceDefn#getSearch <em>Search</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ResourceDefn#isFuture <em>Future</em>}</li>
  * </ul>
  * </p>
@@ -45,6 +45,23 @@ public interface ResourceDefn extends CompositeTypeDefn {
 	EList<Example> getExample();
 
 	/**
+	 * Returns the value of the '<em><b>Search</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.definitions.ecore.fhir.SearchParameter}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Search</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Search</em>' containment reference list.
+	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getResourceDefn_Search()
+	 * @model containment="true"
+	 *        extendedMetaData="name='search'"
+	 * @generated
+	 */
+	EList<SearchParameter> getSearch();
+
+	/**
 	 * Returns the value of the '<em><b>Sandbox</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -69,23 +86,6 @@ public interface ResourceDefn extends CompositeTypeDefn {
 	 * @generated
 	 */
 	void setSandbox(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Searches</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.definitions.ecore.fhir.SearchParameter}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Searches</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Searches</em>' containment reference list.
-	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getResourceDefn_Searches()
-	 * @model containment="true"
-	 *        extendedMetaData="name='search'"
-	 * @generated
-	 */
-	EList<SearchParameter> getSearches();
 
 	/**
 	 * Returns the value of the '<em><b>Future</b></em>' attribute.

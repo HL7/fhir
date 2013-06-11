@@ -76,10 +76,10 @@ namespace Hl7.Fhir.Model
 
         public override string ToString()
         {
-            if (Contents == null)
+            if (Value == null)
                 return null;
             else
-                return Convert.ToBase64String(Contents);
+                return Convert.ToBase64String(Value);
         }
     }
   

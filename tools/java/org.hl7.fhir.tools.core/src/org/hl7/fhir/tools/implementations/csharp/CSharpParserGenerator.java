@@ -179,13 +179,13 @@ public class CSharpParserGenerator extends GenBlock
             ln(); 
         	ln("while (reader.HasMoreElements())");
             bs("{");           	
-				// Generate this classes properties, getAllElements() will list
+              // Generate this classes properties, getAllElements() will list
             	// all elements within this composite and its basetypes
             	List<ElementDefn> allProperties = composite.getAllElements();
-				generateMemberParsers(allProperties, composite.isResource());
-			es("}");
-			ln();
-			ln("reader.LeaveElement();");
+            	generateMemberParsers(allProperties, composite.isResource());
+            es("}");
+          ln();
+          ln("reader.LeaveElement();");
 		es("}");
 		ln("catch (Exception ex)");
 		bs("{");
@@ -297,12 +297,10 @@ public class CSharpParserGenerator extends GenBlock
 	{
 		TypeRef resultTypeRef = GeneratorUtils.getMemberTypeForElement(getDefinitions(),member);
 		
-		
-		
 		// Check specials cases: parsing of enumerated codes, contained resources and
-		// polymorph properties of type Data, Composite or Primitive
-		if( !member.isPolymorph() && GeneratorUtils.isCodeWithCodeList(getDefinitions(), member.getTypes().get(0)) )
-			return buildEnumeratedCodeParserCall(member.getTypes().get(0));
+		// choice properties of type Data, Composite or Primitive
+		if( !member.isPolymorph() && GeneratorUtils.isCodeWithCodeList(getDefinitions(), member.getType().get(0)) )
+			return buildEnumeratedCodeParserCall(member.getType().get(0));
 		else if( member.containsResource() )
 			return buildContainedResourceParserCall();
 		else if( resultTypeRef.getName().equals(TypeRef.ELEMENT_TYPE_NAME) ) 
@@ -315,15 +313,15 @@ public class CSharpParserGenerator extends GenBlock
 			if (resultType != null)
 			  return buildParserCall(resultType);
 			 else
-				 return "not done yet";
-			//	throw new Exception("unable to find type for "+resultTypeRef.getFullName());
+				// return "not done yet";
+				throw new Exception("unable to find type for "+resultTypeRef.getFullName());
 		}
 	}
 	
 	
 	private String buildPrimitiveParserCall(ElementDefn member) throws Exception {
 		String csharpPrimitive = GeneratorUtils
-				.mapPrimitiveToFhirCSharpType(member.getTypes().get(0).getName());
+				.mapPrimitiveToFhirCSharpType(member.getType().get(0).getName());
 		
 		String call;
 		
@@ -338,7 +336,7 @@ public class CSharpParserGenerator extends GenBlock
 		
 		String result = csharpPrimitive + ".Parse(reader." + call + ")";
 		
-		if( member.isPrimitiveContents() ) result += ".Contents";
+		if( member.isPrimitiveContents() ) result += ".Value";
 		
 		return result;
 	}
@@ -356,7 +354,7 @@ public class CSharpParserGenerator extends GenBlock
 	{
 		// Check for special cases
 		// First, XHTML elements are in XHTML namespace
-		if( !member.isPolymorph() && member.getTypes().get(0).getName().equals(TypeRef.XHTML_PSEUDOTYPE_NAME) )
+		if( !member.isPolymorph() && member.getType().get(0).getName().equals(TypeRef.XHTML_PSEUDOTYPE_NAME) )
 			return "reader.IsAtXhtmlElement()";
 		// Then, values of primitive elements
 		if( member.isPrimitiveContents() )

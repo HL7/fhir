@@ -41,14 +41,14 @@ import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.DefinitionsImpl#getTypes <em>Types</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.DefinitionsImpl#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.DefinitionsImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.DefinitionsImpl#getBinding <em>Binding</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.DefinitionsImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.DefinitionsImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.DefinitionsImpl#getProfiles <em>Profiles</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.DefinitionsImpl#getEvents <em>Events</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.DefinitionsImpl#getEvent <em>Event</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.DefinitionsImpl#isInternal <em>Internal</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.DefinitionsImpl#getPrimitives <em>Primitives</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.DefinitionsImpl#getPrimitive <em>Primitive</em>}</li>
  * </ul>
  * </p>
  *
@@ -56,24 +56,24 @@ import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
  */
 public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	/**
-	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTypes()
+	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TypeDefn> types;
+	protected EList<TypeDefn> type;
 
 	/**
-	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
+	 * The cached value of the '{@link #getBinding() <em>Binding</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBindings()
+	 * @see #getBinding()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<BindingDefn> bindings;
+	protected EList<BindingDefn> binding;
 
 	/**
 	 * The default value of the '{@link #getDate() <em>Date</em>}' attribute.
@@ -126,14 +126,14 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	protected EList<ProfileDefn> profiles;
 
 	/**
-	 * The cached value of the '{@link #getEvents() <em>Events</em>}' containment reference list.
+	 * The cached value of the '{@link #getEvent() <em>Event</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEvents()
+	 * @see #getEvent()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EventDefn> events;
+	protected EList<EventDefn> event;
 
 	/**
 	 * The default value of the '{@link #isInternal() <em>Internal</em>}' attribute.
@@ -156,14 +156,14 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	protected boolean internal = INTERNAL_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getPrimitives() <em>Primitives</em>}' containment reference list.
+	 * The cached value of the '{@link #getPrimitive() <em>Primitive</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPrimitives()
+	 * @see #getPrimitive()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PrimitiveDefn> primitives;
+	protected EList<PrimitiveDefn> primitive;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,12 +189,11 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EList<BindingDefn> getBindings() {
-		if (bindings == null) {
-			bindings = new EObjectContainmentWithInverseEList<BindingDefn>(BindingDefn.class, this, FhirPackage.DEFINITIONS__BINDINGS, FhirPackage.BINDING_DEFN__PARENT);
+	public EList<TypeDefn> getType() {
+		if (type == null) {
+			type = new EObjectContainmentWithInverseEList<TypeDefn>(TypeDefn.class, this, FhirPackage.DEFINITIONS__TYPE, FhirPackage.TYPE_DEFN__SCOPE);
 		}
-		return bindings;
+		return type;
 	}
 
 	/**
@@ -248,25 +247,11 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EList<TypeDefn> getTypes() {
-		if (types == null) {
-			types = new EObjectContainmentWithInverseEList<TypeDefn>(TypeDefn.class, this, FhirPackage.DEFINITIONS__TYPES, FhirPackage.TYPE_DEFN__SCOPE);
+	public EList<BindingDefn> getBinding() {
+		if (binding == null) {
+			binding = new EObjectContainmentWithInverseEList<BindingDefn>(BindingDefn.class, this, FhirPackage.DEFINITIONS__BINDING, FhirPackage.BINDING_DEFN__PARENT);
 		}
-		return types;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<EventDefn> getEvents() {
-		if (events == null) {
-			events = new EObjectContainmentEList<EventDefn>(EventDefn.class, this, FhirPackage.DEFINITIONS__EVENTS);
-		}
-		return events;
+		return binding;
 	}
 
 	/**
@@ -299,11 +284,11 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<PrimitiveDefn> getPrimitives() {
-		if (primitives == null) {
-			primitives = new EObjectContainmentEList<PrimitiveDefn>(PrimitiveDefn.class, this, FhirPackage.DEFINITIONS__PRIMITIVES);
+	public EList<PrimitiveDefn> getPrimitive() {
+		if (primitive == null) {
+			primitive = new EObjectContainmentEList<PrimitiveDefn>(PrimitiveDefn.class, this, FhirPackage.DEFINITIONS__PRIMITIVE);
 		}
-		return primitives;
+		return primitive;
 	}
 
 	/**
@@ -320,13 +305,13 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 		
 		if( nameParts.length == 2)
 		{
-			for( TypeDefn type : current.getTypes() )
+			for( TypeDefn type : current.getType() )
 				if(type.getName().equals(nameParts[0]))
 					current = (CompositeTypeDefn)type;
 			name = nameParts[1];
 		}
 		
-		for( TypeDefn defn : current.getTypes() )
+		for( TypeDefn defn : current.getType() )
 			if( defn.getName().equals(name) )
 				return defn;
 		
@@ -347,13 +332,13 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 		
 		if( nameParts.length == 2)
 		{
-			for( TypeDefn type : current.getTypes() )
+			for( TypeDefn type : current.getType() )
 				if(type.getName().equals(nameParts[0]))
 					current = (CompositeTypeDefn)type;
 			name = nameParts[1];
 		}
 		
-		for( BindingDefn defn : current.getBindings() )
+		for( BindingDefn defn : current.getBinding() )
 			if( defn.getName().equals(name) )
 				return defn;
 		
@@ -367,9 +352,9 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	 * @generated NOT
 	 */
 	public PrimitiveDefn findPrimitive(String name) {
-		for( PrimitiveDefn primitive : primitives )
-			if( primitive.getName().equals(name))
-				return primitive;
+		for( PrimitiveDefn primitiveDef : primitive )
+			if( primitiveDef.getName().equals(name))
+				return primitiveDef;
 		
 		return null;
 	}
@@ -382,7 +367,7 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	public EList<ResourceDefn> getResources() {
 		EList<ResourceDefn> result = new BasicEList<ResourceDefn>();
 		
-		for( TypeDefn t : this.getTypes() )
+		for( TypeDefn t : this.getType() )
 		{		
 			if( t.isResource() )
 				result.add((ResourceDefn)t);
@@ -402,6 +387,18 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 			profiles = new EObjectContainmentEList<ProfileDefn>(ProfileDefn.class, this, FhirPackage.DEFINITIONS__PROFILES);
 		}
 		return profiles;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<EventDefn> getEvent() {
+		if (event == null) {
+			event = new EObjectContainmentEList<EventDefn>(EventDefn.class, this, FhirPackage.DEFINITIONS__EVENT);
+		}
+		return event;
 	}
 
 	/**
@@ -454,10 +451,10 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.DEFINITIONS__TYPES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTypes()).basicAdd(otherEnd, msgs);
-			case FhirPackage.DEFINITIONS__BINDINGS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getBindings()).basicAdd(otherEnd, msgs);
+			case FhirPackage.DEFINITIONS__TYPE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getType()).basicAdd(otherEnd, msgs);
+			case FhirPackage.DEFINITIONS__BINDING:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getBinding()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -470,16 +467,16 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.DEFINITIONS__TYPES:
-				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DEFINITIONS__BINDINGS:
-				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DEFINITIONS__TYPE:
+				return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DEFINITIONS__BINDING:
+				return ((InternalEList<?>)getBinding()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DEFINITIONS__PROFILES:
 				return ((InternalEList<?>)getProfiles()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DEFINITIONS__EVENTS:
-				return ((InternalEList<?>)getEvents()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DEFINITIONS__PRIMITIVES:
-				return ((InternalEList<?>)getPrimitives()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DEFINITIONS__EVENT:
+				return ((InternalEList<?>)getEvent()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DEFINITIONS__PRIMITIVE:
+				return ((InternalEList<?>)getPrimitive()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -492,22 +489,22 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.DEFINITIONS__TYPES:
-				return getTypes();
-			case FhirPackage.DEFINITIONS__BINDINGS:
-				return getBindings();
+			case FhirPackage.DEFINITIONS__TYPE:
+				return getType();
+			case FhirPackage.DEFINITIONS__BINDING:
+				return getBinding();
 			case FhirPackage.DEFINITIONS__DATE:
 				return getDate();
 			case FhirPackage.DEFINITIONS__VERSION:
 				return getVersion();
 			case FhirPackage.DEFINITIONS__PROFILES:
 				return getProfiles();
-			case FhirPackage.DEFINITIONS__EVENTS:
-				return getEvents();
+			case FhirPackage.DEFINITIONS__EVENT:
+				return getEvent();
 			case FhirPackage.DEFINITIONS__INTERNAL:
 				return isInternal();
-			case FhirPackage.DEFINITIONS__PRIMITIVES:
-				return getPrimitives();
+			case FhirPackage.DEFINITIONS__PRIMITIVE:
+				return getPrimitive();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -521,13 +518,13 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.DEFINITIONS__TYPES:
-				getTypes().clear();
-				getTypes().addAll((Collection<? extends TypeDefn>)newValue);
+			case FhirPackage.DEFINITIONS__TYPE:
+				getType().clear();
+				getType().addAll((Collection<? extends TypeDefn>)newValue);
 				return;
-			case FhirPackage.DEFINITIONS__BINDINGS:
-				getBindings().clear();
-				getBindings().addAll((Collection<? extends BindingDefn>)newValue);
+			case FhirPackage.DEFINITIONS__BINDING:
+				getBinding().clear();
+				getBinding().addAll((Collection<? extends BindingDefn>)newValue);
 				return;
 			case FhirPackage.DEFINITIONS__DATE:
 				setDate((Date)newValue);
@@ -539,16 +536,16 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 				getProfiles().clear();
 				getProfiles().addAll((Collection<? extends ProfileDefn>)newValue);
 				return;
-			case FhirPackage.DEFINITIONS__EVENTS:
-				getEvents().clear();
-				getEvents().addAll((Collection<? extends EventDefn>)newValue);
+			case FhirPackage.DEFINITIONS__EVENT:
+				getEvent().clear();
+				getEvent().addAll((Collection<? extends EventDefn>)newValue);
 				return;
 			case FhirPackage.DEFINITIONS__INTERNAL:
 				setInternal((Boolean)newValue);
 				return;
-			case FhirPackage.DEFINITIONS__PRIMITIVES:
-				getPrimitives().clear();
-				getPrimitives().addAll((Collection<? extends PrimitiveDefn>)newValue);
+			case FhirPackage.DEFINITIONS__PRIMITIVE:
+				getPrimitive().clear();
+				getPrimitive().addAll((Collection<? extends PrimitiveDefn>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -562,11 +559,11 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.DEFINITIONS__TYPES:
-				getTypes().clear();
+			case FhirPackage.DEFINITIONS__TYPE:
+				getType().clear();
 				return;
-			case FhirPackage.DEFINITIONS__BINDINGS:
-				getBindings().clear();
+			case FhirPackage.DEFINITIONS__BINDING:
+				getBinding().clear();
 				return;
 			case FhirPackage.DEFINITIONS__DATE:
 				setDate(DATE_EDEFAULT);
@@ -577,14 +574,14 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 			case FhirPackage.DEFINITIONS__PROFILES:
 				getProfiles().clear();
 				return;
-			case FhirPackage.DEFINITIONS__EVENTS:
-				getEvents().clear();
+			case FhirPackage.DEFINITIONS__EVENT:
+				getEvent().clear();
 				return;
 			case FhirPackage.DEFINITIONS__INTERNAL:
 				setInternal(INTERNAL_EDEFAULT);
 				return;
-			case FhirPackage.DEFINITIONS__PRIMITIVES:
-				getPrimitives().clear();
+			case FhirPackage.DEFINITIONS__PRIMITIVE:
+				getPrimitive().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -598,22 +595,22 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.DEFINITIONS__TYPES:
-				return types != null && !types.isEmpty();
-			case FhirPackage.DEFINITIONS__BINDINGS:
-				return bindings != null && !bindings.isEmpty();
+			case FhirPackage.DEFINITIONS__TYPE:
+				return type != null && !type.isEmpty();
+			case FhirPackage.DEFINITIONS__BINDING:
+				return binding != null && !binding.isEmpty();
 			case FhirPackage.DEFINITIONS__DATE:
 				return DATE_EDEFAULT == null ? date != null : !DATE_EDEFAULT.equals(date);
 			case FhirPackage.DEFINITIONS__VERSION:
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case FhirPackage.DEFINITIONS__PROFILES:
 				return profiles != null && !profiles.isEmpty();
-			case FhirPackage.DEFINITIONS__EVENTS:
-				return events != null && !events.isEmpty();
+			case FhirPackage.DEFINITIONS__EVENT:
+				return event != null && !event.isEmpty();
 			case FhirPackage.DEFINITIONS__INTERNAL:
 				return internal != INTERNAL_EDEFAULT;
-			case FhirPackage.DEFINITIONS__PRIMITIVES:
-				return primitives != null && !primitives.isEmpty();
+			case FhirPackage.DEFINITIONS__PRIMITIVE:
+				return primitive != null && !primitive.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -24,8 +24,10 @@
       <xsd:enumeration value="string"/>
       <xsd:enumeration value="text"/>
       <xsd:enumeration value="date"/>
+      <xsd:enumeration value="quantity"/>
+      <xsd:enumeration value="reference"/>
       <xsd:enumeration value="token"/>
-      <xsd:enumeration value="qtoken"/>
+      <xsd:enumeration value="composite"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="BindingExtensibility">
@@ -53,8 +55,8 @@
       <xsd:extension base="fhir:NameScope">
         <xsd:choice maxOccurs="unbounded" minOccurs="0">
           <xsd:element name="profiles" type="fhir:ProfileDefn"/>
-          <xsd:element name="events" type="fhir:EventDefn"/>
-          <xsd:element name="primitives" type="fhir:PrimitiveDefn"/>
+          <xsd:element name="event" type="fhir:EventDefn"/>
+          <xsd:element name="primitive" type="fhir:PrimitiveDefn"/>
         </xsd:choice>
         <xsd:attribute name="date" type="xsd:string" use="required"/>
         <xsd:attribute name="version" type="xsd:string" use="required"/>
@@ -65,11 +67,11 @@
   <xsd:element name="Definitions" type="fhir:Definitions"/>
   <xsd:complexType name="ElementDefn">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
-      <xsd:element name="types" type="fhir:TypeRef"/>
+      <xsd:element name="type" type="fhir:TypeRef"/>
       <xsd:element name="mappings" type="fhir:Mapping"/>
       <xsd:element name="content" type="fhir:ElementDefn"/>
       <xsd:element name="annotation" type="fhir:Annotations"/>
-      <xsd:element name="invariants" type="fhir:InvariantRef"/>
+      <xsd:element name="invariant" type="fhir:InvariantRef"/>
       <xsd:element name="parentType" type="fhir:CompositeTypeDefn"/>
       <xsd:element name="parentElement" type="fhir:ElementDefn"/>
       <xsd:element ref="xmi:Extension"/>
@@ -79,8 +81,7 @@
     <xsd:attribute name="name" type="xsd:string" use="required"/>
     <xsd:attribute name="minCardinality" type="xsd:int" use="required"/>
     <xsd:attribute name="maxCardinality" type="xsd:int" use="required"/>
-    <xsd:attribute name="mustUnderstand" type="xsd:boolean"/>
-    <xsd:attribute name="mustSupport" type="xsd:boolean"/>
+    <xsd:attribute name="isModifier" type="xsd:boolean"/>
     <xsd:attribute name="exampleValue" type="xsd:string"/>
     <xsd:attribute name="internalId" type="xsd:boolean"/>
     <xsd:attribute name="primitiveContents" type="xsd:boolean"/>
@@ -117,8 +118,7 @@
   <xsd:element name="TypeRef" type="fhir:TypeRef"/>
   <xsd:complexType name="BindingDefn">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
-      <xsd:element name="codes" type="fhir:DefinedCode"/>
-      <xsd:element name="annotations" type="fhir:Annotations"/>
+      <xsd:element name="code" type="fhir:DefinedCode"/>
       <xsd:element name="parent" type="fhir:NameScope"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
@@ -128,14 +128,15 @@
     <xsd:attribute name="name" type="xsd:string" use="required"/>
     <xsd:attribute name="fullName" type="xsd:string"/>
     <xsd:attribute name="binding" type="fhir:BindingType" use="required"/>
-    <xsd:attribute name="extensibility" type="fhir:BindingExtensibility" use="required"/>
-    <xsd:attribute name="strength" type="fhir:BindingStrength" use="required"/>
     <xsd:attribute name="reference" type="xsd:string" use="required"/>
     <xsd:attribute name="source" type="xsd:string" use="required">
       <xsd:annotation>
         <xsd:documentation>for useful error messages during the build process</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+    <xsd:attribute name="description" type="xsd:string"/>
+    <xsd:attribute name="definition" type="xsd:string"/>
+    <xsd:attribute name="example" type="xsd:boolean"/>
     <xsd:attribute name="parent" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="BindingDefn" type="fhir:BindingDefn"/>
@@ -154,7 +155,7 @@
       <xsd:extension base="fhir:CompositeTypeDefn">
         <xsd:choice maxOccurs="unbounded" minOccurs="0">
           <xsd:element name="example" type="fhir:Example"/>
-          <xsd:element name="searches" type="fhir:SearchParameter"/>
+          <xsd:element name="search" type="fhir:SearchParameter"/>
         </xsd:choice>
         <xsd:attribute name="sandbox" type="xsd:boolean" use="required"/>
         <xsd:attribute name="future" type="xsd:boolean"/>
@@ -187,6 +188,8 @@
     <xsd:attribute name="comment" type="xsd:string"/>
     <xsd:attribute name="display" type="xsd:string"/>
     <xsd:attribute name="system" type="xsd:string"/>
+    <xsd:attribute name="id" type="xsd:string" use="required"/>
+    <xsd:attribute name="parent" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="DefinedCode" type="fhir:DefinedCode"/>
   <xsd:complexType name="PrimitiveDefn">
@@ -206,7 +209,7 @@
       <xsd:extension base="fhir:TypeDefn">
         <xsd:choice maxOccurs="unbounded" minOccurs="0">
           <xsd:element name="constrainedBaseType" type="fhir:TypeRef"/>
-          <xsd:element name="details" type="fhir:Invariant"/>
+          <xsd:element name="detail" type="fhir:Invariant"/>
         </xsd:choice>
       </xsd:extension>
     </xsd:complexContent>
@@ -215,7 +218,7 @@
   <xsd:complexType name="EventDefn">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element name="followUps" nillable="true" type="xsd:string"/>
-      <xsd:element name="usages" type="fhir:EventUsage"/>
+      <xsd:element name="usage" type="fhir:EventUsage"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
@@ -259,6 +262,8 @@
   <xsd:element name="MetaDataItem" type="fhir:MetaDataItem"/>
   <xsd:complexType name="SearchParameter">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="path" nillable="true" type="xsd:string"/>
+      <xsd:element name="composite" nillable="true" type="xsd:string"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
@@ -266,7 +271,6 @@
     <xsd:attribute name="name" type="xsd:string"/>
     <xsd:attribute name="description" type="xsd:string"/>
     <xsd:attribute name="type" type="fhir:SearchType" use="required"/>
-    <xsd:attribute name="repeats" type="fhir:SearchRepeatMode" use="required"/>
   </xsd:complexType>
   <xsd:element name="SearchParameter" type="fhir:SearchParameter"/>
   <xsd:complexType abstract="true" name="TypeDefn">
@@ -287,10 +291,10 @@
     <xsd:complexContent>
       <xsd:extension base="fhir:TypeDefn">
         <xsd:choice maxOccurs="unbounded" minOccurs="0">
-          <xsd:element name="types" type="fhir:TypeDefn"/>
-          <xsd:element name="bindings" type="fhir:BindingDefn"/>
-          <xsd:element name="elements" type="fhir:ElementDefn"/>
-          <xsd:element name="invariants" type="fhir:Invariant"/>
+          <xsd:element name="type" type="fhir:TypeDefn"/>
+          <xsd:element name="binding" type="fhir:BindingDefn"/>
+          <xsd:element name="element" type="fhir:ElementDefn"/>
+          <xsd:element name="invariant" type="fhir:Invariant"/>
           <xsd:element name="baseType" type="fhir:TypeRef"/>
         </xsd:choice>
         <xsd:attribute name="unnamedElementGroup" type="xsd:boolean"/>
@@ -302,8 +306,8 @@
   <xsd:element name="CompositeTypeDefn" type="fhir:CompositeTypeDefn"/>
   <xsd:complexType abstract="true" name="NameScope">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
-      <xsd:element name="types" type="fhir:TypeDefn"/>
-      <xsd:element name="bindings" type="fhir:BindingDefn"/>
+      <xsd:element name="type" type="fhir:TypeDefn"/>
+      <xsd:element name="binding" type="fhir:BindingDefn"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>

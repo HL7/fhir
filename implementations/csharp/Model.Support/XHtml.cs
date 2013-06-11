@@ -74,10 +74,10 @@ namespace Hl7.Fhir.Model
 
         public override string ToString()
         {
-            if (Contents == null)
+            if (Value == null)
                 return null;
             else
-                return Contents.ToString();
+                return Value.ToString();
         }
     }
   

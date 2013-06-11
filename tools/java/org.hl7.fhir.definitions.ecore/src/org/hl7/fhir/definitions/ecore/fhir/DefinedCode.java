@@ -21,6 +21,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.DefinedCode#getComment <em>Comment</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.DefinedCode#getDisplay <em>Display</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.DefinedCode#getSystem <em>System</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.DefinedCode#getId <em>Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.DefinedCode#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -160,5 +162,57 @@ public interface DefinedCode extends EObject {
 	 * @generated
 	 */
 	void setSystem(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(String)
+	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getDefinedCode_Id()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getId();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.definitions.ecore.fhir.DefinedCode#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Parent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parent</em>' attribute.
+	 * @see #setParent(String)
+	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getDefinedCode_Parent()
+	 * @model
+	 * @generated
+	 */
+	String getParent();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.definitions.ecore.fhir.DefinedCode#getParent <em>Parent</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parent</em>' attribute.
+	 * @see #getParent()
+	 * @generated
+	 */
+	void setParent(String value);
 
 } // DefinedCode

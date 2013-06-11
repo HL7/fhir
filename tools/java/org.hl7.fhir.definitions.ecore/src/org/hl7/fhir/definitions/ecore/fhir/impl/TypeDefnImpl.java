@@ -228,7 +228,7 @@ public abstract class TypeDefnImpl extends EObjectImpl implements TypeDefn {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newScope != null)
-				msgs = ((InternalEObject)newScope).eInverseAdd(this, FhirPackage.NAME_SCOPE__TYPES, NameScope.class, msgs);
+				msgs = ((InternalEObject)newScope).eInverseAdd(this, FhirPackage.NAME_SCOPE__TYPE, NameScope.class, msgs);
 			msgs = basicSetScope(newScope, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -376,7 +376,7 @@ public abstract class TypeDefnImpl extends EObjectImpl implements TypeDefn {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case FhirPackage.TYPE_DEFN__SCOPE:
-				return eInternalContainer().eInverseRemove(this, FhirPackage.NAME_SCOPE__TYPES, NameScope.class, msgs);
+				return eInternalContainer().eInverseRemove(this, FhirPackage.NAME_SCOPE__TYPE, NameScope.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

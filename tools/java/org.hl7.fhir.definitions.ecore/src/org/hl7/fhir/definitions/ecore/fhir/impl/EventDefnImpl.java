@@ -32,7 +32,7 @@ import org.hl7.fhir.definitions.ecore.fhir.FhirPackage;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.EventDefnImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.EventDefnImpl#getDefinition <em>Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.EventDefnImpl#getFollowUps <em>Follow Ups</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.EventDefnImpl#getUsages <em>Usages</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.EventDefnImpl#getUsage <em>Usage</em>}</li>
  * </ul>
  * </p>
  *
@@ -90,14 +90,14 @@ public class EventDefnImpl extends EObjectImpl implements EventDefn {
 	protected EList<String> followUps;
 
 	/**
-	 * The cached value of the '{@link #getUsages() <em>Usages</em>}' containment reference list.
+	 * The cached value of the '{@link #getUsage() <em>Usage</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getUsages()
+	 * @see #getUsage()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EventUsage> usages;
+	protected EList<EventUsage> usage;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -182,12 +182,11 @@ public class EventDefnImpl extends EObjectImpl implements EventDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EList<EventUsage> getUsages() {
-		if (usages == null) {
-			usages = new EObjectContainmentEList<EventUsage>(EventUsage.class, this, FhirPackage.EVENT_DEFN__USAGES);
+	public EList<EventUsage> getUsage() {
+		if (usage == null) {
+			usage = new EObjectContainmentEList<EventUsage>(EventUsage.class, this, FhirPackage.EVENT_DEFN__USAGE);
 		}
-		return usages;
+		return usage;
 	}
 
 	/**
@@ -198,8 +197,8 @@ public class EventDefnImpl extends EObjectImpl implements EventDefn {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.EVENT_DEFN__USAGES:
-				return ((InternalEList<?>)getUsages()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EVENT_DEFN__USAGE:
+				return ((InternalEList<?>)getUsage()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -218,8 +217,8 @@ public class EventDefnImpl extends EObjectImpl implements EventDefn {
 				return getDefinition();
 			case FhirPackage.EVENT_DEFN__FOLLOW_UPS:
 				return getFollowUps();
-			case FhirPackage.EVENT_DEFN__USAGES:
-				return getUsages();
+			case FhirPackage.EVENT_DEFN__USAGE:
+				return getUsage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -243,9 +242,9 @@ public class EventDefnImpl extends EObjectImpl implements EventDefn {
 				getFollowUps().clear();
 				getFollowUps().addAll((Collection<? extends String>)newValue);
 				return;
-			case FhirPackage.EVENT_DEFN__USAGES:
-				getUsages().clear();
-				getUsages().addAll((Collection<? extends EventUsage>)newValue);
+			case FhirPackage.EVENT_DEFN__USAGE:
+				getUsage().clear();
+				getUsage().addAll((Collection<? extends EventUsage>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -268,8 +267,8 @@ public class EventDefnImpl extends EObjectImpl implements EventDefn {
 			case FhirPackage.EVENT_DEFN__FOLLOW_UPS:
 				getFollowUps().clear();
 				return;
-			case FhirPackage.EVENT_DEFN__USAGES:
-				getUsages().clear();
+			case FhirPackage.EVENT_DEFN__USAGE:
+				getUsage().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -289,8 +288,8 @@ public class EventDefnImpl extends EObjectImpl implements EventDefn {
 				return DEFINITION_EDEFAULT == null ? definition != null : !DEFINITION_EDEFAULT.equals(definition);
 			case FhirPackage.EVENT_DEFN__FOLLOW_UPS:
 				return followUps != null && !followUps.isEmpty();
-			case FhirPackage.EVENT_DEFN__USAGES:
-				return usages != null && !usages.isEmpty();
+			case FhirPackage.EVENT_DEFN__USAGE:
+				return usage != null && !usage.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

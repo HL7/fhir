@@ -81,7 +81,7 @@ public class ConstrainedTypeConverter
 		result.setAnnotations(ann);
 		
 		//TODO: This could be multiple invariants, but current Fhir model only allows 1.
-		result.getDetails().add( 
+		result.getDetail().add( 
 				CompositeTypeConverter.buildInvariantFromFhirModel(invariant) );
 		
 		return result;

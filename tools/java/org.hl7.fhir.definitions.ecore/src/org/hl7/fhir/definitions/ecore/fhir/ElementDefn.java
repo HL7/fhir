@@ -20,14 +20,13 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getMinCardinality <em>Min Cardinality</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getMaxCardinality <em>Max Cardinality</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#isMustUnderstand <em>Must Understand</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#isMustSupport <em>Must Support</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getTypes <em>Types</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#isIsModifier <em>Is Modifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getMappings <em>Mappings</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getExampleValue <em>Example Value</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getContent <em>Content</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getAnnotation <em>Annotation</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getInvariants <em>Invariants</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getInvariant <em>Invariant</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getParentType <em>Parent Type</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getParentElement <em>Parent Element</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#isInternalId <em>Internal Id</em>}</li>
@@ -95,6 +94,32 @@ public interface ElementDefn extends EObject {
 	boolean isSetMaxCardinality();
 
 	/**
+	 * Returns the value of the '<em><b>Is Modifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Modifier</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Modifier</em>' attribute.
+	 * @see #setIsModifier(boolean)
+	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getElementDefn_IsModifier()
+	 * @model extendedMetaData="kind='attribute'"
+	 * @generated
+	 */
+	boolean isIsModifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#isIsModifier <em>Is Modifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Modifier</em>' attribute.
+	 * @see #isIsModifier()
+	 * @generated
+	 */
+	void setIsModifier(boolean value);
+
+	/**
 	 * Returns the value of the '<em><b>Min Cardinality</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -149,34 +174,8 @@ public interface ElementDefn extends EObject {
 	boolean isSetMinCardinality();
 
 	/**
-	 * Returns the value of the '<em><b>Must Understand</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Must Understand</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Must Understand</em>' attribute.
-	 * @see #setMustUnderstand(boolean)
-	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getElementDefn_MustUnderstand()
-	 * @model extendedMetaData="kind='attribute'"
-	 * @generated
-	 */
-	boolean isMustUnderstand();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#isMustUnderstand <em>Must Understand</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Must Understand</em>' attribute.
-	 * @see #isMustUnderstand()
-	 * @generated
-	 */
-	void setMustUnderstand(boolean value);
-
-	/**
 	 * Returns the value of the '<em><b>Parent Type</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn#getElements <em>Elements</em>}'.
+	 * It is bidirectional and its opposite is '{@link org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn#getElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parent Type</em>' container reference isn't clear,
@@ -186,8 +185,8 @@ public interface ElementDefn extends EObject {
 	 * @return the value of the '<em>Parent Type</em>' container reference.
 	 * @see #setParentType(CompositeTypeDefn)
 	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getElementDefn_ParentType()
-	 * @see org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn#getElements
-	 * @model opposite="elements" transient="false"
+	 * @see org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn#getElement
+	 * @model opposite="element" transient="false"
 	 * @generated
 	 */
 	CompositeTypeDefn getParentType();
@@ -313,47 +312,21 @@ public interface ElementDefn extends EObject {
 	boolean isXhtml();
 
 	/**
-	 * Returns the value of the '<em><b>Must Support</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Must Support</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Must Support</em>' attribute.
-	 * @see #setMustSupport(boolean)
-	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getElementDefn_MustSupport()
-	 * @model extendedMetaData="kind='attribute'"
-	 * @generated
-	 */
-	boolean isMustSupport();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#isMustSupport <em>Must Support</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Must Support</em>' attribute.
-	 * @see #isMustSupport()
-	 * @generated
-	 */
-	void setMustSupport(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.definitions.ecore.fhir.TypeRef}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Types</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Type</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Types</em>' containment reference list.
-	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getElementDefn_Types()
+	 * @return the value of the '<em>Type</em>' containment reference list.
+	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getElementDefn_Type()
 	 * @model containment="true"
 	 *        extendedMetaData="name='type'"
 	 * @generated
 	 */
-	EList<TypeRef> getTypes();
+	EList<TypeRef> getType();
 
 	/**
 	 * Returns the value of the '<em><b>Annotation</b></em>' containment reference.
@@ -382,22 +355,22 @@ public interface ElementDefn extends EObject {
 	void setAnnotation(Annotations value);
 
 	/**
-	 * Returns the value of the '<em><b>Invariants</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Invariant</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.definitions.ecore.fhir.InvariantRef}.
 	 * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Invariants</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-	 * @return the value of the '<em>Invariants</em>' containment reference list.
-	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getElementDefn_Invariants()
+	 * <p>
+	 * If the meaning of the '<em>Invariant</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Invariant</em>' containment reference list.
+	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getElementDefn_Invariant()
 	 * @model containment="true"
 	 * @generated
 	 */
-  EList<InvariantRef> getInvariants();
+	EList<InvariantRef> getInvariant();
 
-  /**
+	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>

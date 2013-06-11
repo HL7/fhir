@@ -107,7 +107,7 @@ public class CSharpModelGenerator extends GenBlock
 				nl(GeneratorUtils.generateCSharpTypeName(constrained.getConstrainedBaseType().getName()));
 			bs("{");
 				ln("// TODO: Add code to enforce these constraints:");
-				for( Invariant inv : constrained.getDetails() ) 
+				for( Invariant inv : constrained.getDetail() ) 
 					ln("// * " + inv.getHuman() );
 			es("}");
 		es("}");
@@ -148,8 +148,8 @@ public class CSharpModelGenerator extends GenBlock
 		compositeClassHeader( composite );
 		bs("{");		
 			// Generate local bindings
-			if( composite.getBindings().size() > 0)
-				enums( composite.getBindings() );
+			if( composite.getBinding().size() > 0)
+				enums( composite.getBinding() );
 			
 			// Generate the nested local types in this scope
 			if( composite.getLocalCompositeTypes().size() > 0)
@@ -163,7 +163,7 @@ public class CSharpModelGenerator extends GenBlock
 			}
 			
 			// Generate this classes properties
-			for( ElementDefn member : composite.getElements() )
+			for( ElementDefn member : composite.getElement() )
 				generateMemberProperty(composite, member);
 		es("}");
 		ln();
@@ -295,7 +295,7 @@ public class CSharpModelGenerator extends GenBlock
 	{
 		boolean isFirstClause = true;
 			
-		for( DefinedCode code : binding.getCodes() ) 
+		for( DefinedCode code : binding.getCode() ) 
 		{					
 			if( !isFirstClause )
 				ln("else ");
@@ -322,7 +322,7 @@ public class CSharpModelGenerator extends GenBlock
 	{
 		boolean isFirstClause = true;
 			
-		for( DefinedCode code : binding.getCodes() ) 
+		for( DefinedCode code : binding.getCode() ) 
 		{					
 			if( !isFirstClause )
 				ln("else ");
@@ -353,12 +353,12 @@ public class CSharpModelGenerator extends GenBlock
 		begin();
 		
 		ln("/// <summary>");
-		ln("/// " + binding.getAnnotations().getDefinition() );
+		ln("/// " + binding.getDefinition() );
 		ln("/// </summary>");
 		ln("public enum " + 
 				GeneratorUtils.generateCSharpTypeName(binding.getName()));
 		bs("{");
-			for( DefinedCode code : binding.getCodes() ) 
+			for( DefinedCode code : binding.getCode() ) 
 			{
 				String definition = code.getDefinition();
 				
@@ -394,7 +394,7 @@ public class CSharpModelGenerator extends GenBlock
         ln("public " + className);
         	nl("(" + csharpPrimitive + " value)");
         bs("{");
-        	ln( "Contents = value; ");
+        	ln( "Value = value; ");
         es("}");
         ln();
 
@@ -420,7 +420,7 @@ public class CSharpModelGenerator extends GenBlock
         	nl(csharpPrimitive);
         	nl("(" + className + " value)");
         bs("{");
-            ln("return value.Contents;");
+            ln("return value.Value;");
         es("}");
         ln();
         
@@ -435,8 +435,8 @@ public class CSharpModelGenerator extends GenBlock
         		nl(nonNullablePrimitive);
         		nl("(" + className + " source)");
         	bs("{");
-	            ln("if (source.Contents.HasValue)");
-	            ln("	return source.Contents.Value;");
+	            ln("if (source.Value.HasValue)");
+	            ln("	return source.Value.Value;");
 	            ln("else");
 	            ln("	throw new InvalidCastException();");
 	        es("}");

@@ -51,7 +51,7 @@ namespace Hl7.Fhir.Model
 
         public override string ToString()
         {
-            return Contents;
+            return Value;
         }
     }
   

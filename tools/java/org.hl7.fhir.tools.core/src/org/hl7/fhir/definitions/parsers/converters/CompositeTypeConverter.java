@@ -112,7 +112,7 @@ public class CompositeTypeConverter {
 			newResource.getExample().addAll(
 					ExampleConverter.buildExamplesFromFhirModel(resource
 							.getExamples()));
-			newResource.getSearches().addAll(
+			newResource.getSearch().addAll(
 					SearchParameterConverter
 							.buildSearchParametersFromFhirModel(resource
 									.getSearchParams().values()));
@@ -150,11 +150,11 @@ public class CompositeTypeConverter {
 
 		// Add bindings defined in this type to the nearest NameScope,
 		// which is a resource and could even be us.
-		scope.getBindings().addAll( 
+		scope.getBinding().addAll( 
 				BindingConverter.buildBindingsFromFhirModel( type.getNestedBindings().values(), scope ));
 
 		// Invariants are local to the type, so add them here.
-		result.getInvariants().addAll( 
+		result.getInvariant().addAll( 
 				buildInvariantsFromFhirModel( type.getInvariants().values() ) );
 		
 //		for( String typeName : type.getAcceptableGenericTypes() )
@@ -162,12 +162,12 @@ public class CompositeTypeConverter {
 //				TypeRefConverter.buildTypeRefsFromFhirTypeName(typeName) );
 		
 		// Build my properties and add.
-		result.getElements().addAll( buildElementDefnsFromFhirModel( type.getElements(), isResource ) );
+		result.getElement().addAll( buildElementDefnsFromFhirModel( type.getElements(), isResource ) );
 		
 		// Recursively add nested types for explicitly declared nested types ('=<typename>')
 		// to the nearest NameScope (a Resource)
 		if( type.getNestedTypes() != null )
-			scope.getTypes().addAll( CompositeTypeConverter.buildCompositeTypesFromFhirModel(
+			scope.getType().addAll( CompositeTypeConverter.buildCompositeTypesFromFhirModel(
 					type.getNestedTypes().values(), scope));
 		
 		result.setUnnamedElementGroup( type.isAnonymousTypedGroup() );
@@ -219,8 +219,8 @@ public class CompositeTypeConverter {
 		Annotations ann = buildAnnotationsFromFhirElement(element);
 
 		result.setAnnotation(ann);
-		result.setMustUnderstand(element.isModifier());
-		result.setMustSupport(element.isMustSupport());
+		
+		result.setIsModifier(element.isModifier());
 
 		result.setMinCardinality(element.getMinCardinality());
 
@@ -230,7 +230,7 @@ public class CompositeTypeConverter {
 			result.setMaxCardinality(-1); // Adapt eCore convention for '*'
 
 		if (element.getTypes() != null) {
-			result.getTypes().addAll(
+			result.getType().addAll(
 					TypeRefConverter.buildTypeRefsFromFhirModel(element
 							.getTypes()));
 		}
@@ -244,15 +244,15 @@ public class CompositeTypeConverter {
 		// that getDeclaredTypeName() is set, reminds us of this explicit
 		// type declaration that was there before.
 		if (element.getDeclaredTypeName() != null)
-			result.getTypes().add(
+			result.getType().add(
 					TypeRefConverter.buildTypeRefsFromFhirTypeName(element
 							.getDeclaredTypeName()));
 
 		if (element.getBindingName() != null
 				&& !element.getBindingName().equals("")
 				&& !element.getBindingName().equals("*unbound*")) {
-			if (result.getTypes().size() >= 1) {
-				for (TypeRef tr : result.getTypes()) {
+			if (result.getType().size() >= 1) {
+				for (TypeRef tr : result.getType()) {
 					if (tr.isBindable())
 						tr.setBindingRef(element.getBindingName());
 				}
@@ -268,7 +268,7 @@ public class CompositeTypeConverter {
 				.getStatedInvariants()) {
 			InvariantRef inv = FhirFactory.eINSTANCE.createInvariantRef();
 			inv.setName(i.getId());
-			result.getInvariants().add(inv);
+			result.getInvariant().add(inv);
 		}
 
 		return result;
@@ -300,8 +300,8 @@ public class CompositeTypeConverter {
 	}
 
 	public static void FixTypeRefs(CompositeTypeDefn composite) {
-		for (ElementDefn elemt : composite.getElements()) {
-			for (TypeRef ref : elemt.getTypes())
+		for (ElementDefn elemt : composite.getElement()) {
+			for (TypeRef ref : elemt.getType())
 				TypeRefConverter.Fix(ref, composite);
 		}
 
@@ -345,10 +345,10 @@ public class CompositeTypeConverter {
 
 		TypeRef extRef = FhirFactory.eINSTANCE.createTypeRef();
 		extRef.setName("Extension");
-		extElem.getTypes().add(extRef);
+		extElem.getType().add(extRef);
 			
-		result.getElements().add(extElem);
-		result.getElements().add(buildInternalIdElement());
+		result.getElement().add(extElem);
+		result.getElement().add(buildInternalIdElement());
 		
 		return result;
 	}
@@ -367,7 +367,7 @@ public class CompositeTypeConverter {
 
 		TypeRef extRef = FhirFactory.eINSTANCE.createTypeRef();
 		extRef.setName("id");
-		idElem.getTypes().add(extRef);
+		idElem.getType().add(extRef);
 		
 		return idElem;
 	}

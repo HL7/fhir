@@ -94,9 +94,9 @@ namespace Hl7.Fhir.Model
 
         public override string ToString()
         {
-            if (Contents.HasValue)
+            if (Value.HasValue)
             {
-                return Util.FormatIsoDateTime(Contents.Value);
+                return Util.FormatIsoDateTime(Value.Value);
             }
             else
                 return null;

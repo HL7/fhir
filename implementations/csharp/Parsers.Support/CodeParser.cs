@@ -47,6 +47,7 @@ namespace Hl7.Fhir.Parsers
         /// <summary>
         /// Parse code
         /// </summary>
+        //TODO: Update to latest generated code for a parser, or make this go completely
         public static Code<T> ParseCode<T>(IFhirReader reader, ErrorList errors,
                                 Code<T> existingInstance = null) where T : struct
         {
@@ -61,7 +62,7 @@ namespace Hl7.Fhir.Parsers
                 {
                     // Parse element contents
                     if (reader.IsAtPrimitiveValueElement())
-                        result.Contents = Code<T>.Parse(reader.ReadPrimitiveContents()).Contents;
+                        result.Value = Code<T>.Parse(reader.ReadPrimitiveContents()).Value;
 
                     // Parse element extension
                     else if (ParserUtils.IsAtFhirElement(reader, "extension"))

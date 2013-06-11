@@ -154,7 +154,7 @@ public class PrimitiveConverter
 		
 		// add "value" element of the correct primitive type
 		ElementDefn valueElement = FhirFactory.eINSTANCE.createElementDefn();
-		valueElement.setName("contents");
+		valueElement.setName("value");
 		valueElement.setMinCardinality(0);
 		valueElement.setMaxCardinality(1);
 		valueElement.setPrimitiveContents(true);
@@ -165,9 +165,9 @@ public class PrimitiveConverter
 		
 		TypeRef valueTypeRef = FhirFactory.eINSTANCE.createTypeRef();
 		valueTypeRef.setName(primitive.getName());
-		valueElement.getTypes().add(valueTypeRef);
+		valueElement.getType().add(valueTypeRef);
 				
-		result.getElements().add(valueElement);
+		result.getElement().add(valueElement);
 		
 		return result;
 	}

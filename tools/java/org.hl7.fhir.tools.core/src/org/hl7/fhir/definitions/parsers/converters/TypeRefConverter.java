@@ -142,7 +142,7 @@ public class TypeRefConverter
 		
 		do
 		{
-			for( TypeDefn type : current.getTypes() )
+			for( TypeDefn type : current.getType() )
 			{
 				if( type.getName().equals(localName) )
 					return type;
@@ -162,7 +162,7 @@ public class TypeRefConverter
 		
 		do
 		{
-			for( BindingDefn binding : current.getBindings() )
+			for( BindingDefn binding : current.getBinding() )
 			{
 				if( binding.getName().equals(localName) )
 					return binding;

@@ -19,14 +19,14 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="profiles" upperBound="-1"
         eType="#//ProfileDefn" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="event" upperBound="-1"
         eType="#//EventDefn" containment="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value="event"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="internal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="primitives" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="primitive" upperBound="-1"
         eType="#//PrimitiveDefn" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElementDefn">
@@ -51,18 +51,13 @@
         <details key="kind" value="attribute"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mustUnderstand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isModifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mustSupport" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
-        eType="#//TypeRef" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" upperBound="-1" eType="#//TypeRef"
+        containment="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value="type"/>
       </eAnnotations>
@@ -81,10 +76,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//ElementDefn"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" lowerBound="1"
         eType="#//Annotations" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="invariants" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="invariant" upperBound="-1"
         eType="#//InvariantRef" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentType" eType="#//CompositeTypeDefn"
-        eOpposite="#//CompositeTypeDefn/elements"/>
+        eOpposite="#//CompositeTypeDefn/element"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentElement" eType="#//ElementDefn"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="internalId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="primitiveContents" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -133,10 +128,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="binding" lowerBound="1"
         eType="#//BindingType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="extensibility" lowerBound="1"
-        eType="#//BindingExtensibility"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="strength" lowerBound="1"
-        eType="#//BindingStrength"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="reference" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" lowerBound="1"
@@ -148,16 +139,17 @@
         <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="codes" upperBound="-1"
-        eType="#//DefinedCode" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="code" upperBound="-1" eType="#//DefinedCode"
+        containment="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value="code"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" lowerBound="1"
-        eType="#//Annotations" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
-        eType="#//NameScope" eOpposite="#//NameScope/bindings"/>
+        eType="#//NameScope" eOpposite="#//NameScope/binding"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="example" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mapping">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -168,7 +160,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="example" lowerBound="1"
         upperBound="-1" eType="#//Example" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="searches" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="search" upperBound="-1"
         eType="#//SearchParameter" containment="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value="search"/>
@@ -228,6 +220,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="display" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="system" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrimitiveDefn">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -244,7 +238,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ConstrainedTypeDefn" eSuperTypes="#//TypeDefn">
     <eStructuralFeatures xsi:type="ecore:EReference" name="constrainedBaseType" lowerBound="1"
         eType="#//TypeRef" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="details" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="detail" lowerBound="1"
         upperBound="-1" eType="#//Invariant" containment="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value="detail"/>
@@ -269,8 +263,8 @@
         <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="usages" lowerBound="1"
-        upperBound="-1" eType="#//EventUsage" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="usage" lowerBound="1" upperBound="-1"
+        eType="#//EventUsage" containment="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value="usage"/>
       </eAnnotations>
@@ -306,16 +300,19 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//SearchType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="repeats" lowerBound="1"
-        eType="#//SearchRepeatMode"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="composite" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SearchType">
-    <eLiterals name="integer"/>
-    <eLiterals name="string" value="1"/>
-    <eLiterals name="text" value="2"/>
-    <eLiterals name="date" value="3"/>
-    <eLiterals name="token" value="4"/>
-    <eLiterals name="qtoken" value="5" literal="qtoken"/>
+    <eLiterals name="integer" value="1"/>
+    <eLiterals name="string" value="2"/>
+    <eLiterals name="text" value="3"/>
+    <eLiterals name="date" value="4"/>
+    <eLiterals name="quantity" value="5"/>
+    <eLiterals name="reference" value="6" literal="reference"/>
+    <eLiterals name="token" value="7"/>
+    <eLiterals name="composite"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeDefn" abstract="true">
     <eOperations name="isComposite" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -326,19 +323,19 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" lowerBound="1"
         eType="#//Annotations" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="scope" eType="#//NameScope"
-        eOpposite="#//NameScope/types"/>
+        eOpposite="#//NameScope/type"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="infrastructure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompositeTypeDefn" eSuperTypes="#//TypeDefn #//NameScope">
     <eOperations name="getAllElements" upperBound="-1" eType="#//ElementDefn"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" upperBound="-1"
         eType="#//ElementDefn" containment="true" eOpposite="#//ElementDefn/parentType">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="invariants" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="invariant" upperBound="-1"
         eType="#//Invariant" containment="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value="invariant"/>
@@ -357,14 +354,14 @@
     <eOperations name="resolve" eType="#//TypeDefn">
       <eParameters name="ref" eType="#//TypeRef"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
-        eType="#//TypeDefn" containment="true" eOpposite="#//TypeDefn/scope">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" upperBound="-1" eType="#//TypeDefn"
+        containment="true" eOpposite="#//TypeDefn/scope">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value="type"/>
         <details key="namespace" value=""/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="binding" upperBound="-1"
         eType="#//BindingDefn" containment="true" eOpposite="#//BindingDefn/parent">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value="binding"/>

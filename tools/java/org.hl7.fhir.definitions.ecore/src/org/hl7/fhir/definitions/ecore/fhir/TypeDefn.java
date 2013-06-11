@@ -83,7 +83,7 @@ public interface TypeDefn extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Scope</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link org.hl7.fhir.definitions.ecore.fhir.NameScope#getTypes <em>Types</em>}'.
+	 * It is bidirectional and its opposite is '{@link org.hl7.fhir.definitions.ecore.fhir.NameScope#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Scope</em>' container reference isn't clear,
@@ -93,8 +93,8 @@ public interface TypeDefn extends EObject {
 	 * @return the value of the '<em>Scope</em>' container reference.
 	 * @see #setScope(NameScope)
 	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getTypeDefn_Scope()
-	 * @see org.hl7.fhir.definitions.ecore.fhir.NameScope#getTypes
-	 * @model opposite="types" transient="false"
+	 * @see org.hl7.fhir.definitions.ecore.fhir.NameScope#getType
+	 * @model opposite="type" transient="false"
 	 * @generated
 	 */
 	NameScope getScope();

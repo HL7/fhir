@@ -78,8 +78,8 @@ namespace Hl7.Fhir.Model
 
         public override string ToString()
         {
-            if (Contents.HasValue)
-                return Contents.Value.ToString(CultureInfo.InvariantCulture);
+            if (Value.HasValue)
+                return Value.Value.ToString(CultureInfo.InvariantCulture);
             else
                 return null;
         }

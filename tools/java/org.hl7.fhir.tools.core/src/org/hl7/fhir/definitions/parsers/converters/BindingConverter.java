@@ -73,19 +73,15 @@ public class BindingConverter
 		result.setName( spec.getName() );
 		
 		if( parent == null )
-			result.setFullName( spec.getName() );		// this is a global bindings
+			result.setFullName( spec.getName() );		// this is a global binding
 		else
 			result.setFullName( parent.getName() + "." + spec.getName() );
 
-		result.setAnnotations( FhirFactory.eINSTANCE.createAnnotations() );		
-		result.getAnnotations().setShortDefinition( Utilities.cleanupTextString(spec.getDescription()));
-		result.getAnnotations().setDefinition( Utilities.cleanupTextString(spec.getDefinition()));
+		result.setDefinition( spec.getDefinition() );
+		result.setDescription( spec.getDescription() );
+		result.setExample( spec.isExample() );
 		
 		result.setBinding( BindingType.get(spec.getBinding().ordinal()) );
-		// todo: Ewout - these are now generated later in the build process. What to do about this?
-		// does it matter? (Grahame)
-//		result.setStrength( BindingStrength.get(spec.getBindingStrength().ordinal()) );
-		// result.setExtensibility(( BindingExtensibility.get(spec.getExtensibility().ordinal())));
 		
 		String artifact = spec.getReference();
 		if( artifact != null && artifact.startsWith("#"))
@@ -97,7 +93,7 @@ public class BindingConverter
 		for( org.hl7.fhir.definitions.model.DefinedCode code : spec.getCodes() )
 		{
 			DefinedCode convertedCode = convertFromFhirDefinedCode( code );
-			result.getCodes().add( convertedCode );
+			result.getCode().add( convertedCode );
 		}
 		
 		return result;
@@ -108,14 +104,15 @@ public class BindingConverter
 	{
 		DefinedCode result = FhirFactory.eINSTANCE.createDefinedCode();
 		
+		result.setId( code.getId() );
 		result.setCode( code.getCode() );
 		result.setDefinition( Utilities.cleanupTextString(code.getDefinition()) );
-		result.setDisplay( code.getDisplay());
-		result.setSystem(code.getSystem());
-		result.setComment(code.getComment());
-//		result.setAnnotations( FhirFactory.eINSTANCE.createAnnotations() );		
-//		result.getAnnotations().setDefinition(Utilities.cleanupTextString(code.getDefinition()));
-//		result.getAnnotations().setComment( Utilities.cleanupTextString(code.getComment()));
+		result.setDisplay( Utilities.cleanupTextString(code.getDisplay()));
+		result.setSystem( Utilities.cleanupTextString(code.getSystem()));
+		result.setComment( Utilities.cleanupTextString(code.getComment()));
+		
+		if( !Utilities.noString(code.getParent()) )
+		  result.setParent(code.getParent());
 		
 		return  result;
 	}
@@ -127,21 +124,17 @@ public class BindingConverter
 		result.setName("ResourceType");
 		result.setFullName(result.getName());
 
-		Annotations ann = FhirFactory.eINSTANCE.createAnnotations();
-		ann.setShortDefinition("List of all supported FHIR Resources");
-		ann.setDefinition(ann.getShortDefinition());
-		result.setAnnotations(ann);
+		result.setDescription("List of all supported FHIR Resources");
+		result.setDefinition(result.getDescription());
 		
 		result.setBinding(BindingType.CODE_LIST);
-		result.setExtensibility(BindingExtensibility.COMPLETE);
-		result.setStrength(BindingStrength.REQUIRED);
 		
 		for(ResourceDefn resource : definitions.getResources() )
 		{
 			DefinedCode code = FhirFactory.eINSTANCE.createDefinedCode();
 			code.setCode(resource.getName());
 			code.setDefinition("The " + code.getCode() + " resource");
-			result.getCodes().add(code);
+			result.getCode().add(code);
 		}
 		
 		return result;

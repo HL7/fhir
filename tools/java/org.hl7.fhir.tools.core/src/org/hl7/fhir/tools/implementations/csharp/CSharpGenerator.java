@@ -103,7 +103,7 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 			String enumsFilename = modelDir + "Bindings.cs";
 		
 			new CSharpModelGenerator(definitions)
-				.generateGlobalEnums(definitions.getBindings()).toFile(implDir+enumsFilename);						 
+				.generateGlobalEnums(definitions.getBinding()).toFile(implDir+enumsFilename);						 
 			generatedFilenames.add(enumsFilename);
 		}
 
@@ -163,11 +163,11 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 
 		// Collect all bindings to generate the EnumHelper class
 		List<BindingDefn> allBindings = new ArrayList<BindingDefn>();
-		allBindings.addAll(definitions.getBindings());
+		allBindings.addAll(definitions.getBinding());
 		for( NameScope ns : definitions.getLocalCompositeTypes() )
-			allBindings.addAll(ns.getBindings());
+			allBindings.addAll(ns.getBinding());
 		for( NameScope ns : definitions.getResources() )
-			allBindings.addAll(ns.getBindings());
+			allBindings.addAll(ns.getBinding());
 		{
 			String enumHelperFilename = modelDir + "EnumHelper.cs";
 			
@@ -203,7 +203,7 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 		String serializersSupportDir = "Serializers.Support" + sl;
 		String supportDir = "Support" + sl;
 		
-		ZipGenerator zip = new ZipGenerator(destDir + "CSharp.zip");
+		ZipGenerator zip = new ZipGenerator(destDir + CSHARP_FILENAME);
 		zip.addFiles(implDir+modelDir, modelDir, ".cs");
 		zip.addFiles(implDir+parsersDir, parsersDir, ".cs");
 		zip.addFiles(implDir+serializersDir, serializersDir, ".cs");
@@ -237,25 +237,64 @@ public boolean doesCompile() {
     return true;
   }
 
+  
+  private static final String CSHARP_FILENAME = "CSharp.zip";
+  
   @Override
-public boolean compile(String rootDir, List<String> errors) {
-    
-    String solutionFile = Utilities.path(rootDir, "implementations", "csharp", "Hl7.Fhir.sln");
+  public boolean compile(String rootDir, List<String> errors) 
+  {  
+    String solutionDirectory = Utilities.path(rootDir, "implementations", "csharp");
+    String solutionFile = Utilities.path(solutionDirectory, "Hl7.Fhir.sln");
     DotNetCompileResult result = DotNetFramework.compile(solutionFile, this.logger);
 
     // If result == null, the compile function will have logged the reason
     if( result == null )
       return false;    
 
-    else if(result.exitValue == 0)
-      return true;
-    
     // If there was an error, print the message
-    else
+    else if(result.exitValue != 0)
     {
       logger.log(result.message);
       return false;
     }
+
+    return addCompiledAssemblyToCsharpZip(rootDir, solutionDirectory);    
+  }
+
+  private boolean addCompiledAssemblyToCsharpZip(String rootDir, String solutionDirectory) {
+    // Try to add the newly compiled assembly to the distribution zip
+    String csharpZip = Utilities.path(rootDir, "publish", CSHARP_FILENAME );
+    String assemblyDirectory = Utilities.path(solutionDirectory,"bin","Release");
+    String tempZip = csharpZip + "_temp";
+    
+    File origZipFile = new File(csharpZip);
+    File tempZipFile = new File(tempZip);
+    
+    try
+    {     
+      if( origZipFile.renameTo(tempZipFile) == false )
+      {
+        logger.log("Failed to rename CSharp.zip to a temporary file. Is it locked?");
+        return false;
+      }
+      
+      char sl = File.separatorChar;
+      ZipGenerator zip = new ZipGenerator(csharpZip);
+      zip.addFromZip(tempZip);
+      zip.addFolder( assemblyDirectory + sl, "bin" + sl);
+      zip.close();
+    }
+    catch( Exception e)
+    {
+      logger.log("Failed to add compiled assembly to csharp distribution zip");
+      return false;
+    }
+    finally
+    {
+      tempZipFile.delete();
+    }
+    
+    return true;
   }
 
   @Override

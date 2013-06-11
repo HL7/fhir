@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ConstrainedTypeDefn#getConstrainedBaseType <em>Constrained Base Type</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ConstrainedTypeDefn#getDetails <em>Details</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ConstrainedTypeDefn#getDetail <em>Detail</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,20 +53,20 @@ public interface ConstrainedTypeDefn extends TypeDefn {
 	void setConstrainedBaseType(TypeRef value);
 
 	/**
-	 * Returns the value of the '<em><b>Details</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Detail</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.definitions.ecore.fhir.Invariant}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Details</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Detail</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Details</em>' containment reference list.
-	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getConstrainedTypeDefn_Details()
+	 * @return the value of the '<em>Detail</em>' containment reference list.
+	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getConstrainedTypeDefn_Detail()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="name='detail'"
 	 * @generated
 	 */
-	EList<Invariant> getDetails();
+	EList<Invariant> getDetail();
 
 } // ConstrainedTypeDefn

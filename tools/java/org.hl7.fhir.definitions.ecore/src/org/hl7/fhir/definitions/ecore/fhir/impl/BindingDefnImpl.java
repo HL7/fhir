@@ -38,13 +38,13 @@ import org.hl7.fhir.definitions.ecore.fhir.NameScope;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.BindingDefnImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.BindingDefnImpl#getFullName <em>Full Name</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.BindingDefnImpl#getBinding <em>Binding</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.BindingDefnImpl#getExtensibility <em>Extensibility</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.BindingDefnImpl#getStrength <em>Strength</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.BindingDefnImpl#getReference <em>Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.BindingDefnImpl#getSource <em>Source</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.BindingDefnImpl#getCodes <em>Codes</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.BindingDefnImpl#getAnnotations <em>Annotations</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.BindingDefnImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.BindingDefnImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.BindingDefnImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.BindingDefnImpl#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.BindingDefnImpl#isExample <em>Example</em>}</li>
  * </ul>
  * </p>
  *
@@ -132,46 +132,6 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 	protected BindingType binding = BINDING_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getExtensibility() <em>Extensibility</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExtensibility()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final BindingExtensibility EXTENSIBILITY_EDEFAULT = BindingExtensibility.COMPLETE;
-
-	/**
-	 * The cached value of the '{@link #getExtensibility() <em>Extensibility</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExtensibility()
-	 * @generated
-	 * @ordered
-	 */
-	protected BindingExtensibility extensibility = EXTENSIBILITY_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getStrength() <em>Strength</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStrength()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final BindingStrength STRENGTH_EDEFAULT = BindingStrength.UNSTATED;
-
-	/**
-	 * The cached value of the '{@link #getStrength() <em>Strength</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStrength()
-	 * @generated
-	 * @ordered
-	 */
-	protected BindingStrength strength = STRENGTH_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getReference() <em>Reference</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -212,24 +172,74 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 	protected String source = SOURCE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCodes() <em>Codes</em>}' containment reference list.
+	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCodes()
+	 * @see #getCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DefinedCode> codes;
+	protected EList<DefinedCode> code;
 
 	/**
-	 * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference.
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAnnotations()
+	 * @see #getDescription()
 	 * @generated
 	 * @ordered
 	 */
-	protected Annotations annotations;
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDefinition() <em>Definition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEFINITION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected String definition = DEFINITION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isExample() <em>Example</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isExample()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean EXAMPLE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isExample() <em>Example</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isExample()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean example = EXAMPLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -345,50 +355,6 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BindingExtensibility getExtensibility() {
-		return extensibility;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setExtensibility(BindingExtensibility newExtensibility) {
-		BindingExtensibility oldExtensibility = extensibility;
-		extensibility = newExtensibility == null ? EXTENSIBILITY_EDEFAULT : newExtensibility;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BINDING_DEFN__EXTENSIBILITY, oldExtensibility, extensibility));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public BindingStrength getStrength() {
-		return strength;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setStrength(BindingStrength newStrength) {
-		BindingStrength oldStrength = strength;
-		strength = newStrength == null ? STRENGTH_EDEFAULT : newStrength;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BINDING_DEFN__STRENGTH, oldStrength, strength));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getReference() {
 		return reference;
 	}
@@ -433,57 +399,11 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EList<DefinedCode> getCodes() {
-		if (codes == null) {
-			codes = new EObjectContainmentEList<DefinedCode>(DefinedCode.class, this, FhirPackage.BINDING_DEFN__CODES);
+	public EList<DefinedCode> getCode() {
+		if (code == null) {
+			code = new EObjectContainmentEList<DefinedCode>(DefinedCode.class, this, FhirPackage.BINDING_DEFN__CODE);
 		}
-		return codes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Annotations getAnnotations() {
-		return annotations;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAnnotations(Annotations newAnnotations, NotificationChain msgs) {
-		Annotations oldAnnotations = annotations;
-		annotations = newAnnotations;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.BINDING_DEFN__ANNOTATIONS, oldAnnotations, newAnnotations);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setAnnotations(Annotations newAnnotations) {
-		if (newAnnotations != annotations) {
-			NotificationChain msgs = null;
-			if (annotations != null)
-				msgs = ((InternalEObject)annotations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BINDING_DEFN__ANNOTATIONS, null, msgs);
-			if (newAnnotations != null)
-				msgs = ((InternalEObject)newAnnotations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BINDING_DEFN__ANNOTATIONS, null, msgs);
-			msgs = basicSetAnnotations(newAnnotations, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BINDING_DEFN__ANNOTATIONS, newAnnotations, newAnnotations));
+		return code;
 	}
 
 	/**
@@ -521,12 +441,75 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newParent != null)
-				msgs = ((InternalEObject)newParent).eInverseAdd(this, FhirPackage.NAME_SCOPE__BINDINGS, NameScope.class, msgs);
+				msgs = ((InternalEObject)newParent).eInverseAdd(this, FhirPackage.NAME_SCOPE__BINDING, NameScope.class, msgs);
 			msgs = basicSetParent(newParent, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BINDING_DEFN__PARENT, newParent, newParent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BINDING_DEFN__DESCRIPTION, oldDescription, description));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDefinition() {
+		return definition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefinition(String newDefinition) {
+		String oldDefinition = definition;
+		definition = newDefinition;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BINDING_DEFN__DEFINITION, oldDefinition, definition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isExample() {
+		return example;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExample(boolean newExample) {
+		boolean oldExample = example;
+		example = newExample;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BINDING_DEFN__EXAMPLE, oldExample, example));
 	}
 
 	/**
@@ -563,10 +546,8 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.BINDING_DEFN__CODES:
-				return ((InternalEList<?>)getCodes()).basicRemove(otherEnd, msgs);
-			case FhirPackage.BINDING_DEFN__ANNOTATIONS:
-				return basicSetAnnotations(null, msgs);
+			case FhirPackage.BINDING_DEFN__CODE:
+				return ((InternalEList<?>)getCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.BINDING_DEFN__PARENT:
 				return basicSetParent(null, msgs);
 		}
@@ -582,7 +563,7 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case FhirPackage.BINDING_DEFN__PARENT:
-				return eInternalContainer().eInverseRemove(this, FhirPackage.NAME_SCOPE__BINDINGS, NameScope.class, msgs);
+				return eInternalContainer().eInverseRemove(this, FhirPackage.NAME_SCOPE__BINDING, NameScope.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -603,20 +584,20 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 				return getFullName();
 			case FhirPackage.BINDING_DEFN__BINDING:
 				return getBinding();
-			case FhirPackage.BINDING_DEFN__EXTENSIBILITY:
-				return getExtensibility();
-			case FhirPackage.BINDING_DEFN__STRENGTH:
-				return getStrength();
 			case FhirPackage.BINDING_DEFN__REFERENCE:
 				return getReference();
 			case FhirPackage.BINDING_DEFN__SOURCE:
 				return getSource();
-			case FhirPackage.BINDING_DEFN__CODES:
-				return getCodes();
-			case FhirPackage.BINDING_DEFN__ANNOTATIONS:
-				return getAnnotations();
+			case FhirPackage.BINDING_DEFN__CODE:
+				return getCode();
 			case FhirPackage.BINDING_DEFN__PARENT:
 				return getParent();
+			case FhirPackage.BINDING_DEFN__DESCRIPTION:
+				return getDescription();
+			case FhirPackage.BINDING_DEFN__DEFINITION:
+				return getDefinition();
+			case FhirPackage.BINDING_DEFN__EXAMPLE:
+				return isExample();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -642,27 +623,27 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 			case FhirPackage.BINDING_DEFN__BINDING:
 				setBinding((BindingType)newValue);
 				return;
-			case FhirPackage.BINDING_DEFN__EXTENSIBILITY:
-				setExtensibility((BindingExtensibility)newValue);
-				return;
-			case FhirPackage.BINDING_DEFN__STRENGTH:
-				setStrength((BindingStrength)newValue);
-				return;
 			case FhirPackage.BINDING_DEFN__REFERENCE:
 				setReference((String)newValue);
 				return;
 			case FhirPackage.BINDING_DEFN__SOURCE:
 				setSource((String)newValue);
 				return;
-			case FhirPackage.BINDING_DEFN__CODES:
-				getCodes().clear();
-				getCodes().addAll((Collection<? extends DefinedCode>)newValue);
-				return;
-			case FhirPackage.BINDING_DEFN__ANNOTATIONS:
-				setAnnotations((Annotations)newValue);
+			case FhirPackage.BINDING_DEFN__CODE:
+				getCode().clear();
+				getCode().addAll((Collection<? extends DefinedCode>)newValue);
 				return;
 			case FhirPackage.BINDING_DEFN__PARENT:
 				setParent((NameScope)newValue);
+				return;
+			case FhirPackage.BINDING_DEFN__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
+			case FhirPackage.BINDING_DEFN__DEFINITION:
+				setDefinition((String)newValue);
+				return;
+			case FhirPackage.BINDING_DEFN__EXAMPLE:
+				setExample((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -688,26 +669,26 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 			case FhirPackage.BINDING_DEFN__BINDING:
 				setBinding(BINDING_EDEFAULT);
 				return;
-			case FhirPackage.BINDING_DEFN__EXTENSIBILITY:
-				setExtensibility(EXTENSIBILITY_EDEFAULT);
-				return;
-			case FhirPackage.BINDING_DEFN__STRENGTH:
-				setStrength(STRENGTH_EDEFAULT);
-				return;
 			case FhirPackage.BINDING_DEFN__REFERENCE:
 				setReference(REFERENCE_EDEFAULT);
 				return;
 			case FhirPackage.BINDING_DEFN__SOURCE:
 				setSource(SOURCE_EDEFAULT);
 				return;
-			case FhirPackage.BINDING_DEFN__CODES:
-				getCodes().clear();
-				return;
-			case FhirPackage.BINDING_DEFN__ANNOTATIONS:
-				setAnnotations((Annotations)null);
+			case FhirPackage.BINDING_DEFN__CODE:
+				getCode().clear();
 				return;
 			case FhirPackage.BINDING_DEFN__PARENT:
 				setParent((NameScope)null);
+				return;
+			case FhirPackage.BINDING_DEFN__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case FhirPackage.BINDING_DEFN__DEFINITION:
+				setDefinition(DEFINITION_EDEFAULT);
+				return;
+			case FhirPackage.BINDING_DEFN__EXAMPLE:
+				setExample(EXAMPLE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -729,20 +710,20 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 				return FULL_NAME_EDEFAULT == null ? fullName != null : !FULL_NAME_EDEFAULT.equals(fullName);
 			case FhirPackage.BINDING_DEFN__BINDING:
 				return binding != BINDING_EDEFAULT;
-			case FhirPackage.BINDING_DEFN__EXTENSIBILITY:
-				return extensibility != EXTENSIBILITY_EDEFAULT;
-			case FhirPackage.BINDING_DEFN__STRENGTH:
-				return strength != STRENGTH_EDEFAULT;
 			case FhirPackage.BINDING_DEFN__REFERENCE:
 				return REFERENCE_EDEFAULT == null ? reference != null : !REFERENCE_EDEFAULT.equals(reference);
 			case FhirPackage.BINDING_DEFN__SOURCE:
 				return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals(source);
-			case FhirPackage.BINDING_DEFN__CODES:
-				return codes != null && !codes.isEmpty();
-			case FhirPackage.BINDING_DEFN__ANNOTATIONS:
-				return annotations != null;
+			case FhirPackage.BINDING_DEFN__CODE:
+				return code != null && !code.isEmpty();
 			case FhirPackage.BINDING_DEFN__PARENT:
 				return getParent() != null;
+			case FhirPackage.BINDING_DEFN__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case FhirPackage.BINDING_DEFN__DEFINITION:
+				return DEFINITION_EDEFAULT == null ? definition != null : !DEFINITION_EDEFAULT.equals(definition);
+			case FhirPackage.BINDING_DEFN__EXAMPLE:
+				return example != EXAMPLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -765,14 +746,16 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 		result.append(fullName);
 		result.append(", binding: ");
 		result.append(binding);
-		result.append(", extensibility: ");
-		result.append(extensibility);
-		result.append(", strength: ");
-		result.append(strength);
 		result.append(", reference: ");
 		result.append(reference);
 		result.append(", source: ");
 		result.append(source);
+		result.append(", description: ");
+		result.append(description);
+		result.append(", definition: ");
+		result.append(definition);
+		result.append(", example: ");
+		result.append(example);
 		result.append(')');
 		return result.toString();
 	}

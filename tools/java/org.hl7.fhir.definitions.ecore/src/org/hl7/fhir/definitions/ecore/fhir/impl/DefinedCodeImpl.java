@@ -25,6 +25,8 @@ import org.hl7.fhir.definitions.ecore.fhir.FhirPackage;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.DefinedCodeImpl#getComment <em>Comment</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.DefinedCodeImpl#getDisplay <em>Display</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.DefinedCodeImpl#getSystem <em>System</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.DefinedCodeImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.DefinedCodeImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -130,6 +132,46 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
 	 * @ordered
 	 */
 	protected String system = SYSTEM_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getParent() <em>Parent</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PARENT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getParent() <em>Parent</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParent()
+	 * @generated
+	 * @ordered
+	 */
+	protected String parent = PARENT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -264,6 +306,48 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEFINED_CODE__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getParent() {
+		return parent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParent(String newParent) {
+		String oldParent = parent;
+		parent = newParent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEFINED_CODE__PARENT, oldParent, parent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -277,6 +361,10 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
 				return getDisplay();
 			case FhirPackage.DEFINED_CODE__SYSTEM:
 				return getSystem();
+			case FhirPackage.DEFINED_CODE__ID:
+				return getId();
+			case FhirPackage.DEFINED_CODE__PARENT:
+				return getParent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -303,6 +391,12 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
 				return;
 			case FhirPackage.DEFINED_CODE__SYSTEM:
 				setSystem((String)newValue);
+				return;
+			case FhirPackage.DEFINED_CODE__ID:
+				setId((String)newValue);
+				return;
+			case FhirPackage.DEFINED_CODE__PARENT:
+				setParent((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -331,6 +425,12 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
 			case FhirPackage.DEFINED_CODE__SYSTEM:
 				setSystem(SYSTEM_EDEFAULT);
 				return;
+			case FhirPackage.DEFINED_CODE__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case FhirPackage.DEFINED_CODE__PARENT:
+				setParent(PARENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -353,6 +453,10 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
 				return DISPLAY_EDEFAULT == null ? display != null : !DISPLAY_EDEFAULT.equals(display);
 			case FhirPackage.DEFINED_CODE__SYSTEM:
 				return SYSTEM_EDEFAULT == null ? system != null : !SYSTEM_EDEFAULT.equals(system);
+			case FhirPackage.DEFINED_CODE__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case FhirPackage.DEFINED_CODE__PARENT:
+				return PARENT_EDEFAULT == null ? parent != null : !PARENT_EDEFAULT.equals(parent);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -377,6 +481,10 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
 		result.append(display);
 		result.append(", system: ");
 		result.append(system);
+		result.append(", id: ");
+		result.append(id);
+		result.append(", parent: ");
+		result.append(parent);
 		result.append(')');
 		return result.toString();
 	}

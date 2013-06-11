@@ -44,7 +44,7 @@ namespace Hl7.Fhir.Tests
         {
             Instant i = new Instant(new DateTimeOffset(2013, 4, 19, 16, 27, 23, 233, TimeSpan.Zero));
 
-            Assert.IsTrue(i.Contents.Value.Millisecond > 0);
+            Assert.IsTrue(i.Value.Value.Millisecond > 0);
 
             string xml = FhirSerializer.SerializeElementAsXml(i, "someInstant");
 
@@ -52,7 +52,7 @@ namespace Hl7.Fhir.Tests
             Instant j = (Instant)FhirParser.ParseElementFromXml(xml, dummy);
 
             Assert.AreEqual(0, dummy.Count);
-            Assert.AreEqual(233, j.Contents.Value.Millisecond);
+            Assert.AreEqual(233, j.Value.Value.Millisecond);
 
             Instant result;
             bool succ = Instant.TryParse("2013-04-19T16:17:23Z", out result);
@@ -153,7 +153,7 @@ namespace Hl7.Fhir.Tests
 
             ErrorList list = new ErrorList();
             Patient p = (Patient)FhirParser.ParseResourceFromXml(xmlString, list);
-            p.Details.Name[0].Given[0].Contents = "Rex";
+            p.Details.Name[0].Given[0].Value = "Rex";
             string json = FhirSerializer.SerializeResourceAsJson(p);
 
             Debug.WriteLine(json);
@@ -173,7 +173,7 @@ namespace Hl7.Fhir.Tests
                     BirthDate = new FhirDateTime(1972, 11, 30),
                     Name = new List<HumanName> {
                         new HumanName() { Given = new List<FhirString>() { "Wouter", "Gert" },
-                                   Family = new List<FhirString>() { new FhirString() { Contents = "van der", 
+                                   Family = new List<FhirString>() { new FhirString() { Value = "van der", 
                                         Extension = new List<Extension> { new Extension 
                                                         { Url= new Uri("http://hl7.org/fhir/profile/@iso-21090#name-qualifier"),
                                                             Value = new Code("VV") } } }, "Vlies" } } }

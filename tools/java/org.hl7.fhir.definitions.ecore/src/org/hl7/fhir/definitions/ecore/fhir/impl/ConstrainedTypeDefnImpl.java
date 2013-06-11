@@ -29,7 +29,7 @@ import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ConstrainedTypeDefnImpl#getConstrainedBaseType <em>Constrained Base Type</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ConstrainedTypeDefnImpl#getDetails <em>Details</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ConstrainedTypeDefnImpl#getDetail <em>Detail</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,14 +47,14 @@ public class ConstrainedTypeDefnImpl extends TypeDefnImpl implements Constrained
 	protected TypeRef constrainedBaseType;
 
 	/**
-	 * The cached value of the '{@link #getDetails() <em>Details</em>}' containment reference list.
+	 * The cached value of the '{@link #getDetail() <em>Detail</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDetails()
+	 * @see #getDetail()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Invariant> details;
+	protected EList<Invariant> detail;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -123,12 +123,11 @@ public class ConstrainedTypeDefnImpl extends TypeDefnImpl implements Constrained
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EList<Invariant> getDetails() {
-		if (details == null) {
-			details = new EObjectContainmentEList<Invariant>(Invariant.class, this, FhirPackage.CONSTRAINED_TYPE_DEFN__DETAILS);
+	public EList<Invariant> getDetail() {
+		if (detail == null) {
+			detail = new EObjectContainmentEList<Invariant>(Invariant.class, this, FhirPackage.CONSTRAINED_TYPE_DEFN__DETAIL);
 		}
-		return details;
+		return detail;
 	}
 
 	/**
@@ -141,8 +140,8 @@ public class ConstrainedTypeDefnImpl extends TypeDefnImpl implements Constrained
 		switch (featureID) {
 			case FhirPackage.CONSTRAINED_TYPE_DEFN__CONSTRAINED_BASE_TYPE:
 				return basicSetConstrainedBaseType(null, msgs);
-			case FhirPackage.CONSTRAINED_TYPE_DEFN__DETAILS:
-				return ((InternalEList<?>)getDetails()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONSTRAINED_TYPE_DEFN__DETAIL:
+				return ((InternalEList<?>)getDetail()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -157,8 +156,8 @@ public class ConstrainedTypeDefnImpl extends TypeDefnImpl implements Constrained
 		switch (featureID) {
 			case FhirPackage.CONSTRAINED_TYPE_DEFN__CONSTRAINED_BASE_TYPE:
 				return getConstrainedBaseType();
-			case FhirPackage.CONSTRAINED_TYPE_DEFN__DETAILS:
-				return getDetails();
+			case FhirPackage.CONSTRAINED_TYPE_DEFN__DETAIL:
+				return getDetail();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -175,9 +174,9 @@ public class ConstrainedTypeDefnImpl extends TypeDefnImpl implements Constrained
 			case FhirPackage.CONSTRAINED_TYPE_DEFN__CONSTRAINED_BASE_TYPE:
 				setConstrainedBaseType((TypeRef)newValue);
 				return;
-			case FhirPackage.CONSTRAINED_TYPE_DEFN__DETAILS:
-				getDetails().clear();
-				getDetails().addAll((Collection<? extends Invariant>)newValue);
+			case FhirPackage.CONSTRAINED_TYPE_DEFN__DETAIL:
+				getDetail().clear();
+				getDetail().addAll((Collection<? extends Invariant>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -194,8 +193,8 @@ public class ConstrainedTypeDefnImpl extends TypeDefnImpl implements Constrained
 			case FhirPackage.CONSTRAINED_TYPE_DEFN__CONSTRAINED_BASE_TYPE:
 				setConstrainedBaseType((TypeRef)null);
 				return;
-			case FhirPackage.CONSTRAINED_TYPE_DEFN__DETAILS:
-				getDetails().clear();
+			case FhirPackage.CONSTRAINED_TYPE_DEFN__DETAIL:
+				getDetail().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -211,8 +210,8 @@ public class ConstrainedTypeDefnImpl extends TypeDefnImpl implements Constrained
 		switch (featureID) {
 			case FhirPackage.CONSTRAINED_TYPE_DEFN__CONSTRAINED_BASE_TYPE:
 				return constrainedBaseType != null;
-			case FhirPackage.CONSTRAINED_TYPE_DEFN__DETAILS:
-				return details != null && !details.isEmpty();
+			case FhirPackage.CONSTRAINED_TYPE_DEFN__DETAIL:
+				return detail != null && !detail.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

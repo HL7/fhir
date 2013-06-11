@@ -46,7 +46,6 @@ namespace Hl7.Fhir.Parsers
         bool HasMoreElements();
         bool IsAtFhirElement();
         bool IsAtXhtmlElement();
-        bool IsAtPrimitiveValueElement();
         bool IsAtRefIdElement();
         void LeaveElement();
 

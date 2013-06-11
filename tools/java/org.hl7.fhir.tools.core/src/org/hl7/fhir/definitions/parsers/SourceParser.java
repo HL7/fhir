@@ -158,13 +158,13 @@ public class SourceParser {
 		eCoreParseResults = DefinitionsImpl.build(genDate.getTime(), version);
 
 		loadGlobalConceptDomains();
-		eCoreParseResults.getBindings().addAll(
+		eCoreParseResults.getBinding().addAll(
 				sortBindings(BindingConverter.buildBindingsFromFhirModel(definitions
 						.getBindings().values(), null)));
 
 		loadPrimitives();
 			
-		eCoreParseResults.getPrimitives().addAll(PrimitiveConverter.buildPrimitiveTypesFromFhirModel(definitions
+		eCoreParseResults.getPrimitive().addAll(PrimitiveConverter.buildPrimitiveTypesFromFhirModel(definitions
 				.getPrimitives().values()));
 		
 		for (String n : ini.getPropertyNames("removed-resources"))
@@ -183,7 +183,7 @@ public class SourceParser {
 		
 		allFhirComposites.add( CompositeTypeConverter.buildElementBaseType());
 		
-		allFhirComposites.addAll( PrimitiveConverter.buildCompositeTypesForPrimitives( eCoreParseResults.getPrimitives() ) );
+		allFhirComposites.addAll( PrimitiveConverter.buildCompositeTypesForPrimitives( eCoreParseResults.getPrimitive() ) );
 		
 		allFhirComposites.addAll( CompositeTypeConverter.buildCompositeTypesFromFhirModel(definitions
 						.getTypes().values(), null ));
@@ -200,7 +200,7 @@ public class SourceParser {
 						definitions.getConstraints().values(),
 						definitions.getConstraintInvariants()) );
 		
-		eCoreParseResults.getTypes().addAll( sortTypes(allFhirComposites) );
+		eCoreParseResults.getType().addAll( sortTypes(allFhirComposites) );
 		
 		for (String n : ini.getPropertyNames("resources"))
 			loadResource(n, definitions.getResources(), false);
@@ -211,14 +211,14 @@ public class SourceParser {
 		
 		org.hl7.fhir.definitions.ecore.fhir.ResourceDefn eCoreBaseResource =
 				CompositeTypeConverter.buildResourceFromFhirModel(baseResource, null);
-		eCoreBaseResource.getElements().add(CompositeTypeConverter.buildInternalIdElement());		
-		eCoreParseResults.getTypes().add( eCoreBaseResource );
+		eCoreBaseResource.getElement().add(CompositeTypeConverter.buildInternalIdElement());		
+		eCoreParseResults.getType().add( eCoreBaseResource );
 			
-		eCoreParseResults.getTypes().addAll(
+		eCoreParseResults.getType().addAll(
 				sortTypes(CompositeTypeConverter.buildResourcesFromFhirModel(definitions
 						.getResources().values() )));
 
-		eCoreParseResults.getTypes().add(CompositeTypeConverter.buildBinaryResourceDefn());
+		eCoreParseResults.getType().add(CompositeTypeConverter.buildBinaryResourceDefn());
 		
 		for (String n : ini.getPropertyNames("diagrams"))
 		  definitions.getDiagrams().put(n, ini.getStringProperty("diagrams", n));
@@ -237,17 +237,17 @@ public class SourceParser {
 			definitions.getFutureResources().put(cd.getCode(), futureResource);
 		}
 				
-		eCoreParseResults.getTypes().addAll(
+		eCoreParseResults.getType().addAll(
 				CompositeTypeConverter.buildResourcesFromFhirModel(definitions
 						.getFutureResources().values() ));
 
-		eCoreParseResults.getEvents().addAll(
+		eCoreParseResults.getEvent().addAll(
 				EventConverter.buildEventsFromFhirModel(definitions.getEvents().values()));
 	
 		// As a second pass, resolve typerefs to the types
 		fixTypeRefs( eCoreParseResults );
 	
-		eCoreParseResults.getBindings().add(BindingConverter.buildResourceTypeBinding(eCoreParseResults));
+		eCoreParseResults.getBinding().add(BindingConverter.buildResourceTypeBinding(eCoreParseResults));
 		
 		for (String n : ini.getPropertyNames("special-resources"))
 			definitions.getAggregationEndpoints().add(n);

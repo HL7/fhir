@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.EventDefn#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.EventDefn#getDefinition <em>Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.EventDefn#getFollowUps <em>Follow Ups</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.EventDefn#getUsages <em>Usages</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.EventDefn#getUsage <em>Usage</em>}</li>
  * </ul>
  * </p>
  *
@@ -100,20 +100,20 @@ public interface EventDefn extends EObject {
 	EList<String> getFollowUps();
 
 	/**
-	 * Returns the value of the '<em><b>Usages</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Usage</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.definitions.ecore.fhir.EventUsage}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Usages</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Usage</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Usages</em>' containment reference list.
-	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getEventDefn_Usages()
+	 * @return the value of the '<em>Usage</em>' containment reference list.
+	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getEventDefn_Usage()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="name='usage'"
 	 * @generated
 	 */
-	EList<EventUsage> getUsages();
+	EList<EventUsage> getUsage();
 
 } // EventDefn

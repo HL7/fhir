@@ -94,14 +94,14 @@ namespace Hl7.Fhir.Tests
             ErrorList errors = new ErrorList();
             FhirBoolean result = (FhirBoolean)FhirParser.ParseElementFromXml(xmlString, errors);
             Assert.IsTrue(errors.Count == 0, errors.ToString());
-            Assert.AreEqual(true, result.Contents);
+            Assert.AreEqual(true, result.Value);
             Assert.AreEqual("3141", result.InternalId.ToString());
 
             string jsonString = "{\"someBoolean\": { \"value\" : \"true\", \"_id\" : \"3141\" } }";
             errors.Clear();
             result = (FhirBoolean)FhirParser.ParseElementFromJson(jsonString, errors);
             Assert.IsTrue(errors.Count == 0, errors.ToString());
-            Assert.AreEqual(true, result.Contents);
+            Assert.AreEqual(true, result.Value);
             Assert.AreEqual("3141", result.InternalId.ToString());
         }
 
@@ -131,7 +131,7 @@ namespace Hl7.Fhir.Tests
             FhirBoolean result = (FhirBoolean)FhirParser.ParseElementFromXml(xmlString, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.IsNotNull(result);
-            Assert.IsNull(result.Contents);
+            Assert.IsNull(result.Value);
             Assert.AreEqual("4", result.InternalId.ToString());
 
             xmlString = "<someBoolean xmlns='http://hl7.org/fhir' id='4' value='' />";
@@ -140,7 +140,7 @@ namespace Hl7.Fhir.Tests
 
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.IsNotNull(result);
-            Assert.IsNull(result.Contents);
+            Assert.IsNull(result.Value);
             Assert.AreEqual("4", result.InternalId.ToString());
 
             string jsonString = "{ \"someBoolean\" : { \"_id\" : \"4\" } }";
@@ -148,7 +148,7 @@ namespace Hl7.Fhir.Tests
             result = (FhirBoolean)FhirParser.ParseElementFromJson(jsonString, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.IsNotNull(result);
-            Assert.IsNull(result.Contents);
+            Assert.IsNull(result.Value);
             Assert.AreEqual("4", result.InternalId.ToString());
 
             jsonString = "{ \"someBoolean\" : { \"_id\" : \"4\", \"value\" : \"\" } }";
@@ -156,7 +156,7 @@ namespace Hl7.Fhir.Tests
             result = (FhirBoolean)FhirParser.ParseElementFromJson(jsonString, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.IsNotNull(result);
-            Assert.IsNull(result.Contents);
+            Assert.IsNull(result.Value);
             Assert.AreEqual("4", result.InternalId.ToString());
         }
 
@@ -197,11 +197,11 @@ namespace Hl7.Fhir.Tests
 
         private static void verifyParseExtendedPrimitive(Date result)
         {
-            Assert.AreEqual("1972-11-30", result.Contents);
+            Assert.AreEqual("1972-11-30", result.Value);
             Assert.AreEqual(1, result.Extension.Count);
             Assert.AreEqual("http://hl7.org/fhir/profile/@iso-21090#nullFlavor", result.Extension[0].Url.ToString());
             Assert.IsTrue(result.Extension[0].Value is Code);
-            Assert.AreEqual("UNK", ((Code)result.Extension[0].Value).Contents);
+            Assert.AreEqual("UNK", ((Code)result.Extension[0].Value).Value);
         }
 
 

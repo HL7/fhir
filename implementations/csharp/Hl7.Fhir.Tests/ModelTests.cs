@@ -38,9 +38,9 @@ namespace Hl7.Fhir.Tests
             FhirBoolean bn2 = new FhirBoolean(null);
             FhirBoolean bn3 = new FhirBoolean(false);
 
-            Assert.AreEqual(true, b.Contents);
+            Assert.AreEqual(true, b.Value);
             Assert.IsNotNull(bn);
-            Assert.IsNull(bn.Contents);
+            Assert.IsNull(bn.Value);
 
             bool rb = (bool)b;
             Assert.AreEqual(true, rb);
@@ -67,11 +67,11 @@ namespace Hl7.Fhir.Tests
         public void TestEnumParsing()
         {
             var c = Code<Address.AddressUse>.Parse("temp");
-            Assert.AreEqual(Address.AddressUse.Temp, c.Contents);
+            Assert.AreEqual(Address.AddressUse.Temp, c.Value);
             Assert.AreEqual("temp", c.ToString());
 
             var f = Code<Quantity.QuantityCompararator>.Parse(">");
-            Assert.AreEqual(Quantity.QuantityCompararator.GreaterThan, f.Contents);
+            Assert.AreEqual(Quantity.QuantityCompararator.GreaterThan, f.Value);
             Assert.AreEqual(">", f.ToString());
         }
 

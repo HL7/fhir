@@ -33,10 +33,6 @@ using System.Xml.Linq;
 
 */
 
-//
-// Generated on Tue, Feb 12, 2013 21:18+0100 for FHIR v0.07
-//
-
 using Hl7.Fhir.Model;
 using System.Xml;
 using Newtonsoft.Json;
@@ -49,16 +45,18 @@ namespace Hl7.Fhir.Serializers
     */
     internal static partial class CodeSerializer
     {
+        //TODO: This must be updated to newest version of generated code, or
+        //I should try to make this go completely
         public static void SerializeCode<T>(Code<T> value, IFhirWriter writer) where T : struct
         {
             writer.WriteStartComplexContent();
 
             // Serialize element's localId attribute
-            if (value.InternalId != null && !String.IsNullOrEmpty(value.InternalId.Contents))
-                writer.WriteRefIdContents(value.InternalId.Contents);
+            if (value.InternalId != null && !String.IsNullOrEmpty(value.InternalId.Value))
+                writer.WriteRefIdContents(value.InternalId.Value);
 
             // Serialize element's primitive contents
-            if (value.Contents != null)
+            if (value.Value != null)
                 writer.WritePrimitiveContents(value.ToString());
 
             // Serialize element extension

@@ -21,13 +21,13 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#getFullName <em>Full Name</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#getBinding <em>Binding</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#getExtensibility <em>Extensibility</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#getStrength <em>Strength</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#getReference <em>Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#getSource <em>Source</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#getCodes <em>Codes</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#getAnnotations <em>Annotations</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#getParent <em>Parent</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#isExample <em>Example</em>}</li>
  * </ul>
  * </p>
  *
@@ -144,64 +144,6 @@ public interface BindingDefn extends EObject {
 	void setBinding(BindingType value);
 
 	/**
-	 * Returns the value of the '<em><b>Extensibility</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.hl7.fhir.definitions.ecore.fhir.BindingExtensibility}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Extensibility</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Extensibility</em>' attribute.
-	 * @see org.hl7.fhir.definitions.ecore.fhir.BindingExtensibility
-	 * @see #setExtensibility(BindingExtensibility)
-	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getBindingDefn_Extensibility()
-	 * @model required="true"
-	 * @generated
-	 */
-	BindingExtensibility getExtensibility();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#getExtensibility <em>Extensibility</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Extensibility</em>' attribute.
-	 * @see org.hl7.fhir.definitions.ecore.fhir.BindingExtensibility
-	 * @see #getExtensibility()
-	 * @generated
-	 */
-	void setExtensibility(BindingExtensibility value);
-
-	/**
-	 * Returns the value of the '<em><b>Strength</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.hl7.fhir.definitions.ecore.fhir.BindingStrength}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Strength</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Strength</em>' attribute.
-	 * @see org.hl7.fhir.definitions.ecore.fhir.BindingStrength
-	 * @see #setStrength(BindingStrength)
-	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getBindingDefn_Strength()
-	 * @model required="true"
-	 * @generated
-	 */
-	BindingStrength getStrength();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#getStrength <em>Strength</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Strength</em>' attribute.
-	 * @see org.hl7.fhir.definitions.ecore.fhir.BindingStrength
-	 * @see #getStrength()
-	 * @generated
-	 */
-	void setStrength(BindingStrength value);
-
-	/**
 	 * Returns the value of the '<em><b>Reference</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -254,51 +196,25 @@ public interface BindingDefn extends EObject {
 	void setSource(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Codes</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Code</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.definitions.ecore.fhir.DefinedCode}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Codes</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Code</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Codes</em>' containment reference list.
-	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getBindingDefn_Codes()
+	 * @return the value of the '<em>Code</em>' containment reference list.
+	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getBindingDefn_Code()
 	 * @model containment="true"
 	 *        extendedMetaData="name='code'"
 	 * @generated
 	 */
-	EList<DefinedCode> getCodes();
-
-	/**
-	 * Returns the value of the '<em><b>Annotations</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Annotations</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Annotations</em>' containment reference.
-	 * @see #setAnnotations(Annotations)
-	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getBindingDefn_Annotations()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	Annotations getAnnotations();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#getAnnotations <em>Annotations</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Annotations</em>' containment reference.
-	 * @see #getAnnotations()
-	 * @generated
-	 */
-	void setAnnotations(Annotations value);
+	EList<DefinedCode> getCode();
 
 	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link org.hl7.fhir.definitions.ecore.fhir.NameScope#getBindings <em>Bindings</em>}'.
+	 * It is bidirectional and its opposite is '{@link org.hl7.fhir.definitions.ecore.fhir.NameScope#getBinding <em>Binding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parent</em>' container reference isn't clear,
@@ -308,8 +224,8 @@ public interface BindingDefn extends EObject {
 	 * @return the value of the '<em>Parent</em>' container reference.
 	 * @see #setParent(NameScope)
 	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getBindingDefn_Parent()
-	 * @see org.hl7.fhir.definitions.ecore.fhir.NameScope#getBindings
-	 * @model opposite="bindings" required="true" transient="false"
+	 * @see org.hl7.fhir.definitions.ecore.fhir.NameScope#getBinding
+	 * @model opposite="binding" required="true" transient="false"
 	 * @generated
 	 */
 	NameScope getParent();
@@ -323,6 +239,84 @@ public interface BindingDefn extends EObject {
 	 * @generated
 	 */
 	void setParent(NameScope value);
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see #setDescription(String)
+	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getBindingDefn_Description()
+	 * @model
+	 * @generated
+	 */
+	String getDescription();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#getDescription <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Definition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Definition</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Definition</em>' attribute.
+	 * @see #setDefinition(String)
+	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getBindingDefn_Definition()
+	 * @model
+	 * @generated
+	 */
+	String getDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#getDefinition <em>Definition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Definition</em>' attribute.
+	 * @see #getDefinition()
+	 * @generated
+	 */
+	void setDefinition(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Example</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Example</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Example</em>' attribute.
+	 * @see #setExample(boolean)
+	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getBindingDefn_Example()
+	 * @model
+	 * @generated
+	 */
+	boolean isExample();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.definitions.ecore.fhir.BindingDefn#isExample <em>Example</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Example</em>' attribute.
+	 * @see #isExample()
+	 * @generated
+	 */
+	void setExample(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

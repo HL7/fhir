@@ -458,7 +458,7 @@ public class GeneratorUtils {
 		
 		// An attribute cannot have the same name as a nested enums
 		// (and enums are only generated for codelists)
-		for( BindingDefn binding : member.getParentType().getBindings() )
+		for( BindingDefn binding : member.getParentType().getBinding() )
 		{
 			if( binding.getName().equals(result) && isEnumerableCodeList(binding) )
 			{
@@ -487,12 +487,12 @@ public class GeneratorUtils {
 			throws Exception
 	{
 		if( elem.containsResource() )
-			return elem.getTypes().get(0);	// the element's type is already correct, "Resource"
+			return elem.getType().get(0);	// the element's type is already correct, "Resource"
 
 		boolean hasMulti = elem.isPolymorph() || elem.getName().equals(TypeRef.ELEMENT_TYPE_NAME);
 										
 		if( !hasMulti )
-			return elem.getTypes().get(0);	// no polymorphism -> the type itself
+			return elem.getType().get(0);	// no polymorphism -> the type itself
 		else
 			return newTypeRef(TypeRef.ELEMENT_TYPE_NAME);   // the polymophic Element type
 	}
@@ -516,8 +516,7 @@ public class GeneratorUtils {
 	public static boolean isEnumerableCodeList( BindingDefn binding )
 	{
 		if( binding != null )
-			return binding.getBinding() == BindingType.CODE_LIST &&
-			binding.getExtensibility() == BindingExtensibility.COMPLETE;
+			return binding.getBinding() == BindingType.CODE_LIST;
 		else
 			return false;
 	}

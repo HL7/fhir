@@ -6,10 +6,13 @@
  */
 package org.hl7.fhir.definitions.ecore.fhir.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.hl7.fhir.definitions.ecore.fhir.FhirPackage;
 import org.hl7.fhir.definitions.ecore.fhir.SearchParameter;
 import org.hl7.fhir.definitions.ecore.fhir.SearchRepeatMode;
@@ -25,7 +28,8 @@ import org.hl7.fhir.definitions.ecore.fhir.SearchType;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.SearchParameterImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.SearchParameterImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.SearchParameterImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.SearchParameterImpl#getRepeats <em>Repeats</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.SearchParameterImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.SearchParameterImpl#getComposite <em>Composite</em>}</li>
  * </ul>
  * </p>
  *
@@ -93,24 +97,24 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
 	protected SearchType type = TYPE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRepeats() <em>Repeats</em>}' attribute.
+	 * The cached value of the '{@link #getPath() <em>Path</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRepeats()
+	 * @see #getPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final SearchRepeatMode REPEATS_EDEFAULT = SearchRepeatMode.SINGLE;
+	protected EList<String> path;
 
 	/**
-	 * The cached value of the '{@link #getRepeats() <em>Repeats</em>}' attribute.
+	 * The cached value of the '{@link #getComposite() <em>Composite</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRepeats()
+	 * @see #getComposite()
 	 * @generated
 	 * @ordered
 	 */
-	protected SearchRepeatMode repeats = REPEATS_EDEFAULT;
+	protected EList<String> composite;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -205,8 +209,11 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SearchRepeatMode getRepeats() {
-		return repeats;
+	public EList<String> getPath() {
+		if (path == null) {
+			path = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.SEARCH_PARAMETER__PATH);
+		}
+		return path;
 	}
 
 	/**
@@ -214,11 +221,11 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRepeats(SearchRepeatMode newRepeats) {
-		SearchRepeatMode oldRepeats = repeats;
-		repeats = newRepeats == null ? REPEATS_EDEFAULT : newRepeats;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEARCH_PARAMETER__REPEATS, oldRepeats, repeats));
+	public EList<String> getComposite() {
+		if (composite == null) {
+			composite = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.SEARCH_PARAMETER__COMPOSITE);
+		}
+		return composite;
 	}
 
 	/**
@@ -235,8 +242,10 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
 				return getDescription();
 			case FhirPackage.SEARCH_PARAMETER__TYPE:
 				return getType();
-			case FhirPackage.SEARCH_PARAMETER__REPEATS:
-				return getRepeats();
+			case FhirPackage.SEARCH_PARAMETER__PATH:
+				return getPath();
+			case FhirPackage.SEARCH_PARAMETER__COMPOSITE:
+				return getComposite();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -246,6 +255,7 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -258,8 +268,13 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
 			case FhirPackage.SEARCH_PARAMETER__TYPE:
 				setType((SearchType)newValue);
 				return;
-			case FhirPackage.SEARCH_PARAMETER__REPEATS:
-				setRepeats((SearchRepeatMode)newValue);
+			case FhirPackage.SEARCH_PARAMETER__PATH:
+				getPath().clear();
+				getPath().addAll((Collection<? extends String>)newValue);
+				return;
+			case FhirPackage.SEARCH_PARAMETER__COMPOSITE:
+				getComposite().clear();
+				getComposite().addAll((Collection<? extends String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -282,8 +297,11 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
 			case FhirPackage.SEARCH_PARAMETER__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
-			case FhirPackage.SEARCH_PARAMETER__REPEATS:
-				setRepeats(REPEATS_EDEFAULT);
+			case FhirPackage.SEARCH_PARAMETER__PATH:
+				getPath().clear();
+				return;
+			case FhirPackage.SEARCH_PARAMETER__COMPOSITE:
+				getComposite().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -303,8 +321,10 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case FhirPackage.SEARCH_PARAMETER__TYPE:
 				return type != TYPE_EDEFAULT;
-			case FhirPackage.SEARCH_PARAMETER__REPEATS:
-				return repeats != REPEATS_EDEFAULT;
+			case FhirPackage.SEARCH_PARAMETER__PATH:
+				return path != null && !path.isEmpty();
+			case FhirPackage.SEARCH_PARAMETER__COMPOSITE:
+				return composite != null && !composite.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -325,8 +345,10 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
 		result.append(description);
 		result.append(", type: ");
 		result.append(type);
-		result.append(", repeats: ");
-		result.append(repeats);
+		result.append(", path: ");
+		result.append(path);
+		result.append(", composite: ");
+		result.append(composite);
 		result.append(')');
 		return result.toString();
 	}

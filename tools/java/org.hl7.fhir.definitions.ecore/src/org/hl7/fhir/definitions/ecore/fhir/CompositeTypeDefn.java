@@ -16,8 +16,8 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn#getElements <em>Elements</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn#getInvariants <em>Invariants</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn#getElement <em>Element</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn#getInvariant <em>Invariant</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn#isUnnamedElementGroup <em>Unnamed Element Group</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn#getBaseType <em>Base Type</em>}</li>
@@ -31,40 +31,40 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface CompositeTypeDefn extends TypeDefn, NameScope {
 	/**
-	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Element</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn}.
 	 * It is bidirectional and its opposite is '{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getParentType <em>Parent Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Element</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Elements</em>' containment reference list.
-	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getCompositeTypeDefn_Elements()
+	 * @return the value of the '<em>Element</em>' containment reference list.
+	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getCompositeTypeDefn_Element()
 	 * @see org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getParentType
 	 * @model opposite="parentType" containment="true"
 	 *        extendedMetaData="name='element'"
 	 * @generated
 	 */
-	EList<ElementDefn> getElements();
+	EList<ElementDefn> getElement();
 
 	/**
-	 * Returns the value of the '<em><b>Invariants</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Invariant</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.definitions.ecore.fhir.Invariant}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Invariants</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Invariant</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Invariants</em>' containment reference list.
-	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getCompositeTypeDefn_Invariants()
+	 * @return the value of the '<em>Invariant</em>' containment reference list.
+	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getCompositeTypeDefn_Invariant()
 	 * @model containment="true"
 	 *        extendedMetaData="name='invariant'"
 	 * @generated
 	 */
-	EList<Invariant> getInvariants();
+	EList<Invariant> getInvariant();
 
 	/**
 	 * Returns the value of the '<em><b>Unnamed Element Group</b></em>' attribute.

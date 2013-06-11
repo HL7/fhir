@@ -71,8 +71,8 @@ namespace Hl7.Fhir.Model
 
         public override string ToString()
         {
-            if (Contents != null)
-                return Contents.ToString();
+            if (Value != null)
+                return Value.ToString();
             else
                 return null;
         }

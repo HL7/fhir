@@ -72,7 +72,7 @@ public class EventConverter
 			newUsage.getResponseResources().addAll( usage.getResponseResources() );
 			newUsage.getResponseAggregations().addAll( usage.getResponseAggregations() );
 			
-			result.getUsages().add(newUsage);
+			result.getUsage().add(newUsage);
 		}
 		
 		return result;

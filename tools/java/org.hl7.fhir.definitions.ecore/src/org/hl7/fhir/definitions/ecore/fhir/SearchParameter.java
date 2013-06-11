@@ -6,6 +6,7 @@
  */
 package org.hl7.fhir.definitions.ecore.fhir;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -19,7 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.SearchParameter#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.SearchParameter#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.SearchParameter#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.SearchParameter#getRepeats <em>Repeats</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.SearchParameter#getPath <em>Path</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.SearchParameter#getComposite <em>Composite</em>}</li>
  * </ul>
  * </p>
  *
@@ -110,32 +112,35 @@ public interface SearchParameter extends EObject {
 	void setType(SearchType value);
 
 	/**
-	 * Returns the value of the '<em><b>Repeats</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.hl7.fhir.definitions.ecore.fhir.SearchRepeatMode}.
+	 * Returns the value of the '<em><b>Path</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Repeats</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Path</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Repeats</em>' attribute.
-	 * @see org.hl7.fhir.definitions.ecore.fhir.SearchRepeatMode
-	 * @see #setRepeats(SearchRepeatMode)
-	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getSearchParameter_Repeats()
-	 * @model required="true"
+	 * @return the value of the '<em>Path</em>' attribute list.
+	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getSearchParameter_Path()
+	 * @model
 	 * @generated
 	 */
-	SearchRepeatMode getRepeats();
+	EList<String> getPath();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.definitions.ecore.fhir.SearchParameter#getRepeats <em>Repeats</em>}' attribute.
+	 * Returns the value of the '<em><b>Composite</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Composite</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Repeats</em>' attribute.
-	 * @see org.hl7.fhir.definitions.ecore.fhir.SearchRepeatMode
-	 * @see #getRepeats()
+	 * @return the value of the '<em>Composite</em>' attribute list.
+	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getSearchParameter_Composite()
+	 * @model
 	 * @generated
 	 */
-	void setRepeats(SearchRepeatMode value);
+	EList<String> getComposite();
 
 } // SearchParameter

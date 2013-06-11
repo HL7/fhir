@@ -205,15 +205,15 @@ public class CSharpSerializerGenerator extends GenBlock
 			if( idElement != null )
 			{
 				ln("// Serialize element's localId attribute");
-				ln("if( value.InternalId != null && !String.IsNullOrEmpty(value.InternalId.Contents) )");
-				ln("	writer.WriteRefIdContents(value.InternalId.Contents);");
+				ln("if( value.InternalId != null && !String.IsNullOrEmpty(value.InternalId.Value) )");
+				ln("	writer.WriteRefIdContents(value.InternalId.Value);");
 				ln();
 			}
 
 			if( valueElement != null )
 			{
 				ln("// Serialize element's primitive contents");
-				ln("if(value.Contents != null)");
+				ln("if(value.Value != null)");
 				ln("	writer.WritePrimitiveContents(value.ToString());");
 				ln();
 			}
@@ -306,7 +306,7 @@ public class CSharpSerializerGenerator extends GenBlock
 	
 	private void serializeSingleElement( ElementDefn member, String propertyName ) throws Exception
 	{	
-		if( !member.isPolymorph() && member.getTypes().get(0).getName().equals("xhtml") )
+		if( !member.isPolymorph() && member.getType().get(0).getName().equals("xhtml") )
 		{
 			// Ugly hack to do special handling for Xhtml members.
 			ln("writer.WriteXhtmlContents(");
@@ -344,16 +344,16 @@ public class CSharpSerializerGenerator extends GenBlock
 			ln("FhirSerializer.SerializeElement(");
 		else if( member.containsResource() )
 			ln("FhirSerializer.SerializeResource(");
-		else if( GeneratorUtils.isCodeWithCodeList(definitions, member.getTypes().get(0)) )
+		else if( GeneratorUtils.isCodeWithCodeList(definitions, member.getType().get(0)) )
 		{
-			String enumType = GeneratorUtils.buildFullyScopedTypeName(member.getTypes().get(0).getFullBindingRef());
+			String enumType = GeneratorUtils.buildFullyScopedTypeName(member.getType().get(0).getFullBindingRef());
 			ln("CodeSerializer.SerializeCode<");
 				nl(enumType);
 				nl(">(");
 		}
 		else
 		{
-			TypeRef ref = member.getTypes().get(0);
+			TypeRef ref = member.getType().get(0);
 			TypeDefn type = definitions.findType(ref.getFullName());
 			String serializerCall;
 			if (type == null)

@@ -67,12 +67,12 @@ namespace Hl7.Fhir.Model
 
         public override string ValidateData()
         {
-            if (Contents == null)
+            if (Value == null)
                 return "Id values cannot be empty";
 
             Id dummy;
 
-            if (!TryParse( this.Contents, out dummy ))
+            if (!TryParse( this.Value, out dummy ))
                 return "Not an correctly formatted id value";
             
             return null; 
@@ -80,7 +80,7 @@ namespace Hl7.Fhir.Model
 
         public override string ToString()
         {
-            return Contents;
+            return Value;
         }
     }
 }

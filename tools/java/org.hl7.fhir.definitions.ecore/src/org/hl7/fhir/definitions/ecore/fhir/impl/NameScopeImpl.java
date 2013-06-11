@@ -27,7 +27,7 @@ public class NameScopeImpl {
 	public EList<CompositeTypeDefn> getLocalCompositeTypes() {
 		EList<CompositeTypeDefn> result = new BasicEList<CompositeTypeDefn>();
 		
-		for( TypeDefn t : scope.getTypes() )
+		for( TypeDefn t : scope.getType() )
 		{		
 			if( t.isComposite() )
 				result.add((CompositeTypeDefn)t);
@@ -43,7 +43,7 @@ public class NameScopeImpl {
 	public EList<ConstrainedTypeDefn> getLocalConstrainedTypes() {
 		EList<ConstrainedTypeDefn> result = new BasicEList<ConstrainedTypeDefn>();
 		
-		for( TypeDefn t : scope.getTypes() )
+		for( TypeDefn t : scope.getType() )
 		{		
 			if( t.isConstrained() )
 				result.add((ConstrainedTypeDefn)t);

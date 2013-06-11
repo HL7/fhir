@@ -74,7 +74,7 @@ namespace Hl7.Fhir.Model
         {
             Date dummy;
 
-            if (!TryParse( this.Contents, out dummy ))
+            if (!TryParse( Value, out dummy ))
                 return "Not a correctly formatted date value";
             
             return null; 
@@ -82,7 +82,7 @@ namespace Hl7.Fhir.Model
 
         public override string ToString()
         {
-            return Contents;
+            return Value;
         }
     }
 }
