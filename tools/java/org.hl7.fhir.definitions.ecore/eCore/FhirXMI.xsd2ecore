@@ -187,7 +187,6 @@
     <nested inputs="FHIR.ecore#//CompositeTypeDefn" outputs="FhirXMI.xsd#//CompositeTypeDefn;XSDComplexTypeDefinition=17">
       <nested inputs="FHIR.ecore#//CompositeTypeDefn/unnamedElementGroup" outputs="FhirXMI.xsd#//CompositeTypeDefn;XSDComplexTypeDefinition=17/XSDAttributeUse"/>
       <nested inputs="FHIR.ecore#//CompositeTypeDefn/abstract" outputs="FhirXMI.xsd#//CompositeTypeDefn;XSDComplexTypeDefinition=17/XSDAttributeUse=1"/>
-      <nested inputs="FHIR.ecore#//CompositeTypeDefn/primitiveContents" outputs="FhirXMI.xsd#//CompositeTypeDefn;XSDComplexTypeDefinition=17/XSDAttributeUse=2"/>
       <nested inputs="FHIR.ecore#//CompositeTypeDefn/element" outputs="FhirXMI.xsd#//CompositeTypeDefn;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=2"/>
       <nested inputs="FHIR.ecore#//CompositeTypeDefn/invariant" outputs="FhirXMI.xsd#//CompositeTypeDefn;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=3"/>
       <nested inputs="FHIR.ecore#//CompositeTypeDefn/baseType" outputs="FhirXMI.xsd#//CompositeTypeDefn;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=4"/>

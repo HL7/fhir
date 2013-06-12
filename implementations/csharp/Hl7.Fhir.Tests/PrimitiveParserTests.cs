@@ -99,7 +99,7 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual(true, result.Value);
             Assert.AreEqual("3141", result.LocalId.ToString());
 
-            string jsonString = "{\"someBoolean\": { \"value\" : \"true\", \"_id\" : \"3141\" } }";
+            string jsonString = "{\"someBoolean\": { \"value\" : true, \"_id\" : \"3141\" } }";
             errors.Clear();
             result = (FhirBoolean)FhirParser.ParseElementFromJson(jsonString, errors);
             Assert.IsTrue(errors.Count == 0, errors.ToString());
@@ -117,7 +117,7 @@ namespace Hl7.Fhir.Tests
             Assert.IsTrue(errors.Count == 1);
             Assert.IsTrue(errors[0].Message.Contains("unknownattr"));
 
-            string jsonString = "{\"someBoolean\": { \"value\" : \"true\", \"unknownattr\" : \"yes\" } }";
+            string jsonString = "{\"someBoolean\": { \"value\" : true, \"unknownattr\" : \"yes\" } }";
             errors.Clear();
             result = (FhirBoolean)FhirParser.ParseElementFromJson(jsonString, errors);
             Assert.IsTrue(errors.Count == 1);
@@ -128,34 +128,34 @@ namespace Hl7.Fhir.Tests
         [TestMethod]
         public void TestParseEmptyPrimitive()
         {
-            string xmlString = "<someBoolean xmlns='http://hl7.org/fhir' id='4' />";
+            string xmlString = "<someString xmlns='http://hl7.org/fhir' id='4' />";
             ErrorList errors = new ErrorList();
-            FhirBoolean result = (FhirBoolean)FhirParser.ParseElementFromXml(xmlString, errors);
+            FhirString result = (FhirString)FhirParser.ParseElementFromXml(xmlString, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.IsNotNull(result);
             Assert.IsNull(result.Value);
             Assert.AreEqual("4", result.LocalId.ToString());
 
-            xmlString = "<someBoolean xmlns='http://hl7.org/fhir' id='4' value='' />";
+            xmlString = "<someString xmlns='http://hl7.org/fhir' id='4' value='' />";
             errors.Clear();
-            result = (FhirBoolean)FhirParser.ParseElementFromXml(xmlString, errors);
+            result = (FhirString)FhirParser.ParseElementFromXml(xmlString, errors);
 
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.IsNotNull(result);
             Assert.IsNull(result.Value);
             Assert.AreEqual("4", result.LocalId.ToString());
 
-            string jsonString = "{ \"someBoolean\" : { \"_id\" : \"4\" } }";
+            string jsonString = "{ \"someString\" : { \"_id\" : \"4\" } }";
             errors.Clear();
-            result = (FhirBoolean)FhirParser.ParseElementFromJson(jsonString, errors);
+            result = (FhirString)FhirParser.ParseElementFromJson(jsonString, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.IsNotNull(result);
             Assert.IsNull(result.Value);
             Assert.AreEqual("4", result.LocalId.ToString());
 
-            jsonString = "{ \"someBoolean\" : { \"_id\" : \"4\", \"value\" : \"\" } }";
+            jsonString = "{ \"someString\" : { \"_id\" : \"4\", \"value\" : \"\" } }";
             errors.Clear();
-            result = (FhirBoolean)FhirParser.ParseElementFromJson(jsonString, errors);
+            result = (FhirString)FhirParser.ParseElementFromJson(jsonString, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.IsNotNull(result);
             Assert.IsNull(result.Value);

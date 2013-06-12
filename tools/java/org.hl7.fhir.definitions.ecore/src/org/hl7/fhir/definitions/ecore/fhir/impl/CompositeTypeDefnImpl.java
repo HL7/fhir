@@ -42,7 +42,6 @@ import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.CompositeTypeDefnImpl#isUnnamedElementGroup <em>Unnamed Element Group</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.CompositeTypeDefnImpl#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.CompositeTypeDefnImpl#getBaseType <em>Base Type</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.CompositeTypeDefnImpl#isPrimitiveContents <em>Primitive Contents</em>}</li>
  * </ul>
  * </p>
  *
@@ -130,24 +129,6 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	 * @ordered
 	 */
 	protected TypeRef baseType;
-	/**
-	 * The default value of the '{@link #isPrimitiveContents() <em>Primitive Contents</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isPrimitiveContents()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean PRIMITIVE_CONTENTS_EDEFAULT = false;
-	/**
-	 * The cached value of the '{@link #isPrimitiveContents() <em>Primitive Contents</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isPrimitiveContents()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean primitiveContents = PRIMITIVE_CONTENTS_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -307,27 +288,6 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isPrimitiveContents() {
-		return primitiveContents;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPrimitiveContents(boolean newPrimitiveContents) {
-		boolean oldPrimitiveContents = primitiveContents;
-		primitiveContents = newPrimitiveContents;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMPOSITE_TYPE_DEFN__PRIMITIVE_CONTENTS, oldPrimitiveContents, primitiveContents));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public EList<ElementDefn> getAllElements() {
@@ -452,8 +412,6 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 				return isAbstract();
 			case FhirPackage.COMPOSITE_TYPE_DEFN__BASE_TYPE:
 				return getBaseType();
-			case FhirPackage.COMPOSITE_TYPE_DEFN__PRIMITIVE_CONTENTS:
-				return isPrimitiveContents();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -492,9 +450,6 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 			case FhirPackage.COMPOSITE_TYPE_DEFN__BASE_TYPE:
 				setBaseType((TypeRef)newValue);
 				return;
-			case FhirPackage.COMPOSITE_TYPE_DEFN__PRIMITIVE_CONTENTS:
-				setPrimitiveContents((Boolean)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -528,9 +483,6 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 			case FhirPackage.COMPOSITE_TYPE_DEFN__BASE_TYPE:
 				setBaseType((TypeRef)null);
 				return;
-			case FhirPackage.COMPOSITE_TYPE_DEFN__PRIMITIVE_CONTENTS:
-				setPrimitiveContents(PRIMITIVE_CONTENTS_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -557,8 +509,6 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 				return abstract_ != ABSTRACT_EDEFAULT;
 			case FhirPackage.COMPOSITE_TYPE_DEFN__BASE_TYPE:
 				return baseType != null;
-			case FhirPackage.COMPOSITE_TYPE_DEFN__PRIMITIVE_CONTENTS:
-				return primitiveContents != PRIMITIVE_CONTENTS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -611,8 +561,6 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 		result.append(unnamedElementGroup);
 		result.append(", abstract: ");
 		result.append(abstract_);
-		result.append(", primitiveContents: ");
-		result.append(primitiveContents);
 		result.append(')');
 		return result.toString();
 	}

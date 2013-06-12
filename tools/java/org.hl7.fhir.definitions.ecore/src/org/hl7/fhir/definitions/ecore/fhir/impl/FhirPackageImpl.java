@@ -1163,15 +1163,6 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCompositeTypeDefn_PrimitiveContents() {
-		return (EAttribute)compositeTypeDefnEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public EClass getNameScope() {
 		return nameScopeEClass;
@@ -1806,7 +1797,6 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 		createEAttribute(compositeTypeDefnEClass, COMPOSITE_TYPE_DEFN__UNNAMED_ELEMENT_GROUP);
 		createEAttribute(compositeTypeDefnEClass, COMPOSITE_TYPE_DEFN__ABSTRACT);
 		createEReference(compositeTypeDefnEClass, COMPOSITE_TYPE_DEFN__BASE_TYPE);
-		createEAttribute(compositeTypeDefnEClass, COMPOSITE_TYPE_DEFN__PRIMITIVE_CONTENTS);
 
 		nameScopeEClass = createEClass(NAME_SCOPE);
 		createEReference(nameScopeEClass, NAME_SCOPE__TYPE);
@@ -2034,7 +2024,6 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 		initEAttribute(getCompositeTypeDefn_UnnamedElementGroup(), ecorePackage.getEBoolean(), "unnamedElementGroup", null, 0, 1, CompositeTypeDefn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompositeTypeDefn_Abstract(), ecorePackage.getEBoolean(), "abstract", null, 0, 1, CompositeTypeDefn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCompositeTypeDefn_BaseType(), this.getTypeRef(), null, "baseType", null, 0, 1, CompositeTypeDefn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCompositeTypeDefn_PrimitiveContents(), ecorePackage.getEBoolean(), "primitiveContents", null, 0, 1, CompositeTypeDefn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(compositeTypeDefnEClass, this.getElementDefn(), "getAllElements", 0, -1, IS_UNIQUE, IS_ORDERED);
 

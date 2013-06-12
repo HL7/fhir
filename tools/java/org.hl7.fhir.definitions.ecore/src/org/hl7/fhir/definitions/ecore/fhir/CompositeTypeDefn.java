@@ -21,7 +21,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn#isUnnamedElementGroup <em>Unnamed Element Group</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn#getBaseType <em>Base Type</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn#isPrimitiveContents <em>Primitive Contents</em>}</li>
  * </ul>
  * </p>
  *
@@ -143,32 +142,6 @@ public interface CompositeTypeDefn extends TypeDefn, NameScope {
 	 * @generated
 	 */
 	void setBaseType(TypeRef value);
-
-	/**
-	 * Returns the value of the '<em><b>Primitive Contents</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Primitive Contents</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Primitive Contents</em>' attribute.
-	 * @see #setPrimitiveContents(boolean)
-	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getCompositeTypeDefn_PrimitiveContents()
-	 * @model
-	 * @generated
-	 */
-	boolean isPrimitiveContents();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn#isPrimitiveContents <em>Primitive Contents</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Primitive Contents</em>' attribute.
-	 * @see #isPrimitiveContents()
-	 * @generated
-	 */
-	void setPrimitiveContents(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

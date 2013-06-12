@@ -636,10 +636,6 @@
         <element xmi:type="ecore:EAttribute" href="FHIR.ecore#//CompositeTypeDefn/abstract"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_ZsIFsWrmEeKjtO8cnwScaA"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_Cx6ecG-hEeKjtO8cnwScaA" type="2001">
-        <element xmi:type="ecore:EAttribute" href="FHIR.ecore#//CompositeTypeDefn/primitiveContents"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_Cx6ecW-hEeKjtO8cnwScaA"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_CMbUsa_CEeGrAaDwyEdjfA"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_CMbUsq_CEeGrAaDwyEdjfA"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_CMbUs6_CEeGrAaDwyEdjfA"/>

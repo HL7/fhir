@@ -128,17 +128,17 @@ namespace Hl7.Fhir.Parsers
             else if (primitiveTypeName == "integer")
                 return readPropertyAsString(JsonToken.Integer);
             else
-                return readPropertyAsString(JsonToken.String);
+                return processStringProperty();
         }
 
-        //private string processStringProperty()
-        //{
-        //    string value = readStringProperty();
-        //    if (!String.IsNullOrEmpty(value))
-        //        return value;
-        //    else
-        //        return null;
-        //}
+        private string processStringProperty()
+        {
+            string value = readPropertyAsString(JsonToken.String);
+            if (!String.IsNullOrEmpty(value))
+                return value;
+            else
+                return null;
+        }
 
  
         public void LeaveElement()

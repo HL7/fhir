@@ -47,48 +47,20 @@ namespace Hl7.Fhir.Parsers
         /// <summary>
         /// Parse code
         /// </summary>
-        //TODO: Update to latest generated code for a parser, or make this go completely
         public static Code<T> ParseCode<T>(IFhirReader reader, ErrorList errors,
                                 Code<T> existingInstance = null) where T : struct
         {
+            Code c = CodeParser.ParseCode(reader, errors);
+
             Hl7.Fhir.Model.Code<T> result = existingInstance != null ? 
                 existingInstance : new Hl7.Fhir.Model.Code<T>();
+
+            result.Extension = c.Extension;
+            result.LocalId = c.LocalId;
+
             try
             {
-                string currentElementName = reader.CurrentElementName;
-                reader.EnterElement();
-                
-                while (reader.HasMoreElements())
-                {
-                    // Parse element extension
-                    if( ParserUtils.IsAtFhirElement(reader, "extension") )
-                    {
-                        result.Extension = new List<Hl7.Fhir.Model.Extension>();
-                        reader.EnterArray();
-                        
-                        while( ParserUtils.IsAtArrayElement(reader, "extension") )
-                            result.Extension.Add(ExtensionParser.ParseExtension(reader, errors));
-                        
-                        reader.LeaveArray();
-                    }
-                    
-                    // Parse element _id
-                    else if( ParserUtils.IsAtFhirElement(reader, "_id") )
-                        result.LocalId = Id.Parse(reader.ReadPrimitiveContents("id"));
-                    
-                    // Parse element value
-                    else if( ParserUtils.IsAtFhirElement(reader, "value") )
-                        result.Value = Code<T>.Parse(reader.ReadPrimitiveContents("code")).Value;
-                    
-                    else
-                    {
-                        errors.Add(String.Format("Encountered unknown element {0} while parsing {1}", reader.CurrentElementName, currentElementName), reader);
-                        reader.SkipSubElementsFor(currentElementName);
-                        result = null;
-                    }
-                }
-                
-                reader.LeaveElement();
+                result.Value = Code<T>.Parse(c.Value).Value;
             }
             catch (Exception ex)
             {
