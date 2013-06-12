@@ -67,10 +67,6 @@
         <element xmi:type="ecore:EAttribute" href="FHIR.ecore#//ElementDefn/exampleValue"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_CL03k6_CEeGrAaDwyEdjfA"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_MTbqgGyMEeKjtO8cnwScaA" type="2001">
-        <element xmi:type="ecore:EAttribute" href="FHIR.ecore#//ElementDefn/internalId"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_MTbqgWyMEeKjtO8cnwScaA"/>
-      </children>
       <children xmi:type="notation:Node" xmi:id="_cElPEGyMEeKjtO8cnwScaA" type="2001">
         <element xmi:type="ecore:EAttribute" href="FHIR.ecore#//ElementDefn/primitiveContents"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_cElPEWyMEeKjtO8cnwScaA"/>
@@ -91,10 +87,6 @@
       <children xmi:type="notation:Node" xmi:id="_3ZDfEGraEeKjtO8cnwScaA" type="2002">
         <element xmi:type="ecore:EOperation" href="FHIR.ecore#//ElementDefn/containsResource"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_3ZDfEWraEeKjtO8cnwScaA"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_HlP08XHuEeKcz-bDVSWqpQ" type="2002">
-        <element xmi:type="ecore:EOperation" href="FHIR.ecore#//ElementDefn/isXhtml"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_HlP08nHuEeKcz-bDVSWqpQ"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_CLrtqa_CEeGrAaDwyEdjfA"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_CLrtqq_CEeGrAaDwyEdjfA"/>

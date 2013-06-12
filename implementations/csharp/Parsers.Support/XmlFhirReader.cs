@@ -43,7 +43,13 @@ namespace Hl7.Fhir.Parsers
         public const string XHTMLELEM = "div";
         public const string IDATTR = "id";
         public const string VALUEATTR = "value";
-        public const string CONTENT_TYPE = "contentType";
+        public const string CONTENTTYPEATTR = "contentType";
+
+        public const string XHTMLDIV_VALUE_NAME = "div";
+        public const string PRIMITIVE_VALUE_NAME = "value";
+        public const string LOCALID_NAME = "_id";
+        public const string BINARY_CONTENTTYPE_NAME = "contentType";
+        public const string BINARY_CONTENT_NAME = "content";
 
         private XmlReader xr;
 
@@ -55,7 +61,6 @@ namespace Hl7.Fhir.Parsers
             settings.IgnoreWhitespace = true;
 
             this.xr = XmlReader.Create(xr, settings);
-            //this.xr.MoveToContent();
         }
 
         public void MoveToContent()
@@ -64,12 +69,35 @@ namespace Hl7.Fhir.Parsers
                 this.xr.MoveToContent();
         }
 
+
         public string CurrentElementName
         {
             get
             {
-                if (xr.NodeType == XmlNodeType.Element)
-                    return xr.LocalName;
+                // If we have batched up attributes to provide, 
+                // provide the current attribute first
+                if (currentElementContents != null )
+                    return currentElementContents.Item1;
+
+                // If this is the infamous xhtml div, fake that
+                // the element is actually called 'div'
+                else if (isAtXhtmlElement())
+                    return XHTMLDIV_VALUE_NAME;
+
+                // If we're done with the attributes, return
+                // the local name of the current normal xml element
+                // if this is the FHIR namespace, and a prefixed
+                // element name otherwise (which will lead to the
+                // desired parse errors for unknown elements)
+                else if (xr.NodeType == XmlNodeType.Element)
+                {
+                    if( xr.NamespaceURI == Support.Util.FHIRNS )
+                        return xr.LocalName;
+                    else
+                        return String.Format("{{0}}{1}", xr.NamespaceURI, xr.LocalName);
+                }
+
+                // Kind of an error condition, for debugging purposes
                 else
                     return "#" + xr.NodeType.ToString();
             }
@@ -79,15 +107,26 @@ namespace Hl7.Fhir.Parsers
         bool insideEmptyElement = false;
 
 
-        private class ElementAttributes
+        private class ElementContents
         {
-            public string Primitive { get; set; }
-            public string LocalId { get; set; }
-            public string ContentType { get; set; }
+            public Stack<Tuple<string, string>> Elements = new Stack<Tuple<string, string>>();
+
+            public bool hasContents()
+            {
+                return Elements.Count > 0;
+            }
+
+            public Tuple<string, string> CurrentElement()
+            {
+                if (hasContents())
+                    return Elements.Peek();
+                else
+                    return null;
+            }
         }
+        
 
-        private Stack<ElementAttributes> elementStack = new Stack<ElementAttributes>();
-
+        private Stack<ElementContents> elementStack = new Stack<ElementContents>();
 
         public void EnterElement()
         {
@@ -96,27 +135,56 @@ namespace Hl7.Fhir.Parsers
             string contentType = null;
 
             readAttributes(out id, out value, out contentType);
-            elementStack.Push(new ElementAttributes { LocalId = id, Primitive = value, 
-                ContentType = contentType });
+            var contents = new ElementContents();
+            
+            if( id != null )
+                contents.Elements.Push( new Tuple<string,string>(LOCALID_NAME,id) );
+
+            if(value != null )
+                contents.Elements.Push( new Tuple<string,string>(PRIMITIVE_VALUE_NAME,value) );
+
+            if (contentType != null)
+                contents.Elements.Push(new Tuple<string, string>(BINARY_CONTENTTYPE_NAME, contentType));
 
             if (!xr.IsEmptyElement)
             {
                 insideEmptyElement = false;
                 xr.ReadStartElement();
+
+                if( xr.NodeType == XmlNodeType.Text )
+                {
+                    var txt = xr.ReadString();
+                    contents.Elements.Push(new Tuple<string, string>(BINARY_CONTENT_NAME, txt));
+                }
             }
             else
                 insideEmptyElement = true;
+
+            elementStack.Push(contents);
         }
 
 
-        private ElementAttributes currentAttributes
+        private Tuple<string,string> currentElementContents
         {
             get
             {
                 if (elementStack.Count > 0)
-                    return elementStack.Peek();
-                else
-                    return null;
+                {
+                    var element = elementStack.Peek();
+                    if(element.hasContents())
+                        return element.CurrentElement();
+                }
+
+                return null;
+            }
+        }
+
+        private void nextElementContents()
+        {
+            if (elementStack.Count > 0)
+            {
+                if (elementStack.Peek().Elements.Count > 0)
+                    elementStack.Peek().Elements.Pop();
             }
         }
 
@@ -125,95 +193,46 @@ namespace Hl7.Fhir.Parsers
             if (xr.EOF || xr.ReadState == ReadState.Error) return false;
 
             // First, if we still have "attribute" elements to process, we are at an element
-            if (IsAtPrimitiveValueElement() ||
-                IsAtRefIdElement()) return true;
+            if (currentElementContents != null) return true;
 
             // IsAtElement() is normally called after you called EnterElement() on your parent
-            // to see if you're at a child element. However, for empty parent elements, we cannot
-            // go "into" an element, we only simulate the "attribute" elements. So, if they
-            // are done (previous if()), and this was such an empty element, we are ready, there are
-            // no more elements
+            // to see if you're at a child element. However, for empty elements, you cannot
+            // go "into" an element. So, if the we are done with the attributes (previous if()), 
+            // and this was such an empty element, we are ready, there are no more elements
             if (insideEmptyElement) return false;
 
             // Otherwise, just check whether we are at an acceptable element
-            return IsAtXhtmlElement() ||
-                xr.NodeType == XmlNodeType.Element;
+            // Note: we're not forcing this to be a FHIR element, elements from other
+            // namespaces are allowed, though the parser will probably report an error
+            if (xr.NodeType == XmlNodeType.Element)
+                return true;
+
+            return false;
         }
 
 
-        public bool IsAtFhirElement()
-        {
-            return xr.NodeType == XmlNodeType.Element && xr.NamespaceURI == Support.Util.FHIRNS;
-        }
-
-        public bool IsAtXhtmlElement()
+        private bool isAtXhtmlElement()
         {
             return xr.NodeType == XmlNodeType.Element && xr.NamespaceURI == Support.Util.XHTMLNS &&
                 xr.LocalName == XHTMLELEM;
         }
 
-        public string ReadXhtmlContents()
+        public string ReadPrimitiveContents(string primitiveTypeName)
         {
-            return xr.ReadOuterXml();
-        }
-
-
-        public bool IsAtPrimitiveValueElement()
-        {
-            return currentAttributes != null && currentAttributes.Primitive != null;
-        }
-
-        public string ReadPrimitiveContents()
-        {
-            string result = null;
-
-            if (currentAttributes != null)
+            if (currentElementContents != null)
             {
-                result = currentAttributes.Primitive;
-                currentAttributes.Primitive = null;
+                var result = currentElementContents.Item2;
+                nextElementContents();
+                return result;
             }
-
-            return result;
-        }
-
-        public string ReadBinaryBase64TextContents()
-        {
-            if (xr.NodeType == XmlNodeType.Text)
-                return xr.Value;
+            else if (isAtXhtmlElement())
+            {
+                return xr.ReadOuterXml();
+            }
             else
-                throw new InvalidOperationException("Binary content expected, but node type was " + xr.NodeType.ToString());
+                throw new InvalidOperationException("Reader is not at a position to read primitive values");
         }
 
-        public string ReadBinaryContentType()
-        {
-            string result = null;
-            if (currentAttributes != null)
-            {
-                result = currentAttributes.ContentType;
-                currentAttributes.ContentType = null;
-            }
-
-            return result;
-        }
-
-
-        public bool IsAtRefIdElement()
-        {
-            return currentAttributes != null && currentAttributes.LocalId != null;
-        }
-
-        public string ReadRefIdContents()
-        {
-            string result = null;
-
-            if (currentAttributes != null)
-            {
-                result = currentAttributes.LocalId;
-                currentAttributes.LocalId = null;
-            }
-
-            return result;
-        }
 
         public void LeaveElement()
         {
@@ -269,7 +288,8 @@ namespace Hl7.Fhir.Parsers
 
         public bool IsAtArrayMember()
         {
-            return IsAtFhirElement();
+            // Not much todo here, an array in xml is a normal element
+            return xr.NodeType == XmlNodeType.Element;
         }
 
         public void LeaveArray()
@@ -294,7 +314,7 @@ namespace Hl7.Fhir.Parsers
                         localId = String.IsNullOrEmpty(xr.Value) ? null : xr.Value;
                     else if (xr.LocalName == VALUEATTR && xr.NamespaceURI == "")
                         value = String.IsNullOrEmpty(xr.Value) ? null : xr.Value;
-                    else if (xr.LocalName == CONTENT_TYPE && xr.NamespaceURI == "")
+                    else if (xr.LocalName == BINARY_CONTENTTYPE_NAME && xr.NamespaceURI == "")
                         contentType = String.IsNullOrEmpty(xr.Value) ? null : xr.Value;
                     else
                     {

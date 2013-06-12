@@ -67,7 +67,7 @@ namespace Hl7.Fhir.Tests
         {
             Identifier id = new Identifier
                 {
-                    InternalId = "3141",
+                    LocalId = "3141",
                     Use = Identifier.IdentifierUse.Official,
                     Label = "SSN",
                     System = new Uri("http://hl7.org/fhir/sid/us-ssn"),
@@ -89,7 +89,7 @@ namespace Hl7.Fhir.Tests
                      @"</element>", FhirSerializer.SerializeElementAsXml(id));
 
             Assert.AreEqual(
-                @"{""_id"":""3141"",""use"":{""value"":""official""},""label"":{""value"":""SSN""}," +
+                @"{""_LocalId"":""3141"",""use"":{""value"":""official""},""label"":{""value"":""SSN""}," +
                 @"""system"":{""value"":""http://hl7.org/fhir/sid/us-ssn""},""key"":{""value"":""000111111""}," +
                 @"""period"":{""start"":{""value"":""2001-01-02""},""end"":{""value"":""2010-03-04""}}," +
                 @"""assigner"":{""type"":{""value"":""Organization""},""reference"":{""value"":""organization/@123""}," +
@@ -166,7 +166,7 @@ namespace Hl7.Fhir.Tests
         {
             Patient p = new Patient()
             {
-                InternalId = "Ab4",
+                LocalId = "Ab4",
                 Identifier = new List<Identifier> { new Identifier() { Key = "3141" } },
                 Details = new Demographics()
                 {
@@ -201,7 +201,7 @@ namespace Hl7.Fhir.Tests
                     @"<birthDate value=""1972-11-30"" /></details>" +
                 @"</Patient>", FhirSerializer.SerializeResourceAsXml(p));
 
-            Assert.AreEqual(@"{""Patient"":{""_id"":""Ab4""," +
+            Assert.AreEqual(@"{""Patient"":{""_LocalId"":""Ab4""," +
                  @"""text"":{""status"":{""value"":""generated""},""div"":""<div xmlns='http://www.w3.org/1999/xhtml'>" +
                     @"Patient 3141 - Wouter Gert, nov. 30th, 1972</div>""},"+
                  @"""contained"":[{""List"":{""mode"":{""value"":""snapshot""}}}],"+

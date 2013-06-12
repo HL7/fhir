@@ -6,6 +6,8 @@
  */
 package org.hl7.fhir.definitions.ecore.fhir;
 
+import java.util.Hashtable;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
@@ -29,7 +31,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getInvariant <em>Invariant</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getParentType <em>Parent Type</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getParentElement <em>Parent Element</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#isInternalId <em>Internal Id</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#isPrimitiveContents <em>Primitive Contents</em>}</li>
  * </ul>
  * </p>
@@ -228,32 +229,6 @@ public interface ElementDefn extends EObject {
 	void setParentElement(ElementDefn value);
 
 	/**
-	 * Returns the value of the '<em><b>Internal Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Internal Id</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Internal Id</em>' attribute.
-	 * @see #setInternalId(boolean)
-	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getElementDefn_InternalId()
-	 * @model
-	 * @generated
-	 */
-	boolean isInternalId();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#isInternalId <em>Internal Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Internal Id</em>' attribute.
-	 * @see #isInternalId()
-	 * @generated
-	 */
-	void setInternalId(boolean value);
-
-	/**
 	 * Returns the value of the '<em><b>Primitive Contents</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -302,14 +277,6 @@ public interface ElementDefn extends EObject {
 	 * @generated
 	 */
 	boolean containsResource();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	boolean isXhtml();
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.
@@ -466,4 +433,11 @@ public interface ElementDefn extends EObject {
 	 */
 	void setContent(ElementDefn value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	Hashtable<String, String> getGeneratorAnnotations();
+	
 } // ElementDefn

@@ -156,7 +156,7 @@ public class CSharpModelGenerator extends GenBlock
 				nestedLocalTypes( composite.getLocalCompositeTypes() ); 			
 	
 			// Generate extra members if this type contains a primitive Value member
-			if( composite.isPrimitiveContents() )
+			if( hasPrimitiveValueElement(composite) )
 			{
 				PrimitiveDefn prim = definitions.findPrimitive(composite.getName());
 				generateExtraPrimitiveMembers(prim, GeneratorUtils.generateCSharpTypeName(composite.getName()));
@@ -171,7 +171,14 @@ public class CSharpModelGenerator extends GenBlock
 		return end();
 	}
 
-	
+	private boolean hasPrimitiveValueElement( CompositeTypeDefn composite )
+	{
+	  for( ElementDefn element : composite.getElement() )
+	    if( GeneratorUtils.isPrimitiveValue(element) )
+	      return true;
+
+	  return false;
+	}
 	
 	private void generateMemberProperty(CompositeTypeDefn context, ElementDefn member)
 			throws Exception {
@@ -190,7 +197,9 @@ public class CSharpModelGenerator extends GenBlock
 		{
 			nl("Code<" + GeneratorUtils.buildFullyScopedTypeName(tref.getFullBindingRef()) + ">");
 		}
-		else if( member.isPrimitiveContents() )
+		
+		// Primitive elements' value property maps directly to a C# type
+		else if( GeneratorUtils.isPrimitiveValue(member) )
 		{
 			nl( GeneratorUtils.mapPrimitiveToCSharpType( context.getName() ));
 		}
@@ -201,12 +210,17 @@ public class CSharpModelGenerator extends GenBlock
 
 		if( member.getMaxCardinality() == -1 ) nl(">");
 	
-		nl( " " + GeneratorUtils.generateCSharpMemberName(member) );
+		String memberName = GeneratorUtils.generateCSharpMemberName(member);
+		member.getGeneratorAnnotations().put(CLASSGEN_MEMBER_NAME, memberName);
+		nl( " " + memberName  );
 		nl(" { get; set; }");
 		ln();
 	}
 	
 
+	public final static String CLASSGEN_MEMBER_NAME = "classgen.membername";
+	
+	
 	private void nestedLocalTypes( List<CompositeTypeDefn> nestedTypes) throws Exception
 	{
 		begin();

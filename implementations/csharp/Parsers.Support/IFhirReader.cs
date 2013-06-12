@@ -44,9 +44,10 @@ namespace Hl7.Fhir.Parsers
 
         void EnterElement();
         bool HasMoreElements();
-        bool IsAtFhirElement();
-        bool IsAtXhtmlElement();
-        bool IsAtRefIdElement();
+    //    bool IsAtFhirElement();
+    //    bool IsAtXhtmlElement();
+    //    bool IsAtPrimitiveValueElement();
+    //    bool IsAtRefIdElement();
         void LeaveElement();
 
         void EnterArray();
@@ -55,12 +56,12 @@ namespace Hl7.Fhir.Parsers
 
         void SkipSubElementsFor(string elementName);
 
-        string ReadXhtmlContents();
-        string ReadPrimitiveContents();
-        string ReadRefIdContents();
+     //   string ReadXhtmlContents();
+        string ReadPrimitiveContents(string primitiveTypeName);
+      //  string ReadRefIdContents();
 
-        string ReadBinaryBase64TextContents();
-        string ReadBinaryContentType();
+    //    string ReadBinaryBase64TextContents();
+    //    string ReadBinaryContentType();
 
         int LineNumber { get; }
         int LinePosition { get; }

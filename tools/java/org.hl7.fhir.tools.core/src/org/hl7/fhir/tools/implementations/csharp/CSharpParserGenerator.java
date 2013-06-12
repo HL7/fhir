@@ -248,7 +248,8 @@ public class CSharpParserGenerator extends GenBlock
 
 	private void parseRepeatingElement(ElementDefn member) throws Exception
 	{
-		String resultMember = "result." + GeneratorUtils.generateCSharpMemberName(member);
+		String resultMember = "result." + member.getGeneratorAnnotations().get(CSharpModelGenerator.CLASSGEN_MEMBER_NAME);
+		
 		TypeRef resultType = GeneratorUtils.getMemberTypeForElement(getDefinitions(),member);
 				
 		bs("{");
@@ -285,7 +286,8 @@ public class CSharpParserGenerator extends GenBlock
 	private void parseSingleElement( ElementDefn member ) throws Exception
 	{
 		bs();
-		ln("result." + GeneratorUtils.generateCSharpMemberName(member) );
+		   
+		ln("result." + member.getGeneratorAnnotations().get(CSharpModelGenerator.CLASSGEN_MEMBER_NAME) );
 			nl(" = ");
 			nl( buildParserCall(member) );
 			nl(";");
@@ -305,7 +307,7 @@ public class CSharpParserGenerator extends GenBlock
 			return buildContainedResourceParserCall();
 		else if( resultTypeRef.getName().equals(TypeRef.ELEMENT_TYPE_NAME) ) 
 			return buildPolymorphParserCall(resultTypeRef);
-		else if( member.isPrimitiveContents() || member.isInternalId() || member.isXhtml() )
+		else if( member.isPrimitiveContents() )
 			return buildPrimitiveParserCall( member );
 		else
 		{
@@ -319,24 +321,22 @@ public class CSharpParserGenerator extends GenBlock
 	}
 	
 	
+	private boolean isPrimitive(ElementDefn member)
+	{
+	  return Character.isLowerCase(member.getType().get(0).getName().charAt(0));
+	}
+	
+	
 	private String buildPrimitiveParserCall(ElementDefn member) throws Exception {
-		String csharpPrimitive = GeneratorUtils
-				.mapPrimitiveToFhirCSharpType(member.getType().get(0).getName());
+		String fhirPrimitive = member.getType().get(0).getName();
+	  String csharpPrimitive = GeneratorUtils.mapPrimitiveToFhirCSharpType(fhirPrimitive);
 		
-		String call;
-		
-		if( member.isInternalId() )
-			call = "ReadRefIdContents()";
-		else if( member.isPrimitiveContents() )
-			call = "ReadPrimitiveContents()";
-		else if( member.isXhtml() )
-			call = "ReadXhtmlContents()";
-		else
-			throw new IllegalArgumentException("Don't know how to handle primitive-valued element " + member.getName() );
+		String call = "ReadPrimitiveContents(\"" + fhirPrimitive + "\")";
 		
 		String result = csharpPrimitive + ".Parse(reader." + call + ")";
 		
-		if( member.isPrimitiveContents() ) result += ".Value";
+		// "value" members map directly to the Value property using the C# native type
+		if( GeneratorUtils.isPrimitiveValue(member) ) result += ".Value";
 		
 		return result;
 	}
@@ -354,14 +354,14 @@ public class CSharpParserGenerator extends GenBlock
 	{
 		// Check for special cases
 		// First, XHTML elements are in XHTML namespace
-		if( !member.isPolymorph() && member.getType().get(0).getName().equals(TypeRef.XHTML_PSEUDOTYPE_NAME) )
-			return "reader.IsAtXhtmlElement()";
+		//if( !member.isPolymorph() && member.getType().get(0).getName().equals(TypeRef.XHTML_PSEUDOTYPE_NAME) )
+		//	return "reader.IsAtXhtmlElement()";
 		// Then, values of primitive elements
-		if( member.isPrimitiveContents() )
-			return "reader.IsAtPrimitiveValueElement()";
+		//if( member.isPrimitiveContents() )
+		//	return "reader.IsAtPrimitiveValueElement()";
 		// Then, internal id's
-		if( member.isInternalId() )
-			return "reader.IsAtRefIdElement()";
+		//if( member.isInternalId() )
+		//	return "reader.IsAtRefIdElement()";
 		
 		// Other properties, possibly nested in an array
 		String clause;

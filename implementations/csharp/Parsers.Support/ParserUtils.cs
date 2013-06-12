@@ -55,9 +55,18 @@ namespace Hl7.Fhir.Parsers
             return result;
         }
 
+        public static bool IsAtFhirElement(IFhirReader reader)
+        {
+            // If the element is from a different namespace than the FHIR ns
+            // the name will look like {<ns name>}<local name>
+            // NB: the Xhtml <div> element will be treated as a local name
+            // by the FHIR reader.
+            return !reader.CurrentElementName.StartsWith("{");
+        }
+
         public static bool IsAtFhirElement(IFhirReader reader, string name, bool isPolymorph = false)
         {
-            if (!reader.IsAtFhirElement())
+            if (!IsAtFhirElement(reader))
                 return false;
 
             if (!isPolymorph)
@@ -80,7 +89,7 @@ namespace Hl7.Fhir.Parsers
 
         public static bool IsAtFhirElementEndingWith(IFhirReader reader, string suffix)
         {
-            if (!reader.IsAtFhirElement())
+            if (!IsAtFhirElement(reader))
                 return false;
 
             return reader.CurrentElementName.EndsWith(suffix);

@@ -130,9 +130,6 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 		{		
 			// Don't generate parsers/serializers for abstract stuff (for now)
 			if( composite.isAbstract() ) continue;
-
-	     // Binary resource parser is hand-written
-      if( composite.getName().equals(TypeRef.BINARY_TYPE_NAME)) continue;
       
       // Generate parsers/serializers for all other classes
 			String xmlParserFilename = parsersDir + GeneratorUtils.generateCSharpTypeName(composite.getName()) + "Parser.cs";			

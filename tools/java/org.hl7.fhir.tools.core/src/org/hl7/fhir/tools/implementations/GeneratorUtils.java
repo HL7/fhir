@@ -3,6 +3,7 @@ package org.hl7.fhir.tools.implementations;
 import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.definitions.ecore.fhir.Annotations;
 import org.hl7.fhir.definitions.ecore.fhir.BindingDefn;
 import org.hl7.fhir.definitions.ecore.fhir.BindingExtensibility;
 import org.hl7.fhir.definitions.ecore.fhir.BindingType;
@@ -316,7 +317,7 @@ public class GeneratorUtils {
 		else if (name.equals("idref"))
 			return "string";
 		else
-			throw new Exception( "Unrecognized primitive" + name );
+			throw new Exception( "Unrecognized primitive " + name );
 	}
 	
 	public static String mapPrimitiveToFhirCSharpType(String name) throws Exception 
@@ -443,6 +444,10 @@ public class GeneratorUtils {
 		if( result.equals("Extension") && member.getParentType().getName().equals("Extension") )
 			result = "NestedExtension";
 
+		// The property "_id" is the internal id, give it a nicer name.
+		if( result.equals("_id") )
+		  result = "LocalId";
+		
 		// Pluralize for arrays
 		//if( member.isRepeating() ) result += "s";
 		
@@ -521,7 +526,7 @@ public class GeneratorUtils {
 			return false;
 	}
 		
-	private static TypeRef newTypeRef(String name)
+	public static TypeRef newTypeRef(String name)
 	{
 		TypeRef result = FhirFactory.eINSTANCE.createTypeRef();
 		result.setName(name);
@@ -530,108 +535,24 @@ public class GeneratorUtils {
 		return result;
 	}
 	
-	
-	public static ElementDefn findLocalIdElement( EList<ElementDefn> list )
-	{
-		for( ElementDefn def : list )
-		{
-			if( def.isInternalId() )
-				return def;
-		}
-		
-		return null;
-	}
-	
+	public static ElementDefn buildSimpleElementDefn(String name, String type, String definition, int minCard, int maxCard)
+  {
+    ElementDefn newElem = FhirFactory.eINSTANCE.createElementDefn();
+    newElem.setName(name);
+    newElem.setMinCardinality(minCard);
+    newElem.setMaxCardinality(maxCard);
+  
+    Annotations elemAnn = FhirFactory.eINSTANCE.createAnnotations();
+    elemAnn.setShortDefinition(definition);
+    newElem.setAnnotation(elemAnn);
 
-	public static ElementDefn findPrimitiveElement( EList<ElementDefn> list )
+    TypeRef elemTypeRef = newTypeRef(type);
+    newElem.getType().add(elemTypeRef);
+    
+    return newElem;
+  }
+	public static boolean isPrimitiveValue(ElementDefn member)
 	{
-		for( ElementDefn def : list )
-		{
-			if( def.isPrimitiveContents() )
-				return def;
-		}
-		
-		return null;
+	  return member.isPrimitiveContents() && member.getName().equals("value");
 	}
-	
-	/*
-	 * Rather hairy function to generate a list of all possible element names we might encounter
-	 * when expecting a (polymorphic) element. The return value is a mapping of the element names
-	 * and a TypeRef representing the type we may expect when encountering that element name.
-	 */
-//	public static Map<String,TypeRef> determinePossibleElementNames(NameScope context, String elementName, 
-//								List<TypeRef> types) 
-//	{
-//		Map<String,TypeRef> result = new HashMap<String,TypeRef>();
-//			
-//		// "Special case": no polymorphism.	
-//		if( types.size() == 1 )
-//		{
-//			result.put( elementName, types.get(0) );
-//			return result;
-//		}
-//						
-//		for( TypeRef possibleType : types )
-//		{					
-//			if( possibleType.getName().equals(TypeRef.RESOURCEREF_TYPE_NAME) ) 
-//				result.put(elementName + "Resource", possibleType);
-//			else if( possibleType.getName().equals(TypeRef.ELEMENT_TYPE_NAME) )
-//			{
-//				// If the type of element is "Composite" we can expect ANY composite type....
-//				result.putAll( makeTypeRefsWithElementNamePrefix(elementName, 
-//						findGlobalScope(context).getLocalCompositeTypes()) );
-//				
-//				// .... and ANY constraint type
-//				result.putAll( makeTypeRefsWithElementNamePrefix(elementName, 
-//						findGlobalScope(context).getLocalConstrainedTypes()) );
-//				
-//				// .... and ANY nested composites/contraints
-//				// If the type of element is "Composite" we can expect ANY composite type....
-//				// Ouch...value[x] is not defined for local types...will still work though...
-//				if( context != findGlobalScope(context) )
-//				{
-//					result.putAll( makeTypeRefsWithElementNamePrefix(elementName, 
-//							context.getLocalCompositeTypes()) );
-//					result.putAll( makeTypeRefsWithElementNamePrefix(elementName, 
-//							context.getLocalConstrainedTypes()) );					
-//				}					
-//			}
-//			else
-//				result.put(elementName + Utilities.capitalize(possibleType.getName()), possibleType);	
-//		}
-//		
-//		return result;
-//	}
-
-	
-	/*
-	 * Find the most global scope by going up from the given scope
-	 */
-//	public static NameScope findGlobalScope(NameScope context)
-//	{
-//		while( context.getContainingScope() != null )
-//			context = context.getContainingScope();
-//			
-//		return context;
-//	}
-	
-	
-//	private static Map<String,TypeRef> makeTypeRefsWithElementNamePrefix( String elementName, List<?> types )
-//	{
-//		Map<String,TypeRef> result = new HashMap<String,TypeRef>();
-//		
-//		for(Object defo : types)
-//		{
-//			TypeDefn def = (TypeDefn)defo;
-//			if( !def.isInfrastructure() )
-//			{
-//				TypeRef newRef = newTypeRef(def.getName());
-//				newRef.setName(def.getName());
-//				newRef.setFullName(def.getName());
-//				result.put( elementName + Utilities.capitalize(def.getName()), newRef );
-//			}
-//		}
-//		
-//		return result;
-//	}
 }

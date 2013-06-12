@@ -7,6 +7,7 @@
 package org.hl7.fhir.definitions.ecore.fhir.impl;
 
 import java.util.Collection;
+import java.util.Hashtable;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -45,7 +46,6 @@ import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getInvariant <em>Invariant</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getParentType <em>Parent Type</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getParentElement <em>Parent Element</em>}</li>
- *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#isInternalId <em>Internal Id</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#isPrimitiveContents <em>Primitive Contents</em>}</li>
  * </ul>
  * </p>
@@ -230,26 +230,6 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * @ordered
 	 */
 	protected ElementDefn parentElement;
-
-	/**
-	 * The default value of the '{@link #isInternalId() <em>Internal Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isInternalId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean INTERNAL_ID_EDEFAULT = false;
-
-		/**
-	 * The cached value of the '{@link #isInternalId() <em>Internal Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isInternalId()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean internalId = INTERNAL_ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isPrimitiveContents() <em>Primitive Contents</em>}' attribute.
@@ -503,27 +483,6 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 		parentElement = newParentElement;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFN__PARENT_ELEMENT, oldParentElement, parentElement));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isInternalId() {
-		return internalId;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInternalId(boolean newInternalId) {
-		boolean oldInternalId = internalId;
-		internalId = newInternalId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFN__INTERNAL_ID, oldInternalId, internalId));
 	}
 
 	/**
@@ -866,8 +825,6 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 			case FhirPackage.ELEMENT_DEFN__PARENT_ELEMENT:
 				if (resolve) return getParentElement();
 				return basicGetParentElement();
-			case FhirPackage.ELEMENT_DEFN__INTERNAL_ID:
-				return isInternalId();
 			case FhirPackage.ELEMENT_DEFN__PRIMITIVE_CONTENTS:
 				return isPrimitiveContents();
 		}
@@ -922,9 +879,6 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 			case FhirPackage.ELEMENT_DEFN__PARENT_ELEMENT:
 				setParentElement((ElementDefn)newValue);
 				return;
-			case FhirPackage.ELEMENT_DEFN__INTERNAL_ID:
-				setInternalId((Boolean)newValue);
-				return;
 			case FhirPackage.ELEMENT_DEFN__PRIMITIVE_CONTENTS:
 				setPrimitiveContents((Boolean)newValue);
 				return;
@@ -976,9 +930,6 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 			case FhirPackage.ELEMENT_DEFN__PARENT_ELEMENT:
 				setParentElement((ElementDefn)null);
 				return;
-			case FhirPackage.ELEMENT_DEFN__INTERNAL_ID:
-				setInternalId(INTERNAL_ID_EDEFAULT);
-				return;
 			case FhirPackage.ELEMENT_DEFN__PRIMITIVE_CONTENTS:
 				setPrimitiveContents(PRIMITIVE_CONTENTS_EDEFAULT);
 				return;
@@ -1018,8 +969,6 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 				return getParentType() != null;
 			case FhirPackage.ELEMENT_DEFN__PARENT_ELEMENT:
 				return parentElement != null;
-			case FhirPackage.ELEMENT_DEFN__INTERNAL_ID:
-				return internalId != INTERNAL_ID_EDEFAULT;
 			case FhirPackage.ELEMENT_DEFN__PRIMITIVE_CONTENTS:
 				return primitiveContents != PRIMITIVE_CONTENTS_EDEFAULT;
 		}
@@ -1046,12 +995,26 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 		result.append(isModifier);
 		result.append(", exampleValue: ");
 		result.append(exampleValue);
-		result.append(", internalId: ");
-		result.append(internalId);
 		result.append(", primitiveContents: ");
 		result.append(primitiveContents);
 		result.append(')');
 		return result.toString();
 	}
 
+	/* @generated NOT
+	 * 
+	 */
+	private Hashtable<String,String> _generatorAnnotations = new Hashtable<String, String>();
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Hashtable<String, String> getGeneratorAnnotations()
+	{
+		return _generatorAnnotations;
+	}
+	
+	
 } //ElementDefnImpl

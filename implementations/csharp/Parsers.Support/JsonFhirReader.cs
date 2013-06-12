@@ -41,19 +41,12 @@ namespace Hl7.Fhir.Parsers
 {
     public class JsonFhirReader : IFhirReader
     {
-        public const string XHTMLELEM = "div";
-        public const string IDATTR = "_id";
-        public const string VALUEATTR = "value";
-        public const string BINARY_CONTENT_TYPE = "contentType";
-        public const string BINARY_CONTENT = "content";
-
         private JsonTextReader jr;
 
         public JsonFhirReader(JsonTextReader jr)
         {
             jr.DateParseHandling = DateParseHandling.None;
             this.jr = jr;
-          //  moveToContent();
         }
 
 
@@ -98,96 +91,56 @@ namespace Hl7.Fhir.Parsers
             jr.Read();
         }
 
-
-        private bool isAtToken()
+        public bool HasMoreElements()
         {
             return jr.TokenType == JsonToken.PropertyName;
         }
 
-        public bool HasMoreElements()
-        {
-            return isAtToken();
-        }
-
-        public bool IsAtFhirElement()
-        {
-            // Cannot check namespaces, so any property is fine
-            return isAtToken();
-        }
-
-        public bool IsAtXhtmlElement()
-        {
-            return jr.TokenType == JsonToken.PropertyName && CurrentElementName == XHTMLELEM;
-        }
-
-        public string ReadXhtmlContents()
-        {
-            return processStringProperty();
-        }
-
-        private string readStringProperty()
+        private string readPropertyAsString(JsonToken expectedTokenType)
         {
             // Read away property name
             jr.Read();
 
-            if (jr.TokenType == JsonToken.String)
+            if (jr.TokenType == expectedTokenType)
             {
-                string value = (string)jr.Value;
+                string value;
+
+                if (jr.Value is string)
+                    value = (string)jr.Value;
+                else
+                    value = jr.Value.ToString().ToLower();
+
                 jr.Read();
                 return value;
             }
             else
-                throw new FhirFormatException("Expected property with a simple string value");
+            {
+                jr.Read();
+                throw new FhirFormatException("Expected property of type " + expectedTokenType.ToString());
+            }
         }
 
-        public bool IsAtPrimitiveValueElement()
+     
+        public string ReadPrimitiveContents(string primitiveTypeName)
         {
-            return isAtToken() && CurrentElementName == VALUEATTR;
-        }
-
-        public string ReadPrimitiveContents()
-        {
-            return processStringProperty();
-        }
-
-        private string processStringProperty()
-        {
-            string value = readStringProperty();
-            if (!String.IsNullOrEmpty(value))
-                return value;
+            if (primitiveTypeName == "boolean")
+                return readPropertyAsString(JsonToken.Boolean);
+            else if (primitiveTypeName == "integer")
+                return readPropertyAsString(JsonToken.Integer);
             else
-                return null;
+                return readPropertyAsString(JsonToken.String);
         }
 
-        public bool IsAtRefIdElement()
-        {
-            return isAtToken() && CurrentElementName == IDATTR;
-        }
+        //private string processStringProperty()
+        //{
+        //    string value = readStringProperty();
+        //    if (!String.IsNullOrEmpty(value))
+        //        return value;
+        //    else
+        //        return null;
+        //}
 
-        public string ReadRefIdContents()
-        {
-            return processStringProperty();
-        }
-
-
-        public string ReadBinaryBase64TextContents()
-        {
-            if (isAtToken() && CurrentElementName == BINARY_CONTENT)
-                return processStringProperty();
-            else
-                return null;
-        }
-
-        public string ReadBinaryContentType()
-        {
-            if (isAtToken() && CurrentElementName == BINARY_CONTENT_TYPE)
-                return processStringProperty();
-            else
-                return null;
-        }
-
-
-
+ 
         public void LeaveElement()
         {
             if (jr.TokenType == JsonToken.EndObject)

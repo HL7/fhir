@@ -49,31 +49,32 @@ namespace Hl7.Fhir.Serializers
         //I should try to make this go completely
         public static void SerializeCode<T>(Code<T> value, IFhirWriter writer) where T : struct
         {
-            writer.WriteStartComplexContent();
+            throw new NotImplementedException();
+            //writer.WriteStartComplexContent();
 
-            // Serialize element's localId attribute
-            if (value.InternalId != null && !String.IsNullOrEmpty(value.InternalId.Value))
-                writer.WriteRefIdContents(value.InternalId.Value);
+            //// Serialize element's localId attribute
+            //if (value._id != null && !String.IsNullOrEmpty(value._id.Value))
+            //    writer.WriteRefIdContents(value._id.Value);
 
-            // Serialize element's primitive contents
-            if (value.Value != null)
-                writer.WritePrimitiveContents(value.ToString());
+            //// Serialize element's primitive contents
+            //if (value.Value != null)
+            //    writer.WritePrimitiveContents(value.ToString());
 
-            // Serialize element extension
-            if (value.Extension != null && value.Extension.Count > 0)
-            {
-                writer.WriteStartArrayElement("extension");
-                foreach (var item in value.Extension)
-                {
-                    writer.WriteStartArrayMember("extension");
-                    ExtensionSerializer.SerializeExtension(item, writer);
-                    writer.WriteEndArrayMember();
-                }
-                writer.WriteEndArrayElement();
-            }
+            //// Serialize element extension
+            //if (value.Extension != null && value.Extension.Count > 0)
+            //{
+            //    writer.WriteStartArrayElement("extension");
+            //    foreach (var item in value.Extension)
+            //    {
+            //        writer.WriteStartArrayMember("extension");
+            //        ExtensionSerializer.SerializeExtension(item, writer);
+            //        writer.WriteEndArrayMember();
+            //    }
+            //    writer.WriteEndArrayElement();
+            //}
             
             
-            writer.WriteEndComplexContent();
+            //writer.WriteEndComplexContent();
         }
         
     }

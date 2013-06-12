@@ -12,6 +12,7 @@ import org.hl7.fhir.definitions.ecore.fhir.Invariant;
 import org.hl7.fhir.definitions.ecore.fhir.InvariantRef;
 import org.hl7.fhir.definitions.ecore.fhir.ResourceDefn;
 import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
+import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.utilities.Utilities;
 
 /*
@@ -233,8 +234,16 @@ public class CompositeTypeConverter {
 			result.getType().addAll(
 					TypeRefConverter.buildTypeRefsFromFhirModel(element
 							.getTypes()));
+		
+			// Special case: all element using the 'xhtml' type contain only the primitive value
+	    // (which is the xhtml), there is no id, nor extensions
+			 if( result.getType().size() == 1 && result.getType().get(0).getName().equals("xhtml") )
+		      result.setPrimitiveContents(true);
 		}
 
+		
+	
+		  
 		// If this element is actually a nested type definition, these nested
 		// elements
 		// will have been put into a separately defined type, so we'll just
@@ -314,39 +323,18 @@ public class CompositeTypeConverter {
 	
 	public static CompositeTypeDefn buildElementBaseType()
 	{
-//		  <types xsi:type="fhir:ResourceDefn" name="Resource" fullName="Resource" abstract="true">
-//		     <annotations rimMapping="Entity. Role, or Act"/>
-//	         <elements name="extension" minCardinality="0" maxCardinality="-1">
-//	           <types name="Extension" fullName="Extension"/>
-//	           <annotation shortDefinition="Nested values for extension" definition="Nested Complex extensions"/>
-//	           <invariants name="1"/>
-//	         </elements>
-//		  </types>
-// NB: This should come from a Element.xml Excel file, which has yet to be added to the project
-
 		CompositeTypeDefn result = FhirFactory.eINSTANCE.createCompositeTypeDefn();
 
 		result.setName(TypeRef.ELEMENT_TYPE_NAME);
 		result.setFullName(result.getName());
 		result.setAbstract(true);
 		
+		
 		Annotations baseAnn = FhirFactory.eINSTANCE.createAnnotations();
 		baseAnn.setShortDefinition("Basetype for all composite-typed elements");
 		result.setAnnotations(baseAnn);
 		
-		ElementDefn extElem = FhirFactory.eINSTANCE.createElementDefn();
-		extElem.setName("extension");
-		extElem.setMinCardinality(0);
-		extElem.setMaxCardinality(-1);
-		
-		Annotations elemAnn = FhirFactory.eINSTANCE.createAnnotations();
-		elemAnn.setShortDefinition("Nested values for extension");
-		extElem.setAnnotation(elemAnn);
-
-		TypeRef extRef = FhirFactory.eINSTANCE.createTypeRef();
-		extRef.setName("Extension");
-		extElem.getType().add(extRef);
-			
+		ElementDefn extElem = GeneratorUtils.buildSimpleElementDefn("extension", "Extension", "Nested extensions", 0, -1);		
 		result.getElement().add(extElem);
 		result.getElement().add(buildInternalIdElement());
 		
@@ -355,23 +343,15 @@ public class CompositeTypeConverter {
 	
 	public static ElementDefn buildInternalIdElement()
 	{
-		ElementDefn idElem = FhirFactory.eINSTANCE.createElementDefn();
-		idElem.setName("internalId");
-		idElem.setMinCardinality(0);
-		idElem.setMaxCardinality(1);
-		idElem.setInternalId(true);
-		
-		Annotations elemAnn = FhirFactory.eINSTANCE.createAnnotations();
-		elemAnn.setShortDefinition("Internal id for element");
-		idElem.setAnnotation(elemAnn);
-
-		TypeRef extRef = FhirFactory.eINSTANCE.createTypeRef();
-		extRef.setName("id");
-		idElem.getType().add(extRef);
-		
+	  ElementDefn idElem = GeneratorUtils.buildSimpleElementDefn("_id", "id", "Local id for element", 0, 1);	  
+		idElem.setPrimitiveContents(true);
+				
 		return idElem;
 	}
 	
+	
+	
+
 	public static ResourceDefn buildBinaryResourceDefn()
 	{
 	  ResourceDefn result= FhirFactory.eINSTANCE.createResourceDefn();
@@ -383,13 +363,20 @@ public class CompositeTypeConverter {
 	  Annotations resourceAnn = FhirFactory.eINSTANCE.createAnnotations();
 	  resourceAnn.setShortDefinition("Resource for capturing binary data");
 	  result.setAnnotations(resourceAnn);
-
+	  
     TypeRef resourceBase = FhirFactory.eINSTANCE.createTypeRef();
     resourceBase.setName(TypeRef.RESOURCE_TYPE_NAME);
-
 	  result.setBaseType(resourceBase);
 
-	  return result;
+	   ElementDefn contentElem = GeneratorUtils.buildSimpleElementDefn("content", "base64Binary", "Binary contents", 1, 1);
+	   contentElem.setPrimitiveContents(true);
+	   result.getElement().add(contentElem);
+	   
+	   ElementDefn contentTypeElem = GeneratorUtils.buildSimpleElementDefn("contentType", "string", "Media type of contents", 1, 1);
+	   contentTypeElem.setPrimitiveContents(true);
+	   result.getElement().add(contentTypeElem);
+    
+	   return result;
 	}
 
 }

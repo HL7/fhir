@@ -83,7 +83,6 @@
     <xsd:attribute name="maxCardinality" type="xsd:int" use="required"/>
     <xsd:attribute name="isModifier" type="xsd:boolean"/>
     <xsd:attribute name="exampleValue" type="xsd:string"/>
-    <xsd:attribute name="internalId" type="xsd:boolean"/>
     <xsd:attribute name="primitiveContents" type="xsd:boolean"/>
     <xsd:attribute name="content" type="xsd:string"/>
     <xsd:attribute name="parentType" type="xsd:string"/>

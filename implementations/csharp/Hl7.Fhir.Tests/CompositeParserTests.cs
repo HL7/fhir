@@ -65,6 +65,28 @@ namespace Hl7.Fhir.Tests
             Assert.IsTrue(result.Div != null && result.Div.Value != null);
         }
 
+
+        [TestMethod]
+        public void TestParseJsonNativeTypes()
+        {
+            string json = "{ testExtension: { url: { value : \"http://bla.com\" }," +  
+                        "isModifier: { value: true }, valueInteger: { value: 14 } } }";
+
+            var errors = new ErrorList();
+            var result = (Extension)FhirParser.ParseElementFromJson(json, errors);
+            Assert.IsTrue(errors.Count() == 0, errors.ToString());
+            Assert.IsTrue(result.IsModifier.Value.Value);
+            Assert.AreEqual(14, ((Integer)result.Value).Value.Value);
+
+            string jsonWrong = "{ testExtension: { url: { value : \"http://bla.com\" }," +
+                        "isModifier: { value: \"true\" }, valueInteger: { value: \"14\" } } }";
+            errors.Clear();
+            result = (Extension)FhirParser.ParseElementFromJson(jsonWrong, errors);
+            Assert.IsTrue(errors.Count() > 0);
+            Assert.IsTrue(errors.ToString().Contains("Expected") &&
+                        errors.ToString().Contains("Boolean"),errors.ToString());
+        }
+
         [TestMethod]
         public void TestParseSimpleComposite()
         {
@@ -76,7 +98,7 @@ namespace Hl7.Fhir.Tests
             ErrorList errors = new ErrorList();
             Coding result = (Coding)FhirParser.ParseElementFromXml(xmlString, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
-            Assert.AreEqual("x4", result.InternalId.ToString());
+            Assert.AreEqual("x4", result.LocalId.ToString());
             Assert.AreEqual("G44.1", result.Code.Value);
             Assert.AreEqual("http://hl7.org/fhir/sid/icd-10", result.System.Value.ToString());
             Assert.IsNull(result.Display);
@@ -88,7 +110,7 @@ namespace Hl7.Fhir.Tests
             errors.Clear();
             result = (Coding)FhirParser.ParseElementFromJson(jsonString, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
-            Assert.AreEqual("x4", result.InternalId.Value);
+            Assert.AreEqual("x4", result.LocalId.Value);
             Assert.AreEqual("G44.1", result.Code.Value);
             Assert.AreEqual("http://hl7.org/fhir/sid/icd-10", result.System.Value.ToString());
             Assert.IsNull(result.Display);
@@ -117,7 +139,7 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual("R51", result.Coding[0].Code.Value);
             Assert.AreEqual("25064002", result.Coding[1].Code.Value);
             Assert.AreEqual("http://snomed.info/", result.Coding[1].System.Value.ToString());
-            Assert.AreEqual("1", result.Coding[1].InternalId.ToString());
+            Assert.AreEqual("1", result.Coding[1].LocalId.ToString());
 
 
             string jsonString = @"{ ""testCodeableConcept"" : 
@@ -136,7 +158,7 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual("R51", result.Coding[0].Code.Value);
             Assert.AreEqual("25064002", result.Coding[1].Code.Value);
             Assert.AreEqual("http://snomed.info/", result.Coding[1].System.Value.ToString());
-            Assert.AreEqual("1", result.Coding[1].InternalId.ToString());
+            Assert.AreEqual("1", result.Coding[1].LocalId.ToString());
         }
         
 
@@ -256,22 +278,31 @@ namespace Hl7.Fhir.Tests
         [TestMethod]
         public void TestParsePerformance()
         {
-            string text = File.ReadAllText(@"..\..\..\..\..\publish\diagnosticreport-example.xml");
-            int repeats = 25;
+            //string file = @"..\..\..\loinc.xml";
+            string file = @"..\..\..\..\..\publish\diagnosticreport-example.xml";
+           
+            int repeats = 20;
 
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
 
             sw.Start();
 
+            ErrorList errors = new ErrorList();
+
             for (int i = 0; i < repeats; i++)
             {
-                ErrorList errors = new ErrorList();
-                DiagnosticReport rep = (DiagnosticReport)FhirParser.ParseResourceFromXml(text, errors);
+                errors.Clear();
+                var xmlr = XmlReader.Create(file);
+                //var jsonr = new JsonTextReader(new System.IO.StreamReader(file));
+                var rep = FhirParser.ParseResource(xmlr, errors);
             }
+
+            Assert.IsTrue(errors.Count == 0, errors.ToString());
 
             sw.Stop();
 
-            long bytesPerMs = text.Length * repeats / sw.ElapsedMilliseconds;
+            FileInfo f = new FileInfo(file);
+            long bytesPerMs = f.Length * repeats / sw.ElapsedMilliseconds;
 
             File.WriteAllText(@"c:\temp\speedtest.txt", bytesPerMs.ToString() + " bytes per ms");
           //  Assert.IsTrue(bytesPerMs > 10*1024);       // > 10k per ms (Speed is of course very dependent on debug/release and machine)

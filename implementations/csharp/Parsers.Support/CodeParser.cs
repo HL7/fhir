@@ -51,35 +51,35 @@ namespace Hl7.Fhir.Parsers
         public static Code<T> ParseCode<T>(IFhirReader reader, ErrorList errors,
                                 Code<T> existingInstance = null) where T : struct
         {
-            Code<T> result = existingInstance != null ? existingInstance : new Code<T>();
-
+            Hl7.Fhir.Model.Code<T> result = existingInstance != null ? 
+                existingInstance : new Hl7.Fhir.Model.Code<T>();
             try
             {
                 string currentElementName = reader.CurrentElementName;
                 reader.EnterElement();
-
+                
                 while (reader.HasMoreElements())
                 {
-                    // Parse element contents
-                    if (reader.IsAtPrimitiveValueElement())
-                        result.Value = Code<T>.Parse(reader.ReadPrimitiveContents()).Value;
-
                     // Parse element extension
-                    else if (ParserUtils.IsAtFhirElement(reader, "extension"))
+                    if( ParserUtils.IsAtFhirElement(reader, "extension") )
                     {
-                        result.Extension = new List<Extension>();
+                        result.Extension = new List<Hl7.Fhir.Model.Extension>();
                         reader.EnterArray();
-
-                        while (ParserUtils.IsAtArrayElement(reader, "extension"))
+                        
+                        while( ParserUtils.IsAtArrayElement(reader, "extension") )
                             result.Extension.Add(ExtensionParser.ParseExtension(reader, errors));
-
+                        
                         reader.LeaveArray();
                     }
-
-                    // Parse element internalId
-                    else if (reader.IsAtRefIdElement())
-                        result.InternalId = Id.Parse(reader.ReadRefIdContents());
-
+                    
+                    // Parse element _id
+                    else if( ParserUtils.IsAtFhirElement(reader, "_id") )
+                        result.LocalId = Id.Parse(reader.ReadPrimitiveContents("id"));
+                    
+                    // Parse element value
+                    else if( ParserUtils.IsAtFhirElement(reader, "value") )
+                        result.Value = Code<T>.Parse(reader.ReadPrimitiveContents("code")).Value;
+                    
                     else
                     {
                         errors.Add(String.Format("Encountered unknown element {0} while parsing {1}", reader.CurrentElementName, currentElementName), reader);
@@ -87,7 +87,7 @@ namespace Hl7.Fhir.Parsers
                         result = null;
                     }
                 }
-
+                
                 reader.LeaveElement();
             }
             catch (Exception ex)

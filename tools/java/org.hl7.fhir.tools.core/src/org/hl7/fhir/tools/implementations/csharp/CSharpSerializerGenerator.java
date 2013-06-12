@@ -199,24 +199,24 @@ public class CSharpSerializerGenerator extends GenBlock
 			ln("writer.WriteStartComplexContent();");	
 			ln();
 
-			ElementDefn idElement = GeneratorUtils.findLocalIdElement(allElements);
-			ElementDefn valueElement = GeneratorUtils.findPrimitiveElement(allElements);
+			//ElementDefn idElement = GeneratorUtils.findLocalIdElement(allElements);
+			//ElementDefn valueElement = GeneratorUtils.findPrimitiveElement(allElements);
 			
-			if( idElement != null )
-			{
-				ln("// Serialize element's localId attribute");
-				ln("if( value.InternalId != null && !String.IsNullOrEmpty(value.InternalId.Value) )");
-				ln("	writer.WriteRefIdContents(value.InternalId.Value);");
-				ln();
-			}
+			//if( idElement != null )
+			//{
+			//	ln("// Serialize element's localId attribute");
+			//	ln("if( value.InternalId != null && !String.IsNullOrEmpty(value.InternalId.Value) )");
+			//	ln("	writer.WriteRefIdContents(value.InternalId.Value);");
+			//	ln();
+			//}
 
-			if( valueElement != null )
-			{
-				ln("// Serialize element's primitive contents");
-				ln("if(value.Value != null)");
-				ln("	writer.WritePrimitiveContents(value.ToString());");
-				ln();
-			}
+			//if( valueElement != null )
+			//{
+			//	ln("// Serialize element's primitive contents");
+			//	ln("if(value.Value != null)");
+			//	ln("	writer.WritePrimitiveContents(value.ToString());");
+			//	ln();
+			//}
 			
 			// Generate this classes properties
 			if( allElements.size() > 0)
@@ -250,7 +250,7 @@ public class CSharpSerializerGenerator extends GenBlock
 		for( ElementDefn member : elements )
 		{	
 			// Don't regenerate these, have been generated as a special case
-			if( member.isInternalId() || member.isPrimitiveContents() ) continue;
+			//if( member.isInternalId() || member.isPrimitiveContents() ) continue;
 			
 			ln("// Serialize element " + member.getName());
 			generateMemberSerializer(member);

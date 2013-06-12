@@ -76,9 +76,11 @@ namespace Hl7.Fhir.Serializers
             jw.WriteEndObject();
         }
 
+        public const string VALUEATTR = "value";
+       
         public void WritePrimitiveContents(string value)
         {
-            WriteStartElement(Parsers.JsonFhirReader.VALUEATTR);
+            WriteStartElement(VALUEATTR);
             jw.WriteValue(value);
         }
 
@@ -92,16 +94,21 @@ namespace Hl7.Fhir.Serializers
             throw new NotImplementedException();
         }
 
+
+        public const string XHTMLELEM = "div";
+
         public void WriteXhtmlContents(string xhtml)
         {
             // In Json, the serialization of Xhtml is the same as other elements
-            WriteStartElement(Parsers.JsonFhirReader.XHTMLELEM);
+            WriteStartElement(XHTMLELEM);
             jw.WriteValue(xhtml);
         }
 
+        public const string IDATTR = "_id";
+
         public void WriteRefIdContents(string id)
         {
-            jw.WritePropertyName(Parsers.JsonFhirReader.IDATTR);
+            jw.WritePropertyName(IDATTR);
             jw.WriteValue(id);
         }
 

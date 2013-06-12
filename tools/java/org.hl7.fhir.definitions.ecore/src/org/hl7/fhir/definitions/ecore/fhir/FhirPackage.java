@@ -407,22 +407,13 @@ public interface FhirPackage extends EPackage {
 	int ELEMENT_DEFN__PARENT_ELEMENT = 11;
 
 	/**
-	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT_DEFN__INTERNAL_ID = 12;
-
-	/**
 	 * The feature id for the '<em><b>Primitive Contents</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFN__PRIMITIVE_CONTENTS = 13;
+	int ELEMENT_DEFN__PRIMITIVE_CONTENTS = 12;
 
 	/**
 	 * The number of structural features of the '<em>Element Defn</em>' class.
@@ -431,7 +422,7 @@ public interface FhirPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFN_FEATURE_COUNT = 14;
+	int ELEMENT_DEFN_FEATURE_COUNT = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1747,15 +1738,6 @@ public interface FhirPackage extends EPackage {
 	int PROFILED_ELEMENT_DEFN__PARENT_ELEMENT = ELEMENT_DEFN__PARENT_ELEMENT;
 
 	/**
-	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROFILED_ELEMENT_DEFN__INTERNAL_ID = ELEMENT_DEFN__INTERNAL_ID;
-
-	/**
 	 * The feature id for the '<em><b>Primitive Contents</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2050,17 +2032,6 @@ public interface FhirPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getElementDefn_ParentElement();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#isInternalId <em>Internal Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Internal Id</em>'.
-	 * @see org.hl7.fhir.definitions.ecore.fhir.ElementDefn#isInternalId()
-	 * @see #getElementDefn()
-	 * @generated
-	 */
-	EAttribute getElementDefn_InternalId();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#isPrimitiveContents <em>Primitive Contents</em>}'.
@@ -3540,14 +3511,6 @@ public interface FhirPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ELEMENT_DEFN__PARENT_ELEMENT = eINSTANCE.getElementDefn_ParentElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Internal Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ELEMENT_DEFN__INTERNAL_ID = eINSTANCE.getElementDefn_InternalId();
 
 		/**
 		 * The meta object literal for the '<em><b>Primitive Contents</b></em>' attribute feature.
