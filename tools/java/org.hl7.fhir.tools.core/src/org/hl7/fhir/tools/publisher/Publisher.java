@@ -366,7 +366,6 @@ public class Publisher {
     log(" ...vocab");
     analyseV2();
     analyseV3();
-    log(" ...profiles");
     log(" ...resource ValueSet");
     generateCodeSystems();
     for (BindingSpecification cd : page.getDefinitions().getBindings().values()) {
@@ -1046,9 +1045,9 @@ public class Publisher {
       for (int i = 1; i < lvl; i++) 
         s.append("&nbsp;&nbsp;");
       if (select) {
-        s.append(Utilities.escapeXml(code)+"</td><td><a name=\""+Utilities.escapeXml(code)+"\">"+Utilities.escapeXml(display)+"</a></td><td>");
+        s.append(Utilities.escapeXml(code)+"</td><td><a name=\""+Utilities.escapeXml(Utilities.nmtokenize(code))+"\">"+Utilities.escapeXml(display)+"</a></td><td>");
       } else
-        s.append("<font color=\"grey\"><i>("+Utilities.escapeXml(code)+")</i></font></td><td><a name=\""+Utilities.escapeXml(code)+"\">&nbsp;</a></td><td>");
+        s.append("<span style=\"color: grey\"><i>("+Utilities.escapeXml(code)+")</i></span></td><td><a name=\""+Utilities.escapeXml(Utilities.nmtokenize(code))+"\">&nbsp;</a></td><td>");
       if (definition != null)
         s.append(definition);
       s.append("</td></tr>\r\n");
@@ -1076,12 +1075,16 @@ public class Publisher {
       s.append("<p>Release Date: "+r.getAttribute("releaseDate")+"</p>\r\n");
     }
     r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"), "text");
+    if (r == null)
+      r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "definition"), "text");
     if (r != null) {
       s.append("<h2>Description</h2>\r\n");
       s.append("<p>"+nodeToString(r)+"</p>\r\n");
       s.append("<hr/>\r\n");
       vs.setDescriptionSimple(XMLUtil.htmlToXmlEscapedPlainText(r));
-    }
+    } else 
+      vs.setDescriptionSimple("? not found");
+      
 
     List<CodeInfo> codes = new ArrayList<CodeInfo>();
     // first, collate all the codes
@@ -1342,7 +1345,8 @@ public class Publisher {
       concept.setCodeSimple(cd);
       concept.setDisplaySimple(codes.get(cd)); // we deem the v2 description to be display name, not definition. Open for consideration
       def.getConcept().add(concept);
-      s.append(" <tr><td><a name=\""+Utilities.escapeXml(cd)+"\">"+Utilities.escapeXml(cd)+"</a></td><td>"+Utilities.escapeXml(codes.get(cd))+"</td><td>"+ver+"</td></tr>\r\n");
+      String nm = Utilities.nmtokenize(cd);
+      s.append(" <tr><td><a name=\""+Utilities.escapeXml(nm)+"\">"+Utilities.escapeXml(cd)+"</a></td><td>"+Utilities.escapeXml(codes.get(cd))+"</td><td>"+ver+"</td></tr>\r\n");
     }
     s.append("</table>\r\n");
     vs.setText(new Narrative());
@@ -1351,6 +1355,8 @@ public class Publisher {
     return vs;
   }
     
+  
+
   private ValueSet buildV2ValuesetVersioned(String id, String version, Element e) throws Exception {
     StringBuilder s = new StringBuilder();
 
@@ -1418,7 +1424,7 @@ public class Publisher {
           concept.setCodeSimple(cd);
           concept.setDisplaySimple(codes.get(cd)); // we deem the v2 description to be display name, not definition. Open for consideration
           def.getConcept().add(concept);
-          s.append(" <tr><td><a name=\""+Utilities.escapeXml(cd)+"\">"+Utilities.escapeXml(cd)+"</a></td><td>"+Utilities.escapeXml(codes.get(cd))+"</td><td>"+ver+"</td></tr>\r\n");
+          s.append(" <tr><td><a name=\""+Utilities.escapeXml(Utilities.nmtokenize(cd))+"\">"+Utilities.escapeXml(cd)+"</a></td><td>"+Utilities.escapeXml(codes.get(cd))+"</td><td>"+ver+"</td></tr>\r\n");
         }
         s.append("</table>\r\n");
     vs.setText(new Narrative());
@@ -1695,7 +1701,7 @@ public class Publisher {
 
 	  for (Example e : resource.getExamples()) {
 		  try {
-			  processExample(e);
+			  processExample(e, resource);
 		  } catch (Exception ex) {
 			  throw new Exception("processing "+e.getFileTitle(), ex);
 			  //		    throw new Exception(ex.getMessage()+" processing "+e.getFileTitle());
@@ -1765,7 +1771,7 @@ public class Publisher {
 				description, 0);
 	}
 
-	private void processExample(Example e) throws Exception {
+	private void processExample(Example e, ResourceDefn resource) throws Exception {
 		if (e.getType() == ExampleType.Tool)
 			return;
 
@@ -1796,6 +1802,7 @@ public class Publisher {
 		    ae.setResource(vs);
 		    page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
 		  }
+		  addToResourceFeed(vs, vs.getIdentifierSimple(), valueSetsFeed);
 		}
     Element el = xdoc.getDocumentElement();
     el = XMLUtil.getNamedChild(el, "text");
@@ -2224,13 +2231,24 @@ public class Publisher {
 		  if (wantBuild(rname)) {
 		    for (Example e : r.getExamples()) {
 		      String n = e.getFileTitle();
-		      log(" ...validate " + n);
-		      validateXmlFile(schema, n, validator);
+          log(" ...validate " + n);
+          validateXmlFile(schema, n, validator);
+		    }
+		    for (RegisteredProfile e : r.getProfiles()) {
+		      String n = e.getFilename()+".profile";
+          log(" ...validate " + n);
+          validateXmlFile(schema, n, validator);
 		    }
 		  }
 		}
+
 		if (buildFlags.get("all")) {
-		  log(" ...validate " + "profiles-resources");
+	    for (String n : page.getDefinitions().getProfiles().keySet()) {
+	      log(" ...profile "+n);
+	      validateXmlFile(schema, n+".profile", validator);
+	    }
+
+	    log(" ...validate " + "profiles-resources");
 		  validateXmlFile(schema, "profiles-resources", validator);
 		}
 		log("Reference Platform Validation.");

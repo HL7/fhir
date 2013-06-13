@@ -20,7 +20,7 @@
   <WindowWidth>15585</WindowWidth>
   <WindowTopX>1200</WindowTopX>
   <WindowTopY>1125</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -87,10 +87,6 @@
   </Style>
   <Style ss:ID="s74">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s75">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
   <Style ss:ID="s76">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
@@ -561,7 +557,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -613,27 +608,27 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">system</Data></Cell>
-    <Cell><Data ss:Type="String">a code system included or excluded in the value set</Data></Cell>
+    <Cell><Data ss:Type="String">the system for any codes defined by this value set</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet.define.system</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell><Data ss:Type="String">a code defined in the value set</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet.define.concept.code</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">reference</Data></Cell>
+    <Cell><Data ss:Type="String">a code system included or excluded in the value set or an imported value set</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet.compose.include.system</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">code</Data></Cell>
-    <Cell><Data ss:Type="String">a code contained in the include or exclude list of the value set (but not including descendant codes)</Data></Cell>
-    <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s75"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!restricts</Data></Cell>
     <Cell><Data ss:Type="String">a value set listed in the restricts list</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet.compose.restricts</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">import</Data></Cell>
-    <Cell><Data ss:Type="String">a value set listed in the import list</Data></Cell>
-    <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet.compose.import</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">description</Data></Cell>
@@ -655,10 +650,11 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
@@ -939,7 +935,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Width="66.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="150.75"/>
@@ -958,13 +954,6 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">General ValueSet Example</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="Number">101</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">valueset-example.xml</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s74"><Data ss:Type="String">MaritalStatus</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Valueset used in Patient Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">marital-status</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">valueset-marital-status.xml</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -992,8 +981,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

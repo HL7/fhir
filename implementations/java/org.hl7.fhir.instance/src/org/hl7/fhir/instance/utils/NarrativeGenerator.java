@@ -41,23 +41,29 @@ public class NarrativeGenerator {
     x.setNodeType(NodeType.Element);
     x.setName("div");
     if (vs.getExpansion() != null)
-      throw new Exception("Error: should not encounter value set expansion at this point");
-    if (vs.getCompose() != null) 
-      generateComposition(x, vs, codeSystems);
-    if (vs.getDefine() != null)
-      generateDefinition(x, vs);
+      generateExpansion(x, vs, codeSystems);
+    else {
+      XhtmlNode h = x.addTag("h2");
+      h.addText(vs.getNameSimple());
+      XhtmlNode p = x.addTag("p");
+      p.addText(vs.getDescriptionSimple());
+    	if (vs.getDefine() != null)
+    		generateDefinition(x, vs);
+    	if (vs.getCompose() != null) 
+    		generateComposition(x, vs, codeSystems);
+    }
     if (vs.getText() == null)
       vs.setText(new Narrative());
     vs.getText().setDiv(x);
     vs.getText().setStatusSimple(NarrativeStatus.generated);
   }
 
-  private void generateDefinition(XhtmlNode x, ValueSet vs) {
-    XhtmlNode h = x.addTag("h2");
-    h.addText(vs.getNameSimple());
-    XhtmlNode p = x.addTag("p");
-    p.addText(vs.getDescriptionSimple());
-    p = x.addTag("p");
+  private void generateExpansion(XhtmlNode x, ValueSet vs, Map<String, AtomEntry> codeSystems) throws Exception {
+	  throw new Exception("Not implemented yet");	  
+  }
+
+	private void generateDefinition(XhtmlNode x, ValueSet vs) {
+		XhtmlNode p = x.addTag("p");
     p.addText("This value set defines it's own terms in the system "+vs.getDefine().getSystemSimple());
     XhtmlNode t = x.addTag("table");
     addTableHeaderRowStandard(t);
@@ -153,8 +159,8 @@ public class NarrativeGenerator {
         li.addText(" where "+f.getPropertySimple()+" "+describe(f.getOpSimple())+" ");
         if (e != null && codeExistsInValueSet(e, f.getValueSimple())) {
           XhtmlNode a = li.addTag("a");
-          a.addTag(f.getValueSimple());
-          a.setAttribute("href", getCsRef(e)+"#"+f.getValueSimple());
+          a.addText(f.getValueSimple());
+          a.setAttribute("href", getCsRef(e)+"#"+Utilities.nmtokenize(f.getValueSimple()));
         } else
           li.addText(f.getValueSimple());
       }

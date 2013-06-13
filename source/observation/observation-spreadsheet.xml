@@ -20,6 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -262,7 +263,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Quantity|CodeableConcept|Attachment|Ratio|Choice|Period|Array|string</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ObservationResult</Data></Cell>
+    <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Actual result</Data></Cell>
     <Cell><Data ss:Type="String">The information determined as a result of making the observation</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s69"><Data ss:Type="String">A result with no value isn't much use.  (Though an exceptional value such as 'unknown' may still be useful.)</Data></Cell>
@@ -823,7 +824,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Quantity|CodeableConcept|Attachment|Ratio|Choice|Period|Array|string</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ObservationResult</Data></Cell>
+    <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Actual component result</Data></Cell>
     <Cell><Data ss:Type="String">The information determined as a result of making the sub-observation</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s69"><Data ss:Type="String">A result with no value isn't much use.  (Though an exceptional value such as 'unknown' may still be useful.)</Data></Cell>
@@ -864,11 +865,10 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -881,11 +881,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
@@ -1220,7 +1219,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="7" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="6" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="179.25"/>
    <Column ss:Width="249.75"/>
@@ -1253,14 +1252,6 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">LOINC codes filtered to exclude panel codes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ObservationResult</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Codes providing results of simple observations</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">valueset-observation-values</Data></Cell>
-    <Cell><Data ss:Type="String">Special Values, Data Absent Reason, and Snomed-CT clinical findings</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ObservationInterpretation</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Codes identifying interpretations of observations</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">value set</Data></Cell>
@@ -1290,6 +1281,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1309,8 +1301,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R4</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1385,7 +1378,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Profiles">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="2" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="1" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="108"/>
    <Column ss:AutoFitWidth="0" ss:Width="237"/>
@@ -1399,13 +1392,6 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">Type</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Example</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Example Picture Profile</Data></Cell>
-    <Cell><Data ss:Type="String">General Profile for a picture as an observation</Data></Cell>
-    <Cell><Data ss:Type="String">observation-profile-picture.xml</Data></Cell>
-    <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
-    <Cell><Data ss:Type="String">observation-example-picture.xml</Data></Cell>
-   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1417,8 +1403,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>3</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

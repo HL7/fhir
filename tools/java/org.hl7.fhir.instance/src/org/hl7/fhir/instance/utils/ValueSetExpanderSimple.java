@@ -120,6 +120,14 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	  ValueSet cs = codesystems.get(inc.getSystemSimple().toString());
 	  if (cs == null)
 	  	throw new Exception("unable to find value set "+inc.getSystemSimple().toString());
+    if (inc.getCode().size() == 0 && inc.getFilter().size() == 0) {
+      // special case - add all the code system
+//      for (ValueSetDefineConceptComponent def : cs.getDefine().getConcept()) {
+//!!!!        addCodeAndDescendents(inc.getSystemSimple(), def);
+//      }
+    }
+      
+
 	  for (Code c : inc.getCode()) {
 	  	// we don't need to check whether the codes are valid here- they can't have gotten into this list if they aren't valid
 	  	map.remove(key(inc.getSystemSimple(), c.getValue()));
@@ -160,7 +168,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	}
 
 	private String key(String uri, String code) {
-		return "{"+uri.toString()+"}"+code;
+		return "{"+uri+"}"+code;
 	}
 
 	private void addDefinedCode(ValueSet vs, String system, ValueSetDefineConceptComponent c) {

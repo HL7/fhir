@@ -383,7 +383,7 @@ public class InstanceValidator extends BaseValidator {
                   if (warning("code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
                     try {
                       vs = cache.getExpander().expand(vs);
-                      if (warning("code-unknown", path, binding != null, "Unable to expand value set for "+context.getDefinition().getBindingSimple())) {
+                      if (warning("code-unknown", path, vs != null, "Unable to expand value set for "+context.getDefinition().getBindingSimple())) {
                         warning("code-unknown", path, codeInExpansion(vs, system, code), "Code {"+system+"}"+code+" is not in value set "+context.getDefinition().getBindingSimple()+" ("+vs.getIdentifierSimple()+")");
                       }
                     } catch (Exception e) {
@@ -467,7 +467,7 @@ public class InstanceValidator extends BaseValidator {
                     warning("code-unknown", path, found, "No code provided, and value set "+context.getDefinition().getBindingSimple()+" ("+vs.getIdentifierSimple()+") is required");
                   if (any)
                     if (binding.getConformanceSimple() == BindingConformance.example)
-                      hint("code-unknown", path, found, "None of the codes are in the expected value set "+context.getDefinition().getBindingSimple()+" ("+vs.getIdentifierSimple()+")");
+                      hint("code-unknown", path, found, "None of the codes are in the example value set "+context.getDefinition().getBindingSimple()+" ("+vs.getIdentifierSimple()+")");
                     else 
                       warning("code-unknown", path, found, "None of the codes are in the expected value set "+context.getDefinition().getBindingSimple()+" ("+vs.getIdentifierSimple()+")");
                 }

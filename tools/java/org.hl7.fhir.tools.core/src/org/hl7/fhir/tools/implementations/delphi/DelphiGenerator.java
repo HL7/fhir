@@ -1811,9 +1811,7 @@ public String getName() {
     	impl2.append("procedure TFhir"+tn+".Assign(oSource : TAdvObject);\r\n");
     	impl2.append("begin\r\n");
     	impl2.append("  inherited;\r\n");
-    	impl2.append("  FXmlId := TFhirElement(oSource).FXmlId;\r\n");
-    	impl2.append("  if TFhirElement(oSource).HasExtensions then\r\n    extensionList.assign(TFhirElement(oSource).extensionList)\r\n"+
-    			"  else if FExtensionList <> nil then\r\n  begin\r\n    FExtensionList.free;\r\n    FExtensionList := nil;\r\n  end;\r\n");
+    	impl2.append("  FValue := TFhir"+tn+"(oSource).Value;\r\n");
     	impl2.append("end;\r\n\r\n");
     }
 

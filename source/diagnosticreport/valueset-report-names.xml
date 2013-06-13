@@ -3,7 +3,7 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      This value set includes all LOINC codes in the "Clinical" or "Lab" class types (TODO: narrow this further - diagnostic codes, panels only)
+      This value set includes all LOINC codes (TODO: narrow this further - diagnostic codes, panels only)
     </div>
   </text>
   <name value="Loinc Diagnostic Report Codes"/>
@@ -16,24 +16,7 @@
   <status value="review"/>
   <compose>
     <include>
-      <!-- all lab codes. TODO: can we get just the panel ones? -->
       <system value="http://loinc.org"/>
-      <filter>
-        <property value="CLASSTYPE"/>
-        <op value="="/>
-        <value value="lab"/>
-      </filter>
-    </include>
-    <include>
-      <!-- All the clinical codes. This is not really satisfactory because they 
-           include non-diagnostics, and non panel ones (in fact, report and data
-           item are not separated) -->
-      <system value="http://loinc.org"/>
-      <filter>
-        <property value="CLASSTYPE"/>
-        <op value="="/>
-        <value value="clinical"/>
-      </filter>
     </include>
   </compose>
 </ValueSet>

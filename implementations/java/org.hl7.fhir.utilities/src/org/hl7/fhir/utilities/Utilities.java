@@ -384,6 +384,17 @@ public class Utilities {
 //      throw new Exception("Filename  ")
 //    
 //  }
-  
+
+  public static String nmtokenize(String cs) {
+    StringBuilder s = new StringBuilder();
+    for (int i = 0; i < cs.length(); i++) {
+      char c = cs.charAt(i);
+      if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || c == '-' || c == '_')
+        s.append(c);
+      else if (c != ' ')
+        s.append(nmtokenize(Character.getName(c)));
+    }
+    return s.toString();
+  }
 	
 }

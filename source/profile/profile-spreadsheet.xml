@@ -20,7 +20,6 @@
   <WindowWidth>2910</WindowWidth>
   <WindowTopX>12450</WindowTopX>
   <WindowTopY>1815</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -952,8 +951,8 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String" x:Ticked="1">id</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String" x:Ticked="1">code</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">!</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Identifies the extension in this profile</Data></Cell>
@@ -1079,10 +1078,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>55</TopRowBottomPane>
+   <TopRowBottomPane>57</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1100,7 +1100,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>58</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1155,7 +1155,7 @@
     <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.element.definition</Data></Cell>
     <Cell><Data ss:Type="String">Binding can only be present for coded elements</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:binding)) or f:type/f:code/@value=('code','Coding','CodeableConcept')</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:binding)) or f:type/f:code/@value=('code','Coding','CodeableConcept','Quantity')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">8</Data></Cell>
@@ -1213,13 +1213,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <TopRowVisible>3</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

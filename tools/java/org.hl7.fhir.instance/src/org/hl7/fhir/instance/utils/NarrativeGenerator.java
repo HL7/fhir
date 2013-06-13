@@ -153,8 +153,8 @@ public class NarrativeGenerator {
         li.addText(" where "+f.getPropertySimple()+" "+describe(f.getOpSimple())+" ");
         if (e != null && codeExistsInValueSet(e, f.getValueSimple())) {
           XhtmlNode a = li.addTag("a");
-          a.addTag(f.getValueSimple());
-          a.setAttribute("href", getCsRef(e)+"#"+f.getValueSimple());
+          a.addText(f.getValueSimple());
+          a.setAttribute("href", getCsRef(e)+"#"+Utilities.nmtokenize(f.getValueSimple()));
         } else
           li.addText(f.getValueSimple());
       }

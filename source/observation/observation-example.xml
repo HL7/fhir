@@ -40,7 +40,7 @@
     <name>
       <coding>
         <system value="http://loinc.org"/>
-        <code value="8580-6"/>
+        <code value="8480-6"/>
         <display value="Systolic blood pressure"/>
       </coding>
     </name>
