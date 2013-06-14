@@ -1,15 +1,5 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>
-        This example value set defines a set of codes that can be used to indicate breeds of species 
-        (in this case, of the species 'dog')
-        It's taken from a <a href="http://animal.discovery.com/breed-selector/dog-breeds/all-breeds-a-z.html">this list of dog breeds</a>       
-      </p>
-    </div>
-  </text>
   <name value="AnimalBreeds"/>
   <publisher value="FHIR Project team"/>
   <telecom>  
@@ -31,7 +21,11 @@
     <concept>
       <code value="tibmas"/>
       <display value="Tibetan Mastiff"/>
-    </concept>    
+    </concept>  
+    <concept>
+      <code value="gret"/>
+      <display value="Golden Retriever"/>
+    </concept>  
   </define>
 </ValueSet>
 

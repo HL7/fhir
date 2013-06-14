@@ -9,36 +9,43 @@
             <display value="Hospital Department"/>
         </coding>
     </type>
-    <address>
-        <line value="Wing G, floor 3, south"></line>
-    </address>
     <telecom>
         <system value="phone"/>
         <value value="020-566 4433"/>
     </telecom>
+    <address>
+        <line value="Wing G, floor 3, south"/>
+    </address>
     <partOf>
-        <type value="Organization" />
-        <reference value="organization/@f001" />
-        <display value="AMC Amsterdam" />
+        <type value="Organization"/>
+        <reference value="organization/@f001"/>
+        <display value="AMC Amsterdam"/>
     </partOf>
     <contactEntity>
         <type>
             <coding>
                 <system value="http://hl7.org/fhir/contactentity-type"/>
-                <code value="ADMIN" />
+                <code value="ADMIN"/>
             </coding>
         </type>
+        <name>
+            <text value="mevr. D. de Haan" />
+        </name>
         <telecom>
             <system value="phone"/>
             <value value="020-566 4323"/>
         </telecom>
         <telecom>
-            <system value="email" />
-            <value value="ctc@amc.uva.nl" />
+            <system value="email"/>
+            <value value="ctc@amc.uva.nl"/>
         </telecom>
         <telecom>
             <system value="fax"/>
             <value value="020-696 2289"/>
         </telecom>
+        <address>
+            <line value="Wing G, floor 3, south"/>
+        </address>
     </contactEntity>
+    <active value="true "/>
 </Organization>

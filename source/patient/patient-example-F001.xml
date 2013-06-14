@@ -90,7 +90,7 @@
   <contact>
     <relationship>
       <coding>
-        <system value="http://hl7.org/fhir/contact-relationship"/>
+        <system value="http://hl7.org/fhir/patient-contact-relationship"/>
         <code value="partner"/>
       </coding>
     </relationship>

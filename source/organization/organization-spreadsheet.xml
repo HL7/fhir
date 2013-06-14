@@ -20,7 +20,6 @@
   <WindowWidth>17490</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -233,18 +232,6 @@
     <Cell><Data ss:Type="String">No equivalent in v2</Data></Cell>
     <Cell ss:StyleID="s71"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">Organization.address</Data></Cell>
-    <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Address</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">An address for the organization</Data></Cell>
-    <Cell><Data ss:Type="String">An address for the organization</Data></Cell>
-    <Cell><Data ss:Type="String">May need to keep track of the organizations addresses for contacting, billing or reporting requirements</Data></Cell>
-    <Cell><Data ss:Type="String">Organization may have multiple addresses with different uses or applicable periods. The use code home is not to be used</Data></Cell>
-    <Cell><Data ss:Type="String">.address</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">No authoritative equivalent in V2.x; some V2.x segments such as OBX might provide a serialized instance value</Data></Cell>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Organization.telecom</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
@@ -256,6 +243,18 @@
     <Cell><Data ss:Type="String">The use code home is not to be used. Note that these contacts are not the contact details of people who are employed by or represent the organization, but official contacts for the organization itself</Data></Cell>
     <Cell><Data ss:Type="String">.telecom</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">No authoritative equivalent in V2.x</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell><Data ss:Type="String">Organization.address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Address</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">An address for the organization</Data></Cell>
+    <Cell><Data ss:Type="String">An address for the organization</Data></Cell>
+    <Cell><Data ss:Type="String">May need to keep track of the organizations addresses for contacting, billing or reporting requirements</Data></Cell>
+    <Cell><Data ss:Type="String">Organization may have multiple addresses with different uses or applicable periods. The use code home is not to be used</Data></Cell>
+    <Cell><Data ss:Type="String">.address</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">No authoritative equivalent in V2.x; some V2.x segments such as OBX might provide a serialized instance value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Organization.accreditation</Data></Cell>
@@ -406,10 +405,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
+   <TopRowVisible>3</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>1</ActivePane>
    <Panes>
     <Pane>
@@ -417,8 +418,8 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -738,7 +739,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

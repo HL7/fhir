@@ -16,14 +16,6 @@
 
   <!-- HL7 itself -->
   <name value="Health Level Seven International"/>
-
-  <address>
-    <line value="3300 Washtenaw Avenue, Suite 227"/>
-    <city value="Ann Arbor"/>
-    <state value="MI"/>
-    <zip value="48104"/>
-    <country value="USA"/>
-  </address>  
   <telecom>
     <system value="phone"/>
     <value value="(+1) 734-677-7777"/>
@@ -34,6 +26,13 @@
   </telecom>
   <telecom>
     <system value="email"/>
-    <value value=" hq@HL7.org"/>
+    <value value="hq@HL7.org"/>
   </telecom>
+  <address>
+    <line value="3300 Washtenaw Avenue, Suite 227"/>
+    <city value="Ann Arbor"/>
+    <state value="MI"/>
+    <zip value="48104"/>
+    <country value="USA"/>
+  </address>  
 </Organization>

@@ -45,6 +45,12 @@
   </details>
 
   <contact>
+    <relationship>
+      <coding>
+        <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+        <code value="owner"/>
+      </coding>
+    </relationship>
     <organization>
       <!-- Which organization to contact to reach this patient -->
       <type value="Organization" />

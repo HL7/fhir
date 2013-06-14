@@ -26,6 +26,11 @@
             <display value="Healthcare Provider"/>
         </coding>
     </type>
+    <telecom>
+        <system value="phone"/>
+        <value value="0205669111"/>
+        <use value="work"/>
+    </telecom>
     <address>
         <use value="work"/>
         <line value="Meibergdreef 9"/>
@@ -40,11 +45,6 @@
         <zip value="1100 DD"/>
         <country value="NLD"/>
     </address>
-    <telecom>
-        <system value="phone"/>
-        <value value="0205669111"/>
-        <use value="work"/>
-    </telecom>
     <contactEntity>
         <type>
             <coding>

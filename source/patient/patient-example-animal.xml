@@ -59,7 +59,7 @@
   <contact>
     <relationship>
       <coding>
-        <system value="http://hl7.org/fhir/contact-relationship"/>
+        <system value="http://hl7.org/fhir/patient-contact-relationship"/>
         <code value="owner"/>
       </coding>
     </relationship>
@@ -90,7 +90,7 @@
       <coding>
         <system value="http://hl7.org/fhir/animal-species"/>
         <code value="canislf"/>
-        <display value="Canis lupus familiaris"/>
+        <display value="Dog"/>
       </coding>
     </species>
     <breed>
@@ -99,10 +99,15 @@
         <code value="58108001"/>
         <display value="Golden retriever"/>
       </coding>
-    </breed>
+      <coding>
+        <system value="http://hl7.org/fhir/animal-breed"/>
+        <code value="gret"/>
+        <display value="Golden Retriever"/>
+      </coding>
+    </breed>    
     <genderStatus>
       <coding>
-        <system value="http://hl7.org/fhir/animal-species" />
+        <system value="http://hl7.org/fhir/animal-genderstatus" />
         <code value="neutered"/>
       </coding>
     </genderStatus>
