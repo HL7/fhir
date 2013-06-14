@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
+    <name value="AMC Amsterdam Cardiology unit"/>
+    <type>
+        <coding>
+            <system value="http://hl7.org/fhir/organization-type"/>
+            <code value="dept"/>
+            <display value="Hospital Department"/>
+        </coding>
+    </type>
+    <address>
+        <line value="Wing G, floor 3, south"></line>
+    </address>
+    <telecom>
+        <system value="phone"/>
+        <value value="020-566 4433"/>
+    </telecom>
+    <partOf>
+        <type value="Organization" />
+        <reference value="organization/@f001" />
+        <display value="AMC Amsterdam" />
+    </partOf>
+    <contactEntity>
+        <type>
+            <coding>
+                <system value="http://hl7.org/fhir/contactentity-type"/>
+                <code value="ADMIN" />
+            </coding>
+        </type>
+        <telecom>
+            <system value="phone"/>
+            <value value="020-566 4323"/>
+        </telecom>
+        <telecom>
+            <system value="email" />
+            <value value="ctc@amc.uva.nl" />
+        </telecom>
+        <telecom>
+            <system value="fax"/>
+            <value value="020-696 2289"/>
+        </telecom>
+    </contactEntity>
+</Organization>

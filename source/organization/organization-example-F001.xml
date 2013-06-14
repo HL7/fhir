@@ -1,85 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
+<Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
     <identifier>
         <use value="official"/>
-        <system value="urn:oid:2.16.528.1.1006"/>
+        <system value="urn:oid:2.16.528.1"/>
+        <key value="1006"/>
+    </identifier>
+    <identifier>
+        <use value="usual"/>
+        <system value="urn:oid:2.16.840.1.113883.2.4.6.1"/>
+        <!-- Dutch VEKTIS AGB-Z -->
+        <key value="17-082078"/>
     </identifier>
     <name value="Academisch Medisch Centrum Amsterdam"/>
     <type>
         <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.6.1"/> <!-- VEKTIS AGB-Z  (alternatief OID 2.16.840.1.113883.2.4.6.2 Prismant/SIG code) -->
-            <code value="urn:oid:2.16.528.1.1006"/>
-            <display value="AMC universiteit Amsterdam"/>
-        </coding>       
-    </type>
-    <!-- 
-    <type>
+            <system value="urn:oid:2.16.840.1.113883.2.4.15.1060"/>
+            <!-- RoleCodeNLUZIRoleCodeOrganisaties -->
+            <code value="V6"/>
+            <display value="University Medical Hospital"/>
+        </coding>
         <coding>
-        <system value="urn:oid:2.16.840.1.113883.2.4.15.1060"/>    (zorgaanbiedertype systeem code) 
-          <code value="V4"/>
-          <display value="ziekenhuis"/>
-       </coding>       
-    </type> -->
+            <system value="http://hl7.org/fhir/organization-type"/>
+            <code value="prov"/>
+            <display value="Healthcare Provider"/>
+        </coding>
+    </type>
     <address>
-        <use value="home"/>
+        <use value="work"/>
         <line value="Meibergdreef 9"/>
         <city value="Amsterdam"/>
         <zip value="1105 AZ"/>
-        <country value="Netherlands"/>
+        <country value="NLD"/>
+    </address>
+    <address>
+        <use value="work"/>
+        <line value="PO Box 22660"/>
+        <city value="Amsterdam"/>
+        <zip value="1100 DD"/>
+        <country value="NLD"/>
     </address>
     <telecom>
         <system value="phone"/>
         <value value="0205669111"/>
-        <use value="home"/>
+        <use value="work"/>
     </telecom>
-    <active value="true"/>
-    <accreditation> <!-- lastige entity om in te vullen.................... -->
-        <identifier>
-            <use value="official"/>
-            <system value="urn:oid:2.16.840.1.113883.2.4.6.1"/> <!-- VEKTIS AGB-Z  (alternatief OID 2.16.840.1.113883.2.4.6.2 Prismant/SIG code) -->
-            <key value="????"/>
-        </identifier>
-        <code>
-            <coding>
-                <system value="???"/>
-                <code value="???"/>
-                <display value="???"/>
-            </coding>
-            <text value="???"/>
-        </code>
-        <issuer></issuer>
-        <period></period>
-    </accreditation>
-    <contactEntity> <!-- lastige entity om in te vullen.................... -->
+    <contactEntity>
         <type>
             <coding>
-                <system value="???"></system>
-                <code></code>
-                <display></display>
+                <system value="http://hl7.org/fhir/contactentity-type"/>
+                <code value="PRESS" />
             </coding>
         </type>
-        <name>
-            <use value="usual"/>
-            <family value="De Vucht"/>
-            <given value="Maarten"/>
-            <suffix value="MD"/>
-        </name>
         <telecom>
             <system value="phone"/>
-            <value value="0208837462"/>
-            <use value="work"/>
+            <value value="020-566 2929"/>
         </telecom>
+    </contactEntity>
+    <contactEntity>
+        <type>
+            <coding>
+                <system value="http://hl7.org/fhir/contactentity-type"/>
+                <code value="PATINF" />
+            </coding>
+        </type>
         <telecom>
-            <system value="email"/>
-            <value value="m.vanvucht@gmail.com"/>
-            <use value="work"/>
+            <system value="phone"/>
+            <value value="020-566 3355"/>
         </telecom>
-        <address>
-             <use value="home"/>
-             <line value="Prinsegracht 24"/>
-             <city value="Amsterdam"/>
-             <zip value="1032 HB"/>
-             <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
-        </address>
     </contactEntity>
 </Organization>

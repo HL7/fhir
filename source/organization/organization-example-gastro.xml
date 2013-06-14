@@ -4,25 +4,31 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>Clinical Laboratory @ Acme Hospital. ph: +1 555 234 1234, email: <a
-          href="mailto:contact@labs.acme.org">contact@labs.acme.org</a></p>
+      <p>Gastroenterology @ Acme Hospital. ph: +1 555 234 3523, email: <a
+          href="mailto:gastro@acme.org">gastro@acme.org</a></p>
     </div>
   </text>
-  
-  <!-- Clinical Lab at Acme Hospital -->
+
+  <!-- Clinical Team "Gastroenterology" at Acme Hospital -->
   <identifier>
     <system value="http://www.acme.org.au/units"/>
-    <key value="ClinLab"/>
+    <key value="Gastro"/>
   </identifier>
-  <name value="Clinical Lab"/>
+  <name value="Gastroenterology"/>
   <telecom>
     <system value="phone"/>
-    <value value="+1 555 234 1234"/>
-    <use value="work"/>
+    <value value="+1 555 234 3523"/>
+    <use value="mobile"/>
   </telecom>
   <telecom>
     <system value="email"/>
-    <value value="contact@labs.acme.org"/>
+    <value value="gastro@acme.org"/>
     <use value="work"/>
   </telecom>
+  
+  <partOf>
+    <type value="Organization"/>
+    <reference value="organization/@1"/>
+    <display value="ACME Healthcare, Inc"/>
+  </partOf>
 </Organization>

@@ -4,30 +4,36 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>Gastroenterology @ Acme Hospital. ph: +1 555 234 3523, email: <a href="mailto:gastro@acme.org">gastro@acme.org</a></p>
+      Health Level Seven International<br/>
+				3300 Washtenaw Avenue, Suite 227<br/>
+				Ann Arbor, MI 48104<br/>
+				USA<br/>
+				(+1) 734-677-7777 (phone)<br/>
+				(+1) 734-677-6622 (fax)<br/>
+				E-mail:  <a href="mailto:hq@HL7.org">hq@HL7.org</a>
     </div>
   </text>
 
-  <!-- Clinical Team "Gastroenterology" at Acme Hospital -->
-  <identifier>
-    <system value="http://www.acme.org.au/units"/>
-    <key value="Gastro"/>
-  </identifier>
-  <name value="Gastroenterology"/>
+  <!-- HL7 itself -->
+  <name value="Health Level Seven International"/>
+
+  <address>
+    <line value="3300 Washtenaw Avenue, Suite 227"/>
+    <city value="Ann Arbor"/>
+    <state value="MI"/>
+    <zip value="48104"/>
+    <country value="USA"/>
+  </address>  
   <telecom>
     <system value="phone"/>
-    <value value="+1 555 234 3523"/>
-    <use value="mobile"/>
+    <value value="(+1) 734-677-7777"/>
+  </telecom>
+  <telecom>
+    <system value="fax"/>
+    <value value="(+1) 734-677-6622"/>
   </telecom>
   <telecom>
     <system value="email"/>
-    <value value="gastro@acme.org"/>
-    <use value="work"/>
+    <value value=" hq@HL7.org"/>
   </telecom>
-
-  <partOf>
-      <type value="Organization"/>
-      <reference value="organization/@1"/>
-      <display value="ACME Healthcare, Inc"/>   
-  </partOf>
 </Organization>

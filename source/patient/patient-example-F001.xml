@@ -130,7 +130,7 @@
   <provider>
     <type value="Organization"/>
     <!--TODO refer to Furore test organization -->
-    <reference value="organization/@1"/>
+    <reference value="organization/@f001"/>
     <display value="AMC Amsterdam"/>
   </provider>
   <multipleBirthBoolean value="true"/>
