@@ -24,6 +24,8 @@ It explicitly does not try to standardize or streamline exchange of its contents
 constrain its structure and flexibility using profiles to define standardized, reusable forms.</li>
 <li>Because of the lack of explicit support for Questionnaires in HL7v3, HL7 CDA Documents frequently used named sections with
 Observations to model Questionnaires, such usecases should now utilize the Questionnaire Resource instead.</li>
+<li>Questionnaire allows information both to be based on on-screen forms and/or actual Observations and other Resources using Answer.evidence.</li>
+
 </ul>
 
 <p>

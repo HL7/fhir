@@ -1,21 +1,20 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <p>
-A Questionnaire is a structured set of answers to a predefined list of questions. The Questionnaire can be a flat list, or can be composed
+A Questionnaire is a structured set of answers to predefined lists of questions, a.k.a. questionnaires or "forms". The Questionnaire can be a flat list, or can be composed
 of (possibly named) sections and subsections, each containing answers. There may be multiple answers to the same question and even whole
 sections may be repeated. Anwers specify the question they answer and take the form of codes, values, dates or text. Answers may explicitly
 reference Observations, Procedures or other resources they are based on.</p>
 
 <p>Questionnaires cover the need to communicate data originating from forms used in medical history examinations, research questionnaires and sometimes full
-clinical speciality records. In many systems this data is collected using user-defined screens and forms. Although there is possible overlap between the 
-information covered by Questionnaires and other Resources (mainly Observation, Procedure and MedicationAdministration), the process of collection and 
-recording differ: Questionnaires record history while Resources are part of the registration of an ongoing clinical process. Because of this overlap,
-Questionnaire allows information both to be based on on-screen forms and/or actual Observations and other Resources using Answer.evidence.</p>
+clinical speciality records. In many systems this data is collected using user-defined screens and forms. Questionnaires record specifics about data capture - exactly what questions were asked, 
+in what order, what choices for answers were, etc. Each of these questions are part of the Questionnaire, and as such the Questionnaire is a separately identifiable Resource, whereas the individual 
+questions are not.</p>
 
 <p>Questionnaires differ from Lists because Lists regroup or summarize existing information, while Questionnaires contain original, 
-clinician collected data. Questionnaires differ from Documents, in that Questionnaires are independent, versionable Resources, from which
-a Document may be composed.</p>
-
+clinician collected data. Questionnaires are similar to Documents. However, the purpose of a Questionnaire is the capture of raw data as opposed to the composition 
+and assertion of information intended for long term persistence and use in a Document.</p>
+ 
 <p>A Questionnaire contains names for sections and answers, which may refer externally defined names of questions and sections on
 predefined questionnaires. This way, it is not necessary to include the actual text of the questions asked or the textual captions of the
 sections on a questionnaire. However, if no such definition exist, or there is a need to explicitly include the text of the questions answered, 
@@ -31,6 +30,20 @@ questions can be answered using the Choice datatype, which allows the sender to 
 <li>Quality and evaluation forms</li>
 </ul>
 
+<h2>Using Questionaires versus using Resources</h2>
+<p>There is considerable overlap between the information covered by Questionnaires and other Resources (especially FamilyHistory, MedicationStatement, Observation, Procedure, etc.): 
+Questionnaire's flexible structure can easily be misused to capture any data, even data that should be captured as separate Resources. The choice between using Questionnaires or separate 
+Resources may be dictated by the procedure of collection and recording. E.g. if the data is captured as a physician-agreed (electronic) form, it might be impossible or undesirable to 
+distill separate resources from it, and the Questionnaire must be stored and communicated as a whole.</p> 
+
+<p>However, data captured only in Questionnaires can be difficult to query after-the-fact: queries against other Resources will not return data captured only in Questionnaires, 
+and querying against Questionnaires directly may not find all desired data, depending on how the questions may have been phrased or encoded over time or by different clinicians. 
+Moreover, interoperability of such Questionnaires is limited as interpretation of its contents is only known to the circle of parties that were involved in its definition: encoding data from 
+such Questionnaires using other, more specific, Resources increases the ability and consistency with which it can be understood and queried.</p> 
+
 </div>
+
+
+
 
 
