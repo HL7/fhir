@@ -129,7 +129,6 @@
   </contact>
   <provider>
     <type value="Organization"/>
-    <!--TODO refer to Furore test organization -->
     <reference value="organization/@f001"/>
     <display value="AMC Amsterdam"/>
   </provider>
