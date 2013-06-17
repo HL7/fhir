@@ -5,7 +5,7 @@ Value sets may be constructed in one of two ways:
 </p>
 <ul>
  <li>A value set can <i>define</i> it's own codes, and/or</li>
- <li>A value set can be <i>composed</i> from codes defined in other code systems, either by listing the codes, or by providing a set of selection criteria</li>
+ <li>A value set can be <i>composed</i> of codes defined in other code systems, either by listing the codes or by providing a set of selection criteria</li>
 </ul>
 <p>
 A value set can also be "expanded", where the value set is turned into a simple collection of enumerated codes.
@@ -14,7 +14,7 @@ validation. An expanded value set may also contain the original definition as we
 </p>
 <p>
 Valuesets resources are based on the fundamental definitions found in the 
-<a href="http://www.hl7.org/v3ballot/html/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a>, 
+<a href="http://www.hl7.org/v3ballot/html/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a> document 
 and the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2</a> specification. Value set
 resources can be converted to CTS2 value set and code system resources.
 </p>

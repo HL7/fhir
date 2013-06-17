@@ -1,9 +1,11 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<h2>Identifier and Version</h2>
 <p>
 The <i>identifier</i> and <i>version</i> elements may be used to reference this value set in a design, a profile, a 
 CDA template or V3 message (valueSet and valueSetVersion). These different contexts may make additional restrictions 
-on the possible values of these elements.
+on the possible values of these elements.  These elements are generally not needed when using value sets with FHIR
+implementations as they can make use of the innate identifier and versioning mechanism associated with the resource
 </p>
 
 <h2>Value Sets that define codes</h2>
@@ -30,8 +32,8 @@ be different.
 
 <p>
 Value sets that include codes defined in some other code system are most useful when 
-dealing with large general code systems such as Snomed-CT, LOINC, RxNorm, or various IETF code sets 
-including human language. The value set can be a simple list of included codes, or it can be some 
+dealing with large general code systems such as Snomed-CT, LOINC, RxNorm or various IETF code sets 
+including human language. The value set can be a simple list of included codes or it can be some 
 kind of general selection criteria using the facilities provided by the code system. 
 </p>
 <ul>
@@ -43,8 +45,8 @@ kind of general selection criteria using the facilities provided by the code sys
  <li>An include statement includes any enumerated codes and any codes that meet the filter criteria</li>
  <li>If the system reference is not version specific and filters are present, then the contents of the value set are open and change 
     over time as the underlying code systems are updated</li>
- <li>The content of the value set is a union of all the import and include statements and then 
-  with any excluded codes eliminated</li>
+ <li>The content of the value set is constructed by unioning of all the import and include statements and then 
+  eliminating any of the 'excluded' codes.</li>
  <li>A value set needs to do something.  It can't simply include an existing value set without 
    also including additional content or excluding content</li>
 <!--
@@ -64,7 +66,7 @@ to compute the relationship, which might not be possible for a profile tool</li>
 A value set can be "expanded", where the definition of the value set is 
 used to create a simple collection of codes suitable for use for data 
 entry or validation. This is most useful when a value set includes 
-all the children of a code, or a set of codes by filter.
+all the children of a code or a set of codes by filter.
 </p>
 <p>
 The standard way to produce a value set expansion is to perform a 
