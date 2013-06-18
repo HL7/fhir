@@ -20,7 +20,6 @@
   <WindowWidth>7995</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -190,7 +189,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">Individuals are known by a variety of ids. Some of these are specific to their role as a patient or practitioner, other are used for identification of the person him/herself, like drivers license id's, national or social security numbers, etcetera.</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">.plays:Role(classCode='IDENT').id</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-3</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-3 / Prac : XCN.1 Person Identifier</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -207,7 +206,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">Need to be able to track the person by multiple names. Examples are your official name and a partner name.</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Person may have multiple names with different uses or applicable periods.For animals, the name is a &quot;HumanName&quot; in the sense that is assigned and used by humans and has the same patterns</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">./name</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-5, PID-9</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-5, PID-9 / Prac: XCN Components</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Committee does not fully grasp implications of HumanName datatype, so as a matter of safety decided to have cardinality 0..*. It is not clear to the committee whether or not all 80% name parts can be conveyed in one name instance</Data></Cell>
    </Row>
@@ -224,7 +223,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">People have (primary) ways to contact them in some way such as phone, email.</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Person may have multiple ways to be contacted with different uses or applicable periods. &#13;May need to have options for contacting the person urgently and also to help with identification. The address may not go directly to the individual, but may reach another party that is able to proxy for the patient (i.e. home phone, or pet owner's phone)</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">./telecom</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-13, PID-14</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-13, PID-14, PID-40 / Prac: PRT-15, STF-10, ROL-12&#10;</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">renamed from contact, because that suggested &quot;contact party&quot; at first sight. &quot;telecom&quot; is a well-worn path, so without a really good working alternative we want to stick to it</Data></Cell>
    </Row>
@@ -241,7 +240,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">Needed for identification of the individual, in combination with (at least) name and birth date. Gender of individual drives many clinical processes.</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">The gender may not match the biological sex as determined by genetics, or the individual's preferred identification. Note that for both humans and particularly animals, there are other legitimate possibilities than M and F, though the vast majority of systems and contexts only support M and F</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">./administrativeGender</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-8</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-8 / Prac: STF-5&#10;</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">'gender' is still the administrative gender, but this is reflected in its description rather than its name.</Data></Cell>
    </Row>
@@ -258,7 +257,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">Age of the individual drives many clinical processes. Next to the common use case of capturing someone birth date, also in some common cases time is registered.</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">At least an estimated year should be provided as a guess if the real dob is unknown</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">./birthTime</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-7</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-7 / Prac: STF-6&#10;</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">renamed from dob, because the abbreviation is not obvious to non-English speakers</Data></Cell>
    </Row>
@@ -275,7 +274,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">The fact that a patient is deceased influences the clinical process. Also, in human communication and relation management it is necessary to know whether the person is alive.</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">If there's no value in the instance it means there is no statement on whether or not the individual is deceased. Most systems will interpret the absence of a value as a sign of the person being alive.</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">./deceasedInd</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-30</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-30 / Prac: STF-32&#10;</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">there are two choices (a) deceased and date are two separate notions, one who could go in core and one who does not, and not all usecases need both, (b) its one piece of information, and to avoid inconsistencies its better to have one field with a nullflavor saying that there is a date, but it is not available/known.</Data></Cell>
    </Row>
@@ -292,7 +291,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">May need to keep track of persons addresses for contacting, billing or reporting requirements and also to help with identification</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Person may have multiple addresses with different uses or applicable periods</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">./addr</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-11</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-11 / Prac: ORC-24, STF-11, ROL-11, PRT-14&#10;</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -326,7 +325,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">Most, if not all systems capture it.</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">./maritalStatus</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">PID-16</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">PID-16 / Prac: STF-17</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">We know 80% of systems capture it, but are unsure why.</Data></Cell>
     <Cell ss:StyleID="s73"/>
    </Row>
@@ -343,7 +342,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">If a patient does not speak the local language, interpreters may be required, so languages spoken and profiency is an important things to keep track of both for patient and other persons of interest</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">If no language is specified, this *implies* that the default local language is spoken.&#13;If you need to convey proficiency for multiple modes than you need multiple Person.language associations.&#10;&#10;For animals, language is not a relevant field, and should be absent from the instance</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">.LanguageCommunication</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">LAN</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Rationale for putting this in the core is based on input from Canada. Other persons on call are from single language countries. Committee felt uncomfortable with leaving any of the 3 optional attributes modeCode, proficiencyLevelCode, or preferenceInd up to extensions. Instead we said that mustUnderstand is &quot;no&quot; on modeCode and preferenceInd.</Data></Cell>
    </Row>
@@ -464,6 +463,7 @@
     <VerticalResolution>-4</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -484,8 +484,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -629,7 +629,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

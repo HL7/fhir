@@ -21,7 +21,6 @@
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
   <TabRatio>654</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -35,6 +34,14 @@
    <Protection/>
   </Style>
   <Style ss:ID="s62" ss:Name="Normal 2">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s78" ss:Name="Normal 3">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -106,6 +113,13 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
   </Style>
+  <Style ss:ID="s85" ss:Parent="s78">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s170" ss:Parent="s78">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Interior/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="34" x:FullColumns="1"
@@ -169,7 +183,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">PV1-19-visit number</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -184,7 +198,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">No clear equivalent in V2.x; active/finished could be inferred from PV1-44, PV1-45, PV2-24; inactive could be inferred from PV2-16</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -198,7 +212,7 @@
     <Cell><Data ss:Type="String">Inpatient | Outpatient etc</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:Index="11" ss:StyleID="Default"/>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="s85"><Data ss:Type="String">PV1-2-patient class</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -213,7 +227,7 @@
     <Cell><Data ss:Type="String">Specific type of encounter</Data></Cell>
     <Cell><Data ss:Type="String">Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="s85"><Data ss:Type="String">PV1-4-admission type</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -229,7 +243,7 @@
     <Cell ss:Index="10"><Data ss:Type="String">patient</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">While the encounter is always about the patient, the patient may not actually be known in all contexts of use</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">PID-3-patient ID list</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -257,7 +271,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">ParticipantType</Data></Cell>
     <Cell><Data ss:Type="String">Kind of involvement of the participant</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="s85"><Data ss:Type="String">PRT-4-participation</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -271,7 +285,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">The practitioner that is involved</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="s85"><Data ss:Type="String">PRT-5-participation person</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -285,7 +299,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">The appointment that scheduled this visit</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="s170"><Data ss:Type="String">SCH-1-placer appointment ID / SCH-2-filler appointment ID</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -299,7 +313,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Quantity of time the visit lasted</Data></Cell>
     <Cell><Data ss:Type="String">Quantity of time the visit lasted. This excludes the time during leaves of absence.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">(PV1-45 less PV1-44) iff ( (PV1-44 not empty) and (PV1-45 not empty) ); units in minutes&#10;</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -316,7 +330,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">EVN-4-event reason code / PV2-3-admit reason (note: PV2-3 is nominally constrained to inpatient admissions; V2.x makes no vocabulary suggestions for PV2-3; would not expect PV2 segment or PV2-3 to be in use in all implementations&#10;)&#10;</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -332,6 +346,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">Priority</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the urgency of the encounter</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s85"><Data ss:Type="String">PV2-25-visit priority code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Visit.hospitalization</Data></Cell>
@@ -352,6 +367,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Pre-admission identifier</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s85"><Data ss:Type="String">PV1-5-preadmit number</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Visit.hospitalization.preAdmissionTest</Data></Cell>
@@ -359,6 +375,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">PreAdminTest</Data></Cell>
     <Cell><Data ss:Type="String">Tests to be done before admission</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s85"><Data ss:Type="String">PV1-12-preadmit test indicator</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Visit.hospitalization.origin</Data></Cell>
@@ -387,7 +404,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">PV1-14-admit source</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -402,7 +419,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">PV2-11-actual length of inpatient stay / PV1-44-admit date/time / PV1-45-discharge date/time&#10;</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -431,7 +448,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">PV1-3-assigned patient location</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -460,7 +477,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Dietary restrictions for the patient</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Dietary restrictions for the patient</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s70"><Data ss:Type="String">Track patients reported dietary restrictions to help with catering requirements</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">not for specifying medical diets, but for casual dietary restrictions such as vegetarian, diary-free, nut-free, etc</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">PV1-38-diet type</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -472,6 +489,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">Courtesies</Data></Cell>
     <Cell><Data ss:Type="String">Special courtesies (vip, hospital board member)</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s85"><Data ss:Type="String">PV1-16-VIP indicator</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Visit.hospitalization.specialArrangement</Data></Cell>
@@ -479,6 +497,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">Arrangements</Data></Cell>
     <Cell><Data ss:Type="String">Special arrangements (wheelchair, translator, stretcher)</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">PV1-15-ambulatory status / OBR-30-transportation mode / OBR-43-planned patient transport comment</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Visit.hospitalization.destination</Data></Cell>
@@ -492,12 +511,14 @@
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">DischargeDisp</Data></Cell>
     <Cell><Data ss:Type="String">Disposition a patient was released into</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s85"><Data ss:Type="String">PV1-36-discharge disposition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Visit.hospitalization.reAdmission</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Is readmission?</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s85"><Data ss:Type="String">PV1-13-re-admission indicator</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Visit.location</Data></Cell>
@@ -511,6 +532,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Location)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The location the visit takes place</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">PV1-3-assigned patient location / PV1-6-prior patient location / PV1-11-temporary location / PV1-42-pending location / PV1-43-prior temporary location</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Visit.location.period</Data></Cell>
@@ -523,6 +545,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The department or team that is providing care</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">PV1-10-hospital service / PL.6 Person Location Type &amp; PL.1 Point of Care (note: V2.x definition is &quot;the treatment or type of surgery that the patient is scheduled to receive&quot;; seems slightly out of alignment with the concept name 'hospital service'. Would not trust that implementations apply this semantic by default)&#10;</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -538,6 +561,7 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -557,8 +581,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>33</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -819,7 +843,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

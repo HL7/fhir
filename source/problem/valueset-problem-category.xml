@@ -1,0 +1,38 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+  </text>
+  <identifier value="http://hl7.org/fhir/vs/problem-category"/>
+  <name value="Problem/Diagnosis Codes"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="Example value set for Problem/Diagnosis Categories"/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/problem-category"/>
+    <concept>
+      <code value="concern"/>
+      <display value="Concern"/>
+      <definition value="The problem is suspect to exist, but not confirmed"/>
+    </concept>
+    <concept>
+      <code value="finding"/>
+      <display value="Finding"/>
+      <definition value="This problem has been confirmed, but it is not considered a problem"/>
+    </concept>
+    <concept>
+      <code value="problem"/>
+      <display value="Problem"/>
+      <definition value="This problem is a standing concern regarding the health of the patient"/>
+    </concept>
+    <concept>
+      <code value="diagnosis"/>
+      <display value="Diagnosis"/>
+      <definition value="This problem has been confirmed by diagnostic investigation"/>
+    </concept>
+  </define>
+</ValueSet>

@@ -26,12 +26,19 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
  <Styles>
   <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s74" ss:Name="Normal 2">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -85,6 +92,9 @@
    <Alignment ss:Vertical="Top"/>
   </Style>
   <Style ss:ID="s72">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+  </Style>
+  <Style ss:ID="s73">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -92,8 +102,8 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s75">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+  <Style ss:ID="s81" ss:Parent="s74">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -148,6 +158,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">An identifier for the plan issuer</Data></Cell>
     <Cell><Data ss:Type="String">The program or plan underwriter or payor.</Data></Cell>
     <Cell><Data ss:Type="String">Need to identify the issuer to target for processing and for coordination of benefit processing.</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s81"><Data ss:Type="String">IN1-3-insurance company ID</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;Organization xmlns=&quot;http://hl7.org/fhir&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://hl7.org/fhir ..\..\schema\Organization.xsd&quot;&gt;&#10;  &lt;identifier&gt; &#10;    &lt;identifier&gt;&#10;      &lt;system&gt;oid:2.16.840.1.113883.3.19.2.3&lt;/system&gt;&#10;      &lt;id&gt;666666&lt;/id&gt;&#10;    &lt;/identifier&gt;&#10;  &lt;/identifier&gt;&#10;  &lt;name&gt;&#10;    &lt;value&gt;XYZ Insurance&lt;/value&gt;&#10;  &lt;/name&gt;&#10;   &#10;  &lt;text&gt;&#10;    &lt;status&gt;generated&lt;/status&gt;&#10;    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&#10;      &lt;p&gt;XYZ Insurance&lt;/p&gt;&#10;    &lt;/div&gt;&#10;  &lt;/text&gt;&#10;&lt;/Organization&gt;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s67">
@@ -156,6 +167,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Period</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Coverage start and end dates</Data></Cell>
     <Cell><Data ss:Type="String">Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force.</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">IN1-12-plan effective date / IN1-13-plan expiration date</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Coverage.type</Data></Cell>
@@ -165,6 +177,7 @@
     <Cell><Data ss:Type="String">Type of coverage</Data></Cell>
     <Cell><Data ss:Type="String">The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health. </Data></Cell>
     <Cell><Data ss:Type="String">The order of application of coverages is dependent on the types of coverage.</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s81"><Data ss:Type="String">IN1-15-plan type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="49.5">
     <Cell><Data ss:Type="String">Coverage.identifier</Data></Cell>
@@ -173,6 +186,7 @@
     <Cell ss:Index="8" ss:StyleID="s67"><Data ss:Type="String">The primary coverage ID</Data></Cell>
     <Cell><Data ss:Type="String">The main (and possibly only) identifier for the coverage - often referred to as a Subscriber Id, Certificate number or Personal Health Number or Case ID.</Data></Cell>
     <Cell><Data ss:Type="String">This value may uniquely identify the coverage or it may be used in conjunction with the additional identifiers below.</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s81"><Data ss:Type="String">IN1-2-health plan ID</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="49.5">
     <Cell><Data ss:Type="String">Coverage.group</Data></Cell>
@@ -180,6 +194,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s67"><Data ss:Type="String">An identifier for the group</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Todo</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s81"><Data ss:Type="String">IN1-8-group number</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="49.5">
     <Cell><Data ss:Type="String">Coverage.plan</Data></Cell>
@@ -187,6 +202,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s67"><Data ss:Type="String">An identifier for the plan</Data></Cell>
     <Cell><Data ss:Type="String">Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s81"><Data ss:Type="String">IN1-35-company plan code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="49.5">
     <Cell><Data ss:Type="String">Coverage.subplan</Data></Cell>
@@ -194,6 +210,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s67"><Data ss:Type="String">An identifier for the subsection of the plan</Data></Cell>
     <Cell><Data ss:Type="String">Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s81"><Data ss:Type="String">IN1-10-insured's group emp ID</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="49.5">
     <Cell><Data ss:Type="String">Coverage.dependent</Data></Cell>
@@ -202,6 +219,7 @@
     <Cell ss:Index="8" ss:StyleID="s67"><Data ss:Type="String">The dependent number</Data></Cell>
     <Cell><Data ss:Type="String">A unique identifier for a dependent under the coverage.</Data></Cell>
     <Cell><Data ss:Type="String">For some coverage a single identifier is issued to the PolicyHolder and dependent number issues to each to each of their dependents to track and manage the plan.</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String"> - No exact V2.x equivalent concept seems to exist; instance relationship can be inferred if ( ( PID-3-patient ID list ≠ IN1-49-insured's ID number ) &amp; ( Ǝ IN2-72-patient's relationship to insured ) )</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="49.5">
     <Cell><Data ss:Type="String">Coverage.sequence</Data></Cell>
@@ -210,6 +228,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">The plan instance or sequence counter</Data></Cell>
     <Cell><Data ss:Type="String">An optional counter for a particular instance of the identified coverage which increments upon each renewal.</Data></Cell>
     <Cell><Data ss:Type="String">Some coverage, for example social plans, may be offered in short time increments, for example for a week or a month at a time, so while the rest of the plan details and identifiers may remain constant over time, the instance is incremented with each renewal and provided to the covered party on their 'card'.</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s81"><Data ss:Type="String">No V2.x equivalent concept seems to exist</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="49.5">
     <Cell><Data ss:Type="String">Coverage.subscriber</Data></Cell>
@@ -224,6 +243,7 @@
     <Cell ss:Index="8" ss:StyleID="s67"><Data ss:Type="String">PolicyHolder name</Data></Cell>
     <Cell><Data ss:Type="String">The name of the PolicyHolder</Data></Cell>
     <Cell><Data ss:Type="String">Used to validate coverage</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s81"><Data ss:Type="String">IN1-16-name of insured</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Coverage.subscriber.address</Data></Cell>
@@ -231,6 +251,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Address</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s67"><Data ss:Type="String">PolicyHolder address</Data></Cell>
     <Cell><Data ss:Type="String">The mailing address, typically home, of the PolicyHolder</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s81"><Data ss:Type="String">IN1-19-insured's address</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Coverage.subscriber.birthdate</Data></Cell>
@@ -239,6 +260,7 @@
     <Cell ss:Index="8" ss:StyleID="s67"><Data ss:Type="String">PolicyHolder date of birth</Data></Cell>
     <Cell><Data ss:Type="String">The date of birth of the PolicyHolder</Data></Cell>
     <Cell><Data ss:Type="String">Used to validate coverage</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s81"><Data ss:Type="String">IN1-18-insured's date of birth</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -252,6 +274,7 @@
     <ValidPrinterInfo/>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -271,8 +294,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -459,7 +482,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">CoverageType</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">The type of insurance: public health, worker compensation; private accident, auto, private health, etc.)</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/ActCoverageTypeCode</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/ActCoverageTypeCode</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s62"/>
@@ -478,7 +501,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -564,7 +586,7 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Committee Notes</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Vocab</Data></Cell>
-    <Cell ss:Index="20" ss:StyleID="s72"><Data ss:Type="String">Example</Data></Cell>
+    <Cell ss:Index="20" ss:StyleID="s73"><Data ss:Type="String">Example</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell ss:StyleID="s63"><Data ss:Type="String">Coverage.planHolder.language</Data></Cell>

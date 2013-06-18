@@ -9,17 +9,18 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:15:30Z</Created>
-  <LastSaved>2013-01-19T22:50:30Z</LastSaved>
+  <LastSaved>2013-06-18T12:09:01Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>1410</WindowHeight>
+  <WindowHeight>1290</WindowHeight>
   <WindowWidth>9570</WindowWidth>
   <WindowTopX>5520</WindowTopX>
-  <WindowTopY>6195</WindowTopY>
+  <WindowTopY>6315</WindowTopY>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -79,9 +80,12 @@
   <Style ss:ID="s70">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
+  <Style ss:ID="s71">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="25" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="26" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="197.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
@@ -294,11 +298,21 @@
     <Cell><Data ss:Type="String">due-to | follows</Data></Cell>
     <Cell><Data ss:Type="String">The type of relationship that this problem/diagnosis has to the related item</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">Problem.relatedItem.code</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell><Data ss:Type="String">ProblemFinding</Data></Cell>
+    <Cell><Data ss:Type="String">Relationship target by means of a predefined code</Data></Cell>
+    <Cell><Data ss:Type="String">Code that identifies the target of this relationship. The code takes the place of a detailed instance target</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Problem.relatedItem.target</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Problem|Procedure|Substance)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Relationship target</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Relationship target resource</Data></Cell>
     <Cell><Data ss:Type="String">Target of the relationship </Data></Cell>
    </Row>
   </Table>
@@ -315,13 +329,12 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
-   <TopRowVisible>12</TopRowVisible>
+   <TopRowVisible>15</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>25</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -364,7 +377,11 @@
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:code) or exists(f:details)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s63"/>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">Relationship</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Problem.relatedItem</Data></Cell>
+    <Cell><Data ss:Type="String">Relationship must have either a code or a target</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">exists(f:code) != exists(f:target)</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -377,8 +394,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -500,7 +517,7 @@
     <Cell ss:StyleID="s63"><Data ss:Type="String">Problem.location.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">target</Data></Cell>
+    <Cell><Data ss:Type="String">related-item</Data></Cell>
     <Cell ss:StyleID="s63"/>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Problem.relatedItem.target</Data></Cell>
@@ -512,7 +529,10 @@
     <Cell ss:StyleID="s63"><Data ss:Type="String">Problem.stage.summary</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="2" ss:StyleID="s63"/>
+    <Cell><Data ss:Type="String">related-code</Data></Cell>
+    <Cell ss:StyleID="s63"/>
+    <Cell><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Problem.relatedItem.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s63"/>
@@ -553,10 +573,17 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>13</ActiveRow>
+     <ActiveRow>15</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
@@ -613,16 +640,18 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="7" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s66" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="130.5"/>
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="294.75"/>
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="57.75"/>
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="65.25"/>
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="89.25"/>
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="287.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Binding</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
@@ -630,35 +659,53 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s68"><Data ss:Type="String">ProblemDiaganosisCode</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Identification of the problem or diagnosis. </Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-problem-code</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s68"><Data ss:Type="String">ProblemCategory</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">A category assigned to the problem/diagnosis. E.g. finding | problem | diagnosis | concern | condition</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-problem-category</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s68"><Data ss:Type="String">ProblemStatus</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">The clinical status of the problem or diagnosis</Data></Cell>
+    <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#problem-status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s68"><Data ss:Type="String">ProblemCertainty</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">The degree of confidence that this problem/diagnosis is correct</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-problem-certainty</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">ProblemSeverity</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">A subjective assessment of the severity of the Problem/Diagnosis as evaluated by the clinician.</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-problem-severity</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s62"><Data ss:Type="String">ProblemRelationshipType</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">The type of relationship between a problem/diagnosis and it's related item</Data></Cell>
+    <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#problem-relationship-type</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ProblemFinding</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Identification of issue that is a cause or a precedent of a problem or diagnosis. </Data></Cell>
+    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-problem-code</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -671,8 +718,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -683,10 +730,10 @@
   <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="3" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="294.75"/>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
-    <Cell><Data ss:Type="String">Description</Data></Cell>
+    <Cell><Data ss:Type="String">Definition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -695,7 +742,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">follows</Data></Cell>
+    <Cell><Data ss:Type="String">following</Data></Cell>
     <Cell><Data ss:Type="String">this problem/diagnosis follows the identified problem/procedure/substance, but it is not known whether they are causually linked</Data></Cell>
    </Row>
   </Table>
@@ -706,12 +753,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-    </Pane>
-   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -720,10 +761,10 @@
   <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="9" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="116.25"/>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
-    <Cell><Data ss:Type="String">Description</Data></Cell>
+    <Cell><Data ss:Type="String">Definition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -759,7 +800,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

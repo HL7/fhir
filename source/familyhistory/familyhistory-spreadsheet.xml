@@ -21,7 +21,6 @@
   <WindowTopX>1500</WindowTopX>
   <WindowTopY>3555</WindowTopY>
   <TabRatio>705</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -130,6 +129,7 @@
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="77.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Column ss:Index="14" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="192.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -160,7 +160,7 @@
     <Cell><Data ss:Type="String">Significant health events and conditions for people related to the subject relevant in the context of care for the subject</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Not in scope for v2</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -307,12 +307,13 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -320,6 +321,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -327,7 +329,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -617,7 +619,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

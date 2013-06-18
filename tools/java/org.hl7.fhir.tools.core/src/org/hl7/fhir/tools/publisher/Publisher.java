@@ -1552,7 +1552,7 @@ public class Publisher {
     
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
     addToResourceFeed(rp, c.getCode().toLowerCase(), typeFeed);
-    
+    cloneToXhtml("type-"+c.getCode()+".profile", "Profile for "+c.getCode());
   }
 
   private void produceTypeProfile(ElementDefn type) throws Exception {
@@ -1573,7 +1573,8 @@ public class Publisher {
 
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
     addToResourceFeed(rp, type.getName().toLowerCase(), typeFeed);
-    // saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html" + File.separator + "datatypes.htm"));    
+    // saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html" + File.separator + "datatypes.htm"));
+    cloneToXhtml("type-"+type.getName()+".profile", "Profile for "+type.getName());
   }
 
   protected XmlPullParser loadXml(InputStream stream) throws Exception {
@@ -1877,6 +1878,7 @@ public class Publisher {
 		if (buildFlags.get("all"))
 		  addToResourceFeed(rp, root.getName().toLowerCase(), profileFeed);
 		saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html" + File.separator + n + ".htm"));
+    cloneToXhtml(n+".profile", "Profile for "+n);
 	}
 
 	private void saveAsPureHtml(Profile resource, FileOutputStream stream) throws Exception {

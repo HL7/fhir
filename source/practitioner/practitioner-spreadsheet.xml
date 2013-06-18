@@ -20,12 +20,19 @@
   <WindowWidth>21840</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>90</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
  <Styles>
   <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s73" ss:Name="Normal 2">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -77,6 +84,9 @@
   </Style>
   <Style ss:ID="s72">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+  </Style>
+  <Style ss:ID="s80" ss:Parent="s73">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -132,7 +142,7 @@
     <Cell><Data ss:Type="String">An identifier that applies to this person in this role</Data></Cell>
     <Cell><Data ss:Type="String">Often, specific identities are assigned for the agent</Data></Cell>
     <Cell><Data ss:Type="String">The identifier changes when a new/different person steps into the same role</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">PRD-7</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">PRD-7 (or XCN.1 Person Identifier)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s66"><Data ss:Type="String">Practitioner.details</Data></Cell>
@@ -158,7 +168,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">The represented organization</Data></Cell>
     <Cell><Data ss:Type="String">The organisation that the practitioner represents</Data></Cell>
     <Cell><Data ss:Type="String">Need to be able to track the represented organisation separately, if any.</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">PRD-10 (-&gt; 14)</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">PRD-10 (-&gt; 14) / PRA-9-Institution / PRT-8-Participation Organization for person participation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Practitioner.role</Data></Cell>
@@ -169,7 +179,7 @@
     <Cell><Data ss:Type="String">The way in which the person represents the organisation - what role do they have?</Data></Cell>
     <Cell><Data ss:Type="String">Need to know what authority the practitioner has - what can they do?</Data></Cell>
     <Cell><Data ss:Type="String">A person may have more than one role. At least one role is required.</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">PRD-1</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">PRD-1 / STF-18-job title / PRA-3-practitioner category  / PRT-4-Participation / ROL-3-role-ROL / ORC-12-ordering provider / OBR-16-ordering provider / PV1-7-attending doctor / PV1-8-referring doctor / PV1-9-consulting doctor / PV1-17-admitting doctor&#10;</Data></Cell>
     <Cell><Data ss:Type="String">We have de-empasized the organisation. So is this no longer the &quot;role&quot; within the organization?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -179,6 +189,7 @@
     <Cell><Data ss:Type="String">PractitionerSpecialty</Data></Cell>
     <Cell><Data ss:Type="String">Specific specialty of the practitioner</Data></Cell>
     <Cell><Data ss:Type="String">Specific specialty of the practitioner</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s80"><Data ss:Type="String">PRA-5-specialty</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Practitioner.period</Data></Cell>
@@ -187,7 +198,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">The period during which the person is authorized to perform the service</Data></Cell>
     <Cell><Data ss:Type="String">The period during which the person is authorized to perform the service</Data></Cell>
     <Cell><Data ss:Type="String">Qualifications are often for a limited period of time, and can be revoked. Even after the agencies is revoked, the fact that it existed must still be recorded</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">PRD-8/9</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">PRD-8/9 / PRA-5.4-date of certification&#10;</Data></Cell>
     <Cell><Data ss:Type="String">Is this separate from the period of validity of the qualification?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -196,6 +207,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Qualifications relevant to the provided service</Data></Cell>
     <Cell><Data ss:Type="String">Qualifications relevant to the provided service</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">CER?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Practitioner.qualification.code</Data></Cell>
@@ -204,6 +216,7 @@
     <Cell><Data ss:Type="String">Qualification</Data></Cell>
     <Cell><Data ss:Type="String">Qualification</Data></Cell>
     <Cell><Data ss:Type="String">Coded representation of the qualification</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s80"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Practitioner.qualification.period</Data></Cell>
@@ -227,11 +240,18 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -335,7 +355,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

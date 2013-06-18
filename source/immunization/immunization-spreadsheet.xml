@@ -20,7 +20,6 @@
   <WindowWidth>18765</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -38,6 +37,14 @@
    <Interior ss:Color="#FFEB9C" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s62" ss:Name="Normal 2">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s83" ss:Name="Normal 3">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -121,6 +128,17 @@
   <Style ss:ID="s82">
    <Alignment ss:Vertical="Top"/>
   </Style>
+  <Style ss:ID="s90" ss:Parent="s83">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s102">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="30" x:FullColumns="1"
@@ -135,6 +153,7 @@
    <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="77.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Column ss:Index="14" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="102"/>
    <Column ss:Index="16" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="159.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
@@ -182,7 +201,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"><Data ss:Type="String">.partipication[ttypeCode=].role</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">PID-3-patient ID list</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">PID, PD1, NK1</Data></Cell>
    </Row>
@@ -199,7 +218,7 @@
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">other participants - delegate to Provenance resource</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">ORC-12</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">ORC-12-ordering provider</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -214,7 +233,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Clinician that administered the vaccine</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">RXA-10</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">RXA-10-administering provider</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="17" ss:StyleID="s72"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/performer/assignedEntity/assignedPerson/name</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Performer - Section 13.05</Data></Cell>
@@ -231,7 +250,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Name of manufacturer</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">RXA-17</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">RXA-17-substance manufacturer name</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="17" ss:StyleID="s72"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacuturerOrganization/name</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Drug Manufacturer, Section 13.08</Data></Cell>
@@ -248,7 +267,7 @@
     <Cell><Data ss:Type="String">The service delivery location where the administration occurred.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">RXA-27-administered-at (or RXA-11-administered-at location, deprecated as of v2.7)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="17" ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -265,7 +284,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">Date vaccine administered</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">RXA-3</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">RXA-3-date/time start of administration</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="17" ss:StyleID="s72"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/effectiveTime/value</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Administered Date,  Section 13.02</Data></Cell>
@@ -298,7 +317,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Vaccine administered</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">RXA-5</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">RXA-5-administered code</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="17" ss:StyleID="s72"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/realmCode/code</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Immunization Coded Product Name, Section 13.06</Data></Cell>
@@ -315,7 +334,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">Lot number for vaccine</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">RXA-15</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">RXA-15-substance lot number</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="17" ss:StyleID="s72"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/lotNumberText</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Lot Number, Section 13.09</Data></Cell>
@@ -332,7 +351,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Date vaccine batch expires</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">RXA-16</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">RXA-16-substance expiration date</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -347,7 +366,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">Body site where vaccine was administered</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">RXR-2</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">RXR-2-administration site</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="17" ss:StyleID="s72"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/approachSiteCode/code</Data></Cell>
    </Row>
@@ -363,7 +382,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Route of administration</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">RXR-1</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">RXR-1-route</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="17" ss:StyleID="s72"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/routeCode/code</Data></Cell>
    </Row>
@@ -378,7 +397,7 @@
     <Cell><Data ss:Type="String">Vaccine dosage</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">RXA-6-administered amount / RXA-7.1-administered units.code&#10;</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -440,7 +459,7 @@
     <Cell><Data ss:Type="String">Date of reaction to the immunization</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">OBX-14</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">OBX-14 (ideally this would be reported in an IAM segment, but IAM is not part of the V2.x VXU message - most likely would appear in OBX segments if at all&#10;)</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -468,7 +487,7 @@
     <Cell><Data ss:Type="String">Self-reported indicator</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">(no such concept seems to exist for allergy/adverse reaction in V2.x)</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -482,7 +501,7 @@
     <Cell><Data ss:Type="String">Vaccine Administration Protocol</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">(V2.x doesn't seem to provide for this)&#10;</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -557,6 +576,7 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -576,8 +596,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>22</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -906,7 +926,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
