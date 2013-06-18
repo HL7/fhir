@@ -392,7 +392,7 @@ public class Utilities {
       if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || c == '-' || c == '_')
         s.append(c);
       else if (c != ' ')
-        s.append(nmtokenize(Character.getName(c)));
+        s.append("."+Integer.toString(c));
     }
     return s.toString();
   }

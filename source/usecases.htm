@@ -30,13 +30,13 @@ FHIR defines.
 <p>
 In the PHR scenario, an Electronic Medical Record system (EMR, though many other names and acronyms 
 are also used) provides a RESTful API that allows patients to access their own medical
-record using a common web portal or mobile application. In this scenario, the 
-PHR provider:
+record via a common web portal or mobile application, usually provided by a third party. 
+In this scenario, the PHR provider:
 </p> 
 
 <ul>
  <li>Provides the patient with a login that identifies them (or links the patient record to an external identity provided by OpenID, Facebook, Google, etc.)</li>
- <li>Authenticates the client using the appropriate OAuth server and restricts the client to viewing records associated with the specific patient</li>
+ <li>Authenticates the client using an appropriate OAuth server for the login (possibly their own) and restricts the client to viewing records associated with the specific patient (or patients, where appropriate access has been arranged)</li>
 </ul>
 
 <p>
@@ -48,18 +48,20 @@ The EMR exposes a FHIR server that supports the <i>search</i> and <i>read</i> op
  <li><i>search</i> and <i>read</i> on a set of clinical resources potentially including Observation, DiagnosticReport, various Medication resources, AdverseReaction/AllergyIntolerance, 
 CarePlan, and Problem</li> 
 </ol>
-
 <p>
 Here is the conformance Profile for this scenario:
+ <a href="conformance-phr-example.xml">XML</a> <a href="conformance-phr-example.xml.htm">(for browser)</a> or 
+ <a href="conformance-phr-example.json">JSON</a> <a href="conformance-phr-example.json.htm">(for browser)</a>.
 </p>
 
 <p>
 The EMR may also choose to provide additional functionality, such as shared access to patient 
 records by relatives/carers, to allow the patient to upload their own documents, medication statements, observations
 (e.g. from patient monitoring devices) and/or to allow the patient to make appointments. This 
-additional functionaly will involve additional API capabilities to be implemented and 
+additional functionality will involve additional API capabilities to be implemented and 
 exposed. The EMR server may also choose to expose the <i>read</i>, <i>search</i> and <i>updates</i> operation on 
-the Security Event resource for the patient-specific records to allow patient review of record access.
+the Security Event resource for the patient-specific records to allow patient review of record access. Note that all 
+usage of the RESTful API should be logged in SecurityEvent resources.
 </p>
 
 <a name="xds"></a>

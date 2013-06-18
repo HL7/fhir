@@ -7,90 +7,103 @@
      todo...
     </div>
   </text>
-  <date value="2012-01-04"/>
-  <publisher>
-    <name value="ACME Corporation"/>
-    <contact>
-      <system value="email"/>
-      <value value="wile@acme.org"/>
-    </contact>
-  </publisher>
-  <software>
-    <name value="EHR"/>
-    <version value="0.00.020.2134"/>
-  </software>
-
-  <!-- while the FHIR infrastructure is turning over prior to development, a version is 
-    required. Note that this may be rescinded later? -->
-  <version value="0.09"/>
+  <date value="2013-06-18"/>
+  <publisher value="FHIR Project"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <proposal>
+    <description value="Prototype Conformance Profile for September 2013 Connectathon"/>
+  </proposal>  
+  
+  <!-- while the FHIR infrastructure is turning over prior to development, a version is required. Note that this may be rescinded later -->
+  <fhirVersion value="0.09"/>
   
   <!-- this is not particularly important for this usage (server doesn't accept any content), but we have to provide it anyway -->
   <acceptUnknown value="false"/>
   
   <!--
-    default is just to use JSON (but XML is also allowed, of course). 
-
-    todo: even though this conformance statement says the system only uses JSON, it's written in XML.
+    for the connectathon, servers should support both xml and json. Clients can use only one. 
   -->  
   <format value="json"/>
+  <format value="xml"/>
   
   <rest>
-    <!-- this is a server conformance statement. Note that servers are required to provide 
-      one of these. It can easily be edited by hand - copy this, replace the metadata above, 
-      delete the messaging and document stuff below, and then replace the details appropriately. -->
     <mode value="server"/>
-    <!-- zero or more of these - declaration of support for a resource -->
+    <documentation value="Protoype server conformance statement for September 2013 Connectathon"/>
+    <security>
+      <service>
+        <text value="OAuth"/>
+      </service>
+      <description value="We recommend that PHR servers use standard OAuth using a 
+        standard 3rd party provider. We are not testing the ability to provide an 
+        OAuth authentication/authorisation service itself, and nor is providing 
+        any security required for the connectathon at all"/>
+    </security>
     <resource>
+      <!-- patient resource: read and search for patients the authenticated user has access too -->
       <type value="Patient"/>
-      <!-- let's assume that HL7 has stood up a profile registry at http://fhir.hl7.org/fhir 
-        - it's likely to have a registry, though this is not decided, nor is a URL decided. 
-        This application simply uses a profile registered directly with HL7. For the simplest 
-        case of a FHIR REST Server, just delete this profile reference. Profile references do 
-        not need to be a UUID, though a profile registry could insist that they are -->
-      <profile value="http://fhir.hl7.org/base/profile/@7896271d-57f6-4231-89dc-dcc91eab2416"/>
       <operation>
         <code value="read"/>
       </operation>
       <operation>
-        <code value="vread"/>
-      </operation>
-      <operation>
-        <code value="update"/>
-      </operation>
-      <operation>
-        <code value="history-instance"/>
-      </operation>
-      <operation>
-        <code value="create"/>
-      </operation>
-      <operation>
-        <code value="history-type"/>
+        <code value="search"/>
+        <documentation value="When a client searches patients with no search criteria, they get a list of all patients they have access too. Servers may elect to offer additional search parameters, but this is not required"/>
       </operation>
     </resource>
-    <batch value="true"/>
-    <history value="true"/>
-  </rest>
+    <resource>
+      <!-- document reference resource: read and search  -->
+      <type value="DocumentReference"/>
+      <operation>
+        <code value="read"/>
+      </operation>
+      <operation>
+        <code value="search"/>
+      </operation>
+      <searchParam>
+        <name value="_id"/>
+        <type value="token"/>
+        <documentation value="_id parameter always supported. For the connectathon, servers may elect which search parameters are supported"/>
+      </searchParam>
+    </resource>
 
-  <!-- a messaging conformance statement. Applications are not required to make a conformance 
-    statement with regard to messaging, though there is active argument that they should.  -->
-  <messaging>
-    <!-- how to tell whether this llp is a server or a client? -->
-    <event>
-      <code value="admin-notify"/>
-      <mode value="receiver"/> <!-- this a receiver - i.e. answers. Not neccessariy a serve" -->
-      <focus value="Patient"/>
-      <!-- specify a profile for the request person. Very often there's no point profiling 
-        the response, it's not interesting -->
-      <request value="http://fhir.hl7.org/base/profile/@7896271d-57f6-4231-89dc-dcc91eab2416"/>
-    </event>
-  </messaging>
-  
-  <!-- a document conformance statement -->
-  <document>
-    <mode value="consumer"/>
-    <documentation value="Basic rules for all documents in the EHR system"/>
-    <!-- this is the important element: a reference to a published document profile 
-       note that this is a version specific reference.-->
-    <profile value="http://fhir.hl7.org/base/profile/@bc054d23-75e1-4dc6-aca5-838b6b1ac81d/history/@b5fdd9fc-b021-4ea1-911a-721a60663796"/>
-  </document>  
+    <!-- for the purposes of the connectathon, servers can choose which additional resources to support. Here's a couple of examples -->
+    <resource>
+      <!-- Problem - let the patient see a list of their problems -->
+      <type value="Problem"/>
+      <operation>
+        <code value="read"/>
+      </operation>
+      <operation>
+        <code value="search"/>
+      </operation>
+      <searchParam>
+        <name value="_id"/>
+        <type value="token"/>
+        <documentation value="Standard _id parameter"/>
+      </searchParam>
+    </resource>
+    
+    <resource>
+      <!-- Diagnostic Reports - can be lots of these, so we'll suggest that at least service category should be supported as a search criteria -->
+      <type value="DiagnosticReport"/>
+      <operation>
+        <code value="read"/>
+      </operation>
+      <operation>
+        <code value="search"/>
+      </operation>
+      <searchParam>
+        <name value="_id"/>
+        <type value="token"/>
+        <documentation value="Standard _id parameter"/>
+      </searchParam>
+      <searchParam>
+        <name value="service"/>
+        <type value="token"/>
+        <documentation value="which diagnostic discipline/department created the report"/>
+      </searchParam>
+    </resource>    
+  </rest>
 </Conformance>
