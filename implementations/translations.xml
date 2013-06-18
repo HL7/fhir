@@ -332,15 +332,21 @@
   </item>
 
   <item id="MSG_HOME_PAGE_1">
-    <translation lang="du">Dit is een implementatie van de FHIR RESTful-specificatie te vinden via %s</translation>
-    <translation lang="en">This is an implementation of the RESTful FHIR specification found at %s</translation>
-    <translation lang="it">Questa � una implementazione delle specifiche RESTful FHIR che si trovano alla pagina %s</translation>
+    <translation lang="du">Dit is een implementatie van de FHIR RESTful-specificatie te vinden via %s.</translation>
+    <translation lang="en">This is an implementation of the RESTful FHIR specification found at %s.</translation>
+    <translation lang="it">Questa � una implementazione delle specifiche RESTful FHIR che si trovano alla pagina %s.</translation>
   </item>
 
   <item id="MSG_HOME_PAGE_2">
-    <translation lang="du">Deze server heeft een baseURL (zie de FHIR-specificatie) van "%s" en biedt de volgende resourcetypen:</translation>
-    <translation lang="en">This server has a baseURL (see the FHIR specification) of "%s" and hosts the following resource types:</translation>
-    <translation lang="it">Questo server ha per baseURL (vedi specifiche FHIR): "%s" e ospita i seguenti tipi di risorsa:</translation>
+    <translation lang="du">Deze server heeft een baseURL (zie de FHIR-specificatie) van "%s".</translation>
+    <translation lang="en">This server has a baseURL (see the FHIR specification) of "%s".</translation>
+    <translation lang="it">Questo server ha per baseURL (vedi specifiche FHIR): "%s".</translation>
+  </item>
+
+  <item id="MSG_HOME_PAGE_3">
+    <translation lang="du">Deze server biedt de volgende resourcetypen:</translation>
+    <translation lang="en">This server hosts the following resource types:</translation>
+    <translation lang="it">Questo server ospita i seguenti tipi di risorsa:</translation>
   </item>
 
   <item id="MSG_HOME_PAGE_TITLE">

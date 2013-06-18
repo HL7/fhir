@@ -1797,6 +1797,8 @@ public class Publisher {
 		if (xdoc.getDocumentElement().getLocalName().equals("ValueSet")) {
 		  XmlParser xml = new XmlParser();
 		  ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
+		  if (vs.getIdentifier() == null)
+		    throw new Exception("Value set example "+e.getPath()+" has no identifier");
 		  if (vs.getDefine() != null) {
 		    AtomEntry ae = new AtomEntry();
 		    ae.getLinks().put("self", n+".htm");
@@ -1904,7 +1906,7 @@ public class Publisher {
 		xml.compose(stream, html);
 	}
 
-  private void addToResourceFeed(Profile profile, String id, AtomFeed dest) {
+  private void addToResourceFeed(Profile profile, String id, AtomFeed dest) throws Exception {
     AtomEntry e = new AtomEntry();
     e.setId("http://hl7.org/fhir/profile/" + id);
     e.getLinks().put("self", "http://hl7.org/implement/standards/fhir/" + id+ ".profile.xml");
@@ -1914,11 +1916,13 @@ public class Publisher {
     e.setAuthorName("HL7, Inc");
     e.setAuthorUri("http://hl7.org");
     e.setResource(profile);
+    if (profile.getText() == null || profile.getText().getDiv() == null)
+      throw new Exception("Example Resource "+id+" does not have any narrative");
     e.setSummary(profile.getText().getDiv());
     dest.getEntryList().add(e);
   }
 
-  private void addToResourceFeed(ValueSet vs, String id, AtomFeed dest) {
+  private void addToResourceFeed(ValueSet vs, String id, AtomFeed dest) throws Exception {
     AtomEntry e = new AtomEntry();
     e.setId("http://hl7.org/fhir/valueset/" + id);
     e.getLinks().put("self", "http://hl7.org/implement/standards/fhir/valueset/" + id);
@@ -1928,6 +1932,8 @@ public class Publisher {
     e.setAuthorName("HL7, Inc");
     e.setAuthorUri("http://hl7.org");
     e.setResource(vs);
+    if (vs.getText() == null || vs.getText().getDiv() == null)
+      throw new Exception("Example Resource "+id+" does not have any narrative");
     e.setSummary(vs.getText().getDiv());
     dest.getEntryList().add(e);
   }

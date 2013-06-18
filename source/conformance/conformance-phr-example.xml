@@ -4,7 +4,14 @@
   <text> 
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-     todo...
+     <p>Prototype Conformance Profile for September 2013 Connectathon</p>
+     <p>The server offers read and search support on the following resource types:</p>
+     <ul>
+      <li>Patient</li>
+      <li>DocumentReference</li>
+      <li>Problem</li>
+      <li>DiagnosticReport</li>
+    </ul>
     </div>
   </text>
   <date value="2013-06-18"/>
