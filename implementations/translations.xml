@@ -753,5 +753,17 @@
     <translation lang="en">You must authenticate before you can use this service</translation>
   </item>
 
+  <item id="NAME_ERROR">
+    <translation lang="en">Error</translation>
+  </item>
+
+  <item id="NAME_RESULT">
+    <translation lang="en">Result</translation>
+  </item>
+
+  <item id="MSG_RESOURCE_EXAMPLE_PROTECTED">
+    <translation lang="en">Resources with identity "example" cannot be deleted (for testing/training purposes)</translation>
+  </item>
+
   
 </translations>

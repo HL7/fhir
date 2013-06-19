@@ -31,11 +31,14 @@ import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Element;
   
+
 /* 
  * todo:
  * check urn's don't start oid: or uuid: 
  */
 public class InstanceValidator extends BaseValidator {
+    private static final String NS_FHIR = "http://hl7.org/fhir";
+    
     private Map<String, Profile> types = new HashMap<String, Profile>();
     private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
     private Map<String, ValueSet> codesystems = new HashMap<String, ValueSet>();
@@ -218,6 +221,10 @@ public class InstanceValidator extends BaseValidator {
     }
   
     private void validateElement(Profile profile, ProfileStructureComponent structure, String path, ElementComponent definition, Profile cprofile, ElementComponent context, Element element) throws Exception {
+      // irrespective of what element it is, it cannot be empty
+      if (NS_FHIR.equals(element.getNamespaceURI())) {
+        rule("invalid", path, !empty(element), "Elements must have some content (@value, @id, extensions, or children elements)");
+      }
       Map<String, ElementComponent> children = getChildren(structure, definition);
       ChildIterator ci = new ChildIterator(path, element);
       while (ci.next()) {
@@ -273,6 +280,21 @@ public class InstanceValidator extends BaseValidator {
       }
     }
   
+    private boolean empty(Element element) {
+      if (element.hasAttribute("value"))
+        return false;
+      if (element.hasAttribute("id"))
+        return false;
+      if (element.hasAttribute("xml:id"))
+        return false;
+      Element child = XMLUtil.getFirstChild(element);
+      while (child != null) {
+        if (NS_FHIR.equals(child.getNamespaceURI()))
+          return false;        
+      }
+      return true;
+    }
+
     private ElementComponent findElement(ProfileStructureComponent structure, String name) {
       for (ElementComponent c : structure.getElement()) {
         if (c.getPathSimple().equals(name)) {

@@ -341,7 +341,7 @@ public class Publisher {
 				} else
 				  loadValueSets();
 				validateXml();
-		    if (buildFlags.get("all")) 
+		    if (isGenerate && buildFlags.get("all")) 
   		    produceQA();
 				log("Finished publishing FHIR @ "+Config.DATE_FORMAT().format(Calendar.getInstance().getTime()));
 			} else

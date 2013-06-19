@@ -276,7 +276,7 @@ public void generate(Definitions definitions, String destDir, String implDir, St
     
   private void genGenericResource(ElementDefn root, String tn, String pt, String superClass, ClassCategory category) throws Exception {
     prsrdefX.append("    function Parse"+tn.substring(5)+"(element : IXmlDomElement) : "+tn+";\r\n");
-    srlsdefX.append("    procedure Compose"+tn.substring(5)+"(xml : TMsXmlBuilder; name : string; elem : "+tn+");\r\n");
+    srlsdefX.append("    procedure Compose"+tn.substring(5)+"(xml : TXmlBuilder; name : string; elem : "+tn+");\r\n");
     prsrdefJ.append("    function Parse"+tn.substring(5)+" : "+tn+";\r\n");
     srlsdefJ.append("    procedure Compose"+tn.substring(5)+"(json : TJSONWriter; name : string; elem : "+tn+");\r\n");
     workingParserX = new StringBuilder();
@@ -381,7 +381,7 @@ public void generate(Definitions definitions, String destDir, String implDir, St
 
   private void genType(ElementDefn root, String tn, String superClass, boolean listsAreWrapped, ClassCategory category) throws Exception {
     prsrdefX.append("    function Parse"+root.getName()+"(element : IXmlDomElement) : TFhir"+root.getName()+";\r\n");
-    srlsdefX.append("    procedure Compose"+root.getName()+"(xml : TMsXmlBuilder; name : string; elem : TFhir"+root.getName()+");\r\n");
+    srlsdefX.append("    procedure Compose"+root.getName()+"(xml : TXmlBuilder; name : string; elem : TFhir"+root.getName()+");\r\n");
     prsrdefJ.append("    function Parse"+root.getName()+" : TFhir"+root.getName()+";\r\n");
     srlsdefJ.append("    procedure Compose"+root.getName()+"(json : TJSONWriter; name : string; elem : TFhir"+root.getName()+");\r\n");
     workingParserX = new StringBuilder();
@@ -486,7 +486,7 @@ public void generate(Definitions definitions, String destDir, String implDir, St
 
   private void genResource(ResourceDefn root, String tn, String superClass, boolean listsAreWrapped, ClassCategory category) throws Exception {
     prsrdefX.append("    function Parse"+root.getName()+"(element : IXmlDomElement) : TFhir"+root.getName()+";\r\n");
-    srlsdefX.append("    procedure Compose"+root.getName()+"(xml : TMsXmlBuilder; name : string; elem : TFhir"+root.getName()+");\r\n");
+    srlsdefX.append("    procedure Compose"+root.getName()+"(xml : TXmlBuilder; name : string; elem : TFhir"+root.getName()+");\r\n");
     prsrdefJ.append("    function Parse"+root.getName()+" : TFhir"+root.getName()+";\r\n");
     srlsdefJ.append("    procedure Compose"+root.getName()+"(json : TJSONWriter; name : string; elem : TFhir"+root.getName()+");\r\n");
     workingParserX = new StringBuilder();
@@ -791,7 +791,7 @@ private void generateEnum(ElementDefn e) throws Exception {
     String tn = typeNames.get(e);
 
     prsrdefX.append("    function Parse"+tn.substring(5)+"(element : IXmlDomElement) : "+tn+";\r\n");
-    srlsdefX.append("    procedure Compose"+tn.substring(5)+"(xml : TMsXmlBuilder; name : string; elem : "+tn+");\r\n");
+    srlsdefX.append("    procedure Compose"+tn.substring(5)+"(xml : TXmlBuilder; name : string; elem : "+tn+");\r\n");
     prsrdefJ.append("    function Parse"+tn.substring(5)+" : "+tn+";\r\n");
     srlsdefJ.append("    procedure Compose"+tn.substring(5)+"(json : TJSONWriter; name : string; elem : "+tn+");\r\n");
     workingParserX = new StringBuilder();
@@ -958,7 +958,7 @@ private void generateEnum(ElementDefn e) throws Exception {
 
     s = workingComposerX.toString();
     prsrImpl.append(
-            "procedure TFHIRXmlComposer.Compose"+tn.substring(5)+"(xml : TMsXmlBuilder; name : string; elem : "+tn+");\r\n");
+            "procedure TFHIRXmlComposer.Compose"+tn.substring(5)+"(xml : TXmlBuilder; name : string; elem : "+tn+");\r\n");
     if (s.contains("for i := "))
       prsrImpl.append("var\r\n  i : integer;\r\n");
     prsrImpl.append(
@@ -1718,12 +1718,12 @@ public String getName() {
 
   public void genConstraint(DefinedCode c) {
     prsrdefX.append("    function Parse"+c.getCode()+"(element : IXmlDomElement) : TFhir"+c.getCode()+";\r\n");
-    srlsdefX.append("    procedure Compose"+c.getCode()+"(xml : TMsXmlBuilder; name : string; elem : TFhir"+c.getCode()+");\r\n");
+    srlsdefX.append("    procedure Compose"+c.getCode()+"(xml : TXmlBuilder; name : string; elem : TFhir"+c.getCode()+");\r\n");
     prsrdefJ.append("    function Parse"+c.getCode()+" : TFhir"+c.getCode()+";\r\n");
     srlsdefJ.append("    procedure Compose"+c.getCode()+"(json : TJSONWriter; name : string; elem : TFhir"+c.getCode()+");\r\n");
     defCodeType.classDefs.add("  TFhir"+c.getCode()+" = TFhir"+c.getComment()+";\r\n");
     prsrImpl.append("function TFHIRXmlParser.Parse"+c.getCode()+"(element : IXmlDomElement) : TFhir"+c.getCode()+";\r\nbegin\r\n  result := Parse"+c.getComment()+"(element);\r\nend;\r\n\r\n");
-    prsrImpl.append("procedure TFHIRXmlComposer.Compose"+c.getCode()+"(xml : TMsXmlBuilder; name : string; elem : TFhir"+c.getCode()+");\r\nbegin\r\n  Compose"+c.getComment()+"(xml, name, elem);\r\nend;\r\n\r\n");
+    prsrImpl.append("procedure TFHIRXmlComposer.Compose"+c.getCode()+"(xml : TXmlBuilder; name : string; elem : TFhir"+c.getCode()+");\r\nbegin\r\n  Compose"+c.getComment()+"(xml, name, elem);\r\nend;\r\n\r\n");
     prsrImpl.append("function TFHIRJsonParser.Parse"+c.getCode()+" : TFhir"+c.getCode()+";\r\nbegin\r\n  result := Parse"+c.getComment()+";\r\nend;\r\n\r\n");
     prsrImpl.append("procedure TFHIRJsonComposer.Compose"+c.getCode()+"(json : TJSONWriter; name : string; elem : TFhir"+c.getCode()+");\r\nbegin\r\n  Compose"+c.getComment()+"(json, name, elem);\r\nend;\r\n\r\n");
   }
@@ -1881,8 +1881,8 @@ public String getName() {
       prsrImpl.append("end;\r\n\r\n");
 
 
-      srlsdefX.append("    Procedure Compose"+tn+"(xml : TMsXmlBuilder; name : String; value : TFhir"+tn+"; Const aNames : Array Of String);\r\n");
-      prsrImpl.append("Procedure TFHIRXmlComposer.Compose"+tn+"(xml : TMsXmlBuilder; name : String; value : TFhir"+tn+"; Const aNames : Array Of String);\r\n");
+      srlsdefX.append("    Procedure Compose"+tn+"(xml : TXmlBuilder; name : String; value : TFhir"+tn+"; Const aNames : Array Of String);\r\n");
+      prsrImpl.append("Procedure TFHIRXmlComposer.Compose"+tn+"(xml : TXmlBuilder; name : String; value : TFhir"+tn+"; Const aNames : Array Of String);\r\n");
       prsrImpl.append("begin\r\n");
       prsrImpl.append("  if (value = nil) then\r\n");
       prsrImpl.append("    exit;\r\n");
@@ -1953,8 +1953,8 @@ public String getName() {
       prsrImpl.append("    result.Free;\r\n");
       prsrImpl.append("  end;\r\n");
       prsrImpl.append("end;\r\n\r\n");
-      srlsdefX.append("    Procedure Compose"+tn+"(xml : TMsXmlBuilder; name : String; value : TFhir"+tn+");\r\n");
-      prsrImpl.append("Procedure TFHIRXmlComposer.Compose"+tn+"(xml : TMsXmlBuilder; name : String; value : TFhir"+tn+");\r\n");
+      srlsdefX.append("    Procedure Compose"+tn+"(xml : TXmlBuilder; name : String; value : TFhir"+tn+");\r\n");
+      prsrImpl.append("Procedure TFHIRXmlComposer.Compose"+tn+"(xml : TXmlBuilder; name : String; value : TFhir"+tn+");\r\n");
       prsrImpl.append("begin\r\n");
       if (!pn.equals("String"))
         prsrImpl.append("  if (value = nil) or (value.value = nil) then\r\n");
@@ -2138,14 +2138,14 @@ public String getName() {
     prsrImpl.append("    result := false;\r\n\r\n");
     prsrImpl.append("end;\r\n\r\n");
 
-    srlsdefX.append("    Procedure ComposeElementAttributes(xml : TMsXmlBuilder; element : TFhirElement);\r\n");
-    prsrImpl.append("Procedure TFHIRXmlComposer.ComposeElementAttributes(xml : TMsXmlBuilder; element : TFhirElement);\r\n");
+    srlsdefX.append("    Procedure ComposeElementAttributes(xml : TXmlBuilder; element : TFhirElement);\r\n");
+    prsrImpl.append("Procedure TFHIRXmlComposer.ComposeElementAttributes(xml : TXmlBuilder; element : TFhirElement);\r\n");
     prsrImpl.append("begin\r\n");
     prsrImpl.append("  CommentsStart(xml, element);\r\n");
     prsrImpl.append("  Attribute(xml, 'id', element.xmlId);\r\n");
     prsrImpl.append("end;\r\n\r\n");
-    srlsdefX.append("    Procedure ComposeElementChildren(xml : TMsXmlBuilder; element : TFhirElement);\r\n");
-    prsrImpl.append("Procedure TFHIRXmlComposer.ComposeElementChildren(xml : TMsXmlBuilder; element : TFhirElement);\r\n");
+    srlsdefX.append("    Procedure ComposeElementChildren(xml : TXmlBuilder; element : TFhirElement);\r\n");
+    prsrImpl.append("Procedure TFHIRXmlComposer.ComposeElementChildren(xml : TXmlBuilder; element : TFhirElement);\r\n");
     prsrImpl.append("var\r\n");
     prsrImpl.append("  i : integer;\r\n");
     prsrImpl.append("begin\r\n");
@@ -2432,13 +2432,13 @@ public String getName() {
     prsrImpl.append("end;\r\n\r\n");
 
 
-    srlsdefX.append("    Procedure ComposeResourceAttributes(xml : TMsXmlBuilder; resource : TFhirResource);\r\n");
-    prsrImpl.append("Procedure TFHIRXmlComposer.ComposeResourceAttributes(xml : TMsXmlBuilder; resource : TFhirResource);\r\n");
+    srlsdefX.append("    Procedure ComposeResourceAttributes(xml : TXmlBuilder; resource : TFhirResource);\r\n");
+    prsrImpl.append("Procedure TFHIRXmlComposer.ComposeResourceAttributes(xml : TXmlBuilder; resource : TFhirResource);\r\n");
     prsrImpl.append("begin\r\n");
     prsrImpl.append("  ComposeElementAttributes(xml, resource);\r\n");
     prsrImpl.append("end;\r\n\r\n");
-    srlsdefX.append("    Procedure ComposeResourceChildren(xml : TMsXmlBuilder; resource : TFhirResource);\r\n");
-    prsrImpl.append("Procedure TFHIRXmlComposer.ComposeResourceChildren(xml : TMsXmlBuilder; resource : TFhirResource);\r\n");
+    srlsdefX.append("    Procedure ComposeResourceChildren(xml : TXmlBuilder; resource : TFhirResource);\r\n");
+    prsrImpl.append("Procedure TFHIRXmlComposer.ComposeResourceChildren(xml : TXmlBuilder; resource : TFhirResource);\r\n");
     prsrImpl.append("var\r\n");
     prsrImpl.append("  i : integer;\r\n");
     prsrImpl.append("begin\r\n");
@@ -2509,7 +2509,7 @@ public String getName() {
         );
 
     prsrImpl.append(
-        "procedure TFHIRXmlComposer.ComposeResource(xml : TMsXmlBuilder; id, ver : String; resource: TFhirResource);\r\n"+
+        "procedure TFHIRXmlComposer.ComposeResource(xml : TXmlBuilder; id, ver : String; resource: TFhirResource);\r\n"+
         "begin\r\n"+
         "  if (resource = nil) Then\r\n"+
         "    Raise Exception.Create('error - resource is nil');\r\n"+
@@ -2556,7 +2556,7 @@ public String getName() {
         "  TFHIRXmlComposer = class (TFHIRXmlComposerBase)\r\n"+
         "  protected\r\n"+
         srlsdefX.toString()+
-        "    procedure ComposeResource(xml : TMsXmlBuilder; id, ver : String; resource : TFhirResource); override;\r\n"+
+        "    procedure ComposeResource(xml : TXmlBuilder; id, ver : String; resource : TFhirResource); override;\r\n"+
         "  end;\r\n\r\n"+
         "  TFHIRJsonParser = class (TFHIRJsonParserBase)\r\n"+
         "  protected\r\n"+

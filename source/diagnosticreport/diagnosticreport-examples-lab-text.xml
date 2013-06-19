@@ -255,9 +255,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561369-16258707"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:55:00"/>
     <results>
@@ -803,9 +801,7 @@ C-React Prot      152     mg/L   ( &lt;5       )
       <key value="12Z968922-16258699"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Infected Tendon Sheath</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Infected Tendon Sheath"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:30:00"/>
     <results>
@@ -887,9 +883,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
       <key value="12Z968922-16258698"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Infected Tendon Sheath</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Infected Tendon Sheath"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:30:00"/>
     <results>
@@ -970,9 +964,7 @@ Urea             10.0     mmol/L ( 2.5-8.3  )
       <key value="12Z968991-16258697"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Post Tx</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Post Tx"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:40:00"/>
     <results>
@@ -1079,9 +1071,7 @@ Film Comment : Mild neutrophilia with mild toxic changes. Manual
       <key value="12Z986991-16258696"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Post Tx</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Post Tx"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:40:00"/>
     <results>
@@ -1456,9 +1446,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z516269-16258691"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:31:00"/>
     <results>
@@ -1710,9 +1698,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
       <key value="12Z986951-16258688"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Chest Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Chest Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:00:00"/>
     <results>
@@ -1794,9 +1780,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
       <key value="12Z968951-16258687"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Chest Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Chest Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:00:00"/>
     <results>
@@ -1883,9 +1867,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <key value="12Z968961-16258686"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>PR Bleed Hep C +ve</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="PR Bleed Hep C +ve"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:00:00"/>
     <results>
@@ -1968,9 +1950,7 @@ Troponin I        0.03    ug/L   (See Below )
       <key value="12Z968961-16258685"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>PR Bleed Hep C +ve</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="PR Bleed Hep C +ve"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:00:00"/>
     <results>
@@ -2055,9 +2035,7 @@ Troponin I        0.03    ug/L   (See Below )
       <key value="12Z986961-16258685"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>PR Bleed Hep C +ve</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="PR Bleed Hep C +ve"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:00:00"/>
     <results>
@@ -2165,9 +2143,7 @@ Comment: Please note moderate thrombocytopenia persists. Please
       <key value="12Z968961-16258684"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>PR Bleed Hep C +ve</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="PR Bleed Hep C +ve"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:00:00"/>
     <results>
@@ -2274,9 +2250,7 @@ Protein Total      65     g/L    ( 65-85    )
       <key value="12Z968971-16258683"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Vomiting Diarrhoea</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Vomiting Diarrhoea"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:23:00"/>
     <results>
@@ -2387,9 +2361,7 @@ Conclusion: Suggestive of infection.
       <key value="12Z986971-16258682"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Vomiting Diarrhoea</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Vomiting Diarrhoea"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:23:00"/>
     <results>
@@ -2496,9 +2468,7 @@ Hrs Since Dose No Info  No Info                            HH:MM
       <key value="12Z968981-16258681"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Intoxicated Agitated ? Penetrating Head Injury</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Intoxicated Agitated ? Penetrating Head Injury"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:25:00"/>
     <results>
@@ -2578,9 +2548,7 @@ Lipase             87     IU/L   ( &lt;60      )
       <key value="12Z986981-16258680"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Intoxicated Agitated ? Penetrating Head Injury</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Intoxicated Agitated ? Penetrating Head Injury"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:25:00"/>
     <results>
@@ -2683,9 +2651,7 @@ Comment: Instrument differential and parameters reported.
       <key value="12Z968981-16258679"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Intoxicated Agitated ? Penetrating Head Injury</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Intoxicated Agitated ? Penetrating Head Injury"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:25:00"/>
     <results>
@@ -2932,9 +2898,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z516169-16258676"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:19:00"/>
     <results>
@@ -3017,9 +2981,7 @@ INR               3.0H                                           0.8-1.3
       <key value="12Z986921-16258675"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Fall From Standing Height Headstrike LOC</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Fall From Standing Height Headstrike LOC"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:00:00"/>
     <results>
@@ -3086,9 +3048,7 @@ Urea              8.0     mmol/L ( 2.5-8.3  )
       <key value="12Z986921-16258674"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Fall From Standing Height Headstrike LOC</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Fall From Standing Height Headstrike LOC"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:00:00"/>
     <results>
@@ -3169,9 +3129,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
       <key value="12Z968921-16258673"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Fall From Standing Height Headstrike LOC</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Fall From Standing Height Headstrike LOC"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:00:00"/>
     <results>
@@ -3276,9 +3234,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561069-16258672"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:15:00"/>
     <results>
@@ -3374,9 +3330,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <key value="12Z986901-16258671"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>TIA Slurred Speech Facial Droop Cardiac Hx</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="TIA Slurred Speech Facial Droop Cardiac Hx"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:30:00"/>
     <results>
@@ -3456,9 +3410,7 @@ Protein Total      77     g/L    ( 65-85    )
       <key value="12Z986901-16258670"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>TIA Slurred Speech Facial Droop Cardiac Hx</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="TIA Slurred Speech Facial Droop Cardiac Hx"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:30:00"/>
     <results>
@@ -3547,9 +3499,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
       <key value="12Z968901-16258669"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>TIA Slurred Speech Facial Droop Cardiac Hx</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="TIA Slurred Speech Facial Droop Cardiac Hx"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:30:00"/>
     <results>
@@ -3640,9 +3590,7 @@ Salicylate       &lt;0.30             &lt;0.30                   mmol/L &lt;2.9
       <key value="12Z968911-16258668"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Collapse</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Collapse"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:56:00"/>
     <results>
@@ -3731,9 +3679,7 @@ Protein Total      70     g/L    ( 65-85    )
       <key value="12Z968911-16258667"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Collapse</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Collapse"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:56:00"/>
     <results>
@@ -3839,9 +3785,7 @@ Comment: Mild neutropenia.
       <key value="12Z986911-16258666"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Collapse</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Collapse"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:56:00"/>
     <results>
@@ -3961,9 +3905,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561968-16258665"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:13:00"/>
     <results>
@@ -4080,9 +4022,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z516868-16258664"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:13:00"/>
     <results>
@@ -4199,9 +4139,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561768-16258663"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T23:01:00"/>
     <results>
@@ -4318,9 +4256,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561668-16258662"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:58:00"/>
     <results>
@@ -4429,9 +4365,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z516568-16258661"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:57:00"/>
     <results>
@@ -4536,9 +4470,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z516468-16258660"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:58:00"/>
     <results>
@@ -4651,9 +4583,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561368-16258659"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:36:00"/>
     <results>
@@ -4773,9 +4703,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z516268-16258658"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:36:00"/>
     <results>
@@ -4863,9 +4791,7 @@ Specimen Type:  Serum
       <key value="12Z968990-16258657"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Needlestick Recipient</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Needlestick Recipient"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:20:00"/>
     <results>
@@ -4930,9 +4856,7 @@ HBsAB Titre                                            :      44 IU/L
       <key value="12Z968990-16258656"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Needlestick Recipient</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Needlestick Recipient"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:20:00"/>
     <results>
@@ -5029,9 +4953,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z516168-16258655"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:33:00"/>
     <results>
@@ -5122,9 +5044,7 @@ TSH                       0.08    L  mIU/L   ( 0.1-4.0  )
       <key value="12Z968898-16258654"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Chest Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Chest Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:40:00"/>
     <results>
@@ -5215,9 +5135,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z516068-16258653"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:30:00"/>
     <results>
@@ -5380,9 +5298,7 @@ Anaerobic bottle             4   days                 Negative
       <key value="12Z968980-16258651"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Febrile >38</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Febrile >38"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:30:00"/>
     <results>
@@ -5473,9 +5389,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561967-16258650"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:28:00"/>
     <results>
@@ -5606,9 +5520,7 @@ perinatal or neonatal infection.
       <key value="12Z986960-16258649"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Appendiceal Abscess</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Appendiceal Abscess"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:30:00"/>
     <results>
@@ -5739,9 +5651,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z516867-16258648"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:25:00"/>
     <results>
@@ -6206,9 +6116,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561767-16258642"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:24:00"/>
     <results>
@@ -6299,9 +6207,7 @@ Urea             12.2     mmol/L ( 2.5-8.3  )
       <key value="12Z986930-16258641"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Fall</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Fall"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:20:00"/>
     <results>
@@ -6391,9 +6297,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
       <key value="12Z968930-16258640"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Fall</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Fall"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:20:00"/>
     <results>
@@ -6486,9 +6390,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <key value="12Z986940-16258639"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Appendiceal Abscess</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Appendiceal Abscess"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:00:00"/>
     <results>
@@ -6568,9 +6470,7 @@ C-React Prot        4     mg/L   ( &lt;5       )
       <key value="12Z986940-16258638"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Appendiceal Abscess</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Appendiceal Abscess"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:00:00"/>
     <results>
@@ -6659,9 +6559,7 @@ Baso         0.1      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
       <key value="12Z968940-16258637"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Appendiceal Abscess</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Appendiceal Abscess"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:00:00"/>
     <results>
@@ -6766,9 +6664,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z516667-16258636"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:18:00"/>
     <results>
@@ -7136,9 +7032,7 @@ Troponin I        0.02    ug/L   (See Below )
       <key value="12Z968910-16258632"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Chest Pain FI</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Chest Pain FI"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:05:00"/>
     <results>
@@ -7193,9 +7087,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
       <key value="12Z986900-16258631"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Serial Troponins</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Serial Troponins"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:00:00"/>
     <results>
@@ -7250,9 +7142,7 @@ NTRC
       <key value="12Z968899-16258630"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>R/Central Chest Pain Febrile</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="R/Central Chest Pain Febrile"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:00:00"/>
     <results>
@@ -7314,9 +7204,7 @@ Urea              5.3     mmol/L ( 2.5-8.3  )
       <key value="12Z968899-16258629"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>R/Central Chest Pain Febrile</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="R/Central Chest Pain Febrile"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:00:00"/>
     <results>
@@ -7397,9 +7285,7 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
       <key value="12Z986899-16258628"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>R/Central Chest Pain Febrile</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="R/Central Chest Pain Febrile"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:00:00"/>
     <results>
@@ -7669,9 +7555,7 @@ culture.
       <key value="12Z986879-16258625"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Collapsed Low BP</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Collapsed Low BP"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:00:00"/>
     <results>
@@ -7797,9 +7681,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z516567-16258624"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:13:00"/>
     <results>
@@ -7958,9 +7840,7 @@ GROIN SWAB                    VRE not detected
       <key value="12Z986895-16258622"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>See Slip</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="See Slip"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:00:00"/>
     <results>
@@ -8322,9 +8202,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <key value="12Z986869-16258618"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Heparin Infusion</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Heparin Infusion"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:05:00"/>
     <results>
@@ -8418,9 +8296,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561467-16258617"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T22:05:00"/>
     <results>
@@ -8690,9 +8566,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <key value="12Z968839-16258614"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>PR Bleeding</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="PR Bleeding"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:40:00"/>
     <results>
@@ -8768,9 +8642,7 @@ Urea              7.5     mmol/L ( 2.5-8.3  )
       <key value="12Z968839-16258613"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>PR Bleeding</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="PR Bleeding"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:40:00"/>
     <results>
@@ -8851,9 +8723,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
       <key value="12Z968839-16258612"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>PR Bleeding</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="PR Bleeding"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:40:00"/>
     <results>
@@ -9394,9 +9264,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561367-16258606"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:52:00"/>
     <results>
@@ -9505,9 +9373,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z516267-16258605"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:49:00"/>
     <results>
@@ -9601,9 +9467,7 @@ C-React Prot        5     mg/L   ( &lt;5       )
       <key value="12Z986898-16258604"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Chest Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Chest Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:40:00"/>
     <results>
@@ -9693,9 +9557,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
       <key value="12Z968898-16258603"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Chest Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Chest Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:40:00"/>
     <results>
@@ -9771,9 +9633,7 @@ LIPIDS
       <key value="12Z968888-16258602"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Trial See Slip</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Trial See Slip"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:44:00"/>
     <results>
@@ -9845,9 +9705,7 @@ investigation, please contact the Microbiology Registrar.
       <key value="12Z968878-16258601"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>See Slip</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="See Slip"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:00:00"/>
     <results>
@@ -10181,9 +10039,7 @@ Comment: The requested tests were not completed as no
       <key value="12Z968858-16258597"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>S\H/A Anneurism</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="S\H/A Anneurism"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:30:00"/>
     <results>
@@ -10264,9 +10120,7 @@ Xanthochromia Comment:   Oxyhaemoglobin present but no significant
       <key value="12Z986858-16258596"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>S\H/A Anneurism</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="S\H/A Anneurism"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:30:00"/>
     <results>
@@ -10364,9 +10218,7 @@ culture or special media are required.
       <key value="12Z968858-16258595"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>S\H/A Anneurism</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="S\H/A Anneurism"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:30:00"/>
     <results>
@@ -10455,9 +10307,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <key value="12Z968838-16258594"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Chest Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Chest Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:25:00"/>
     <results>
@@ -10533,9 +10383,7 @@ Troponin I        0.02    ug/L   (See Below )
       <key value="12Z968838-16258593"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Chest Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Chest Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:25:00"/>
     <results>
@@ -10620,9 +10468,7 @@ Comment: * Please note: no specimen received.
       <key value="12Z986838-16258592"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Chest Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Chest Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:25:00"/>
     <results>
@@ -10712,9 +10558,7 @@ COMMENT: This serum sample has been stored for 3 months.  If clinically
       <key value="12Z968848-16258591"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Chest Pain Worse On Exercise</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Chest Pain Worse On Exercise"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:30:00"/>
     <results>
@@ -10813,9 +10657,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561167-16258590"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:26:00"/>
     <results>
@@ -10932,9 +10774,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561067-16258589"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:22:00"/>
     <results>
@@ -11625,9 +11465,7 @@ Presumptive  negative for pneumococcal pneumonia.
       <key value="12Z986828-16258582"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Chest Pain Worse On Exercise</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Chest Pain Worse On Exercise"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:17:00"/>
     <results>
@@ -11884,9 +11722,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561866-16258578"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:08:00"/>
     <results>
@@ -11975,9 +11811,7 @@ TSH                       2.52       mIU/L   ( 0.1-4.0  )
       <key value="12Z968704-16258577"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Chest Pain Fi</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Chest Pain Fi"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T16:52:00"/>
     <results>
@@ -12168,9 +12002,7 @@ No Growth -Detection limit 10^7 CFU/L
       <key value="12Z968877-16258575"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Collapsed Low BP</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Collapsed Low BP"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T21:00:00"/>
     <results>
@@ -12669,9 +12501,7 @@ No Growth -Detection limit 10^7 CFU/L
       <key value="12Z968837-16258570"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Febrile FI</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Febrile FI"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:45:00"/>
     <results>
@@ -12980,9 +12810,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561766-16258566"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:59:00"/>
     <results>
@@ -13216,9 +13044,7 @@ Protein Total      73     g/L    ( 65-85    )
       <key value="12Z968896-16258563"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Gastro</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Gastro"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:55:00"/>
     <results>
@@ -13316,9 +13142,7 @@ Conclusion: Features suggestive of infection / inflammation. Suggest
       <key value="12Z986896-16258562"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Gastro</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Gastro"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:55:00"/>
     <results>
@@ -13589,9 +13413,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z516666-16258559"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:56:00"/>
     <results>
@@ -13708,9 +13530,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561566-16258558"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:52:00"/>
     <results>
@@ -13891,9 +13711,7 @@ Anaerobic bottle             4   days                 Negative
       <key value="12Z968832-16258556"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Febrile</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Febrile"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:57:00"/>
     <results>
@@ -13976,9 +13794,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561466-16258555"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:52:00"/>
     <results>
@@ -14056,9 +13872,7 @@ Troponin I        0.02    ug/L   (See Below )
       <key value="12Z968876-16258554"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Chest Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Chest Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:30:00"/>
     <results>
@@ -14113,9 +13927,7 @@ C-React Prot      149     mg/L   ( &lt;5       )
       <key value="12Z546943-16258547"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Febrile</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Febrile"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:40:00"/>
     <results>
@@ -14175,9 +13987,7 @@ Anaerobic bottle             4   days                 Negative
       <key value="12Z564943-16258546"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Febrile</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Febrile"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:40:00"/>
     <results>
@@ -14239,9 +14049,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
       <key value="12Z968856-16258539"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>See Slip</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="See Slip"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:39:00"/>
     <results>
@@ -14317,9 +14125,7 @@ Old Ref Ranges prior to 27th April 2004
       <key value="12Z968856-16258538"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>See Slip</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="See Slip"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:39:00"/>
     <results>
@@ -14414,9 +14220,7 @@ LIPIDS
       <key value="12Z968856-16258537"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>See Slip</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="See Slip"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:39:00"/>
     <results>
@@ -14511,9 +14315,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
       <key value="12Z986856-16258536"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>See Slip</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="See Slip"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:39:00"/>
     <results>
@@ -14594,9 +14396,7 @@ Urea              4.4     mmol/L ( 2.5-8.3  )
       <key value="12Z986846-16258529"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Febrile</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Febrile"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:39:00"/>
     <results>
@@ -14686,9 +14486,7 @@ Comment: Instrument differential and parameters reported.
       <key value="12Z968846-16258528"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Febrile</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Febrile"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:39:00"/>
     <results>
@@ -14776,9 +14574,7 @@ Anaerobic bottle             4   days                 Negative
       <key value="12Z968846-16258527"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Febrile</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Febrile"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:39:00"/>
     <results>
@@ -14874,9 +14670,7 @@ Timentin         S
       <key value="12Z968836-16258526"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Febrile >38</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Febrile >38"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:25:00"/>
     <results>
@@ -15094,9 +14888,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561366-16258521"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:36:00"/>
     <results>
@@ -15190,9 +14982,7 @@ C-React Prot        2     mg/L   ( &lt;5       )
       <key value="12Z986816-16258520"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Nausea And Vomiting FI</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Nausea And Vomiting FI"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:20:00"/>
     <results>
@@ -15565,9 +15355,7 @@ CULTURE
       <key value="12Z968779-16258516"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Drain Fluid. Prev Vre And Kleb Pneumo Rx Teicoplan/Tazo</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Drain Fluid. Prev Vre And Kleb Pneumo Rx Teicoplan/Tazo"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:10:00"/>
     <results>
@@ -15675,9 +15463,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561266-16258515"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:21:00"/>
     <results>
@@ -15770,9 +15556,7 @@ RECTAL SWAB                   VRE not detected
       <key value="12Z968875-16258514"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>On Admission</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="On Admission"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:00:00"/>
     <results>
@@ -15834,9 +15618,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
       <key value="12Z968865-16258513"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Chest Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Chest Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:00:00"/>
     <results>
@@ -16054,9 +15836,7 @@ Old Ref Ranges prior to 27th April 2004
       <key value="12Z968835-16258507"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Acute Alcohol Withdrawal</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Acute Alcohol Withdrawal"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:30:00"/>
     <results>
@@ -16140,9 +15920,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <key value="12Z968835-16258506"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Acute Alcohol Withdrawal</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Acute Alcohol Withdrawal"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:30:00"/>
     <results>
@@ -16209,9 +15987,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
       <key value="12Z986835-16258505"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Acute Alcohol Withdrawal</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Acute Alcohol Withdrawal"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:30:00"/>
     <results>
@@ -16287,9 +16063,7 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
       <key value="12Z968835-16258504"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Acute Alcohol Withdrawal</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Acute Alcohol Withdrawal"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:30:00"/>
     <results>
@@ -16378,9 +16152,7 @@ C-React Prot       12     mg/L   ( &lt;5       )
       <key value="12Z968835-16258503"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Acute Alcohol Withdrawal</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Acute Alcohol Withdrawal"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:30:00"/>
     <results>
@@ -16455,9 +16227,7 @@ Anaerobic bottle             4   days                 Negative
       <key value="12Z968825-16258502"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>T+ 38.7C</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="T+ 38.7C"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:04:00"/>
     <results>
@@ -16838,9 +16608,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z516166-16258497"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:08:00"/>
     <results>
@@ -16957,9 +16725,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561066-16258496"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:05:00"/>
     <results>
@@ -17048,9 +16814,7 @@ TSH                       1.55       mIU/L   ( 0.1-4.0  )
       <key value="12Z968805-16258495"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Palpitation</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Palpitation"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:50:00"/>
     <results>
@@ -17127,9 +16891,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
       <key value="12Z968805-16258494"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Palpitation</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Palpitation"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:50:00"/>
     <results>
@@ -17215,9 +16977,7 @@ Troponin I        0.03    ug/L   (See Below )
       <key value="12Z968805-16258493"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Palpitation</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Palpitation"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:50:00"/>
     <results>
@@ -17423,9 +17183,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z516965-16258491"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:02:00"/>
     <results>
@@ -17517,9 +17275,7 @@ G1691A Substitution Result:
       <key value="12Z968884-16258490"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Thrombophilic Screen</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Thrombophilic Screen"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:00:00"/>
     <results>
@@ -17683,9 +17439,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561865-16258488"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T20:00:00"/>
     <results>
@@ -17972,9 +17726,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z516765-16258484"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:54:00"/>
     <results>
@@ -18074,9 +17826,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <key value="12Z968844-16258483"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Post Angio + Stent</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Post Angio + Stent"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:45:00"/>
     <results>
@@ -18162,9 +17912,7 @@ Protein Total      65     g/L    ( 65-85    )
       <key value="12Z968844-16258482"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Post Angio + Stent</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Post Angio + Stent"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:45:00"/>
     <results>
@@ -18258,9 +18006,7 @@ Film Comment : Film scanned. The blood film shows no diagnostic features.
       <key value="12Z968844-16258481"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Post Angio + Stent</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Post Angio + Stent"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:45:00"/>
     <results>
@@ -18663,9 +18409,7 @@ Comment: The requested tests were not completed as no sample was
       <key value="12Z968814-16258476"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Urinary Symptoms 2/52 With Loin Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Urinary Symptoms 2/52 With Loin Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:45:00"/>
     <results>
@@ -18731,9 +18475,7 @@ Urea              6.5     mmol/L ( 2.5-8.3  )
       <key value="12Z968814-16258475"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Urinary Symptoms 2/52 With Loin Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Urinary Symptoms 2/52 With Loin Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:45:00"/>
     <results>
@@ -18814,9 +18556,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
       <key value="12Z986814-16258474"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Urinary Symptoms 2/52 With Loin Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Urinary Symptoms 2/52 With Loin Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:45:00"/>
     <results>
@@ -18890,9 +18630,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
       <key value="12Z986893-16258473"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Sah</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Sah"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:40:00"/>
     <results>
@@ -18956,9 +18694,7 @@ Comment: The requested tests were not completed as no
       <key value="12Z968893-16258472"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Sah</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Sah"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:40:00"/>
     <results>
@@ -19032,9 +18768,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <key value="12Z968893-16258471"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Sah</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Sah"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:40:00"/>
     <results>
@@ -19117,9 +18851,7 @@ Comment: Haemolysed. Some tests (*) unavailable.
       <key value="12Z968804-16258470"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Increasing Sob On Exerion Post Surgery 3/52 Ago ? Pe</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Increasing Sob On Exerion Post Surgery 3/52 Ago ? Pe"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:40:00"/>
     <results>
@@ -19218,9 +18950,7 @@ Comment: * Specimen clotted. ED informed.
       <key value="12Z968804-16258469"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Increasing Sob On Exerion Post Surgery 3/52 Ago ? Pe</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Increasing Sob On Exerion Post Surgery 3/52 Ago ? Pe"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:40:00"/>
     <results>
@@ -19332,9 +19062,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561665-16258468"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:43:00"/>
     <results>
@@ -19438,9 +19166,7 @@ No Growth After 2 Days.
       <key value="12Z968843-16258467"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Known Endocarditis, Vasculitic Rash Past, ?septic Embol</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Known Endocarditis, Vasculitic Rash Past, ?septic Embol"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:21:00"/>
     <results>
@@ -19523,9 +19249,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <key value="12Z968883-16258465"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Trauma</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Trauma"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:28:00"/>
     <results>
@@ -19597,9 +19321,7 @@ Urea              4.3     mmol/L ( 2.5-8.3  )
       <key value="12Z968883-16258464"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Trauma</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Trauma"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:28:00"/>
     <results>
@@ -19683,9 +19405,7 @@ Comment: Please note mild neutrophilia
       <key value="12Z986883-1625846422"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Trauma</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Trauma"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:28:00"/>
     <results>
@@ -19950,9 +19670,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <key value="12Z986883-1625846433"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>89/M Collapsed, Low Bp</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="89/M Collapsed, Low Bp"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:24:00"/>
     <results>
@@ -20032,9 +19750,7 @@ C-React Prot      109     mg/L   ( &lt;5       )
       <key value="12Z968863-16258459"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>89/M Collapsed, Low Bp</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="89/M Collapsed, Low Bp"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:24:00"/>
     <results>
@@ -20133,9 +19849,7 @@ Comment: Please note mild neutrophilia and mild monocytosis
       <key value="12Z986863-16258458"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>89/M Collapsed, Low Bp</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="89/M Collapsed, Low Bp"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:24:00"/>
     <results>
@@ -20226,9 +19940,7 @@ Protein/Creat Ratio             190 H mg/mmol Creat   ( 15-35    )
       <key value="12Z968873-16258457"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Pre Organ </text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Pre Organ "/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:20:00"/>
     <results>
@@ -20309,9 +20021,7 @@ Pathologist: To Follow
       <key value="12Z986843-16258456"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Known Endocarditis, Vasculitic Rash Past, ?septic Embol</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Known Endocarditis, Vasculitic Rash Past, ?septic Embol"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:21:00"/>
     <results>
@@ -20406,9 +20116,7 @@ the Blood Bank.
       <key value="12Z867193-16258455"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Ivig-Intragram 39G</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Ivig-Intragram 39G"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:15:00"/>
     <results>
@@ -20507,9 +20215,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561565-16258454"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:20:00"/>
     <results>
@@ -20673,9 +20379,7 @@ and diphtheroid bacilli.
       <key value="12Z986813-16258452"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Recurrent Falls</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Recurrent Falls"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:00:00"/>
     <results>
@@ -20867,9 +20571,7 @@ the Blood Bank.
       <key value="12Z876183-16258450"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Kovig Ivig- 30G</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Kovig Ivig- 30G"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:10:00"/>
     <results>
@@ -20968,9 +20670,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561465-16258449"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:11:00"/>
     <results>
@@ -21066,9 +20766,7 @@ Comment: The CKMB was not measured on this sample. It has
       <key value="12Z986892-16258448"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Cags X3 24/24 Post</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Cags X3 24/24 Post"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:55:00"/>
     <results>
@@ -21164,9 +20862,7 @@ Comment: Please note fall in haemoglobin and platelet count since
       <key value="12Z968892-16258447"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Cags X3 24/24 Post</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Cags X3 24/24 Post"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:55:00"/>
     <results>
@@ -21262,9 +20958,7 @@ Comment
       <key value="5003-3385"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>See Slip</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="See Slip"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T17:15:00"/>
     <results>
@@ -21368,9 +21062,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561365-16258445"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T19:04:00"/>
     <results>
@@ -21461,9 +21153,7 @@ INR               1.1      1.1      1.1      1.1      2.6H       0.8-1.3
       <key value="12Z986872-16258444"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Chest Pain Worse On Exercise</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Chest Pain Worse On Exercise"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:50:00"/>
     <results>
@@ -21528,9 +21218,7 @@ Comment: A troponin has been measured for this patient in
       <key value="12Z968872-16258443"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Chest Pain Worse On Exercise</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Chest Pain Worse On Exercise"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:50:00"/>
     <results>
@@ -21612,9 +21300,7 @@ Hrs Since Dose          No Info    02:00                   HH:MM
       <key value="12Z986862-16258442"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>2Hrs Post Dose</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="2Hrs Post Dose"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:45:00"/>
     <results>
@@ -21701,9 +21387,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <key value="12Z968852-16258441"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Post Op MVR</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Post Op MVR"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:58:00"/>
     <results>
@@ -21785,9 +21469,7 @@ Protein Total      47     g/L    ( 65-85    )
       <key value="12Z986852-16258440"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Post Op MVR</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Post Op MVR"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:58:00"/>
     <results>
@@ -21882,9 +21564,7 @@ Comment: Please note fall in haemoglobin and platelet count since
       <key value="12Z968852-16258439"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Post Op MVR</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Post Op MVR"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:58:00"/>
     <results>
@@ -21962,9 +21642,7 @@ NTRC
       <key value="12Z986842-16258438"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Recurrent Falls</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Recurrent Falls"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:30:00"/>
     <results>
@@ -22030,9 +21708,7 @@ Albumin            34     g/L    ( 35-50    )
       <key value="12Z968842-16258437"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Recurrent Falls</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Recurrent Falls"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:30:00"/>
     <results>
@@ -22117,9 +21793,7 @@ Baso         0.0      0.0                              x10^9/L   0.0-0.1
       <key value="12Z968842-16258436"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Recurrent Falls</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Recurrent Falls"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:30:00"/>
     <results>
@@ -22198,9 +21872,7 @@ Anaerobic bottle             4   days                 Negative
       <key value="12Z968832-16258435"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Febrile</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Febrile"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:57:00"/>
     <results>
@@ -22271,9 +21943,7 @@ General Comments:
       <key value="12Z968812-16258434"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>See Slip</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="See Slip"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:56:00"/>
     <results>
@@ -22482,9 +22152,7 @@ Comment: Post platelet increment
       <key value="12Z968802-16258432"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Post Platelet Increment</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Post Platelet Increment"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T17:45:00"/>
     <results>
@@ -22649,9 +22317,7 @@ Albumin            27     g/L    ( 35-50    )
       <key value="12Z968861-16258427"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Post Angiogram Anaemia</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Post Angiogram Anaemia"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T17:45:00"/>
     <results>
@@ -22744,9 +22410,7 @@ Comment: Instrument differential and parameters reported.
       <key value="12Z986861-16258426"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Post Angiogram Anaemia</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Post Angiogram Anaemia"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T17:45:00"/>
     <results>
@@ -22965,9 +22629,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z516265-16258424"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:54:00"/>
     <results>
@@ -23053,9 +22715,7 @@ NTRS
       <key value="12Z968841-16258423"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>See Slip</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="See Slip"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:46:00"/>
     <results>
@@ -23122,9 +22782,7 @@ Post Dose (Peak) level : Not recommended
       <key value="12Z986841-16258422"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>See Slip</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="See Slip"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:46:00"/>
     <results>
@@ -23206,9 +22864,7 @@ C-React Prot       19     mg/L   ( &lt;5       )
       <key value="12Z986841-16258421"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>See Slip</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="See Slip"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:46:00"/>
     <results>
@@ -23301,9 +22957,7 @@ Comment: Note: mild neutrophilia. Instrument differential and
       <key value="12Z968841-16258420"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>See Slip</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="See Slip"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:46:00"/>
     <results>
@@ -23408,9 +23062,7 @@ No Growth -Detection limit 10^7 CFU/L
       <key value="12Z968831-16258419"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Urinary Symptoms 2/52 With Loin Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Urinary Symptoms 2/52 With Loin Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:45:00"/>
     <results>
@@ -24172,9 +23824,7 @@ NTRESR
       <key value="12Z568456-16258409"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Chronic Idiopathic Urticaria</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Chronic Idiopathic Urticaria"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T11:45:00"/>
     <results>
@@ -24229,9 +23879,7 @@ NTRESR
       <key value="12Z966082-16258408"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>On Clozapine</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="On Clozapine"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T08:30:00"/>
     <results>
@@ -24519,9 +24167,7 @@ Anaerobic bottle             4   days                 Negative
       <key value="12Z968801-16258404"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Febrile FI</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Febrile FI"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:44:00"/>
     <results>
@@ -24980,9 +24626,7 @@ Urea             11.7     mmol/L ( 2.5-8.3  )
       <key value="12Z968880-16258398"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Atheroma With Complete Occlusions R/L Legs</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Atheroma With Complete Occlusions R/L Legs"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:30:00"/>
     <results>
@@ -25075,9 +24719,7 @@ Film Comment : Neutrophils show mild toxic changes. Manual differential.
       <key value="12Z968880-16258397"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Atheroma With Complete Occlusions R/L Legs</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Atheroma With Complete Occlusions R/L Legs"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:30:00"/>
     <results>
@@ -25178,9 +24820,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
       <key value="12Z968870-16258396"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Chest Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Chest Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:35:00"/>
     <results>
@@ -25269,9 +24909,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
       <key value="12Z986870-16258395"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Chest Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Chest Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:35:00"/>
     <results>
@@ -25596,9 +25234,7 @@ INR               4.3H     4.0H     6.2H     6.6H     6.9H       0.8-1.3
       <key value="12Z564923-16258390"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>See Slip</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="See Slip"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:15:00"/>
     <results>
@@ -25672,9 +25308,7 @@ Protein Total      80     g/L    ( 65-85    )
       <key value="12Z968840-16258389"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Headache</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Headache"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:18:00"/>
     <results>
@@ -25762,9 +25396,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
       <key value="12Z968840-16258388"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Headache</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Headache"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:18:00"/>
     <results>
@@ -25857,9 +25489,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
       <key value="12Z968840-16258388"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Headache</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Headache"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:18:00"/>
     <results>
@@ -26068,9 +25698,7 @@ INR               1.0                                            0.8-1.3
       <key value="12Z986860-16258384"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Trauma MVA</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Trauma MVA"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:15:00"/>
     <results>
@@ -26133,9 +25761,7 @@ Quant Pregnancy (hCG) &lt;2           IU/L    ( &lt;5       )
       <key value="12Z986860-16258383"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Trauma MVA</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Trauma MVA"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:15:00"/>
     <results>
@@ -26215,9 +25841,7 @@ Comment: Please note mild neutrophilia
       <key value="12Z968860-16258382"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Trauma MVA</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Trauma MVA"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:15:00"/>
     <results>
@@ -26308,9 +25932,7 @@ Protein Total      67     g/L    ( 65-85    )
       <key value="12Z986860-16258381"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Trauma MVA</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Trauma MVA"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:15:00"/>
     <results>
@@ -26388,9 +26010,7 @@ Comments / Steps Taken
       <key value="12Z968709-16258380"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Thrombophilic Screen</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Thrombophilic Screen"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:02:00"/>
     <results>
@@ -26477,9 +26097,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z561065-16258379"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:24:00"/>
     <results>
@@ -26676,9 +26294,7 @@ Urea              4.2     mmol/L ( 2.5-8.3  )
       <key value="12Z968800-16258377"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Pleuritic Chest Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Pleuritic Chest Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:10:00"/>
     <results>
@@ -26762,9 +26378,7 @@ Comment: Please note mild monocytosis
       <key value="12Z968800-16258376"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Pleuritic Chest Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Pleuritic Chest Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:10:00"/>
     <results>
@@ -26848,9 +26462,7 @@ to STAGO D-Dimer reagents (LIATEST). NB the reference range is unchanged
       <key value="12Z986800-16258375"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Pleuritic Chest Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Pleuritic Chest Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:10:00"/>
     <results>
@@ -27320,9 +26932,7 @@ Standard culture:   +  Mixed upper respiratory tract flora
       <key value="12Z986789-16258370"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Febrile . Neutripaenic</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Febrile . Neutripaenic"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:00:00"/>
     <results>
@@ -27432,9 +27042,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z516964-16258369"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:18:00"/>
     <results>
@@ -27522,9 +27130,7 @@ Amylase           390 IU/L
       <key value="12Z968779-16258368"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Drain Fluid. Prev Vre And Kleb Pneumo Rx Teicoplan/Tazo</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Drain Fluid. Prev Vre And Kleb Pneumo Rx Teicoplan/Tazo"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:10:00"/>
     <results>
@@ -27700,9 +27306,7 @@ No Beta haemolytic streptococci isolated.
       <key value="12Z986759-16258365"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>ga Streps</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="ga Streps"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:00:00"/>
     <results>
@@ -27783,9 +27387,7 @@ be processed.
       <key value="12Z986759-16258364"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>ga Streps</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="ga Streps"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:00:00"/>
     <results>
@@ -28185,9 +27787,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
       <key value="12Z968739-16258359"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Sob On Exertion</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Sob On Exertion"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:02:00"/>
     <results>
@@ -28269,9 +27869,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
       <key value="12Z986739-16258358"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Sob On Exertion</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Sob On Exertion"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:02:00"/>
     <results>
@@ -28376,9 +27974,7 @@ Note: Reference Ranges shown are for arterial blood only.
       <key value="12Z516864-16258356"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Automatic Request Registration</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Automatic Request Registration"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:10:00"/>
     <results>
@@ -28470,9 +28066,7 @@ G1691A Substitution Result:
       <key value="12Z968709-16258355"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Thrombophilic Screen</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Thrombophilic Screen"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:02:00"/>
     <results>
@@ -28541,9 +28135,7 @@ Lactate           1.2     mmol/L ( 0.2-1.8  )
       <key value="12Z986709-16258354"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Thrombophilic Screen</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Thrombophilic Screen"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:02:00"/>
     <results>
@@ -28621,9 +28213,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <key value="12Z968709-16258353"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Thrombophilic Screen</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Thrombophilic Screen"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:02:00"/>
     <results>
@@ -28721,9 +28311,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
       <key value="12Z986709-16258352"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Thrombophilic Screen</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Thrombophilic Screen"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:02:00"/>
     <results>
@@ -28820,9 +28408,7 @@ Please contact the immunopathology registrar for further advice on 9342 8023.
       <key value="12Z968709-16258351"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Thrombophilic Screen</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Thrombophilic Screen"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:02:00"/>
     <results>
@@ -28906,9 +28492,7 @@ Lupus Inhibitor Comment:
       <key value="12Z968709-16258350"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Thrombophilic Screen</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Thrombophilic Screen"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:02:00"/>
     <results>
@@ -29131,9 +28715,7 @@ Conclusion: Suggestive of iron deficiency anaemia. Suggest correlation
       <key value="12Z968788-16258347"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Anaemia</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Anaemia"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:00:00"/>
     <results>
@@ -29236,9 +28818,7 @@ Baso         0.0      0.0      0.0                     x10^9/L   0.0-0.1
       <key value="12Z986719-16258345"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Mba 80Km With Headstrike, Loc And R Neck Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Mba 80Km With Headstrike, Loc And R Neck Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:00:00"/>
     <results>
@@ -29322,9 +28902,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
       <key value="12Z968719-16258344"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Mba 80Km With Headstrike, Loc And R Neck Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Mba 80Km With Headstrike, Loc And R Neck Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:00:00"/>
     <results>
@@ -29407,9 +28985,7 @@ EtOH              0.02    gm%
       <key value="12Z968719-16258343"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Mba 80Km With Headstrike, Loc And R Neck Pain</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Mba 80Km With Headstrike, Loc And R Neck Pain"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T18:00:00"/>
     <results>
@@ -29501,9 +29077,7 @@ Old Ref Ranges prior to 27th April 2004
       <key value="|RE||"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Delerium Screen</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Delerium Screen"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T17:39:00"/>
     <results>
@@ -29580,9 +29154,7 @@ TSH                       1.09       mIU/L   ( 0.1-4.0  )
       <key value="12Z968797-16258336"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Delerium Screen</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Delerium Screen"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T17:39:00"/>
     <results>
@@ -29661,9 +29233,7 @@ LIPIDS
       <key value="12Z986797-16258335"/>
     </reportId>
         <requestDetail>
-          <!--<clinicalInfo>
-            <text>Delerium Screen</text>
-          </clinicalInfo>-->
+          <clinicalInfo value="Delerium Screen"/>
         </requestDetail>
     <diagnosticTime value="2012-04-05T17:39:00"/>
     <results>
