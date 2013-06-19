@@ -1,5 +1,7 @@
 package org.hl7.fhir.definitions.model;
 
+import org.hl7.fhir.instance.model.Profile;
+
 /*
 Copyright (c) 2011-2013, HL7, Inc
 All rights reserved.
@@ -49,6 +51,7 @@ public class RegisteredProfile {
   private String example;
   private ProfileInputType type;
   private String examplePath;
+  private Profile resource;
   
   
   public RegisteredProfile(String name, String description, String filename, String filepath, ProfileInputType type, String example, String examplePath) {
@@ -96,6 +99,15 @@ public class RegisteredProfile {
   public void setProfile(ProfileDefn profile) {
     this.profile = profile;
   }
+
+  public Profile getResource() {
+    return resource;
+  }
+
+  public void setResource(Profile resource) {
+    this.resource = resource;
+  }
   
-  
+
+ 
 }

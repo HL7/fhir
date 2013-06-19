@@ -20,7 +20,6 @@
   <WindowWidth>9570</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6315</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -68,6 +67,9 @@
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s69">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s70">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -77,11 +79,8 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s70">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
-  </Style>
   <Style ss:ID="s71">
-   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -164,7 +163,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">ProblemCategory</Data></Cell>
-    <Cell><Data ss:Type="String">E.g. finding | problem | diagnosis | concern</Data></Cell>
+    <Cell><Data ss:Type="String">E.g. complaint | symptom | finding | diagnosis</Data></Cell>
     <Cell><Data ss:Type="String">A category assigned to the problem/diagnosis. E.g. finding | problem | diagnosis | concern | condition</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">The categorization is often highly contextual and may appear poorly differentiated or not very useful in other contexts</Data></Cell>
    </Row>
@@ -329,12 +328,13 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <TopRowVisible>15</TopRowVisible>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>25</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>6</ActiveCol>
+     <RangeSelection>R9C8,R5C7</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -532,7 +532,7 @@
     <Cell><Data ss:Type="String">related-code</Data></Cell>
     <Cell ss:StyleID="s63"/>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Problem.relatedItem.code</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Problem.relatedItem.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s63"/>
@@ -579,7 +579,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -599,24 +598,24 @@
    <Column ss:AutoFitWidth="0" ss:Width="55.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="143.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Identity</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">In Book</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">General</Data></Cell>
     <Cell><Data ss:Type="String">General Problem Example</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">example</Data></Cell>
     <Cell><Data ss:Type="String">problem-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">2nd Case</Data></Cell>
     <Cell><Data ss:Type="String">2nd Example</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">example2</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">example2</Data></Cell>
     <Cell><Data ss:Type="String">problem-example2.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>

@@ -95,81 +95,89 @@ public class ResourceValidator extends BaseValidator {
 	// }
 	// }
 
+  public void checkStucture(List<ValidationMessage> errors, String name, ElementDefn structure) {
+    rule(errors, "structure", structure.getName(), name.toLowerCase().substring(0, 1) != name.substring(0, 1), "Resource Name must start with an uppercase alpha character");
+    checkElement(errors, structure.getName(), structure, null, null);
+    
+  }
   public List<ValidationMessage> checkStucture(String name, ElementDefn structure) {
-    errors.clear();
-    rule("structure", structure.getName(), name.toLowerCase().substring(0, 1) != name.substring(0, 1), "Resource Name must start with an uppercase alpha character");
-    checkElement(structure.getName(), structure, null, null);
+    List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
+    checkStucture(errors, name, structure);
     return errors;
   
   }
   
-  public List<ValidationMessage> check(String name, ResourceDefn parent) {
-		errors.clear();
-    rule("structure", parent.getName(), !name.equals("Metadata"), "The name 'Metadata' is not a legal name for a resource");
-    rule("structure", parent.getName(), !name.equals("History"), "The name 'History' is not a legal name for a resource");
-    rule("structure", parent.getName(), !name.equals("Tag"), "The name 'Tag  ' is not a legal name for a resource");
-    rule("structure", parent.getName(), !name.equals("Tags"), "The name 'Tags' is not a legal name for a resource");
-    rule("structure", parent.getName(), !name.equals("MailBox"), "The name 'MailBox' is not a legal name for a resource");
-    rule("structure", parent.getName(), !name.equals("Validation"), "The name 'Validation' is not a legal name for a resource");
+  public void check(List<ValidationMessage> errors, String name, ResourceDefn parent) {
+    rule(errors, "structure", parent.getName(), !name.equals("Metadata"), "The name 'Metadata' is not a legal name for a resource");
+    rule(errors, "structure", parent.getName(), !name.equals("History"), "The name 'History' is not a legal name for a resource");
+    rule(errors, "structure", parent.getName(), !name.equals("Tag"), "The name 'Tag  ' is not a legal name for a resource");
+    rule(errors, "structure", parent.getName(), !name.equals("Tags"), "The name 'Tags' is not a legal name for a resource");
+    rule(errors, "structure", parent.getName(), !name.equals("MailBox"), "The name 'MailBox' is not a legal name for a resource");
+    rule(errors, "structure", parent.getName(), !name.equals("Validation"), "The name 'Validation' is not a legal name for a resource");
     
-    rule("structure", parent.getName(), name.toLowerCase().substring(0, 1) != name.substring(0, 1), "Resource Name must start with an uppercase alpha character");
+    rule(errors, "structure", parent.getName(), name.toLowerCase().substring(0, 1) != name.substring(0, 1), "Resource Name must start with an uppercase alpha character");
 
-    checkElement(parent.getName(), parent.getRoot(), parent, null);
-    rule("structure", parent.getName(), parent.getRoot().getElementByName("text") == null, "Element named \"text\" not allowed");
-    rule("structure", parent.getName(), parent.getRoot().getElementByName("contained") == null, "Element named \"contaned\" not allowed");
+    checkElement(errors, parent.getName(), parent.getRoot(), parent, null);
+    rule(errors, "structure", parent.getName(), parent.getRoot().getElementByName("text") == null, "Element named \"text\" not allowed");
+    rule(errors, "structure", parent.getName(), parent.getRoot().getElementByName("contained") == null, "Element named \"contaned\" not allowed");
     if (parent.getRoot().getElementByName("subject") != null && parent.getRoot().getElementByName("subject").typeCode().startsWith("Resource"))
-      rule("structure", parent.getName(), parent.getSearchParams().containsKey("subject"), "A resource that contains a subject reference must have a search parameter 'subject'");
+      rule(errors, "structure", parent.getName(), parent.getSearchParams().containsKey("subject"), "A resource that contains a subject reference must have a search parameter 'subject'");
     for (org.hl7.fhir.definitions.model.SearchParameter p : parent.getSearchParams().values()) {
       if (!usages.containsKey(p.getCode()))
         usages.put(p.getCode(), new Usage());
       usages.get(p.getCode()).usage.add(p.getType());
-      warning("structure", parent.getName(), !p.getCode().contains("."), "Search Parameter Names cannot contain a '.' (\""+p.getCode()+"\")");
+      warning(errors, "structure", parent.getName(), !p.getCode().contains("."), "Search Parameter Names cannot contain a '.' (\""+p.getCode()+"\")");
     }
-//    rule(parent.getName(), !parent.getSearchParams().containsKey("id"), "A resource cannot have a search parameter 'id'");
-		return errors;
+//    rule(errors, parent.getName(), !parent.getSearchParams().containsKey("id"), "A resource cannot have a search parameter 'id'");
 	}
 
+  public List<ValidationMessage> check(String name, ResourceDefn parent) {
+    List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
+    check(errors, name, parent);    
+    return errors;
+  }
+  
 	//todo: check that primitives *in datatypes* don't repeat
 	
-	private void checkElement(String path, ElementDefn e, ResourceDefn parent, String parentName) {
-		rule("structure", path, e.unbounded() || e.getMaxCardinality() == 1,	"Max Cardinality must be 1 or unbounded");
-		rule("structure", path, e.getMinCardinality() == 0 || e.getMinCardinality() == 1, "Min Cardinality must be 0 or 1");
-		hint("structure", path, !nameOverlaps(e.getName(), parentName), "Name of child ("+e.getName()+") overlaps with name of parent ("+parentName+")");
-		rule("structure", path, e.hasShortDefn(), "Must have a short defn");
-    warning("structure", path, !Utilities.isPlural(e.getName()) || !e.unbounded(), "Element names should be singular");
-    warning("structure", path, !e.getName().equals("id"), "Element named \"id\" not allowed");
-    rule("structure", path, !e.getName().equals("extension"), "Element named \"extension\" not allowed");
-    rule("structure", path, !e.getName().equals("entries"), "Element named \"entries\" not allowed");
-    rule("structure", path, (parentName == null) || e.getName().charAt(0) == e.getName().toLowerCase().charAt(0), "Element Names must not start with an uppercase character");
-    warning("structure", path, e.getName().equals(path) || e.getElements().size() == 0 || !Utilities.noString(e.getDir()), "Element is missing a UML layout direction");
-// this isn't a real hint, just a way to gather information   hint(path, !e.isModifier(), "isModifier, minimum cardinality = "+e.getMinCardinality().toString());
+	private void checkElement(List<ValidationMessage> errors, String path, ElementDefn e, ResourceDefn parent, String parentName) {
+		rule(errors, "structure", path, e.unbounded() || e.getMaxCardinality() == 1,	"Max Cardinality must be 1 or unbounded");
+		rule(errors, "structure", path, e.getMinCardinality() == 0 || e.getMinCardinality() == 1, "Min Cardinality must be 0 or 1");
+		hint(errors, "structure", path, !nameOverlaps(e.getName(), parentName), "Name of child ("+e.getName()+") overlaps with name of parent ("+parentName+")");
+		rule(errors, "structure", path, e.hasShortDefn(), "Must have a short defn");
+    warning(errors, "structure", path, !Utilities.isPlural(e.getName()) || !e.unbounded(), "Element names should be singular");
+    warning(errors, "structure", path, !e.getName().equals("id"), "Element named \"id\" not allowed");
+    rule(errors, "structure", path, !e.getName().equals("extension"), "Element named \"extension\" not allowed");
+    rule(errors, "structure", path, !e.getName().equals("entries"), "Element named \"entries\" not allowed");
+    rule(errors, "structure", path, (parentName == null) || e.getName().charAt(0) == e.getName().toLowerCase().charAt(0), "Element Names must not start with an uppercase character");
+    warning(errors, "structure", path, e.getName().equals(path) || e.getElements().size() == 0 || !Utilities.noString(e.getDir()), "Element is missing a UML layout direction");
+// this isn't a real hint, just a way to gather information   hint(errors, path, !e.isModifier(), "isModifier, minimum cardinality = "+e.getMinCardinality().toString());
     
     if( e.getShortDefn().length() > 0)
 		{
-			rule("structure", path, e.getShortDefn().contains("|") || Character.isUpperCase(e.getShortDefn().charAt(0)) || !Character.isLetter(e.getShortDefn().charAt(0)), "Short Description must start with an uppercase character ('"+e.getShortDefn()+"')");
-		    rule("structure", path, !e.getShortDefn().endsWith(".") || e.getShortDefn().endsWith("etc."), "Short Description must not end with a period ('"+e.getShortDefn()+"')");
-		    rule("structure", path, e.getDefinition().contains("|") || Character.isUpperCase(e.getDefinition().charAt(0)) || !Character.isLetter(e.getDefinition().charAt(0)), "Long Description must start with an uppercase character ('"+e.getDefinition()+"')");
+			rule(errors, "structure", path, e.getShortDefn().contains("|") || Character.isUpperCase(e.getShortDefn().charAt(0)) || !Character.isLetter(e.getShortDefn().charAt(0)), "Short Description must start with an uppercase character ('"+e.getShortDefn()+"')");
+		    rule(errors, "structure", path, !e.getShortDefn().endsWith(".") || e.getShortDefn().endsWith("etc."), "Short Description must not end with a period ('"+e.getShortDefn()+"')");
+		    rule(errors, "structure", path, e.getDefinition().contains("|") || Character.isUpperCase(e.getDefinition().charAt(0)) || !Character.isLetter(e.getDefinition().charAt(0)), "Long Description must start with an uppercase character ('"+e.getDefinition()+"')");
 		}
 		
-    rule("structure", path, !e.getName().startsWith("_"), "Element names cannot start with '_'");
+    rule(errors, "structure", path, !e.getName().startsWith("_"), "Element names cannot start with '_'");
 		// if (e.getConformance() == ElementDefn.Conformance.Mandatory &&
 		// !e.unbounded())
-		// rule(path, e.getMinCardinality() > 0,
+		// rule(errors, path, e.getMinCardinality() > 0,
 		// "Min Cardinality cannot be 0 when element is mandatory");
 		//TODO: Really? A composite element need not have a definition?
-		checkType(path, e, parent);
-//		rule(path, !"code".equals(e.typeCode()) || e.hasBinding(),
+		checkType(errors, path, e, parent);
+//		rule(errors, path, !"code".equals(e.typeCode()) || e.hasBinding(),
 //				"Must have a binding if type is 'code'");
 
 		if (e.typeCode().equals("code") && parent != null) {
-		  rule("structure", path, e.hasBindingOrOk(), "An element of type code must have a binding");
+		  rule(errors, "structure", path, e.hasBindingOrOk(), "An element of type code must have a binding");
 		}
 		
 		if (e.hasBinding()) {
-		  rule("structure", path, e.typeCode().equals("code") || e.typeCode().contains("Coding") 
+		  rule(errors, "structure", path, e.typeCode().equals("code") || e.typeCode().contains("Coding") 
 				  || e.typeCode().contains("CodeableConcept"), "Can only specify bindings for coded data types");
 			BindingSpecification cd = definitions.getBindingByName(e.getBindingName());
-			rule("structure", path, cd != null, "Unable to resolve binding name " + e.getBindingName());
+			rule(errors, "structure", path, cd != null, "Unable to resolve binding name " + e.getBindingName());
 			
 			if (cd != null) {
 			  boolean isComplex = !e.typeCode().equals("code");
@@ -180,13 +188,13 @@ public class ResourceValidator extends BaseValidator {
             cd.setElementType(ElementType.Simple);
 			  } else if (cd.getBinding() != Binding.Reference)
           if (isComplex)
-            rule("structure", path, cd.getElementType() == ElementType.Complex, "Cannot use a binding from both code and Coding/CodeableConcept elements");
+            rule(errors, "structure", path, cd.getElementType() == ElementType.Complex, "Cannot use a binding from both code and Coding/CodeableConcept elements");
           else
-            rule("structure", path, cd.getElementType() == ElementType.Simple, "Cannot use a binding from both code and Coding/CodeableConcept elements");
+            rule(errors, "structure", path, cd.getElementType() == ElementType.Simple, "Cannot use a binding from both code and Coding/CodeableConcept elements");
 			}
 		}
 		for (ElementDefn c : e.getElements()) {
-			checkElement(path + "." + c.getName(), c, parent, e.getName());
+			checkElement(errors, path + "." + c.getName(), c, parent, e.getName());
 		}
 
 	}
@@ -206,15 +214,15 @@ public class ResourceValidator extends BaseValidator {
 	  return false;
   }
 
-  private void checkType(String path, ElementDefn e, ResourceDefn parent) {
+  private void checkType(List<ValidationMessage> errors, String path, ElementDefn e, ResourceDefn parent) {
 		if (e.getTypes().size() == 0) {
-			rule("structure", path, path.contains("."), "Must have a type on a base element");
-			rule("structure", path, e.getName().equals("extension") || e.getElements().size() > 0, "Must have a type unless sub-elements exist");
+			rule(errors, "structure", path, path.contains("."), "Must have a type on a base element");
+			rule(errors, "structure", path, e.getName().equals("extension") || e.getElements().size() > 0, "Must have a type unless sub-elements exist");
 		} else if (definitions.dataTypeIsSharedInfo(e.typeCode())) {
 		  try {
         e.getElements().addAll(definitions.getElementDefn(e.typeCode()).getElements());
       } catch (Exception e1) {
-        rule("structure", path, false, e1.getMessage());
+        rule(errors, "structure", path, false, e1.getMessage());
       }
 		} else {
 			for (TypeRef t : e.getTypes()) 
@@ -228,10 +236,10 @@ public class ResourceValidator extends BaseValidator {
 					if (s.charAt(0) == '#')
 						s = s.substring(1);
 					if (!t.isSpecialType()) {
-						rule("structure", path, typeExists(s, parent), "Illegal Type '" + s + "'");
+						rule(errors, "structure", path, typeExists(s, parent), "Illegal Type '" + s + "'");
 						if (t.isResourceReference()) {
 							for (String p : t.getParams()) {
-								rule("structure", path,
+								rule(errors, "structure", path,
 										p.equals("Any")
 												|| definitions.hasResource(p),
 										"Unknown resource type " + p);
@@ -249,9 +257,14 @@ public class ResourceValidator extends BaseValidator {
 				(parent != null && parent.getRoot().hasNestedType(name));
 	}
 
-	public List<ValidationMessage> check(String n, BindingSpecification cd) throws Exception {
-    errors.clear();
-
+	
+  public List<ValidationMessage> check(String n, BindingSpecification cd) throws Exception {
+    List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
+    check(errors, n, cd);
+    return errors;
+  }
+  
+	public void check(List<ValidationMessage> errors, String n, BindingSpecification cd) throws Exception {
     // basic integrity checks
     for (DefinedCode c : cd.getCodes()) {
       String d = c.getCode();
@@ -262,23 +275,23 @@ public class ResourceValidator extends BaseValidator {
       if (Utilities.noString(d))
         d = c.getDisplay();
       
-      warning("structure", "Binding "+n, !Utilities.noString(c.getDefinition()), "Code "+d+" must have a definition");
-      warning("structure", "Binding "+n, !(Utilities.noString(c.getId()) && Utilities.noString(c.getSystem())) , "Code "+d+" must have a id or a system");
+      warning(errors, "structure", "Binding "+n, !Utilities.noString(c.getDefinition()), "Code "+d+" must have a definition");
+      warning(errors, "structure", "Binding "+n, !(Utilities.noString(c.getId()) && Utilities.noString(c.getSystem())) , "Code "+d+" must have a id or a system");
     }
     if (cd.isValueSet()) {
       boolean internal = false;
       for (DefinedCode c : cd.getCodes()) 
         internal = internal || Utilities.noString(c.getSystem());
-      rule("structure", "Binding "+n, !internal, "Cannot mix internal and external code");
+      rule(errors, "structure", "Binding "+n, !internal, "Cannot mix internal and external code");
     }
     // trigger processing into a Heirachical set if necessary
-    rule("structure", "Binding "+n, !cd.isHeirachical() || (cd.getChildCodes().size() < cd.getCodes().size()), "Logic error processing Hirachical code set");
+    rule(errors, "structure", "Binding "+n, !cd.isHeirachical() || (cd.getChildCodes().size() < cd.getCodes().size()), "Logic error processing Hirachical code set");
 
     // now, rules for the source
-    hint("structure", "Binding "+n, cd.getElementType() != ElementType.Unknown, "Binding is not used");
-    warning("structure", "Binding "+n, cd.getBinding() != Binding.Unbound, "Need to provide a binding");
-    rule("structure", "Binding "+n, cd.getElementType() != ElementType.Simple || cd.getBinding() != Binding.Unbound, "Need to provide a binding for code elements");
-    rule("structure", "Binding "+n, cd.getElementType() == ElementType.Complex || !cd.isExample(), "Can only be an example binding if bound to Coding/CodeableConcept");
+    hint(errors, "structure", "Binding "+n, cd.getElementType() != ElementType.Unknown, "Binding is not used");
+    warning(errors, "structure", "Binding "+n, cd.getBinding() != Binding.Unbound, "Need to provide a binding");
+    rule(errors, "structure", "Binding "+n, cd.getElementType() != ElementType.Simple || cd.getBinding() != Binding.Unbound, "Need to provide a binding for code elements");
+    rule(errors, "structure", "Binding "+n, cd.getElementType() == ElementType.Complex || !cd.isExample(), "Can only be an example binding if bound to Coding/CodeableConcept");
     
 
     // set these for when the profiles are generated
@@ -298,7 +311,6 @@ public class ResourceValidator extends BaseValidator {
       cd.setBindingStrength(BindingStrength.Unstated);
       cd.setExtensibility(BindingExtensibility.Extensible);      
     }
-    return errors;
   }
 
   public void dumpParams() {

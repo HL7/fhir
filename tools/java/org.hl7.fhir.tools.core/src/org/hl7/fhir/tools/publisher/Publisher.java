@@ -907,7 +907,7 @@ public class Publisher {
 	    checkFragments();
 	    for (String n : page.getDefinitions().getProfiles().keySet()) {
 	      log(" ...profile "+n);
-	      produceProfile(n, page.getDefinitions().getProfiles().get(n), null);
+	      produceProfile(n, page.getDefinitions().getProfiles().get(n), null, null);
 	    }
 
       produceV2();
@@ -1698,7 +1698,7 @@ public class Publisher {
 	  page.getImageMaps().put(n, new DiagramGenerator(page).generate(resource, n));
 
 	  for (RegisteredProfile p : resource.getProfiles())
-		  produceProfile(p.getFilename(), p.getProfile(), p.getExamplePath());
+		  p.setResource(produceProfile(p.getFilename(), p.getProfile(), p.getExamplePath(), p.getExample()));
 
 	  for (Example e : resource.getExamples()) {
 		  try {
@@ -1938,8 +1938,7 @@ public class Publisher {
     dest.getEntryList().add(e);
   }
 
-	private void produceProfile(String filename, ProfileDefn profile, String example)
-			throws Exception {
+	private Profile produceProfile(String filename, ProfileDefn profile, String examplePath, String exampleName) throws Exception {
 		File tmp = File.createTempFile("tmp", ".tmp");
 		tmp.deleteOnExit();
 
@@ -1954,8 +1953,8 @@ public class Publisher {
 
 		ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
     XmlComposer comp = new XmlComposer();
-    comp.compose(new FileOutputStream(page.getFolders().dstDir + filename + ".profile.xml"), 
-          pgen.generate(profile, xml, false), true, false);
+    Profile p = pgen.generate(profile, xml, false);
+    comp.compose(new FileOutputStream(page.getFolders().dstDir + filename + ".profile.xml"), p, true, false);
 		Utilities.copyFile(new CSFile(page.getFolders().dstDir + filename + ".profile.xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + filename + ".profile.xml"));
 
 		TerminologyNotesGenerator tgen = new TerminologyNotesGenerator(new FileOutputStream(tmp), page);
@@ -1964,18 +1963,44 @@ public class Publisher {
 		String tx = TextFile.fileToString(tmp.getAbsolutePath());
 		
 		String exXml = "<p><i>No Example Provided</i></p>";
-		if (example != null) {
+		if (examplePath != null) {
+		  String n = Utilities.changeFileExt(exampleName, "");
 	    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	    factory.setNamespaceAware(true);
 	    DocumentBuilder builder = factory.newDocumentBuilder();
-	    Document xdoc = builder.parse(new CSFileInputStream(example));
+	    Document xdoc = builder.parse(new CSFileInputStream(examplePath));
 	    // strip namespace - see below
 	    XmlGenerator xmlgen = new XmlGenerator();
-	    xmlgen.generate(xdoc.getDocumentElement(), tmp, "http://hl7.org/fhir", xdoc.getDocumentElement().getLocalName());
+	    File dst = new File(page.getFolders().dstDir+exampleName);
+	    xmlgen.generate(xdoc.getDocumentElement(), dst, "http://hl7.org/fhir", xdoc.getDocumentElement().getLocalName());
 	    builder = factory.newDocumentBuilder();
-	    xdoc = builder.parse(new CSFileInputStream(tmp.getAbsolutePath()));
+	    xdoc = builder.parse(new CSFileInputStream(dst.getAbsolutePath()));
 	    XhtmlGenerator xhtml = new XhtmlGenerator(null);
-	    exXml = xhtml.generateInsert(xdoc, "Profile Example", null);
+	    exXml = xhtml.generateInsert(xdoc, "Example for Profile "+profile.metadata("name"), null);
+	    cloneToXhtml(n, "Example for Profile "+profile.metadata("name"));
+
+	    
+	    // generate the json version (use the java reference platform)
+	    try {
+	      javaReferencePlatform.convertToJson(page.getFolders().dstDir, page.getFolders().dstDir + n + ".xml", page.getFolders().dstDir + n + ".json");
+	    } catch (Throwable t) {
+	      System.out.println("Error processing "+page.getFolders().dstDir + n + ".xml");
+	      t.printStackTrace(System.err);
+	      TextFile.stringToFile(t.getMessage(), page.getFolders().dstDir + n + ".json");
+	    }
+	    String json;
+	    try {
+	      json = Utilities.escapeXml(new JSONObject(TextFile.fileToString(page.getFolders().dstDir + n + ".json")).toString(2));
+	    } catch (Throwable t) {
+	      t.printStackTrace(System.err);
+	      json = t.getMessage();
+	    }
+	    
+	    String head = 
+	    "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>"+Utilities.escapeXml("Example for Profile "+profile.metadata("name"))+"</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
+	    "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<div class=\"example\">\r\n<p>"+Utilities.escapeXml("Example for Profile "+profile.metadata("name"))+"</p>\r\n<pre class=\"json\">\r\n";
+	    String tail = "\r\n</pre>\r\n</div>\r\n</body>\r\n</html>\r\n";
+	    TextFile.stringToFile(head+json+tail, page.getFolders().dstDir + n + ".json.htm");
 		}
 		//
 		// DictHTMLGenerator dgen = new DictHTMLGenerator(new
@@ -2032,7 +2057,7 @@ public class Publisher {
 		// File(page.getFolders().dstDir+n+".json"));
 		//
 		tmp.delete();
-
+		return p;
 	}
 
 	private void validateProfile(ProfileDefn profile)
@@ -2240,12 +2265,15 @@ public class Publisher {
 		    for (Example e : r.getExamples()) {
 		      String n = e.getFileTitle();
           log(" ...validate " + n);
-          validateXmlFile(schema, n, validator);
+          validateXmlFile(schema, n, validator, null);
 		    }
 		    for (RegisteredProfile e : r.getProfiles()) {
 		      String n = e.getFilename()+".profile";
           log(" ...validate " + n);
-          validateXmlFile(schema, n, validator);
+          validateXmlFile(schema, n, validator, null);
+          if (!Utilities.noString(e.getExample())) {
+            validateXmlFile(schema, Utilities.changeFileExt(e.getExample(), ""), validator, e.getResource()); // validates the example against it's base definitions
+          }
 		    }
 		  }
 		}
@@ -2253,11 +2281,11 @@ public class Publisher {
 		if (buildFlags.get("all")) {
 	    for (String n : page.getDefinitions().getProfiles().keySet()) {
 	      log(" ...profile "+n);
-	      validateXmlFile(schema, n+".profile", validator);
+	      validateXmlFile(schema, n+".profile", validator, null);
 	    }
 
 	    log(" ...validate " + "profiles-resources");
-		  validateXmlFile(schema, "profiles-resources", validator);
+		  validateXmlFile(schema, "profiles-resources", validator, null);
 		}
 		log("Reference Platform Validation.");
 
@@ -2299,7 +2327,7 @@ public class Publisher {
     }    
   }
 
-  private void validateXmlFile(Schema schema, String n, InstanceValidator validator) throws Exception {
+  private void validateXmlFile(Schema schema, String n, InstanceValidator validator, Profile profile) throws Exception {
 		char sc = File.separatorChar;
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setNamespaceAware(true);
@@ -2344,7 +2372,10 @@ public class Publisher {
 		
 		// now, finally, we validate the resource ourselves.
 		// the build tool validation focuses on codes and identifiers
-    List<ValidationMessage> issues = validator.validateInstance(root);
+    List<ValidationMessage> issues = new ArrayList<ValidationMessage>(); 
+    validator.validateInstance(issues, root);
+    if (profile != null)
+      validator.validateInstanceByProfile(issues, root, profile);
 		boolean abort = false;
 		for (ValidationMessage m : issues) {
 		  page.log("  " +m.summary());

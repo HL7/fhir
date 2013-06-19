@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>60</WindowTopY>
   <TabRatio>651</TabRatio>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -90,7 +90,7 @@
   <Style ss:ID="s72">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s73">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
  </Styles>
@@ -1043,7 +1043,7 @@
    <Column ss:AutoFitWidth="0" ss:Width="68.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="122.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="63.75"/>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Identity</Data></Cell>
@@ -1051,17 +1051,17 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">Type</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">General</Data></Cell>
     <Cell><Data ss:Type="String">General Problem Example</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">example</Data></Cell>
     <Cell><Data ss:Type="String">conformance-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">PHR</Data></Cell>
     <Cell><Data ss:Type="String">PHR Example</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">phr</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">phr</Data></Cell>
     <Cell><Data ss:Type="String">conformance-phr-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
@@ -1072,7 +1072,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
+   <Unsynced/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1140,58 +1140,80 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="restful-operation">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="10" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="12" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="64.5" ss:DefaultRowHeight="15">
-   <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="436.5"/>
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="436.5"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
+    <Cell><Data ss:Type="String">Display</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">read</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">read</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Read the current state of the resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">vread</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">vread</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Read the state of a specific version of the resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">update</Data></Cell>
     <Cell><Data ss:Type="String">update</Data></Cell>
     <Cell><Data ss:Type="String">Update an existing resource by its id (or create it if it is new)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">delete</Data></Cell>
+    <Cell><Data ss:Type="String">delete</Data></Cell>
     <Cell><Data ss:Type="String">Delete a resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">history-instance</Data></Cell>
     <Cell><Data ss:Type="String">history-instance</Data></Cell>
     <Cell><Data ss:Type="String">Retrieve the update history for a resource instance</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="String">validate</Data></Cell>
+    <Cell><Data ss:Type="String">validate</Data></Cell>
     <Cell><Data ss:Type="String">Check that the content would be acceptable as an update</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="String">history-type</Data></Cell>
     <Cell><Data ss:Type="String">history-type</Data></Cell>
     <Cell><Data ss:Type="String">Get a list of updates to resources of this type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="String">create</Data></Cell>
+    <Cell><Data ss:Type="String">create</Data></Cell>
     <Cell><Data ss:Type="String">Create a new resource with a server assigned id</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell><Data ss:Type="String">search</Data></Cell>
+    <Cell><Data ss:Type="String">search</Data></Cell>
     <Cell><Data ss:Type="String">Supports search operations using the parameters described in the profile</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="String">transaction</Data></Cell>
+    <Cell><Data ss:Type="String">transaction</Data></Cell>
+    <Cell><Data ss:Type="String">Transaction performed on multiple resources</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">11</Data></Cell>
+    <Cell><Data ss:Type="String">history-ssytem</Data></Cell>
+    <Cell><Data ss:Type="String">history-ssytem</Data></Cell>
+    <Cell><Data ss:Type="String">Get a list of updates to all resources on the system</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1201,6 +1223,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1221,8 +1244,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

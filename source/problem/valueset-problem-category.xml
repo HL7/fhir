@@ -1,8 +1,5 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <text>
-    <status value="generated"/>
-  </text>
   <identifier value="http://hl7.org/fhir/vs/problem-category"/>
   <name value="Problem/Diagnosis Codes"/>
   <publisher value="FHIR Project team"/>
@@ -15,24 +12,24 @@
   <define>
     <system value="http://hl7.org/fhir/problem-category"/>
     <concept>
-      <code value="concern"/>
-      <display value="Concern"/>
-      <definition value="The problem is suspect to exist, but not confirmed"/>
+      <code value="complaint"/>
+      <display value="Complaint"/>
+      <definition value="The patient considers the problem an issue to be addressed"/>
+    </concept>
+    <concept>
+      <code value="symptom"/>
+      <display value="Symptom"/>
+      <definition value="A symptom of a problem (as might be mentioned in a review of systems)"/>
     </concept>
     <concept>
       <code value="finding"/>
       <display value="Finding"/>
-      <definition value="This problem has been confirmed, but it is not considered a problem"/>
-    </concept>
-    <concept>
-      <code value="problem"/>
-      <display value="Problem"/>
-      <definition value="This problem is a standing concern regarding the health of the patient"/>
+      <definition value="An observation made by a healthcare provider"/>
     </concept>
     <concept>
       <code value="diagnosis"/>
       <display value="Diagnosis"/>
-      <definition value="This problem has been confirmed by diagnostic investigation"/>
+      <definition value="This is a judgement made by a healthcare provider that the patient has a particular disease or condition"/>
     </concept>
   </define>
 </ValueSet>

@@ -105,7 +105,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
 		write("<h3>\r\nTerminology Bindings\r\n</h3>\r\n");
 		// 1. new form
     write("<table class=\"grid\">\r\n");
-    write(" <tr><th>Path</th><th>Definition</th><th>Reference</th></tr>\r\n");
+    write(" <tr><th>Path</th><th>Definition</th><th>Type</th><th>Reference</th></tr>\r\n");
     for (BindingSpecification cd : cds) {
       String path;
       List<CDUsage> list = txusages.get(cd);
@@ -124,8 +124,14 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       write(" </td>");
       write("<td valign=\"top\">"+Utilities.escapeXml(cd.getDefinition())+"</td>");
       if (cd.getBinding() == Binding.Unbound)
-        write("<td valign=\"top\">No details provided yet</td>");
+        write("<td>Unknown</td><td valign=\"top\">No details provided yet</td>");
       else {
+        if (cd.isExample())
+          write("<td>Example</td>");
+        else if (cd.getBinding() == Binding.CodeList)
+          write("<td>Fixed</td>");
+        else
+          write("<td>Extensible</td>");
         write("<td valign=\"top\">");
         if (cd.getBinding() == BindingSpecification.Binding.Special) {
           if (cd.getName().equals("MessageEvent"))
@@ -151,8 +157,6 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
               throw new Exception("Internal reference "+cd.getReference()+" not handled yet");
           } else
             write("<a href=\""+cd.getReference()+".htm\">http://hl7.org/fhir/"+cd.getReference()+"</a>");            
-          if (cd.isExample())
-            write(" (Example only)");
         }
         if (cd.getBinding() == BindingSpecification.Binding.CodeList) {
           write("<a href=\""+cd.getReference().substring(1)+".htm\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a>");            
