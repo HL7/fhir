@@ -791,7 +791,7 @@ private String resItem(String name) throws Exception {
   private String genProfileConstraints(ResourceDefn res) throws Exception {
     ElementDefn e = res.getRoot();
     StringBuilder b = new StringBuilder();
-    generateConstraints("", e, b);
+    generateConstraints(res.getName(), e, b, true);
     if (b.length() > 0)
       return "<p>Constraints</p><ul>"+b+"</ul>";
     else
@@ -801,7 +801,7 @@ private String resItem(String name) throws Exception {
   private String genResourceConstraints(ResourceDefn res) throws Exception {
     ElementDefn e = res.getRoot();
     StringBuilder b = new StringBuilder();
-    generateConstraints("", e, b);
+    generateConstraints(res.getName(), e, b, true);
     if (b.length() > 0)
       return "<h3>Constraints</h3><ul>"+b+"</ul>";
     else
@@ -826,24 +826,36 @@ private String resItem(String name) throws Exception {
   private String genConstraints(String name) throws Exception {
     ElementDefn e = definitions.getElementDefn(name);
     StringBuilder b = new StringBuilder();
-    generateConstraints("", e, b);
+    generateConstraints(name, e, b, true);
     if (b.length() > 0)
       return "<ul>"+b+"</ul>";
     else
       return "";
   }
 
-  private void generateConstraints(String path, ElementDefn e, StringBuilder b) {
+  private void generateConstraints(String path, ElementDefn e, StringBuilder b, boolean base) {
     for (String n : e.getInvariants().keySet()) {
       Invariant inv = e.getInvariants().get(n);
-      if ("".equals(path))
+      if (base)
         b.append("<li>"+Utilities.escapeXml(inv.getEnglish())+" (xpath: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
       else
-        b.append("<li>"+Utilities.escapeXml(inv.getEnglish())+" (xpath on "+path+": <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
+        b.append("<li>On "+path+": "+Utilities.escapeXml(inv.getEnglish())+" (xpath on "+presentPath(path)+": <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
     }
     for (ElementDefn c : e.getElements()) {
-      generateConstraints(path+"/"+c.getName(), c, b);
+      generateConstraints(path+"."+c.getName(), c, b, false);
     }    
+  }
+
+  private String presentPath(String path) {
+    String[] parts = path.split("\\.");
+    StringBuilder s = new StringBuilder();
+    for (String p : parts) {
+      if (s.length() > 0)
+        s.append("/");
+      s.append("f:"+p);
+    }
+    return s.toString();
+      
   }
 
   private String pageHeader(String n) {
@@ -1738,24 +1750,33 @@ private String resItem(String name) throws Exception {
     else {
       StringBuilder b = new StringBuilder();
       b.append("<h2>Search Parameters</h2>\r\n");
-      b.append("<p>Search Parameters for RESTful searches. The standard parameters also apply. See <a href=\"http.htm#search\">Searching</a> for more information.</p>\r\n");
+      b.append("<p>Search Parameters for RESTful searches. The standard parameters also apply. See <a href=\"query.htm#base\">Searching</a> for more information.</p>\r\n");
       b.append("<table class=\"list\">\r\n");
       List<String> names = new ArrayList<String>();
       names.addAll(resource.getSearchParams().keySet());
       Collections.sort(names);
       for (String name : names)  {
-    	SearchParameter p = resource.getSearchParams().get(name);
-        if (p.getType() == SearchType.date) {
-          b.append("<tr><td>"+p.getCode()+" : "+p.getType()+"</td><td>date equal to "+Utilities.escapeXml(p.getDescription())+"</td></tr>\r\n");
-          b.append("<tr><td>"+p.getCode()+"-before : "+p.getType()+"</td><td>date before or equal to "+Utilities.escapeXml(p.getDescription())+"</td></tr>\r\n");
-          b.append("<tr><td>"+p.getCode()+"-after : "+p.getType()+"</td><td>date after or equal to "+Utilities.escapeXml(p.getDescription())+"</td></tr>\r\n");          
-        } else
-          b.append("<tr><td>"+p.getCode()+" : "+p.getType()+"</td><td>"+Utilities.escapeXml(p.getDescription())+"</td></tr>\r\n");
+        SearchParameter p = resource.getSearchParams().get(name);
+        b.append("<tr><td>"+p.getCode()+" : "+p.getType()+"</td><td>"+Utilities.escapeXml(p.getDescription())+"</td><td>"+presentPaths(p.getPaths())+"</td></tr>\r\n");
       }
       b.append("</table>\r\n");
       b.append("<p>(See <a href=\"http.htm#search\">Searching</a>).</p>\r\n");
       return b.toString();
     }
+  }
+
+  private String presentPaths(List<String> paths) {
+    if (paths == null || paths.size() == 0)
+      return "";
+    if (paths.size() == 1)
+      return paths.get(0);
+    StringBuilder b = new StringBuilder();
+    for (String p : paths) {
+      if (b.length() != 0)
+        b.append(", "); 
+      b.append(p);
+    }
+    return b.toString();
   }
 
   private String produceExamples(ResourceDefn resource) {

@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:15:30Z</Created>
-  <LastSaved>2013-06-18T12:09:01Z</LastSaved>
+  <LastSaved>2013-06-20T02:48:43Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -18,8 +18,8 @@
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>1290</WindowHeight>
   <WindowWidth>9570</WindowWidth>
-  <WindowTopX>5520</WindowTopX>
-  <WindowTopY>6315</WindowTopY>
+  <WindowTopX>4245</WindowTopX>
+  <WindowTopY>3195</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -122,7 +122,7 @@
     <Cell ss:StyleID="s65"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String"> Detailed information about problems or diagnoses</Data></Cell>
-    <Cell><Data ss:Type="String">Use to record detailed information about problems or diagnoses recognised by a clinician. There are many uses including: recording a Diagnosis during an Visit; populating a Problem List or a Summary Statement, such as a Discharge Summary</Data></Cell>
+    <Cell><Data ss:Type="String">Use to record detailed information about problems or diagnoses recognised by a clinician. There are many uses including: recording a Diagnosis during a Visit; populating a Problem List or a Summary Statement, such as a Discharge Summary</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">* Age is questionable, you might well need a range of Age or even (in practice)&#10;&#10;a text like &quot;in their teens&quot;. =&gt; new ballot comment.&#10;&#10;* Todo: discuss the applicability of assessing stages&#10;&#10;* Change the description: it is circular</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
@@ -142,6 +142,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner|Patient)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Person who asserts this problem</Data></Cell>
+    <Cell><Data ss:Type="String">Person who takes responsibility for asserting the existence of the condition as part of the electronic record</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Problem.dateAsserted</Data></Cell>
@@ -332,9 +333,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>6</ActiveCol>
-     <RangeSelection>R9C8,R5C7</RangeSelection>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

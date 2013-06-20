@@ -549,7 +549,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Represents the time of the service being documented took place (clinically significant, but not necessarily when the document was produced or approved).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">This may be the same as the visit time in case the service was delivered during an visit. Visit time is not coded in XDS metadata but may be coded in documents managed by XDS. Note: Other times, such as document creation or approval are to be recorded, if needed, within the document.</Data><NamedCell
+    <Cell ss:Index="11"><Data ss:Type="String">This may be the same as the visit time in case the service was delivered during a visit. Visit time is not coded in XDS metadata but may be coded in documents managed by XDS. Note: Other times, such as document creation or approval are to be recorded, if needed, within the document.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

@@ -117,11 +117,20 @@ a partial match on text or display. With the ":code"
 modifier, the search will work as follows:
 </p>
 <ul>
- <li><b>name=namespace!code</b> specifies matches on both the namespace and the code</li>
+ <li><b>name=namespace!code</b> specifies matches on both the namespace and the code (or, for identifiers, key)</li>
  <li><b>name=!code</b> matches a code that has no specified namespace</li>
  <li><b>name=code</b> matches all codes irrespective of the namespace</li>
 </ul>
-<p>In the url of the code system, you need to escape the ":" and, if present, the “#” (fragment identifier).</p>
+<p>In the url of the code system, the “#” (fragment identifier) must be escaped, and in some implementations, the ":" does too.</p>
+<p>
+As an example, the following search:
+</p>
+<pre>
+  GET [base-url]/patient?identifier=http://acme.org/patient!2345
+</pre>
+<p>
+searches for all the patients with an identifier with key = "2345" in the system "http://acme.org/patient".
+</p>
 
 <h4>date</h4>
 <p>

@@ -129,9 +129,9 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
         if (cd.isExample())
           write("<td>Example</td>");
         else if (cd.getBinding() == Binding.CodeList)
-          write("<td>Fixed</td>");
+          write("<td><a href=\"terminologies.htm#code\">Fixed</a></td>");
         else
-          write("<td>Extensible</td>");
+          write("<td><a href=\"terminologies.htm#codeable\">Incomplete</a></td>");
         write("<td valign=\"top\">");
         if (cd.getBinding() == BindingSpecification.Binding.Special) {
           if (cd.getName().equals("MessageEvent"))

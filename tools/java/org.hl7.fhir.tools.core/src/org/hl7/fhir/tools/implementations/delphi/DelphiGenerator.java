@@ -2482,7 +2482,7 @@ public String getName() {
     prsrCode.uses.add("FHIRComponents");
     prsrCode.uses.add("FHIRTypes");
     prsrCode.uses.add("MsXmlParser");
-    prsrCode.uses.add("MsXmlBuilder");
+    prsrCode.uses.add("XmlBuilder");
     prsrCode.uses.add("JSON");
     prsrCode.comments.add("FHIR v"+version+" generated "+Config.DATE_FORMAT().format(genDate));
     
