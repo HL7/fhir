@@ -217,7 +217,7 @@ namespace Hl7.Fhir.Parsers
                 xr.LocalName == XHTMLELEM;
         }
 
-        public string ReadPrimitiveContents(string primitiveTypeName)
+        public string ReadPrimitiveContents(Type primitiveType)
         {
             if (currentElementContents != null)
             {

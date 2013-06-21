@@ -42,6 +42,12 @@ namespace Hl7.Fhir.Serializers
         public static string BuildPolymorphicName(string elementName, Type elementType)
         {
             string typeName = ModelInfo.FhirCsTypeToString[elementType];
+
+            // By convention, choice types use xxxxResource instead of
+            // xxxxResourceReference, so check for this
+            if (typeName == "ResourceReference")
+                typeName = "Resource";
+
             return elementName + Support.Util.Capitalize(typeName);
         }
 
@@ -51,5 +57,13 @@ namespace Hl7.Fhir.Serializers
             FhirSerializer.SerializeResource(value, writer);
             writer.WriteEndElement();
         }
+    }
+
+    public enum XmlSerializationHint
+    {
+        Element,
+        Attribute,
+        TextNode,
+        XhtmlElement
     }
 }

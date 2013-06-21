@@ -40,6 +40,8 @@ namespace Hl7.Fhir.Support
 {
     public class ErrorList : List<ErrorList.Error>
     {
+        public static readonly ErrorList EMPTY = new ErrorList();
+
         public class Error
         {
             public int? Line { get; set; }

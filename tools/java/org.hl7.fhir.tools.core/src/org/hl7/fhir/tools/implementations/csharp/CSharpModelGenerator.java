@@ -165,16 +165,60 @@ public class CSharpModelGenerator extends GenBlock
 			// Generate this classes properties
 			for( ElementDefn member : composite.getElement() )
 				generateMemberProperty(composite, member);
+
+      // Generate Validate() routine			
+			generateValidationMethod(composite);
 		es("}");
 		ln();
 		
 		return end();
 	}
 
+
+  private void generateValidationMethod(CompositeTypeDefn composite) {
+    String specifier = "override";
+    
+    if( composite.getBaseType() == null ) specifier = "virtual";
+    
+    ln("public "); nl(specifier); nl(" ErrorList Validate()");
+    bs("{");
+      ln("var result = new ErrorList();");
+      ln();
+      
+      if( composite.getBaseType() != null )
+      {
+        ln("result.AddRange(base.Validate());");
+        ln();
+      }
+      else
+      {
+        ln("result.AddRange(ValidateRules());");
+        ln();
+      }
+
+      for( ElementDefn member : composite.getElement() )
+      {
+        if( member.isPrimitiveValueElement() ) continue;
+        
+        String memberName = member.getGeneratorAnnotations().get(CLASSGEN_MEMBER_NAME); 
+      
+        ln("if(" + memberName + " != null )");
+        bs();
+          if( member.isRepeating() )
+            ln(memberName + ".ForEach(elem => result.AddRange(elem.Validate()));");              
+          else
+            ln("result.AddRange(" + memberName + ".Validate());");
+        es();
+      }
+      ln();
+      ln("return result;");
+    es("}");
+  }
+
 	private boolean hasPrimitiveValueElement( CompositeTypeDefn composite )
 	{
 	  for( ElementDefn element : composite.getElement() )
-	    if( GeneratorUtils.isPrimitiveValue(element) )
+	    if( element.isPrimitiveValueElement() )
 	      return true;
 
 	  return false;
@@ -199,7 +243,7 @@ public class CSharpModelGenerator extends GenBlock
 		}
 		
 		// Primitive elements' value property maps directly to a C# type
-		else if( GeneratorUtils.isPrimitiveValue(member) )
+		else if( member.isPrimitiveValueElement() )
 		{
 			nl( GeneratorUtils.mapPrimitiveToCSharpType( context.getName() ));
 		}

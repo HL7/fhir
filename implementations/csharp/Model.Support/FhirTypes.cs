@@ -28,6 +28,7 @@
 */
 
 
+using Hl7.Fhir.Support;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,25 +36,33 @@ using System.Text;
 
 namespace Hl7.Fhir.Model
 {
-    public partial class Element : IExtendable
-    {
-        public virtual string ValidateData()
+    public partial class Element : IExtendable, IValidatable
+    {       
+        internal virtual ErrorList ValidateRules()
         {
-            //TODO: When ready, this method must be made abstract
-            return null;
+            return ErrorList.EMPTY;
         }
     }
 
 
     // Resource is not a subclass of Composite, since it
     // cannot be used in places where you can use composites.
-    public abstract partial class Resource : IExtendable
+    public abstract partial class Resource : IExtendable, IValidatable
     {
+        internal virtual ErrorList ValidateRules()
+        {
+            return ErrorList.EMPTY;
+        }
     }
 
     public interface IExtendable
     {
         List<Extension> Extension { get; set; }
+    }
+
+    public interface IValidatable
+    {
+        ErrorList Validate();
     }
 
     public class FhirFormatException : System.Exception

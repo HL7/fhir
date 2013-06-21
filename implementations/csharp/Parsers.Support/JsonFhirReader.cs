@@ -121,11 +121,13 @@ namespace Hl7.Fhir.Parsers
         }
 
      
-        public string ReadPrimitiveContents(string primitiveTypeName)
+        public string ReadPrimitiveContents(Type primitiveType)
         {
-            if (primitiveTypeName == "boolean")
+            // For some specific types, we use the Json native serialization,
+            // not a string
+            if (primitiveType == typeof(FhirBoolean))
                 return readPropertyAsString(JsonToken.Boolean);
-            else if (primitiveTypeName == "integer")
+            else if (primitiveType == typeof(Integer))
                 return readPropertyAsString(JsonToken.Integer);
             else
                 return processStringProperty();

@@ -131,6 +131,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createSearchRepeatModeFromString(eDataType, initialValue);
 			case FhirPackage.EXAMPLE_TYPE:
 				return createExampleTypeFromString(eDataType, initialValue);
+			case FhirPackage.XML_FORMAT_HINT:
+				return createXmlFormatHintFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -156,6 +158,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertSearchRepeatModeToString(eDataType, instanceValue);
 			case FhirPackage.EXAMPLE_TYPE:
 				return convertExampleTypeToString(eDataType, instanceValue);
+			case FhirPackage.XML_FORMAT_HINT:
+				return convertXmlFormatHintToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -497,6 +501,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * @generated
 	 */
 	public String convertExampleTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public XmlFormatHint createXmlFormatHintFromString(EDataType eDataType, String initialValue) {
+		XmlFormatHint result = XmlFormatHint.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertXmlFormatHintToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

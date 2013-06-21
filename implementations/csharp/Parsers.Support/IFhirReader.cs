@@ -57,7 +57,7 @@ namespace Hl7.Fhir.Parsers
         void SkipSubElementsFor(string elementName);
 
      //   string ReadXhtmlContents();
-        string ReadPrimitiveContents(string primitiveTypeName);
+        string ReadPrimitiveContents(Type elementType);
       //  string ReadRefIdContents();
 
     //    string ReadBinaryBase64TextContents();

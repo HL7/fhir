@@ -29,23 +29,16 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 
 import java.io.InputStream;
-import java.math.BigDecimal;
-import java.net.URI;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
-import org.hl7.fhir.instance.model.*;
-import org.hl7.fhir.instance.model.Boolean;
-import org.hl7.fhir.instance.model.Integer;
+import org.hl7.fhir.instance.model.Binary;
+import org.hl7.fhir.instance.model.Element;
+import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.json.JSONObject;
-import org.xmlpull.v1.XmlPullParser;
 
 public abstract class JsonParserBase extends ParserBase {
 

@@ -12,6 +12,7 @@ import org.hl7.fhir.definitions.ecore.fhir.Invariant;
 import org.hl7.fhir.definitions.ecore.fhir.InvariantRef;
 import org.hl7.fhir.definitions.ecore.fhir.ResourceDefn;
 import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
+import org.hl7.fhir.definitions.ecore.fhir.XmlFormatHint;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -198,8 +199,6 @@ public class CompositeTypeConverter {
 		List<ElementDefn> result = new ArrayList<ElementDefn>();
 
 		for (org.hl7.fhir.definitions.model.ElementDefn element : elements) {
-			// Skip elements that are part of the Resource "base" class
-			// if( !(isResource && element.isBaseResourceElement()) )
 			result.add(buildElementDefnFromFhirModel(element, isResource));
 		}
 
@@ -236,14 +235,14 @@ public class CompositeTypeConverter {
 							.getTypes()));
 		
 			// Special case: all element using the 'xhtml' type contain only the primitive value
-	    // (which is the xhtml), there is no id, nor extensions
+	    // (which, in Xml, is rendered as a xhtml <div> node), there is no id, nor extensions
 			 if( result.getType().size() == 1 && result.getType().get(0).getName().equals("xhtml") )
+			 {
 		      result.setPrimitiveContents(true);
+		      result.setXmlFormatHint(XmlFormatHint.XHTML_ELEMENT);	      
+			 }
 		}
-
-		
-	
-		  
+  
 		// If this element is actually a nested type definition, these nested
 		// elements
 		// will have been put into a separately defined type, so we'll just
@@ -345,6 +344,7 @@ public class CompositeTypeConverter {
 	{
 	  ElementDefn idElem = GeneratorUtils.buildSimpleElementDefn("_id", "id", "Local id for element", 0, 1);	  
 		idElem.setPrimitiveContents(true);
+		idElem.setXmlFormatHint(XmlFormatHint.ATTRIBUTE);
 				
 		return idElem;
 	}
@@ -368,12 +368,14 @@ public class CompositeTypeConverter {
     resourceBase.setName(TypeRef.RESOURCE_TYPE_NAME);
 	  result.setBaseType(resourceBase);
 
-	   ElementDefn contentElem = GeneratorUtils.buildSimpleElementDefn("content", "base64Binary", "Binary contents", 1, 1);
-	   contentElem.setPrimitiveContents(true);
-	   result.getElement().add(contentElem);
+	  ElementDefn contentElem = GeneratorUtils.buildSimpleElementDefn("content", "base64Binary", "Binary contents", 1, 1);
+	  contentElem.setPrimitiveContents(true);
+	  contentElem.setXmlFormatHint(XmlFormatHint.TEXT_NODE);
+	  result.getElement().add(contentElem);
 	   
 	   ElementDefn contentTypeElem = GeneratorUtils.buildSimpleElementDefn("contentType", "string", "Media type of contents", 1, 1);
 	   contentTypeElem.setPrimitiveContents(true);
+	   contentTypeElem.setXmlFormatHint(XmlFormatHint.ATTRIBUTE);
 	   result.getElement().add(contentTypeElem);
     
 	   return result;

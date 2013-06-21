@@ -98,7 +98,7 @@ public class CSharpFhirParserGenerator extends GenBlock
 	}
 	
 	
-	private GenBlock buildPolymorphParser(String polymorphTypeName, List<?> composites) throws Exception {
+	private GenBlock buildPolymorphParser(String polymorphTypeName, List<TypeDefn> composites) throws Exception {
 		begin();
 		
 		ln("internal static ");
@@ -123,12 +123,13 @@ public class CSharpFhirParserGenerator extends GenBlock
 		return end();
 	}
 	
-	private GenBlock generateElementParser() throws Exception
+  private GenBlock generateElementParser() throws Exception
 	{
-		List composites = new ArrayList();
-		composites.addAll(getDefinitions().getLocalCompositeTypes());
-		composites.addAll(getDefinitions().getLocalConstrainedTypes());
-	
+    List<TypeDefn> composites = new ArrayList<TypeDefn>();
+    
+    composites.addAll(getDefinitions().getLocalConstrainedTypes());
+    composites.addAll(getDefinitions().getLocalCompositeTypes());
+    
 		return buildPolymorphParser("Element", composites);
 	}
 	
@@ -150,9 +151,17 @@ public class CSharpFhirParserGenerator extends GenBlock
 				ln("else if");
 			
 			firstTime = false;
+			String elementName;
+			
+			// By convention, choice types use xxxxResource instead of
+			// xxxxResourceReference, so check for this
+			if( type.getName().equals("ResourceReference"))
+			  elementName = "Resource";
+			else
+			  elementName = Utilities.capitalize(type.getName()); 
 			
 			nl("( ParserUtils.IsAtFhirElementEndingWith(reader, \"");
-				nl( Utilities.capitalize(type.getName()) );
+				nl( elementName );
 				nl("\" ))");
 			bs();
 				ln("return ");
@@ -166,6 +175,7 @@ public class CSharpFhirParserGenerator extends GenBlock
 			ln("errors.Add(String.Format(");
 				nl("\"Encountered unrecognized datatype '{0}'\",");
 		        nl("	reader.CurrentElementName), reader);");
+		    ln("reader.SkipSubElementsFor(reader.CurrentElementName);");
 		    ln("return null;");
 		es("}");
 	}
@@ -201,6 +211,7 @@ public class CSharpFhirParserGenerator extends GenBlock
 			ln("errors.Add(String.Format(");
 				nl("\"Encountered unrecognized resource '{0}'\",");
 		        nl("	reader.CurrentElementName), reader);");
+		    ln("reader.SkipSubElementsFor(reader.CurrentElementName);");
 		    ln("return null;");
 		es("}");
 	}

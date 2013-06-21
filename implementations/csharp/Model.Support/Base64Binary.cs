@@ -28,6 +28,7 @@
 
 */
 
+using Hl7.Fhir.Support;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace Hl7.Fhir.Model
     // A stream of bytes
     public partial class Base64Binary
     {
-        public static bool TryParse( string value, out Base64Binary result)
+        public static bool TryParse(string value, out Base64Binary result)
         {
             try
             {
@@ -67,11 +68,6 @@ namespace Hl7.Fhir.Model
                 return result;
             else 
                 throw new FhirFormatException("Not a correctly base64 encoded value");
-        }
-
-        public override string ValidateData()
-        {
-            return null;    // cannot contain illegal values and may be empty
         }
 
         public override string ToString()

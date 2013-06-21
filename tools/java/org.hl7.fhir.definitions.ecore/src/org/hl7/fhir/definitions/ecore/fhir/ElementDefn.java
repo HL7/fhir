@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getParentType <em>Parent Type</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getParentElement <em>Parent Element</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#isPrimitiveContents <em>Primitive Contents</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getXmlFormatHint <em>Xml Format Hint</em>}</li>
  * </ul>
  * </p>
  *
@@ -255,6 +256,35 @@ public interface ElementDefn extends EObject {
 	void setPrimitiveContents(boolean value);
 
 	/**
+	 * Returns the value of the '<em><b>Xml Format Hint</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.hl7.fhir.definitions.ecore.fhir.XmlFormatHint}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Xml Format Hint</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Xml Format Hint</em>' attribute.
+	 * @see org.hl7.fhir.definitions.ecore.fhir.XmlFormatHint
+	 * @see #setXmlFormatHint(XmlFormatHint)
+	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getElementDefn_XmlFormatHint()
+	 * @model
+	 * @generated
+	 */
+	XmlFormatHint getXmlFormatHint();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getXmlFormatHint <em>Xml Format Hint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Xml Format Hint</em>' attribute.
+	 * @see org.hl7.fhir.definitions.ecore.fhir.XmlFormatHint
+	 * @see #getXmlFormatHint()
+	 * @generated
+	 */
+	void setXmlFormatHint(XmlFormatHint value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
@@ -277,6 +307,14 @@ public interface ElementDefn extends EObject {
 	 * @generated
 	 */
 	boolean containsResource();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isPrimitiveValueElement();
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.

@@ -28,6 +28,7 @@
 
 */
 
+using Hl7.Fhir.Support;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -78,11 +79,6 @@ namespace Hl7.Fhir.Model
                 return Value.Value ? "true" : "false";
             else
                 return null;
-        }
-
-        public override string ValidateData()
-        {
-            return null;    // cannot contain illegal values
         }
     }
   

@@ -34,6 +34,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using Hl7.Fhir.Support;
+using Hl7.Fhir.Model;
 
 namespace Hl7.Fhir.Serializers
 {
@@ -76,34 +77,58 @@ namespace Hl7.Fhir.Serializers
             // Nothing
         }
 
-        public void WritePrimitiveContents(string value)
+        public void WritePrimitiveContents(string name, Element value, XmlSerializationHint xmlFormatHint)
         {
-            xw.WriteAttributeString(Parsers.XmlFhirReader.VALUEATTR, value);
+            if (xmlFormatHint == XmlSerializationHint.Attribute)
+                writePrimitiveAttribute(name, value.ToString());
+            else if (xmlFormatHint == XmlSerializationHint.TextNode)
+                xw.WriteString(value.ToString());
+            else if (xmlFormatHint == XmlSerializationHint.XhtmlElement)
+            {
+                // Write xhtml directly into the output stream,
+                // the xhtml <div> becomes part of the elements
+                // of the type, just like the other FHIR elements
+                xw.WriteRaw(value.ToString());
+            }
+            else
+                throw new ArgumentException("Unsupported xmlFormatHint " + xmlFormatHint);
         }
-        
-        public void WriteXhtmlContents(string xhtml)
+
+        public const string IDATTR = "_id";
+
+        private void writePrimitiveAttribute(string name, string value)
         {
-            // Write xhtml directly into the output stream,
-            // the xhtml <div> becomes part of the elements
-            // of the type, just like the other FHIR elements
-            xw.WriteRaw(xhtml);
+            // In Xml, the _id attribute is rendered as an attribute with name "id"
+            if (name == IDATTR)
+                name = "id";
+
+            xw.WriteAttributeString(name, value);
         }
 
 
-        public void WriteRefIdContents(string id)
-        {
-            xw.WriteAttributeString(Parsers.XmlFhirReader.IDATTR, id);
-        }
+        //public void WriteXhtmlContents(string xhtml)
+        //{
+        //    // Write xhtml directly into the output stream,
+        //    // the xhtml <div> becomes part of the elements
+        //    // of the type, just like the other FHIR elements
+        //    xw.WriteRaw(xhtml);
+        //}
 
-        public void WriteBinaryContentType(string contentType)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void WriteBinaryBase64TextContents(string b64)
-        {
-            throw new NotImplementedException();
-        }
+        //public void WriteRefIdContents(string id)
+        //{
+        //    xw.WriteAttributeString(Parsers.XmlFhirReader.IDATTR, id);
+        //}
+
+        //public void WriteBinaryContentType(string contentType)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public void WriteBinaryBase64TextContents(string b64)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public void WriteStartArrayElement(string name)
         {

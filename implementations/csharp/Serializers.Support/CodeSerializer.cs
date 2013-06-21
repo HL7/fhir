@@ -45,11 +45,14 @@ namespace Hl7.Fhir.Serializers
     */
     internal static partial class CodeSerializer
     {
-        //TODO: This must be updated to newest version of generated code, or
-        //I should try to make this go completely
         public static void SerializeCode<T>(Code<T> value, IFhirWriter writer) where T : struct
         {
-            throw new NotImplementedException();
+            Code c = new Code(value.ToString());
+            c.Extension = value.Extension;
+            c.LocalId = value.LocalId;
+
+            CodeSerializer.SerializeCode(c, writer);
+
             //writer.WriteStartComplexContent();
 
             //// Serialize element's localId attribute

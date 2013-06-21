@@ -28,7 +28,6 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 import java.io.File;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -37,7 +36,6 @@ import org.hl7.fhir.definitions.ecore.fhir.BindingDefn;
 import org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.ConstrainedTypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.NameScope;
-import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
@@ -241,7 +239,7 @@ public boolean doesCompile() {
   public boolean compile(String rootDir, List<String> errors) 
   {  
     String solutionDirectory = Utilities.path(rootDir, "implementations", "csharp");
-    String solutionFile = Utilities.path(solutionDirectory, "Hl7.Fhir.sln");
+    String solutionFile = Utilities.path(solutionDirectory, "Hl7.Fhir.csproj");
     DotNetCompileResult result = DotNetFramework.compile(solutionFile, this.logger);
 
     // If result == null, the compile function will have logged the reason

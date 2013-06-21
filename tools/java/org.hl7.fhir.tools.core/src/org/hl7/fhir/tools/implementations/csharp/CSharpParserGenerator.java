@@ -321,22 +321,16 @@ public class CSharpParserGenerator extends GenBlock
 	}
 	
 	
-	private boolean isPrimitive(ElementDefn member)
-	{
-	  return Character.isLowerCase(member.getType().get(0).getName().charAt(0));
-	}
-	
-	
 	private String buildPrimitiveParserCall(ElementDefn member) throws Exception {
 		String fhirPrimitive = member.getType().get(0).getName();
 	  String csharpPrimitive = GeneratorUtils.mapPrimitiveToFhirCSharpType(fhirPrimitive);
 		
-		String call = "ReadPrimitiveContents(\"" + fhirPrimitive + "\")";
+		String call = "ReadPrimitiveContents(typeof(" + csharpPrimitive + "))";
 		
 		String result = csharpPrimitive + ".Parse(reader." + call + ")";
 		
 		// "value" members map directly to the Value property using the C# native type
-		if( GeneratorUtils.isPrimitiveValue(member) ) result += ".Value";
+		if( member.isPrimitiveValueElement() ) result += ".Value";
 		
 		return result;
 	}

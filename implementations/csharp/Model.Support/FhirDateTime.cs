@@ -29,6 +29,7 @@
 */
 
 
+using Hl7.Fhir.Support;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -101,14 +102,16 @@ namespace Hl7.Fhir.Model
                 throw new FhirFormatException("Not a correctly formatted dateTime value");
         }
 
-        public override string ValidateData()
+        internal override ErrorList ValidateRules()
         {
+            var result = new ErrorList();
+
             FhirDateTime dummy;
 
             if (!TryParse( Value, out dummy ))
-                return "Not an correctly formatted dateTime value";
+                result.Add("Not a correctly formatted dateTime value");
             
-            return null; 
+            return result; 
         }
 
         public override string ToString()

@@ -1,9 +1,11 @@
 package org.hl7.fhir.tools.publisher;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.InputStreamReader;
 
-import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.Logger;
+import org.hl7.fhir.utilities.Utilities;
 
 public class DotNetFramework {
 
@@ -57,6 +59,8 @@ public class DotNetFramework {
       l.log("Found .NET framework, but the publication tool requires a .NET v4.x framework");
       return null;
     }
+    
+    l.log("Using .NET framework in " + fwPath);
     
     String build = Utilities.appendSlash(fwPath) + "msbuild.exe" + " " + makefile;
     

@@ -28,6 +28,7 @@
 
 */
 
+using Hl7.Fhir.Support;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,17 +68,9 @@ namespace Hl7.Fhir.Model
                 throw new FhirFormatException("Content is not valid xhtml");
         }
 
-        public override string ValidateData()
-        {           
-            return null;   
-        }
-
         public override string ToString()
         {
-            if (Value == null)
-                return null;
-            else
-                return Value.ToString();
+            return Value;
         }
     }
   

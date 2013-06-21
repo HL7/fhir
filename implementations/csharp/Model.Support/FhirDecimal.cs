@@ -34,6 +34,7 @@ using System.Linq;
 using System.Text;
 //using Hl7.Fhir.Support;
 using System.Globalization;
+using Hl7.Fhir.Support;
 
 namespace Hl7.Fhir.Model
 {
@@ -71,11 +72,6 @@ namespace Hl7.Fhir.Model
                 return result;
             else 
                 throw new FhirFormatException("Not a decimal value");
-        }
-
-        public override string ValidateData()
-        {
-            return null;    // cannot contain illegal values
         }
 
         public override string ToString()

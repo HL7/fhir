@@ -29,6 +29,7 @@
 */
 
 
+using Hl7.Fhir.Support;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,17 +66,21 @@ namespace Hl7.Fhir.Model
                 throw new FhirFormatException("Not an correctly formatted oid value");
         }
 
-        public override string ValidateData()
+        internal override ErrorList ValidateRules()
         {
+            var result = new ErrorList();
+
             if (Value == null)
-                return "Oid values cannot be empty";
+                result.Add("Oid values cannot be empty");
+            else
+            {
+                Oid dummy;
 
-            Oid dummy;
+                if (!TryParse(Value, out dummy))
+                    result.Add("Not an correctly formatted oid value");
+            }
 
-            if (!TryParse( Value, out dummy ))
-                return "Not an correctly formatted oid value";
-            
-            return null; 
+            return result; 
         }
 
         public override string ToString()

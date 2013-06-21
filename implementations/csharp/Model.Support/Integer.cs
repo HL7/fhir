@@ -33,6 +33,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Globalization;
+using Hl7.Fhir.Support;
 
 namespace Hl7.Fhir.Model
 {
@@ -70,11 +71,6 @@ namespace Hl7.Fhir.Model
                 throw new FhirFormatException("Not an integer value");
         }
 
-
-        public override string ValidateData()
-        {
-            return null;    // cannot contain illegal values
-        }
 
         public override string ToString()
         {

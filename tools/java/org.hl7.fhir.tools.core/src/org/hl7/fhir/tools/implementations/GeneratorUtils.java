@@ -2,10 +2,8 @@ package org.hl7.fhir.tools.implementations;
 
 import java.util.List;
 
-import org.eclipse.emf.common.util.EList;
 import org.hl7.fhir.definitions.ecore.fhir.Annotations;
 import org.hl7.fhir.definitions.ecore.fhir.BindingDefn;
-import org.hl7.fhir.definitions.ecore.fhir.BindingExtensibility;
 import org.hl7.fhir.definitions.ecore.fhir.BindingType;
 import org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.Definitions;
@@ -551,8 +549,4 @@ public class GeneratorUtils {
     
     return newElem;
   }
-	public static boolean isPrimitiveValue(ElementDefn member)
-	{
-	  return member.isPrimitiveContents() && member.getName().equals("value");
-	}
 }

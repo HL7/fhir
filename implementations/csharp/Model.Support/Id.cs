@@ -29,6 +29,7 @@
 */
 
 
+using Hl7.Fhir.Support;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,17 +66,21 @@ namespace Hl7.Fhir.Model
                 throw new FhirFormatException("Not an correctly formatted id value");
         }
 
-        public override string ValidateData()
+        internal override ErrorList ValidateRules()
         {
+            var result = new ErrorList();
+
             if (Value == null)
-                return "Id values cannot be empty";
+                result.Add("Id values cannot be empty");
+            else
+            {
+                Id dummy;
 
-            Id dummy;
+                if (!TryParse(this.Value, out dummy))
+                    result.Add("Not an correctly formatted id value");
+            }
 
-            if (!TryParse( this.Value, out dummy ))
-                return "Not an correctly formatted id value";
-            
-            return null; 
+            return result; 
         }
 
         public override string ToString()

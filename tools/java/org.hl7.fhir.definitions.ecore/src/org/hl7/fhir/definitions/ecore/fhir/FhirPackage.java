@@ -416,13 +416,22 @@ public interface FhirPackage extends EPackage {
 	int ELEMENT_DEFN__PRIMITIVE_CONTENTS = 12;
 
 	/**
+	 * The feature id for the '<em><b>Xml Format Hint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_DEFN__XML_FORMAT_HINT = 13;
+
+	/**
 	 * The number of structural features of the '<em>Element Defn</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFN_FEATURE_COUNT = 13;
+	int ELEMENT_DEFN_FEATURE_COUNT = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1729,6 +1738,15 @@ public interface FhirPackage extends EPackage {
 	int PROFILED_ELEMENT_DEFN__PRIMITIVE_CONTENTS = ELEMENT_DEFN__PRIMITIVE_CONTENTS;
 
 	/**
+	 * The feature id for the '<em><b>Xml Format Hint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROFILED_ELEMENT_DEFN__XML_FORMAT_HINT = ELEMENT_DEFN__XML_FORMAT_HINT;
+
+	/**
 	 * The feature id for the '<em><b>Inherited</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1872,6 +1890,17 @@ public interface FhirPackage extends EPackage {
 	 * @generated
 	 */
 	int EXAMPLE_TYPE = 27;
+
+
+	/**
+	 * The meta object id for the '{@link org.hl7.fhir.definitions.ecore.fhir.XmlFormatHint <em>Xml Format Hint</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.hl7.fhir.definitions.ecore.fhir.XmlFormatHint
+	 * @see org.hl7.fhir.definitions.ecore.fhir.impl.FhirPackageImpl#getXmlFormatHint()
+	 * @generated
+	 */
+	int XML_FORMAT_HINT = 28;
 
 
 	/**
@@ -2025,6 +2054,17 @@ public interface FhirPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getElementDefn_PrimitiveContents();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getXmlFormatHint <em>Xml Format Hint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Xml Format Hint</em>'.
+	 * @see org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getXmlFormatHint()
+	 * @see #getElementDefn()
+	 * @generated
+	 */
+	EAttribute getElementDefn_XmlFormatHint();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getType <em>Type</em>}'.
@@ -3354,6 +3394,16 @@ public interface FhirPackage extends EPackage {
 	EEnum getExampleType();
 
 	/**
+	 * Returns the meta object for enum '{@link org.hl7.fhir.definitions.ecore.fhir.XmlFormatHint <em>Xml Format Hint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Xml Format Hint</em>'.
+	 * @see org.hl7.fhir.definitions.ecore.fhir.XmlFormatHint
+	 * @generated
+	 */
+	EEnum getXmlFormatHint();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3490,6 +3540,14 @@ public interface FhirPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ELEMENT_DEFN__PRIMITIVE_CONTENTS = eINSTANCE.getElementDefn_PrimitiveContents();
+
+		/**
+		 * The meta object literal for the '<em><b>Xml Format Hint</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT_DEFN__XML_FORMAT_HINT = eINSTANCE.getElementDefn_XmlFormatHint();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' containment reference list feature.
@@ -4526,6 +4584,16 @@ public interface FhirPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum EXAMPLE_TYPE = eINSTANCE.getExampleType();
+
+		/**
+		 * The meta object literal for the '{@link org.hl7.fhir.definitions.ecore.fhir.XmlFormatHint <em>Xml Format Hint</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.hl7.fhir.definitions.ecore.fhir.XmlFormatHint
+		 * @see org.hl7.fhir.definitions.ecore.fhir.impl.FhirPackageImpl#getXmlFormatHint()
+		 * @generated
+		 */
+		EEnum XML_FORMAT_HINT = eINSTANCE.getXmlFormatHint();
 
 	}
 

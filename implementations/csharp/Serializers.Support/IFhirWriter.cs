@@ -47,17 +47,11 @@ namespace Hl7.Fhir.Serializers
         void WriteStartComplexContent();
         void WriteEndComplexContent();
 
-        void WritePrimitiveContents(string value);
-        void WriteXhtmlContents(string xhtml);
-        void WriteRefIdContents(string id);
+        void WritePrimitiveContents(string name, Element value, XmlSerializationHint xmlFormatHint);
 
         void WriteStartArrayElement(string name);
         void WriteStartArrayMember(string name);
         void WriteEndArrayMember();
         void WriteEndArrayElement();
-
-        void WriteBinaryContentType(string p);
-
-        void WriteBinaryBase64TextContents(string b64);
     }
 }

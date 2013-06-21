@@ -89,13 +89,25 @@ namespace Hl7.Fhir.Tests
                      @"</element>", FhirSerializer.SerializeElementAsXml(id));
 
             Assert.AreEqual(
-                @"{""_LocalId"":""3141"",""use"":{""value"":""official""},""label"":{""value"":""SSN""}," +
+                @"{""_id"":""3141"",""use"":{""value"":""official""},""label"":{""value"":""SSN""}," +
                 @"""system"":{""value"":""http://hl7.org/fhir/sid/us-ssn""},""key"":{""value"":""000111111""}," +
                 @"""period"":{""start"":{""value"":""2001-01-02""},""end"":{""value"":""2010-03-04""}}," +
                 @"""assigner"":{""type"":{""value"":""Organization""},""reference"":{""value"":""organization/@123""}," +
                 @"""display"":{""value"":""HL7, Inc""}}}", FhirSerializer.SerializeElementAsJson(id));
         }
 
+
+        [TestMethod]
+        public void TestNativelySerializedElements()
+        {
+            Integer i = new Integer(3141);
+            var json = FhirSerializer.SerializeElementAsJson(i);
+            Assert.AreEqual("{\"value\":3141}", json);
+
+            FhirBoolean b = new FhirBoolean(false);
+            json = FhirSerializer.SerializeElementAsJson(b);
+            Assert.AreEqual("{\"value\":false}", json);
+        }
 
         [TestMethod]
         public void PolymorphAndArraySerialization()
@@ -118,7 +130,7 @@ namespace Hl7.Fhir.Tests
                 @"<extension><valueCoding><system value=""http://hl7.org/fhir/sid/icd-10"" /><code value=""R51"" /></valueCoding></extension>" +
                 @"</element>", FhirSerializer.SerializeElementAsXml(ext));
             Assert.AreEqual(
-                @"{""url"":{""value"":""http://hl7.org/fhir/profiles/@3141#test""},""valueBoolean"":{""value"":""true""}," +
+                @"{""url"":{""value"":""http://hl7.org/fhir/profiles/@3141#test""},""valueBoolean"":{""value"":true}," +
                 @"""extension"":[{""valueCoding"":{""system"":{""value"":""http://hl7.org/fhir/sid/icd-10""},""code"":{""value"":""R51""}}}]}",
                 FhirSerializer.SerializeElementAsJson(ext));
         }
@@ -201,7 +213,7 @@ namespace Hl7.Fhir.Tests
                     @"<birthDate value=""1972-11-30"" /></details>" +
                 @"</Patient>", FhirSerializer.SerializeResourceAsXml(p));
 
-            Assert.AreEqual(@"{""Patient"":{""_LocalId"":""Ab4""," +
+            Assert.AreEqual(@"{""Patient"":{""_id"":""Ab4""," +
                  @"""text"":{""status"":{""value"":""generated""},""div"":""<div xmlns='http://www.w3.org/1999/xhtml'>" +
                     @"Patient 3141 - Wouter Gert, nov. 30th, 1972</div>""},"+
                  @"""contained"":[{""List"":{""mode"":{""value"":""snapshot""}}}],"+

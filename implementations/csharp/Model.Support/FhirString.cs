@@ -28,6 +28,7 @@
 
 */
 
+using Hl7.Fhir.Support;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,11 +43,6 @@ namespace Hl7.Fhir.Model
         public static FhirString Parse(string value)
         {
             return value;
-        }
-
-        public override string ValidateData()
-        {
-            return null;    // cannot contain illegal values
         }
 
         public override string ToString()

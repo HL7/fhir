@@ -30,13 +30,10 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 
 
-import java.io.IOException;
 import java.io.OutputStream;
-import java.text.SimpleDateFormat;
 
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
-import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xml.IXMLWriter;

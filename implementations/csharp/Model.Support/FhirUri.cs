@@ -28,6 +28,7 @@
 
 */
 
+using Hl7.Fhir.Support;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +41,7 @@ namespace Hl7.Fhir.Model
         public static bool TryParse( string value, out FhirUri result)
         {
             System.Uri uriValue = null;
-            bool succ = System.Uri.TryCreate(value, UriKind.RelativeOrAbsolute, out uriValue );
+            bool succ = System.Uri.TryCreate(value, UriKind.RelativeOrAbsolute, out uriValue);
 
             if (succ)
             {
@@ -64,9 +65,22 @@ namespace Hl7.Fhir.Model
                 throw new FhirFormatException("Not a correctly formatted Uri");
         }
 
-        public override string ValidateData()
+        internal override ErrorList ValidateRules()
         {
-            return null;    // cannot contain illegal values and may be empty.
+            var result = new ErrorList();
+
+            if (Value.IsAbsoluteUri)
+            {
+                Oid dummy; Uuid dummy2;
+
+                if (Value.ToString().StartsWith("urn:oid:") && !Oid.TryParse(Value.ToString(), out dummy))
+                    result.Add("Uri is an urn:oid, but the oid is incorrect");
+
+                else if (Value.ToString().StartsWith("urn:uuid:") && !Uuid.TryParse(Value.ToString(), out dummy2))
+                    result.Add("Uri is an urn:uuid, but the uuid is incorrect");
+            }
+
+            return result; 
         }
 
         public override string ToString()

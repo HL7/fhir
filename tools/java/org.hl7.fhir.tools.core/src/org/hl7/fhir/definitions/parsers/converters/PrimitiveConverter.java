@@ -38,6 +38,8 @@ import org.hl7.fhir.definitions.ecore.fhir.ElementDefn;
 import org.hl7.fhir.definitions.ecore.fhir.FhirFactory;
 import org.hl7.fhir.definitions.ecore.fhir.PrimitiveDefn;
 import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
+import org.hl7.fhir.definitions.ecore.fhir.XmlFormatHint;
+import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.utilities.Utilities;
 
 
@@ -152,19 +154,10 @@ public class PrimitiveConverter
 		result.setAnnotations(typeAnn);
 		
 		// add "value" element of the correct primitive type
-		ElementDefn valueElement = FhirFactory.eINSTANCE.createElementDefn();
-		valueElement.setName("value");
-		valueElement.setMinCardinality(0);
-		valueElement.setMaxCardinality(1);
+		ElementDefn valueElement = GeneratorUtils.buildSimpleElementDefn("value", primitive.getName(),
+		              "Primitive value of the element", 0, 1);
 		valueElement.setPrimitiveContents(true);
-		
-		Annotations valueAnn = FhirFactory.eINSTANCE.createAnnotations();
-		valueAnn.setShortDefinition("Primitive value of element");
-		valueElement.setAnnotation(valueAnn);
-		
-		TypeRef valueTypeRef = FhirFactory.eINSTANCE.createTypeRef();
-		valueTypeRef.setName(primitive.getName());
-		valueElement.getType().add(valueTypeRef);
+		valueElement.setXmlFormatHint(XmlFormatHint.ATTRIBUTE);
 				
 		result.getElement().add(valueElement);
 		

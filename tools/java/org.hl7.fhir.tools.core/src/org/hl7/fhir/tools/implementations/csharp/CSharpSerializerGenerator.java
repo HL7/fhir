@@ -30,6 +30,8 @@ package org.hl7.fhir.tools.implementations.csharp;
 */
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
@@ -39,6 +41,7 @@ import org.hl7.fhir.definitions.ecore.fhir.Definitions;
 import org.hl7.fhir.definitions.ecore.fhir.ElementDefn;
 import org.hl7.fhir.definitions.ecore.fhir.TypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
+import org.hl7.fhir.definitions.ecore.fhir.XmlFormatHint;
 import org.hl7.fhir.tools.implementations.GenBlock;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 
@@ -93,7 +96,7 @@ public class CSharpSerializerGenerator extends GenBlock
 	private void elementSerializer(Definitions definitions) throws Exception {
 		ln("internal static void SerializeElement(Element value, IFhirWriter writer)");
 		bs("{");
-			List composites = new ArrayList();
+			List<TypeDefn> composites = new ArrayList<TypeDefn>();
 			composites.addAll(definitions.getLocalCompositeTypes());
 			composites.addAll(definitions.getLocalConstrainedTypes());
 			generateSerializationCases(composites);
@@ -198,30 +201,30 @@ public class CSharpSerializerGenerator extends GenBlock
 			}
 			ln("writer.WriteStartComplexContent();");	
 			ln();
-
-			//ElementDefn idElement = GeneratorUtils.findLocalIdElement(allElements);
-			//ElementDefn valueElement = GeneratorUtils.findPrimitiveElement(allElements);
-			
-			//if( idElement != null )
-			//{
-			//	ln("// Serialize element's localId attribute");
-			//	ln("if( value.InternalId != null && !String.IsNullOrEmpty(value.InternalId.Value) )");
-			//	ln("	writer.WriteRefIdContents(value.InternalId.Value);");
-			//	ln();
-			//}
-
-			//if( valueElement != null )
-			//{
-			//	ln("// Serialize element's primitive contents");
-			//	ln("if(value.Value != null)");
-			//	ln("	writer.WritePrimitiveContents(value.ToString());");
-			//	ln();
-			//}
-			
+		
 			// Generate this classes properties
 			if( allElements.size() > 0)
 			{
-				generateMemberSerializers( allElements );
+		     
+	      List<ElementDefn> sortedElements = new ArrayList<ElementDefn>();
+	      
+	      // Make sure elements that need to be serialized as attributes in Xml
+	      // are sorted and generated first, since the streaming Xml writer api
+	      // will need to have them before the elements come in.
+	      for( ElementDefn elem : allElements )
+	        sortedElements.add(elem);
+	      Collections.sort(sortedElements, new Comparator<ElementDefn>()
+	        {
+	          public int compare(ElementDefn e1, ElementDefn e2)
+	          {
+	            if(e1.getXmlFormatHint() == XmlFormatHint.ATTRIBUTE) 
+	              return -1;
+	            else
+	              return 1;
+	          }
+	        });
+
+				generateMemberSerializers( sortedElements );
 				ln();
 			}
 			
@@ -248,10 +251,7 @@ public class CSharpSerializerGenerator extends GenBlock
 		begin();
 				
 		for( ElementDefn member : elements )
-		{	
-			// Don't regenerate these, have been generated as a special case
-			//if( member.isInternalId() || member.isPrimitiveContents() ) continue;
-			
+		{			
 			ln("// Serialize element " + member.getName());
 			generateMemberSerializer(member);
 		}
@@ -275,14 +275,39 @@ public class CSharpSerializerGenerator extends GenBlock
 		else
 		{		
 			ln("if(" + propertyName + " != null)");
-			bs("{");
-				serializeSingleElement(member, propertyName);
-			es("}");
+
+		  if( member.isPrimitiveContents() )
+		  {
+		    bs(); serializePrimitiveValue(member, propertyName); es();
+		  }
+		  else
+		  {
+		     bs("{");
+           serializeSingleElement(member, propertyName);
+         es("}");
+		  }			
 		}			
 					
 		ln();
 	}
 	
+	
+	private void serializePrimitiveValue(ElementDefn member, String propertyName)
+	{
+    // Primitive elements only serialize the element's Value.
+    ln("writer.WritePrimitiveContents(");   
+    nl("\"" + member.getName() + "\", " );
+    
+    if( member.getName().equals("value") )
+      //nl("value.ToString(), ");
+      nl("value, ");
+    else
+      //nl(propertyName + ".ToString(), ");
+      nl(propertyName + ", " );
+    
+    nl("XmlSerializationHint." + member.getXmlFormatHint().getName());
+    nl(");");
+	}
 	
 	private void serializeRepeatingElement( ElementDefn member, String propertyName  ) throws Exception
 	{	
@@ -306,62 +331,56 @@ public class CSharpSerializerGenerator extends GenBlock
 	
 	private void serializeSingleElement( ElementDefn member, String propertyName ) throws Exception
 	{	
-		if( !member.isPolymorph() && member.getType().get(0).getName().equals("xhtml") )
-		{
-			// Ugly hack to do special handling for Xhtml members.
-			ln("writer.WriteXhtmlContents(");
-				nl(propertyName);
-				nl(".ToString());");
-		}
-		else 
-		{		
-			if( member.isPolymorph() )
-			{
-				ln("writer.WriteStartElement( ");
-					nl("SerializationUtil.BuildPolymorphicName(");
-					nl("\"" + member.getName() + "\", "); 
-					nl(propertyName);
-					nl(".GetType()) );");
-			}
-			else
-			{
-				ln("writer.WriteStartElement(");
-				nl("\"" + member.getName() + "\"");	
-				nl(");");
-			}										
-
-			buildSerializeStatement(propertyName, member);
-			
-			ln("writer.WriteEndElement();");
-		}
-	}
-
-
-	private void buildSerializeStatement(String propertyName,
-			ElementDefn member) throws Exception
-	{
 		if( member.isPolymorph() )
-			ln("FhirSerializer.SerializeElement(");
-		else if( member.containsResource() )
-			ln("FhirSerializer.SerializeResource(");
-		else if( GeneratorUtils.isCodeWithCodeList(definitions, member.getType().get(0)) )
 		{
-			String enumType = GeneratorUtils.buildFullyScopedTypeName(member.getType().get(0).getFullBindingRef());
-			ln("CodeSerializer.SerializeCode<");
-				nl(enumType);
-				nl(">(");
+			ln("writer.WriteStartElement( ");
+				nl("SerializationUtil.BuildPolymorphicName(");
+				nl("\"" + member.getName() + "\", "); 
+				nl(propertyName);
+				nl(".GetType()) );");
 		}
 		else
 		{
-			TypeRef ref = member.getType().get(0);
-			TypeDefn type = definitions.findType(ref.getFullName());
-			String serializerCall;
-			if (type == null)
-				serializerCall = "not done yet";
-			else
+			ln("writer.WriteStartElement(");
+			nl("\"" + member.getName() + "\"");	
+			nl(");");
+		}										
+
+		buildSerializeStatement(propertyName, member);
+		
+	  ln("writer.WriteEndElement();");
+	}
+
+
+	private void buildSerializeStatement(String propertyName,	ElementDefn member) throws Exception
+	{
+	  // Handle special cases: we need a switch when handling polymorph serializations
+		if( member.isPolymorph() )
+			ln("FhirSerializer.SerializeElement(");
+		
+		// Special case: contained resources
+		else if( member.containsResource() )
+			ln("FhirSerializer.SerializeResource(");
+		
+		// Normal case - a normal element
+	  else 
+	  {
+	    if( GeneratorUtils.isCodeWithCodeList(definitions, member.getType().get(0)) )
+  		{
+  			String enumType = GeneratorUtils.buildFullyScopedTypeName(member.getType().get(0).getFullBindingRef());
+  			ln("CodeSerializer.SerializeCode<");
+  				nl(enumType);
+  				nl(">(");
+  		}
+  		else
+  		{
+  			TypeRef ref = member.getType().get(0);
+  			TypeDefn type = definitions.findType(ref.getFullName());
+  			String serializerCall;
 				serializerCall = buildSerializerCall(type);
-			ln(serializerCall + "(");
-		}
+  			ln(serializerCall + "(");
+  		}
+	  }
 		
 		nl(propertyName + ", writer);");
 	}

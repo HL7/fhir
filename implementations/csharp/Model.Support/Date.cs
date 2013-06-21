@@ -29,6 +29,7 @@
 */
 
 
+using Hl7.Fhir.Support;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,14 +71,16 @@ namespace Hl7.Fhir.Model
                 throw new FhirFormatException("Not an correctly formatted date value");
         }
 
-        public override string ValidateData()
+        internal override ErrorList ValidateRules()
         {
+            var result = new ErrorList();
+
             Date dummy;
 
             if (!TryParse( Value, out dummy ))
-                return "Not a correctly formatted date value";
+                result.Add("Not a correctly formatted date value");
             
-            return null; 
+            return result; 
         }
 
         public override string ToString()

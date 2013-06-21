@@ -35,6 +35,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using Hl7.Fhir.Support;
 
 namespace Hl7.Fhir.Model
 {
@@ -66,17 +67,21 @@ namespace Hl7.Fhir.Model
                 throw new FhirFormatException("Not a correctly formatted code value");
         }
 
-        public override string ValidateData()
+        internal override ErrorList ValidateRules()
         {
+            var result = new ErrorList();
+
             if (Value == null)
-                return "Code values cannot be empty";
+                result.Add("Code values cannot be empty");
+            else
+            {
+                Code dummy;
 
-            Code dummy;
+                if (!TryParse(Value, out dummy))
+                    result.Add("Not a correctly formatted code value");
+            }
 
-            if (!TryParse( Value, out dummy ))
-                return "Not an correctly formatted code value";
-            
-            return null; 
+            return result; 
         }
 
         public override string ToString()
@@ -84,7 +89,6 @@ namespace Hl7.Fhir.Model
             return Value;
         }
     }
-
 
 
     public class Code<T> : Element  where T : struct
@@ -157,9 +161,14 @@ namespace Hl7.Fhir.Model
                             "enum " + typeof(T).Name );
         }
 
-        public override string ValidateData()
+
+        public override ErrorList Validate()
         {
-            return null;        // cannot be empty and cannot be set to illegal values
+            var code = new Code(this.ToString());
+            code.Extension = this.Extension;
+            code.LocalId = this.LocalId;
+
+            return code.Validate();
         }
 
         public override string ToString()

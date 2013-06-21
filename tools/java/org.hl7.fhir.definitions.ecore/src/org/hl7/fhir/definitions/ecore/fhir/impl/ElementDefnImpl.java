@@ -26,6 +26,7 @@ import org.hl7.fhir.definitions.ecore.fhir.FhirPackage;
 import org.hl7.fhir.definitions.ecore.fhir.InvariantRef;
 import org.hl7.fhir.definitions.ecore.fhir.Mapping;
 import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
+import org.hl7.fhir.definitions.ecore.fhir.XmlFormatHint;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,6 +48,7 @@ import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getParentType <em>Parent Type</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getParentElement <em>Parent Element</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#isPrimitiveContents <em>Primitive Contents</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getXmlFormatHint <em>Xml Format Hint</em>}</li>
  * </ul>
  * </p>
  *
@@ -250,6 +252,26 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * @ordered
 	 */
 	protected boolean primitiveContents = PRIMITIVE_CONTENTS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getXmlFormatHint() <em>Xml Format Hint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getXmlFormatHint()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final XmlFormatHint XML_FORMAT_HINT_EDEFAULT = XmlFormatHint.ELEMENT;
+
+		/**
+	 * The cached value of the '{@link #getXmlFormatHint() <em>Xml Format Hint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getXmlFormatHint()
+	 * @generated
+	 * @ordered
+	 */
+	protected XmlFormatHint xmlFormatHint = XML_FORMAT_HINT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -509,6 +531,27 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public XmlFormatHint getXmlFormatHint() {
+		return xmlFormatHint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setXmlFormatHint(XmlFormatHint newXmlFormatHint) {
+		XmlFormatHint oldXmlFormatHint = xmlFormatHint;
+		xmlFormatHint = newXmlFormatHint == null ? XML_FORMAT_HINT_EDEFAULT : newXmlFormatHint;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFN__XML_FORMAT_HINT, oldXmlFormatHint, xmlFormatHint));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 //	public boolean hasNestedElements() {
@@ -556,6 +599,15 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	public boolean containsResource() {
 		return getType() != null && getType().size() == 1 &&
 				getType().get(0).getName().equals("Resource");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean isPrimitiveValueElement() {
+		return isPrimitiveContents() && getName().equals("value");
 	}
 
 	/**
@@ -827,6 +879,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 				return basicGetParentElement();
 			case FhirPackage.ELEMENT_DEFN__PRIMITIVE_CONTENTS:
 				return isPrimitiveContents();
+			case FhirPackage.ELEMENT_DEFN__XML_FORMAT_HINT:
+				return getXmlFormatHint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -882,6 +936,9 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 			case FhirPackage.ELEMENT_DEFN__PRIMITIVE_CONTENTS:
 				setPrimitiveContents((Boolean)newValue);
 				return;
+			case FhirPackage.ELEMENT_DEFN__XML_FORMAT_HINT:
+				setXmlFormatHint((XmlFormatHint)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -933,6 +990,9 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 			case FhirPackage.ELEMENT_DEFN__PRIMITIVE_CONTENTS:
 				setPrimitiveContents(PRIMITIVE_CONTENTS_EDEFAULT);
 				return;
+			case FhirPackage.ELEMENT_DEFN__XML_FORMAT_HINT:
+				setXmlFormatHint(XML_FORMAT_HINT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -971,6 +1031,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 				return parentElement != null;
 			case FhirPackage.ELEMENT_DEFN__PRIMITIVE_CONTENTS:
 				return primitiveContents != PRIMITIVE_CONTENTS_EDEFAULT;
+			case FhirPackage.ELEMENT_DEFN__XML_FORMAT_HINT:
+				return xmlFormatHint != XML_FORMAT_HINT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -997,6 +1059,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 		result.append(exampleValue);
 		result.append(", primitiveContents: ");
 		result.append(primitiveContents);
+		result.append(", xmlFormatHint: ");
+		result.append(xmlFormatHint);
 		result.append(')');
 		return result.toString();
 	}

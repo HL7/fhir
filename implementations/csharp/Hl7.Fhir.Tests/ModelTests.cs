@@ -13,6 +13,44 @@ namespace Hl7.Fhir.Tests
     public class ModelTests
     {
         [TestMethod]
+        public void TestOIDandUUIDUrls()
+        {
+            var oidUrl = "urn:oid:1.2.3";
+            var illOidUrl = "urn:oid:datmagdusniet";
+            var uuidUrl = "urn:uuid:a5afddf4-e880-459b-876e-e4591b0acc11";
+            var illUuidUrl = "urn:uuid:ooknietgoed";
+
+            FhirUri uri = FhirUri.Parse(oidUrl);
+            Assert.AreEqual(0,uri.Validate().Count);
+
+            uri = FhirUri.Parse(illOidUrl);
+            Assert.AreEqual(1, uri.Validate().Count);
+
+            uri = FhirUri.Parse(uuidUrl);
+            Assert.AreEqual(0, uri.Validate().Count);
+
+            uri = FhirUri.Parse(illUuidUrl);
+            Assert.AreEqual(1, uri.Validate().Count);
+        }
+
+
+        [TestMethod]
+        public void ValidateResourceWithIncorrectElement()
+        {
+            FhirDateTime dt = new FhirDateTime();
+
+            dt.Value = "Ewout Kramer";
+
+            Observation o = new Observation { Applies = dt };
+            DiagnosticReport rep = new DiagnosticReport();
+            rep.Contained = new List<Resource> { o };
+
+            var errors = dt.Validate();
+
+            Assert.IsTrue(errors.Count == 1);
+        }
+
+        [TestMethod]
         public void ValidateElementAssertions()
         {
             XElement xr = new XElement("root",

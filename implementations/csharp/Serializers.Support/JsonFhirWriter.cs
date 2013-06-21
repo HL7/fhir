@@ -33,6 +33,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
+using Hl7.Fhir.Model;
 
 namespace Hl7.Fhir.Serializers
 {
@@ -76,41 +77,21 @@ namespace Hl7.Fhir.Serializers
             jw.WriteEndObject();
         }
 
-        public const string VALUEATTR = "value";
-       
-        public void WritePrimitiveContents(string value)
+      
+        public void WritePrimitiveContents(string name, Element value, XmlSerializationHint xmlFormatHint)
         {
-            WriteStartElement(VALUEATTR);
-            jw.WriteValue(value);
+            WriteStartElement(name);
+            
+            if (value is FhirBoolean)
+                jw.WriteValue(((FhirBoolean)value).Value);
+            else if (value is Integer)
+                jw.WriteValue(((Integer)value).Value);
+            else
+                jw.WriteValue(value.ToString());
+
+            
         }
 
-        public void WriteBinaryContentType(string contentType)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void WriteBinaryBase64TextContents(string b64)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public const string XHTMLELEM = "div";
-
-        public void WriteXhtmlContents(string xhtml)
-        {
-            // In Json, the serialization of Xhtml is the same as other elements
-            WriteStartElement(XHTMLELEM);
-            jw.WriteValue(xhtml);
-        }
-
-        public const string IDATTR = "_id";
-
-        public void WriteRefIdContents(string id)
-        {
-            jw.WritePropertyName(IDATTR);
-            jw.WriteValue(id);
-        }
 
         public void WriteStartArrayElement(string name)
         {

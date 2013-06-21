@@ -40,6 +40,12 @@
       <nested inputs="FHIR.ecore#//ExampleType/Csv" outputs="FhirXMI.xsd#//ExampleType;XSDSimpleTypeDefinition=5/XSDEnumerationFacet=1"/>
       <nested inputs="FHIR.ecore#//ExampleType/Tool" outputs="FhirXMI.xsd#//ExampleType;XSDSimpleTypeDefinition=5/XSDEnumerationFacet=2"/>
     </nested>
+    <nested inputs="FHIR.ecore#//XmlFormatHint" outputs="FhirXMI.xsd#//XmlFormatHint;XSDSimpleTypeDefinition=6">
+      <nested inputs="FHIR.ecore#//XmlFormatHint/Element" outputs="FhirXMI.xsd#//XmlFormatHint;XSDSimpleTypeDefinition=6/XSDEnumerationFacet"/>
+      <nested inputs="FHIR.ecore#//XmlFormatHint/Attribute" outputs="FhirXMI.xsd#//XmlFormatHint;XSDSimpleTypeDefinition=6/XSDEnumerationFacet=1"/>
+      <nested inputs="FHIR.ecore#//XmlFormatHint/TextNode" outputs="FhirXMI.xsd#//XmlFormatHint;XSDSimpleTypeDefinition=6/XSDEnumerationFacet=2"/>
+      <nested inputs="FHIR.ecore#//XmlFormatHint/XhtmlElement" outputs="FhirXMI.xsd#//XmlFormatHint;XSDSimpleTypeDefinition=6/XSDEnumerationFacet=3"/>
+    </nested>
     <nested inputs="FHIR.ecore#//Definitions" outputs="FhirXMI.xsd#//Definitions;XSDComplexTypeDefinition">
       <nested inputs="FHIR.ecore#//Definitions/date" outputs="FhirXMI.xsd#//Definitions;XSDComplexTypeDefinition/XSDAttributeUse"/>
       <nested inputs="FHIR.ecore#//Definitions/version" outputs="FhirXMI.xsd#//Definitions;XSDComplexTypeDefinition/XSDAttributeUse=1"/>
@@ -56,15 +62,16 @@
       <nested inputs="FHIR.ecore#//ElementDefn/isModifier" outputs="FhirXMI.xsd#//ElementDefn;XSDComplexTypeDefinition=1/XSDAttributeUse=4"/>
       <nested inputs="FHIR.ecore#//ElementDefn/exampleValue" outputs="FhirXMI.xsd#//ElementDefn;XSDComplexTypeDefinition=1/XSDAttributeUse=5"/>
       <nested inputs="FHIR.ecore#//ElementDefn/primitiveContents" outputs="FhirXMI.xsd#//ElementDefn;XSDComplexTypeDefinition=1/XSDAttributeUse=6"/>
+      <nested inputs="FHIR.ecore#//ElementDefn/xmlFormatHint" outputs="FhirXMI.xsd#//ElementDefn;XSDComplexTypeDefinition=1/XSDAttributeUse=7"/>
       <nested inputs="FHIR.ecore#//ElementDefn/type" outputs="FhirXMI.xsd#//ElementDefn;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle"/>
       <nested inputs="FHIR.ecore#//ElementDefn/mappings" outputs="FhirXMI.xsd#//ElementDefn;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=1"/>
-      <nested inputs="FHIR.ecore#//ElementDefn/content" outputs="FhirXMI.xsd#//ElementDefn;XSDComplexTypeDefinition=1/XSDAttributeUse=7"/>
+      <nested inputs="FHIR.ecore#//ElementDefn/content" outputs="FhirXMI.xsd#//ElementDefn;XSDComplexTypeDefinition=1/XSDAttributeUse=8"/>
       <nested inputs="FHIR.ecore#//ElementDefn/content" outputs="FhirXMI.xsd#//ElementDefn;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=2"/>
       <nested inputs="FHIR.ecore#//ElementDefn/annotation" outputs="FhirXMI.xsd#//ElementDefn;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=3"/>
       <nested inputs="FHIR.ecore#//ElementDefn/invariant" outputs="FhirXMI.xsd#//ElementDefn;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=4"/>
-      <nested inputs="FHIR.ecore#//ElementDefn/parentType" outputs="FhirXMI.xsd#//ElementDefn;XSDComplexTypeDefinition=1/XSDAttributeUse=8"/>
+      <nested inputs="FHIR.ecore#//ElementDefn/parentType" outputs="FhirXMI.xsd#//ElementDefn;XSDComplexTypeDefinition=1/XSDAttributeUse=9"/>
       <nested inputs="FHIR.ecore#//ElementDefn/parentType" outputs="FhirXMI.xsd#//ElementDefn;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=5"/>
-      <nested inputs="FHIR.ecore#//ElementDefn/parentElement" outputs="FhirXMI.xsd#//ElementDefn;XSDComplexTypeDefinition=1/XSDAttributeUse=9"/>
+      <nested inputs="FHIR.ecore#//ElementDefn/parentElement" outputs="FhirXMI.xsd#//ElementDefn;XSDComplexTypeDefinition=1/XSDAttributeUse=10"/>
       <nested inputs="FHIR.ecore#//ElementDefn/parentElement" outputs="FhirXMI.xsd#//ElementDefn;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=6"/>
     </nested>
     <nested inputs="FHIR.ecore#//ElementDefn" outputs="FhirXMI.xsd#//ElementDefn;XSDElementDeclaration=1"/>

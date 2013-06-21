@@ -43,6 +43,7 @@ import org.hl7.fhir.definitions.ecore.fhir.SearchRepeatMode;
 import org.hl7.fhir.definitions.ecore.fhir.SearchType;
 import org.hl7.fhir.definitions.ecore.fhir.TypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
+import org.hl7.fhir.definitions.ecore.fhir.XmlFormatHint;
 
 
 /**
@@ -249,6 +250,13 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	private EEnum exampleTypeEEnum = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum xmlFormatHintEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -443,6 +451,15 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 */
 	public EAttribute getElementDefn_PrimitiveContents() {
 		return (EAttribute)elementDefnEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElementDefn_XmlFormatHint() {
+		return (EAttribute)elementDefnEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -1645,6 +1662,15 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getXmlFormatHint() {
+		return xmlFormatHintEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public FhirFactory getFhirFactory() {
 		return (FhirFactory)getEFactoryInstance();
@@ -1691,6 +1717,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 		createEReference(elementDefnEClass, ELEMENT_DEFN__PARENT_TYPE);
 		createEReference(elementDefnEClass, ELEMENT_DEFN__PARENT_ELEMENT);
 		createEAttribute(elementDefnEClass, ELEMENT_DEFN__PRIMITIVE_CONTENTS);
+		createEAttribute(elementDefnEClass, ELEMENT_DEFN__XML_FORMAT_HINT);
 
 		invariantEClass = createEClass(INVARIANT);
 		createEAttribute(invariantEClass, INVARIANT__NAME);
@@ -1829,6 +1856,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 		bindingExtensibilityEEnum = createEEnum(BINDING_EXTENSIBILITY);
 		searchRepeatModeEEnum = createEEnum(SEARCH_REPEAT_MODE);
 		exampleTypeEEnum = createEEnum(EXAMPLE_TYPE);
+		xmlFormatHintEEnum = createEEnum(XML_FORMAT_HINT);
 	}
 
 	/**
@@ -1900,12 +1928,15 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 		initEReference(getElementDefn_ParentType(), this.getCompositeTypeDefn(), this.getCompositeTypeDefn_Element(), "parentType", null, 0, 1, ElementDefn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElementDefn_ParentElement(), this.getElementDefn(), null, "parentElement", null, 0, 1, ElementDefn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementDefn_PrimitiveContents(), ecorePackage.getEBoolean(), "primitiveContents", null, 0, 1, ElementDefn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElementDefn_XmlFormatHint(), this.getXmlFormatHint(), "xmlFormatHint", null, 0, 1, ElementDefn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(elementDefnEClass, ecorePackage.getEBoolean(), "isRepeating", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(elementDefnEClass, ecorePackage.getEBoolean(), "isPolymorph", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(elementDefnEClass, ecorePackage.getEBoolean(), "containsResource", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(elementDefnEClass, ecorePackage.getEBoolean(), "isPrimitiveValueElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(invariantEClass, Invariant.class, "Invariant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInvariant_Name(), ecorePackage.getEString(), "name", null, 1, 1, Invariant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2097,6 +2128,12 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 		addEEnumLiteral(exampleTypeEEnum, ExampleType.XML);
 		addEEnumLiteral(exampleTypeEEnum, ExampleType.CSV);
 		addEEnumLiteral(exampleTypeEEnum, ExampleType.TOOL);
+
+		initEEnum(xmlFormatHintEEnum, XmlFormatHint.class, "XmlFormatHint");
+		addEEnumLiteral(xmlFormatHintEEnum, XmlFormatHint.ELEMENT);
+		addEEnumLiteral(xmlFormatHintEEnum, XmlFormatHint.ATTRIBUTE);
+		addEEnumLiteral(xmlFormatHintEEnum, XmlFormatHint.TEXT_NODE);
+		addEEnumLiteral(xmlFormatHintEEnum, XmlFormatHint.XHTML_ELEMENT);
 
 		// Create resource
 		createResource(eNS_URI);
