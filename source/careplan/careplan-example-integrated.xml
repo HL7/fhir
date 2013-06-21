@@ -117,11 +117,11 @@
     </div>
   </text>
   <contained>
-    <!-- Problems could be further encoded and detailed.  
+    <!-- Conditions could be further encoded and detailed.  
       Could also be handled as references to external resources.
       And not essential to have them captured at all.
       For purposes of example, will represent this way. -->
-    <Problem id="p1">
+    <Condition id="p1">
       <subject>
         <type value="Patient"/>
         <reference value="patient/@1"/>
@@ -130,10 +130,11 @@
       <code>
         <text value="GERDS"/>
       </code>
-    </Problem>
+      <status value="confirmed"/>
+    </Condition>
   </contained>
   <contained>
-    <Problem id="p2">
+    <Condition id="p2">
       <subject>
         <type value="Patient"/>
         <reference value="patient/@1"/>
@@ -142,10 +143,11 @@
       <code>
         <text value="Obesity"/>
       </code>
-    </Problem>
+      <status value="confirmed"/>
+    </Condition>
   </contained>
   <contained>
-    <Problem id="p3">
+    <Condition id="p3">
       <subject>
         <type value="Patient"/>
         <reference value="patient/@1"/>
@@ -154,7 +156,8 @@
       <code>
         <text value="Psoriasis"/>
       </code>
-    </Problem>
+      <status value="confirmed"/>
+    </Condition>
   </contained>
   <patient>
     <type value="Patient"/>
@@ -164,17 +167,17 @@
   <status value="active"/>
   <modified value="2012-09-10"/>
   <concern>
-    <type value="Problem"/>
+    <type value="Condition"/>
     <reference value="#p1"/> <!-- Local reference -->
     <display value="GERDS"/>
   </concern>
   <concern>
-    <type value="Problem"/>
+    <type value="Condition"/>
     <reference value="#p2"/> <!-- Local reference -->
     <display value="Obesity"/>
   </concern>
   <concern>
-    <type value="Problem"/>
+    <type value="Condition"/>
     <reference value="#p3"/> <!-- Local reference -->
     <display value="Psoriasis"/>
   </concern>

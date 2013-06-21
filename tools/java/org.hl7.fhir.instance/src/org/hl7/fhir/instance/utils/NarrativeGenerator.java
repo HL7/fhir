@@ -42,10 +42,10 @@ public class NarrativeGenerator {
     x.setName("div");
     if (vs.getExpansion() != null)
       throw new Exception("Error: should not encounter value set expansion at this point");
-    if (vs.getCompose() != null) 
-      generateComposition(x, vs, codeSystems);
     if (vs.getDefine() != null)
       generateDefinition(x, vs);
+    if (vs.getCompose() != null) 
+      generateComposition(x, vs, codeSystems);
     if (vs.getText() == null)
       vs.setText(new Narrative());
     vs.getText().setDiv(x);
@@ -97,12 +97,18 @@ public class NarrativeGenerator {
 
 
   private void generateComposition(XhtmlNode x, ValueSet vs, Map<String, AtomEntry> codeSystems) throws Exception {
-    XhtmlNode h = x.addTag("h2");
-    h.addText(vs.getNameSimple());
-    XhtmlNode p = x.addTag("p");
-    p.addText(vs.getDescriptionSimple());
-    p = x.addTag("p");
-    p.addText("This value set includes terms defined in other code systems, using the following rules:");
+    if (vs.getDefine() == null) {
+      XhtmlNode h = x.addTag("h2");
+      h.addText(vs.getNameSimple());
+      XhtmlNode p = x.addTag("p");
+      p.addText(vs.getDescriptionSimple());
+      p = x.addTag("p");
+      p.addText("This value set includes codes defined in other code systems, using the following rules:");
+    } else {
+      XhtmlNode p = x.addTag("p");
+      p.addText("In addition, this value set includes codes defined in other code systems, using the following rules:");
+
+    }
     XhtmlNode ul = x.addTag("ul");
     XhtmlNode li;
     for (Uri imp : vs.getCompose().getImport()) {
@@ -200,16 +206,25 @@ public class NarrativeGenerator {
   }
 
   private void addCsRef(ConceptSetComponent inc, XhtmlNode li, AtomEntry cs) {
-    if (cs != null && cs.getLinks().get("self") != null) {
+    String ref = null;
+    if (cs != null) {
+      cs.getLinks().get("path");
+      if (Utilities.noString(ref))
+        ref = cs.getLinks().get("self");
+    }
+    if (cs != null && ref != null) {
       XhtmlNode a = li.addTag("a");
-      a.setAttribute("href", cs.getLinks().get("self").replace("\\", "/"));
+      a.setAttribute("href", ref.replace("\\", "/"));
       a.addText(inc.getSystemSimple().toString());
     } else 
       li.addText(inc.getSystemSimple().toString());
   }
 
   private String getCsRef(AtomEntry cs) {
-    return cs.getLinks().get("self").replace("\\", "/");
+    String ref = cs.getLinks().get("path");
+    if (Utilities.noString(ref))
+      ref = cs.getLinks().get("self");
+    return ref.replace("\\", "/");
   }
 
   private boolean codeExistsInValueSet(AtomEntry cs, String code) {

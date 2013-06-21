@@ -28,6 +28,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -111,6 +112,9 @@ public class AtomEntry {
 	public Map<String, String> getTags() {
 		return tags;
 	}
+  public void setUpdated(String value) {
+    this.updated = javax.xml.bind.DatatypeConverter.parseDateTime(value);    
+  }
 
 	
 }

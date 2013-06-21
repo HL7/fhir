@@ -7,7 +7,7 @@
     
     </div>
   </text>
-  <identifier value="http://hl7.org/fhir/vs/security-event-sub-type"/>
+  <identifier value="http://hl7.org/fhir/vs/security-source-type"/>
   <version value="20100826"/>
   <name value="Security Alert Type Code"/>
   <publisher value="NEMA/DICOM"/>
@@ -15,7 +15,7 @@
   <status value="production"/>
   <date value="2010-08-26"/>
   <define>
-    <system value="http://hl7.org/fhir/security-event-sub-type"/>
+    <system value="http://hl7.org/fhir/security-source-type"/>
     <concept>
       <code value="1"/>
       <display value="User Device"/>

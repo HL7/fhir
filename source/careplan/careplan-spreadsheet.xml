@@ -259,13 +259,13 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource(Problem)</Data></Cell>
+    <Cell><Data ss:Type="String">Resource(Condition)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Health issues plan addresses</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies the problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s67"><Data ss:Type="String">Links plan to the conditions it manages.  Also scopes plans - multiple plans may exist addressing different concerns.</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s67"/>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">PRB-4-problem instance ID</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">PRB-4-Problem instance ID</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
    </Row>

@@ -27,7 +27,7 @@ parts - the observations are contained within the Device Observation report.
 
 In production usage, putting the granular observations inside the device observation resource
 means that the individual observations don't have an identity. Systems that wish to extract
-and use these granular observations have to re-identify them. The problem for these systems 
+and use these granular observations have to re-identify them. The Condition for these systems 
 is that this must be done consistently, else there'll be cloned observations, and the users
 will get confused by spurious copies of the data.
 

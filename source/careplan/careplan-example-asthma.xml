@@ -53,9 +53,9 @@
     </Provenance>
   </contained>
   
-  <!-- The problem that this careplan refers to. It is referenced from the concern. -->
+  <!-- The Condition that this careplan refers to. It is referenced from the concern. -->
   <contained>
-    <Problem id="p1">
+    <Condition id="p1">
       <subject>
         <type value="Patient"/>
         <reference value="patient/@1"/>
@@ -69,7 +69,8 @@
         </coding>
         <text value="Asthma"/>
       </code>
-    </Problem>
+      <status value="confirmed"/>
+    </Condition>
   </contained>
   
   <!-- The medication that the prescription refers to -->
@@ -197,8 +198,8 @@
   <modified value="2012-09-10"/>
   
   <concern>
-    <!-- The concern points to the contained problem. Other options are to point to a 'real' problem resource-->
-    <type value="Problem"/>
+    <!-- The concern points to the contained Condition. Other options are to point to a 'real' Condition resource-->
+    <type value="Condition"/>
     <reference value="#p1"/> <!-- Local reference -->
     <display value="Asthma"/>
   </concern>

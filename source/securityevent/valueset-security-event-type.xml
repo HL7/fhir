@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/valueset.xsd">
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-    
-    </div>
-  </text>
   <identifier value="http://nema.org/dicom/dcid/400"/>
   <version value="20100826"/>
   <name value="Audit Event ID"/>
   <publisher value="NEMA/DICOM"/>
-  <description value="Audit Event ID"/>
+  <description value="Event Types for Security Events - defined by DICOM with some FHIR specific additions"/>
   <status value="production"/>
   <date value="2010-08-26"/>
+  <define>
+    <system value="http://hl7.org/fhir/security-event-type"/>
+    <concept>
+      <code value="rest"/>
+      <display value="RESTful Operation"/>
+      <definition value="Audit Event: Execution of a RESTful operation as defined by FHIR"/>
+    </concept>
+  </define>
   <compose>
     <include>
       <system value="http://nema.org/dicom/dcid"/>

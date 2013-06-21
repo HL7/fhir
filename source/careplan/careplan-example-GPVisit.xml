@@ -17,7 +17,7 @@
     </text>
     <contained>
         <!-- This is the reason for the visit. It is referenced by the concern -->
-        <Problem id="p1">
+        <Condition id="p1">
             <subject>
                 <type value="Patient"/>
                 <reference value="patient/@100"/>
@@ -27,7 +27,8 @@
                 <!-- Could coded if we wanted to...-->
                 <text value="Overseas visit"/>
             </code>
-    </Problem>
+            <status value="confirmed"/>
+    </Condition>
     </contained>
     <patient>
         <type value="Patient"></type>
@@ -41,7 +42,7 @@
         <!-- No end yet as the visit is still in progress.-->
     </period>
     <concern>
-        <type value="Problem"></type>
+        <type value="Condition"></type>
         <reference value="#p1"/>
         <display value="obesity"/>
     </concern>

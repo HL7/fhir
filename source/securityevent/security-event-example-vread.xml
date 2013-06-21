@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SecurityEvent xmlns="http://hl7.org/fhir">
+  <event>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/security-event-type"/>
+        <code value="rest"/>
+        <display value="Restful Operation"/>
+      </coding>
+    </type>
+    <subtype>
+      <coding>
+        <system value="http://hl7.org/fhir/restful-operation"/>
+        <code value="vread"/>
+        <display value="vread"/>
+      </coding>
+    </subtype>
+    <action value="R"/>
+    <dateTime value="2013-06-20T23:42:24Z"/>
+    <outcome value="0"/>
+  </event>
+  <participant>
+    <userId value="95"/>
+    <authId value="601847123"/>
+    <name value="Grahame Grieve"/>
+    <requestor value="true"/>
+    <network>
+      <type value="ip"/>
+    </network>
+  </participant>
+  <source>
+    <site value="Cloud"/>
+    <identifier value="hl7connect.healthintersections.com.au"/>
+    <type>
+      <system value="http://hl7.org/fhir/security-source-type"/>
+      <code value="3"/>
+      <display value="Web Server"/>
+    </type>
+  </source>
+  <object>
+    <reference>
+      <type value="Patient"/>
+      <reference value="patient/@example/history/@1"/>
+    </reference>
+    <type value="2"/>
+    <lifecycle value="6"/>
+  </object>
+</SecurityEvent>

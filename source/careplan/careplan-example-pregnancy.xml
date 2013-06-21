@@ -16,7 +16,7 @@
         </div>
     </text>
     <contained>
-      <Problem id="p1">
+      <Condition id="p1">
         <subject>
           <type value="Patient"/>
           <reference value="patient/@1"/>
@@ -25,7 +25,8 @@
         <code>
           <text value="pregnancy"/>
         </code>
-      </Problem>
+        <status value="confirmed"/>
+      </Condition>
     </contained>
     <contained>
       <Practitioner id="pr1">
@@ -65,8 +66,7 @@
         <end value ="2013-10-01"/>
     </period>
     <concern>
-        <!-- Shouldn't really call a pregnancy a 'problem'! -->
-        <type value="Problem"></type>
+        <type value="Condition"></type>
         <reference value="#p1"/>
         <display value="pregnancy"/>
     </concern>

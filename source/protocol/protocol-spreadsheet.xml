@@ -270,7 +270,7 @@
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Problem|Device|Medication)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Condition|Device|Medication)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">What does protocol deal with?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

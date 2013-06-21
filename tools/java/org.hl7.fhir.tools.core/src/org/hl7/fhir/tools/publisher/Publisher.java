@@ -295,8 +295,7 @@ public class Publisher {
   }
 
 	public void execute(String folder) throws Exception {
-
-		log("Publish FHIR in folder " + folder+" @ "+Config.DATE_FORMAT().format(page.getGenDate().getTime()));
+    log("Publish FHIR in folder " + folder+" @ "+Config.DATE_FORMAT().format(page.getGenDate().getTime()));
 		if (isGenerate) 
 		  checkSubversion(folder);    
 		registerReferencePlatforms();
@@ -1073,6 +1072,7 @@ public class Publisher {
     Element r = XMLUtil.getNamedChild(e, "releasedVersion");
     if (r != null) {
       s.append("<p>Release Date: "+r.getAttribute("releaseDate")+"</p>\r\n");
+      vs.setDateSimple(r.getAttribute("releaseDate"));
     }
     r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"), "text");
     if (r == null)
@@ -1166,10 +1166,17 @@ public class Publisher {
             String id = e.getAttribute("name");
             AtomEntry ae = new AtomEntry();
             ae.setId("http://hl7.org/fhir/v3/vs/"+id);
-            ae.getLinks().put("self", "v3"+File.separator+id+File.separator+"index.htm");
+            ae.getLinks().put("self", "http://hl7.org/fhir/v3/"+id);
+            ae.getLinks().put("path", "v3"+File.separator+id+File.separator+"index.htm");
             ae.getLinks().put("oid", e.getAttribute("codeSystemId"));
             ValueSet vs = buildV3CodeSystem(id, dt, e);
             ae.setResource(vs);
+            if (vs.getDate() != null)
+              ae.setUpdated(vs.getDate().getValue());
+            else
+              ae.setUpdated(Calendar.getInstance());
+            ae.setTitle(vs.getDescriptionSimple());
+            ae.setAuthorName(vs.getPublisherSimple());
             page.getV3Valuesets().getEntryList().add(ae);
             page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
             page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
@@ -1183,10 +1190,17 @@ public class Publisher {
           String id = e.getAttribute("name");
           AtomEntry ae = new AtomEntry();
           ae.setId("http://hl7.org/fhir/v3/vs/"+id);
-          ae.getLinks().put("self", "v3"+File.separator+"vs"+File.separator+id+File.separator+"index.htm");
+          ae.getLinks().put("self", "http://hl7.org/fhir/v3/vs/"+id);
+          ae.getLinks().put("path", "v3"+File.separator+id+File.separator+"index.htm");
           ValueSet vs = buildV3ValueSet(id, dt, e, codesystems);
           ae.getLinks().put("oid", e.getAttribute("id"));
           ae.setResource(vs);
+          if (vs.getDate() != null)
+            ae.setUpdated(vs.getDate().getValue());
+          else
+            ae.setUpdated(Calendar.getInstance());
+          ae.setTitle(vs.getDescriptionSimple());
+          ae.setAuthorName(vs.getPublisherSimple());
           page.getV3Valuesets().getEntryList().add(ae);
           page.getValueSets().put(vs.getIdentifierSimple().toString(), ae);
           page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);         
@@ -2286,6 +2300,17 @@ public class Publisher {
 
 	    log(" ...validate " + "profiles-resources");
 		  validateXmlFile(schema, "profiles-resources", validator, null);
+		  
+      log(" ...validate " + "profiles-types");
+      validateXmlFile(schema, "profiles-types", validator, null);
+		  
+      log(" ...validate " + "valuesets");
+      validateXmlFile(schema, "valuesets", validator, null);
+		  
+      log(" ...validate " + "v2-tables");
+      validateXmlFile(schema, "v2-tables", validator, null);
+      log(" ...validate " + "v3-codesystems");
+      validateXmlFile(schema, "v3-codesystems", validator, null);
 		}
 		log("Reference Platform Validation.");
 

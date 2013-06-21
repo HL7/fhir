@@ -245,7 +245,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">right</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">The Condition that the related person had</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">The significant problemss (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>

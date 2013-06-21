@@ -186,8 +186,8 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Indications for the procedure</Data></Cell>
-    <Cell><Data ss:Type="String">The reason why the procedure was performed. This may be due to a problem, may be coded entity of some type, or may simply be present as text</Data></Cell>
-    <Cell ss:Index="20"><Data ss:Type="String">Resource(Problem) | CodeableConcept | string </Data></Cell>
+    <Cell><Data ss:Type="String">The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text</Data></Cell>
+    <Cell ss:Index="20"><Data ss:Type="String">Resource(Condition) | CodeableConcept | string </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
     <Cell><Data ss:Type="String">Procedure.performer</Data></Cell>

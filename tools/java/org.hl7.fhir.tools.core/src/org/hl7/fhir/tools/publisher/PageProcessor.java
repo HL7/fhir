@@ -1131,14 +1131,28 @@ private String resItem(String name) throws Exception {
         String ref = cd.getReference().startsWith("#") ? cd.getReference().substring(1) : cd.getReference();
         if (ref.startsWith("valueset-"))        
           s.append(" <tr><td>"+cd.getName()+"</td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td><a href=\""+ref+".htm\">http://hl7.org/fhir/vs/"+ref.substring(9)+"</a></td></tr>\r\n");
-        else
-          s.append(" <tr><td>"+cd.getName()+"</td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td><a href=\""+ref+".htm\">http://hl7.org/fhir/"+ref+"</a></td></tr>\r\n");
+        else {
+          AtomEntry ae = getv3ValueSetByRef(ref);
+          if (ae != null && ae.getLinks().containsKey("path"))
+            s.append(" <tr><td>"+cd.getName()+"</td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td><a href=\""+ae.getLinks().get("path")+"\">"+ref+"</a></td></tr>\r\n");
+          else
+            s.append(" <tr><td>"+cd.getName()+"</td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td><a href=\""+ref+".htm\">"+ref+"</a></td></tr>\r\n");
+        }
       }
     }
     s.append("</table>\r\n");
     return s.toString();
   }
 
+
+  private AtomEntry getv3ValueSetByRef(String ref) {
+    String vsRef = ref.replace("/vs", "");
+     for (AtomEntry ae : v3Valuesets.getEntryList()) {
+       if (ref.equals(ae.getLinks().get("self")) || vsRef.equals(ae.getLinks().get("self"))) 
+         return ae;
+     }
+    return null;
+  }
 
   private String genBindingsTable() {
     StringBuilder s = new StringBuilder();
@@ -1799,7 +1813,7 @@ private String resItem(String name) throws Exception {
     StringBuilder s = new StringBuilder();
     boolean started = false;
     for (Example e: resource.getExamples()) {
-      if (!e.isInBook()) {
+   //   if (!e.isInBook()) {
         if (!started)
           s.append("<p>Additional Examples:</p>\r\n<table class=\"list\">\r\n");
         started = true;
@@ -1808,7 +1822,7 @@ private String resItem(String name) throws Exception {
         s.append("<td><a href=\""+e.getFileTitle()+".json\">JSON</a></td><td><a href=\""+e.getFileTitle()+".json.htm\">(for browser)</a></td>");
         s.append("</tr>");
       }
-    }
+  //  }
     if (started)
       s.append("</table>\r\n");
     return s.toString();
@@ -1819,7 +1833,7 @@ private String resItem(String name) throws Exception {
   private String produceBookExamples(ResourceDefn resource) {
     StringBuilder s = new StringBuilder();
     for (Example e: resource.getExamples()) {
-      if (e.isInBook()) {
+     if (e.isInBook()) {
         s.append("<h3>"+Utilities.escapeXml(e.getName())+"</h3>\r\n");
         s.append("<p>"+Utilities.escapeXml(e.getDescription())+"</p>\r\n");
         s.append(e.getXhtm());

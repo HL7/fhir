@@ -12,7 +12,7 @@
         </div>
     </text>
     <contained>
-      <Problem id="p1">
+      <Condition id="p1">
         <subject>
           <type value="Patient"></type>
           <reference value="patient/@example"/>
@@ -21,7 +21,8 @@
         <code>
           <text value="Obesity"/>
         </code>
-      </Problem>
+        <status value="confirmed"/>
+      </Condition>
     </contained>
     <contained>
       <Practitioner id="pr1">
@@ -46,7 +47,7 @@
       <end value ="2013-01-01"/>
     </period>
     <concern>
-        <type value="Problem"></type>
+        <type value="Condition"></type>
         <reference value="#p1"/>
         <display value="obesity"/>
     </concern>

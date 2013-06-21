@@ -6,7 +6,7 @@
       <table>
         <thead>
           <tr>
-            <th>Problem</th>
+            <th>Condition</th>
             <th>Severity</th>
             <th>Date</th>
             <th>Location</th>
@@ -33,7 +33,7 @@
     </div>
   </text>
   <!-- This list doesn't have a code. In actual fact, 
-    it's a problem list produced at the end of a visit 
+    it's a Condition list produced at the end of a visit 
     to a regular primary care practitioner. But the only way
     to know this is to hunt down the place it is used 
     and find out -->
@@ -49,8 +49,8 @@
     </flag>
     <deleted value="true"/>
     <item>
-      <type value="Problem"/>
-      <reference value="problem/@example"/>
+      <type value="Condition"/>
+      <reference value="condition/@example"/>
     </item>
   </entry>
   <entry>
@@ -58,8 +58,8 @@
       <text value="Added"/>
     </flag>
     <item>
-      <type value="Problem"/>
-      <reference value="problem/@example2"/>
+      <type value="Condition"/>
+      <reference value="condition/@example2"/>
     </item>
   </entry>
 </List>

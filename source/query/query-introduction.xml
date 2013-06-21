@@ -185,7 +185,7 @@ ensuring consistent behavior with dates.
 <h4>reference</h4>
 <p>
 A reference parameter refers to references between resources, e.g. find all 
-problems where the subject reference is a particular patient by the patient id.
+Conditions where the subject reference is a particular patient by the patient id.
 The interpretation of a <i>reference</i> parameter is either:
 </p>
 <ul>
@@ -257,10 +257,10 @@ Resources may have tags affixed to them. the _tag resource searches for a resour
 For example:
 </p>
 <pre>
- problem/search?_tag=http://acme.org/fhir/tags/needs-review
+ condition/search?_tag=http://acme.org/fhir/tags/needs-review
 </pre>
 <p>
-This searches for all problem resources with the tag "http://acme.org/fhir/tags/needs-review". 
+This searches for all Condition resources with the tag "http://acme.org/fhir/tags/needs-review". 
 The _tag search parameter may have the modifiers :partial and :text, which mean 
 to only match on the left side of the target tags, or to search the label part of the tag respectively.
 </p>

@@ -41,29 +41,23 @@ public class NarrativeGenerator {
     x.setNodeType(NodeType.Element);
     x.setName("div");
     if (vs.getExpansion() != null)
-      generateExpansion(x, vs, codeSystems);
-    else {
-      XhtmlNode h = x.addTag("h2");
-      h.addText(vs.getNameSimple());
-      XhtmlNode p = x.addTag("p");
-      p.addText(vs.getDescriptionSimple());
-    	if (vs.getDefine() != null)
-    		generateDefinition(x, vs);
-    	if (vs.getCompose() != null) 
-    		generateComposition(x, vs, codeSystems);
-    }
+      throw new Exception("Error: should not encounter value set expansion at this point");
+    if (vs.getDefine() != null)
+      generateDefinition(x, vs);
+    if (vs.getCompose() != null) 
+      generateComposition(x, vs, codeSystems);
     if (vs.getText() == null)
       vs.setText(new Narrative());
     vs.getText().setDiv(x);
     vs.getText().setStatusSimple(NarrativeStatus.generated);
   }
 
-  private void generateExpansion(XhtmlNode x, ValueSet vs, Map<String, AtomEntry> codeSystems) throws Exception {
-	  throw new Exception("Not implemented yet");	  
-  }
-
-	private void generateDefinition(XhtmlNode x, ValueSet vs) {
-		XhtmlNode p = x.addTag("p");
+  private void generateDefinition(XhtmlNode x, ValueSet vs) {
+    XhtmlNode h = x.addTag("h2");
+    h.addText(vs.getNameSimple());
+    XhtmlNode p = x.addTag("p");
+    p.addText(vs.getDescriptionSimple());
+    p = x.addTag("p");
     p.addText("This value set defines it's own terms in the system "+vs.getDefine().getSystemSimple());
     XhtmlNode t = x.addTag("table");
     addTableHeaderRowStandard(t);
@@ -103,12 +97,18 @@ public class NarrativeGenerator {
 
 
   private void generateComposition(XhtmlNode x, ValueSet vs, Map<String, AtomEntry> codeSystems) throws Exception {
-    XhtmlNode h = x.addTag("h2");
-    h.addText(vs.getNameSimple());
-    XhtmlNode p = x.addTag("p");
-    p.addText(vs.getDescriptionSimple());
-    p = x.addTag("p");
-    p.addText("This value set includes terms defined in other code systems, using the following rules:");
+    if (vs.getDefine() == null) {
+      XhtmlNode h = x.addTag("h2");
+      h.addText(vs.getNameSimple());
+      XhtmlNode p = x.addTag("p");
+      p.addText(vs.getDescriptionSimple());
+      p = x.addTag("p");
+      p.addText("This value set includes codes defined in other code systems, using the following rules:");
+    } else {
+      XhtmlNode p = x.addTag("p");
+      p.addText("In addition, this value set includes codes defined in other code systems, using the following rules:");
+
+    }
     XhtmlNode ul = x.addTag("ul");
     XhtmlNode li;
     for (Uri imp : vs.getCompose().getImport()) {

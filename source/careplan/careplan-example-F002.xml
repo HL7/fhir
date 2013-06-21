@@ -17,8 +17,8 @@
     </period>
     <modified value="2011-07-07T09:30:10+01:00"/>
     <concern>
-        <type value="Problem"/>
-        <reference value="problem/F002"/>
+        <type value="Condition"/>
+        <reference value="condition/F002"/>
         <display value="?????"/>
     </concern>
     <participant>

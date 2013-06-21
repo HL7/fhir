@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/valueset.xsd">
+  <identifier value="http://hl7.org/fhir/vs/security-event-sub-type"/>
+  <version value="20100826"/>
+  <name value="Security Event Object Sensitivity"/>
+  <publisher value="HL7"/>
+  <description value="The sensitivity of an object in a secuity event resource. May also encompass confidentiality and rudimentary access control"/>
+  <status value="draft"/>
+  <date value="2013-06-13"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/Confidentiality"/> <!-- all codes -->
+    </include>
+  </compose>
+</ValueSet>

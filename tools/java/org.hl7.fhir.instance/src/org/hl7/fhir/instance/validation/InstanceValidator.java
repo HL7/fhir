@@ -29,6 +29,7 @@ import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Element;
   
@@ -149,13 +150,18 @@ public class InstanceValidator extends BaseValidator {
     }
   
     public void validateInstance(List<ValidationMessage> errors, Element elem) throws Exception {
+      boolean feedHasAuthor = XMLUtil.getNamedChild(elem, "author") != null;
       if (elem.getLocalName().equals("feed")) {
         ChildIterator ci = new ChildIterator("", elem);
         while (ci.next()) {
           if (ci.name().equals("category"))
             validateTag(ci.path(), ci.element(), false);
-          else if (ci.name().equals("entry"))
-          validateAtomEntry(errors, ci.path(), ci.element());
+          else if (ci.name().equals("id"))
+            validateId(errors, ci.path(), ci.element(), true);
+          else if (ci.name().equals("link"))
+            validateLink(errors, ci.path(), ci.element(), false);
+          else if (ci.name().equals("entry")) 
+            validateAtomEntry(errors, ci.path(), ci.element(), feedHasAuthor);
         }
       }
       else
@@ -168,11 +174,21 @@ public class InstanceValidator extends BaseValidator {
       return errors;
     }
   
-    private void validateAtomEntry(List<ValidationMessage> errors, String path, Element element) throws Exception {
+    private void validateAtomEntry(List<ValidationMessage> errors, String path, Element element, boolean feedHasAuthor) throws Exception {
+      rule(errors, "invalid", path, XMLUtil.getNamedChild(element, "title") != null, "Entry must have a title");
+      rule(errors, "invalid", path, XMLUtil.getNamedChild(element, "updated") != null, "Entry must have a last updated time");
+      rule(errors, "invalid", path, feedHasAuthor || XMLUtil.getNamedChild(element, "author") != null, "Entry must have an author because the feed doesn't");
+      
+      
+      
       ChildIterator ci = new ChildIterator(path, element);
       while (ci.next()) {
         if (ci.name().equals("category"))
-          validateTag(ci.path(), ci.element(), false);
+          validateTag(ci.path(), ci.element(), true);
+        else if (ci.name().equals("id"))
+          validateId(errors, ci.path(), ci.element(), true);
+        else if (ci.name().equals("link"))
+          validateLink(errors, ci.path(), ci.element(), true);
         else if (ci.name().equals("content")) {
           Element r = XMLUtil.getFirstChild(ci.element());
           validate(errors, ci.path()+"/f:"+r.getLocalName(), r);
@@ -223,6 +239,37 @@ public class InstanceValidator extends BaseValidator {
       
     }
   
+    private void validateLink(List<ValidationMessage> errors, String path, Element element, boolean onEntry) {
+      if (rule(errors, "invalid", path, element.hasAttribute("rel"), "Link element has no '@rel'")) {
+        String rel = element.getAttribute("rel");
+        if (rule(errors, "invalid", path, !Utilities.noString(rel), "Link/@rel is empty")) {
+          if (rel.equals("self")) {
+            if (rule(errors, "invalid", path, element.hasAttribute("href"), "Link/@rel='self' has no href"))
+              rule(errors, "invalid", path, isAbsoluteUrl(element.getAttribute("href")), "Link/@rel='self' '"+element.getAttribute("href")+"' is not an absolute URI (must start with http:, https:, urn:, cid:");
+          }
+        }
+      }
+    }
+
+    private void validateId(List<ValidationMessage> errors, String path, Element element, boolean onEntry) {
+      if (rule(errors, "invalid", path, !Utilities.noString(element.getTextContent()), "id is empty"))
+        rule(errors, "invalid", path, isAbsoluteUrl(element.getTextContent()), "Id '"+element.getTextContent()+"' is not an absolute URI (must start with http:, https:, urn:, cid:");
+    }
+
+    private boolean isAbsoluteUrl(String url) {
+      if (url == null)
+        return false;
+      if (url.startsWith("http:"))
+        return true;
+      if (url.startsWith("https:"))
+        return true;
+      if (url.startsWith("urn:"))
+        return true;
+      if (url.startsWith("cid:"))
+        return true;
+      return false;
+    }
+
     private void validateElement(List<ValidationMessage> errors, Profile profile, ProfileStructureComponent structure, String path, ElementComponent definition, Profile cprofile, ElementComponent context, Element element) throws Exception {
       // irrespective of what element it is, it cannot be empty
       if (NS_FHIR.equals(element.getNamespaceURI())) {
