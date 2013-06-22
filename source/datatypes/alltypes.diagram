@@ -19,7 +19,7 @@ DataType <|-down- Period
 DataType <|-down- Quantity
 DataType <|-down- Range
 DataType <|-down- Ratio
-DataType <|-down- Array
+DataType <|-down- SampledData
 Quantity <|-down- Age
 Quantity <|-down- Distance
 Quantity <|-down- Duration
@@ -45,7 +45,7 @@ url of Range is [[#Range]]
 class Range
 url of Ratio is [[#Ratio]]
 class Ratio
-url of Array is [[#Array]]
+url of SampledData is [[#SampledData]]
 class Array
 url of HumanName is [[#HumanName]]
 class HumanName
@@ -78,7 +78,7 @@ hide Quantity circle
 hide Period circle
 hide Range circle
 hide Ratio circle
-hide Array circle
+hide SampledData circle
 hide HumanName circle
 hide Address circle
 hide Schedule circle

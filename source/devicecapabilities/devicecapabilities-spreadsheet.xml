@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:15:30Z</Created>
-  <LastSaved>2013-05-06T12:02:58Z</LastSaved>
+  <LastSaved>2013-06-22T05:33:48Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -260,10 +260,10 @@
     <Cell ss:Index="11"><Data ss:Type="String">Although UCUM units are not required, they are strongly encouraged</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">DeviceCapabilities.virtualDevice.channel.metric.info.array</Data></Cell>
+    <Cell><Data ss:Type="String">DeviceCapabilities.virtualDevice.channel.metric.info.template</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Array</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">SampledData</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Array template (fixed values)</Data></Cell>
     <Cell><Data ss:Type="String">A template containing the fixed values for an array output (all the values but the data)</Data></Cell>
    </Row>
@@ -330,8 +330,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>27</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -376,10 +376,10 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="String">Array Rule</Data></Cell>
+    <Cell><Data ss:Type="String">SampleData Rule</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">DeviceCapabilities.virtualDevice.channel.metric.info</Data></Cell>
-    <Cell><Data ss:Type="String">If the type is &quot;Array&quot;, an array template must be provided</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">((f:type/@value = 'Array') and (f:array)) or ((f:type/@value != 'Array') and not (f:array))</Data></Cell>
+    <Cell><Data ss:Type="String">If the type is &quot;SampledData&quot;, an sampling template must be provided</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">((f:type/@value = 'SampledData') and (f:template)) or ((f:type/@value != 'SampledData') and not (f:template))</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -395,10 +395,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
@@ -527,7 +528,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

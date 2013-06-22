@@ -410,6 +410,11 @@ public class InstanceValidator extends BaseValidator {
         rule(errors, "invalid", path, !e.getAttribute("value").startsWith("oid:"), "URI values cannot start with oid:");
         rule(errors, "invalid", path, !e.getAttribute("value").startsWith("uuid:"), "URI values cannot start with uuid:");
       }
+      if (!type.equalsIgnoreCase("string") && e.hasAttribute("value")) {
+        if (rule(errors, "invalid", path, e.getAttribute("value").length() > 0, "@value cannot be empty")) {
+          warning(errors, "invalid", path, e.getAttribute("value").trim().equals(e.getAttribute("value")), "value should not start or finish with whitespace");
+        }
+      }
         
       // for nothing to check    
     }

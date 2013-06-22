@@ -119,9 +119,9 @@ public class Validator {
   static final String MASTER_SOURCE = "??";
 
   public void process() throws Exception {
-    byte[] src = loadSource();
     byte[] defn = loadDefinitions();
     readDefinitions(engine, defn);
+    engine.setSource(loadSource());
     engine.process();
   }
 

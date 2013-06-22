@@ -92,7 +92,7 @@
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell><Data ss:Type="String">Array</Data></Cell>
+    <Cell><Data ss:Type="String">SampledData</Data></Cell>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
@@ -104,7 +104,7 @@
     <Cell><Data ss:Type="String">SLIST + GLIST</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Array.origin</Data></Cell>
+    <Cell><Data ss:Type="String">SampledData.origin</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Zero value and units</Data></Cell>
@@ -112,7 +112,7 @@
     <Cell ss:Index="12"><Data ss:Type="String">SLIST.origin</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Array.period</Data></Cell>
+    <Cell><Data ss:Type="String">SampledData.period</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">decimal</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Number of milliseconds between samples</Data></Cell>
@@ -121,7 +121,7 @@
     <Cell><Data ss:Type="String">GLIST.increment</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Array.factor</Data></Cell>
+    <Cell><Data ss:Type="String">SampledData.factor</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">decimal</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Multiply data by this before adding to origin</Data></Cell>
@@ -129,21 +129,21 @@
     <Cell ss:Index="12"><Data ss:Type="String">SLIST.factor</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">Array.lowerLimit</Data></Cell>
+    <Cell><Data ss:Type="String">SampledData.lowerLimit</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">decimal</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Lower limit of detection</Data></Cell>
     <Cell><Data ss:Type="String">The lower limit of detection of the measured points. This is needed if any of the data points have the value &quot;L&quot; (lower than detection limit)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">Array.upperLimit</Data></Cell>
+    <Cell><Data ss:Type="String">SampledData.upperLimit</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">decimal</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Upper limit of detection</Data></Cell>
     <Cell><Data ss:Type="String">The upper limit of detection of the measured points. This is needed if any of the data points have the value &quot;U&quot; (higher than detection limit)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">Array.dimensions</Data></Cell>
+    <Cell><Data ss:Type="String">SampledData.dimensions</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Number of sample points at each time point</Data></Cell>
@@ -151,7 +151,7 @@
     <Cell ss:Index="11"><Data ss:Type="String">If there is more than one dimension, the code for the type of data will define the meaning of the dimensions (typically ECG data)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">Array.data</Data></Cell>
+    <Cell><Data ss:Type="String">SampledData.data</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">((-{0,1}\d*\.{0,1}\d+)|[EUL])( ((-{0,1}\d*\.{0,1}\d+)|[EUL]))*</Data></Cell>
@@ -171,7 +171,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>5</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
