@@ -24,7 +24,7 @@
     <requestDetail>
         <visit>
             <type value="Visit"/>
-            <reference value="visit/@f001"/>
+            <reference value="visit/@f201"/><!--TODO Correcte verwijzing-->
             <display/>
         </visit>
         <requestOrderId>
@@ -76,11 +76,11 @@
                 <display value="FULL BLOOD EXAMINATION"/>
             </coding>
         </name>
-        <specimen>
+<!--        <specimen>
             <type value="Specimen"/>
             <reference value="specimen/@f001"/>
             <display value="Blood sample"/>
-        </specimen>
+        </specimen>-->
         <result>
             <type value="Observation"/>
             <reference value="observation/@f001"/>
