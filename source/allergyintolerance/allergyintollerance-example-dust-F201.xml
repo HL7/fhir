@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--@version June 2013 @author Melchior Ferdinand Pot-->
 <AllergyIntolerance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/allergyintolerance.xsd">
  <identifier>
     <label value="House dust allergy"/>
@@ -12,17 +11,17 @@
  <status value="confirmed"/><!--House dust allergy is confirmed and active-->
  <subject>
      <type value="Patient"/>
-     <reference value="patient/@ROB-201.xml"/>
+     <reference value="patient/@f201"/>
      <display value="Roel"/>
  </subject>
  <recorder>
      <type value="Practitioner"/>
-     <reference value="practitioner/@AB-201.xml"/>
+     <reference value="practitioner/@f201"/>
      <display value="Dokter Bonsing"/>
  </recorder>
  <substance>
      <type value="Substance"/>
-     <reference value="substance/@Dust-201.xml"/>
+     <reference value="substance/@f201"/>
      <display value="House dust allergen"/>
  </substance>
  <!--No reactions or sensitivityTests avaialable-->
