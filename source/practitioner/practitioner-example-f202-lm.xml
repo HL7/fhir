@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--@version June 2013 @author Melchior Ferdinand Pot-->
 <Practitioner xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/practitioner.xsd">
  <identifier><!--The identifier for the person as this practitioner (fictive)-->
     <use value="official"/>
@@ -49,7 +48,7 @@
  </details>
   <organization>
      <type value="Organization"/>
-     <reference value="organization/@LUMC-201.xml"/>
+     <reference value="organization/@f201"/>
      <display value="LUMC"/>
  </organization>
  <role>
