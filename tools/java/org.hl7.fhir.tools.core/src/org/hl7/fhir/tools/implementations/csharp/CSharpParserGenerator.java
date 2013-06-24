@@ -181,6 +181,7 @@ public class CSharpParserGenerator extends GenBlock
             bs("{");           	
               // Generate this classes properties, getAllElements() will list
             	// all elements within this composite and its basetypes
+              ln("var atName = reader.CurrentElementName;");
             	List<ElementDefn> allProperties = composite.getAllElements();
             	generateMemberParsers(allProperties, composite.isResource());
             es("}");
@@ -346,31 +347,20 @@ public class CSharpParserGenerator extends GenBlock
 	
 	private String buildCheckForElementClause( ElementDefn member, Boolean inArray )
 	{
-		// Check for special cases
-		// First, XHTML elements are in XHTML namespace
-		//if( !member.isPolymorph() && member.getType().get(0).getName().equals(TypeRef.XHTML_PSEUDOTYPE_NAME) )
-		//	return "reader.IsAtXhtmlElement()";
-		// Then, values of primitive elements
-		//if( member.isPrimitiveContents() )
-		//	return "reader.IsAtPrimitiveValueElement()";
-		// Then, internal id's
-		//if( member.isInternalId() )
-		//	return "reader.IsAtRefIdElement()";
-		
-		// Other properties, possibly nested in an array
 		String clause;
 		
 		if( !inArray  )
-			clause = "ParserUtils.IsAtFhirElement";
+		{
+		  if(!member.isPolymorph())
+		    clause = "atName == " + "\"" + member.getName() + "\"";
+		  else
+		    clause = "atName.StartsWith(" + "\"" + member.getName() + "\")";
+		}
 		else
+		{
 			clause = "ParserUtils.IsAtArrayElement";
-
-		clause += "(reader, \"" + member.getName() + "\"";
-					
-		if( !member.isPolymorph() ) 
-			clause += ")";
-		else
-			clause += ", true)";
+			clause += "(reader, \"" + member.getName() + "\")";
+		}
 		
 		return clause;
 	}
@@ -414,8 +404,6 @@ public class CSharpParserGenerator extends GenBlock
 	private String buildEnumeratedCodeParserCall(TypeRef ref) throws Exception
 	{		
 		StringBuffer result = new StringBuffer();
-		
-		//   result.Status = CodeParser.ParseCode<Narrative.NarrativeStatus>(reader, errors);
 		
 		result.append("CodeParser.ParseCode");
 		

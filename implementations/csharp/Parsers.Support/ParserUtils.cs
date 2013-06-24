@@ -66,24 +66,25 @@ namespace Hl7.Fhir.Parsers
 
         public static bool IsAtFhirElement(IFhirReader reader, string name, bool isPolymorph = false)
         {
-            if (!IsAtFhirElement(reader))
-                return false;
+            string currElem = reader.CurrentElementName;
 
             if (!isPolymorph)
-                return reader.CurrentElementName == name;
+                return currElem == name;
             else
-                return reader.CurrentElementName.StartsWith(name);
+                return currElem.StartsWith(name);
         }
 
         public static bool IsAtArrayElement(IFhirReader reader, string name, bool isPolymorph = false)
         {
+            string currElem = reader.CurrentElementName;
+
             if (!reader.IsAtArrayMember())
                 return false;
 
             if (!isPolymorph)
-                return reader.CurrentElementName == name;
+                return currElem == name;
             else
-                return reader.CurrentElementName.StartsWith(name);
+                return currElem.StartsWith(name);
         }
 
 

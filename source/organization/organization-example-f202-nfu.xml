@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@version June 2013 @author Melchior Ferdinand Pot-->
+<Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
+   <identifier>
+      <!--Identifier for the NFU-->
+      <use value="official"/>
+      <label value="Belangenorganisatie naam"/>
+      <system value="http://www.zorgkaartnederland.nl/"/>
+      <key value="Nederlandse Federatie van UMC's"/>
+   </identifier>
+   <name value="Nederlandse Federatie van Universitair Medische Centra"/>
+   <name value="NFU"/>
+   <type>
+      <text value="Professional association"/>
+   </type>
+   <telecom>
+      <!--NFU's contact detail-->
+      <system value="phone"/>
+      <value value="+31302739880"/>
+      <use value="work"/>
+   </telecom>
+   <address><!--NFU's address"-->
+       <use value="work"/>
+       <line value="Oudlaan 4"/>    
+       <city value="Utrecht"/>
+       <zip value="3515GA"/>
+       <country value="NLD"/><!--ISO 3166 3 letter code-->    
+   </address>
+   <active value="true"/>
+   <!--The NFU is still in active use-->
+</Organization>

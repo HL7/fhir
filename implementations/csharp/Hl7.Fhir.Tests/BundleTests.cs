@@ -10,6 +10,7 @@ using Hl7.Fhir.Support;
 using Hl7.Fhir.Serializers;
 using System.Text.RegularExpressions;
 using System.Xml;
+using Hl7.Fhir.Model;
 
 namespace Hl7.Fhir.Tests
 {
@@ -151,12 +152,7 @@ namespace Hl7.Fhir.Tests
             checkSerDeser(re);
             re.Links.SelfLink = null;
             checkSerDeser(re);
-
-            var be = new BinaryEntry();
-            checkSerDeser(be);
-            be.Links.SelfLink = null;
-            checkSerDeser(be);
-          
+         
             var de = new DeletedEntry();
             checkSerDeser(de);
             de.Links.SelfLink = null;
@@ -389,7 +385,7 @@ namespace Hl7.Fhir.Tests
 
             ResourceEntry e1 = createTestResourceEntry();
             DeletedEntry e2 = createTestDeletedEntry();
-            BinaryEntry e3 = createTestBinaryEntry();
+            ResourceEntry e3 = createTestBinaryEntry();
 
             b.Entries.Add(e1);
             b.Entries.Add(e2);
@@ -398,16 +394,20 @@ namespace Hl7.Fhir.Tests
             return b;
         }
 
-        private static BinaryEntry createTestBinaryEntry()
+        private static ResourceEntry createTestBinaryEntry()
         {
-            BinaryEntry e3 = new BinaryEntry();
+            ResourceEntry e3 = new ResourceEntry();
             e3.Id = new Uri("http://test.com/fhir/binary/@99");
             e3.Title = "Resource 99 Version 1";
             e3.Links.SelfLink = new Uri("http://test.com/fhir/binary/@99/history/@1");
             e3.LastUpdated = new DateTimeOffset(2012, 10, 31, 13, 04, 14, TimeSpan.Zero);
             e3.Published = new DateTimeOffset(2012, 11, 2, 14, 17, 21, TimeSpan.Zero);
-            e3.MediaType = "application/x-test";
-            e3.Content = new byte[] { 0x00, 0x01, 0x02, 0x03 };
+            e3.Content = new Binary()
+            {
+                ContentType = "application/x-test",
+                Content = new Base64Binary(new byte[] { 0x00, 0x01, 0x02, 0x03 })
+            };
+            
             return e3;
         }
 

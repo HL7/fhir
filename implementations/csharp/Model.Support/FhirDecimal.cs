@@ -35,33 +35,53 @@ using System.Text;
 //using Hl7.Fhir.Support;
 using System.Globalization;
 using Hl7.Fhir.Support;
+using System.Xml;
 
 namespace Hl7.Fhir.Model
 {
     public partial class FhirDecimal
     {
-        public static bool TryParse( string value, out FhirDecimal result)
+        public static bool TryParse(string value, out FhirDecimal result)
         {
-            decimal decimalValue;
-
-            NumberStyles style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowLeadingSign |
-                                NumberStyles.AllowTrailingWhite | NumberStyles.AllowLeadingWhite;
-
             if (value == null)
             {
                 result = new FhirDecimal(null);
                 return true;
             }
-            else if (Decimal.TryParse(value, style, NumberFormatInfo.InvariantInfo, out decimalValue))
+
+            decimal decimalValue;
+
+            try
             {
+                decimalValue = XmlConvert.ToDecimal(value);
                 result = new FhirDecimal(decimalValue);
                 return true;
             }
-            else
+            catch
             {
-                result = null;
-                return false;
             }
+
+            result = null;
+            return false;
+
+            //NumberStyles style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowLeadingSign |
+            //                    NumberStyles.AllowTrailingWhite | NumberStyles.AllowLeadingWhite;
+
+            //if (value == null)
+            //{
+            //    result = new FhirDecimal(null);
+            //    return true;
+            //}
+            //else if (Decimal.TryParse(value, style, NumberFormatInfo.InvariantInfo, out decimalValue))
+            //{
+            //    result = new FhirDecimal(decimalValue);
+            //    return true;
+            //}
+            //else
+            //{
+            //    result = null;
+            //    return false;
+            //}
         }
 
         public static FhirDecimal Parse(string value)
@@ -77,7 +97,7 @@ namespace Hl7.Fhir.Model
         public override string ToString()
         {
             if (Value.HasValue)
-                return Value.Value.ToString(CultureInfo.InvariantCulture);
+                return XmlConvert.ToString(Value.Value);
             else
                 return null;
         }

@@ -189,8 +189,6 @@ namespace Hl7.Fhir.Support
 
                 if (entry.Value<DateTimeOffset?>(JATOM_DELETED) != null)
                     result = new DeletedEntry();
-                else if (category == BundleXml.XATOM_CONTENT_BINARY)
-                    result = new BinaryEntry();
                 else
                     result = new ResourceEntry();
 
@@ -203,32 +201,22 @@ namespace Hl7.Fhir.Support
                     ((DeletedEntry)result).When = instantOrNull(entry[JATOM_DELETED]);
                 else
                 {
-                    ContentEntry ce = (ContentEntry)result;
-
-                    ce.Title = entry.Value<string>(BundleXml.XATOM_TITLE);
-                    ce.LastUpdated = instantOrNull(entry[BundleXml.XATOM_UPDATED]);
-                    ce.Published = instantOrNull(entry[BundleXml.XATOM_PUBLISHED]);
-                    ce.EntryAuthorName = entry[BundleXml.XATOM_AUTHOR] as JArray != null ?
+                    var re = (ResourceEntry)result;
+                    re.Title = entry.Value<string>(BundleXml.XATOM_TITLE);
+                    re.LastUpdated = instantOrNull(entry[BundleXml.XATOM_UPDATED]);
+                    re.Published = instantOrNull(entry[BundleXml.XATOM_PUBLISHED]);
+                    re.EntryAuthorName = entry[BundleXml.XATOM_AUTHOR] as JArray != null ?
                         entry[BundleXml.XATOM_AUTHOR]
                             .Select(auth => auth.Value<string>(BundleXml.XATOM_AUTH_NAME))
                             .FirstOrDefault() : null;
-                    ce.EntryAuthorUri = entry[BundleXml.XATOM_AUTHOR] as JArray != null ?
+                    re.EntryAuthorUri = entry[BundleXml.XATOM_AUTHOR] as JArray != null ?
                         entry[BundleXml.XATOM_AUTHOR]
                             .Select(auth => auth.Value<string>(BundleXml.XATOM_AUTH_URI))
                             .FirstOrDefault() : null;
 
                     var content = entry[BundleXml.XATOM_CONTENT];
 
-                    if (content != null)
-                    {
-                        if (result is ResourceEntry)
-                            ((ResourceEntry)ce).Content = getContents(content, errors);
-                        else
-                        {
-                            BinaryEntry be = (BinaryEntry)result;
-                            be.Content = getBinaryContents(content, out be.MediaType, errors);
-                        }
-                    }
+                    if (content != null) re.Content = getContents(content, errors);
                 }
             }
             catch (Exception exc)
@@ -282,45 +270,14 @@ namespace Hl7.Fhir.Support
             //entry's Resource from json, now we are going to serialize it to as string
             //just to read from it again using a JsonTextReader. But that is what my
             //parser takes as input, so no choice for now...
+            
+            //Maybe: JsonTextReader r = token.CreateReader(); is a way out?
+
             string contents = token.ToString();
             JsonTextReader r = new JsonTextReader(new StringReader(contents));
             return FhirParser.ParseResource(new JsonFhirReader(r), errors);
         }
 
-        private static byte[] getBinaryContents(JToken entryContent, out string mediaType, ErrorList errors)
-        {
-            JToken binaryObject = entryContent[BundleXml.XATOM_CONTENT_BINARY];
-            mediaType = null;
-
-            if (binaryObject == null)
-            {
-                errors.Add("Binary entries must contain an element Binary");
-                return null;
-            }
-
-            mediaType = binaryObject.Value<string>(BundleXml.XATOM_CONTENT_BINARY_TYPE);
-
-            if (mediaType == null)
-            {
-                errors.Add("Binary entries must contain a Binary element with a contentType attribute");
-                return null;
-            }
-
-            JToken binaryContent = binaryObject[BundleXml.XATOM_CONTENT];
-
-            try
-            {
-                if (binaryContent != null)
-                    return Convert.FromBase64String(binaryContent.ToString());
-                else
-                    return null;
-            }
-            catch (Exception e)
-            {
-                errors.Add("Cannot parse content of Binary: " + e.Message);
-                return null;
-            }
-        }
 
         public static void WriteTo(this Bundle bundle, JsonWriter writer)
         {
@@ -408,8 +365,8 @@ namespace Hl7.Fhir.Support
 
         private static JObject createEntry(BundleEntry entry)
         {
-            if (entry is ContentEntry)
-                return createContentEntry((ContentEntry)entry);
+            if (entry is ResourceEntry)
+                return createResourceEntry((ResourceEntry)entry);
             else if (entry is DeletedEntry)
                 return createDeletedEntry((DeletedEntry)entry);
             else
@@ -435,10 +392,8 @@ namespace Hl7.Fhir.Support
         }
 
 
-        private static JObject createContentEntry(ContentEntry entry)
+        private static JObject createResourceEntry(ResourceEntry entry)
         {
-            //Note: this handles both BinaryEntry and ResourceEntry
-
             JObject newItem = new JObject();
 
             if (!String.IsNullOrEmpty(entry.Title)) newItem.Add(new JProperty(BundleXml.XATOM_TITLE, entry.Title));
@@ -453,32 +408,11 @@ namespace Hl7.Fhir.Support
             if (entry.Links.Count > 0)
                 newItem.Add(new JProperty(BundleXml.XATOM_LINK, jsonCreateLinkArray(entry.Links)));
 
-            if (entry is ResourceEntry)
+            if (entry.Content != null)
             {
-                ResourceEntry re = (ResourceEntry)entry;
-
-                if (re.Content != null)
-                {
-                    newItem.Add(new JProperty(BundleXml.XATOM_CATEGORY, new JArray(jsonCreateCategory(re.ResourceType))));
-                    newItem.Add(new JProperty(BundleXml.XATOM_CONTENT, getContentsAsJObject(re.Content)));
-                }
+                newItem.Add(new JProperty(BundleXml.XATOM_CATEGORY, new JArray(jsonCreateCategory(entry.ResourceType))));
+                newItem.Add(new JProperty(BundleXml.XATOM_CONTENT, getContentsAsJObject(entry.Content)));
             }
-            else if (entry is BinaryEntry)
-            {
-                BinaryEntry be = (BinaryEntry)entry;
-
-                newItem.Add(new JProperty(BundleXml.XATOM_CATEGORY, new JArray(jsonCreateCategory(BundleXml.XATOM_CONTENT_BINARY))));
-
-                if (be.Content != null)
-                {
-                    newItem.Add(new JProperty(BundleXml.XATOM_CONTENT, new JObject(
-                            new JProperty(BundleXml.XATOM_CONTENT_BINARY, new JObject(
-                                new JProperty(BundleXml.XATOM_CONTENT_BINARY_TYPE, be.MediaType),
-                                new JProperty(BundleXml.XATOM_CONTENT, Convert.ToBase64String(be.Content)))))));
-                }
-            }
-            else
-                throw new NotSupportedException("Cannot serialize unknown entry type " + entry.GetType().Name);
 
             // Note: this is a read-only property, so it is serialized but never parsed
             if (entry.Summary != null)
@@ -535,9 +469,5 @@ namespace Hl7.Fhir.Support
             reader.DateParseHandling = DateParseHandling.None;
             return JObject.Load(reader);
         }
-
-
-
-
     }
 }

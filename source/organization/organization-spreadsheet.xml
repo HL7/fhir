@@ -20,6 +20,8 @@
   <WindowWidth>17490</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
+  <ActiveSheet>5</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -139,6 +141,9 @@
    <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
   </Style>
   <Style ss:ID="s86">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+  </Style>
+  <Style ss:ID="s87">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -147,9 +152,6 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s147">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -405,7 +407,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <TopRowVisible>3</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
@@ -668,19 +669,19 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="8" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="11" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="111"/>
    <Column ss:Width="210.75"/>
-   <Column ss:StyleID="s147" ss:AutoFitWidth="0" ss:Width="241.5"/>
+   <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="241.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="330.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Identity</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">In Book</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">HL7</Data></Cell>
@@ -721,14 +722,35 @@
     <Cell><Data ss:Type="String">AMC Amsterdam</Data></Cell>
     <Cell><Data ss:Type="String">AMC Amsterdam real-world example</Data></Cell>
     <Cell><Data ss:Type="String">f001</Data></Cell>
-    <Cell><Data ss:Type="String">organization-example-F001.xml</Data></Cell>
+    <Cell><Data ss:Type="String">organization-example-f001-amc.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">AMC Cardio</Data></Cell>
     <Cell><Data ss:Type="String">AMC Amsterdam Cardio department real-world example</Data></Cell>
     <Cell><Data ss:Type="String">f002</Data></Cell>
-    <Cell><Data ss:Type="String">organization-example-F002.xml</Data></Cell>
+    <Cell><Data ss:Type="String">organization-example-f002-amc-card.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">LUMC</Data></Cell>
+    <Cell><Data ss:Type="String">Leids Universitair Medisch Centrum real-world example</Data></Cell>
+    <Cell><Data ss:Type="String">f201</Data></Cell>
+    <Cell><Data ss:Type="String">organization-example-f201-lumc.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NFU</Data></Cell>
+    <Cell><Data ss:Type="String">Dutch Federation of UMCs real-world example</Data></Cell>
+    <Cell><Data ss:Type="String">f202</Data></Cell>
+    <Cell><Data ss:Type="String">organization-example-f202-nfu.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">EMC</Data></Cell>
+    <Cell><Data ss:Type="String">ErasmusMC real-world example</Data></Cell>
+    <Cell><Data ss:Type="String">f203</Data></Cell>
+    <Cell><Data ss:Type="String">organization-example-f203-emc.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
   </Table>
@@ -739,11 +761,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

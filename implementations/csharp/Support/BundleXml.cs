@@ -209,7 +209,7 @@ namespace Hl7.Fhir.Support
         private static BundleEntry loadEntry(XElement entry, ErrorList errors)
         {
             if (entry.Name == XATOMNS + XATOM_ENTRY)
-                return (BundleEntry)loadContentEntry(entry, errors);
+                return (BundleEntry)loadResourceEntry(entry, errors);
             else if (entry.Name == XTOMBSTONE + XATOM_DELETED_ENTRY)
                 return (BundleEntry)loadDeletedEntry(entry, errors);
             else
@@ -244,18 +244,13 @@ namespace Hl7.Fhir.Support
         }
 
 
-        private static ContentEntry loadContentEntry(XElement entry, ErrorList errors)
+        private static ResourceEntry loadResourceEntry(XElement entry, ErrorList errors)
         {
-            ContentEntry result;
+            ResourceEntry result = new ResourceEntry();
             errors.DefaultContext = "A content entry";
 
             try
             {
-                if (getCategoryFromEntry(entry) == XATOM_CONTENT_BINARY)
-                    result = new BinaryEntry();
-                else
-                    result = new ResourceEntry();
-
                 result.Id = uriValueOrNull(entry.Element(XATOMNS + XATOM_ID));
                 if (result.Id != null) errors.DefaultContext = String.Format("Entry '{0}'", result.Id.ToString());
 
@@ -272,15 +267,7 @@ namespace Hl7.Fhir.Support
 
                 XElement content = entry.Element(XATOMNS + XATOM_CONTENT);
                 if (content != null)
-                {
-                    if (result is ResourceEntry)
-                        ((ResourceEntry)result).Content = getContents(content, errors);
-                    else
-                    {
-                        BinaryEntry be = (BinaryEntry)result;
-                        be.Content = getBinaryContents(content, out be.MediaType, errors);
-                    }
-                }
+                    result.Content = getContents(content, errors);
             }
             catch (Exception exc)
             {
@@ -293,47 +280,6 @@ namespace Hl7.Fhir.Support
             }
 
             return result;
-        }
-
-        private static byte[] getBinaryContents(XElement content, out string mediaType, ErrorList errors)
-        {
-            var contentType = stringValueOrNull(content.Attribute(XATOM_CONTENT_TYPE));
-            mediaType = null;
-
-            if (contentType != "text/xml")
-            {
-                errors.Add("Binary entries should be contained in content elements of type text/xml");
-                return null;
-            }
-
-            XElement binary = content.Element(XFHIRNS + XATOM_CONTENT_BINARY);
-
-            if (binary == null)
-            {
-                errors.Add("Binary entries must contain an element Binary");
-                return null;
-            }
-
-            mediaType = stringValueOrNull(binary.Attribute(XATOM_CONTENT_BINARY_TYPE));
-
-            if (mediaType == null)
-            {
-                errors.Add("Binary entries must contain a Binary element with a contentType attribute");
-                return null;
-            }
-
-            try
-            {
-                if (binary.Value != null)
-                    return Convert.FromBase64String(binary.Value);
-                else
-                    return null;
-            }
-            catch (Exception e)
-            {
-                errors.Add("Cannot parse content of Binary: " + e.Message);
-                return null;
-            }
         }
 
 
@@ -481,8 +427,8 @@ namespace Hl7.Fhir.Support
 
         private static XElement createEntry(BundleEntry entry)
         {
-            if (entry is ContentEntry)
-                return createContentEntry((ContentEntry)entry);
+            if (entry is ResourceEntry)
+                return createResourceEntry((ResourceEntry)entry);
             else if (entry is DeletedEntry)
                 return createDeletedEntry((DeletedEntry)entry);
             else
@@ -508,7 +454,7 @@ namespace Hl7.Fhir.Support
         }
 
 
-        private static XElement createContentEntry(ContentEntry entry)
+        private static XElement createResourceEntry(ResourceEntry entry)
         {
             //Note: this handles both BinaryEntry and ResourceEntry
 
@@ -527,33 +473,13 @@ namespace Hl7.Fhir.Support
                 if(l.Uri != null)
                     result.Add(xmlCreateLink(l.Rel, l.Uri));
 
-            if (entry is ResourceEntry)
+            if (entry.Content != null)
             {
-                ResourceEntry re = (ResourceEntry)entry;
-
-                if (re.Content != null)
-                {
-                    result.Add(xmlCreateCategory(re.ResourceType, ATOM_CATEGORY_RESOURCETYPE_NS));
-                    result.Add(new XElement(XATOMNS + XATOM_CONTENT,
-                        new XAttribute(XATOM_CONTENT_TYPE, "text/xml"),
-                        FhirSerializer.SerializeResourceAsXElement(re.Content)));
-                }
+                result.Add(xmlCreateCategory(entry.ResourceType, ATOM_CATEGORY_RESOURCETYPE_NS));
+                result.Add(new XElement(XATOMNS + XATOM_CONTENT,
+                    new XAttribute(XATOM_CONTENT_TYPE, "text/xml"),
+                    FhirSerializer.SerializeResourceAsXElement(entry.Content)));
             }
-            else if (entry is BinaryEntry)
-            {
-                BinaryEntry be = (BinaryEntry)entry;
-
-                result.Add(xmlCreateCategory(XATOM_CONTENT_BINARY, ATOM_CATEGORY_RESOURCETYPE_NS));
-
-                if (be.Content != null)
-                    result.Add(new XElement(XATOMNS + XATOM_CONTENT,
-                        new XAttribute(XATOM_CONTENT_TYPE, "text/xml"),
-                        new XElement(XFHIRNS + XATOM_CONTENT_BINARY,
-                            new XAttribute(XATOM_CONTENT_BINARY_TYPE, be.MediaType),
-                            new XText(Convert.ToBase64String(be.Content)))));
-            }
-            else
-                throw new NotSupportedException("Cannot serialize unknown entry type " + entry.GetType().Name);
 
             // Note: this is a read-only property, so it is serialized but never parsed
             if (entry.Summary != null)

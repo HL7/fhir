@@ -42,9 +42,7 @@ namespace Hl7.Fhir.Model
     {
         public static bool TryParse(string value, out Oid result)
         {
-            Regex oidRegEx = new Regex("^" + PATTERN + "$", RegexOptions.Singleline);
-
-            if (value==null || oidRegEx.IsMatch(value))
+            if (value==null || Regex.IsMatch(value, "^" + PATTERN + "$", RegexOptions.Singleline | RegexOptions.Compiled))
             {
                 result = new Oid(value);
                 return true;

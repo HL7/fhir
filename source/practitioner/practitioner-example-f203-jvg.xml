@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@version June 2013 @author Melchior Ferdinand Pot-->
+<Practitioner xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/practitioner.xsd">
+ <identifier><!--The identifier for the person as this practitioner (fictive)-->
+    <use value="official"/>
+    <label value="BIG-nummer"/>
+    <system value="https://www.bigregister.nl/"/>
+    <key value="12345678903"/>
+ </identifier>
+ <details><!--Practitioner's personal demographics-->
+    <identifier><!--The identifier for this individual-->
+        <use value="official"/>
+        <label value="BIG-nummer"/>
+        <system value="https://www.bigregister.nl/"/>
+        <key value="12345678903"/>
+    </identifier> 
+    <name><!--The name of the practitioner-->
+        <use value="official"/>
+        <text value="Juri van Gelder"/>
+    </name>
+    <telecom><!--A contact detail for the individual-->
+        <system value="phone"/>
+        <value value="+31715269111"/>
+        <use value="work"/>
+    </telecom>
+    <gender><!--The practitioner's administrative gender-->
+        <system value="http://snomed.info"/>
+        <code value="248153007"/>
+        <display value="Male"/>
+    </gender>
+    <birthDate value="1983-04-20"/>
+    <deceased value="false"/>
+    <address><!--Work address for the individual-->
+        <use value="work"/>
+        <line value="Albinusdreef 2"/>        
+        <line value="C4 - Automatisering"/>
+        <city value="Leiden"/>
+        <zip value="2333ZA"/>
+        <country value="NLD"/><!--ISO 3166 3 letter code-->
+    </address>   
+    <photo>    
+        <type value="Picture"/>
+        <reference value="picture/@JvG-203.bmp"/>
+        <display value="Picture_Juri_van_Gelder"/>
+    </photo>
+ </details>
+  <organization>
+     <type value="Organization"/>
+     <reference value="organization/@LUMC-201.xml"/>
+     <display value="LUMC"/>
+ </organization>
+ <role>
+     <coding>
+        <system value="http://snomed.info"/>
+        <code value="36682004"/>
+        <display value="Physical therapist"/>   
+     </coding> 
+ </role>
+ <specialty>
+    <coding>
+        <system value="http://snomed.info"/>
+        <code value="410158009"/>
+        <display value="Assess physical therapist service"/>
+    </coding>
+ </specialty>
+</Practitioner>

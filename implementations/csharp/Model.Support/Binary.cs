@@ -1,5 +1,10 @@
-﻿/*
-  Copyright (c) 2011-2012, HL7, Inc
+using System;
+using System.Collections.Generic;
+using Hl7.Fhir.Support;
+using System.Xml.Linq;
+
+/*
+  Copyright (c) 2011-2013, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -28,62 +33,26 @@
 
 */
 
-
-using Hl7.Fhir.Support;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-
 namespace Hl7.Fhir.Model
 {
-    public partial class Date
+    /// <summary>
+    /// Resource for capturing binary data
+    /// </summary>
+    public partial class Binary : Hl7.Fhir.Model.Resource
     {
-        public static Date Today()
-        {
-            return new Date(DateTime.Now.ToString("yyyy-MM-dd"));
-        }
-
-        public static bool TryParse(string value, out Date result)
-        {
-            if (value==null || Regex.IsMatch(value,"^" + PATTERN + "$", RegexOptions.Singleline | RegexOptions.Compiled))
-            {
-                result = new Date(value);
-                return true;
-            }
-            else
-            {
-                result = null;
-                return false;
-            }
-        }
-
-        public static Date Parse(string value)
-        {
-            Date result = null;
-
-            if (TryParse(value, out result))
-                return result;
-            else
-                throw new FhirFormatException("Not an correctly formatted date value");
-        }
-
         internal override ErrorList ValidateRules()
         {
             var result = new ErrorList();
+            result.AddRange(base.ValidateRules());
 
-            Date dummy;
+            if (Content == null)
+                result.Add("Entry must contain (possibly 0-length) data");
 
-            if (!TryParse( Value, out dummy ))
-                result.Add("Not a correctly formatted date value");
-            
-            return result; 
-        }
+            if (ContentType == null)
+                result.Add("Entry must contain a contentType");
 
-        public override string ToString()
-        {
-            return Value;
+            return result;
         }
     }
+    
 }

@@ -19,7 +19,7 @@
     <title>Message Response</title>
     <id>urn:uuid:b651eebd-aaa8-4b72-854b-7e543abb99e3</id>
     <updated>2013-05-18T08:35:00+10:00</updated>
-    <content>
+   <content type="text/xml">
       <Message xmlns="http://hl7.org/fhir">
         <!-- this is the message id - see the Message resource for a discussion of it's use -->
         <identifier value="c321589c-9146-4e94-81c4-b142343f77aa"/>
@@ -64,7 +64,7 @@
     <id>urn:uuid:16fddf81-f792-47ba-b02e-3fa2a3024519</id>
     <updated>2013-05-18T08:35:00+10:00</updated>
 
-    <content>
+   <content type="text/xml">
       <Query xmlns="http://hl7.org/fhir">
         <!-- In the message we choose, for convenience, to make the query.id 
             the same as the query resource id. In other contexts that wouldn't be appropriate -->

@@ -305,7 +305,7 @@ namespace Hl7.Fhir.Tests
         [TestMethod]
         public void TestParsePerformance()
         {
-            //string file = @"..\..\..\loinc.xml";
+            //string file = @"..\..\..\loinc.json";
             string file = @"..\..\..\..\..\publish\diagnosticreport-example.xml";
            
             int repeats = 20;
@@ -321,6 +321,7 @@ namespace Hl7.Fhir.Tests
                 errors.Clear();
                 var xmlr = XmlReader.Create(file);
                 //var jsonr = new JsonTextReader(new System.IO.StreamReader(file));
+                //var rep = FhirParser.ParseResource(jsonr, errors);
                 var rep = FhirParser.ParseResource(xmlr, errors);
             }
 

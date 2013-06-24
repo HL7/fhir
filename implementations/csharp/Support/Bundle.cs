@@ -71,18 +71,12 @@ namespace Hl7.Fhir.Support
 
             if (!Util.UriHasValue(Id))
                 errors.Add("Feed must have an id", context);
-
-            if (!Id.IsAbsoluteUri)
-                errors.Add("Feed id must be an absolute URI", context);
+            else
+                if (!Id.IsAbsoluteUri)
+                    errors.Add("Feed id must be an absolute URI", context);
 
             if (LastUpdated == null)
                 errors.Add("Feed must have a updated date", context);
-
-            foreach (var link in Links)
-            {
-                if (!link.Uri.IsAbsoluteUri)
-                    errors.Add("Feed links must be absolute Uri's", context);
-            }
 
             if (Links.SearchLink != null)
                 errors.Add("Links with rel='search' can only be used on feed entries", context);
@@ -144,17 +138,14 @@ namespace Hl7.Fhir.Support
             //if (SelfLink == null || SelfLink.ToString() == String.Empty)
             //    errors.Add("Entry must have a link of type 'self'", context);
 
-            if (Id == null || String.IsNullOrWhiteSpace(Id.ToString()))
+            if (!Util.UriHasValue(Id))
                 errors.Add("Entry must have an id");
             else
-            {
                 if (!Id.IsAbsoluteUri)
                     errors.Add("Entry id must be an absolute URI");
-            }
 
-            foreach (var link in Links)
-                if (!link.Uri.IsAbsoluteUri)
-                    errors.Add("Entry links must be absolute Uri's");
+            if (Util.UriHasValue(SelfLink) && !SelfLink.IsAbsoluteUri)
+                errors.Add("Entry selflink must be an absolute URI");
 
             if (Links.FirstLink != null || Links.LastLink != null || Links.PreviousLink != null || Links.NextLink != null)
                 errors.Add("Paging links can only be used on feeds, not entries");
@@ -210,8 +201,31 @@ namespace Hl7.Fhir.Support
         }
     }
 
-    public abstract class ContentEntry : BundleEntry
+
+    public class ResourceEntry : BundleEntry
     {
+        public string ResourceType { get; private set; }
+
+        private Resource _content;
+        public Resource Content 
+        { 
+            get
+            {
+                return _content;
+            }
+
+            set
+            {
+                _content = value;
+
+                if (value != null)
+                    ResourceType = ModelInfo.FhirCsTypeToString[_content.GetType()];
+                else
+                    ResourceType = null;
+            }
+ 
+        }
+
         public string Title { get; set; }
 
         public DateTimeOffset? LastUpdated { get; set; }
@@ -219,8 +233,7 @@ namespace Hl7.Fhir.Support
         public string EntryAuthorName { get; set; }
         public string EntryAuthorUri { get; set; }
 
-      
-        public string AuthorName 
+        public string AuthorName
         {
             get
             {
@@ -254,79 +267,23 @@ namespace Hl7.Fhir.Support
 
             if (LastUpdated == null)
                 errors.Add("Entry must have an updated date");
-            return errors;
-        } 
-    }
-
-    public class BinaryEntry : ContentEntry
-    {
-        public string MediaType;
-        public byte[] Content { get; set; }
-
-        public override ErrorList Validate()
-        {
-            ErrorList errors = base.Validate();
-
-            if (Content == null)
-                errors.Add("Entry must contain (possibly 0-length) data");
-
-            if (MediaType == null)
-                errors.Add("Entry must contain a contentType");
-
-            return errors;
-        }
-
-        public override string Summary
-        {
-            get
-            {
-                var summary = string.Format("<div xmlns='http://www.w3.org/1999/xhtml'>" +
-                        "Binary content (mediatype {0})</div>", MediaType);
-
-                return summary;
-            }
-        }  
-    }
-
-    public class ResourceEntry : ContentEntry
-    {
-        public string ResourceType { get; private set; }
-
-        private Resource _content;
-        public Resource Content 
-        { 
-            get
-            {
-                return _content;
-            }
-
-            set
-            {
-                _content = value;
-
-                if (value != null)
-                    ResourceType = ModelInfo.FhirCsTypeToString[_content.GetType()];
-                else
-                    ResourceType = null;
-            }
- 
-        }
-
-        public override ErrorList Validate()
-        {
-            ErrorList errors = base.Validate();
 
             if (Content == null)
                 errors.Add("Entry must contain Resource data, Content may not be null");
-
+            else
+                errors.AddRange(Content.Validate());
+            
             return errors;
-        }
+        } 
 
         public override string Summary
         {
             get
             {
-                if(Content != null && Content.Text != null && Content.Text.Div != null)
+                if( Content is Binary )
+                    return string.Format("<div xmlns='http://www.w3.org/1999/xhtml'>" +
+                        "Binary content (mediatype {0})</div>", ((Binary)Content).ContentType);
+                else if(Content != null && Content.Text != null && Content.Text.Div != null)
                     return (string)Content.Text.Div;
                 else
                     return null;

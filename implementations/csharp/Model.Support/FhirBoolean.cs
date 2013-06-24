@@ -33,34 +33,56 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
 
 namespace Hl7.Fhir.Model
 {
     // value can be true or false
     public partial class FhirBoolean
     {
-        public static bool TryParse( string value, out FhirBoolean result)
+        public static bool TryParse(string value, out FhirBoolean result)
         {
-            if(value == "1" || value == "true")
-            {
-                result = new FhirBoolean(true);
-                return true;
-            }
-            else if(value == "0" || value == "false")
-            {
-                result = new FhirBoolean(false);
-                return true;
-            }
-            else if (value == null)
+            if (value == null)
             {
                 result = new FhirBoolean(null);
                 return true;
             }
-            else
+
+            bool b;
+            try
             {
-                result = null;
-                return false;
+                b = XmlConvert.ToBoolean(value);
+                result = new FhirBoolean(b);
+                return true;
             }
+            catch
+            {
+
+            }
+
+            result = null;
+            return false;
+
+            //if(value == "1" || value == "true")
+            //{
+            //    result = new FhirBoolean(true);
+            //    return true;
+            //}
+            //else if(value == "0" || value == "false")
+            //{
+            //    result = new FhirBoolean(false);
+            //    return true;
+            //}
+            //else if (value == null)
+            //{
+            //    result = new FhirBoolean(null);
+            //    return true;
+            //}
+            //else
+            //{
+            //    result = null;
+            //    return false;
+            //}
         }
 
         public static FhirBoolean Parse(string value)
@@ -76,7 +98,7 @@ namespace Hl7.Fhir.Model
         public override string ToString()
         {
             if (Value.HasValue)
-                return Value.Value ? "true" : "false";
+                return XmlConvert.ToString(Value.Value);
             else
                 return null;
         }

@@ -34,6 +34,7 @@ using System.Linq;
 using System.Text;
 using System.Globalization;
 using Hl7.Fhir.Support;
+using System.Xml;
 
 namespace Hl7.Fhir.Model
 {
@@ -41,23 +42,42 @@ namespace Hl7.Fhir.Model
     {
         public static bool TryParse( string value, out Integer result)
         {
-            Int32 intValue;
-
             if (value == null)
             {
                 result = new Integer(null);
                 return true;
             }
-            else if(Int32.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out intValue))
+
+            Int32 intValue;
+
+            try
             {
+                intValue = XmlConvert.ToInt32(value);
                 result = new Integer(intValue);
                 return true;
             }
-            else
+            catch
             {
-                result = null;
-                return false;
             }
+
+            result = null;
+            return false;
+
+            //if (value == null)
+            //{
+            //    result = new Integer(null);
+            //    return true;
+            //}
+            //else if(Int32.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out intValue))
+            //{
+            //    result = new Integer(intValue);
+            //    return true;
+            //}
+            //else
+            //{
+            //    result = null;
+            //    return false;
+            //}
         }
 
 
