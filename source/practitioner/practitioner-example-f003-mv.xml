@@ -85,7 +85,7 @@
     </details>
     <organization>
         <type value="Organization"/> <!-- deze moet gekoppeld worden aan een RESOURCE ORGANIZATION -->
-        <url value="organization/@F001"/>
+        <url value="organization/@f001"/>
         <display value="AMC"/>
     </organization>
     <role>

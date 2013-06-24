@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://hl7.org/fhir  ../../schema/patient.xsd">
+<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir  ../../schema/patient.xsd">
     <status value="final"/>
     <!-- OID: 2.16.840.1.113883.4.642.1.7 -->
     <issued value="2013-05-15T19:32:52+01:00"/>
@@ -9,12 +8,12 @@
         <!-- Linked to a RESOURCE Patient -->
         <type value="Patient"/>
         <!-- OID: 2.16.840.1.113883.4.642.1.4 -->
-        <reference value="patient/F001"/>
+        <reference value="patient/@f001"/>
         <display value="P. van den Heuvel"/>
     </subject>
     <performer>
         <type value="Organization"/>
-        <reference value="organization/F001"/>
+        <reference value="organization/@f001"/>
         <display value="AMC"/>
     </performer>
     <reportId>
@@ -25,7 +24,7 @@
     <requestDetail>
         <visit>
             <type value="Visit"/>
-            <reference value="visit/F001"/>
+            <reference value="visit/@f001"/>
             <display/>
         </visit>
         <requestOrderId>
@@ -55,7 +54,7 @@
         </bodySite>
         <requester>
             <type value="Practitioner"/>
-            <reference value="practitioner/F001"/>
+            <reference value="practitioner/@f001"/>
             <display value="E.van den Broek"/>
         </requester>
         <clinicalInfo value="patient almost fainted during proceduer"/>

@@ -84,7 +84,7 @@
     </details>
     <organization>
         <type value="organisation"/> 
-        <url value="organisation/F001"/>
+        <url value="organisation/@f001"/>
         <display value="AMC"/>
     </organization>
     <role>

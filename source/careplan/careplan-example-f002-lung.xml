@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:/C:/SVN/schema/careplan.xsd">
+<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
     <identifier>
         <use value="official"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.36 -->
         <system value="http://www.amc.nl/zorgportal/identifiers/careplans"/>
@@ -7,7 +7,7 @@
     </identifier>
     <patient>        
         <type value="Patient"/>
-        <reference value="patient/F001"/>
+        <reference value="patient/@f001"/>
         <display value="P. van de Heuvel"/>
     </patient>
     <status value="ended"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.36 -->
@@ -18,14 +18,14 @@
     <modified value="2011-07-07T09:30:10+01:00"/>
     <concern>
         <type value="Condition"/>
-        <reference value="condition/F002"/>
+        <reference value="condition/@f002"/>
         <display value="?????"/>
     </concern>
     <participant>
         <role></role>
         <member>    
             <type value="Practitioner"/>
-            <reference value="practitioner/F003"/>
+            <reference value="practitioner/@f003"/>
             <display value="M.I.M. Versteegh"/>
         </member>
     </participant>
@@ -48,7 +48,7 @@
         <timingString value="2011-07-07T09:30:10+01:00"/>
         <performer>
             <type value="Practitioner"/>
-            <reference value="practitioner/F003"/>
+            <reference value="practitioner/@f003"/>
             <display value="M.I.M. Versteegh"/>
         </performer>
         <actionTaken></actionTaken>
