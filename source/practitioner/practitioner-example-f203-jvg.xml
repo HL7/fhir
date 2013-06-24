@@ -23,9 +23,11 @@
         <use value="work"/>
     </telecom>
     <gender><!--The practitioner's administrative gender-->
+      <coding>
         <system value="http://snomed.info"/>
         <code value="248153007"/>
         <display value="Male"/>
+      </coding>  
     </gender>
     <birthDate value="1983-04-20"/>
     <deceased value="false"/>

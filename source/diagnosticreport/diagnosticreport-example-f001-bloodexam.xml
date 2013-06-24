@@ -25,7 +25,6 @@
         <visit>
             <type value="Visit"/>
             <reference value="visit/@f201"/><!--TODO Correcte verwijzing-->
-            <display/>
         </visit>
         <requestOrderId>
             <use value="official"/>

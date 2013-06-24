@@ -17,9 +17,11 @@
         <use value="work"/>
     </telecom>
     <gender>
+      <coding>
         <system value="http://snomed.info"/>
         <code value="248152002"/>
         <display value="Female"/>
+      </coding>
     </gender>
     <birthDate value="1967-11-05"/>
     <deceased value="false"/>

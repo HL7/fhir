@@ -50,16 +50,13 @@ import org.hl7.fhir.instance.validation.BaseValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xml.XMLUtil;
+import org.w3c.dom.Element;
 
 
 /** todo
- * Search parameters cannot include "-"
- * can't have element names in a resource that are part of resource itself
- * can't have an element name called id
- * can't have a search parameter called id
- * can't have an element name "entries"
- * banned parameter type names: history, metadata, mailbox, validation 
  * check code lists used in Codings have displays
+ * 
  * @author Grahame
  *
  */
@@ -73,11 +70,13 @@ public class ResourceValidator extends BaseValidator {
 
   private Definitions definitions;
 	private Map<String, Usage> usages = new HashMap<String, Usage>();
+  private Element translations;
 
-	public ResourceValidator(Definitions definitions) {
+	public ResourceValidator(Definitions definitions, Element translations) {
 		super();
     source = Source.ResourceValidator;
 		this.definitions = definitions;
+		this.translations = translations;
 	}
 
 	// public void setConceptDomains(List<ConceptDomain> conceptDomains) {
@@ -114,7 +113,7 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, "structure", parent.getName(), !name.equals("Tags"), "The name 'Tags' is not a legal name for a resource");
     rule(errors, "structure", parent.getName(), !name.equals("MailBox"), "The name 'MailBox' is not a legal name for a resource");
     rule(errors, "structure", parent.getName(), !name.equals("Validation"), "The name 'Validation' is not a legal name for a resource");
-    
+    rule(errors, "required",  parent.getName(), hasTranslationsEntry(name), "The name '"+name+"' is not found in the file translations.xml");
     rule(errors, "structure", parent.getName(), name.toLowerCase().substring(0, 1) != name.substring(0, 1), "Resource Name must start with an uppercase alpha character");
 
     checkElement(errors, parent.getName(), parent.getRoot(), parent, null);
@@ -122,14 +121,29 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, "structure", parent.getName(), parent.getRoot().getElementByName("contained") == null, "Element named \"contaned\" not allowed");
     if (parent.getRoot().getElementByName("subject") != null && parent.getRoot().getElementByName("subject").typeCode().startsWith("Resource"))
       rule(errors, "structure", parent.getName(), parent.getSearchParams().containsKey("subject"), "A resource that contains a subject reference must have a search parameter 'subject'");
+    if (parent.getRoot().getElementByName("patient") != null && parent.getRoot().getElementByName("patient").typeCode().startsWith("Resource"))
+      warning(errors, "structure", parent.getName(), parent.getSearchParams().containsKey("subject"), "A resource that contains a patient reference must have a search parameter 'patient'");
     for (org.hl7.fhir.definitions.model.SearchParameter p : parent.getSearchParams().values()) {
       if (!usages.containsKey(p.getCode()))
         usages.put(p.getCode(), new Usage());
       usages.get(p.getCode()).usage.add(p.getType());
-      warning(errors, "structure", parent.getName(), !p.getCode().contains("."), "Search Parameter Names cannot contain a '.' (\""+p.getCode()+"\")");
+      rule(errors, "structure", parent.getName(), !p.getCode().contains("."), "Search Parameter Names cannot contain a '.' (\""+p.getCode()+"\")");
+      warning(errors, "structure", parent.getName(), !p.getCode().equalsIgnoreCase("id"), "Search Parameter Names cannot be named 'id' (\""+p.getCode()+"\")");
+      warning(errors, "structure", parent.getName(), p.getCode().equals(p.getCode().toLowerCase()), "Search Parameter Names should be all lowercase (\""+p.getCode()+"\")");
     }
 //    rule(errors, parent.getName(), !parent.getSearchParams().containsKey("id"), "A resource cannot have a search parameter 'id'");
 	}
+
+  private boolean hasTranslationsEntry(String name) {
+    Element child = XMLUtil.getFirstChild(translations);
+    while (child != null) {
+      if (child.getNodeName().equals("item") && child.getAttribute("id").equals(name)) {
+        return true;
+      }
+      child = XMLUtil.getNextSibling(child);
+    }
+    return false;
+  }
 
   public List<ValidationMessage> check(String name, ResourceDefn parent) {
     List<ValidationMessage> errors = new ArrayList<ValidationMessage>();

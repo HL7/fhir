@@ -1774,7 +1774,6 @@ private String resItem(String name) throws Exception {
         b.append("<tr><td>"+p.getCode()+" : "+p.getType()+"</td><td>"+Utilities.escapeXml(p.getDescription())+"</td><td>"+presentPaths(p.getPaths())+"</td></tr>\r\n");
       }
       b.append("</table>\r\n");
-      b.append("<p>(See <a href=\"http.htm#search\">Searching</a>).</p>\r\n");
       return b.toString();
     }
   }

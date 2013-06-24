@@ -28,6 +28,10 @@
     <translation lang="en">CarePlan</translation>
   </item>
 
+  <item id="Condition">
+    <translation lang="en">Condition</translation>
+  </item>
+
   <item id="Conformance">
     <translation lang="en">Conformance</translation>
   </item>
@@ -150,10 +154,6 @@
 
   <item id="Practitioner">
     <translation lang="en">Practitioner</translation>
-  </item>
-
-  <item id="Problem">
-    <translation lang="en">Problem</translation>
   </item>
 
   <item id="Procedure">

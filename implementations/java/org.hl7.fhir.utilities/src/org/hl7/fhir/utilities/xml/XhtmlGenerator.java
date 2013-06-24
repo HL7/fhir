@@ -120,7 +120,7 @@ public class XhtmlGenerator {
 	}
 
 	private void writeComment(Writer out, Comment node) throws DOMException, IOException {
-		out.write("<span class=\"xmlcomment\">&lt;!-- "+node.getTextContent()+" --&gt;</span>");
+		out.write("<span class=\"xmlcomment\">&lt;!-- "+Utilities.escapeXml(node.getTextContent())+" --&gt;</span>");
 	}
 
 	private void writeText(Writer out, Text node) throws DOMException, IOException {

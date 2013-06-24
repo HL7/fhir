@@ -382,6 +382,7 @@ public class Publisher {
   }
 
   private IniFile ini;
+  private Document translations;
 	
 	private void defineSpecialValues() throws Exception {
 	  for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
@@ -465,12 +466,13 @@ public class Publisher {
     if (!f.exists()) {
       errors.add("Unable to find "+purpose+" file "+file+" in "+dir);
       return false;
-    } else {
+    } else if (category != null) {
       long d = f.lastModified();
       if (!dates.containsKey(category) || d > dates.get(category))
         dates.put(category, d);
       return true;
-    }
+    } else 
+      return true;
   }
 
 	private boolean initialize(String folder) throws Exception {
@@ -509,7 +511,13 @@ public class Publisher {
 			for (String n : page.getIni().getPropertyNames("pages"))
 				checkFile("page", page.getFolders().srcDir, n, errors, "page-"+n);
 		}
-		
+		if (checkFile("translations", page.getFolders().rootDir+"implementations"+File.separator, "translations.xml", errors, null)) {
+		  Utilities.copyFile(page.getFolders().rootDir + "implementations"+File.separator+"translations.xml", page.getFolders().dstDir + "translations.xml");
+	    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+	    DocumentBuilder builder = factory.newDocumentBuilder();
+	    translations = builder.parse(new CSFileInputStream(new CSFile(page.getFolders().rootDir + "implementations"+File.separator+"translations.xml")));
+		}
+
 		if (errors.size() > 0)
 			log("Unable to publish FHIR specification:");
 		for (String e : errors) {
@@ -520,7 +528,7 @@ public class Publisher {
 
 	private boolean validate() throws Exception {
 		log("Validating");
-		ResourceValidator val = new ResourceValidator(page.getDefinitions());
+		ResourceValidator val = new ResourceValidator(page.getDefinitions(), translations.getDocumentElement());
 
 		List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
     for (String n : page.getDefinitions().getTypes().keySet())
