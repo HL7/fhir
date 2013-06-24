@@ -19,6 +19,10 @@
         <code value="394914008"/>
         <display value="Radiology"/> 
     </coding>     
+     <coding>
+         <system value="http://hl7.org/fhir/v2/vs/0074"/>
+         <code value="RAD" />
+     </coding>
  </serviceCategory>
  <diagnosticTime value="2012-12-01T12:00:00+01:00"/>
  <results>

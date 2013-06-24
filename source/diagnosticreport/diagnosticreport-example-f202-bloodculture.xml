@@ -30,7 +30,11 @@
         <system value="http://snomed.info"/>
         <code value="15220000"/>
         <display value="Laboratory test"/> 
-    </coding>     
+    </coding>
+     <coding>
+         <system value="http://hl7.org/fhir/v2/vs/0074"/>
+         <code value="LAB" />
+     </coding>
  </serviceCategory>
  <diagnosticTime value="2013-03-11T03:45:00+01:00"/>
  <results> 

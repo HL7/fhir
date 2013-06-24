@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:/C:/SVN/schema/observation.xsd">
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
     <name>
         <coding>
             <system value="http://loinc.org"/>
             <code value="28540-3"/>
-            <display value="Erythrocyte mean corpuscular hemoglobin concentration "/>
+            <display value="Erythrocyte mean corpuscular hemoglobin concentration"/>
         </coding>
     </name>
     <valueQuantity>
         <value value="18.7"/>
-        <units value="g/l"/>
+        <units value="g/dl"/>
         <system value="http://unitsofmeasure.org"/>
-        <code value="g/l"/>
+        <code value="g/dl"/>
     </valueQuantity>
     <interpretation>
         <coding>
@@ -59,16 +59,16 @@
     <referenceRange>
         <rangeRange>
             <low>
-                <value value="????"/>
-                <units value="g/l"/>
+                <value value="32"/>
+                <units value="g/dl"/>
                 <system value="http://unitsofmeasure.org"/>
-                <code value="g/l"/>
+                <code value="g/dl"/>
             </low>
             <high>
-                <value value="????"/>
-                <units value="g/l"/>
+                <value value="36"/>
+                <units value="g/dl"/>
                 <system value="http://unitsofmeasure.org"/>
-                <code value="g/l"/>
+                <code value="g/dl"/>
             </high>
         </rangeRange>
     </referenceRange>

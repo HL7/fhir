@@ -27,5 +27,7 @@
     </coding>
   </code>
  </when>
- <detail></detail><!--TODO EK: waarom is detail vereist? in spoedgevallen zullen ook geen details beschikbaar zijn en alleen de reason string-->
+ <detail>
+    <display value="Consultation, not yet developed" />
+ </detail><!--TODO EK: waarom is detail vereist? in spoedgevallen zullen ook geen details beschikbaar zijn en alleen de reason string-->
 </Order>
