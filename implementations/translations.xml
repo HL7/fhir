@@ -218,13 +218,13 @@
     <translation lang="it">Sintassi errata in %s</translation>
   </item>
 
-  <item id="MSG_BATCH_DUPLICATE_ID">
-    <translation lang="du">Dubbele id in bundel: %s</translation>
-    <translation lang="en">Duplicate Identifier in batch: %s</translation>
-    <translation lang="it">Identificatore duplicato nel batch: %s</translation>
+  <item id="MSG_TRANSACTION_DUPLICATE_ID">
+    <!-- <translation lang="du">Dubbele id in bundel: %s</translation> -->
+    <translation lang="en">Duplicate Identifier in transaction: %s</translation>
+    <!-- <translation lang="it">Identificatore duplicato nel batch: %s</translation> -->
   </item>
 
-  <item id="MSG_BATCH_PROCESSED">
+  <item id="MSG_TRANSACTION_PROCESSED">
     <translation lang="du">%d resources verwerkt</translation>
     <translation lang="en">%d resources processed</translation>
     <translation lang="it">%d risorse processate</translation>

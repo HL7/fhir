@@ -11,7 +11,7 @@ since the word "request" is used differently elsewhere in this specification.</p
 <p>
 Note that there is a variety of proceses associated with making and processing 
 orders. Some orders may be handled immediately by automated systems but most require 
-real world actions by one or more humnas. Some orders can only be processed when other real 
+real world actions by one or more humans. Some orders can only be processed when other real 
 world actions happen, such as a patient actually presenting themselves so that 
 the action to be performed. Often these real world dependencies are only 
 implicit in the order details. 
@@ -67,6 +67,16 @@ a message resource) that acknowledges that the order was received. Then the rece
 system sends one or more response messages as the order is processed. Each of these response messages
 is sent back to the originating system, which also acknowledges receipt of these messages with
 an acknowledgement message.
+</p>
+
+<h2>Using orders in a other contexts</h2>
+
+<p>
+There are a wide variety of ways to implement Order/Order response. The Order and Order response 
+resources are special resources created to manage behaviour in a RESTful or messaging context. 
+In other contexts, such as a Service based environment, there may be alternate methods for 
+managing this behavior that are more appropriate, and there is no need to use Order/Order Response
+in these contexts.
 </p>
 
 </div>
