@@ -45,7 +45,7 @@
  </details>
   <organization>
      <type value="Organization"/>
-     <reference value="organization/@f201.xml"/>
+     <reference value="organization/@f201"/>
      <display value="LUMC"/>
  </organization>
  <role>
