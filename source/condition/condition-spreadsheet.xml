@@ -16,10 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>1290</WindowHeight>
-  <WindowWidth>9570</WindowWidth>
-  <WindowTopX>4245</WindowTopX>
-  <WindowTopY>3195</WindowTopY>
+  <WindowHeight>1296</WindowHeight>
+  <WindowWidth>9576</WindowWidth>
+  <WindowTopX>4248</WindowTopX>
+  <WindowTopY>3192</WindowTopY>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -86,14 +87,15 @@
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="27" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="197.25"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
-   <Column ss:Index="4" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="35.25"
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="197.4"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="56.4" ss:Span="1"/>
+   <Column ss:Index="4" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="35.4"
     ss:Span="1"/>
    <Column ss:Index="6" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="93"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="82.5"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="10" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.25"
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="82.8"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="213.60000000000002"
+    ss:Span="1"/>
+   <Column ss:Index="10" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.4"
     ss:Span="1"/>
    <Column ss:Index="12" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
@@ -338,7 +340,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -353,9 +354,10 @@
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s67" ss:DefaultRowHeight="15">
-   <Column ss:Index="3" ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="96.75"/>
-   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="220.5"/>
-   <Column ss:Index="6" ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="365.25"/>
+   <Column ss:Index="3" ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="96.6"/>
+   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="220.8"/>
+   <Column ss:Index="6" ss:StyleID="s67" ss:AutoFitWidth="0"
+    ss:Width="365.40000000000003"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -414,9 +416,9 @@
  <Worksheet ss:Name="Events">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="69.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="93.75" ss:Span="1"/>
-   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="101.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="69.599999999999994"/>
+   <Column ss:AutoFitWidth="0" ss:Width="93.600000000000009" ss:Span="1"/>
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="101.4"/>
    <Column ss:AutoFitWidth="0" ss:Width="111"/>
    <Column ss:AutoFitWidth="0" ss:Width="69"/>
    <Row ss:AutoFitHeight="0" ss:Height="22.5">
@@ -455,9 +457,9 @@
  <Worksheet ss:Name="Search">
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="28" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
-   <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
-   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="354.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="70.8"/>
+   <Column ss:AutoFitWidth="0" ss:Width="382.79999999999995"/>
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="354.59999999999997"/>
    <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
@@ -600,12 +602,12 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="7" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="55.5"/>
-   <Column ss:AutoFitWidth="0" ss:Width="146.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="55.5"/>
-   <Column ss:AutoFitWidth="0" ss:Width="143.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="55.800000000000004"/>
+   <Column ss:AutoFitWidth="0" ss:Width="146.39999999999998"/>
+   <Column ss:AutoFitWidth="0" ss:Width="55.800000000000004"/>
+   <Column ss:AutoFitWidth="0" ss:Width="143.4"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s70"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Description</Data></Cell>
@@ -628,6 +630,34 @@
     <Cell><Data ss:Type="String">condition-example2.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Fever</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">f201</Data></Cell>
+    <Cell><Data ss:Type="String">condition-example-f201-fever.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Malignancy</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">f202</Data></Cell>
+    <Cell><Data ss:Type="String">condition-example-f202-malignancy.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Sepsis</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">f203</Data></Cell>
+    <Cell><Data ss:Type="String">condition-example-f203-sepsis.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Renal insufficiency</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">f204</Data></Cell>
+    <Cell><Data ss:Type="String">condition-example-f204-renal.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -636,11 +666,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -650,12 +681,12 @@
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s66" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="130.5"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="294.75"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="57.75"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="65.25"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="89.25"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="287.25"/>
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="130.80000000000001"/>
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="294.60000000000002"/>
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="57.6"/>
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="65.400000000000006"/>
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="89.4"/>
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="287.39999999999998"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Definition</Data></Cell>
@@ -737,7 +768,7 @@
  <Worksheet ss:Name="condition-relationship-type">
   <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="3" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="294.75"/>
+   <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="294.60000000000002"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
@@ -768,7 +799,7 @@
  <Worksheet ss:Name="condition-status">
   <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="9" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="116.25"/>
+   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="116.4"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>

@@ -4,8 +4,8 @@
  <details><!--Practitioner's personal demographics-->
     <identifier><!--The (fictive) identifier for this individual-->
         <use value="official"/>
-        <label value="BIG-nummer"/>
-        <system value="https://www.bigregister.nl/"/>
+        <label value="UZI-nummer"/>
+        <system value="urn:oid:2.16.528.1.1007.3.1"/>
         <key value="12345678904"/>
     </identifier> 
     <name>
@@ -31,11 +31,11 @@
         <zip value="2333ZA"/>
         <country value="NLD"/>
     </address>   
-    <photo>    
+<!--    <photo>    
         <type value="Picture"/>
         <reference value="picture/@CE-204.bmp"/>
         <display value="Picture_Carla_Espinosa"/>
-    </photo>
+    </photo>-->
     <maritalStatus>
         <coding>
            <system value="http://snomed.info"/>

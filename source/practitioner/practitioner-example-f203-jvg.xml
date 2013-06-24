@@ -3,8 +3,8 @@
 <Practitioner xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/practitioner.xsd">
  <identifier><!--The identifier for the person as this practitioner (fictive)-->
     <use value="official"/>
-    <label value="BIG-nummer"/>
-    <system value="https://www.bigregister.nl/"/>
+        <label value="UZI-nummer"/>
+        <system value="urn:oid:2.16.528.1.1007.3.1"/>
     <key value="12345678903"/>
  </identifier>
  <details><!--Practitioner's personal demographics-->
@@ -38,11 +38,11 @@
         <zip value="2333ZA"/>
         <country value="NLD"/><!--ISO 3166 3 letter code-->
     </address>   
-    <photo>    
+<!--    <photo>    
         <type value="Picture"/>
         <reference value="picture/@JvG-203.bmp"/>
         <display value="Picture_Juri_van_Gelder"/>
-    </photo>
+    </photo>-->
  </details>
   <organization>
      <type value="Organization"/>

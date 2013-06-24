@@ -16,11 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8775</WindowHeight>
+  <WindowHeight>8772</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>1500</WindowTopX>
-  <WindowTopY>3555</WindowTopY>
+  <WindowTopY>3552</WindowTopY>
   <TabRatio>705</TabRatio>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -115,21 +116,21 @@
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="14" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.400000000000006"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="215.25"/>
-   <Column ss:StyleID="s63" ss:Width="29.25"/>
-   <Column ss:StyleID="s63" ss:Width="23.25"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="215.4"/>
+   <Column ss:StyleID="s63" ss:Width="29.4"/>
+   <Column ss:StyleID="s63" ss:Width="23.400000000000002"/>
    <Column ss:StyleID="s63" ss:Width="60"/>
    <Column ss:StyleID="s63" ss:Width="27"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="119.25"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="107.25"/>
-   <Column ss:StyleID="s63" ss:Width="134.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="119.4"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="107.4"/>
+   <Column ss:StyleID="s63" ss:Width="134.4"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="294"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="77.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="77.399999999999991"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="14" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="192.75"/>
+   <Column ss:Index="14" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="192.6"/>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -170,14 +171,14 @@
     <Cell ss:Index="8"><Data ss:Type="String">Subject of this history</Data></Cell>
     <Cell><Data ss:Type="String">The person who this history concerns</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="27.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="28.05">
     <Cell><Data ss:Type="String">FamilyHistory.relation</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The relation</Data></Cell>
     <Cell><Data ss:Type="String">The related person. Each FamilyHistory resource contains the entire family history for a single person.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="27.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="28.05">
     <Cell><Data ss:Type="String">FamilyHistory.note</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
@@ -198,7 +199,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">Allows greater ease in ensuring the same person is being talked about</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="69.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="70.05">
     <Cell><Data ss:Type="String">FamilyHistory.relation.relationship</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -237,7 +238,7 @@
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="56.0625">
+   <Row ss:AutoFitHeight="0" ss:Height="55.95">
     <Cell><Data ss:Type="String">FamilyHistory.relation.condition</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -249,7 +250,7 @@
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="56.0625">
+   <Row ss:AutoFitHeight="0" ss:Height="55.95">
     <Cell><Data ss:Type="String">FamilyHistory.relation.condition.type</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -286,7 +287,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">How old the person was when the condition manifested</Data></Cell>
     <Cell><Data ss:Type="String">Either the age of onset, range of approximate age or descriptive string can be recorded.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
+   <Row ss:AutoFitHeight="0" ss:Height="13.950000000000001">
     <Cell><Data ss:Type="String">FamilyHistory.relation.condition.note</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
@@ -307,7 +308,6 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -339,13 +339,13 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s70" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s70" ss:DefaultColumnWidth="65.400000000000006"
    ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="116.25"/>
+   <Column ss:Index="2" ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="116.4"/>
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="153"/>
-   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="204.75"/>
-   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="188.25"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="204.60000000000002"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="198.6"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="188.4"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -430,13 +430,14 @@
  </Worksheet>
  <Worksheet ss:Name="Events">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="83.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="158.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="162.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="195.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="74.25"/>
+   x:FullRows="1" ss:DefaultColumnWidth="65.400000000000006"
+   ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="83.4"/>
+   <Column ss:AutoFitWidth="0" ss:Width="198.6"/>
+   <Column ss:AutoFitWidth="0" ss:Width="158.4"/>
+   <Column ss:AutoFitWidth="0" ss:Width="162.6"/>
+   <Column ss:AutoFitWidth="0" ss:Width="195.60000000000002"/>
+   <Column ss:AutoFitWidth="0" ss:Width="74.400000000000006"/>
    <Row ss:AutoFitHeight="0" ss:Height="33">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Event Code</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
@@ -487,10 +488,11 @@
  </Worksheet>
  <Worksheet ss:Name="Search">
   <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="40" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="71.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="383.25"/>
-   <Row ss:AutoFitHeight="0" ss:Height="15.9375" ss:StyleID="s65">
+   x:FullRows="1" ss:DefaultColumnWidth="65.400000000000006"
+   ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="71.400000000000006"/>
+   <Column ss:AutoFitWidth="0" ss:Width="383.40000000000003"/>
+   <Row ss:AutoFitHeight="0" ss:Height="16.05" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
@@ -649,12 +651,13 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="4" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
+   x:FullRows="1" ss:DefaultColumnWidth="65.400000000000006"
+   ss:DefaultRowHeight="15">
    <Column ss:Width="102"/>
-   <Column ss:Width="390.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="81.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="107.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="275.25"/>
+   <Column ss:Width="390.59999999999997"/>
+   <Column ss:AutoFitWidth="0" ss:Width="81.599999999999994"/>
+   <Column ss:AutoFitWidth="0" ss:Width="107.4"/>
+   <Column ss:AutoFitWidth="0" ss:Width="275.40000000000003"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
@@ -662,7 +665,7 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="44.0625" ss:StyleID="s75">
+   <Row ss:AutoFitHeight="0" ss:Height="43.95" ss:StyleID="s75">
     <Cell><Data ss:Type="String">FamilialRelationship</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">The nature of the relationship between the patient and the person with the condition. Based on the HL7v3 RoleCode: OID: 2.16.840.1.113883.5.111 with some inappropriate items removed</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
@@ -717,11 +720,13 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="14.0625">
-   <Column ss:Index="2" ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="300.75"/>
-   <Column ss:Index="4" ss:Width="162.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="107.25"/>
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="65.400000000000006"
+   ss:DefaultRowHeight="13.950000000000001">
+   <Column ss:Index="2" ss:StyleID="s76" ss:AutoFitWidth="0"
+    ss:Width="300.59999999999997"/>
+   <Column ss:Index="4" ss:Width="162.6"/>
+   <Column ss:AutoFitWidth="0" ss:Width="107.4"/>
    <Row ss:AutoFitHeight="0" ss:Height="15">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
@@ -737,12 +742,19 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">familyhistory-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="56.0625">
+   <Row ss:AutoFitHeight="0" ss:Height="55.95">
     <Cell><Data ss:Type="String">Mother</Data></Cell>
     <Cell><Data ss:Type="String">Mother died from a stroke aged 56. Brother with diabetes.</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">mother</Data></Cell>
     <Cell><Data ss:Type="String">familyhistory-example-mother.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Familyhistory</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">f202</Data></Cell>
+    <Cell><Data ss:Type="String">familyhistory-example-f202-roel.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -753,11 +765,11 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>4</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -767,11 +779,12 @@
  </Worksheet>
  <Worksheet ss:Name="familial-relationship">
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="72" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="14.0625">
-   <Column ss:AutoFitWidth="0" ss:Width="207.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="123.75"/>
-   <Column ss:Width="113.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="338.25"/>
+   x:FullRows="1" ss:DefaultColumnWidth="65.400000000000006"
+   ss:DefaultRowHeight="13.950000000000001">
+   <Column ss:AutoFitWidth="0" ss:Width="207.6"/>
+   <Column ss:AutoFitWidth="0" ss:Width="123.6"/>
+   <Column ss:Width="113.39999999999999"/>
+   <Column ss:AutoFitWidth="0" ss:Width="338.40000000000003"/>
    <Row ss:AutoFitHeight="0" ss:Height="15" ss:StyleID="s75">
     <Cell><Data ss:Type="String">System</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Code</Data></Cell>
