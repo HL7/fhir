@@ -1241,7 +1241,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">example</Data></Cell>
     <Cell><Data ss:Type="String">Visit example</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">example</Data></Cell>
     <Cell><Data ss:Type="String">visit-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
@@ -1279,7 +1279,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>4</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
