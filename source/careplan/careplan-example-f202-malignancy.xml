@@ -7,8 +7,8 @@
  </patient>
  <status value="active"/>
   <concern>
-     <type value="Problem"/>
-     <reference value="problem/@f202"/>
+     <type value="Condition"/>
+     <reference value="condition/@f202"/>
      <display value="Roel's head-neck tumor"/>
  </concern>
  <participant>

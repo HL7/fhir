@@ -12,8 +12,8 @@
  </period>
  <modified value="2013-03-11"/>
  <concern>
-     <type value="Problem"/>
-     <reference value="problem/@f204"/>
+     <type value="Condition"/>
+     <reference value="condition/@f204"/>
      <display value="Roel's renal insufficiency"/>
  </concern>
  <participant>  

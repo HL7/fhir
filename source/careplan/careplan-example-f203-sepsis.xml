@@ -12,8 +12,8 @@
  </period>
  <modified value="2013-03-11"/>
  <concern>
-     <type value="Problem"/>
-     <reference value="problem/@f203"/>
+     <type value="Condition"/>
+     <reference value="condition/@f203"/>
      <display value="Roel's sepsis"/>
  </concern>
  <participant>  
