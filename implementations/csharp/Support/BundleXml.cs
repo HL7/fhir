@@ -64,6 +64,7 @@ namespace Hl7.Fhir.Support
         public const string XATOM_CATEGORY = "category";
         public const string XATOM_CAT_TERM = "term";
         public const string XATOM_CAT_SCHEME = "scheme";
+        public const string XATOM_CAT_LABEL = "label";
         public const string XATOM_CONTENT = "content";
         public const string XATOM_SUMMARY = "summary";
         public const string XATOM_TOTALRESULTS = "totalResults";
@@ -208,6 +209,8 @@ namespace Hl7.Fhir.Support
 
         private static BundleEntry loadEntry(XElement entry, ErrorList errors)
         {
+
+
             if (entry.Name == XATOMNS + XATOM_ENTRY)
                 return (BundleEntry)loadResourceEntry(entry, errors);
             else if (entry.Name == XTOMBSTONE + XATOM_DELETED_ENTRY)
@@ -282,16 +285,6 @@ namespace Hl7.Fhir.Support
             return result;
         }
 
-
-        private static string getCategoryFromEntry(XElement item)
-        {
-            return item.Elements(XATOMNS + XATOM_CATEGORY).Count() == 0 ? null :
-                item.Elements(XATOMNS + XATOM_CATEGORY)
-                    .Where(cat => stringValueOrNull(cat.Attribute(XATOM_CAT_SCHEME))
-                        == ATOM_CATEGORY_RESOURCETYPE_NS)
-                    .Select(scat => stringValueOrNull(scat.Attribute(XATOM_CAT_TERM)))
-                    .FirstOrDefault();
-        }
 
         private static UriLinkList getLinks(IEnumerable<XElement> links)
         {
@@ -474,12 +467,9 @@ namespace Hl7.Fhir.Support
                     result.Add(xmlCreateLink(l.Rel, l.Uri));
 
             if (entry.Content != null)
-            {
-                result.Add(xmlCreateCategory(entry.ResourceType, ATOM_CATEGORY_RESOURCETYPE_NS));
                 result.Add(new XElement(XATOMNS + XATOM_CONTENT,
                     new XAttribute(XATOM_CONTENT_TYPE, "text/xml"),
                     FhirSerializer.SerializeResourceAsXElement(entry.Content)));
-            }
 
             // Note: this is a read-only property, so it is serialized but never parsed
             if (entry.Summary != null)

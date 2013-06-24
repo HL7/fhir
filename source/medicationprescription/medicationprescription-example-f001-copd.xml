@@ -23,18 +23,19 @@
         <reference value="practitioner/@f001"/>
         <display value="R.A. van den Berg"/>
     </prescriber>
-    <encounter> <!-- Linked to a resource Visit between patient and practitioner-->
+    <visit> <!-- Linked to a resource Visit between patient and practitioner-->
+        <!-- TODO: Camiel nog correcte verwijzing (@f001 bestond nog niet) -->
         <type value="Visit"/>
-        <reference value="visit/@f001"/>
+        <reference value="visit/@f201"/>
         <display value="visit who leads to this priscription"/>
-    </encounter>
-    <reasonForPrescribing>
+    </visit>
+    <reasonForPrescribingCodeableConcept>
         <coding>
             <system value="http://snomed.info"/>
             <code value="13645005"/>
             <display value="Chronic obstructive pulmonary disease"/>
         </coding>
-    </reasonForPrescribing>
+    </reasonForPrescribingCodeableConcept>
     <medication> <!-- Linked to a RESOURCE Medication -->
         <type value="Medication"/>
         <reference value="medication/@f001"/>
@@ -42,7 +43,7 @@
     </medication> 
     <dosageInstructions>
         <dosageInstructionsText value="3 tot 4 maal daags 1 flacon"/>
-        <additionalInstructions value="for use during pregnancy, contact physician"/>
+        <additionalInstructionsString value="for use during pregnancy, contact physician"/>
         <timing>
             <event>
                 <start value="2013-08-04"/>

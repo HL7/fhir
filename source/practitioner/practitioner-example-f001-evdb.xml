@@ -33,9 +33,11 @@
             <use value="work"/>
         </telecom>
         <gender>
-            <system value="urn:oid:2.16.840.1.113883.4.642.1.24"/> <!-- OID gender -->
-            <code value="M"/>
-            <display value="Male"/>  
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.4.642.1.24"/> <!-- OID gender -->
+                <code value="M"/>
+                <display value="Male"/>
+            </coding>
         </gender>
         <birthDate value="1975-12-07"/>
         <deceased value="false"/>
@@ -83,8 +85,8 @@
         </language>
     </details>
     <organization>
-        <type value="organisation"/> <!-- deze moet gekoppeld worden aan een RESOURCE ORGANIZATION -->
-        <url value="organisation/@f001"/>
+        <type value="Organization"/> <!-- deze moet gekoppeld worden aan een RESOURCE ORGANIZATION -->
+        <reference value="organization/@f001"/>
         <display value="AMC"/>
     </organization>
     <role>

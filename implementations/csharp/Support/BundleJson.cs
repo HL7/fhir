@@ -185,8 +185,6 @@ namespace Hl7.Fhir.Support
 
             try
             {
-                string category = getCategoryFromEntry(entry);
-
                 if (entry.Value<DateTimeOffset?>(JATOM_DELETED) != null)
                     result = new DeletedEntry();
                 else
@@ -196,6 +194,8 @@ namespace Hl7.Fhir.Support
                 if (result.Id != null) errors.DefaultContext = String.Format("Entry '{0}'", result.Id.ToString());
 
                 result.Links = getLinks(entry[BundleXml.XATOM_LINK]);
+
+                result.Tags = getTags(entry[BundleXml.XATOM_CATEGORY]);
 
                 if (result is DeletedEntry)
                     ((DeletedEntry)result).When = instantOrNull(entry[JATOM_DELETED]);
@@ -232,14 +232,31 @@ namespace Hl7.Fhir.Support
             return result;
         }
 
-        private static string getCategoryFromEntry(JToken entry)
+        private static TagList getTags(JToken token)
         {
-            return entry[BundleXml.XATOM_CATEGORY] as JArray != null ?
-               entry[BundleXml.XATOM_CATEGORY]
-                .Where(cat => cat.Value<string>(BundleXml.XATOM_CAT_SCHEME) == BundleXml.ATOM_CATEGORY_RESOURCETYPE_NS)
-                .Select(scat => scat.Value<string>(BundleXml.XATOM_CAT_TERM))
-                .FirstOrDefault() : null;
+            var result = new TagList();
+            var tags = token as JArray;
+
+            if (tags != null)
+            {
+                foreach (var tag in tags)
+                {
+                    var scheme = tag.Value<string>(BundleXml.XATOM_CAT_SCHEME);
+
+                    if (scheme == Tag.TAG_SCHEME)
+                    {
+                        result.Add(new Tag
+                            {
+                                Uri = uriValueOrNull(tag[BundleXml.XATOM_CAT_TERM]),
+                                Label = tag.Value<string>(BundleXml.XATOM_CAT_LABEL)
+                            });
+                    }
+                }
+            }
+
+            return result;
         }
+
 
         private static UriLinkList getLinks(JToken token)
         {
@@ -409,10 +426,7 @@ namespace Hl7.Fhir.Support
                 newItem.Add(new JProperty(BundleXml.XATOM_LINK, jsonCreateLinkArray(entry.Links)));
 
             if (entry.Content != null)
-            {
-                newItem.Add(new JProperty(BundleXml.XATOM_CATEGORY, new JArray(jsonCreateCategory(entry.ResourceType))));
                 newItem.Add(new JProperty(BundleXml.XATOM_CONTENT, getContentsAsJObject(entry.Content)));
-            }
 
             // Note: this is a read-only property, so it is serialized but never parsed
             if (entry.Summary != null)

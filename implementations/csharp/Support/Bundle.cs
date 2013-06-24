@@ -120,6 +120,7 @@ namespace Hl7.Fhir.Support
         public Uri Id { get; set; }
         public Bundle Parent { set; get; }
         public UriLinkList Links { get; set; }
+        public TagList Tags { get; set; }
 
         public Uri SelfLink
         {
@@ -149,6 +150,8 @@ namespace Hl7.Fhir.Support
 
             if (Links.FirstLink != null || Links.LastLink != null || Links.PreviousLink != null || Links.NextLink != null)
                 errors.Add("Paging links can only be used on feeds, not entries");
+
+            errors.AddRange(Tags.Validate());
 
             return errors;
         }
@@ -204,27 +207,7 @@ namespace Hl7.Fhir.Support
 
     public class ResourceEntry : BundleEntry
     {
-        public string ResourceType { get; private set; }
-
-        private Resource _content;
-        public Resource Content 
-        { 
-            get
-            {
-                return _content;
-            }
-
-            set
-            {
-                _content = value;
-
-                if (value != null)
-                    ResourceType = ModelInfo.FhirCsTypeToString[_content.GetType()];
-                else
-                    ResourceType = null;
-            }
- 
-        }
+        public Resource Content { get; set; }
 
         public string Title { get; set; }
 

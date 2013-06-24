@@ -49,7 +49,7 @@
   <status value="abandoned"/>
  </goal>
  <activity> 
-  <category value="observation"/><!--TODO EK: "May determine what types of extensions are permitted", verwacht je dan geen cardinaliteit van 0...* ipv 1...1?-->
+  <category value="observation"/>
   <code>
      <coding>
        <system value="http://snomed.info"/>

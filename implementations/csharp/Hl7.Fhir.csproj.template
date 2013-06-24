@@ -48,6 +48,7 @@
 		@@@MODELFILES@@@
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model.Support\Binary.cs" />
     <Compile Include="Model.Support\FhirDateTime.cs" />
     <Compile Include="Model.Support\Id.cs" />
     <Compile Include="Model.Support\IdRef.cs" />
@@ -89,6 +90,7 @@
 	<Compile Include="Support\Inspection.cs" />
 	<Compile Include="Support\ManagedEntryList.cs" />
 	<Compile Include="Support\ResourceLocation.cs" />
+	<Compile Include="Support\Tag.cs" />
 	<Compile Include="Support\UriLinkList.cs" />
     <Compile Include="Support\Util.cs" />
 	<Compile Include="Client\FhirClient.cs" />

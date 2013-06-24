@@ -1,55 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
- <patient><!--It entails Roel's careplan-->
-     <type value="Patient"/>
-     <reference value="patient/@f201"/>
-     <display value="Roel"/>
- </patient>
- <status value="active"/>
-  <concern>
-     <type value="Condition"/>
-     <reference value="condition/@f202"/>
-     <display value="Roel's head-neck tumor"/>
- </concern>
- <participant>
-  <role>
-     <coding>
-       <system value="http://snomed.info"/>
-       <code value="28995006"/>
-       <display value="Treated by"/>
-     </coding>
-  </role>
-  <member>
-     <type value="Practitioner"/>
-     <reference value="practitioner/@f201"/>
-     <display value="Dokter Bonsing"/>
-  </member>
- </participant>
- <goal>  
-  <description value="Elimination of the spenoid bone tumor"/>
-  <status value="in progress"/>
- </goal>
- <activity>  
-  <category value="procedure"/>
-  <code>
-    <coding>
-       <system value="http://snomed.info"/>
-       <code value="367336001"/>
-       <display value="Chemotherapy"/> 
-    </coding>
-  </code>
-  <status value="ongoing"/>
-  <prohibited value="false"/>
-  <location>
-     <type value="Location"/>
-     <reference value="location/@f201"/>
-     <display value="LUMC's Department of Oncology"/>
-  </location>
-  <!--TODO EK: TPF staat voor docetaxel, cisplatin en 5-fluorouracil: is de cardinaliteit van <product> daarmee niet 0...*?-->
-  <actionTaken>
-     <type value="Procedure"/>
-     <reference value="procedure/@f201"/>
-     <display value="Roel's Chemotherapy"/>
-  </actionTaken>
- </activity> 
+<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
+   <contained>
+      <Medication id="tpf">
+         <contained>
+            <Medication id="doce">
+               <name value="Docetaxel"/>
+               <code>
+                  <coding>
+                     <system value="http://snomed.info" />
+                     <code value="108806006" />
+                  </coding>
+               </code>
+            </Medication>
+         </contained>
+         <contained>
+            <Medication id="cisp">
+               <name value="Cisplatin"/>
+               <code>
+                  <coding>
+                     <system value="http://snomed.info" />
+                     <code value="57066004" />
+                  </coding>
+               </code>               
+            </Medication>
+         </contained>
+         <contained>
+            <Medication id="fluo">
+               <name value="5-Fluorouracil"/>
+               <code>
+                  <coding>
+                     <system value="http://snomed.info" />
+                     <code value="3127006" />
+                  </coding>
+               </code>
+            </Medication>
+         </contained>
+         <name value="TPF"/>
+         <product>
+            <ingredient>
+               <item>
+                  <type value="Medication" />
+                  <reference value="#doce" />
+               </item>
+            </ingredient>
+            <ingredient>
+               <item>
+                  <type value="Medication" />
+                  <reference value="#cisp" />
+               </item>               
+            </ingredient>
+            <ingredient>
+               <item>
+                  <type value="Medication" />
+                  <reference value="#fluo" />
+               </item>
+            </ingredient>
+         </product>
+      </Medication>
+   </contained>
+   <patient>
+      <!--It entails Roel's careplan-->
+      <type value="Patient"/>
+      <reference value="patient/@f201"/>
+      <display value="Roel"/>
+   </patient>
+   <status value="active"/>
+   <concern>
+      <type value="Condition"/>
+      <reference value="condition/@f202"/>
+      <display value="Roel's head-neck tumor"/>
+   </concern>
+   <participant>
+      <role>
+         <coding>
+            <system value="http://snomed.info"/>
+            <code value="28995006"/>
+            <display value="Treated by"/>
+         </coding>
+      </role>
+      <member>
+         <type value="Practitioner"/>
+         <reference value="practitioner/@f201"/>
+         <display value="Dokter Bonsing"/>
+      </member>
+   </participant>
+   <goal>
+      <description value="Elimination of the spenoid bone tumor"/>
+      <status value="in progress"/>
+   </goal>
+   <activity>
+      <category value="procedure"/>
+      <code>
+         <coding>
+            <system value="http://snomed.info"/>
+            <code value="367336001"/>
+            <display value="Chemotherapy"/>
+         </coding>
+      </code>
+      <status value="ongoing"/>
+      <prohibited value="false"/>
+      <location>
+         <type value="Location"/>
+         <reference value="location/@f201"/>
+         <display value="LUMC's Department of Oncology"/>
+      </location>
+      <product>
+         <type value="Medication"/>
+         <reference value="#tpf"/>
+      </product>
+      <actionTaken>
+         <type value="Procedure"/>
+         <reference value="procedure/@f201"/>
+         <display value="Roel's Chemotherapy"/>
+      </actionTaken>
+   </activity>
 </CarePlan>
