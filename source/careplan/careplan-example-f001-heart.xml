@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:/C:/SVN/schema/careplan.xsd">
+    <identifier>
+        <use value="official"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.36 -->
+        <system value="http://www.amc.nl/zorgportal/identifiers/careplans"/>
+        <key value="CP2903"/>
+    </identifier>
+    <patient>
+        <type value="Patient"/>
+        <reference value="patient/F001"/>
+        <display value="P. van de Heuvel"/>
+    </patient>
+    <status value="ended"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.36 -->
+    <period>
+        <start value="2011-06-26"/>
+        <end value="2013-06-27"/>
+    </period>
+    <modified value="2013-06-27T09:30:10+01:00"/>
+    <concern>
+        <type value="Condition"/>
+        <reference value="condition/F001"/>
+        <display value="?????"/>
+    </concern>
+    <participant>
+        <role></role>
+        <member>    
+            <type value="Practitioner"/>
+            <reference value="practitioner/F002"/>
+            <display value="P. Voigt"/>
+        </member>
+    </participant>
+    <goal>    
+        <description value="recovery surgery on heart of patient"/>
+        <status value="achieved"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.38 -->
+        <notes value="goal accomplished without complications"/>
+    </goal>
+    <activity>
+        <category value="procedure"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.39 -->
+        <code>
+            <coding>
+                <system value="http://snomed.info"/>
+                <code value="64915003"/>
+                <display value=" Operative procedure on heart"/>
+            </coding>
+        </code>
+        <status value="completed"/>
+        <prohibited value="true"/>
+        <timingString value="2011-06-27T09:30:10+01:00"/>
+    <performer>
+        <type value="Practitioner"/>
+        <reference value="practitioner/F002"/>
+        <display value="P. Voigt"/>
+    </performer>
+    <actionTaken></actionTaken>
+    </activity>
+</CarePlan>
+
+    
+    

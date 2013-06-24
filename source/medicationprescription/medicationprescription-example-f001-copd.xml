@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationPrescription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationprescription.xsd">
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.amc/portal/prescriptions"/>
+        <key value="order9837293"/>
+    </identifier>
+    <dateWritten value="2013-05-25T19:32:52+01:00"/>
+    <status>
+        <coding>
+            <system value="urn:oid:2.16.840.1.113883.4.642.1.107"/> <!-- A code specifying the state of the prescribing event -->
+            <code value="active"/>
+            <display value="the medication is actively described"/>
+        </coding>
+    </status>
+    <patient> <!-- Linked to the resource patient who needs the medication -->
+        <type value="Patient"/> 
+        <reference value="patient/F001"/>
+        <display value="P. van den Heuvel"/>         
+    </patient>
+    <prescriber> <!-- Linked to the practitioner who treats patient -->
+        <type value="Practitioner"/> 
+        <reference value="practitioner/F001"/>
+        <display value="R.A. van den Berg"/>
+    </prescriber>
+    <encounter> <!-- Linked to a resource Visit between patient and practitioner-->
+        <type value="Visit"/>
+        <reference value="visit/F001"/>
+        <display value="visit who leads to this priscription"/>
+    </encounter>
+    <reasonForPrescribing>
+        <coding>
+            <system value="http://snomed.info"/>
+            <code value="13645005"/>
+            <display value="Chronic obstructive pulmonary disease"/>
+        </coding>
+    </reasonForPrescribing>
+    <medication> <!-- Linked to a RESOURCE Medication -->
+        <type value="Medication"/>
+        <reference value="medication/F001"/>
+        <display value="prescribed medication"/>
+    </medication> 
+    <dosageInstructions>
+        <dosageInstructionsText value="3 tot 4 maal daags 1 flacon"/>
+        <additionalInstructions value="for use during pregnancy, contact physician"/>
+        <timing>
+            <event>
+                <start value="2013-08-04"/>
+                <end value="2013-11-05"/>
+            </event>
+            <repeat>
+                <frequency value="3"/>
+                <duration value="1"/>
+                <units value="d"/>
+            </repeat>
+        </timing>
+        <site>
+            <coding>
+                <system value="http://snomed.info"/>
+                <code value="181220002"/>
+                <display value="Entire oral cavity"/>
+            </coding>
+        </site>
+        <route>
+            <coding>
+                <system value="http://snomed.info"/>
+                <code value="394899003"/>
+                <display value="oral administration of treatment"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="10"/>
+            <units value="ml"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="ml"/>
+        </doseQuantity>
+    </dosageInstructions>         
+    <dispense>
+        <validityPeriod>
+            <start value="2013-04-08"/>
+            <end value="2013-05-30"/>
+        </validityPeriod>
+        <numberOfRepeatsAllowed value="20"/>
+        <quantity>
+            <value value="100"/>
+            <units value="mcg"/>
+            <system value="urn:oid:2.16.840.1.113883.6.8"/> <!-- http://unitsofmeasure.org (UCUM code system) -->
+            <code value="ug"/>
+        </quantity>
+        <expectedSupplyDuration>
+            <value value="40"/>
+            <units value="days"/>
+            <system value="urn:oid:2.16.840.1.113883.6.8"/> <!-- http://unitsofmeasure.org (UCUM code system) -->
+            <code value="d"/>
+        </expectedSupplyDuration>
+    </dispense>   
+</MedicationPrescription>

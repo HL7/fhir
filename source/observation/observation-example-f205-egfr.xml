@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@version June 2013 @author Melchior Ferdinand Pot-->
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
+ <name><!--Kind of observation = EGFR-->
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="409402009"/>
+       <display value="Epidermal Growth Factor Receptor"/>
+    </coding>
+ </name>
+ <valueQuantity><!--EGFR=54mL/min-->
+    <value value="54"/>
+    <units value="mL/min"/>
+    <system value="http://snomed.info"/>
+    <code value="258859000"/>
+ </valueQuantity>
+ <interpretation>
+     <coding>
+        <system value="http://snomed.info"/>
+        <code value="427038005"/>
+        <display value="Negative for epidermal growth factor receptor expression (Non-small cell lung cancer)"/>  
+     </coding>   
+ </interpretation>
+ <issued value="2013-04-04T14:34:00+01:00"/><!--EGFR was measured on April fourth-->
+ <status value="final"/><!--The observation is complete-->
+ <reliability value="ok"/><!--No reliability concerns-->
+ <method><!--Method was serum measurement-->
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="129266000"/>
+       <display value="Measurement"/> 
+    </coding>
+ </method>
+ <identifier>
+    <label value="eGFR value of Roel on April 2013 - 03720"/>
+    <system value="https://intranet.lumc.nl/labvalues"/><!--Does not exist-->
+    <key value="1304-03720-eGFR"/>
+ </identifier> 
+ <subject><!--It entails Roel's Creatinine level-->
+     <type value="Patient"/>
+     <reference value="patient/@f201"/>
+     <display value="Roel"/>
+ </subject>
+ <performer><!--The creatinine level was measured by Luigi Maas-->     
+     <type value="Practitioner"/>
+     <reference value="practitioner/@f202"/>
+     <display value="Luigi Maas"/>
+ </performer>
+ <referenceRange><!--Non-small cell lung cancer is suspected with EGFR > 60mL/min--> 
+    <meaning>
+        <coding>
+            <system value="http://snomed.info"/>
+            <code value="426964009"/>
+            <display value="Non-small cell carcinoma"/> 
+        </coding>
+    </meaning>
+    <rangeQuantity>
+        <value value="60"/>
+        <comparator value="&gt;"/>
+    </rangeQuantity>
+ </referenceRange>
+</Observation>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@version June 2013 @author Melchior Ferdinand Pot-->
+<Problem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/problem.xsd">
+ <subject><!--It entails Roel's problem-->
+     <type value="Patient"/>
+     <reference value="patient/@f201"/>
+     <display value="Roel"/>
+ </subject>
+ <visit>
+     <type value="Visit"/>
+     <reference value="visit/@f203"/>
+     <display value="Roel's visit on March eleventh"/>
+ </visit>
+ <asserter><!--The problem was asserted by Dokter Bonsing-->     
+     <type value="Practitioner"/>
+     <reference value="practitioner/@f201"/>
+     <display value="Dokter Bonsing"/>
+ </asserter>
+ <dateAsserted value="2013-03-11"/>
+ <code><!--The problem is bacterial sepsis-->
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="10001005"/>
+       <display value="Bacterial sepsis"/> 
+    </coding>
+ </code>
+ <category><!--Bacterial sepsis is certainly a moderate to severe problem-->
+     <coding>
+        <system value="http://snomed.info"/>
+        <code value="55607006"/>
+        <display value="Problem"/> 
+     </coding>
+ </category>
+ <status value="confirmed"/>
+ <certainty>
+    <coding>
+        <system value="http://snomed.info"/>
+        <code value="17162000"/>
+        <display value="Certain"/> 
+    </coding>
+ </certainty>
+ <severity>
+    <coding>
+        <system value="http://snomed.info"/>
+        <code value="371924009"/>
+        <display value="Moderate to severe"/> 
+    </coding>
+ </severity>
+ <onsetDate value="2013-03-08"/>
+ <evidence>
+  <details>
+     <type value="DiagnosticReport"/>
+     <reference value="diagnosticreport/@f202"/>
+     <display value="LUMC's diagnostic report for Roel's sepsis"/>
+  </details>
+ </evidence>
+ <location><!--Location is intravascular pulmonary-->
+  <code>
+    <coding>
+        <system value="http://snomed.info"/>
+        <code value="281158006"/>
+        <display value="Pulmonary vascular structure"/> 
+    </coding>
+  </code>
+ </location>
+ <relatedItem><!--Bacterial sepsis is due to Staphylococcus Aureus-->
+  <type value="due-to"/>
+  <target>
+     <type value="Substance"/>
+     <reference value="substance/@f202"/>
+     <display value="Staphylococcus Aureus"/>
+  </target>
+ </relatedItem>
+</Problem>

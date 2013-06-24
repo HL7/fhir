@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Order xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/order.xsd">
+ <date value="2013-03-05T12:00:00+01:00"/>
+ <subject><!--Order was sent to Juri van Gelder for Roel by Dokter Bonsing.-->
+    <type value="Patient"/>
+    <reference value="patient/@f201"/>
+    <display value="Roel"/>
+ </subject>
+ <source>
+    <type value="Practitioner"/>
+    <reference value="practitioner/@f201"/>
+    <display value="Dokter Bonsing"/>
+ </source>
+ <target>
+    <type value="Practitioner"/>
+    <reference value="practitioner/@f203"/>
+    <display value="Juri van Gelder"/>
+ </target>
+ <reason value="It concerns a one-off order for consultation in order to evaluate the stairs walking ability of Roel."/>
+ <!--<authority> and <payment> were registered in the EHR as "not applicable"-->
+ <when>
+  <code>
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="394848005"/>
+       <display value="Normal priority"/>
+    </coding>
+  </code>
+ </when>
+ <detail></detail><!--TODO EK: waarom is detail vereist? in spoedgevallen zullen ook geen details beschikbaar zijn en alleen de reason string-->
+</Order>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
+ <name><!--Kind of observation = Oral Temperature-->
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="415945006"/>
+       <display value="Oral temperature"/>
+    </coding>
+ </name>
+ <valueQuantity><!--Temperature=39 degrees Celsius-->
+    <value value="39"/>
+    <units value="degrees C"/>
+    <system value="http://snomed.info"/>
+    <code value="258710007"/>
+ </valueQuantity>
+ <interpretation>
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="386661006"/>
+       <display value="Fever"/> 
+    </coding>
+ </interpretation>
+ <issued value="2013-04-04T13:27:00+01:00"/><!--Oral temperature was measured on April fourth-->
+ <status value="withdrawn"/><!--In the meantime a new oral temperature is measured-->
+ <reliability value="questionable"/><!--http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3418963/-->
+ <bodySite>
+    <coding>
+        <system value="http://snomed.info"/>
+        <code value="38266002"/>
+        <display value="Body as a whole"/>  
+    </coding>
+ </bodySite>
+ <method>
+    <coding>
+        <system value="http://snomed.info"/>
+        <code value="89003005"/>
+        <display value="Oral temperature taking"/>  
+    </coding>
+ </method>
+ <!--No identifier could be provided to this observation-->
+ <subject><!--It entails Roel's temperature-->
+     <type value="Patient"/>
+     <reference value="patient/@f201"/>
+     <display value="Roel"/>
+ </subject>
+ <performer><!--The temperature was measured by Dokter Bonsing-->     
+     <type value="Practitioner"/>
+     <reference value="practitioner/@f201"/>
+     <display value="Dokter Bonsing"/>
+ </performer>
+ <referenceRange>  <!-- 0..* Provides guide for interpretation -->
+   <meaning>
+        <coding>
+            <system value="http://snomed.info"/>
+            <code value="386661006"/>
+            <display value="Fever"/> 
+        </coding>
+    </meaning>
+    <rangeQuantity>
+        <value value="37.5"/>
+        <comparator value="&gt;"/>
+    </rangeQuantity>
+ </referenceRange>
+</Observation>

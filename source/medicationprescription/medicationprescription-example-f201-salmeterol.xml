@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationPrescription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationprescription.xsd">
+ <!--No identifier could be provided-->
+ <dateWritten value="2013-03-11"/>
+ <status> 
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="55561003"/>
+       <display value="Active"/>
+    </coding>
+ </status>
+ <patient>
+    <type value="Patient"/>
+    <reference value="patient/@f201"/>
+    <display value="Roel"/>
+ </patient>
+ <prescriber>
+    <type value="Practitioner"/>
+    <reference value="practitioner/@f201"/>
+    <display value="Dokter Bonsing"/>
+ </prescriber>
+ <visit><!--TODO EK: Foutmelding - <visit> is niet expected-->
+    <type value="Visit"/>
+    <reference value="visit/@f203"/>
+    <display value="Roel's visit on March eleventh 2013"/>
+ </visit>
+ <reasonForPrescribingString value="problem/@f203"/><!--TODO EK: Waarom kan dit geen Resource (any) zijn?-->
+ <medication>
+    <type value="Medication"/>
+    <reference value="medication/@f201"/>
+    <display value="Flutacisone + Salmeterol"/>
+ </medication>
+ <dosageInstructions>  
+  <dosageInstructionsText value="aerosol 25/250ug/do 120do 2x per dag 1 dosis"/>
+  <timing><!--2 months-->
+      <event>
+          <start value="2013-03-11"/>
+          <end value="2013-05-11"/>
+      </event>
+  </timing>
+  <site><!--Medication enters the oral cavity-->
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="74262004"/>
+       <display value="Oral cavity"/>
+    </coding>
+  </site>
+  <route><!--Medication follows the respiratory tract-->
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="321667001"/>
+       <display value="Respiratory tract"/>
+    </coding>
+  </route>
+  <method><!--Medication is administered with a specific inhaler-->
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="320276009"/>
+       <display value="Salmeterol+fluticasone 25/250ug inhaler"/>
+    </coding>
+  </method>
+  <doseQuantity><!--TODO EK: Cardinaliteit is niet toereikend: 25ug salmeterol + 250ug fluticasone is nu 275ug...-->
+    <value value="275"/>
+    <units value="microgram"/>
+    <system value="http://snomed.info"/>
+    <code value="258685003"/>
+  </doseQuantity>
+  <!--TODO EK: <rate> en <maxDosePerPeriod> zijn voor mijn casus niet toereikend: 
+  een maximum ligt vaak hoger dan een aanbevolen dagelijkse hoeveelheid en rate is bedoeld voor (bijvoorbeeld infuus-)snelheden, 
+  terwijl ik wil uitdrukken wat de voorgeschreven hoeveelheid is...-->
+  <maxDosePerPeriod><!--2 puffs per day-->
+    <numerator>
+        <value value="2"/>
+        <units value="puffs"/>
+        <system value="http://snomed.info"/>
+        <code value="415215001"/>
+    </numerator>
+    <denominator>
+        <value value="1"/>
+        <units value="per day"/>
+        <system value="http://snomed.info"/>
+        <code value="259032004"/>
+    </denominator>
+  </maxDosePerPeriod>
+ </dosageInstructions>
+ <!--<dispense> en <substitution> zijn niet beschikbaar--> 
+</MedicationPrescription>

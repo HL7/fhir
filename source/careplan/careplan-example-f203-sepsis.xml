@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
+ <patient><!--It entails Roel's careplan-->
+     <type value="Patient"/>
+     <reference value="patient/@f201"/>
+     <display value="Roel"/>
+ </patient>
+ <status value="ended"/>
+ <period>
+     <start value="2013-04-14"/>
+     <end value="2013-04-21"/>
+ </period>
+ <modified value="2013-03-11"/>
+ <concern>
+     <type value="Problem"/>
+     <reference value="problem/@f203"/>
+     <display value="Roel's sepsis"/>
+ </concern>
+ <participant>  
+  <role>
+     <coding>
+       <system value="http://snomed.info"/>
+       <code value="425268008"/>
+       <display value="Review of care plan"/>
+     </coding>
+  </role>
+  <member>  
+     <type value="Practitioner"/>
+     <reference value="practitioner/@f201"/>
+     <display value="Dokter Bonsing"/>
+  </member>
+ </participant>
+ <participant>  
+  <role>
+     <coding>
+       <system value="http://snomed.info"/>
+       <code value="278110001"/>
+       <display value="Radiographic imaging"/>
+     </coding>
+  </role>
+  <member>
+     <type value="Practitioner"/>
+     <reference value="practitioner/@f202"/>
+     <display value="Luigi Maas"/>
+  </member>
+ </participant>
+ <goal> 
+  <description value="Check whether further treatment of sepsis/pulmonary abcess is required"/>
+  <status value="abandoned"/>
+ </goal>
+ <activity> 
+  <category value="observation"/><!--TODO EK: "May determine what types of extensions are permitted", verwacht je dan geen cardinaliteit van 0...* ipv 1...1?-->
+  <code>
+     <coding>
+       <system value="http://snomed.info"/>
+       <code value="241541005"/>
+       <display value="HRCT of lungs"/>
+     </coding>      
+  </code>
+  <status value="not started"/>
+  <prohibited value="false"/>
+ </activity>
+</CarePlan>

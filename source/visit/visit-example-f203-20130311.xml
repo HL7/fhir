@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Visit xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/visit.xsd">
+ <identifier>
+    <use value="temp"/>
+    <label value="Roel's visit on March eleventh 2013"/>
+    <key value="Visit_Roel_20130311"/>
+ </identifier>
+ <status value="finished"/><!--Visit has finished-->
+ <class value="inpatient"/><!--Inpatient visit for straphylococcus infection-->
+ <type>
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="183807002"/>
+       <display value="Inpatient stay for nine days"/>
+    </coding>
+ </type>
+ <subject><!--It entails Roel's visit to Dr. Bonsing-->
+     <type value="Patient"/>
+     <reference value="patient/@f201"/>
+     <display value="Roel"/>
+ </subject>
+ <participant>
+     <practitioner>
+         <type value="Practitioner"/>
+         <reference value="practitioner/@f201"/>
+         <display value="Dokter Bonsing"/>
+    </practitioner>
+ </participant>
+ <reasonString value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>
+ <!--No indication, because no referral took place-->
+ <priority><!--High priority-->
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="394849002"/>
+       <display value="High priority"/>
+    </coding>
+ </priority>
+ <hospitalization> 
+  <origin>
+     <type value="Location"/>
+     <reference value="location/@f201"/>
+     <display value="LUMC's Department of Oncology"/>      
+  </origin>
+  <admitSource>
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="309902002"/>
+       <display value="Clinical Oncology Department"/>
+    </coding>
+  </admitSource>
+  <period>
+      <start value="2013-03-11"/>
+      <end value="2013-03-20"/>
+  </period>
+  <!--accomodation details are not available-->
+  <diet>
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="276026009"/>
+       <display value="Fluid balance regulation"/>
+    </coding>
+  </diet>
+  <!--no special courtesy or arrangements-->
+  <destination><!--Fictive-->
+     <type value="Location"/>
+     <reference value="location/@f202"/>
+     <display value="LUMC's Skilled Nursing Facility"/>  
+  </destination>
+  <reAdmission value="false"/>
+ </hospitalization>
+ <serviceProvider>
+     <type value="Organization"/>
+     <reference value="organization/@f201"/>
+     <display value="LUMC"/>
+ </serviceProvider>
+</Visit>

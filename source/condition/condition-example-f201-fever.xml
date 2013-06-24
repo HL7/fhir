@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Problem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/problem.xsd">
+ <subject><!--It entails Roel's problem-->
+     <type value="Patient"/>
+     <reference value="patient/@f201"/>
+     <display value="Roel"/>
+ </subject>
+ <visit>
+     <type value="Visit"/>
+     <reference value="visit/@f201"/>
+     <display value="Dokter Bonsing"/>
+ </visit>
+ <asserter><!--The problem was asserted by Dokter Bonsing-->     
+     <type value="Practitioner"/>
+     <reference value="practitioner/@f201"/>
+     <display value="Dokter Bonsing"/>
+ </asserter>
+ <dateAsserted value="2013-04-04"/><!--The problem was entered at April fourth-->
+ <code><!--The problem is a fever-->
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="386661006"/>
+       <display value="Fever"/> 
+    </coding>
+ </code>
+ <category><!--The fever is a mild problem-->
+    <coding>
+        <system value="http://snomed.info"/>
+        <code value="55607006"/>
+        <display value="Problem"/> 
+    </coding>
+ </category>
+ <status value="confirmed"/>
+ <severity><!--The fever is a problem-->
+    <coding>
+        <system value="http://snomed.info"/>
+        <code value="255604002"/>
+        <display value="Mild"/> 
+    </coding>
+ </severity>
+ <onsetDate value="2013-04-02"/><!--Problem began on April second-->
+ <!--No remission means no <rebatement>-->
+ <evidence><!--Problem is confirmed by 39 degrees Celsius-->
+  <code>
+    <coding>
+        <system value="http://snomed.info"/>
+        <code value="258710007"/>
+        <display value="degrees Celsius"/> 
+    </coding>        
+  </code>
+  <details>
+     <type value="Observation"/>
+     <reference value="observation/@f202"/>
+     <display value="Temperature"/>
+  </details>
+ </evidence>
+ <location><!--Fever applies to whole body-->
+  <code>
+    <coding>
+        <system value="http://snomed.info"/>
+        <code value="38266002"/>
+        <display value="Body as a whole"/>  
+    </coding>
+  </code>
+ </location>
+ <relatedItem>  <!-- 0..* Causes or precedents for this problem -->
+  <type value="due-to"/>
+  <target>
+     <type value="Procedure"/>
+     <reference value="procedure/@f201"/>
+     <display value="TPF chemokuur"/>
+  </target>
+ </relatedItem>
+</Problem><!--TODO EK: De arts stelt dat de koorts voort zou kunnen komen uit een nieuwe (bacteriele) infectie. Hoe leg je een dergelijk (belangrijk!) feit vast?-->

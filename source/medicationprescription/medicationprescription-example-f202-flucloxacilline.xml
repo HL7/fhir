@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationPrescription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationprescription.xsd">
+ <!--No identifier could be provided-->
+ <dateWritten value="2013-03-11"/>
+ <status> 
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="182992009"/>
+       <display value="Completed"/>
+    </coding>
+ </status>
+ <patient>
+    <type value="Patient"/>
+    <reference value="patient/@f201"/>
+    <display value="Roel"/>
+ </patient>
+ <prescriber>
+    <type value="Practitioner"/>
+    <reference value="practitioner/@f201"/>
+    <display value="Dokter Bonsing"/>
+ </prescriber>
+ <visit><!--TODO EK: wederom errort visit...-->
+    <type value="Visit"/>
+    <reference value="visit/@f203"/>
+    <display value="Roel's visit on March eleventh 2013"/>
+ </visit>
+ <reasonForPrescribingString value="problem/@f203"/>
+ <medication>
+    <type value="Medication"/>
+    <reference value="medication/@f202"/>
+    <display value="Flucloxacilline"/>
+ </medication>
+ <dosageInstructions>  
+  <dosageInstructionsText value="Flucloxacilline 12g/24h"/>
+  <timing><!--1 kuur is 10 days-->
+      <event>
+          <start value="2013-03-11"/>
+          <end value="2013-03-21"/>
+      </event>
+  </timing>
+  <route><!--Medication follows the respiratory tract-->
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="47625008"/>
+       <display value="Intravenous route"/>
+    </coding>
+  </route>
+  <method>
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="323493005"/>
+       <display value="Injected floxacillin"/><!--SNOMED code maps to 1 gram whilst the patient receives 12 grams-->
+    </coding>
+  </method>
+  <maxDosePerPeriod><!--12g/24h-->
+    <numerator>
+        <value value="12"/>
+        <units value="gram"/>
+        <system value="http://snomed.info"/>
+        <code value="258682000"/>
+    </numerator>
+    <denominator>
+        <value value="24"/>
+        <units value="hours"/>
+        <system value="http://snomed.info"/>
+        <code value="258702006"/>
+    </denominator>
+  </maxDosePerPeriod>
+ </dosageInstructions>
+ <!--<dispense> en <substitution> zijn niet beschikbaar--> 
+</MedicationPrescription>

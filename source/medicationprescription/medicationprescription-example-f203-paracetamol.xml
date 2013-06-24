@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationPrescription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationprescription.xsd">
+ <!--No identifier could be provided-->
+ <dateWritten value="2013-04-04"/>
+ <status> 
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="55561003"/>
+       <display value="Active"/>
+    </coding>
+ </status>
+ <patient>
+    <type value="Patient"/>
+    <reference value="patient/@f201"/>
+    <display value="Roel"/>
+ </patient>
+ <prescriber>
+    <type value="Practitioner"/>
+    <reference value="practitioner/@f201"/>
+    <display value="Dokter Bonsing"/>
+ </prescriber>
+ <visit><!--TODO EK: wederom errort visit...-->
+    <type value="Visit"/>
+    <reference value="visit/@f201"/>
+    <display value="Roel's visit on April fourth 2013"/>
+ </visit>
+ <reasonForPrescribingString value="problem/@f201"/>
+ <medication>
+    <type value="Medication"/>
+    <reference value="medication/@f203"/>
+    <display value="Paracetamol"/>
+ </medication>
+ <dosageInstructions>  
+  <dosageInstructionsText value="Paracetamol 3xdaags 1000mg"/>
+  <!--No defined schedule (<timing>)-->
+  <method>
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="322236009"/>
+       <display value="Paracetamol 500mg tablet"/>
+    </coding>
+  </method>
+  <maxDosePerPeriod><!--3000mg/24h-->
+    <numerator>
+        <value value="3000"/>
+        <units value="milligram"/>
+        <system value="http://snomed.info"/>
+        <code value="258684004"/>
+    </numerator>
+    <denominator>
+        <value value="24"/>
+        <units value="hours"/>
+        <system value="http://snomed.info"/>
+        <code value="258702006"/>
+    </denominator>
+  </maxDosePerPeriod>
+ </dosageInstructions>
+ <!--<dispense> en <substitution> zijn niet beschikbaar--> 
+</MedicationPrescription>

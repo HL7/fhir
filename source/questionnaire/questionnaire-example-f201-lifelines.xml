@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
+ <status value="final"/>
+ <authored value="2013-06-18T00:00:00+01:00"/><!--Fictive, only the below answers are non-fictive-->
+ <subject>
+    <type value="Patient"/>
+    <reference value="patient/@f201"/>
+    <display value="Roel"/>
+ </subject>
+ <author>
+    <type value="Practitioner"/>
+    <reference value="practitioner/@f201"/>
+    <display value="Dokter Bonsing"/>
+ </author>
+ <source><!--Dokter Bonsing entered all data in the EHR-->
+    <type value="Practitioner"/>
+    <reference value="practitioner/@f201"/>
+    <display value="Dokter Bonsing"/>
+ </source>
+ <name>
+    <coding>
+       <system value="https://lifelines.nl"/>
+       <code value="VL 1-1, 18-65_1.2.2"/>
+       <display value="Lifelines Questionnaire 1 part 1"/>
+    </coding>
+ </name>
+ <identifier>
+    <use value="temp"/>
+    <key value="Roel's VL 1-1, 18-65_1.2.2"/>
+ </identifier>
+ 
+ <answer><!--Seperate answer--> 
+  <name><text value="Do you have allergies?"/></name>
+  <valueString value="I am allergic to house dust"/>
+ </answer>
+ 
+ <section><!--Answers to general questions-->
+  <name><text value="General questions"/></name>
+    <answer> 
+        <name><text value="What is your gender?"/></name>
+        <valueString value="Male"/>
+    </answer>
+    <answer> 
+        <name><text value="What is your date of birth?"/></name>
+        <valueString value="1960-03-13"/>
+    </answer>
+    <answer> 
+        <name><text value="What is your country of birth?"/></name>
+        <valueString value="The Netherlands"/>
+    </answer>
+    <answer> 
+        <name><text value="What is your marital status?"/></name>
+        <valueString value="married"/>
+    </answer>
+ </section>
+ 
+ <section><!--Answers to intoxications-->
+  <name><text value="Intoxications"/></name>
+    <answer> 
+        <name><text value="Do you smoke?"/></name>
+        <valueString value="No"/>
+    </answer>
+    <answer> 
+        <name><text value="Do you drink alchohol?"/></name>
+        <valueString value="No, but I used to drink"/>
+    </answer>
+ </section>
+</Questionnaire>

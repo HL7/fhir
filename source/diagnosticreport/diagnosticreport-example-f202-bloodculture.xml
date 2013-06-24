@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticreport.xsd">
+ <status value="final"/>
+ <issued value="2013-03-11T10:28:00+01:00"/>
+ <subject><!--It entails Roel's diagnostic report-->
+     <type value="Patient"/>
+     <reference value="patient/@f201"/>
+     <display value="Roel"/>
+ </subject>
+ <performer><!--The diagnostic report was issued by LUMC-->
+     <type value="Organization"/><!--TODO EK: Waarom kan dit geen practitioner (en organization) zijn?-->
+     <reference value="organization/@f201"/>
+     <display value="LUMC"/>
+ </performer>
+ <!--No identifier was available-->
+ <requestDetail>
+     <visit>         
+        <type value="Visit"/>
+        <reference value="visit/@f203"/>
+        <display value="Roel's visit on March eleventh 2013"/>
+     </visit>
+     <requester>
+         <type value="Practitioner"/>
+         <reference value="practitioner/@f201"/>
+         <display value="Dokter Bonsing"/>
+     </requester>
+ </requestDetail>
+ <serviceCategory><!--Lab test-->
+    <coding>
+        <system value="http://snomed.info"/>
+        <code value="15220000"/>
+        <display value="Laboratory test"/> 
+    </coding>     
+ </serviceCategory>
+ <diagnosticTime value="2013-03-11T03:45:00+01:00"/>
+ <results> 
+  <name>
+    <coding>
+        <system value="http://snomed.info"/>
+        <code value="104177005"/>
+        <display value="Blood culture for bacteria"/> 
+    </coding>
+  </name>
+  <result>
+        <type value="Observation"/>
+        <reference value="observation/@f206"/>
+        <display value="Results for staphylococcus analysis on Roel's blood culture"/>  
+  </result>
+ </results>
+ <conclusion value="Blood culture tested positive on staphylococcus aureus"/>
+ <codedDiagnosis>
+    <coding>
+        <system value="http://snomed.info"/>
+        <code value="428763004"/>
+        <display value="Bacteremia due to staphylococcus"/> 
+    </coding>
+ </codedDiagnosis>
+</DiagnosticReport>

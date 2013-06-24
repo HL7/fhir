@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
+ <patient><!--It entails Roel's careplan-->
+     <type value="Patient"/>
+     <reference value="patient/@f201"/>
+     <display value="Roel"/>
+ </patient>
+ <status value="planned"/><!--This careplan is "ended", but was never closed in the EHR, wherefore the status is "planned"-->
+ <period>
+      <start value="2013-03-11"/>
+      <end value="2013-03-13"/><!--Period is less than nine days because the careplan requires adjustments after evaluation-->
+ </period>
+ <modified value="2013-03-11"/>
+ <concern>
+     <type value="Problem"/>
+     <reference value="problem/@f204"/>
+     <display value="Roel's renal insufficiency"/>
+ </concern>
+ <participant>  
+  <role>
+     <coding>
+       <system value="http://snomed.info"/>
+       <code value="425268008"/>
+       <display value="Review of care plan"/>
+     </coding>
+  </role>
+  <member>  
+     <type value="Practitioner"/>
+     <reference value="practitioner/@f201"/>
+     <display value="Dokter Bonsing"/>
+  </member>
+ </participant>
+ <participant>  
+  <role>
+     <coding>
+       <system value="http://snomed.info"/>
+       <code value="229774002"/>
+       <display value="Carer"/>
+     </coding>
+  </role>
+  <member>
+     <type value="Practitioner"/>
+     <reference value="practitioner/@f204"/>
+     <display value="Nurse Carla Espinosa"/>
+  </member>
+ </participant>
+ <goal> 
+  <description value="Re-established renal function with at least healthy nutrients."/>
+  <status value="achieved"/>
+ </goal>
+ <activity><!--Potassium supplement-->
+  <category value="supply"/>
+  <code>
+     <coding>
+       <system value="http://snomed.info"/>
+       <code value="284093001"/>
+       <display value="Potassium supplement"/>
+     </coding>
+  </code>
+  <status value="completed"/>
+  <prohibited value="false"/>
+  <timingString value="daily"/>
+  <location>
+     <type value="Location"/>
+     <reference value="location/@f202"/>
+     <display value="LUMC's Nursing unit"/>
+  </location>
+  <!--TODO EK: Is <performer> niet volledig redundant als je <participant> beschouwt?-->
+  <product>
+     <type value="Substance"/>
+     <reference value="substance/@f203"/>
+     <display value="Potassium"/>
+  </product>
+  <dailyAmount>
+    <value value="80"/>
+    <units value="mmol"/>
+    <system value="http://snomed.info"/>
+    <code value="258718000"/>
+  </dailyAmount>
+ </activity>
+ <activity><!--Echo of the kidney-->
+  <category value="observation"/>
+  <code>
+     <coding>
+       <system value="http://snomed.info"/>
+       <code value="306005"/>
+       <display value="Echography of the kidney"/>
+     </coding>
+  </code>
+  <status value="completed"/>
+  <prohibited value="false"/>
+ </activity>
+</CarePlan>

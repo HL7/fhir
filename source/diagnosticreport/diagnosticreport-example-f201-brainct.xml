@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticreport.xsd">
+ <status value="final"/>
+ <issued value="2012-12-01T12:00:00+01:00"/>
+ <subject><!--It entails Roel's diagnostic report-->
+     <type value="Patient"/>
+     <reference value="patient/@f201"/>
+     <display value="Roel"/>
+ </subject>
+ <performer><!--The diagnostic report was issued by EMC-->
+     <type value="Organization"/>
+     <reference value="organization/@f203"/>
+     <display value="Erasmus MC"/>
+ </performer>
+ <!--No identifier or request details were available-->
+ <serviceCategory><!--The request was honored by the Department of Radiology-->
+    <coding>
+        <system value="http://snomed.info"/>
+        <code value="394914008"/>
+        <display value="Radiology"/> 
+    </coding>     
+ </serviceCategory>
+ <diagnosticTime value="2012-12-01T12:00:00+01:00"/>
+ <results>
+    <name>
+      <coding>
+        <system value="http://snomed.info"/>
+        <code value="429858000"/>
+        <display value="CT of head-neck"/>
+      </coding>
+    </name>
+ </results>
+ <!--The CT image was not available-->
+ <conclusion value="CT hersenen: groot tumoraal proces sphenoid/clivus."/>
+ <codedDiagnosis>
+     <coding>
+       <system value="http://snomed.info"/>
+       <code value="188340000"/>
+       <display value="Malignant craniopharyngeal tumor"/> 
+     </coding>
+ </codedDiagnosis>
+</DiagnosticReport>

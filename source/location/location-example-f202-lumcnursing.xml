@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@version June 2013 @author Melchior Ferdinand Pot-->
+<Location xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/location.xsd">
+ <name value="LUMC's skilled nursing facility"/><!--Fictive-->
+ <type>
+    <coding>
+       <system value="http://snomed.info"/>
+       <code value="45618002"/>
+       <display value="Skilled Nursing Facility"/>
+    </coding>
+ </type>
+ <telecom>
+    <system value="phone"/>
+    <value value="+31715262169"/>
+    <use value="work"/>
+ </telecom>    
+ <address>
+    <use value="work"/>
+    <line value="Albinusdreef 2 - C7"/>    
+    <city value="Leiden"/>
+    <zip value="2333ZA"/>
+    <country value="NLD"/><!--ISO 3166 3 letter code-->
+ </address>
+ <position>
+    <longitude value="4.478969"/>
+    <latitude value="52.165244"/>
+ </position>
+ <provider>
+     <type value="Organization"/>
+     <reference value="organization/@f201"/>
+     <display value="LUMC"/>
+ </provider>
+ <active value="true"/>
+</Location>
