@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
+<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
     <identifier>
-        <use value="official"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.36 -->
+        <use value="official"/>
+        <!-- urn:oid:2.16.840.1.113883.4.642.1.36 -->
         <system value="http://www.amc.nl/zorgportal/identifiers/careplans"/>
         <key value="CP2903"/>
     </identifier>
@@ -10,7 +12,8 @@
         <reference value="patient/@f001"/>
         <display value="P. van de Heuvel"/>
     </patient>
-    <status value="ended"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.36 -->
+    <status value="ended"/>
+    <!-- urn:oid:2.16.840.1.113883.4.642.1.36 -->
     <period>
         <start value="2011-06-26"/>
         <end value="2013-06-27"/>
@@ -18,24 +21,26 @@
     <modified value="2013-06-27T09:30:10+01:00"/>
     <concern>
         <type value="Condition"/>
-        <reference value="condition/@f201"/><!--TODO Correcte referentie-->
+        <reference value="condition/@f201"/>
+        <!--TODO Correcte referentie-->
         <display value="?????"/>
     </concern>
     <participant>
-        <role></role>
-        <member>    
+        <member>
             <type value="Practitioner"/>
             <reference value="practitioner/@f002"/>
             <display value="P. Voigt"/>
         </member>
     </participant>
-    <goal>    
+    <goal>
         <description value="recovery surgery on heart of patient"/>
-        <status value="achieved"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.38 -->
+        <status value="achieved"/>
+        <!-- urn:oid:2.16.840.1.113883.4.642.1.38 -->
         <notes value="goal accomplished without complications"/>
     </goal>
     <activity>
-        <category value="procedure"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.39 -->
+        <category value="procedure"/>
+        <!-- urn:oid:2.16.840.1.113883.4.642.1.39 -->
         <code>
             <coding>
                 <system value="http://snomed.info"/>
@@ -46,14 +51,10 @@
         <status value="completed"/>
         <prohibited value="true"/>
         <timingString value="2011-06-27T09:30:10+01:00"/>
-    <performer>
-        <type value="Practitioner"/>
-        <reference value="practitioner/@f002"/>
-        <display value="P. Voigt"/>
-    </performer>
-    <actionTaken></actionTaken>
+        <performer>
+            <type value="Practitioner"/>
+            <reference value="practitioner/@f002"/>
+            <display value="P. Voigt"/>
+        </performer>
     </activity>
 </CarePlan>
-
-    
-    

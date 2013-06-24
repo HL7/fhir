@@ -22,7 +22,6 @@
         <display value="?????"/>
     </concern>
     <participant>
-        <role></role>
         <member>    
             <type value="Practitioner"/>
             <reference value="practitioner/@f003"/>
@@ -51,6 +50,5 @@
             <reference value="practitioner/@f003"/>
             <display value="M.I.M. Versteegh"/>
         </performer>
-        <actionTaken></actionTaken>
     </activity>
 </CarePlan>
