@@ -77,7 +77,7 @@
             </coding>
         </name>
         <specimen>
-            <type value="Spicemen"/>
+            <type value="Specimen"/>
             <reference value="specimen/@f001"/>
             <display value="Blood sample"/>
         </specimen>
