@@ -49,7 +49,7 @@
   <status value="achieved"/>
  </goal>
  <activity><!--Potassium supplement-->
-  <category value="supply"/>
+  <category value="diet"/>
   <code>
      <coding>
        <system value="http://snomed.info"/>

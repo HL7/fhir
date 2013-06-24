@@ -65,6 +65,10 @@
             <code value="252275004"/>
             <display value="Haematology test"/>
         </coding>
+        <coding>
+            <system value="http://hl7.org/fhir/v2/vs/0074" />
+            <code value="HM" />
+        </coding>
     </serviceCategory>
 
     <diagnosticTime value="2013-04-02"/>
@@ -103,5 +107,4 @@
         </result>
     </results>
     <conclusion value="Core lab"/>
-    <codedDiagnosis/>
 </DiagnosticReport>
