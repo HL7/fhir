@@ -53,7 +53,7 @@
     </subject>
     <performer>
         <type value="Practitioner"/> 
-        <reference value="practitioner/@f006"/>
+        <reference value="practitioner/@f005"/>
         <display value="A. Veenema"/>
     </performer>
     <referenceRange>

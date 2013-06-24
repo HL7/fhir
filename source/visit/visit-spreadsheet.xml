@@ -1248,19 +1248,22 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">April 4th 2013</Data></Cell>
     <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">visit-example-f201-20130404.xml</Data></Cell>
+    <Cell><Data ss:Type="String">f201</Data></Cell>
+    <Cell><Data ss:Type="String">visit-example-f201-20130404.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">January 28th 2013</Data></Cell>
     <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">visit-example-f202-20130128.xml</Data></Cell>
+    <Cell><Data ss:Type="String">f202</Data></Cell>
+    <Cell><Data ss:Type="String">visit-example-f202-20130128.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">March 11th 2013</Data></Cell>
     <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">visit-example-f203-20130311.xml</Data></Cell>
+    <Cell><Data ss:Type="String">f203</Data></Cell>
+    <Cell><Data ss:Type="String">visit-example-f203-20130311.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
   </Table>
@@ -1276,7 +1279,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>4</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
