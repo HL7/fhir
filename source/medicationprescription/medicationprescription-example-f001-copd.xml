@@ -15,17 +15,17 @@
     </status>
     <patient> <!-- Linked to the resource patient who needs the medication -->
         <type value="Patient"/> 
-        <reference value="patient/F001"/>
+        <reference value="patient/@f001"/>
         <display value="P. van den Heuvel"/>         
     </patient>
     <prescriber> <!-- Linked to the practitioner who treats patient -->
         <type value="Practitioner"/> 
-        <reference value="practitioner/F001"/>
+        <reference value="practitioner/@f001"/>
         <display value="R.A. van den Berg"/>
     </prescriber>
     <encounter> <!-- Linked to a resource Visit between patient and practitioner-->
         <type value="Visit"/>
-        <reference value="visit/F001"/>
+        <reference value="visit/@f001"/>
         <display value="visit who leads to this priscription"/>
     </encounter>
     <reasonForPrescribing>
@@ -37,7 +37,7 @@
     </reasonForPrescribing>
     <medication> <!-- Linked to a RESOURCE Medication -->
         <type value="Medication"/>
-        <reference value="medication/F001"/>
+        <reference value="medication/@f001"/>
         <display value="prescribed medication"/>
     </medication> 
     <dosageInstructions>

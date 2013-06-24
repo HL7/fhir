@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Medication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:/C:/SVN/schema/medication.xsd">
+<Medication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd">
     <name value="Combivent"/>
     <code>
         <coding>
@@ -11,7 +11,7 @@
     <isBrand value="true"/>
     <manufacturer> <!-- Linked to a RESOURCE Organization -->
         <type value="Organisation"/> <!-- OID: 2.16.840.1.113883.4.642.1.4 -->
-        <reference value="organisation/F001"/>
+        <reference value="organisation/@f001"/><!--TODO Incorrecte verwijzing-->
         <display value="Eureco-Pharma B.V."/>
     </manufacturer>
     <kind value="product"/> 
@@ -26,7 +26,7 @@
         <ingredient>
             <item> <!-- Linked to a RESOURCE Medication -->
                 <type value="Medication"/> <!-- OID: 2.16.840.1.113883.4.642.1.4 -->
-                <reference value="medication/F00?"/> <!-- deze resource moet naar een Medicatie resource verwijzen -->
+                <reference value="medication/@f001"/> 
                 <display value="Combivent"/>
             </item> 
             <amount>
