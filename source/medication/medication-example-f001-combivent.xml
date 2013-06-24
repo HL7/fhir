@@ -9,11 +9,11 @@
         </coding>
     </code>
     <isBrand value="true"/>
-    <manufacturer> <!-- Linked to a RESOURCE Organization -->
-        <type value="Organisation"/> <!-- OID: 2.16.840.1.113883.4.642.1.4 -->
-        <reference value="organisation/@f001"/><!--TODO Incorrecte verwijzing-->
+<!--    <manufacturer>  Linked to a RESOURCE Organization 
+        <type value="Organisation"/>  OID: 2.16.840.1.113883.4.642.1.4 
+        <reference value="organisation/@f001"/>TODO Incorrecte verwijzing
         <display value="Eureco-Pharma B.V."/>
-    </manufacturer>
+    </manufacturer>-->
     <kind value="product"/> 
     <product>
         <form>
