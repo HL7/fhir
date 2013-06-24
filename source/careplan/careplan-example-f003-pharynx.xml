@@ -18,7 +18,7 @@
     <modified value="2013-06-27T09:30:10+01:00"/>
     <concern>
         <type value="Condition"/>
-        <reference value="condition/@f001"/>
+        <reference value="condition/@f201"/><!--TODO Correcte referentie-->
         <display value="?????"/>
     </concern>
     <participant>
