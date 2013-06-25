@@ -37,12 +37,13 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Xml.Linq;
 using System.Xml;
+using Hl7.Fhir.Support;
 
 namespace Hl7.Fhir.Serializers
 {
     public partial class FhirSerializer
     {
-        public static string SerializeResourceAsXml(Resource resource)
+        public static string SerializeResourceToXml(Resource resource)
         {
             //Note: this will always carry UTF-16 coding in the <?xml> header
             StringBuilder sb = new StringBuilder();
@@ -57,7 +58,7 @@ namespace Hl7.Fhir.Serializers
             return sb.ToString();
         }
 
-        public static byte[] SerializeResourceAsXmlBytes(Resource resource)
+        public static byte[] SerializeResourceToXmlBytes(Resource resource)
         {
             MemoryStream stream = new MemoryStream();
             XmlWriterSettings settings = new XmlWriterSettings { Encoding = new UTF8Encoding(false) };
@@ -71,7 +72,7 @@ namespace Hl7.Fhir.Serializers
             return stream.ToArray();
         }
 
-        public static string SerializeResourceAsJson(Resource resource)
+        public static string SerializeResourceToJson(Resource resource)
         {
             StringBuilder resultBuilder = new StringBuilder();
             StringWriter sw = new StringWriter(resultBuilder);
@@ -81,12 +82,12 @@ namespace Hl7.Fhir.Serializers
             return resultBuilder.ToString();
         }
 
-        public static byte[] SerializeResourceAsJsonBytes(Resource resource)
+        public static byte[] SerializeResourceToJsonBytes(Resource resource)
         {
             MemoryStream stream = new MemoryStream();
 
             var sw = new StreamWriter(stream, new UTF8Encoding(false));
-            sw.Write(SerializeResourceAsJson(resource));
+            sw.Write(SerializeResourceToJson(resource));
 
 #if !NETFX_CORE
             sw.Close();
@@ -105,8 +106,148 @@ namespace Hl7.Fhir.Serializers
             FhirSerializer.SerializeResource(resource, new XmlFhirWriter(writer));
         }
 
+        public static void SerializeBundle(Bundle bundle, JsonWriter writer)
+        {
+            BundleJson.WriteTo(bundle, writer);
+        }
 
-        public static string SerializeElementAsJson(Element elem)
+        public static void SerializeBundle(Bundle bundle, XmlWriter writer)
+        {
+            BundleXml.WriteTo(bundle, writer);
+        }
+
+        public static string SerializeBundleToJson(Bundle bundle)
+        {
+            if (bundle == null) throw new ArgumentException("Bundle cannot be null");
+
+            StringBuilder resultBuilder = new StringBuilder();
+            StringWriter sw = new StringWriter(resultBuilder);
+            JsonWriter jw = new JsonTextWriter(sw);
+            BundleJson.WriteTo(bundle, jw);
+            jw.Flush();
+            jw.Close();
+
+            return resultBuilder.ToString();
+        }
+
+        public static string SerializeBundleToXml(Bundle bundle)
+        {
+            if (bundle == null) throw new ArgumentException("Bundle cannot be null");
+
+            //Note: this will always carry UTF-16 coding in the <?xml> header
+            StringBuilder sb = new StringBuilder();
+            XmlWriter xw = XmlWriter.Create(sb);
+            BundleXml.WriteTo(bundle, xw);
+            xw.Flush();
+
+#if !NETFX_CORE
+            xw.Close();
+#endif
+
+            return sb.ToString();
+        }
+
+
+        public static byte[] SerializeBundleToJsonBytes(Bundle bundle)
+        {
+            if (bundle == null) throw new ArgumentException("Bundle cannot be null");
+
+            return Encoding.UTF8.GetBytes(SerializeBundleToJson(bundle));
+        }
+
+
+        public static byte[] SerializeBundleToXmlBytes(Bundle bundle)
+        {
+            if (bundle == null) throw new ArgumentException("Bundle cannot be null");
+
+            MemoryStream stream = new MemoryStream();
+            XmlWriterSettings settings = new XmlWriterSettings { Encoding = new UTF8Encoding(false) };
+            XmlWriter xw = XmlWriter.Create(stream, settings);
+            BundleXml.WriteTo(bundle, xw);
+            xw.Flush();
+
+#if !NETFX_CORE
+            xw.Close();
+#endif
+
+            return stream.ToArray();
+        }
+
+
+
+        public static void SerializeBundleEntry(Bundle entry , JsonWriter writer)
+        {
+            BundleJson.WriteTo(entry, writer);
+        }
+
+
+        public static void SerializeBundleEntry(Bundle entry, XmlWriter writer)
+        {
+            BundleXml.WriteTo(entry, writer);
+        }
+
+
+        public static string SerializeBundleEntryToJson(BundleEntry entry)
+        {
+            if (entry == null) throw new ArgumentException("Entry cannot be null");
+
+            StringBuilder resultBuilder = new StringBuilder();
+            StringWriter sw = new StringWriter(resultBuilder);
+            JsonWriter jw = new JsonTextWriter(sw);
+            BundleJson.WriteTo(entry, jw);
+            jw.Flush();
+            jw.Close();
+
+            return resultBuilder.ToString();
+        }
+
+
+        public static string SerializeBundleEntryToXml(BundleEntry entry)
+        {
+            if (entry == null) throw new ArgumentException("Entry cannot be null");
+
+            //Note: this will always carry UTF-16 coding in the <?xml> header
+            StringBuilder sb = new StringBuilder();
+            XmlWriter xw = XmlWriter.Create(sb);
+            BundleXml.WriteTo(entry, xw);
+            xw.Flush();
+
+#if !NETFX_CORE
+            xw.Close();
+#endif
+
+            return sb.ToString();
+        }
+
+
+        public static byte[] SerializeBundleEntryToJsonBytes(BundleEntry entry)
+        {
+            if (entry == null) throw new ArgumentException("Entry cannot be null");
+
+            return Encoding.UTF8.GetBytes(SerializeBundleEntryToJson(entry));
+        }
+
+        public static byte[] SerializeBundleEntryToXmlBytes(BundleEntry entry)
+        {
+            if (entry == null) throw new ArgumentException("Entry cannot be null");
+
+            MemoryStream stream = new MemoryStream();
+            XmlWriterSettings settings = new XmlWriterSettings { Encoding = new UTF8Encoding(false) };
+            XmlWriter xw = XmlWriter.Create(stream, settings);
+            BundleXml.WriteTo(entry, xw);
+            xw.Flush();
+
+#if !NETFX_CORE
+            xw.Close();
+#endif
+
+            return stream.ToArray();
+        }
+
+
+
+
+        internal static string SerializeElementAsJson(Element elem)
         {
             StringBuilder resultBuilder = new StringBuilder();
 
@@ -117,7 +258,7 @@ namespace Hl7.Fhir.Serializers
             return resultBuilder.ToString();
         }
 
-        public static string SerializeElementAsXml(Element elem, string name = null)
+        internal static string SerializeElementAsXml(Element elem, string name = null)
         {
             //Note: this will always carry UTF-16 coding in the <?xml> header
             StringBuilder sb = new StringBuilder();
@@ -136,20 +277,19 @@ namespace Hl7.Fhir.Serializers
             return sb.ToString();
         }
 
-        public static void SerializeElement(Element elem, JsonWriter writer)
+        internal static void SerializeElement(Element elem, JsonWriter writer)
         {
             FhirSerializer.SerializeElement(elem, new JsonFhirWriter(writer));
         }
 
-        public static void SerializeElement(Element elem, XmlWriter writer)
+        internal static void SerializeElement(Element elem, XmlWriter writer)
         {
             FhirSerializer.SerializeElement(elem, new XmlFhirWriter(writer));
         }
 
-
         public static XElement SerializeResourceAsXElement(Resource resource)
         {
-            return XElement.Parse(SerializeResourceAsXml(resource));
+            return XElement.Parse(SerializeResourceToXml(resource));
         }
     }
 }

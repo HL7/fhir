@@ -43,7 +43,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Hl7.Fhir.Support
 {
-    public static class BundleJson
+    internal static class BundleJson
     {
         private const string JATOM_VERSION = "version";
         private const string JATOM_DELETED = "deleted";
@@ -69,9 +69,6 @@ namespace Hl7.Fhir.Support
             if (attr == null) return null;
 
             return attr.Value<DateTimeOffset?>();
-
-            //return String.IsNullOrEmpty(value) ? (DateTimeOffset?)null :
-            //    Util.ParseIsoDateTime(value);
         }
 
         internal static Bundle Load(JsonReader reader, ErrorList errors)
@@ -194,7 +191,6 @@ namespace Hl7.Fhir.Support
                 if (result.Id != null) errors.DefaultContext = String.Format("Entry '{0}'", result.Id.ToString());
 
                 result.Links = getLinks(entry[BundleXml.XATOM_LINK]);
-
                 result.Tags = getTags(entry[BundleXml.XATOM_CATEGORY]);
 
                 if (result is DeletedEntry)
@@ -296,7 +292,7 @@ namespace Hl7.Fhir.Support
         }
 
 
-        public static void WriteTo(this Bundle bundle, JsonWriter writer)
+        public static void WriteTo(Bundle bundle, JsonWriter writer)
         {
             if (bundle == null) throw new ArgumentException("Bundle cannot be null");
 
@@ -325,30 +321,8 @@ namespace Hl7.Fhir.Support
         }
 
 
-        public static string ToJson(this Bundle bundle)
-        {
-            if (bundle == null) throw new ArgumentException("Bundle cannot be null");   
 
-            StringBuilder resultBuilder = new StringBuilder();
-            StringWriter sw = new StringWriter(resultBuilder);
-            JsonWriter jw = new JsonTextWriter(sw);
-            WriteTo(bundle, jw);
-            jw.Flush();
-            jw.Close();
-
-            return resultBuilder.ToString();
-        }
-
-
-        public static byte[] ToJsonBytes(this Bundle bundle)
-        {
-            if (bundle == null) throw new ArgumentException("Bundle cannot be null"); 
-
-            return Encoding.UTF8.GetBytes(bundle.ToJson());
-        }
-
-
-        public static void WriteTo(this BundleEntry entry, JsonWriter writer)
+        public static void WriteTo(BundleEntry entry, JsonWriter writer)
         {
             if (entry == null) throw new ArgumentException("Entry cannot be null");
 
@@ -357,29 +331,7 @@ namespace Hl7.Fhir.Support
             result.WriteTo(writer);
         }
 
-        public static string ToJson(this BundleEntry entry)
-        {
-            if (entry == null) throw new ArgumentException("Entry cannot be null");
-
-            StringBuilder resultBuilder = new StringBuilder();
-            StringWriter sw = new StringWriter(resultBuilder);
-            JsonWriter jw = new JsonTextWriter(sw);
-            WriteTo(entry, jw);
-            jw.Flush();
-            jw.Close();
-
-            return resultBuilder.ToString();
-        }
-
-
-        public static byte[] ToJsonBytes(this BundleEntry entry)
-        {
-            if (entry == null) throw new ArgumentException("Entry cannot be null");
-
-            return Encoding.UTF8.GetBytes(entry.ToJson());
-        }
-
-
+     
         private static JObject createEntry(BundleEntry entry)
         {
             if (entry is ResourceEntry)

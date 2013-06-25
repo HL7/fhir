@@ -165,8 +165,8 @@ namespace Hl7.Fhir.Client
             string collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
 
             byte[] data = PreferredFormat == ContentType.ResourceFormat.Xml ?
-                FhirSerializer.SerializeResourceAsXmlBytes(resource) :
-                FhirSerializer.SerializeResourceAsJsonBytes(resource);
+                FhirSerializer.SerializeResourceToXmlBytes(resource) :
+                FhirSerializer.SerializeResourceToJsonBytes(resource);
 
             var req = createRequest(ResourceLocation.Build(FhirEndpoint, collection, id), false);
 
@@ -229,8 +229,8 @@ namespace Hl7.Fhir.Client
             string collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
 
             byte[] data = PreferredFormat == ContentType.ResourceFormat.Xml ?
-                FhirSerializer.SerializeResourceAsXmlBytes(resource) :
-                FhirSerializer.SerializeResourceAsJsonBytes(resource);
+                FhirSerializer.SerializeResourceToXmlBytes(resource) :
+                FhirSerializer.SerializeResourceToJsonBytes(resource);
 
             var req = createRequest(new ResourceLocation(FhirEndpoint,collection), false);
             req.Method = "POST";
@@ -351,8 +351,8 @@ namespace Hl7.Fhir.Client
             string collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
 
             byte[] data = PreferredFormat == ContentType.ResourceFormat.Xml ?
-                FhirSerializer.SerializeResourceAsXmlBytes(resource) :
-                FhirSerializer.SerializeResourceAsJsonBytes(resource);
+                FhirSerializer.SerializeResourceToXmlBytes(resource) :
+                FhirSerializer.SerializeResourceToJsonBytes(resource);
 
             var req = createRequest(ResourceLocation.Build(FhirEndpoint, collection, id), false);
 
@@ -481,9 +481,9 @@ namespace Hl7.Fhir.Client
             string contentType = ContentType.BuildContentType(PreferredFormat, false);
 
             if (PreferredFormat == ContentType.ResourceFormat.Json)
-                data = batch.ToJsonBytes();
+                data = FhirSerializer.SerializeBundleToJsonBytes(batch);
             else if (PreferredFormat == ContentType.ResourceFormat.Xml)
-                data = batch.ToXmlBytes();
+                data = FhirSerializer.SerializeBundleToXmlBytes(batch);
             else
                 throw new ArgumentException("Cannot encode a batch into format " + PreferredFormat.ToString());
 
@@ -516,9 +516,9 @@ namespace Hl7.Fhir.Client
             string contentType = ContentType.BuildContentType(PreferredFormat, false);
 
             if (PreferredFormat == ContentType.ResourceFormat.Json)
-                data = bundle.ToJsonBytes();
+                data = FhirSerializer.SerializeBundleToJsonBytes(bundle);
             else if (PreferredFormat == ContentType.ResourceFormat.Xml)
-                data = bundle.ToXmlBytes();
+                data = FhirSerializer.SerializeBundleToXmlBytes(bundle);
             else
                 throw new ArgumentException("Cannot encode a batch into format " + PreferredFormat.ToString());
 
@@ -640,10 +640,10 @@ namespace Hl7.Fhir.Client
             switch (format)
             {
                 case ContentType.ResourceFormat.Json:
-                    result = Bundle.LoadFromJson(data, parseErrors);
+                    result = FhirParser.ParseBundleFromJson(data, parseErrors);
                     break;
                 case ContentType.ResourceFormat.Xml:
-                    result = Bundle.LoadFromXml(data, parseErrors);
+                    result = FhirParser.ParseBundleFromXml(data, parseErrors);
                     break;
                 default:
                     throw new FhirParseException("Cannot decode bundle: unrecognized content type");

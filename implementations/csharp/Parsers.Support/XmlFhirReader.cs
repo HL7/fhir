@@ -38,7 +38,7 @@ using Hl7.Fhir.Model;
 
 namespace Hl7.Fhir.Parsers
 {
-    public class XmlFhirReader : IFhirReader
+    internal class XmlFhirReader : IFhirReader
     {
         public const string XHTMLELEM = "div";
         public const string IDATTR = "id";

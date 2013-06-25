@@ -39,11 +39,11 @@ using Hl7.Fhir.Model;
 
 namespace Hl7.Fhir.Parsers
 {
-    public class JsonFhirReader : IFhirReader
+    internal class JsonFhirReader : IFhirReader
     {
-        private JsonTextReader jr;
+        private JsonReader jr;
 
-        public JsonFhirReader(JsonTextReader jr)
+        public JsonFhirReader(JsonReader jr)
         {
             jr.DateParseHandling = DateParseHandling.None;
             this.jr = jr;
@@ -160,12 +160,24 @@ namespace Hl7.Fhir.Parsers
 
         public int LineNumber
         {
-            get { return jr.LineNumber; }
+            get 
+            {
+                if (jr is JsonTextReader)
+                    return ((JsonTextReader)jr).LineNumber;
+                else
+                    return -1;
+            }
         }
 
         public int LinePosition
         {
-            get { return jr.LinePosition; }
+            get 
+            {
+                if (jr is JsonTextReader)
+                    return ((JsonTextReader)jr).LinePosition;
+                else
+                    return -1;
+            }
         }
 
         public void EnterArray()

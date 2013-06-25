@@ -30,6 +30,10 @@
         <code value="55607006"/>
         <display value="Problem"/> 
      </coding>
+     <coding>
+         <system value="http://hl7.org/fhir/condition-category"/>
+         <code value="finding"/>
+     </coding>
  </category>
  <status value="confirmed"/>
  <certainty>

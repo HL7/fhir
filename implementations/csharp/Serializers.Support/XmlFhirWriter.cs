@@ -38,7 +38,7 @@ using Hl7.Fhir.Model;
 
 namespace Hl7.Fhir.Serializers
 {
-    public class XmlFhirWriter : IFhirWriter
+    internal class XmlFhirWriter : IFhirWriter
     {
         private XmlWriter xw;
 

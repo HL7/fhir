@@ -36,7 +36,7 @@ using System.Text;
 
 namespace Hl7.Fhir.Parsers
 {
-    public interface IFhirReader
+    internal interface IFhirReader
     {
         void MoveToContent();
 
@@ -44,10 +44,6 @@ namespace Hl7.Fhir.Parsers
 
         void EnterElement();
         bool HasMoreElements();
-    //    bool IsAtFhirElement();
-    //    bool IsAtXhtmlElement();
-    //    bool IsAtPrimitiveValueElement();
-    //    bool IsAtRefIdElement();
         void LeaveElement();
 
         void EnterArray();
@@ -56,12 +52,7 @@ namespace Hl7.Fhir.Parsers
 
         void SkipSubElementsFor(string elementName);
 
-     //   string ReadXhtmlContents();
         string ReadPrimitiveContents(Type elementType);
-      //  string ReadRefIdContents();
-
-    //    string ReadBinaryBase64TextContents();
-    //    string ReadBinaryContentType();
 
         int LineNumber { get; }
         int LinePosition { get; }

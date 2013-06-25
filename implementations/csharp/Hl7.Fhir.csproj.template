@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model.Support\Binary.cs" />
+    <Compile Include="Model.Support\Bundle.cs" />
     <Compile Include="Model.Support\FhirDateTime.cs" />
     <Compile Include="Model.Support\Id.cs" />
     <Compile Include="Model.Support\IdRef.cs" />
@@ -68,6 +69,7 @@
 	<Compile Include="Model.Support\ModelInfo.cs" />
 	<Compile Include="Model.Support\Initializers.cs" />
 	<Compile Include="Model.Support\ResourceReference.cs" />
+	<Compile Include="Model.Support\Tag.cs" />
     <Compile Include="Parsers.Support\ParserUtils.cs" />
 	<Compile Include="Parsers.Support\CodeParser.cs" />
     <Compile Include="Parsers.Support\IFhirReader.cs" />
@@ -80,17 +82,14 @@
     <Compile Include="Serializers.Support\XmlFhirWriter.cs" />
     <Compile Include="Serializers.Support\SerializationUtil.cs" />
 	<Compile Include="Serializers.Support\FhirSerializer.cs" />
-    <Compile Include="Support\Bundle.cs" />
     <Compile Include="Support\BundleJson.cs" />
 	<Compile Include="Support\BundleXml.cs" />
 	<Compile Include="Support\ContentType.cs" />
-	<Compile Include="Support\ElementContent.cs" />
     <Compile Include="Support\ErrorList.cs" />
 	<Compile Include="Support\FhirParseException.cs" />
 	<Compile Include="Support\Inspection.cs" />
 	<Compile Include="Support\ManagedEntryList.cs" />
 	<Compile Include="Support\ResourceLocation.cs" />
-	<Compile Include="Support\Tag.cs" />
 	<Compile Include="Support\UriLinkList.cs" />
     <Compile Include="Support\Util.cs" />
 	<Compile Include="Client\FhirClient.cs" />

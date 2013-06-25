@@ -1,62 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
- <subject><!--It entails Roel's problem-->
-     <type value="Patient"/>
-     <reference value="patient/@f201"/>
-     <display value="Roel"/>
- </subject>
- <!--It was not established during a visit, but through a diagnostic report of december 2012 in Erasmus-->
- <dateAsserted value="2012-12-01"/><!--The problem was asserted at December first-->
- <code><!--The problem is a malignant tumor-->
-    <coding>
-       <system value="http://snomed.info"/>
-       <code value="363346000"/>
-       <display value="Malignant tumor"/> 
-    </coding>
- </code>
- <category>
-    <coding>
-        <system value="http://snomed.info"/>
-        <code value="55607006"/>
-        <display value="Problem"/> 
-    </coding>
- </category>
- <status value="confirmed"/>
- <certainty>
-    <coding>
-        <system value="http://snomed.info"/>
-        <code value="17162000"/>
-        <display value="Certain"/> 
-    </coding>
- </certainty>
- <severity>
-    <coding>
-        <system value="http://snomed.info"/>
-        <code value="24484000"/>
-        <display value="Severe"/> 
-    </coding>
- </severity>
- <onsetAge> 
-    <value value="52"/>
-    <units value="years" />
-    <system value="http://snomed.info" />
-    <code value="258707000" />
- </onsetAge>
- <!--No remission means no <rebatement>-->
- <evidence><!--Problem is confirmed in diagnostic report-->
-  <details>
-     <type value="DiagnosticReport"/>
-     <reference value="diagnosticreport/@f201"/>
-     <display value="Erasmus' diagnostic report of Roel's tumor"/>
-  </details>
- </evidence>
- <location><!--Head and neck malignancy-->
-  <code>
-    <coding>
-       <system value="http://snomed.info"/>
-       <code value="361355005"/>
-       <display value="Head and neck"/> 
-    </coding>
-  </code>
- </location>
+<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
+   <subject>
+      <!--It entails Roel's problem-->
+      <type value="Patient"/>
+      <reference value="patient/@f201"/>
+      <display value="Roel"/>
+   </subject>
+   <!--It was not established during a visit, but through a diagnostic report of december 2012-->
+   <dateAsserted value="2012-12-01"/>
+   <!--The problem was asserted at December first-->
+   <code>
+      <!--The problem is a malignant tumor-->
+      <coding>
+         <system value="http://snomed.info"/>
+         <code value="363346000"/>
+         <display value="Malignant tumor"/>
+      </coding>
+   </code>
+   <category>
+      <coding>
+         <system value="http://hl7.org/fhir/condition-category"/>
+         <code value="diagnose"/>
+      </coding>
+   </category>
+   <status value="confirmed"/>
+   <certainty>
+      <coding>
+         <system value="http://snomed.info"/>
+         <code value="17162000"/>
+         <display value="Certain"/>
+      </coding>
+   </certainty>
+   <severity>
+      <coding>
+         <system value="http://snomed.info"/>
+         <code value="24484000"/>
+         <display value="Severe"/>
+      </coding>
+   </severity>
+   <onsetAge>
+      <value value="52"/>
+      <units value="years"/>
+      <system value="http://snomed.info"/>
+      <code value="258707000"/>
+   </onsetAge>
+   <!--No remission means no <rebatement>-->
+   <evidence>
+      <!--Problem is confirmed in diagnostic report-->
+      <details>
+         <type value="DiagnosticReport"/>
+         <reference value="diagnosticreport/@f201"/>
+         <display value="Erasmus' diagnostic report of Roel's tumor"/>
+      </details>
+   </evidence>
+   <location>
+      <!--Head and neck malignancy-->
+      <code>
+         <coding>
+            <system value="http://snomed.info"/>
+            <code value="361355005"/>
+            <display value="Head and neck"/>
+         </coding>
+      </code>
+   </location>
 </Condition>

@@ -61,14 +61,7 @@ namespace Hl7.Fhir.Support
         public const string HISTORY_PARAM_SINCE = "_since";
         public const string HISTORY_PARAM_COUNT = SEARCH_PARAM_COUNT;
 
-        public static string Capitalize(string s)
-        {
-            if (string.IsNullOrEmpty(s)) return string.Empty;
-
-            char[] a = s.ToCharArray();
-            a[0] = char.ToUpper(a[0]);
-            return new string(a);
-        }
+      
 
         public static bool UriHasValue(Uri u)
         {

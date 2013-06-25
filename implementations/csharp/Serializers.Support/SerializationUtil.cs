@@ -48,7 +48,16 @@ namespace Hl7.Fhir.Serializers
             if (typeName == "ResourceReference")
                 typeName = "Resource";
 
-            return elementName + Support.Util.Capitalize(typeName);
+            return elementName + Capitalize(typeName);
+        }
+
+        public static string Capitalize(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return string.Empty;
+
+            char[] a = s.ToCharArray();
+            a[0] = char.ToUpper(a[0]);
+            return new string(a);
         }
 
         public static void SerializeContainedResource(Resource value, string name, IFhirWriter writer)
@@ -59,7 +68,7 @@ namespace Hl7.Fhir.Serializers
         }
     }
 
-    public enum XmlSerializationHint
+    internal enum XmlSerializationHint
     {
         Element,
         Attribute,

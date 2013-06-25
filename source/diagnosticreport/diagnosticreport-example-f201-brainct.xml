@@ -20,7 +20,7 @@
         <display value="Radiology"/> 
     </coding>     
      <coding>
-         <system value="http://hl7.org/fhir/v2/vs/0074"/>
+         <system value="http://hl7.org/fhir/v2/0074"/>
          <code value="RAD" />
      </coding>
  </serviceCategory>

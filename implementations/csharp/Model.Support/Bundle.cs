@@ -38,8 +38,9 @@ using System.Xml.Linq;
 using Hl7.Fhir.Parsers;
 using System.IO;
 using Newtonsoft.Json;
+using Hl7.Fhir.Support;
 
-namespace Hl7.Fhir.Support
+namespace Hl7.Fhir.Model
 {
     public class Bundle
     {
@@ -86,27 +87,6 @@ namespace Hl7.Fhir.Support
 
             return errors;
         }
-
-
-        public static Bundle LoadFromJson(JsonReader reader, ErrorList errors)
-        {
-            return BundleJson.Load(reader, errors);
-        }
-
-        public static Bundle LoadFromJson(string json, ErrorList errors)
-        {
-            return BundleJson.Load(json, errors);
-        }
-
-        public static Bundle LoadFromXml(XmlReader reader, ErrorList errors)
-        {
-            return BundleXml.Load(reader, errors);
-        }
-
-        public static Bundle LoadFromXml(string xml, ErrorList errors)
-        {
-            return BundleXml.Load(xml, errors);
-        }
     }
 
 
@@ -151,32 +131,14 @@ namespace Hl7.Fhir.Support
             if (Links.FirstLink != null || Links.LastLink != null || Links.PreviousLink != null || Links.NextLink != null)
                 errors.Add("Paging links can only be used on feeds, not entries");
 
-            errors.AddRange(Tags.Validate());
+            if( Tags != null )
+                errors.AddRange(Tags.Validate());
 
             return errors;
         }
 
         public abstract string Summary { get; }
 
-        public static BundleEntry LoadFromJson(JsonReader reader, ErrorList errors)
-        {
-            return BundleJson.LoadEntry(reader, errors);
-        }
-
-        public static BundleEntry LoadFromJson(string json, ErrorList errors)
-        {
-            return BundleJson.LoadEntry(json, errors);
-        }
-
-        public static BundleEntry LoadFromXml(XmlReader reader, ErrorList errors)
-        {
-            return BundleXml.LoadEntry(reader, errors);
-        }
-
-        public static BundleEntry LoadFromXml(string xml, ErrorList errors)
-        {
-            return BundleXml.LoadEntry(xml, errors);
-        }
     }
 
 

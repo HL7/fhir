@@ -29,6 +29,10 @@
         <code value="55607006"/>
         <display value="Problem"/> 
      </coding>
+     <coding>
+         <system value="http://hl7.org/fhir/condition-category"/>
+         <code value="condition"/>
+     </coding>
  </category>
  <status value="working"/><!--The patient is being treated on the basis that this is the problem, but it is still not confirmed (<certainty> is therewith also working)-->
  <severity>

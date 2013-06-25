@@ -54,34 +54,74 @@ namespace Hl7.Fhir.Parsers
             return ParseResource(reader, errors);
         }
 
-        public static Element ParseElementFromXml(string xml, ErrorList errors)
-        {
-            var reader = Util.XmlReaderFromString(xml);
-            return ParseElement(reader, errors);
-        }
-
-        public static Element ParseElementFromJson(string json, ErrorList errors)
-        {
-            var reader = Util.JsonReaderFromString(json);
-            return ParseElement(reader, errors);
-        }
-
         public static Resource ParseResource(XmlReader reader, ErrorList errors)
         {
             return ParseResource(new XmlFhirReader(reader), errors);
         }
 
-        public static Resource ParseResource(JsonTextReader reader, ErrorList errors)
+        public static Resource ParseResource(JsonReader reader, ErrorList errors)
         {
             return ParseResource(new JsonFhirReader(reader), errors);
         }
 
-        public static Element ParseElement(XmlReader reader, ErrorList errors)
+        public static BundleEntry ParseBundleEntry(JsonReader reader, ErrorList errors)
+        {
+            return BundleJson.LoadEntry(reader, errors);
+        }
+
+        public static BundleEntry ParseBundleEntryFromJson(string json, ErrorList errors)
+        {
+            return BundleJson.LoadEntry(json, errors);
+        }
+
+        public static BundleEntry ParseBundleEntry(XmlReader reader, ErrorList errors)
+        {
+            return BundleXml.LoadEntry(reader, errors);
+        }
+
+        public static BundleEntry ParseBundleEntryFromXml(string xml, ErrorList errors)
+        {
+            return BundleXml.LoadEntry(xml, errors);
+        }
+
+        public static Bundle ParseBundle(JsonReader reader, ErrorList errors)
+        {
+            return BundleJson.Load(reader, errors);
+        }
+
+        public static Bundle ParseBundleFromJson(string json, ErrorList errors)
+        {
+            return BundleJson.Load(json, errors);
+        }
+
+        public static Bundle ParseBundle(XmlReader reader, ErrorList errors)
+        {
+            return BundleXml.Load(reader, errors);
+        }
+
+        public static Bundle ParseBundleFromXml(string xml, ErrorList errors)
+        {
+            return BundleXml.Load(xml, errors);
+        }
+
+        internal static Element ParseElementFromXml(string xml, ErrorList errors)
+        {
+            var reader = Util.XmlReaderFromString(xml);
+            return ParseElement(reader, errors);
+        }
+
+        internal static Element ParseElementFromJson(string json, ErrorList errors)
+        {
+            var reader = Util.JsonReaderFromString(json);
+            return ParseElement(reader, errors);
+        }
+
+        internal static Element ParseElement(XmlReader reader, ErrorList errors)
         {
             return ParseElement(new XmlFhirReader(reader), errors);
         }
 
-        public static Element ParseElement(JsonTextReader reader, ErrorList errors)
+        internal static Element ParseElement(JsonTextReader reader, ErrorList errors)
         {
             return ParseElement(new JsonFhirReader(reader), errors);
         }

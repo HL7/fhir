@@ -38,8 +38,9 @@ using System.Xml.Linq;
 using Hl7.Fhir.Parsers;
 using System.IO;
 using Newtonsoft.Json;
+using Hl7.Fhir.Support;
 
-namespace Hl7.Fhir.Support
+namespace Hl7.Fhir.Model
 {
     public class Tag
     {

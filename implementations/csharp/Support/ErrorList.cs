@@ -78,7 +78,7 @@ namespace Hl7.Fhir.Support
 
         public string DefaultContext { get; set; }
 
-        public void Add(string message, string context, IFhirReader reader)
+        internal void Add(string message, string context, IFhirReader reader)
         {         
             this.Add(message, context, reader.LineNumber, reader.LinePosition);
         }
@@ -99,7 +99,7 @@ namespace Hl7.Fhir.Support
             this.Add(message, DefaultContext, null, null);
         }
 
-        public void Add(string message, IFhirReader reader)
+        internal void Add(string message, IFhirReader reader)
         {
             this.Add(message, DefaultContext, reader);
         }

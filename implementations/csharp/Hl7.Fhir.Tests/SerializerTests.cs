@@ -24,18 +24,18 @@ namespace Hl7.Fhir.Tests
         {
             Bundle b = new Bundle();
 
-            var data = b.ToJsonBytes();
+            var data = FhirSerializer.SerializeBundleToJsonBytes(b);
             Assert.IsFalse(data[0] == Encoding.UTF8.GetPreamble()[0]);
 
-            data = b.ToXmlBytes();
+            data = FhirSerializer.SerializeBundleToXmlBytes(b);
             Assert.IsFalse(data[0] == Encoding.UTF8.GetPreamble()[0]);
 
             Patient p = new Patient();
 
-            data = FhirSerializer.SerializeResourceAsJsonBytes(p);
+            data = FhirSerializer.SerializeResourceToJsonBytes(p);
             Assert.IsFalse(data[0] == Encoding.UTF8.GetPreamble()[0]);
 
-            data = FhirSerializer.SerializeResourceAsXmlBytes(p);
+            data = FhirSerializer.SerializeResourceToXmlBytes(p);
             Assert.IsFalse(data[0] == Encoding.UTF8.GetPreamble()[0]);
         }
 
@@ -166,7 +166,7 @@ namespace Hl7.Fhir.Tests
             ErrorList list = new ErrorList();
             Patient p = (Patient)FhirParser.ParseResourceFromXml(xmlString, list);
             p.Details.Name[0].Given[0].Value = "Rex";
-            string json = FhirSerializer.SerializeResourceAsJson(p);
+            string json = FhirSerializer.SerializeResourceToJson(p);
 
             Debug.WriteLine(json);
         }
@@ -211,7 +211,7 @@ namespace Hl7.Fhir.Tests
                         @"<extension><url value=""http://hl7.org/fhir/profile/@iso-21090#name-qualifier"" /><valueCode value=""VV"" /></extension>" +
                     @"</family><family value=""Vlies"" /><given value=""Wouter"" /><given value=""Gert"" /></name>" +
                     @"<birthDate value=""1972-11-30"" /></details>" +
-                @"</Patient>", FhirSerializer.SerializeResourceAsXml(p));
+                @"</Patient>", FhirSerializer.SerializeResourceToXml(p));
 
             Assert.AreEqual(@"{""Patient"":{""_id"":""Ab4""," +
                  @"""text"":{""status"":{""value"":""generated""},""div"":""<div xmlns='http://www.w3.org/1999/xhtml'>" +
@@ -221,7 +221,7 @@ namespace Hl7.Fhir.Tests
                 @"""details"":{""name"":[{""family"":[{""value"":""van der""," +
                     @"""extension"":[{""url"":{""value"":""http://hl7.org/fhir/profile/@iso-21090#name-qualifier""},""valueCode"":{""value"":""VV""}}]}," +
                     @"{""value"":""Vlies""}],""given"":[{""value"":""Wouter""},{""value"":""Gert""}]}],""birthDate"":{""value"":""1972-11-30""}}" +
-                @"}}", FhirSerializer.SerializeResourceAsJson(p));
+                @"}}", FhirSerializer.SerializeResourceToJson(p));
         }
     }
 }

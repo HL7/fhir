@@ -16,11 +16,10 @@
      </coding>
  </valueCodeableConcept>
  <interpretation>
-    <coding>
-        <system value="http://snomed.info"/>
-        <code value="428763004"/>
-        <display value="Bacteremia due to staphylococcus"/> 
-    </coding>
+     <coding>
+         <system value="http://hl7.org/fhir/v2/0078" />
+         <code value="POS" />
+     </coding>
  </interpretation>
  <issued value="2013-03-11T10:28:00+01:00"/>
  <status value="final"/>

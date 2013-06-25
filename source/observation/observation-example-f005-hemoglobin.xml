@@ -15,7 +15,7 @@
     </valueQuantity>
     <interpretation>
         <coding>
-            <system value="urn:oid:2.16.840.1.113883.4.642.2.117"/>
+            <system value="http://hl7.org/fhir/v2/0078"/>
             <code value="L"/>
             <display value="low"/>
         </coding>

@@ -37,7 +37,7 @@ using Hl7.Fhir.Model;
 
 namespace Hl7.Fhir.Serializers
 {
-    public class JsonFhirWriter : IFhirWriter
+    internal class JsonFhirWriter : IFhirWriter
     {
         private JsonWriter jw;
         

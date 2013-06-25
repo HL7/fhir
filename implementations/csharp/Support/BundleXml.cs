@@ -41,7 +41,7 @@ using Hl7.Fhir.Serializers;
 
 namespace Hl7.Fhir.Support
 {
-    public static class BundleXml
+    internal static class BundleXml
     {
         public const string XATOM_FEED = "feed";
         public const string XATOM_DELETED_ENTRY = "deleted-entry";
@@ -209,68 +209,43 @@ namespace Hl7.Fhir.Support
 
         private static BundleEntry loadEntry(XElement entry, ErrorList errors)
         {
+            BundleEntry result;
 
-
-            if (entry.Name == XATOMNS + XATOM_ENTRY)
-                return (BundleEntry)loadResourceEntry(entry, errors);
-            else if (entry.Name == XTOMBSTONE + XATOM_DELETED_ENTRY)
-                return (BundleEntry)loadDeletedEntry(entry, errors);
-            else
-                throw new ArgumentException("Encountered unknown entry " + entry.Name.ToString());
-        }
-
-        private static DeletedEntry loadDeletedEntry(XElement entry, ErrorList errors)
-        {
-            DeletedEntry de = new DeletedEntry();
-            errors.DefaultContext = "A deleted entry";
+            errors.DefaultContext = "An atom entry";
 
             try
             {
-                de.Id = uriValueOrNull(entry.Attribute(XATOM_DELETED_REF));
-                if (de.Id != null) errors.DefaultContext = String.Format("Entry '{0}'", de.Id.ToString());
+                if (entry.Name == XTOMBSTONE + XATOM_DELETED_ENTRY)
+                    result = new DeletedEntry();
+                else
+                    result = new ResourceEntry();
 
-                de.When = instantOrNull(entry.Attribute(XATOM_DELETED_WHEN));
-
-                de.Links = getLinks(entry.Elements(XATOMNS + XATOM_LINK));
-            }
-            catch (Exception exc)
-            {
-                errors.Add("Exception while reading deleted-entry: " + exc.Message);
-                return null;
-            }
-            finally
-            {
-                errors.DefaultContext = null;
-            }
-
-            return de;
-        }
-
-
-        private static ResourceEntry loadResourceEntry(XElement entry, ErrorList errors)
-        {
-            ResourceEntry result = new ResourceEntry();
-            errors.DefaultContext = "A content entry";
-
-            try
-            {
-                result.Id = uriValueOrNull(entry.Element(XATOMNS + XATOM_ID));
+                result.Id = uriValueOrNull(entry.Attribute(XATOM_DELETED_REF));
                 if (result.Id != null) errors.DefaultContext = String.Format("Entry '{0}'", result.Id.ToString());
 
-                result.Title = stringValueOrNull(entry.Element(XATOMNS + XATOM_TITLE));
-                result.LastUpdated = instantOrNull(entry.Element(XATOMNS + XATOM_UPDATED));
-                result.Published = instantOrNull(entry.Element(XATOMNS + XATOM_PUBLISHED));
-                result.EntryAuthorName = entry.Elements(XATOMNS + XATOM_AUTHOR).Count() == 0 ? null :
-                            stringValueOrNull(entry.Element(XATOMNS + XATOM_AUTHOR)
-                                .Element(XATOMNS + XATOM_AUTH_NAME));
-                result.EntryAuthorUri = entry.Elements(XATOMNS + XATOM_AUTHOR).Count() == 0 ? null :
-                            stringValueOrNull(entry.Element(XATOMNS + XATOM_AUTHOR)
-                                .Element(XATOMNS + XATOM_AUTH_URI));
                 result.Links = getLinks(entry.Elements(XATOMNS + XATOM_LINK));
+                result.Tags = getTags(entry.Elements(XATOMNS + XATOM_CATEGORY));
 
-                XElement content = entry.Element(XATOMNS + XATOM_CONTENT);
-                if (content != null)
-                    result.Content = getContents(content, errors);
+                if (result is DeletedEntry)
+                {
+                    ((DeletedEntry)result).When = instantOrNull(entry.Attribute(XATOM_DELETED_WHEN));
+                }
+                else
+                {
+                    ResourceEntry re = (ResourceEntry)result;
+                    re.Title = stringValueOrNull(entry.Element(XATOMNS + XATOM_TITLE));
+                    re.LastUpdated = instantOrNull(entry.Element(XATOMNS + XATOM_UPDATED));
+                    re.Published = instantOrNull(entry.Element(XATOMNS + XATOM_PUBLISHED));
+                    re.EntryAuthorName = entry.Elements(XATOMNS + XATOM_AUTHOR).Count() == 0 ? null :
+                                stringValueOrNull(entry.Element(XATOMNS + XATOM_AUTHOR)
+                                    .Element(XATOMNS + XATOM_AUTH_NAME));
+                    re.EntryAuthorUri = entry.Elements(XATOMNS + XATOM_AUTHOR).Count() == 0 ? null :
+                                stringValueOrNull(entry.Element(XATOMNS + XATOM_AUTHOR)
+                                    .Element(XATOMNS + XATOM_AUTH_URI));
+
+                    XElement content = entry.Element(XATOMNS + XATOM_CONTENT);
+                    if (content != null) re.Content = getContents(content, errors);
+                }
             }
             catch (Exception exc)
             {
@@ -285,6 +260,30 @@ namespace Hl7.Fhir.Support
             return result;
         }
 
+
+        private static TagList getTags(IEnumerable<XElement> tags)
+        {
+            var result = new TagList();
+
+            if (tags != null)
+            {
+                foreach (var tag in tags)
+                {
+                    var scheme = stringValueOrNull(tag.Attribute(BundleXml.XATOM_CAT_SCHEME));
+
+                    if (scheme == Tag.TAG_SCHEME)
+                    {
+                        result.Add(new Tag
+                        {
+                            Uri = uriValueOrNull(tag.Attribute(BundleXml.XATOM_CAT_TERM)),
+                            Label = stringValueOrNull(tag.Attribute(BundleXml.XATOM_CAT_LABEL))
+                        });
+                    }
+                }
+            }
+
+            return result;
+        }
 
         private static UriLinkList getLinks(IEnumerable<XElement> links)
         {
@@ -314,7 +313,8 @@ namespace Hl7.Fhir.Support
             return FhirParser.ParseResourceFromXml(content.FirstNode.ToString(), errors);
         }
 
-        public static void WriteTo(this Bundle bundle, XmlWriter writer)
+
+        public static void WriteTo(Bundle bundle, XmlWriter writer)
         {
             if (bundle == null) throw new ArgumentException("Bundle cannot be null");
 
@@ -337,42 +337,8 @@ namespace Hl7.Fhir.Support
             result.WriteTo(writer);
         }
 
-        public static string ToXml(this Bundle bundle)
-        {
-            if (bundle == null) throw new ArgumentException("Bundle cannot be null");
-
-            //Note: this will always carry UTF-16 coding in the <?xml> header
-            StringBuilder sb = new StringBuilder();
-            XmlWriter xw = XmlWriter.Create(sb);
-            WriteTo(bundle, xw);
-            xw.Flush();
-
-#if !NETFX_CORE
-            xw.Close();
-#endif
-
-            return sb.ToString();
-        }
-
-
-        public static byte[] ToXmlBytes(this Bundle bundle)
-        {
-            if (bundle == null) throw new ArgumentException("Bundle cannot be null");
-
-            MemoryStream stream = new MemoryStream();
-            XmlWriterSettings settings = new XmlWriterSettings { Encoding = new UTF8Encoding(false) };
-            XmlWriter xw = XmlWriter.Create(stream, settings);
-            WriteTo(bundle, xw);
-            xw.Flush();
-
-#if !NETFX_CORE
-            xw.Close();
-#endif
-
-            return stream.ToArray();
-        }
-
-        public static void WriteTo(this BundleEntry entry, XmlWriter writer)
+     
+        public static void WriteTo(BundleEntry entry, XmlWriter writer)
         {
             if (entry == null) throw new ArgumentException("Entry cannot be null");
 
@@ -382,41 +348,7 @@ namespace Hl7.Fhir.Support
             doc.WriteTo(writer);
         }
 
-        public static string ToXml(this BundleEntry entry)
-        {
-            if (entry == null) throw new ArgumentException("Entry cannot be null");
-
-            //Note: this will always carry UTF-16 coding in the <?xml> header
-            StringBuilder sb = new StringBuilder();
-            XmlWriter xw = XmlWriter.Create(sb);
-            WriteTo(entry, xw);
-            xw.Flush();
-
-#if !NETFX_CORE
-            xw.Close();
-#endif
-
-            return sb.ToString();
-        }
-
-
-        public static byte[] ToXmlBytes(this BundleEntry entry)
-        {
-            if (entry == null) throw new ArgumentException("Entry cannot be null");
-
-            MemoryStream stream = new MemoryStream();
-            XmlWriterSettings settings = new XmlWriterSettings { Encoding = new UTF8Encoding(false) };
-            XmlWriter xw = XmlWriter.Create(stream, settings);
-            WriteTo(entry, xw);
-            xw.Flush();
-
-#if !NETFX_CORE
-            xw.Close();
-#endif
-
-            return stream.ToArray();
-        }
-
+      
 
         private static XElement createEntry(BundleEntry entry)
         {

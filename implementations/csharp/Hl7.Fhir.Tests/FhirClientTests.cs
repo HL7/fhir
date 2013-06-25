@@ -77,8 +77,8 @@ namespace Hl7.Fhir.Tests
 
             Patient eve2 = client.VRead<Patient>("1", version);
             Assert.IsNotNull(eve2);
-            Assert.AreEqual(FhirSerializer.SerializeResourceAsJson(eve),
-                            FhirSerializer.SerializeResourceAsJson(eve2));
+            Assert.AreEqual(FhirSerializer.SerializeResourceToJson(eve),
+                            FhirSerializer.SerializeResourceToJson(eve2));
         }
 
         private string lastNewId;

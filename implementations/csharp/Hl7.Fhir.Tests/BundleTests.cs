@@ -11,6 +11,7 @@ using Hl7.Fhir.Serializers;
 using System.Text.RegularExpressions;
 using System.Xml;
 using Hl7.Fhir.Model;
+using Hl7.Fhir.Parsers;
 
 namespace Hl7.Fhir.Tests
 {
@@ -21,7 +22,7 @@ namespace Hl7.Fhir.Tests
         public void TestSerializeBundleXml()
         {
             Bundle b = createTestBundle();
-            var actual = b.ToXml();
+            var actual = FhirSerializer.SerializeBundleToXml(b);
 
             File.WriteAllText("c:\\temp\\bundleE.xml", testBundleAsXml);
             File.WriteAllText("c:\\temp\\bundleA.xml", actual);
@@ -33,7 +34,7 @@ namespace Hl7.Fhir.Tests
         public void TestSerializeResourceEntryXml()
         {
             var re = createTestResourceEntry();
-            var actual = re.ToXml();
+            var actual = FhirSerializer.SerializeBundleEntryToXml(re);
             actual = cleanupXml(actual);
 
             File.WriteAllText("c:\\temp\\rentryE.xml", testResourceEntryAsXml);
@@ -46,7 +47,7 @@ namespace Hl7.Fhir.Tests
         public void TestSerializeDeletedEntryXml()
         {
             var re = createTestDeletedEntry();
-            var actual = re.ToXml();
+            var actual = FhirSerializer.SerializeBundleEntryToXml(re);
             actual = cleanupXml(actual);
 
             File.WriteAllText("c:\\temp\\dentryE.xml", testDeletedEntryAsXml);
@@ -59,7 +60,7 @@ namespace Hl7.Fhir.Tests
         public void TestSerializeBinaryEntryXml()
         {
             var re = createTestBinaryEntry();
-            var actual = re.ToXml();
+            var actual = FhirSerializer.SerializeBundleEntryToXml(re);
             actual = cleanupXml(actual);
 
             File.WriteAllText("c:\\temp\\bentryE.xml", testBinaryEntryAsXml);
@@ -72,7 +73,7 @@ namespace Hl7.Fhir.Tests
         public void TestSerializeResourceEntryJson()
         {
             var re = createTestResourceEntry();
-            var actual = re.ToJson();
+            var actual = FhirSerializer.SerializeBundleEntryToJson(re);
 
             File.WriteAllText("c:\\temp\\rentryE.json", testResourceEntryAsJson);
             File.WriteAllText("c:\\temp\\rentryA.json", actual);
@@ -84,7 +85,7 @@ namespace Hl7.Fhir.Tests
         public void TestSerializeDeletedEntryJson()
         {
             var re = createTestDeletedEntry();
-            var actual = re.ToJson();
+            var actual = FhirSerializer.SerializeBundleEntryToJson(re);
 
             File.WriteAllText("c:\\temp\\dentryE.json", testDeletedEntryAsJson);
             File.WriteAllText("c:\\temp\\dentryA.json", actual);
@@ -96,7 +97,7 @@ namespace Hl7.Fhir.Tests
         public void TestSerializeBinaryEntryJson()
         {
             var re = createTestBinaryEntry();
-            var actual = re.ToJson();
+            var actual = FhirSerializer.SerializeBundleEntryToJson(re);
  
             File.WriteAllText("c:\\temp\\bentryE.json", testBinaryEntryAsJson);
             File.WriteAllText("c:\\temp\\bentryA.json", actual);
@@ -115,7 +116,7 @@ namespace Hl7.Fhir.Tests
         public void TestSerializeBundleJson()
         {
             Bundle b = createTestBundle();
-            var actual = b.ToJson();
+            var actual = FhirSerializer.SerializeBundleToJson(b);
 
             File.WriteAllText("c:\\temp\\bundleE.json", testBundleAsJson);
             File.WriteAllText("c:\\temp\\bundleA.json", actual);
@@ -128,19 +129,19 @@ namespace Hl7.Fhir.Tests
         public void TestHandleCrapInBundle()
         {
             var errors = new ErrorList();
-            Bundle.LoadFromJson("Crap!", errors);
+            FhirParser.ParseBundleFromJson("Crap!", errors);
             Assert.IsTrue(errors.Count > 0);
 
             errors.Clear();
-            Bundle.LoadFromJson("{ \" Crap!", errors);
+            FhirParser.ParseBundleFromJson("{ \" Crap!", errors);
             Assert.IsTrue(errors.Count > 0);
 
             errors.Clear();
-            Bundle.LoadFromXml("Crap", errors);
+            FhirParser.ParseBundleFromJson("Crap", errors);
             Assert.IsTrue(errors.Count > 0);
 
             errors.Clear();
-            Bundle.LoadFromXml("<Crap><cra", errors);
+            FhirParser.ParseBundleFromJson("<Crap><cra", errors);
             Assert.IsTrue(errors.Count > 0);
         }
 
@@ -163,10 +164,10 @@ namespace Hl7.Fhir.Tests
         {
             var errs = new ErrorList();
 
-            BundleEntry.LoadFromJson(be.ToJson(), errs);
+            FhirParser.ParseBundleEntryFromJson(FhirSerializer.SerializeBundleEntryToJson(be), errs);
             Assert.IsTrue(errs.Count == 0);
 
-            BundleEntry.LoadFromXml(be.ToXml(), errs);
+            FhirParser.ParseBundleEntryFromXml(FhirSerializer.SerializeBundleEntryToXml(be), errs);
             Assert.IsTrue(errs.Count == 0);
         }
 
@@ -175,12 +176,12 @@ namespace Hl7.Fhir.Tests
         {
             ErrorList errors = new ErrorList();
 
-            Bundle result = Bundle.LoadFromXml(Util.XmlReaderFromString(testBundleAsXml), errors);
+            Bundle result = FhirParser.ParseBundle(Util.XmlReaderFromString(testBundleAsXml), errors);
 
             Assert.IsNotNull(result);
             Assert.AreEqual(0, errors.Count, errors.Count > 0 ? errors.ToString() : null);
 
-            var actual = result.ToXml();        
+            var actual = FhirSerializer.SerializeBundleToXml(result);        
 
             Assert.AreEqual(testBundleAsXml, actual);
         }
@@ -192,12 +193,12 @@ namespace Hl7.Fhir.Tests
             ErrorList errors = new ErrorList();
 
             var input = markupXml(testResourceEntryAsXml);
-            var result = BundleEntry.LoadFromXml(Util.XmlReaderFromString(input), errors);
+            var result = FhirParser.ParseBundleEntry(Util.XmlReaderFromString(input), errors);
 
             Assert.IsNotNull(result);
             Assert.AreEqual(0, errors.Count, errors.Count > 0 ? errors.ToString() : null);
            
-            Assert.AreEqual(input, result.ToXml());
+            Assert.AreEqual(input, FhirSerializer.SerializeBundleEntryToXml(result));
         }
 
         [TestMethod]
@@ -206,12 +207,12 @@ namespace Hl7.Fhir.Tests
             ErrorList errors = new ErrorList();
 
             var input = markupXml(testDeletedEntryAsXml);
-            var result = BundleEntry.LoadFromXml(Util.XmlReaderFromString(input), errors);
+            var result = FhirParser.ParseBundleEntry(Util.XmlReaderFromString(input), errors);
 
             Assert.IsNotNull(result);
             Assert.AreEqual(0, errors.Count, errors.Count > 0 ? errors.ToString() : null);
 
-            Assert.AreEqual(input, result.ToXml());
+            Assert.AreEqual(input, FhirSerializer.SerializeBundleEntryToXml(result));
         }
 
         [TestMethod]
@@ -220,12 +221,12 @@ namespace Hl7.Fhir.Tests
             ErrorList errors = new ErrorList();
 
             var input = markupXml(testBinaryEntryAsXml);
-            var result = BundleEntry.LoadFromXml(Util.XmlReaderFromString(input), errors);
+            var result = FhirParser.ParseBundleEntry(Util.XmlReaderFromString(input), errors);
 
             Assert.IsNotNull(result);
             Assert.AreEqual(0, errors.Count, errors.Count > 0 ? errors.ToString() : null);
 
-            Assert.AreEqual(input, result.ToXml());
+            Assert.AreEqual(input, FhirSerializer.SerializeBundleEntryToXml(result));
         }
 
         [TestMethod]
@@ -234,12 +235,12 @@ namespace Hl7.Fhir.Tests
             ErrorList errors = new ErrorList();
 
             var input = testResourceEntryAsJson;
-            var result = BundleEntry.LoadFromJson(Util.JsonReaderFromString(input), errors);
+            var result = FhirParser.ParseBundleEntry(Util.JsonReaderFromString(input), errors);
 
             Assert.IsNotNull(result);
             Assert.AreEqual(0, errors.Count, errors.Count > 0 ? errors.ToString() : null);
 
-            Assert.AreEqual(input, result.ToJson());
+            Assert.AreEqual(input, FhirSerializer.SerializeBundleEntryToJson(result));
         }
 
         [TestMethod]
@@ -248,12 +249,12 @@ namespace Hl7.Fhir.Tests
             ErrorList errors = new ErrorList();
 
             var input = testDeletedEntryAsJson;
-            var result = BundleEntry.LoadFromJson(Util.JsonReaderFromString(input), errors);
+            var result = FhirParser.ParseBundleEntry(Util.JsonReaderFromString(input), errors);
 
             Assert.IsNotNull(result);
             Assert.AreEqual(0, errors.Count, errors.Count > 0 ? errors.ToString() : null);
 
-            Assert.AreEqual(input, result.ToJson());
+            Assert.AreEqual(input, FhirSerializer.SerializeBundleEntryToJson(result));
         }
 
         [TestMethod]
@@ -262,12 +263,12 @@ namespace Hl7.Fhir.Tests
             ErrorList errors = new ErrorList();
 
             var input = testBinaryEntryAsJson;
-            var result = BundleEntry.LoadFromJson(Util.JsonReaderFromString(input), errors);
+            var result = FhirParser.ParseBundleEntry(Util.JsonReaderFromString(input), errors);
 
             Assert.IsNotNull(result);
             Assert.AreEqual(0, errors.Count, errors.Count > 0 ? errors.ToString() : null);
 
-            Assert.AreEqual(input, result.ToJson());
+            Assert.AreEqual(input, FhirSerializer.SerializeBundleEntryToJson(result));
         }
 
         private static string markupXml(string xml)
@@ -283,11 +284,11 @@ namespace Hl7.Fhir.Tests
         {
             ErrorList errors = new ErrorList();
 
-            Bundle result = Bundle.LoadFromJson(new JsonTextReader(new StringReader(testBundleAsJson)), errors);
+            Bundle result = FhirParser.ParseBundle(new JsonTextReader(new StringReader(testBundleAsJson)), errors);
 
             Assert.AreEqual(0, errors.Count, errors.Count > 0 ? errors.ToString() : null);
 
-            var actual = result.ToJson();
+            var actual = FhirSerializer.SerializeBundleToJson(result);
 
             Assert.AreEqual(testBundleAsJson, actual);
         }
@@ -299,7 +300,7 @@ namespace Hl7.Fhir.Tests
            @"<author><name>110.143.187.242</name></author>" +
            @"<link rel=""self"" href=""http://test.com/fhir/patient/@233/history/@1"" />" +
            @"<link rel=""search"" href=""http://test.com/fhir/patient/search?name=Kramer"" />" +
-           @"<category term=""Patient"" scheme=""http://hl7.org/fhir/resource-types"" /><content type=""text/xml"">" +
+           @"<content type=""text/xml"">" +
            @"<Patient xmlns=""http://hl7.org/fhir""><text><status value=""generated"" /><div xmlns=""http://www.w3.org/1999/xhtml"">summary here</div>" +
            @"</text></Patient></content><summary type=""xhtml""><div xmlns=""http://www.w3.org/1999/xhtml"">summary here</div></summary></entry>";
 
@@ -312,7 +313,7 @@ namespace Hl7.Fhir.Tests
            @"<title type=""text"">Resource 99 Version 1</title>" +
            @"<id>http://test.com/fhir/binary/@99</id><updated>2012-10-31T13:04:14Z</updated><published>2012-11-02T14:17:21Z</published>" +
            @"<link rel=""self"" href=""http://test.com/fhir/binary/@99/history/@1"" />" +
-           @"<category term=""Binary"" scheme=""http://hl7.org/fhir/resource-types"" /><content type=""text/xml"">" +
+           @"<content type=""text/xml"">" +
            @"<Binary contentType=""application/x-test"" xmlns=""http://hl7.org/fhir"">AAECAw==</Binary></content><summary type=""xhtml""><div xmlns=""http://www.w3.org/1999/xhtml"">" +
            @"Binary content (mediatype application/x-test)</div></summary></entry>";
 
@@ -339,8 +340,7 @@ namespace Hl7.Fhir.Tests
             @"""published"":""2012-11-02T14:17:21+00:00"",""author"":[{""name"":""110.143.187.242""}]," +
             @"""link"":[{""rel"":""self"",""href"":""http://test.com/fhir/patient/@233/history/@1""}," +
             @"{""rel"":""search"",""href"":""http://test.com/fhir/patient/search?name=Kramer""}]," +
-            @"""category"":[{""term"":""Patient"",""scheme"":" +
-            @"""http://hl7.org/fhir/resource-types""}],""content"":{""Patient"":{""text"":{""status"":{""value"":""generated""},""div"":" +
+            @"""content"":{""Patient"":{""text"":{""status"":{""value"":""generated""},""div"":" +
             @"""<div xmlns=\""http://www.w3.org/1999/xhtml\"">summary here</div>""}}}," +
             @"""summary"":""<div xmlns=\""http://www.w3.org/1999/xhtml\"">summary here</div>""" +
             @"}";
@@ -349,7 +349,6 @@ namespace Hl7.Fhir.Tests
             @"{""title"":""Resource 99 Version 1"",""id"":""http://test.com/fhir/binary/@99"",""updated"":""2012-10-31T13:04:14+00:00""," +
             @"""published"":""2012-11-02T14:17:21+00:00""," +
             @"""link"":[{""rel"":""self"",""href"":""http://test.com/fhir/binary/@99/history/@1""}]," +
-            @"""category"":[{""term"":""Binary"",""scheme"":""http://hl7.org/fhir/resource-types""}],"+
             @"""content"":{""Binary"":{""contentType"":""application/x-test"",""content"":""AAECAw==""}}," +
             @"""summary"":""<div xmlns='http://www.w3.org/1999/xhtml'>Binary content (mediatype application/x-test)</div>""" +
             @"}";

@@ -29,9 +29,13 @@
         <code value="55607006"/>
         <display value="Problem"/> 
     </coding>
+    <coding>
+        <system value="http://hl7.org/fhir/condition-category" />
+        <code value="condition" />
+    </coding>
  </category>
  <status value="confirmed"/>
- <severity><!--The fever is a problem-->
+ <severity><!--The fever is mild -->
     <coding>
         <system value="http://snomed.info"/>
         <code value="255604002"/>

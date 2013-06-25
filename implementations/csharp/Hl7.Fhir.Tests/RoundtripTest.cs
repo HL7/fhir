@@ -12,6 +12,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
 using Ionic.Zip;
 using Hl7.Fhir.Support;
+using Hl7.Fhir.Model;
 
 namespace Hl7.Fhir.Tests
 {
@@ -92,13 +93,13 @@ namespace Hl7.Fhir.Tests
 
         private void testFeed(string file, string baseFilename)
         {
-            Support.Bundle bundleResult;
-            Support.ErrorList errors = new Support.ErrorList();
+            Bundle bundleResult;
+            ErrorList errors = new Support.ErrorList();
 
             using (XmlReader xr = createReader(file))
             {
                 Debug.WriteLine("  Reading Xml feed...");
-                bundleResult = Bundle.LoadFromXml(xr, errors);
+                bundleResult = FhirParser.ParseBundle(xr, errors);
 
                 xr.Close();
             }
@@ -116,7 +117,7 @@ namespace Hl7.Fhir.Tests
                 using (JsonTextWriter jw = new JsonTextWriter(new StreamWriter(jsonFile)))
                 {
                     Debug.WriteLine("  Writing Xml feed...");
-                    bundleResult.WriteTo(jw);
+                    FhirSerializer.SerializeBundle(bundleResult, jw);
                     jw.Flush();
                     jw.Close();
                 }
@@ -128,13 +129,13 @@ namespace Hl7.Fhir.Tests
 
         private void testJsonFeed(string jsonFile)
         {
-            Support.Bundle bundleResult;
-            Support.ErrorList errors = new Support.ErrorList();
+            Bundle bundleResult;
+            ErrorList errors = new Support.ErrorList();
 
             using (JsonReader jr = new JsonTextReader(new StreamReader(jsonFile)))
             {
                 Debug.WriteLine("  Reading Json feed...");
-                bundleResult = Bundle.LoadFromJson(jr, errors);
+                bundleResult = FhirParser.ParseBundle(jr, errors);
 
                 jr.Close();
             }
@@ -151,7 +152,7 @@ namespace Hl7.Fhir.Tests
                 using (XmlWriter xw = new XmlTextWriter(new System.IO.StreamWriter(xmlFile)))
                 {
                     Debug.WriteLine("  Writing Xml feed...");
-                    bundleResult.WriteTo(xw);
+                    FhirSerializer.SerializeBundle(bundleResult,xw);
                     xw.Flush();
                     xw.Close();
                 }

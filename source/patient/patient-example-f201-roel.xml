@@ -103,6 +103,10 @@
                     <code value="425405005"/>
                     <display value="Excellent"/>
                 </coding>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/LanguageAbilityProficiency"/>
+                    <code value="E"/>
+                </coding>
             </proficiencyLevel>
             <preference value="true"/>
         </language>
@@ -113,7 +117,7 @@
             <!--Indicates that the contact is the patient's wife-->
             <coding>
                 <system value="http://snomed.info"/>
-                <code value="127850001 "/>
+                <code value="127850001"/>
                 <display value="Wife"/>
             </coding>
             <coding>

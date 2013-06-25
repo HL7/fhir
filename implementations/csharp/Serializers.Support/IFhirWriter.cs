@@ -36,7 +36,7 @@ using Hl7.Fhir.Model;
 
 namespace Hl7.Fhir.Serializers
 {
-    public interface IFhirWriter : IDisposable
+    internal interface IFhirWriter : IDisposable
     {
         void WriteStartRootObject(string name);
         void WriteEndRootObject();
