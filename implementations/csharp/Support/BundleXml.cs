@@ -216,11 +216,16 @@ namespace Hl7.Fhir.Support
             try
             {
                 if (entry.Name == XTOMBSTONE + XATOM_DELETED_ENTRY)
+                {
                     result = new DeletedEntry();
+                    result.Id = uriValueOrNull(entry.Attribute(XATOM_DELETED_REF));
+                }
                 else
+                {
                     result = new ResourceEntry();
+                    result.Id = uriValueOrNull(entry.Element(XATOM_ID));
+                }
 
-                result.Id = uriValueOrNull(entry.Attribute(XATOM_DELETED_REF));
                 if (result.Id != null) errors.DefaultContext = String.Format("Entry '{0}'", result.Id.ToString());
 
                 result.Links = getLinks(entry.Elements(XATOMNS + XATOM_LINK));
@@ -352,64 +357,67 @@ namespace Hl7.Fhir.Support
 
         private static XElement createEntry(BundleEntry entry)
         {
+            XElement result = null;
+
             if (entry is ResourceEntry)
-                return createResourceEntry((ResourceEntry)entry);
-            else if (entry is DeletedEntry)
-                return createDeletedEntry((DeletedEntry)entry);
+            {
+                ResourceEntry re = (ResourceEntry)entry;
+                result = new XElement(XATOMNS + XATOM_ENTRY);
+
+                if (Util.UriHasValue(entry.Id)) result.Add(xmlCreateId(entry.Id));
+
+                if (!String.IsNullOrEmpty(re.Title)) result.Add(xmlCreateTitle(re.Title));
+
+                if (re.LastUpdated != null) result.Add(new XElement(XATOMNS + XATOM_UPDATED, re.LastUpdated.Value));
+                if (re.Published != null) result.Add(new XElement(XATOMNS + XATOM_PUBLISHED, re.Published.Value));
+
+                if (!String.IsNullOrWhiteSpace(re.EntryAuthorName))
+                    result.Add(xmlCreateAuthor(re.EntryAuthorName, re.EntryAuthorUri));
+
+                if (re.Content != null)
+                    result.Add(new XElement(XATOMNS + XATOM_CONTENT,
+                        new XAttribute(XATOM_CONTENT_TYPE, "text/xml"),
+                        FhirSerializer.SerializeResourceAsXElement(re.Content)));
+
+                // Note: this is a read-only property, so it is serialized but never parsed
+                if (entry.Summary != null)
+                    result.Add(new XElement(XATOMNS + XATOM_SUMMARY,
+                            new XAttribute(XATOM_CONTENT_TYPE, "xhtml"), XElement.Parse(entry.Summary)));
+
+                return result;
+            }
             else
-                throw new ArgumentException("Don't know how to serialize an entry of type " + entry.GetType().ToString());
-        }
-
-        private static XElement createDeletedEntry(DeletedEntry de)
-        {
-            XElement result = new XElement(XTOMBSTONE + XATOM_DELETED_ENTRY);
-
-            if(Util.UriHasValue(de.Id))
-               result.Add(new XAttribute(XATOM_DELETED_REF, de.Id.ToString()));
-
-            if(de.When != null)
-               result.Add(new XAttribute(XATOM_DELETED_WHEN, de.When));
-
-            if (Util.UriHasValue(de.Links.SelfLink))
-                result.Add(new XElement(XATOMNS + XATOM_LINK,
-                        new XAttribute(XATOM_LINK_REL, Util.ATOM_LINKREL_SELF),
-                        new XAttribute(XATOM_LINK_HREF, de.Links.SelfLink.ToString())));
-
-            return result;
-        }
-
-
-        private static XElement createResourceEntry(ResourceEntry entry)
-        {
-            //Note: this handles both BinaryEntry and ResourceEntry
-
-            XElement result = new XElement(XATOMNS + XATOM_ENTRY);
-
-            if (!String.IsNullOrEmpty(entry.Title)) result.Add(xmlCreateTitle(entry.Title));
-            if (Util.UriHasValue(entry.Id)) result.Add(xmlCreateId(entry.Id));
-
-            if (entry.LastUpdated != null) result.Add(new XElement(XATOMNS + XATOM_UPDATED, entry.LastUpdated.Value));
-            if (entry.Published != null) result.Add(new XElement(XATOMNS + XATOM_PUBLISHED, entry.Published.Value));
-
-            if (!String.IsNullOrWhiteSpace(entry.EntryAuthorName))
-                result.Add(xmlCreateAuthor(entry.EntryAuthorName, entry.EntryAuthorUri));
+            {
+                result = new XElement(XTOMBSTONE + XATOM_DELETED_ENTRY);
+                if (Util.UriHasValue(entry.Id))
+                    result.Add(new XAttribute(XATOM_DELETED_REF, entry.Id.ToString()));
+                if (((DeletedEntry)entry).When != null)
+                    result.Add(new XAttribute(XATOM_DELETED_WHEN, ((DeletedEntry)entry).When));
+            }
 
             foreach (var l in entry.Links)
-                if(l.Uri != null)
-                    result.Add(xmlCreateLink(l.Rel, l.Uri));
+                if (l.Uri != null) result.Add(xmlCreateLink(l.Rel, l.Uri));
 
-            if (entry.Content != null)
-                result.Add(new XElement(XATOMNS + XATOM_CONTENT,
-                    new XAttribute(XATOM_CONTENT_TYPE, "text/xml"),
-                    FhirSerializer.SerializeResourceAsXElement(entry.Content)));
-
-            // Note: this is a read-only property, so it is serialized but never parsed
-            if (entry.Summary != null)
-                result.Add(new XElement(XATOMNS + XATOM_SUMMARY,
-                        new XAttribute(XATOM_CONTENT_TYPE, "xhtml"), XElement.Parse(entry.Summary)));
+            if (entry.Tags != null)
+                foreach (var tag in entry.Tags)
+                    result.Add(xmlCreateTag(tag));
 
             return result;
         }
+
+        private static XElement xmlCreateTag(Tag tag)
+        {
+            XElement result = new XElement(XATOMNS + XATOM_CATEGORY);
+
+            if (Util.UriHasValue(tag.Uri))
+                result.Add(new XAttribute(XATOM_CAT_TERM, tag.Uri.ToString()));
+            if (!String.IsNullOrEmpty(tag.Label))
+                result.Add(new XAttribute(XATOM_CAT_LABEL, tag.Label));
+            result.Add(new XAttribute(XATOM_CAT_SCHEME, Tag.TAG_SCHEME));
+
+            return result;
+        }
+
 
         private static XElement xmlCreateId(Uri id)
         {

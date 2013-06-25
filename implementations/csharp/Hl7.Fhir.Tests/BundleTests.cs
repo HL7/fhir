@@ -300,6 +300,7 @@ namespace Hl7.Fhir.Tests
            @"<author><name>110.143.187.242</name></author>" +
            @"<link rel=""self"" href=""http://test.com/fhir/patient/@233/history/@1"" />" +
            @"<link rel=""search"" href=""http://test.com/fhir/patient/search?name=Kramer"" />" +
+           @"<category term=""http://test.com/tag/test"" label=""YES"" scheme=""http://hl7.org/fhir/tag"" />" +
            @"<content type=""text/xml"">" +
            @"<Patient xmlns=""http://hl7.org/fhir""><text><status value=""generated"" /><div xmlns=""http://www.w3.org/1999/xhtml"">summary here</div>" +
            @"</text></Patient></content><summary type=""xhtml""><div xmlns=""http://www.w3.org/1999/xhtml"">summary here</div></summary></entry>";
@@ -340,6 +341,7 @@ namespace Hl7.Fhir.Tests
             @"""published"":""2012-11-02T14:17:21+00:00"",""author"":[{""name"":""110.143.187.242""}]," +
             @"""link"":[{""rel"":""self"",""href"":""http://test.com/fhir/patient/@233/history/@1""}," +
             @"{""rel"":""search"",""href"":""http://test.com/fhir/patient/search?name=Kramer""}]," +
+            @"""category"" : [{""term"" : ""http://test.com/tag/test"", ""label"" : ""YES"", ""scheme"" : ""http://hl7.org/fhir/tag"" }]," +
             @"""content"":{""Patient"":{""text"":{""status"":{""value"":""generated""},""div"":" +
             @"""<div xmlns=\""http://www.w3.org/1999/xhtml\"">summary here</div>""}}}," +
             @"""summary"":""<div xmlns=\""http://www.w3.org/1999/xhtml\"">summary here</div>""" +

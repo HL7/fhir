@@ -334,57 +334,58 @@ namespace Hl7.Fhir.Support
      
         private static JObject createEntry(BundleEntry entry)
         {
-            if (entry is ResourceEntry)
-                return createResourceEntry((ResourceEntry)entry);
-            else if (entry is DeletedEntry)
-                return createDeletedEntry((DeletedEntry)entry);
-            else
-                throw new ArgumentException("Don't know how to serialize an entry of type " + entry.GetType().ToString());
-        }
+            JObject result = new JObject();
 
-
-        private static JObject createDeletedEntry(DeletedEntry entry)
-        {
-            JObject newItem = new JObject();
-
-            if(entry.When !=null)
-                newItem.Add(new JProperty(JATOM_DELETED, entry.When));
-            
-            if(Util.UriHasValue(entry.Id))
-                newItem.Add(new JProperty(BundleXml.XATOM_ID, entry.Id.ToString()));
-
-            if (Util.UriHasValue(entry.Links.SelfLink))
-                newItem.Add(new JProperty(BundleXml.XATOM_LINK,
-                        new JArray(jsonCreateLink(Util.ATOM_LINKREL_SELF, entry.Links.SelfLink))));
-
-            return newItem;
-        }
-
-
-        private static JObject createResourceEntry(ResourceEntry entry)
-        {
-            JObject newItem = new JObject();
-
-            if (!String.IsNullOrEmpty(entry.Title)) newItem.Add(new JProperty(BundleXml.XATOM_TITLE, entry.Title));
-            if (Util.UriHasValue(entry.Id)) newItem.Add(new JProperty(BundleXml.XATOM_ID, entry.Id.ToString()));
-
-            if (entry.LastUpdated != null) newItem.Add(new JProperty(BundleXml.XATOM_UPDATED, entry.LastUpdated));
-            if (entry.Published != null) newItem.Add(new JProperty(BundleXml.XATOM_PUBLISHED, entry.Published));
-
-            if (!String.IsNullOrWhiteSpace(entry.EntryAuthorName))
-                newItem.Add(jsonCreateAuthor(entry.EntryAuthorName, entry.EntryAuthorUri));
+            if (Util.UriHasValue(entry.Id)) result.Add(new JProperty(BundleXml.XATOM_ID, entry.Id.ToString()));
 
             if (entry.Links.Count > 0)
-                newItem.Add(new JProperty(BundleXml.XATOM_LINK, jsonCreateLinkArray(entry.Links)));
+                result.Add(new JProperty(BundleXml.XATOM_LINK, jsonCreateLinkArray(entry.Links)));
 
-            if (entry.Content != null)
-                newItem.Add(new JProperty(BundleXml.XATOM_CONTENT, getContentsAsJObject(entry.Content)));
+            if (entry.Tags != null) result.Add(new JProperty(BundleXml.XATOM_CATEGORY,createTags(entry.Tags)));
 
-            // Note: this is a read-only property, so it is serialized but never parsed
-            if (entry.Summary != null)
-                newItem.Add(new JProperty(BundleXml.XATOM_SUMMARY, entry.Summary));
+            if (entry is ResourceEntry)
+            {
+                ResourceEntry re = (ResourceEntry)entry;
+                if (!String.IsNullOrEmpty(re.Title)) result.Add(new JProperty(BundleXml.XATOM_TITLE, re.Title));
 
-            return newItem;
+                if (re.LastUpdated != null) result.Add(new JProperty(BundleXml.XATOM_UPDATED, re.LastUpdated));
+                if (re.Published != null) result.Add(new JProperty(BundleXml.XATOM_PUBLISHED, re.Published));
+
+                if (!String.IsNullOrWhiteSpace(re.EntryAuthorName))
+                    result.Add(jsonCreateAuthor(re.EntryAuthorName, re.EntryAuthorUri));
+
+                if (re.Content != null)
+                    result.Add(new JProperty(BundleXml.XATOM_CONTENT, getContentsAsJObject(re.Content)));
+
+                // Note: this is a read-only property, so it is serialized but never parsed
+                if (entry.Summary != null)
+                    result.Add(new JProperty(BundleXml.XATOM_SUMMARY, entry.Summary));
+            }
+            else if (entry is DeletedEntry)
+            {
+                DeletedEntry de = (DeletedEntry)entry;
+                if (de.When != null) result.Add(new JProperty(JATOM_DELETED, de));
+            }
+
+            return result;
+        }
+
+        private static JArray createTags(TagList tagList)
+        {
+            JArray result = new JArray();
+
+            foreach (Tag tag in tagList)
+            {
+                JObject jTag = new JObject();
+                if(Util.UriHasValue(tag.Uri))
+                    jTag.Add(new JProperty(BundleXml.XATOM_CAT_TERM, tag.Uri.ToString()) );
+                if(!String.IsNullOrEmpty(tag.Label))
+                    jTag.Add(new JProperty(BundleXml.XATOM_CAT_LABEL, tag.Label));
+                jTag.Add(new JProperty(BundleXml.XATOM_CAT_SCHEME, Tag.TAG_SCHEME));
+                result.Add(jTag);
+            }
+
+            return result;
         }
 
         private static JProperty jsonCreateAuthor(string name, string uri)
