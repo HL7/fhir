@@ -223,7 +223,7 @@ namespace Hl7.Fhir.Support
                 else
                 {
                     result = new ResourceEntry();
-                    result.Id = uriValueOrNull(entry.Element(XATOM_ID));
+                    result.Id = uriValueOrNull(entry.Element(XATOMNS + XATOM_ID));
                 }
 
                 if (result.Id != null) errors.DefaultContext = String.Format("Entry '{0}'", result.Id.ToString());
@@ -364,27 +364,14 @@ namespace Hl7.Fhir.Support
                 ResourceEntry re = (ResourceEntry)entry;
                 result = new XElement(XATOMNS + XATOM_ENTRY);
 
-                if (Util.UriHasValue(entry.Id)) result.Add(xmlCreateId(entry.Id));
-
                 if (!String.IsNullOrEmpty(re.Title)) result.Add(xmlCreateTitle(re.Title));
+                if (Util.UriHasValue(entry.Id)) result.Add(xmlCreateId(entry.Id));
 
                 if (re.LastUpdated != null) result.Add(new XElement(XATOMNS + XATOM_UPDATED, re.LastUpdated.Value));
                 if (re.Published != null) result.Add(new XElement(XATOMNS + XATOM_PUBLISHED, re.Published.Value));
 
                 if (!String.IsNullOrWhiteSpace(re.EntryAuthorName))
                     result.Add(xmlCreateAuthor(re.EntryAuthorName, re.EntryAuthorUri));
-
-                if (re.Content != null)
-                    result.Add(new XElement(XATOMNS + XATOM_CONTENT,
-                        new XAttribute(XATOM_CONTENT_TYPE, "text/xml"),
-                        FhirSerializer.SerializeResourceAsXElement(re.Content)));
-
-                // Note: this is a read-only property, so it is serialized but never parsed
-                if (entry.Summary != null)
-                    result.Add(new XElement(XATOMNS + XATOM_SUMMARY,
-                            new XAttribute(XATOM_CONTENT_TYPE, "xhtml"), XElement.Parse(entry.Summary)));
-
-                return result;
             }
             else
             {
@@ -395,12 +382,27 @@ namespace Hl7.Fhir.Support
                     result.Add(new XAttribute(XATOM_DELETED_WHEN, ((DeletedEntry)entry).When));
             }
 
-            foreach (var l in entry.Links)
-                if (l.Uri != null) result.Add(xmlCreateLink(l.Rel, l.Uri));
+            if(entry.Links != null)
+                foreach (var l in entry.Links)
+                    if (l.Uri != null) result.Add(xmlCreateLink(l.Rel, l.Uri));
 
             if (entry.Tags != null)
                 foreach (var tag in entry.Tags)
                     result.Add(xmlCreateTag(tag));
+
+            if(entry is ResourceEntry)
+            {
+                ResourceEntry re = (ResourceEntry)entry;
+                if (re.Content != null)
+                    result.Add(new XElement(XATOMNS + XATOM_CONTENT,
+                        new XAttribute(XATOM_CONTENT_TYPE, "text/xml"),
+                        FhirSerializer.SerializeResourceAsXElement(re.Content)));
+
+                // Note: this is a read-only property, so it is serialized but never parsed
+                if (entry.Summary != null)
+                    result.Add(new XElement(XATOMNS + XATOM_SUMMARY,
+                            new XAttribute(XATOM_CONTENT_TYPE, "xhtml"), XElement.Parse(entry.Summary)));
+            }
 
             return result;
         }

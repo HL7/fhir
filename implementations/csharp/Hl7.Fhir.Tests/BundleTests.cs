@@ -324,7 +324,7 @@ namespace Hl7.Fhir.Tests
            @"<id>urn:uuid:0d0dcca9-23b9-4149-8619-65002224c3</id><updated>2012-11-02T14:17:21Z</updated>" +
            @"<author><name>Ewout Kramer</name></author>" +
            @"<totalResults xmlns=""http://a9.com/-/spec/opensearch/1.1"">20</totalResults>" +
-           @"<link rel=""self"" href=""http://test.com/fhir/patient/@233/history$format=json"" />" +
+           @"<link rel=""self"" href=""http://test.com/fhir/patient/@233/history?format=json"" />" +
            @"<link rel=""last"" href=""http://test.com/fhir/patient/@233"" />" +
            testResourceEntryAsXml +
            testDeletedEntryAsXml +
@@ -341,7 +341,7 @@ namespace Hl7.Fhir.Tests
             @"""published"":""2012-11-02T14:17:21+00:00"",""author"":[{""name"":""110.143.187.242""}]," +
             @"""link"":[{""rel"":""self"",""href"":""http://test.com/fhir/patient/@233/history/@1""}," +
             @"{""rel"":""search"",""href"":""http://test.com/fhir/patient/search?name=Kramer""}]," +
-            @"""category"" : [{""term"" : ""http://test.com/tag/test"", ""label"" : ""YES"", ""scheme"" : ""http://hl7.org/fhir/tag"" }]," +
+            @"""category"":[{""term"":""http://test.com/tag/test"",""label"":""YES"",""scheme"":""http://hl7.org/fhir/tag""}]," +
             @"""content"":{""Patient"":{""text"":{""status"":{""value"":""generated""},""div"":" +
             @"""<div xmlns=\""http://www.w3.org/1999/xhtml\"">summary here</div>""}}}," +
             @"""summary"":""<div xmlns=\""http://www.w3.org/1999/xhtml\"">summary here</div>""" +
@@ -361,7 +361,7 @@ namespace Hl7.Fhir.Tests
             @"""updated"":""2012-11-02T14:17:21+00:00""," +
             @"""author"":[{""name"":""Ewout Kramer""}]," +
             @"""totalResults"":""20""," +
-            @"""link"":[{""rel"":""self"",""href"":""http://test.com/fhir/patient/@233/history$format=json""}," +
+            @"""link"":[{""rel"":""self"",""href"":""http://test.com/fhir/patient/@233/history?format=json""}," +
             @"{""rel"":""last"",""href"":""http://test.com/fhir/patient/@233""}]," +
 
             @"""entry"":[" +
@@ -381,7 +381,7 @@ namespace Hl7.Fhir.Tests
             b.LastUpdated = new DateTimeOffset(2012, 11, 2, 14, 17, 21, TimeSpan.Zero);
             b.AuthorName = "Ewout Kramer";
             b.TotalResults = 20;
-            b.Links.SelfLink = new Uri("http://test.com/fhir/patient/@233/history$format=json");
+            b.Links.SelfLink = new Uri("http://test.com/fhir/patient/@233/history?format=json");
             b.Links.LastLink = new Uri("http://test.com/fhir/patient/@233");
 
             ResourceEntry e1 = createTestResourceEntry();
@@ -431,6 +431,8 @@ namespace Hl7.Fhir.Tests
             e1.EntryAuthorName = "110.143.187.242";
             e1.Links.SelfLink = new Uri("http://test.com/fhir/patient/@233/history/@1");
             e1.Links.SearchLink = new Uri("http://test.com/fhir/patient/search?name=Kramer");
+            e1.Tags = new TagList() { new Tag() { Uri = new Uri("http://test.com/tag/test"), Label = "YES" } };
+
 
             e1.Content = new Model.Patient()
             {

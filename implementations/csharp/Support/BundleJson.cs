@@ -336,35 +336,40 @@ namespace Hl7.Fhir.Support
         {
             JObject result = new JObject();
 
-            if (Util.UriHasValue(entry.Id)) result.Add(new JProperty(BundleXml.XATOM_ID, entry.Id.ToString()));
-
-            if (entry.Links.Count > 0)
-                result.Add(new JProperty(BundleXml.XATOM_LINK, jsonCreateLinkArray(entry.Links)));
-
-            if (entry.Tags != null) result.Add(new JProperty(BundleXml.XATOM_CATEGORY,createTags(entry.Tags)));
-
             if (entry is ResourceEntry)
             {
                 ResourceEntry re = (ResourceEntry)entry;
                 if (!String.IsNullOrEmpty(re.Title)) result.Add(new JProperty(BundleXml.XATOM_TITLE, re.Title));
+                if (Util.UriHasValue(entry.Id)) result.Add(new JProperty(BundleXml.XATOM_ID, entry.Id.ToString()));
 
                 if (re.LastUpdated != null) result.Add(new JProperty(BundleXml.XATOM_UPDATED, re.LastUpdated));
                 if (re.Published != null) result.Add(new JProperty(BundleXml.XATOM_PUBLISHED, re.Published));
 
                 if (!String.IsNullOrWhiteSpace(re.EntryAuthorName))
                     result.Add(jsonCreateAuthor(re.EntryAuthorName, re.EntryAuthorUri));
+            }
+            else
+            {
+                DeletedEntry de = (DeletedEntry)entry;
+                if (de.When != null) result.Add(new JProperty(JATOM_DELETED, de.When));
+                if (Util.UriHasValue(entry.Id)) result.Add(new JProperty(BundleXml.XATOM_ID, entry.Id.ToString()));
+            }
 
+            if(entry.Links != null && entry.Links.Count > 0)
+                result.Add(new JProperty(BundleXml.XATOM_LINK, jsonCreateLinkArray(entry.Links)));
+
+            if (entry.Tags != null && entry.Tags.Count > 0) 
+                result.Add(new JProperty(BundleXml.XATOM_CATEGORY, createTags(entry.Tags)));
+
+            if(entry is ResourceEntry)
+            {
+                ResourceEntry re = (ResourceEntry)entry;
                 if (re.Content != null)
                     result.Add(new JProperty(BundleXml.XATOM_CONTENT, getContentsAsJObject(re.Content)));
 
                 // Note: this is a read-only property, so it is serialized but never parsed
                 if (entry.Summary != null)
                     result.Add(new JProperty(BundleXml.XATOM_SUMMARY, entry.Summary));
-            }
-            else if (entry is DeletedEntry)
-            {
-                DeletedEntry de = (DeletedEntry)entry;
-                if (de.When != null) result.Add(new JProperty(JATOM_DELETED, de));
             }
 
             return result;
