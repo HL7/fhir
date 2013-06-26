@@ -65,7 +65,7 @@
      <reference value="location/@f202"/>
      <display value="LUMC's Nursing unit"/>
   </location>
-  <!--TODO EK: Is <performer> niet volledig redundant als je <participant> beschouwt?-->
+  <!--TODO Isn't <performer> redundant when considering <participant> that was defined before?-->
   <product>
      <type value="Substance"/>
      <reference value="substance/@f203"/>

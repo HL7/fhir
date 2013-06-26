@@ -62,8 +62,8 @@
     </coding>
   </code>
  </location>
- <relatedItem>  <!-- 0..* Causes or precedents for this problem -->
-  <type value="due-to"/><!--TODO EK: verschil tussen "due-to" en "follows" is mij niet  duidelijk-->
+ <relatedItem>  
+  <type value="due-to"/><!--TODO the difference between "due-to" and "follows" is very unclear in the current documentation-->
   <target>    
      <type value="Procedure"/>
      <reference value="procedure/@f201"/>

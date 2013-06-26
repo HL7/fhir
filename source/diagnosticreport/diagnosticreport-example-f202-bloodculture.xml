@@ -8,7 +8,7 @@
      <display value="Roel"/>
  </subject>
  <performer><!--The diagnostic report was issued by LUMC-->
-     <type value="Organization"/><!--TODO EK: Waarom kan dit geen practitioner (en organization) zijn?-->
+     <type value="Organization"/><!--TODO Why can't this be a practitioner (OR organisation)?-->
      <reference value="organization/@f201"/>
      <display value="LUMC"/>
  </performer>

@@ -29,5 +29,5 @@
  </when>
  <detail>
     <display value="Consultation, not yet developed" />
- </detail><!--TODO EK: waarom is detail vereist? in spoedgevallen zullen ook geen details beschikbaar zijn en alleen de reason string-->
+ </detail><!--TODO why is <detail> required? Emergency departmentsk will not have time and only register <reason>-->
 </Order>

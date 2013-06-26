@@ -19,7 +19,7 @@
     <reference value="practitioner/@f201"/>
     <display value="Dokter Bonsing"/>
  </prescriber>
- <visit><!--TODO EK: wederom errort visit...-->
+ <visit><!--TODO <visit> is not expected...-->
     <type value="Visit"/>
     <reference value="visit/@f201"/>
     <display value="Roel's visit on April fourth 2013"/>
@@ -55,5 +55,5 @@
     </denominator>
   </maxDosePerPeriod>
  </dosageInstructions>
- <!--<dispense> en <substitution> zijn niet beschikbaar--> 
+ <!--<dispense> and <substitution> are not available for this patient--> 
 </MedicationPrescription>

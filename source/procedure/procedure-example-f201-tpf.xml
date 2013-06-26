@@ -22,7 +22,7 @@
     </coding>
   </bodySite>
   <indication value="diagnosticreport/@f201"/>
-  <!--TODO EK: Waarom zou dit niet Resource (any) en String kunnen zijn?-->
+  <!--TODO Why can't this be Resource (any) AND String?-->
   <performer>
     <person>
       <type value="Practitioner"/>

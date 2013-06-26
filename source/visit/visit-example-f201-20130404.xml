@@ -7,7 +7,7 @@
  </identifier>
  <status value="finished"/><!--Visit has finished-->
  <class value="outpatient"/><!--Outpatient visit for consultation-->
- <type><!--TODO EK: Waarom is dit slechts een CodeableConcept en geen resource (any)?-->
+ <type><!--TODO Why is this merely a CodeableConcept and not Resource (any)?-->
     <coding>
        <system value="http://snomed.info"/>
        <code value="11429006"/>

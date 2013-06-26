@@ -19,12 +19,12 @@
     <reference value="practitioner/@f201"/>
     <display value="Dokter Bonsing"/>
  </prescriber>
- <visit><!--TODO EK: Foutmelding - <visit> is niet expected-->
+ <visit><!--TODO <visit> is not expected-->
     <type value="Visit"/>
     <reference value="visit/@f203"/>
     <display value="Roel's visit on March eleventh 2013"/>
  </visit>
- <reasonForPrescribingString value="problem/@f203"/><!--TODO EK: Waarom kan dit geen Resource (any) zijn?-->
+ <reasonForPrescribingString value="problem/@f203"/><!--TODO Why isn't this Resource (any)?-->
  <medication>
     <type value="Medication"/>
     <reference value="medication/@f201"/>
@@ -59,15 +59,15 @@
        <display value="Salmeterol+fluticasone 25/250ug inhaler"/>
     </coding>
   </method>
-  <doseQuantity><!--TODO EK: Cardinaliteit is niet toereikend: 25ug salmeterol + 250ug fluticasone is nu 275ug...-->
+  <doseQuantity><!--TODO Cardinality is not sufficient: 25ug salmeterol + 250ug fluticasone can only be coded with 275ug...-->
     <value value="275"/>
     <units value="microgram"/>
     <system value="http://snomed.info"/>
     <code value="258685003"/>
   </doseQuantity>
-  <!--TODO EK: <rate> en <maxDosePerPeriod> zijn voor mijn casus niet toereikend: 
-  een maximum ligt vaak hoger dan een aanbevolen dagelijkse hoeveelheid en rate is bedoeld voor (bijvoorbeeld infuus-)snelheden, 
-  terwijl ik wil uitdrukken wat de voorgeschreven hoeveelheid is...-->
+  <!--TODO EK: <rate> and <maxDosePerPeriod> are not sufficient for this specific patient: 
+  a max dose is higher than a daily amount and rate is intended for (e.g. infuus-)rates, 
+  whilst prescribed amount needs to be expressed...-->
   <maxDosePerPeriod><!--2 puffs per day-->
     <numerator>
         <value value="2"/>
@@ -83,5 +83,5 @@
     </denominator>
   </maxDosePerPeriod>
  </dosageInstructions>
- <!--<dispense> en <substitution> zijn niet beschikbaar--> 
+ <!--<dispense> and <substitution> are not available for this patient--> 
 </MedicationPrescription>

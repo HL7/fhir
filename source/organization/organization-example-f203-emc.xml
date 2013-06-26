@@ -36,7 +36,7 @@
     <country value="NLD"/><!--ISO 3166 3 letter code-->
  </address>
    <accreditation>
-      <!--NIAZ Accreditatie-->
+      <!--NIAZ Accreditation-->
       <identifier>
          <!--Identifier for the accreditation -->
          <label value="EMC's NIAZ accreditation"/>

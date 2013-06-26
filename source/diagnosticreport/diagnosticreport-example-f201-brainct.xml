@@ -35,7 +35,7 @@
     </name>
  </results>
  <!--The CT image was not available-->
- <conclusion value="CT hersenen: groot tumoraal proces sphenoid/clivus."/>
+ <conclusion value="CT brains: large tumor sphenoid/clivus."/>
  <codedDiagnosis>
      <coding>
        <system value="http://snomed.info"/>

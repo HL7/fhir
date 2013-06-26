@@ -75,4 +75,5 @@
      <display value="TPF chemokuur"/>
   </target>
  </relatedItem>
-</Condition><!--TODO EK: De arts stelt dat de koorts voort zou kunnen komen uit een nieuwe (bacteriele) infectie. Hoe leg je een dergelijk (belangrijk!) feit vast?-->
+</Condition><!--TODO The physician states (in the EHR) that fever could be caused by another (bacterial) infection.
+How do you express such an (important!) fact with FHIR?-->

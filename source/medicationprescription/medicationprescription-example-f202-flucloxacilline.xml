@@ -19,7 +19,7 @@
     <reference value="practitioner/@f201"/>
     <display value="Dokter Bonsing"/>
  </prescriber>
- <visit><!--TODO EK: wederom errort visit...-->
+ <visit><!--TODO <visit> is not expected...-->
     <type value="Visit"/>
     <reference value="visit/@f203"/>
     <display value="Roel's visit on March eleventh 2013"/>
@@ -32,7 +32,7 @@
  </medication>
  <dosageInstructions>  
   <dosageInstructionsText value="Flucloxacilline 12g/24h"/>
-  <timing><!--1 kuur is 10 days-->
+  <timing>
       <event>
           <start value="2013-03-11"/>
           <end value="2013-03-21"/>
@@ -67,5 +67,5 @@
     </denominator>
   </maxDosePerPeriod>
  </dosageInstructions>
- <!--<dispense> en <substitution> zijn niet beschikbaar--> 
+ <!--<dispense> and <substitution> are not available for this patient--> 
 </MedicationPrescription>
