@@ -104,20 +104,30 @@ reference platform</a>.
 <a name="narrative"> </a>
 <h2>Narrative</h2>
 <p>
-Every resource SHALL include a human readable narrative that contains a summary of the resource, 
+Each resource may include a human readable narrative that contains a summary of the resource, 
 and may be used to represent the content of the resource to a human. The narrative need 
-not encode all the structured data, but is required to contain sufficient detail to make 
+not encode all the structured data, but SHOULD contain sufficient detail to make 
 it "clinically safe" for a human to just read the narrative. Resource definitions may define 
 what content should be represented in the narrative to ensure clinical safety.
 </p>
 <p>
 The narrative for a resource is allowed to contain additional information that is not in 
 the structured data, including human-edited content. Such additional information must be 
-in the scope of the definition of the resource. In small, closed trading partner environments,
-there may be no need for a narrative text. In such cases, implementations are allowed to 
-populate the narrative with text equivalent to "[ResourceName] - No human readable text provided for this resource" in an appropriate language. 
-Implementers should note that small, closed trading partner environments are very likely 
+in the scope of the definition of the resource, though it is common for the narrative to
+include additional decriptional information extracted from other referenced resources.
+</p>
+<p>
+While resources SHOULD always contain narrative, so that to support human-consumption
+as a fall back, in a strictly managed trading systems where all systems share a common 
+data model, and additional text is unnecessary or even a clinical safety risk, the 
+narrative may be omitted. However implementers should consider carefully before 
+doing this, as it will mean that these resources can only be understood in the 
+limited trading environment, and closed trading partner environments are very likely 
 to open up during the lifetime of the resources they define.
+</p>
+<p>
+Note that <a href="resources.htm#contained">Contained</a> Resources SHALL NOT have a narrative 
+of their own.
 </p>
 <p>
 The narrative is an xhtml fragment that also includes images if appropriate:
@@ -171,28 +181,27 @@ The image source references may be a local reference within the resource:
   &lt;img src="#a5"/&gt;
 </pre>
 <p>
-This is an <a href="#idref">internal reference</a> to an id attribute on an element in the same resource, either in the binary attachments on the text element 
-directly, or an element of type "<a href="datatypes.htm#Attachment">Attachment</a>".
+This is an <a href="#idref">internal reference</a> to an id attribute on an element in the same resource, 
+either an element of type "<a href="datatypes.htm#Attachment">Attachment</a>", or a contained <a href="formats.htm@binary">Binary</a> resource.
 </p>
 <div class="example">
-<pre class="xml" fragment="Narrative">
-  &lt;narrative&gt;
-    &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;
-      &lt;p&gt;
-        &lt;img src=&quot;#a1&quot;/&gt;.
-      &lt;/p&gt;
+<pre class="xml">
+&lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;text&gt;
+    &lt;status value=&quot;generated&quot;/&gt;
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;p&gt;... &lt;img src=&quot;#pic1&quot;/&gt;. ....&lt;/p&gt;
     &lt;/div&gt;
-    &lt;blob id=&quot;a1&quot;&gt;
-      &lt;mimeType value="image/png" /&gt;
-      &lt;content value="MEKH....SD/Z" /&gt;
-    &lt;/blob&gt;
-  &lt;/narrative&gt;
+  &lt;/text&gt;
+  &lt;contained&gt;
+    &lt;Binary id=&quot;pic1&quot; contentType=&quot;image/gif&quot;&gt;MEKH....SD/Z&lt;/Binary&gt;
+  &lt;/contained&gt;
 </pre>
 </div>
-
 <p>
-Since the presence of images that are not part of the resource is not guaranteed, 
-images that are an essential part of the narrative should always be embedded like this.
+Since the availability of images that are not contained in the resource is not guaranteed, 
+when the resource is presented to a user, the source for any images that are an essential 
+part of the narrative should always be embedded in an attachment or a contained resource.
 </p>
 
 <a name="css"></a>

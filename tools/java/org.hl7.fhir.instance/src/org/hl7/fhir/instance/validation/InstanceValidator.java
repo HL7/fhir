@@ -313,6 +313,7 @@ public class InstanceValidator extends BaseValidator {
               checkCoding(errors, ci.path(), ci.element(), profile, child);
             else if (type.equals("CodeableConcept"))
               checkCodeableConcept(errors, ci.path(), ci.element(), profile, child);
+            
             if (type.equals("Resource"))
               validateContains(errors, ci.path(), child, definition, ci.element());
             else {
@@ -664,10 +665,98 @@ public class InstanceValidator extends BaseValidator {
         if (rule(errors, "invalid", root.getLocalName(), sc != null, "Profile does not allow for this resource")) {
           // well, does it conform to the resource?
           // this is different to the case above because there may be more than one option at each point, and we could conform to any one of them
-          
-          
+          checkByProfile(errors, root.getLocalName(), root, profile, sc, sc.getElement().get(0));
         }
       }
+    }
+
+    public class ProfileStructureIterator {
+
+      private ProfileStructureComponent structure;
+      private ElementComponent elementDefn;
+      private List<String> names = new ArrayList<String>();
+      private Map<String, List<ElementComponent>> children = new HashMap<String, List<ElementComponent>>();
+      private int cursor;
+      
+      public ProfileStructureIterator(Profile profile, ProfileStructureComponent sc, ElementComponent elementDefn) {
+        this.structure = sc;        
+        this.elementDefn = elementDefn;
+        loadMap();
+        cursor = -1;
+      }
+
+      private void loadMap() {
+        int i = structure.getElement().indexOf(elementDefn) + 1;
+        String lead = elementDefn.getPathSimple();
+        while (i < structure.getElement().size()) {
+          String name = structure.getElement().get(0).getPathSimple();
+          if (name.length() <= lead.length()) 
+            return; // cause we've got to the end of the possible matches
+          String tail = name.substring(lead.length()+1);
+          if (Utilities.isToken(tail)) {
+            List<ElementComponent> list = children.get(tail);
+            if (list == null) {
+              list = new ArrayList<Profile.ElementComponent>();
+              names.add(tail);
+              children.put(tail, list);
+            }
+            list.add(structure.getElement().get(0));
+          }
+        }
+      }
+
+      public boolean more() {
+       cursor++;
+       return cursor < names.size();
+      }
+
+      public List<ElementComponent> current() {
+        return children.get(name());
+      }
+
+      public String name() {
+        return names.get(cursor);
+      }
+
+  }
+
+    private void checkByProfile(List<ValidationMessage> errors, String path, Element focus, Profile profile, ProfileStructureComponent sc, ElementComponent elementDefn) {
+      // we have an element, and the structure that describes it. 
+      // we know that's it's valid against the underlying spec - is it valid against this one?
+      // in the instance validator above, we assume that schema or schmeatron has taken care of cardinalities, but here, we have no such reliance. 
+      // so the walking algorithm is different: we're going to walk the definitions
+      
+      ProfileStructureIterator walker = new ProfileStructureIterator(profile, sc, elementDefn);
+      while (walker.more()) {
+        // collect all the slices for the path
+        List<ElementComponent> childset = walker.current();
+        // collect all the elements that match it by name
+        List<Element> children = new ArrayList<Element>(); 
+        XMLUtil.getNamedChildren(focus, walker.name(), children);
+        
+        if (children.size() == 0) {
+          // well, there's no children - should there be? 
+          for (ElementComponent defn : childset) {
+            if (!rule(errors,"required", path, defn.getDefinition().getMinSimple() == 0, "Required Element '"+walker.name()+"' missing"))
+              break; // no point complaining about missing ones after the first one
+          } 
+        } else if (childset.size() == 1) {
+          // simple case: one possible definition, and one of more children. 
+          rule(errors, "cardinality", path, childset.get(0).getDefinition().getMaxSimple() == "*" || Integer.parseInt(childset.get(0).getDefinition().getMaxSimple()) >= children.size(), "Too many elements for '"+walker.name()+"'"); // todo: sort out structure
+          for (Element child : children) {
+            checkByProfile(errors, path+"."+childset.get(0).getNameSimple(), child, profile, sc, childset.get(0));
+          }
+        } else { 
+          // ok, this is the full case - we have a list of definitions, and a list of candidates for meeting those definitions. 
+          // we need to decide *if* that match a given definition
+        }
+      }
+       
+      
+      //   
+      
+      
+      
     }
   }
   

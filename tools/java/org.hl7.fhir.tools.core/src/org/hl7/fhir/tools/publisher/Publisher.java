@@ -536,9 +536,11 @@ public class Publisher {
     for (String n : page.getDefinitions().getStructures().keySet())
       errors.addAll(val.checkStucture(n, page.getDefinitions().getStructures().get(n)));
 		for (String n : page.getDefinitions().sortedResourceNames())
-			errors.addAll(val.check(n, page.getDefinitions().getResources().get(n)));
+		  if (hasBuildFlag("page-"+n.toLowerCase()))
+  			errors.addAll(val.check(n, page.getDefinitions().getResources().get(n)));
     for (String n : page.getDefinitions().getBindings().keySet())
-      errors.addAll(val.check(n, page.getDefinitions().getBindingByName(n)));
+      if (hasBuildFlag("all"))
+        errors.addAll(val.check(n, page.getDefinitions().getBindingByName(n)));
 
     for (String rname : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResources().get(rname); 
@@ -567,11 +569,13 @@ public class Publisher {
      }
 		}
 		return t == 0;
-	}
+	}	
+	
+	private boolean hasBuildFlag(String n) {
+    return  (buildFlags.containsKey("all") && buildFlags.get("all")) || (buildFlags.containsKey(n) && buildFlags.get(n)); 
+  }
 
-	
-	
-	private void checkExampleLinks(List<ValidationMessage> errors, ResourceDefn r) throws Exception {
+  private void checkExampleLinks(List<ValidationMessage> errors, ResourceDefn r) throws Exception {
 	  for (Example e : r.getExamples()) {
 	    try {
 	      if (e.getXml() != null) {

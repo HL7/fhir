@@ -45,7 +45,10 @@ import javax.xml.transform.stream.StreamSource;
 
 public class Utilities {
 
-	 /**
+	 private static final String TOKEN_REGEX = "^a-z[A-Za-z0-9]*$";
+
+
+  /**
      * Returns the plural form of the word in the string.
      * 
      * Examples:
@@ -395,6 +398,13 @@ public class Utilities {
         s.append("."+Integer.toString(c));
     }
     return s.toString();
+  }
+
+
+  public static boolean isToken(String tail) {
+    if (tail == null)
+      return false;
+    return tail.matches(TOKEN_REGEX);
   }
 	
 }

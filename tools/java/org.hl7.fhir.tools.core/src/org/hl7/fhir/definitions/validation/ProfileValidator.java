@@ -51,7 +51,13 @@ import org.hl7.fhir.instance.validation.ValidationMessage.Source;
  * Note that this is only appropriate for use during the build process. For a general purpose profile validator,
  * see org.hl7.fhir.instance.validation
  * 
- * Rules for 
+ * Rules for profiles:
+ * 
+ * 
+ * todo:
+ *   * enforce that the path list in the element list retains it's integrity
+ *   * check that slices have unambiguous differentiators
+ *   
  * @author Grahame
  *
  */
