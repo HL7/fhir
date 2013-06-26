@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
-    <name value="AMC Amsterdam Cardiology unit"/>
+    <name value="Burgers UMC Cardiology unit"/>
     <type>
         <coding>
             <system value="http://hl7.org/fhir/organization-type"/>
@@ -10,15 +10,14 @@
     </type>
     <telecom>
         <system value="phone"/>
-        <value value="020-566 4433"/>
+        <value value="022-655 2320"/>
     </telecom>
     <address>
-        <line value="Wing G, floor 3, south"/>
+        <line value="South Wing, floor 2"/>
     </address>
     <partOf>
         <type value="Organization"/>
         <reference value="organization/@f001"/>
-        <display value="AMC Amsterdam"/>
     </partOf>
     <contactEntity>
         <type>
@@ -32,18 +31,18 @@
         </name>
         <telecom>
             <system value="phone"/>
-            <value value="020-566 4323"/>
+            <value value="022-655 2321"/>
         </telecom>
         <telecom>
             <system value="email"/>
-            <value value="ctc@amc.uva.nl"/>
+            <value value="cardio@burgersumc.nl"/>
         </telecom>
         <telecom>
             <system value="fax"/>
-            <value value="020-696 2289"/>
+            <value value="022-655 2322"/>
         </telecom>
         <address>
-            <line value="Wing G, floor 3, south"/>
+            <line value="South Wing, floor 2"/>
         </address>
     </contactEntity>
     <active value="true "/>
