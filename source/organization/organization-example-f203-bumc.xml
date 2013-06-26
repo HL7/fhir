@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
+   <identifier>
+      <!--Identifier for the BMC-->
+      <use value="official"/>
+      <label value="Zorginstelling naam"/>
+      <system value="http://www.zorgkaartnederland.nl/"/>
+      <key value="Blijdorp MC"/>
+   </identifier>
+   <name value="Blijdorp Medisch Centrum"/>
+   <name value="EMC"/>
+   <type>
+      <!--BMC is an Academic Medical Center-->
+      <coding>
+         <system value="http://snomed.info"/>
+         <code value="405608006"/>
+         <display value="Academic Medical Center"/>
+      </coding>
+      <coding>
+         <system value="http://hl7.org/fhir/organization-type"/>
+         <code value="prov"/>
+      </coding>
+   </type>
+   <telecom>
+      <!--BMC's contact detail-->
+      <system value="phone"/>
+      <value value="+31107040704"/>
+      <use value="work"/>
+   </telecom>
+   <address><!--BMC's address-->
+    <use value="work"/>
+    <line value="apenrots 230"/>    
+    <city value="Blijdorp"/>
+    <zip value="3056BE"/>
+    <country value="NLD"/><!--ISO 3166 3 letter code-->
+ </address>
+   <accreditation>
+      <!--NIAZ Accreditatie-->
+      <identifier>
+         <!--Identifier for the accreditation -->
+         <label value="BMC's NIAZ accreditation"/>
+         <system value="http://www.niaz.nl/"/>
+         <key value="NIAZ accreditation"/>
+      </identifier>
+      <period>
+         <start value="2008-11-07"/>
+         <end value="2013-11-07"/>
+      </period>
+   </accreditation>
+   <partOf>
+      <type value="Organization"/>
+      <reference value="organization/@f202"/>
+      <display value="NFU"/>
+   </partOf>
+   <active value="true"/>
+   <!--The BMC is in active use-->
+</Organization>

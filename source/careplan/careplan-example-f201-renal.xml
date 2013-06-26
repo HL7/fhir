@@ -27,7 +27,7 @@
   <member>  
      <type value="Practitioner"/>
      <reference value="practitioner/@f201"/>
-     <display value="Dokter Bonsing"/>
+     <display value="Dokter Bronsig"/>
   </member>
  </participant>
  <participant>  
@@ -63,7 +63,7 @@
   <location>
      <type value="Location"/>
      <reference value="location/@f202"/>
-     <display value="LUMC's Nursing unit"/>
+     <display value="AUMC's Nursing unit"/>
   </location>
   <!--TODO Isn't <performer> redundant when considering <participant> that was defined before?-->
   <product>

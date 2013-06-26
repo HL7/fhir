@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Ewout Kramer</LastAuthor>
+  <LastAuthor>Camiel Tromp</LastAuthor>
   <Created>2012-03-19T11:15:30Z</Created>
-  <LastSaved>2013-06-14T09:14:20Z</LastSaved>
+  <LastSaved>2013-06-26T11:32:54Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -21,7 +21,6 @@
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6072</WindowTopY>
   <ActiveSheet>5</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -408,7 +407,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <TopRowVisible>3</TopRowVisible>
+   <TopRowVisible>15</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
@@ -674,7 +673,7 @@
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="11" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="111"/>
-   <Column ss:Width="210.6"/>
+   <Column ss:AutoFitWidth="0" ss:Width="310.20000000000005"/>
    <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="241.8"/>
    <Column ss:AutoFitWidth="0" ss:Width="330.6"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -721,24 +720,24 @@
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">AMC Amsterdam</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world organization example (Amsterdam MC)</Data></Cell>
+    <Cell><Data ss:Type="String">Burgers Amsterdam</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world organization example (Burgers MC)</Data></Cell>
     <Cell><Data ss:Type="String">f001</Data></Cell>
-    <Cell><Data ss:Type="String">organization-example-f001-amc.xml</Data></Cell>
+    <Cell><Data ss:Type="String">organization-example-f001-burgers.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">AMC Cardio</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world organization example (Amsterdam MC Cardiology)</Data></Cell>
+    <Cell><Data ss:Type="String">Burgers Cardio</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world organization example (Burgers MC Cardiology)</Data></Cell>
     <Cell><Data ss:Type="String">f002</Data></Cell>
-    <Cell><Data ss:Type="String">organization-example-f002-amc-card.xml</Data></Cell>
+    <Cell><Data ss:Type="String">organization-example-f002-burgers-card.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">LUMC</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world organization example (Leiden UMC)</Data></Cell>
+    <Cell><Data ss:Type="String">Artis UMC</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world organization example (Artis UMC)</Data></Cell>
     <Cell><Data ss:Type="String">f201</Data></Cell>
-    <Cell><Data ss:Type="String">organization-example-f201-lumc.xml</Data></Cell>
+    <Cell><Data ss:Type="String">organization-example-f201-artis.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -749,10 +748,10 @@
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">EMC</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world organization example (Erasmus MC)</Data></Cell>
+    <Cell><Data ss:Type="String">Blijdorp</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world organization example (Blijdorp MC)</Data></Cell>
     <Cell><Data ss:Type="String">f203</Data></Cell>
-    <Cell><Data ss:Type="String">organization-example-f203-emc.xml</Data></Cell>
+    <Cell><Data ss:Type="String">organization-example-f203-blijdorp.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
   </Table>
@@ -767,8 +766,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

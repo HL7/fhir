@@ -7,10 +7,10 @@
      <reference value="patient/@f201"/>
      <display value="Roel"/>
  </subject>
- <performer><!--The diagnostic report was issued by LUMC-->
+ <performer><!--The diagnostic report was issued by AUMC-->
      <type value="Organization"/><!--TODO Why can't this be a practitioner (OR organisation)?-->
      <reference value="organization/@f201"/>
-     <display value="LUMC"/>
+     <display value="AUMC"/>
  </performer>
  <!--No identifier was available-->
  <requestDetail>
@@ -22,7 +22,7 @@
      <requester>
          <type value="Practitioner"/>
          <reference value="practitioner/@f201"/>
-         <display value="Dokter Bonsing"/>
+         <display value="Dokter Bronsig"/>
      </requester>
  </requestDetail>
  <serviceCategory><!--Lab test-->

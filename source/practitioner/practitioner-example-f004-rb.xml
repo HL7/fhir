@@ -27,7 +27,7 @@
         </telecom>
         <telecom>
             <system value="email"/>
-            <value value="r.briet@amc.nl"/>
+            <value value="r.briet@bmc.nl"/>
             <use value="work"/>
         </telecom>
         <telecom>
@@ -94,7 +94,7 @@
     <organization>
         <type value="Organization"/>
         <reference value="organization/@f001"/>
-        <display value="AMC"/>
+        <display value="BMC"/>
     </organization>
     <role>
         <coding>

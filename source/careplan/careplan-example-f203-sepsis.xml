@@ -27,7 +27,7 @@
   <member>  
      <type value="Practitioner"/>
      <reference value="practitioner/@f201"/>
-     <display value="Dokter Bonsing"/>
+     <display value="Dokter Bronsig"/>
   </member>
  </participant>
  <participant>  
