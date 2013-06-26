@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
-namespace Hl7.Fhir.Support
+namespace Hl7.Fhir.Model
 {
     public class ManagedEntryList : Collection<BundleEntry>
     {

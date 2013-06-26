@@ -37,6 +37,7 @@ using Hl7.Fhir.Support;
 using System.Xml;
 using System.IO;
 using Newtonsoft.Json;
+using Hl7.Fhir.Parsers;
 
 namespace Hl7.Fhir.Parsers
 {
@@ -54,6 +55,18 @@ namespace Hl7.Fhir.Parsers
             return ParseResource(reader, errors);
         }
 
+        public static TagList ParseTagListFromXml(string xml, ErrorList errors)
+        {
+            var reader = Util.XmlReaderFromString(xml);
+            return ParseTagList(reader, errors);
+        }
+
+        public static TagList ParseTagListFromJson(string json, ErrorList errors)
+        {
+            var reader = Util.JsonReaderFromString(json);
+            return ParseTagList(reader, errors);
+        }
+
         public static Resource ParseResource(XmlReader reader, ErrorList errors)
         {
             return ParseResource(new XmlFhirReader(reader), errors);
@@ -64,44 +77,54 @@ namespace Hl7.Fhir.Parsers
             return ParseResource(new JsonFhirReader(reader), errors);
         }
 
+        public static TagList ParseTagList(XmlReader reader, ErrorList errors)
+        {
+            return TagListParser.ParseTagList(reader, errors);
+        }
+
+        public static TagList ParseTagList(JsonReader reader, ErrorList errors)
+        {
+            return TagListParser.ParseTagList(reader, errors);
+        }
+
         public static BundleEntry ParseBundleEntry(JsonReader reader, ErrorList errors)
         {
-            return BundleJson.LoadEntry(reader, errors);
+            return BundleJsonParser.LoadEntry(reader, errors);
         }
 
         public static BundleEntry ParseBundleEntryFromJson(string json, ErrorList errors)
         {
-            return BundleJson.LoadEntry(json, errors);
+            return BundleJsonParser.LoadEntry(json, errors);
         }
 
         public static BundleEntry ParseBundleEntry(XmlReader reader, ErrorList errors)
         {
-            return BundleXml.LoadEntry(reader, errors);
+            return BundleXmlParser.LoadEntry(reader, errors);
         }
 
         public static BundleEntry ParseBundleEntryFromXml(string xml, ErrorList errors)
         {
-            return BundleXml.LoadEntry(xml, errors);
+            return BundleXmlParser.LoadEntry(xml, errors);
         }
 
         public static Bundle ParseBundle(JsonReader reader, ErrorList errors)
         {
-            return BundleJson.Load(reader, errors);
+            return BundleJsonParser.Load(reader, errors);
         }
 
         public static Bundle ParseBundleFromJson(string json, ErrorList errors)
         {
-            return BundleJson.Load(json, errors);
+            return BundleJsonParser.Load(json, errors);
         }
 
         public static Bundle ParseBundle(XmlReader reader, ErrorList errors)
         {
-            return BundleXml.Load(reader, errors);
+            return BundleXmlParser.Load(reader, errors);
         }
 
         public static Bundle ParseBundleFromXml(string xml, ErrorList errors)
         {
-            return BundleXml.Load(xml, errors);
+            return BundleXmlParser.Load(xml, errors);
         }
 
         internal static Element ParseElementFromXml(string xml, ErrorList errors)

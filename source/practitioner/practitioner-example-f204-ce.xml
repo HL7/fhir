@@ -27,8 +27,8 @@
     <deceased value="false"/>
     <address>
         <use value="work"/>
-        <line value="Walvisbaai 3"/>    
-        <city value="Den helder"/>
+        <line value="Albinusdreef 2"/>      
+        <city value="Leiden"/>
         <zip value="2333ZA"/>
         <country value="NLD"/>
     </address>   
@@ -48,7 +48,7 @@
   <organization>
      <type value="Organization"/>
      <reference value="organization/@f201"/>
-     <display value="AUMC"/>
+     <display value="LUMC"/>
  </organization>
  <role>
      <coding>

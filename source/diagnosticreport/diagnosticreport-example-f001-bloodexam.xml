@@ -14,11 +14,11 @@
     <performer>
         <type value="Organization"/>
         <reference value="organization/@f001"/>
-        <display value="Burgers University Medical Centre"/>
+        <display value="AMC"/>
     </performer>
     <reportId>
         <use value="official"/>
-        <system value="http://www.bmc.nl/zorgportal/identifiers/reports"/>
+        <system value="http://www.amc.nl/zorgportal/identifiers/reports"/>
         <key value="nr1239044"/>
     </reportId>
     <requestDetail>

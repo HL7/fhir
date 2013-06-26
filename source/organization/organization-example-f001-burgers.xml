@@ -11,7 +11,7 @@
         <!-- Dutch VEKTIS AGB-Z -->
         <key value="17-0112278"/>
     </identifier>
-    <name value="Burgers University Medical Center"/>
+    <name value="Burgers Universitair Medisch Centrum"/>
     <type>
         <coding>
             <system value="urn:oid:2.16.840.1.113883.2.4.15.1060"/>

@@ -82,7 +82,7 @@
       <member>
          <type value="Practitioner"/>
          <reference value="practitioner/@f201"/>
-         <display value="Dokter Bronsig"/>
+         <display value="Dokter Bonsing"/>
       </member>
    </participant>
    <goal>
@@ -103,7 +103,7 @@
       <location>
          <type value="Location"/>
          <reference value="location/@f201"/>
-         <display value="AUMC's Department of Oncology"/>
+         <display value="LUMC's Department of Oncology"/>
       </location>
       <product>
          <type value="Medication"/>

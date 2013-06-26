@@ -45,7 +45,7 @@
  <performer><!--The temperature was measured by Dokter Bonsing-->     
      <type value="Practitioner"/>
      <reference value="practitioner/@f201"/>
-     <display value="Dokter Bronsig"/>
+     <display value="Dokter Bonsing"/>
  </performer>
  <referenceRange>  <!-- 0..* Provides guide for interpretation -->
    <meaning>

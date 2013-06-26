@@ -30,12 +30,14 @@
 
 
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace Hl7.Fhir.Support
 {
@@ -45,14 +47,6 @@ namespace Hl7.Fhir.Support
         public const string XHTMLNS = "http://www.w3.org/1999/xhtml";
         public const string XMLNS = "http://www.w3.org/2000/xmlns/";
 
-        public const string ATOM_LINKREL_SELF = "self";
-        public const string ATOM_LINKREL_PREVIOUS = "previous";
-        public const string ATOM_LINKREL_NEXT = "next";
-        public const string ATOM_LINKREL_FIRST = "first";
-        public const string ATOM_LINKREL_LAST = "last";
-        public const string ATOM_LINKREL_SEARCH = "search";
-        public const string ATOM_LINKREL_PREDVERSION = "predecessor-version";
-
         public const string RESTPARAM_FORMAT = "_format";
        
         public const string SEARCH_PARAM_ID = "_id";
@@ -61,14 +55,61 @@ namespace Hl7.Fhir.Support
         public const string HISTORY_PARAM_SINCE = "_since";
         public const string HISTORY_PARAM_COUNT = SEARCH_PARAM_COUNT;
 
-      
-
         public static bool UriHasValue(Uri u)
         {
             return u != null && !String.IsNullOrEmpty(u.ToString());
         }
 
-       
+
+        private static string xValue(XObject elem)
+        {
+            if (elem == null) return null;
+
+            if (elem is XElement)
+                return (elem as XElement).Value;
+            if (elem is XAttribute)
+                return (elem as XAttribute).Value;
+
+            return null;
+        }
+
+        public static string StringValueOrNull(XObject elem)
+        {
+            string value = xValue(elem);
+
+            return String.IsNullOrEmpty(value) ? null : value;
+        }
+
+        public static int? IntValueOrNull(XObject elem)
+        {
+            string value = xValue(elem);
+
+            return String.IsNullOrEmpty(value) ? (int?)null : Int32.Parse(value);
+        }
+
+        public static Uri UriValueOrNull(XObject elem)
+        {
+            string value = StringValueOrNull(elem);
+
+            return String.IsNullOrEmpty(value) ? null : new Uri(value, UriKind.RelativeOrAbsolute);
+        }
+
+        public static Uri UriValueOrNull(JToken attr)
+        {
+            if (attr == null) return null;
+
+            var value = attr.Value<string>();
+
+            return String.IsNullOrEmpty(value) ? null : new Uri(value, UriKind.RelativeOrAbsolute);
+        }
+
+        public static DateTimeOffset? InstantOrNull(XObject elem)
+        {
+            string value = StringValueOrNull(elem);
+
+            return String.IsNullOrEmpty(value) ? (DateTimeOffset?)null : Util.ParseIsoDateTime(value);
+        }
+
         public static byte[] ReadAllFromStream(Stream s, int contentLength)
         {
             if (contentLength == 0) return null;

@@ -37,38 +37,47 @@ using Hl7.Fhir.Model;
 using System.Xml.Linq;
 using Hl7.Fhir.Parsers;
 using System.IO;
-//using Hl7.Fhir.Serializers;
+using Hl7.Fhir.Support;
 
-namespace Hl7.Fhir.Support
+namespace Hl7.Fhir.Model
 {
     public class UriLinkList : List<UriLinkEntry>
     {
+        public const string ATOM_LINKREL_SELF = "self";
+        public const string ATOM_LINKREL_PREVIOUS = "previous";
+        public const string ATOM_LINKREL_NEXT = "next";
+        public const string ATOM_LINKREL_FIRST = "first";
+        public const string ATOM_LINKREL_LAST = "last";
+        public const string ATOM_LINKREL_SEARCH = "search";
+        public const string ATOM_LINKREL_PREDVERSION = "predecessor-version";
+
+
         public UriLinkList() : base() { }
 
         public UriLinkList(IEnumerable<UriLinkEntry> collection) : base(collection) {} 
 
         public Uri SelfLink
         {
-            get { return getEntry(Util.ATOM_LINKREL_SELF); }
-            set { setEntry(Util.ATOM_LINKREL_SELF, value); }
+            get { return getEntry(ATOM_LINKREL_SELF); }
+            set { setEntry(ATOM_LINKREL_SELF, value); }
         }
 
         public Uri FirstLink
         {
-            get { return getEntry(Util.ATOM_LINKREL_FIRST); }
-            set { setEntry(Util.ATOM_LINKREL_FIRST, value); }
+            get { return getEntry(ATOM_LINKREL_FIRST); }
+            set { setEntry(ATOM_LINKREL_FIRST, value); }
         }
 
         public Uri PreviousLink
         {
             get
             {
-                return getEntry(Util.ATOM_LINKREL_PREVIOUS);
+                return getEntry(ATOM_LINKREL_PREVIOUS);
             }
 
             set
             {
-                setEntry(Util.ATOM_LINKREL_PREVIOUS, value);
+                setEntry(ATOM_LINKREL_PREVIOUS, value);
             }
         }
 
@@ -76,12 +85,12 @@ namespace Hl7.Fhir.Support
         {
             get
             {
-                return getEntry(Util.ATOM_LINKREL_NEXT);
+                return getEntry(ATOM_LINKREL_NEXT);
             }
 
             set
             {
-                setEntry(Util.ATOM_LINKREL_NEXT, value);
+                setEntry(ATOM_LINKREL_NEXT, value);
             }
         }
 
@@ -89,12 +98,12 @@ namespace Hl7.Fhir.Support
         {
             get
             {
-                return getEntry(Util.ATOM_LINKREL_LAST);
+                return getEntry(ATOM_LINKREL_LAST);
             }
 
             set
             {
-                setEntry(Util.ATOM_LINKREL_LAST, value);
+                setEntry(ATOM_LINKREL_LAST, value);
             }
         }
 
@@ -102,12 +111,12 @@ namespace Hl7.Fhir.Support
         {
             get
             {
-                return getEntry(Util.ATOM_LINKREL_SEARCH);
+                return getEntry(ATOM_LINKREL_SEARCH);
             }
 
             set
             {
-                setEntry(Util.ATOM_LINKREL_SEARCH, value);
+                setEntry(ATOM_LINKREL_SEARCH, value);
             }
         }
 
@@ -115,12 +124,12 @@ namespace Hl7.Fhir.Support
         {
             get
             {
-                return getEntry(Util.ATOM_LINKREL_PREDVERSION);
+                return getEntry(ATOM_LINKREL_PREDVERSION);
             }
 
             set
             {
-                setEntry(Util.ATOM_LINKREL_PREDVERSION, value);
+                setEntry(ATOM_LINKREL_PREDVERSION, value);
             }
         }
 

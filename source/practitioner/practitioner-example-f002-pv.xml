@@ -27,7 +27,7 @@
         </telecom>
         <telecom>
             <system value="email"/>
-            <value value="p.voigt@bmc.nl"/>
+            <value value="p.voigt@amc.nl"/>
             <use value="work"/>
         </telecom>
         <telecom>
@@ -47,9 +47,9 @@
         <deceased value="false"/>
         <address>
             <use value="work"/>
-            <line value="Galapagosweg 91"/>
-            <city value="Den Burg"/>
-            <zip value="9105 PZ"/>
+            <line value="Meibergdreef 9"/>
+            <city value="Amsterdam"/>
+            <zip value="1105 AZ"/>
             <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
         </address>
         <maritalStatus>
@@ -96,7 +96,7 @@
         <type value="Organization"/>
         <!-- deze moet gekoppeld worden aan een RESOURCE ORGANIZATION -->
         <reference value="organization/@f001"/>
-        <display value="BMC"/>
+        <display value="AMC"/>
     </organization>
     <role>
         <coding>

@@ -7,20 +7,21 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Camiel Tromp</LastAuthor>
+  <LastAuthor>Ewout Kramer</LastAuthor>
   <Created>2012-03-19T11:15:30Z</Created>
-  <LastSaved>2013-06-26T11:32:54Z</LastSaved>
+  <LastSaved>2013-06-14T09:14:20Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6348</WindowHeight>
-  <WindowWidth>17496</WindowWidth>
+  <WindowHeight>6345</WindowHeight>
+  <WindowWidth>17490</WindowWidth>
   <WindowTopX>5520</WindowTopX>
-  <WindowTopY>6072</WindowTopY>
+  <WindowTopY>6075</WindowTopY>
   <ActiveSheet>5</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -156,20 +157,19 @@
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="19" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s65" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="197.4"/>
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="56.4" ss:Span="1"/>
-   <Column ss:Index="4" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="35.4"
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="197.25"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
+   <Column ss:Index="4" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="35.25"
     ss:Span="1"/>
    <Column ss:Index="6" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="93"/>
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="142.80000000000001"/>
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="213.60000000000002"
-    ss:Span="1"/>
-   <Column ss:Index="10" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="161.4"
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="142.5"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
+   <Column ss:Index="10" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="161.25"
     ss:Span="1"/>
    <Column ss:Index="12" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="135"/>
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="175.8"/>
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="121.8"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="175.5"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="121.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s67">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -386,7 +386,7 @@
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="129.44999999999999">
+   <Row ss:AutoFitHeight="0" ss:Height="129.5625">
     <Cell><Data ss:Type="String">Organization.active</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">y</Data></Cell>
@@ -407,7 +407,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <TopRowVisible>15</TopRowVisible>
+   <TopRowVisible>3</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
@@ -430,11 +430,10 @@
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s78" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s78" ss:AutoFitWidth="0"
-    ss:Width="111.60000000000001"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="153.6"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="369.6"/>
-   <Column ss:Index="6" ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="206.4"/>
+   <Column ss:Index="2" ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="111.75"/>
+   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="153.75"/>
+   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="369.75"/>
+   <Column ss:Index="6" ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="206.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s67">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -491,9 +490,9 @@
  <Worksheet ss:Name="Events">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="69.599999999999994"/>
-   <Column ss:AutoFitWidth="0" ss:Width="93.600000000000009" ss:Span="1"/>
-   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="101.4"/>
+   <Column ss:AutoFitWidth="0" ss:Width="69.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="93.75" ss:Span="1"/>
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="101.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="111"/>
    <Column ss:AutoFitWidth="0" ss:Width="69"/>
    <Row ss:AutoFitHeight="0" ss:Height="22.5">
@@ -532,10 +531,10 @@
  <Worksheet ss:Name="Search">
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="70.8"/>
-   <Column ss:AutoFitWidth="0" ss:Width="382.79999999999995"/>
+   <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="60"/>
-   <Column ss:AutoFitWidth="0" ss:Width="349.8"/>
+   <Column ss:AutoFitWidth="0" ss:Width="349.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s67">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
@@ -612,11 +611,11 @@
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s83" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="130.80000000000001"/>
-   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="294.60000000000002"/>
-   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="65.400000000000006"/>
-   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="101.4"/>
-   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="287.39999999999998"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="130.5"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="294.75"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="65.25"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="101.25"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="287.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s67"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Definition</Data></Cell>
@@ -633,7 +632,7 @@
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">valueset-organization-type</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.55">
+   <Row ss:AutoFitHeight="0" ss:Height="14.4375">
     <Cell ss:StyleID="s80"><Data ss:Type="String">OrganizationAccreditation</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Types of accreditations an organization may be granted</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">unbound</Data></Cell>
@@ -673,9 +672,9 @@
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="11" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="111"/>
-   <Column ss:AutoFitWidth="0" ss:Width="310.20000000000005"/>
-   <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="241.8"/>
-   <Column ss:AutoFitWidth="0" ss:Width="330.6"/>
+   <Column ss:Width="210.75"/>
+   <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="241.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="330.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Description</Data></Cell>
@@ -720,24 +719,24 @@
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Burgers Amsterdam</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world organization example (Burgers MC)</Data></Cell>
+    <Cell><Data ss:Type="String">AMC Amsterdam</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world organization example (Amsterdam MC)</Data></Cell>
     <Cell><Data ss:Type="String">f001</Data></Cell>
     <Cell><Data ss:Type="String">organization-example-f001-burgers.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Burgers Cardio</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world organization example (Burgers MC Cardiology)</Data></Cell>
+    <Cell><Data ss:Type="String">AMC Cardio</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world organization example (Amsterdam MC Cardiology)</Data></Cell>
     <Cell><Data ss:Type="String">f002</Data></Cell>
-    <Cell><Data ss:Type="String">organization-example-f002-burgers-card.xml</Data></Cell>
+    <Cell><Data ss:Type="String">organization-example-f002-amc-card.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Artis UMC</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world organization example (Artis UMC)</Data></Cell>
+    <Cell><Data ss:Type="String">LUMC</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world organization example (Leiden UMC)</Data></Cell>
     <Cell><Data ss:Type="String">f201</Data></Cell>
-    <Cell><Data ss:Type="String">organization-example-f201-artis.xml</Data></Cell>
+    <Cell><Data ss:Type="String">organization-example-f201-lumc.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -748,10 +747,10 @@
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Blijdorp</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world organization example (Blijdorp MC)</Data></Cell>
+    <Cell><Data ss:Type="String">EMC</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world organization example (Erasmus MC)</Data></Cell>
     <Cell><Data ss:Type="String">f203</Data></Cell>
-    <Cell><Data ss:Type="String">organization-example-f203-blijdorp.xml</Data></Cell>
+    <Cell><Data ss:Type="String">organization-example-f203-emc.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
   </Table>
@@ -767,7 +766,6 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>13</ActiveRow>
-     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

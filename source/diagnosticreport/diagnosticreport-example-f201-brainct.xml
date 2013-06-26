@@ -10,7 +10,7 @@
  <performer><!--The diagnostic report was issued by EMC-->
      <type value="Organization"/>
      <reference value="organization/@f203"/>
-     <display value="Blijdorp MC"/>
+     <display value="Erasmus MC"/>
  </performer>
  <!--No identifier or request details were available-->
  <serviceCategory><!--The request was honored by the Department of Radiology-->

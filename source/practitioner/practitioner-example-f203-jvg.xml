@@ -33,8 +33,9 @@
     <deceased value="false"/>
     <address><!--Work address for the individual-->
         <use value="work"/>
-        <line value="Walvisbaai 3"/>    
-        <city value="Den helder"/>
+        <line value="Albinusdreef 2"/>        
+        <line value="C4 - Automatisering"/>
+        <city value="Leiden"/>
         <zip value="2333ZA"/>
         <country value="NLD"/><!--ISO 3166 3 letter code-->
     </address>   
@@ -47,7 +48,7 @@
   <organization>
      <type value="Organization"/>
      <reference value="organization/@f201"/>
-     <display value="AUMC"/>
+     <display value="LUMC"/>
  </organization>
  <role>
      <coding>

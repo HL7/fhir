@@ -47,7 +47,7 @@
  <performer><!--The BMI was measured by Dokter Bonsing-->     
      <type value="Practitioner"/>
      <reference value="practitioner/@f201"/>
-     <display value="Dokter Bronsig"/>
+     <display value="Dokter Bonsing"/>
  </performer>
  <referenceRange><!--BMI<20 indicates low BMI-->
     <meaning>
