@@ -2,7 +2,7 @@
 <CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
     <identifier>
         <use value="official"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.36 -->
-        <system value="http://www.amc.nl/zorgportal/identifiers/careplans"/>
+        <system value="http://www.bmc.nl/zorgportal/identifiers/careplans"/>
         <key value="CP2934"/>
     </identifier>
     <patient>        

@@ -2,16 +2,16 @@
 <Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
    <identifier>
-      <!--Identifier for the EMC-->
+      <!--Identifier for the BMC-->
       <use value="official"/>
       <label value="Zorginstelling naam"/>
       <system value="http://www.zorgkaartnederland.nl/"/>
-      <key value="Erasmus MC"/>
+      <key value="Blijdorp MC"/>
    </identifier>
-   <name value="Erasmus Medisch Centrum"/>
+   <name value="Blijdorp Medisch Centrum"/>
    <name value="EMC"/>
    <type>
-      <!--EMC is an Academic Medical Center-->
+      <!--BMC is an Academic Medical Center-->
       <coding>
          <system value="http://snomed.info"/>
          <code value="405608006"/>
@@ -23,23 +23,23 @@
       </coding>
    </type>
    <telecom>
-      <!--EMC's contact detail-->
+      <!--BMC's contact detail-->
       <system value="phone"/>
       <value value="+31107040704"/>
       <use value="work"/>
    </telecom>
-   <address><!--EMC's address-->
+   <address><!--BMC's address-->
     <use value="work"/>
-    <line value="'s Gravendijkwal 230"/>    
-    <city value="Rotterdam"/>
-    <zip value="3015CE"/>
+    <line value="apenrots 230"/>    
+    <city value="Blijdorp"/>
+    <zip value="3056BE"/>
     <country value="NLD"/><!--ISO 3166 3 letter code-->
  </address>
    <accreditation>
-      <!--NIAZ Accreditation-->
+      <!--NIAZ Accreditatie-->
       <identifier>
          <!--Identifier for the accreditation -->
-         <label value="EMC's NIAZ accreditation"/>
+         <label value="BMC's NIAZ accreditation"/>
          <system value="http://www.niaz.nl/"/>
          <key value="NIAZ accreditation"/>
       </identifier>
@@ -54,5 +54,5 @@
       <display value="NFU"/>
    </partOf>
    <active value="true"/>
-   <!--The EMC is in active use-->
+   <!--The BMC is in active use-->
 </Organization>

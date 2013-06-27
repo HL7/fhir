@@ -130,7 +130,7 @@
   <provider>
     <type value="Organization"/>
     <reference value="organization/@f001"/>
-    <display value="AMC Amsterdam"/>
+    <display value="Burgers University Medical Centre"/>
   </provider>
   <multipleBirthBoolean value="true"/>
   <active value="true"/>

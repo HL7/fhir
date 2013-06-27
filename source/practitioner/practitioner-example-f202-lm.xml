@@ -36,9 +36,9 @@
     <deceased value="false"/><!--Fortunately, the doctor is still alive!-->
     <address><!--Work address for the individual-->
         <use value="work"/>
-        <line value="Albinusdreef 2"/>        
+        <line value="Walvisbaai 3"/>    
         <line value="C4 - Automatisering"/>
-        <city value="Leiden"/>
+        <city value="Den helder"/>
         <zip value="2333ZA"/>
         <country value="NLD"/><!--ISO 3166 3 letter code-->
     </address>   
@@ -51,7 +51,7 @@
   <organization>
      <type value="Organization"/>
      <reference value="organization/@f201"/>
-     <display value="LUMC"/>
+     <display value="AUMC"/>
  </organization>
  <role>
      <coding>

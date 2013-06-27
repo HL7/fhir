@@ -13,8 +13,8 @@
         <name>
             <!--The name of the practitioner-->
             <use value="official"/>
-            <text value="Dokter Bonsing"/>
-            <family value="Bonsing"/>
+            <text value="Dokter Bronsig"/>
+            <family value="Bronsig"/>
             <given value="Arend"/>
             <prefix value="Dr."/>
         </name>
@@ -36,23 +36,23 @@
         <deceased value="false"/>
         <!--Fortunately, the doctor is still alive!-->
         <address><!--Work address for the individual-->
-            <use value="work"/>
-            <line value="Albinusdreef 2"/>        
+            <use value="work"/>       
+            <line value="Walvisbaai 3"/>    
             <line value="C4 - Automatisering"/>
-            <city value="Leiden"/>
+            <city value="Den helder"/>
             <zip value="2333ZA"/>
             <country value="NLD"/><!--ISO 3166 3 letter code-->
         </address>
 <!--        <photo>
             <type value="Picture"/>
             <reference value="picture/@AB-201.bmp"/>
-            <display value="Picture_Dokter_Bonsing"/>
+            <display value="Picture_Dokter_Bronsig"/>
         </photo> -->
     </details>
     <organization>
         <type value="Organization"/>
         <reference value="organization/@f201"/>
-        <display value="LUMC"/>
+        <display value="AUMC"/>
     </organization>
     <role>
         <coding>

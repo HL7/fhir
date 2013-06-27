@@ -17,7 +17,7 @@
  <prescriber>
     <type value="Practitioner"/>
     <reference value="practitioner/@f201"/>
-    <display value="Dokter Bonsing"/>
+    <display value="Dokter Bonsig"/>
  </prescriber>
  <visit><!--TODO <visit> is not expected-->
     <type value="Visit"/>
@@ -31,7 +31,7 @@
     <display value="Flutacisone + Salmeterol"/>
  </medication>
  <dosageInstructions>  
-  <dosageInstructionsText value="aerosol 25/250ug/do 120do 2x per dag 1 dosis"/>
+  <dosageInstructionsText value="aerosol 25/250ug/do 120do 2x - 1 dose - daily"/>
   <timing><!--2 months-->
       <event>
           <start value="2013-03-11"/>
@@ -77,7 +77,7 @@
     </numerator>
     <denominator>
         <value value="1"/>
-        <units value="per day"/>
+        <units value="daily"/>
         <system value="http://snomed.info"/>
         <code value="259032004"/>
     </denominator>

@@ -43,7 +43,7 @@
     </method>
     <identifier>
         <use value="official"/>
-        <system value="http://www.amc.nl/zorgportal/identifiers/observations"/>
+        <system value="http://www.bmc.nl/zorgportal/identifiers/observations"/>
         <key value="6323"/>
     </identifier>
     <subject>

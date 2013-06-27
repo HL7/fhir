@@ -6,12 +6,12 @@
         <use value="official"/>
         <label value="Zorginstelling naam"/>
         <system value="http://www.zorgkaartnederland.nl/"/>
-        <key value="Leids Universitair Medisch Centrum"/>
+        <key value="Artis University Medical Center"/>
     </identifier>
-    <name value="Leids Universitair Medisch Centrum"/>
-    <name value="LUMC"/>
+    <name value="Artis University Medical Center"/>
+    <name value="AUMC"/>
     <type>
-        <!--LUMC is an Academic Medical Center-->
+        <!--AUMC is an Academic Medical Center-->
         <coding>
             <system value="http://snomed.info"/>
             <code value="405608006"/>
@@ -37,8 +37,8 @@
     </telecom>
     <address><!--LUMC's address-->
         <use value="work"/>
-        <line value="Albinusdreef 2"/>    
-        <city value="Leiden"/>
+        <line value="Walvisbaai 3"/>    
+        <city value="Den helder"/>
         <zip value="2333ZA"/>
         <country value="NLD"/><!--ISO 3166 3 letter code-->
      </address>
@@ -46,7 +46,7 @@
     <accreditation>
         <!--HIMSS-6 Accreditation-->
         <identifier>
-            <label value="LUMC's HIMMS Stage 6 accreditation"/>
+            <label value="AUMC's HIMMS Stage 6 accreditation"/>
             <system value="http://www.himss.org/"/>
             <key value="HIMSS Stage 6 accreditation"/>
         </identifier>
@@ -55,7 +55,7 @@
         <!--NIAZ accreditation-->
         <identifier>
             <!--Identifier for the accreditation -->
-            <label value="LUMC's NIAZ accreditation"/>
+            <label value="AUMC's NIAZ accreditation"/>
             <system value="http://www.niaz.nl/"/>
             <key value="NIAZ accreditation"/>
         </identifier>
@@ -70,7 +70,7 @@
         <display value="NFU"/>
     </partOf>
     <contactEntity>
-        <!--Contact for the LUMC-->
+        <!--Contact for the AUMC-->
         <type>
             <coding>
                 <system value="http://snomed.info"/>
@@ -91,10 +91,9 @@
             <use value="work"/>
         </telecom>
         <address>
-            <use value="work"/>
-            <line value="Albinusdreef 2"/> 
-            <line value="Gebouw 2"/>
-            <city value="Leiden"/>
+            <line value="Walvisbaai 3"/>
+            <line value="Gebouw 2"/>  
+            <city value="Den helder"/>
             <zip value="2333ZA"/>
             <country value="NLD"/><!--ISO 3166 3 letter code-->
         </address>

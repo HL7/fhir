@@ -5,7 +5,7 @@
     <identifier>
         <!--The identifier for the person as this patient (fictive)-->
         <use value="official"/>
-        <label value="Burger Service Nummer"/>
+        <label value="BSN"/>
         <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
         <key value="123456789"/>
     </identifier>
@@ -14,7 +14,7 @@
         <identifier>
             <!--The identifier for this individual-->
             <use value="official"/>
-            <label value="Burger Service Nummer"/>
+            <label value="BSN"/>
             <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
             <key value="123456789"/>
         </identifier>
@@ -165,7 +165,7 @@
     <provider>
         <type value="Organization"/>
         <reference value="organization/@f201"/>
-        <display value="LUMC"/>
+        <display value="AUMC"/>
     </provider>
     <multipleBirthBoolean value="false"/>
     <!--Indicates that the patient is not part of a multiple birth -->
