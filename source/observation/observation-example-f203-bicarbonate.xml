@@ -36,7 +36,7 @@
  </method>
  <identifier>
     <label value="Bicarbonaat value of Roel on April 2013 - 03720"/>
-    <system value="https://intranet.lumc.nl/labvalues"/><!--Does not exist-->
+    <system value="https://intranet.aumc.nl/labvalues"/><!--Does not exist-->
     <key value="1304-03720-Bicarbonate"/>
  </identifier>
  <subject><!--It entails Roel's Bicarbonate level-->

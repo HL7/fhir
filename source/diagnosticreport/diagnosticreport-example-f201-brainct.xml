@@ -7,7 +7,7 @@
      <reference value="patient/@f201"/>
      <display value="Roel"/>
  </subject>
- <performer><!--The diagnostic report was issued by EMC-->
+ <performer><!--The diagnostic report was issued by BlijdorpMC-->
      <type value="Organization"/>
      <reference value="organization/@f203"/>
      <display value="Blijdorp MC"/>

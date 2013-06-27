@@ -63,14 +63,6 @@
             <zip value="1055RW"/>
             <country value="NLD"/><!--ISO 3166 3 letter code-->
         </address>
-        <address><!--Work address for the individual-->
-            <use value="work"/>
-            <line value="Albinusdreef 2"/>        
-            <line value="C4 - Automatisering"/>
-            <city value="Leiden"/>
-            <zip value="2333ZA"/>
-            <country value="NLD"/><!--ISO 3166 3 letter code-->
-        </address>
 <!--        <photo>
             <type value="Picture"/>
             <reference value="picture/@ROB-202.bmp"/>

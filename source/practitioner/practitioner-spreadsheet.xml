@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12336</WindowHeight>
-  <WindowWidth>21840</WindowWidth>
+  <WindowHeight>12240</WindowHeight>
+  <WindowWidth>19440</WindowWidth>
   <WindowTopX>480</WindowTopX>
-  <WindowTopY>96</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
+  <WindowTopY>90</WindowTopY>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -94,18 +94,17 @@
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="12" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="340.8"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="33.6"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="340.5"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="33.75"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="33" ss:Span="2"/>
    <Column ss:Index="6" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="120"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="102"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="213.60000000000002"
-    ss:Span="1"/>
-   <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="161.4"
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
+   <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="161.25"
     ss:Span="1"/>
    <Column ss:Index="12" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="15" ss:StyleID="s63" ss:Width="80.400000000000006"/>
+   <Column ss:Index="15" ss:StyleID="s63" ss:Width="80.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -289,8 +288,8 @@
  <Worksheet ss:Name="Search">
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="11" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="94.8"/>
-   <Column ss:AutoFitWidth="0" ss:Width="408.59999999999997"/>
+   <Column ss:AutoFitWidth="0" ss:Width="94.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="408.75"/>
    <Column ss:Index="4" ss:Width="123"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -300,43 +299,51 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">identifier</Data></Cell>
-    <Cell><Data ss:Type="String">A patient Identifier</Data></Cell>
+    <Cell><Data ss:Type="String">A practitioner's Identifier</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
+    <Cell><Data ss:Type="String">Practitioner.identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">name</Data></Cell>
     <Cell><Data ss:Type="String">a portion of either family or given name</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="String">Practitioner.details.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">family</Data></Cell>
     <Cell><Data ss:Type="String">a portion of the family name</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="String">Practitioner.details.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">given</Data></Cell>
     <Cell><Data ss:Type="String">a portion of the given name</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="String">Practitioner.details.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">phonetic</Data></Cell>
     <Cell><Data ss:Type="String">a portion of either family or given name using some kind of phonetic matching algorithm</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="String">Practitioner.details.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">telecom</Data></Cell>
     <Cell><Data ss:Type="String">the value in any kind of contact</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="String">Practitioner.details.telecom</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">address</Data></Cell>
     <Cell><Data ss:Type="String">an address in any kind of address/part</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="String">Practitioner.details.address</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">gender</Data></Cell>
     <Cell><Data ss:Type="String">gender of the person</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
+    <Cell><Data ss:Type="String">Practitioner.details.gender</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">language</Data></Cell>
@@ -357,11 +364,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -372,10 +380,10 @@
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s73" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="132"/>
-   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="297.60000000000002"/>
-   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="52.8"/>
-   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="120.60000000000001"/>
-   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="222.60000000000002"/>
+   <Column ss:StyleID="s73" ss:Width="436.5"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="52.5"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="120.75"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="222.75"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
@@ -420,10 +428,10 @@
  <Worksheet ss:Name="Examples">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="13" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="77.399999999999991"/>
-   <Column ss:AutoFitWidth="0" ss:Width="127.8"/>
+   <Column ss:AutoFitWidth="0" ss:Width="77.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="127.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="69"/>
-   <Column ss:AutoFitWidth="0" ss:Width="210.6"/>
+   <Column ss:AutoFitWidth="0" ss:Width="210.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
@@ -488,7 +496,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Dr. Bonsing</Data></Cell>
+    <Cell><Data ss:Type="String">Dr. Bronsig</Data></Cell>
     <Cell><Data ss:Type="String">Fictive Oncologist/Pulmonologist</Data></Cell>
     <Cell><Data ss:Type="String">f201</Data></Cell>
     <Cell><Data ss:Type="String">practitioner-example-f201-ab.xml</Data></Cell>
@@ -523,7 +531,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

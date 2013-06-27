@@ -10,12 +10,10 @@
  <author>
     <type value="Practitioner"/>
     <reference value="practitioner/@f201"/>
-    <display value="Dokter Bonsing"/>
  </author>
- <source><!--Dokter Bonsing entered all data in the EHR-->
+ <source>
     <type value="Practitioner"/>
     <reference value="practitioner/@f201"/>
-    <display value="Dokter Bonsing"/>
  </source>
  <name>
     <coding>

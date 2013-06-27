@@ -17,7 +17,6 @@
  <prescriber>
     <type value="Practitioner"/>
     <reference value="practitioner/@f201"/>
-    <display value="Dokter Bonsing"/>
  </prescriber>
  <visit><!--TODO <visit> is not expected...-->
     <type value="Visit"/>

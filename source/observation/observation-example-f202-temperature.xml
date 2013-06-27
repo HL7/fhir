@@ -42,10 +42,9 @@
      <reference value="patient/@f201"/>
      <display value="Roel"/>
  </subject>
- <performer><!--The temperature was measured by Dokter Bonsing-->     
+ <performer>
      <type value="Practitioner"/>
      <reference value="practitioner/@f201"/>
-     <display value="Dokter Bronsig"/>
  </performer>
  <referenceRange>  <!-- 0..* Provides guide for interpretation -->
    <meaning>

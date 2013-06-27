@@ -2,7 +2,7 @@
 <Visit xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:/C:/SVN/schema/visit.xsd">
     <identifier>
         <use value="official"/>
-        <system value="http://www.amc.nl/zorgportal/identifiers/visits"/>
+        <system value="http://www.bmc.nl/zorgportal/identifiers/visits"/>
         <key value="v1451"/>
     </identifier>
     <status value="finished"/>
@@ -50,7 +50,7 @@
     <hospitalization>
         <preAdmissionIdentifier>
             <use value="official"/>
-            <system value="http://www.amc.nl/zorgportal/identifiers/pre-admissions"/>
+            <system value="http://www.bmc.nl/zorgportal/identifiers/pre-admissions"/>
             <key value="93042"/>
         </preAdmissionIdentifier>
         <preAdmissionTest>
@@ -99,6 +99,6 @@
     <serviceProvider>
         <type value="Organisation"/>
         <reference value="organisation/@F001"/>
-        <display value="AMC"/>
+        <display value="BMC"/>
     </serviceProvider>
 </Visit>

@@ -14,7 +14,7 @@
        <display value="Chemotherapy"/> 
     </coding>
  </type>
- <subject><!--It entails Roel's visit to Dr. Bonsing-->
+ <subject>
      <type value="Patient"/>
      <reference value="patient/@f201"/>
      <display value="Roel"/>
@@ -23,7 +23,6 @@
      <practitioner>
          <type value="Practitioner"/>
          <reference value="practitioner/@f201"/>
-         <display value="Dokter Bonsing"/>
     </practitioner>
  </participant>
  <length>
@@ -49,6 +48,5 @@
  <serviceProvider>
      <type value="Organization"/>
      <reference value="organization/@f201"/>
-     <display value="LUMC"/>
  </serviceProvider>
 </Visit>

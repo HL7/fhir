@@ -17,7 +17,6 @@
  <recorder>
      <type value="Practitioner"/>
      <reference value="practitioner/@f201"/>
-     <display value="Dokter Bonsing"/>
  </recorder>
  <substance>
      <type value="Substance"/>

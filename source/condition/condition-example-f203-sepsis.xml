@@ -11,10 +11,9 @@
      <reference value="visit/@f203"/>
      <display value="Roel's visit on March eleventh"/>
  </visit>
- <asserter><!--The problem was asserted by Dokter Bonsing-->     
+ <asserter>
      <type value="Practitioner"/>
      <reference value="practitioner/@f201"/>
-     <display value="Dokter Bonsing"/>
  </asserter>
  <dateAsserted value="2013-03-11"/>
  <code><!--The problem is bacterial sepsis-->
@@ -55,7 +54,7 @@
   <details>
      <type value="DiagnosticReport"/>
      <reference value="diagnosticreport/@f202"/>
-     <display value="LUMC's diagnostic report for Roel's sepsis"/>
+     <display value="Diagnostic report for Roel's sepsis"/>
   </details>
  </evidence>
  <location><!--Location is intravascular pulmonary-->

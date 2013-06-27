@@ -14,7 +14,7 @@
        <display value="Inpatient stay for nine days"/>
     </coding>
  </type>
- <subject><!--It entails Roel's visit to Dr. Bonsing-->
+ <subject>
      <type value="Patient"/>
      <reference value="patient/@f201"/>
      <display value="Roel"/>
@@ -23,7 +23,6 @@
      <practitioner>
          <type value="Practitioner"/>
          <reference value="practitioner/@f201"/>
-         <display value="Dokter Bonsing"/>
     </practitioner>
  </participant>
  <reasonString value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>
@@ -36,11 +35,10 @@
     </coding>
  </priority>
  <hospitalization> 
-  <origin>
+<!--  <origin>
      <type value="Location"/>
-     <reference value="location/@f201"/>
-     <display value="LUMC's Department of Oncology"/>      
-  </origin>
+     <reference value="location/@2"/>     
+  </origin>--> 
   <admitSource>
     <coding>
        <system value="http://snomed.info"/>
@@ -61,16 +59,14 @@
     </coding>
   </diet>
   <!--no special courtesy or arrangements-->
-  <destination><!--Fictive-->
+<!--  <destination><!-\-Fictive-\->
      <type value="Location"/>
-     <reference value="location/@f202"/>
-     <display value="LUMC's Skilled Nursing Facility"/>  
-  </destination>
+     <reference value="location/@f202"/>  
+  </destination>-->
   <reAdmission value="false"/>
  </hospitalization>
  <serviceProvider>
      <type value="Organization"/>
      <reference value="organization/@f201"/>
-     <display value="LUMC"/>
  </serviceProvider>
 </Visit>

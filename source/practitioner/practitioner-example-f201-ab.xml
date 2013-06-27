@@ -70,7 +70,7 @@
     </specialty>
     <qualification>
         <code>
-            <!--Dr. Bonsing is not only a medical oncologist, but also a pulmonologist-->
+            <!--Dr. Bronsig is not only a medical oncologist, but also a pulmonologist-->
             <coding>
                 <system value="http://snomed.info"/>
                 <code value="41672002"/>

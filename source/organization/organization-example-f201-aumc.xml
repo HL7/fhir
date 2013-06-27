@@ -2,14 +2,13 @@
 <Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
     <identifier>
-        <!--Identifier for the LUMC-->
+        <!--Identifier for the AUMC-->
         <use value="official"/>
         <label value="Zorginstelling naam"/>
         <system value="http://www.zorgkaartnederland.nl/"/>
         <key value="Artis University Medical Center"/>
     </identifier>
-    <name value="Artis University Medical Center"/>
-    <name value="AUMC"/>
+    <name value="Artis University Medical Center (AUMC)"/>
     <type>
         <!--AUMC is an Academic Medical Center-->
         <coding>
@@ -30,21 +29,21 @@
         </coding>
     </type>
     <telecom>
-        <!--LUMC's contact detail-->
+        <!--AUMC's contact detail-->
         <system value="phone"/>
         <value value="+31715269111"/>
         <use value="work"/>
     </telecom>
-    <address><!--LUMC's address-->
+    <address><!--AUMC's address-->
         <use value="work"/>
         <line value="Walvisbaai 3"/>    
-        <city value="Den helder"/>
+        <city value="Den Helder"/>
         <zip value="2333ZA"/>
         <country value="NLD"/><!--ISO 3166 3 letter code-->
      </address>
-    <!--The LUMC is in active use-->
-    <accreditation>
-        <!--HIMSS-6 Accreditation-->
+    <!--The AUMC is in active use-->
+<!--    <accreditation>
+        <!-\-HIMSS-6 Accreditation-\->
         <identifier>
             <label value="AUMC's HIMMS Stage 6 accreditation"/>
             <system value="http://www.himss.org/"/>
@@ -52,9 +51,9 @@
         </identifier>
     </accreditation>
     <accreditation>
-        <!--NIAZ accreditation-->
+        <!-\-NIAZ accreditation-\->
         <identifier>
-            <!--Identifier for the accreditation -->
+            <!-\-Identifier for the accreditation -\->
             <label value="AUMC's NIAZ accreditation"/>
             <system value="http://www.niaz.nl/"/>
             <key value="NIAZ accreditation"/>
@@ -63,21 +62,9 @@
             <start value="2000-01-01"/>
             <end value="2013-12-31"/>
         </period>
-    </accreditation>
-    <partOf>
-        <type value="Organization"/>
-        <reference value="organization/@f202"/>
-        <display value="NFU"/>
-    </partOf>
+    </accreditation> -->
     <contactEntity>
         <!--Contact for the AUMC-->
-        <type>
-            <coding>
-                <system value="http://snomed.info"/>
-                <code value="158890004"/>
-                <display value="University Professor"/>
-            </coding>
-        </type>
         <name>
             <use value="official"/>
             <text value="Professor Brand"/>

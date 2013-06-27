@@ -15,7 +15,7 @@ Examples of use for Location are:
 Non-examples are:
 </p>
 <ul>
-<li>An MRI-device</li>
+<li>An MRI-device (the room in which the device is placed is the Location)</li>
 <li>...</li>
 </ul>
 </div>

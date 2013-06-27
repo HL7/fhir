@@ -2,9 +2,10 @@
 
 <p>
 Pracitioner covers all individuals who are professionally engaged in the healthcare process, commonly (but not necessarily) on behalf 
-of an organization. Their activity is part of a formal responsibility for a (part of) the healthcare process and this Resource is used for attribution of activities and responsibilities to these individuals.
+of an organization. Their activity is part of a formal responsibility for a (part of) the healthcare process and this Resource is used 
+for attribution of activities and responsibilities to these individuals.
 
-Pactitioners include:
+Pactitioners include (but are not limited to):
 </p>
 <ul>
 <li>physicians, dentists, pharmacists</li>
@@ -15,9 +16,13 @@ Pactitioners include:
 <li>receptionists handling patient registration</li>
 </ul>
 <p>
-The Resources must not be used for persons involved for non-professional reasons like individuals taking care for friends, relatives or neighbours.
+The Resource must not be used for persons involved for non-professional reasons like individuals taking care for friends, 
+relatives or neighbours. These can be registered as a Patient's Contact.
 </p>
 <p>
-Although a Practitioner Resource represents individuals, they may practice their profession on behalf on an organization. Commonly, a Practitioner performs different roles within the same or even different organizations. Depending on jurisdiction and custom, it may be necessary to maintain a specific Practitioner Resource for each such role, possibily with different relevant qualifications. The role is also often limited to a specific period, after which authorization for this role ends. Note that the represented organization need not necessarily be the (direct) employer of a Practitioner.
+Although a Practitioner Resource represents individuals, they commonly practice their profession on behalf on an organization.
+Practitioner performs different roles within the same or even different organizations. Depending on jurisdiction and custom, 
+it may be necessary to maintain a specific Practitioner Resource for each such role, possibily with different relevant qualifications. 
+The role is also often limited to a specific period, after which authorization for this role ends. Note that the represented organization need not necessarily be the (direct) employer of a Practitioner.
 </p>
 </div>

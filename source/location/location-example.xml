@@ -1,27 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Location xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/location.xsd"
- xmlns="http://hl7.org/fhir">
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/location.xsd" xmlns="http://hl7.org/fhir">
   <text>
-    <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">UMCU, locatie Stratenum</div>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Burgers UMC, South Wing, second floor</div>
   </text>
-  <name value="UMCU, locatie Stratenum"/>  
+  <name value="South-2"/>
+  <description value="South Wing, Floor 2"/>
   <type>
     <coding>
-      <system value="http://www.hl7.nl/locationTypeCodeNL" />
-      <code value="BRNCH" />
-      <display value="Branche" />
+      <system value="http://hl7.org/fhir/location-type"/>
+      <code value="wi"/>
+      <display value="Wing"/>
     </coding>
   </type>
+  <telecom>
+    <system value="phone"/>
+    <value value="2328"/>
+  </telecom>
   <address>
-    <line value="Universiteitsweg 100" />
-    <city value="Utrecht" />
-    <zip value="3584 CG" />
+        <use value="work"/>
+        <line value="Galapagosweg 91, Building A"/>
+        <city value="Den Burg"/>
+        <zip value="9105 PZ"/>
+        <country value="NLD"/>
   </address>
+  <position>
+    <longitude value="4.844614000123024"/>
+    <latitude value="52.37799399970903" />
+    <altitude value="0" />
+  </position>
   <provider>
-    <type value="Organization" />
-    <reference value="organization/@f001" />
+    <type value="Organization"/>
+    <reference value="organization/@f001"/>
   </provider>
-  <active value="true" />
+  <active value="true"/>
 </Location>

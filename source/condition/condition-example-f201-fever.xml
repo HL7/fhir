@@ -8,12 +8,10 @@
  <visit>
      <type value="Visit"/>
      <reference value="visit/@f201"/>
-     <display value="Dokter Bonsing"/>
  </visit>
- <asserter><!--The problem was asserted by Dokter Bonsing-->     
+ <asserter>
      <type value="Practitioner"/>
      <reference value="practitioner/@f201"/>
-     <display value="Dokter Bonsing"/>
  </asserter>
  <dateAsserted value="2013-04-04"/><!--The problem was entered at April fourth-->
  <code><!--The problem is a fever-->

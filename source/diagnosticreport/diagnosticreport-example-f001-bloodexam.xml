@@ -28,12 +28,12 @@
         </visit>
         <requestOrderId>
             <use value="official"/>
-            <system value="http://www.amc.nl/zorgportal/identifiers/labresults"/>
+            <system value="http://www.bmc.nl/zorgportal/identifiers/labresults"/>
             <key value="L2381"/>
         </requestOrderId>
         <receiverOrderId>
             <use value="official"/>
-            <system value="http://www.amc.nl/zorgportal/identifiers/diagnostics"/>
+            <system value="http://www.bmc.nl/zorgportal/identifiers/diagnostics"/>
             <key value="D2838"/>
         </receiverOrderId>
         <requestTest>

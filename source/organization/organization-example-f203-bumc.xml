@@ -8,8 +8,7 @@
       <system value="http://www.zorgkaartnederland.nl/"/>
       <key value="Blijdorp MC"/>
    </identifier>
-   <name value="Blijdorp Medisch Centrum"/>
-   <name value="EMC"/>
+   <name value="Blijdorp Medisch Centrum (BUMC)"/>
    <type>
       <!--BMC is an Academic Medical Center-->
       <coding>
@@ -35,10 +34,10 @@
     <zip value="3056BE"/>
     <country value="NLD"/><!--ISO 3166 3 letter code-->
  </address>
-   <accreditation>
-      <!--NIAZ Accreditatie-->
+<!--   <accreditation>
+      <!-\-NIAZ Accreditatie-\->
       <identifier>
-         <!--Identifier for the accreditation -->
+         <!-\-Identifier for the accreditation -\->
          <label value="BMC's NIAZ accreditation"/>
          <system value="http://www.niaz.nl/"/>
          <key value="NIAZ accreditation"/>
@@ -47,12 +46,7 @@
          <start value="2008-11-07"/>
          <end value="2013-11-07"/>
       </period>
-   </accreditation>
-   <partOf>
-      <type value="Organization"/>
-      <reference value="organization/@f202"/>
-      <display value="NFU"/>
-   </partOf>
+   </accreditation>-->
    <active value="true"/>
    <!--The BMC is in active use-->
 </Organization>

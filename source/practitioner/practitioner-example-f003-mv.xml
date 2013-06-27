@@ -47,7 +47,7 @@
         <deceased value="false"/>
         <address>
             <use value="work"/>
-            <line value="Meibergdreef 9"/>
+            <line value="Galapagosweg 91"/>
             <city value="Amsterdam"/>
             <zip value="1105 AZ"/>
             <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->

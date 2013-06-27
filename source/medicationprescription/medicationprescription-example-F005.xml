@@ -2,7 +2,7 @@
 <MedicationPrescription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:/C:/SVN/schema/medicationprescription.xsd">
     <identifier>
         <use value="official"/>
-        <system value="http://www.amc.nl/portal/prescriptions"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
         <key value="order9823343"/>
     </identifier>
     <dateWritten value="2013-04-08"/>
