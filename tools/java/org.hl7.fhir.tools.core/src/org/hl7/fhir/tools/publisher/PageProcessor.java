@@ -1502,7 +1502,9 @@ private String resItem(String name) throws Exception {
   
   private String generateOID(String fileTitle) {
     BindingSpecification cd = definitions.getBindingByReference("#"+fileTitle);
-    if (cd.isValueSet())
+    if (!Utilities.noString(cd.getOid()))
+      return cd.getOid();
+    else if (cd.isValueSet())
       return OID_VS + cd.getId();
     else
       return OID_TX + cd.getId();
@@ -1518,9 +1520,9 @@ private String resItem(String name) throws Exception {
       int i = 0;
       for (String n : cd.getVSSources()) {
         i++;
-        n = fixUrlReference(n);
+        String an = fixUrlReference(n);
         
-        b.append("<a href=\""+n+"\">"+n+"</a>");
+        b.append("<a href=\""+an+"\">"+n+"</a>");
         if (i == cd.getVSSources().size() - 1)
           b.append(" and ");
         else if (cd.getVSSources().size() > 1 && i != cd.getVSSources().size() )
@@ -1532,7 +1534,9 @@ private String resItem(String name) throws Exception {
 
   private String fixUrlReference(String n) {
     if (n.startsWith("urn:ietf:rfc:"))
-      n = "http://tools.ietf.org/html/rfc"+n.split("\\:")[3];
+      return "http://tools.ietf.org/html/rfc"+n.split("\\:")[3];
+    if (codeSystems.containsKey(n))
+      return codeSystems.get(n).getLinks().get("self");
     return n;
   }
 

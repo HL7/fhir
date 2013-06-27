@@ -411,6 +411,7 @@ public class SpreadsheetParser {
 			cd.setId(registry.idForName(cd.getName()));
 			cd.setSource(name);
       cd.setUri(sheet.getColumn(row, "Uri"));
+      cd.setOid(sheet.getColumn(row, "Oid"));
       cd.setWebSite(sheet.getColumn(row, "Website"));
       cd.setEmail(sheet.getColumn(row, "Email"));
 

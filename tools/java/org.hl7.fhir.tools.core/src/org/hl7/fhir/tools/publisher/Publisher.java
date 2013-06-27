@@ -363,6 +363,11 @@ public class Publisher {
     analyseV2();
     analyseV3();
     log(" ...resource ValueSet");
+    ResourceDefn r = page.getDefinitions().getResources().get("ValueSet");
+    if (isGenerate) {
+      produceResource1(r);      
+      produceResource2(r);
+    }
     generateCodeSystems();
     for (BindingSpecification cd : page.getDefinitions().getBindings().values()) {
       if (cd.getBinding() == Binding.ValueSet && !Utilities.noString(cd.getReference())
@@ -371,11 +376,6 @@ public class Publisher {
           throw new Exception("Reference "+cd.getReference()+" canot be resolved");
         cd.setReferredValueSet(page.getDefinitions().getValuesets().get(cd.getReference()));
       }
-    }
-    ResourceDefn r = page.getDefinitions().getResources().get("ValueSet");
-    if (isGenerate) {
-      produceResource1(r);      
-      produceResource2(r);
     }
     generateValueSets();
 

@@ -79,7 +79,10 @@ public class BindingSpecification {
   private String reference;
   private String description;
   private boolean example;
+  
+  // allow ability to override metadata defaults
   private String uri; // used as the official value set identifier if provided, else one will be synthesized. For when code list is actually a value set defined elsewhere
+  private String oid; // oid of the value set if you don't want a generated one
   private String webSite;
   private String email;
   private List<DefinedCode> codes = new ArrayList<DefinedCode>();
@@ -295,6 +298,14 @@ public class BindingSpecification {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public String getOid() {
+    return oid;
+  }
+
+  public void setOid(String oid) {
+    this.oid = oid;
   }
 
   
