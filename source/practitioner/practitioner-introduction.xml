@@ -1,9 +1,8 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <p>
-Pracitioner covers all individuals who are professionally engaged in the healthcare process, commonly (but not necessarily) on behalf 
-of an organization. Their activity is part of a formal responsibility for a (part of) the healthcare process and this Resource is used 
-for attribution of activities and responsibilities to these individuals.
+Pracitioner covers all individuals who are engaged in the healthcare process and healthcare-related services as part of their formal 
+responsibilities and this Resource is used for attribution of activities and responsibilities to these individuals.
 
 Pactitioners include (but are not limited to):
 </p>
@@ -14,15 +13,16 @@ Pactitioners include (but are not limited to):
 <li>medical technicians, laboratory scientists, prosthetic technicians, radiographers</li>
 <li>social workers, professional home carers, official volunteers</li>
 <li>receptionists handling patient registration</li>
+<li>IT personnel merging or unmerging patient records</li>
 </ul>
 <p>
-The Resource must not be used for persons involved for non-professional reasons like individuals taking care for friends, 
+The Resource must not be used for persons involved without a formal responsibility like individuals taking care for friends, 
 relatives or neighbours. These can be registered as a Patient's Contact.
 </p>
 <p>
-Although a Practitioner Resource represents individuals, they commonly practice their profession on behalf on an organization.
 Practitioner performs different roles within the same or even different organizations. Depending on jurisdiction and custom, 
-it may be necessary to maintain a specific Practitioner Resource for each such role, possibily with different relevant qualifications. 
-The role is also often limited to a specific period, after which authorization for this role ends. Note that the represented organization need not necessarily be the (direct) employer of a Practitioner.
+it may be necessary to maintain a specific Practitioner Resource for each such role or have a single Practitioner with multiple roles.
+The role can be limited to a specific period, after which authorization for this role ends. Note that the represented organization
+need not necessarily be the (direct) employer of a Practitioner.
 </p>
 </div>

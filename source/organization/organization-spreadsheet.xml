@@ -20,6 +20,7 @@
   <WindowWidth>17490</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -411,7 +412,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <TopRowVisible>8</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
@@ -577,7 +577,7 @@
     <Cell ss:StyleID="s82"><Data ss:Type="String">Organization.accreditation.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">partOf</Data></Cell>
+    <Cell><Data ss:Type="String">partof</Data></Cell>
     <Cell><Data ss:Type="String">Search all organizations that are part of the given organization</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">Organization.partOf</Data></Cell>
@@ -602,10 +602,11 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>7</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
