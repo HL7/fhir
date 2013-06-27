@@ -410,6 +410,9 @@ public class SpreadsheetParser {
       cd.setExample(parseBoolean(sheet.getColumn(row, "Example"), row, false));
 			cd.setId(registry.idForName(cd.getName()));
 			cd.setSource(name);
+      cd.setUri(sheet.getColumn(row, "Uri"));
+      cd.setWebSite(sheet.getColumn(row, "Website"));
+      cd.setEmail(sheet.getColumn(row, "Email"));
 
 			if (cd.getBinding() == BindingSpecification.Binding.CodeList) {
 				Sheet codes = xls.getSheets().get(

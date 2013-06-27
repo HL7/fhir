@@ -1527,10 +1527,12 @@ public class Publisher {
           c = XMLUtil.getNextSibling(c);
         }
         for (String ver : versions) {
-          Utilities.createDirectory(page.getFolders().dstDir + "v2"+File.separator+id+File.separator+ver);
-          Utilities.clearDirectory(page.getFolders().dstDir + "v2"+File.separator+id+File.separator+ver);
-          src = TextFile.fileToString(page.getFolders().srcDir+ "v2"+File.separator+"template-tbl-ver.htm");
-          TextFile.stringToFile(page.processPageIncludes(id+"|"+ver+".htm", src), page.getFolders().dstDir + "v2"+File.separator+id+File.separator+ver+File.separator+"index.htm");
+          if (!Utilities.noString(ver)) {
+            Utilities.createDirectory(page.getFolders().dstDir + "v2"+File.separator+id+File.separator+ver);
+            Utilities.clearDirectory(page.getFolders().dstDir + "v2"+File.separator+id+File.separator+ver);
+            src = TextFile.fileToString(page.getFolders().srcDir+ "v2"+File.separator+"template-tbl-ver.htm");
+            TextFile.stringToFile(page.processPageIncludes(id+"|"+ver+".htm", src), page.getFolders().dstDir + "v2"+File.separator+id+File.separator+ver+File.separator+"index.htm");
+          }
         }        
       }
       e = XMLUtil.getNextSibling(e);
@@ -2577,12 +2579,15 @@ public class Publisher {
   private void generateCodeSystem(String filename, BindingSpecification cd) throws Exception {
 
     ValueSet vs = new ValueSet();
-    vs.setIdentifierSimple("http://hl7.org/fhir/vs/"+Utilities.fileTitle(filename));
+    if (Utilities.noString(cd.getUri()))
+      vs.setIdentifierSimple("http://hl7.org/fhir/vs/"+Utilities.fileTitle(filename));
+    else
+      vs.setIdentifierSimple(cd.getUri());
     // no version?? vs.setVersion(...
     vs.setNameSimple(cd.getName());
     vs.setPublisherSimple("HL7 (FHIR Project)");
-    vs.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.url, "http://hl7.org/fhir"));
-    vs.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.email, "fhir@lists.hl7.org"));
+    vs.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.url, Utilities.noString(cd.getWebSite())? "http://hl7.org/fhir" : cd.getWebSite()));
+    vs.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.email, Utilities.noString(cd.getEmail())? "fhir@lists.hl7.org" : cd.getEmail()));
     vs.setDescriptionSimple(Utilities.noString(cd.getDescription()) ? cd.getDefinition() : cd.getDefinition()+"\r\n\r\n"+cd.getDescription());
     vs.setStatusSimple(ValuesetStatus.draft); // until we publish DSTU, then .review
     vs.setDate(org.hl7.fhir.instance.model.Factory.nowDateTime());
@@ -2612,7 +2617,7 @@ public class Publisher {
     AtomEntry e = new AtomEntry();
     e.setResource(vs);
     e.getLinks().put("self", Utilities.changeFileExt(filename, ".htm"));
-    page.getCodeSystems().put("http://hl7.org/fhir/"+Utilities.fileTitle(filename), e);
+    page.getCodeSystems().put(vs.getIdentifierSimple(), e);
 
     page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
     if (isGenerate) {

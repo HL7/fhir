@@ -2149,7 +2149,7 @@
       <item id="426" code="Z99" desc=""/>
     </version>
   </table>
-  <table id="4" state="exclude">
+  <table id="4" state="include">
     <version version="2.1" desc="PATIENT CLASS">
       <item id="1" code="E" desc="Emergency"/>
       <item id="2" code="I" desc="Inpatient"/>
@@ -2258,7 +2258,6 @@
       <item id="6" code="2131-1" desc="Other Race"/>
     </version>
     <version version="2.5" desc="Race">
-      <item id="1" code="..." desc="see chapter 3"/>
       <item id="1" code="1002-5" desc="American Indian or Alaska Native"/>
       <item id="2" code="2028-9" desc="Asian"/>
       <item id="3" code="2054-5" desc="Black or African American"/>
@@ -2291,8 +2290,8 @@
       <item id="6" code="2131-1" desc="Other Race"/>
     </version>
   </table>
-  <table id="6" state="exclude">
-    <version version="2.1" desc="RELIGION">
+  <table id="6" state="versioned">
+    <version version="2.1" desc="RELIGION" namespace="2.1">
       <item id="0" code="A" desc="Atheist"/>
       <item id="0" code="B" desc="Baptist"/>
       <item id="0" code="C" desc="Catholic"/>
@@ -2306,7 +2305,7 @@
     <version version="2.2" desc="RELIGION"/>
     <version version="2.3" desc="Religion"/>
     <version version="2.3.1" desc="Religion"/>
-    <version version="2.4" desc="Religion">
+    <version version="2.4" desc="Religion" namespace="2.4+">
       <item id="11" code="ABC" desc="Christian: American Baptist Church"/>
       <item id="1" code="AGN" desc="Agnostic"/>
       <item id="13" code="AME" desc="Christian: African Methodist Episcopal Zion"/>
@@ -2736,7 +2735,7 @@
       <item id="57" code="WMC" desc="Christian: Wesleyan Methodist"/>
     </version>
   </table>
-  <table id="7" state="exclude">
+  <table id="7" state="include">
     <version version="2.1" desc="ADMISSION TYPE">
       <item id="1" code="A" desc="Accident"/>
       <item id="2" code="E" desc="Emergency"/>

@@ -292,12 +292,7 @@ public class ResourceValidator extends BaseValidator {
       warning(errors, "structure", "Binding "+n, !Utilities.noString(c.getDefinition()), "Code "+d+" must have a definition");
       warning(errors, "structure", "Binding "+n, !(Utilities.noString(c.getId()) && Utilities.noString(c.getSystem())) , "Code "+d+" must have a id or a system");
     }
-    if (cd.isValueSet()) {
-      boolean internal = false;
-      for (DefinedCode c : cd.getCodes()) 
-        internal = internal || Utilities.noString(c.getSystem());
-      rule(errors, "structure", "Binding "+n, !internal, "Cannot mix internal and external code");
-    }
+    
     // trigger processing into a Heirachical set if necessary
     rule(errors, "structure", "Binding "+n, !cd.isHeirachical() || (cd.getChildCodes().size() < cd.getCodes().size()), "Logic error processing Hirachical code set");
 

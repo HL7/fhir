@@ -79,6 +79,9 @@ public class BindingSpecification {
   private String reference;
   private String description;
   private boolean example;
+  private String uri; // used as the official value set identifier if provided, else one will be synthesized. For when code list is actually a value set defined elsewhere
+  private String webSite;
+  private String email;
   private List<DefinedCode> codes = new ArrayList<DefinedCode>();
 	
 	// these are implied by the use of the binding at the specification level
@@ -268,6 +271,30 @@ public class BindingSpecification {
 
   public void setElementType(ElementType elementType) {
     this.elementType = elementType;
+  }
+
+  public String getUri() {
+    return uri;
+  }
+
+  public void setUri(String uri) {
+    this.uri = uri;
+  }
+
+  public String getWebSite() {
+    return webSite;
+  }
+
+  public void setWebSite(String webSite) {
+    this.webSite = webSite;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   

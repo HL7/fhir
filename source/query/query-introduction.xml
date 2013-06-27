@@ -33,7 +33,10 @@ of name=value pairs encoded in the URL or as an
 x-multi-part-form submission for a POST. 
 </p>
 <p>
-The server returns the results in the HTTP response as a bundle (in XML, an atom feed). 
+The server returns the results in the HTTP response as a bundle (in XML, an atom feed) 
+which includes the resources that are the results of the query. The server can also
+include additional resources in the result set, such as <a href="operationoutcome.htm">OperationOutcome</a> 
+resources. Clients should ignore resources that don't have the expected type. 
 A HTTP status code of 403 signifies that the server refused to perform the query, 
 while some other 4xx or 5xx code signifies that some error occurred. 
 </p>
