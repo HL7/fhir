@@ -110,7 +110,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="17" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="16" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="150.75"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="56.25"/>
@@ -152,7 +152,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">A Photo, Video, or audio recording acquired or used in healthcare. The actual content maybe inline or provided by direct reference</Data></Cell>
+    <Cell><Data ss:Type="String">A photo, video, or audio recording acquired or used in healthcare. The actual content maybe inline or provided by direct reference</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">A Photo, Video, or audio recording acquired or used in healthcare. The actual content maybe inline or provided by direct reference</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:Index="14" ss:StyleID="Default"><Data ss:Type="String">DiagnosticImage</Data></Cell>
@@ -187,21 +187,6 @@
     <Cell><Data ss:Type="String">Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:Index="14" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!Media.modality</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">MediaModality</Data></Cell>
-    <Cell><Data ss:Type="String">Type of the image capturing machinery</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Type of the image capturing machinery. This is intended for photo / viedo recording</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
-    <Cell ss:Index="14" ss:StyleID="Default"><Data ss:Type="String">.code</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -432,8 +417,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
