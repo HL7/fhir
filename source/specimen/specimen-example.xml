@@ -6,5 +6,9 @@
   </text>
 
   <!-- insert contents here -->
-  
+  <subject>
+    <type value="Patient"/>
+    <reference value="patient/@example"/>
+    <display value="Peter Patient"/>
+  </subject>
 </Specimen>

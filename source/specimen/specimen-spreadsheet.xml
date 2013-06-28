@@ -70,15 +70,6 @@
    <Interior/>
   </Style>
   <Style ss:ID="s70">
-   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s71">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s72">
-   <Alignment ss:Vertical="Top"/>
-  </Style>
-  <Style ss:ID="s73">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -86,6 +77,15 @@
    <Interior/>
    <NumberFormat/>
    <Protection/>
+  </Style>
+  <Style ss:ID="s71">
+   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s72">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s73">
+   <Alignment ss:Vertical="Top"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -198,11 +198,11 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Specimen)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The subject of the relationship</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">The specimen resource that is the target of this relationship</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">The specimen resource that is the target of this relationship</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen.subject</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient|Group|Device|Substance)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The subject of the report</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Must know the subject context</Data></Cell>
@@ -275,8 +275,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>8</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -285,12 +284,12 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s70" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="115.5"/>
-   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="153"/>
-   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="204.75"/>
-   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="188.25"/>
+   x:FullRows="1" ss:StyleID="s71" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="115.5"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="153"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="188.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -390,10 +389,10 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -607,24 +606,24 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"><Data ss:Type="String">SpecimenType</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">General class of material or specimen eg. food / water / biologic / medical device /human/animal</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s73"/>
     <Cell><Data ss:Type="String">valueset-specimen-type</Data></Cell>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">HierarchicalRelationshipType</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Type indicating if this is a parent or child relationship</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">valueset-hierarchical-relationship-type</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-hierarchical-relationship-type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
