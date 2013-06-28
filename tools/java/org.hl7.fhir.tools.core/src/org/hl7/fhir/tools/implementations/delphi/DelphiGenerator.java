@@ -900,7 +900,7 @@ private void generateEnum(ElementDefn e) throws Exception {
     defineList(tn, tn+"List", category, false);
   }
 
-  private void generateParser(String tn, boolean isResource, boolean isElement) {
+  private void generateParser(String tn, boolean isResource, boolean isElement) throws Exception {
     String s = workingParserX.toString();
     prsrImpl.append(
             "function TFHIRXmlParser.Parse"+tn.substring(5)+"(element : IXmlDomElement) : "+tn+";\r\n"+
@@ -930,6 +930,7 @@ private void generateEnum(ElementDefn e) throws Exception {
 //          "        result.extensionList.add(ParseExtension(child))\r\n"+
 //            s);
 //    else 
+    if (s.length() >= 11)
       prsrImpl.append("      "+s.substring(11));
     if (!isElement)
       prsrImpl.append(
@@ -994,7 +995,8 @@ private void generateEnum(ElementDefn e) throws Exception {
             "  try\r\n"+
             "    while (json.ItemType <> jpitEnd) do\r\n"+
             "    begin\r\n      ");
-    prsrImpl.append(s.substring(11));
+    if (s.length() > 11)
+      prsrImpl.append(s.substring(11));
     if (!isElement)
       prsrImpl.append(
           "      else\r\n");

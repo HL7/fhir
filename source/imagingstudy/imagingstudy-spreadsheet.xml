@@ -148,6 +148,9 @@
   <Style ss:ID="s82">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
+  <Style ss:ID="s83">
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#222222"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="48" x:FullColumns="1"
@@ -276,7 +279,7 @@
     <Cell><Data ss:Type="String">ImagingStudy.modalities</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">ImagingModality</Data></Cell>
     <Cell><Data ss:Type="String">All series.modality if actual acquisition modalities</Data></Cell>
     <Cell><Data ss:Type="String">0008,0061</Data></Cell>
     <Cell><Data ss:Type="String">ModalitiesInStudy</Data></Cell>
@@ -616,7 +619,7 @@
     <Cell><Data ss:Type="String">ImagingStudy.series.bodySite</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Coding</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">ObservationBodySite</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">BodySite</Data></Cell>
     <Cell><Data ss:Type="String">Body part examined (Map from 0018,0015)</Data></Cell>
     <Cell><Data ss:Type="String">0018,0015</Data></Cell>
     <Cell><Data ss:Type="String">BodyPartExamined</Data></Cell>
@@ -899,7 +902,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>30</ActiveRow>
+     <ActiveRow>28</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
@@ -1348,10 +1351,11 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">#instance-availability</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">ImagingModality</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Type of acquired image data in the instance</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">code list</Data></Cell>
+    <Cell><Data ss:Type="String">#imaging-modality</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s83"><Data ss:Type="String">1.2.840.10008.6.1.19</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1361,6 +1365,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1380,8 +1390,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>18</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1642,8 +1652,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>56</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <RangeSelection>C1:C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1708,24 +1717,161 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="dicom-instance-type">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="2" x:FullColumns="1"
+ <Worksheet ss:Name="imaging-modality">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="37" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="66.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="120"/>
+   <Column ss:AutoFitWidth="0" ss:Width="166.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="44.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="338.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="167.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="60.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="14.4375" ss:StyleID="s81">
-    <Cell><Data ss:Type="String">Id</Data></Cell>
+    <Cell><Data ss:Type="String">System</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
-    <Cell><Data ss:Type="String">Definition</Data></Cell>
-    <Cell><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.4375">
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String">ONLINE</Data></Cell>
-    <Cell><Data ss:Type="String">Resources are immediately available,</Data></Cell>
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">AR</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">BMD </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">BDUS</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">EPS</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">CR</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">CT</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">DX</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">ECG</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">ES</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">XC</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">GM</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">HD</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">IO</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">IVOCT </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">IVUS</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">KER</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">LEN</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">MR</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">MG</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">NM</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">OAM </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">OCT </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">OPM</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">OP</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">OPR</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">OPT</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">OPV </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">PX</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">PT </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">RF</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">RG</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">SM</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">SRF</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">US</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">VA</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
+    <Cell><Data ss:Type="String">XA</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1738,8 +1884,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>18</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

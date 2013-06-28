@@ -36,7 +36,7 @@ public class NarrativeGenerator {
    * @param codeSystems
    * @throws Exception
    */
-  public void generate(ValueSet vs, Map<String, AtomEntry> codeSystems) throws Exception {
+  public void generate(ValueSet vs, Map<String, AtomEntry> codeSystems, Map<String, AtomEntry> valueSets) throws Exception {
     XhtmlNode x = new XhtmlNode();
     x.setNodeType(NodeType.Element);
     x.setName("div");
@@ -45,7 +45,7 @@ public class NarrativeGenerator {
     if (vs.getDefine() != null)
       generateDefinition(x, vs);
     if (vs.getCompose() != null) 
-      generateComposition(x, vs, codeSystems);
+      generateComposition(x, vs, codeSystems, valueSets);
     if (vs.getText() == null)
       vs.setText(new Narrative());
     vs.getText().setDiv(x);
@@ -96,7 +96,7 @@ public class NarrativeGenerator {
   }
 
 
-  private void generateComposition(XhtmlNode x, ValueSet vs, Map<String, AtomEntry> codeSystems) throws Exception {
+  private void generateComposition(XhtmlNode x, ValueSet vs, Map<String, AtomEntry> codeSystems, Map<String, AtomEntry> valueSets) throws Exception {
     if (vs.getDefine() == null) {
       XhtmlNode h = x.addTag("h2");
       h.addText(vs.getNameSimple());
@@ -113,7 +113,8 @@ public class NarrativeGenerator {
     XhtmlNode li;
     for (Uri imp : vs.getCompose().getImport()) {
       li = ul.addTag("li");
-      li.addText("Import all the codes that are part of "+imp.getValue());
+      li.addText("Import all the codes that are part of ");
+      AddVsRef(imp.getValue(), li, codeSystems, valueSets);
     }
     for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
       genInclude(ul, inc, "Include", codeSystems);      
@@ -121,6 +122,20 @@ public class NarrativeGenerator {
     for (ConceptSetComponent exc : vs.getCompose().getExclude()) {
       genInclude(ul, exc, "Exclude", codeSystems);      
     }
+  }
+
+  private void AddVsRef(String value, XhtmlNode li, Map<String, AtomEntry> codeSystems, Map<String, AtomEntry> valueSets) {
+    AtomEntry vs = valueSets.get(value);
+    if (vs == null) 
+      vs = codeSystems.get(value); 
+    if (vs == null)
+      li.addText(value);
+    else {
+      String ref= vs.getLinks().get("path");
+      XhtmlNode a = li.addTag("a");
+      a.setAttribute("href", ref.replace("\\", "/"));
+      a.addText(value);
+    }    
   }
 
   private void genInclude(XhtmlNode ul, ConceptSetComponent inc, String type, Map<String, AtomEntry> codeSystems) throws Exception {

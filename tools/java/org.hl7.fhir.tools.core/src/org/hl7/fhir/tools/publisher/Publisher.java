@@ -1264,7 +1264,7 @@ public class Publisher {
       }
     }
     NarrativeGenerator gen = new NarrativeGenerator();
-    gen.generate(vs, page.getCodeSystems());
+    gen.generate(vs, page.getCodeSystems(), page.getValueSets());
     return vs;
 
     
@@ -2525,10 +2525,13 @@ public class Publisher {
     log(" ...value sets");
     for (BindingSpecification bs : page.getDefinitions().getBindings().values())
       if (bs.getBinding() == Binding.ValueSet && bs.getReferredValueSet() != null && !bs.getReference().startsWith("http://hl7.org/fhir"))
-        generateValueSet(bs.getReference(), bs);
+        generateValueSetPart1(bs.getReference(), bs);
+    for (BindingSpecification bs : page.getDefinitions().getBindings().values())
+      if (bs.getBinding() == Binding.ValueSet && bs.getReferredValueSet() != null && !bs.getReference().startsWith("http://hl7.org/fhir"))
+        generateValueSetPart2(bs.getReference(), bs);
   }
   
-  private void generateValueSet(String name, BindingSpecification cd) throws Exception {
+  private void generateValueSetPart1(String name, BindingSpecification cd) throws Exception {
     String n;
     if (name.startsWith("valueset-"))
       n = name.substring(9);
@@ -2544,18 +2547,31 @@ public class Publisher {
       vs.getText().setDiv(new XhtmlNode());
       vs.getText().getDiv().setName("div");
     }
-    if (vs.getText().getDiv().allChildrenAreText() && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
-      new NarrativeGenerator().generate(vs, page.getCodeSystems());
 
     AtomEntry ae = new AtomEntry();
     ae.getLinks().put("self", "??");
     // ae.getLinks().put("oid", );
     ae.setResource(vs);
     page.getValueSets().put(vs.getIdentifierSimple(), ae);
-
+  }
+  
+  private void generateValueSetPart2(String name, BindingSpecification cd) throws Exception {
+    String n;
+    if (name.startsWith("valueset-"))
+      n = name.substring(9);
+    else
+      n = name;
+    AtomEntry ae = page.getValueSets().get("http://hl7.org/fhir/vs/"+n);
+    ValueSet vs = (ValueSet) ae.getResource();
+    
+    if (vs.getText().getDiv().allChildrenAreText() && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
+      new NarrativeGenerator().generate(vs, page.getCodeSystems(), page.getValueSets());
+    
     if (isGenerate) {
       addToResourceFeed(vs, n, valueSetsFeed);
 
+      ae.getLinks().put("path", cd.getName()+".htm");
+      
       TextFile.stringToFile(page.processPageIncludes(cd.getName()+".htm", TextFile.fileToString(page.getFolders().srcDir+"template-vs.htm")), page.getFolders().dstDir+name+".htm");
       String src = page.processPageIncludesForBook(cd.getName()+".htm", TextFile.fileToString(page.getFolders().srcDir+"template-vs-book.htm"));
       cachePage(name+".htm", src);
@@ -2611,12 +2627,13 @@ public class Publisher {
         addCode(vs, vs.getDefine().getConcept(), c);       
       }
     }
-    new NarrativeGenerator().generate(vs, page.getCodeSystems());
+    new NarrativeGenerator().generate(vs, page.getCodeSystems(), page.getValueSets());
     
     cd.setReferredValueSet(vs);
     AtomEntry e = new AtomEntry();
     e.setResource(vs);
     e.getLinks().put("self", Utilities.changeFileExt(filename, ".htm"));
+    e.getLinks().put("path", Utilities.changeFileExt(filename, ".htm"));
     page.getCodeSystems().put(vs.getIdentifierSimple(), e);
 
     page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);

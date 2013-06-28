@@ -11,7 +11,7 @@
       </ul>
     </div>
   </text>
-  <name value="Loinc Methods"/>
+  <name value="Observation Methods"/>
   <publisher value="FHIR Project team"/>
   <telecom>  
     <system value="url"/>

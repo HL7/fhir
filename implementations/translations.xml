@@ -100,6 +100,10 @@
     <translation lang="en">Location</translation>
   </item>
 
+  <item id="Media">
+    <translation lang="en">Media</translation>
+  </item>
+
   <item id="Medication">
     <translation lang="en">Medication</translation>
   </item>
@@ -186,6 +190,10 @@
 
   <item id="Substance">
     <translation lang="en">Substance</translation>
+  </item>
+
+  <item id="Supply">
+    <translation lang="en">Supply</translation>
   </item>
 
   <item id="ValueSet">

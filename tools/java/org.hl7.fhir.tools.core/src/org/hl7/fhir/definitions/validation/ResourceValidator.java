@@ -116,6 +116,8 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, "required",  parent.getName(), hasTranslationsEntry(name), "The name '"+name+"' is not found in the file translations.xml");
     rule(errors, "structure", parent.getName(), name.toLowerCase().substring(0, 1) != name.substring(0, 1), "Resource Name must start with an uppercase alpha character");
 
+    rule(errors, "required",  parent.getName(), parent.getRoot().getElements().size() > 0, "A resource must have at least one element in it before the build can proceed"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
+    
     checkElement(errors, parent.getName(), parent.getRoot(), parent, null);
     rule(errors, "structure", parent.getName(), parent.getRoot().getElementByName("text") == null, "Element named \"text\" not allowed");
     rule(errors, "structure", parent.getName(), parent.getRoot().getElementByName("contained") == null, "Element named \"contaned\" not allowed");
