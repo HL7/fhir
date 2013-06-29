@@ -9,15 +9,15 @@
   <Author>Grahame</Author>
   <LastAuthor>Joginder Madra</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-04-11T19:31:50Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2013-06-28T21:10:27Z</LastSaved>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9870</WindowHeight>
-  <WindowWidth>18765</WindowWidth>
+  <WindowHeight>9555</WindowHeight>
+  <WindowWidth>19455</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
@@ -44,7 +44,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s83" ss:Name="Normal 3">
+  <Style ss:ID="s63" ss:Name="Normal 3">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -52,17 +52,17 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s63">
+  <Style ss:ID="s64">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s64">
+  <Style ss:ID="s65">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s65">
+  <Style ss:ID="s66">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -72,66 +72,48 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s67" ss:Parent="s62">
+  <Style ss:ID="s68" ss:Parent="s62">
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s68">
+  <Style ss:ID="s69">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s72" ss:Parent="s28">
+  <Style ss:ID="s73" ss:Parent="s28">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s73" ss:Parent="s62">
-   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s74" ss:Parent="s62">
-   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
-   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s75" ss:Parent="s28">
-   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  <Style ss:ID="s75" ss:Parent="s63">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Interior/>
   </Style>
   <Style ss:ID="s76" ss:Parent="s62">
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s77" ss:Parent="s62">
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s78">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
+  <Style ss:ID="s78" ss:Parent="s62">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s79" ss:Parent="s28">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
-   <Interior/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s79">
-   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s80">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  <Style ss:ID="s80" ss:Parent="s62">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s81">
-   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s82">
-   <Alignment ss:Vertical="Top"/>
-  </Style>
-  <Style ss:ID="s90" ss:Parent="s83">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s102">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -139,23 +121,42 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s82">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s83">
+   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s84">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s85">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s86">
+   <Alignment ss:Vertical="Top"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="30" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s64" ss:Width="258.75"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
-   <Column ss:Index="4" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="82.5"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="61.5"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="8" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="161.25"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="32" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s65" ss:Width="258.75"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
+   <Column ss:Index="4" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="82.5"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="61.5"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
+   <Column ss:Index="8" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="161.25"
     ss:Span="1"/>
-   <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="77.25"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="14" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="102"/>
-   <Column ss:Index="16" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="159.75"/>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s65">
+   <Column ss:Index="10" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="77.25"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Column ss:Index="14" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="102"/>
+   <Column ss:Index="16" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="159.75"/>
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Inv.</Data></Cell>
@@ -176,37 +177,38 @@
     <Cell><Data ss:Type="String">C154 Mapping</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Immunization</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">An administered immunization</Data></Cell>
+    <Cell><Data ss:Type="String">Immunization event information</Data></Cell>
+    <Cell><Data ss:Type="String">Immunization event information</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"><Data ss:Type="String">SubstanceAdministration</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">VXU_V04</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Immunization.subject</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.subject</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Who this immunization was adminstered to</Data></Cell>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">The patient to whom the vaccine was to be administered</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"><Data ss:Type="String">.partipication[ttypeCode=].role</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">PID-3-patient ID list</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">PID-3-patient ID list</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">PID, PD1, NK1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Immunization.requester</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.requester</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -214,15 +216,15 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">Vaccine Ordering Provider Name</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Clinician who ordered the vaccine</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Clinician who ordered the vaccination</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">other participants - delegate to Provenance resource</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">ORC-12-ordering provider</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">ORC-12-ordering provider</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Immunization.performer</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.performer</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -230,16 +232,16 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">Vaccine Administering Provider Name</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Clinician that administered the vaccine</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Clinician that administered the vaccine</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">RXA-10-administering provider</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">RXA-10-administering provider</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="s72"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/performer/assignedEntity/assignedPerson/name</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Performer - Section 13.05</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s73"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/performer/assignedEntity/assignedPerson/name</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Performer - Section 13.05</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Immunization.manufacturer</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Immunization.manufacturer</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -247,16 +249,16 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">Resource(Organization)</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">Vaccine Manufacturer</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Name of manufacturer</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Name of vaccine manufacturer</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">RXA-17-substance manufacturer name</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">RXA-17-substance manufacturer name</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="s72"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacuturerOrganization/name</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Drug Manufacturer, Section 13.08</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s73"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacuturerOrganization/name</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Drug Manufacturer, Section 13.08</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Immunization.location</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Immunization.location</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -264,33 +266,50 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">Resource(Location)</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">Vaccine Administration Facility</Data></Cell>
-    <Cell><Data ss:Type="String">The service delivery location where the administration occurred.</Data></Cell>
+    <Cell><Data ss:Type="String">The service delivery location where the vaccine administration occurred.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">RXA-27-administered-at (or RXA-11-administered-at location, deprecated as of v2.7)</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">RXA-27-administered-at (or RXA-11-administered-at location, deprecated as of v2.7)</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:Index="17" ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Immunization.date</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Immunization.date</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">Vaccination  Administration Date</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Date vaccine administered</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Date vaccine administered or was to be administered</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">RXA-3-date/time start of administration</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">RXA-3-date/time start of administration</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="s72"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/effectiveTime/value</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Administered Date,  Section 13.02</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s73"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/effectiveTime/value</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Administered Date,  Section 13.02</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Immunization.reported</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Immunization.refusedIndicator</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell><Data ss:Type="String">Resual Indicator</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Indicates if the vaccination was refused.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="17" ss:StyleID="s73"/>
+    <Cell ss:StyleID="s78"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Immunization.reported</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -298,7 +317,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">If self-reported</Data></Cell>
-    <Cell><Data ss:Type="String">True if this administration was reported rather than observed</Data></Cell>
+    <Cell><Data ss:Type="String">True if this administration was reported rather than directly administered.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">May need source of reported info (e.g. parent), but leave out for now.</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -306,24 +325,24 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Immunization.vaccineType</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.vaccineType</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">VaccineType</Data></Cell>
     <Cell><Data ss:Type="String">Vaccine Product Administered</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Vaccine administered</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Vaccine that was administered or was to be administered</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">RXA-5-administered code</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">RXA-5-administered code</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="s72"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/realmCode/code</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Immunization Coded Product Name, Section 13.06</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s73"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/realmCode/code</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Immunization Coded Product Name, Section 13.06</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Immunization.lotNumber</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.lotNumber</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -331,16 +350,16 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">Vaccine Lot Number</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Lot number for vaccine</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Lot number of the  vaccine product</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">RXA-15-substance lot number</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">RXA-15-substance lot number</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="s72"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/lotNumberText</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Lot Number, Section 13.09</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s73"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/lotNumberText</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Lot Number, Section 13.09</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Immunization.expirationDate</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Immunization.expirationDate</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -348,14 +367,14 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">Vaccine Expiration Date</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Date vaccine batch expires</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Date vaccine batch expires</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">RXA-16-substance expiration date</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">RXA-16-substance expiration date</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Immunization.site</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.site</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -363,15 +382,15 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">ImmunizationSite</Data></Cell>
     <Cell><Data ss:Type="String">Vaccine  Site of Administration</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Body site where vaccine was administered</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Body site where vaccine was administered</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">RXR-2-administration site</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">RXR-2-administration site</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="s72"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/approachSiteCode/code</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s73"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/approachSiteCode/code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Immunization.route</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.route</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -379,15 +398,15 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">ImmunizationRoute</Data></Cell>
     <Cell><Data ss:Type="String">Vaccine Route of Administration</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Route of administration</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">The path by which the vaccine product is taken into the body.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">RXR-1-route</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">RXR-1-route</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="s72"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/routeCode/code</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s73"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/routeCode/code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Immunization.doseQuantity</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.doseQuantity</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -395,45 +414,60 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Vaccine dosage</Data></Cell>
+    <Cell><Data ss:Type="String">The quantity of vaccine product that was administered</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">RXA-6-administered amount / RXA-7.1-administered units.code&#10;</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">RXA-6-administered amount / RXA-7.1-administered units.code&#10;</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Immunization.refusal</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.explanation</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell><Data ss:Type="String">Exemption(s)/ Parent Refusal(s) of Vaccine Product Type Administered</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:Index="11"><Data ss:Type="String">Need to support reasons why a vaccine was administered as well.</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">RXA-20</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="18" ss:StyleID="s72"/>
+    <Cell><Data ss:Type="String">Administration / Refusal Reasons</Data></Cell>
+    <Cell><Data ss:Type="String">Reasons why a vaccine was administered or refused</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Immunization.refusal.reason</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.explanation.reason</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">ImmunizationRefusalReason</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">ActImmunizationReason</Data></Cell>
+    <Cell><Data ss:Type="String">Administration Reasons</Data></Cell>
+    <Cell><Data ss:Type="String">Reasons why a vaccine was administered</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="Default"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.explanation.refusalReason</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">ActNoImmunizationReason</Data></Cell>
     <Cell><Data ss:Type="String">Explanation of refusal / exemption</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Refusal or exemption reason</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Refusal or exemption reasons</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">RXA-18</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="18" ss:StyleID="s72"><Data ss:Type="String">Refusal - Section 13.01</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s73"><Data ss:Type="String">Refusal - Section 13.01</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Immunization.reaction</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.reaction</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -441,29 +475,30 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">Details of a reaction that follows immunization</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Categorical data indicating that an adverse event is associated in time to an immunization</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Categorical data indicating that an adverse event is associated in time to an immunization</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">OBX-3</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="18" ss:StyleID="s72"><Data ss:Type="String">Reaction - Section 13.04</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s73"><Data ss:Type="String">Reaction - Section 13.04</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Immunization.reaction.date</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.reaction.date</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:StyleID="s62"/>
+    <Cell><Data ss:Type="String">Reaction Date</Data></Cell>
     <Cell><Data ss:Type="String">Date of reaction to the immunization</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">OBX-14 (ideally this would be reported in an IAM segment, but IAM is not part of the V2.x VXU message - most likely would appear in OBX segments if at all&#10;)</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">OBX-14 (ideally this would be reported in an IAM segment, but IAM is not part of the V2.x VXU message - most likely would appear in OBX segments if at all&#10;)</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Immunization.reaction.detail</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.reaction.detail</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -471,13 +506,14 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">Resource(AdverseReaction|Observation)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Details of the reaction</Data></Cell>
+    <Cell><Data ss:Type="String">Details of the reaction</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">OBX-5</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Immunization.reaction.reported</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.reaction.reported</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -485,13 +521,14 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Self-reported indicator</Data></Cell>
+    <Cell><Data ss:Type="String">Self-reported indicator</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">(no such concept seems to exist for allergy/adverse reaction in V2.x)</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Immunization.vaccinationProtocol</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.vaccinationProtocol</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -499,9 +536,10 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Vaccine Administration Protocol</Data></Cell>
+    <Cell><Data ss:Type="String">Contains information about the protocol under which the vaccine was administered</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">(V2.x doesn't seem to provide for this)&#10;</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">(V2.x doesn't seem to provide for this)&#10;</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -516,13 +554,14 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Vaccine Administration Protocol Description</Data></Cell>
+    <Cell><Data ss:Type="String">Contains the description about the protocol under which the vaccine was administered</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Immunization.vaccinationProtocol.authority</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s62"><Data ss:Type="String">Resource(Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Vaccine Administration Protocol Authority</Data></Cell>
-    <Cell><Data ss:Type="String">Who published the protocol?  E.g. ACIP</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates the authority who published the protocol?  E.g. ACIP</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Immunization.vaccinationProtocol.series</Data></Cell>
@@ -547,20 +586,21 @@
     <Cell><Data ss:Type="String">The targeted disease</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Immunization.vaccinationProtocol.doseStatus</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Immunization.vaccinationProtocol.doseStatus</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s62"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">VaccinationProtocolDoseStatus</Data></Cell>
     <Cell><Data ss:Type="String">Dose Status</Data></Cell>
-    <Cell><Data ss:Type="String">Should this count??  </Data></Cell>
+    <Cell><Data ss:Type="String">Indicates if the immunization event should &quot;count&quot; against  the protocol.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">May need to differentiate between status declarations by a provider vs. a CDS engine</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Immunization.vaccinationProtocol.doseStatusReason</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Immunization.vaccinationProtocol.doseStatusReason</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s62"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">VaccinationProtocolDoseStatusReason</Data></Cell>
     <Cell><Data ss:Type="String">Dose Status Reason</Data></Cell>
+    <Cell><Data ss:Type="String">Provides an explanation as to why a immunization event should or should not count against the protocol.</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -582,7 +622,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -590,14 +630,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>22</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -606,13 +647,13 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s79" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="115.5"/>
-   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="153"/>
-   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="204.75"/>
-   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="188.25"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s65">
+   x:FullRows="1" ss:StyleID="s83" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="115.5"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="153"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="188.25"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Context</Data></Cell>
@@ -623,7 +664,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -631,7 +672,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -639,7 +680,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -647,7 +688,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -655,7 +696,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -687,6 +728,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -703,18 +745,18 @@
    <Column ss:AutoFitWidth="0" ss:Width="195.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="74.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="33">
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Event Code</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Notes</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Request Resources</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Response Resources</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Follow Ups</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Event Code</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Notes</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Request Resources</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Response Resources</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s84"/>
+    <Cell ss:StyleID="s84"/>
+    <Cell ss:StyleID="s84"/>
+    <Cell ss:StyleID="s84"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -755,7 +797,7 @@
    <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
    <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="192.75"/>
-   <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s65">
+   <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
@@ -764,159 +806,159 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">type</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Vaccine Product Type Administered</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Vaccine Product Type Administered</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Vaccination  Administration Date</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Vaccination  Administration Date</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
     <Cell><Data ss:Type="String">single</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">refusal</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Explanation of refusal / exemption</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Explanation of refusal / exemption</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">refusal-date</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Date of Exemption/Refusal of Vaccine Product Type Administered</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Date of Exemption/Refusal of Vaccine Product Type Administered</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
     <Cell><Data ss:Type="String">single</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">lot</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Vaccine Lot Number</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Vaccine Lot Number</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">manufacturer</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Vaccine Manufacturer</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Vaccine Manufacturer</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Immunization.subject</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.subject</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">requester</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Immunization.requester</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.requester</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">performer</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Immunization.performer</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.performer</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">location</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Immunization.location</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Immunization.location</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s64"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -954,55 +996,60 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="8" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="9" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Width="153.75"/>
-   <Column ss:StyleID="s81" ss:Width="258"/>
+   <Column ss:StyleID="s85" ss:Width="258"/>
    <Column ss:AutoFitWidth="0" ss:Width="81.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="106.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Reference</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Binding Name</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Reference</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s62"><Data ss:Type="String">VaccineType</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">The type of vaccine administered</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">unbound</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">Vaccine Product Type Administered</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">The type of vaccine administered</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s64"><Data ss:Type="String">Vaccine Product Type Administered</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s62"><Data ss:Type="String">ImmunizationSite</Data></Cell>
     <Cell><Data ss:Type="String">The site at which the vaccine was administered</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">unbound</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s62"><Data ss:Type="String">ImmunizationRoute</Data></Cell>
     <Cell><Data ss:Type="String">The route by which the vaccine was administered</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">unbound</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s62"><Data ss:Type="String">ImmunizationRefusalReason</Data></Cell>
+    <Cell><Data ss:Type="String">ActImmunizationReason</Data></Cell>
+    <Cell><Data ss:Type="String">The reason why a vaccine was administered</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">unbound</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s62"><Data ss:Type="String">ActNoImmunizationReason</Data></Cell>
     <Cell><Data ss:Type="String">The reason why a vaccine administration was refused</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">unbound</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">VaccinationProtocolDoseTarget</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">VaccinationProtocolDoseTarget</Data></Cell>
     <Cell><Data ss:Type="String">The disease target of the vaccination protocol</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">unbound</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">VaccinationProtocolDoseStatus</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">VaccinationProtocolDoseStatus</Data></Cell>
     <Cell><Data ss:Type="String">The status of the vaccination protocol (i.e. should this count)</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">unbound</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">VaccinationProtocolDoseStatusReason</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">VaccinationProtocolDoseStatusReason</Data></Cell>
     <Cell><Data ss:Type="String">The reason for the determining if a vaccination should count or why vaccination should not count.</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">unbound</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1031,8 +1078,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

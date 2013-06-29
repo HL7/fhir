@@ -13,6 +13,7 @@
     <reference value="practitioner/@example"/>
   </performer>  
   <date value="2013-01-10"/>
+  <refusedIndicator value="false"/>
   <reported value="false"/>
   <vaccineType>
     <coding>
