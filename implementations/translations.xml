@@ -180,6 +180,10 @@
     <translation lang="en">Questionnaire</translation>
   </item>
 
+  <item id="RelatedPerson">
+    <translation lang="en">RelatedPerson</translation>
+  </item>
+  
   <item id="SecurityEvent">
     <translation lang="en">SecurityEvent</translation>
   </item>
