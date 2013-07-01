@@ -29,12 +29,15 @@ package org.hl7.fhir.definitions.parsers;
 
  */
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+
+import javax.rmi.CORBA.Util;
 
 import org.hl7.fhir.definitions.ecore.fhir.BindingDefn;
 import org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn;
@@ -59,6 +62,8 @@ import org.hl7.fhir.definitions.parsers.converters.CompositeTypeConverter;
 import org.hl7.fhir.definitions.parsers.converters.ConstrainedTypeConverter;
 import org.hl7.fhir.definitions.parsers.converters.EventConverter;
 import org.hl7.fhir.definitions.parsers.converters.PrimitiveConverter;
+import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
@@ -252,6 +257,9 @@ public class SourceParser {
 		for (String n : ini.getPropertyNames("special-resources"))
 			definitions.getAggregationEndpoints().add(n);
 
+		for (String n : ini.getPropertyNames("valuesets")) {
+		  loadValueSet(n);
+		}
 		for (String n : ini.getPropertyNames("profiles")) {
 			loadProfile(n, definitions.getProfiles());
 		}
@@ -259,13 +267,22 @@ public class SourceParser {
 		for (ResourceDefn r : definitions.getResources().values()) {
 		  for (RegisteredProfile p : r.getProfiles()) {
 		    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(p.getFilepath()), p.getName(), definitions, srcDir, logger, registry);
+		    sparser.setFolder(Utilities.getDirectoryFoFile(p.getFilepath()));
 		    p.setProfile(sparser.parseProfile(definitions));
 		  }
 		}
 	}
 
 	
-	private void fixTypeRefs( org.hl7.fhir.definitions.ecore.fhir.Definitions defs )
+	private void loadValueSet(String n) throws FileNotFoundException, Exception {
+    XmlParser xml = new XmlParser();
+    ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(srcDir+ini.getStringProperty("valuesets", n)));
+    vs.setIdentifierSimple("http://hl7.org/fhir/vs/"+n);
+    definitions.getExtraValuesets().put(n, vs);
+  }
+
+
+  private void fixTypeRefs( org.hl7.fhir.definitions.ecore.fhir.Definitions defs )
 	{
 		for( CompositeTypeDefn composite : defs.getLocalCompositeTypes() )
 			CompositeTypeConverter.FixTypeRefs(composite);

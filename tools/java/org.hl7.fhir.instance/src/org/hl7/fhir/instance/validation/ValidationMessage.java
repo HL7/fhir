@@ -10,6 +10,7 @@ import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.instance.model.String_;
+import org.hl7.fhir.instance.utils.ToolingExtensions;
 
 public class ValidationMessage 
 {
@@ -94,13 +95,7 @@ public class ValidationMessage
     issue.setSeveritySimple(level);
     issue.setDetailsSimple(message);
     if (source != null) {
-      Extension ex = new Extension();
-      // todo: write this up and get it published with the pack (and handle the redirect?)
-      ex.setUrlSimple("http://hl7.org/fhir/tools#issue-source");
-      Code c = new Code();
-      c.setValue(source.toString());
-      ex.setValue(c);
-      
+      issue.getExtensions().add(ToolingExtensions.makeIssueSource(source));      
     }
     return issue;
   }

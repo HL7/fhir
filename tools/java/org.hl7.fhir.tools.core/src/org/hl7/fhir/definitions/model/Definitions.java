@@ -70,6 +70,7 @@ public class Definitions {
 	private Map<String, ProfileDefn> profiles = new HashMap<String, ProfileDefn>();
   private Map<String, String> diagrams = new HashMap<String, String>();
   private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
+  private Map<String, ValueSet> extraValuesets = new HashMap<String, ValueSet>();
 
 	// Returns the root ElementDefn of a CompositeType or Resource,
 	// excluding future Resources (as they don't have definitions yet).
@@ -275,6 +276,10 @@ public class Definitions {
 
   public Map<String, ValueSet> getValuesets() {
     return valuesets;
+  }
+
+  public Map<String, ValueSet> getExtraValuesets() {
+    return extraValuesets;
   }
 
   

@@ -22,6 +22,7 @@
 		<display value="Consultation note"/>
 	  </coding>
 	</type>
+	<status value="final"/>
 	<confidentiality>
 	  <system value="http://ihe.net/xds/connectathon/confidentialityCodes"/>
 	  <code value="1.3.6.1.4.1.21367.2006.7.101"/>

@@ -406,5 +406,14 @@ public class Utilities {
       return false;
     return tail.matches(TOKEN_REGEX);
   }
+
+
+  public static String getDirectoryFoFile(String filepath) {
+    int i = filepath.lastIndexOf(File.separator);
+    if (i == -1)
+      return filepath;
+    else
+      return filepath.substring(0, i);
+  }
 	
 }

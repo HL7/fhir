@@ -26,6 +26,7 @@
                     </coding>
                     <text value="Discharge Summary from Responsible Clinician"/>
                 </type>
+                <status value="final"/>
                 <confidentiality>
                     <system value="www.nz.org"/>
                     <code value="1234-5"/>

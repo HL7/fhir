@@ -1,0 +1,21 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<p>
+The XDS profile describes in detail how a <a href="documentreference.htm">DocumentReference</a> resource 
+is used in the context of XDS. A FHIR DocumentReference resource may be used as a facade to an existing
+XDS server, such as is used for the <a href="http://wiki.ihe.net/index.php?title=Mobile_access_to_Health_Documents_(MHD)">IHE MHD</a> specification,
+or it can be used the other way around, where the XDS functionality is implemented using a FHIR based server.
+</p>
+<p>
+The FHIR DocumentReference is based on the functionality defined by XDS, but differs from XDS in 
+some significant ways:
+</p>
+<ul>
+ <li>As a RESTful interface, there is no concept of "Submission Set" - only document entry is represented explicitly, though a <a href="http.htm#transaction">transaction</a> may be used to group a set of documents together</li>
+ <li>Patient, Author and Authenticator are represented using standard <a href="patient.htm">Patient</a> and <a href="practitioner.htm">Practitioner</a> resources.</li>
+ <li>The functionality expressed through the XDSFolder resource is implemented using <a href="resources.htm#tags">tags</a></li>
+ <li>Some XDS specific fields that are not generally applicable do not have matching elements in the DocumentReference resource, and are implemented as FHIR extensions</li>
+</ul>
+
+<a name="resource"></a>
+<a name="profile"></a>
+</div>

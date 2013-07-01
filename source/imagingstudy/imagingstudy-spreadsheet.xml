@@ -20,6 +20,7 @@
   <WindowWidth>29040</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>-15</WindowTopY>
+  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -138,6 +139,9 @@
    <Alignment ss:Vertical="Top"/>
   </Style>
   <Style ss:ID="s81">
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#333333"/>
+  </Style>
+  <Style ss:ID="s82">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
@@ -145,11 +149,8 @@
     ss:Bold="1"/>
    <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s82">
-   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
-  </Style>
   <Style ss:ID="s83">
-   <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#222222"/>
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -881,7 +882,6 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Zoom>110</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1355,7 +1355,7 @@
     <Cell ss:StyleID="s79"><Data ss:Type="String">Type of acquired image data in the instance</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#imaging-modality</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s83"><Data ss:Type="String">1.2.840.10008.6.1.19</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s81"><Data ss:Type="String">1.2.840.10008.6.1.19</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1405,7 +1405,7 @@
    <Column ss:AutoFitWidth="0" ss:Width="166.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="44.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="251.25"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s81">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s82">
     <Cell><Data ss:Type="String">System</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
    </Row>
@@ -1666,7 +1666,7 @@
    <Column ss:AutoFitWidth="0" ss:Width="210"/>
    <Column ss:AutoFitWidth="0" ss:Width="76.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="368.25"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s81">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s82">
     <Cell><Data ss:Type="String">System</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
@@ -1680,12 +1680,12 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
     <Cell><Data ss:Type="String">OFFLINE</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">Resources need to be retrieved by manual intervention</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Resources need to be retrieved by manual intervention</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
     <Cell><Data ss:Type="String">NEARLINE</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">Resources need to be retrieved from relatively slow media</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Resources need to be retrieved from relatively slow media</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
@@ -1725,9 +1725,10 @@
    <Column ss:AutoFitWidth="0" ss:Width="338.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="167.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="60.75"/>
-   <Row ss:AutoFitHeight="0" ss:Height="14.4375" ss:StyleID="s81">
+   <Row ss:AutoFitHeight="0" ss:Height="14.4375" ss:StyleID="s82">
     <Cell><Data ss:Type="String">System</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
+    <Cell><Data ss:Type="String">Comment</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.4375">
     <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
@@ -1768,6 +1769,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
     <Cell><Data ss:Type="String">XC</Data></Cell>
+    <Cell><Data ss:Type="String">Use this for general photography</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
@@ -1881,10 +1883,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>18</ActiveRow>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

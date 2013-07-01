@@ -119,7 +119,7 @@ public class WebMaker {
     folderList.add("cs");
     for (String n : definitions.getBindings().keySet()) {
       BindingSpecification bs = definitions.getBindings().get(n);
-      if ((bs.getBinding() == Binding.CodeList && !bs.isValueSet()) || (bs.getBinding() == Binding.Special)) {
+      if ((bs.getBinding() == Binding.CodeList && bs.hasInternalCodes()) || (bs.getBinding() == Binding.Special)) {
         String ref = bs.getReference().startsWith("#") ? bs.getReference().substring(1) : bs.getReference();
         String dn = folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+ref;
         folderList.add(ref);

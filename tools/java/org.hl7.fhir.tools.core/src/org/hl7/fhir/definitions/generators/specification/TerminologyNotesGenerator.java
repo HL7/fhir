@@ -41,6 +41,7 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.ExtensionDefn;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.Utilities;
@@ -83,19 +84,39 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
 		close();
 	}
 
-  public void generate(ProfileDefn profile) throws Exception
+  public void generate(ProfileDefn profile, Map<String, BindingSpecification> tx) throws Exception
   {
-    write("<p>\r\nDefined Bindings\r\n</p>\r\n<ul>\r\n");
-    for (BindingSpecification b : profile.getBindings()) {
-      genBinding(b, "", false);
-    }
-    write("</ul>\r\n");
+//    write("<p>\r\nDefined Bindings\r\n</p>\r\n<ul>\r\n");
+//    for (BindingSpecification b : profile.getBindings()) {
+//      genBinding(b, "", false);
+//    }
+//    write("</ul>\r\n");
+    scan(profile, tx);
+    gen(txusages);
     flush();
     close();
   }
 
 	
-	private void gen(Map<BindingSpecification, List<CDUsage>> txusages2) throws Exception {
+	private void scan(ProfileDefn profile, Map<String, BindingSpecification> tx) throws Exception {
+    for (ElementDefn d : profile.getElements()) {
+      scan(d, profile.getMetadata().get("id")+"."+d.getName(), tx);
+    }
+    for (ExtensionDefn ex : profile.getExtensions()) {
+      if (ex.getDefinition().hasBinding()) {
+        BindingSpecification cd = getConceptDomainByName(tx, ex.getDefinition().getBindingName());
+        if (!txusages.containsKey(cd)) {
+          txusages.put(cd, new ArrayList<CDUsage>());
+          c++;
+          txusages.get(cd).add(new CDUsage(String.valueOf(c), null));           
+        }
+        txusages.get(cd).add(new CDUsage(profile.getMetadata().get("id")+".extensions."+ex.getCode(), ex.getDefinition()));     
+      }
+    }
+    
+  }
+
+  private void gen(Map<BindingSpecification, List<CDUsage>> txusages2) throws Exception {
 		List<BindingSpecification> cds = new ArrayList<BindingSpecification>();
 		cds.addAll(txusages.keySet());
 		if (cds.size() == 0)
@@ -153,6 +174,8 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
           else if (cd.getReference().startsWith("http://hl7.org/fhir")) {
             if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs/"))
               write("<a href=\"v3/"+cd.getReference().substring(26)+"/index.htm\">"+cd.getReference()+"</a>");
+            else if (cd.getReference().startsWith("http://hl7.org/fhir/vs/"))
+              write("<a href=\""+cd.getReference().substring(23)+".htm\">"+cd.getReference()+"</a>");
             else
               throw new Exception("Internal reference "+cd.getReference()+" not handled yet");
           } else
@@ -220,11 +243,11 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
         //						sids.put(sid, new DefinedCode())
         sid = " system "+sid+"";
         if (cd.getBindingStrength().equals(BindingSpecification.BindingStrength.Example))
-          write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getName())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\" Example values are in the "+sid+".\r\n");
+          write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getName())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\". Example values are in the "+sid+".\r\n");
         else if (cd.getBindingStrength().equals(BindingSpecification.BindingStrength.Preferred))
-          write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getName())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\" Defined values are in the "+sid+". Other codes can be used when those codes are not suitable\r\n");
+          write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getName())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\". Defined values are in the "+sid+". Other codes can be used when those codes are not suitable\r\n");
         else // if (cd.getBindingStrength().equals(BindingSpecification.BindingStrength.Required))
-          write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getName())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\" Possible values are in the "+sid+".\r\n");
+          write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getName())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\". Possible values are in the "+sid+".\r\n");
       } else {
 
         if (cd.getBindingStrength().equals(BindingSpecification.BindingStrength.Example))
@@ -274,17 +297,19 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       else if (cd.getBindingStrength() == BindingSpecification.BindingStrength.Preferred)
         write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getName())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\". If an appropriate code exists in "+ref(cd)+" then it should be used</li>\r\n");
       else // if (cd.getBindingStrength() = ConceptDomain.BindingStrength.Suggested)
-        write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getName())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\". A good candidate for codes is "+ref(cd)+"</li>\r\n");
+        write("  <li>"+path+" <i>"+Utilities.escapeXml(cd.getName())+"</i>: \""+Utilities.escapeXml(cd.getDefinition())+"\". Example Codes: "+ref(cd)+"</li>\r\n");
     }
   }
 
 	
 
   private String ref(BindingSpecification cd) {
-    if (cd.hasReference())
-      return "<a href=\""+cd.getReference()+"\">"+Utilities.escapeXml(cd.getDescription())+"</a>";
-    else
+    if (!cd.hasReference())
       return Utilities.escapeXml(cd.getDescription());
+    else if (cd.getReferredValueSet() != null)
+      return "<a href=\""+cd.getReference()+".htm\">"+Utilities.escapeXml(cd.getReferredValueSet().getNameSimple())+"</a>";      
+    else
+      return "<a href=\""+cd.getReference()+"\">"+Utilities.escapeXml(cd.getDescription())+"</a>";
   }
 
 
@@ -300,8 +325,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
 		}
 		for (ElementDefn c : e.getElements()) {
 			scan(c, path+"."+c.getName(), tx);
-		}
-		
+		}		
 	}
 
 	private BindingSpecification getConceptDomainByName(Map<String, BindingSpecification> tx, String conceptDomain) throws Exception {		

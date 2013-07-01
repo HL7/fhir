@@ -87,6 +87,7 @@ import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.instance.model.Code;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Narrative;
@@ -101,6 +102,7 @@ import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValuesetStatus;
+import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.validation.InstanceValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
@@ -368,7 +370,8 @@ public class Publisher {
       produceResource1(r);      
       produceResource2(r);
     }
-    generateCodeSystems();
+    generateCodeSystemsPart1();
+    generateValueSetsPart1();
     for (BindingSpecification cd : page.getDefinitions().getBindings().values()) {
       if (cd.getBinding() == Binding.ValueSet && !Utilities.noString(cd.getReference())
           && cd.getReference().startsWith("http://hl7.org/fhir")) {
@@ -377,8 +380,8 @@ public class Publisher {
         cd.setReferredValueSet(page.getDefinitions().getValuesets().get(cd.getReference()));
       }
     }
-    generateValueSets();
-
+    generateCodeSystemsPart2();
+    generateValueSetsPart2();
   }
 
   private IniFile ini;
@@ -1983,9 +1986,16 @@ public class Publisher {
 		Utilities.copyFile(new CSFile(page.getFolders().dstDir + filename + ".profile.xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + filename + ".profile.xml"));
 
 		TerminologyNotesGenerator tgen = new TerminologyNotesGenerator(new FileOutputStream(tmp), page);
-		tgen.generate(profile);
+		tgen.generate(profile, page.getDefinitions().getBindings());
 		tgen.close();
 		String tx = TextFile.fileToString(tmp.getAbsolutePath());
+		
+    String intro = null;
+    if (profile.getMetadata().containsKey("introduction"))
+      intro = page.loadXmlNotesFromFile(Utilities.getDirectoryFoFile(examplePath) + File.separator + profile.getMetadata().get("introduction").get(0));
+    String notes = null;
+    if (profile.getMetadata().containsKey("notes"))
+      notes = page.loadXmlNotesFromFile(Utilities.getDirectoryFoFile(examplePath) + File.separator + profile.getMetadata().get("notes").get(0));
 		
 		String exXml = "<p><i>No Example Provided</i></p>";
 		if (examplePath != null) {
@@ -1997,7 +2007,7 @@ public class Publisher {
 	    // strip namespace - see below
 	    XmlGenerator xmlgen = new XmlGenerator();
 	    File dst = new File(page.getFolders().dstDir+exampleName);
-	    xmlgen.generate(xdoc.getDocumentElement(), dst, "http://hl7.org/fhir", xdoc.getDocumentElement().getLocalName());
+	    xmlgen.generate(xdoc.getDocumentElement(), dst, xdoc.getDocumentElement().getLocalName().equals("feed") ? "http://www.w3.org/2005/Atom" : "http://hl7.org/fhir", xdoc.getDocumentElement().getLocalName());
 	    builder = factory.newDocumentBuilder();
 	    xdoc = builder.parse(new CSFileInputStream(dst.getAbsolutePath()));
 	    XhtmlGenerator xhtml = new XhtmlGenerator(null);
@@ -2040,7 +2050,7 @@ public class Publisher {
 		//
 		String src = TextFile.fileToString(page.getFolders().srcDir
 				+ "template-profile.htm");
-		src = page.processProfileIncludes(filename, profile, xml, tx, src, exXml);
+		src = page.processProfileIncludes(filename, profile, xml, tx, src, exXml, intro, notes);
 		book.getPages().put(filename+".htm", new XhtmlParser().parse(src, "html"));
 		TextFile.stringToFile(src, page.getFolders().dstDir + filename + ".htm");
 		//
@@ -2521,14 +2531,24 @@ public class Publisher {
 //    page.logNoEoln(content);
 //  }
 
-  private void generateValueSets() throws Exception {
+  private void generateValueSetsPart1() throws Exception {
     log(" ...value sets");
     for (BindingSpecification bs : page.getDefinitions().getBindings().values())
       if (bs.getBinding() == Binding.ValueSet && bs.getReferredValueSet() != null && !bs.getReference().startsWith("http://hl7.org/fhir"))
         generateValueSetPart1(bs.getReference(), bs);
-    for (BindingSpecification bs : page.getDefinitions().getBindings().values())
+    for (String n : page.getDefinitions().getExtraValuesets().keySet()) {
+      ValueSet vs = page.getDefinitions().getExtraValuesets().get(n);
+      generateValueSetPart1(n, vs);
+    }
+  }
+  
+  private void generateValueSetsPart2() throws Exception {
+    log(" ...value sets (2)");
+     for (BindingSpecification bs : page.getDefinitions().getBindings().values())
       if (bs.getBinding() == Binding.ValueSet && bs.getReferredValueSet() != null && !bs.getReference().startsWith("http://hl7.org/fhir"))
-        generateValueSetPart2(bs.getReference(), bs);
+        generateValueSetPart2(bs.getReference(), bs.getName());
+     for (String n : page.getDefinitions().getExtraValuesets().keySet()) 
+       generateValueSetPart2(n, n);
   }
   
   private void generateValueSetPart1(String name, BindingSpecification cd) throws Exception {
@@ -2539,6 +2559,10 @@ public class Publisher {
       n = name;
     cd.getReferredValueSet().setIdentifierSimple("http://hl7.org/fhir/vs/"+n);
     ValueSet vs = cd.getReferredValueSet();
+    generateValueSetPart1(n, vs);
+  }
+  
+  private void generateValueSetPart1(String name, ValueSet vs) throws Exception {
     if (vs.getText() == null) {
       vs.setText(new Narrative());
       vs.getText().setStatusSimple(NarrativeStatus.empty);
@@ -2550,12 +2574,15 @@ public class Publisher {
 
     AtomEntry ae = new AtomEntry();
     ae.getLinks().put("self", "??");
-    // ae.getLinks().put("oid", );
+    ae.getLinks().put("path", name+".htm");
     ae.setResource(vs);
     page.getValueSets().put(vs.getIdentifierSimple(), ae);
+    if (vs.getDefine() != null) {
+      page.getCodeSystems().put(vs.getDefine().getSystemSimple(), ae);
+    }
   }
   
-  private void generateValueSetPart2(String name, BindingSpecification cd) throws Exception {
+  private void generateValueSetPart2(String name, String title) throws Exception {
     String n;
     if (name.startsWith("valueset-"))
       n = name.substring(9);
@@ -2570,30 +2597,36 @@ public class Publisher {
     if (isGenerate) {
       addToResourceFeed(vs, n, valueSetsFeed);
 
-      ae.getLinks().put("path", cd.getName()+".htm");
+      ae.getLinks().put("path", name+".htm");
       
-      TextFile.stringToFile(page.processPageIncludes(cd.getName()+".htm", TextFile.fileToString(page.getFolders().srcDir+"template-vs.htm")), page.getFolders().dstDir+name+".htm");
-      String src = page.processPageIncludesForBook(cd.getName()+".htm", TextFile.fileToString(page.getFolders().srcDir+"template-vs-book.htm"));
+      TextFile.stringToFile(page.processPageIncludes(title+".htm", TextFile.fileToString(page.getFolders().srcDir+"template-vs.htm")), page.getFolders().dstDir+name+".htm");
+      String src = page.processPageIncludesForBook(title+".htm", TextFile.fileToString(page.getFolders().srcDir+"template-vs-book.htm"));
       cachePage(name+".htm", src);
 
       JsonComposer json = new JsonComposer();
-      json.compose(new FileOutputStream(page.getFolders().dstDir+name+".json"), cd.getReferredValueSet());
+      json.compose(new FileOutputStream(page.getFolders().dstDir+name+".json"), vs);
       XmlComposer xml = new XmlComposer();
-      xml.compose(new FileOutputStream(page.getFolders().dstDir+name+".xml"), cd.getReferredValueSet(), true);
-      cloneToXhtml(name, "Definition for Value Set"+cd.getReferredValueSet().getNameSimple());
+      xml.compose(new FileOutputStream(page.getFolders().dstDir+name+".xml"), vs, true);
+      cloneToXhtml(name, "Definition for Value Set"+vs.getNameSimple());
     }
   }
   
  
-  private void generateCodeSystems() throws Exception {
+  private void generateCodeSystemsPart1() throws Exception {
     log(" ...code lists");
     for (BindingSpecification bs : page.getDefinitions().getBindings().values())
       if (bs.getBinding() == Binding.CodeList || bs.getBinding() == Binding.Special)
-        generateCodeSystem(bs.getReference().substring(1)+".htm", bs);
+        generateCodeSystemPart1(bs.getReference().substring(1)+".htm", bs);
   }
   
-  private void generateCodeSystem(String filename, BindingSpecification cd) throws Exception {
-
+  private void generateCodeSystemsPart2() throws Exception {
+    log(" ...code lists (2)");
+    for (BindingSpecification bs : page.getDefinitions().getBindings().values())
+      if (bs.getBinding() == Binding.CodeList || bs.getBinding() == Binding.Special)
+        generateCodeSystemPart2(bs.getReference().substring(1)+".htm", bs);
+  }
+  
+  private void generateCodeSystemPart1(String filename, BindingSpecification cd) throws Exception {
     ValueSet vs = new ValueSet();
     if (Utilities.noString(cd.getUri()))
       vs.setIdentifierSimple("http://hl7.org/fhir/vs/"+Utilities.fileTitle(filename));
@@ -2607,27 +2640,33 @@ public class Publisher {
     vs.setDescriptionSimple(Utilities.noString(cd.getDescription()) ? cd.getDefinition() : cd.getDefinition()+"\r\n\r\n"+cd.getDescription());
     vs.setStatusSimple(ValuesetStatus.draft); // until we publish DSTU, then .review
     vs.setDate(org.hl7.fhir.instance.model.Factory.nowDateTime());
-    vs.setText(Factory.newNarrative(NarrativeStatus.generated, cd.getDescription()));
-    if (cd.isValueSet()) {
-      vs.setCompose(vs.new ValueSetComposeComponent());
-      for (String n : cd.getVSSources()) {
+
+    for (String n : cd.getVSSources()) {
+      if (Utilities.noString(n)) {
+        if (vs.getDefine() == null) {
+          vs.setDefine(vs.new ValueSetDefineComponent());
+          vs.getDefine().setSystemSimple("http://hl7.org/fhir/"+Utilities.fileTitle(filename));
+        }
+        for (DefinedCode c : cd.getChildCodes()) {
+          if (Utilities.noString(c.getSystem()))
+            addCode(vs, vs.getDefine().getConcept(), c);       
+        }
+      } else {
+        if (vs.getCompose() == null)
+          vs.setCompose(vs.new ValueSetComposeComponent());
         ConceptSetComponent cc = vs.new ConceptSetComponent();
         vs.getCompose().getInclude().add(cc);
         cc.setSystemSimple(n);
         for (DefinedCode c : cd.getCodes()) {
-          if (n.equals(c.getSystem()))
-            cc.getCode().add(org.hl7.fhir.instance.model.Factory.newCode(c.getCode()));
-        }
+          if (n.equals(c.getSystem())) {
+            Code nc = org.hl7.fhir.instance.model.Factory.newCode(c.getCode());
+            cc.getCode().add(nc);
+            if (!Utilities.noString(c.getComment()))
+              ToolingExtensions.addComment(nc, c.getComment());
+          }
+        }        
       }
     }
-    else {
-      vs.setDefine(vs.new ValueSetDefineComponent());
-      vs.getDefine().setSystemSimple("http://hl7.org/fhir/"+Utilities.fileTitle(filename));
-      for (DefinedCode c : cd.getChildCodes()) {
-        addCode(vs, vs.getDefine().getConcept(), c);       
-      }
-    }
-    new NarrativeGenerator().generate(vs, page.getCodeSystems(), page.getValueSets());
     
     cd.setReferredValueSet(vs);
     AtomEntry e = new AtomEntry();
@@ -2635,8 +2674,20 @@ public class Publisher {
     e.getLinks().put("self", Utilities.changeFileExt(filename, ".htm"));
     e.getLinks().put("path", Utilities.changeFileExt(filename, ".htm"));
     page.getCodeSystems().put(vs.getIdentifierSimple(), e);
-
     page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
+  }
+  
+  private void generateCodeSystemPart2(String filename, BindingSpecification cd) throws Exception {
+    AtomEntry e = null;
+    if (Utilities.noString(cd.getUri()))
+      e = page.getCodeSystems().get("http://hl7.org/fhir/vs/"+Utilities.fileTitle(filename));
+    else
+      e = page.getCodeSystems().get(cd.getUri());
+    ValueSet vs = (ValueSet) e.getResource();
+
+    new NarrativeGenerator().generate(vs, page.getCodeSystems(), page.getValueSets());
+    
+
     if (isGenerate) {
       addToResourceFeed(vs, Utilities.fileTitle(filename), valueSetsFeed);
 

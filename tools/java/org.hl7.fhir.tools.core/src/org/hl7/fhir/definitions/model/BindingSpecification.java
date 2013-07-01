@@ -198,22 +198,36 @@ public class BindingSpecification {
     this.extensibility = extensibility;
   }
 
-  public boolean isValueSet() {
-     return getVSSources().size() > 0;
+  public boolean hasExternalCodes() {
+    boolean external = false;
+    for (DefinedCode c : codes)
+      if (!Utilities.noString(c.getSystem()))
+        external = true;
+    return external;
   }
 
-  private List<String> vslist;
+  public boolean hasInternalCodes() {
+    boolean internal = false;
+    for (DefinedCode c : codes)
+      if (Utilities.noString(c.getSystem()))
+        internal = true;
+    return internal;
+  }
+
   
   public List<String> getVSSources() {
-    if (vslist == null) {
-      vslist = new ArrayList<String>();
-      for (DefinedCode c : codes) {
-        if (!Utilities.noString(c.getSystem())) {
-          if (!vslist.contains(c.getSystem()))
-            vslist.add(c.getSystem());
-        }
+    List<String> vslist = new ArrayList<String>();
+    boolean internal = false;
+    for (DefinedCode c : codes) {
+      if (Utilities.noString(c.getSystem())) {
+        internal = true;
+      } else {
+        if (!vslist.contains(c.getSystem()))
+          vslist.add(c.getSystem());
       }
     }
+    if (internal)
+      vslist.add(0, "");
     return vslist;
   }
 

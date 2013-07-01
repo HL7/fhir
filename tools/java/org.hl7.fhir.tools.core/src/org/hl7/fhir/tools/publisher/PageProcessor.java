@@ -60,6 +60,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.EventDefn;
 import org.hl7.fhir.definitions.model.EventUsage;
 import org.hl7.fhir.definitions.model.Example;
+import org.hl7.fhir.definitions.model.ExtensionDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
@@ -380,10 +381,15 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("vstxurl"))
         src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsurl")) {
-        String reference = definitions.getBindingByName(Utilities.fileTitle(file)).getReference();
-        if (reference.startsWith("valueset-"))
+        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
+        if (bs == null) {
+          src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
+        } else {
+          String reference = bs.getReference();
+          if (reference.startsWith("valueset-"))
             reference = reference.substring(9);
-        src = s1 + "http://hl7.org/fhir/vs/"+reference + s3;
+          src = s1 + "http://hl7.org/fhir/vs/"+reference + s3;
+        }
       } else if (com[0].equals("toc"))
         src = s1 + generateToc() + s3;
       else if (com[0].equals("txdef"))
@@ -391,14 +397,20 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("vsdef"))
         src = s1 + generateValueSetDefinition(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("txoid"))
-        src = s1 + generateOID(Utilities.fileTitle(file)) + s3;
+        src = s1 + generateOID(Utilities.fileTitle(file), false) + s3;
+      else if (com[0].equals("vsoid"))
+        src = s1 + generateOID(Utilities.fileTitle(file), true) + s3;
       else if (com[0].equals("txname"))
         src = s1 + Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsname"))
         src = s1 + Utilities.fileTitle(file) + s3;
-      else if (com[0].equals("vsref"))
-        src = s1 + definitions.getBindingByName(Utilities.fileTitle(file)).getReference() + s3;
-      else if (com[0].equals("txdesc"))
+      else if (com[0].equals("vsref")) {
+        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
+        if (bs == null)
+          src = s1 + Utilities.fileTitle(file) + s3;
+        else
+          src = s1 + bs.getReference() + s3;
+      } else if (com[0].equals("txdesc"))
         src = s1 + generateDesc(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("vsdesc"))
         src = s1 + generateVSDesc(Utilities.fileTitle(file)) + s3;
@@ -663,9 +675,13 @@ private String resItem(String name) throws Exception {
     BindingSpecification cd = definitions.getBindingByReference("#"+name);
     if (cd == null)
       cd = definitions.getBindingByName(name);
+    if (cd == null)
+      return "";
     StringBuilder b = new StringBuilder();
-    for (ResourceDefn r : definitions.getResources().values())
+    for (ResourceDefn r : definitions.getResources().values()) {
       scanForUsage(b, cd, r.getRoot(), r.getName().toLowerCase()+".htm#def");
+      scanForProfileUsage(b, cd, r);
+    }
     for (ElementDefn e : definitions.getInfrastructure().values()) {
       if (e.getName().equals("ResourceReference")) {
         scanForUsage(b, cd, e, "resources.htm#"+e.getName());
@@ -685,6 +701,16 @@ private String resItem(String name) throws Exception {
       return "<p>\r\nThese codes are not currently used\r\n</p>\r\n";
     else
       return "<p>\r\nThese codes are used in the following places:\r\n</p>\r\n<ul>\r\n"+b.toString()+"</ul>\r\n";
+  }
+
+  private void scanForProfileUsage(StringBuilder b, BindingSpecification cd, ResourceDefn r) {
+    for (RegisteredProfile p : r.getProfiles()) {
+      for (ExtensionDefn ex : p.getProfile().getExtensions()) {
+        if (ex.getDefinition().hasBinding() && ex.getDefinition().getBindingName() != null && ex.getDefinition().getBindingName().equals(cd.getName())) {
+          b.append(" <li><a href=\""+p.getFilename()+".htm#"+ex.getCode()+"\">Extension "+ex.getCode()+"</a></li>\r\n");
+        }
+      }
+    }
   }
 
   private void scanForUsage(StringBuilder b, BindingSpecification cd, ElementDefn e, String ref) {
@@ -709,7 +735,10 @@ private String resItem(String name) throws Exception {
 
   private String generateValueSetDefinition(String name) {
     BindingSpecification cd = definitions.getBindingByName(name);
-    return Utilities.escapeXml(cd.getDefinition());
+    if (cd == null)
+      return definitions.getExtraValuesets().get(name).getDescriptionSimple();
+    else
+      return Utilities.escapeXml(cd.getDefinition());
   }
 
   private String generateCodeTable(String name) throws Exception {
@@ -722,66 +751,67 @@ private String resItem(String name) throws Exception {
       boolean hasComment = false;
       boolean hasDefinition = false;
       boolean hasParent = false;
+      boolean hasSource = false;
+      boolean hasId = false;
       for (DefinedCode c : cd.getCodes()) {
         hasComment = hasComment || c.hasComment();
         hasDefinition = hasDefinition || c.hasDefinition();
         hasParent = hasParent || c.hasParent();
+        hasSource = hasSource || !Utilities.noString(c.getSystem());
+        hasId = hasId || !Utilities.noString(c.getId());
       }
-      String src;
-      String lvl;
-      if (cd.isValueSet()) {
-        src = "Source";
-      } else
-        src = "Id";
-      if (hasParent)
-        lvl = "<td><b>Level</b></td>";
-      else
-        lvl = "";
+      String src = "";
+      if (hasId) 
+        src = src + "<td><b>Id</b></td>";
+      if (hasSource) 
+        src = src + "<td><b>Source</b></td>";
+
+      String lvl = hasParent ?  "<td><b>Level</b></td>" : "";
       if (hasComment)
-        s.append("    <tr><td><b>"+src+"</b></td>"+lvl+"<td><b>Code</b></td><td><b>Definition</b></td><td><b>Comments</b></td></tr>");
+        s.append("    <tr>"+src+lvl+"<td><b>Code!</b></td><td><b>Definition</b></td><td><b>Comments</b></td></tr>");
       else if (hasDefinition)
-        s.append("    <tr><td><b>"+src+"</b></td>"+lvl+"<td><b>Code</b></td><td colspan=\"2\"><b>Definition</b></td></tr>");
+        s.append("    <tr>"+src+lvl+"<td><b>Code</b></td><td colspan=\"2\"><b>Definition</b></td></tr>");
       else
-        s.append("    <tr><td><b>"+src+"</b></td>"+lvl+"<td colspan=\"3\"><b>Code</b></td></tr>");
+        s.append("    <tr>"+src+lvl+"<td colspan=\"3\"><b>Code</b></td></tr>");
 
       for (DefinedCode c : cd.getChildCodes()) {
-        generateCode(cd, s, hasComment, hasDefinition, hasParent, 1, c);
+        generateCode(cd, s, hasSource, hasId, hasComment, hasDefinition, hasParent, 1, c);
       }
       s.append("    </table>\r\n");
       return s.toString();
     }
   }
 
-  private void generateCode(BindingSpecification cd, StringBuilder s, boolean hasComment, boolean hasDefinition, boolean hasParent, int level, DefinedCode c) {
-    String src;
-    String lvl;
-    if (cd.isValueSet()) {
-      if (Utilities.noString(c.getSystem()))
-        src = "??";
-      else {
+  private void generateCode(BindingSpecification cd, StringBuilder s, boolean hasSource, boolean hasId, boolean hasComment, boolean hasDefinition, boolean hasParent, int level, DefinedCode c) {
+    String id = hasId ? "<td>"+fixNull(c.getId())+"</td>" : "";
+    String src = "";
+    if (hasSource) {
+      if (Utilities.noString(c.getSystem())) {
+        src = "<td></td>";
+      } else {
         String url = c.getSystem();
         url = fixUrlReference(url);
-        src = "<a href=\""+url+"\">"+codeSystemDescription(c.getSystem())+"</a>";
+        src = "<td><a href=\""+url+"\">"+codeSystemDescription(c.getSystem())+"</a></td>";
       }
-    } else
-      src = c.getId();
-    if (hasParent)
-      lvl = "<td>"+Integer.toString(level)+"</td>";
-    else
-      lvl = "";
+    }
+    String lvl = hasParent ? "<td>"+Integer.toString(level)+"</td>" : "";
     String indent = "";
     for (int i = 1; i < level; i++)
       indent = indent + "&nbsp;&nbsp;";
     if (hasComment)
-      s.append("    <tr><td>"+src+"</td>"+lvl+"<td>"+indent+Utilities.escapeXml(c.getCode())+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td><td>"+Utilities.escapeXml(c.getComment())+"</td></tr>");
+      s.append("    <tr>"+id+src+lvl+"<td>"+indent+Utilities.escapeXml(c.getCode())+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td><td>"+Utilities.escapeXml(c.getComment())+"</td></tr>\r\n");
     else if (hasDefinition)
-      s.append("    <tr><td>"+src+"</td>"+lvl+"<td>"+indent+Utilities.escapeXml(c.getCode())+"</td><td colspan=\"2\">"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
+      s.append("    <tr>"+id+src+lvl+"<td>"+indent+Utilities.escapeXml(c.getCode())+"</td><td colspan=\"2\">"+Utilities.escapeXml(c.getDefinition())+"</td></tr>\r\n");
     else
-      s.append("    <tr><td>"+src+"</td>"+lvl+"<td colspan=\"3\">"+indent+Utilities.escapeXml(c.getCode())+"</td></tr>");
+      s.append("    <tr>"+id+src+lvl+"<td colspan=\"3\">"+indent+Utilities.escapeXml(c.getCode())+"</td></tr>\r\n");
     
     for (DefinedCode ch : c.getChildCodes()) {
-      generateCode(cd, s, hasComment, hasDefinition, hasParent, level+1, ch);
+      generateCode(cd, s, hasSource, hasId, hasComment, hasDefinition, hasParent, level+1, ch);
     }
+  }
+
+  private String fixNull(String id) {
+    return id == null ? "" : id;
   }
 
   private String codeSystemDescription(String system) {
@@ -1098,7 +1128,7 @@ private String resItem(String name) throws Exception {
     s.append("<table class=\"codes\">\r\n");
     List<String> names = new ArrayList<String>();
     for (String n : definitions.getBindings().keySet()) {
-      if ((definitions.getBindingByName(n).getBinding() == Binding.CodeList && !definitions.getBindingByName(n).isValueSet()) || 
+      if ((definitions.getBindingByName(n).getBinding() == Binding.CodeList && !definitions.getBindingByName(n).getVSSources().contains("")) || 
           (definitions.getBindingByName(n).getBinding() == Binding.Special))
         names.add(definitions.getBindingByName(n).getReference().substring(1));
     }
@@ -1117,26 +1147,51 @@ private String resItem(String name) throws Exception {
   private String genValueSetsTable() throws Exception {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"codes\">\r\n");
-    List<String> names = new ArrayList<String>();
+    s.append(" <tr><td><b>Namespace</b></td><td><b>Definition</b></td><td><b>Binding</b></td></tr>\r\n");
+    Map<String, String> names = new  HashMap<String, String>(); 
+    List<String> sorts = new ArrayList<String>();
     for (String n : definitions.getBindings().keySet()) {
-      if ((definitions.getBindingByName(n).getBinding() == Binding.ValueSet) || (definitions.getBindingByName(n).getBinding() == Binding.CodeList && definitions.getBindingByName(n).isValueSet()))
-       names.add(n);
+      if ((definitions.getBindingByName(n).getBinding() == Binding.ValueSet) || (definitions.getBindingByName(n).getBinding() == Binding.CodeList && definitions.getBindingByName(n).hasExternalCodes())) {
+        BindingSpecification cd = definitions.getBindingByName(n);
+        String sn = "";
+        if (Utilities.noString(cd.getReference()))
+          sn = cd.getDescription();
+        else {
+          String ref = cd.getReference().startsWith("#") ? cd.getReference().substring(1) : cd.getReference();
+          if (ref.startsWith("valueset-"))        
+            sn = "http://hl7.org/fhir/vs/"+ref.substring(9);
+          else 
+            sn = ref;
+        }
+        names.put(sn,  cd.getName());
+        sorts.add(sn);
+      }
     }
-    Collections.sort(names);
-    for (String n : names) {
+    for (String n : definitions.getExtraValuesets().keySet()) {
+      names.put(n, n);
+      sorts.add(n);
+    }
+    
+    Collections.sort(sorts);
+    
+    for (String sn : sorts) {
+      String n = names.get(sn);
+
       BindingSpecification cd = definitions.getBindingByName(n);
-      if (Utilities.noString(cd.getReference()))
-        s.append(" <tr><td>"+cd.getName()+"</td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>"+Utilities.escapeXml(cd.getDescription())+"</td></tr>\r\n");
+      if (cd == null)
+        s.append(" <tr><td><a href=\""+n+".htm\">http://hl7.org/fhir/vs/"+n+"</a></td><td>"+Utilities.escapeXml(definitions.getExtraValuesets().get(n).getDescriptionSimple())+"</td><td></td></tr>\r\n");
+      else if (Utilities.noString(cd.getReference()))
+        s.append(" <tr><td>"+Utilities.escapeXml(cd.getDescription())+"</td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>"+cd.getName()+"</td></tr>\r\n");
       else {
         String ref = cd.getReference().startsWith("#") ? cd.getReference().substring(1) : cd.getReference();
         if (ref.startsWith("valueset-"))        
-          s.append(" <tr><td>"+cd.getName()+"</td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td><a href=\""+ref+".htm\">http://hl7.org/fhir/vs/"+ref.substring(9)+"</a></td></tr>\r\n");
+          s.append(" <tr><td><a href=\""+ref+".htm\">http://hl7.org/fhir/vs/"+ref.substring(9)+"</a></td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>"+cd.getName()+"</td></tr>\r\n");
         else {
           AtomEntry ae = getv3ValueSetByRef(ref);
           if (ae != null && ae.getLinks().containsKey("path"))
-            s.append(" <tr><td>"+cd.getName()+"</td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td><a href=\""+ae.getLinks().get("path")+"\">"+ref+"</a></td></tr>\r\n");
+            s.append(" <tr><td><a href=\""+ae.getLinks().get("path")+"\">"+ref+"</a></td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>"+cd.getName()+"</td></tr>\r\n");
           else
-            s.append(" <tr><td>"+cd.getName()+"</td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td><a href=\""+ref+".htm\">"+ref+"</a></td></tr>\r\n");
+            s.append(" <tr><td><a href=\""+ref+".htm\">"+ref+"</a></td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>"+cd.getName()+"</td></tr>\r\n");
         }
       }
     }
@@ -1147,10 +1202,10 @@ private String resItem(String name) throws Exception {
 
   private AtomEntry getv3ValueSetByRef(String ref) {
     String vsRef = ref.replace("/vs", "");
-     for (AtomEntry ae : v3Valuesets.getEntryList()) {
-       if (ref.equals(ae.getLinks().get("self")) || vsRef.equals(ae.getLinks().get("self"))) 
-         return ae;
-     }
+    for (AtomEntry ae : v3Valuesets.getEntryList()) {
+      if (ref.equals(ae.getLinks().get("self")) || vsRef.equals(ae.getLinks().get("self"))) 
+        return ae;
+    }
     return null;
   }
 
@@ -1475,9 +1530,17 @@ private String resItem(String name) throws Exception {
         src = s1 + "http://hl7.org/fhir/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vstxurl"))
         src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
-      else if (com[0].equals("vsurl"))
-        src = s1 + "http://hl7.org/fhir/"+definitions.getBindingByName(Utilities.fileTitle(file)).getReference() + s3;
-      else if (com[0].equals("txdef"))
+      else if (com[0].equals("vsurl")) {
+        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
+        if (bs == null) {
+          src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
+        } else {
+          String reference = bs.getReference();
+          if (reference.startsWith("valueset-"))
+            reference = reference.substring(9);
+          src = s1 + "http://hl7.org/fhir/vs/"+reference + s3;
+        }
+      } else if (com[0].equals("txdef"))
         src = s1 + generateCodeDefinition(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("vsdef"))
         src = s1 + generateValueSetDefinition(Utilities.fileTitle(file)) + s3;
@@ -1500,36 +1563,44 @@ private String resItem(String name) throws Exception {
   private static final String OID_TX = "2.16.840.1.113883.4.642.1.";
   private static final String OID_VS = "2.16.840.1.113883.4.642.2.";
   
-  private String generateOID(String fileTitle) {
+  private String generateOID(String fileTitle, boolean vs) {
     BindingSpecification cd = definitions.getBindingByReference("#"+fileTitle);
-    if (!Utilities.noString(cd.getOid()))
-      return cd.getOid();
-    else if (cd.isValueSet())
+    if (vs)
       return OID_VS + cd.getId();
+    else if (!Utilities.noString(cd.getOid()))    
+      return cd.getOid();
+    else if (cd.hasInternalCodes())
+      return "(and the OID for the implicit code system is "+OID_TX + cd.getId()+")";
     else
-      return OID_TX + cd.getId();
+      return "";
   }
 
   private String generateDesc(String fileTitle) {
     BindingSpecification cd = definitions.getBindingByReference("#"+fileTitle);
-    if (!cd.isValueSet())
-      return "This value set defines it's own codes:";
-    else {
-      StringBuilder b = new StringBuilder();
+    List<String> vslist = cd.getVSSources();
+    StringBuilder b = new StringBuilder();
+    if (vslist.contains("")) {
+      b.append("This value set defines it's own codes");
+      vslist.remove(0);
+      if (vslist.size() > 0)
+        b.append(" and includes codes taken from");
+    } else 
       b.append("This is a value set with codes taken from ");
-      int i = 0;
-      for (String n : cd.getVSSources()) {
-        i++;
+    int i = 0;
+    for (String n : cd.getVSSources()) {
+      i++;
+      if (Utilities.noString(n)) {
+        b.append("ones defined internally");
+      } else {
         String an = fixUrlReference(n);
-        
         b.append("<a href=\""+an+"\">"+n+"</a>");
-        if (i == cd.getVSSources().size() - 1)
-          b.append(" and ");
-        else if (cd.getVSSources().size() > 1 && i != cd.getVSSources().size() )
-          b.append(", ");
       }
-      return b.toString()+":";
+      if (i == vslist.size() - 1)
+        b.append(" and ");
+      else if (vslist.size() > 1 && i != vslist.size() )
+        b.append(", ");
     }
+    return b.toString()+":";
   }
 
   private String fixUrlReference(String n) {
@@ -1542,7 +1613,9 @@ private String resItem(String name) throws Exception {
 
   private String generateVSDesc(String fileTitle) throws Exception {
     BindingSpecification cd = definitions.getBindingByName(fileTitle);
-    if (cd.getReferredValueSet().getText() != null && cd.getReferredValueSet().getText().getDiv() != null)
+    if (cd == null)
+      return new XhtmlComposer().compose(definitions.getExtraValuesets().get(fileTitle).getText().getDiv());
+    else if (cd.getReferredValueSet().getText() != null && cd.getReferredValueSet().getText().getDiv() != null)
       return new XhtmlComposer().compose(cd.getReferredValueSet().getText().getDiv());
     else
       return cd.getReferredValueSet().getDescriptionSimple();
@@ -1638,21 +1711,35 @@ private String resItem(String name) throws Exception {
         src = s1 + "http://hl7.org/fhir/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vstxurl"))
         src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
-      else if (com[0].equals("vsurl"))
-        src = s1 + "http://hl7.org/fhir/"+definitions.getBindingByName(Utilities.fileTitle(file)).getReference() + s3;
-      else if (com[0].equals("txdef"))
+      else if (com[0].equals("vsurl")) {
+        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
+        if (bs == null) {
+          src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
+        } else {
+          String reference = bs.getReference();
+          if (reference.startsWith("valueset-"))
+            reference = reference.substring(9);
+          src = s1 + "http://hl7.org/fhir/vs/"+reference + s3;
+        }
+      } else if (com[0].equals("txdef"))
         src = s1 + generateCodeDefinition(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("vsdef"))
         src = s1 + generateValueSetDefinition(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("txoid"))
-        src = s1 + generateOID(Utilities.fileTitle(file)) + s3;
+        src = s1 + generateOID(Utilities.fileTitle(file), false) + s3;
+      else if (com[0].equals("vsoid"))
+        src = s1 + generateOID(Utilities.fileTitle(file), true) + s3;
       else if (com[0].equals("txname"))
         src = s1 + Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsname"))
         src = s1 + Utilities.fileTitle(file) + s3;
-      else if (com[0].equals("vsref"))
-        src = s1 + definitions.getBindingByName(Utilities.fileTitle(file)).getReference() + s3;
-      else if (com[0].equals("txdesc"))
+      else if (com[0].equals("vsref")) {
+        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
+        if (bs == null)
+          src = s1 + Utilities.fileTitle(file) + s3;
+        else
+          src = s1 + bs.getReference() + s3;
+      } else if (com[0].equals("txdesc"))
         src = s1 + generateDesc(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("vsdesc"))
         src = s1 + generateVSDesc(Utilities.fileTitle(file)) + s3;
@@ -1850,25 +1937,19 @@ private String resItem(String name) throws Exception {
   private static final String HTML_PREFIX = "<div xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd\" xmlns=\"http://www.w3.org/1999/xhtml\">\r\n";
   private static final String HTML_SUFFIX = "</div>\r\n";
   
-  private String loadXmlNotes(String name, String suffix) throws Exception {
-    String filename;
-    if (new CSFile(folders.sndBoxDir + name).exists())
-      filename = folders.sndBoxDir + name+File.separatorChar+name+"-"+suffix+".xml";
-    else
-      filename = folders.srcDir + name+File.separatorChar+name+"-"+suffix+".xml";
-    
+  public String loadXmlNotesFromFile(String filename) throws Exception {
     if (!new CSFile(filename).exists()) {
       TextFile.stringToFile(HTML_PREFIX+"\r\n<!-- content goes here -->\r\n\r\n"+HTML_SUFFIX, filename);
       return "";
     }
-    
+
     String cnt = TextFile.fileToString(filename);
     cnt = processPageIncludes(filename, cnt).trim()+"\r\n";
     if (cnt.startsWith("<div")) {
       if (!cnt.startsWith(HTML_PREFIX))
-        throw new Exception("unable to process start xhtml content "+name+" : "+cnt.substring(0, HTML_PREFIX.length()));
+        throw new Exception("unable to process start xhtml content "+filename+" : "+cnt.substring(0, HTML_PREFIX.length()));
       else if (!cnt.endsWith(HTML_SUFFIX))
-        throw new Exception("unable to process end xhtml content "+name+" : "+cnt.substring(cnt.length()-HTML_SUFFIX.length()));
+        throw new Exception("unable to process end xhtml content "+filename+" : "+cnt.substring(cnt.length()-HTML_SUFFIX.length()));
       else {
         String res = cnt.substring(HTML_PREFIX.length(), cnt.length()-(HTML_SUFFIX.length()));
         return res;
@@ -1877,9 +1958,18 @@ private String resItem(String name) throws Exception {
       TextFile.stringToFile(HTML_PREFIX+cnt+HTML_SUFFIX, filename);
       return cnt;
     }
-}
+    
+  }
+  private String loadXmlNotes(String name, String suffix) throws Exception {
+    String filename;
+    if (new CSFile(folders.sndBoxDir + name).exists())
+      filename = folders.sndBoxDir + name+File.separatorChar+name+"-"+suffix+".xml";
+    else
+      filename = folders.srcDir + name+File.separatorChar+name+"-"+suffix+".xml";
+    return loadXmlNotesFromFile(filename);
+  }
 
-  String processProfileIncludes(String filename, ProfileDefn profile, String xml, String tx, String src, String example) throws Exception {
+  String processProfileIncludes(String filename, ProfileDefn profile, String xml, String tx, String src, String example, String intro, String notes) throws Exception {
     while (src.contains("<%"))
     {
       int i1 = src.indexOf("<%");
@@ -1920,6 +2010,10 @@ private String resItem(String name) throws Exception {
         src = s1+Config.DATE_FORMAT().format(new Date())+s3;
       else if (com[0].equals("definition"))
         src = s1+profile.getMetadata().get("description").get(0)+s3;
+      else if (com[0].equals("profile.intro"))
+        src = s1+(intro == null ? profile.getMetadata().get("description").get(0) : intro) +s3;
+      else if (com[0].equals("profile.notes"))
+        src = s1+(notes == null ? "" : notes) +s3;
       else if (com[0].equals("example"))
         src = s1+example+s3;
       else if (com[0].equals("status"))
@@ -1930,7 +2024,7 @@ private String resItem(String name) throws Exception {
         src = s1+xml+s3;
       else if (com[0].equals("profilelist")) {
         if (profile.getMetadata().containsKey("resource"))
-          src = s1+"profiles the "+profile.getMetadata().get("resource").get(0)+" Resource"+s3;
+          src = s1+", and profiles the "+profile.getMetadata().get("resource").get(0)+" Resource"+s3;
         else
           src = s1+s3;
       } else if (com[0].equals("tx"))

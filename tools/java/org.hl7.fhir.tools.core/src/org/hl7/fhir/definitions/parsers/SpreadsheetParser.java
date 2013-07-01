@@ -46,6 +46,7 @@ import org.hl7.fhir.definitions.model.EventUsage;
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
 import org.hl7.fhir.definitions.model.ExtensionDefn;
+import org.hl7.fhir.definitions.model.ExtensionDefn.ContextType;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
@@ -76,6 +77,7 @@ public class SpreadsheetParser {
 	private String sheetname;
 	private BindingNameRegistry registry;
   private String dataTypesFolder;
+  private String txFolder;
 
 	public SpreadsheetParser(InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry) throws Exception {
 		this.name = name;
@@ -88,7 +90,8 @@ public class SpreadsheetParser {
 		else
 		  title = name;
 		this.folder = root + title + File.separator;
-		this.dataTypesFolder =  root + "datatypes" + File.separator;
+    this.dataTypesFolder =  root + "datatypes" + File.separator;
+    this.txFolder =  root + "terminologies" + File.separator;
 		this.log = log;
 		this.registry = registry;
 	}
@@ -435,18 +438,26 @@ public class SpreadsheetParser {
 			  } else if (new File(Utilities.appendSlash(folder)+cd.getReference()+".json").exists()) {
 			    JsonParser p = new JsonParser();
 			    FileInputStream input = new FileInputStream(Utilities.appendSlash(folder)+cd.getReference()+".json");
-	        cd.setReferredValueSet((ValueSet) p.parse(input));
+			    cd.setReferredValueSet((ValueSet) p.parse(input));
 			  } else if (new File(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".xml").exists()) {
-	          XmlParser p = new XmlParser();
-	          FileInputStream input = new FileInputStream(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".xml");
-	          cd.setReferredValueSet((ValueSet) p.parse(input));
-	        } else if (new File(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".json").exists()) {
-	          JsonParser p = new JsonParser();
-	          FileInputStream input = new FileInputStream(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".json");
-	          cd.setReferredValueSet((ValueSet) p.parse(input));
-	        } else
-	          throw new Exception("Unable to find source for "+cd.getReference()+" ("+Utilities.appendSlash(folder)+cd.getReference()+".xml/json)");
-			  
+			    XmlParser p = new XmlParser();
+			    FileInputStream input = new FileInputStream(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".xml");
+			    cd.setReferredValueSet((ValueSet) p.parse(input));
+			  } else if (new File(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".json").exists()) {
+			    JsonParser p = new JsonParser();
+			    FileInputStream input = new FileInputStream(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".json");
+			    cd.setReferredValueSet((ValueSet) p.parse(input));
+        } else if (new File(Utilities.appendSlash(txFolder)+cd.getReference()+".xml").exists()) {
+          XmlParser p = new XmlParser();
+          FileInputStream input = new FileInputStream(Utilities.appendSlash(txFolder)+cd.getReference()+".xml");
+          cd.setReferredValueSet((ValueSet) p.parse(input));
+        } else if (new File(Utilities.appendSlash(txFolder)+cd.getReference()+".json").exists()) {
+          JsonParser p = new JsonParser();
+          FileInputStream input = new FileInputStream(Utilities.appendSlash(txFolder)+cd.getReference()+".json");
+          cd.setReferredValueSet((ValueSet) p.parse(input));
+			  } else
+			    throw new Exception("Unable to find source for "+cd.getReference()+" ("+Utilities.appendSlash(folder)+cd.getReference()+".xml/json)");
+
 			}
 			if (definitions.getBindingByName(cd.getName()) != null) {
 				throw new Exception("Definition of binding '"
@@ -743,7 +754,8 @@ public class SpreadsheetParser {
 		e.addMapping(ElementDefn.RIM_MAPPING, sheet.getColumn(row, "RIM Mapping"));
 		e.addMapping(ElementDefn.v2_MAPPING, sheet.getColumn(row, "v2 Mapping"));
 		e.addMapping(ElementDefn.DICOM_MAPPING, sheet.getColumn(row, "DICOM Mapping"));
-		e.addMapping(ElementDefn.vCard_MAPPING, sheet.getColumn(row, "vCard Mapping"));
+    e.addMapping(ElementDefn.vCard_MAPPING, sheet.getColumn(row, "vCard Mapping"));
+    e.addMapping(ElementDefn.XDS_MAPPING, sheet.getColumn(row, "XDS Mapping"));
 		e.setTodo(sheet.getColumn(row, "To Do"));
 		e.setExample(sheet.getColumn(row, "Example"));
 		e.setCommitteeNotes(sheet.getColumn(row, "Committee Notes"));
@@ -760,6 +772,8 @@ public class SpreadsheetParser {
 	  ex.setCode(sheet.getColumn(row, "Code"));
     ex.setType(readContextType(sheet.getColumn(row, "Context Type"), row));
     ex.setContext(sheet.getColumn(row, "Context"));
+    if (ex.getType() == ContextType.Extension && ex.getContext().startsWith("#"))
+      ex.setContext(uri+ex.getContext());
 	  ElementDefn exe = new ElementDefn();
 	  exe.setName(sheet.getColumn(row, "Code"));
 	  ex.setDefinition(exe);
@@ -781,10 +795,11 @@ public class SpreadsheetParser {
     exe.setDefinition(sheet.getColumn(row, "Definition"));
     exe.setRequirements(sheet.getColumn(row, "Requirements"));
     exe.setComments(sheet.getColumn(row, "Comments"));
-	exe.addMapping(ElementDefn.RIM_MAPPING, sheet.getColumn(row, "RIM Mapping"));
-	exe.addMapping(ElementDefn.v2_MAPPING, sheet.getColumn(row, "v2 Mapping"));
-	exe.addMapping(ElementDefn.DICOM_MAPPING, sheet.getColumn(row, "DICOM Mapping"));
-	exe.addMapping(ElementDefn.vCard_MAPPING, sheet.getColumn(row, "vCard Mapping"));
+    exe.addMapping(ElementDefn.RIM_MAPPING, sheet.getColumn(row, "RIM Mapping"));
+    exe.addMapping(ElementDefn.v2_MAPPING, sheet.getColumn(row, "v2 Mapping"));
+    exe.addMapping(ElementDefn.DICOM_MAPPING, sheet.getColumn(row, "DICOM Mapping"));
+    exe.addMapping(ElementDefn.vCard_MAPPING, sheet.getColumn(row, "vCard Mapping"));
+    exe.addMapping(ElementDefn.XDS_MAPPING, sheet.getColumn(row, "XDS Mapping"));
     exe.setTodo(sheet.getColumn(row, "To Do"));
     exe.setExample(sheet.getColumn(row, "Example"));
     exe.setCommitteeNotes(sheet.getColumn(row, "Committee Notes"));
@@ -979,5 +994,16 @@ public class SpreadsheetParser {
 		return events;
 	}
 
+
+  public String getFolder() {
+    return folder;
+  }
+
+
+  public void setFolder(String folder) {
+    this.folder = folder;
+  }
+
+	
 
 }

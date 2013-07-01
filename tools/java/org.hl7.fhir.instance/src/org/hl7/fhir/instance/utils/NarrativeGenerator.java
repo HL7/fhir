@@ -60,13 +60,13 @@ public class NarrativeGenerator {
     p = x.addTag("p");
     p.addText("This value set defines it's own terms in the system "+vs.getDefine().getSystemSimple());
     XhtmlNode t = x.addTag("table");
-    addTableHeaderRowStandard(t);
+    addTableHeaderRowStandard(t, false);
     for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
       addDefineRowToTable(t, c, 0);
     }    
   }
 
-  private void addTableHeaderRowStandard(XhtmlNode t) {
+  private void addTableHeaderRowStandard(XhtmlNode t, boolean comments) {
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
     XhtmlNode b = td.addTag("b");
@@ -77,6 +77,9 @@ public class NarrativeGenerator {
     td = tr.addTag("td");
     b = td.addTag("b");
     b.addText("Definition");
+    if (comments) {
+      tr.addTag("td").addTag("b").addText("Comments");
+    }
   }
 
   private void addDefineRowToTable(XhtmlNode t, ValueSetDefineConceptComponent c, int i) {
@@ -152,19 +155,30 @@ public class NarrativeGenerator {
         addCsRef(inc, li, e);
       
         XhtmlNode t = li.addTag("table");
-        addTableHeaderRowStandard(t);
+        boolean hasComments = false;
+        for (Code c : inc.getCode()) {
+          hasComments = hasComments || c.hasExtension(ToolingExtensions.EXT_COMMENT);
+        }
+        addTableHeaderRowStandard(t, hasComments);
         for (Code c : inc.getCode()) {
           XhtmlNode tr = t.addTag("tr");
-          XhtmlNode td = tr.addTag("td");
-          td.addText(c.getValue());         
+          tr.addTag("td").addText(c.getValue());
           ValueSetDefineConceptComponent cc = getConceptForCode(e, c.getValue());
-          if (cc != null) {
-            td = tr.addTag("td");
-            if (!Utilities.noString(cc.getDisplaySimple()))
-              td.addText(cc.getDisplaySimple());
-            td = tr.addTag("td");
-            if (!Utilities.noString(cc.getDefinitionSimple()))
-              td.addText(cc.getDefinitionSimple());
+          
+          XhtmlNode td = tr.addTag("td");
+          if (c.hasExtension(ToolingExtensions.EXT_DISPLAY))
+            td.addText(ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_DISPLAY));
+          else if (cc != null && !Utilities.noString(cc.getDisplaySimple()))
+            td.addText(cc.getDisplaySimple());
+          
+          td = tr.addTag("td");
+          if (c.hasExtension(ToolingExtensions.EXT_DEFINITION))
+            td.addText(ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_DEFINITION));
+          else if (cc != null && !Utilities.noString(cc.getDefinitionSimple()))
+            td.addText(cc.getDefinitionSimple());
+
+          if (c.hasExtension(ToolingExtensions.EXT_COMMENT)) {
+            tr.addTag("td").addText("Note: "+ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_COMMENT));
           }
         }
       }
@@ -278,7 +292,7 @@ public class NarrativeGenerator {
     boolean success = true;
     for (OperationOutcomeIssueComponent i : op.getIssue()) {
     	success = success && i.getSeveritySimple() != IssueSeverity.information;
-    	hasSource = hasSource || hasExtension(i, "http://hl7.org/fhir/tools#issue-source");
+    	hasSource = hasSource || i.hasExtension(ToolingExtensions.EXT_ISSUE_SOURCE);
     	hasType = hasType || i.getType() != null;
     }
     if (success)
@@ -310,7 +324,7 @@ public class NarrativeGenerator {
     			if (hasType)
     				tr.addTag("td").addText(gen(i.getType()));
     			if (hasSource)
-    				tr.addTag("td").addText(gen(getExtension(i, "http://hl7.org/fhir/tools#issue-source")));
+    				tr.addTag("td").addText(gen(i.getExtension(ToolingExtensions.EXT_ISSUE_SOURCE)));
     		}    
     	}
     if (op.getText() == null)
@@ -320,18 +334,6 @@ public class NarrativeGenerator {
   	
   }
 
-	private boolean hasExtension(Element e, String url) {
-	  return getExtension(e, url) != null;
-  }
-
-	private Extension getExtension(Element e, String url) {
-	  for (Extension ex : e.getExtensions()) {
-	  	if (url.equals(ex.getUrlSimple().toString())) {
-	  		return ex;
-	  	}
-	  }
-	  return null;
-  }
 
 	private String gen(Extension extension) throws Exception {
 		if (extension.getValue() instanceof Code)

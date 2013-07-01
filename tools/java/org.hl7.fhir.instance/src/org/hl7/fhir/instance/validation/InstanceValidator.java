@@ -649,7 +649,8 @@ public class InstanceValidator extends BaseValidator {
       // the instance at root is valid against the schema and schematron
       // the instance validator had no issues against the base resource profile
       if (root.getLocalName().equals("feed")) {
-        throw new Exception("not done yet");
+        // throw new Exception("not done yet");
+        warning(errors, "invalid", "feed", false, "Validating feeds is not done yet");
       }
       else {
         // so the first question is what to validate against

@@ -41,7 +41,8 @@ public class ElementDefn {
 	public static final String RIM_MAPPING = "_rim";
 	public static final String v2_MAPPING = "v2";
 	public static final String DICOM_MAPPING = "dicom";
-	public static final String vCard_MAPPING = "vcard";
+  public static final String vCard_MAPPING = "vcard";
+  public static final String XDS_MAPPING = "xds";
 	
 
 	private List<TypeRef> types = new ArrayList<TypeRef>();
