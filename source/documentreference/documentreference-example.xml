@@ -13,7 +13,6 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
     <!-- Many XDS systems do not trak any id for the author. When systems don't do this, 
     the only option is for the author information to be contained in the Document Reference -->
     <Practitioner id="a1">    
-      <details>
         <name>
           <family value="Dopplemeyer"/>
           <given value="Sherry"/>
@@ -22,7 +21,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
           <system value="email"/>
           <value value="john.doe@healthcare.example.org"/>
         </telecom>
-      </details>
+      
       <organization>
         <display value="Cleveland Clinic"/>
       </organization>
@@ -37,7 +36,6 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
   </contained>
   <contained>
     <Practitioner id="a2">    
-      <details>
         <name>
           <family value="Smitty"/>
           <given value="Gerald"/>
@@ -46,7 +44,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
           <system value="email"/>
           <value value="john.doe@healthcare.example.org"/>
         </telecom>
-      </details>
+      
       <organization>
         <display value="Cleveland Clinic"/>
       </organization>

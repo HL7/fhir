@@ -19,13 +19,13 @@
         <type value="Organization"/>
         <reference value="organization/@f001"/>
     </partOf>
-    <contactEntity>
-        <type>
+    <contact>
+        <purpose>
             <coding>
                 <system value="http://hl7.org/fhir/contactentity-type"/>
                 <code value="ADMIN"/>
             </coding>
-        </type>
+        </purpose>
         <name>
             <text value="mevr. D. de Haan" />
         </name>
@@ -44,6 +44,6 @@
         <address>
             <line value="South Wing, floor 2"/>
         </address>
-    </contactEntity>
+    </contact>
     <active value="true "/>
 </Organization>

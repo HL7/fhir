@@ -8,7 +8,6 @@
         <system value="urn:oid:2.16.528.1.1007.3.1"/>
         <key value="12345678901"/>
     </identifier>
-    <details>
         <!--Practitioner's personal demographics-->
         <name>
             <!--The name of the practitioner-->
@@ -24,7 +23,16 @@
             <value value="+31715269111"/>
             <use value="work"/>
         </telecom>
-        <gender>
+    <address><!--Work address for the individual-->
+            <use value="work"/>       
+            <line value="Walvisbaai 3"/>    
+            <line value="C4 - Automatisering"/>
+            <city value="Den helder"/>
+            <zip value="2333ZA"/>
+            <country value="NLD"/><!--ISO 3166 3 letter code-->
+        </address>
+    
+    <gender>
             <!--The practitioner's administrative gender-->
             <coding>
                 <system value="http://snomed.info"/>
@@ -33,22 +41,13 @@
             </coding>
         </gender>
         <birthDate value="1956-12-24"/>
-        <deceased value="false"/>
         <!--Fortunately, the doctor is still alive!-->
-        <address><!--Work address for the individual-->
-            <use value="work"/>       
-            <line value="Walvisbaai 3"/>    
-            <line value="C4 - Automatisering"/>
-            <city value="Den helder"/>
-            <zip value="2333ZA"/>
-            <country value="NLD"/><!--ISO 3166 3 letter code-->
-        </address>
 <!--        <photo>
             <type value="Picture"/>
             <reference value="picture/@AB-201.bmp"/>
             <display value="Picture_Dokter_Bronsig"/>
         </photo> -->
-    </details>
+    
     <organization>
         <type value="Organization"/>
         <reference value="organization/@f201"/>

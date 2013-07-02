@@ -6,7 +6,6 @@
         <system value="urn:oid:2.16.528.1.1007.3.1"/>
     <key value="12345678903"/>
  </identifier>
- <details><!--Practitioner's personal demographics-->
     <identifier><!--The identifier for this individual-->
         <use value="official"/>
         <label value="BIG-nummer"/>
@@ -22,6 +21,14 @@
         <value value="+31715269111"/>
         <use value="work"/>
     </telecom>
+    <address><!--Work address for the individual-->
+        <use value="work"/>
+        <line value="Walvisbaai 3"/>    
+        <city value="Den helder"/>
+        <zip value="2333ZA"/>
+        <country value="NLD"/><!--ISO 3166 3 letter code-->
+    </address>   
+    
     <gender><!--The practitioner's administrative gender-->
       <coding>
         <system value="http://snomed.info"/>
@@ -30,20 +37,11 @@
       </coding>  
     </gender>
     <birthDate value="1983-04-20"/>
-    <deceased value="false"/>
-    <address><!--Work address for the individual-->
-        <use value="work"/>
-        <line value="Walvisbaai 3"/>    
-        <city value="Den helder"/>
-        <zip value="2333ZA"/>
-        <country value="NLD"/><!--ISO 3166 3 letter code-->
-    </address>   
 <!--    <photo>    
         <type value="Picture"/>
         <reference value="picture/@JvG-203.bmp"/>
         <display value="Picture_Juri_van_Gelder"/>
     </photo>-->
- </details>
   <organization>
      <type value="Organization"/>
      <reference value="organization/@f201"/>

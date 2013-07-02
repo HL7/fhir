@@ -63,7 +63,7 @@
             <end value="2013-12-31"/>
         </period>
     </accreditation> -->
-    <contactEntity>
+    <contact>
         <!--Contact for the AUMC-->
         <name>
             <use value="official"/>
@@ -84,6 +84,6 @@
             <zip value="2333ZA"/>
             <country value="NLD"/><!--ISO 3166 3 letter code-->
         </address>
-    </contactEntity>
+    </contact>
     <active value="true"/>
 </Organization>

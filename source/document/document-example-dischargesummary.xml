@@ -131,11 +131,9 @@
                         <h5>Doctor dave</h5>
                     </div>
                 </text>
-                <details>
                     <name>
                         <text value="Doctor Dave"/>
-                    </name>
-                </details>
+                    </name>  
             </Practitioner>
         </content>
     </entry>

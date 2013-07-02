@@ -26,7 +26,6 @@
   <WindowWidth>13680</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -415,25 +414,6 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Patient.contact.gender</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">AdministrativeGender</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Gender for administrative purposes</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes. </Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Needed to address the person correctly</Data></Cell>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">./administrativeGender</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">PID-8</Data></Cell>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Patient.contact.address</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s72"/>
@@ -451,6 +431,25 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
+    <Cell><Data ss:Type="String">Patient.contact.gender</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">AdministrativeGender</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Gender for administrative purposes</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes. </Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Needed to address the person correctly</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">./administrativeGender</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">PID-8</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Patient.contact.organization</Data></Cell>
@@ -684,7 +683,8 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <TopRowVisible>2</TopRowVisible>
+   <Selected/>
+   <TopRowVisible>5</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
@@ -696,8 +696,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>15</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -735,7 +734,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

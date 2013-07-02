@@ -26,12 +26,11 @@
     </contained>
     <contained>
       <Practitioner id="pr1">
-        <details>
           <name>
             <family value="Dietician"/>
             <given value="Dorothy"/>
           </name>
-        </details>
+        
         <specialty>
           <text value="Dietician"/>
         </specialty>

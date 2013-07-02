@@ -131,13 +131,12 @@
         <identifier>
           <system value="usual"/>
         </identifier>
-        <details>
           <name>
             <use value="usual"/>
             <family value="Smitty"/>
             <given value="Gerald"/>
           </name>
-        </details>
+        
         <organization>
           <display value="Cleveland Clinic"/>
         </organization>
@@ -178,13 +177,12 @@
         <identifier>
           <system value="usual"/>
         </identifier>
-        <details>
           <name>
             <use value="usual"/>
             <family value="Dopplemeyer"/>
             <given value="Sherry"/>
           </name>
-        </details>
+        
         <organization>
           <display value="Cleveland Clinic"/>
         </organization>

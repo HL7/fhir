@@ -30,12 +30,10 @@
     </contained>
     <contained>
       <Practitioner id="pr1">
-        <details>
           <name>
             <family value="Midwife"/>
             <given value="Mavis"/>
-          </name>
-        </details>
+          </name>      
         <specialty>
           <text value="Midwife"/>
         </specialty>
@@ -43,12 +41,10 @@
     </contained>
     <contained>
       <Practitioner id="pr2">
-        <details>
           <name>
             <family value="Obstetrician"/>
             <given value="Oscar"/>
-          </name>
-        </details>
+          </name>     
         <specialty>
           <text value="Obstetrician"/>
         </specialty>

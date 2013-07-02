@@ -12,6 +12,7 @@ A record does not need to be linked to be inactivated.
 <li>The <i>link</i> element is used to assert that two or more Patient resources are both about the same actual person. 
 See below for further discussion</li>
 <li>There should be only one preferred language (Language.preference = true) per mode of expression.</li>
+<li>The Contact for a Patient has an element <i>organization</i>, this is for use with guardians or business related contacts where just the organization is relevant.</li>
 </ul>
 
 <a name="links"> </a>

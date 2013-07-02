@@ -44,28 +44,28 @@
         <zip value="9100 AA"/>
         <country value="NLD"/>
     </address>
-    <contactEntity>
-        <type>
+    <contact>
+        <purpose>
             <coding>
                 <system value="http://hl7.org/fhir/contactentity-type"/>
                 <code value="PRESS" />
             </coding>
-        </type>
+        </purpose>
         <telecom>
             <system value="phone"/>
             <value value="022-655 2334"/>
         </telecom>
-    </contactEntity>
-    <contactEntity>
-        <type>
+    </contact>
+    <contact>
+        <purpose>
             <coding>
                 <system value="http://hl7.org/fhir/contactentity-type"/>
                 <code value="PATINF" />
             </coding>
-        </type>
+        </purpose>
         <telecom>
             <system value="phone"/>
             <value value="022-655 2335"/>
         </telecom>
-    </contactEntity>
+    </contact>
 </Organization>

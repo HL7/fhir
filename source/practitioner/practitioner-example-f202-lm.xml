@@ -6,7 +6,6 @@
         <system value="urn:oid:2.16.528.1.1007.3.1"/>
     <key value="12345678902"/>
  </identifier>
- <details><!--Practitioner's personal demographics-->
     <identifier><!--The identifier for this individual-->
         <use value="official"/>
         <label value="BIG-nummer"/>
@@ -25,15 +24,6 @@
         <value value="+31715269111"/>
         <use value="work"/>
     </telecom>
-    <gender><!--The practitioner's administrative gender-->
-      <coding>
-        <system value="http://snomed.info"/>
-        <code value="248153007"/>
-        <display value="Male"/>
-      </coding>
-    </gender>
-    <birthDate value="1960-06-12"/>
-    <deceased value="false"/><!--Fortunately, the doctor is still alive!-->
     <address><!--Work address for the individual-->
         <use value="work"/>
         <line value="Walvisbaai 3"/>    
@@ -42,12 +32,20 @@
         <zip value="2333ZA"/>
         <country value="NLD"/><!--ISO 3166 3 letter code-->
     </address>   
+    
+    <gender><!--The practitioner's administrative gender-->
+      <coding>
+        <system value="http://snomed.info"/>
+        <code value="248153007"/>
+        <display value="Male"/>
+      </coding>
+    </gender>
+    <birthDate value="1960-06-12"/>
 <!--    <photo>    
         <type value="Picture"/>
         <reference value="picture/@LM-203.bmp"/>
         <display value="Picture_Luigi_Maas"/>
     </photo>-->
- </details>
   <organization>
      <type value="Organization"/>
      <reference value="organization/@f201"/>
