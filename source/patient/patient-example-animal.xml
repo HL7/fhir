@@ -40,21 +40,18 @@
     </assigner>
   </identifier>
 
-  <details>
-
-    <!-- Dog's name: Kenzi -->
-    <name>
-      <use value="usual"/>
-      <given value="Kenzi"/>
-    </name>
-    <gender>
-      <coding>
-        <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-        <code value="F"/>
-      </coding>
-    </gender>
-    <birthDate value="2010-03-23"/>
-  </details>
+  <!-- Dog's name: Kenzi -->
+  <name>
+    <use value="usual"/>
+    <given value="Kenzi"/>
+  </name>
+  <gender>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+      <code value="F"/>
+    </coding>
+  </gender>
+  <birthDate value="2010-03-23"/>
 
   <contact>
     <relationship>
@@ -63,26 +60,16 @@
         <code value="owner"/>
       </coding>
     </relationship>
-    <details>
-      <name>
-        <use value="official"/>
-        <family value="Chalmers"/>
-        <given value="Peter"/>
-        <given value="James"/>
-      </name>
-      <telecom>
-        <system value="phone"/>
-        <value value="(03) 5555 6473"/>
-        <use value="work"/>
-      </telecom>
-      <address>
-        <use value="home"/>
-        <line value="534 Erewhon St"/>
-        <city value="PleasantVille"/>
-        <state value="Vic"/>
-        <zip value="3999"/>
-      </address>
-    </details>
+    <name>
+      <family value="Chalmers"/>
+      <given value="Peter"/>
+      <given value="James"/>
+    </name>
+    <telecom>
+      <system value="phone"/>
+      <value value="(03) 5555 6473"/>
+      <use value="work"/>
+    </telecom>
   </contact>
 
   <animal>
@@ -104,10 +91,10 @@
         <code value="gret"/>
         <display value="Golden Retriever"/>
       </coding>
-    </breed>    
+    </breed>
     <genderStatus>
       <coding>
-        <system value="http://hl7.org/fhir/animal-genderstatus" />
+        <system value="http://hl7.org/fhir/animal-genderstatus"/>
         <code value="neutered"/>
       </coding>
     </genderStatus>

@@ -13,19 +13,18 @@
     <system value="urn:oid:2.16.840.1.113883.19.5"/>
     <key value="12345"/>
   </identifier>
-  <details>
-    <name>
-      <family value="Levin"/>
-      <given value="Henry"/>
-    </name>
-    <gender>
-      <coding>
-        <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-        <code value="M"/>
-      </coding>
-    </gender>
-    <birthDate value="1932-09-24"/>
-  </details>
+  <name>
+    <family value="Levin"/>
+    <given value="Henry"/>
+  </name>
+  <gender>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+      <code value="M"/>
+    </coding>
+  </gender>
+  <birthDate value="1932-09-24"/>
+
   <provider>
     <type value="Organization"/>
     <reference value="organization/@2.16.840.1.113883.19.5"/>

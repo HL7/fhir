@@ -26,29 +26,29 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <key value="444222222"/>
         </identifier>
-        <details>
-          <name>
+
+        <name>
             <use value="official"/>
             <family value="Everywoman"/>
             <given value="Eve"/>
           </name>
-          <telecom>
-            <system value="phone"/>
-            <value value="555-555-2003"/>
-            <use value="work"/>
-          </telecom>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-            </coding>
-          </gender>
-          <birthDate value="1973-05-31"/>
-          <address>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-2003"/>
+          <use value="work"/>
+        </telecom>
+        <gender>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+            <code value="F"/>
+          </coding>
+        </gender>
+        <birthDate value="1973-05-31"/>
+        <address>
             <use value="home"/>
             <line value="2222 Home Street"/>
           </address>
-        </details>
+
         <provider>
           <type value="Organization"/>
           <reference value="organization/@hl7"/>
@@ -81,28 +81,28 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <key value="444333333"/>
         </identifier>
-        <details>
-          <name>
+
+        <name>
             <use value="official"/>
             <family value="Everyman"/>
             <given value="Adam"/>
           </name>
-          <telecom>
-            <system value="phone"/>
-            <value value="555-555-2004"/>
-            <use value="work"/>
-          </telecom>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-            </coding>
-          </gender>
-          <address>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-2004"/>
+          <use value="work"/>
+        </telecom>
+        <gender>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+            <code value="M"/>
+          </coding>
+        </gender>
+        <address>
             <use value="home"/>
             <line value="2222 Home Street"/>
           </address>
-        </details>
+
         <provider>
           <type value="Organization"/>
           <reference value="organization/@hl7"/>
@@ -135,28 +135,28 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <key value="444555555"/>
         </identifier>
-        <details>
-          <name>
+
+        <name>
             <use value="official"/>
             <family value="Kidd"/>
             <given value="Kari"/>
           </name>
-          <telecom>
-            <system value="phone"/>
-            <value value="555-555-2005"/>
-            <use value="work"/>
-          </telecom>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-            </coding>
-          </gender>
-          <address>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-2005"/>
+          <use value="work"/>
+        </telecom>
+        <gender>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+            <code value="F"/>
+          </coding>
+        </gender>
+        <address>
             <use value="home"/>
             <line value="2222 Home Street"/>
           </address>
-        </details>
+
         <provider>
           <type value="Organization"/>
           <reference value="organization/@hl7"/>
@@ -188,28 +188,28 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <key value="444114567"/>
         </identifier>
-        <details>
-          <name>
+
+        <name>
             <use value="official"/>
             <family value="Nuclear"/>
             <given value="Nancy"/>
           </name>
-          <telecom>
-            <system value="phone"/>
-            <value value="555-555-5001"/>
-            <use value="work"/>
-          </telecom>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-            </coding>
-          </gender>
-          <address>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-5001"/>
+          <use value="work"/>
+        </telecom>
+        <gender>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+            <code value="F"/>
+          </coding>
+        </gender>
+        <address>
             <use value="home"/>
             <line value="6666 Home Street"/>
           </address>
-        </details>
+
         <provider>
           <type value="Organization"/>
           <reference value="organization/@hl7"/>
@@ -242,28 +242,28 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <key value="444111234"/>
         </identifier>
-        <details>
-          <name>
+
+        <name>
             <use value="official"/>
             <family value="Nuclear"/>
             <given value="Neville"/>
           </name>
-          <telecom>
-            <system value="phone"/>
-            <value value="555-555-5001"/>
-            <use value="work"/>
-          </telecom>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-            </coding>
-          </gender>
-          <address>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-5001"/>
+          <use value="work"/>
+        </telecom>
+        <gender>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+            <code value="M"/>
+          </coding>
+        </gender>
+        <address>
             <use value="home"/>
             <line value="6666 Home Street"/>
           </address>
-        </details>
+
         <provider>
           <type value="Organization"/>
           <reference value="organization/@hl7"/>
@@ -296,28 +296,28 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <key value="444113456"/>
         </identifier>
-        <details>
-          <name>
+
+        <name>
             <use value="official"/>
             <family value="Nuclear"/>
             <given value="Ned"/>
           </name>
-          <telecom>
-            <system value="phone"/>
-            <value value="555-555-5001"/>
-            <use value="work"/>
-          </telecom>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-            </coding>
-          </gender>
-          <address>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-5001"/>
+          <use value="work"/>
+        </telecom>
+        <gender>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+            <code value="M"/>
+          </coding>
+        </gender>
+        <address>
             <use value="home"/>
             <line value="6666 Home Street"/>
           </address>
-        </details>
+
         <provider>
           <type value="Organization"/>
           <reference value="organization/@hl7"/>
@@ -349,28 +349,28 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <key value="444112345"/>
         </identifier>
-        <details>
-          <name>
+
+        <name>
             <use value="official"/>
             <family value="Nuclear"/>
             <given value="Nelda"/>
           </name>
-          <telecom>
-            <system value="phone"/>
-            <value value="555-555-5001"/>
-            <use value="work"/>
-          </telecom>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-            </coding>
-          </gender>
-          <address>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-5001"/>
+          <use value="work"/>
+        </telecom>
+        <gender>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+            <code value="F"/>
+          </coding>
+        </gender>
+        <address>
             <use value="home"/>
             <line value="6666 Home Street"/>
           </address>
-        </details>
+
         <provider>
           <type value="Organization"/>
           <reference value="organization/@hl7"/>
@@ -403,28 +403,28 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <key value="444666666"/>
         </identifier>
-        <details>
-          <name>
+
+        <name>
             <use value="official"/>
             <family value="Mum"/>
             <given value="Martha"/>
           </name>
-          <telecom>
-            <system value="phone"/>
-            <value value="555-555-2006"/>
-            <use value="work"/>
-          </telecom>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-            </coding>
-          </gender>
-          <address>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-2006"/>
+          <use value="work"/>
+        </telecom>
+        <gender>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+            <code value="F"/>
+          </coding>
+        </gender>
+        <address>
             <use value="home"/>
             <line value="4444 Home Street"/>
           </address>
-        </details>
+
         <provider>
           <type value="Organization"/>
           <reference value="organization/@hl7"/>
@@ -456,33 +456,34 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <key value="444777777"/>
         </identifier>
-        <details>
-          <name>
+
+        <name>
             <use value="official"/>
             <family value="Sons"/>
             <given value="Stuart"/>
           </name>
-          <telecom>
-            <system value="phone"/>
-            <value value="555-555-2007"/>
-            <use value="work"/>
-          </telecom>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-            </coding>
-          </gender>
-          <address>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-2007"/>
+          <use value="work"/>
+        </telecom>
+        <gender>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+            <code value="M"/>
+          </coding>
+        </gender>
+        <deceasedDateTime value="2002-08-24"/>
+        <address>
             <use value="home"/>
             <line value="4444 Home Street"/>
           </address>
-        </details>      
+
         <provider>
           <type value="Organization"/>
           <reference value="organization/@hl7"/>
         </provider>
-        <deceasedDate value="2002-08-24" />
+
         <active value="true"/>
       </Patient>
     </content>
@@ -510,28 +511,28 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <key value="444888888"/>
         </identifier>
-        <details>
-          <name>
+
+        <name>
             <use value="official"/>
             <family value="Betterhalf"/>
             <given value="Boris"/>
           </name>
-          <telecom>
-            <system value="phone"/>
-            <value value="555-555-2008"/>
-            <use value="work"/>
-          </telecom>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-            </coding>
-          </gender>
-          <address>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-2008"/>
+          <use value="work"/>
+        </telecom>
+        <gender>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+            <code value="M"/>
+          </coding>
+        </gender>
+        <address>
             <use value="home"/>
             <line value="2222 Home Street"/>
           </address>
-        </details>
+
         <provider>
           <type value="Organization"/>
           <reference value="organization/@hl7"/>
@@ -564,28 +565,28 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <key value="444999999"/>
         </identifier>
-        <details>
-          <name>
+
+        <name>
             <use value="official"/>
             <family value="Relative"/>
             <given value="Ralph"/>
           </name>
-          <telecom>
-            <system value="phone"/>
-            <value value="555-555-2009"/>
-            <use value="work"/>
-          </telecom>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-            </coding>
-          </gender>
-          <address>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-2009"/>
+          <use value="work"/>
+        </telecom>
+        <gender>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+            <code value="M"/>
+          </coding>
+        </gender>
+        <address>
             <use value="home"/>
             <line value="4444 Home Street"/>
           </address>
-        </details>
+
         <provider>
           <type value="Organization"/>
           <reference value="organization/@hl7"/>
@@ -618,28 +619,28 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <key value="555222222"/>
         </identifier>
-        <details>
-          <name>
+
+        <name>
             <use value="official"/>
             <family value="Contact"/>
             <given value="Carrie"/>
           </name>
-          <telecom>
-            <system value="phone"/>
-            <value value="555-555-2010"/>
-            <use value="work"/>
-          </telecom>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-            </coding>
-          </gender>
-          <address>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-2010"/>
+          <use value="work"/>
+        </telecom>
+        <gender>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+            <code value="F"/>
+          </coding>
+        </gender>
+        <address>
             <use value="home"/>
             <line value="5555 Home Street"/>
           </address>
-        </details>
+
         <provider>
           <type value="Organization"/>
           <reference value="organization/@hl7"/>

@@ -62,9 +62,10 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 		return "csharp";
 	}
 
+	  
 	@Override
 	public String getDescription() {
-		return "Resource definitions (+ more todo)";
+		return "Resource definitions, XML & Json parsers, validation and a FHIR Client API. The reference implementation uses the standard .NET framework and only Json.NET as a third-party assembly.";
 	}
 
 	@Override

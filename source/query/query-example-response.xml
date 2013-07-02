@@ -421,7 +421,6 @@
         <identifier>
           <system value="nhi"/>
         </identifier>
-        <details>
           <name>
             <text value="Eve   Everywoman"/>
             <family value="Everywoman1"/>
@@ -444,7 +443,7 @@
             <use value="home"/>
             <line value="2222 Home Street"/>
           </address>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@hl7"/>
@@ -480,7 +479,7 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <key value="444888888"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Betterhalf"/>
@@ -502,7 +501,7 @@
             <use value="home"/>
             <line value="2222 Home Street"/>
           </address>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@hl7"/>
@@ -535,7 +534,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577419"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Garrett"/>
@@ -549,7 +548,7 @@
             </coding>
           </gender>
           <birthDate value="1935-05-08"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -582,7 +581,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577420"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Lamb"/>
@@ -596,7 +595,7 @@
             </coding>
           </gender>
           <birthDate value="1938-08-29"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -629,7 +628,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577421"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Garcia"/>
@@ -643,7 +642,7 @@
             </coding>
           </gender>
           <birthDate value="1949-05-08"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -676,7 +675,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577422"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Christensen"/>
@@ -690,7 +689,7 @@
             </coding>
           </gender>
           <birthDate value="1933-03-02"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -723,7 +722,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577423"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Hughes"/>
@@ -737,7 +736,7 @@
             </coding>
           </gender>
           <birthDate value="1988-05-22"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -770,7 +769,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577424"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Houston"/>
@@ -784,7 +783,7 @@
             </coding>
           </gender>
           <birthDate value="1937-02-14"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -816,7 +815,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577425"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="West"/>
@@ -836,7 +835,7 @@
             </coding>
           </gender>
           <birthDate value="1946-06-08"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -869,7 +868,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577426"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Nguyen"/>
@@ -883,7 +882,7 @@
             </coding>
           </gender>
           <birthDate value="1945-02-15"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -916,7 +915,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577427"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Swanson"/>
@@ -930,7 +929,7 @@
             </coding>
           </gender>
           <birthDate value="1940-01-08"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -963,7 +962,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577428"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Powers"/>
@@ -977,7 +976,7 @@
             </coding>
           </gender>
           <birthDate value="1945-06-11"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -1010,7 +1009,7 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <key value="444999999"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Relative"/>
@@ -1031,7 +1030,7 @@
             <use value="home"/>
             <line value="4444 Home Street"/>
           </address>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@hl7"/>
@@ -1064,7 +1063,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577429"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Chandler"/>
@@ -1078,7 +1077,7 @@
             </coding>
           </gender>
           <birthDate value="1960-01-12"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -1111,7 +1110,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577430"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Carroll"/>
@@ -1125,7 +1124,7 @@
             </coding>
           </gender>
           <birthDate value="1945-06-04"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -1158,7 +1157,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577431"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Matthews"/>
@@ -1172,7 +1171,7 @@
             </coding>
           </gender>
           <birthDate value="1995-01-06"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -1205,7 +1204,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577432"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Frazier"/>
@@ -1219,7 +1218,7 @@
             </coding>
           </gender>
           <birthDate value="1943-02-08"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -1252,7 +1251,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577433"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Patrick"/>
@@ -1266,7 +1265,7 @@
             </coding>
           </gender>
           <birthDate value="1990-08-11"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -1299,7 +1298,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577434"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Fleming"/>
@@ -1313,7 +1312,7 @@
             </coding>
           </gender>
           <birthDate value="1939-03-08"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -1346,7 +1345,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577435"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Marshall"/>
@@ -1360,7 +1359,7 @@
             </coding>
           </gender>
           <birthDate value="1960-06-08"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -1393,7 +1392,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577436"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Larson"/>
@@ -1407,7 +1406,7 @@
             </coding>
           </gender>
           <birthDate value="1935-06-05"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -1440,7 +1439,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577437"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Day"/>
@@ -1454,7 +1453,7 @@
             </coding>
           </gender>
           <birthDate value="1963-06-08"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -1487,7 +1486,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577438"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Strickland"/>
@@ -1501,7 +1500,7 @@
             </coding>
           </gender>
           <birthDate value="1963-02-08"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -1535,7 +1534,7 @@
         <identifier>
           <system value="nhi"/>
         </identifier>
-        <details>
+        
           <name>
             <text value="dave   everyperson"/>
             <family value="everyperson"/>
@@ -1549,7 +1548,7 @@
             </coding>
           </gender>
           <birthDate value="1945-01-01"/>
-        </details>
+        
         <active value="true"/>
       </Patient>
     </content>
@@ -1580,7 +1579,7 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <key value="555222222"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Contact"/>
@@ -1601,7 +1600,7 @@
             <use value="home"/>
             <line value="5555 Home Street"/>
           </address>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@hl7"/>
@@ -1634,7 +1633,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577439"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Mckinney"/>
@@ -1648,7 +1647,7 @@
             </coding>
           </gender>
           <birthDate value="1960-06-08"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -1681,7 +1680,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577440"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Ortiz"/>
@@ -1695,7 +1694,7 @@
             </coding>
           </gender>
           <birthDate value="1930-04-02"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -1728,7 +1727,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577441"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Alvarez"/>
@@ -1742,7 +1741,7 @@
             </coding>
           </gender>
           <birthDate value="1980-04-08"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -1775,7 +1774,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577442"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Dennis"/>
@@ -1789,7 +1788,7 @@
             </coding>
           </gender>
           <birthDate value="1976-06-01"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -1822,7 +1821,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577443"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Schmidt"/>
@@ -1836,7 +1835,7 @@
             </coding>
           </gender>
           <birthDate value="1963-02-12"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -1869,7 +1868,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577444"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Carr"/>
@@ -1883,7 +1882,7 @@
             </coding>
           </gender>
           <birthDate value="1943-09-18"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -1916,7 +1915,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577445"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Greer"/>
@@ -1930,7 +1929,7 @@
             </coding>
           </gender>
           <birthDate value="1952-03-26"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -1963,7 +1962,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577446"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Phillips"/>
@@ -1977,7 +1976,7 @@
             </coding>
           </gender>
           <birthDate value="1942-04-24"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -2010,7 +2009,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577447"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Sparks"/>
@@ -2024,7 +2023,7 @@
             </coding>
           </gender>
           <birthDate value="1968-11-27"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -2057,7 +2056,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577448"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Holloway"/>
@@ -2071,7 +2070,7 @@
             </coding>
           </gender>
           <birthDate value="1959-08-02"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -2104,7 +2103,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577449"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Foster"/>
@@ -2118,7 +2117,7 @@
             </coding>
           </gender>
           <birthDate value="1967-12-29"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -2151,7 +2150,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577450"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Hodges"/>
@@ -2165,7 +2164,7 @@
             </coding>
           </gender>
           <birthDate value="1964-07-18"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -2198,7 +2197,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577451"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="White"/>
@@ -2212,7 +2211,7 @@
             </coding>
           </gender>
           <birthDate value="1968-07-10"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -2245,7 +2244,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577452"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Drake"/>
@@ -2259,7 +2258,7 @@
             </coding>
           </gender>
           <birthDate value="1979-07-18"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -2292,7 +2291,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577453"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Phillips"/>
@@ -2306,7 +2305,7 @@
             </coding>
           </gender>
           <birthDate value="1980-04-23"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -2339,7 +2338,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577454"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Hansen"/>
@@ -2353,7 +2352,7 @@
             </coding>
           </gender>
           <birthDate value="1956-11-28"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -2386,7 +2385,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577455"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Reynolds"/>
@@ -2400,7 +2399,7 @@
             </coding>
           </gender>
           <birthDate value="1970-04-13"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -2433,7 +2432,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577456"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Roberson"/>
@@ -2447,7 +2446,7 @@
             </coding>
           </gender>
           <birthDate value="1945-10-01"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -2480,7 +2479,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577457"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Crawford"/>
@@ -2494,7 +2493,7 @@
             </coding>
           </gender>
           <birthDate value="1969-02-03"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -2527,7 +2526,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577458"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Hicks"/>
@@ -2541,7 +2540,7 @@
             </coding>
           </gender>
           <birthDate value="1942-09-28"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -2574,7 +2573,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577459"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Hughes"/>
@@ -2588,7 +2587,7 @@
             </coding>
           </gender>
           <birthDate value="1958-05-14"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -2621,7 +2620,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577460"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Rice"/>
@@ -2635,7 +2634,7 @@
             </coding>
           </gender>
           <birthDate value="1952-08-19"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -2668,7 +2667,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577461"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Reese"/>
@@ -2682,7 +2681,7 @@
             </coding>
           </gender>
           <birthDate value="1996-03-31"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -2715,7 +2714,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577462"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Cox"/>
@@ -2729,7 +2728,7 @@
             </coding>
           </gender>
           <birthDate value="1993-12-02"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>
@@ -2762,7 +2761,7 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="577463"/>
         </identifier>
-        <details>
+        
           <name>
             <use value="official"/>
             <family value="Mccoy"/>
@@ -2776,7 +2775,7 @@
             </coding>
           </gender>
           <birthDate value="1997-06-17"/>
-        </details>
+        
         <provider>
           <type value="Organization"/>
           <reference value="organization/@1"/>

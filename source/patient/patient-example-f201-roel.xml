@@ -9,100 +9,76 @@
         <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
         <key value="123456789"/>
     </identifier>
-    <details>
-        <!--Demographics-->
-        <identifier>
-            <!--The identifier for this individual-->
-            <use value="official"/>
-            <label value="BSN"/>
-            <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
-            <key value="123456789"/>
-        </identifier>
-        <name>
-            <!--The name associated with the individual (fictive)-->
-            <use value="official"/>
-            <text value="Roel"/>
-            <family value="Bor"/>
-            <given value="Roelof Olaf"/>
-            <prefix value="Drs."/>
-            <suffix value="PDEng."/>
-        </name>
-        <telecom>
-            <!--The mobile contact detail for the individual-->
-            <system value="phone"/>
-            <value value="+31612345678"/>
-            <use value="mobile"/>
-        </telecom>
-        <telecom>
-            <!--The home contact detail for the individual-->
-            <system value="phone"/>
-            <value value="+31201234567"/>
-            <use value="home"/>
-        </telecom>
-        <gender>
-            <!--The gender for administrative purposes-->
-            <coding>
-                <system value="http://snomed.info"/>
-                <code value="248153007"/>
-                <display value="Male"/>
-            </coding>
-            <coding>
-                <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-                <code value="M"/>
-                <display value="Male"/>
-            </coding>
-        </gender>
-        <birthDate value="1960-03-13"/>
-        <!--The date and time of birth for the individual -->
-        <deceased value="false"/>
-        <!--Indicates that the individual is not deceased-->
-        <address><!--Home address for the individual-->
+    <!--Demographics-->
+    <identifier>
+        <!--The identifier for this individual-->
+        <use value="official"/>
+        <label value="BSN"/>
+        <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
+        <key value="123456789"/>
+    </identifier>
+    <name>
+        <!--The name associated with the individual (fictive)-->
+        <use value="official"/>
+        <text value="Roel"/>
+        <family value="Bor"/>
+        <given value="Roelof Olaf"/>
+        <prefix value="Drs."/>
+        <suffix value="PDEng."/>
+    </name>
+    <telecom>
+        <!--The mobile contact detail for the individual-->
+        <system value="phone"/>
+        <value value="+31612345678"/>
+        <use value="mobile"/>
+    </telecom>
+    <telecom>
+        <!--The home contact detail for the individual-->
+        <system value="phone"/>
+        <value value="+31201234567"/>
+        <use value="home"/>
+    </telecom>
+    <gender>
+        <!--The gender for administrative purposes-->
+        <coding>
+            <system value="http://snomed.info"/>
+            <code value="248153007"/>
+            <display value="Male"/>
+        </coding>
+        <coding>
+            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+            <code value="M"/>
+            <display value="Male"/>
+        </coding>
+    </gender>
+    <birthDate value="1960-03-13"/>
+    <!--The date and time of birth for the individual -->
+    <deceasedBoolean value="false"/>
+    <!--Indicates that the individual is not deceased-->
+    <address><!--Home address for the individual-->
             <use value="home"/>
             <line value="Bos en Lommerplein 280"/>
             <city value="Amsterdam"/>
             <zip value="1055RW"/>
             <country value="NLD"/><!--ISO 3166 3 letter code-->
         </address>
-<!--        <photo>
-            <type value="Picture"/>
-            <reference value="picture/@ROB-202.bmp"/>
-            <display value="Picture_Roel"/>
-        </photo> -->
-        <maritalStatus>
-            <!--Marital status of the person-->
-            <coding>
-                <system value="http://snomed.info"/>
-                <code value="36629006"/>
-                <display value="Legally married"/>
-            </coding>
-            <coding>
-                <system value="http://hl7.org/fhir/v3/MaritalStatus" />
-                <code value="M" />
-            </coding>
-        </maritalStatus>
-        <language>
-            <!--The person's  proficiency level of the Dutch language-->
-            <language>
-                <coding>
-                    <system value="urn:std:iso:639-1"/>
-                    <code value="nl-NL"/>
-                    <display value="Dutch"/>
-                </coding>
-            </language>
-            <proficiencyLevel>
-                <coding>
-                    <system value="http://snomed.info"/>
-                    <code value="425405005"/>
-                    <display value="Excellent"/>
-                </coding>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/LanguageAbilityProficiency"/>
-                    <code value="E"/>
-                </coding>
-            </proficiencyLevel>
-            <preference value="true"/>
-        </language>
-    </details>
+    <photo>
+        <contentType value="image/jpeg" />
+        <url value="binary/@f006"/>
+    </photo>
+    <maritalStatus>
+        <!--Marital status of the person-->
+        <coding>
+            <system value="http://snomed.info"/>
+            <code value="36629006"/>
+            <display value="Legally married"/>
+        </coding>
+        <coding>
+            <system value="http://hl7.org/fhir/v3/MaritalStatus"/>
+            <code value="M"/>
+        </coding>
+    </maritalStatus>
+    <multipleBirthBoolean value="false"/>
     <contact>
         <!--Contact of the patient-->
         <relationship>
@@ -117,49 +93,48 @@
                 <code value="partner"/>
             </coding>
         </relationship>
-        <details>
-            <name>
-                <!--The name of the contact-->
-                <use value="usual"/>
-                <text value="Ariadne Bor-Jansma"/>
-            </name>
-            <telecom>
-                <!--The home contact detail-->
-                <system value="phone"/>
-                <value value="+31201234567"/>
-                <use value="home"/>
-            </telecom>
-            <language>
-                <!--The contact's  proficiency level of the English language-->
-                <language>
-                    <coding>
-                        <system value="urn:std:iso:639-1"/>
-                        <code value="en-US"/>
-                        <display value="English"/>
-                    </coding>
-                </language>
-                <proficiencyLevel>
-                    <coding>
-                        <system value="http://snomed.info"/>
-                        <code value="3082000"/>
-                        <display value="Fine"/>
-                    </coding>
-                    <coding>
-                        <system value="http://hl7.org/fhir/v3/LanguageAbilityProficiency" />
-                        <code value="F"/>
-                        <display value="Fair" />
-                    </coding>
-                </proficiencyLevel>
-                <preference value="true"/>
-            </language>
-        </details>
+        <name>
+            <!--The name of the contact-->
+            <use value="usual"/>
+            <text value="Ariadne Bor-Jansma"/>
+        </name>
+        <telecom>
+            <!--The home contact detail-->
+            <system value="phone"/>
+            <value value="+31201234567"/>
+            <use value="home"/>
+        </telecom>
     </contact>
+    <communication>
+        <!--The person's  proficiency level of the Dutch language-->
+        <language>
+            <coding>
+                <system value="urn:std:iso:639-1"/>
+                <code value="nl-NL"/>
+                <display value="Dutch"/>
+            </coding>
+        </language>
+        <proficiencyLevel>
+            <coding>
+                <system value="http://snomed.info"/>
+                <code value="425405005"/>
+                <display value="Excellent"/>
+            </coding>
+            <coding>
+                <system value="http://hl7.org/fhir/v3/LanguageAbilityProficiency"/>
+                <code value="E"/>
+            </coding>
+        </proficiencyLevel>
+        <preference value="true"/>
+    </communication>
+
+  
     <provider>
         <type value="Organization"/>
         <reference value="organization/@f201"/>
         <display value="AUMC"/>
     </provider>
-    <multipleBirthBoolean value="false"/>
+
     <!--Indicates that the patient is not part of a multiple birth -->
     <active value="true"/>
 </Patient>

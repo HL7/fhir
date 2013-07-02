@@ -41,48 +41,46 @@
     </assigner>
   </identifier>
 
-  <details>
-    <!-- Peter James Chalmers, but called "Jim" -->
-    <name>
-      <use value="official"/>
-      <family value="Chalmers"/>
-      <given value="Peter"/>
-      <given value="James"/>
-    </name>
-    <name>
-      <use value="usual"/>
-      <given value="Jim"/>
-    </name>
+  <!-- Peter James Chalmers, but called "Jim" -->
+  <name>
+    <use value="official"/>
+    <family value="Chalmers"/>
+    <given value="Peter"/>
+    <given value="James"/>
+  </name>
+  <name>
+    <use value="usual"/>
+    <given value="Jim"/>
+  </name>
 
-    <telecom>
-      <use value="home"/>
-      <!-- home communication details aren't known -->
-    </telecom>
-    <telecom>
-      <system value="phone"/>
-      <value value="(03) 5555 6473"/>
-      <use value="work"/>
-    </telecom>
+  <telecom>
+    <use value="home"/>
+    <!-- home communication details aren't known -->
+  </telecom>
+  <telecom>
+    <system value="phone"/>
+    <value value="(03) 5555 6473"/>
+    <use value="work"/>
+  </telecom>
 
-    <!-- use FHIR code system for male / female -->
-    <gender>
-      <coding>
-        <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-        <code value="M"/>
-        <display value="Male"/>
-      </coding>
-    </gender>
-    <birthDate value="1974-12-25"/>
-    <deceased value="false"/>
+  <!-- use FHIR code system for male / female -->
+  <gender>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+      <code value="M"/>
+      <display value="Male"/>
+    </coding>
+  </gender>
+  <birthDate value="1974-12-25"/>
+  <deceasedBoolean value="false"/>
 
-    <address>
-      <use value="home"/>
-      <line value="534 Erewhon St"/>
-      <city value="PleasantVille"/>
-      <state value="Vic"/>
-      <zip value="3999"/>
-    </address>
-  </details>
+  <address>
+    <use value="home"/>
+    <line value="534 Erewhon St"/>
+    <city value="PleasantVille"/>
+    <state value="Vic"/>
+    <zip value="3999"/>
+  </address>
 
   <contact>
     <relationship>
@@ -91,23 +89,23 @@
         <code value="partner"/>
       </coding>
     </relationship>
-    <details>
-      <name>
-        <family value="du">
-          <!-- the "du" part is a family name prefix (VV in iso 21090) -->
-          <extension>
-            <url value="http://hl7.org/fhir/profile/@iso-21090#qualifier"/>
-            <valueCode value="VV"/>
-          </extension>
-        </family>
-        <family value="Marché"/>
-        <given value="Bénédicte"/>
-      </name>
-      <telecom>
-        <system value="phone"/>
-        <value value="+33 (237) 998327"/>
-      </telecom>
-    </details>
+
+    <name>
+      <family value="du">
+        <!-- the "du" part is a family name prefix (VV in iso 21090) -->
+        <extension>
+          <url value="http://hl7.org/fhir/profile/@iso-21090#qualifier"/>
+          <valueCode value="VV"/>
+        </extension>
+      </family>
+      <family value="Marché"/>
+      <given value="Bénédicte"/>
+    </name>
+
+    <telecom>
+      <system value="phone"/>
+      <value value="+33 (237) 998327"/>
+    </telecom>
   </contact>
 
   <provider>

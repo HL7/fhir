@@ -25,21 +25,19 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <key value="[%patient_id%]"/>
         </identifier>
-        <details>
-          <name>
+        <name>
             <use value="official"/>
             <family value="[%last name%]"/>
             <given value="[%first name%]"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="[%gender%]"/>
-              <display value="[%gender display%]"/>
-            </coding>
-          </gender>
-          <birthDate value="[%birthdate%]"/>
-        </details>
+        <gender>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+            <code value="[%gender%]"/>
+            <display value="[%gender display%]"/>
+          </coding>
+        </gender>
+        <birthDate value="[%birthdate%]"/>
         <provider>
           <type value="Organization"/>
           <reference value="organization/@[%organization%]"/>

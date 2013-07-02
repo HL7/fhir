@@ -24,7 +24,6 @@
         <system value="http://cancer.questionnaire.org/systems/id/patientnr"/>
         <key value="A34442332"/>
       </identifier>
-      <details>
         <identifier>
           <label value="Dutch BSN"/>
           <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
@@ -37,7 +36,7 @@
           </coding>
         </gender>
         <birthDate value="1972-11-30"/>
-      </details>
+      
     </Patient>
   </contained>
   <contained>

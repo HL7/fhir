@@ -164,30 +164,29 @@
                 <identifier>
                     <system value="nhi"/>
                 </identifier>
-                <details>
-                    <name>
+                <name>
                         <text value="Eve Everywoman"/>
                         <family value="Everywoman1"/>
                         <given value="Eve"/>
                     </name>
-                    <telecom>
-                        <system value="phone"/>
-                        <value value="555-555-2003"/>
-                        <use value="work"/>
-                    </telecom>
-                    <gender>
-                        <coding>
-                            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-                            <code value="F"/>
-                            <display value="Female"/>
-                        </coding>
-                    </gender>
-                    <birthDate value="1955-01-06"/>
-                    <address>
+                <telecom>
+                    <system value="phone"/>
+                    <value value="555-555-2003"/>
+                    <use value="work"/>
+                </telecom>
+                <gender>
+                    <coding>
+                        <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+                        <code value="F"/>
+                        <display value="Female"/>
+                    </coding>
+                </gender>
+                <birthDate value="1955-01-06"/>
+                <address>
                         <use value="home"/>
                         <line value="2222 Home Street"/>
                     </address>
-                </details>
+
                 <active value="true"/>
             </Patient>
         </content>
