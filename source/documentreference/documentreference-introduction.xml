@@ -5,9 +5,9 @@ Typically, Document Reference Resources are used in document indexing systems, s
 and also to refer to:
 </p>
 <ul>
- <li>CDA documents in FHIR systems</li>
+ <li><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA documents</a> in FHIR systems</li>
  <li><a href="document.htm">FHIR documents</a> stored elsewhere</li>
- <li>PDF documents, and even digital records of faxes where sufficient information is available</li>
+ <li><a href="http://en.wikipedia.org/wiki/Portable_Document_Format">PDF documents</a>, and even digital records of faxes where sufficient information is available</li>
  <li>Other kinds of documents, such as records of prescriptions.</li> 
 </ul>
 

@@ -276,7 +276,7 @@ public class SourceParser {
 	
 	private void loadValueSet(String n) throws FileNotFoundException, Exception {
     XmlParser xml = new XmlParser();
-    ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(srcDir+ini.getStringProperty("valuesets", n)));
+    ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(srcDir+ini.getStringProperty("valuesets", n).replace('\\', File.separatorChar)));
     vs.setIdentifierSimple("http://hl7.org/fhir/vs/"+n);
     definitions.getExtraValuesets().put(n, vs);
   }

@@ -13,7 +13,7 @@
 <%maindiv%>
 <%pageheader%>
 
-<%onthispage PHR#phr|XDS#xds|Decision Support#decision%>
+<%onthispage PHR#phr|Document Sharing (XDS)#xds|Decision Support#decision%>
 
 <a name="root"> </a>
 <h1>Common Scenarios in FHIR</h1>
@@ -65,7 +65,39 @@ usage of the RESTful API should be logged in SecurityEvent resources.
 </p>
 
 <a name="xds"></a>
-<h2>XDS</h2>
+<h2>Document Sharing (XDS)</h2>
+
+<p>
+One common way to integrate healthcare information from a variety of sources is to build a 
+repository of documents around a patient record. Building a repository of documents 
+allows for less stringent alignment around policy, procedures, and record-keeping/informatics
+standards.
+</p>
+<p>
+The most widely adoped framwork for sharing documents within institutions, regions, states
+or countries is IHE Cross-Enterprise Document Sharing (XDS). XDS allows for a federated 
+system of repositories with a registry to provide co-ordinated access to the documents. 
+</p>
+<p>
+FHIR provides equivalent functionality to XDS that can be used to implement XDS behind
+the existing XDS.b interface, to provide a simpler mobile-friendly interface to an 
+existing XDS eco-system, or to link document sharing into other functionality provided
+through a FHIR interface. 
+</p>
+<p>
+The following FHIR Resources are involved in the XDS functionality:
+</p>
+<ul>
+ <li>The <a href="documentreference.htm">DocumentReference</a> resource describes a document that is located elsewhere. A document registry is a system that maintains a set of Document References</li>
+ <li>The <a href="xds.profile.htm">XDS profile</a> provides specific XDS implementation detail for the more general DocumentReference resource</li>
+ <li>The <a href="http.htm#binary">Binary</a> support can be used to store the actual documents on a FHIR server. A repository is a system that stores the binary document in addition to Document References (or sometimes without)</li>
+ <li><a href="patient.htm">Patient</a>, <a href="practitioner.htm">Practitioner</a> and <a href="organization.htm">Organization</a> resources provide support for identifying people and organizations</li>
+ <li>The <a href="securityevent.htm">SecurityEvent</a> resource tracks usage of the document registry and repository</li>
+</ul>
+<p>
+At present, IHE is working with the FHIR project team to use FHIR for Mobile Health Documents (MHD).
+</p>
+
 
 <a name="decision"></a>
 <h2>Decision Support</h2>
