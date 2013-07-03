@@ -29,32 +29,42 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
 
 import java.util.*;
 
 /**
- * An administered immunization
+ * Immunization event information
  */
 public class Immunization extends Resource {
 
-    public class ImmunizationRefusalComponent extends Element {
+    public class ImmunizationExplanationComponent extends Element {
         /**
-         * Refusal or exemption reason
+         * Reasons why a vaccine was administered
          */
-        protected CodeableConcept reason;
+        protected List<CodeableConcept> reason = new ArrayList<CodeableConcept>();
 
-        public CodeableConcept getReason() { 
+        /**
+         * Refusal or exemption reasons
+         */
+        protected List<CodeableConcept> refusalReason = new ArrayList<CodeableConcept>();
+
+        public List<CodeableConcept> getReason() { 
           return this.reason;
         }
 
-        public void setReason(CodeableConcept value) { 
-          this.reason = value;
+        public List<CodeableConcept> getRefusalReason() { 
+          return this.refusalReason;
         }
 
-      public ImmunizationRefusalComponent copy(Immunization e) {
-        ImmunizationRefusalComponent dst = e.new ImmunizationRefusalComponent();
-        dst.reason = reason == null ? null : reason.copy();
+      public ImmunizationExplanationComponent copy(Immunization e) {
+        ImmunizationExplanationComponent dst = e.new ImmunizationExplanationComponent();
+        dst.reason = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : reason)
+          dst.reason.add(i.copy());
+        dst.refusalReason = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : refusalReason)
+          dst.refusalReason.add(i.copy());
         return dst;
       }
 
@@ -145,12 +155,12 @@ public class Immunization extends Resource {
         protected Integer doseSequence;
 
         /**
-         * Vaccine Administration Protocol Description
+         * Contains the description about the protocol under which the vaccine was administered
          */
         protected String_ description;
 
         /**
-         * Who published the protocol?  E.g. ACIP
+         * Indicates the authority who published the protocol?  E.g. ACIP
          */
         protected ResourceReference authority;
 
@@ -170,12 +180,12 @@ public class Immunization extends Resource {
         protected CodeableConcept doseTarget;
 
         /**
-         * Should this count??
+         * Indicates if the immunization event should "count" against  the protocol.
          */
         protected CodeableConcept doseStatus;
 
         /**
-         * Dose Status Reason
+         * Provides an explanation as to why a immunization event should or should not count against the protocol.
          */
         protected CodeableConcept doseStatusReason;
 
@@ -311,12 +321,12 @@ public class Immunization extends Resource {
   }
 
     /**
-     * Who this immunization was adminstered to
+     * The patient to whom the vaccine was to be administered
      */
     protected ResourceReference subject;
 
     /**
-     * Clinician who ordered the vaccine
+     * Clinician who ordered the vaccination
      */
     protected ResourceReference requester;
 
@@ -326,32 +336,37 @@ public class Immunization extends Resource {
     protected ResourceReference performer;
 
     /**
-     * Name of manufacturer
+     * Name of vaccine manufacturer
      */
     protected ResourceReference manufacturer;
 
     /**
-     * The service delivery location where the administration occurred.
+     * The service delivery location where the vaccine administration occurred.
      */
     protected ResourceReference location;
 
     /**
-     * Date vaccine administered
+     * Date vaccine administered or was to be administered
      */
     protected DateTime date;
 
     /**
-     * True if this administration was reported rather than observed
+     * Indicates if the vaccination was refused.
+     */
+    protected Boolean refusedIndicator;
+
+    /**
+     * True if this administration was reported rather than directly administered.
      */
     protected Boolean reported;
 
     /**
-     * Vaccine administered
+     * Vaccine that was administered or was to be administered
      */
     protected CodeableConcept vaccineType;
 
     /**
-     * Lot number for vaccine
+     * Lot number of the  vaccine product
      */
     protected String_ lotNumber;
 
@@ -366,19 +381,19 @@ public class Immunization extends Resource {
     protected CodeableConcept site;
 
     /**
-     * Route of administration
+     * The path by which the vaccine product is taken into the body.
      */
     protected CodeableConcept route;
 
     /**
-     * Vaccine dosage
+     * The quantity of vaccine product that was administered
      */
     protected Quantity doseQuantity;
 
     /**
-     * Exemption(s)/ Parent Refusal(s) of Vaccine Product Type Administered
+     * Reasons why a vaccine was administered or refused
      */
-    protected ImmunizationRefusalComponent refusal;
+    protected ImmunizationExplanationComponent explanation;
 
     /**
      * Categorical data indicating that an adverse event is associated in time to an immunization
@@ -386,7 +401,7 @@ public class Immunization extends Resource {
     protected List<ImmunizationReactionComponent> reaction = new ArrayList<ImmunizationReactionComponent>();
 
     /**
-     * Vaccine Administration Protocol
+     * Contains information about the protocol under which the vaccine was administered
      */
     protected ImmunizationVaccinationProtocolComponent vaccinationProtocol;
 
@@ -443,13 +458,27 @@ public class Immunization extends Resource {
     }
 
     public void setDateSimple(String value) { 
-      if (value == null)
-        this.date = null;
-      else {
         if (this.date == null)
           this.date = new DateTime();
         this.date.setValue(value);
-      }
+    }
+
+    public Boolean getRefusedIndicator() { 
+      return this.refusedIndicator;
+    }
+
+    public void setRefusedIndicator(Boolean value) { 
+      this.refusedIndicator = value;
+    }
+
+    public boolean getRefusedIndicatorSimple() { 
+      return this.refusedIndicator == null ? null : this.refusedIndicator.getValue();
+    }
+
+    public void setRefusedIndicatorSimple(boolean value) { 
+        if (this.refusedIndicator == null)
+          this.refusedIndicator = new Boolean();
+        this.refusedIndicator.setValue(value);
     }
 
     public Boolean getReported() { 
@@ -546,12 +575,12 @@ public class Immunization extends Resource {
       this.doseQuantity = value;
     }
 
-    public ImmunizationRefusalComponent getRefusal() { 
-      return this.refusal;
+    public ImmunizationExplanationComponent getExplanation() { 
+      return this.explanation;
     }
 
-    public void setRefusal(ImmunizationRefusalComponent value) { 
-      this.refusal = value;
+    public void setExplanation(ImmunizationExplanationComponent value) { 
+      this.explanation = value;
     }
 
     public List<ImmunizationReactionComponent> getReaction() { 
@@ -574,6 +603,7 @@ public class Immunization extends Resource {
         dst.manufacturer = manufacturer == null ? null : manufacturer.copy();
         dst.location = location == null ? null : location.copy();
         dst.date = date == null ? null : date.copy();
+        dst.refusedIndicator = refusedIndicator == null ? null : refusedIndicator.copy();
         dst.reported = reported == null ? null : reported.copy();
         dst.vaccineType = vaccineType == null ? null : vaccineType.copy();
         dst.lotNumber = lotNumber == null ? null : lotNumber.copy();
@@ -581,7 +611,7 @@ public class Immunization extends Resource {
         dst.site = site == null ? null : site.copy();
         dst.route = route == null ? null : route.copy();
         dst.doseQuantity = doseQuantity == null ? null : doseQuantity.copy();
-        dst.refusal = refusal == null ? null : refusal.copy(dst);
+        dst.explanation = explanation == null ? null : explanation.copy(dst);
         dst.reaction = new ArrayList<ImmunizationReactionComponent>();
         for (ImmunizationReactionComponent i : reaction)
           dst.reaction.add(i.copy(dst));

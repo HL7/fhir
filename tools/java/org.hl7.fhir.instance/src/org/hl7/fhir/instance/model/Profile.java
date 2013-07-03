@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -1538,7 +1538,7 @@ public class Profile extends Resource {
         /**
          * A unique code (within the profile) used to identify the extension
          */
-        protected Id code;
+        protected Code code;
 
         /**
          * Identifies the type of context to which the extension applies
@@ -1555,11 +1555,11 @@ public class Profile extends Resource {
          */
         protected ElementDefinitionComponent definition;
 
-        public Id getCode() { 
+        public Code getCode() { 
           return this.code;
         }
 
-        public void setCode(Id value) { 
+        public void setCode(Code value) { 
           this.code = value;
         }
 
@@ -1569,7 +1569,7 @@ public class Profile extends Resource {
 
         public void setCodeSimple(String value) { 
             if (this.code == null)
-              this.code = new Id();
+              this.code = new Code();
             this.code.setValue(value);
         }
 

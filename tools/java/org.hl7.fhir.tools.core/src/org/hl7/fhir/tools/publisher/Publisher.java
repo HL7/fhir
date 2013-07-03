@@ -83,6 +83,7 @@ import org.hl7.fhir.definitions.validation.ProfileValidator;
 import org.hl7.fhir.definitions.validation.ResourceValidator;
 import org.hl7.fhir.instance.formats.AtomComposer;
 import org.hl7.fhir.instance.formats.JsonComposer;
+import org.hl7.fhir.instance.formats.XmlBase;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.AtomEntry;
@@ -1079,6 +1080,7 @@ public class Publisher {
     vs.setStatusSimple(ValuesetStatus.production);
     ValueSetDefineComponent def = vs.new ValueSetDefineComponent();
     vs.setDefine(def);
+    def.setCaseSensitiveSimple(true);
     def.setSystemSimple("http://hl7.org/fhir/v3/"+id);
         
     Element r = XMLUtil.getNamedChild(e, "releasedVersion");
@@ -1184,7 +1186,7 @@ public class Publisher {
             ValueSet vs = buildV3CodeSystem(id, dt, e);
             ae.setResource(vs);
             if (vs.getDate() != null)
-              ae.setUpdated(vs.getDate().getValue());
+              ae.setUpdated(XmlBase.xmlToDate(vs.getDate().getValue()));
             else
               ae.setUpdated(Calendar.getInstance());
             ae.setTitle(vs.getDescriptionSimple());
@@ -1208,7 +1210,7 @@ public class Publisher {
           ae.getLinks().put("oid", e.getAttribute("id"));
           ae.setResource(vs);
           if (vs.getDate() != null)
-            ae.setUpdated(vs.getDate().getValue());
+            ae.setUpdated(XmlBase.xmlToDate(vs.getDate().getValue()));
           else
             ae.setUpdated(Calendar.getInstance());
           ae.setTitle(vs.getDescriptionSimple());
@@ -1326,6 +1328,7 @@ public class Publisher {
     vs.setDateSimple("2011-01-28"); // v2.7 version
     ValueSetDefineComponent def = vs.new ValueSetDefineComponent();
     vs.setDefine(def);
+    def.setCaseSensitiveSimple(true);
     def.setSystemSimple("http://hl7.org/fhir/v2/"+id);
     StringBuilder s = new StringBuilder();
        
@@ -1395,6 +1398,7 @@ public class Publisher {
     vs.setDateSimple("2011-01-28"); // v2.7 version
     ValueSetDefineComponent def = vs.new ValueSetDefineComponent();
     vs.setDefine(def);
+    def.setCaseSensitiveSimple(true);
     def.setSystemSimple("http://hl7.org/fhir/v2/"+id+"/"+version);
         
 
@@ -2420,8 +2424,8 @@ public class Publisher {
 		// the build tool validation focuses on codes and identifiers
     List<ValidationMessage> issues = new ArrayList<ValidationMessage>(); 
     validator.validateInstance(issues, root);
-    if (profile != null)
-      validator.validateInstanceByProfile(issues, root, profile);
+//    if (profile != null)
+//      validator.validateInstanceByProfile(issues, root, profile);
 		boolean abort = false;
 		for (ValidationMessage m : issues) {
 		  page.log("  " +m.summary());
@@ -2645,6 +2649,7 @@ public class Publisher {
       if (Utilities.noString(n)) {
         if (vs.getDefine() == null) {
           vs.setDefine(vs.new ValueSetDefineComponent());
+          vs.getDefine().setCaseSensitiveSimple(true);
           vs.getDefine().setSystemSimple("http://hl7.org/fhir/"+Utilities.fileTitle(filename));
         }
         for (DefinedCode c : cd.getChildCodes()) {

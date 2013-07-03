@@ -49,6 +49,7 @@ Notes:
 </p>
 <ul>
  <li>To build a valid XML instance of a resource, simply replace the contents of the elements and attributes with valid content as described by the cardinality, type rules and content description found in the comment in each element</li>
+ <li>Resource and Element names are case-sensitive (though duplicates that differ only in case are never defined)</li>
  <li>Note that the only properties that are represented as attributes are those defined in underlying specifications such as xml:lang and <a href="#atom">Atom (see below)</a>, which is used as the XML representation for bundles</li>
  <li>Any elements that have a <a href="datatypes.htm#primitive">primitive type</a> will have a value attribute to contain the actual value of the element</li>
  <li>Elements are assigned a cardinality that specifies how many times the element may or must appear. If the cardinality is shown in 
@@ -308,7 +309,7 @@ include bi-direction conversion functionality between the two formats.
 The JSON representation is described relative to the XML representation:
 </p>
 <ul>
- <li>The names for the JSON object members are the same as the names of the elements and attributes in XML, including for elements that may repeat</li>
+ <li>The names for the JSON object members are the same as the names of the elements and attributes in XML, including for elements that may repeat. Property names are case sensitive</li>
  <li>In the data types, the <a href="datatypes.htm#primitive">primitive type</a> integer is represented using a native JSON int, while boolean is represented using JSON's "true" and "false" values. Other primitive types such as string, decimal, etc. are represented as a JSON string, using the same serialization as the XML form (including instant, which is represented as plain text, not in one of the proposed JSON custom date formats)</li>
  <li>Just as in XML, JSON property attributes never have empty values; omit a value if it is empty</li>
 </ul>

@@ -10,6 +10,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/animal-breed"/>
+    <caseSensitive value="true"/>
     <concept>
       <code value="gsd"/>
       <display value="German Shepherd Dog"/>

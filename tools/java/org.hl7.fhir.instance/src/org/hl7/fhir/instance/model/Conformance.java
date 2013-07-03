@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -90,6 +90,8 @@ public class Conformance extends Resource {
         historyMinustype, // Get a list of updates to resources of this type
         create, // Create a new resource with a server assigned id
         search, // Supports search operations using the parameters described in the profile
+        transaction, // Transaction performed on multiple resources
+        historyMinusssytem, // Get a list of updates to all resources on the system
         Null; // added to help the parsers
         public static RestfulOperation fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -112,6 +114,10 @@ public class Conformance extends Resource {
           return create;
         if ("search".equals(codeString))
           return search;
+        if ("transaction".equals(codeString))
+          return transaction;
+        if ("history-ssytem".equals(codeString))
+          return historyMinusssytem;
         throw new Exception("Unknown RestfulOperation code '"+codeString+"'");
         }
         public String toCode() {
@@ -125,6 +131,8 @@ public class Conformance extends Resource {
             case historyMinustype: return "history-type";
             case create: return "create";
             case search: return "search";
+            case transaction: return "transaction";
+            case historyMinusssytem: return "history-ssytem";
             default: return "?";
           }
         }
@@ -153,6 +161,10 @@ public class Conformance extends Resource {
           return RestfulOperation.create;
         if ("search".equals(codeString))
           return RestfulOperation.search;
+        if ("transaction".equals(codeString))
+          return RestfulOperation.transaction;
+        if ("history-ssytem".equals(codeString))
+          return RestfulOperation.historyMinusssytem;
         throw new Exception("Unknown RestfulOperation code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -174,6 +186,10 @@ public class Conformance extends Resource {
         return "create";
       if (code == RestfulOperation.search)
         return "search";
+      if (code == RestfulOperation.transaction)
+        return "transaction";
+      if (code == RestfulOperation.historyMinusssytem)
+        return "history-ssytem";
       return "?";
       }
     }

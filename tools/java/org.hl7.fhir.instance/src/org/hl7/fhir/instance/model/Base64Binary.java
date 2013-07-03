@@ -28,6 +28,8 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.instance.model;
 
+import org.hl7.fhir.instance.formats.XmlBase;
+
 public class Base64Binary extends Type {
 
 	private byte[] value;
@@ -49,4 +51,8 @@ public class Base64Binary extends Type {
 	protected Type typedCopy() {
 		return copy();
 	}
+
+	public String getStringValue() {
+	  return XmlBase.toString(value);
+  }
 }

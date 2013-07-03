@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
 
 import java.util.*;
 
 /**
- * An immunization profile
+ * A patient's point-of-time immunization status and recommendation with optional supporting justification
  */
 public class ImmunizationProfile extends Resource {
 
@@ -79,7 +79,7 @@ public class ImmunizationProfile extends Resource {
         protected DateTime recommendationDate;
 
         /**
-         * Vaccine administered
+         * Vaccine that pertains to the recommendation
          */
         protected CodeableConcept vaccineType;
 
@@ -94,27 +94,27 @@ public class ImmunizationProfile extends Resource {
         protected Enumeration<ImmunizationForecastStatus> forecastStatus;
 
         /**
-         * Pertinent dates
+         * Vaccine date recommentations - e.g. earliest date to administer, latest date to administer, etc.
          */
         protected List<ImmunizationProfileRecommendationDateCriterionComponent> dateCriterion = new ArrayList<ImmunizationProfileRecommendationDateCriterionComponent>();
 
         /**
-         * Vaccine Administration Protocol
+         * Contains information about the protocol under which the vaccine was administered
          */
         protected ImmunizationProfileRecommendationProtocolComponent protocol;
 
         /**
-         * Supporting Immunization
+         * Immunization event history that supports the status and recommendation
          */
         protected List<ResourceReference> supportingImmunization = new ArrayList<ResourceReference>();
 
         /**
-         * Supporting adverse event report
+         * Adverse event report information that supports the status and recommendation
          */
         protected List<ImmunizationProfileRecommendationSupportingAdverseEventReportComponent> supportingAdverseEventReport = new ArrayList<ImmunizationProfileRecommendationSupportingAdverseEventReportComponent>();
 
         /**
-         * Supporting Patient Observation
+         * Patient observation that supports the status and recommendation
          */
         protected List<ResourceReference> supportingPatientObservation = new ArrayList<ResourceReference>();
 
@@ -131,13 +131,9 @@ public class ImmunizationProfile extends Resource {
         }
 
         public void setRecommendationDateSimple(String value) { 
-          if (value == null)
-            this.recommendationDate = null;
-          else {
             if (this.recommendationDate == null)
               this.recommendationDate = new DateTime();
             this.recommendationDate.setValue(value);
-          }
         }
 
         public CodeableConcept getVaccineType() { 
@@ -238,7 +234,7 @@ public class ImmunizationProfile extends Resource {
 
     public class ImmunizationProfileRecommendationDateCriterionComponent extends Element {
         /**
-         * Date classification of recommendation
+         * Date classification of recommendation - e.g. earliest date to give, latest date to give, etc.
          */
         protected CodeableConcept code;
 
@@ -289,12 +285,12 @@ public class ImmunizationProfile extends Resource {
         protected Integer doseSequence;
 
         /**
-         * Vaccine Administration Protocol Description
+         * Contains the description about the protocol under which the vaccine was administered
          */
         protected String_ description;
 
         /**
-         * Who published the protocol?  E.g. ACIP
+         * Indicates the authority who published the protocol?  E.g. ACIP
          */
         protected ResourceReference authority;
 
@@ -390,27 +386,27 @@ public class ImmunizationProfile extends Resource {
 
     public class ImmunizationProfileRecommendationSupportingAdverseEventReportComponent extends Element {
         /**
-         * Adverse event report identifier
+         * Unique identifier of the adverse event report
          */
         protected List<Id> identifier = new ArrayList<Id>();
 
         /**
-         * Adverse event report classification
+         * Advers event report classification
          */
         protected CodeableConcept reportType;
 
         /**
-         * Adverse event report date
+         * The date of the adverse event report
          */
         protected DateTime reportDate;
 
         /**
-         * Adverse event report text
+         * The content of the adverse event report
          */
         protected String_ text;
 
         /**
-         * Documented reaction
+         * The documented reaction described in the adverse event report
          */
         protected List<ResourceReference> reaction = new ArrayList<ResourceReference>();
 
@@ -491,7 +487,7 @@ public class ImmunizationProfile extends Resource {
   }
 
     /**
-     * Who this profile is for
+     * The patient who is the subject of the profile
      */
     protected ResourceReference subject;
 

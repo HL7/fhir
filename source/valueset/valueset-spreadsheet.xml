@@ -20,7 +20,6 @@
   <WindowWidth>15585</WindowWidth>
   <WindowTopX>1200</WindowTopX>
   <WindowTopY>1125</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -88,10 +87,10 @@
   <Style ss:ID="s74">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s75">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s80">
+  <Style ss:ID="s79">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -103,7 +102,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="38" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="39" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="267.75"/>
@@ -247,6 +246,14 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">URI to identify the code system</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ValueSet.define.caseSensitive</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">If code comparison is case sensitive</Data></Cell>
+    <Cell><Data ss:Type="String">If code comparison is case sensitive when codes within this systemare compared to each other</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">If this value is missing, then it is not specified whether a code system is case sensitive or not. When the rule is not known, Postel's law should be followed: produce codes with the correct case, and accept codes in any case. This element is primarily provided to support validation software</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet.define.concept</Data></Cell>
@@ -469,10 +476,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>22</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -485,12 +493,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>25</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -650,7 +657,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -665,13 +671,13 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="4" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s76" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s75" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="113.25"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="209.25"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="78.75"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="140.25"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="113.25"/>
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="209.25"/>
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="78.75"/>
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="140.25"/>
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s66"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
@@ -903,11 +909,11 @@
    <Column ss:AutoFitWidth="0" ss:Width="99"/>
    <Column ss:AutoFitWidth="0" ss:Width="258.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Example</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Example</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet Extensions</Data></Cell>
@@ -942,12 +948,12 @@
    <Column ss:Width="166.5"/>
    <Column ss:Width="183"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Identity</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">In Book</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">General</Data></Cell>

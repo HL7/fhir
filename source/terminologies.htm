@@ -44,7 +44,9 @@ examples of references are <a href="http://www.rfc-editor.org/bcp/bcp13.txt">Mim
 <a href="http://tools.ietf.org/html/bcp47">Language Codes</a>, <a href="http://unitsofmeasure.org">UCUM</a>, etc).
 </p>
 <p>
-The value of a element of type <i>code</i> SHALL be one of the codes defined by the code list or reference.
+The value of a element of type <i>code</i> SHALL be one of the codes defined by the code list or reference. 
+Code comparison is always case sensitive for codes unless the codes are defined by a reference, and the 
+reference specifically sates otherwise.
 </p>
 <p>
 No other codes can be used in an instance. If the binding is a code list, the list of codes may
@@ -58,7 +60,9 @@ may be used in particular contexts, but cannot define new or additional codes fo
 For elements with type <a href="datatypes.htm#CodeableConcept">CodeableConcept</a> or 
 <a href="datatypes.htm#Coding">Coding</a>, the binding refers to a <a href="valueset.htm">
 Value Set</a> that defines a list of concepts along with the code/system pairs that refer
-to them. The binding to the value set may be labelled as just an example.
+to them. Code System values are always case sensitive. Different code systems make their own
+rules as to whether the codes they define are case sensitive or not. The binding to the 
+value set may be labelled as just an example. 
 </p>
 <p>
 If the binding is not an example binding, then an code/system pair in the instance

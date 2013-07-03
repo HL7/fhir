@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.model;
 
-public class Enumeration<T extends Enum> extends Element {
+public class Enumeration<T extends Enum> extends Type {
 
   private T value;
   
@@ -24,4 +24,9 @@ public class Enumeration<T extends Enum> extends Element {
 		dst.value = value;
 		return dst;
 	}
+
+	@Override
+  protected Type typedCopy() {
+	  return copy();
+  }
 }

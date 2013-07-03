@@ -10,6 +10,7 @@
   <date value="2010-08-26"/>
   <define>
     <system value="http://hl7.org/fhir/security-event-type"/>
+    <caseSensitive value="true"/>
     <concept>
       <code value="rest"/>
       <display value="RESTful Operation"/>

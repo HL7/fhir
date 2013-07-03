@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -177,6 +177,11 @@ public class ValueSet extends Resource {
         protected Uri system;
 
         /**
+         * If code comparison is case sensitive when codes within this systemare compared to each other
+         */
+        protected Boolean caseSensitive;
+
+        /**
          * Concepts in the code system
          */
         protected List<ValueSetDefineConceptComponent> concept = new ArrayList<ValueSetDefineConceptComponent>();
@@ -199,6 +204,28 @@ public class ValueSet extends Resource {
             this.system.setValue(value);
         }
 
+        public Boolean getCaseSensitive() { 
+          return this.caseSensitive;
+        }
+
+        public void setCaseSensitive(Boolean value) { 
+          this.caseSensitive = value;
+        }
+
+        public boolean getCaseSensitiveSimple() { 
+          return this.caseSensitive == null ? null : this.caseSensitive.getValue();
+        }
+
+        public void setCaseSensitiveSimple(boolean value) { 
+          if (value == false)
+            this.caseSensitive = null;
+          else {
+            if (this.caseSensitive == null)
+              this.caseSensitive = new Boolean();
+            this.caseSensitive.setValue(value);
+          }
+        }
+
         public List<ValueSetDefineConceptComponent> getConcept() { 
           return this.concept;
         }
@@ -206,6 +233,7 @@ public class ValueSet extends Resource {
       public ValueSetDefineComponent copy(ValueSet e) {
         ValueSetDefineComponent dst = e.new ValueSetDefineComponent();
         dst.system = system == null ? null : system.copy();
+        dst.caseSensitive = caseSensitive == null ? null : caseSensitive.copy();
         dst.concept = new ArrayList<ValueSetDefineConceptComponent>();
         for (ValueSetDefineConceptComponent i : concept)
           dst.concept.add(i.copy(e));

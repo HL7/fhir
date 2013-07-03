@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -79,68 +79,6 @@ public class Procedure extends Resource {
       return "?";
       }
     }
-
-    public class ProcedureDescriptionComponent extends Element {
-        /**
-         * The specific procedure that is perfromed
-         */
-        protected CodeableConcept type;
-
-        /**
-         * Any other notes about the procedure - eg the operative notes
-         */
-        protected String_ notes;
-
-        /**
-         * Detailed and structured anatomical location information. Multiple locations are allowed - eg multiple punch biopsies of a lesion
-         */
-        protected List<CodeableConcept> bodySite = new ArrayList<CodeableConcept>();
-
-        public CodeableConcept getType() { 
-          return this.type;
-        }
-
-        public void setType(CodeableConcept value) { 
-          this.type = value;
-        }
-
-        public String_ getNotes() { 
-          return this.notes;
-        }
-
-        public void setNotes(String_ value) { 
-          this.notes = value;
-        }
-
-        public String getNotesSimple() { 
-          return this.notes == null ? null : this.notes.getValue();
-        }
-
-        public void setNotesSimple(String value) { 
-          if (value == null)
-            this.notes = null;
-          else {
-            if (this.notes == null)
-              this.notes = new String_();
-            this.notes.setValue(value);
-          }
-        }
-
-        public List<CodeableConcept> getBodySite() { 
-          return this.bodySite;
-        }
-
-      public ProcedureDescriptionComponent copy(Procedure e) {
-        ProcedureDescriptionComponent dst = e.new ProcedureDescriptionComponent();
-        dst.type = type == null ? null : type.copy();
-        dst.notes = notes == null ? null : notes.copy();
-        dst.bodySite = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : bodySite)
-          dst.bodySite.add(i.copy());
-        return dst;
-      }
-
-  }
 
     public class ProcedurePerformerComponent extends Element {
         /**
@@ -234,12 +172,17 @@ public class Procedure extends Resource {
     protected ResourceReference subject;
 
     /**
-     * Describes the procedure that was performed
+     * The specific procedure that is perfromed
      */
-    protected ProcedureDescriptionComponent description;
+    protected CodeableConcept type;
 
     /**
-     * The reason why the procedure was performed. This may be due to a problem, may be coded entity of some type, or may simply be present as text
+     * Detailed and structured anatomical location information. Multiple locations are allowed - eg multiple punch biopsies of a lesion
+     */
+    protected List<CodeableConcept> bodySite = new ArrayList<CodeableConcept>();
+
+    /**
+     * The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text
      */
     protected String_ indication;
 
@@ -283,6 +226,11 @@ public class Procedure extends Resource {
      */
     protected List<ProcedureRelatedItemComponent> relatedItem = new ArrayList<ProcedureRelatedItemComponent>();
 
+    /**
+     * Any other notes about the procedure - eg the operative notes
+     */
+    protected String_ notes;
+
     public ResourceReference getSubject() { 
       return this.subject;
     }
@@ -291,12 +239,16 @@ public class Procedure extends Resource {
       this.subject = value;
     }
 
-    public ProcedureDescriptionComponent getDescription() { 
-      return this.description;
+    public CodeableConcept getType() { 
+      return this.type;
     }
 
-    public void setDescription(ProcedureDescriptionComponent value) { 
-      this.description = value;
+    public void setType(CodeableConcept value) { 
+      this.type = value;
+    }
+
+    public List<CodeableConcept> getBodySite() { 
+      return this.bodySite;
     }
 
     public String_ getIndication() { 
@@ -415,10 +367,35 @@ public class Procedure extends Resource {
       return this.relatedItem;
     }
 
+    public String_ getNotes() { 
+      return this.notes;
+    }
+
+    public void setNotes(String_ value) { 
+      this.notes = value;
+    }
+
+    public String getNotesSimple() { 
+      return this.notes == null ? null : this.notes.getValue();
+    }
+
+    public void setNotesSimple(String value) { 
+      if (value == null)
+        this.notes = null;
+      else {
+        if (this.notes == null)
+          this.notes = new String_();
+        this.notes.setValue(value);
+      }
+    }
+
       public Procedure copy() {
         Procedure dst = new Procedure();
         dst.subject = subject == null ? null : subject.copy();
-        dst.description = description == null ? null : description.copy(dst);
+        dst.type = type == null ? null : type.copy();
+        dst.bodySite = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : bodySite)
+          dst.bodySite.add(i.copy());
         dst.indication = indication == null ? null : indication.copy();
         dst.performer = new ArrayList<ProcedurePerformerComponent>();
         for (ProcedurePerformerComponent i : performer)
@@ -434,6 +411,7 @@ public class Procedure extends Resource {
         dst.relatedItem = new ArrayList<ProcedureRelatedItemComponent>();
         for (ProcedureRelatedItemComponent i : relatedItem)
           dst.relatedItem.add(i.copy(dst));
+        dst.notes = notes == null ? null : notes.copy();
         return dst;
       }
 

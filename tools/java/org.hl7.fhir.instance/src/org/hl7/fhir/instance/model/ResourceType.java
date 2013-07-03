@@ -2,6 +2,7 @@ package org.hl7.fhir.instance.model;
 
 public enum ResourceType {
     Provenance,
+    Condition,
     CarePlan,
     Device,
     Query,
@@ -15,8 +16,8 @@ public enum ResourceType {
     Medication,
     Coverage,
     MedicationDispense,
-    DeviceLog,
     MedicationPrescription,
+    DeviceLog,
     MedicationAdministration,
     DeviceCapabilities,
     SecurityEvent,
@@ -27,6 +28,7 @@ public enum ResourceType {
     Picture,
     Conformance,
     Document,
+    Media,
     Message,
     FamilyHistory,
     Profile,
@@ -37,7 +39,7 @@ public enum ResourceType {
     DocumentReference,
     Immunization,
     ImmunizationProfile,
-    Problem,
+    RelatedPerson,
     Specimen,
     OrderResponse,
     DeviceObservation,
@@ -49,13 +51,14 @@ public enum ResourceType {
     DiagnosticOrder,
     Appointment,
     InterestOfCare,
-    RelatedPerson,
     Binary;
 
     public String getPath() {;
       switch (this) {
     case Provenance:
       return "provenance";
+    case Condition:
+      return "condition";
     case CarePlan:
       return "careplan";
     case Device:
@@ -82,10 +85,10 @@ public enum ResourceType {
       return "coverage";
     case MedicationDispense:
       return "medicationdispense";
-    case DeviceLog:
-      return "devicelog";
     case MedicationPrescription:
       return "medicationprescription";
+    case DeviceLog:
+      return "devicelog";
     case MedicationAdministration:
       return "medicationadministration";
     case DeviceCapabilities:
@@ -106,6 +109,8 @@ public enum ResourceType {
       return "conformance";
     case Document:
       return "document";
+    case Media:
+      return "media";
     case Message:
       return "message";
     case FamilyHistory:
@@ -126,8 +131,8 @@ public enum ResourceType {
       return "immunization";
     case ImmunizationProfile:
       return "immunizationprofile";
-    case Problem:
-      return "problem";
+    case RelatedPerson:
+      return "relatedperson";
     case Specimen:
       return "specimen";
     case OrderResponse:
@@ -150,8 +155,6 @@ public enum ResourceType {
       return "appointment";
     case InterestOfCare:
       return "interestofcare";
-    case RelatedPerson:
-      return "relatedperson";
     case Binary:
       return "binary";
     }

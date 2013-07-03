@@ -15,8 +15,10 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
+import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.SchemaInputSource;
@@ -63,9 +65,18 @@ public class ValidationEngine {
     byte[] out = Utilities.transform(definitions, source, tmp);
     processSchematronOutput(out);    
 
-    // 3. internal validation
+    // 3. internal validation. reparse without schema to "help"
+    factory = DocumentBuilderFactory.newInstance();
+    factory.setNamespaceAware(true);
+    factory.setValidating(false);
+    builder = factory.newDocumentBuilder();
+    builder.setErrorHandler(new ValidationErrorHandler(outputs));
+    doc = builder.parse(new ByteArrayInputStream(source));
+
     outputs.addAll(new InstanceValidator(definitions).validateInstance(doc.getDocumentElement()));
 
+    Resource r = new XmlParser().parse(new ByteArrayInputStream(source));
+        
     OperationOutcome op = new OperationOutcome();
     for (ValidationMessage vm : outputs) {
       op.getIssue().add(vm.asIssue(op));
@@ -145,6 +156,10 @@ public class ValidationEngine {
 
   public OperationOutcome getOutcome() {
     return outcome;
+  }
+
+  public void setSource(byte[] source) {
+    this.source = source;
   }
 
   

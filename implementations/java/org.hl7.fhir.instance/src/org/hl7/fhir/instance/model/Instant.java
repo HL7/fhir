@@ -33,6 +33,8 @@ package org.hl7.fhir.instance.model;
 
 import java.util.Calendar;
 
+import org.hl7.fhir.instance.formats.XmlBase;
+
 /**
  * @author Grahame
  *
@@ -56,4 +58,8 @@ public class Instant extends Type {
 		dst.value = value;
 		return dst;
 	}
+
+	public String getStringValue() {
+	  return value == null ? null : XmlBase.dateToXml(value);
+  }
 }

@@ -40,6 +40,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import org.hl7.fhir.instance.formats.XmlComposer;
+import org.hl7.fhir.instance.validation.ProfileValidatorTests;
 import org.hl7.fhir.instance.validation.ValidationEngine;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.utilities.Utilities;
@@ -68,28 +69,43 @@ public class Validator {
       System.out.println("* [definitions] is the file name or url of the validation pack (validation.zip). Default: get it from hl7.org");
       System.out.println("* [output] is a filename for the results (OperationOutcome). Default: results are sent to the std out.");
       System.out.println("");
+      System.out.println("Or: FHIRValidator.jar -profile-tests [registry] (-defn [definitions])");
+      System.out.println("");
       System.out.println("Master Source for the validation pack: "+MASTER_SOURCE);
     } else {
-      Validator exe = new Validator();
-      exe.setSource(args[0]);
-      for (int i = 1; i < args.length - 1; i++) {
-        if (args[i].equals("-defn"))
-          exe.setDefinitions(args[i+1]);
-        if (args[i].equals("-output"))
-          output = args[i+1];
-      }
-      exe.process();
-      if (output == null) {
-        System.out.println("Validating "+args[0]+": "+Integer.toString(exe.outputs().size())+" messages");
-        for (ValidationMessage v : exe.outputs()) {
-          System.out.println(v.summary());
+      if (args[0].equals("-profile-tests")) {
+        String pack = null;
+        String registry = null;
+        for (int i = 0; i < args.length - 1; i++) {
+          if (args[i].equals("-profile-tests"))
+            registry = args[i+1];
+          if (args[i].equals("-defn"))
+            pack = args[i+1];
         }
-        if (exe.outputs().size() == 0)
-          System.out.println(" ...success");
-        else
-          System.out.println(" ...failure");
-      } else {
-        new XmlComposer().compose(new FileOutputStream(output), exe.engine.getOutcome(), true);
+        ProfileValidatorTests tests = new ProfileValidatorTests(new File(pack), new File(registry));
+        tests.execute();
+      } else { 
+        Validator exe = new Validator();
+        exe.setSource(args[0]);
+        for (int i = 1; i < args.length - 1; i++) {
+          if (args[i].equals("-defn"))
+            exe.setDefinitions(args[i+1]);
+          if (args[i].equals("-output"))
+            output = args[i+1];
+        }
+        exe.process();
+        if (output == null) {
+          System.out.println("Validating "+args[0]+": "+Integer.toString(exe.outputs().size())+" messages");
+          for (ValidationMessage v : exe.outputs()) {
+            System.out.println(v.summary());
+          }
+          if (exe.outputs().size() == 0)
+            System.out.println(" ...success");
+          else
+            System.out.println(" ...failure");
+        } else {
+          new XmlComposer().compose(new FileOutputStream(output), exe.engine.getOutcome(), true);
+        }
       }
     }
   }

@@ -9,6 +9,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/marital-status"/>
+    <caseSensitive value="true"/>
     <concept>
       <!-- work around for missing code in v3 code system - should be temporary, until added in v3 -->
       <code value="U"/>

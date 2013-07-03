@@ -21,6 +21,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/referencerange-meaning"/>
+    <caseSensitive value="true"/>
     <concept>
       <code value="normal"/>
       <display value="Normal Range"/>

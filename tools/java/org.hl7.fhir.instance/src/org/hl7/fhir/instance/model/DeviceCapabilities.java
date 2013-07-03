@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -264,7 +264,7 @@ public class DeviceCapabilities extends Resource {
         /**
          * A template containing the fixed values for an array output (all the values but the data)
          */
-        protected Array array;
+        protected SampledData template;
 
         /**
          * System of the codes, if the type is a Coding
@@ -333,12 +333,12 @@ public class DeviceCapabilities extends Resource {
           }
         }
 
-        public Array getArray() { 
-          return this.array;
+        public SampledData getTemplate() { 
+          return this.template;
         }
 
-        public void setArray(Array value) { 
-          this.array = value;
+        public void setTemplate(SampledData value) { 
+          this.template = value;
         }
 
         public Uri getSystem() { 
@@ -368,7 +368,7 @@ public class DeviceCapabilities extends Resource {
         dst.type = type == null ? null : type.copy();
         dst.units = units == null ? null : units.copy();
         dst.ucum = ucum == null ? null : ucum.copy();
-        dst.array = array == null ? null : array.copy();
+        dst.template = template == null ? null : template.copy();
         dst.system = system == null ? null : system.copy();
         return dst;
       }

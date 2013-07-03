@@ -29,11 +29,13 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
 
 public class ResourceFactory {
 
     public static Resource createResource(String name) throws Exception {
+        if ("Condition".equals(name))
+            return new Condition();
         if ("Organization".equals(name))
             return new Organization();
         if ("Group".equals(name))
@@ -46,10 +48,10 @@ public class ResourceFactory {
             return new Appointment();
         if ("MedicationDispense".equals(name))
             return new MedicationDispense();
-        if ("MedicationPrescription".equals(name))
-            return new MedicationPrescription();
         if ("DeviceLog".equals(name))
             return new DeviceLog();
+        if ("MedicationPrescription".equals(name))
+            return new MedicationPrescription();
         if ("DeviceCapabilities".equals(name))
             return new DeviceCapabilities();
         if ("MedicationStatement".equals(name))
@@ -60,18 +62,18 @@ public class ResourceFactory {
             return new OperationOutcome();
         if ("Conformance".equals(name))
             return new Conformance();
+        if ("Media".equals(name))
+            return new Media();
         if ("Profile".equals(name))
             return new Profile();
         if ("Visit".equals(name))
             return new Visit();
         if ("DocumentReference".equals(name))
             return new DocumentReference();
-        if ("Immunization".equals(name))
-            return new Immunization();
         if ("InterestOfCare".equals(name))
             return new InterestOfCare();
-        if ("Problem".equals(name))
-            return new Problem();
+        if ("Immunization".equals(name))
+            return new Immunization();
         if ("OrderResponse".equals(name))
             return new OrderResponse();
         if ("Practitioner".equals(name))
@@ -157,8 +159,6 @@ public class ResourceFactory {
             return new Distance();
         if ("Contact".equals(name))
             return new Contact();
-        if ("Array".equals(name))
-            return new Array();
         if ("Demographics".equals(name))
             return new Demographics();
         if ("Extension".equals(name))
@@ -175,6 +175,8 @@ public class ResourceFactory {
             return new Duration();
         if ("Ratio".equals(name))
             return new Ratio();
+        if ("SampledData".equals(name))
+            return new SampledData();
         if ("ResourceReference".equals(name))
             return new ResourceReference();
         if ("CodeableConcept".equals(name))

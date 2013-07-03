@@ -290,7 +290,7 @@ public class XMLUtil {
 
   public static Element getNamedChild(Element e, String name) {
     Element c = getFirstChild(e);
-    while (c != null && !c.getLocalName().equals(name))
+    while (c != null && !name.equals(c.getLocalName()) && !name.equals(c.getNodeName()))
       c = getNextSibling(c);
     return c;
   }
@@ -305,7 +305,7 @@ public class XMLUtil {
   public static void getNamedChildren(Element e, String name, List<Element> set) {
     Element c = getFirstChild(e);
     while (c != null) {
-      if (c.getLocalName().equals(name))
+      if (name.equals(c.getLocalName()) || name.equals(c.getNodeName()) )
         set.add(c);
       c = getNextSibling(c);
     }
@@ -363,6 +363,17 @@ public class XMLUtil {
   public static String getNamedChildValue(Element element, String name) {
     Element e = getNamedChild(element, name);
     return e == null ? null : e.getAttribute("value");
+  }
+
+	public static void getNamedChildrenWithWildcard(Element focus, String name, List<Element> children) {
+    Element c = getFirstChild(focus);
+    while (c != null) {
+    	String n = c.getLocalName() != null ? c.getLocalName() : c.getNodeName(); 
+      if (name.equals(n) || (name.endsWith("[x]") && n.startsWith(name.substring(0, name.length()-3))))
+        children.add(c);
+      c = getNextSibling(c);
+    }
+	  
   }
 	
 }

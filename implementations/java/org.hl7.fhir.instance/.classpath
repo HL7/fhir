@@ -15,5 +15,6 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/xpp3-1.1.3.4.O.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/junit-4.11.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/saxon9he.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -16,6 +16,7 @@
   <date value="2010-08-26"/>
   <define>
     <system value="http://hl7.org/fhir/security-source-type"/>
+    <caseSensitive value="true"/>
     <concept>
       <code value="1"/>
       <display value="User Device"/>

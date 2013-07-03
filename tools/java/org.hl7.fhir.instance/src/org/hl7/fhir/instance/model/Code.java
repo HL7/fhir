@@ -50,5 +50,4 @@ public class Code extends Type {
 		return copy();
 	}
 
-
 }

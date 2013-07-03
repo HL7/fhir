@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
 
 import java.util.*;
 
 /**
- * A set of answers to predefined lists of questions. The answers may be grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
+ * A set of answers to predefined lists of questions. The questions may be ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
  */
 public class Questionnaire extends Resource {
 

@@ -10,6 +10,7 @@
   <status value="review"/>
   <define>
     <system value="urn:uuid:f4f85eac-e6cb-4883-b524-f2705394840f"/>
+    <caseSensitive value="true"/>
     <concept>
       <code value="C"/>
       <display value="Celebrity"/>

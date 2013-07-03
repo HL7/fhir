@@ -29,9 +29,8 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
 
-import java.util.*;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 /**
@@ -97,62 +96,6 @@ public class Narrative extends Element {
       }
     }
 
-    public class NarrativeBlobComponent extends Element {
-        /**
-         * Mime type of the binary content
-         */
-        protected Code mimeType;
-
-        /**
-         * base64 data for the binary attachment
-         */
-        protected Base64Binary content;
-
-        public Code getMimeType() { 
-          return this.mimeType;
-        }
-
-        public void setMimeType(Code value) { 
-          this.mimeType = value;
-        }
-
-        public String getMimeTypeSimple() { 
-          return this.mimeType == null ? null : this.mimeType.getValue();
-        }
-
-        public void setMimeTypeSimple(String value) { 
-            if (this.mimeType == null)
-              this.mimeType = new Code();
-            this.mimeType.setValue(value);
-        }
-
-        public Base64Binary getContent() { 
-          return this.content;
-        }
-
-        public void setContent(Base64Binary value) { 
-          this.content = value;
-        }
-
-        public byte[] getContentSimple() { 
-          return this.content == null ? null : this.content.getValue();
-        }
-
-        public void setContentSimple(byte[] value) { 
-            if (this.content == null)
-              this.content = new Base64Binary();
-            this.content.setValue(value);
-        }
-
-      public NarrativeBlobComponent copy(Narrative e) {
-        NarrativeBlobComponent dst = e.new NarrativeBlobComponent();
-        dst.mimeType = mimeType == null ? null : mimeType.copy();
-        dst.content = content == null ? null : content.copy();
-        return dst;
-      }
-
-  }
-
     /**
      * The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data
      */
@@ -162,11 +105,6 @@ public class Narrative extends Element {
      * The actual narrative content, a stripped down version of XHTML
      */
     protected XhtmlNode div;
-
-    /**
-     * An image, stylesheet, or other resource referred to directly in the xhtml
-     */
-    protected List<NarrativeBlobComponent> blob = new ArrayList<NarrativeBlobComponent>();
 
     public Enumeration<NarrativeStatus> getStatus() { 
       return this.status;
@@ -194,17 +132,10 @@ public class Narrative extends Element {
       this.div = value;
     }
 
-    public List<NarrativeBlobComponent> getBlob() { 
-      return this.blob;
-    }
-
       public Narrative copy() {
         Narrative dst = new Narrative();
         dst.status = status == null ? null : status.copy();
         dst.div = div == null ? null : div.copy();
-        dst.blob = new ArrayList<NarrativeBlobComponent>();
-        for (NarrativeBlobComponent i : blob)
-          dst.blob.add(i.copy(dst));
         return dst;
       }
 

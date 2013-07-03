@@ -11,6 +11,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/contactentity-type"></system>
+    <caseSensitive value="true"/>
     <concept>
       <code value="BILL" />
       <display value="Billing" />

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -37,6 +37,64 @@ import java.util.*;
  * A documentation of healthcare-related information that is assembled together into a single statement of meaning that establishes its own context. A document is composed of a set of resources that include both human and computer readable portions. A human may attest to the accuracy of the human readable portion and may authenticate and/or sign the entire whole. A document may be kept as a set of logically linked resources, or they may be bundled together in an atom feed
  */
 public class Document extends Resource {
+
+    public enum DocumentStatus {
+        interim, // This is an initial or interim document. The content may be incomplete or unverified
+        final_, // The document is complete and verified by an appropriate person
+        amended, // The document has been modified subsequent to being released as "final", and is complete and verified by an authorised person
+        withdrawn, // The document has been withdrawn following prior release
+        Null; // added to help the parsers
+        public static DocumentStatus fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("interim".equals(codeString))
+          return interim;
+        if ("final".equals(codeString))
+          return final_;
+        if ("amended".equals(codeString))
+          return amended;
+        if ("withdrawn".equals(codeString))
+          return withdrawn;
+        throw new Exception("Unknown DocumentStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case interim: return "interim";
+            case final_: return "final";
+            case amended: return "amended";
+            case withdrawn: return "withdrawn";
+            default: return "?";
+          }
+        }
+    }
+
+  public class DocumentStatusEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("interim".equals(codeString))
+          return DocumentStatus.interim;
+        if ("final".equals(codeString))
+          return DocumentStatus.final_;
+        if ("amended".equals(codeString))
+          return DocumentStatus.amended;
+        if ("withdrawn".equals(codeString))
+          return DocumentStatus.withdrawn;
+        throw new Exception("Unknown DocumentStatus code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == DocumentStatus.interim)
+        return "interim";
+      if (code == DocumentStatus.final_)
+        return "final";
+      if (code == DocumentStatus.amended)
+        return "amended";
+      if (code == DocumentStatus.withdrawn)
+        return "withdrawn";
+      return "?";
+      }
+    }
 
     public enum DocumentAttestationMode {
         personal, // The person authenticated the document in their personal capacity
@@ -294,14 +352,14 @@ public class Document extends Resource {
     protected Instant created;
 
     /**
-     * The code specifying the particular kind of document (e.g., Prescription, Discharge Summary, Report).
-     */
-    protected Coding class_;
-
-    /**
      * Specifies the particular kind of document (e.g. History and Physical, Discharge Summary, Progress Note)
      */
     protected CodeableConcept type;
+
+    /**
+     * Additional detailed type for the document
+     */
+    protected CodeableConcept subtype;
 
     /**
      * Official human-readable label for the document
@@ -309,12 +367,17 @@ public class Document extends Resource {
     protected String_ title;
 
     /**
+     * The workflow/clinical status of this document. The status is a rough guide to the clinical standing of the document
+     */
+    protected Enumeration<DocumentStatus> status;
+
+    /**
      * The code specifying the level of confidentiality of the XDS Document. These codes are specific to an XDS Affinity Domain.
      */
     protected Coding confidentiality;
 
     /**
-     * Identifies the primary subject of the document.
+     * Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)
      */
     protected ResourceReference subject;
 
@@ -402,20 +465,20 @@ public class Document extends Resource {
         this.created.setValue(value);
     }
 
-    public Coding getClass_() { 
-      return this.class_;
-    }
-
-    public void setClass_(Coding value) { 
-      this.class_ = value;
-    }
-
     public CodeableConcept getType() { 
       return this.type;
     }
 
     public void setType(CodeableConcept value) { 
       this.type = value;
+    }
+
+    public CodeableConcept getSubtype() { 
+      return this.subtype;
+    }
+
+    public void setSubtype(CodeableConcept value) { 
+      this.subtype = value;
     }
 
     public String_ getTitle() { 
@@ -438,6 +501,24 @@ public class Document extends Resource {
           this.title = new String_();
         this.title.setValue(value);
       }
+    }
+
+    public Enumeration<DocumentStatus> getStatus() { 
+      return this.status;
+    }
+
+    public void setStatus(Enumeration<DocumentStatus> value) { 
+      this.status = value;
+    }
+
+    public DocumentStatus getStatusSimple() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    public void setStatusSimple(DocumentStatus value) { 
+        if (this.status == null)
+          this.status = new Enumeration<DocumentStatus>();
+        this.status.setValue(value);
     }
 
     public Coding getConfidentiality() { 
@@ -539,9 +620,10 @@ public class Document extends Resource {
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.versionIdentifier = versionIdentifier == null ? null : versionIdentifier.copy();
         dst.created = created == null ? null : created.copy();
-        dst.class_ = class_ == null ? null : class_.copy();
         dst.type = type == null ? null : type.copy();
+        dst.subtype = subtype == null ? null : subtype.copy();
         dst.title = title == null ? null : title.copy();
+        dst.status = status == null ? null : status.copy();
         dst.confidentiality = confidentiality == null ? null : confidentiality.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.author = new ArrayList<ResourceReference>();

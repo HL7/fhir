@@ -67,4 +67,8 @@ public class Boolean extends Type {
 		return copy();
 	}
 
+	public String getStringValue() {
+		return java.lang.Boolean.toString(value);
+	}
+	
 }

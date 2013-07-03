@@ -29,14 +29,15 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
 
 /**
  * An Image used in healthcare. The actual pixels maybe inline or provided by direct reference
  */
 public class Picture extends Resource {
 
-    public enum ImageModality {
+    public enum PictureType {
+        dIA, // Hand-drawn diagram
         aR, // Autorefraction
         aU, // Audio
         bDUS, // Bone Densitometry (Ultrasound)
@@ -45,7 +46,6 @@ public class Picture extends Resource {
         cR, // Computed Radiography
         cT, // Computed Tomography
         dG, // Diaphanography
-        dIA, // Diagram / Hand drawn image
         dOC, // Document
         dX, // Digital Radiography
         eCG, // Electrocardiograms
@@ -99,9 +99,11 @@ public class Picture extends Resource {
         xA, // X-Ray Angiography
         xC, // External Camera (Photography)
         Null; // added to help the parsers
-        public static ImageModality fromCode(String codeString) throws Exception {
+        public static PictureType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("DIA".equals(codeString))
+          return dIA;
         if ("AR".equals(codeString))
           return aR;
         if ("AU".equals(codeString))
@@ -118,8 +120,6 @@ public class Picture extends Resource {
           return cT;
         if ("DG".equals(codeString))
           return dG;
-        if ("DIA".equals(codeString))
-          return dIA;
         if ("DOC".equals(codeString))
           return dOC;
         if ("DX".equals(codeString))
@@ -224,10 +224,11 @@ public class Picture extends Resource {
           return xA;
         if ("XC".equals(codeString))
           return xC;
-        throw new Exception("Unknown ImageModality code '"+codeString+"'");
+        throw new Exception("Unknown PictureType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
+            case dIA: return "DIA";
             case aR: return "AR";
             case aU: return "AU";
             case bDUS: return "BDUS";
@@ -236,7 +237,6 @@ public class Picture extends Resource {
             case cR: return "CR";
             case cT: return "CT";
             case dG: return "DG";
-            case dIA: return "DIA";
             case dOC: return "DOC";
             case dX: return "DX";
             case eCG: return "ECG";
@@ -294,257 +294,257 @@ public class Picture extends Resource {
         }
     }
 
-  public class ImageModalityEnumFactory implements EnumFactory {
+  public class PictureTypeEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("AR".equals(codeString))
-          return ImageModality.aR;
-        if ("AU".equals(codeString))
-          return ImageModality.aU;
-        if ("BDUS".equals(codeString))
-          return ImageModality.bDUS;
-        if ("BI".equals(codeString))
-          return ImageModality.bI;
-        if ("BMD".equals(codeString))
-          return ImageModality.bMD;
-        if ("CR".equals(codeString))
-          return ImageModality.cR;
-        if ("CT".equals(codeString))
-          return ImageModality.cT;
-        if ("DG".equals(codeString))
-          return ImageModality.dG;
         if ("DIA".equals(codeString))
-          return ImageModality.dIA;
+          return PictureType.dIA;
+        if ("AR".equals(codeString))
+          return PictureType.aR;
+        if ("AU".equals(codeString))
+          return PictureType.aU;
+        if ("BDUS".equals(codeString))
+          return PictureType.bDUS;
+        if ("BI".equals(codeString))
+          return PictureType.bI;
+        if ("BMD".equals(codeString))
+          return PictureType.bMD;
+        if ("CR".equals(codeString))
+          return PictureType.cR;
+        if ("CT".equals(codeString))
+          return PictureType.cT;
+        if ("DG".equals(codeString))
+          return PictureType.dG;
         if ("DOC".equals(codeString))
-          return ImageModality.dOC;
+          return PictureType.dOC;
         if ("DX".equals(codeString))
-          return ImageModality.dX;
+          return PictureType.dX;
         if ("ECG".equals(codeString))
-          return ImageModality.eCG;
+          return PictureType.eCG;
         if ("EM".equals(codeString))
-          return ImageModality.eM;
+          return PictureType.eM;
         if ("EPS".equals(codeString))
-          return ImageModality.ePS;
+          return PictureType.ePS;
         if ("ES".equals(codeString))
-          return ImageModality.eS;
+          return PictureType.eS;
         if ("FID".equals(codeString))
-          return ImageModality.fID;
+          return PictureType.fID;
         if ("GM".equals(codeString))
-          return ImageModality.gM;
+          return PictureType.gM;
         if ("HC".equals(codeString))
-          return ImageModality.hC;
+          return PictureType.hC;
         if ("HD".equals(codeString))
-          return ImageModality.hD;
+          return PictureType.hD;
         if ("IO".equals(codeString))
-          return ImageModality.iO;
+          return PictureType.iO;
         if ("IOL".equals(codeString))
-          return ImageModality.iOL;
+          return PictureType.iOL;
         if ("IVOCT".equals(codeString))
-          return ImageModality.iVOCT;
+          return PictureType.iVOCT;
         if ("IVUS".equals(codeString))
-          return ImageModality.iVUS;
+          return PictureType.iVUS;
         if ("KO".equals(codeString))
-          return ImageModality.kO;
+          return PictureType.kO;
         if ("KER".equals(codeString))
-          return ImageModality.kER;
+          return PictureType.kER;
         if ("LEN".equals(codeString))
-          return ImageModality.lEN;
+          return PictureType.lEN;
         if ("LS".equals(codeString))
-          return ImageModality.lS;
+          return PictureType.lS;
         if ("MG".equals(codeString))
-          return ImageModality.mG;
+          return PictureType.mG;
         if ("MR".equals(codeString))
-          return ImageModality.mR;
+          return PictureType.mR;
         if ("NM".equals(codeString))
-          return ImageModality.nM;
+          return PictureType.nM;
         if ("OAM".equals(codeString))
-          return ImageModality.oAM;
+          return PictureType.oAM;
         if ("OCT".equals(codeString))
-          return ImageModality.oCT;
+          return PictureType.oCT;
         if ("OPM".equals(codeString))
-          return ImageModality.oPM;
+          return PictureType.oPM;
         if ("OPT".equals(codeString))
-          return ImageModality.oPT;
+          return PictureType.oPT;
         if ("OPV".equals(codeString))
-          return ImageModality.oPV;
+          return PictureType.oPV;
         if ("OT".equals(codeString))
-          return ImageModality.oT;
+          return PictureType.oT;
         if ("PLAN".equals(codeString))
-          return ImageModality.pLAN;
+          return PictureType.pLAN;
         if ("PR".equals(codeString))
-          return ImageModality.pR;
+          return PictureType.pR;
         if ("PT".equals(codeString))
-          return ImageModality.pT;
+          return PictureType.pT;
         if ("PX".equals(codeString))
-          return ImageModality.pX;
+          return PictureType.pX;
         if ("REG".equals(codeString))
-          return ImageModality.rEG;
+          return PictureType.rEG;
         if ("RESP".equals(codeString))
-          return ImageModality.rESP;
+          return PictureType.rESP;
         if ("RF".equals(codeString))
-          return ImageModality.rF;
+          return PictureType.rF;
         if ("RG".equals(codeString))
-          return ImageModality.rG;
+          return PictureType.rG;
         if ("RTDOSE".equals(codeString))
-          return ImageModality.rTDOSE;
+          return PictureType.rTDOSE;
         if ("RTIMAGE".equals(codeString))
-          return ImageModality.rTIMAGE;
+          return PictureType.rTIMAGE;
         if ("RTPLAN".equals(codeString))
-          return ImageModality.rTPLAN;
+          return PictureType.rTPLAN;
         if ("RTRECORD".equals(codeString))
-          return ImageModality.rTRECORD;
+          return PictureType.rTRECORD;
         if ("RTSTRUCT".equals(codeString))
-          return ImageModality.rTSTRUCT;
+          return PictureType.rTSTRUCT;
         if ("SC".equals(codeString))
-          return ImageModality.sC;
+          return PictureType.sC;
         if ("SEG".equals(codeString))
-          return ImageModality.sEG;
+          return PictureType.sEG;
         if ("SM".equals(codeString))
-          return ImageModality.sM;
+          return PictureType.sM;
         if ("SMR".equals(codeString))
-          return ImageModality.sMR;
+          return PictureType.sMR;
         if ("SR".equals(codeString))
-          return ImageModality.sR;
+          return PictureType.sR;
         if ("SRF".equals(codeString))
-          return ImageModality.sRF;
+          return PictureType.sRF;
         if ("TG".equals(codeString))
-          return ImageModality.tG;
+          return PictureType.tG;
         if ("US".equals(codeString))
-          return ImageModality.uS;
+          return PictureType.uS;
         if ("VA".equals(codeString))
-          return ImageModality.vA;
+          return PictureType.vA;
         if ("VL".equals(codeString))
-          return ImageModality.vL;
+          return PictureType.vL;
         if ("XA".equals(codeString))
-          return ImageModality.xA;
+          return PictureType.xA;
         if ("XC".equals(codeString))
-          return ImageModality.xC;
-        throw new Exception("Unknown ImageModality code '"+codeString+"'");
+          return PictureType.xC;
+        throw new Exception("Unknown PictureType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ImageModality.aR)
-        return "AR";
-      if (code == ImageModality.aU)
-        return "AU";
-      if (code == ImageModality.bDUS)
-        return "BDUS";
-      if (code == ImageModality.bI)
-        return "BI";
-      if (code == ImageModality.bMD)
-        return "BMD";
-      if (code == ImageModality.cR)
-        return "CR";
-      if (code == ImageModality.cT)
-        return "CT";
-      if (code == ImageModality.dG)
-        return "DG";
-      if (code == ImageModality.dIA)
+      if (code == PictureType.dIA)
         return "DIA";
-      if (code == ImageModality.dOC)
+      if (code == PictureType.aR)
+        return "AR";
+      if (code == PictureType.aU)
+        return "AU";
+      if (code == PictureType.bDUS)
+        return "BDUS";
+      if (code == PictureType.bI)
+        return "BI";
+      if (code == PictureType.bMD)
+        return "BMD";
+      if (code == PictureType.cR)
+        return "CR";
+      if (code == PictureType.cT)
+        return "CT";
+      if (code == PictureType.dG)
+        return "DG";
+      if (code == PictureType.dOC)
         return "DOC";
-      if (code == ImageModality.dX)
+      if (code == PictureType.dX)
         return "DX";
-      if (code == ImageModality.eCG)
+      if (code == PictureType.eCG)
         return "ECG";
-      if (code == ImageModality.eM)
+      if (code == PictureType.eM)
         return "EM";
-      if (code == ImageModality.ePS)
+      if (code == PictureType.ePS)
         return "EPS";
-      if (code == ImageModality.eS)
+      if (code == PictureType.eS)
         return "ES";
-      if (code == ImageModality.fID)
+      if (code == PictureType.fID)
         return "FID";
-      if (code == ImageModality.gM)
+      if (code == PictureType.gM)
         return "GM";
-      if (code == ImageModality.hC)
+      if (code == PictureType.hC)
         return "HC";
-      if (code == ImageModality.hD)
+      if (code == PictureType.hD)
         return "HD";
-      if (code == ImageModality.iO)
+      if (code == PictureType.iO)
         return "IO";
-      if (code == ImageModality.iOL)
+      if (code == PictureType.iOL)
         return "IOL";
-      if (code == ImageModality.iVOCT)
+      if (code == PictureType.iVOCT)
         return "IVOCT";
-      if (code == ImageModality.iVUS)
+      if (code == PictureType.iVUS)
         return "IVUS";
-      if (code == ImageModality.kO)
+      if (code == PictureType.kO)
         return "KO";
-      if (code == ImageModality.kER)
+      if (code == PictureType.kER)
         return "KER";
-      if (code == ImageModality.lEN)
+      if (code == PictureType.lEN)
         return "LEN";
-      if (code == ImageModality.lS)
+      if (code == PictureType.lS)
         return "LS";
-      if (code == ImageModality.mG)
+      if (code == PictureType.mG)
         return "MG";
-      if (code == ImageModality.mR)
+      if (code == PictureType.mR)
         return "MR";
-      if (code == ImageModality.nM)
+      if (code == PictureType.nM)
         return "NM";
-      if (code == ImageModality.oAM)
+      if (code == PictureType.oAM)
         return "OAM";
-      if (code == ImageModality.oCT)
+      if (code == PictureType.oCT)
         return "OCT";
-      if (code == ImageModality.oPM)
+      if (code == PictureType.oPM)
         return "OPM";
-      if (code == ImageModality.oPT)
+      if (code == PictureType.oPT)
         return "OPT";
-      if (code == ImageModality.oPV)
+      if (code == PictureType.oPV)
         return "OPV";
-      if (code == ImageModality.oT)
+      if (code == PictureType.oT)
         return "OT";
-      if (code == ImageModality.pLAN)
+      if (code == PictureType.pLAN)
         return "PLAN";
-      if (code == ImageModality.pR)
+      if (code == PictureType.pR)
         return "PR";
-      if (code == ImageModality.pT)
+      if (code == PictureType.pT)
         return "PT";
-      if (code == ImageModality.pX)
+      if (code == PictureType.pX)
         return "PX";
-      if (code == ImageModality.rEG)
+      if (code == PictureType.rEG)
         return "REG";
-      if (code == ImageModality.rESP)
+      if (code == PictureType.rESP)
         return "RESP";
-      if (code == ImageModality.rF)
+      if (code == PictureType.rF)
         return "RF";
-      if (code == ImageModality.rG)
+      if (code == PictureType.rG)
         return "RG";
-      if (code == ImageModality.rTDOSE)
+      if (code == PictureType.rTDOSE)
         return "RTDOSE";
-      if (code == ImageModality.rTIMAGE)
+      if (code == PictureType.rTIMAGE)
         return "RTIMAGE";
-      if (code == ImageModality.rTPLAN)
+      if (code == PictureType.rTPLAN)
         return "RTPLAN";
-      if (code == ImageModality.rTRECORD)
+      if (code == PictureType.rTRECORD)
         return "RTRECORD";
-      if (code == ImageModality.rTSTRUCT)
+      if (code == PictureType.rTSTRUCT)
         return "RTSTRUCT";
-      if (code == ImageModality.sC)
+      if (code == PictureType.sC)
         return "SC";
-      if (code == ImageModality.sEG)
+      if (code == PictureType.sEG)
         return "SEG";
-      if (code == ImageModality.sM)
+      if (code == PictureType.sM)
         return "SM";
-      if (code == ImageModality.sMR)
+      if (code == PictureType.sMR)
         return "SMR";
-      if (code == ImageModality.sR)
+      if (code == PictureType.sR)
         return "SR";
-      if (code == ImageModality.sRF)
+      if (code == PictureType.sRF)
         return "SRF";
-      if (code == ImageModality.tG)
+      if (code == PictureType.tG)
         return "TG";
-      if (code == ImageModality.uS)
+      if (code == PictureType.uS)
         return "US";
-      if (code == ImageModality.vA)
+      if (code == PictureType.vA)
         return "VA";
-      if (code == ImageModality.vL)
+      if (code == PictureType.vL)
         return "VL";
-      if (code == ImageModality.xA)
+      if (code == PictureType.xA)
         return "XA";
-      if (code == ImageModality.xC)
+      if (code == PictureType.xC)
         return "XC";
       return "?";
       }
@@ -598,7 +598,7 @@ public class Picture extends Resource {
     /**
      * Type of the image capturing machinery
      */
-    protected Enumeration<ImageModality> modality;
+    protected Enumeration<PictureType> modality;
 
     /**
      * Name of the manufacturer
@@ -726,21 +726,21 @@ public class Picture extends Resource {
       this.requester = value;
     }
 
-    public Enumeration<ImageModality> getModality() { 
+    public Enumeration<PictureType> getModality() { 
       return this.modality;
     }
 
-    public void setModality(Enumeration<ImageModality> value) { 
+    public void setModality(Enumeration<PictureType> value) { 
       this.modality = value;
     }
 
-    public ImageModality getModalitySimple() { 
+    public PictureType getModalitySimple() { 
       return this.modality == null ? null : this.modality.getValue();
     }
 
-    public void setModalitySimple(ImageModality value) { 
+    public void setModalitySimple(PictureType value) { 
         if (this.modality == null)
-          this.modality = new Enumeration<ImageModality>();
+          this.modality = new Enumeration<PictureType>();
         this.modality.setValue(value);
     }
 

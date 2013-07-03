@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -37,70 +37,6 @@ import java.util.*;
  * A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc
  */
 public class Organization extends Resource {
-
-    public class OrganizationAccreditationComponent extends Element {
-        /**
-         * The identifier of the accreditation
-         */
-        protected Identifier identifier;
-
-        /**
-         * The type of the accreditation
-         */
-        protected CodeableConcept code;
-
-        /**
-         * The organization that conferred/confers the accreditation
-         */
-        protected ResourceReference issuer;
-
-        /**
-         * The period for which the accreditation is held
-         */
-        protected Period period;
-
-        public Identifier getIdentifier() { 
-          return this.identifier;
-        }
-
-        public void setIdentifier(Identifier value) { 
-          this.identifier = value;
-        }
-
-        public CodeableConcept getCode() { 
-          return this.code;
-        }
-
-        public void setCode(CodeableConcept value) { 
-          this.code = value;
-        }
-
-        public ResourceReference getIssuer() { 
-          return this.issuer;
-        }
-
-        public void setIssuer(ResourceReference value) { 
-          this.issuer = value;
-        }
-
-        public Period getPeriod() { 
-          return this.period;
-        }
-
-        public void setPeriod(Period value) { 
-          this.period = value;
-        }
-
-      public OrganizationAccreditationComponent copy(Organization e) {
-        OrganizationAccreditationComponent dst = e.new OrganizationAccreditationComponent();
-        dst.identifier = identifier == null ? null : identifier.copy();
-        dst.code = code == null ? null : code.copy();
-        dst.issuer = issuer == null ? null : issuer.copy();
-        dst.period = period == null ? null : period.copy();
-        return dst;
-      }
-
-  }
 
     public class OrganizationContactEntityComponent extends Element {
         /**
@@ -172,7 +108,7 @@ public class Organization extends Resource {
     /**
      * A name associated with the organization
      */
-    protected List<String_> name = new ArrayList<String_>();
+    protected String_ name;
 
     /**
      * The kind of organization that this is
@@ -180,24 +116,14 @@ public class Organization extends Resource {
     protected CodeableConcept type;
 
     /**
-     * An address for the organization
-     */
-    protected List<Address> address = new ArrayList<Address>();
-
-    /**
      * A contact detail for the organization
      */
     protected List<Contact> telecom = new ArrayList<Contact>();
 
     /**
-     * Whether the organization's record is still in active use
+     * An address for the organization
      */
-    protected Boolean active;
-
-    /**
-     * The qualifications/certifications an organization has, including format educational achievements, accreditations and current certifications. All these qualifications may be used to determine what roles the organization may play in a healthcare environment
-     */
-    protected List<OrganizationAccreditationComponent> accreditation = new ArrayList<OrganizationAccreditationComponent>();
+    protected List<Address> address = new ArrayList<Address>();
 
     /**
      * The organization of which this organization forms a part
@@ -209,12 +135,35 @@ public class Organization extends Resource {
      */
     protected List<OrganizationContactEntityComponent> contactEntity = new ArrayList<OrganizationContactEntityComponent>();
 
+    /**
+     * Whether the organization's record is still in active use
+     */
+    protected Boolean active;
+
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
-    public List<String_> getName() { 
+    public String_ getName() { 
       return this.name;
+    }
+
+    public void setName(String_ value) { 
+      this.name = value;
+    }
+
+    public String getNameSimple() { 
+      return this.name == null ? null : this.name.getValue();
+    }
+
+    public void setNameSimple(String value) { 
+      if (value == null)
+        this.name = null;
+      else {
+        if (this.name == null)
+          this.name = new String_();
+        this.name.setValue(value);
+      }
     }
 
     public CodeableConcept getType() { 
@@ -225,12 +174,24 @@ public class Organization extends Resource {
       this.type = value;
     }
 
+    public List<Contact> getTelecom() { 
+      return this.telecom;
+    }
+
     public List<Address> getAddress() { 
       return this.address;
     }
 
-    public List<Contact> getTelecom() { 
-      return this.telecom;
+    public ResourceReference getPartOf() { 
+      return this.partOf;
+    }
+
+    public void setPartOf(ResourceReference value) { 
+      this.partOf = value;
+    }
+
+    public List<OrganizationContactEntityComponent> getContactEntity() { 
+      return this.contactEntity;
     }
 
     public Boolean getActive() { 
@@ -255,45 +216,24 @@ public class Organization extends Resource {
       }
     }
 
-    public List<OrganizationAccreditationComponent> getAccreditation() { 
-      return this.accreditation;
-    }
-
-    public ResourceReference getPartOf() { 
-      return this.partOf;
-    }
-
-    public void setPartOf(ResourceReference value) { 
-      this.partOf = value;
-    }
-
-    public List<OrganizationContactEntityComponent> getContactEntity() { 
-      return this.contactEntity;
-    }
-
       public Organization copy() {
         Organization dst = new Organization();
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());
-        dst.name = new ArrayList<String_>();
-        for (String_ i : name)
-          dst.name.add(i.copy());
+        dst.name = name == null ? null : name.copy();
         dst.type = type == null ? null : type.copy();
-        dst.address = new ArrayList<Address>();
-        for (Address i : address)
-          dst.address.add(i.copy());
         dst.telecom = new ArrayList<Contact>();
         for (Contact i : telecom)
           dst.telecom.add(i.copy());
-        dst.active = active == null ? null : active.copy();
-        dst.accreditation = new ArrayList<OrganizationAccreditationComponent>();
-        for (OrganizationAccreditationComponent i : accreditation)
-          dst.accreditation.add(i.copy(dst));
+        dst.address = new ArrayList<Address>();
+        for (Address i : address)
+          dst.address.add(i.copy());
         dst.partOf = partOf == null ? null : partOf.copy();
         dst.contactEntity = new ArrayList<OrganizationContactEntityComponent>();
         for (OrganizationContactEntityComponent i : contactEntity)
           dst.contactEntity.add(i.copy(dst));
+        dst.active = active == null ? null : active.copy();
         return dst;
       }
 

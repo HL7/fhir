@@ -68,4 +68,8 @@ public class Integer extends Type {
 		return copy();
 	}
 
+	public String getStringValue() {
+	  return java.lang.Integer.toString(value);
+  }
+
 }

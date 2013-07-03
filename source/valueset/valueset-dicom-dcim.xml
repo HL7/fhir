@@ -8378,6 +8378,7 @@
   <date value="2010-08-26"/>
   <define>
     <system value="http://nema.org/dicom/dcid"/>
+    <caseSensitive value="true"/>
 
     <concept>
       <code value="109001"/>

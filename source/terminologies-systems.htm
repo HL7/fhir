@@ -42,13 +42,13 @@ HL7 OID registry. Other URIs may be used for concepts not listed in this table.
  <tr>
    <td>http://loinc.org</td>
    <td>LOINC (<a href="http://loinc.org">LOINC.org</a>)</td>
-   <td><p>
-       The version of LOINC may be appended to this uri like so: http://loinc.org?v=2.36<br/><br/>OID=2.16.840.1.113883.6.1.</p>
+   <td><p>LOINC codes are not case sensitive (LOINC defines some codes with alphabetic characters in them)
+       <!-- TODO: The version of LOINC may be appended to this uri like so: http://loinc.org?v=2.36--> <br/><br/>OID=2.16.840.1.113883.6.1.</p>
    </td>
  </tr>
  <tr>
    <td>http://unitsofmeasure.org</td>
-   <td>UCUM: (<a href="http://unitsofmeasure.org">UnitsOfMeasure.org</a>)</td>
+   <td>UCUM: (<a href="http://unitsofmeasure.org">UnitsOfMeasure.org</a>) Case Sensitive Codes</td>
    <td>Generally used in the Quantity Data Type<br/>OID=2.16.840.1.113883.6.8</td>
  </tr>
  <tr>
@@ -68,12 +68,13 @@ HL7 OID registry. Other URIs may be used for concepts not listed in this table.
      Only <a href="terminologies-v2.htm">some tables</a> may be treated in this fashion.
      For some tables, the meaning of the code is version dependent, and so additional information 
      must be included in the namespace, e.g. http://hl7.org/fhir/v2/0123/2.3+, as defined in the <a href="terminologies-v2.htm">v2 table namespace list</a>.
+     Version 2 codes are case sensitive.
      <br/>OID=2.16.840.1.113883.12.[X] (note that this is the table OID, which is not the same as the codeSystem OID)<br/><br/>Note: This namespace may be revised in the future</td>
  </tr>
  <tr>
    <td>http://hl7.org/fhir/v3/[X]</td>
    <td>A Version 3 code system, from <a href="terminologies-v3.htm">the list of code systems defined here</a></td>
-   <td>[X] is the code system name. e.g. http://hl7.org/fhir/v3/GenderStatus<br/>OID=[as specified by the <a href="terminologies-v3.htm">index</a>]<br/><br/>Note: This namespace may be revised in the future </td>
+   <td>[X] is the code system name. e.g. http://hl7.org/fhir/v3/GenderStatus<br/>OID=[as specified by the <a href="terminologies-v3.htm">index</a>]. Version 3 code systems are case sensitive.<br/><br/>Note: This namespace may be revised in the future </td>
  </tr>
  <tr>
    <td>http://www.whocc.no/atc</td>

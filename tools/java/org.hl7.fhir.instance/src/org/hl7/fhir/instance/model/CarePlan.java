@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -700,7 +700,7 @@ public class CarePlan extends Resource {
     protected DateTime modified;
 
     /**
-     * Identifies the problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.
+     * Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.
      */
     protected List<ResourceReference> concern = new ArrayList<ResourceReference>();
 

@@ -29,15 +29,123 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
+
+import java.util.*;
 
 /**
- * null
+ * Information about a person that is involved in healthcare, but who is not the target of healthcare, nor has a formal responsibility in the care process
  */
 public class RelatedPerson extends Resource {
 
+    /**
+     * Identifier for a person within a particular scope.
+     */
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
+
+    /**
+     * A name associated with the person
+     */
+    protected HumanName name;
+
+    /**
+     * A contact detail for the person, e.g. a telephone number or an email address.
+     */
+    protected List<Contact> telecom = new ArrayList<Contact>();
+
+    /**
+     * Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
+     */
+    protected CodeableConcept gender;
+
+    /**
+     * Indicates if the Person is deceased or not
+     */
+    protected Boolean deceased;
+
+    /**
+     * One or more addresses for the person
+     */
+    protected Address address;
+
+    /**
+     * Image of the person
+     */
+    protected List<Attachment> photo = new ArrayList<Attachment>();
+
+    public List<Identifier> getIdentifier() { 
+      return this.identifier;
+    }
+
+    public HumanName getName() { 
+      return this.name;
+    }
+
+    public void setName(HumanName value) { 
+      this.name = value;
+    }
+
+    public List<Contact> getTelecom() { 
+      return this.telecom;
+    }
+
+    public CodeableConcept getGender() { 
+      return this.gender;
+    }
+
+    public void setGender(CodeableConcept value) { 
+      this.gender = value;
+    }
+
+    public Boolean getDeceased() { 
+      return this.deceased;
+    }
+
+    public void setDeceased(Boolean value) { 
+      this.deceased = value;
+    }
+
+    public boolean getDeceasedSimple() { 
+      return this.deceased == null ? null : this.deceased.getValue();
+    }
+
+    public void setDeceasedSimple(boolean value) { 
+      if (value == false)
+        this.deceased = null;
+      else {
+        if (this.deceased == null)
+          this.deceased = new Boolean();
+        this.deceased.setValue(value);
+      }
+    }
+
+    public Address getAddress() { 
+      return this.address;
+    }
+
+    public void setAddress(Address value) { 
+      this.address = value;
+    }
+
+    public List<Attachment> getPhoto() { 
+      return this.photo;
+    }
+
       public RelatedPerson copy() {
         RelatedPerson dst = new RelatedPerson();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
+        dst.name = name == null ? null : name.copy();
+        dst.telecom = new ArrayList<Contact>();
+        for (Contact i : telecom)
+          dst.telecom.add(i.copy());
+        dst.gender = gender == null ? null : gender.copy();
+        dst.deceased = deceased == null ? null : deceased.copy();
+        dst.address = address == null ? null : address.copy();
+        dst.photo = new ArrayList<Attachment>();
+        for (Attachment i : photo)
+          dst.photo.add(i.copy());
         return dst;
       }
 

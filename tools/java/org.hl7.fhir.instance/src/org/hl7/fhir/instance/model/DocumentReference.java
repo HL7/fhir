@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -95,6 +95,11 @@ public class DocumentReference extends Resource {
         protected CodeableConcept type;
 
         /**
+         * Where the service end-point is located
+         */
+        protected String_ address;
+
+        /**
          * A list of named parameters that is used in the service call
          */
         protected List<DocumentReferenceServiceParameterComponent> parameter = new ArrayList<DocumentReferenceServiceParameterComponent>();
@@ -107,6 +112,28 @@ public class DocumentReference extends Resource {
           this.type = value;
         }
 
+        public String_ getAddress() { 
+          return this.address;
+        }
+
+        public void setAddress(String_ value) { 
+          this.address = value;
+        }
+
+        public String getAddressSimple() { 
+          return this.address == null ? null : this.address.getValue();
+        }
+
+        public void setAddressSimple(String value) { 
+          if (value == null)
+            this.address = null;
+          else {
+            if (this.address == null)
+              this.address = new String_();
+            this.address.setValue(value);
+          }
+        }
+
         public List<DocumentReferenceServiceParameterComponent> getParameter() { 
           return this.parameter;
         }
@@ -114,6 +141,7 @@ public class DocumentReference extends Resource {
       public DocumentReferenceServiceComponent copy(DocumentReference e) {
         DocumentReferenceServiceComponent dst = e.new DocumentReferenceServiceComponent();
         dst.type = type == null ? null : type.copy();
+        dst.address = address == null ? null : address.copy();
         dst.parameter = new ArrayList<DocumentReferenceServiceParameterComponent>();
         for (DocumentReferenceServiceParameterComponent i : parameter)
           dst.parameter.add(i.copy(e));
@@ -241,7 +269,7 @@ public class DocumentReference extends Resource {
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * Who or what the document is about
+     * Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)
      */
     protected ResourceReference subject;
 
@@ -249,6 +277,11 @@ public class DocumentReference extends Resource {
      * Specifies the particular kind of document (e.g. Patient Summary, Discharge Summary, Prescription, etc)
      */
     protected CodeableConcept type;
+
+    /**
+     * More detailed information about the document type
+     */
+    protected CodeableConcept subtype;
 
     /**
      * Identifies who is responsible for adding the information to the document
@@ -291,7 +324,7 @@ public class DocumentReference extends Resource {
     protected ResourceReference supercedes;
 
     /**
-     * Human Readable description of the source document
+     * Human Readable description of the source document. This is sometimes known as the "title"
      */
     protected String_ description;
 
@@ -316,7 +349,7 @@ public class DocumentReference extends Resource {
     protected CodeableConcept format;
 
     /**
-     * The size of the source document in bytes
+     * The size of the source document this reference refers to in bytes
      */
     protected Integer size;
 
@@ -366,6 +399,14 @@ public class DocumentReference extends Resource {
 
     public void setType(CodeableConcept value) { 
       this.type = value;
+    }
+
+    public CodeableConcept getSubtype() { 
+      return this.subtype;
+    }
+
+    public void setSubtype(CodeableConcept value) { 
+      this.subtype = value;
     }
 
     public List<ResourceReference> getAuthor() { 
@@ -630,6 +671,7 @@ public class DocumentReference extends Resource {
           dst.identifier.add(i.copy());
         dst.subject = subject == null ? null : subject.copy();
         dst.type = type == null ? null : type.copy();
+        dst.subtype = subtype == null ? null : subtype.copy();
         dst.author = new ArrayList<ResourceReference>();
         for (ResourceReference i : author)
           dst.author.add(i.copy());

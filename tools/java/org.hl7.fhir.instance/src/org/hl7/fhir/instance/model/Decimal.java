@@ -69,4 +69,8 @@ public class Decimal extends Type {
 		return copy();
 	}
 
+	public String getStringValue() {
+	  return value == null ? null : value.toString();
+  }
+
 }

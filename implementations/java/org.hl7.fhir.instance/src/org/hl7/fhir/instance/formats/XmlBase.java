@@ -66,7 +66,7 @@ public class XmlBase {
 
   
 
-  protected String dateToXml(java.util.Calendar date) {
+  public static String dateToXml(java.util.Calendar date) {
     // there's a better way to do this in java 1.7, but for now going java 1.7 is too hard for implementers
     // String res = new SimpleDateFormat(XML_DATE_PATTERN).format(date);
     // return res.substring(0, 22)+":"+res.substring(22);
@@ -76,7 +76,7 @@ public class XmlBase {
   	
   }
   
-  protected java.util.Calendar xmlToDate(String date) throws ParseException {
+  public static java.util.Calendar xmlToDate(String date) throws ParseException {
     // there's a better way to do this in java 1.7, but for now going java 1.7 is too hard for implementers
     //if (date.length() > 23)
     //  date = date.substring(0, 22)+date.substring(23);  
@@ -114,7 +114,7 @@ public class XmlBase {
     return value.toString();
   }
 
-  protected String toString(byte[] value) {
+  public static String toString(byte[] value) {
     byte[] encodeBase64 = Base64.encodeBase64(value);
     return new String(encodeBase64);
   }

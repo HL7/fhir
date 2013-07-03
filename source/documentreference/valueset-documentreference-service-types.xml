@@ -10,6 +10,7 @@
   <status value="review"/>
   <define>
     <system value="http://hl7.org/fhir/document-reference-service-types"/>
+    <caseSensitive value="true"/>
     <concept>
       <code value="XDS"/>
       <display value="IHE XDS"/>

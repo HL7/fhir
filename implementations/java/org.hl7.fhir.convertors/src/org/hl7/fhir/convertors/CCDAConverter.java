@@ -182,7 +182,7 @@ public class CCDAConverter {
 		for (Element e : cda.getChildren(org, "id"))
 			o.getIdentifier().add(convert.makeIdentifierFromII(e));
 		for (Element e : cda.getChildren(org, "name"))
-			o.getName().add(Factory.newString_(e.getTextContent()));
+			o.setNameSimple(e.getTextContent());
 		for (Element e : cda.getChildren(org, "addr"))
 			o.getAddress().add(convert.makeAddressFromAD(e));
 		for (Element e : cda.getChildren(org, "telecom"))

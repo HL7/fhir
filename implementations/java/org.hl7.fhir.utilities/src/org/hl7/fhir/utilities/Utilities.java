@@ -402,9 +402,13 @@ public class Utilities {
 
 
   public static boolean isToken(String tail) {
-    if (tail == null)
+    if (tail == null || tail.length() == 0)
       return false;
-    return tail.matches(TOKEN_REGEX);
+    boolean result = Character.isAlphabetic(tail.charAt(0));
+    for (int i = 1; i < tail.length(); i++) {
+    	result = result && (Character.isAlphabetic(tail.charAt(i)) || Character.isDigit(tail.charAt(i)) || (tail.charAt(i) == '_')  || (tail.charAt(i) == '[') || (tail.charAt(i) == ']'));
+    }
+    return result;
   }
 
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -100,6 +100,11 @@ public class List_ extends Resource {
         protected Boolean deleted;
 
         /**
+         * When this item was added to the list
+         */
+        protected DateTime date;
+
+        /**
          * A reference to the actual resource from which data was derived
          */
         protected ResourceReference item;
@@ -130,6 +135,28 @@ public class List_ extends Resource {
           }
         }
 
+        public DateTime getDate() { 
+          return this.date;
+        }
+
+        public void setDate(DateTime value) { 
+          this.date = value;
+        }
+
+        public String getDateSimple() { 
+          return this.date == null ? null : this.date.getValue();
+        }
+
+        public void setDateSimple(String value) { 
+          if (value == null)
+            this.date = null;
+          else {
+            if (this.date == null)
+              this.date = new DateTime();
+            this.date.setValue(value);
+          }
+        }
+
         public ResourceReference getItem() { 
           return this.item;
         }
@@ -144,6 +171,7 @@ public class List_ extends Resource {
         for (CodeableConcept i : flag)
           dst.flag.add(i.copy());
         dst.deleted = deleted == null ? null : deleted.copy();
+        dst.date = date == null ? null : date.copy();
         dst.item = item == null ? null : item.copy();
         return dst;
       }

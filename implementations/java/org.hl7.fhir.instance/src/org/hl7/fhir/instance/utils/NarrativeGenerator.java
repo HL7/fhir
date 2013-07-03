@@ -36,7 +36,7 @@ public class NarrativeGenerator {
    * @param codeSystems
    * @throws Exception
    */
-  public void generate(ValueSet vs, Map<String, AtomEntry> codeSystems) throws Exception {
+  public void generate(ValueSet vs, Map<String, AtomEntry> codeSystems, Map<String, AtomEntry> valueSets) throws Exception {
     XhtmlNode x = new XhtmlNode();
     x.setNodeType(NodeType.Element);
     x.setName("div");
@@ -45,7 +45,7 @@ public class NarrativeGenerator {
     if (vs.getDefine() != null)
       generateDefinition(x, vs);
     if (vs.getCompose() != null) 
-      generateComposition(x, vs, codeSystems);
+      generateComposition(x, vs, codeSystems, valueSets);
     if (vs.getText() == null)
       vs.setText(new Narrative());
     vs.getText().setDiv(x);
@@ -60,13 +60,13 @@ public class NarrativeGenerator {
     p = x.addTag("p");
     p.addText("This value set defines it's own terms in the system "+vs.getDefine().getSystemSimple());
     XhtmlNode t = x.addTag("table");
-    addTableHeaderRowStandard(t);
+    addTableHeaderRowStandard(t, false);
     for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
       addDefineRowToTable(t, c, 0);
     }    
   }
 
-  private void addTableHeaderRowStandard(XhtmlNode t) {
+  private void addTableHeaderRowStandard(XhtmlNode t, boolean comments) {
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
     XhtmlNode b = td.addTag("b");
@@ -77,6 +77,9 @@ public class NarrativeGenerator {
     td = tr.addTag("td");
     b = td.addTag("b");
     b.addText("Definition");
+    if (comments) {
+      tr.addTag("td").addTag("b").addText("Comments");
+    }
   }
 
   private void addDefineRowToTable(XhtmlNode t, ValueSetDefineConceptComponent c, int i) {
@@ -96,7 +99,7 @@ public class NarrativeGenerator {
   }
 
 
-  private void generateComposition(XhtmlNode x, ValueSet vs, Map<String, AtomEntry> codeSystems) throws Exception {
+  private void generateComposition(XhtmlNode x, ValueSet vs, Map<String, AtomEntry> codeSystems, Map<String, AtomEntry> valueSets) throws Exception {
     if (vs.getDefine() == null) {
       XhtmlNode h = x.addTag("h2");
       h.addText(vs.getNameSimple());
@@ -113,7 +116,8 @@ public class NarrativeGenerator {
     XhtmlNode li;
     for (Uri imp : vs.getCompose().getImport()) {
       li = ul.addTag("li");
-      li.addText("Import all the codes that are part of "+imp.getValue());
+      li.addText("Import all the codes that are part of ");
+      AddVsRef(imp.getValue(), li, codeSystems, valueSets);
     }
     for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
       genInclude(ul, inc, "Include", codeSystems);      
@@ -121,6 +125,20 @@ public class NarrativeGenerator {
     for (ConceptSetComponent exc : vs.getCompose().getExclude()) {
       genInclude(ul, exc, "Exclude", codeSystems);      
     }
+  }
+
+  private void AddVsRef(String value, XhtmlNode li, Map<String, AtomEntry> codeSystems, Map<String, AtomEntry> valueSets) {
+    AtomEntry vs = valueSets.get(value);
+    if (vs == null) 
+      vs = codeSystems.get(value); 
+    if (vs == null)
+      li.addText(value);
+    else {
+      String ref= vs.getLinks().get("path");
+      XhtmlNode a = li.addTag("a");
+      a.setAttribute("href", ref.replace("\\", "/"));
+      a.addText(value);
+    }    
   }
 
   private void genInclude(XhtmlNode ul, ConceptSetComponent inc, String type, Map<String, AtomEntry> codeSystems) throws Exception {
@@ -137,19 +155,30 @@ public class NarrativeGenerator {
         addCsRef(inc, li, e);
       
         XhtmlNode t = li.addTag("table");
-        addTableHeaderRowStandard(t);
+        boolean hasComments = false;
+        for (Code c : inc.getCode()) {
+          hasComments = hasComments || c.hasExtension(ToolingExtensions.EXT_COMMENT);
+        }
+        addTableHeaderRowStandard(t, hasComments);
         for (Code c : inc.getCode()) {
           XhtmlNode tr = t.addTag("tr");
-          XhtmlNode td = tr.addTag("td");
-          td.addText(c.getValue());         
+          tr.addTag("td").addText(c.getValue());
           ValueSetDefineConceptComponent cc = getConceptForCode(e, c.getValue());
-          if (cc != null) {
-            td = tr.addTag("td");
-            if (!Utilities.noString(cc.getDisplaySimple()))
-              td.addText(cc.getDisplaySimple());
-            td = tr.addTag("td");
-            if (!Utilities.noString(cc.getDefinitionSimple()))
-              td.addText(cc.getDefinitionSimple());
+          
+          XhtmlNode td = tr.addTag("td");
+          if (c.hasExtension(ToolingExtensions.EXT_DISPLAY))
+            td.addText(ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_DISPLAY));
+          else if (cc != null && !Utilities.noString(cc.getDisplaySimple()))
+            td.addText(cc.getDisplaySimple());
+          
+          td = tr.addTag("td");
+          if (c.hasExtension(ToolingExtensions.EXT_DEFINITION))
+            td.addText(ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_DEFINITION));
+          else if (cc != null && !Utilities.noString(cc.getDefinitionSimple()))
+            td.addText(cc.getDefinitionSimple());
+
+          if (c.hasExtension(ToolingExtensions.EXT_COMMENT)) {
+            tr.addTag("td").addText("Note: "+ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_COMMENT));
           }
         }
       }
@@ -206,16 +235,25 @@ public class NarrativeGenerator {
   }
 
   private void addCsRef(ConceptSetComponent inc, XhtmlNode li, AtomEntry cs) {
-    if (cs != null && cs.getLinks().get("self") != null) {
+    String ref = null;
+    if (cs != null) {
+      cs.getLinks().get("path");
+      if (Utilities.noString(ref))
+        ref = cs.getLinks().get("self");
+    }
+    if (cs != null && ref != null) {
       XhtmlNode a = li.addTag("a");
-      a.setAttribute("href", cs.getLinks().get("self").replace("\\", "/"));
+      a.setAttribute("href", ref.replace("\\", "/"));
       a.addText(inc.getSystemSimple().toString());
     } else 
       li.addText(inc.getSystemSimple().toString());
   }
 
   private String getCsRef(AtomEntry cs) {
-    return cs.getLinks().get("self").replace("\\", "/");
+    String ref = cs.getLinks().get("path");
+    if (Utilities.noString(ref))
+      ref = cs.getLinks().get("self");
+    return ref.replace("\\", "/");
   }
 
   private boolean codeExistsInValueSet(AtomEntry cs, String code) {
@@ -254,7 +292,7 @@ public class NarrativeGenerator {
     boolean success = true;
     for (OperationOutcomeIssueComponent i : op.getIssue()) {
     	success = success && i.getSeveritySimple() != IssueSeverity.information;
-    	hasSource = hasSource || hasExtension(i, "http://hl7.org/fhir/tools#issue-source");
+    	hasSource = hasSource || i.hasExtension(ToolingExtensions.EXT_ISSUE_SOURCE);
     	hasType = hasType || i.getType() != null;
     }
     if (success)
@@ -286,7 +324,7 @@ public class NarrativeGenerator {
     			if (hasType)
     				tr.addTag("td").addText(gen(i.getType()));
     			if (hasSource)
-    				tr.addTag("td").addText(gen(getExtension(i, "http://hl7.org/fhir/tools#issue-source")));
+    				tr.addTag("td").addText(gen(i.getExtension(ToolingExtensions.EXT_ISSUE_SOURCE)));
     		}    
     	}
     if (op.getText() == null)
@@ -296,18 +334,6 @@ public class NarrativeGenerator {
   	
   }
 
-	private boolean hasExtension(Element e, String url) {
-	  return getExtension(e, url) != null;
-  }
-
-	private Extension getExtension(Element e, String url) {
-	  for (Extension ex : e.getExtensions()) {
-	  	if (url.equals(ex.getUrlSimple().toString())) {
-	  		return ex;
-	  	}
-	  }
-	  return null;
-  }
 
 	private String gen(Extension extension) throws Exception {
 		if (extension.getValue() instanceof Code)

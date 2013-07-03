@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -152,7 +152,7 @@ public class Demographics extends Type {
     /**
      * Image of the person
      */
-    protected List<ResourceReference> photo = new ArrayList<ResourceReference>();
+    protected List<Attachment> photo = new ArrayList<Attachment>();
 
     /**
      * This field contains a patient's most recent marital (civil) status.
@@ -232,7 +232,7 @@ public class Demographics extends Type {
       return this.address;
     }
 
-    public List<ResourceReference> getPhoto() { 
+    public List<Attachment> getPhoto() { 
       return this.photo;
     }
 
@@ -265,8 +265,8 @@ public class Demographics extends Type {
         dst.address = new ArrayList<Address>();
         for (Address i : address)
           dst.address.add(i.copy());
-        dst.photo = new ArrayList<ResourceReference>();
-        for (ResourceReference i : photo)
+        dst.photo = new ArrayList<Attachment>();
+        for (Attachment i : photo)
           dst.photo.add(i.copy());
         dst.maritalStatus = maritalStatus == null ? null : maritalStatus.copy();
         dst.language = new ArrayList<DemographicsLanguageComponent>();

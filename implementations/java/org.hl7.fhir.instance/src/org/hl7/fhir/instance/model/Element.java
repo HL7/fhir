@@ -52,4 +52,24 @@ public abstract class Element {
     return extensions.size() > 0;
   }
 	
+  public boolean hasExtension(String name) {
+    if (name == null)
+      return false;
+    for (Extension e : extensions) {
+      if (name.equals(e.getUrlSimple()))
+        return true;
+    }
+    return false;
+  }
+
+  public Extension getExtension(String name) {
+    if (name == null)
+      return null;
+    for (Extension e : extensions) {
+      if (name.equals(e.getUrlSimple()))
+        return e;
+    }
+    return null;
+  }
+  
 }

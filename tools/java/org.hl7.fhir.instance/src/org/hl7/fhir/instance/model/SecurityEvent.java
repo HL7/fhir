@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
 
 import java.util.*;
 
 /**
- * A record of an event
+ * A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage
  */
 public class SecurityEvent extends Resource {
 
@@ -43,7 +43,7 @@ public class SecurityEvent extends Resource {
         R, // Display or print data, such as a Doctor Census
         U, // Update data, such as Revise Patient Information
         D, // Delete items, such as a doctor master file record
-        E, // Perform a system or application function such as log-on, program execution or use of an object's method
+        E, // Perform a system or application function such as log-on, program execution or use of an object's method, or perform a query/search operation
         Null; // added to help the parsers
         public static SecurityEventAction fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -105,10 +105,10 @@ public class SecurityEvent extends Resource {
     }
 
     public enum SecurityEventOutcome {
-        _0, // Success
-        _4, // Minor failure
-        _8, // Serious failure
-        _12, // Major failure
+        _0, // The operation completed successfully (whether with warnings or not)
+        _4, // The action was not successful due to some kind of catered for error (often equivalent to an HTTP 400 response)
+        _8, // The action was not successful due to some kind of unexpected error (often equivalent to an HTTP 500 response)
+        _12, // An error of such magnitude occurred that the system is not longer availkable for use (i.e. the system died)
         Null; // added to help the parsers
         public static SecurityEventOutcome fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -287,30 +287,30 @@ public class SecurityEvent extends Resource {
     }
 
     public enum ObjectRole {
-        _1, // Patient
-        _2, // Location
-        _3, // Report
-        _4, // Resource
-        _5, // Master file
-        _6, // User
-        _7, // List
-        _8, // Doctor
-        _9, // Subscriber
-        _10, // Guarantor
-        _11, // Security User Entity
-        _12, // Security User Group
-        _13, // Security Resource
-        _14, // Security Granularity Definition
-        _15, // Practitioner
-        _16, // Data Destination
-        _17, // Data Repository
-        _18, // Schedule
-        _19, // Customer
-        _20, // Job
-        _21, // Job Stream
-        _22, // Table
-        _23, // Routing Criteria
-        _24, // Query
+        _1, // A person or animal that is the subject of care for the event
+        _2, // A physical or logical location related to the event
+        _3, // A resource that is immutable and stored
+        _4, // A resource that is either changeable or not even persisted
+        _5, // An administrative record
+        _6, // A logical agent involved in the event   (deprecated)
+        _7, // (deprecated)
+        _8, // A person providing healthcare related to the event (deprecated)
+        _9, // A system requesting/receiving notification related to the event
+        _10, // A person or organisation who accepts responsibility for paying for healthcare provision the event contributes to
+        _11, // A logical agent involved in the event
+        _12, // A user-role related to the event
+        _13, // A policy (e.g. consent directive) related to the event
+        _14, // Deprecated
+        _15, // A human or organization providing care the event occurs in the context of
+        _16, // A system that was the target of communications related to the event
+        _17, // A system holding resources related to the event
+        _18, // A schedule resource related to the event
+        _19, // A person or animal that is the subject of services (not patient) related to the event
+        _20, // A task in an IT system related to the event
+        _21, // A sub-task in an IT system related to the event
+        _22, // A database table related to the event (deprecated)
+        _23, // A rule for how information related to the event is distributed
+        _24, // A request for information related to the event
         Null; // added to help the parsers
         public static ObjectRole fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -652,14 +652,14 @@ public class SecurityEvent extends Resource {
 
     public class SecurityEventEventComponent extends Element {
         /**
-         * Identifier for a specific audited event
+         * Identifier for a family of the event
          */
-        protected CodeableConcept eventId;
+        protected CodeableConcept type;
 
         /**
          * Identifier for the category of event
          */
-        protected List<CodeableConcept> code = new ArrayList<CodeableConcept>();
+        protected List<CodeableConcept> subtype = new ArrayList<CodeableConcept>();
 
         /**
          * Indicator for type of action performed during the event that generated the audit
@@ -677,20 +677,20 @@ public class SecurityEvent extends Resource {
         protected Enumeration<SecurityEventOutcome> outcome;
 
         /**
-         * A description of the event outcome
+         * A free text description of the outcome of the event
          */
         protected String_ outcomeDesc;
 
-        public CodeableConcept getEventId() { 
-          return this.eventId;
+        public CodeableConcept getType() { 
+          return this.type;
         }
 
-        public void setEventId(CodeableConcept value) { 
-          this.eventId = value;
+        public void setType(CodeableConcept value) { 
+          this.type = value;
         }
 
-        public List<CodeableConcept> getCode() { 
-          return this.code;
+        public List<CodeableConcept> getSubtype() { 
+          return this.subtype;
         }
 
         public Enumeration<SecurityEventAction> getAction() { 
@@ -746,9 +746,13 @@ public class SecurityEvent extends Resource {
         }
 
         public void setOutcomeSimple(SecurityEventOutcome value) { 
+          if (value == null)
+            this.outcome = null;
+          else {
             if (this.outcome == null)
               this.outcome = new Enumeration<SecurityEventOutcome>();
             this.outcome.setValue(value);
+          }
         }
 
         public String_ getOutcomeDesc() { 
@@ -775,10 +779,10 @@ public class SecurityEvent extends Resource {
 
       public SecurityEventEventComponent copy(SecurityEvent e) {
         SecurityEventEventComponent dst = e.new SecurityEventEventComponent();
-        dst.eventId = eventId == null ? null : eventId.copy();
-        dst.code = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : code)
-          dst.code.add(i.copy());
+        dst.type = type == null ? null : type.copy();
+        dst.subtype = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : subtype)
+          dst.subtype.add(i.copy());
         dst.action = action == null ? null : action.copy();
         dst.dateTime = dateTime == null ? null : dateTime.copy();
         dst.outcome = outcome == null ? null : outcome.copy();
@@ -790,14 +794,14 @@ public class SecurityEvent extends Resource {
 
     public class SecurityEventParticipantComponent extends Element {
         /**
-         * Specification of the role(s) the user plays when performing the event, as assigned in role-based access control security
+         * Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context
          */
         protected List<CodeableConcept> role = new ArrayList<CodeableConcept>();
 
         /**
-         * Used when the event is about exporting/importing onto media
+         * Direct reference to a resource that identifies the participant
          */
-        protected CodeableConcept mediaId;
+        protected ResourceReference reference;
 
         /**
          * Unique identifier for the user actively participating in the event
@@ -807,7 +811,7 @@ public class SecurityEvent extends Resource {
         /**
          * User identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available
          */
-        protected String_ otherUserId;
+        protected String_ authId;
 
         /**
          * Human-meaningful name for the user
@@ -820,6 +824,11 @@ public class SecurityEvent extends Resource {
         protected Boolean requestor;
 
         /**
+         * Type of media involved. Used when the event is about exporting/importing onto media
+         */
+        protected Coding media;
+
+        /**
          * Logical network location for application activity, if the activity has a network location
          */
         protected SecurityEventParticipantNetworkComponent network;
@@ -828,12 +837,12 @@ public class SecurityEvent extends Resource {
           return this.role;
         }
 
-        public CodeableConcept getMediaId() { 
-          return this.mediaId;
+        public ResourceReference getReference() { 
+          return this.reference;
         }
 
-        public void setMediaId(CodeableConcept value) { 
-          this.mediaId = value;
+        public void setReference(ResourceReference value) { 
+          this.reference = value;
         }
 
         public String_ getUserId() { 
@@ -849,30 +858,34 @@ public class SecurityEvent extends Resource {
         }
 
         public void setUserIdSimple(String value) { 
+          if (value == null)
+            this.userId = null;
+          else {
             if (this.userId == null)
               this.userId = new String_();
             this.userId.setValue(value);
+          }
         }
 
-        public String_ getOtherUserId() { 
-          return this.otherUserId;
+        public String_ getAuthId() { 
+          return this.authId;
         }
 
-        public void setOtherUserId(String_ value) { 
-          this.otherUserId = value;
+        public void setAuthId(String_ value) { 
+          this.authId = value;
         }
 
-        public String getOtherUserIdSimple() { 
-          return this.otherUserId == null ? null : this.otherUserId.getValue();
+        public String getAuthIdSimple() { 
+          return this.authId == null ? null : this.authId.getValue();
         }
 
-        public void setOtherUserIdSimple(String value) { 
+        public void setAuthIdSimple(String value) { 
           if (value == null)
-            this.otherUserId = null;
+            this.authId = null;
           else {
-            if (this.otherUserId == null)
-              this.otherUserId = new String_();
-            this.otherUserId.setValue(value);
+            if (this.authId == null)
+              this.authId = new String_();
+            this.authId.setValue(value);
           }
         }
 
@@ -916,6 +929,14 @@ public class SecurityEvent extends Resource {
             this.requestor.setValue(value);
         }
 
+        public Coding getMedia() { 
+          return this.media;
+        }
+
+        public void setMedia(Coding value) { 
+          this.media = value;
+        }
+
         public SecurityEventParticipantNetworkComponent getNetwork() { 
           return this.network;
         }
@@ -929,11 +950,12 @@ public class SecurityEvent extends Resource {
         dst.role = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : role)
           dst.role.add(i.copy());
-        dst.mediaId = mediaId == null ? null : mediaId.copy();
+        dst.reference = reference == null ? null : reference.copy();
         dst.userId = userId == null ? null : userId.copy();
-        dst.otherUserId = otherUserId == null ? null : otherUserId.copy();
+        dst.authId = authId == null ? null : authId.copy();
         dst.name = name == null ? null : name.copy();
         dst.requestor = requestor == null ? null : requestor.copy();
+        dst.media = media == null ? null : media.copy();
         dst.network = network == null ? null : network.copy(e);
         return dst;
       }
@@ -1078,9 +1100,14 @@ public class SecurityEvent extends Resource {
 
     public class SecurityEventObjectComponent extends Element {
         /**
-         * Describes the identifier that is contained in Participant Object ID
+         * Identifies a specific instance of the participant object. The reference should always be version specific
          */
-        protected Coding idType;
+        protected Identifier identifier;
+
+        /**
+         * Identifies a specific instance of the participant object. The reference should always be version specific
+         */
+        protected ResourceReference reference;
 
         /**
          * Object type being audited
@@ -1098,14 +1125,9 @@ public class SecurityEvent extends Resource {
         protected Enumeration<ObjectLifecycle> lifecycle;
 
         /**
-         * Identifies a specific instance of the participant object
-         */
-        protected String_ identifier;
-
-        /**
          * Denotes policy-defined sensitivity for the Participant Object ID such as VIP, HIV status, mental health status or similar topics
          */
-        protected String_ sensitivity;
+        protected CodeableConcept sensitivity;
 
         /**
          * An instance-specific descriptor of the Participant Object ID audited, such as a person's name
@@ -1122,12 +1144,20 @@ public class SecurityEvent extends Resource {
          */
         protected List<SecurityEventObjectDetailsComponent> details = new ArrayList<SecurityEventObjectDetailsComponent>();
 
-        public Coding getIdType() { 
-          return this.idType;
+        public Identifier getIdentifier() { 
+          return this.identifier;
         }
 
-        public void setIdType(Coding value) { 
-          this.idType = value;
+        public void setIdentifier(Identifier value) { 
+          this.identifier = value;
+        }
+
+        public ResourceReference getReference() { 
+          return this.reference;
+        }
+
+        public void setReference(ResourceReference value) { 
+          this.reference = value;
         }
 
         public Enumeration<ObjectType> getType() { 
@@ -1196,44 +1226,12 @@ public class SecurityEvent extends Resource {
           }
         }
 
-        public String_ getIdentifier() { 
-          return this.identifier;
-        }
-
-        public void setIdentifier(String_ value) { 
-          this.identifier = value;
-        }
-
-        public String getIdentifierSimple() { 
-          return this.identifier == null ? null : this.identifier.getValue();
-        }
-
-        public void setIdentifierSimple(String value) { 
-            if (this.identifier == null)
-              this.identifier = new String_();
-            this.identifier.setValue(value);
-        }
-
-        public String_ getSensitivity() { 
+        public CodeableConcept getSensitivity() { 
           return this.sensitivity;
         }
 
-        public void setSensitivity(String_ value) { 
+        public void setSensitivity(CodeableConcept value) { 
           this.sensitivity = value;
-        }
-
-        public String getSensitivitySimple() { 
-          return this.sensitivity == null ? null : this.sensitivity.getValue();
-        }
-
-        public void setSensitivitySimple(String value) { 
-          if (value == null)
-            this.sensitivity = null;
-          else {
-            if (this.sensitivity == null)
-              this.sensitivity = new String_();
-            this.sensitivity.setValue(value);
-          }
         }
 
         public String_ getName() { 
@@ -1286,11 +1284,11 @@ public class SecurityEvent extends Resource {
 
       public SecurityEventObjectComponent copy(SecurityEvent e) {
         SecurityEventObjectComponent dst = e.new SecurityEventObjectComponent();
-        dst.idType = idType == null ? null : idType.copy();
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.reference = reference == null ? null : reference.copy();
         dst.type = type == null ? null : type.copy();
         dst.role = role == null ? null : role.copy();
         dst.lifecycle = lifecycle == null ? null : lifecycle.copy();
-        dst.identifier = identifier == null ? null : identifier.copy();
         dst.sensitivity = sensitivity == null ? null : sensitivity.copy();
         dst.name = name == null ? null : name.copy();
         dst.query = query == null ? null : query.copy();

@@ -11,6 +11,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/animal-genderstatus"/>
+    <caseSensitive value="true"/>
     <concept>
       <code value="neutered"/>
       <display value="Neutered"/>

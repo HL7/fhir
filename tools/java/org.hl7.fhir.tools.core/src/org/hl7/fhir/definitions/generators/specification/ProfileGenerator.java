@@ -242,7 +242,7 @@ public class ProfileGenerator {
 
   private ProfileExtensionDefnComponent generateExtensionDefn(ExtensionDefn src, Profile p) throws Exception {
     ProfileExtensionDefnComponent dst = p.new ProfileExtensionDefnComponent();
-    dst.setCode(Factory.newId(src.getCode()));
+    dst.setCode(Factory.newCode(src.getCode()));
     dst.getContext().add(Factory.newString_(src.getContext()));
     dst.setContextTypeSimple(convertContextType(src.getType()));
 
