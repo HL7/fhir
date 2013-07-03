@@ -29,22 +29,22 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 10, 2013 20:06+1000 for FHIR v0.09
+// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
 
 import java.util.*;
 
 /**
- * Use to record detailed information about problems or diagnoses recognised by a clinician. There are many uses including: recording a Diagnosis during an Visit; populating a Problem List or a Summary Statement, such as a Discharge Summary
+ * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during a Visit; populating a problem List or a Summary Statement, such as a Discharge Summary
  */
-public class Problem extends Resource {
+public class Condition extends Resource {
 
-    public enum ProblemStatus {
-        provisional, // 
-        working, // 
-        confirmed, // 
-        refuted, // 
+    public enum ConditionStatus {
+        provisional, // This is a tentative diagnosis - still a candidate that is under consideration
+        working, // The patient is being treated on the basis that this is the condition, but it is still not confirmed
+        confirmed, // There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition
+        refuted, // This condition has been ruled out by diagnostic and clinical evidence
         Null; // added to help the parsers
-        public static ProblemStatus fromCode(String codeString) throws Exception {
+        public static ConditionStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("provisional".equals(codeString))
@@ -55,7 +55,7 @@ public class Problem extends Resource {
           return confirmed;
         if ("refuted".equals(codeString))
           return refuted;
-        throw new Exception("Unknown ProblemStatus code '"+codeString+"'");
+        throw new Exception("Unknown ConditionStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -68,77 +68,77 @@ public class Problem extends Resource {
         }
     }
 
-  public class ProblemStatusEnumFactory implements EnumFactory {
+  public class ConditionStatusEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("provisional".equals(codeString))
-          return ProblemStatus.provisional;
+          return ConditionStatus.provisional;
         if ("working".equals(codeString))
-          return ProblemStatus.working;
+          return ConditionStatus.working;
         if ("confirmed".equals(codeString))
-          return ProblemStatus.confirmed;
+          return ConditionStatus.confirmed;
         if ("refuted".equals(codeString))
-          return ProblemStatus.refuted;
-        throw new Exception("Unknown ProblemStatus code '"+codeString+"'");
+          return ConditionStatus.refuted;
+        throw new Exception("Unknown ConditionStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ProblemStatus.provisional)
+      if (code == ConditionStatus.provisional)
         return "provisional";
-      if (code == ProblemStatus.working)
+      if (code == ConditionStatus.working)
         return "working";
-      if (code == ProblemStatus.confirmed)
+      if (code == ConditionStatus.confirmed)
         return "confirmed";
-      if (code == ProblemStatus.refuted)
+      if (code == ConditionStatus.refuted)
         return "refuted";
       return "?";
       }
     }
 
-    public enum ProblemRelationshipType {
-        dueMinusto, // 
-        follows, // 
+    public enum ConditionRelationshipType {
+        dueMinusto, // this condition is a consequence of the identified condition/procedure/substance
+        following, // this condition follows the identified condition/procedure/substance, but it is not known whether they are causually linked
         Null; // added to help the parsers
-        public static ProblemRelationshipType fromCode(String codeString) throws Exception {
+        public static ConditionRelationshipType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("due-to".equals(codeString))
           return dueMinusto;
-        if ("follows".equals(codeString))
-          return follows;
-        throw new Exception("Unknown ProblemRelationshipType code '"+codeString+"'");
+        if ("following".equals(codeString))
+          return following;
+        throw new Exception("Unknown ConditionRelationshipType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case dueMinusto: return "due-to";
-            case follows: return "follows";
+            case following: return "following";
             default: return "?";
           }
         }
     }
 
-  public class ProblemRelationshipTypeEnumFactory implements EnumFactory {
+  public class ConditionRelationshipTypeEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("due-to".equals(codeString))
-          return ProblemRelationshipType.dueMinusto;
-        if ("follows".equals(codeString))
-          return ProblemRelationshipType.follows;
-        throw new Exception("Unknown ProblemRelationshipType code '"+codeString+"'");
+          return ConditionRelationshipType.dueMinusto;
+        if ("following".equals(codeString))
+          return ConditionRelationshipType.following;
+        throw new Exception("Unknown ConditionRelationshipType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ProblemRelationshipType.dueMinusto)
+      if (code == ConditionRelationshipType.dueMinusto)
         return "due-to";
-      if (code == ProblemRelationshipType.follows)
-        return "follows";
+      if (code == ConditionRelationshipType.following)
+        return "following";
       return "?";
       }
     }
 
-    public class ProblemStageComponent extends Element {
+    public class ConditionStageComponent extends Element {
         /**
          * A simple summary of the stage such as "Stage 3". The determination of the stage is disease-specific
          */
@@ -161,8 +161,8 @@ public class Problem extends Resource {
           return this.assessment;
         }
 
-      public ProblemStageComponent copy(Problem e) {
-        ProblemStageComponent dst = e.new ProblemStageComponent();
+      public ConditionStageComponent copy(Condition e) {
+        ConditionStageComponent dst = e.new ConditionStageComponent();
         dst.summary = summary == null ? null : summary.copy();
         dst.assessment = new ArrayList<ResourceReference>();
         for (ResourceReference i : assessment)
@@ -172,9 +172,9 @@ public class Problem extends Resource {
 
   }
 
-    public class ProblemEvidenceComponent extends Element {
+    public class ConditionEvidenceComponent extends Element {
         /**
-         * A manifestion or symptom that led to the recording of this problem/diagnosis
+         * A manifestion or symptom that led to the recording of this condition
          */
         protected CodeableConcept code;
 
@@ -195,8 +195,8 @@ public class Problem extends Resource {
           return this.details;
         }
 
-      public ProblemEvidenceComponent copy(Problem e) {
-        ProblemEvidenceComponent dst = e.new ProblemEvidenceComponent();
+      public ConditionEvidenceComponent copy(Condition e) {
+        ConditionEvidenceComponent dst = e.new ConditionEvidenceComponent();
         dst.code = code == null ? null : code.copy();
         dst.details = new ArrayList<ResourceReference>();
         for (ResourceReference i : details)
@@ -206,7 +206,7 @@ public class Problem extends Resource {
 
   }
 
-    public class ProblemLocationComponent extends Element {
+    public class ConditionLocationComponent extends Element {
         /**
          * Code that identifies the structural location
          */
@@ -247,8 +247,8 @@ public class Problem extends Resource {
           }
         }
 
-      public ProblemLocationComponent copy(Problem e) {
-        ProblemLocationComponent dst = e.new ProblemLocationComponent();
+      public ConditionLocationComponent copy(Condition e) {
+        ConditionLocationComponent dst = e.new ConditionLocationComponent();
         dst.code = code == null ? null : code.copy();
         dst.details = details == null ? null : details.copy();
         return dst;
@@ -256,33 +256,46 @@ public class Problem extends Resource {
 
   }
 
-    public class ProblemRelatedItemComponent extends Element {
+    public class ConditionRelatedItemComponent extends Element {
         /**
-         * The type of relationship that this problem/diagnosis has to the related item
+         * The type of relationship that this condition has to the related item
          */
-        protected Enumeration<ProblemRelationshipType> type;
+        protected Enumeration<ConditionRelationshipType> type;
+
+        /**
+         * Code that identifies the target of this relationship. The code takes the place of a detailed instance target
+         */
+        protected CodeableConcept code;
 
         /**
          * Target of the relationship
          */
         protected ResourceReference target;
 
-        public Enumeration<ProblemRelationshipType> getType() { 
+        public Enumeration<ConditionRelationshipType> getType() { 
           return this.type;
         }
 
-        public void setType(Enumeration<ProblemRelationshipType> value) { 
+        public void setType(Enumeration<ConditionRelationshipType> value) { 
           this.type = value;
         }
 
-        public ProblemRelationshipType getTypeSimple() { 
+        public ConditionRelationshipType getTypeSimple() { 
           return this.type == null ? null : this.type.getValue();
         }
 
-        public void setTypeSimple(ProblemRelationshipType value) { 
+        public void setTypeSimple(ConditionRelationshipType value) { 
             if (this.type == null)
-              this.type = new Enumeration<ProblemRelationshipType>();
+              this.type = new Enumeration<ConditionRelationshipType>();
             this.type.setValue(value);
+        }
+
+        public CodeableConcept getCode() { 
+          return this.code;
+        }
+
+        public void setCode(CodeableConcept value) { 
+          this.code = value;
         }
 
         public ResourceReference getTarget() { 
@@ -293,9 +306,10 @@ public class Problem extends Resource {
           this.target = value;
         }
 
-      public ProblemRelatedItemComponent copy(Problem e) {
-        ProblemRelatedItemComponent dst = e.new ProblemRelatedItemComponent();
+      public ConditionRelatedItemComponent copy(Condition e) {
+        ConditionRelatedItemComponent dst = e.new ConditionRelatedItemComponent();
         dst.type = type == null ? null : type.copy();
+        dst.code = code == null ? null : code.copy();
         dst.target = target == null ? null : target.copy();
         return dst;
       }
@@ -303,79 +317,84 @@ public class Problem extends Resource {
   }
 
     /**
-     * Subject of this problem
+     * Subject of this condition
      */
     protected ResourceReference subject;
 
     /**
-     * Visit during which the problem was first asserted
+     * Visit during which the condition was first asserted
      */
     protected ResourceReference visit;
 
     /**
-     * Person who asserts this problem
+     * Person who takes responsibility for asserting the existence of the condition as part of the electronic record
      */
     protected ResourceReference asserter;
 
     /**
-     * Estimated or actual date the problem/diagnosis was first detected/suspected
+     * Estimated or actual date the condition/problem/diagnosis was first detected/suspected
      */
     protected Date dateAsserted;
 
     /**
-     * Identification of the problem or diagnosis.
+     * Identification of the condition, problem or diagnosis.
      */
     protected CodeableConcept code;
 
     /**
-     * A category assigned to the problem/diagnosis. E.g. finding | problem | diagnosis | concern | condition
+     * A category assigned to the condition. E.g. finding | Condition | diagnosis | concern | condition
      */
     protected CodeableConcept category;
 
     /**
-     * The clinical status of the problem or diagnosis
+     * The clinical status of the condition
      */
-    protected Enumeration<ProblemStatus> status;
+    protected Enumeration<ConditionStatus> status;
 
     /**
-     * The degree of confidence that this problem/diagnosis is correct
+     * The degree of confidence that this condition is correct
      */
     protected CodeableConcept certainty;
 
     /**
-     * A subjective assessment of the severity of the Problem/Diagnosis as evaluated by the clinician.
+     * A subjective assessment of the severity of the condition as evaluated by the clinician.
      */
     protected CodeableConcept severity;
 
     /**
-     * Estimated or actual date the problem/diagnosis began, in the opinion of the clinician
+     * Estimated or actual date the condition began, in the opinion of the clinician
      */
     protected Type onset;
 
     /**
-     * The date or estimated date that the problem/diagnosis resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - problems are never really resolved, but they can abate.
+     * The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.
      */
     protected Type abatement;
 
     /**
-     * Clinical stage or grade of a problem/diagnosis. May include formal severity assessments
+     * Clinical stage or grade of a condition. May include formal severity assessments
      */
-    protected ProblemStageComponent stage;
+    protected ConditionStageComponent stage;
 
     /**
-     * Supporting Evidence / manfiestions that are the basis on which this problem/diagnosis is suspected or confirmed
+     * Supporting Evidence / manfiestions that are the basis on which this condition is suspected or confirmed
      */
-    protected List<ProblemEvidenceComponent> evidence = new ArrayList<ProblemEvidenceComponent>();
+    protected List<ConditionEvidenceComponent> evidence = new ArrayList<ConditionEvidenceComponent>();
 
     /**
-     * The anatomical location where this problem/diagnosis manifests itself
+     * The anatomical location where this condition manifests itself
      */
-    protected List<ProblemLocationComponent> location = new ArrayList<ProblemLocationComponent>();
+    protected List<ConditionLocationComponent> location = new ArrayList<ConditionLocationComponent>();
 
     /**
-     * Further problems, diagnoses, procedures or events that are related in some way to this problem/diagnosis, or the substance that caused/triggered this problem
+     * Further conditions, problems, diagnoses, procedures or events that are related in some way to this condition, or the substance that caused/triggered this Condition
      */
-    protected List<ProblemRelatedItemComponent> relatedItem = new ArrayList<ProblemRelatedItemComponent>();
+    protected List<ConditionRelatedItemComponent> relatedItem = new ArrayList<ConditionRelatedItemComponent>();
+
+    /**
+     * Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, it's diagnosis and prognosis
+     */
+    protected String_ notes;
 
     public ResourceReference getSubject() { 
       return this.subject;
@@ -439,26 +458,22 @@ public class Problem extends Resource {
       this.category = value;
     }
 
-    public Enumeration<ProblemStatus> getStatus() { 
+    public Enumeration<ConditionStatus> getStatus() { 
       return this.status;
     }
 
-    public void setStatus(Enumeration<ProblemStatus> value) { 
+    public void setStatus(Enumeration<ConditionStatus> value) { 
       this.status = value;
     }
 
-    public ProblemStatus getStatusSimple() { 
+    public ConditionStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
-    public void setStatusSimple(ProblemStatus value) { 
-      if (value == null)
-        this.status = null;
-      else {
+    public void setStatusSimple(ConditionStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ProblemStatus>();
+          this.status = new Enumeration<ConditionStatus>();
         this.status.setValue(value);
-      }
     }
 
     public CodeableConcept getCertainty() { 
@@ -493,28 +508,50 @@ public class Problem extends Resource {
       this.abatement = value;
     }
 
-    public ProblemStageComponent getStage() { 
+    public ConditionStageComponent getStage() { 
       return this.stage;
     }
 
-    public void setStage(ProblemStageComponent value) { 
+    public void setStage(ConditionStageComponent value) { 
       this.stage = value;
     }
 
-    public List<ProblemEvidenceComponent> getEvidence() { 
+    public List<ConditionEvidenceComponent> getEvidence() { 
       return this.evidence;
     }
 
-    public List<ProblemLocationComponent> getLocation() { 
+    public List<ConditionLocationComponent> getLocation() { 
       return this.location;
     }
 
-    public List<ProblemRelatedItemComponent> getRelatedItem() { 
+    public List<ConditionRelatedItemComponent> getRelatedItem() { 
       return this.relatedItem;
     }
 
-      public Problem copy() {
-        Problem dst = new Problem();
+    public String_ getNotes() { 
+      return this.notes;
+    }
+
+    public void setNotes(String_ value) { 
+      this.notes = value;
+    }
+
+    public String getNotesSimple() { 
+      return this.notes == null ? null : this.notes.getValue();
+    }
+
+    public void setNotesSimple(String value) { 
+      if (value == null)
+        this.notes = null;
+      else {
+        if (this.notes == null)
+          this.notes = new String_();
+        this.notes.setValue(value);
+      }
+    }
+
+      public Condition copy() {
+        Condition dst = new Condition();
         dst.subject = subject == null ? null : subject.copy();
         dst.visit = visit == null ? null : visit.copy();
         dst.asserter = asserter == null ? null : asserter.copy();
@@ -527,25 +564,26 @@ public class Problem extends Resource {
         dst.onset = onset == null ? null : onset.copy();
         dst.abatement = abatement == null ? null : abatement.copy();
         dst.stage = stage == null ? null : stage.copy(dst);
-        dst.evidence = new ArrayList<ProblemEvidenceComponent>();
-        for (ProblemEvidenceComponent i : evidence)
+        dst.evidence = new ArrayList<ConditionEvidenceComponent>();
+        for (ConditionEvidenceComponent i : evidence)
           dst.evidence.add(i.copy(dst));
-        dst.location = new ArrayList<ProblemLocationComponent>();
-        for (ProblemLocationComponent i : location)
+        dst.location = new ArrayList<ConditionLocationComponent>();
+        for (ConditionLocationComponent i : location)
           dst.location.add(i.copy(dst));
-        dst.relatedItem = new ArrayList<ProblemRelatedItemComponent>();
-        for (ProblemRelatedItemComponent i : relatedItem)
+        dst.relatedItem = new ArrayList<ConditionRelatedItemComponent>();
+        for (ConditionRelatedItemComponent i : relatedItem)
           dst.relatedItem.add(i.copy(dst));
+        dst.notes = notes == null ? null : notes.copy();
         return dst;
       }
 
-      protected Problem typedCopy() {
+      protected Condition typedCopy() {
         return copy();
       }
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.Problem;
+    return ResourceType.Condition;
    }
 
 
