@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">mandatory text</div>
+  </text>
+  <name>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="55284-4"/>
+      <display value="Blood pressure systolic and diastolic"/>
+    </coding>
+  </name>
+  <comments value="test"/>
+  <status value="final"/>
+  <reliability value="ok"/>
+</Observation>
