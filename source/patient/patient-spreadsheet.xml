@@ -95,20 +95,26 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s76">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s77">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s78">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s77">
+  <Style ss:ID="s79">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s78">
+  <Style ss:ID="s80">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s79">
+  <Style ss:ID="s81">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -116,7 +122,7 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s80">
+  <Style ss:ID="s82">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -124,14 +130,8 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s81">
+  <Style ss:ID="s83">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
-  </Style>
-  <Style ss:ID="s206">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -289,21 +289,6 @@
     <Cell ss:Index="16" ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Patient.photo</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Attachment</Data></Cell>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Image of the person</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Image of the person</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Many EHR systems have the capability to capture an image of the patient. Fits with newer social media usage too.</Data></Cell>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:Index="13" ss:StyleID="s72"/>
-    <Cell ss:Index="16" ss:StyleID="s72"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Patient.maritalStatus</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s73"/>
@@ -337,6 +322,21 @@
     <Cell ss:Index="15" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">Patient.photo</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Attachment</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Image of the person</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Image of the person</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Many EHR systems have the capability to capture an image of the patient. Fits with newer social media usage too.</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:Index="13" ss:StyleID="s72"/>
+    <Cell ss:Index="16" ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Patient.contact</Data></Cell>
@@ -490,59 +490,59 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s206"><Data ss:Type="String">Patient.animal.species</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Patient.animal.species</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">AnimalSpecies</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">E.g. Dog, Cow</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Identifies the high level categorization of the kind of animal</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Need to know what kind of animal</Data></Cell>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">AnimalSpecies</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">E.g. Dog, Cow</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Identifies the high level categorization of the kind of animal</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Need to know what kind of animal</Data></Cell>
     <Cell><Data ss:Type="String">If the patient is non-human, at least a species must be specified</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">.playedRole[classCode=GEN].scoper[classCode=ANM, determinerCode=KIND].code</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">PID.35</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">.playedRole[classCode=GEN].scoper[classCode=ANM, determinerCode=KIND].code</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">PID.35</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s206"><Data ss:Type="String">Patient.animal.breed</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Patient.animal.breed</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">AnimalBreed</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">E.g. Poodle, Angus</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Identifies the detailed categorization of the kind of animal.</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">May need to know the specific kind within the species</Data></Cell>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">AnimalBreed</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">E.g. Poodle, Angus</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Identifies the detailed categorization of the kind of animal.</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">May need to know the specific kind within the species</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">.code</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">PID.37</Data></Cell>
-    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">.code</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">PID.37</Data></Cell>
+    <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s206"><Data ss:Type="String">Patient.animal.genderStatus</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Patient.animal.genderStatus</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">AnimalGenderStatus</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">E.g. Neutered, Intact</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Indicates the current state of the animal's reproductive organs</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Gender status can affect housing and animal behavior</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">AnimalGenderStatus</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">E.g. Neutered, Intact</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Indicates the current state of the animal's reproductive organs</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Gender status can affect housing and animal behavior</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">.genderStatusCode</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">N/A</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">.genderStatusCode</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">N/A</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -560,7 +560,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">If no language is specified, this *implies* that the default local language is spoken.&#13;If you need to convey proficiency for multiple modes than you need multiple Person.language associations.&#10;&#10;For animals, language is not a relevant field, and should be absent from the instance</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s72"><Data ss:Type="String">.LanguageCommunication</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">LAN</Data></Cell>
-    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Rationale for putting this in the core is based on input from Canada. Other persons on call are from single language countries. Committee felt uncomfortable with leaving any of the 3 optional attributes modeCode, proficiencyLevelCode, or preferenceInd up to extensions. Instead we said that mustUnderstand is &quot;no&quot; on modeCode and preferenceInd.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -696,7 +696,9 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R12</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -723,7 +725,7 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">ContactNeedsDetails</Data></Cell>
     <Cell><Data ss:Type="String">Patient.contact</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Must at least contain a contact's details or a reference to an organization</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Must at least contain a contact's details or a reference to an organization</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">f:name or f:telecom or f:address or f:organization</Data></Cell>
    </Row>
   </Table>
@@ -762,10 +764,10 @@
     <Cell><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="110.25">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -889,13 +891,13 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="5" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s78" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="114.75"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="363"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="107.25"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="130.5"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="214.5"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="139.5"/>
+   x:FullRows="1" ss:StyleID="s80" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="114.75"/>
+   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="363"/>
+   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="107.25"/>
+   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="130.5"/>
+   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="214.5"/>
+   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="139.5"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s66"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
@@ -903,28 +905,28 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">AnimalGenderStatus</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">The state of the animal's reproductive organs</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">valueset-animal-genderstatus</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">AnimalGenderStatus</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The state of the animal's reproductive organs</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">valueset-animal-genderstatus</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">AnimalSpecies</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">The species of an animal</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">valueset-animal-species</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">AnimalSpecies</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The species of an animal</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">valueset-animal-species</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">AnimalBreed</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">The breed of an animal</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">valueset-animal-breeds</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">AnimalBreed</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The breed of an animal</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">valueset-animal-breeds</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ContactRelationship</Data></Cell>
@@ -985,14 +987,14 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Patient1</Data></Cell>
     <Cell><Data ss:Type="String">Patient 1 for linking</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">pat1</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">pat1</Data></Cell>
     <Cell><Data ss:Type="String">patient-example-a.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Patient2</Data></Cell>
     <Cell><Data ss:Type="String">Patient 2 for linking</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">pat2</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">pat2</Data></Cell>
     <Cell><Data ss:Type="String">patient-example-b.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>

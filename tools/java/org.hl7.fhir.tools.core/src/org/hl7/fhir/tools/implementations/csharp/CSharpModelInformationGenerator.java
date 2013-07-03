@@ -99,8 +99,8 @@ public class CSharpModelInformationGenerator extends GenBlock
     	ln("new List<string>");
 			bs("{");	
 				for( ResourceDefn resource : definitions.getResources() )
-                	ln("\"" + resource.getName() + "\",");
-	//			ln("\"Binary\"");     // Not *really* a model-defined resource...
+				  if(!resource.isAbstract())
+				    ln("\"" + resource.getName() + "\",");
       es("};");
     es();
 	}
@@ -116,11 +116,7 @@ public class CSharpModelInformationGenerator extends GenBlock
 				{
 					String cSharpName;
 
-//Primitives now get converted to "real" elements types
-//					if( type.isPrimitive() )
-//						cSharpName = GeneratorUtils.mapPrimitiveToFhirCSharpType(type.getName());
-//					else
-						cSharpName = GeneratorUtils.buildFullyScopedTypeName(type);
+					cSharpName = GeneratorUtils.buildFullyScopedTypeName(type);
 					
 					ln( tuple("\"" + type.getName() + "\"", "typeof(" + cSharpName + ")" ) );	
 				}
