@@ -72,37 +72,13 @@
     </telecom>
   </contact>
   <communication>
-    <language>
-      <coding>
-        <system value="urn:ietf:bcp:47"/>
-        <!-- IETF language tag -->
-        <code value="nl"/>
-        <display value="Dutch"/>
-      </coding>
-      <text value="Nederlands"/>
-    </language>
-    <mode>
-      <coding>
-        <system value="http://hl7.org/fhir/v3/LanguageAbilityMode"/>
-        <code value="ESP"/>
-        <display value="Expressed spoken"/>
-      </coding>
-    </mode>
-    <mode>
-      <coding>
-        <system value="http://hl7.org/fhir/v3/LanguageAbilityMode"/>
-        <code value="EWR"/>
-        <display value="Expressed written"/>
-      </coding>
-    </mode>
-    <proficiencyLevel>
-      <coding>
-        <system value="http://hl7.org/fhir/v3/LanguageAbilityProficiency"/>
-        <code value="E"/>
-        <display value="Excellent"/>
-      </coding>
-    </proficiencyLevel>
-    <preference value="true"/>
+    <coding>
+      <system value="urn:ietf:bcp:47"/>
+      <!-- IETF language tag -->
+      <code value="nl"/>
+      <display value="Dutch"/>
+    </coding>
+    <text value="Nederlands"/>
   </communication>
   <provider>
     <type value="Organization"/>

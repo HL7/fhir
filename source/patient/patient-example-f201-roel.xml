@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--@version June 2013 @author Melchior Ferdinand Pot-->
 <Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
     <identifier>
@@ -106,29 +105,12 @@
         </telecom>
     </contact>
     <communication>
-        <!--The person's  proficiency level of the Dutch language-->
-        <language>
             <coding>
                 <system value="urn:std:iso:639-1"/>
                 <code value="nl-NL"/>
                 <display value="Dutch"/>
             </coding>
-        </language>
-        <proficiencyLevel>
-            <coding>
-                <system value="http://snomed.info"/>
-                <code value="425405005"/>
-                <display value="Excellent"/>
-            </coding>
-            <coding>
-                <system value="http://hl7.org/fhir/v3/LanguageAbilityProficiency"/>
-                <code value="E"/>
-            </coding>
-        </proficiencyLevel>
-        <preference value="true"/>
     </communication>
-
-  
     <provider>
         <type value="Organization"/>
         <reference value="organization/@f201"/>

@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Ewout Kramer</LastAuthor>
   <Created>2012-03-19T11:15:11Z</Created>
-  <LastSaved>2013-07-01T15:34:49Z</LastSaved>
+  <LastSaved>2013-07-04T21:25:21Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -135,7 +135,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="31" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="32" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="214.5"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="56.25"/>
@@ -421,9 +421,9 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Address</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">One or more addresses for the person</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">One or more addresses for the person</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Need to keep track where the contact person can be contacted per postal mail</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Address for the contact person</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Address for the contact person</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Need to keep track where the contact person can be contacted per postal mail or visited</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">./addr</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PID-11</Data></Cell>
@@ -551,6 +551,23 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Language</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Languages which may be used to communicate with the patient</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Languages which may be used to communicate with the patient</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">If a patient does not speak the local language, interpreters may be required, so languages spoken is an important things to keep track of both for patient and other persons of interest</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">If no language is specified, this *implies* that the default local language is spoken.&#10;For animals, language is not a relevant field, and should be absent from the instance</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s72"><Data ss:Type="String">.LanguageCommunication</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">LAN</Data></Cell>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Define proficiency and mode as extensions</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">!Patient.communication</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">down</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -564,7 +581,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Rationale for putting this in the core is based on input from Canada. Other persons on call are from single language countries. Committee felt uncomfortable with leaving any of the 3 optional attributes modeCode, proficiencyLevelCode, or preferenceInd up to extensions. Instead we said that mustUnderstand is &quot;no&quot; on modeCode and preferenceInd.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Patient.communication.language</Data></Cell>
+    <Cell><Data ss:Type="String">!Patient.communication.language</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -581,7 +598,7 @@
     <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">Patient.communication.mode</Data></Cell>
+    <Cell><Data ss:Type="String">!Patient.communication.mode</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -597,7 +614,7 @@
     <Cell ss:Index="16" ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">Patient.communication.proficiencyLevel</Data></Cell>
+    <Cell><Data ss:Type="String">!Patient.communication.proficiencyLevel</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -613,7 +630,7 @@
     <Cell ss:Index="16" ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">Patient.communication.preference</Data></Cell>
+    <Cell><Data ss:Type="String">!Patient.communication.preference</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -684,11 +701,11 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>5</TopRowVisible>
+   <TopRowVisible>21</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>1</ActivePane>
    <Panes>
     <Pane>
@@ -696,9 +713,8 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R12</RangeSelection>
+     <ActiveRow>24</ActiveRow>
+     <ActiveCol>15</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
