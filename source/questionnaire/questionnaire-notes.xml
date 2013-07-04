@@ -4,7 +4,7 @@
 Notes:
 </h2>
 <ul>
-<li>The information on questionnaires can be collected during several interactions with the patient, and there for amended and changed over time. The
+<li>The information on questionnaires can be collected during several interactions with the patient, and therefore amended and changed over time. The
 Questionnaire.status attribute is used to support this lifecycle.</li>
 <li>Questionnaires can be authored by clinicians, the patient his/herself or a patients relatives (or even owner in the case of animals). Clinicians
 may author questionnaires, where the answers are provided by others on behalf of the patient his/herself. Addtionally, information gathered for the
@@ -12,25 +12,43 @@ purpose of a patient may be about the patient's relatives (e.g. in family anamne
 the subject and the source of information.</li>
 <li>Questionnaires often correspond to predefined forms, which may be recorded using Questionnaire.name. Questionnaires.identifier identify a specific
 set of answers to the questions on these forms.</li>
-<li>Questionnaires may directly contain anwers and/or contain sections and subsections with answers. These may or may not correspond to the structure
-of the original form. If they do correspond, sections and subsections may be named, so answers on a Questionnaire can refer to the section on the form.
-Likewise, Answers on Questionnaires can be named to refer to the question on a form. As mentioned in the introduction, it is also possible to
-include the actual text of the questions posed with the answers.</li>
-<li>Since sections and questions may be answered multiple times, the same Section.name and Answer.name may appear multiple times.</li>
-<li>As described in the introduction, answers may simple be numeric values, coded answers and text, but this atomic information may be based on or replaced
-by actual Observations, Procedures and other resources.</li>
+<li>Questionnaires may directly contain Questions and/or contain Groups and subgroups with Questions. These may or may not correspond to the structure
+of the original form. If they do correspond, Groups may be named, so answers on a Questionnaire can refer to a corresponding sections of a form.
+Likewise, answers to Questionnaires can be named to refer to the question on a form. It is also possible to include textual content on the form in 
+Questionnaire (see below).</li>
+<li>Since sections and questions may be answered multiple times, the same Group.name and Question.name may appear multiple times.</li>
 <li>Questionnaire allows for flexible naming and structuring of its contents to reflect the flexible and varying nature of forms and questionnaires. 
 It explicitly does not try to standardize or streamline exchange of its contents outside its context of use, although exchanging partners may further
 constrain its structure and flexibility using profiles to define standardized, reusable forms.</li>
 <li>Because of the lack of explicit support for Questionnaires in HL7v3, HL7 CDA Documents frequently used named sections with
-Observations to model Questionnaires, such usecases should now utilize the Questionnaire Resource instead.</li>
-<li>Questionnaire allows information both to be based on on-screen forms and/or actual Observations and other Resources using Answer.evidence.</li>
-
+Observations to model Questionnaires. Such use cases should now utilize the Questionnaire Resource instead.</li>
+<li>The Questionnaire's <i>visit</i> element can be used to link to the visit during which the Questionnaire was taken. This can be relevant since the
+visit gives context to the answers and can be used to relate information in the Questionnaire to orders and observations that were done during the same Visit.</li>
 </ul>
 
-<p>
-TODO: Decide on whether we need an explicit Answer.omitReason to indicate the fact that (and the reason why) a question on a form remain unanswered.
-Gives the flexibility to support both just sending the answered questions or exchanging the "full" form, on which each question is either answered
-or explicitly omitted.</p>
+<a name="qversusr" />
+<h2>Using Questionnaires versus using Resources</h2>
+<p>There is considerable overlap between the information covered by Questionnaires and other Resources (especially FamilyHistory, MedicationStatement, Observation, Procedure, etc.): 
+Questionnaire's flexible structure can easily be misused to capture any data, even data that should be captured as separate Resources. The choice between using Questionnaires or separate 
+Resources may be dictated by the procedure of collection and recording. E.g. if the data is captured as a physician-agreed (electronic) form, it might be impossible or undesirable to 
+distill separate resources from it, and the Questionnaire must be stored and communicated as a whole.</p> 
 
+<p>However, data captured only in Questionnaires can be difficult to query after-the-fact: queries against other Resources will not return data captured only in Questionnaires, 
+and querying against Questionnaires directly may not find all desired data, depending on how the questions may have been phrased or encoded over time or by different clinicians. 
+Moreover, interoperability of such Questionnaires is limited as interpretation of its contents is only known to the circle of parties that were involved in its definition: encoding data from 
+such Questionnaires using other, more specific, Resources increases the ability and consistency with which it can be understood and queried.</p> 
+
+<p>To facilitate better standardization of the information on a form, Questionnaire has the capacity (Using a Question's <i>data</i> element) to allow systems to communicate (part of) the 
+answers in the form of structured FHIR data. This provides an upgrade path to the questionnaire designer and communicating systems, where capable systems may use FHIR data to answer (sets of) 
+questions, whereas other systems can simply continue to supply the direct answers as input by the user.</p>
+
+<h2>Providing Questions and Answers</h2>
+<p>The Questionnare has been specifically designed to be able to contain both a form's questions and answers. The Group and Question construct has elements to carry textual data
+of the form like headings, explanatory text, actual question text and the text of (multiple)choice options. As such, the Questionnaire can be used to:</p>
+<ul><li>only contain answers
+(in which case the actual layout and questions of the form is defined in some external way, and the <i>name</i> elements are used to relate the answers to the questions)</li>
+<li>contain a combination of questions and answers (e.g. when it is deemed important to keep the actual question text with the answer) or</li>
+<li>only contain the Questions, which is equivalent to an "empty form".</li></ul>
+<p>This third case can be useful to make Questionnaire serve as a kind of form "definition", where FHIR clients receive the empty form, display it to the user, get answers from the users 
+and then return the combined questions and answers to the server.</p>
 </div>

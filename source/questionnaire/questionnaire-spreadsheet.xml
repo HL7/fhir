@@ -9,17 +9,18 @@
   <Author>Grahame</Author>
   <LastAuthor>Ewout Kramer</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
-  <LastSaved>2013-07-03T15:44:43Z</LastSaved>
+  <LastSaved>2013-07-04T15:58:39Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>3495</WindowHeight>
-  <WindowWidth>14640</WindowWidth>
-  <WindowTopX>5520</WindowTopX>
-  <WindowTopY>6135</WindowTopY>
+  <WindowHeight>12435</WindowHeight>
+  <WindowWidth>25230</WindowWidth>
+  <WindowTopX>570</WindowTopX>
+  <WindowTopY>-15</WindowTopY>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -74,13 +75,7 @@
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s71">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s72">
-   <Alignment ss:Vertical="Top"/>
-  </Style>
-  <Style ss:ID="s73">
+  <Style ss:ID="s70">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -88,13 +83,40 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s71">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s72">
+   <Alignment ss:Vertical="Top"/>
+  </Style>
+  <Style ss:ID="s73">
+   <Alignment ss:Vertical="Top"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s185">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s204">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R32C16"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R27C16"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="32" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="27" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="312.75"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="30"/>
@@ -178,7 +200,7 @@
     <Cell><Data ss:Type="String">Questionnaire.authored</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">instant</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Date this version was authored</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -195,7 +217,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="57.5625">
     <Cell><Data ss:Type="String">Questionnaire.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient|RelatedPerson)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The subject of the questionnaires</Data><NamedCell
@@ -210,7 +232,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="43.3125">
     <Cell><Data ss:Type="String">Questionnaire.author</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner|Patient|RelatedPerson)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Person that collected the answers</Data><NamedCell
@@ -352,21 +374,6 @@
    <Row ss:AutoFitHeight="0" ss:Height="57.5625">
     <Cell><Data ss:Type="String">Questionnaire.question.choice</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="Number">1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">down</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Answer from a set of choices</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Answer from a set of choices</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">Need to be able to retain choices made from a list of choices when answering (multiple-choice) questions</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="57.5625">
-    <Cell><Data ss:Type="String">Questionnaire.question.choice.code</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">Coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -377,78 +384,18 @@
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="57.5625">
-    <Cell><Data ss:Type="String">Questionnaire.question.choice.other</Data><NamedCell
+    <Cell><Data ss:Type="String">Questionnaire.question.options[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">string</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">uri | Resource(ValueSet)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Free text option</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">Valueset containing the possible options</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Free text option</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="57.5625">
-    <Cell><Data ss:Type="String">Questionnaire.question.choice.option</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">right</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Possible list of options</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Possible list of options</Data><NamedCell
+    <Cell><Data ss:Type="String">Reference to a valueset containing the possible options</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="57.5625">
-    <Cell><Data ss:Type="String">Questionnaire.question.choice.option.code</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">Coding</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Code for the option</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Code for the option</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="57.5625">
-    <Cell><Data ss:Type="String">Questionnaire.question.choice.option.text</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">string</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Display text for the option</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Display text for the option</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="57.5625">
-    <Cell><Data ss:Type="String">!Questionnaire.question.choice.option.isOther</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">boolean</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Option represents a free-text option</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Option represents a free-text option</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="57.5625">
-    <Cell><Data ss:Type="String">Questionnaire.question.choice.isOrdered</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">boolean</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">If order of the values has meaning</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">If order of the values has meaning</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"/>
-   </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Questionnaire.question.data[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -477,6 +424,20 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="57.5625">
+    <Cell><Data ss:Type="String">!Questionnaire.question.format</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">code</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">AnswerFormat</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">The expected format of the answer</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple)choice is expected</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"/>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28.6875">
     <Cell><Data ss:Type="String">Questionnaire.group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -498,7 +459,7 @@
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">QuestionnaireSectionName</Data><NamedCell
+    <Cell><Data ss:Type="String">QuestionnaireGroupName</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Code or name of the section on a questionnaire</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -533,8 +494,8 @@
     <Cell ss:Index="11"><Data ss:Type="String">When including text for the questionnaire, each section may contain additional explanations are background text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="45">
-    <Cell><Data ss:Type="String">Questionnaire.group.repeats</Data><NamedCell
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">!Questionnaire.group.repeats</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">boolean</Data><NamedCell
@@ -548,7 +509,7 @@
     <Cell><Data ss:Type="String">When repeats is not given, false is assumed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Questionnaire.group.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -600,11 +561,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>19</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -621,8 +581,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>34</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -649,7 +609,7 @@
     <Cell><Data ss:Type="String">SimpleChoiceOrData</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Questionnaire.question</Data></Cell>
     <Cell><Data ss:Type="String">Must supply either a simple answer, a choice, data or nothing</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s73"><Data ss:Type="String">count(f:data) + count(f:choice) + count(f:value) &lt;= 1</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s70"><Data ss:Type="String">count(f:data) + count(f:choice) + count(f:value) &lt;= 1</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -765,7 +725,7 @@
     <Cell><Data ss:Type="String">Questionnaire.identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">qname</Data></Cell>
+    <Cell><Data ss:Type="String">name</Data></Cell>
     <Cell><Data ss:Type="String">name of the questionnaire</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">Questionnaire.name</Data></Cell>
@@ -787,8 +747,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -796,7 +756,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s72" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="149.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="336.75"/>
@@ -807,26 +767,35 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Definition</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s204"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"><Data ss:Type="String">QuestionnaireName</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Structured names for forms</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">unbound</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s71"><Data ss:Type="String">E.g. Family anamnesis, social anamnesis, intake</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s185"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s185"><Data ss:Type="String">valueset-questionnaire-name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"><Data ss:Type="String">QuestionName</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Structured names for questions on the form</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">unbound</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s71"><Data ss:Type="String">E.g. A.4.5, pack-years</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">valueset-questionnaire-question-name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">QuestionnaireSectionName</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">QuestionnaireGroupName</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Structured names for (sub)sections of forms</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">unbound</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">E.g. intoxications, living conditions</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-questionnaire-group-name</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s62"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -842,10 +811,12 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -902,11 +873,11 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Profiles">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="1" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="114.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="208.5"/>
-   <Column ss:AutoFitWidth="0" ss:Width="184.5"/>
+   <Column ss:Width="212.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="75"/>
    <Column ss:AutoFitWidth="0" ss:Width="297.75"/>
    <Row ss:AutoFitHeight="0">
@@ -915,6 +886,13 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Filename</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Type</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Example</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">core-extensions</Data></Cell>
+    <Cell><Data ss:Type="String">Core extensions for Questionnaire</Data></Cell>
+    <Cell><Data ss:Type="String">questionnaire-extensions-spreadsheet.xml</Data></Cell>
+    <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
+    <Cell><Data ss:Type="String">questionnaire-extensions-example.xml</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -927,8 +905,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <RangeSelection>R2</RangeSelection>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

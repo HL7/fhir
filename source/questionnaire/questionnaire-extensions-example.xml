@@ -72,7 +72,7 @@
     <reference value="#questauth"/>
   </author>
   <name>
-    <text value="Cancer Quality Forum Questionnaire 2012"/>
+    <text value="Cancer Treatment Quality Questionnaire 2012"/>
   </name>
   <group>
     <!-- COMORBIDITY -->
