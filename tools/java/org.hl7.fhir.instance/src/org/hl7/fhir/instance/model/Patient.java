@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
+// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -45,9 +45,24 @@ public class Patient extends Resource {
         protected List<CodeableConcept> relationship = new ArrayList<CodeableConcept>();
 
         /**
-         * Details about the contact person
+         * A name associated with the person
          */
-        protected Demographics details;
+        protected HumanName name;
+
+        /**
+         * A contact detail for the person, e.g. a telephone number or an email address.
+         */
+        protected List<Contact> telecom = new ArrayList<Contact>();
+
+        /**
+         * One or more addresses for the person
+         */
+        protected Address address;
+
+        /**
+         * Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
+         */
+        protected CodeableConcept gender;
 
         /**
          * Organization on behalf of which the contact is acting or for which the contact is working.
@@ -58,12 +73,32 @@ public class Patient extends Resource {
           return this.relationship;
         }
 
-        public Demographics getDetails() { 
-          return this.details;
+        public HumanName getName() { 
+          return this.name;
         }
 
-        public void setDetails(Demographics value) { 
-          this.details = value;
+        public void setName(HumanName value) { 
+          this.name = value;
+        }
+
+        public List<Contact> getTelecom() { 
+          return this.telecom;
+        }
+
+        public Address getAddress() { 
+          return this.address;
+        }
+
+        public void setAddress(Address value) { 
+          this.address = value;
+        }
+
+        public CodeableConcept getGender() { 
+          return this.gender;
+        }
+
+        public void setGender(CodeableConcept value) { 
+          this.gender = value;
         }
 
         public ResourceReference getOrganization() { 
@@ -79,7 +114,12 @@ public class Patient extends Resource {
         dst.relationship = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : relationship)
           dst.relationship.add(i.copy());
-        dst.details = details == null ? null : details.copy();
+        dst.name = name == null ? null : name.copy();
+        dst.telecom = new ArrayList<Contact>();
+        for (Contact i : telecom)
+          dst.telecom.add(i.copy());
+        dst.address = address == null ? null : address.copy();
+        dst.gender = gender == null ? null : gender.copy();
         dst.organization = organization == null ? null : organization.copy();
         return dst;
       }
@@ -136,15 +176,131 @@ public class Patient extends Resource {
 
   }
 
+    public class PatientCommunicationComponent extends Element {
+        /**
+         * The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case. E.g. "en" for English, or "en-US" for American English versus "en-EN" for England English
+         */
+        protected CodeableConcept language;
+
+        /**
+         * A value representing the person's method of expression of this language. Examples: expressed spoken, expressed written, expressed signed, received spoken, received written, received signed
+         */
+        protected List<CodeableConcept> mode = new ArrayList<CodeableConcept>();
+
+        /**
+         * A code that describes how well the language is expressed or understood
+         */
+        protected CodeableConcept proficiencyLevel;
+
+        /**
+         * Indicates whether or not the Person prefers this language (over other languages he masters up a certain level)
+         */
+        protected Boolean preference;
+
+        public CodeableConcept getLanguage() { 
+          return this.language;
+        }
+
+        public void setLanguage(CodeableConcept value) { 
+          this.language = value;
+        }
+
+        public List<CodeableConcept> getMode() { 
+          return this.mode;
+        }
+
+        public CodeableConcept getProficiencyLevel() { 
+          return this.proficiencyLevel;
+        }
+
+        public void setProficiencyLevel(CodeableConcept value) { 
+          this.proficiencyLevel = value;
+        }
+
+        public Boolean getPreference() { 
+          return this.preference;
+        }
+
+        public void setPreference(Boolean value) { 
+          this.preference = value;
+        }
+
+        public boolean getPreferenceSimple() { 
+          return this.preference == null ? null : this.preference.getValue();
+        }
+
+        public void setPreferenceSimple(boolean value) { 
+          if (value == false)
+            this.preference = null;
+          else {
+            if (this.preference == null)
+              this.preference = new Boolean();
+            this.preference.setValue(value);
+          }
+        }
+
+      public PatientCommunicationComponent copy(Patient e) {
+        PatientCommunicationComponent dst = e.new PatientCommunicationComponent();
+        dst.language = language == null ? null : language.copy();
+        dst.mode = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : mode)
+          dst.mode.add(i.copy());
+        dst.proficiencyLevel = proficiencyLevel == null ? null : proficiencyLevel.copy();
+        dst.preference = preference == null ? null : preference.copy();
+        return dst;
+      }
+
+  }
+
     /**
      * An identifier that applies to this person as a patient
      */
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * Patient Demographic details
+     * A name associated with the individual.
      */
-    protected Demographics details;
+    protected List<HumanName> name = new ArrayList<HumanName>();
+
+    /**
+     * A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.
+     */
+    protected List<Contact> telecom = new ArrayList<Contact>();
+
+    /**
+     * Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
+     */
+    protected CodeableConcept gender;
+
+    /**
+     * The date and time of birth for the individual
+     */
+    protected DateTime birthDate;
+
+    /**
+     * Indicates if the individual is deceased or not
+     */
+    protected Type deceased;
+
+    /**
+     * Addresses for the individual
+     */
+    protected List<Address> address = new ArrayList<Address>();
+
+    /**
+     * This field contains a patient's most recent marital (civil) status.
+     */
+    protected CodeableConcept maritalStatus;
+
+    /**
+     * Indicates whether the patient is part of a multiple or indicates the actual birth order.
+     */
+    protected Type multipleBirth;
+
+    /**
+     * Image of the person
+     */
+    protected List<Attachment> photo = new ArrayList<Attachment>();
 
     /**
      * A contact party (e.g. guardian, partner, friend) for the patient
@@ -157,19 +313,14 @@ public class Patient extends Resource {
     protected AnimalComponent animal;
 
     /**
+     * A language spoken by the person, with proficiency
+     */
+    protected List<PatientCommunicationComponent> communication = new ArrayList<PatientCommunicationComponent>();
+
+    /**
      * The provider for whom this is a patient record
      */
     protected ResourceReference provider;
-
-    /**
-     * Indicates whether the patient is part of a multiple or indicates the actual birth order.
-     */
-    protected Type multipleBirth;
-
-    /**
-     * Date of death of patient. May include time.
-     */
-    protected DateTime deceasedDate;
 
     /**
      * A linked patient resource is a resource that concerns the same patient. Resources are linked after it is realized that at least one was created in error.
@@ -185,12 +336,74 @@ public class Patient extends Resource {
       return this.identifier;
     }
 
-    public Demographics getDetails() { 
-      return this.details;
+    public List<HumanName> getName() { 
+      return this.name;
     }
 
-    public void setDetails(Demographics value) { 
-      this.details = value;
+    public List<Contact> getTelecom() { 
+      return this.telecom;
+    }
+
+    public CodeableConcept getGender() { 
+      return this.gender;
+    }
+
+    public void setGender(CodeableConcept value) { 
+      this.gender = value;
+    }
+
+    public DateTime getBirthDate() { 
+      return this.birthDate;
+    }
+
+    public void setBirthDate(DateTime value) { 
+      this.birthDate = value;
+    }
+
+    public String getBirthDateSimple() { 
+      return this.birthDate == null ? null : this.birthDate.getValue();
+    }
+
+    public void setBirthDateSimple(String value) { 
+      if (value == null)
+        this.birthDate = null;
+      else {
+        if (this.birthDate == null)
+          this.birthDate = new DateTime();
+        this.birthDate.setValue(value);
+      }
+    }
+
+    public Type getDeceased() { 
+      return this.deceased;
+    }
+
+    public void setDeceased(Type value) { 
+      this.deceased = value;
+    }
+
+    public List<Address> getAddress() { 
+      return this.address;
+    }
+
+    public CodeableConcept getMaritalStatus() { 
+      return this.maritalStatus;
+    }
+
+    public void setMaritalStatus(CodeableConcept value) { 
+      this.maritalStatus = value;
+    }
+
+    public Type getMultipleBirth() { 
+      return this.multipleBirth;
+    }
+
+    public void setMultipleBirth(Type value) { 
+      this.multipleBirth = value;
+    }
+
+    public List<Attachment> getPhoto() { 
+      return this.photo;
     }
 
     public List<ContactComponent> getContact() { 
@@ -205,42 +418,16 @@ public class Patient extends Resource {
       this.animal = value;
     }
 
+    public List<PatientCommunicationComponent> getCommunication() { 
+      return this.communication;
+    }
+
     public ResourceReference getProvider() { 
       return this.provider;
     }
 
     public void setProvider(ResourceReference value) { 
       this.provider = value;
-    }
-
-    public Type getMultipleBirth() { 
-      return this.multipleBirth;
-    }
-
-    public void setMultipleBirth(Type value) { 
-      this.multipleBirth = value;
-    }
-
-    public DateTime getDeceasedDate() { 
-      return this.deceasedDate;
-    }
-
-    public void setDeceasedDate(DateTime value) { 
-      this.deceasedDate = value;
-    }
-
-    public String getDeceasedDateSimple() { 
-      return this.deceasedDate == null ? null : this.deceasedDate.getValue();
-    }
-
-    public void setDeceasedDateSimple(String value) { 
-      if (value == null)
-        this.deceasedDate = null;
-      else {
-        if (this.deceasedDate == null)
-          this.deceasedDate = new DateTime();
-        this.deceasedDate.setValue(value);
-      }
     }
 
     public List<ResourceReference> getLink() { 
@@ -274,14 +461,31 @@ public class Patient extends Resource {
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());
-        dst.details = details == null ? null : details.copy();
+        dst.name = new ArrayList<HumanName>();
+        for (HumanName i : name)
+          dst.name.add(i.copy());
+        dst.telecom = new ArrayList<Contact>();
+        for (Contact i : telecom)
+          dst.telecom.add(i.copy());
+        dst.gender = gender == null ? null : gender.copy();
+        dst.birthDate = birthDate == null ? null : birthDate.copy();
+        dst.deceased = deceased == null ? null : deceased.copy();
+        dst.address = new ArrayList<Address>();
+        for (Address i : address)
+          dst.address.add(i.copy());
+        dst.maritalStatus = maritalStatus == null ? null : maritalStatus.copy();
+        dst.multipleBirth = multipleBirth == null ? null : multipleBirth.copy();
+        dst.photo = new ArrayList<Attachment>();
+        for (Attachment i : photo)
+          dst.photo.add(i.copy());
         dst.contact = new ArrayList<ContactComponent>();
         for (ContactComponent i : contact)
           dst.contact.add(i.copy(dst));
         dst.animal = animal == null ? null : animal.copy(dst);
+        dst.communication = new ArrayList<PatientCommunicationComponent>();
+        for (PatientCommunicationComponent i : communication)
+          dst.communication.add(i.copy(dst));
         dst.provider = provider == null ? null : provider.copy();
-        dst.multipleBirth = multipleBirth == null ? null : multipleBirth.copy();
-        dst.deceasedDate = deceasedDate == null ? null : deceasedDate.copy();
         dst.link = new ArrayList<ResourceReference>();
         for (ResourceReference i : link)
           dst.link.add(i.copy());

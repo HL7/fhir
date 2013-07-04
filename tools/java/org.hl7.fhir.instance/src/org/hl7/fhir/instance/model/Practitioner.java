@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
+// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -94,9 +94,34 @@ public class Practitioner extends Resource {
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * Practitioner Demographic details
+     * A name associated with the person
      */
-    protected Demographics details;
+    protected HumanName name;
+
+    /**
+     * A contact detail for the practitioner, e.g. a telephone number or an email address.
+     */
+    protected List<Contact> telecom = new ArrayList<Contact>();
+
+    /**
+     * One or more addresses where the practitioner can be found or visited
+     */
+    protected Address address;
+
+    /**
+     * Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
+     */
+    protected CodeableConcept gender;
+
+    /**
+     * The date and time of birth for the practitioner
+     */
+    protected DateTime birthDate;
+
+    /**
+     * Image of the person
+     */
+    protected List<Attachment> photo = new ArrayList<Attachment>();
 
     /**
      * The organisation that the practitioner represents
@@ -123,16 +148,67 @@ public class Practitioner extends Resource {
      */
     protected List<PractitionerQualificationComponent> qualification = new ArrayList<PractitionerQualificationComponent>();
 
+    /**
+     * A language the practitioner is able to use in patient communication
+     */
+    protected List<CodeableConcept> communication = new ArrayList<CodeableConcept>();
+
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
-    public Demographics getDetails() { 
-      return this.details;
+    public HumanName getName() { 
+      return this.name;
     }
 
-    public void setDetails(Demographics value) { 
-      this.details = value;
+    public void setName(HumanName value) { 
+      this.name = value;
+    }
+
+    public List<Contact> getTelecom() { 
+      return this.telecom;
+    }
+
+    public Address getAddress() { 
+      return this.address;
+    }
+
+    public void setAddress(Address value) { 
+      this.address = value;
+    }
+
+    public CodeableConcept getGender() { 
+      return this.gender;
+    }
+
+    public void setGender(CodeableConcept value) { 
+      this.gender = value;
+    }
+
+    public DateTime getBirthDate() { 
+      return this.birthDate;
+    }
+
+    public void setBirthDate(DateTime value) { 
+      this.birthDate = value;
+    }
+
+    public String getBirthDateSimple() { 
+      return this.birthDate == null ? null : this.birthDate.getValue();
+    }
+
+    public void setBirthDateSimple(String value) { 
+      if (value == null)
+        this.birthDate = null;
+      else {
+        if (this.birthDate == null)
+          this.birthDate = new DateTime();
+        this.birthDate.setValue(value);
+      }
+    }
+
+    public List<Attachment> getPhoto() { 
+      return this.photo;
     }
 
     public ResourceReference getOrganization() { 
@@ -163,12 +239,25 @@ public class Practitioner extends Resource {
       return this.qualification;
     }
 
+    public List<CodeableConcept> getCommunication() { 
+      return this.communication;
+    }
+
       public Practitioner copy() {
         Practitioner dst = new Practitioner();
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());
-        dst.details = details == null ? null : details.copy();
+        dst.name = name == null ? null : name.copy();
+        dst.telecom = new ArrayList<Contact>();
+        for (Contact i : telecom)
+          dst.telecom.add(i.copy());
+        dst.address = address == null ? null : address.copy();
+        dst.gender = gender == null ? null : gender.copy();
+        dst.birthDate = birthDate == null ? null : birthDate.copy();
+        dst.photo = new ArrayList<Attachment>();
+        for (Attachment i : photo)
+          dst.photo.add(i.copy());
         dst.organization = organization == null ? null : organization.copy();
         dst.role = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : role)
@@ -180,6 +269,9 @@ public class Practitioner extends Resource {
         dst.qualification = new ArrayList<PractitionerQualificationComponent>();
         for (PractitionerQualificationComponent i : qualification)
           dst.qualification.add(i.copy(dst));
+        dst.communication = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : communication)
+          dst.communication.add(i.copy());
         return dst;
       }
 

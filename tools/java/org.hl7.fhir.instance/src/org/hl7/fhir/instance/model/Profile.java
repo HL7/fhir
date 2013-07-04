@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
+// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -290,72 +290,6 @@ public class Profile extends Resource {
         return "mapping";
       if (code == ExtensionContext.extension)
         return "extension";
-      return "?";
-      }
-    }
-
-    public enum BindingType {
-        valueset, // The binding name has an associated URL which is a reference to a Value Set Resource that provides a formal definition of the set of possible codes
-        codelist, // The binding name is associated with a simple list of codes, and definitions from some identified code system (SID, URI, OID, UUID). In resource definitions, the system reference may be omitted, and a list of custom codes with definitions supplied (this is for status and workflow fields that applications need to know)
-        reference, // The binding name has an associated URL which refers to some external standard or specification that defines the possible codes
-        special, // The binding points to a list of concepts defined as part of FHIR itself (see below for possible values)
-        unbound, // The binding does not indicae any particular set of codes
-        Null; // added to help the parsers
-        public static BindingType fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("valueset".equals(codeString))
-          return valueset;
-        if ("codelist".equals(codeString))
-          return codelist;
-        if ("reference".equals(codeString))
-          return reference;
-        if ("special".equals(codeString))
-          return special;
-        if ("unbound".equals(codeString))
-          return unbound;
-        throw new Exception("Unknown BindingType code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case valueset: return "valueset";
-            case codelist: return "codelist";
-            case reference: return "reference";
-            case special: return "special";
-            case unbound: return "unbound";
-            default: return "?";
-          }
-        }
-    }
-
-  public class BindingTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("valueset".equals(codeString))
-          return BindingType.valueset;
-        if ("codelist".equals(codeString))
-          return BindingType.codelist;
-        if ("reference".equals(codeString))
-          return BindingType.reference;
-        if ("special".equals(codeString))
-          return BindingType.special;
-        if ("unbound".equals(codeString))
-          return BindingType.unbound;
-        throw new Exception("Unknown BindingType code '"+codeString+"'");
-        }
-    public String toCode(Enum<?> code) throws Exception {
-      if (code == BindingType.valueset)
-        return "valueset";
-      if (code == BindingType.codelist)
-        return "codelist";
-      if (code == BindingType.reference)
-        return "reference";
-      if (code == BindingType.special)
-        return "special";
-      if (code == BindingType.unbound)
-        return "unbound";
       return "?";
       }
     }
@@ -1623,16 +1557,6 @@ public class Profile extends Resource {
         protected String_ name;
 
         /**
-         * Describes the intended use of this particular set of codes
-         */
-        protected String_ definition;
-
-        /**
-         * Identifies how the set of codes for this binding is being defined
-         */
-        protected Enumeration<BindingType> type;
-
-        /**
          * If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone
          */
         protected Boolean isExtensible;
@@ -1641,6 +1565,11 @@ public class Profile extends Resource {
          * Indicates the degree of conformance expectations associated with this binding
          */
         protected Enumeration<BindingConformance> conformance;
+
+        /**
+         * Describes the intended use of this particular set of codes
+         */
+        protected String_ description;
 
         /**
          * Points to the value set or external definition that identifies the set of codes to be used
@@ -1663,46 +1592,6 @@ public class Profile extends Resource {
             if (this.name == null)
               this.name = new String_();
             this.name.setValue(value);
-        }
-
-        public String_ getDefinition() { 
-          return this.definition;
-        }
-
-        public void setDefinition(String_ value) { 
-          this.definition = value;
-        }
-
-        public String getDefinitionSimple() { 
-          return this.definition == null ? null : this.definition.getValue();
-        }
-
-        public void setDefinitionSimple(String value) { 
-          if (value == null)
-            this.definition = null;
-          else {
-            if (this.definition == null)
-              this.definition = new String_();
-            this.definition.setValue(value);
-          }
-        }
-
-        public Enumeration<BindingType> getType() { 
-          return this.type;
-        }
-
-        public void setType(Enumeration<BindingType> value) { 
-          this.type = value;
-        }
-
-        public BindingType getTypeSimple() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        public void setTypeSimple(BindingType value) { 
-            if (this.type == null)
-              this.type = new Enumeration<BindingType>();
-            this.type.setValue(value);
         }
 
         public Boolean getIsExtensible() { 
@@ -1749,6 +1638,28 @@ public class Profile extends Resource {
           }
         }
 
+        public String_ getDescription() { 
+          return this.description;
+        }
+
+        public void setDescription(String_ value) { 
+          this.description = value;
+        }
+
+        public String getDescriptionSimple() { 
+          return this.description == null ? null : this.description.getValue();
+        }
+
+        public void setDescriptionSimple(String value) { 
+          if (value == null)
+            this.description = null;
+          else {
+            if (this.description == null)
+              this.description = new String_();
+            this.description.setValue(value);
+          }
+        }
+
         public Type getReference() { 
           return this.reference;
         }
@@ -1760,10 +1671,9 @@ public class Profile extends Resource {
       public ProfileBindingComponent copy(Profile e) {
         ProfileBindingComponent dst = e.new ProfileBindingComponent();
         dst.name = name == null ? null : name.copy();
-        dst.definition = definition == null ? null : definition.copy();
-        dst.type = type == null ? null : type.copy();
         dst.isExtensible = isExtensible == null ? null : isExtensible.copy();
         dst.conformance = conformance == null ? null : conformance.copy();
+        dst.description = description == null ? null : description.copy();
         dst.reference = reference == null ? null : reference.copy();
         return dst;
       }

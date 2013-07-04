@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
+// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
 
 import java.util.*;
 
 /**
- * Information about a person that is involved in healthcare, but who is not the target of healthcare, nor has a formal responsibility in the care process
+ * Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process
  */
 public class RelatedPerson extends Resource {
 
@@ -42,6 +42,16 @@ public class RelatedPerson extends Resource {
      * Identifier for a person within a particular scope.
      */
     protected List<Identifier> identifier = new ArrayList<Identifier>();
+
+    /**
+     * The patient this person is related to
+     */
+    protected ResourceReference patient;
+
+    /**
+     * The nature of the relationship between a patient and the related person
+     */
+    protected CodeableConcept relationship;
 
     /**
      * A name associated with the person
@@ -59,11 +69,6 @@ public class RelatedPerson extends Resource {
     protected CodeableConcept gender;
 
     /**
-     * Indicates if the Person is deceased or not
-     */
-    protected Boolean deceased;
-
-    /**
      * One or more addresses for the person
      */
     protected Address address;
@@ -75,6 +80,22 @@ public class RelatedPerson extends Resource {
 
     public List<Identifier> getIdentifier() { 
       return this.identifier;
+    }
+
+    public ResourceReference getPatient() { 
+      return this.patient;
+    }
+
+    public void setPatient(ResourceReference value) { 
+      this.patient = value;
+    }
+
+    public CodeableConcept getRelationship() { 
+      return this.relationship;
+    }
+
+    public void setRelationship(CodeableConcept value) { 
+      this.relationship = value;
     }
 
     public HumanName getName() { 
@@ -97,28 +118,6 @@ public class RelatedPerson extends Resource {
       this.gender = value;
     }
 
-    public Boolean getDeceased() { 
-      return this.deceased;
-    }
-
-    public void setDeceased(Boolean value) { 
-      this.deceased = value;
-    }
-
-    public boolean getDeceasedSimple() { 
-      return this.deceased == null ? null : this.deceased.getValue();
-    }
-
-    public void setDeceasedSimple(boolean value) { 
-      if (value == false)
-        this.deceased = null;
-      else {
-        if (this.deceased == null)
-          this.deceased = new Boolean();
-        this.deceased.setValue(value);
-      }
-    }
-
     public Address getAddress() { 
       return this.address;
     }
@@ -136,12 +135,13 @@ public class RelatedPerson extends Resource {
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());
+        dst.patient = patient == null ? null : patient.copy();
+        dst.relationship = relationship == null ? null : relationship.copy();
         dst.name = name == null ? null : name.copy();
         dst.telecom = new ArrayList<Contact>();
         for (Contact i : telecom)
           dst.telecom.add(i.copy());
         dst.gender = gender == null ? null : gender.copy();
-        dst.deceased = deceased == null ? null : deceased.copy();
         dst.address = address == null ? null : address.copy();
         dst.photo = new ArrayList<Attachment>();
         for (Attachment i : photo)

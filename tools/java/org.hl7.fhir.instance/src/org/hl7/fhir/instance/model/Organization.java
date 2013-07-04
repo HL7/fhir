@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
+// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -38,11 +38,11 @@ import java.util.*;
  */
 public class Organization extends Resource {
 
-    public class OrganizationContactEntityComponent extends Element {
+    public class OrganizationContactComponent extends Element {
         /**
          * Indicates a purpose for which the contact can be reached
          */
-        protected CodeableConcept type;
+        protected CodeableConcept purpose;
 
         /**
          * A name associated with the contact
@@ -59,12 +59,17 @@ public class Organization extends Resource {
          */
         protected Address address;
 
-        public CodeableConcept getType() { 
-          return this.type;
+        /**
+         * Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
+         */
+        protected CodeableConcept gender;
+
+        public CodeableConcept getPurpose() { 
+          return this.purpose;
         }
 
-        public void setType(CodeableConcept value) { 
-          this.type = value;
+        public void setPurpose(CodeableConcept value) { 
+          this.purpose = value;
         }
 
         public HumanName getName() { 
@@ -87,14 +92,23 @@ public class Organization extends Resource {
           this.address = value;
         }
 
-      public OrganizationContactEntityComponent copy(Organization e) {
-        OrganizationContactEntityComponent dst = e.new OrganizationContactEntityComponent();
-        dst.type = type == null ? null : type.copy();
+        public CodeableConcept getGender() { 
+          return this.gender;
+        }
+
+        public void setGender(CodeableConcept value) { 
+          this.gender = value;
+        }
+
+      public OrganizationContactComponent copy(Organization e) {
+        OrganizationContactComponent dst = e.new OrganizationContactComponent();
+        dst.purpose = purpose == null ? null : purpose.copy();
         dst.name = name == null ? null : name.copy();
         dst.telecom = new ArrayList<Contact>();
         for (Contact i : telecom)
           dst.telecom.add(i.copy());
         dst.address = address == null ? null : address.copy();
+        dst.gender = gender == null ? null : gender.copy();
         return dst;
       }
 
@@ -133,7 +147,7 @@ public class Organization extends Resource {
     /**
      * Contact for the organization for a certain purpose
      */
-    protected List<OrganizationContactEntityComponent> contactEntity = new ArrayList<OrganizationContactEntityComponent>();
+    protected List<OrganizationContactComponent> contact = new ArrayList<OrganizationContactComponent>();
 
     /**
      * Whether the organization's record is still in active use
@@ -190,8 +204,8 @@ public class Organization extends Resource {
       this.partOf = value;
     }
 
-    public List<OrganizationContactEntityComponent> getContactEntity() { 
-      return this.contactEntity;
+    public List<OrganizationContactComponent> getContact() { 
+      return this.contact;
     }
 
     public Boolean getActive() { 
@@ -230,9 +244,9 @@ public class Organization extends Resource {
         for (Address i : address)
           dst.address.add(i.copy());
         dst.partOf = partOf == null ? null : partOf.copy();
-        dst.contactEntity = new ArrayList<OrganizationContactEntityComponent>();
-        for (OrganizationContactEntityComponent i : contactEntity)
-          dst.contactEntity.add(i.copy(dst));
+        dst.contact = new ArrayList<OrganizationContactComponent>();
+        for (OrganizationContactComponent i : contact)
+          dst.contact.add(i.copy(dst));
         dst.active = active == null ? null : active.copy();
         return dst;
       }

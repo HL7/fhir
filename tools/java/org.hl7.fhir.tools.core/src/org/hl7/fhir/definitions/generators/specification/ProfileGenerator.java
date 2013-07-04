@@ -33,6 +33,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
+import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingExtensibility;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -51,7 +52,6 @@ import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.BindingConformance;
-import org.hl7.fhir.instance.model.Profile.BindingType;
 import org.hl7.fhir.instance.model.Profile.ConstraintSeverity;
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionComponent;
@@ -179,11 +179,12 @@ public class ProfileGenerator {
   private ProfileBindingComponent generateBinding(BindingSpecification src, Profile p) throws Exception {
     ProfileBindingComponent dst = p.new ProfileBindingComponent();
     dst.setName(Factory.newString_(src.getName()));
-    dst.setDefinition(Factory.newString_(src.getDefinition()));
-    dst.setTypeSimple(convert(src.getBinding()));
     dst.setConformanceSimple(convert(src.getBindingStrength()));
-    dst.setReference(buildReference(src));    
     dst.setIsExtensibleSimple(src.getExtensibility() == BindingExtensibility.Extensible);
+    if (src.getBinding() == Binding.Unbound)
+      dst.setDescription(Factory.newString_(src.getDefinition()));
+    else
+      dst.setReference(buildReference(src));    
     return dst;
   }
 
@@ -204,10 +205,12 @@ public class ProfileGenerator {
         else
           return Factory.makeResourceReference("ValueSet", "http://hl7.org/fhir/vs/"+src.getReference());
       else
-        return null;
+        return null; // throw new Exception("not done yet");
     case Reference: return Factory.newUri(src.getReference());
-    case Special: return null;
-    default: return null;
+    case Special: 
+      return Factory.makeResourceReference("ValueSet", "http://hl7.org/fhir/"+src.getReference().substring(1));
+    default: 
+      throw new Exception("not done yet");
     }
   }
 
@@ -223,21 +226,6 @@ public class ProfileGenerator {
     if (bindingStrength == org.hl7.fhir.definitions.model.BindingSpecification.BindingStrength.Unstated)
       return null;
     throw new Exception("unknown value BindingStrength."+bindingStrength.toString());
-  }
-
-  private BindingType convert(org.hl7.fhir.definitions.model.BindingSpecification.Binding binding) throws Exception {
-    if (binding == org.hl7.fhir.definitions.model.BindingSpecification.Binding.CodeList)
-      return BindingType.codelist;
-    if (binding == org.hl7.fhir.definitions.model.BindingSpecification.Binding.Reference)
-      return BindingType.reference;
-    if (binding == org.hl7.fhir.definitions.model.BindingSpecification.Binding.Special)
-      return BindingType.special;
-    if (binding == org.hl7.fhir.definitions.model.BindingSpecification.Binding.ValueSet)
-      return BindingType.valueset;
-    if (binding == org.hl7.fhir.definitions.model.BindingSpecification.Binding.Unbound)
-      return BindingType.unbound;
-
-    throw new Exception("unknown value Binding."+binding.toString());
   }
 
   private ProfileExtensionDefnComponent generateExtensionDefn(ExtensionDefn src, Profile p) throws Exception {

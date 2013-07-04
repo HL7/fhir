@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
+// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -2709,10 +2709,10 @@ public class JsonComposer extends JsonComposerBase {
         closeArray();
       };
       composeResourceReference("partOf", element.getPartOf());
-      if (element.getContactEntity().size() > 0) {
-        openArray("contactEntity");
-        for (Organization.OrganizationContactEntityComponent e : element.getContactEntity()) 
-          composeOrganizationOrganizationContactEntityComponent(null, e);
+      if (element.getContact().size() > 0) {
+        openArray("contact");
+        for (Organization.OrganizationContactComponent e : element.getContact()) 
+          composeOrganizationOrganizationContactComponent(null, e);
         closeArray();
       };
       composeBoolean("active", element.getActive());
@@ -2720,11 +2720,11 @@ public class JsonComposer extends JsonComposerBase {
     }
   }
 
-  private void composeOrganizationOrganizationContactEntityComponent(String name, Organization.OrganizationContactEntityComponent element) throws Exception {
+  private void composeOrganizationOrganizationContactComponent(String name, Organization.OrganizationContactComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeElement(element);
-      composeCodeableConcept("type", element.getType());
+      composeCodeableConcept("purpose", element.getPurpose());
       composeHumanName("name", element.getName());
       if (element.getTelecom().size() > 0) {
         openArray("telecom");
@@ -2733,6 +2733,7 @@ public class JsonComposer extends JsonComposerBase {
         closeArray();
       };
       composeAddress("address", element.getAddress());
+      composeCodeableConcept("gender", element.getGender());
       close();
     }
   }
@@ -2747,7 +2748,35 @@ public class JsonComposer extends JsonComposerBase {
           composeIdentifier(null, e);
         closeArray();
       };
-      composeDemographics("details", element.getDetails());
+      if (element.getName().size() > 0) {
+        openArray("name");
+        for (HumanName e : element.getName()) 
+          composeHumanName(null, e);
+        closeArray();
+      };
+      if (element.getTelecom().size() > 0) {
+        openArray("telecom");
+        for (Contact e : element.getTelecom()) 
+          composeContact(null, e);
+        closeArray();
+      };
+      composeCodeableConcept("gender", element.getGender());
+      composeDateTime("birthDate", element.getBirthDate());
+      composeType("deceased", element.getDeceased());
+      if (element.getAddress().size() > 0) {
+        openArray("address");
+        for (Address e : element.getAddress()) 
+          composeAddress(null, e);
+        closeArray();
+      };
+      composeCodeableConcept("maritalStatus", element.getMaritalStatus());
+      composeType("multipleBirth", element.getMultipleBirth());
+      if (element.getPhoto().size() > 0) {
+        openArray("photo");
+        for (Attachment e : element.getPhoto()) 
+          composeAttachment(null, e);
+        closeArray();
+      };
       if (element.getContact().size() > 0) {
         openArray("contact");
         for (Patient.ContactComponent e : element.getContact()) 
@@ -2755,9 +2784,13 @@ public class JsonComposer extends JsonComposerBase {
         closeArray();
       };
       composePatientAnimalComponent("animal", element.getAnimal());
+      if (element.getCommunication().size() > 0) {
+        openArray("communication");
+        for (Patient.PatientCommunicationComponent e : element.getCommunication()) 
+          composePatientPatientCommunicationComponent(null, e);
+        closeArray();
+      };
       composeResourceReference("provider", element.getProvider());
-      composeType("multipleBirth", element.getMultipleBirth());
-      composeDateTime("deceasedDate", element.getDeceasedDate());
       if (element.getLink().size() > 0) {
         openArray("link");
         for (ResourceReference e : element.getLink()) 
@@ -2779,7 +2812,15 @@ public class JsonComposer extends JsonComposerBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
-      composeDemographics("details", element.getDetails());
+      composeHumanName("name", element.getName());
+      if (element.getTelecom().size() > 0) {
+        openArray("telecom");
+        for (Contact e : element.getTelecom()) 
+          composeContact(null, e);
+        closeArray();
+      };
+      composeAddress("address", element.getAddress());
+      composeCodeableConcept("gender", element.getGender());
       composeResourceReference("organization", element.getOrganization());
       close();
     }
@@ -2792,6 +2833,23 @@ public class JsonComposer extends JsonComposerBase {
       composeCodeableConcept("species", element.getSpecies());
       composeCodeableConcept("breed", element.getBreed());
       composeCodeableConcept("genderStatus", element.getGenderStatus());
+      close();
+    }
+  }
+
+  private void composePatientPatientCommunicationComponent(String name, Patient.PatientCommunicationComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeCodeableConcept("language", element.getLanguage());
+      if (element.getMode().size() > 0) {
+        openArray("mode");
+        for (CodeableConcept e : element.getMode()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      composeCodeableConcept("proficiencyLevel", element.getProficiencyLevel());
+      composeBoolean("preference", element.getPreference());
       close();
     }
   }
@@ -2833,7 +2891,22 @@ public class JsonComposer extends JsonComposerBase {
           composeIdentifier(null, e);
         closeArray();
       };
-      composeDemographics("details", element.getDetails());
+      composeHumanName("name", element.getName());
+      if (element.getTelecom().size() > 0) {
+        openArray("telecom");
+        for (Contact e : element.getTelecom()) 
+          composeContact(null, e);
+        closeArray();
+      };
+      composeAddress("address", element.getAddress());
+      composeCodeableConcept("gender", element.getGender());
+      composeDateTime("birthDate", element.getBirthDate());
+      if (element.getPhoto().size() > 0) {
+        openArray("photo");
+        for (Attachment e : element.getPhoto()) 
+          composeAttachment(null, e);
+        closeArray();
+      };
       composeResourceReference("organization", element.getOrganization());
       if (element.getRole().size() > 0) {
         openArray("role");
@@ -2852,6 +2925,12 @@ public class JsonComposer extends JsonComposerBase {
         openArray("qualification");
         for (Practitioner.PractitionerQualificationComponent e : element.getQualification()) 
           composePractitionerPractitionerQualificationComponent(null, e);
+        closeArray();
+      };
+      if (element.getCommunication().size() > 0) {
+        openArray("communication");
+        for (CodeableConcept e : element.getCommunication()) 
+          composeCodeableConcept(null, e);
         closeArray();
       };
       close();
@@ -3160,12 +3239,10 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeElement(element);
       composeString("name", element.getName());
-      composeString("definition", element.getDefinition());
-      if (element.getType() != null)
-        composeEnumeration("type", element.getType(), new Profile().new BindingTypeEnumFactory());
       composeBoolean("isExtensible", element.getIsExtensible());
       if (element.getConformance() != null)
         composeEnumeration("conformance", element.getConformance(), new Profile().new BindingConformanceEnumFactory());
+      composeString("description", element.getDescription());
       composeType("reference", element.getReference());
       close();
     }
@@ -3341,49 +3418,87 @@ public class JsonComposer extends JsonComposerBase {
       composeCodeableConcept("name", element.getName());
       composeIdentifier("identifier", element.getIdentifier());
       composeResourceReference("visit", element.getVisit());
-      if (element.getAnswer().size() > 0) {
-        openArray("answer");
-        for (Questionnaire.AnswerComponent e : element.getAnswer()) 
-          composeQuestionnaireAnswerComponent(null, e);
+      if (element.getQuestion().size() > 0) {
+        openArray("question");
+        for (Questionnaire.QuestionComponent e : element.getQuestion()) 
+          composeQuestionnaireQuestionComponent(null, e);
         closeArray();
       };
-      if (element.getSection().size() > 0) {
-        openArray("section");
-        for (Questionnaire.SectionComponent e : element.getSection()) 
-          composeQuestionnaireSectionComponent(null, e);
+      if (element.getGroup().size() > 0) {
+        openArray("group");
+        for (Questionnaire.GroupComponent e : element.getGroup()) 
+          composeQuestionnaireGroupComponent(null, e);
         closeArray();
       };
       close();
     }
   }
 
-  private void composeQuestionnaireAnswerComponent(String name, Questionnaire.AnswerComponent element) throws Exception {
+  private void composeQuestionnaireQuestionComponent(String name, Questionnaire.QuestionComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeElement(element);
       composeCodeableConcept("name", element.getName());
-      composeType("value", element.getValue());
-      composeResourceReference("evidence", element.getEvidence());
+      composeString("text", element.getText());
+      composeType("answer", element.getAnswer());
+      composeQuestionnaireQuestionChoiceComponent("choice", element.getChoice());
+      composeType("data", element.getData());
       composeString("remarks", element.getRemarks());
       close();
     }
   }
 
-  private void composeQuestionnaireSectionComponent(String name, Questionnaire.SectionComponent element) throws Exception {
+  private void composeQuestionnaireQuestionChoiceComponent(String name, Questionnaire.QuestionChoiceComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      if (element.getCode().size() > 0) {
+        openArray("code");
+        for (Coding e : element.getCode()) 
+          composeCoding(null, e);
+        closeArray();
+      };
+      composeString("other", element.getOther());
+      if (element.getOption().size() > 0) {
+        openArray("option");
+        for (Questionnaire.QuestionChoiceOptionComponent e : element.getOption()) 
+          composeQuestionnaireQuestionChoiceOptionComponent(null, e);
+        closeArray();
+      };
+      composeBoolean("isOrdered", element.getIsOrdered());
+      close();
+    }
+  }
+
+  private void composeQuestionnaireQuestionChoiceOptionComponent(String name, Questionnaire.QuestionChoiceOptionComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeCoding("code", element.getCode());
+      composeString("text", element.getText());
+      close();
+    }
+  }
+
+  private void composeQuestionnaireGroupComponent(String name, Questionnaire.GroupComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeElement(element);
       composeCodeableConcept("name", element.getName());
-      if (element.getAnswer().size() > 0) {
-        openArray("answer");
-        for (Questionnaire.AnswerComponent e : element.getAnswer()) 
-          composeQuestionnaireAnswerComponent(null, e);
+      composeString("header", element.getHeader());
+      composeString("text", element.getText());
+      composeBoolean("repeats", element.getRepeats());
+      composeResourceReference("subject", element.getSubject());
+      if (element.getQuestion().size() > 0) {
+        openArray("question");
+        for (Questionnaire.QuestionComponent e : element.getQuestion()) 
+          composeQuestionnaireQuestionComponent(null, e);
         closeArray();
       };
-      if (element.getSection().size() > 0) {
-        openArray("section");
-        for (Questionnaire.SectionComponent e : element.getSection()) 
-          composeQuestionnaireSectionComponent(null, e);
+      if (element.getGroup().size() > 0) {
+        openArray("group");
+        for (Questionnaire.GroupComponent e : element.getGroup()) 
+          composeQuestionnaireGroupComponent(null, e);
         closeArray();
       };
       close();
@@ -3400,6 +3515,8 @@ public class JsonComposer extends JsonComposerBase {
           composeIdentifier(null, e);
         closeArray();
       };
+      composeResourceReference("patient", element.getPatient());
+      composeCodeableConcept("relationship", element.getRelationship());
       composeHumanName("name", element.getName());
       if (element.getTelecom().size() > 0) {
         openArray("telecom");
@@ -3408,7 +3525,6 @@ public class JsonComposer extends JsonComposerBase {
         closeArray();
       };
       composeCodeableConcept("gender", element.getGender());
-      composeBoolean("deceased", element.getDeceased());
       composeAddress("address", element.getAddress());
       if (element.getPhoto().size() > 0) {
         openArray("photo");

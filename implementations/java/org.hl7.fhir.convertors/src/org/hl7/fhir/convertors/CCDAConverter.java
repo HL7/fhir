@@ -26,6 +26,7 @@ import org.hl7.fhir.instance.model.List_;
 import org.hl7.fhir.instance.model.List_.ListEntryComponent;
 import org.hl7.fhir.instance.model.Organization;
 import org.hl7.fhir.instance.model.Patient;
+import org.hl7.fhir.instance.model.Patient.PatientCommunicationComponent;
 import org.hl7.fhir.instance.model.Practitioner;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceFactory;
@@ -132,36 +133,36 @@ public class CCDAConverter {
 		for (Element e : cda.getChildren(pr, "id"))
 			pat.getIdentifier().add(convert.makeIdentifierFromII(e));
 
-		pat.setDetails(new Demographics());
 		for (Element e : cda.getChildren(pr, "addr"))
-			pat.getDetails().getAddress().add(convert.makeAddressFromAD(e));
+			pat.getAddress().add(convert.makeAddressFromAD(e));
 		for (Element e : cda.getChildren(pr, "telecom"))
-			pat.getDetails().getTelecom().add(convert.makeContactFromTEL(e));
+			pat.getTelecom().add(convert.makeContactFromTEL(e));
 		for (Element e : cda.getChildren(p, "name"))
-			pat.getDetails().getName().add(convert.makeNameFromEN(e));
-		pat.getDetails().setGender(convert.makeCodeableConceptFromCD(cda.getChild(p, "administrativeGenderCode")));
-		pat.getDetails().setBirthDate(convert.makeDateTimeFromTS(cda.getChild(p, "birthTime")));
-		pat.getDetails().setMaritalStatus(convert.makeCodeableConceptFromCD(cda.getChild(p, "maritalStatusCode")));
-		pat.getDetails().getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/religious-affiliation", convert.makeCodeableConceptFromCD(cda.getChild(p, "religiousAffiliationCode")), false));
-		pat.getDetails().getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/race", convert.makeCodeableConceptFromCD(cda.getChild(p, "raceCode")), false));
-		pat.getDetails().getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/ethnic-group", convert.makeCodeableConceptFromCD(cda.getChild(p, "ethnicGroupCode")), false));
-		pat.getDetails().getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/birthplace", convert.makeAddressFromAD(cda.getChild(p, new String[] {"birthplace", "place", "addr"})), false));
+			pat.getName().add(convert.makeNameFromEN(e));
+		pat.setGender(convert.makeCodeableConceptFromCD(cda.getChild(p, "administrativeGenderCode")));
+		pat.setBirthDate(convert.makeDateTimeFromTS(cda.getChild(p, "birthTime")));
+		pat.setMaritalStatus(convert.makeCodeableConceptFromCD(cda.getChild(p, "maritalStatusCode")));
+		pat.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/religious-affiliation", convert.makeCodeableConceptFromCD(cda.getChild(p, "religiousAffiliationCode")), false));
+		pat.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/race", convert.makeCodeableConceptFromCD(cda.getChild(p, "raceCode")), false));
+		pat.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/ethnic-group", convert.makeCodeableConceptFromCD(cda.getChild(p, "ethnicGroupCode")), false));
+		pat.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/birthplace", convert.makeAddressFromAD(cda.getChild(p, new String[] {"birthplace", "place", "addr"})), false));
 		
 		Patient.ContactComponent guardian = pat.new ContactComponent();
-		guardian.setDetails(new Demographics());
 		pat.getContact().add(guardian);
 		guardian.getRelationship().add(Factory.newCodeableConcept("GUARD", "urn:oid:2.16.840.1.113883.5.110", "guardian"));
 		Element g = cda.getChild(p, "guardian");
 		for (Element e : cda.getChildren(g, "addr"))
-			guardian.getDetails().getAddress().add(convert.makeAddressFromAD(e));
+			if (guardian.getAddress() == null)
+				guardian.setAddress(convert.makeAddressFromAD(e));
 		for (Element e : cda.getChildren(g, "telecom"))
-			guardian.getDetails().getTelecom().add(convert.makeContactFromTEL(e));
+			guardian.getTelecom().add(convert.makeContactFromTEL(e));
 		g = cda.getChild(g, "guardianPerson");
 		for (Element e : cda.getChildren(g, "name"))
-			guardian.getDetails().getName().add(convert.makeNameFromEN(e));
+			if (guardian.getName() == null)
+				guardian.setName(convert.makeNameFromEN(e));
 
-	  DemographicsLanguageComponent lang = pat.getDetails().new DemographicsLanguageComponent();
-	  pat.getDetails().getLanguage().add(lang);
+		PatientCommunicationComponent lang = pat.new PatientCommunicationComponent();
+	  pat.getCommunication().add(lang);
 	  Element l = cda.getChild(p, "languageCommunication");
 	  CodeableConcept cc = new CodeableConcept();
 	  Coding c = new Coding();
@@ -171,7 +172,7 @@ public class CCDAConverter {
 
 		// todo: this got broken.... lang.setMode(convert.makeCodeableConceptFromCD(cda.getChild(l, "modeCode")));
 		lang.setProficiencyLevel(convert.makeCodeableConceptFromCD(cda.getChild(l, "modeCode")));
-		pat.getDetails().getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/religious-affiliation", convert.makeCodeableConceptFromCD(cda.getChild(p, "religiousAffiliationCode")), false));
+		pat.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/religious-affiliation", convert.makeCodeableConceptFromCD(cda.getChild(p, "religiousAffiliationCode")), false));
 		pat.setProvider(Factory.makeResourceReference("Organization", makeOrganization(cda.getChild(pr, "providerOrganization"), "Provider")));
 		return addResource(pat, "Subject", UUID.randomUUID().toString());
 	}
@@ -198,13 +199,14 @@ public class CCDAConverter {
 		Practitioner  pr = (Practitioner) ResourceFactory.createResource("Practitioner");
 		for (Element e : cda.getChildren(aa, "id"))
 			pr.getIdentifier().add(convert.makeIdentifierFromII(e));
-		pr.setDetails(new Demographics());
 		for (Element e : cda.getChildren(aa, "addr"))
-			pr.getDetails().getAddress().add(convert.makeAddressFromAD(e));
+			if (pr.getAddress() == null)
+				pr.setAddress(convert.makeAddressFromAD(e));
 		for (Element e : cda.getChildren(aa, "telecom"))
-			pr.getDetails().getTelecom().add(convert.makeContactFromTEL(e));
+			pr.getTelecom().add(convert.makeContactFromTEL(e));
 		for (Element e : cda.getChildren(ap, "name"))
-			pr.getDetails().getName().add(convert.makeNameFromEN(e));
+			if (pr.getName() != null)
+				pr.setName(convert.makeNameFromEN(e));
 
 	  return addResource(pr, "Author", UUID.randomUUID().toString());
 	}
@@ -215,14 +217,15 @@ public class CCDAConverter {
 		Element ass = cda.getChild(a1, "assignedEntity");
 		for (Element e : cda.getChildren(ass, "id"))
 			pr.getIdentifier().add(convert.makeIdentifierFromII(e));
-		pr.setDetails(new Demographics());
 		for (Element e : cda.getChildren(ass, "addr"))
-			pr.getDetails().getAddress().add(convert.makeAddressFromAD(e));
+			if (pr.getAddress() == null) // just take the first
+				pr.setAddress(convert.makeAddressFromAD(e));
 		for (Element e : cda.getChildren(ass, "telecom"))
-			pr.getDetails().getTelecom().add(convert.makeContactFromTEL(e));
+			pr.getTelecom().add(convert.makeContactFromTEL(e));
 		Element ap = cda.getChild(ass, "assignedPerson");
 		for (Element e : cda.getChildren(ap, "name"))
-			pr.getDetails().getName().add(convert.makeNameFromEN(e));
+			if (pr.getName() == null) // just take the first
+  			pr.setName(convert.makeNameFromEN(e));
 		
 
 		DocumentAttesterComponent att = document.new DocumentAttesterComponent();

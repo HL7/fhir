@@ -20,6 +20,7 @@
   <WindowWidth>2910</WindowWidth>
   <WindowTopX>12450</WindowTopX>
   <WindowTopY>1815</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -101,10 +102,9 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="71" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="70" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="297.75"/>
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="36.75"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="32.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="53.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="36"/>
@@ -113,15 +113,14 @@
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="39.75"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="34.5"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="12" ss:StyleID="s63" ss:Width="49.5"/>
+   <Column ss:Index="11" ss:StyleID="s63" ss:Width="49.5"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="161.25" ss:Span="1"/>
-   <Column ss:Index="15" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135"
+   <Column ss:Index="14" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135"
     ss:Span="1"/>
-   <Column ss:Index="17" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="171.75"/>
+   <Column ss:Index="16" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="171.75"/>
    <Column ss:StyleID="s63" ss:Width="131.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Element</Data></Cell>
-    <Cell><Data ss:Type="String">Inv</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Inv.</Data></Cell>
     <Cell><Data ss:Type="String">Is Modifier</Data></Cell>
@@ -141,26 +140,25 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Resource Profile</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Resource Profile</Data></Cell>
     <Cell><Data ss:Type="String">A Resource Profile - a statement of use of one or more FHIR Resources.  It may include constraints on Resources and Data Types, Terminology Binding Statements and Extension Definitions</Data></Cell>
     <Cell><Data ss:Type="String">Template</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Often called a clinical template</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Often called a clinical template</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.identifier</Data></Cell>
-    <Cell ss:StyleID="s64"/>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="Default"/>
+    <Cell ss:Index="7" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Logical id to reference this profile</Data></Cell>
     <Cell><Data ss:Type="String">The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI)</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="14"><Data ss:Type="String">N/A</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">N/A</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -168,12 +166,11 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.version</Data></Cell>
-    <Cell ss:StyleID="s64"/>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="Default"/>
+    <Cell ss:Index="7" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Logical id for this version of the profile</Data></Cell>
     <Cell><Data ss:Type="String">The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp</Data></Cell>
@@ -187,146 +184,146 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Profile.name</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Informal name for this profile</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Informal name for this profile</Data></Cell>
     <Cell><Data ss:Type="String">A free text natural language name identifying the Profile</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Not expected to be globally unique</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Not expected to be globally unique</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.publisher</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Name of the publisher (Organization or individual)</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Name of the publisher (Organization or individual)</Data></Cell>
     <Cell><Data ss:Type="String">Details of the individual or organization who accepts responsibility for publishing the profile</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">Helps establish the &quot;authority/credibility&quot; of the profile.  May also allow for contact</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Helps establish the &quot;authority/credibility&quot; of the profile.  May also allow for contact</Data></Cell>
     <Cell><Data ss:Type="String">Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.telecom</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Contact</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Contact information of the publisher</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Contact</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Contact information of the publisher</Data></Cell>
     <Cell><Data ss:Type="String">Contact details to assist a user in finding and communicating with the publisher</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">May be a web site, an email address, a telephone number (tel:), etc.</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">May be a web site, an email address, a telephone number (tel:), etc.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">Profile.description</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Natural language description of the profile</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Natural language description of the profile</Data></Cell>
     <Cell><Data ss:Type="String">A free text natural language description of the profile and its use</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">This field can be used for things such as why the profile was written, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc.  It is *not* a rendering of the profile as conveyed in Profile.text. This item SHOULD be populated unless the information is available from context.</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">This field can be used for things such as why the profile was written, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc.  It is *not* a rendering of the profile as conveyed in Profile.text. This item SHOULD be populated unless the information is available from context.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.code</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Coding</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Assist with indexing and finding</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Coding</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Assist with indexing and finding</Data></Cell>
     <Cell><Data ss:Type="String">A set of terms from external terminologies that may be used to assist with indexing and searching of templates.</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">Assist in searching for appropriate profiles</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Assist in searching for appropriate profiles</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Profile.status</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">up</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">up</Data></Cell>
     <Cell><Data ss:Type="String">up</Data></Cell>
     <Cell><Data ss:Type="String">Current status</Data></Cell>
     <Cell><Data ss:Type="String">Indicates where the profile exists in its overall life-cycle</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">Allows filtering of profiles that are appropriate for use vs. not</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Allows filtering of profiles that are appropriate for use vs. not</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Profile.status.code</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">ResourceProfileStatus</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">draft | testing | review | production | withdrawn | superseded</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">draft | testing | review | production | withdrawn | superseded</Data></Cell>
     <Cell><Data ss:Type="String">A coded value for the position of the profile within its life-cycle</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Profile.status.date</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Date for given status</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Date for given status</Data></Cell>
     <Cell><Data ss:Type="String">The date that the current value for status was applied to the profile</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Profile.status.comment</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Supplemental status info</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Supplemental status info</Data></Cell>
     <Cell><Data ss:Type="String">Additional commentary related to the profile's status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Profile.import</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">up</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">up</Data></Cell>
     <Cell><Data ss:Type="String">up</Data></Cell>
     <Cell><Data ss:Type="String">External source of extensions and bindings</Data></Cell>
     <Cell><Data ss:Type="String">Other profiles that define extensions and bindings that are used in this profile</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.import.uri</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Profile location</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">uri</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Profile location</Data></Cell>
     <Cell><Data ss:Type="String">The identifier for the profile, ideally the URL it can be retrieved from</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Any resource definitions from these other profiles are not imported</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Any resource definitions from these other profiles are not imported</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.import.prefix</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Short form for referencing</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Short form for referencing</Data></Cell>
     <Cell><Data ss:Type="String">The short label used for display of the profile when uniquely identifying imported extensions</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Profile instances are always conveyed using full URIs - the prefix is solely for use by entry and rendering tools</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Profile instances are always conveyed using full URIs - the prefix is solely for use by entry and rendering tools</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.bundle</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">ResourceType</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">If this describes a bundle, the first resource in the bundle</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">If this describes a bundle, the first resource in the bundle</Data></Cell>
     <Cell><Data ss:Type="String">If this profile describes a bundle, the first resource in the bundle (usually a Message or a Document)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.structure</Data></Cell>
-    <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">left</Data></Cell>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">left</Data></Cell>
     <Cell><Data ss:Type="String">A constraint on a resource or a data type</Data></Cell>
     <Cell><Data ss:Type="String">A constraint statement about what contents a resource or data type may have</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">Consider adding elements to support capturing events</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">Consider adding elements to support capturing events</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Profile.structure.type</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="Number">12</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">FHIRDefinedType</Data></Cell>
     <Cell><Data ss:Type="String">FHIRDefinedType</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">The Resource or Data Type being described</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">The Resource or Data Type being described</Data></Cell>
     <Cell><Data ss:Type="String">The Resource or Data type being described</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:Index="12" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Only complex types can be constrained, not primitive types such as string etc</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:Index="18" ss:StyleID="s68"/>
+    <Cell ss:Index="17" ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.structure.name</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Name for this particular resource profile (internal usage)</Data></Cell>
     <Cell><Data ss:Type="String">The name of this resource constraint statement (to refer to it from other resource constraints)</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:Index="12" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">This field is the target for a resource.profile</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -335,15 +332,15 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Profile.structure.purpose</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Human summary: why describe this resource?</Data></Cell>
     <Cell><Data ss:Type="String">Human summary: why describe this resource?</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:Index="12" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -352,7 +349,6 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.structure.profile</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -362,7 +358,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Resource Profile reference (supplies the constraints)</Data></Cell>
     <Cell><Data ss:Type="String">Reference to a resource profile that includes the constraint statement that applies to this resource</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:Index="12" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -371,7 +367,6 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Profile.structure.element</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -391,15 +386,15 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.structure.element.path</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">The path of the element (see the formal definitions)</Data></Cell>
     <Cell><Data ss:Type="String">The path identifies the element and is expressed as a &quot;.&quot;-separated list of ancestor elements, beginning with the name of the resource</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:Index="12" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -408,8 +403,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell><Data ss:Type="String">Profile.structure.element.name</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -426,25 +421,25 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.structure.element.definition</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=ElementDefinition</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">right</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String" x:Ticked="1">=ElementDefinition</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">right</Data></Cell>
     <Cell><Data ss:Type="String">down</Data></Cell>
     <Cell><Data ss:Type="String">More specific definition of the element </Data></Cell>
     <Cell><Data ss:Type="String">Definition of the content of the element to provide a more specific definition than that contained for the element in the base resource</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">The definition must be a proper constraint on the definition of the base resource</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">The definition must be a proper constraint on the definition of the base resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.short</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Concise definition for xml presentation</Data></Cell>
     <Cell><Data ss:Type="String">A concise definition that  is shown in the concise XML format that summarizes profiles</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:Index="12" ss:StyleID="s68"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">May change the term to provide language more appropriate to the context of the profile or to reflect slicing</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -453,15 +448,15 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.formal</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Formal definition</Data></Cell>
     <Cell><Data ss:Type="String"> The definition must be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">To allow a user to clarify the usage of an element in a particular context</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">To allow a user to clarify the usage of an element in a particular context</Data></Cell>
     <Cell><Data ss:Type="String">It is easy for a different definition to change the meaning of an element and this can have nasty downstream consequences. Please be careful when providing definitions</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -470,15 +465,15 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.comments</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Comments about the use of this element</Data></Cell>
     <Cell><Data ss:Type="String">Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:Index="12" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">If it is possible to capture usage rules using invariants, that mechanism should be used in preference to this element</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -487,15 +482,15 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.requirements</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Why is this needed?</Data></Cell>
     <Cell><Data ss:Type="String">Explains why this element is needed and why it's been constrained as it has</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:Index="12" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -504,15 +499,15 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.synonym</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Other names</Data></Cell>
     <Cell><Data ss:Type="String">Identifies additional names by which this element might also be known</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">Allows for better easier recognition of the element by multiple communities, including international communities</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s68"><Data ss:Type="String">Allows for better easier recognition of the element by multiple communities, including international communities</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -521,8 +516,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.min</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -539,7 +534,6 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.max</Data></Cell>
-    <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -559,10 +553,10 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.type</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String" x:Ticked="1">=TypeRef</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">up</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">up</Data></Cell>
     <Cell><Data ss:Type="String">Type of the element</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">The data type or resource that the value of this element is permitted to be</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -575,14 +569,14 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.type.code</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Data type or Resource</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Data type or Resource</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:Index="14" ss:StyleID="s68"/>
+    <Cell ss:Index="13" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -590,11 +584,11 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.type.profile</Data></Cell>
-    <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Profile to apply</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Profile to apply</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Identifies a profile that must hold for resources or datatypes referenced as the type of this element</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -606,7 +600,6 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.nameReference</Data></Cell>
-    <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -622,7 +615,6 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.value[x]</Data></Cell>
-    <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">2,10</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -638,8 +630,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.maxLength</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -649,25 +641,25 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">If not specified, there is no conformance expectation for length support</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">Need to flesh this out more - leverage v2 approach</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">Need to flesh this out more - leverage v2 approach</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.condition</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">id</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Reference to invariant about presence</Data></Cell>
     <Cell><Data ss:Type="String">A reference to an invariant that may make additional statements about the cardinality in the instance</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:Index="12" ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.constraint</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
-    <Cell ss:Index="7" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
+    <Cell ss:Index="6" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">right</Data></Cell>
     <Cell><Data ss:Type="String">Condition that must evaluate to true</Data></Cell>
@@ -678,8 +670,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.constraint.key</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">id</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -692,12 +684,12 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.constraint.name</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:Index="10"><Data ss:Type="String">Short human label</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Short human label</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Used to label the constraint in OCL or in short displays incapable of displaying the full human description</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -705,8 +697,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.constraint.severity</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">ConstraintSeverity</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -719,8 +711,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.constraint.human</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -733,34 +725,34 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.constraint.xpath</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">XPath expression of constraint</Data></Cell>
     <Cell><Data ss:Type="String">XPath expression of constraint</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">Used in Schematron tests of the validity of the resource</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s68"><Data ss:Type="String">Used in Schematron tests of the validity of the resource</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Elements must use &quot;f&quot; as the namespace prefix and must not use any other prefixes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.constraint.ocl</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">OCL expression of constraint</Data></Cell>
     <Cell><Data ss:Type="String">OCL expression of constraint</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:Index="12" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.mustSupport</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -773,8 +765,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.mustUnderstand</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -787,7 +779,6 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.binding</Data></Cell>
-    <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -803,8 +794,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.mapping</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -817,8 +808,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.mapping.target</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -831,8 +822,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.mapping.map</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -845,7 +836,6 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.structure.element.bundled</Data></Cell>
-    <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -855,13 +845,13 @@
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">If type is Resource, is it in the bundle?</Data></Cell>
     <Cell><Data ss:Type="String">Whether the Resource that is the value for this element is included in the bundle, if the profile is specifying a bundle</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:Index="12" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">If context includes bundling</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell><Data ss:Type="String">!Profile.structure.element.closed</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -874,15 +864,14 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.structure.searchParam</Data></Cell>
-    <Cell ss:StyleID="s63"/>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="8"><Data ss:Type="String">up</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">up</Data></Cell>
     <Cell><Data ss:Type="String">down</Data></Cell>
     <Cell><Data ss:Type="String">Additional search params defined</Data></Cell>
     <Cell><Data ss:Type="String">Defines additional search parameters for implementations to support and/or make use of</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -890,26 +879,24 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.structure.searchParam.name</Data></Cell>
-    <Cell ss:StyleID="s63"/>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="Default"/>
+    <Cell ss:Index="4" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Name of search parameter</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Name of search parameter</Data></Cell>
     <Cell><Data ss:Type="String">Corresponds to the name of the standard or custom search parameter</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Parameter names cannot overlap with standard parameter names, and standard parameters cannot be redefined</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Profile.structure.searchParam.type</Data></Cell>
-    <Cell ss:StyleID="s63"/>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">SearchParamType</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Type of search parameter</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Type of search parameter</Data></Cell>
     <Cell><Data ss:Type="String">The type of value a search parameter refers to, and how the content is interpreted</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -918,23 +905,22 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Profile.structure.searchParam.documentation</Data></Cell>
-    <Cell ss:StyleID="s63"/>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="Default"/>
+    <Cell ss:Index="4" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Contents and meaning of search parameter</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Contents and meaning of search parameter</Data></Cell>
     <Cell><Data ss:Type="String">For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:Index="15"><Data ss:Type="String">N/A</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="Default"/>
+    <Cell ss:Index="14"><Data ss:Type="String">N/A</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Profile.extensionDefn</Data></Cell>
-    <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String" x:Ticked="1"></Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -947,7 +933,6 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.extensionDefn.code</Data></Cell>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -963,8 +948,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Profile.extensionDefn.contextType</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">ExtensionContext</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -977,8 +962,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.extensionDefn.context</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..*</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">1..*</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -991,78 +976,69 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Profile.extensionDefn.definition</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s68"/>
     <Cell ss:StyleID="s65"><Data ss:Type="String" x:Ticked="1">@Profile.structure.element.definition</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Definition of the extension and its content</Data></Cell>
     <Cell><Data ss:Type="String">Definition of the extension and its content</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:Index="12" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.binding</Data></Cell>
-    <Cell><Data ss:Type="Number">12</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">right</Data></Cell>
+    <Cell><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">right</Data></Cell>
     <Cell><Data ss:Type="String">up</Data></Cell>
     <Cell><Data ss:Type="String">Define code sets for coded elements</Data></Cell>
     <Cell><Data ss:Type="String">Defines a linkage between a vocabulary binding name used in the profile (or expected to be used in profile importing this one) and a value set or code list</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Profile.binding.name</Data></Cell>
-    <Cell><Data ss:Type="Number">11</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="Number">11</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Binding name</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Binding name</Data></Cell>
     <Cell><Data ss:Type="String">The name to be associated with this set of codes</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Must be unique within the profile.  If the same name as an imported profile, will override the imported binding (and must be a proper constraint on the imported binding)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Profile.binding.definition</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Human explanation of the binding</Data></Cell>
-    <Cell><Data ss:Type="String">Describes the intended use of this particular set of codes</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Profile.binding.type</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
-    <Cell><Data ss:Type="String">BindingType</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">valueset | codelist | reference | special</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies how the set of codes for this binding is being defined</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Must be unique within the profile.  If the same name as an imported profile, will override the imported binding (and must be a proper constraint on the imported binding)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Profile.binding.isExtensible</Data></Cell>
-    <Cell><Data ss:Type="Number">14</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">boolean</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Can additional codes be used?</Data></Cell>
+    <Cell><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Can additional codes be used?</Data></Cell>
     <Cell><Data ss:Type="String">If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">When the binding use used for elements with a type of &quot;code&quot; (rather than Coding or CodableConcept), the binding is treated as non-extensible regardless of the value of this property</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">When the binding use used for elements with a type of &quot;code&quot; (rather than Coding or CodableConcept), the binding is treated as non-extensible regardless of the value of this property</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Profile.binding.conformance</Data></Cell>
-    <Cell><Data ss:Type="Number">14</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
+    <Cell><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">BindingConformance</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">required | preferred | example</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">required | preferred | example</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the degree of conformance expectations associated with this binding</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">Profile.binding.description</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Human explanation of the binding</Data></Cell>
+    <Cell><Data ss:Type="String">Describes the intended use of this particular set of codes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.binding.reference[x]</Data></Cell>
-    <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">uri | Resource(ValueSet)</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Source of binding content</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">uri | Resource(ValueSet)</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Source of binding content</Data></Cell>
     <Cell><Data ss:Type="String">Points to the value set or external definition that identifies the set of codes to be used</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">For value sets, this should point to a ValueSet resource.  The reference may be version-specific or not</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">For value sets,the referenceResource, the display can contain the value set description.  The reference may be version-specific or not</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1078,11 +1054,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>57</TopRowBottomPane>
+   <TopRowBottomPane>59</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1099,8 +1074,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>58</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>66</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1108,7 +1083,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="14" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="14" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s73" ss:DefaultRowHeight="15">
    <Column ss:Index="3" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="118.5"/>
    <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="309.75"/>
@@ -1136,8 +1111,9 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.binding</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">reference must be present and may only be present if binding type is &quot;reference&quot;, &quot;codelist&quot;, or &quot;valueset&quot;</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">(f:type=('reference', 'valueset', 'codelist')) = exists(f:reference)</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">provide either a reference or a description</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">(exists(f:referenceUri) or exists(f:referenceResource)) or exists(f:description) or exists(f:name)</Data></Cell>
+    <Cell><Data ss:Type="String">remove or :name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">5</Data></Cell>
@@ -1213,11 +1189,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <TopRowVisible>3</TopRowVisible>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
@@ -1326,7 +1302,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="8" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="7" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s76" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s76" ss:Width="112.5"/>
    <Column ss:StyleID="s76" ss:Width="303"/>
@@ -1339,12 +1315,6 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">Binding</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">BindingType</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">How this binding is mapped to a set of codes</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">#binding-type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">BindingConformance</Data></Cell>
@@ -1405,66 +1375,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>3</ActiveCol>
-    </Pane>
-   </Panes>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
- </Worksheet>
- <Worksheet ss:Name="binding-type">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s76" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="86.25"/>
-   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="463.5"/>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String">valueset</Data></Cell>
-    <Cell><Data ss:Type="String">The binding name has an associated URL which is a reference to a Value Set Resource that provides a formal definition of the set of possible codes</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">codelist</Data></Cell>
-    <Cell><Data ss:Type="String">The binding name is associated with a simple list of codes, and definitions from some identified code system (SID, URI, OID, UUID). In resource definitions, the system reference may be omitted, and a list of custom codes with definitions supplied (this is for status and workflow fields that applications need to know)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="String">reference</Data></Cell>
-    <Cell><Data ss:Type="String">The binding name has an associated URL which refers to some external standard or specification that defines the possible codes</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="String">special</Data></Cell>
-    <Cell><Data ss:Type="String">The binding points to a list of concepts defined as part of FHIR itself (see below for possible values)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="String">unbound</Data></Cell>
-    <Cell><Data ss:Type="String">The binding does not indicae any particular set of codes</Data></Cell>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1758,8 +1670,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <RangeSelection>R4C1:R6C6</RangeSelection>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

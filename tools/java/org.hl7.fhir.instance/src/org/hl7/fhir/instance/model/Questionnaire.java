@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
+// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -112,21 +112,31 @@ public class Questionnaire extends Resource {
       }
     }
 
-    public class AnswerComponent extends Element {
+    public class QuestionComponent extends Element {
         /**
-         * Code of the answer, used to relate an answer to a question in the questionnaire and/or the actual question text
+         * Structured name for the question
          */
         protected CodeableConcept name;
 
         /**
-         * The actual answer data
+         * Text of the question as it may appear on screen or on a form
          */
-        protected Type value;
+        protected String_ text;
 
         /**
-         * Data captured from the care process which supports the given answer.
+         * Single-valued answer to the question
          */
-        protected ResourceReference evidence;
+        protected Type answer;
+
+        /**
+         * Answer from a set of choices
+         */
+        protected QuestionChoiceComponent choice;
+
+        /**
+         * Structured answer in the form of a FHIR Resource or datatype
+         */
+        protected org.hl7.fhir.instance.model.Type data;
 
         /**
          * The remark contains information about the answer given. This is additional information about the anwer the author wishes to convey, but should not be used to contain information that is part of the answer itself.
@@ -141,20 +151,50 @@ public class Questionnaire extends Resource {
           this.name = value;
         }
 
-        public Type getValue() { 
-          return this.value;
+        public String_ getText() { 
+          return this.text;
         }
 
-        public void setValue(Type value) { 
-          this.value = value;
+        public void setText(String_ value) { 
+          this.text = value;
         }
 
-        public ResourceReference getEvidence() { 
-          return this.evidence;
+        public String getTextSimple() { 
+          return this.text == null ? null : this.text.getValue();
         }
 
-        public void setEvidence(ResourceReference value) { 
-          this.evidence = value;
+        public void setTextSimple(String value) { 
+          if (value == null)
+            this.text = null;
+          else {
+            if (this.text == null)
+              this.text = new String_();
+            this.text.setValue(value);
+          }
+        }
+
+        public Type getAnswer() { 
+          return this.answer;
+        }
+
+        public void setAnswer(Type value) { 
+          this.answer = value;
+        }
+
+        public QuestionChoiceComponent getChoice() { 
+          return this.choice;
+        }
+
+        public void setChoice(QuestionChoiceComponent value) { 
+          this.choice = value;
+        }
+
+        public org.hl7.fhir.instance.model.Type getData() { 
+          return this.data;
+        }
+
+        public void setData(org.hl7.fhir.instance.model.Type value) { 
+          this.data = value;
         }
 
         public String_ getRemarks() { 
@@ -179,32 +219,192 @@ public class Questionnaire extends Resource {
           }
         }
 
-      public AnswerComponent copy(Questionnaire e) {
-        AnswerComponent dst = e.new AnswerComponent();
+      public QuestionComponent copy(Questionnaire e) {
+        QuestionComponent dst = e.new QuestionComponent();
         dst.name = name == null ? null : name.copy();
-        dst.value = value == null ? null : value.copy();
-        dst.evidence = evidence == null ? null : evidence.copy();
+        dst.text = text == null ? null : text.copy();
+        dst.answer = answer == null ? null : answer.copy();
+        dst.choice = choice == null ? null : choice.copy(e);
+        dst.data = data == null ? null : data.copy();
         dst.remarks = remarks == null ? null : remarks.copy();
         return dst;
       }
 
   }
 
-    public class SectionComponent extends Element {
+    public class QuestionChoiceComponent extends Element {
+        /**
+         * One of more selections from the list of options
+         */
+        protected List<Coding> code = new ArrayList<Coding>();
+
+        /**
+         * Free text option
+         */
+        protected String_ other;
+
+        /**
+         * Possible list of options
+         */
+        protected List<QuestionChoiceOptionComponent> option = new ArrayList<QuestionChoiceOptionComponent>();
+
+        /**
+         * If order of the values has meaning
+         */
+        protected Boolean isOrdered;
+
+        public List<Coding> getCode() { 
+          return this.code;
+        }
+
+        public String_ getOther() { 
+          return this.other;
+        }
+
+        public void setOther(String_ value) { 
+          this.other = value;
+        }
+
+        public String getOtherSimple() { 
+          return this.other == null ? null : this.other.getValue();
+        }
+
+        public void setOtherSimple(String value) { 
+          if (value == null)
+            this.other = null;
+          else {
+            if (this.other == null)
+              this.other = new String_();
+            this.other.setValue(value);
+          }
+        }
+
+        public List<QuestionChoiceOptionComponent> getOption() { 
+          return this.option;
+        }
+
+        public Boolean getIsOrdered() { 
+          return this.isOrdered;
+        }
+
+        public void setIsOrdered(Boolean value) { 
+          this.isOrdered = value;
+        }
+
+        public boolean getIsOrderedSimple() { 
+          return this.isOrdered == null ? null : this.isOrdered.getValue();
+        }
+
+        public void setIsOrderedSimple(boolean value) { 
+          if (value == false)
+            this.isOrdered = null;
+          else {
+            if (this.isOrdered == null)
+              this.isOrdered = new Boolean();
+            this.isOrdered.setValue(value);
+          }
+        }
+
+      public QuestionChoiceComponent copy(Questionnaire e) {
+        QuestionChoiceComponent dst = e.new QuestionChoiceComponent();
+        dst.code = new ArrayList<Coding>();
+        for (Coding i : code)
+          dst.code.add(i.copy());
+        dst.other = other == null ? null : other.copy();
+        dst.option = new ArrayList<QuestionChoiceOptionComponent>();
+        for (QuestionChoiceOptionComponent i : option)
+          dst.option.add(i.copy(e));
+        dst.isOrdered = isOrdered == null ? null : isOrdered.copy();
+        return dst;
+      }
+
+  }
+
+    public class QuestionChoiceOptionComponent extends Element {
+        /**
+         * Code for the option
+         */
+        protected Coding code;
+
+        /**
+         * Display text for the option
+         */
+        protected String_ text;
+
+        public Coding getCode() { 
+          return this.code;
+        }
+
+        public void setCode(Coding value) { 
+          this.code = value;
+        }
+
+        public String_ getText() { 
+          return this.text;
+        }
+
+        public void setText(String_ value) { 
+          this.text = value;
+        }
+
+        public String getTextSimple() { 
+          return this.text == null ? null : this.text.getValue();
+        }
+
+        public void setTextSimple(String value) { 
+          if (value == null)
+            this.text = null;
+          else {
+            if (this.text == null)
+              this.text = new String_();
+            this.text.setValue(value);
+          }
+        }
+
+      public QuestionChoiceOptionComponent copy(Questionnaire e) {
+        QuestionChoiceOptionComponent dst = e.new QuestionChoiceOptionComponent();
+        dst.code = code == null ? null : code.copy();
+        dst.text = text == null ? null : text.copy();
+        return dst;
+      }
+
+  }
+
+    public class GroupComponent extends Element {
         /**
          * Structured name for a section of a predefined list of questions this questionnaire is responding to.
          */
         protected CodeableConcept name;
 
         /**
-         * Answers to questions on a section of a questionnaire
+         * Header for the group, used for display purposes
          */
-        protected List<AnswerComponent> answer = new ArrayList<AnswerComponent>();
+        protected String_ header;
 
         /**
-         * A sub-section within a section in a questionnaire
+         * Additional text for the group, used for display purposes
          */
-        protected List<SectionComponent> section = new ArrayList<SectionComponent>();
+        protected String_ text;
+
+        /**
+         * Whether the group may occur multiple times in the instance, containing multiple sets of answers
+         */
+        protected Boolean repeats;
+
+        /**
+         * More specific subject this section's answers are about, details the subject given in Questionnaire
+         */
+        protected ResourceReference subject;
+
+        /**
+         * Set of questions within this group
+         */
+        protected List<QuestionComponent> question = new ArrayList<QuestionComponent>();
+
+        /**
+         * A sub-group within a group
+         */
+        protected List<GroupComponent> group = new ArrayList<GroupComponent>();
 
         public CodeableConcept getName() { 
           return this.name;
@@ -214,23 +414,101 @@ public class Questionnaire extends Resource {
           this.name = value;
         }
 
-        public List<AnswerComponent> getAnswer() { 
-          return this.answer;
+        public String_ getHeader() { 
+          return this.header;
         }
 
-        public List<SectionComponent> getSection() { 
-          return this.section;
+        public void setHeader(String_ value) { 
+          this.header = value;
         }
 
-      public SectionComponent copy(Questionnaire e) {
-        SectionComponent dst = e.new SectionComponent();
+        public String getHeaderSimple() { 
+          return this.header == null ? null : this.header.getValue();
+        }
+
+        public void setHeaderSimple(String value) { 
+          if (value == null)
+            this.header = null;
+          else {
+            if (this.header == null)
+              this.header = new String_();
+            this.header.setValue(value);
+          }
+        }
+
+        public String_ getText() { 
+          return this.text;
+        }
+
+        public void setText(String_ value) { 
+          this.text = value;
+        }
+
+        public String getTextSimple() { 
+          return this.text == null ? null : this.text.getValue();
+        }
+
+        public void setTextSimple(String value) { 
+          if (value == null)
+            this.text = null;
+          else {
+            if (this.text == null)
+              this.text = new String_();
+            this.text.setValue(value);
+          }
+        }
+
+        public Boolean getRepeats() { 
+          return this.repeats;
+        }
+
+        public void setRepeats(Boolean value) { 
+          this.repeats = value;
+        }
+
+        public boolean getRepeatsSimple() { 
+          return this.repeats == null ? null : this.repeats.getValue();
+        }
+
+        public void setRepeatsSimple(boolean value) { 
+          if (value == false)
+            this.repeats = null;
+          else {
+            if (this.repeats == null)
+              this.repeats = new Boolean();
+            this.repeats.setValue(value);
+          }
+        }
+
+        public ResourceReference getSubject() { 
+          return this.subject;
+        }
+
+        public void setSubject(ResourceReference value) { 
+          this.subject = value;
+        }
+
+        public List<QuestionComponent> getQuestion() { 
+          return this.question;
+        }
+
+        public List<GroupComponent> getGroup() { 
+          return this.group;
+        }
+
+      public GroupComponent copy(Questionnaire e) {
+        GroupComponent dst = e.new GroupComponent();
         dst.name = name == null ? null : name.copy();
-        dst.answer = new ArrayList<AnswerComponent>();
-        for (AnswerComponent i : answer)
-          dst.answer.add(i.copy(e));
-        dst.section = new ArrayList<SectionComponent>();
-        for (SectionComponent i : section)
-          dst.section.add(i.copy(e));
+        dst.header = header == null ? null : header.copy();
+        dst.text = text == null ? null : text.copy();
+        dst.repeats = repeats == null ? null : repeats.copy();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.question = new ArrayList<QuestionComponent>();
+        for (QuestionComponent i : question)
+          dst.question.add(i.copy(e));
+        dst.group = new ArrayList<GroupComponent>();
+        for (GroupComponent i : group)
+          dst.group.add(i.copy(e));
         return dst;
       }
 
@@ -279,12 +557,12 @@ public class Questionnaire extends Resource {
     /**
      * Answers to questions on a questionnaire
      */
-    protected List<AnswerComponent> answer = new ArrayList<AnswerComponent>();
+    protected List<QuestionComponent> question = new ArrayList<QuestionComponent>();
 
     /**
-     * A group of anwers to a possibly similarly grouped set of question in the questionnaire
+     * A group of questions to a possibly similarly grouped set of question in the questionnaire
      */
-    protected List<SectionComponent> section = new ArrayList<SectionComponent>();
+    protected List<GroupComponent> group = new ArrayList<GroupComponent>();
 
     public Enumeration<ObservationStatus> getStatus() { 
       return this.status;
@@ -370,12 +648,12 @@ public class Questionnaire extends Resource {
       this.visit = value;
     }
 
-    public List<AnswerComponent> getAnswer() { 
-      return this.answer;
+    public List<QuestionComponent> getQuestion() { 
+      return this.question;
     }
 
-    public List<SectionComponent> getSection() { 
-      return this.section;
+    public List<GroupComponent> getGroup() { 
+      return this.group;
     }
 
       public Questionnaire copy() {
@@ -388,12 +666,12 @@ public class Questionnaire extends Resource {
         dst.name = name == null ? null : name.copy();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.visit = visit == null ? null : visit.copy();
-        dst.answer = new ArrayList<AnswerComponent>();
-        for (AnswerComponent i : answer)
-          dst.answer.add(i.copy(dst));
-        dst.section = new ArrayList<SectionComponent>();
-        for (SectionComponent i : section)
-          dst.section.add(i.copy(dst));
+        dst.question = new ArrayList<QuestionComponent>();
+        for (QuestionComponent i : question)
+          dst.question.add(i.copy(dst));
+        dst.group = new ArrayList<GroupComponent>();
+        for (GroupComponent i : group)
+          dst.group.add(i.copy(dst));
         return dst;
       }
 

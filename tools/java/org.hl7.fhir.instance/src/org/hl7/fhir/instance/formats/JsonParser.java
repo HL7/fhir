@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Jul 2, 2013 18:37+1000 for FHIR v0.09
+// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -3001,10 +3001,10 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("partOf"))
       res.setPartOf(parseResourceReference(json.getJSONObject("partOf")));
-    if (json.has("contactEntity")) {
-      JSONArray array = json.getJSONArray("contactEntity");
+    if (json.has("contact")) {
+      JSONArray array = json.getJSONArray("contact");
       for (int i = 0; i < array.length(); i++) {
-        res.getContactEntity().add(parseOrganizationOrganizationContactEntityComponent(array.getJSONObject(i), res));
+        res.getContact().add(parseOrganizationOrganizationContactComponent(array.getJSONObject(i), res));
       }
     };
     if (json.has("active"))
@@ -3012,11 +3012,11 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Organization.OrganizationContactEntityComponent parseOrganizationOrganizationContactEntityComponent(JSONObject json, Organization owner) throws Exception {
-    Organization.OrganizationContactEntityComponent res = owner.new OrganizationContactEntityComponent();
+  private Organization.OrganizationContactComponent parseOrganizationOrganizationContactComponent(JSONObject json, Organization owner) throws Exception {
+    Organization.OrganizationContactComponent res = owner.new OrganizationContactComponent();
     parseElementProperties(json, res);
-    if (json.has("type"))
-      res.setType(parseCodeableConcept(json.getJSONObject("type")));
+    if (json.has("purpose"))
+      res.setPurpose(parseCodeableConcept(json.getJSONObject("purpose")));
     if (json.has("name"))
       res.setName(parseHumanName(json.getJSONObject("name")));
     if (json.has("telecom")) {
@@ -3027,6 +3027,8 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("address"))
       res.setAddress(parseAddress(json.getJSONObject("address")));
+    if (json.has("gender"))
+      res.setGender(parseCodeableConcept(json.getJSONObject("gender")));
     return res;
   }
 
@@ -3039,8 +3041,42 @@ public class JsonParser extends JsonParserBase {
         res.getIdentifier().add(parseIdentifier(array.getJSONObject(i)));
       }
     };
-    if (json.has("details"))
-      res.setDetails(parseDemographics(json.getJSONObject("details")));
+    if (json.has("name")) {
+      JSONArray array = json.getJSONArray("name");
+      for (int i = 0; i < array.length(); i++) {
+        res.getName().add(parseHumanName(array.getJSONObject(i)));
+      }
+    };
+    if (json.has("telecom")) {
+      JSONArray array = json.getJSONArray("telecom");
+      for (int i = 0; i < array.length(); i++) {
+        res.getTelecom().add(parseContact(array.getJSONObject(i)));
+      }
+    };
+    if (json.has("gender"))
+      res.setGender(parseCodeableConcept(json.getJSONObject("gender")));
+    if (json.has("birthDate"))
+      res.setBirthDate(parseDateTime(json.getJSONObject("birthDate")));
+    Type deceased = parseType("deceased", json);
+    if (deceased != null)
+      res.setDeceased(deceased);
+    if (json.has("address")) {
+      JSONArray array = json.getJSONArray("address");
+      for (int i = 0; i < array.length(); i++) {
+        res.getAddress().add(parseAddress(array.getJSONObject(i)));
+      }
+    };
+    if (json.has("maritalStatus"))
+      res.setMaritalStatus(parseCodeableConcept(json.getJSONObject("maritalStatus")));
+    Type multipleBirth = parseType("multipleBirth", json);
+    if (multipleBirth != null)
+      res.setMultipleBirth(multipleBirth);
+    if (json.has("photo")) {
+      JSONArray array = json.getJSONArray("photo");
+      for (int i = 0; i < array.length(); i++) {
+        res.getPhoto().add(parseAttachment(array.getJSONObject(i)));
+      }
+    };
     if (json.has("contact")) {
       JSONArray array = json.getJSONArray("contact");
       for (int i = 0; i < array.length(); i++) {
@@ -3049,13 +3085,14 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("animal"))
       res.setAnimal(parsePatientAnimalComponent(json.getJSONObject("animal"), res));
+    if (json.has("communication")) {
+      JSONArray array = json.getJSONArray("communication");
+      for (int i = 0; i < array.length(); i++) {
+        res.getCommunication().add(parsePatientPatientCommunicationComponent(array.getJSONObject(i), res));
+      }
+    };
     if (json.has("provider"))
       res.setProvider(parseResourceReference(json.getJSONObject("provider")));
-    Type multipleBirth = parseType("multipleBirth", json);
-    if (multipleBirth != null)
-      res.setMultipleBirth(multipleBirth);
-    if (json.has("deceasedDate"))
-      res.setDeceasedDate(parseDateTime(json.getJSONObject("deceasedDate")));
     if (json.has("link")) {
       JSONArray array = json.getJSONArray("link");
       for (int i = 0; i < array.length(); i++) {
@@ -3076,8 +3113,18 @@ public class JsonParser extends JsonParserBase {
         res.getRelationship().add(parseCodeableConcept(array.getJSONObject(i)));
       }
     };
-    if (json.has("details"))
-      res.setDetails(parseDemographics(json.getJSONObject("details")));
+    if (json.has("name"))
+      res.setName(parseHumanName(json.getJSONObject("name")));
+    if (json.has("telecom")) {
+      JSONArray array = json.getJSONArray("telecom");
+      for (int i = 0; i < array.length(); i++) {
+        res.getTelecom().add(parseContact(array.getJSONObject(i)));
+      }
+    };
+    if (json.has("address"))
+      res.setAddress(parseAddress(json.getJSONObject("address")));
+    if (json.has("gender"))
+      res.setGender(parseCodeableConcept(json.getJSONObject("gender")));
     if (json.has("organization"))
       res.setOrganization(parseResourceReference(json.getJSONObject("organization")));
     return res;
@@ -3092,6 +3139,24 @@ public class JsonParser extends JsonParserBase {
       res.setBreed(parseCodeableConcept(json.getJSONObject("breed")));
     if (json.has("genderStatus"))
       res.setGenderStatus(parseCodeableConcept(json.getJSONObject("genderStatus")));
+    return res;
+  }
+
+  private Patient.PatientCommunicationComponent parsePatientPatientCommunicationComponent(JSONObject json, Patient owner) throws Exception {
+    Patient.PatientCommunicationComponent res = owner.new PatientCommunicationComponent();
+    parseElementProperties(json, res);
+    if (json.has("language"))
+      res.setLanguage(parseCodeableConcept(json.getJSONObject("language")));
+    if (json.has("mode")) {
+      JSONArray array = json.getJSONArray("mode");
+      for (int i = 0; i < array.length(); i++) {
+        res.getMode().add(parseCodeableConcept(array.getJSONObject(i)));
+      }
+    };
+    if (json.has("proficiencyLevel"))
+      res.setProficiencyLevel(parseCodeableConcept(json.getJSONObject("proficiencyLevel")));
+    if (json.has("preference"))
+      res.setPreference(parseBoolean(json.getJSONObject("preference")));
     return res;
   }
 
@@ -3146,8 +3211,26 @@ public class JsonParser extends JsonParserBase {
         res.getIdentifier().add(parseIdentifier(array.getJSONObject(i)));
       }
     };
-    if (json.has("details"))
-      res.setDetails(parseDemographics(json.getJSONObject("details")));
+    if (json.has("name"))
+      res.setName(parseHumanName(json.getJSONObject("name")));
+    if (json.has("telecom")) {
+      JSONArray array = json.getJSONArray("telecom");
+      for (int i = 0; i < array.length(); i++) {
+        res.getTelecom().add(parseContact(array.getJSONObject(i)));
+      }
+    };
+    if (json.has("address"))
+      res.setAddress(parseAddress(json.getJSONObject("address")));
+    if (json.has("gender"))
+      res.setGender(parseCodeableConcept(json.getJSONObject("gender")));
+    if (json.has("birthDate"))
+      res.setBirthDate(parseDateTime(json.getJSONObject("birthDate")));
+    if (json.has("photo")) {
+      JSONArray array = json.getJSONArray("photo");
+      for (int i = 0; i < array.length(); i++) {
+        res.getPhoto().add(parseAttachment(array.getJSONObject(i)));
+      }
+    };
     if (json.has("organization"))
       res.setOrganization(parseResourceReference(json.getJSONObject("organization")));
     if (json.has("role")) {
@@ -3168,6 +3251,12 @@ public class JsonParser extends JsonParserBase {
       JSONArray array = json.getJSONArray("qualification");
       for (int i = 0; i < array.length(); i++) {
         res.getQualification().add(parsePractitionerPractitionerQualificationComponent(array.getJSONObject(i), res));
+      }
+    };
+    if (json.has("communication")) {
+      JSONArray array = json.getJSONArray("communication");
+      for (int i = 0; i < array.length(); i++) {
+        res.getCommunication().add(parseCodeableConcept(array.getJSONObject(i)));
       }
     };
     return res;
@@ -3505,14 +3594,12 @@ public class JsonParser extends JsonParserBase {
     parseElementProperties(json, res);
     if (json.has("name"))
       res.setName(parseString(json.getJSONObject("name")));
-    if (json.has("definition"))
-      res.setDefinition(parseString(json.getJSONObject("definition")));
-    if (json.has("type"))
-      res.setType(parseEnumeration(json.getJSONObject("type"), Profile.BindingType.Null, new Profile().new BindingTypeEnumFactory()));
     if (json.has("isExtensible"))
       res.setIsExtensible(parseBoolean(json.getJSONObject("isExtensible")));
     if (json.has("conformance"))
       res.setConformance(parseEnumeration(json.getJSONObject("conformance"), Profile.BindingConformance.Null, new Profile().new BindingConformanceEnumFactory()));
+    if (json.has("description"))
+      res.setDescription(parseString(json.getJSONObject("description")));
     Type reference = parseType("reference", json);
     if (reference != null)
       res.setReference(reference);
@@ -3696,51 +3783,96 @@ public class JsonParser extends JsonParserBase {
       res.setIdentifier(parseIdentifier(json.getJSONObject("identifier")));
     if (json.has("visit"))
       res.setVisit(parseResourceReference(json.getJSONObject("visit")));
-    if (json.has("answer")) {
-      JSONArray array = json.getJSONArray("answer");
+    if (json.has("question")) {
+      JSONArray array = json.getJSONArray("question");
       for (int i = 0; i < array.length(); i++) {
-        res.getAnswer().add(parseQuestionnaireAnswerComponent(array.getJSONObject(i), res));
+        res.getQuestion().add(parseQuestionnaireQuestionComponent(array.getJSONObject(i), res));
       }
     };
-    if (json.has("section")) {
-      JSONArray array = json.getJSONArray("section");
+    if (json.has("group")) {
+      JSONArray array = json.getJSONArray("group");
       for (int i = 0; i < array.length(); i++) {
-        res.getSection().add(parseQuestionnaireSectionComponent(array.getJSONObject(i), res));
+        res.getGroup().add(parseQuestionnaireGroupComponent(array.getJSONObject(i), res));
       }
     };
     return res;
   }
 
-  private Questionnaire.AnswerComponent parseQuestionnaireAnswerComponent(JSONObject json, Questionnaire owner) throws Exception {
-    Questionnaire.AnswerComponent res = owner.new AnswerComponent();
+  private Questionnaire.QuestionComponent parseQuestionnaireQuestionComponent(JSONObject json, Questionnaire owner) throws Exception {
+    Questionnaire.QuestionComponent res = owner.new QuestionComponent();
     parseElementProperties(json, res);
     if (json.has("name"))
       res.setName(parseCodeableConcept(json.getJSONObject("name")));
-    Type value = parseType("value", json);
-    if (value != null)
-      res.setValue(value);
-    if (json.has("evidence"))
-      res.setEvidence(parseResourceReference(json.getJSONObject("evidence")));
+    if (json.has("text"))
+      res.setText(parseString(json.getJSONObject("text")));
+    Type answer = parseType("answer", json);
+    if (answer != null)
+      res.setAnswer(answer);
+    if (json.has("choice"))
+      res.setChoice(parseQuestionnaireQuestionChoiceComponent(json.getJSONObject("choice"), owner));
+    Type data = parseType("data", json);
+    if (data != null)
+      res.setData(data);
     if (json.has("remarks"))
       res.setRemarks(parseString(json.getJSONObject("remarks")));
     return res;
   }
 
-  private Questionnaire.SectionComponent parseQuestionnaireSectionComponent(JSONObject json, Questionnaire owner) throws Exception {
-    Questionnaire.SectionComponent res = owner.new SectionComponent();
+  private Questionnaire.QuestionChoiceComponent parseQuestionnaireQuestionChoiceComponent(JSONObject json, Questionnaire owner) throws Exception {
+    Questionnaire.QuestionChoiceComponent res = owner.new QuestionChoiceComponent();
+    parseElementProperties(json, res);
+    if (json.has("code")) {
+      JSONArray array = json.getJSONArray("code");
+      for (int i = 0; i < array.length(); i++) {
+        res.getCode().add(parseCoding(array.getJSONObject(i)));
+      }
+    };
+    if (json.has("other"))
+      res.setOther(parseString(json.getJSONObject("other")));
+    if (json.has("option")) {
+      JSONArray array = json.getJSONArray("option");
+      for (int i = 0; i < array.length(); i++) {
+        res.getOption().add(parseQuestionnaireQuestionChoiceOptionComponent(array.getJSONObject(i), owner));
+      }
+    };
+    if (json.has("isOrdered"))
+      res.setIsOrdered(parseBoolean(json.getJSONObject("isOrdered")));
+    return res;
+  }
+
+  private Questionnaire.QuestionChoiceOptionComponent parseQuestionnaireQuestionChoiceOptionComponent(JSONObject json, Questionnaire owner) throws Exception {
+    Questionnaire.QuestionChoiceOptionComponent res = owner.new QuestionChoiceOptionComponent();
+    parseElementProperties(json, res);
+    if (json.has("code"))
+      res.setCode(parseCoding(json.getJSONObject("code")));
+    if (json.has("text"))
+      res.setText(parseString(json.getJSONObject("text")));
+    return res;
+  }
+
+  private Questionnaire.GroupComponent parseQuestionnaireGroupComponent(JSONObject json, Questionnaire owner) throws Exception {
+    Questionnaire.GroupComponent res = owner.new GroupComponent();
     parseElementProperties(json, res);
     if (json.has("name"))
       res.setName(parseCodeableConcept(json.getJSONObject("name")));
-    if (json.has("answer")) {
-      JSONArray array = json.getJSONArray("answer");
+    if (json.has("header"))
+      res.setHeader(parseString(json.getJSONObject("header")));
+    if (json.has("text"))
+      res.setText(parseString(json.getJSONObject("text")));
+    if (json.has("repeats"))
+      res.setRepeats(parseBoolean(json.getJSONObject("repeats")));
+    if (json.has("subject"))
+      res.setSubject(parseResourceReference(json.getJSONObject("subject")));
+    if (json.has("question")) {
+      JSONArray array = json.getJSONArray("question");
       for (int i = 0; i < array.length(); i++) {
-        res.getAnswer().add(parseQuestionnaireAnswerComponent(array.getJSONObject(i), owner));
+        res.getQuestion().add(parseQuestionnaireQuestionComponent(array.getJSONObject(i), owner));
       }
     };
-    if (json.has("section")) {
-      JSONArray array = json.getJSONArray("section");
+    if (json.has("group")) {
+      JSONArray array = json.getJSONArray("group");
       for (int i = 0; i < array.length(); i++) {
-        res.getSection().add(parseQuestionnaireSectionComponent(array.getJSONObject(i), owner));
+        res.getGroup().add(parseQuestionnaireGroupComponent(array.getJSONObject(i), owner));
       }
     };
     return res;
@@ -3755,6 +3887,10 @@ public class JsonParser extends JsonParserBase {
         res.getIdentifier().add(parseIdentifier(array.getJSONObject(i)));
       }
     };
+    if (json.has("patient"))
+      res.setPatient(parseResourceReference(json.getJSONObject("patient")));
+    if (json.has("relationship"))
+      res.setRelationship(parseCodeableConcept(json.getJSONObject("relationship")));
     if (json.has("name"))
       res.setName(parseHumanName(json.getJSONObject("name")));
     if (json.has("telecom")) {
@@ -3765,8 +3901,6 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("gender"))
       res.setGender(parseCodeableConcept(json.getJSONObject("gender")));
-    if (json.has("deceased"))
-      res.setDeceased(parseBoolean(json.getJSONObject("deceased")));
     if (json.has("address"))
       res.setAddress(parseAddress(json.getJSONObject("address")));
     if (json.has("photo")) {

@@ -33,7 +33,6 @@ import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.BindingConformance;
-import org.hl7.fhir.instance.model.Profile.BindingType;
 import org.hl7.fhir.instance.model.Profile.ConstraintSeverity;
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionConstraintComponent;
@@ -495,7 +494,7 @@ public class InstanceValidator extends BaseValidator {
         if (context != null && context.getDefinition().getBinding() != null) {
           ProfileBindingComponent binding = getBinding(profile, context.getDefinition().getBindingSimple());
           if (warning(errors, "code-unknown", path, binding != null, "Binding "+context.getDefinition().getBindingSimple()+" not resolved")) {
-            if (binding.getTypeSimple() == BindingType.valueset) {
+            if (binding.getReference() != null && binding.getReference() instanceof ResourceReference) {
               ValueSet vs = resolveBindingReference(binding.getReference());
               if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
                 try {
@@ -514,14 +513,10 @@ public class InstanceValidator extends BaseValidator {
                     warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getIdentifierSimple()+" for "+context.getDefinition().getBindingSimple()+": "+e.getMessage());
                 }
               }
-            } else if (binding.getTypeSimple() == BindingType.codelist)
-              warning(errors, "code-unknown", path, false, "Binding type codelist should not be used with CodeableConcept");
-            else if (binding.getTypeSimple() == BindingType.reference)
-              hint(errors, "code-unknown", path, false, "Binding type reference cannot be enforced by the validator");
-            else if (binding.getTypeSimple() == BindingType.special)
-              warning(errors, "code-unknown", path, false, "Binding type codelist not implemented");
-            //else if (binding.getTypeSimple() == BindingType.unbound)
-            // nothing
+            } else if (binding.getReference() != null)
+              hint(errors, "code-unknown", path, false, "Binding by URI reference cannot be checked");
+            else 
+              hint(errors, "code-unknown", path, false, "Binding has no source, so can't be checked");
           }
         }
     }
@@ -561,7 +556,7 @@ public class InstanceValidator extends BaseValidator {
     if (context != null && context.getDefinition().getBinding() != null) {
       ProfileBindingComponent binding = getBinding(profile, context.getDefinition().getBindingSimple());
       if (warning(errors, "code-unknown", path, binding != null, "Binding "+context.getDefinition().getBindingSimple()+" not resolved (cc)")) {
-        if (binding.getTypeSimple() == BindingType.valueset) {
+        if (binding.getReference() != null && binding.getReference() instanceof ResourceReference) {
           ValueSet vs = resolveBindingReference(binding.getReference());
           if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
             try {
@@ -599,14 +594,10 @@ public class InstanceValidator extends BaseValidator {
                 warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getIdentifierSimple()+" for "+context.getDefinition().getBindingSimple()+": "+e.getMessage());
             }
           }
-        } else if (binding.getTypeSimple() == BindingType.codelist)
-          warning(errors, "code-unknown", path, false, "Binding type codelist should not be used with CodeableConcept");
-        else if (binding.getTypeSimple() == BindingType.reference)
-          hint(errors, "code-unknown", path, false, "Binding type reference cannot be enforced by the validator");
-        else if (binding.getTypeSimple() == BindingType.special)
-          warning(errors, "code-unknown", path, false, "Binding type codelist not implemented (cc)");
-        //else if (binding.getTypeSimple() == BindingType.unbound)
-        // nothing
+        } else if (binding.getReference() != null)
+          hint(errors, "code-unknown", path, false, "Binding by URI reference cannot be checked");
+        else 
+          hint(errors, "code-unknown", path, false, "Binding has no source, so can't be checked");
       }
     }
   }
