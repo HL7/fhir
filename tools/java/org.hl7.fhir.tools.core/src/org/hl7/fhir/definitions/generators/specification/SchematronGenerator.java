@@ -148,7 +148,7 @@ public class SchematronGenerator  extends TextStreamWriter {
     return new ArrayList<TypeRef>();
   }
 
-  private void genInvs(String path, ElementDefn ed) throws IOException {
+  private void genInvs(String path, ElementDefn ed) throws Exception {
     
     int c = 0;
     for (Invariant inv : ed.getInvariants().values()) {
@@ -158,8 +158,11 @@ public class SchematronGenerator  extends TextStreamWriter {
     if (c > 0) {
 	    ln_i("<sch:rule context=\""+path+"\">");
 	    for (Invariant inv : ed.getInvariants().values()) {
-	      if (inv.getFixedName() == null || path.endsWith(inv.getFixedName()))
-  	      ln("<sch:assert test=\""+inv.getXpath().replace("\"", "'")+"\">Inv-"+inv.getId()+": "+inv.getEnglish()+"</sch:assert>");	      
+	      if (inv.getFixedName() == null || path.endsWith(inv.getFixedName())) {
+	        if (inv.getXpath().contains("&lt;") || inv.getXpath().contains("&gt;"))
+	          throw new Exception("error in xpath - do not escape xml characters in the xpath in the excel spreadsheet");
+	        ln("<sch:assert test=\""+Utilities.escapeXml(inv.getXpath().replace("\"", "'"))+"\">Inv-"+inv.getId()+": "+inv.getEnglish()+"</sch:assert>");
+	      }
 	    }
       ln_o("</sch:rule>");
       //"/f:"+root.getName()

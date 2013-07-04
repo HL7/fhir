@@ -20,7 +20,7 @@
   <WindowWidth>23475</WindowWidth>
   <WindowTopX>4800</WindowTopX>
   <WindowTopY>5220</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -234,7 +234,7 @@
     <Cell><Data ss:Type="String">Schedule</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">There can only be a repeat element if there is none or one event</Data></Cell>
     <Cell><Data ss:Type="String">repeat.oclIsDefined implies event.count &lt; 2</Data></Cell>
-    <Cell><Data ss:Type="String">not(exists(f:repeat)) or count(f:event)&amp;lt;2</Data></Cell>
+    <Cell><Data ss:Type="String">not(exists(f:repeat)) or count(f:event) &lt; 2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -264,7 +264,7 @@
     <Cell><Data ss:Type="String">Schedule.repeat.duration</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">duration must be a positive value</Data></Cell>
     <Cell><Data ss:Type="String">duration &gt; 0</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">@value &amp;gt; 0 or not(@value)</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">@value &gt; 0 or not(@value)</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -279,10 +279,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
@@ -325,7 +326,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

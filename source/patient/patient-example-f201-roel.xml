@@ -62,10 +62,6 @@
             <zip value="1055RW"/>
             <country value="NLD"/><!--ISO 3166 3 letter code-->
         </address>
-    <photo>
-        <contentType value="image/jpeg" />
-        <url value="binary/@f006"/>
-    </photo>
     <maritalStatus>
         <!--Marital status of the person-->
         <coding>
@@ -79,6 +75,10 @@
         </coding>
     </maritalStatus>
     <multipleBirthBoolean value="false"/>
+    <photo>
+        <contentType value="image/jpeg" />
+        <url value="binary/@f006"/>
+    </photo>
     <contact>
         <!--Contact of the patient-->
         <relationship>

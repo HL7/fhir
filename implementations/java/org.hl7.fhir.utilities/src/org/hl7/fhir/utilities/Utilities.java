@@ -404,11 +404,21 @@ public class Utilities {
   public static boolean isToken(String tail) {
     if (tail == null || tail.length() == 0)
       return false;
-    boolean result = Character.isAlphabetic(tail.charAt(0));
+    boolean result = isAlphabetic(tail.charAt(0));
     for (int i = 1; i < tail.length(); i++) {
-    	result = result && (Character.isAlphabetic(tail.charAt(i)) || Character.isDigit(tail.charAt(i)) || (tail.charAt(i) == '_')  || (tail.charAt(i) == '[') || (tail.charAt(i) == ']'));
+    	result = result && (isAlphabetic(tail.charAt(i)) || isDigit(tail.charAt(i)) || (tail.charAt(i) == '_')  || (tail.charAt(i) == '[') || (tail.charAt(i) == ']'));
     }
     return result;
+  }
+
+
+  private static boolean isDigit(char c) {
+    return (c >= '0') && (c <= '9');
+  }
+
+
+  private static boolean isAlphabetic(char c) {
+    return ((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z'));
   }
 
 

@@ -175,6 +175,10 @@ public class ResourceValidator extends BaseValidator {
 		    rule(errors, "structure", path, e.getDefinition().contains("|") || Character.isUpperCase(e.getDefinition().charAt(0)) || !Character.isLetter(e.getDefinition().charAt(0)), "Long Description must start with an uppercase character ('"+e.getDefinition()+"')");
 		}
 		
+    for (String inv : e.getInvariants().keySet()) {
+      String xpath = e.getInvariants().get(inv).getXpath();
+      rule(errors, "value", path,  !(xpath.contains("&lt;") || xpath.contains("&gt;")), "error in xpath - do not escape xml characters in the xpath in the excel spreadsheet");
+    }
     rule(errors, "structure", path, !e.getName().startsWith("_"), "Element names cannot start with '_'");
 		// if (e.getConformance() == ElementDefn.Conformance.Mandatory &&
 		// !e.unbounded())
