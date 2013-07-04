@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicationPrescription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:/C:/SVN/schema/medicationprescription.xsd">
+<MedicationPrescription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationprescription.xsd">
     <identifier>
         <use value="official"/>
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <key value="order9837343"/>
     </identifier>
     <dateWritten value="2013-04-08"/>
-    <status>
-        <coding>
-            <system value="urn:oid:2.16.840.1.113883.4.642.1.107"/> <!-- A code specifying the state of the prescribing event -->
-            <code value="active"/>
-            <display value="the medication is actively described"/>
-        </coding>
-    </status>
+    <status value="active"/>
     <patient> <!-- Linked to the resource patient who needs the medication -->
         <type value="Patient"/> 
         <reference value="patient/@F001"/>
@@ -23,25 +17,26 @@
         <reference value="practitioner/@F006"/>
         <display value="R.A. van den Berk"/>
     </prescriber>
-    <encounter> <!-- Linked to a resource Visit between patient and practitioner-->
+    <visit> <!-- Linked to a resource Visit between patient and practitioner-->
         <type value="Visit"/>
         <reference value="visit/@F001"/>
         <display value="visit who leads to this priscription"/>
-    </encounter>
-    <reasonForPrescribing>
+    </visit>
+    <reasonForPrescribingCodeableConcept>
         <coding>
             <system value="http://snomed.info"/>
             <code value="28036006"/>
             <display value="High density lipoprotein cholesterol level"/>
         </coding>
-    </reasonForPrescribing>
+    </reasonForPrescribingCodeableConcept>
+    
     <medication> <!-- Linked to a RESOURCE Medication -->
         <type value="Medication"/>
         <reference value="medication/@F002"/>
         <display value="prescribed medication"/>
     </medication> 
     <dosageInstructions>
-        <timing>
+        <timingSchedule>
             <event>
                 <start value="2013-08-04"/>
             </event>
@@ -50,7 +45,8 @@
                 <duration value="1"/>
                 <units value="d"/>
             </repeat>
-        </timing>
+        </timingSchedule>
+            
         <site>
             <coding>
                 <system value="http://snomed.info"/>

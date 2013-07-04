@@ -6,13 +6,7 @@
         <key value="order9845343"/>
     </identifier>
     <dateWritten value="2011-05-01"/>
-    <status>
-        <coding>
-            <system value="urn:oid:2.16.840.1.113883.4.642.1.107"/> <!-- A code specifying the state of the prescribing event -->
-            <code value="active"/>
-            <display value="the medication is actively described"/>
-        </coding>
-    </status>
+    <status value="active"/>
     <patient> <!-- Linked to the resource patient who needs the medication -->
         <type value="Patient"/> 
         <reference value="patient/@F007"/>
@@ -41,7 +35,7 @@
         <display value="prescribed medication"/>
     </medication> 
     <dosageInstructions>
-        <timing>
+        <timingSchedule>
             <event>
                 <start value="2011-05-01"/>
             </event>
@@ -50,7 +44,7 @@
                 <duration value="1"/>
                 <units value="d"/>
             </repeat>
-        </timing>
+        </timingSchedule>
         <site>
             <coding>
                 <system value="http://snomed.info"/>

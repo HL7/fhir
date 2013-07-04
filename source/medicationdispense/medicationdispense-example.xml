@@ -26,13 +26,7 @@
     <reference value="medicationprescription/@example" />
   </authorizingPrescription>
   <dispense>
-    <status >
-      <coding>
-        <system value="./MedDispStatus"/>
-        <code value="completed"/>
-        <display value="The dispensing of the medication has finished"/>
-      </coding>
-    </status>
+    <status value="completed" />  
     <quantity>
       <value value="10"/>
       <units value="ml"/>

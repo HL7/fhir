@@ -14,14 +14,7 @@
       <p>by doctor X</p>
     </div>
   </text>
-  <status>
-    <coding>
-      <system value="./MedPrescStatus"/>
-      <code value="completed"/>
-      <display value="The prescribing of the medication has finished"/>
-    </coding>
-  </status>
-
+  <status value="active" />
   <patient>
     <type value="Patient"/>
     <reference value="patient/@example"/>
@@ -37,13 +30,13 @@
   </medication>
 
   <dosageInstructions>
-    <timing>
+    <timingSchedule>
       <repeat>
         <frequency value="3"/>
         <duration value="1"/>
         <units value="d"/>
       </repeat>
-    </timing>
+    </timingSchedule>
     <route>
       <coding>
         <system value="http://snomed.info"/>

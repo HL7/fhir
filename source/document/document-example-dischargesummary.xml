@@ -423,13 +423,13 @@
                 <dosageInstructions>
                     <additionalInstructionsString value="Take with Food"/>
                     <!-- twice a day -->
-                    <timing>
+                    <timingSchedule>
                         <repeat>
                             <frequency value="2"/>
                             <duration value="1"/>
                             <units value="d"/>
                         </repeat>
-                    </timing>
+                    </timingSchedule>
                     <!-- Orally -->
                     <route>
                         <coding>

@@ -2,13 +2,7 @@
 <MedicationPrescription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationprescription.xsd">
  <!--No identifier could be provided-->
  <dateWritten value="2013-03-11"/>
- <status> 
-    <coding>
-       <system value="http://snomed.info"/>
-       <code value="182992009"/>
-       <display value="Completed"/>
-    </coding>
- </status>
+  <status value="completed"/> 
  <patient>
     <type value="Patient"/>
     <reference value="patient/@f201"/>
@@ -31,12 +25,12 @@
  </medication>
  <dosageInstructions>  
   <dosageInstructionsText value="Flucloxacilline 12g/24h"/>
-  <timing>
+  <timingSchedule>
       <event>
           <start value="2013-03-11"/>
           <end value="2013-03-21"/>
       </event>
-  </timing>
+  </timingSchedule>
   <route><!--Medication follows the respiratory tract-->
     <coding>
        <system value="http://snomed.info"/>

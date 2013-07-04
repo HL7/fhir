@@ -2,13 +2,7 @@
 <MedicationPrescription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationprescription.xsd">
  <!--No identifier could be provided-->
  <dateWritten value="2013-03-11"/>
- <status> 
-    <coding>
-       <system value="http://snomed.info"/>
-       <code value="55561003"/>
-       <display value="Active"/>
-    </coding>
- </status>
+ <status value="active"/> 
  <patient>
     <type value="Patient"/>
     <reference value="patient/@f201"/>
@@ -32,12 +26,12 @@
  </medication>
  <dosageInstructions>  
   <dosageInstructionsText value="aerosol 25/250ug/do 120do 2x - 1 dose - daily"/>
-  <timing><!--2 months-->
+  <timingSchedule><!--2 months-->
       <event>
           <start value="2013-03-11"/>
           <end value="2013-05-11"/>
       </event>
-  </timing>
+  </timingSchedule>
   <site><!--Medication enters the oral cavity-->
     <coding>
        <system value="http://snomed.info"/>
