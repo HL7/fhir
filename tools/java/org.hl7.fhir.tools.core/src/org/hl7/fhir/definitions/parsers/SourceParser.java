@@ -37,8 +37,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
-import javax.rmi.CORBA.Util;
-
 import org.hl7.fhir.definitions.ecore.fhir.BindingDefn;
 import org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.ConstrainedTypeDefn;
@@ -180,8 +178,12 @@ public class SourceParser {
 			loadCompositeType(n, definitions.getTypes());	
 		for (String n : ini.getPropertyNames("structures"))
 			loadCompositeType(n, definitions.getStructures());
-    for (String n : ini.getPropertyNames("shared"))
-      definitions.getShared().add(loadCompositeType(n, definitions.getStructures()));
+
+		String[] shared = ini.getPropertyNames("shared"); 
+		if(shared != null)
+		  for (String n : shared )
+		    definitions.getShared().add(loadCompositeType(n, definitions.getStructures()));
+		
 		for (String n : ini.getPropertyNames("infrastructure"))
 			loadCompositeType(n, definitions.getInfrastructure());
 		
@@ -519,9 +521,14 @@ public class SourceParser {
 			}
     for (String n : ini.getPropertyNames("structures"))
       checkFile("structure definition", dtDir, n.toLowerCase() + ".xml",errors,"all");
-    for (String n : ini.getPropertyNames("shared"))
-      checkFile("shared structure definition", dtDir, n.toLowerCase() + ".xml",errors,"all");
-		for (String n : ini.getPropertyNames("infrastructure"))
+
+    String[] shared = ini.getPropertyNames("shared");
+    
+    if(shared != null)
+      for (String n : shared )
+        checkFile("shared structure definition", dtDir, n.toLowerCase() + ".xml",errors,"all");
+		
+    for (String n : ini.getPropertyNames("infrastructure"))
 			checkFile("infrastructure definition", dtDir, n.toLowerCase() + ".xml",	errors,"all");
 
 		for (String n : ini.getPropertyNames("resources")) {

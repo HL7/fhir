@@ -57,18 +57,4 @@ namespace Hl7.Fhir.Model
         }
     }
 
-
-    public partial class Demographics
-    {
-        public static Demographics ForName(HumanName name)
-        {
-            return new Demographics { Name = new List<HumanName>() { name } };
-        }
-
-        public Demographics WithBirthDate(FhirDateTime dob)
-        {
-            this.BirthDate = dob;
-            return this;
-        }
-    }
 }
