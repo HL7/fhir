@@ -70,7 +70,7 @@ namespace Hl7.Fhir.Tests
 
             Patient eve = client.Read<Patient>("1");
             Assert.IsNotNull(eve);
-            Assert.AreEqual("Eve", eve.Details.Name[0].Given[0].Value);
+            Assert.AreEqual("Eve", eve.Name[0].Given[0].Value);
 
             string version = new ResourceLocation(client.LastResponseDetails.ContentLocation).VersionId;               
             Assert.AreEqual("1", version);
@@ -88,10 +88,8 @@ namespace Hl7.Fhir.Tests
         {
             Patient ewout = new Patient
             {
-                Details =
-                    Demographics.ForName(HumanName.ForFamily("Kramer").
-                                WithGiven("Wouter").WithGiven("Gert"))
-                                    .WithBirthDate(new FhirDateTime(1972, 11, 30)),
+                Name = new List<HumanName> { HumanName.ForFamily("Kramer").WithGiven("Wouter").WithGiven("Gert") },
+                BirthDate = new FhirDateTime(1972, 11, 30),
                 Identifier = new List<Identifier> {
                     new Identifier() { System = new Uri("http://hl7.org/test/1"), Key = "3141" } }
             };
@@ -103,7 +101,7 @@ namespace Hl7.Fhir.Tests
             Assert.IsNotNull(ewout);
             Assert.IsNotNull(newId);
 
-            ewout.Details.Name.Add(HumanName.ForFamily("Kramer").WithGiven("Ewout"));
+            ewout.Name.Add(HumanName.ForFamily("Kramer").WithGiven("Ewout"));
 
             ewout = client.Update<Patient>(ewout, newId);
 

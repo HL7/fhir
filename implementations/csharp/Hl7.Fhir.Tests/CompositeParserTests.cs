@@ -262,7 +262,7 @@ namespace Hl7.Fhir.Tests
 
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.IsNotNull(p);
-            Assert.AreEqual(1, p.Details.Name[0].Prefix[0].Extension.Count());
+            Assert.AreEqual(1, p.Name[0].Prefix[0].Extension.Count());
         }
 
 

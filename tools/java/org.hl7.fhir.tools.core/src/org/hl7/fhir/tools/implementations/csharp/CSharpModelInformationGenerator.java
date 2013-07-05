@@ -31,9 +31,12 @@ package org.hl7.fhir.tools.implementations.csharp;
 
 import org.hl7.fhir.definitions.ecore.fhir.Definitions;
 import org.hl7.fhir.definitions.ecore.fhir.ResourceDefn;
+import org.hl7.fhir.definitions.ecore.fhir.SearchParameter;
+import org.hl7.fhir.definitions.ecore.fhir.SearchType;
 import org.hl7.fhir.definitions.ecore.fhir.TypeDefn;
 import org.hl7.fhir.tools.implementations.GenBlock;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
+import org.hl7.fhir.utilities.Utilities;
 
 
 public class CSharpModelInformationGenerator extends GenBlock
@@ -77,6 +80,8 @@ public class CSharpModelInformationGenerator extends GenBlock
 				generateVersionInfo(definitions);
 				ln();
 				generateTypeMappings(definitions);
+				ln();
+				generateSearchParams(definitions);
 			es("}");
 		es("}");
 	
@@ -84,7 +89,47 @@ public class CSharpModelInformationGenerator extends GenBlock
 	}
 
 
-	private void generateVersionInfo(Definitions definitions) {
+	private void generateSearchParams(Definitions definitions2) 
+	{
+    ln("public static List<SearchParam> SearchParameters = ");
+    bs(); 
+      ln("new List<SearchParam>");
+      bs("{");  
+      for( ResourceDefn resource : definitions.getResources() )
+        if( resource.isAbstract() == false )
+         for( SearchParameter param : resource.getSearch() )
+            {
+              ln("new SearchParam() { ");
+              nl("Resource = \"" + resource.getName() + "\"" );
+              nl(", Name = \"" + param.getName() + "\"" );
+              nl(", Description = \"" + param.getDescription() + "\"" );
+              
+              String type = Utilities.capitalize(param.getType().toString());
+              nl(", Type = ParamType." + type );
+
+              if( param.getType() == SearchType.COMPOSITE)
+              {
+                nl(", CompositeParams = new string[] { ");
+                for( String compositePar : param.getComposite() )
+                  nl("\"" + compositePar + "\", ");
+                nl("}");
+              }
+              
+              if( param.getPath() != null && param.getPath().size() > 0)
+              {
+                nl(", Elements = new string[] { ");
+                for( String elem : param.getPath() )
+                  nl("\"" + elem + "\", ");
+                nl("}");
+              }
+
+              nl(" }, ");          
+            }
+	    es("};");
+  }
+
+
+  private void generateVersionInfo(Definitions definitions) {
 		ln("public static string Version");
 		bs("{");
 			ln("get { return \"" + definitions.getVersion() + "\"; }");

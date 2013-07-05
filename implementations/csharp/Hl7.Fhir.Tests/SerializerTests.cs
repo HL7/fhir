@@ -165,7 +165,7 @@ namespace Hl7.Fhir.Tests
 
             ErrorList list = new ErrorList();
             Patient p = (Patient)FhirParser.ParseResourceFromXml(xmlString, list);
-            p.Details.Name[0].Given[0].Value = "Rex";
+            p.Name[0].Given[0].Value = "Rex";
             string json = FhirSerializer.SerializeResourceToJson(p);
 
             Debug.WriteLine(json);
@@ -180,17 +180,13 @@ namespace Hl7.Fhir.Tests
             {
                 LocalId = "Ab4",
                 Identifier = new List<Identifier> { new Identifier() { Key = "3141" } },
-                Details = new Demographics()
-                {
-                    BirthDate = new FhirDateTime(1972, 11, 30),
-                    Name = new List<HumanName> {
+                BirthDate = new FhirDateTime(1972, 11, 30),
+                Name = new List<HumanName> {
                         new HumanName() { Given = new List<FhirString>() { "Wouter", "Gert" },
                                    Family = new List<FhirString>() { new FhirString() { Value = "van der", 
                                         Extension = new List<Extension> { new Extension 
                                                         { Url= new Uri("http://hl7.org/fhir/profile/@iso-21090#name-qualifier"),
-                                                            Value = new Code("VV") } } }, "Vlies" } } }
-                },
-
+                                                            Value = new Code("VV") } } }, "Vlies" } } },
                 Text = new Narrative()
                  {
                      Status = Narrative.NarrativeStatus.Generated,
