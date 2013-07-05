@@ -5,6 +5,7 @@
     <reference value="patient/@f201"/>
     <display value="Roel"/>
  </subject>
+ <note value="Both parents, both brothers and both children (twin) are still alive."/><!--Other relatives-->
  <relation><!--ROB's Mother has a hernia-->
   <relationship>
     <coding>
@@ -50,5 +51,4 @@
    </outcome>
   </condition>
  </relation>
- <note value="Both parents, both brothers and both children (twin) are still alive."/><!--Other relatives-->
 </FamilyHistory>
