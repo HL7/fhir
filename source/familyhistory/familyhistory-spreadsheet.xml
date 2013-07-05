@@ -21,7 +21,6 @@
   <WindowTopX>1500</WindowTopX>
   <WindowTopY>3555</WindowTopY>
   <TabRatio>705</TabRatio>
-  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -115,7 +114,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="14" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="14" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="215.25"/>
@@ -129,8 +128,10 @@
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="294"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="77.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="14" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="192.75"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="52.5"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="192.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -144,6 +145,7 @@
     <Cell><Data ss:Type="String">Aliases</Data></Cell>
     <Cell><Data ss:Type="String">Requirements</Data></Cell>
     <Cell><Data ss:Type="String">Comments</Data></Cell>
+    <Cell><Data ss:Type="String">Summary</Data></Cell>
     <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
     <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
     <Cell><Data ss:Type="String">To Do</Data></Cell>
@@ -160,7 +162,7 @@
     <Cell><Data ss:Type="String">Family History</Data></Cell>
     <Cell><Data ss:Type="String">Significant health events and conditions for people related to the subject relevant in the context of care for the subject</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:Index="14" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Not in scope for v2</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -170,13 +172,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Subject of this history</Data></Cell>
     <Cell><Data ss:Type="String">The person who this history concerns</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="27.9375">
-    <Cell><Data ss:Type="String">FamilyHistory.relation</Data></Cell>
-    <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The relation</Data></Cell>
-    <Cell><Data ss:Type="String">The related person. Each FamilyHistory resource contains the entire family history for a single person.</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.9375">
     <Cell><Data ss:Type="String">FamilyHistory.note</Data></Cell>
@@ -184,6 +180,13 @@
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Additional details</Data></Cell>
     <Cell><Data ss:Type="String">Conveys information about family history not specific to individual relations.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="27.9375">
+    <Cell><Data ss:Type="String">FamilyHistory.relation</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">The relation</Data></Cell>
+    <Cell><Data ss:Type="String">The related person. Each FamilyHistory resource contains the entire family history for a single person.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
     <Cell><Data ss:Type="String">FamilyHistory.relation.name</Data></Cell>
@@ -198,6 +201,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Allows greater ease in ensuring the same person is being talked about</Data></Cell>
     <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69.9375">
     <Cell><Data ss:Type="String">FamilyHistory.relation.relationship</Data></Cell>
@@ -211,6 +215,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">The type of relationship this person has to the patient (father, mother, brother etc.) At the moment this is a code linking to a fixed set of values. I'm not sure if there is an international standard for this. A fixed (possibly extensible) set of codes feels better than a codeable concept for somehting like this...</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">FamilyHistory.relation.deceased[x]</Data></Cell>
@@ -223,6 +228,7 @@
     <Cell><Data ss:Type="String">Is the person deceased</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outomce code of the condition - in this case the deceased property should still be set.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
@@ -237,6 +243,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="56.0625">
     <Cell><Data ss:Type="String">FamilyHistory.relation.condition</Data></Cell>
@@ -248,6 +255,7 @@
     <Cell><Data ss:Type="String">The Condition that the related person had</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="56.0625">
@@ -264,6 +272,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
     <Cell><Data ss:Type="String">FamilyHistory.relation.condition.outcome</Data></Cell>
@@ -275,6 +284,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">ConditionOutcome</Data></Cell>
     <Cell><Data ss:Type="String">deceased | permanent disability | etc.</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Indicates what happened as a result of this condition.  If the condition resulted in death, deceased date is captured on the relation.</Data></Cell>
+    <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -308,12 +318,13 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -321,15 +332,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -760,7 +770,6 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

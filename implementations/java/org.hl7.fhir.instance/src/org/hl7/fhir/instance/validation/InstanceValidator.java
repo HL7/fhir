@@ -771,6 +771,8 @@ public class InstanceValidator extends BaseValidator {
   	// constraints:
   	for (ElementDefinitionConstraintComponent c : elementDefn.getDefinition().getConstraint()) 
   		checkConstraint(errors, path, focus, c);
+  	if (elementDefn.getDefinition().getBinding() != null)
+  		checkBinding(errors, path, focus, profile, elementDefn, type);
   	
   	// type specific checking:
   	if (type != null && typeIsPrimitive(type)) {
@@ -805,6 +807,52 @@ public class InstanceValidator extends BaseValidator {
   			}
   		}
   	}
+  }
+
+	private void checkBinding(List<ValidationMessage> errors, String path, Element focus, Profile profile, ElementComponent elementDefn, String type) {
+	  String bn = elementDefn.getDefinition().getBindingSimple();
+	  ProfileBindingComponent bc = null;
+	  for (ProfileBindingComponent b : profile.getBinding()) {
+	  	if (b.getNameSimple().equals(bn))
+	  		bc = b;
+	  }
+	  if (bc != null && bc.getReference() != null && bc.getReference() instanceof ResourceReference) {
+	  	ValueSet vs = resolveValueSetReference(profile, (ResourceReference) bc.getReference());
+	  	if (vs == null)
+	  		rule(errors, "structure", path, false, "Cannot check binding on type '"+type+"' as the value set '"+((ResourceReference) bc.getReference()).getReferenceSimple()+"' could not be located");
+	  	else if (type.equals("code"))
+	  		checkBindingCode(errors, path, focus, vs);
+	  	else if (type.equals("Coding"))
+	  		checkBindingCoding(errors, path, focus, vs);
+	  	else if (type.equals("CodeableConcept"))
+	  		checkBindingCodeableConcept(errors, path, focus, vs);
+	  	else 
+	  		rule(errors, "structure", path, false, "Cannot check binding on type '"+type+"'");
+	  }
+  }
+
+	private ValueSet resolveValueSetReference(Profile profile, ResourceReference reference) {
+	  if (reference.getReferenceSimple().startsWith("#")) {
+	  	for (Resource r : profile.getContained()) {
+	  		if (r instanceof ValueSet && r.getXmlId().equals(reference.getReferenceSimple().substring(1)))
+	  			return (ValueSet) r;
+	  	}
+	  	return null;
+	  } else
+	  	return resolveBindingReference(reference);
+	   
+  }
+
+	private void checkBindingCode(List<ValidationMessage> errors, String path, Element focus, ValueSet vs) {
+	  // rule(errors, "exception", path, false, "checkBindingCode not done yet");	  
+  }
+
+	private void checkBindingCoding(List<ValidationMessage> errors, String path, Element focus, ValueSet vs) {
+	  // rule(errors, "exception", path, false, "checkBindingCoding not done yet");	  
+  }
+
+	private void checkBindingCodeableConcept(List<ValidationMessage> errors, String path, Element focus, ValueSet vs) {
+	  // rule(errors, "exception", path, false, "checkBindingCodeableConcept not done yet");	  
   }
 
 	private String typeSummary(ElementComponent elementDefn) {

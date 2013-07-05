@@ -20,7 +20,6 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -114,7 +113,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="20" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="20" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="150.75"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
@@ -125,8 +124,8 @@
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.25"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="77.25"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="77.25" ss:Span="1"/>
+   <Column ss:Index="13" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
@@ -140,6 +139,7 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">DICOM Mapping</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
     <Cell><Data ss:Type="String">Aliases</Data></Cell>
+    <Cell><Data ss:Type="String">Summary</Data></Cell>
     <Cell><Data ss:Type="String">Requirements</Data></Cell>
     <Cell><Data ss:Type="String">Comments</Data></Cell>
     <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
@@ -156,8 +156,8 @@
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">An Image used in healthcare. The actual pixels maybe inline or provided by direct reference</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
-    <Cell ss:Index="14" ss:StyleID="Default"><Data ss:Type="String">DiagnosticImage</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"><Data ss:Type="String">DiagnosticImage</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -171,8 +171,9 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Who/What this image is taken of</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">~0010,0020</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
-    <Cell ss:Index="14" ss:StyleID="Default"><Data ss:Type="String">.participation[typeCode=&quot;SUBJ&quot;]…</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"><Data ss:Type="String">.participation[typeCode=&quot;SUBJ&quot;]…</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -186,7 +187,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">When the image was taken</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">0008,0020 + 0008,0030</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">For an image including multiple frames, this is the start time</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">.effectiveTime</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -202,8 +204,9 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">The person who generated the image</Data></Cell>
     <Cell><Data ss:Type="String">0008,1060?</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
-    <Cell ss:Index="14" ss:StyleID="Default"><Data ss:Type="String">.participation[typeCode=&quot;PERF&quot;]…</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"><Data ss:Type="String">.participation[typeCode=&quot;PERF&quot;]…</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -217,8 +220,9 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Identifier for the image</Data></Cell>
     <Cell><Data ss:Type="String">0008,0018</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
-    <Cell ss:Index="14" ss:StyleID="Default"><Data ss:Type="String">.id</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"><Data ss:Type="String">.id</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -233,7 +237,8 @@
     <Cell><Data ss:Type="String">Used by the requester to link back to the original context</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">~0008,0050</Data></Cell>
     <Cell><Data ss:Type="String">An identifier for the order that is used by the application/system that requested the image to link back to the original context (if there was such a system). This is not the identity of the image, but of the &quot;request for an image to be generated&quot;</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">The name &quot;Accession Number&quot; comes from DICOM, where it is used ubiquitiously</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">.id??</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -250,7 +255,8 @@
     <Cell><Data ss:Type="String">The session in which the picture was taken</Data></Cell>
     <Cell><Data ss:Type="String">0020,000D</Data></Cell>
     <Cell><Data ss:Type="String">The session in which the picture was taken.</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Usually used for DICOM images</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -267,7 +273,8 @@
     <Cell><Data ss:Type="String">The series of images in which this picture was taken</Data></Cell>
     <Cell><Data ss:Type="String">0020,000E</Data></Cell>
     <Cell><Data ss:Type="String">The series of images in which this picture was taken</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Usually used for DICOM images</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -284,8 +291,9 @@
     <Cell><Data ss:Type="String">How the image was taken</Data></Cell>
     <Cell><Data ss:Type="String">0008,1032</Data></Cell>
     <Cell><Data ss:Type="String">A reference to the method/protocol that was followed when the images were taken</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
-    <Cell ss:Index="14" ss:StyleID="Default"/>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -299,8 +307,9 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Who asked that this image be collected</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">0008,0090</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
-    <Cell ss:Index="14" ss:StyleID="Default"><Data ss:Type="String">.participation[typeCode=&quot;REFB&quot;]…</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"><Data ss:Type="String">.participation[typeCode=&quot;REFB&quot;]…</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -314,8 +323,9 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">PictureType</Data></Cell>
     <Cell><Data ss:Type="String">Type of the image capturing machinery</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">0008,0060</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
-    <Cell ss:Index="14" ss:StyleID="Default"><Data ss:Type="String">.code</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"><Data ss:Type="String">.code</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -329,8 +339,9 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Name of the manufacturer</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">0008,0070  </Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
-    <Cell ss:Index="14" ss:StyleID="Default"><Data ss:Type="String">.participation[typeCode=&quot;DEV&quot;].role.player.Entity[classCode=&quot;DEV&quot;].name</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"><Data ss:Type="String">.participation[typeCode=&quot;DEV&quot;].role.player.Entity[classCode=&quot;DEV&quot;].name</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -344,8 +355,9 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Height of the image</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">0028,0010</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
-    <Cell ss:Index="14" ss:StyleID="Default"/>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -359,8 +371,9 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Width of the image</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">0028,0011</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
-    <Cell ss:Index="14" ss:StyleID="Default"/>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -374,8 +387,9 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Number of bits of colour (2..32)</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">~0028,0002</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
-    <Cell ss:Index="14" ss:StyleID="Default"/>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -388,8 +402,9 @@
     <Cell><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Number of frames</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
-    <Cell ss:Index="14" ss:StyleID="Default"/>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -402,7 +417,8 @@
     <Cell><Data ss:Type="String">Duration</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Length of time between frames</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">a value of 0 indicates that the frames are not a sequence of time separated images</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -418,8 +434,9 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Imaging view e.g Lateral or Antero-posterior (AP)</Data></Cell>
     <Cell ss:Index="10" ss:StyleID="Default"><Data ss:Type="String">The name of the imaging view e.g Lateral or Antero-posterior (AP).</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
-    <Cell ss:Index="14" ss:StyleID="Default"><Data ss:Type="String">DiagnosticImage.subjectOrientationCode</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"><Data ss:Type="String">DiagnosticImage.subjectOrientationCode</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -432,7 +449,7 @@
     <Cell><Data ss:Type="String">Attachment</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Actual picture - reference or data</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Recommended content types: image/jpeg, image/png, application/dicom. Application/dicom can contain the transfer syntax as a parameter</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -452,6 +469,7 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -471,8 +489,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -918,314 +936,314 @@
    <Column ss:AutoFitWidth="0" ss:Width="44.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="251.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="157.5"/>
-   <Row ss:StyleID="s76">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s76">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">System</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
     <Cell><Data ss:Type="String">Comments</Data></Cell>
    </Row>
-   <Row ss:Height="12.75" ss:StyleID="s77">
+   <Row ss:AutoFitHeight="0" ss:Height="12.75" ss:StyleID="s77">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">DIA</Data></Cell>
     <Cell><Data ss:Type="String">Hand-drawn diagram</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">AR</Data></Cell>
     <Cell><Data ss:Type="String">Autorefraction</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">AU</Data></Cell>
     <Cell><Data ss:Type="String">Audio</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">BDUS</Data></Cell>
     <Cell><Data ss:Type="String">Bone Densitometry (Ultrasound)</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">BI</Data></Cell>
     <Cell><Data ss:Type="String">Biomagnetic Imaging</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">BMD</Data></Cell>
     <Cell><Data ss:Type="String">Bone Densitometry (X-Ray)</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">CR</Data></Cell>
     <Cell><Data ss:Type="String">Computed Radiography</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">CT</Data></Cell>
     <Cell><Data ss:Type="String">Computed Tomography</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">DG</Data></Cell>
     <Cell><Data ss:Type="String">Diaphanography</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">DOC</Data></Cell>
     <Cell><Data ss:Type="String">Document</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">DX</Data></Cell>
     <Cell><Data ss:Type="String">Digital Radiography</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">ECG</Data></Cell>
     <Cell><Data ss:Type="String">Electrocardiograms</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">EM</Data></Cell>
     <Cell><Data ss:Type="String">Electron Microscope</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">EPS</Data></Cell>
     <Cell><Data ss:Type="String">Cardiac Electrophysiology</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">ES</Data></Cell>
     <Cell><Data ss:Type="String">Endoscopy</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">FID</Data></Cell>
     <Cell><Data ss:Type="String">Fiducials</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">GM</Data></Cell>
     <Cell><Data ss:Type="String">General Microscopy</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">HC</Data></Cell>
     <Cell><Data ss:Type="String">Hard Copy</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">HD</Data></Cell>
     <Cell><Data ss:Type="String">Hemodynamic Waveform</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">IO</Data></Cell>
     <Cell><Data ss:Type="String">Intra-oral Radiography</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">IOL</Data></Cell>
     <Cell><Data ss:Type="String">Intraocular Lens Data</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">IVOCT</Data></Cell>
     <Cell><Data ss:Type="String">Intravascular Optical Coherence Tomography</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">IVUS</Data></Cell>
     <Cell><Data ss:Type="String">Intravascular Ultrasound</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">KO</Data></Cell>
     <Cell><Data ss:Type="String">Key Object Selection</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">KER</Data></Cell>
     <Cell><Data ss:Type="String">Keratometry</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">LEN</Data></Cell>
     <Cell><Data ss:Type="String">Lensometry</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">LS</Data></Cell>
     <Cell><Data ss:Type="String">Laser Surface Scan</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">MG</Data></Cell>
     <Cell><Data ss:Type="String">Mammography</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">MR</Data></Cell>
     <Cell><Data ss:Type="String">Magnetic Resonance</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">NM</Data></Cell>
     <Cell><Data ss:Type="String">Nuclear Medicine</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">OAM</Data></Cell>
     <Cell><Data ss:Type="String">Opthalmic Axial Measurements</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">OCT</Data></Cell>
     <Cell><Data ss:Type="String">Optical Coherence Tomography</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">OPM</Data></Cell>
     <Cell><Data ss:Type="String">Ophthalmic Mapping</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">OPT</Data></Cell>
     <Cell><Data ss:Type="String">Opthalmic Tomography</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">OPV</Data></Cell>
     <Cell><Data ss:Type="String">Ophthalmic Visual Field</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">OT</Data></Cell>
     <Cell><Data ss:Type="String">Other</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">PLAN</Data></Cell>
     <Cell><Data ss:Type="String">Plan</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">PR</Data></Cell>
     <Cell><Data ss:Type="String">Presentation State</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">PT</Data></Cell>
     <Cell><Data ss:Type="String">Positron Emission Tomography (PET)</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">PX</Data></Cell>
     <Cell><Data ss:Type="String">Panoramic X-Ray</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">REG</Data></Cell>
     <Cell><Data ss:Type="String">Registration</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">RESP</Data></Cell>
     <Cell><Data ss:Type="String">Respiratory Waveform</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">RF</Data></Cell>
     <Cell><Data ss:Type="String">Radio Fluoroscopy</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">RG</Data></Cell>
     <Cell><Data ss:Type="String">Radiographic Imaging (conventional film screen)</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">RTDOSE</Data></Cell>
     <Cell><Data ss:Type="String">Radiotherapy Dose</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">RTIMAGE</Data></Cell>
     <Cell><Data ss:Type="String">Radiotherapy Image</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">RTPLAN</Data></Cell>
     <Cell><Data ss:Type="String">Radiotherapy Plan (a.k.a. RTPLAN)</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">RTRECORD</Data></Cell>
     <Cell><Data ss:Type="String">RT Treatment Record</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">RTSTRUCT</Data></Cell>
     <Cell><Data ss:Type="String">Radiotherapy Structure Set (a.k.a. RTSTRUCT)</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">SC</Data></Cell>
     <Cell><Data ss:Type="String">Secondary Capture</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">SEG</Data></Cell>
     <Cell><Data ss:Type="String">Segmentation</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">SM</Data></Cell>
     <Cell><Data ss:Type="String">Slide Microscopy</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">SMR</Data></Cell>
     <Cell><Data ss:Type="String">Stereometric Relationship</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">SR</Data></Cell>
     <Cell><Data ss:Type="String">SR Document</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">SRF</Data></Cell>
     <Cell><Data ss:Type="String">Subjective Refraction</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">TG</Data></Cell>
     <Cell><Data ss:Type="String">Thermography</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">US</Data></Cell>
     <Cell><Data ss:Type="String">Ultrasound</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">VA</Data></Cell>
     <Cell><Data ss:Type="String">Visual Acuity</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">VL</Data></Cell>
     <Cell><Data ss:Type="String">Visible Light</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">XA</Data></Cell>
     <Cell><Data ss:Type="String">X-Ray Angiography</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s77"><Data ss:Type="String">urn:oid:1.2.840.10008.2.16.4</Data></Cell>
     <Cell><Data ss:Type="String">XC</Data></Cell>
     <Cell><Data ss:Type="String">External Camera (Photography)</Data></Cell>
@@ -1237,7 +1255,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
+   <Unsynced/>
    <Panes>
     <Pane>
      <Number>3</Number>

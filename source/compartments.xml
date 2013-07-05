@@ -1,0 +1,300 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Grahame</Author>
+  <LastAuthor>Grahame</LastAuthor>
+  <Created>2013-07-04T21:40:49Z</Created>
+  <LastSaved>2013-07-04T22:43:54Z</LastSaved>
+  <Version>14.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>13800</WindowHeight>
+  <WindowWidth>27795</WindowWidth>
+  <WindowTopX>480</WindowTopX>
+  <WindowTopY>135</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s68">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="compartments">
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="2" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="108.75" ss:Span="1"/>
+   <Row ss:StyleID="s68">
+    <Cell><Data ss:Type="String">Name</Data></Cell>
+    <Cell><Data ss:Type="String">Title</Data></Cell>
+    <Cell><Data ss:Type="String">Description</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell><Data ss:Type="String">Patient</Data></Cell>
+    <Cell><Data ss:Type="String">A patient's records. There is an instance of the patient compartment for each patient resource, and the identity of the compartment is the same as the patient. When a patient is linked to another patient, all the records associated with the linked patient are in the compartment associated with the target of the link</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="resources">
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="49" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="120"/>
+   <Row ss:StyleID="s68">
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">AdverseReaction</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Alert</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">AllergyIntolerance</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">CarePlan</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Condition</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Conformance</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Coverage</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Device</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">DeviceCapabilities</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">DeviceLog</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">DeviceObservation</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">DiagnosticOrder</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">DiagnosticReport</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Document</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">DocumentReference</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">FamilyHistory</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Group</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">-&gt;member?</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ImagingStudy</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Immunization</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ImmunizationProfile</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">List</Data></Cell>
+    <Cell><Data ss:Type="String">item.subject | item.patient</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Location</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Media</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Medication</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">MedicationAdministration</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">MedicationDispense</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">MedicationPrescription</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">MedicationStatement</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Message</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Observation</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">OperationOutcome</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Order</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">OrderResponse</Data></Cell>
+    <Cell><Data ss:Type="String">request.subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Organization</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Patient</Data></Cell>
+    <Cell><Data ss:Type="String">{def}</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Picture</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Practitioner</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Procedure</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Profile</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Provenance</Data></Cell>
+    <Cell><Data ss:Type="String">target.subject | target.patient</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Query</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Questionnaire</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">RelatedPerson</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">SecurityEvent</Data></Cell>
+    <Cell><Data ss:Type="String">reference.subject | reference.patient</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Specimen</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Substance</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ValueSet</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Visit</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <VerticalResolution>0</VerticalResolution>
+   </Print>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>43</ActiveRow>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Sheet3">
+  <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="1" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

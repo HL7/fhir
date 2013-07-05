@@ -46,6 +46,7 @@ import org.hl7.fhir.definitions.ecore.fhir.PrimitiveDefn;
 import org.hl7.fhir.definitions.ecore.fhir.TypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.impl.DefinitionsImpl;
 import org.hl7.fhir.definitions.model.BindingSpecification;
+import org.hl7.fhir.definitions.model.Compartment;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
@@ -214,6 +215,8 @@ public class SourceParser {
 		baseResource.setAbstract(true);
 		definitions.setBaseResource(baseResource);
 		
+		loadCompartments();
+		
 		org.hl7.fhir.definitions.ecore.fhir.ResourceDefn eCoreBaseResource =
 				CompositeTypeConverter.buildResourceFromFhirModel(baseResource, null);
 		eCoreBaseResource.getElement().add(CompositeTypeConverter.buildInternalIdElement());		
@@ -274,7 +277,27 @@ public class SourceParser {
 	}
 
 	
-	private void loadValueSet(String n) throws FileNotFoundException, Exception {
+	private void loadCompartments() throws FileNotFoundException, Exception {
+    XLSXmlParser xml = new XLSXmlParser(new CSFileInputStream(srcDir+"compartments.xml"), "compartments.xml");
+    Sheet sheet = xml.getSheets().get("compartments");
+    for (int row = 0; row < sheet.rows.size(); row++) {
+      Compartment c = new Compartment();
+      c.setName(sheet.getColumn(row, "Name"));
+      c.setTitle(sheet.getColumn(row, "Title"));
+      c.setDescription(sheet.getColumn(row, "Description"));
+      definitions.getCompartments().add(c);
+    }
+    sheet = xml.getSheets().get("resources");
+    for (int row = 0; row < sheet.rows.size(); row++) {
+      ResourceDefn r = definitions.getResourceByName(sheet.getColumn(row, "Resource"));
+      for (Compartment c : definitions.getCompartments()) {
+        c.getResources().put(r,  sheet.getColumn(row, c.getName()));
+      }
+    }    
+  }
+
+
+  private void loadValueSet(String n) throws FileNotFoundException, Exception {
     XmlParser xml = new XmlParser();
     ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(srcDir+ini.getStringProperty("valuesets", n).replace('\\', File.separatorChar)));
     vs.setIdentifierSimple("http://hl7.org/fhir/vs/"+n);

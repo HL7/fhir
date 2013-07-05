@@ -6,6 +6,7 @@ Things to check about profile functionality:
 * choosing a type / restricting the type choice - yes
 * bindings
 * slicing
+* profiles on targets
 -->
 <profile-tests>
  <test name="Base">

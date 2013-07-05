@@ -72,6 +72,8 @@ public class Definitions {
   private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
   private Map<String, ValueSet> extraValuesets = new HashMap<String, ValueSet>();
 
+  private List<Compartment> compartments = new ArrayList<Compartment>();
+  
 	// Returns the root ElementDefn of a CompositeType or Resource,
 	// excluding future Resources (as they don't have definitions yet).
 	public ElementDefn getElementDefn(String name) throws Exception {
@@ -280,6 +282,10 @@ public class Definitions {
 
   public Map<String, ValueSet> getExtraValuesets() {
     return extraValuesets;
+  }
+
+  public List<Compartment> getCompartments() {
+    return compartments;
   }
 
   

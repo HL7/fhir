@@ -40,6 +40,7 @@ import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingExtensibility;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingStrength;
 import org.hl7.fhir.definitions.model.BindingSpecification.ElementType;
+import org.hl7.fhir.definitions.model.Compartment;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -134,6 +135,8 @@ public class ResourceValidator extends BaseValidator {
       warning(errors, "structure", parent.getName(), p.getCode().equals(p.getCode().toLowerCase()), "Search Parameter Names should be all lowercase (\""+p.getCode()+"\")");
     }
 //    rule(errors, parent.getName(), !parent.getSearchParams().containsKey("id"), "A resource cannot have a search parameter 'id'");
+    for (Compartment c : definitions.getCompartments()) 
+      rule(errors, "structure", parent.getName(), c.getResources().containsKey(parent), "Resource not entered in resource map for compartment '"+c.getTitle()+"' (compartments.xml)");
 	}
 
   private boolean hasTranslationsEntry(String name) {

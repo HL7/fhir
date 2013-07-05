@@ -193,7 +193,7 @@ public class ProfileGenerator {
     case Unbound: return null;
     case CodeList:
       if (src.getReference().startsWith("#"))
-        return Factory.makeResourceReference("ValueSet", "http://hl7.org/fhir/valueset/"+src.getReference().substring(1));
+        return Factory.makeResourceReference("ValueSet", "http://hl7.org/fhir/vs/"+src.getReference().substring(1));
       else
         throw new Exception("not done yet");
     case ValueSet: 

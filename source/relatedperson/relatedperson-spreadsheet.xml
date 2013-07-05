@@ -122,7 +122,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="10" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="10" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:Width="239.25"/>
@@ -134,9 +134,10 @@
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
    <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="233.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="49.5"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="225.75"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="15" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="150"/>
+   <Column ss:Index="16" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="150"/>
    <Row ss:AutoFitHeight="0" ss:Height="42.9375" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -149,6 +150,7 @@
     <Cell><Data ss:Type="String">Definition</Data></Cell>
     <Cell><Data ss:Type="String">Requirements</Data></Cell>
     <Cell><Data ss:Type="String">Comments</Data></Cell>
+    <Cell><Data ss:Type="String">Summary</Data></Cell>
     <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
     <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
     <Cell><Data ss:Type="String">To Do</Data></Cell>
@@ -165,6 +167,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">An person that is related to a patient, but who is not a direct target of care</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Need to track persons related to the patient or the healthcare process.</Data></Cell>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Person(classCode=&quot;PSN&quot; and determinerCode=&quot;INST&quot; and quantity=&quot;1&quot;)</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -183,6 +186,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">Identifier for a person within a particular scope.</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">People are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the patient. Examples are national person identifier and local identifier</Data></Cell>
     <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">.plays:Role(classCode='IDENT').id</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">PID-3</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -200,6 +204,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">The patient this person is related to</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">We need to know which Patient this RelatedPerson is related to.</Data></Cell>
     <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -217,6 +222,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">The nature of the relationship between a patient and the related person</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">We need to know the relationship with the patient since it influences the interpretation of the information attributed to this person.</Data></Cell>
     <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -234,6 +240,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">A name associated with the person</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Related persons need to be identified by name, but it is uncommon to need details about multiple other names for that person</Data></Cell>
     <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">./name</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">PID-5, PID-9</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -251,6 +258,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">A contact detail for the person, e.g. a telephone number or an email address.</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">People have (primary) ways to contact them in some way such as phone, email.</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Person may have multiple ways to be contacted with different uses or applicable periods. &#13;May need to have options for contacting the person urgently, and also to help with identification</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">./telecom</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">PID-13, PID-14</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -268,6 +276,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes. </Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Needed for identification of the person, in combination with (at least) name and birth date. </Data></Cell>
     <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">./administrativeGender</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">PID-8</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -285,6 +294,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">Address where the related person can be contacted or visited</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Need to keep track where the related person can be contacted per postal mail or visited</Data></Cell>
     <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">./addr</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">PID-11</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -301,6 +311,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">Image of the person</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Image of the person</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Many EHR systems have the capability to capture an image of persons. Fits with newer social media usage too.</Data></Cell>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -326,7 +337,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -339,11 +350,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -435,76 +435,69 @@ associated with the use of extensions by any application, project, or standard -
   </structure>
   <binding>
     <name value="ObservationMethod"/>
-    <definition value="Methods for simple observations"/>
-    <type value="valueset"/>
+
     <isExtensible value="true"/>
     <conformance value="example"/>
     <referenceResource>
-      <type value="ValueSet"/>
+  
       <reference value="http://hl7.org/fhir/vs/observation-methods"/>
     </referenceResource>
   </binding>
   <binding>
     <name value="BodySite"/>
-    <definition value="Codes describing anatomical locations. May include laterality"/>
-    <type value="valueset"/>
+
     <isExtensible value="true"/>
     <conformance value="example"/>
     <referenceResource>
-      <type value="ValueSet"/>
+  
       <reference value="http://hl7.org/fhir/vs/body-site"/>
     </referenceResource>
   </binding>
   <binding>
     <name value="ObservationType"/>
-    <definition value="Codes identifying types of simple observations"/>
-    <type value="valueset"/>
+
     <isExtensible value="true"/>
     <conformance value="preferred"/>
     <referenceResource>
-      <type value="ValueSet"/>
+  
       <reference value="http://hl7.org/fhir/vs/observation-codes"/>
     </referenceResource>
   </binding>
   <binding>
     <name value="ObservationRangeMeaning"/>
-    <definition value="Code for the meaning of a reference range"/>
-    <type value="valueset"/>
+
     <isExtensible value="true"/>
     <conformance value="example"/>
     <referenceResource>
-      <type value="ValueSet"/>
+  
       <reference value="http://hl7.org/fhir/vs/referencerange-meaning"/>
     </referenceResource>
   </binding>
   <binding>
     <name value="ObservationReliability"/>
-    <definition value="Codes that provide reliability information about an observation"/>
-    <type value="codelist"/>
+
     <conformance value="required"/>
     <referenceResource>
-      <type value="ValueSet"/>
-      <reference value="http://hl7.org/fhir/valueset/observation-reliability"/>
+  
+      <reference value="http://hl7.org/fhir/vs/observation-reliability"/>
     </referenceResource>
   </binding>
   <binding>
     <name value="ObservationStatus"/>
-    <definition value="Codes providing the status of an observation"/>
-    <type value="codelist"/>
+
     <conformance value="required"/>
     <referenceResource>
-      <type value="ValueSet"/>
-      <reference value="http://hl7.org/fhir/valueset/observation-status"/>
+  
+      <reference value="http://hl7.org/fhir/vs/observation-status"/>
     </referenceResource>
   </binding>
   <binding>
     <name value="ObservationInterpretation"/>
-    <definition value="Codes identifying interpretations of observations"/>
-    <type value="valueset"/>
+
     <isExtensible value="true"/>
     <conformance value="preferred"/>
     <referenceResource>
-      <type value="ValueSet"/>
+  
       <reference value="http://hl7.org/fhir/vs/observation-interpretation"/>
     </referenceResource>
   </binding>

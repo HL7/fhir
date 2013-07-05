@@ -104,7 +104,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="18" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="18" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="340.5"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="33.75"/>
@@ -114,9 +114,10 @@
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
    <Column ss:Index="10" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="161.25"
     ss:Span="1"/>
-   <Column ss:Index="12" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:Index="12" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="69"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="15" ss:StyleID="s64" ss:Width="80.25"/>
+   <Column ss:Index="16" ss:StyleID="s64" ss:Width="80.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -129,6 +130,7 @@
     <Cell><Data ss:Type="String">Definition</Data></Cell>
     <Cell><Data ss:Type="String">Requirements</Data></Cell>
     <Cell><Data ss:Type="String">Comments</Data></Cell>
+    <Cell><Data ss:Type="String">Summary</Data></Cell>
     <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
     <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
     <Cell><Data ss:Type="String">To Do</Data></Cell>
@@ -145,7 +147,7 @@
     <Cell><Data ss:Type="String">Demographics and qualification information for an individual who is directly or indirectly involved in the provisioning of healthcare</Data></Cell>
     <Cell><Data ss:Type="String">Need to track doctors, staff, locums etc. for both healthcare practitioners, funders, etc.</Data></Cell>
     <Cell><Data ss:Type="String">Note that a cab driver no longer fits the bill. You probably woul be interested in the organization rather than the individual?</Data></Cell>
-    <Cell><Data ss:Type="String">Role</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Role</Data></Cell>
     <Cell><Data ss:Type="String">PRD (as one example)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -156,7 +158,8 @@
     <Cell><Data ss:Type="String">An identifier that applies to this person in this role</Data></Cell>
     <Cell><Data ss:Type="String">Often, specific identities are assigned for the agent</Data></Cell>
     <Cell><Data ss:Type="String">The identifier changes when a new/different person steps into the same role</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">PRD-7 (or XCN.1 Person Identifier)</Data></Cell>
+    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">PRD-7 (or XCN.1 Person Identifier)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s68"><Data ss:Type="String">Practitioner.name</Data></Cell>
@@ -170,6 +173,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">A name associated with the person</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Contact persons need to be identified by name, but it is uncommon to need details about multiple other names for that person</Data></Cell>
     <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">./name</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">XCN Components</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -189,6 +193,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">A contact detail for the practitioner, e.g. a telephone number or an email address.</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Need to know how to reach a practitioner</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Person may have multiple ways to be contacted with different uses or applicable periods. &#13;May need to have options for contacting the person urgently, and also to help with identification</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">./telecom</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">PRT-15, STF-10, ROL-12</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -208,6 +213,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">One or more addresses where the practitioner can be found or visited</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Need to keep track where the practitioner can found during work or for directing mail</Data></Cell>
     <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">./addr</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">ORC-24, STF-11, ROL-11, PRT-14</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -227,6 +233,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes. </Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Needed to address the person correctly</Data></Cell>
     <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">./administrativeGender</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String"> STF-5</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -246,9 +253,10 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">The date and time of birth for the practitioner</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Needed for identification</Data></Cell>
     <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">./birthTime</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">STF-6</Data></Cell>
-    <Cell ss:Index="15" ss:StyleID="Default"/>
+    <Cell ss:Index="16" ss:StyleID="Default"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -266,7 +274,8 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="15" ss:StyleID="Default"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="16" ss:StyleID="Default"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -277,7 +286,8 @@
     <Cell ss:Index="8"><Data ss:Type="String">The represented organization</Data></Cell>
     <Cell><Data ss:Type="String">The organisation that the practitioner represents</Data></Cell>
     <Cell><Data ss:Type="String">Need to be able to track the represented organisation separately, if any.</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">PRD-10 (-&gt; 14) / PRA-9-Institution / PRT-8-Participation Organization for person participation</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">PRD-10 (-&gt; 14) / PRA-9-Institution / PRT-8-Participation Organization for person participation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Practitioner.role</Data></Cell>
@@ -288,7 +298,8 @@
     <Cell><Data ss:Type="String">The way in which the person represents the organisation - what role do they have?</Data></Cell>
     <Cell><Data ss:Type="String">Need to know what authority the practitioner has - what can they do?</Data></Cell>
     <Cell><Data ss:Type="String">A person may have more than one role. At least one role is required.</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">PRD-1 / STF-18-job title / PRA-3-practitioner category  / PRT-4-Participation / ROL-3-role-ROL / ORC-12-ordering provider / OBR-16-ordering provider / PV1-7-attending doctor / PV1-8-referring doctor / PV1-9-consulting doctor / PV1-17-admitting doctor&#10;</Data></Cell>
+    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">PRD-1 / STF-18-job title / PRA-3-practitioner category  / PRT-4-Participation / ROL-3-role-ROL / ORC-12-ordering provider / OBR-16-ordering provider / PV1-7-attending doctor / PV1-8-referring doctor / PV1-9-consulting doctor / PV1-17-admitting doctor&#10;</Data></Cell>
     <Cell><Data ss:Type="String">We have de-empasized the organisation. So is this no longer the &quot;role&quot; within the organization?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -298,7 +309,8 @@
     <Cell><Data ss:Type="String">PractitionerSpecialty</Data></Cell>
     <Cell><Data ss:Type="String">Specific specialty of the practitioner</Data></Cell>
     <Cell><Data ss:Type="String">Specific specialty of the practitioner</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s74"><Data ss:Type="String">PRA-5-specialty</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">PRA-5-specialty</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Practitioner.period</Data></Cell>
@@ -307,7 +319,8 @@
     <Cell ss:Index="8"><Data ss:Type="String">The period during which the person is authorized to perform the service</Data></Cell>
     <Cell><Data ss:Type="String">The period during which the person is authorized to perform the service</Data></Cell>
     <Cell><Data ss:Type="String">Qualifications are often for a limited period of time, and can be revoked. Even after the agencies is revoked, the fact that it existed must still be recorded</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">PRD-8/9 / PRA-5.4-date of certification&#10;</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">PRD-8/9 / PRA-5.4-date of certification&#10;</Data></Cell>
     <Cell><Data ss:Type="String">Is this separate from the period of validity of the qualification?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -316,7 +329,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Qualifications relevant to the provided service</Data></Cell>
     <Cell><Data ss:Type="String">Qualifications relevant to the provided service</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">CER?</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">CER?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Practitioner.qualification.code</Data></Cell>
@@ -325,7 +338,7 @@
     <Cell><Data ss:Type="String">Qualification</Data></Cell>
     <Cell><Data ss:Type="String">Qualification</Data></Cell>
     <Cell><Data ss:Type="String">Coded representation of the qualification</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s74"/>
+    <Cell ss:Index="14" ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Practitioner.qualification.period</Data></Cell>
@@ -353,6 +366,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">A language the practitioner is able to use in patient communication</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Knowing which language a practitioner speaks can help in facilitating communication with patients</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type</Data></Cell>
+    <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">./languageCode</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">PID-15, NK1-20, LAN-2</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Note: cannot be named &quot;language&quot; because of technical reasons</Data></Cell>
@@ -373,13 +387,11 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>4</TopRowVisible>
-   <LeftColumnVisible>1</LeftColumnVisible>
+   <TopRowVisible>3</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>17</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

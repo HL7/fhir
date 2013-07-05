@@ -16,11 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13152</WindowHeight>
-  <WindowWidth>23256</WindowWidth>
+  <WindowHeight>13155</WindowHeight>
+  <WindowWidth>23250</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>60</WindowTopY>
-  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -113,12 +112,6 @@
    <Alignment ss:Vertical="Top"/>
   </Style>
   <Style ss:ID="s78">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
-  </Style>
-  <Style ss:ID="s79">
-   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s80">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -128,27 +121,33 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s79">
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s80">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R18C16"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R18C17"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="18" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="18" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="298.8"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="56.4" ss:Span="1"/>
-   <Column ss:Index="4" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="67.8"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="61.8"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="213.60000000000002"
-    ss:Span="1"/>
-   <Column ss:Index="8" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="161.4"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="221.4"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="77.399999999999991"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="298.5"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
+   <Column ss:Index="4" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="67.5"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="61.5"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
+   <Column ss:Index="8" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="221.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="51.75"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="77.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="221.4"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="221.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="173.39999999999998"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="173.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Card.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -162,6 +161,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Summary</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Aliases</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Requirements</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -195,7 +195,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The common name of the medication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">RXO-1.2-Requested Give Code.text / RXE-2.2-Give Code.text / RXD-2.2-Dispense/Give Code.text / RXG-4.2-Give Code.text / RXA-5.2-Administered Code.text&#10;</Data><NamedCell
+    <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">RXO-1.2-Requested Give Code.text / RXE-2.2-Give Code.text / RXD-2.2-Dispense/Give Code.text / RXG-4.2-Give Code.text / RXA-5.2-Administered Code.text&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -213,8 +214,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">References to codes for this medication in standard medication terminologies, drug dictionaries, etc</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="11" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="12" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">RXO-1.1-Requested Give Code.code / RXE-2.1-Give Code.code / RXD-2.1-Dispense/Give Code.code / RXG-4.1-Give Code.code /RXA-5.1-Administered Code.code&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -229,6 +231,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is) </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Medication.manufacturer</Data><NamedCell
@@ -240,7 +243,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Describes the details of the manufacturer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">RXD-20-Substance Manufacturer Name / RXG-21-Substance Manufacturer Name / RXA-17-Substance Manufacturer Name&#10;</Data><NamedCell
+    <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">RXD-20-Substance Manufacturer Name / RXG-21-Substance Manufacturer Name / RXA-17-Substance Manufacturer Name&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -252,6 +256,8 @@
     <Cell><Data ss:Type="String">MedicationKind</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">product | package</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -275,7 +281,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Describes the form of the item.  Powder; tables; carton</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">RXO-5-Requested Dosage Form / RXE-6-Give Dosage Form / RXD-6-Actual Dosage Form / RXG-8-Give Dosage Form / RXA-8-Administered Dosage Form&#10;</Data><NamedCell
+    <Cell ss:Index="15"><Data ss:Type="String">RXO-5-Requested Dosage Form / RXE-6-Give Dosage Form / RXD-6-Actual Dosage Form / RXG-8-Give Dosage Form / RXA-8-Administered Dosage Form&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -288,7 +294,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The ingredients of the medication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">The ingredients need not be a complete list; usually only active ingredients are listed</Data><NamedCell
+    <Cell ss:Index="13"><Data ss:Type="String">The ingredients need not be a complete list; usually only active ingredients are listed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -301,7 +307,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The actual ingredient - either a substance (simple ingredient) or another medication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">if substance: RXC-2-Component Code&#10;if medication: RXO-1-Requested Give Code / RXE-2-Give Code / RXD-2-Dispense/Give Code / RXG-4-Give Code / RXA-5-Administered Code&#10;</Data><NamedCell
+    <Cell ss:Index="15"><Data ss:Type="String">if substance: RXC-2-Component Code&#10;if medication: RXO-1-Requested Give Code / RXE-2-Give Code / RXD-2-Dispense/Give Code / RXG-4-Give Code / RXA-5-Administered Code&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -314,7 +320,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Specifies how many (or how much) of the items there are in this Medication.  E.g. 250 mg per tablet</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">if substance: RXC-3-Component Amount &amp; RXC-4-Component Units&#10;if medication: RXO-2-Requested Give Amount - Minimum &amp; RXO-4-Requested Give Units / RXO-3-Requested Give Amount - Maximum &amp; RXO-4-Requested Give Units / RXO-11-Requested Dispense Amount &amp; RXO-12-Requested Dispense Units / RXE-3-Give Amount - Minimum &amp; RXE-5-Give Units / RXE-4-Give Amount - Maximum &amp; RXE-5-Give Units / RXE-10-Dispense Amount &amp; RXE-10-Dispense Units&#10;</Data><NamedCell
+    <Cell ss:Index="15"><Data ss:Type="String">if substance: RXC-3-Component Amount &amp; RXC-4-Component Units&#10;if medication: RXO-2-Requested Give Amount - Minimum &amp; RXO-4-Requested Give Units / RXO-3-Requested Give Amount - Maximum &amp; RXO-4-Requested Give Units / RXO-11-Requested Dispense Amount &amp; RXO-12-Requested Dispense Units / RXE-3-Give Amount - Minimum &amp; RXE-5-Give Units / RXE-4-Give Amount - Maximum &amp; RXE-5-Give Units / RXE-10-Dispense Amount &amp; RXE-10-Dispense Units&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -331,6 +337,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Specifies Ingredient / Product / Package</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -375,6 +382,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">The product that is in the package</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s63"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60" ss:StyleID="s72">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Medication.package.content.amount</Data><NamedCell
@@ -391,6 +399,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">The amount of the product that is in the package</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s63"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s72">
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -409,6 +418,7 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -429,26 +439,25 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R18C16"
+  <AutoFilter x:Range="R1C1:R18C17"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s74" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s74" ss:AutoFitWidth="0"
-    ss:Width="115.80000000000001"/>
+   <Column ss:Index="2" ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="115.5"/>
    <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="153"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="204.60000000000002"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="198.6"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="188.4"/>
+   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="188.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -533,12 +542,12 @@
  <Worksheet ss:Name="Events">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="82.8"/>
-   <Column ss:AutoFitWidth="0" ss:Width="198.6"/>
-   <Column ss:AutoFitWidth="0" ss:Width="157.80000000000001"/>
-   <Column ss:AutoFitWidth="0" ss:Width="162.6"/>
-   <Column ss:AutoFitWidth="0" ss:Width="195.60000000000002"/>
-   <Column ss:AutoFitWidth="0" ss:Width="74.400000000000006"/>
+   <Column ss:AutoFitWidth="0" ss:Width="82.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="157.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="162.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="195.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="74.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="33">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Event Code</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
@@ -589,8 +598,8 @@
  <Worksheet ss:Name="Search">
   <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="41" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="70.8"/>
-   <Column ss:AutoFitWidth="0" ss:Width="382.79999999999995"/>
+   <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="384"/>
    <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -777,10 +786,10 @@
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="27" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="93"/>
-   <Column ss:AutoFitWidth="0" ss:Width="221.4"/>
-   <Column ss:AutoFitWidth="0" ss:Width="81.599999999999994"/>
-   <Column ss:AutoFitWidth="0" ss:Width="106.80000000000001"/>
-   <Column ss:AutoFitWidth="0" ss:Width="274.8"/>
+   <Column ss:AutoFitWidth="0" ss:Width="221.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="81.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="106.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
@@ -922,18 +931,17 @@
  </Worksheet>
  <Worksheet ss:Name="Examples">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="7" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65.400000000000006"
-   ss:DefaultRowHeight="15">
-   <Column ss:Width="60.6"/>
-   <Column ss:Width="356.40000000000003"/>
-   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="273.59999999999997"/>
+   x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
+   <Column ss:Width="60.75"/>
+   <Column ss:Width="356.25"/>
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="273.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Identity</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">In Book</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Penicillin</Data></Cell>
@@ -945,14 +953,14 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Combivent</Data></Cell>
     <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">f001</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">f001</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">medication-example-f001-combivent.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Salmeterol</Data></Cell>
     <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">f201</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">f201</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">medication-example-f201-salmeterol.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
@@ -981,7 +989,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

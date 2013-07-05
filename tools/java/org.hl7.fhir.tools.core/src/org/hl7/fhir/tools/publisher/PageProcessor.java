@@ -54,6 +54,7 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingStrength;
 import org.hl7.fhir.definitions.model.BindingSpecification.ElementType;
+import org.hl7.fhir.definitions.model.Compartment;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -422,12 +423,25 @@ public class PageProcessor implements Logger  {
         src = s1 + generateCodeTable(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("vssummary"))
         src = s1 + "todo" + s3;
+      else if (com[0].equals("compartmentlist"))
+        src = s1 + compartmentlist() + s3;
       else if (com[0].equals("qa"))
         src = s1 + qa.report() + s3;
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String compartmentlist() {
+    StringBuilder b = new StringBuilder();
+    b.append("<table class=\"grid\">\r\n");
+    b.append(" <tr><td><b>Name</b></td><td><b>Title</b></td><td><b>Description</b></td></tr>\r\n");
+    for (Compartment c : definitions.getCompartments()) {
+      b.append(" <tr><td>"+c.getName()+"</td><td>"+c.getTitle()+"</td><td>"+Utilities.escapeXml(c.getDescription())+"</td></tr>\r\n");
+    }
+    b.append("</table>\r\n");
+    return b.toString();
   }
 
   private String genV3CodeSystem(String name) throws Exception {
@@ -1757,6 +1771,8 @@ private String resItem(String name) throws Exception {
         src = s1 + "todo" + s3;
       else if (com[0].equals("toc"))
         src = s1 + generateToc() + s3;
+      else if (com[0].equals("compartmentlist"))
+        src = s1 + compartmentlist() + s3;
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
