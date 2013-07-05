@@ -29,6 +29,7 @@ package org.hl7.fhir.definitions.parsers;
 
  */
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -56,11 +57,13 @@ import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.parsers.converters.BindingConverter;
 import org.hl7.fhir.definitions.parsers.converters.CompositeTypeConverter;
 import org.hl7.fhir.definitions.parsers.converters.ConstrainedTypeConverter;
 import org.hl7.fhir.definitions.parsers.converters.EventConverter;
 import org.hl7.fhir.definitions.parsers.converters.PrimitiveConverter;
+import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.utilities.CSFile;
@@ -355,7 +358,23 @@ public class SourceParser {
 		      cparser.parse(cd.getCodes());
 		      cparser.close();
 		    }
-			}
+		  }
+		  if (cd.getBinding() == Binding.ValueSet && !Utilities.noString(cd.getReference())) {
+		    if (cd.getReference().startsWith("http://hl7.org/fhir")) {
+		      // ok, it's a reference to a value set defined within this build. Since it's an absolute 
+		      // reference, it's into the base infrastructure. That's not loaded yet, so we will try
+		      // to resolve it later
+		    } else if (new File(Utilities.appendSlash(termDir)+cd.getReference()+".xml").exists()) {
+		      XmlParser p = new XmlParser();
+		      FileInputStream input = new FileInputStream(Utilities.appendSlash(termDir)+cd.getReference()+".xml");
+		      cd.setReferredValueSet((ValueSet) p.parse(input));
+		    } else if (new File(Utilities.appendSlash(termDir)+cd.getReference()+".json").exists()) {
+		      JsonParser p = new JsonParser();
+		      FileInputStream input = new FileInputStream(Utilities.appendSlash(termDir)+cd.getReference()+".json");
+		      cd.setReferredValueSet((ValueSet) p.parse(input));
+		    } else
+		      throw new Exception("Unable to find source for "+cd.getReference()+" ("+Utilities.appendSlash(termDir)+cd.getReference()+".xml/json)");
+		  }
 		}
 	}
 

@@ -405,9 +405,6 @@ public class SpreadsheetParser {
 			cd.setName(bindingName);
 			cd.setDefinition(sheet.getColumn(row, "Definition"));
 			cd.setBinding(BindingsParser.readBinding(sheet.getColumn(row, "Binding")));
-//    these are derived from the way they are used
-//      cd.setBindingStrength(BindingsParser.readBindingStrength(sheet.getColumn(row, "Binding Strength")));
-//      cd.setExtensibility(BindingsParser.readExtensibility(sheet.getColumn(row, "Extensibility")));
 			cd.setReference(sheet.getColumn(row, "Reference"));
       cd.setDescription(sheet.getColumn(row, "Description"));
       cd.setExample(parseBoolean(sheet.getColumn(row, "Example"), row, false));

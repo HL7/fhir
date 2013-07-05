@@ -73,13 +73,16 @@ public class BindingsParser {
     cd.setName(sheet.getColumn(row, "Binding Name"));
 		cd.setDefinition(sheet.getColumn(row, "Definition"));
     cd.setBinding(readBinding(sheet.getColumn(row, "Binding")));
-//    cd.setBindingStrength(readBindingStrength(sheet.getColumn(row, "Binding Strength")));
-//    cd.setExtensibility(readExtensibility(sheet.getColumn(row, "Extensibility")));
     cd.setReference(sheet.getColumn(row, "Reference"));
     cd.setDescription(sheet.getColumn(row, "Description"));
     cd.setId(registry.idForName(cd.getName()));
     cd.setSource(filename);
-		results.add(cd);
+    cd.setUri(sheet.getColumn(row, "Uri"));
+    cd.setOid(sheet.getColumn(row, "Oid"));
+    cd.setWebSite(sheet.getColumn(row, "Website"));
+    cd.setEmail(sheet.getColumn(row, "Email"));
+
+    results.add(cd);
 	}
 
 	public static BindingExtensibility readExtensibility(String s) throws Exception {
