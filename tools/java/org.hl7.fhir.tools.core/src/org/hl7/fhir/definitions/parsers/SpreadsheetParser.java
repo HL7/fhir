@@ -705,6 +705,7 @@ public class SpreadsheetParser {
 
 		e.setIsModifier(parseBoolean(sheet.getColumn(row, "Is Modifier"), row, false));
     e.setMustSupport(parseBoolean(sheet.getColumn(row, "Must Support"), row, false));
+    e.setSummaryItem(parseBoolean(sheet.getColumn(row, "Summary"), row, false));
     e.setRegex(sheet.getColumn(row, "Regex"));
 		e.setDir(sheet.getColumn(row, "UML"));
 		String s = sheet.getColumn(row, "Condition");

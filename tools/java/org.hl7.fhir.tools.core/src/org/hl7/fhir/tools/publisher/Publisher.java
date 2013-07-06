@@ -68,6 +68,7 @@ import org.hl7.fhir.definitions.generators.specification.XmlSpecGenerator;
 import org.hl7.fhir.definitions.generators.xsd.SchemaGenerator;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
+import org.hl7.fhir.definitions.model.Compartment;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -907,6 +908,13 @@ public class Publisher {
 	      produceResource2(r);
 	    }
 	  }
+
+	   for (Compartment c : page.getDefinitions().getCompartments()) {
+	      if (buildFlags.get("all")) {
+	        log(" ...compartment "+c.getName());
+	        produceCompartment(c);
+	      }
+	    }
 
 	  for (String n : page.getIni().getPropertyNames("pages")) {
 	    if (buildFlags.get("all") || buildFlags.get("page-"+n.toLowerCase())) {
@@ -2149,6 +2157,31 @@ public class Publisher {
 		src = page.processPageIncludesForBook(file, src);
 		cachePage(file, src);
 	}
+
+  private void produceCompartment(Compartment c) throws Exception {
+    
+    String logicalName = "compartment-"+c.getName();
+    String file = logicalName + ".htm";
+    String src = TextFile.fileToString(page.getFolders().srcDir + "template-compartment.htm");
+    src = page.processPageIncludes(file, src);
+
+//    String prefix = "";
+//    if (!page.getSectionTrackerCache().containsKey("compartment-"+c.getName())) {
+//      prefix = page.getNavigation().getIndexPrefixForFile(logicalName+".htm");
+//      if (Utilities.noString(prefix))
+//        throw new Exception("No indexing home for logical place "+logicalName);
+//    }
+//    page.getSectionTrackerCache().put(logicalName, new SectionTracker(prefix));
+    
+//    TextFile.stringToFile(src, page.getFolders().dstDir + file);    
+//    src = insertSectionNumbers(src, page.getSectionTrackerCache().get(logicalName), file);
+
+    TextFile.stringToFile(src, page.getFolders().dstDir + file);    
+
+    src = TextFile.fileToString(page.getFolders().srcDir + "template-compartment.htm").replace("<body>", "<body style=\"margin: 10px\">");
+    src = page.processPageIncludesForBook(file, src);
+    cachePage(file, src);
+  }
 
 	private String insertSectionNumbers(String src, SectionTracker st, String link) throws Exception  {
     try {

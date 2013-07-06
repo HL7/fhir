@@ -288,5 +288,12 @@ public class Definitions {
     return compartments;
   }
 
+  public Compartment getCompartmentByName(String n) {
+    for (Compartment c : compartments)
+      if (c.getName().equals(n))
+        return c;
+    return null;
+  }
+
   
 }

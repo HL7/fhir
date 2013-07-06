@@ -81,6 +81,8 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		tableRow("Must Understand", displayBoolean(e.isModifier()));
 		tableRow("Requirements", e.getRequirements());
     tableRow("Aliases", toSeperatedString(e.getAliases()));
+    if (e.isSummaryItem())
+      tableRow("Summary", Boolean.toString(e.isSummaryItem()));
     tableRow("Comments", e.getComments());
     tableRowNE("Invariants", invariants(e.getInvariants(), e.getStatedInvariants()));
 //		tableRow("RIM Mapping", e.getRimMapping());

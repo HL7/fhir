@@ -131,7 +131,7 @@ Each tag has two properties:
  <tr><td>Label : string</td><td>(Optional) A human-readable label for the tag for use when displaying in end-user applications</td></tr>
 </table>
 <p>
-The Uri may be a reference to a healthcare vocbulary, including ones defined in this specification,
+The Uri may be a reference to a healthcare vocabulary, including ones defined in this specification,
 such as the basic <a href="security.htm#labels">security label set</a>, or vocabularies such as 
 those defined by HL7 (v2 and v3/CDA), Loinc, or Snomed-CT. Alternatively, the URI may be one
 defined by the implementation in the local context. Literal references that refer directly 
@@ -150,8 +150,8 @@ meaning.
 <a name="compartments"> </a>
 <h3>Compartments</h3>
 <p>
-Eaxh resource may belong to one or more logical compartments. A compartment is a logical 
-grouping of resources which share common properties. Compartments have two principal roles:
+Each resource may belong to one or more logical compartments. A compartment is a logical 
+grouping of resources which share a common property. Compartments have two principal roles:
 </p>
 <ul>
  <li>Function as an access mechanism for finding a set of related resources quickly</li>
@@ -164,27 +164,24 @@ the compartments defined by this specification:
 </p>
 <%compartmentlist%>
 <p>
-As an example, the patient compartment includes any resources where the subject of 
-the resource is the patient, and some other resources that are indirectly linked 
-to the patient. To retrieve a list of a patient's conditions, use the URL:
+As an example of compartment usage, to retrieve a list of a patient's conditions, use the URL:
 </p>
 <pre>
-  GET [baseurl]/patients/@[id]/condition
+  GET [baseurl]/patient/@[id]/condition
 </pre>
 <p>
 The details of this usage are <a href="query.htm#compartments">described under the search operation</a>.
 </p>
 <p>
-Compartments may be used explicitly, like this, but can also exist implicitly. For instance,
-if the FHIR is providing a patient view of a record, the authorised user associated
+Compartments may be used explicitly, like this, but can also be used implicitly. For instance,
+if a FHIR server is providing a patient view of a record, the authorised user associated
 with use of the FHIR RESTful api may be limited to accessing records from the
-compartment instance logically associated with their identity, and this applies
-irrespective of how they access resources.
+compartment instance(s) logically associated with their identity.
 </p>
 <p>
-Resources may cross between compartments, or interlink them. Examples of 
-this would be where a <a href="diagnosticreport.htm">Diagnostic Report</a> identified  
-a subject, but an <a href="observation.htm">observation</a> it references identifies
+Note that resources may cross between compartments, or interlink them. Examples of 
+this would be where a <a href="diagnosticreport.htm">Diagnostic Report</a> identifies  
+a subject, but an <a href="observation.htm">Observation</a> it references identifies
 a different subject, or where a <a href="list.htm">List</a> resource references
 items that identify different subjects. Such cross-linking may arise for 
 many valid reasons, including:

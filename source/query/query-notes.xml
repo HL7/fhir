@@ -6,14 +6,15 @@ Notes about the Query resource:
 <ul>
  <li>The id is usually a UUID (urn:uuid:...). It's sole use is to match request and response logically</li>
  <li>The parameters defined for use with the query the resource are all those described above</li>
+ <li>The <a href="extexibility.htm">extension</a> type is used for parameters. The namespace http://hl7.org/fhir/query is used in the uri value for all the named parameters. Other namespaces may be used for parameters that would/could not appear in the named parameter list in a query url.</li>
  <li>Parameter names are mandatory, and values are optional. Parameters with missing values are ignored when processing the query</li>
  <li>Parameter names do not need to be unique. The interpretation of multiple search parameters is as described above</li>
  <li>There SHALL be at least one parameter provided with a search - a search request without any request cannot be processed</li>
  <li>The search engine SHALL return the parameters used to process the search so the client knows what search was performed</li>
  <li>The links to first, previous, next and last pages in the query result set are provided at the discretion of the server. 
- The client performs a new query using those parameters to retrieve the specified pages</li>
+ The client performs a new query using those parameters to retrieve the specified pages. If no parameters are returned, there is no link to follow</li>
  <li>The references to the result set are usually version specific references</li>
- <li>In a RESTful search, with no query resource, there is no way to indicate that the search was limited</li>
+ <li>The query resource contains an outcome code. There is no way to represent the code "limited" in a RESTful query where there is no query resource</li>
 </ul>
 
 <a name="details"> </a>

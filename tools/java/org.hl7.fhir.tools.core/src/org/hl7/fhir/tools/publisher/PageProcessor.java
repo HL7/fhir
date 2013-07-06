@@ -427,18 +427,76 @@ public class PageProcessor implements Logger  {
         src = s1 + compartmentlist() + s3;
       else if (com[0].equals("qa"))
         src = s1 + qa.report() + s3;
+      else if (com[0].equals("comp-title"))
+        src = s1 + compTitle(name) + s3;
+      else if (com[0].equals("comp-desc"))
+        src = s1 + compDesc(name) + s3;
+      else if (com[0].equals("comp-identity"))
+        src = s1 + compIdentity(name) + s3;
+      else if (com[0].equals("comp-membership"))
+        src = s1 + compMembership(name) + s3;
+      else if (com[0].equals("comp-resources"))
+        src = s1 + compResourceMap(name) + s3;
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
   }
 
+  private String compTitle(String name) {
+    String n = name.split("\\-")[1];
+    return definitions.getCompartmentByName(n).getTitle();
+  }
+
+  private String compDesc(String name) {
+    String n = name.split("\\-")[1];
+    return definitions.getCompartmentByName(n).getDescription();
+  }
+
+  private String compIdentity(String name) {
+    String n = name.split("\\-")[1];
+    return definitions.getCompartmentByName(n).getIdentity();
+  }
+
+  private String compMembership(String name) {
+    String n = name.split("\\-")[1];
+    return definitions.getCompartmentByName(n).getMembership();
+  }
+
+  private String compResourceMap(String name) throws Exception {
+    String n = name.split("\\-")[1];
+    StringBuilder in = new StringBuilder();
+    StringBuilder out = new StringBuilder();
+    Map<ResourceDefn, String> map = definitions.getCompartmentByName(n).getResources();
+    for (String rn : definitions.sortedResourceNames()) {
+      ResourceDefn rd = definitions.getResourceByName(rn);
+      String rules = map.get(rd);
+      if (Utilities.noString(rules)) {
+        out.append(" <li><a href=\""+rd.getName().toLowerCase()+".htm\">"+rd.getName()+"</a></li>\r\n");
+      } else if (!rules.equals("{def}")) {
+        in.append(" <tr><td><a href=\""+rd.getName().toLowerCase()+".htm\">"+rd.getName()+"</a></td><td>"+rules.replace("|", "or")+"</td></tr>\r\n");
+      }
+    }
+    return "<p>\r\nThe following resources may be in this compartment:\r\n</p>\r\n" +
+        "<table class=\"grid\">\r\n"+
+        " <tr><td><b>Resource</b></td><td><b>Inclusion Criteria</b></td></tr>\r\n"+
+        in.toString()+
+        "</table>\r\n"+
+        "<p>\r\nA resource is in this compartment if the nominated search parameter (or chain) refers to the patient resource that defines the compartment.\r\n</p>\r\n" +
+        "<p>\r\n\r\n</p>\r\n" +        
+        "<p>\r\nThe following resources are never in this compartment:\r\n</p>\r\n" +
+        "<ul>\r\n"+
+        out.toString()+
+        "</ul>\r\n";
+  }
+
   private String compartmentlist() {
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"grid\">\r\n");
-    b.append(" <tr><td><b>Name</b></td><td><b>Title</b></td><td><b>Description</b></td></tr>\r\n");
+    b.append(" <tr><td><b>Name</b></td><td><b>Title</b></td><td><b>Description</b></td><td><b>Identity</b></td><td><b>Membership</b></td></tr>\r\n");
     for (Compartment c : definitions.getCompartments()) {
-      b.append(" <tr><td>"+c.getName()+"</td><td>"+c.getTitle()+"</td><td>"+Utilities.escapeXml(c.getDescription())+"</td></tr>\r\n");
+      b.append(" <tr><td><a href=\"compartment-"+c.getName()+".htm\">"+c.getName()+"</a></td><td>"+c.getTitle()+"</td><td>"+Utilities.escapeXml(c.getDescription())+"</td>"+
+              "<td>"+Utilities.escapeXml(c.getIdentity())+"</td><td>"+Utilities.escapeXml(c.getMembership())+"</td></tr>\r\n");
     }
     b.append("</table>\r\n");
     return b.toString();
@@ -1773,6 +1831,16 @@ private String resItem(String name) throws Exception {
         src = s1 + generateToc() + s3;
       else if (com[0].equals("compartmentlist"))
         src = s1 + compartmentlist() + s3;
+      else if (com[0].equals("comp-title"))
+        src = s1 + compTitle(name) + s3;
+      else if (com[0].equals("comp-desc"))
+        src = s1 + compDesc(name) + s3;
+      else if (com[0].equals("comp-identity"))
+        src = s1 + compIdentity(name) + s3;
+      else if (com[0].equals("comp-membership"))
+        src = s1 + compMembership(name) + s3;
+      else if (com[0].equals("comp-resources"))
+        src = s1 + compResourceMap(name) + s3;
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }

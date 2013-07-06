@@ -288,9 +288,14 @@ public class SourceParser {
     for (int row = 0; row < sheet.rows.size(); row++) {
       Compartment c = new Compartment();
       c.setName(sheet.getColumn(row, "Name"));
-      c.setTitle(sheet.getColumn(row, "Title"));
-      c.setDescription(sheet.getColumn(row, "Description"));
-      definitions.getCompartments().add(c);
+      if (!c.getName().startsWith("!")) {
+        c.setTitle(sheet.getColumn(row, "Title"));
+        c.setDescription(sheet.getColumn(row, "Description"));
+        c.setIdentity(sheet.getColumn(row, "Identification"));
+        c.setMembership(sheet.getColumn(row, "Inclusion"));
+        
+        definitions.getCompartments().add(c);
+      }
     }
     sheet = xml.getSheets().get("resources");
     for (int row = 0; row < sheet.rows.size(); row++) {

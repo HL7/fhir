@@ -8,6 +8,8 @@ public class Compartment {
   private String name;
   private String title;
   private String description;
+  private String identity;
+  private String membership;
   private Map<ResourceDefn, String> resources = new HashMap<ResourceDefn, String>();
   
   public String getName() {
@@ -30,6 +32,18 @@ public class Compartment {
   }
   public Map<ResourceDefn, String> getResources() {
     return resources;
+  }
+  public String getIdentity() {
+    return identity;
+  }
+  public void setIdentity(String identity) {
+    this.identity = identity;
+  }
+  public String getMembership() {
+    return membership;
+  }
+  public void setMembership(String membership) {
+    this.membership = membership;
   }
   
   

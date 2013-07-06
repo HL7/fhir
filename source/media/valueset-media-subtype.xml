@@ -26,6 +26,32 @@
       <display value="Scanned Document"/>
       <definition value="A digital scan of a document. This is reserved for when there is not enough metadata to create a document reference"/>
     </concept>
+    <!-- biometrics - may overlap with things in snomed, but the purpose in snomed is different  -->
+    <concept>
+      <code value="retina"/>
+      <display value="Retina scan"/>
+      <definition value="A retinal image used for identification purposes"/>
+    </concept>
+    <concept>
+      <code value="fingerprint"/>
+      <display value="fingerprint"/>
+      <definition value="A finger print scan used for identification purposes"/>
+    </concept>
+    <concept>
+      <code value="iris"/>
+      <display value="iris"/>
+      <definition value="An iris scan used for identification purposes"/>
+    </concept>
+    <concept>
+      <code value="palm"/>
+      <display value="palm"/>
+      <definition value="A palm scan used for identification purposes"/>
+    </concept>
+    <concept>
+      <code value="face"/>
+      <display value="face"/>
+      <definition value="A face scan used for identification purposes"/>
+    </concept>
   </define>
   <compose>
     <import value="http://hl7.org/fhir/vs/imaging-modality"/>

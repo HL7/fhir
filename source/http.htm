@@ -309,19 +309,33 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
 <a name="search"> </a>
 <h2>search</h2>
 <p>
-This interaction searches a resource type based on some filter criteria. The interaction is performed by two different HTTP Get operation as shown:
+This interaction searches a set of resources based on some filter criteria. The interaction can be performed by several different HTTP operations. 
+To search all resources at once:
 </p>
 <pre>
-  GET [service-url]/[resourcetype]/search(?parameters) (&amp;_format=mimeType)
-  GET [service-url]/[resourcetype]/(?parameters) (&amp;_format=mimeType)
+  GET [service-url]/?parameters (&amp;_format=mimeType)
 </pre>
 <p>
-Because of the way that some user agents treat POST requests, POST submissions are 
-also allowed with exactly the same semantics as a GET operation.
-Search operations take a series of parameters that are a series of name'='value pairs 
+To search a single resource type:
+</p>
+<pre>
+  GET [service-url]/[resourcetype]/(?parameters) (&amp;_format=mimeType)
+  GET [service-url]/[resourcetype]/search(?parameters) (&amp;_format=mimeType)
+</pre>
+<p>
+To search a <a href="resources.htm@compartments">compartment</a>:
+</p>
+<pre>
+  GET [service-url]/[compartment]/@[id]/*?parameters (&amp;_format=mimeType)
+  GET [service-url]/[compartment]/@[id]/[resourcetype]?parameters (&amp;_format=mimeType)
+</pre>
+<p>
+Because of the way that some user agents treat GET and POST requests, POST submissions are 
+also allowed with exactly the same semantics as the equivalent GET operation.
+All these search operations take a series of parameters that are a series of name'='value pairs 
 encoded in the URL (or as an x-multi-part-form submission for a POST).
 (See <a href="http://www.w3.org/TR/REC-html40/interact/forms.html#form-content-type">W3C HTML forms</a>). 
-The search is processed as specified for the <a href="query.htm">Query handling mechanism</a>. 
+Searches are processed as specified for the <a href="query.htm">Query handling mechanism</a>. 
 </p>
 <p>
 The return content is an <a href="resources.htm#bundle">Bundle</a> containing the results of the search as a list of resources

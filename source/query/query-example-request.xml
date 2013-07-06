@@ -61,12 +61,12 @@
         <!-- now, the actual search criteria -->
         <!-- this is a simple search, search on patients for the gender "m" using the default query method -->
         <parameter>
-          <name value="_type"/>
-          <value value="patient"></value>
+          <url value="http://hl7.org/fhir/query#_type"/>
+          <valueString value="patient"/>
         </parameter>
         <parameter>
-          <name value="gender"/>
-          <value value="m"/>
+          <url value="http://hl7.org/fhir/query#gender"/>
+          <valueString value="m"/>
         </parameter>
       </Query>
     </content>

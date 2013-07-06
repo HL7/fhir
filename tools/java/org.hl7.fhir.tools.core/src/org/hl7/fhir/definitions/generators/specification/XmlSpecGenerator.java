@@ -289,7 +289,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 					+ "\">div</b>" +  ((elem.isModifier() || elem.isMustSupport()) ? "</span>" : "") 
 					+ (defPage == null ? "</span>" : "</a>") 
 					+ " xmlns=\"http://www.w3.org/1999/xhtml\"&lt; <span style=\"color: Gray\">&lt;!--</span> <span style=\"color: navy\">"
-					+ Utilities.escapeXml(elem.getShortDefn())
+					+ Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem)
 					+ "</span><span style=\"color: Gray\">&lt; --&gt;</span> &lt;/div&gt;\r\n");
 		}
 		// element has a constraint which fixes its value
@@ -378,7 +378,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			if (elem.getElements().isEmpty() && !sharedDT) {
 				if ("See Extensions".equals(elem.getShortDefn())) {
 					write(" <a href=\"extensibility.htm\"><span style=\"color: navy\">"
-							+ Utilities.escapeXml(elem.getShortDefn())
+							+ Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem)
 							+ "</span></a> ");
 				} else {
 					// if (!elem.isXmlIDRef())
@@ -387,11 +387,11 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 				  BindingSpecification bs = definitions.getBindingByName(elem.getBindingName());
 				  if (bs != null && bs.getBinding() != Binding.Unbound && !Utilities.noString(bs.getReference())) { 
 				    if (bs.getBinding() == Binding.CodeList || bs.getBinding() == Binding.Special)
-		          write("<span style=\"color: navy\"><a href=\""+bs.getReference().substring(1)+".htm\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a></span>");
+		          write("<span style=\"color: navy\"><a href=\""+bs.getReference().substring(1)+".htm\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a></span>");
             else 
-              write("<span style=\"color: navy\"><a href=\""+bs.getReference()+".htm\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a></span>");				  
+              write("<span style=\"color: navy\"><a href=\""+bs.getReference()+".htm\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a></span>");				  
 				  } else
-					write("<span style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn()) + "</span>");
+					write("<span style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</span>");
           if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
             write("</span>");
 				}
@@ -402,7 +402,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 						writeCardinality(elem);
 	          if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
 	            write("<span style=\"text-decoration: line-through\">");
-	          write("" + Utilities.escapeXml(elem.getShortDefn()));
+	          write("" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem));
 	          if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
 	            write("</span>");
 	          write(" --&gt;</span>");
@@ -411,7 +411,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 						writeCardinality(elem);
 	          if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
 	            write("<span style=\"text-decoration: line-through\">");
-	          write(" " + Utilities.escapeXml(elem.getShortDefn()));
+	          write(" " + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem));
 	          if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
 	            write("</span>");
 	          write(" --&gt;</span>");
@@ -425,7 +425,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
             writeCardinality(elem);
             if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
               write("<span style=\"text-decoration: line-through\">");
-            write(" "+Utilities.escapeXml(elem.getShortDefn()));
+            write(" "+Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem));
             if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
               write("</span>");
             write(" --&gt;</span>");
@@ -464,6 +464,13 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 
 		}
 	}
+
+  private String getIsSummaryFlag(ElementDefn elem) {
+    if (elem.isSummaryItem())
+      return "<span title=\"This element is included in a summary view (See Search/Query)\" style=\"color: Navy\"> §</span>";
+    else 
+      return "";
+  }
 
   private void writeTypeLinks(ElementDefn elem) throws Exception {
     write(" <span style=\"color: darkgreen\">");

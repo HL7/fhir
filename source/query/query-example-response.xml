@@ -72,12 +72,12 @@
 
         <!-- the parameters that the server received -->
         <parameter>
-          <name value="_type"/>
-          <value value="patient"/>
+          <url value="http://hl7.org/fhir/query#_type"/>
+          <valueString value="patient"/>
         </parameter>
         <parameter>
-          <name value="gender"/>
-          <value value="m"/>
+          <url value="http://hl7.org/fhir/query#gender"/>
+          <valueString value="m"/>
         </parameter>
 
         <response>
@@ -88,61 +88,51 @@
 
           <!-- the parameters that the server processed -->
           <parameter>
-            <name value="_query"/>
-            <!-- server being explicit that it used the default query method -->
+            <url value="http://hl7.org/fhir/query#_type"/>
+            <valueString value="patient"/>
           </parameter>
           <parameter>
-            <name value="_type"/>
-            <value value="patient"/>
-          </parameter>
-          <parameter>
-            <name value="gender"/>
-            <value value="m"/>
+            <url value="http://hl7.org/fhir/query#gender"/>
+            <valueString value="m"/>
           </parameter>
 
           <!-- now, first, next, and last links. Because this is the first page, there's no previous link -->
           <!-- note that this server tracks the query internally after the first execution -->
           <first>
-            <parameter>
-              <name value="search-id"/>
-              <value value="8452a2dd-446b-4a46-b4c2-db704f8ac5ee"/>
-            </parameter>
-            <parameter>
-              <name value="search-offset"/>
-              <value value="0"/>
-            </parameter>
-            <parameter>
-              <name value="_count"/>
-              <value value="50"/>
-            </parameter>
+            <url value="http://hl7.org/fhir/query#search-id"/>
+            <valueString value="8452a2dd-446b-4a46-b4c2-db704f8ac5ee"/>
+          </first>
+          <first>
+            <url value="http://hl7.org/fhir/query#search-offset"/>
+            <valueString value="0"/>
+          </first>
+          <first>
+            <url value="http://hl7.org/fhir/query#_count"/>
+            <valueString value="50"/>
           </first>
           <next>
-            <parameter>
-              <name value="search-id"/>
-              <value value="8452a2dd-446b-4a46-b4c2-db704f8ac5ee"/>
-            </parameter>
-            <parameter>
-              <name value="search-offset"/>
-              <value value="50"/>
-            </parameter>
-            <parameter>
-              <name value="_count"/>
-              <value value="50"/>
-            </parameter>
+            <url value="http://hl7.org/fhir/query#search-id"/>
+            <valueString value="8452a2dd-446b-4a46-b4c2-db704f8ac5ee"/>
+          </next>
+          <next>
+            <url value="http://hl7.org/fhir/query#search-offset"/>
+            <valueString value="50"/>
+          </next>
+          <next>
+            <url value="http://hl7.org/fhir/query#_count"/>
+            <valueString value="50"/>
           </next>
           <last>
-            <parameter>
-              <name value="search-id"/>
-              <value value="8452a2dd-446b-4a46-b4c2-db704f8ac5ee"/>
-            </parameter>
-            <parameter>
-              <name value="search-offset"/>
-              <value value="603"/>
-            </parameter>
-            <parameter>
-              <name value="_count"/>
-              <value value="50"/>
-            </parameter>
+            <url value="http://hl7.org/fhir/query#search-id"/>
+            <valueString value="8452a2dd-446b-4a46-b4c2-db704f8ac5ee"/>
+          </last>
+          <last>
+            <url value="http://hl7.org/fhir/query#search-offset"/>
+            <valueString value="603"/>
+          </last>
+          <last>
+            <url value="http://hl7.org/fhir/query#_count"/>
+            <valueString value="50"/>
           </last>
           <!-- now, a list of all the patients in this page of the search. 
             As well as linking forwards, responder is required to put them in the message -->

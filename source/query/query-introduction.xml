@@ -9,9 +9,9 @@ One operation that is fundamental to the way FHIR works is to search (find
 existing resources by filter criteria) or query (more detailed questions
 based on existing data). Search/query operations can span complexity 
 from a simple search based on indexed criteria, through to complex 
-decision support based requests, and also direct queries that need to 
-be handled by humans. This page documents the FHIR search framework,
-starting with the simple cases, and working into the increased complexity.
+decision support based requests, and finally complex queries that can only be 
+resolved by human intervention. This page documents the FHIR search framework,
+starting with the simple cases, and working through to the full complexity.
 Implementations need only implement the amount of complexity that they 
 require.
 </p>
@@ -23,16 +23,9 @@ in the RESTful framework:
  GET .../[resourcetype]/(?parameters)
 </pre>
 <p>
-Search/Query operations can also be initiated by other more complex and flexible
-methods described below.
-</p>
-<p>
-In the RESTful search, the client requests that a search be
-performed using an HTTP call, and the parameters are a series 
+For this RESTful search, the parameters are a series 
 of name=value pairs encoded in the URL or as an 
-x-multi-part-form submission for a POST. 
-</p>
-<p>
+x-multi-part-form submission for a POST.  
 The server returns the results in the HTTP response as a bundle (in XML, an atom feed) 
 which includes the resources that are the results of the query. The server can also
 include additional resources in the result set, such as <a href="operationoutcome.htm">OperationOutcome</a> 
@@ -40,18 +33,39 @@ resources. Clients should ignore resources that don't have the expected type.
 A HTTP status code of 403 signifies that the server refused to perform the query, 
 while some other 4xx or 5xx code signifies that some error occurred. 
 </p>
-
+<p>
+Search operations are executed in one of 3 defined contexts that control which set of resources are being searched:
+</p>
+<ul>
+ <li>A specified resource type</li>
+ <li>A specified <a href="resources.htm#compartments">compartment</a>, perhaps with a specified resource type in that compartment</li>
+ <li>All resources</li>
+</ul>
+<p>
+Search/Query operations can also be initiated by other more complex and flexible
+methods described below, which change both the way the search/query is initiated, and 
+the results are returned. 
+</p>
 <a name="standard"> </a>
 <h2>Standard Parameters</h2>
 <p>
-The search parameter _id which refers to the logical id of the resource. 
+The search parameter _id refers to the logical id of the resource, and can be used when the search context specifies a resource type:
 </p>
 <pre>
  GET .../patient?_id=23
 </pre>
 <p>
-This search finds the resource with the given id (there can only be one 
-resource for a given id)
+This search finds the patient resource with the given id (there can only be one 
+resource for a given id). Functionally, this is equivalent to a <a href="http.htm#read">simple
+read operation</a>:
+</p>
+<pre>
+ GET .../patient/@23
+</pre>
+<p>
+except that it returns a bundle with the requested resource, rather than the 
+resource itself. However additional parameters can be added which may provide
+additional functionality on top of this base read equivalence.
 </p>
 <p>
 In addition to this resource, each FHIR resource type defines a 
@@ -137,21 +151,26 @@ searches for all the patients with an identifier with key = "2345" in the system
 
 <h4>date</h4>
 <p>
-A date parameter searches on a date/time or period. As is usual, while the 
+A date parameter searches on a date/time or period. As is usual for date/time related functionality, while the 
 concepts are relatively straight-forward, there are a number of subtleties involved in 
-ensuring consistent behavior with dates.
+ensuring consistent behavior.
 </p>
 <ul>
- <li>The date parameter format is yyyy-mm-ddThh:nn:ss(TZ) (the standard XML format). Any degree of precision can be provided, but it must be populated from the left (e.g. can't specify a month without a year)</li>
-<li>Note that to use these values, you may need to escape the ":" characters in the URL.</li>
+ <li>The date parameter format is yyyy-mm-ddThh:nn:ss(TZ) (the standard XML format). 
+   <ul>
+     <li>Technically, this is any of the <a href="datatypes.htm#date">date</a>, <a href="datatypes.htm#datetTime">dateTime</a>, and <a href="datatypes.htm#instant">instant</a> data types</li>
+     <li>e.g. Any degree of precision can be provided, but it must be populated from the left (e.g. can't specify a month without a year), except that the minutes SHALL be present if an hour is present, and you SHOULD provide a timezone if the time part is present</li>
+     <li>Some user agents may escape the ":" characters in the URL, and servers SHALL handle this correctly</li>
+   </ul>
+ </li>
  <li>Date parameters have the :before and :after modifiers. [date]=[value] searches for where the date is within
    the given date value. [date]:after=[value] searches for all resources where the specified date is after [value]. 
    [date]:before=[value] searches for all resources where the specified date is before [value]. </li>
  <li>The element the search refers to may be a date, a dateTime, a Period, or a Schedule. All of these time related 
    types actually specify an interval of time, as does the search parameter itself.
   <ul>
-    <li>For Period and Schedule, the interval of time is explicit, though the upper or lower bound may not be specified</li>
-	<li>For a date or a dateTime (and the search parameter), the interval is implicit. For example, the date 2013-01-10 specifies all the time from 00:00 on 10-Jan 2013 to immediately before 00:00 on 11-Jan 2013.</li>
+    <li>For Period and Schedule, the interval of time is explicit (though the upper or lower bound may not actually be specified in resources)</li>
+ 	<li>For a date or a dateTime (and the search parameter), the interval is implicit. For example, the date 2013-01-10 specifies all the time from 00:00 on 10-Jan 2013 to immediately before 00:00 on 11-Jan 2013.</li>
     <li>An instant (which is the same as a fully specified dateTime with milliseconds) is considered a fixed point in time with an interval smaller than the precision of the system, i.e. an interval with an effective width of 0.</li>
    </ul>
  </li>
@@ -179,10 +198,17 @@ ensuring consistent behavior with dates.
  </li>
  <li>
    Note that for a Schedule data type, the specified scheduling details are ignored and only the outer limits matter. For instance, a schedule that specifies every second day between
-   31-Jan 2013 and 24-Mar 2013 includes the 1-Feb 2013, even though that is on an odd day that is not specified by the period. This is 
+   31-Jan 2013 and 24-Mar 2013 includes 1-Feb 2013, even though that is on an odd day that is not specified by the period. This is 
    to keep the server load processing queries reasonable.
  </li>
 </ul>
+<p>
+As an example, the following search searches for all the procedures in a patient compartment that occurred over a 2 year period:
+</p>
+<pre>
+ GET [baseurl]/patient/@23/procedure?date:after=2010-01-01&amp;date:before=2011-12-31
+</pre>
+
 
 <a name="chaining" />
 <h4>reference</h4>
@@ -208,7 +234,7 @@ the Patient resource includes a parameter <i>name</i> which
 searches on patient name, then the search
 </p>
 <pre>
- diagnosticreport/search?subject.name=peter
+ GET [baseurl]/diagnosticreport/search?subject.name=peter
 </pre>
 <p>
 is a request to return all the lab reports that have a subject whose name includes "peter". Because 
@@ -216,7 +242,7 @@ the Diagnostic Report subject can be one of a set of different resources, it's p
 the search to a particular type:
 </p>
 <pre>
- diagnosticreport/search?subject:patient.name=peter
+ GET [baseurl]/diagnosticreport/search?subject:patient.name=peter
 </pre>
 <p>
 Advanced Search Note: 
@@ -364,6 +390,29 @@ attachment which is by reference, like this:
 <p>
 The server can retrieve the target of this reference on behalf of the client, and add this to the 
 results for the convenience of the client. 
+</p>
+
+<a name="summary"> </a>
+<h3>Summary</h3>
+<p>
+The client can request the server to return a summary portion of the resources
+only using the parameter "_summary":
+</p>
+<pre>
+   GET [base-url]/valueset?_summary=true
+</pre>
+<p>
+The <i>_summary</i> parameter requests the server to return only the elements marked 
+as "summary" in their definition. This is used to reduce the total processing load on 
+server, client, and resources between them such as the network. It is most useful for 
+resources that can be large, particularly ones that include images or elements that
+may repeat many times. 
+</p>
+<p>
+Servers are not obliged to return just a summary, and summaries are not defined for 
+resources where there is no need for summarization. There is only one summary form
+defined for each resource in order to allow servers to store the summarised form in
+advance. 
 </p>
 
 <a name="conformance" />
