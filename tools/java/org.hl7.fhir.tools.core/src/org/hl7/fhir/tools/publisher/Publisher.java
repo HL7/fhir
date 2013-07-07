@@ -1483,6 +1483,7 @@ public class Publisher {
         String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
         AtomEntry ae = new AtomEntry();
         ae.getLinks().put("self", "v2"+File.separator+id+File.separator+"index.htm");
+        ae.getLinks().put("path", "v2"+File.separator+id+File.separator+"index.htm");
         ValueSet vs = buildV2Valueset(id, e);
         ae.setResource(vs);
         page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
@@ -1500,6 +1501,7 @@ public class Publisher {
         for (String ver : versions) {
           AtomEntry ae = new AtomEntry();
           ae.getLinks().put("self", "v2"+File.separator+id+File.separator+ver+File.separator+"index.htm");
+          ae.getLinks().put("path", "v2"+File.separator+id+File.separator+ver+File.separator+"index.htm");
           ValueSet vs = buildV2ValuesetVersioned(id, ver, e);
           ae.setResource(vs);
           page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
@@ -1840,8 +1842,9 @@ public class Publisher {
 		  if (vs.getIdentifier() == null)
 		    throw new Exception("Value set example "+e.getPath()+" has no identifier");
 		  if (vs.getDefine() != null) {
-		    AtomEntry ae = new AtomEntry();
-		    ae.getLinks().put("self", n+".htm");
+        AtomEntry ae = new AtomEntry();
+        ae.getLinks().put("self", n+".htm");
+        ae.getLinks().put("path", n+".htm");
 		    ae.setResource(vs);
 		    page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
 		  }
@@ -2711,16 +2714,18 @@ public class Publisher {
     e.setResource(vs);
     e.getLinks().put("self", Utilities.changeFileExt(filename, ".htm"));
     e.getLinks().put("path", Utilities.changeFileExt(filename, ".htm"));
-    page.getCodeSystems().put(vs.getIdentifierSimple(), e);
+    if (vs.getDefine() != null)
+      page.getCodeSystems().put(vs.getDefine().getSystemSimple(), e);
+    page.getValueSets().put(vs.getIdentifierSimple(), e);
     page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
   }
   
   private void generateCodeSystemPart2(String filename, BindingSpecification cd) throws Exception {
     AtomEntry e = null;
     if (Utilities.noString(cd.getUri()))
-      e = page.getCodeSystems().get("http://hl7.org/fhir/vs/"+Utilities.fileTitle(filename));
+      e = page.getValueSets().get("http://hl7.org/fhir/vs/"+Utilities.fileTitle(filename));
     else
-      e = page.getCodeSystems().get(cd.getUri());
+      e = page.getValueSets().get(cd.getUri());
     ValueSet vs = (ValueSet) e.getResource();
 
     new NarrativeGenerator().generate(vs, page.getCodeSystems(), page.getValueSets());

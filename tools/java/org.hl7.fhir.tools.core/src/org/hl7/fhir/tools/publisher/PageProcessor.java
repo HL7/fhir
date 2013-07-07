@@ -341,8 +341,10 @@ public class PageProcessor implements Logger  {
         src = s1+"</div>"+s3;
       else if (com[0].equals("v2Index"))
         src = s1+genV2Index()+s3;
-      else if (com[0].equals("v3Index"))
-        src = s1+genV3Index()+s3;
+      else if (com[0].equals("v3Index-cs"))
+        src = s1+genV3CSIndex()+s3;
+      else if (com[0].equals("v3Index-vs"))
+        src = s1+genV3VSIndex()+s3;
       else if (com[0].equals("id"))
         src = s1+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name)+s3;
       else if (com[0].equals("ver"))
@@ -600,29 +602,61 @@ public class PageProcessor implements Logger  {
     return s.toString();
   }
 
-  private String genV3Index() {
+  private String genV3CSIndex() {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"grid\">\r\n");
-    s.append(" <tr><td><b>Name</b></td><td><b>Type</b></td><td><b>OID</b></td></tr>\r\n");
+    s.append(" <tr><td><b>Uri</b></td><td><b>Description</b></td><td><b>OID</b></td></tr>\r\n");
     
     List<String> names = new ArrayList<String>();
     Map<String, AtomEntry> map = new HashMap<String, AtomEntry>();
     
     for (AtomEntry e : v3Valuesets.getEntryList()) {
       ValueSet vs = (ValueSet)e.getResource();
-      String n = tail(vs.getIdentifierSimple()).toLowerCase(); // sort is case insensitive
-      names.add(n);
-      map.put(n, e);
+      if (vs.getDefine() != null) {
+        String n = vs.getDefine().getSystemSimple();
+        names.add(n);
+        map.put(n, e);
+      }
     }
     Collections.sort(names);
 
     for (String n : names) {
       AtomEntry e = map.get(n);
       ValueSet vs = (ValueSet)e.getResource();
-      String name = tail(vs.getIdentifierSimple());
-      String t = vs.getDefine() != null ? "Code System" : "Value Set";
+      String id = tail(vs.getIdentifierSimple());
       String oid = e.getLinks().get("oid");
-      s.append(" <tr><td><a href=\"v3/"+name+"/index.htm\">"+name+"</a></td><td>"+t+"</td><td>"+oid+"</td></tr>\r\n");
+      s.append(" <tr><td><a href=\"v3/"+id+"/index.htm\">"+n+"</a></td><td>"+vs.getDescriptionSimple()+"</td><td>"+oid+"</td></tr>\r\n");
+    }
+    
+    s.append("</table>\r\n");
+    return s.toString();
+  }
+
+  private String genV3VSIndex() {
+    StringBuilder s = new StringBuilder();
+    s.append("<table class=\"grid\">\r\n");
+    s.append(" <tr><td><b>Uri</b></td><td><b>Name</b></td><td><b>OID</b></td></tr>\r\n");
+    
+    List<String> names = new ArrayList<String>();
+    Map<String, AtomEntry> map = new HashMap<String, AtomEntry>();
+    
+    for (AtomEntry e : v3Valuesets.getEntryList()) {
+      ValueSet vs = (ValueSet)e.getResource();
+      if (vs.getDefine() == null) {
+        String n = vs.getIdentifierSimple();
+        names.add(n);
+        map.put(n, e);
+      }
+    }
+    Collections.sort(names);
+
+    for (String n : names) {
+      AtomEntry e = map.get(n);
+      ValueSet vs = (ValueSet)e.getResource();
+      String id = tail(vs.getIdentifierSimple());
+      String oid = e.getLinks().get("oid");
+      String[] desc = vs.getDescriptionSimple().split("\\(OID \\= ");
+      s.append(" <tr><td><a href=\"v3/"+id+"/index.htm\">"+vs.getIdentifierSimple()+"</a></td><td>"+desc[0]+"</td><td>"+oid+"</td></tr>\r\n");
     }
     
     s.append("</table>\r\n");
@@ -1199,18 +1233,30 @@ private String resItem(String name) throws Exception {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"codes\">\r\n");
     List<String> names = new ArrayList<String>();
-    for (String n : definitions.getBindings().keySet()) {
-      if ((definitions.getBindingByName(n).getBinding() == Binding.CodeList && !definitions.getBindingByName(n).getVSSources().contains("")) || 
-          (definitions.getBindingByName(n).getBinding() == Binding.Special))
-        names.add(definitions.getBindingByName(n).getReference().substring(1));
-    }
+    names.addAll(codeSystems.keySet());
+    
 
-//  not this one      Logical Interactions (RESTful framework)  http://hl7.org/fhir/rest-operations 2.16.840.1.113883.6.308
-      
+//    for (String n : definitions.getBindings().keySet()) {
+//      if ((definitions.getBindingByName(n).getBinding() == Binding.CodeList && !definitions.getBindingByName(n).getVSSources().contains("")) || 
+//          (definitions.getBindingByName(n).getBinding() == Binding.Special))
+//        names.add(definitions.getBindingByName(n).getReference().substring(1));
+//    }
+//
+////  not this one      Logical Interactions (RESTful framework)  http://hl7.org/fhir/rest-operations 2.16.840.1.113883.6.308
+//    s.append(" <tr><td><a href=\""+cd.getReference().substring(1)+".htm\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a></td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td></tr>\r\n");
+//      
     Collections.sort(names);
     for (String n : names) {
-      BindingSpecification cd = definitions.getBindingByReference("#"+n);
-      s.append(" <tr><td><a href=\""+cd.getReference().substring(1)+".htm\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a></td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td></tr>\r\n");
+      if (n.startsWith("http://hl7.org") && !n.startsWith("http://hl7.org/fhir/v2") && !n.startsWith("http://hl7.org/fhir/v3")) {
+        // BindingSpecification cd = definitions.getBindingByReference("#"+n);
+        AtomEntry ae = codeSystems.get(n);
+        if (ae == null)
+          s.append(" <tr><td><a href=\""+"??"+".htm\">"+n+"</a></td><td>"+"??"+"</td></tr>\r\n");
+        else {
+          ValueSet vs = (ValueSet) ae.getResource();
+          s.append(" <tr><td><a href=\""+ae.getLinks().get("path")+"\">"+n+"</a></td><td>"+vs.getDescriptionSimple()+"</td></tr>\r\n");
+        }
+      }
     }
     s.append("</table>\r\n");
     return s.toString();
@@ -1220,52 +1266,57 @@ private String resItem(String name) throws Exception {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"codes\">\r\n");
     s.append(" <tr><td><b>Namespace</b></td><td><b>Definition</b></td><td><b>Binding</b></td></tr>\r\n");
-    Map<String, String> names = new  HashMap<String, String>(); 
     List<String> sorts = new ArrayList<String>();
-    for (String n : definitions.getBindings().keySet()) {
-      if ((definitions.getBindingByName(n).getBinding() == Binding.ValueSet) || (definitions.getBindingByName(n).getBinding() == Binding.CodeList && definitions.getBindingByName(n).hasExternalCodes())) {
-        BindingSpecification cd = definitions.getBindingByName(n);
-        String sn = "";
-        if (Utilities.noString(cd.getReference()))
-          sn = cd.getDescription();
-        else {
-          String ref = cd.getReference().startsWith("#") ? cd.getReference().substring(1) : cd.getReference();
-          if (ref.startsWith("valueset-"))        
-            sn = "http://hl7.org/fhir/vs/"+ref.substring(9);
-          else 
-            sn = ref;
-        }
-        names.put(sn,  cd.getName());
-        sorts.add(sn);
-      }
-    }
-    for (String n : definitions.getExtraValuesets().keySet()) {
-      names.put(n, n);
-      sorts.add(n);
-    }
+    sorts.addAll(valueSets.keySet());
+    
+//    for (String n : definitions.getBindings().keySet()) {
+//      if ((definitions.getBindingByName(n).getBinding() == Binding.ValueSet) || (definitions.getBindingByName(n).getBinding() == Binding.CodeList && definitions.getBindingByName(n).hasExternalCodes())) {
+//        BindingSpecification cd = definitions.getBindingByName(n);
+//        String sn = "";
+//        if (Utilities.noString(cd.getReference()))
+//          sn = cd.getDescription();
+//        else {
+//          String ref = cd.getReference().startsWith("#") ? cd.getReference().substring(1) : cd.getReference();
+//          if (ref.startsWith("valueset-"))        
+//            sn = "http://hl7.org/fhir/vs/"+ref.substring(9);
+//          else 
+//            sn = ref;
+//        }
+//        names.put(sn,  cd.getName());
+//        sorts.add(sn);
+//      }
+//    }
+//    for (String n : definitions.getExtraValuesets().keySet()) {
+//      names.put(n, n);
+//      sorts.add(n);
+//    }
     
     Collections.sort(sorts);
     
     for (String sn : sorts) {
-      String n = names.get(sn);
-
-      BindingSpecification cd = definitions.getBindingByName(n);
-      if (cd == null)
-        s.append(" <tr><td><a href=\""+n+".htm\">http://hl7.org/fhir/vs/"+n+"</a></td><td>"+Utilities.escapeXml(definitions.getExtraValuesets().get(n).getDescriptionSimple())+"</td><td></td></tr>\r\n");
-      else if (Utilities.noString(cd.getReference()))
-        s.append(" <tr><td>"+Utilities.escapeXml(cd.getDescription())+"</td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>"+cd.getName()+"</td></tr>\r\n");
-      else {
-        String ref = cd.getReference().startsWith("#") ? cd.getReference().substring(1) : cd.getReference();
-        if (ref.startsWith("valueset-"))        
-          s.append(" <tr><td><a href=\""+ref+".htm\">http://hl7.org/fhir/vs/"+ref.substring(9)+"</a></td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>"+cd.getName()+"</td></tr>\r\n");
-        else {
-          AtomEntry ae = getv3ValueSetByRef(ref);
-          if (ae != null && ae.getLinks().containsKey("path"))
-            s.append(" <tr><td><a href=\""+ae.getLinks().get("path")+"\">"+ref+"</a></td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>"+cd.getName()+"</td></tr>\r\n");
-          else
-            s.append(" <tr><td><a href=\""+ref+".htm\">"+ref+"</a></td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>"+cd.getName()+"</td></tr>\r\n");
-        }
-      }
+      if (!sn.startsWith("http://hl7.org/fhir/v3") && !sn.startsWith("http://hl7.org/fhir/v2")) {
+          AtomEntry ae = valueSets.get(sn);
+          ValueSet vs = (ValueSet) ae.getResource();
+          BindingSpecification cd = definitions.getBindingByReference(sn);
+          s.append(" <tr><td><a href=\""+ae.getLinks().get("path")+"\">"+sn+"</a></td><td>"+Utilities.escapeXml(vs.getDescriptionSimple())+"</td><td>"+(cd == null ? "" : cd.getName())+"</td></tr>\r\n");
+    }
+//      BindingSpecification cd = definitions.getBindingByName(n);
+//      if (cd == null)
+//        s.append(" <tr><td><a href=\""+n+".htm\">http://hl7.org/fhir/vs/"+n+"</a></td><td>"+Utilities.escapeXml(definitions.getExtraValuesets().get(n).getDescriptionSimple())+"</td><td></td></tr>\r\n");
+//      else if (Utilities.noString(cd.getReference()))
+//        s.append(" <tr><td>"+Utilities.escapeXml(cd.getDescription())+"</td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>"+cd.getName()+"</td></tr>\r\n");
+//      else {
+//        String ref = cd.getReference().startsWith("#") ? cd.getReference().substring(1) : cd.getReference();
+//        if (ref.startsWith("valueset-"))        
+//          s.append(" <tr><td><a href=\""+ref+".htm\">http://hl7.org/fhir/vs/"+ref.substring(9)+"</a></td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>"+cd.getName()+"</td></tr>\r\n");
+//        else {
+//          AtomEntry ae = getv3ValueSetByRef(ref);
+//          if (ae != null && ae.getLinks().containsKey("path"))
+//            s.append(" <tr><td><a href=\""+ae.getLinks().get("path")+"\">"+ref+"</a></td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>"+cd.getName()+"</td></tr>\r\n");
+//          else
+//            s.append(" <tr><td><a href=\""+ref+".htm\">"+ref+"</a></td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>"+cd.getName()+"</td></tr>\r\n");
+//        }
+//      }
     }
     s.append("</table>\r\n");
     return s.toString();
@@ -1823,8 +1874,10 @@ private String resItem(String name) throws Exception {
         src = s1 + generateCodeTable(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("v2Index"))
         src = s1+genV2Index()+s3;
-      else if (com[0].equals("v3Index"))
-        src = s1+genV3Index()+s3;
+      else if (com[0].equals("v3Index-cs"))
+        src = s1+genV3CSIndex()+s3;
+      else if (com[0].equals("v3Index-vs"))
+        src = s1+genV3VSIndex()+s3;
       else if (com[0].equals("vssummary"))
         src = s1 + "todo" + s3;
       else if (com[0].equals("toc"))

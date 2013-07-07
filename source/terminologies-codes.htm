@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Using Codes and Terminologies - FHIR v<%version%></title>
+    <title>Codes defined by FHIR v<%version%></title>
     <link rel="Stylesheet" href="fhir.css" type="text/css"/>
     <link rel="Stylesheet" href="fhir-print.css" type="text/css" media="print" />
 </head>
@@ -15,13 +15,16 @@
 <%maindiv%>
 <%txheader codes%>
 
-<h2>FHIR Codes Registry</h2>
+<h2>Codes Defined by FHIR v<%version%></h2>
 
 <p>
 This table contains a list of all the namespaces that define codes in the FHIR specification. 
 When represented in a <a href="datatypes.htm#Coding">Coding</a> data type, the <i>system</i> element
 contains the namespace, and the <i>code</i> element contains the defined code. Note that all the 
 codes in these code systems are case sensitive and must be used in lowercase. 
+</p>
+<p>
+Note that some of these codes are defined in value sets that also include codes from other code systems as well.
 </p>
 
 <%codeslist%>
