@@ -120,7 +120,7 @@ public class XhtmlGenerator {
 	}
 
 	private void writeComment(Writer out, Comment node) throws DOMException, IOException {
-		out.write("<span class=\"xmlcomment\">&lt;!-- "+Utilities.escapeXml(node.getTextContent())+" --&gt;</span>");
+		out.write("<span class=\"xmlcomment\">&lt;!-- "+escapeHtml(Utilities.escapeXml(node.getTextContent()))+" --&gt;</span>");
 	}
 
 	private void writeText(Writer out, Text node) throws DOMException, IOException {
@@ -135,9 +135,9 @@ public class XhtmlGenerator {
 			for (int i = 0; i < node.getAttributes().getLength(); i++) {
 			  if (adorner != null) {
 		      XhtmlGeneratorAdornerState attrState = adorner.getAttributeMarkup(this, newstate, node, node.getAttributes().item(i).getNodeName(), node.getAttributes().item(i).getTextContent());
-		      out.write(" "+node.getAttributes().item(i).getNodeName()+"=\"<span class=\"xmlattrvalue\">"+attrState.getPrefix()+escapeHtml(node.getAttributes().item(i).getTextContent())+attrState.getSuffix()+"</span>\"");
+		      out.write(" "+node.getAttributes().item(i).getNodeName()+"=\"<span class=\"xmlattrvalue\">"+attrState.getPrefix()+escapeHtml(Utilities.escapeXml(node.getAttributes().item(i).getTextContent()))+attrState.getSuffix()+"</span>\"");
 			  } else
-				out.write(" "+node.getAttributes().item(i).getNodeName()+"=\"<span class=\"xmlattrvalue\">"+escapeHtml(node.getAttributes().item(i).getTextContent())+"</span>\"");
+				out.write(" "+node.getAttributes().item(i).getNodeName()+"=\"<span class=\"xmlattrvalue\">"+escapeHtml(Utilities.escapeXml(node.getAttributes().item(i).getTextContent()))+"</span>\"");
 			}
 			out.write("</span>");
 	

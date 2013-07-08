@@ -78,7 +78,9 @@ import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
+import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValuesetStatus;
@@ -777,32 +779,68 @@ private String resItem(String name) throws Exception {
     return "<p>"+b.toString()+"</p>\r\n";
   }
 
-  private String generateBSUsage(String name) {
+  private String generateBSUsage(String name) throws Exception {
     BindingSpecification cd = definitions.getBindingByReference("#"+name);
     if (cd == null)
       cd = definitions.getBindingByName(name);
-    if (cd == null)
-      return "";
+
+    String csn = null;
+    String vsn = null;
+    
     StringBuilder b = new StringBuilder();
-    for (ResourceDefn r : definitions.getResources().values()) {
-      scanForUsage(b, cd, r.getRoot(), r.getName().toLowerCase()+".htm#def");
-      scanForProfileUsage(b, cd, r);
-    }
-    for (ElementDefn e : definitions.getInfrastructure().values()) {
-      if (e.getName().equals("ResourceReference")) {
-        scanForUsage(b, cd, e, "resources.htm#"+e.getName());
-      } else {
-        scanForUsage(b, cd, e, "formats.htm#"+e.getName());
+    if (cd != null) {
+      if (cd.getReferredValueSet() != null) {
+        if (cd.getReferredValueSet().getDefine() != null)
+            csn = cd.getReferredValueSet().getDefine().getSystemSimple();
+        vsn = cd.getReferredValueSet().getIdentifierSimple();
       }
-    }
-    for (ElementDefn e : definitions.getTypes().values())
-      if (!definitions.dataTypeIsSharedInfo(e.getName()))
-    	scanForUsage(b, cd, e, "datatypes.htm#"+e.getName());
-    for (ElementDefn e : definitions.getStructures().values())
-      if (!e.getName().equals("DocumentInformation"))
+      for (ResourceDefn r : definitions.getResources().values()) {
+        scanForUsage(b, cd, r.getRoot(), r.getName().toLowerCase()+".htm#def");
+        scanForProfileUsage(b, cd, r);
+      }
+      for (ElementDefn e : definitions.getInfrastructure().values()) {
+        if (e.getName().equals("ResourceReference")) {
+          scanForUsage(b, cd, e, "resources.htm#"+e.getName());
+        } else {
+          scanForUsage(b, cd, e, "formats.htm#"+e.getName());
+        }
+      }
+      for (ElementDefn e : definitions.getTypes().values())
         if (!definitions.dataTypeIsSharedInfo(e.getName()))
           scanForUsage(b, cd, e, "datatypes.htm#"+e.getName());
-      
+      for (ElementDefn e : definitions.getStructures().values())
+        if (!e.getName().equals("DocumentInformation"))
+          if (!definitions.dataTypeIsSharedInfo(e.getName()))
+            scanForUsage(b, cd, e, "datatypes.htm#"+e.getName());
+
+    } else {
+      for (AtomEntry ae : valueSets.values()) {
+        if ((name+".htm").equals(ae.getLinks().get("path"))) {
+          ValueSet vs = (ValueSet) ae.getResource();
+            if (vs.getDefine() != null)
+                csn = vs.getDefine().getSystemSimple();
+            vsn = vs.getIdentifierSimple();         
+        }
+      }
+    }
+
+    for (AtomEntry ae : valueSets.values()) {
+      ValueSet vs = (ValueSet) ae.getResource();
+      if (vs.getCompose() != null) {
+        for (Uri t : vs.getCompose().getImport()) {
+          if (t.getValue().equals(vsn)) 
+            b.append(" <li>Imported into Valueset <a href=\""+(ae.getLinks().get("path").startsWith("valueset-") ? ae.getLinks().get("path"): "valueset-"+ae.getLinks().get("path"))+"\">"+Utilities.escapeXml(vs.getNameSimple())+"</a></li>");
+        }
+        for (ConceptSetComponent t : vs.getCompose().getInclude()) {
+          if (t.getSystemSimple().equals(csn)) 
+            b.append(" <li>Included in Valueset <a href=\""+(ae.getLinks().get("path").startsWith("valueset-") ? ae.getLinks().get("path"): "valueset-"+ae.getLinks().get("path"))+"\">"+Utilities.escapeXml(vs.getNameSimple())+"</a></li>");
+        }
+        for (ConceptSetComponent t : vs.getCompose().getExclude()) {
+          if (t.getSystemSimple().equals(csn)) 
+            b.append(" <li>Excluded in Valueset <a href=\""+(ae.getLinks().get("path").startsWith("valueset-") ? ae.getLinks().get("path"): "valueset-"+ae.getLinks().get("path"))+"\">"+Utilities.escapeXml(vs.getNameSimple())+"</a></li>");
+        }
+      }
+    }
     if (b.length() == 0)
       return "<p>\r\nThese codes are not currently used\r\n</p>\r\n";
     else

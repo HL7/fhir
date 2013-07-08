@@ -521,6 +521,7 @@ public class SpreadsheetParser {
 		    parseProfileSheet(definitions, p, invariants, n, namedSheets);
 		  }
 		}
+    
 		int i = 0;
     while (i < namedSheets.size()) {
       parseProfileSheet(definitions, p, invariants, namedSheets.get(i), namedSheets);
