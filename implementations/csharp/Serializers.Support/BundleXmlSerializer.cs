@@ -44,7 +44,7 @@ namespace Hl7.Fhir.Serializers
 {
     internal static class BundleXmlSerializer
     {
-        public static void WriteTo(Bundle bundle, XmlWriter writer)
+        public static void WriteTo(Bundle bundle, XmlWriter writer, bool summary = false)
         {
             if (bundle == null) throw new ArgumentException("Bundle cannot be null");
 
@@ -61,18 +61,18 @@ namespace Hl7.Fhir.Serializers
                 root.Add(xmlCreateLink(l.Rel, l.Uri));
 
             foreach (var entry in bundle.Entries)
-                root.Add(createEntry(entry));
+                root.Add(createEntry(entry, summary));
 
             var result = new XDocument(root);
             result.WriteTo(writer);
         }
 
-     
-        public static void WriteTo(BundleEntry entry, XmlWriter writer)
+
+        public static void WriteTo(BundleEntry entry, XmlWriter writer, bool summary = false)
         {
             if (entry == null) throw new ArgumentException("Entry cannot be null");
 
-            var result = createEntry(entry);
+            var result = createEntry(entry,summary);
 
             var doc = new XDocument(result);
             doc.WriteTo(writer);
@@ -80,7 +80,7 @@ namespace Hl7.Fhir.Serializers
 
       
 
-        private static XElement createEntry(BundleEntry entry)
+        private static XElement createEntry(BundleEntry entry, bool summary)
         {
             XElement result = null;
 
@@ -121,7 +121,7 @@ namespace Hl7.Fhir.Serializers
                 if (re.Content != null)
                     result.Add(new XElement(BundleXmlParser.XATOMNS + BundleXmlParser.XATOM_CONTENT,
                         new XAttribute(BundleXmlParser.XATOM_CONTENT_TYPE, "text/xml"),
-                        FhirSerializer.SerializeResourceAsXElement(re.Content)));
+                        FhirSerializer.SerializeResourceAsXElement(re.Content, summary)));
 
                 // Note: this is a read-only property, so it is serialized but never parsed
                 if (entry.Summary != null)

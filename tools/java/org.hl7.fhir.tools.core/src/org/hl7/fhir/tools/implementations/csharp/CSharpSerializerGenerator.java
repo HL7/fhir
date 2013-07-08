@@ -94,7 +94,7 @@ public class CSharpSerializerGenerator extends GenBlock
 	}
 
 	private void elementSerializer(Definitions definitions) throws Exception {
-		ln("internal static void SerializeElement(Element value, IFhirWriter writer)");
+		ln("internal static void SerializeElement(Element value, IFhirWriter writer, bool summary)");
 		bs("{");
 			List<TypeDefn> composites = new ArrayList<TypeDefn>();
 			composites.addAll(definitions.getLocalCompositeTypes());
@@ -105,7 +105,7 @@ public class CSharpSerializerGenerator extends GenBlock
 	}
 
 	private void resourceSerializer(Definitions definitions) throws Exception {
-		ln("internal static void SerializeResource(Resource value, IFhirWriter writer)");
+		ln("internal static void SerializeResource(Resource value, IFhirWriter writer, bool summary)");
 		bs("{");
 			generateSerializationCases(definitions.getResources());
 		es("}");
@@ -137,7 +137,7 @@ public class CSharpSerializerGenerator extends GenBlock
 				String serializerCall = buildSerializerCall(type);				
 				ln(serializerCall + "(");
 					nl("(" + typeName + ")");
-					nl("value, writer);");
+					nl("value, writer, summary);");
 			es();				
 		}
 		
@@ -188,7 +188,7 @@ public class CSharpSerializerGenerator extends GenBlock
 			nl("Serialize");
 			nl(GeneratorUtils.generateCSharpTypeName(composite.getName())); 
 			nl("(" + valueType + " value, ");
-			nl("IFhirWriter writer)");			
+			nl("IFhirWriter writer, bool summary)");			
 
 		bs("{");
 			if( composite.isResource() )
@@ -264,17 +264,21 @@ public class CSharpSerializerGenerator extends GenBlock
 		String propertyName = "value." + 
 			GeneratorUtils.generateCSharpMemberName(member);		
 
+		ln("if(" + propertyName + " != null");
+		
+		if(!member.isSummaryItem())
+		  nl(" && !summary");
+		
 		if( member.isRepeating() )
 		{
-			ln("if(" + propertyName + " != null ");
-				nl("&& " + propertyName + ".Count > 0)");
+			nl(" && " + propertyName + ".Count > 0)");
 			bs("{");
 				serializeRepeatingElement(member, propertyName);
 			es("}");
 		}
 		else
 		{		
-			ln("if(" + propertyName + " != null)");
+			nl(")");
 
 		  if( member.isPrimitiveContents() )
 		  {
@@ -299,10 +303,8 @@ public class CSharpSerializerGenerator extends GenBlock
     nl("\"" + member.getName() + "\", " );
     
     if( member.getName().equals("value") )
-      //nl("value.ToString(), ");
       nl("value, ");
     else
-      //nl(propertyName + ".ToString(), ");
       nl(propertyName + ", " );
     
     nl("XmlSerializationHint." + member.getXmlFormatHint().getName());
@@ -382,7 +384,7 @@ public class CSharpSerializerGenerator extends GenBlock
   		}
 	  }
 		
-		nl(propertyName + ", writer);");
+		nl(propertyName + ", writer, summary);");
 	}
 	
 	private String buildSerializerCall( TypeDefn t ) throws Exception

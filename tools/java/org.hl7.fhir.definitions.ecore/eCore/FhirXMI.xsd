@@ -93,6 +93,7 @@
     <xsd:attribute name="exampleValue" type="xsd:string"/>
     <xsd:attribute name="primitiveContents" type="xsd:boolean"/>
     <xsd:attribute name="xmlFormatHint" type="fhir:XmlFormatHint"/>
+    <xsd:attribute name="summaryItem" type="xsd:boolean"/>
     <xsd:attribute name="content" type="xsd:string"/>
     <xsd:attribute name="parentType" type="xsd:string"/>
     <xsd:attribute name="parentElement" type="xsd:string"/>

@@ -55,6 +55,74 @@ namespace Hl7.Fhir.Model
 
             return this;
         }
+
+        public HumanName AndFamily(string family)
+        {
+            if(this.Family == null) this.Family = new List<FhirString>();
+            this.Family.Add(family);
+            return this;
+        }
+
+        public List<HumanName> AsList()
+        {
+            return new List<HumanName>() { this };
+        }
     }
 
+
+    public partial class CodeableConcept
+    {
+        public CodeableConcept()
+        {
+        }
+
+        public CodeableConcept(Uri system, string code, string text = null)
+        {
+            this.Coding = new List<Coding>() {
+                new Coding(system,code) };
+            
+            this.Text = text;
+        }
+
+        public CodeableConcept(string system, string code, string text = null)
+              : this(new Uri(system, UriKind.Absolute), code, text)
+        {
+        }
+    }
+
+    public partial class Coding
+    {
+        public Coding()
+        {
+        }
+
+        public Coding(Uri system, string code)
+        {
+            this.System = system;
+            this.Code = code;
+        }
+
+        public Coding(string system, string code)
+            : this(new Uri(system, UriKind.Absolute), code)
+        {
+        }
+    }
+
+    public partial class Identifier
+    {
+        public Identifier()
+        {
+        }
+
+        public Identifier(Uri system, string key)
+        {
+            this.System = system;
+            this.Key = key;
+        }
+
+        public Identifier(string system, string key)
+            : this(new Uri(system, UriKind.Absolute), key)
+        {
+        }
+    }
 }

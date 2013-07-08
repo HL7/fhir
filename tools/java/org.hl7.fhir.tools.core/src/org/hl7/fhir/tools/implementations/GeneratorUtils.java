@@ -548,5 +548,5 @@ public class GeneratorUtils {
     newElem.getType().add(elemTypeRef);
     
     return newElem;
-  }
+  }	
 }

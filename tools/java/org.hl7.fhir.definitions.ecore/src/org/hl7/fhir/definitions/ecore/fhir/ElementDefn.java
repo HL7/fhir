@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getParentElement <em>Parent Element</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#isPrimitiveContents <em>Primitive Contents</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getXmlFormatHint <em>Xml Format Hint</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#isSummaryItem <em>Summary Item</em>}</li>
  * </ul>
  * </p>
  *
@@ -283,6 +284,32 @@ public interface ElementDefn extends EObject {
 	 * @generated
 	 */
 	void setXmlFormatHint(XmlFormatHint value);
+
+	/**
+	 * Returns the value of the '<em><b>Summary Item</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Summary Item</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Summary Item</em>' attribute.
+	 * @see #setSummaryItem(boolean)
+	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getElementDefn_SummaryItem()
+	 * @model
+	 * @generated
+	 */
+	boolean isSummaryItem();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#isSummaryItem <em>Summary Item</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Summary Item</em>' attribute.
+	 * @see #isSummaryItem()
+	 * @generated
+	 */
+	void setSummaryItem(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

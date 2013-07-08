@@ -60,10 +60,10 @@ namespace Hl7.Fhir.Serializers
             return new string(a);
         }
 
-        public static void SerializeContainedResource(Resource value, string name, IFhirWriter writer)
+        public static void SerializeContainedResource(Resource value, string name, IFhirWriter writer, bool summary)
         {
             writer.WriteStartElement(name);
-            FhirSerializer.SerializeResource(value, writer);
+            FhirSerializer.SerializeResource(value, writer, summary);
             writer.WriteEndElement();
         }
     }

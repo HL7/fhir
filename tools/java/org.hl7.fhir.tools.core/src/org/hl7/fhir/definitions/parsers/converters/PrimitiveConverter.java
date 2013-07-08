@@ -139,6 +139,7 @@ public class PrimitiveConverter
 
 		// set baseclass to "Element" (needs to be generated too in Global, just like Resource)
 		// (baseclass Element has the "id" and "extension" element shared by all composites)
+		
 		TypeRef ref = FhirFactory.eINSTANCE.createTypeRef();
 		ref.setName("Element");
 		result.setBaseType(ref);
@@ -158,7 +159,7 @@ public class PrimitiveConverter
 		              "Primitive value of the element", 0, 1);
 		valueElement.setPrimitiveContents(true);
 		valueElement.setXmlFormatHint(XmlFormatHint.ATTRIBUTE);
-				
+		valueElement.setSummaryItem(true);
 		result.getElement().add(valueElement);
 		
 		return result;

@@ -77,8 +77,7 @@ namespace Hl7.Fhir.Tests
             FhirBoolean bn3 = new FhirBoolean(false);
 
             Assert.AreEqual(true, b.Value);
-            Assert.IsNotNull(bn);
-            Assert.IsNull(bn.Value);
+            Assert.IsNull(bn);
 
             bool rb = (bool)b;
             Assert.AreEqual(true, rb);

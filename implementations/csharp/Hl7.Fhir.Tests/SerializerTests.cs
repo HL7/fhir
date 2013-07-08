@@ -142,21 +142,19 @@ namespace Hl7.Fhir.Tests
         {
             string xmlString =
                @"<Patient xmlns='http://hl7.org/fhir'>
-                    <details>
-                        <name>
-                          <use value='official' />  
-                          <given value='Regina' />
-                          <prefix value='Dr.'>
-                            <extension>
-                                <url value='http://hl7.org/fhir/profile/@iso-20190' />
-                                <valueCoding>
-                                    <system value='urn:oid:2.16.840.1.113883.5.1122' />       
-                                    <code value='AC' />
-                                </valueCoding>
-                            </extension>
-                          </prefix>
-                        </name>
-                    </details>
+                    <name>
+                        <use value='official' />  
+                        <given value='Regina' />
+                        <prefix value='Dr.'>
+                        <extension>
+                            <url value='http://hl7.org/fhir/profile/@iso-20190' />
+                            <valueCoding>
+                                <system value='urn:oid:2.16.840.1.113883.5.1122' />       
+                                <code value='AC' />
+                            </valueCoding>
+                        </extension>
+                        </prefix>
+                    </name>
                     <text>
                         <status value='generated' />
                         <div xmlns='http://www.w3.org/1999/xhtml'>Whatever</div>
@@ -171,6 +169,25 @@ namespace Hl7.Fhir.Tests
             Debug.WriteLine(json);
         }
 
+        [TestMethod]
+        public void TestSummaryResource()
+        {
+            Patient p = new Patient();
+
+            p.Gender = new CodeableConcept("http://system.com/gender", "M");
+            p.Communication = new List<CodeableConcept> { 
+                            new CodeableConcept("http://system.com/language", "fr") };
+
+            string xml = FhirSerializer.SerializeResourceToXml(p, summary: true);
+
+            var errors = new ErrorList();
+            Patient p2 = (Patient)FhirParser.ParseResourceFromXml(xml, errors);
+
+            Assert.AreEqual(0, errors.Count);
+
+            Assert.IsNotNull(p2.Gender);
+            Assert.IsNull(p2.Communication);
+        }
 
 
         [TestMethod]
@@ -202,11 +219,11 @@ namespace Hl7.Fhir.Tests
                 @"<text><status value=""generated"" /><div xmlns='http://www.w3.org/1999/xhtml'>Patient 3141 - Wouter Gert, nov. 30th, 1972</div></text>" +
                 @"<contained><List><mode value=""snapshot"" /></List></contained>" +
                 @"<identifier><key value=""3141"" /></identifier>" +
-                @"<details><name>" +
+                @"<name>" +
                     @"<family value=""van der"">" +
                         @"<extension><url value=""http://hl7.org/fhir/profile/@iso-21090#name-qualifier"" /><valueCode value=""VV"" /></extension>" +
                     @"</family><family value=""Vlies"" /><given value=""Wouter"" /><given value=""Gert"" /></name>" +
-                    @"<birthDate value=""1972-11-30"" /></details>" +
+                    @"<birthDate value=""1972-11-30"" />" +
                 @"</Patient>", FhirSerializer.SerializeResourceToXml(p));
 
             Assert.AreEqual(@"{""Patient"":{""_id"":""Ab4""," +
@@ -214,9 +231,9 @@ namespace Hl7.Fhir.Tests
                     @"Patient 3141 - Wouter Gert, nov. 30th, 1972</div>""},"+
                  @"""contained"":[{""List"":{""mode"":{""value"":""snapshot""}}}],"+
                 @"""identifier"":[{""key"":{""value"":""3141""}}]," +
-                @"""details"":{""name"":[{""family"":[{""value"":""van der""," +
+                @"""name"":[{""family"":[{""value"":""van der""," +
                     @"""extension"":[{""url"":{""value"":""http://hl7.org/fhir/profile/@iso-21090#name-qualifier""},""valueCode"":{""value"":""VV""}}]}," +
-                    @"{""value"":""Vlies""}],""given"":[{""value"":""Wouter""},{""value"":""Gert""}]}],""birthDate"":{""value"":""1972-11-30""}}" +
+                    @"{""value"":""Vlies""}],""given"":[{""value"":""Wouter""},{""value"":""Gert""}]}],""birthDate"":{""value"":""1972-11-30""}" +
                 @"}}", FhirSerializer.SerializeResourceToJson(p));
         }
 

@@ -71,6 +71,10 @@
         <element xmi:type="ecore:EAttribute" href="FHIR.ecore#//ElementDefn/primitiveContents"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_cElPEWyMEeKjtO8cnwScaA"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_TsVuEefYEeK9-LCOATUZOQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="FHIR.ecore#//ElementDefn/summaryItem"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_TsVuEufYEeK9-LCOATUZOQ"/>
+      </children>
       <children xmi:type="notation:Node" xmi:id="_nX44INT_EeKbTMxQBP2tdQ" type="2001">
         <element xmi:type="ecore:EAttribute" href="FHIR.ecore#//ElementDefn/xmlFormatHint"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_nX44IdT_EeKbTMxQBP2tdQ"/>
@@ -102,7 +106,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_CLrtoa_CEeGrAaDwyEdjfA" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="FHIR.ecore#//ElementDefn"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CLrtoq_CEeGrAaDwyEdjfA" x="1455" y="225" height="210"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CLrtoq_CEeGrAaDwyEdjfA" x="1455" y="168" height="267"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_CL03nq_CEeGrAaDwyEdjfA" type="1001">
     <children xmi:type="notation:Node" xmi:id="_CL03oa_CEeGrAaDwyEdjfA" type="4001"/>

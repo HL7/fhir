@@ -425,13 +425,22 @@ public interface FhirPackage extends EPackage {
 	int ELEMENT_DEFN__XML_FORMAT_HINT = 13;
 
 	/**
+	 * The feature id for the '<em><b>Summary Item</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_DEFN__SUMMARY_ITEM = 14;
+
+	/**
 	 * The number of structural features of the '<em>Element Defn</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_DEFN_FEATURE_COUNT = 14;
+	int ELEMENT_DEFN_FEATURE_COUNT = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1747,6 +1756,15 @@ public interface FhirPackage extends EPackage {
 	int PROFILED_ELEMENT_DEFN__XML_FORMAT_HINT = ELEMENT_DEFN__XML_FORMAT_HINT;
 
 	/**
+	 * The feature id for the '<em><b>Summary Item</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROFILED_ELEMENT_DEFN__SUMMARY_ITEM = ELEMENT_DEFN__SUMMARY_ITEM;
+
+	/**
 	 * The feature id for the '<em><b>Inherited</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2065,6 +2083,17 @@ public interface FhirPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getElementDefn_XmlFormatHint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#isSummaryItem <em>Summary Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Summary Item</em>'.
+	 * @see org.hl7.fhir.definitions.ecore.fhir.ElementDefn#isSummaryItem()
+	 * @see #getElementDefn()
+	 * @generated
+	 */
+	EAttribute getElementDefn_SummaryItem();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.hl7.fhir.definitions.ecore.fhir.ElementDefn#getType <em>Type</em>}'.
@@ -3548,6 +3577,14 @@ public interface FhirPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ELEMENT_DEFN__XML_FORMAT_HINT = eINSTANCE.getElementDefn_XmlFormatHint();
+
+		/**
+		 * The meta object literal for the '<em><b>Summary Item</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT_DEFN__SUMMARY_ITEM = eINSTANCE.getElementDefn_SummaryItem();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' containment reference list feature.

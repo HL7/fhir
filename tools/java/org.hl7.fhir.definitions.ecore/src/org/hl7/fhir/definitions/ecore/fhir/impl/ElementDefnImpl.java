@@ -49,6 +49,7 @@ import org.hl7.fhir.definitions.ecore.fhir.XmlFormatHint;
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getParentElement <em>Parent Element</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#isPrimitiveContents <em>Primitive Contents</em>}</li>
  *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#getXmlFormatHint <em>Xml Format Hint</em>}</li>
+ *   <li>{@link org.hl7.fhir.definitions.ecore.fhir.impl.ElementDefnImpl#isSummaryItem <em>Summary Item</em>}</li>
  * </ul>
  * </p>
  *
@@ -272,6 +273,26 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * @ordered
 	 */
 	protected XmlFormatHint xmlFormatHint = XML_FORMAT_HINT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isSummaryItem() <em>Summary Item</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSummaryItem()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SUMMARY_ITEM_EDEFAULT = false;
+
+		/**
+	 * The cached value of the '{@link #isSummaryItem() <em>Summary Item</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSummaryItem()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean summaryItem = SUMMARY_ITEM_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -547,6 +568,27 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 		xmlFormatHint = newXmlFormatHint == null ? XML_FORMAT_HINT_EDEFAULT : newXmlFormatHint;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFN__XML_FORMAT_HINT, oldXmlFormatHint, xmlFormatHint));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSummaryItem() {
+		return summaryItem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSummaryItem(boolean newSummaryItem) {
+		boolean oldSummaryItem = summaryItem;
+		summaryItem = newSummaryItem;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFN__SUMMARY_ITEM, oldSummaryItem, summaryItem));
 	}
 
 	/**
@@ -881,6 +923,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 				return isPrimitiveContents();
 			case FhirPackage.ELEMENT_DEFN__XML_FORMAT_HINT:
 				return getXmlFormatHint();
+			case FhirPackage.ELEMENT_DEFN__SUMMARY_ITEM:
+				return isSummaryItem();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -939,6 +983,9 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 			case FhirPackage.ELEMENT_DEFN__XML_FORMAT_HINT:
 				setXmlFormatHint((XmlFormatHint)newValue);
 				return;
+			case FhirPackage.ELEMENT_DEFN__SUMMARY_ITEM:
+				setSummaryItem((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -993,6 +1040,9 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 			case FhirPackage.ELEMENT_DEFN__XML_FORMAT_HINT:
 				setXmlFormatHint(XML_FORMAT_HINT_EDEFAULT);
 				return;
+			case FhirPackage.ELEMENT_DEFN__SUMMARY_ITEM:
+				setSummaryItem(SUMMARY_ITEM_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1033,6 +1083,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 				return primitiveContents != PRIMITIVE_CONTENTS_EDEFAULT;
 			case FhirPackage.ELEMENT_DEFN__XML_FORMAT_HINT:
 				return xmlFormatHint != XML_FORMAT_HINT_EDEFAULT;
+			case FhirPackage.ELEMENT_DEFN__SUMMARY_ITEM:
+				return summaryItem != SUMMARY_ITEM_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1061,6 +1113,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 		result.append(primitiveContents);
 		result.append(", xmlFormatHint: ");
 		result.append(xmlFormatHint);
+		result.append(", summaryItem: ");
+		result.append(summaryItem);
 		result.append(')');
 		return result.toString();
 	}

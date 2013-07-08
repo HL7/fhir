@@ -39,10 +39,9 @@ namespace Hl7.Fhir.Model
 {
     public partial class FhirString
     {
-        // Just here for consistency in the parser generators
         public static FhirString Parse(string value)
         {
-            return value;
+            return new FhirString(value);
         }
 
         public override string ToString()

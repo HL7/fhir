@@ -218,10 +218,14 @@ public class CompositeTypeConverter {
 		result.setName(name);
 		Annotations ann = buildAnnotationsFromFhirElement(element);
 
-		result.setAnnotation(ann);
-		
+		result.setAnnotation(ann);		
 		result.setIsModifier(element.isModifier());
-
+		
+		if( isResource )
+		  result.setSummaryItem(element.isSummaryItem());
+		else
+		  result.setSummaryItem(true);
+		
 		result.setMinCardinality(element.getMinCardinality());
 
 		if (element.getMaxCardinality() != null)
@@ -327,8 +331,7 @@ public class CompositeTypeConverter {
 		result.setName(TypeRef.ELEMENT_TYPE_NAME);
 		result.setFullName(result.getName());
 		result.setAbstract(true);
-		
-		
+				
 		Annotations baseAnn = FhirFactory.eINSTANCE.createAnnotations();
 		baseAnn.setShortDefinition("Basetype for all composite-typed elements");
 		result.setAnnotations(baseAnn);
@@ -345,7 +348,7 @@ public class CompositeTypeConverter {
 	  ElementDefn idElem = GeneratorUtils.buildSimpleElementDefn("_id", "id", "Local id for element", 0, 1);	  
 		idElem.setPrimitiveContents(true);
 		idElem.setXmlFormatHint(XmlFormatHint.ATTRIBUTE);
-				
+		idElem.setSummaryItem(true);		
 		return idElem;
 	}
 	

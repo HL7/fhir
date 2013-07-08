@@ -236,21 +236,19 @@ namespace Hl7.Fhir.Tests
         {
             string xmlString =
                 @"<Patient xmlns='http://hl7.org/fhir'>
-                    <details>
-                        <name>
-                          <use value='official' />  
-                          <given value='Regina' />
-                          <prefix value='Dr.'>
-                            <extension>
-                                <url value='http://hl7.org/fhir/profile/@iso-20190' />
-                                <valueCoding>
-                                    <system value='urn:oid:2.16.840.1.113883.5.1122' />       
-                                    <code value='AC' />
-                                </valueCoding>
-                            </extension>
-                          </prefix>
-                        </name>
-                    </details>
+                    <name>
+                        <use value='official' />  
+                        <given value='Regina' />
+                        <prefix value='Dr.'>
+                        <extension>
+                            <url value='http://hl7.org/fhir/profile/@iso-20190' />
+                            <valueCoding>
+                                <system value='urn:oid:2.16.840.1.113883.5.1122' />       
+                                <code value='AC' />
+                            </valueCoding>
+                        </extension>
+                        </prefix>
+                    </name>
                     <text>
                         <status value='generated' />
                         <div xmlns='http://www.w3.org/1999/xhtml'>Whatever</div>

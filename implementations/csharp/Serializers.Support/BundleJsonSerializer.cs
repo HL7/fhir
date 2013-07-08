@@ -46,7 +46,7 @@ namespace Hl7.Fhir.Serializers
 {
     internal static class BundleJsonSerializer
     {
-        public static void WriteTo(Bundle bundle, JsonWriter writer)
+        public static void WriteTo(Bundle bundle, JsonWriter writer, bool summary = false)
         {
             if (bundle == null) throw new ArgumentException("Bundle cannot be null");
 
@@ -67,7 +67,7 @@ namespace Hl7.Fhir.Serializers
             var entryArray = new JArray();
 
             foreach (var entry in bundle.Entries)
-                entryArray.Add(createEntry(entry));
+                entryArray.Add(createEntry(entry,summary));
 
             result.Add(new JProperty(BundleXmlParser.XATOM_ENTRY, entryArray));
 
@@ -76,17 +76,17 @@ namespace Hl7.Fhir.Serializers
 
 
 
-        public static void WriteTo(BundleEntry entry, JsonWriter writer)
+        public static void WriteTo(BundleEntry entry, JsonWriter writer, bool summary = false)
         {
             if (entry == null) throw new ArgumentException("Entry cannot be null");
 
-            var result = createEntry(entry);
+            var result = createEntry(entry, summary);
 
             result.WriteTo(writer);
         }
 
-     
-        private static JObject createEntry(BundleEntry entry)
+
+        private static JObject createEntry(BundleEntry entry, bool summary)
         {
             JObject result = new JObject();
 
@@ -119,7 +119,8 @@ namespace Hl7.Fhir.Serializers
             {
                 ResourceEntry re = (ResourceEntry)entry;
                 if (re.Content != null)
-                    result.Add(new JProperty(BundleXmlParser.XATOM_CONTENT, getContentsAsJObject(re.Content)));
+                    result.Add(new JProperty(BundleXmlParser.XATOM_CONTENT, 
+                        getContentsAsJObject(re.Content, summary)));
 
                 // Note: this is a read-only property, so it is serialized but never parsed
                 if (entry.Summary != null)
@@ -161,13 +162,13 @@ namespace Hl7.Fhir.Serializers
                 new JProperty(BundleXmlParser.XATOM_LINK_HREF, link.ToString()));
         }
 
-        private static JObject getContentsAsJObject(Resource resource)
+        private static JObject getContentsAsJObject(Resource resource, bool summary)
         {
             StringWriter w = new StringWriter();
 
             //TODO: This would be much more efficient if we could serialize
             //the resource to a JObject directly
-            FhirSerializer.SerializeResource(resource, new JsonTextWriter(w));
+            FhirSerializer.SerializeResource(resource, new JsonTextWriter(w), summary);
 
             JsonTextReader reader = Util.JsonReaderFromString(w.ToString());
             reader.DateParseHandling = DateParseHandling.None;

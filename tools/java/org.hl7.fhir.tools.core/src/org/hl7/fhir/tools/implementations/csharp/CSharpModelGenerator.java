@@ -466,8 +466,10 @@ public class CSharpModelGenerator extends GenBlock
         	nl(className);
         	nl("(" + csharpPrimitive + " value)");
         bs("{");
-            ln( "return new " );
-            	nl(className + "(value);");
+            ln("if(value == null)");
+            ln("  return null;");
+            ln("else");
+            ln("  return new " );	nl(className + "(value);");
         es("}");
         ln();
         
@@ -478,7 +480,10 @@ public class CSharpModelGenerator extends GenBlock
         	nl(csharpPrimitive);
         	nl("(" + className + " value)");
         bs("{");
-            ln("return value.Value;");
+          ln("if(value != null)");
+          ln("  return value.Value;");
+          ln("else");
+          ln("  return null;");
         es("}");
         ln();
         
@@ -493,13 +498,13 @@ public class CSharpModelGenerator extends GenBlock
         		nl(nonNullablePrimitive);
         		nl("(" + className + " source)");
         	bs("{");
-	            ln("if (source.Value.HasValue)");
+	            ln("if(source != null && source.Value != null)");
 	            ln("	return source.Value.Value;");
 	            ln("else");
 	            ln("	throw new InvalidCastException();");
 	        es("}");
         }
-        
+       
         return end();
 	}
 

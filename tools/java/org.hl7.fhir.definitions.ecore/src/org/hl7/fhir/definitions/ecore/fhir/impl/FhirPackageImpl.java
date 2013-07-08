@@ -467,6 +467,15 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getElementDefn_SummaryItem() {
+		return (EAttribute)elementDefnEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getElementDefn_Type() {
 		return (EReference)elementDefnEClass.getEStructuralFeatures().get(4);
 	}
@@ -1718,6 +1727,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 		createEReference(elementDefnEClass, ELEMENT_DEFN__PARENT_ELEMENT);
 		createEAttribute(elementDefnEClass, ELEMENT_DEFN__PRIMITIVE_CONTENTS);
 		createEAttribute(elementDefnEClass, ELEMENT_DEFN__XML_FORMAT_HINT);
+		createEAttribute(elementDefnEClass, ELEMENT_DEFN__SUMMARY_ITEM);
 
 		invariantEClass = createEClass(INVARIANT);
 		createEAttribute(invariantEClass, INVARIANT__NAME);
@@ -1929,6 +1939,7 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 		initEReference(getElementDefn_ParentElement(), this.getElementDefn(), null, "parentElement", null, 0, 1, ElementDefn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementDefn_PrimitiveContents(), ecorePackage.getEBoolean(), "primitiveContents", null, 0, 1, ElementDefn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementDefn_XmlFormatHint(), this.getXmlFormatHint(), "xmlFormatHint", null, 0, 1, ElementDefn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElementDefn_SummaryItem(), ecorePackage.getEBoolean(), "summaryItem", null, 0, 1, ElementDefn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(elementDefnEClass, ecorePackage.getEBoolean(), "isRepeating", 0, 1, IS_UNIQUE, IS_ORDERED);
 

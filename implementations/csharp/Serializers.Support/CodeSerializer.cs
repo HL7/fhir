@@ -45,39 +45,13 @@ namespace Hl7.Fhir.Serializers
     */
     internal static partial class CodeSerializer
     {
-        public static void SerializeCode<T>(Code<T> value, IFhirWriter writer) where T : struct
+        public static void SerializeCode<T>(Code<T> value, IFhirWriter writer, bool summary) where T : struct
         {
             Code c = new Code(value.ToString());
             c.Extension = value.Extension;
             c.LocalId = value.LocalId;
 
-            CodeSerializer.SerializeCode(c, writer);
-
-            //writer.WriteStartComplexContent();
-
-            //// Serialize element's localId attribute
-            //if (value._id != null && !String.IsNullOrEmpty(value._id.Value))
-            //    writer.WriteRefIdContents(value._id.Value);
-
-            //// Serialize element's primitive contents
-            //if (value.Value != null)
-            //    writer.WritePrimitiveContents(value.ToString());
-
-            //// Serialize element extension
-            //if (value.Extension != null && value.Extension.Count > 0)
-            //{
-            //    writer.WriteStartArrayElement("extension");
-            //    foreach (var item in value.Extension)
-            //    {
-            //        writer.WriteStartArrayMember("extension");
-            //        ExtensionSerializer.SerializeExtension(item, writer);
-            //        writer.WriteEndArrayMember();
-            //    }
-            //    writer.WriteEndArrayElement();
-            //}
-            
-            
-            //writer.WriteEndComplexContent();
+            CodeSerializer.SerializeCode(c, writer, summary);
         }
         
     }

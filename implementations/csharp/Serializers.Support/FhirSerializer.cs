@@ -43,9 +43,9 @@ namespace Hl7.Fhir.Serializers
 {
     public partial class FhirSerializer
     {
-        public static string SerializeResourceToXml(Resource resource)
+        public static string SerializeResourceToXml(Resource resource, bool summary = false)
         {
-            return xmlWriterToString( xw => FhirSerializer.SerializeResource(resource, new XmlFhirWriter(xw)) );
+            return xmlWriterToString( xw => FhirSerializer.SerializeResource(resource, new XmlFhirWriter(xw), summary) );
         }
 
         public static string SerializeTagListToXml(TagList list)
@@ -53,9 +53,9 @@ namespace Hl7.Fhir.Serializers
             return xmlWriterToString(xw => TagListSerializer.SerializeTagList(list, xw));
         }
 
-        public static byte[] SerializeResourceToXmlBytes(Resource resource)
+        public static byte[] SerializeResourceToXmlBytes(Resource resource, bool summary = false)
         {
-            return xmlWriterToBytes(xw => FhirSerializer.SerializeResource(resource, new XmlFhirWriter(xw)));
+            return xmlWriterToBytes(xw => FhirSerializer.SerializeResource(resource, new XmlFhirWriter(xw), summary));
         }
 
         public static byte[] SerializeTagListToXmlBytes(TagList list)
@@ -63,9 +63,9 @@ namespace Hl7.Fhir.Serializers
             return xmlWriterToBytes(xw => TagListSerializer.SerializeTagList(list, xw));
         }
 
-        public static string SerializeResourceToJson(Resource resource)
+        public static string SerializeResourceToJson(Resource resource, bool summary = false)
         {
-            return jsonWriterToString(jw => FhirSerializer.SerializeResource(resource, new JsonFhirWriter(jw)));
+            return jsonWriterToString(jw => FhirSerializer.SerializeResource(resource, new JsonFhirWriter(jw), summary));
         }
 
         public static string SerializeTagListToJson(TagList list)
@@ -73,9 +73,9 @@ namespace Hl7.Fhir.Serializers
             return jsonWriterToString(jw => TagListSerializer.SerializeTagList(list, jw));
         }
 
-        public static byte[] SerializeResourceToJsonBytes(Resource resource)
+        public static byte[] SerializeResourceToJsonBytes(Resource resource, bool summary = false)
         {
-            return jsonWriterToBytes(jw => FhirSerializer.SerializeResource(resource, new JsonFhirWriter(jw)));
+            return jsonWriterToBytes(jw => FhirSerializer.SerializeResource(resource, new JsonFhirWriter(jw), summary));
         }
 
         public static byte[] SerializeTagListToJsonBytes(TagList list)
@@ -84,9 +84,9 @@ namespace Hl7.Fhir.Serializers
         }
 
 
-        public static void SerializeResource(Resource resource, JsonWriter writer)
+        public static void SerializeResource(Resource resource, JsonWriter writer, bool summary = false)
         {
-            FhirSerializer.SerializeResource(resource, new JsonFhirWriter(writer));
+            FhirSerializer.SerializeResource(resource, new JsonFhirWriter(writer), summary);
         }
 
         public static void SerializeTagList(TagList list, JsonWriter jw)
@@ -99,99 +99,99 @@ namespace Hl7.Fhir.Serializers
             TagListSerializer.SerializeTagList(list, xw);
         }
 
-        public static void SerializeResource(Resource resource, XmlWriter writer)
+        public static void SerializeResource(Resource resource, XmlWriter writer, bool summary = false)
         {
-            FhirSerializer.SerializeResource(resource, new XmlFhirWriter(writer));
+            FhirSerializer.SerializeResource(resource, new XmlFhirWriter(writer), summary);
         }
 
-        public static void SerializeBundle(Bundle bundle, JsonWriter writer)
+        public static void SerializeBundle(Bundle bundle, JsonWriter writer, bool summary = false)
         {
-            BundleJsonSerializer.WriteTo(bundle, writer);
+            BundleJsonSerializer.WriteTo(bundle, writer, summary);
         }
 
-        public static void SerializeBundle(Bundle bundle, XmlWriter writer)
+        public static void SerializeBundle(Bundle bundle, XmlWriter writer, bool summary = false)
         {
-            BundleXmlSerializer.WriteTo(bundle, writer);
+            BundleXmlSerializer.WriteTo(bundle, writer, summary);
         }
 
-        public static string SerializeBundleToJson(Bundle bundle)
+        public static string SerializeBundleToJson(Bundle bundle, bool summary = false)
         {
-            return jsonWriterToString(jw => BundleJsonSerializer.WriteTo(bundle, jw));
+            return jsonWriterToString(jw => BundleJsonSerializer.WriteTo(bundle, jw, summary));
         }
 
-        public static string SerializeBundleToXml(Bundle bundle)
+        public static string SerializeBundleToXml(Bundle bundle, bool summary = false)
         {
-            return xmlWriterToString(xw => BundleXmlSerializer.WriteTo(bundle, xw));
+            return xmlWriterToString(xw => BundleXmlSerializer.WriteTo(bundle, xw, summary));
         }
 
-        public static byte[] SerializeBundleToJsonBytes(Bundle bundle)
+        public static byte[] SerializeBundleToJsonBytes(Bundle bundle, bool summary = false)
         {
-            return jsonWriterToBytes(jw => BundleJsonSerializer.WriteTo(bundle, jw));
+            return jsonWriterToBytes(jw => BundleJsonSerializer.WriteTo(bundle, jw, summary));
         }
 
-        public static byte[] SerializeBundleToXmlBytes(Bundle bundle)
+        public static byte[] SerializeBundleToXmlBytes(Bundle bundle, bool summary = false)
         {
-            return xmlWriterToBytes(xw => BundleXmlSerializer.WriteTo(bundle, xw));
+            return xmlWriterToBytes(xw => BundleXmlSerializer.WriteTo(bundle, xw, summary));
         }
 
-        public static void SerializeBundleEntry(Bundle entry , JsonWriter writer)
+        public static void SerializeBundleEntry(Bundle entry, JsonWriter writer, bool summary = false)
         {
-            BundleJsonSerializer.WriteTo(entry, writer);
+            BundleJsonSerializer.WriteTo(entry, writer, summary);
         }
 
-        public static void SerializeBundleEntry(Bundle entry, XmlWriter writer)
+        public static void SerializeBundleEntry(Bundle entry, XmlWriter writer, bool summary = false)
         {
-            BundleXmlSerializer.WriteTo(entry, writer);
+            BundleXmlSerializer.WriteTo(entry, writer,summary);
         }
 
-        public static string SerializeBundleEntryToJson(BundleEntry entry)
+        public static string SerializeBundleEntryToJson(BundleEntry entry, bool summary = false)
         {
-            return jsonWriterToString(jw=>BundleJsonSerializer.WriteTo(entry, jw));
+            return jsonWriterToString(jw=>BundleJsonSerializer.WriteTo(entry, jw, summary));
         }
 
-        public static string SerializeBundleEntryToXml(BundleEntry entry)
+        public static string SerializeBundleEntryToXml(BundleEntry entry, bool summary = false)
         {
-            return xmlWriterToString(xw => BundleXmlSerializer.WriteTo(entry, xw));
+            return xmlWriterToString(xw => BundleXmlSerializer.WriteTo(entry, xw, summary));
         }
 
-        public static byte[] SerializeBundleEntryToJsonBytes(BundleEntry entry)
+        public static byte[] SerializeBundleEntryToJsonBytes(BundleEntry entry, bool summary = false)
         {
-            return jsonWriterToBytes(jw => BundleJsonSerializer.WriteTo(entry, jw));
+            return jsonWriterToBytes(jw => BundleJsonSerializer.WriteTo(entry, jw, summary));
         }
 
-        public static byte[] SerializeBundleEntryToXmlBytes(BundleEntry entry)
+        public static byte[] SerializeBundleEntryToXmlBytes(BundleEntry entry, bool summary = false)
         {
-            return xmlWriterToBytes(xw => BundleXmlSerializer.WriteTo(entry, xw));
+            return xmlWriterToBytes(xw => BundleXmlSerializer.WriteTo(entry, xw, summary));
         }
 
-        public static XElement SerializeResourceAsXElement(Resource resource)
+        public static XElement SerializeResourceAsXElement(Resource resource, bool summary = false)
         {
-            return XElement.Parse(SerializeResourceToXml(resource));
+            return XElement.Parse(SerializeResourceToXml(resource, summary));
         }
 
-        internal static string SerializeElementAsJson(Element elem)
+        internal static string SerializeElementAsJson(Element elem, bool summary = false)
         {
-            return jsonWriterToString(jw => FhirSerializer.SerializeElement(elem, new JsonFhirWriter(jw)));
+            return jsonWriterToString(jw => FhirSerializer.SerializeElement(elem, new JsonFhirWriter(jw), summary));
         }
 
-        internal static string SerializeElementAsXml(Element elem, string name = null)
+        internal static string SerializeElementAsXml(Element elem, string name = null, bool summary = false)
         {
             return xmlWriterToString(xw =>
                 {
                     xw.WriteStartElement(name == null ? "element" : name, Support.Util.FHIRNS);
-                    FhirSerializer.SerializeElement(elem, new XmlFhirWriter(xw));
+                    FhirSerializer.SerializeElement(elem, new XmlFhirWriter(xw), summary);
                     xw.WriteEndElement();
                 });
         }
 
-        internal static void SerializeElement(Element elem, JsonWriter writer)
+        internal static void SerializeElement(Element elem, JsonWriter writer, bool summary = false)
         {
-            FhirSerializer.SerializeElement(elem, new JsonFhirWriter(writer));
+            FhirSerializer.SerializeElement(elem, new JsonFhirWriter(writer), summary);
         }
 
-        internal static void SerializeElement(Element elem, XmlWriter writer)
+        internal static void SerializeElement(Element elem, XmlWriter writer, bool summary = false)
         {
-            FhirSerializer.SerializeElement(elem, new XmlFhirWriter(writer));
+            FhirSerializer.SerializeElement(elem, new XmlFhirWriter(writer), summary);
         }
 
         private static byte[] xmlWriterToBytes(Action<XmlWriter> serializer)
