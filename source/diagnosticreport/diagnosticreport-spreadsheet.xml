@@ -322,18 +322,18 @@
        html:Color="#000000">Should this be by priorityCode too?</Font></ss:Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">DiagnosticReport.requestDetail.visit</Data><NamedCell
+    <Cell><Data ss:Type="String">DiagnosticReport.requestDetail.encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Visit)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Encounter)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Context where request was made</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The visit that this diagnostic investigation is associated with</Data><NamedCell
+    <Cell><Data ss:Type="String">The encounter that this diagnostic investigation is associated with</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Episode, Admission</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Some institutions track and file diagnostic reports under a specific visit</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">Some institutions track and file diagnostic reports under a specific encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">unique(./inboundRelationship[isHighest(priorityCode) and typeCode=&quot;SUBJ&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#ENC&quot;, code) and moodCode=&quot;EVN&quot; and isNormalAct()])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Visit xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/visit.xsd">
+<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/encounter.xsd">
  <identifier>
     <use value="temp"/><!-- 0..1 The use of this identifier -->
-    <label value="Roel's visit on January 28th, 2013"/>
-    <key value="Visit_Roel_20130128"/>
+    <label value="Roel's encounter on January 28th, 2013"/>
+    <key value="Encounter_Roel_20130128"/>
  </identifier>
- <status value="finished"/><!--Visit has finished-->
- <class value="outpatient"/><!--Outpatient visit for chemotherapy-->
+ <status value="finished"/><!--Encounter has finished-->
+ <class value="outpatient"/><!--Outpatient encounter for chemotherapy-->
  <type>
     <coding>
        <system value="http://snomed.info"/>
@@ -49,4 +49,4 @@
      <type value="Organization"/>
      <reference value="organization/@f201"/>
  </serviceProvider>
-</Visit>
+</Encounter>

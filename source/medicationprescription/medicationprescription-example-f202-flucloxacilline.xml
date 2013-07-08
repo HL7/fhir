@@ -12,11 +12,11 @@
     <type value="Practitioner"/>
     <reference value="practitioner/@f201"/>
  </prescriber>
- <visit><!--TODO <visit> is not expected...-->
-    <type value="Visit"/>
-    <reference value="visit/@f203"/>
-    <display value="Roel's visit on March eleventh 2013"/>
- </visit>
+ <encounter><!--TODO <encounter> is not expected...-->
+    <type value="Encounter"/>
+    <reference value="encounter/@f203"/>
+    <display value="Roel's encounter on March eleventh 2013"/>
+ </encounter>
  <reasonForPrescribingString value="problem/@f203"/>
  <medication>
     <type value="Medication"/>

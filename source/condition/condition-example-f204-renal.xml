@@ -5,11 +5,11 @@
      <reference value="patient/@f201"/>
      <display value="Roel"/>
  </subject>
- <visit>
-     <type value="Visit"/>
-     <reference value="visit/@f203"/>
-     <display value="Roel's visit on March eleventh"/>
- </visit>
+ <encounter>
+     <type value="Encounter"/>
+     <reference value="encounter/@f203"/>
+     <display value="Roel's encounter on March eleventh"/>
+ </encounter>
  <asserter>
      <type value="Practitioner"/>
      <reference value="practitioner/@f201"/>

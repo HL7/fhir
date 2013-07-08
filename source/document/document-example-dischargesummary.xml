@@ -44,16 +44,16 @@
                         value="http://hl7connect.healthintersections.com.au/svc/fhir/practitioner/@example"/>
                     <display value="Doctor Dave"/>
                 </author>
-                <!-- The Visit resource. Points directly to a Visit resource. Contains the dates of admission, specialtyu etc. -->
+                <!-- The Encounter resource. Points directly to a Encounter resource. Contains the dates of admission, specialtyu etc. -->
 
                 <section>
                     <code>
                         <text value="Encounter Information"/>
                     </code>
                     <content>
-                        <type value="Visit"/>
+                        <type value="Encounter"/>
                         <reference
-                            value="http://hl7connect.healthintersections.com.au/svc/fhir/visit/@example"
+                            value="http://hl7connect.healthintersections.com.au/svc/fhir/encounter/@example"
                         />
                     </content>
                 </section>
@@ -195,19 +195,19 @@
         </summary>
     </entry>
 
-    <!-- The visit that is being documented.-->
+    <!-- The encounter that is being documented.-->
     <entry>
         <title>Admission to Middlemore </title>
-        <id>http://hl7connect.healthintersections.com.au/svc/fhir/visit/@example</id>
+        <id>http://hl7connect.healthintersections.com.au/svc/fhir/encounter/@example</id>
         <link rel="self"
-            href="http://hl7connect.healthintersections.com.au/svc/fhir/visit/@example/history/@1"/>
+            href="http://hl7connect.healthintersections.com.au/svc/fhir/encounter/@example/history/@1"/>
 
         <updated>2013-05-05T16:13:03Z</updated>
         <author>
             <name>68.151.217.168</name>
         </author>
         <content type="text/xml">
-            <Visit xmlns="http://hl7.org/fhir">
+            <Encounter xmlns="http://hl7.org/fhir">
                 <text>
                     <status value="generated"/>
                     <div xmlns="http://www.w3.org/1999/xhtml"> Admitted to Orthopedics Service,
@@ -216,6 +216,7 @@
                 <identifier>
                     <key value="S100"/>
                 </identifier>
+                <status value="finished" />
                 <class value="inpatient"/>
                 <type>
                     <text value="Orthopedic Admission"/>
@@ -234,7 +235,7 @@
                         <text value="Discharged to care of GP"/>
                     </dischargeDisposition>
                 </hospitalization>
-            </Visit>
+            </Encounter>
         </content>
 
     </entry>
@@ -320,7 +321,7 @@
                     <flag>
                         <coding>
                             <!-- The flag refers to the valueset containing permissable codes for changes
-                            to medication status that occurred during this visit. Possible values are started,
+                            to medication status that occurred during this encounter. Possible values are started,
                             continued, stopped, changed-->
                             <system
                                 value="http://www.ithealthboard.health.nz/fhir/valueset/@medicationStatus"/>

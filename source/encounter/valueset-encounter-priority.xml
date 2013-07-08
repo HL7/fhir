@@ -1,0 +1,40 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="Diet"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set defines a set of codes that can be used to indicate the encounter priority as determined by triage."/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/diet"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="imm"/>
+      <display value="Immediate" />
+      <definition value="Within seconds"/>
+    </concept>
+    <concept>
+      <code value="emg"/>
+      <display value="Emergency" />
+      <definition value="Within 10 minutes"/>
+    </concept>
+    <concept>
+      <code value="urg"/>
+      <display value="Urgent" />
+      <definition value="Within 30 minutes"/>
+    </concept>
+    <concept>
+      <code value="s-urg"/>
+      <display value="Semi-urgent" />
+      <definition value="Within 60 minutes"/>
+    </concept>
+    <concept>
+      <code value="no-urg"/>
+      <display value="Non-urgent" />
+      <definition value="Within 120 minutes"/>
+    </concept>    
+  </define>
+</ValueSet>

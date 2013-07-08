@@ -235,7 +235,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Administration of medication to a patient</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Describes the event of a patient being given a dose of a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.&#10;&#10;Related resources tie this event to the authorizing prescription, and the specific visit between patient and health care practitioner</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Describes the event of a patient being given a dose of a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.&#10;&#10;Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">SubstanceAdministration</Data></Cell>
     <Cell ss:StyleID="s73"/>
@@ -296,12 +296,12 @@
     <Cell ss:Index="13" ss:StyleID="s76"><Data ss:Type="String">RXA-10-Administering Provider / PRT-5-Participation Person: PRT-4-Participation='AP' (RXA-10 is deprecated)&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationAdministration.visit</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationAdministration.encounter</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Visit)</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Current Encounter / Admission</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">An link to a resource that identifies the particular occurrence of contact between patient and health care provider.</Data></Cell>
@@ -732,10 +732,10 @@
     <Cell ss:StyleID="s89"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">visit</Data></Cell>
-    <Cell><Data ss:Type="String">Return administrations that share this visit</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">Return administrations that share this encounter</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">MedicationAdministration.visit</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">MedicationAdministration.encounter</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:Index="9" ss:StyleID="s66"/>
    </Row>

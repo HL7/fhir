@@ -411,7 +411,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">CarePlanActivityCategory</Data></Cell>
-    <Cell><Data ss:Type="String">visit | procedure | observation | +</Data></Cell>
+    <Cell><Data ss:Type="String">encounter | procedure | observation | +</Data></Cell>
     <Cell><Data ss:Type="String">High-level categorization of the type of activity in a care plan.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">May determine what types of extensions are permitted</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s68"/>
@@ -429,7 +429,7 @@
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">CarePlanActivityCode</Data></Cell>
     <Cell><Data ss:Type="String">Detail type of activity</Data></Cell>
-    <Cell><Data ss:Type="String">Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of visit.</Data></Cell>
+    <Cell><Data ss:Type="String">Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of encounter.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Allows matching performed to planned as well as validation against protocols</Data></Cell>
     <Cell><Data ss:Type="String">Tends to be less relevant for activities involving particular products.  Codes should not convey negation - use &quot;prohibited&quot; instead.</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -593,7 +593,7 @@
     <Cell><Data ss:Type="String">Resource(Any)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Appointments, orders, etc.</Data></Cell>
-    <Cell><Data ss:Type="String">Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, visit records, appointments, etc.</Data></Cell>
+    <Cell><Data ss:Type="String">Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Links plan to resulting actions</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -1047,7 +1047,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">GPVisit</Data></Cell>
-    <Cell><Data ss:Type="String">Visit to GP (Primary care Practitioner)</Data></Cell>
+    <Cell><Data ss:Type="String">Encounter to GP (Primary care Practitioner)</Data></Cell>
     <Cell><Data ss:Type="String">gpvisit</Data></Cell>
     <Cell><Data ss:Type="String">careplan-example-GPVisit.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
@@ -1155,7 +1155,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s68"><Data ss:Type="String">CarePlanActivityCode</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of visit.</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of encounter.</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">unbound</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -1370,7 +1370,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">visit</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Plan to meet or communicate with the patient (in-patient, out-patient, phone call, etc.)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

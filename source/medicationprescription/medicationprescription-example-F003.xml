@@ -23,10 +23,10 @@
         <reference value="practitioner/@F007"/>
         <display value="S.M. Heps"/>
     </prescriber>
-    <encounter> <!-- Linked to a resource Visit between patient and practitioner-->
-        <type value="Visit"/>
-        <reference value="visit/F003"/>
-        <display value="visit who leads to this priscription"/>
+    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
+        <type value="Encounter"/>
+        <reference value="encounter/F003"/>
+        <display value="encounter who leads to this priscription"/>
     </encounter>
     <reasonForPrescribing>
         <coding>

@@ -197,14 +197,14 @@
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">DiagnosticOrder.visit</Data><NamedCell
+    <Cell><Data ss:Type="String">DiagnosticOrder.encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Visit)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Encounter)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The visit that this diagnostic order is associated with</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">The encounter that this diagnostic order is associated with</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A visit that provides additional informaton about the healthcare context in which this request is made</Data><NamedCell
+    <Cell><Data ss:Type="String">A encounter that provides additional informaton about the healthcare context in which this request is made</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
@@ -561,9 +561,9 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">visit</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.visit</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.encounter</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">status</Data></Cell>

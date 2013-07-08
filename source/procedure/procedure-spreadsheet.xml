@@ -214,12 +214,12 @@
     <Cell ss:Index="21"><Data ss:Type="String">Period</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Procedure.visit</Data></Cell>
+    <Cell><Data ss:Type="String">Procedure.encounter</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Visit)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The visit during which the procedure was performed</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">The encounter during which the procedure was performed</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:Index="21"><Data ss:Type="String">Resource(Visit)</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="56.0625">
     <Cell><Data ss:Type="String">Procedure.outcome</Data></Cell>

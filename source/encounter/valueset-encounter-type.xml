@@ -1,0 +1,33 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="EncounterType"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This example value set defines a set of codes that can be used to indicate the type
+    of encounter: a specific code indicating type of service provided ."/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/encounter-type"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="ADMS"/>
+      <display value="Annual diabetes mellitus screening"/>
+    </concept>
+    <concept>
+      <code value="BD/BM-clin"/>
+      <display value="Bone drilling/bone marrow punction in clinic"/>
+    </concept>
+    <concept>
+      <code value="CCS60"/>
+      <display value="Infant colon screening - 60 minutes"/>
+    </concept>  
+    <concept>
+      <code value="OKI"/>
+      <display value="Outpatient Kenacort injection"/>
+    </concept>  
+  </define>
+</ValueSet>
+

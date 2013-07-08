@@ -186,7 +186,7 @@
     <Cell><Data ss:Type="String">Procedure Code/Description</Data></Cell>
     <Cell><Data ss:Type="String">98941 - Chiropractic Manipulative Treatment (Cmt); Spinal, Three To Four Regions</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">74020 - Radiologic Examination, Abdomen; Complete, Including Decubitus And/Or Erect Views</Data></Cell>
-    <Cell><Data ss:Type="String">99283 - Emergency Department Visit For The Evaluation And Management Of A Patient, Which Requires Th</Data></Cell>
+    <Cell><Data ss:Type="String">99283 - Emergency Department Encounter For The Evaluation And Management Of A Patient, Which Requires Th</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Modifier 1/Description</Data></Cell>

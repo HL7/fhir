@@ -17,12 +17,12 @@
         <reference value="practitioner/@f001"/>
         <display value="R.A. van den Berg"/>
     </prescriber>
-    <visit> <!-- Linked to a resource Visit between patient and practitioner-->
+    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
         <!-- TODO: Camiel nog correcte verwijzing (@f001 bestond nog niet) -->
-        <type value="Visit"/>
-        <reference value="visit/@f201"/>
-        <display value="visit who leads to this priscription"/>
-    </visit>
+        <type value="Encounter"/>
+        <reference value="encounter/@f201"/>
+        <display value="encounter who leads to this priscription"/>
+    </encounter>
     <reasonForPrescribingCodeableConcept>
         <coding>
             <system value="http://snomed.info"/>

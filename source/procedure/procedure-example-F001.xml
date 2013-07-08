@@ -41,10 +41,10 @@
         <start value="2011-06-26"/>
         <end value="2011-06-27"/>
     </date>
-    <visit>
-        <type value="Visit"/>
-        <reference value="visit/@F001"/>
-    </visit>
+    <encounter>
+        <type value="Encounter"/>
+        <reference value="encounter/@F001"/>
+    </encounter>
     <outcome value="improved blood circulation"/>
     <report>
         <type value="DiagnosticReport"/>

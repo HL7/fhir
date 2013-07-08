@@ -268,7 +268,7 @@
     </precondition>
     <activity>
       <detail>
-        <category value="visit"/>
+        <category value="encounter"/>
       </detail>
     </activity>
   </step>
@@ -283,7 +283,7 @@
     </precondition>
     <activity>
       <detail>
-        <category value="visit"/>
+        <category value="encounter"/>
       </detail>
     </activity>
   </step>
@@ -298,7 +298,7 @@
     </precondition>
     <activity>
       <detail>
-        <category value="visit"/>
+        <category value="encounter"/>
       </detail>
     </activity>
   </step>
@@ -313,7 +313,7 @@
     </precondition>
     <activity>
       <detail>
-        <category value="visit"/>
+        <category value="encounter"/>
       </detail>
     </activity>
   </step>
@@ -328,7 +328,7 @@
     </precondition>
     <activity>
       <detail>
-        <category value="visit"/>
+        <category value="encounter"/>
       </detail>
     </activity>
   </step>
@@ -343,7 +343,7 @@
     </precondition>
     <activity>
       <detail>
-        <category value="visit"/>
+        <category value="encounter"/>
       </detail>
     </activity>
   </step>
@@ -358,7 +358,7 @@
     </precondition>
     <activity>
       <detail>
-        <category value="visit"/>
+        <category value="encounter"/>
       </detail>
     </activity>
   </step>
@@ -373,7 +373,7 @@
     </precondition>
     <activity>
       <detail>
-        <category value="visit"/>
+        <category value="encounter"/>
       </detail>
     </activity>
   </step>
@@ -388,7 +388,7 @@
     </precondition>
     <activity>
       <detail>
-        <category value="visit"/>
+        <category value="encounter"/>
       </detail>
     </activity>
   </step>
@@ -403,7 +403,7 @@
     </precondition>
     <activity>
       <detail>
-        <category value="visit"/>
+        <category value="encounter"/>
       </detail>
     </activity>
   </step>

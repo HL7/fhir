@@ -22,8 +22,8 @@ It explicitly does not try to standardize or streamline exchange of its contents
 constrain its structure and flexibility using profiles to define standardized, reusable forms.</li>
 <li>Because of the lack of explicit support for Questionnaires in HL7v3, HL7 CDA Documents frequently used named sections with
 Observations to model Questionnaires. Such use cases should now utilize the Questionnaire Resource instead.</li>
-<li>The Questionnaire's <i>visit</i> element can be used to link to the visit during which the Questionnaire was taken. This can be relevant since the
-visit gives context to the answers and can be used to relate information in the Questionnaire to orders and observations that were done during the same Visit.</li>
+<li>The Questionnaire's <i>encounter</i> element can be used to link to the encounter during which the Questionnaire was taken. This can be relevant since the
+encounter gives context to the answers and can be used to relate information in the Questionnaire to orders and observations that were done during the same Encounter.</li>
 </ul>
 
 <a name="qversusr" />
@@ -50,5 +50,6 @@ of the form like headings, explanatory text, actual question text and the text o
 <li>contain a combination of questions and answers (e.g. when it is deemed important to keep the actual question text with the answer) or</li>
 <li>only contain the Questions, which is equivalent to an "empty form".</li></ul>
 <p>This third case can be useful to make Questionnaire serve as a kind of form "definition", where FHIR clients receive the empty form, display it to the user, get answers from the users 
-and then return the combined questions and answers to the server.</p>
+and then return the combined questions and answers to the server. The <a href="questionnaire-extensions-spreadsheet.xml.htm">questionnaire core 
+extensions</a> provide additional means for control over repeating sections and expected answer format.</p>
 </div>

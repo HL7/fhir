@@ -124,7 +124,7 @@
     <Cell ss:StyleID="s65"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String"> Detailed information about conditions, problems or diagnoses</Data></Cell>
-    <Cell><Data ss:Type="String">Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during a Visit; populating a problem List or a Summary Statement, such as a Discharge Summary</Data></Cell>
+    <Cell><Data ss:Type="String">Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during a Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">* Age is questionable, you might well need a range of Age or even (in practice)&#10;&#10;a text like &quot;in their teens&quot;. =&gt; new ballot comment.&#10;&#10;* Todo: discuss the applicability of assessing stages&#10;&#10;* Change the description: it is circular</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
@@ -134,10 +134,10 @@
     <Cell ss:Index="8"><Data ss:Type="String">Subject of this condition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell><Data ss:Type="String">Condition.visit</Data></Cell>
+    <Cell><Data ss:Type="String">Condition.encounter</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Visit)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Visit during which the condition was first asserted</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Encounter during which the condition was first asserted</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Condition.asserter</Data></Cell>
@@ -502,9 +502,9 @@
     <Cell ss:StyleID="s63"><Data ss:Type="String">Condition.subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">visit</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Condition.visit</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Condition.encounter</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">asserter</Data></Cell>

@@ -33,7 +33,7 @@
     </div>
   </text>
   <!-- This list doesn't have a code. In actual fact, 
-    it's a Condition list produced at the end of a visit 
+    it's a Condition list produced at the end of a encounter 
     to a regular primary care practitioner. But the only way
     to know this is to hunt down the place it is used 
     and find out -->

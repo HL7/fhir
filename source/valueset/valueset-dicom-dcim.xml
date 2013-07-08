@@ -464,7 +464,7 @@
       <tr>
         <td><a name="109125">109125</a></td>
         <td>At last appointment</td>
-        <td>The occasion on which a procedure was performed at the most recent outpatient visit.</td>
+        <td>The occasion on which a procedure was performed at the most recent outpatient encounter.</td>
       </tr>  
       <tr>
         <td><a name="109132">109132</a></td>
@@ -8832,7 +8832,7 @@
     <concept>
       <code value="109125"/>
       <display value="At last appointment"/>
-      <definition value="The occasion on which a procedure was performed at the most recent outpatient visit."/>
+      <definition value="The occasion on which a procedure was performed at the most recent outpatient encounter."/>
     </concept>  
     <concept>
       <code value="109132"/>

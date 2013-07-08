@@ -299,7 +299,7 @@
         </valueQuantity>
       </extension>
     </extension>
-    <category value="visit"/>
+    <category value="encounter"/>
     <status value="not started"/>
     <prohibited value="false"/>
     <details value="Get Medical assistance immediately"/>

@@ -41,10 +41,10 @@
         <start value="2013-03-24T09:30:10+01:00"/>
         <end value="2013-03-24T10:30:10+01:00"/>
     </date>
-    <visit>
-        <type value="Visit"/>
-        <reference value="visit/@F003"/>
-    </visit>
+    <encounter>
+        <type value="Encounter"/>
+        <reference value="encounter/@F003"/>
+    </encounter>
     <outcome value="removal of the retropharyngeal abscess"/>
     <report>
         <type value="DiagnosticReport"/>

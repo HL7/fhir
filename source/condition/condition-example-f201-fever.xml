@@ -5,10 +5,10 @@
      <reference value="patient/@f201"/>
      <display value="Roel"/>
  </subject>
- <visit>
-     <type value="Visit"/>
-     <reference value="visit/@f201"/>
- </visit>
+ <encounter>
+     <type value="Encounter"/>
+     <reference value="encounter/@f201"/>
+ </encounter>
  <asserter>
      <type value="Practitioner"/>
      <reference value="practitioner/@f201"/>

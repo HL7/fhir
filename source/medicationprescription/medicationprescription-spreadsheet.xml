@@ -279,12 +279,12 @@
     <Cell ss:Index="14"><Data ss:Type="String">RXE-13-Ordering Provider's DEA Number / RXO-14-Ordering Provider's DEA Number / RXE-14-Pharmacist/Treatment Supplier's Verifier ID / RXO-15-Pharmacist/Treatment Supplier's Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation='OP' (all but last deprecated)&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicationPrescription.visit</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicationPrescription.encounter</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Visit)</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Encounter / Admission / Stay</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">A link to a resource that identifies the particular occurrence of contact between patient and health care provider.</Data></Cell>
@@ -721,10 +721,10 @@
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"><Data ss:Type="String">visit</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Return prescriptions with this encounter identity</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicationPrescription.visit</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicationPrescription.encounter</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">

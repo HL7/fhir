@@ -103,7 +103,7 @@
       <description value="Maintain a womans health throughout pregnancy and ensure a healthy child"/>
     </goal>
     <activity>
-        <!-- This will be the first antenatal visit -->
+        <!-- This will be the first antenatal encounter -->
         
         <!-- a link to further details about the first antenatal details -->
         <extension>
@@ -111,18 +111,18 @@
             <valueUri value="http://orionhealth.com/fhir/careplan/1andetails" />
         </extension>
         
-        <category value="visit"></category>
+        <category value="encounter"></category>
         <code>
             <coding>
                 <system value="mySystem"/>
                 <code value="1an"/>
             </coding>
-            <text value='First Antenatal visit'></text>
+            <text value='First Antenatal encounter'></text>
         </code>
         <status value="scheduled"/>
         <prohibited value="false"></prohibited>
         <timingSchedule>
-            <!-- The visit should occur between 14 feb and 28 feb -->
+            <!-- The encounter should occur between 14 feb and 28 feb -->
             <event>
                 <start value="2013-02-14"/>
                 <end value="2013-02-28"/>
@@ -133,33 +133,33 @@
             <reference value="#pr1"/>
             <display value="Mavis Midwife"/>
         </performer>
-        <details value="The first antenatal visit. This is where a detailed physical examination is performed.
+        <details value="The first antenatal encounter. This is where a detailed physical examination is performed.
             and the pregnanacy discussed with the mother-to-be."></details>
-        <!-- This is a booked visit with Mavis Midwife for the first antenatal checkup. 
-        This entry is only made after the appointment (a planned visit) has been made.
-        Commented out for now because Visit hasn't been defined yet
+        <!-- This is a booked encounter with Mavis Midwife for the first antenatal checkup. 
+        This entry is only made after the appointment (a planned encounter) has been made.
+        Commented out for now because Encounter hasn't been defined yet
         <actionTaken>
-            <type value="Visit"></type>
+            <type value="Encounter"></type>
             <url value="xxx"/>
             <display value="Appointment with Mavis midwife @12.30pm, 112 St albans Ave"/>
         </actionTaken>-->
     </activity>
     
     <activity>
-        <!-- This will be the second antenatal visit - 3 months after LMP. It is not yet scheduled. -->
-        <category value="visit"></category>
+        <!-- This will be the second antenatal encounter - 3 months after LMP. It is not yet scheduled. -->
+        <category value="encounter"></category>
         <code>
-            <!-- The code is just for an antenatal visit. There are many of these, the first is special... -->
+            <!-- The code is just for an antenatal encounter. There are many of these, the first is special... -->
             <coding>
                 <system value="mySystem"/>
                 <code value="an"/>
             </coding>
-            <text value='Follow-up Antenatal visit'></text>           
+            <text value='Follow-up Antenatal encounter'></text>           
         </code>
         <status value="not started"/>
         <prohibited value="false"></prohibited>
         <timingSchedule>
-            <!-- The visit should occur between 1 march and 14 march -->
+            <!-- The encounter should occur between 1 march and 14 march -->
             <event>
                 <start value="2013-03-01"/>
                 <end value="2013-03-14"/>
@@ -171,10 +171,10 @@
             <reference value="#pr1"/>
             <display value="Mavis Midwife"/>
         </performer>
-        <details value="The second antenatal visit. Discuss any issues that arose from the first antenatal visit"></details>
+        <details value="The second antenatal encounter. Discuss any issues that arose from the first antenatal encounter"></details>
     </activity>
     <!-- 
-        There would be a number of other visits to be scheduled here... 
+        There would be a number of other encounters to be scheduled here... 
         ...
         ...
     
@@ -182,7 +182,7 @@
     
     <activity>
         <!-- This will be the delivery. It is not yet scheduled. -->
-        <category value="visit"></category>
+        <category value="encounter"></category>
         <code>
             <coding>
                 <system value="mySystem"/>

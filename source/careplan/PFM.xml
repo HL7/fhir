@@ -6,7 +6,7 @@
         <status value="additional"></status>
         <div xmlns="http://www.w3.org/1999/xhtml">
             Represents the flow of a patient within a practice. The plan is created when
-        they arrive and represents the 'care' of the patient over the course of that visit.
+        they arrive and represents the 'care' of the patient over the course of that encounter.
         They first see the nurse for basic observations (BP, pulse, temp) then the doctor for
         the consultation and finally the nurse again for a tetanus immunization. As the plan is
         updated (eg a new activity added), different versions of the plan exist, and workflow timings
@@ -15,7 +15,7 @@
         the parient progresses, or start with a standard template (which can, of course, be altered to suit the patient.</div>
     </text>
     <contained>
-        <!-- This is the reason for the visit. It is referenced by the concern -->
+        <!-- This is the reason for the encounter. It is referenced by the concern -->
         <Condition id="p1">
             <subject>
                 <type value="Patient"/>
@@ -24,7 +24,7 @@
             </subject>
             <code>
                 <!-- Could coded if we wanted to...-->
-                <text value="Overseas visit"/>
+                <text value="Overseas encounter"/>
             </code>
     </Condition>
     </contained>
@@ -37,7 +37,7 @@
     <period>
         <!-- This is the time the plan started - ie when they arrived-->
         <start value ="2013-01-01T10:30:00+00:00"/>
-        <!-- No end yet as the visit is still in progress.-->
+        <!-- No end yet as the encounter is still in progress.-->
     </period>
     <concern>
         <type value="Condition"></type>
@@ -77,8 +77,8 @@
       <description value="Complete consultation"/>
     </goal>
     <activity>
-        <!-- This activity is for the initial nurse visit where vitals are taken. It has been completed.-->
-        <category value="visit"></category>
+        <!-- This activity is for the initial nurse encounter where vitals are taken. It has been completed.-->
+        <category value="encounter"></category>
         <code>
             <coding>
                 <system value='local'/>
@@ -100,17 +100,17 @@
           <display value="Nurse Nancy"/>
         </performer>
         <actionTaken>
-            <!-- This is a link to the nurse visit. The assumption is that all contacts with practitioners
-            are modelled as separate visits. Ideally, there will be  a 'master/parent' visit that ties them together.
-            If there is a single visit, then all participants will be linked to that visit.-->
-            <type value="Visit"/>
-            <url value="./visit/@1000"/>
+            <!-- This is a link to the nurse encounter. The assumption is that all contacts with practitioners
+            are modelled as separate encounters. Ideally, there will be  a 'master/parent' encounter that ties them together.
+            If there is a single encounter, then all participants will be linked to that encounter.-->
+            <type value="Encounter"/>
+            <url value="./encounter/@1000"/>
         </actionTaken>
     </activity>
     <activity>
-        <!-- This activity is for the visit with the doctor. It is scheduled, but not yet started,
+        <!-- This activity is for the encounter with the doctor. It is scheduled, but not yet started,
             so there is no timing[x]  or actionTaken element yet -->
-        <category value="visit"></category>
+        <category value="encounter"></category>
         <code>
             <coding>
                 <system value='local'/>

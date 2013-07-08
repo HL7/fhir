@@ -17,10 +17,10 @@
         <reference value="practitioner/@F001"/>
         <display value="S.M. Heps"/>
     </prescriber>
-    <encounter> <!-- Linked to a resource Visit between patient and practitioner-->
-        <type value="Visit"/>
-        <reference value="visit/F004"/>
-        <display value="visit who leads to this priscription"/>
+    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
+        <type value="Encounter"/>
+        <reference value="encounter/F004"/>
+        <display value="encounter who leads to this priscription"/>
     </encounter>
     <reasonForPrescribing>
         <coding>

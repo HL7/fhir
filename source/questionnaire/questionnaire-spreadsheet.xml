@@ -302,17 +302,17 @@
     <Cell ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Questionnaire.visit</Data><NamedCell
+    <Cell><Data ss:Type="String">Questionnaire.encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Visit)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Encounter)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Primary visit during which the answers were collected</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">Primary encounter during which the answers were collected</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Visit during which this questionnaireanswers were collected. When there were multiple visits, this is the one considered most relevant to the context of the answers.</Data><NamedCell
+    <Cell><Data ss:Type="String">Encounter during which this questionnaireanswers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Some institutions track questionnaires under a specific visit</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">Some institutions track questionnaires under a specific encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">Is this 80%? Is this 0..*?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -741,10 +741,10 @@
     <Cell><Data ss:Type="String">Questionnaire.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">visit</Data></Cell>
-    <Cell><Data ss:Type="String">visit during which questionnaire was authored</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">encounter during which questionnaire was authored</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
-    <Cell><Data ss:Type="String">Questionnaire.visit</Data></Cell>
+    <Cell><Data ss:Type="String">Questionnaire.encounter</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

@@ -510,9 +510,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Type of organizational setting</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">This code represents the type of organizational setting of the clinical visit during which the documented act occurred</Data><NamedCell
+    <Cell><Data ss:Type="String">This code represents the type of organizational setting of the clinical encounter during which the documented act occurred</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">In some cases, the setting of the visit is inherent in the typeCode, such as &quot;Diabetes Clinic Progress Note&quot;. healthcareFacilityTypeCode shall be equivalent to or further specialize the value inherent in the typeCode; for example, where the typeCode is simply &quot;Clinic Progress Note&quot; and the value of healthcareFacilityTypeCode is &quot;private clinic&quot;.  The value shall not conflict with the value inherent in the typeCode, as such a conflict would create an ambiguous situation</Data><NamedCell
+    <Cell ss:Index="11"><Data ss:Type="String">In some cases, the setting of the encounter is inherent in the typeCode, such as &quot;Diabetes Clinic Progress Note&quot;. healthcareFacilityTypeCode shall be equivalent to or further specialize the value inherent in the typeCode; for example, where the typeCode is simply &quot;Clinic Progress Note&quot; and the value of healthcareFacilityTypeCode is &quot;private clinic&quot;.  The value shall not conflict with the value inherent in the typeCode, as such a conflict would create an ambiguous situation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
@@ -549,7 +549,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Represents the time of the service being documented took place (clinically significant, but not necessarily when the document was produced or approved).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">This may be the same as the visit time in case the service was delivered during a visit. Visit time is not coded in XDS metadata but may be coded in documents managed by XDS. Note: Other times, such as document creation or approval are to be recorded, if needed, within the document.</Data><NamedCell
+    <Cell ss:Index="11"><Data ss:Type="String">This may be the same as the encounter time in case the service was delivered during a encounter. Encounter time is not coded in XDS metadata but may be coded in documents managed by XDS. Note: Other times, such as document creation or approval are to be recorded, if needed, within the document.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

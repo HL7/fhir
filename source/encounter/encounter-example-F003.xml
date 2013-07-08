@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Visit xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/visit.xsd">
+<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/encounter.xsd">
     <identifier>
         <use value="official"/>
-        <system value="http://www.bmc.nl/zorgportal/identifiers/visits"/>
+        <system value="http://www.bmc.nl/zorgportal/identifiers/encounters"/>
         <key value="v6751"/>
     </identifier>
     <status value="finished"/>
@@ -100,4 +100,4 @@
         <type value="Organisation"/>
         <reference value="organisation/@F001"/>
     </serviceProvider>
-</Visit>
+</Encounter>
