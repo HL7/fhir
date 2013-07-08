@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9555</WindowHeight>
-  <WindowWidth>19455</WindowWidth>
+  <WindowHeight>7050</WindowHeight>
+  <WindowWidth>20445</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
@@ -192,89 +192,6 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.subject</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Who this immunization was adminstered to</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">The patient to whom the vaccine was to be administered</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="Default"/>
-    <Cell ss:Index="13" ss:StyleID="Default"><Data ss:Type="String">.partipication[ttypeCode=].role</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">PID-3-patient ID list</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">PID, PD1, NK1</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.requester</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell><Data ss:Type="String">Vaccine Ordering Provider Name</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Clinician who ordered the vaccination</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">other participants - delegate to Provenance resource</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">ORC-12-ordering provider</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.performer</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell><Data ss:Type="String">Vaccine Administering Provider Name</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Clinician that administered the vaccine</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="Default"/>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">RXA-10-administering provider</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="s73"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/performer/assignedEntity/assignedPerson/name</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Performer - Section 13.05</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Immunization.manufacturer</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Resource(Organization)</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell><Data ss:Type="String">Vaccine Manufacturer</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Name of vaccine manufacturer</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="Default"/>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">RXA-17-substance manufacturer name</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="s73"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacuturerOrganization/name</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Drug Manufacturer, Section 13.08</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Immunization.location</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Resource(Location)</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell><Data ss:Type="String">Vaccine Administration Facility</Data></Cell>
-    <Cell><Data ss:Type="String">The service delivery location where the vaccine administration occurred.</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="Default"/>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">RXA-27-administered-at (or RXA-11-administered-at location, deprecated as of v2.7)</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">Immunization.date</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
@@ -290,6 +207,39 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="17" ss:StyleID="s73"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/effectiveTime/value</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Administered Date,  Section 13.02</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.vaccineType</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">VaccineType</Data></Cell>
+    <Cell><Data ss:Type="String">Vaccine Product Administered</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Vaccine that was administered or was to be administered</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">RXA-5-administered code</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="17" ss:StyleID="s73"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/realmCode/code</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Immunization Coded Product Name, Section 13.06</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.subject</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Who this immunization was adminstered to</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">The patient to whom the vaccine was to be administered</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="Default"><Data ss:Type="String">.partipication[ttypeCode=].role</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">PID-3-patient ID list</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">PID, PD1, NK1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">Immunization.refusedIndicator</Data></Cell>
@@ -325,21 +275,71 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.vaccineType</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.performer</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">VaccineType</Data></Cell>
-    <Cell><Data ss:Type="String">Vaccine Product Administered</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Vaccine that was administered or was to be administered</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell><Data ss:Type="String">Vaccine Administering Provider Name</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Clinician that administered the vaccine</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">RXA-5-administered code</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">RXA-10-administering provider</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="s73"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/realmCode/code</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Immunization Coded Product Name, Section 13.06</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s73"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/performer/assignedEntity/assignedPerson/name</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Performer - Section 13.05</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.requester</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell><Data ss:Type="String">Vaccine Ordering Provider Name</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Clinician who ordered the vaccination</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="Default"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">other participants - delegate to Provenance resource</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">ORC-12-ordering provider</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Immunization.manufacturer</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell><Data ss:Type="String">Vaccine Manufacturer</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Name of vaccine manufacturer</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">RXA-17-substance manufacturer name</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="17" ss:StyleID="s73"><Data ss:Type="String">ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacuturerOrganization/name</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Drug Manufacturer, Section 13.08</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Immunization.location</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell><Data ss:Type="String">Vaccine Administration Facility</Data></Cell>
+    <Cell><Data ss:Type="String">The service delivery location where the vaccine administration occurred.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">RXA-27-administered-at (or RXA-11-administered-at location, deprecated as of v2.7)</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="17" ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.lotNumber</Data></Cell>
@@ -622,7 +622,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -630,15 +630,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>0</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -792,7 +791,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="41" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="40" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
@@ -805,34 +804,32 @@
     <Cell><Data ss:Type="String">Path</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">type</Data></Cell>
+    <Cell><Data ss:Type="String">vaccineType</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Vaccine Product Type Administered</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">Immunization.vaccineType</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Vaccination  Administration Date</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Vaccination  Administration / Refusal Date</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
     <Cell><Data ss:Type="String">single</Data></Cell>
+    <Cell><Data ss:Type="String">Immunization.date</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">refusal</Data></Cell>
+    <Cell><Data ss:Type="String">refusalReason</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Explanation of refusal / exemption</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">Immunization.explanation.refusalReason</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">refusal-date</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Date of Exemption/Refusal of Vaccine Product Type Administered</Data></Cell>
-    <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell><Data ss:Type="String">single</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">lot</Data></Cell>
+    <Cell><Data ss:Type="String">lotNumber</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Vaccine Lot Number</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">Immunization.lotNumber</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -840,32 +837,37 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Vaccine Manufacturer</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
+    <Cell><Data ss:Type="String">Immunization.manufacturer</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">The subject of the vaccination event / refusal</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.subject</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">requester</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">The practitioner who ordered the vaccination</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.requester</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">performer</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">The practitioner who \ was to administered the vaccination</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.performer</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">location</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">The service delivery location or facility in which the vaccine was / was to be administered</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Immunization.location</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s65"/>
@@ -987,8 +989,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>10</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

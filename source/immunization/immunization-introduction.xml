@@ -1,5 +1,26 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- content goes here -->
+<p>
+The immunization resource is intended to cover the administration of vaccines to patients across all healthcare disciplines in all care settings and all regions. This includes immunization of both humans and animals but does not include the administration of non-vaccine agents, even those that may have or claim immunological effects.  
+</p>
+<p>
+Additionally, the immunization resource is expected to cover key concepts related to the creation, revision and querying of a patient's immunization history. This resource - through consultation with the PHER work group - is believed to meet key use cases and information requirements as defined in the existing HL7 v2.x immunization implementation guide, HL7 v3 POIZ domain and Immunization Domain Analysis Model.
+</p>
+<p>
+<b>Relation to other resources </b>
+This resource references the following resources:
+</p>
+<ul>
+    <li>AdverseReaction</li>
+    <li>Patient</li>
+    <li>Practioner</li>
+    <li>Organization</li>
+    <li>Location</li>
+    <li>Observation</li>
+</ul>
+<p>
+    This resource is referenced by the ImmunizationProfile resource.    
+</p>
 
 </div>
