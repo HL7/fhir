@@ -16,12 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7395</WindowHeight>
+  <WindowHeight>7335</WindowHeight>
   <WindowWidth>14880</WindowWidth>
   <WindowTopX>480</WindowTopX>
-  <WindowTopY>150</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <WindowTopY>210</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -181,7 +179,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
-  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="21" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="22" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="108"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="789.75"/>
@@ -261,6 +259,10 @@
     <Cell><Data ss:Type="String">notes</Data></Cell>
     <Cell><Data ss:Type="String">xds-notes.xml</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">profile</Data></Cell>
+    <Cell><Data ss:Type="String">DocumentReference</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -269,10 +271,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>13</ActiveRow>
+     <ActiveRow>21</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1297,7 +1301,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
