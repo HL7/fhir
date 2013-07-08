@@ -658,7 +658,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">vaccineType</Data></Cell>
     <Cell ss:StyleID="s64"/>
-    <Cell><Data ss:Type="String">reference</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell><Data ss:Type="String">ImmunizationProfile.recommendation.vaccineType</Data></Cell>
    </Row>
@@ -828,7 +828,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>3</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
