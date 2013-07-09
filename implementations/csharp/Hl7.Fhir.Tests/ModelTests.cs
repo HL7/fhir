@@ -203,5 +203,29 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual(2, ew.Count());
 
         }
+
+        [TestMethod]
+        public void TestTypedResourceEntry()
+        {
+            var pe = new ResourceEntry<Patient>();
+
+            pe.Content = new Patient();
+
+            ResourceEntry e = pe;
+
+            Assert.AreEqual(pe.Content, e.Content);
+
+            e.Content = new CarePlan();
+
+            try
+            {
+                var c = pe.Content;
+                Assert.Fail("Should have bombed");
+            }
+            catch (InvalidCastException)
+            {
+                // pass
+            }
+        }
     }
 }

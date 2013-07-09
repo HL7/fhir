@@ -146,20 +146,6 @@ namespace Hl7.Fhir.Tests
         }
 
 
-        [TestMethod]
-        public void CanSerializeEmptyBundleEntry()
-        {
-            var re = new ResourceEntry();
-            checkSerDeser(re);
-            re.Links.SelfLink = null;
-            checkSerDeser(re);
-         
-            var de = new DeletedEntry();
-            checkSerDeser(de);
-            de.Links.SelfLink = null;
-            checkSerDeser(de);
-        }
-
         private static void checkSerDeser(BundleEntry be)
         {
             var errs = new ErrorList();
@@ -195,6 +181,8 @@ namespace Hl7.Fhir.Tests
             var input = markupXml(testResourceEntryAsXml);
             var result = FhirParser.ParseBundleEntry(Util.XmlReaderFromString(input), errors);
 
+            Assert.IsTrue(result is ResourceEntry<Patient>);
+
             Assert.IsNotNull(result);
             Assert.AreEqual(0, errors.Count, errors.Count > 0 ? errors.ToString() : null);
            
@@ -208,6 +196,8 @@ namespace Hl7.Fhir.Tests
 
             var input = markupXml(testDeletedEntryAsXml);
             var result = FhirParser.ParseBundleEntry(Util.XmlReaderFromString(input), errors);
+
+            Assert.IsTrue(result is DeletedEntry);
 
             Assert.IsNotNull(result);
             Assert.AreEqual(0, errors.Count, errors.Count > 0 ? errors.ToString() : null);
@@ -223,6 +213,9 @@ namespace Hl7.Fhir.Tests
             var input = markupXml(testBinaryEntryAsXml);
             var result = FhirParser.ParseBundleEntry(Util.XmlReaderFromString(input), errors);
 
+            Assert.IsTrue(result is ResourceEntry<Binary>);
+
+
             Assert.IsNotNull(result);
             Assert.AreEqual(0, errors.Count, errors.Count > 0 ? errors.ToString() : null);
 
@@ -237,6 +230,8 @@ namespace Hl7.Fhir.Tests
             var input = testResourceEntryAsJson;
             var result = FhirParser.ParseBundleEntry(Util.JsonReaderFromString(input), errors);
 
+            Assert.IsTrue(result is ResourceEntry<Patient>);
+
             Assert.IsNotNull(result);
             Assert.AreEqual(0, errors.Count, errors.Count > 0 ? errors.ToString() : null);
 
@@ -250,6 +245,7 @@ namespace Hl7.Fhir.Tests
 
             var input = testDeletedEntryAsJson;
             var result = FhirParser.ParseBundleEntry(Util.JsonReaderFromString(input), errors);
+            Assert.IsTrue(result is DeletedEntry);
 
             Assert.IsNotNull(result);
             Assert.AreEqual(0, errors.Count, errors.Count > 0 ? errors.ToString() : null);
@@ -264,6 +260,7 @@ namespace Hl7.Fhir.Tests
 
             var input = testBinaryEntryAsJson;
             var result = FhirParser.ParseBundleEntry(Util.JsonReaderFromString(input), errors);
+            Assert.IsTrue(result is ResourceEntry<Binary>);
 
             Assert.IsNotNull(result);
             Assert.AreEqual(0, errors.Count, errors.Count > 0 ? errors.ToString() : null);
@@ -397,7 +394,7 @@ namespace Hl7.Fhir.Tests
 
         private static ResourceEntry createTestBinaryEntry()
         {
-            ResourceEntry e3 = new ResourceEntry();
+            var e3 = new ResourceEntry<Binary>();
             e3.Id = new Uri("http://test.com/fhir/binary/@99");
             e3.Title = "Resource 99 Version 1";
             e3.Links.SelfLink = new Uri("http://test.com/fhir/binary/@99/history/@1");
@@ -423,7 +420,7 @@ namespace Hl7.Fhir.Tests
 
         private static ResourceEntry createTestResourceEntry()
         {
-            ResourceEntry e1 = new ResourceEntry();
+            var e1 = new ResourceEntry<Patient>();
             e1.Id = new Uri("http://test.com/fhir/patient/@233");
             e1.Title = "Resource 233 Version 1";
             e1.LastUpdated = new DateTimeOffset(2012, 11, 01, 13, 04, 14, TimeSpan.Zero);

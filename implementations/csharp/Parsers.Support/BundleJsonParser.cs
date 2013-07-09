@@ -178,7 +178,19 @@ namespace Hl7.Fhir.Parsers
                 if (entry.Value<DateTimeOffset?>(JATOM_DELETED) != null)
                     result = new DeletedEntry();
                 else
-                    result = new ResourceEntry();
+                {
+                    var content = entry[BundleXmlParser.XATOM_CONTENT];
+
+                    if (content != null) 
+                    {
+                        var resource = getContents(content, errors);
+                        Type typedREType = typeof(ResourceEntry<>).MakeGenericType(resource.GetType());
+                        result = (ResourceEntry)Activator.CreateInstance(typedREType);
+                        ((ResourceEntry)result).Content = resource;
+                    }
+                    else
+                        throw new InvalidOperationException("BundleEntry has empty content: cannot determine Resource type in parser");
+                }
 
                 result.Id = Util.UriValueOrNull(entry[BundleXmlParser.XATOM_ID]);
                 if (result.Id != null) errors.DefaultContext = String.Format("Entry '{0}'", result.Id.ToString());
@@ -202,10 +214,6 @@ namespace Hl7.Fhir.Parsers
                         entry[BundleXmlParser.XATOM_AUTHOR]
                             .Select(auth => auth.Value<string>(BundleXmlParser.XATOM_AUTH_URI))
                             .FirstOrDefault() : null;
-
-                    var content = entry[BundleXmlParser.XATOM_CONTENT];
-
-                    if (content != null) re.Content = getContents(content, errors);
                 }
             }
             catch (Exception exc)

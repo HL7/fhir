@@ -185,7 +185,19 @@ namespace Hl7.Fhir.Parsers
                 }
                 else
                 {
-                    result = new ResourceEntry();
+                    XElement content = entry.Element(XATOMNS + XATOM_CONTENT);
+
+                    if (content != null)
+                    {
+                        var resource = getContents(content, errors);
+
+                        Type typedREType = typeof(ResourceEntry<>).MakeGenericType(resource.GetType());
+                        result = (ResourceEntry)Activator.CreateInstance(typedREType);
+                        ((ResourceEntry)result).Content = resource;
+                    }
+                    else
+                        throw new InvalidOperationException("BundleEntry has empty content: cannot determine Resource type in parser.");
+
                     result.Id = Util.UriValueOrNull(entry.Element(XATOMNS + XATOM_ID));
                 }
 
@@ -211,8 +223,7 @@ namespace Hl7.Fhir.Parsers
                                 Util.StringValueOrNull(entry.Element(XATOMNS + XATOM_AUTHOR)
                                     .Element(XATOMNS + XATOM_AUTH_URI));
 
-                    XElement content = entry.Element(XATOMNS + XATOM_CONTENT);
-                    if (content != null) re.Content = getContents(content, errors);
+                    
                 }
             }
             catch (Exception exc)

@@ -82,10 +82,23 @@ namespace Hl7.Fhir.Model
             if (Links.SearchLink != null)
                 errors.Add("Links with rel='search' can only be used on feed entries", context);
 
-            foreach(var entry in Entries)
-                errors.AddRange(entry.Validate());
+            if(Entries != null)
+            {
+                foreach(var entry in Entries)
+                    errors.AddRange(entry.Validate());
+            }
 
             return errors;
+        }
+
+        public IEnumerable<ResourceEntry<T>> GetEntriesByType<T>() where T : Resource
+        {
+            if( Entries == null )
+                return new List<ResourceEntry<T>>();
+
+            return this.Entries
+                .Where(e => e is ResourceEntry).Cast<ResourceEntry>()
+                .Where(re => re.Content is T).Cast<ResourceEntry<T>>();
         }
     }
 
@@ -167,7 +180,16 @@ namespace Hl7.Fhir.Model
     }
 
 
-    public class ResourceEntry : BundleEntry
+    public class ResourceEntry<T> : ResourceEntry where T : Resource
+    {
+        public new T Content
+        { 
+            get { return (T)((ResourceEntry)this).Content; }
+            set { ((ResourceEntry)this).Content = value; }
+        }
+    }
+
+    public abstract class ResourceEntry : BundleEntry
     {
         public Resource Content { get; set; }
 
