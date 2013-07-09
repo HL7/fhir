@@ -7,7 +7,7 @@
     <value value="http://hl7.org"/>
   </telecom>
   <description value="FHIR Document Codes - all LOINC codes where scale_type = 'DOC'"/>
-  <status value="review"/>
+  <status value="draft"/>
   <compose>
     <include>
       <system value="http://loinc.org"/>

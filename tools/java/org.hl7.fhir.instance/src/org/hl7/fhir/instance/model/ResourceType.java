@@ -19,6 +19,7 @@ public enum ResourceType {
     MedicationPrescription,
     DeviceLog,
     MedicationAdministration,
+    Encounter,
     DeviceCapabilities,
     SecurityEvent,
     MedicationStatement,
@@ -35,7 +36,6 @@ public enum ResourceType {
     Location,
     Observation,
     AllergyIntolerance,
-    Visit,
     DocumentReference,
     Immunization,
     ImmunizationProfile,
@@ -91,6 +91,8 @@ public enum ResourceType {
       return "devicelog";
     case MedicationAdministration:
       return "medicationadministration";
+    case Encounter:
+      return "encounter";
     case DeviceCapabilities:
       return "devicecapabilities";
     case SecurityEvent:
@@ -123,8 +125,6 @@ public enum ResourceType {
       return "observation";
     case AllergyIntolerance:
       return "allergyintolerance";
-    case Visit:
-      return "visit";
     case DocumentReference:
       return "documentreference";
     case Immunization:

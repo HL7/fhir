@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
+// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -37,6 +37,80 @@ import java.util.*;
  * An order for both supply of the medication and the instructions for administration of the medicine to a patient.
  */
 public class MedicationPrescription extends Resource {
+
+    public enum MedicationPrescriptionStatus {
+        active, // The prescribing of the medication has started and is currently in progress.
+        held, // The prescribing of the medication has started but is currently stopped with a firm intention of restarting.
+        completed, // The prescribing of the medication has finished
+        enteredInError, // The prescribing of the medication was recorded in error and the record should now be disregarded.
+        stopped, // The prescription has been terminated prior to the originally inteded completion
+        cancelled, // The prescription has been terminated before it started
+        Null; // added to help the parsers
+        public static MedicationPrescriptionStatus fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("active".equals(codeString))
+          return active;
+        if ("held".equals(codeString))
+          return held;
+        if ("completed".equals(codeString))
+          return completed;
+        if ("entered in error".equals(codeString))
+          return enteredInError;
+        if ("stopped".equals(codeString))
+          return stopped;
+        if ("cancelled".equals(codeString))
+          return cancelled;
+        throw new Exception("Unknown MedicationPrescriptionStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case active: return "active";
+            case held: return "held";
+            case completed: return "completed";
+            case enteredInError: return "entered in error";
+            case stopped: return "stopped";
+            case cancelled: return "cancelled";
+            default: return "?";
+          }
+        }
+    }
+
+  public class MedicationPrescriptionStatusEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("active".equals(codeString))
+          return MedicationPrescriptionStatus.active;
+        if ("held".equals(codeString))
+          return MedicationPrescriptionStatus.held;
+        if ("completed".equals(codeString))
+          return MedicationPrescriptionStatus.completed;
+        if ("entered in error".equals(codeString))
+          return MedicationPrescriptionStatus.enteredInError;
+        if ("stopped".equals(codeString))
+          return MedicationPrescriptionStatus.stopped;
+        if ("cancelled".equals(codeString))
+          return MedicationPrescriptionStatus.cancelled;
+        throw new Exception("Unknown MedicationPrescriptionStatus code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == MedicationPrescriptionStatus.active)
+        return "active";
+      if (code == MedicationPrescriptionStatus.held)
+        return "held";
+      if (code == MedicationPrescriptionStatus.completed)
+        return "completed";
+      if (code == MedicationPrescriptionStatus.enteredInError)
+        return "entered in error";
+      if (code == MedicationPrescriptionStatus.stopped)
+        return "stopped";
+      if (code == MedicationPrescriptionStatus.cancelled)
+        return "cancelled";
+      return "?";
+      }
+    }
 
     public class MedicationPrescriptionDosageInstructionsComponent extends Element {
         /**
@@ -52,7 +126,7 @@ public class MedicationPrescription extends Resource {
         /**
          * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013"
          */
-        protected Schedule timing;
+        protected Type timing;
 
         /**
          * A coded specification of the anatomic site where the medication first enters the body
@@ -116,11 +190,11 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           this.additionalInstructions = value;
         }
 
-        public Schedule getTiming() { 
+        public Type getTiming() { 
           return this.timing;
         }
 
-        public void setTiming(Schedule value) { 
+        public void setTiming(Type value) { 
           this.timing = value;
         }
 
@@ -190,6 +264,11 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
     public class MedicationPrescriptionDispenseComponent extends Element {
         /**
+         * Identifies the medication that is to be dispensed.  This may be a more specifically defined than the medicationPrescription.medication . This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
+         */
+        protected ResourceReference medication;
+
+        /**
          * Design Comments: This indicates the validity period of a prescription (stale dating the Prescription) 
 It reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations. 
 Rationale: Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription.
@@ -212,6 +291,14 @@ UsageNotes: For example, the number of times the prescribed quantity is to be su
 In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued. E.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.
          */
         protected Duration expectedSupplyDuration;
+
+        public ResourceReference getMedication() { 
+          return this.medication;
+        }
+
+        public void setMedication(ResourceReference value) { 
+          this.medication = value;
+        }
 
         public Period getValidityPeriod() { 
           return this.validityPeriod;
@@ -261,6 +348,7 @@ In some situations, this attribute may be used instead of quantity to identify t
 
       public MedicationPrescriptionDispenseComponent copy(MedicationPrescription e) {
         MedicationPrescriptionDispenseComponent dst = e.new MedicationPrescriptionDispenseComponent();
+        dst.medication = medication == null ? null : medication.copy();
         dst.validityPeriod = validityPeriod == null ? null : validityPeriod.copy();
         dst.numberOfRepeatsAllowed = numberOfRepeatsAllowed == null ? null : numberOfRepeatsAllowed.copy();
         dst.quantity = quantity == null ? null : quantity.copy();
@@ -307,7 +395,7 @@ In some situations, this attribute may be used instead of quantity to identify t
   }
 
     /**
-     * External identifier - FHIR will generate its own internal IDs which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an erntire workflow process where records have to be tracked through an entire system.
+     * External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an erntire workflow process where records have to be tracked through an entire system.
      */
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
@@ -319,7 +407,7 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * A code specifying the state of the order.  Generally this will be active or completed state
      */
-    protected CodeableConcept status;
+    protected Enumeration<MedicationPrescriptionStatus> status;
 
     /**
      * A link to a resource representing the person to whom the medication will be given.
@@ -334,7 +422,7 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * A link to a resource that identifies the particular occurrence of contact between patient and health care provider.
      */
-    protected ResourceReference visit;
+    protected ResourceReference encounter;
 
     /**
      * Can be the reason or the indication for writing the prescription.
@@ -387,12 +475,26 @@ In some situations, this attribute may be used instead of quantity to identify t
       }
     }
 
-    public CodeableConcept getStatus() { 
+    public Enumeration<MedicationPrescriptionStatus> getStatus() { 
       return this.status;
     }
 
-    public void setStatus(CodeableConcept value) { 
+    public void setStatus(Enumeration<MedicationPrescriptionStatus> value) { 
       this.status = value;
+    }
+
+    public MedicationPrescriptionStatus getStatusSimple() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    public void setStatusSimple(MedicationPrescriptionStatus value) { 
+      if (value == null)
+        this.status = null;
+      else {
+        if (this.status == null)
+          this.status = new Enumeration<MedicationPrescriptionStatus>();
+        this.status.setValue(value);
+      }
     }
 
     public ResourceReference getPatient() { 
@@ -411,12 +513,12 @@ In some situations, this attribute may be used instead of quantity to identify t
       this.prescriber = value;
     }
 
-    public ResourceReference getVisit() { 
-      return this.visit;
+    public ResourceReference getEncounter() { 
+      return this.encounter;
     }
 
-    public void setVisit(ResourceReference value) { 
-      this.visit = value;
+    public void setEncounter(ResourceReference value) { 
+      this.encounter = value;
     }
 
     public Type getReasonForPrescribing() { 
@@ -464,7 +566,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         dst.status = status == null ? null : status.copy();
         dst.patient = patient == null ? null : patient.copy();
         dst.prescriber = prescriber == null ? null : prescriber.copy();
-        dst.visit = visit == null ? null : visit.copy();
+        dst.encounter = encounter == null ? null : encounter.copy();
         dst.reasonForPrescribing = reasonForPrescribing == null ? null : reasonForPrescribing.copy();
         dst.medication = medication == null ? null : medication.copy();
         dst.dosageInstructions = new ArrayList<MedicationPrescriptionDosageInstructionsComponent>();

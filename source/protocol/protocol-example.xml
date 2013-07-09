@@ -51,7 +51,7 @@
     </extension>
   </extension>
   <type value="study"/>
-  <status value="production"/>
+  <status value="active"/>
   <purpose value="Defines the execution of study AD-4833PNFP-341"/>
   <step>
     <extension>

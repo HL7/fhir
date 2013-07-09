@@ -12,7 +12,7 @@
   <name value="Media Type Code"/>
   <publisher value="NEMA/DICOM"/>
   <description value="Media Type Code"/>
-  <status value="production"/>
+  <status value="active"/>
   <date value="2010-08-26"/>
   <compose>
     <include>

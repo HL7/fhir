@@ -21,7 +21,7 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   <description value="Codes from the following code systems: FHIR Special Values, FHIR Data Absent Reason, and Snomed-CT Clinical findings"/>
-  <status value="review"/>
+  <status value="draft"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/special-values"/>

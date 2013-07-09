@@ -150,7 +150,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">status</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">testing</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">draft</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">date</Data></Cell>
@@ -176,10 +176,11 @@
    </PageSetup>
    <Unsynced/>
    <Selected/>
+   <LeftColumnVisible>1</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>22</ActiveRow>
+     <ActiveRow>8</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>

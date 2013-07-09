@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
+// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -37,6 +37,64 @@ import java.util.*;
  * Dispensing a medication to a named patient.  This includes a description of the supply provided and the instructions for administering the medication.
  */
 public class MedicationDispense extends Resource {
+
+    public enum MedicationDispenseStatus {
+        active, // 
+        paused, // 
+        completed, // 
+        nullified, // 
+        Null; // added to help the parsers
+        public static MedicationDispenseStatus fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("active".equals(codeString))
+          return active;
+        if ("paused".equals(codeString))
+          return paused;
+        if ("completed".equals(codeString))
+          return completed;
+        if ("nullified".equals(codeString))
+          return nullified;
+        throw new Exception("Unknown MedicationDispenseStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case active: return "active";
+            case paused: return "paused";
+            case completed: return "completed";
+            case nullified: return "nullified";
+            default: return "?";
+          }
+        }
+    }
+
+  public class MedicationDispenseStatusEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("active".equals(codeString))
+          return MedicationDispenseStatus.active;
+        if ("paused".equals(codeString))
+          return MedicationDispenseStatus.paused;
+        if ("completed".equals(codeString))
+          return MedicationDispenseStatus.completed;
+        if ("nullified".equals(codeString))
+          return MedicationDispenseStatus.nullified;
+        throw new Exception("Unknown MedicationDispenseStatus code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == MedicationDispenseStatus.active)
+        return "active";
+      if (code == MedicationDispenseStatus.paused)
+        return "paused";
+      if (code == MedicationDispenseStatus.completed)
+        return "completed";
+      if (code == MedicationDispenseStatus.nullified)
+        return "nullified";
+      return "?";
+      }
+    }
 
     public class MedicationDispenseDispenseComponent extends Element {
         /**
@@ -47,7 +105,7 @@ public class MedicationDispense extends Resource {
         /**
          * A code specifying the state of the dispense event.
          */
-        protected CodeableConcept status;
+        protected Enumeration<MedicationDispenseStatus> status;
 
         /**
          * Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
@@ -97,12 +155,26 @@ public class MedicationDispense extends Resource {
           this.identifier = value;
         }
 
-        public CodeableConcept getStatus() { 
+        public Enumeration<MedicationDispenseStatus> getStatus() { 
           return this.status;
         }
 
-        public void setStatus(CodeableConcept value) { 
+        public void setStatus(Enumeration<MedicationDispenseStatus> value) { 
           this.status = value;
+        }
+
+        public MedicationDispenseStatus getStatusSimple() { 
+          return this.status == null ? null : this.status.getValue();
+        }
+
+        public void setStatusSimple(MedicationDispenseStatus value) { 
+          if (value == null)
+            this.status = null;
+          else {
+            if (this.status == null)
+              this.status = new Enumeration<MedicationDispenseStatus>();
+            this.status.setValue(value);
+          }
         }
 
         public CodeableConcept getType() { 
@@ -184,9 +256,14 @@ public class MedicationDispense extends Resource {
 
     public class MedicationDispenseDispenseDosageComponent extends Element {
         /**
+         * Additional instructions such as "Swallow with plenty of water" which may or may not be coded.
+         */
+        protected Type additionalInstructions;
+
+        /**
          * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013"
          */
-        protected Schedule timing;
+        protected Type timing;
 
         /**
          * A coded specification of the anatomic site where the medication first enters the body
@@ -220,11 +297,19 @@ Terminologies used often pre-coordinate this term with the route and or form of 
          */
         protected Ratio maxDosePerPeriod;
 
-        public Schedule getTiming() { 
+        public Type getAdditionalInstructions() { 
+          return this.additionalInstructions;
+        }
+
+        public void setAdditionalInstructions(Type value) { 
+          this.additionalInstructions = value;
+        }
+
+        public Type getTiming() { 
           return this.timing;
         }
 
-        public void setTiming(Schedule value) { 
+        public void setTiming(Type value) { 
           this.timing = value;
         }
 
@@ -278,6 +363,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
       public MedicationDispenseDispenseDosageComponent copy(MedicationDispense e) {
         MedicationDispenseDispenseDosageComponent dst = e.new MedicationDispenseDispenseDosageComponent();
+        dst.additionalInstructions = additionalInstructions == null ? null : additionalInstructions.copy();
         dst.timing = timing == null ? null : timing.copy();
         dst.site = site == null ? null : site.copy();
         dst.route = route == null ? null : route.copy();
@@ -344,7 +430,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * A code specifying the state of the set of dispense events.
      */
-    protected CodeableConcept status;
+    protected Enumeration<MedicationDispenseStatus> status;
 
     /**
      * A link to a resource representing the person to whom the medication will be given.
@@ -355,11 +441,6 @@ Terminologies used often pre-coordinate this term with the route and or form of 
      * The individual reponsible for dispensing the medication
      */
     protected ResourceReference dispenser;
-
-    /**
-     * A link to a resource that identifies the particular occurrence of contact between patient and health care provider.
-     */
-    protected ResourceReference visit;
 
     /**
      * Indicates the medication order that is being dispensed against.
@@ -384,12 +465,26 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       this.identifier = value;
     }
 
-    public CodeableConcept getStatus() { 
+    public Enumeration<MedicationDispenseStatus> getStatus() { 
       return this.status;
     }
 
-    public void setStatus(CodeableConcept value) { 
+    public void setStatus(Enumeration<MedicationDispenseStatus> value) { 
       this.status = value;
+    }
+
+    public MedicationDispenseStatus getStatusSimple() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    public void setStatusSimple(MedicationDispenseStatus value) { 
+      if (value == null)
+        this.status = null;
+      else {
+        if (this.status == null)
+          this.status = new Enumeration<MedicationDispenseStatus>();
+        this.status.setValue(value);
+      }
     }
 
     public ResourceReference getPatient() { 
@@ -406,14 +501,6 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
     public void setDispenser(ResourceReference value) { 
       this.dispenser = value;
-    }
-
-    public ResourceReference getVisit() { 
-      return this.visit;
-    }
-
-    public void setVisit(ResourceReference value) { 
-      this.visit = value;
     }
 
     public List<ResourceReference> getAuthorizingPrescription() { 
@@ -438,7 +525,6 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         dst.status = status == null ? null : status.copy();
         dst.patient = patient == null ? null : patient.copy();
         dst.dispenser = dispenser == null ? null : dispenser.copy();
-        dst.visit = visit == null ? null : visit.copy();
         dst.authorizingPrescription = new ArrayList<ResourceReference>();
         for (ResourceReference i : authorizingPrescription)
           dst.authorizingPrescription.add(i.copy());

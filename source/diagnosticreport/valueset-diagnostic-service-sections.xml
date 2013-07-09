@@ -13,7 +13,7 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   <description value="This value set includes all the codes in HL7 v2 table 0074"/>
-  <status value="review"/>
+  <status value="draft"/>
   <compose>
     <include>
       <!-- all codes -->

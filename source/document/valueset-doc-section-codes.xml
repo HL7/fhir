@@ -7,7 +7,7 @@
     <value value="http://hl7.org"/>
   </telecom>
   <description value="Document section codes - all LOINC codes"/>
-  <status value="review"/>
+  <status value="draft"/>
   <compose>
     <include>
       <!-- just all loinc codes -->

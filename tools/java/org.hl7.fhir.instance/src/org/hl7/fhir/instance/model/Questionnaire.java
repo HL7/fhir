@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
+// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -129,9 +129,14 @@ public class Questionnaire extends Resource {
         protected Type answer;
 
         /**
-         * Answer from a set of choices
+         * One of more selections from the list of options
          */
-        protected QuestionChoiceComponent choice;
+        protected List<Coding> choice = new ArrayList<Coding>();
+
+        /**
+         * Reference to a valueset containing the possible options
+         */
+        protected Type options;
 
         /**
          * Structured answer in the form of a FHIR Resource or datatype
@@ -181,12 +186,16 @@ public class Questionnaire extends Resource {
           this.answer = value;
         }
 
-        public QuestionChoiceComponent getChoice() { 
+        public List<Coding> getChoice() { 
           return this.choice;
         }
 
-        public void setChoice(QuestionChoiceComponent value) { 
-          this.choice = value;
+        public Type getOptions() { 
+          return this.options;
+        }
+
+        public void setOptions(Type value) { 
+          this.options = value;
         }
 
         public org.hl7.fhir.instance.model.Type getData() { 
@@ -224,147 +233,12 @@ public class Questionnaire extends Resource {
         dst.name = name == null ? null : name.copy();
         dst.text = text == null ? null : text.copy();
         dst.answer = answer == null ? null : answer.copy();
-        dst.choice = choice == null ? null : choice.copy(e);
+        dst.choice = new ArrayList<Coding>();
+        for (Coding i : choice)
+          dst.choice.add(i.copy());
+        dst.options = options == null ? null : options.copy();
         dst.data = data == null ? null : data.copy();
         dst.remarks = remarks == null ? null : remarks.copy();
-        return dst;
-      }
-
-  }
-
-    public class QuestionChoiceComponent extends Element {
-        /**
-         * One of more selections from the list of options
-         */
-        protected List<Coding> code = new ArrayList<Coding>();
-
-        /**
-         * Free text option
-         */
-        protected String_ other;
-
-        /**
-         * Possible list of options
-         */
-        protected List<QuestionChoiceOptionComponent> option = new ArrayList<QuestionChoiceOptionComponent>();
-
-        /**
-         * If order of the values has meaning
-         */
-        protected Boolean isOrdered;
-
-        public List<Coding> getCode() { 
-          return this.code;
-        }
-
-        public String_ getOther() { 
-          return this.other;
-        }
-
-        public void setOther(String_ value) { 
-          this.other = value;
-        }
-
-        public String getOtherSimple() { 
-          return this.other == null ? null : this.other.getValue();
-        }
-
-        public void setOtherSimple(String value) { 
-          if (value == null)
-            this.other = null;
-          else {
-            if (this.other == null)
-              this.other = new String_();
-            this.other.setValue(value);
-          }
-        }
-
-        public List<QuestionChoiceOptionComponent> getOption() { 
-          return this.option;
-        }
-
-        public Boolean getIsOrdered() { 
-          return this.isOrdered;
-        }
-
-        public void setIsOrdered(Boolean value) { 
-          this.isOrdered = value;
-        }
-
-        public boolean getIsOrderedSimple() { 
-          return this.isOrdered == null ? null : this.isOrdered.getValue();
-        }
-
-        public void setIsOrderedSimple(boolean value) { 
-          if (value == false)
-            this.isOrdered = null;
-          else {
-            if (this.isOrdered == null)
-              this.isOrdered = new Boolean();
-            this.isOrdered.setValue(value);
-          }
-        }
-
-      public QuestionChoiceComponent copy(Questionnaire e) {
-        QuestionChoiceComponent dst = e.new QuestionChoiceComponent();
-        dst.code = new ArrayList<Coding>();
-        for (Coding i : code)
-          dst.code.add(i.copy());
-        dst.other = other == null ? null : other.copy();
-        dst.option = new ArrayList<QuestionChoiceOptionComponent>();
-        for (QuestionChoiceOptionComponent i : option)
-          dst.option.add(i.copy(e));
-        dst.isOrdered = isOrdered == null ? null : isOrdered.copy();
-        return dst;
-      }
-
-  }
-
-    public class QuestionChoiceOptionComponent extends Element {
-        /**
-         * Code for the option
-         */
-        protected Coding code;
-
-        /**
-         * Display text for the option
-         */
-        protected String_ text;
-
-        public Coding getCode() { 
-          return this.code;
-        }
-
-        public void setCode(Coding value) { 
-          this.code = value;
-        }
-
-        public String_ getText() { 
-          return this.text;
-        }
-
-        public void setText(String_ value) { 
-          this.text = value;
-        }
-
-        public String getTextSimple() { 
-          return this.text == null ? null : this.text.getValue();
-        }
-
-        public void setTextSimple(String value) { 
-          if (value == null)
-            this.text = null;
-          else {
-            if (this.text == null)
-              this.text = new String_();
-            this.text.setValue(value);
-          }
-        }
-
-      public QuestionChoiceOptionComponent copy(Questionnaire e) {
-        QuestionChoiceOptionComponent dst = e.new QuestionChoiceOptionComponent();
-        dst.code = code == null ? null : code.copy();
-        dst.text = text == null ? null : text.copy();
         return dst;
       }
 
@@ -385,11 +259,6 @@ public class Questionnaire extends Resource {
          * Additional text for the group, used for display purposes
          */
         protected String_ text;
-
-        /**
-         * Whether the group may occur multiple times in the instance, containing multiple sets of answers
-         */
-        protected Boolean repeats;
 
         /**
          * More specific subject this section's answers are about, details the subject given in Questionnaire
@@ -458,28 +327,6 @@ public class Questionnaire extends Resource {
           }
         }
 
-        public Boolean getRepeats() { 
-          return this.repeats;
-        }
-
-        public void setRepeats(Boolean value) { 
-          this.repeats = value;
-        }
-
-        public boolean getRepeatsSimple() { 
-          return this.repeats == null ? null : this.repeats.getValue();
-        }
-
-        public void setRepeatsSimple(boolean value) { 
-          if (value == false)
-            this.repeats = null;
-          else {
-            if (this.repeats == null)
-              this.repeats = new Boolean();
-            this.repeats.setValue(value);
-          }
-        }
-
         public ResourceReference getSubject() { 
           return this.subject;
         }
@@ -501,7 +348,6 @@ public class Questionnaire extends Resource {
         dst.name = name == null ? null : name.copy();
         dst.header = header == null ? null : header.copy();
         dst.text = text == null ? null : text.copy();
-        dst.repeats = repeats == null ? null : repeats.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.question = new ArrayList<QuestionComponent>();
         for (QuestionComponent i : question)
@@ -522,7 +368,7 @@ public class Questionnaire extends Resource {
     /**
      * The date and/or time that this version of the questionnaire was authored
      */
-    protected Instant authored;
+    protected DateTime authored;
 
     /**
      * The subject of the questionnaires: this is the patient that the answers apply to, but this person is not necessarily the source of information
@@ -550,9 +396,9 @@ public class Questionnaire extends Resource {
     protected Identifier identifier;
 
     /**
-     * Visit during which this questionnaireanswers were collected. When there were multiple visits, this is the one considered most relevant to the context of the answers.
+     * Encounter during which this questionnaireanswers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.
      */
-    protected ResourceReference visit;
+    protected ResourceReference encounter;
 
     /**
      * Answers to questions on a questionnaire
@@ -582,21 +428,21 @@ public class Questionnaire extends Resource {
         this.status.setValue(value);
     }
 
-    public Instant getAuthored() { 
+    public DateTime getAuthored() { 
       return this.authored;
     }
 
-    public void setAuthored(Instant value) { 
+    public void setAuthored(DateTime value) { 
       this.authored = value;
     }
 
-    public Calendar getAuthoredSimple() { 
+    public String getAuthoredSimple() { 
       return this.authored == null ? null : this.authored.getValue();
     }
 
-    public void setAuthoredSimple(Calendar value) { 
+    public void setAuthoredSimple(String value) { 
         if (this.authored == null)
-          this.authored = new Instant();
+          this.authored = new DateTime();
         this.authored.setValue(value);
     }
 
@@ -640,12 +486,12 @@ public class Questionnaire extends Resource {
       this.identifier = value;
     }
 
-    public ResourceReference getVisit() { 
-      return this.visit;
+    public ResourceReference getEncounter() { 
+      return this.encounter;
     }
 
-    public void setVisit(ResourceReference value) { 
-      this.visit = value;
+    public void setEncounter(ResourceReference value) { 
+      this.encounter = value;
     }
 
     public List<QuestionComponent> getQuestion() { 
@@ -665,7 +511,7 @@ public class Questionnaire extends Resource {
         dst.source = source == null ? null : source.copy();
         dst.name = name == null ? null : name.copy();
         dst.identifier = identifier == null ? null : identifier.copy();
-        dst.visit = visit == null ? null : visit.copy();
+        dst.encounter = encounter == null ? null : encounter.copy();
         dst.question = new ArrayList<QuestionComponent>();
         for (QuestionComponent i : question)
           dst.question.add(i.copy(dst));

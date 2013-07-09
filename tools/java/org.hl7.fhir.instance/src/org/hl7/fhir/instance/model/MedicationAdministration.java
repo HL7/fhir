@@ -29,14 +29,14 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
+// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
 
 import java.util.*;
 
 /**
  * Describes the event of a patient being given a dose of a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.
 
-Related resources tie this event to the authorizing prescription, and the specific visit between patient and health care practitioner
+Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner
  */
 public class MedicationAdministration extends Resource {
 
@@ -229,7 +229,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * An link to a resource that identifies the particular occurrence of contact between patient and health care provider.
      */
-    protected ResourceReference visit;
+    protected ResourceReference encounter;
 
     /**
      * A link to a resource that provides the original request, instruction and authority to perform the administration.
@@ -306,12 +306,12 @@ Use only if isNegated is set to TRUE
       this.practitioner = value;
     }
 
-    public ResourceReference getVisit() { 
-      return this.visit;
+    public ResourceReference getEncounter() { 
+      return this.encounter;
     }
 
-    public void setVisit(ResourceReference value) { 
-      this.visit = value;
+    public void setEncounter(ResourceReference value) { 
+      this.encounter = value;
     }
 
     public ResourceReference getPrescription() { 
@@ -380,7 +380,7 @@ Use only if isNegated is set to TRUE
         dst.status = status == null ? null : status.copy();
         dst.patient = patient == null ? null : patient.copy();
         dst.practitioner = practitioner == null ? null : practitioner.copy();
-        dst.visit = visit == null ? null : visit.copy();
+        dst.encounter = encounter == null ? null : encounter.copy();
         dst.prescription = prescription == null ? null : prescription.copy();
         dst.wasNotGiven = wasNotGiven == null ? null : wasNotGiven.copy();
         dst.reasonNotGiven = new ArrayList<CodeableConcept>();

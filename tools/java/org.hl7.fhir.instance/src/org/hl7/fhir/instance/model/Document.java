@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
+// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -402,9 +402,9 @@ public class Document extends Resource {
     protected DocumentEventComponent event;
 
     /**
-     * Describes the clinical visit or type of care this document is associated with.
+     * Describes the clinical encounter or type of care this document is associated with.
      */
-    protected ResourceReference visit;
+    protected ResourceReference encounter;
 
     /**
      * Identifies the document this document supersedes, if any.
@@ -561,12 +561,12 @@ public class Document extends Resource {
       this.event = value;
     }
 
-    public ResourceReference getVisit() { 
-      return this.visit;
+    public ResourceReference getEncounter() { 
+      return this.encounter;
     }
 
-    public void setVisit(ResourceReference value) { 
-      this.visit = value;
+    public void setEncounter(ResourceReference value) { 
+      this.encounter = value;
     }
 
     public Id getReplaces() { 
@@ -634,7 +634,7 @@ public class Document extends Resource {
           dst.attester.add(i.copy(dst));
         dst.custodian = custodian == null ? null : custodian.copy();
         dst.event = event == null ? null : event.copy(dst);
-        dst.visit = visit == null ? null : visit.copy();
+        dst.encounter = encounter == null ? null : encounter.copy();
         dst.replaces = replaces == null ? null : replaces.copy();
         dst.provenance = new ArrayList<ResourceReference>();
         for (ResourceReference i : provenance)

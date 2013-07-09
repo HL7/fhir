@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>5730</WindowHeight>
-  <WindowWidth>2910</WindowWidth>
-  <WindowTopX>12450</WindowTopX>
-  <WindowTopY>1815</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
+  <WindowHeight>9090</WindowHeight>
+  <WindowWidth>27780</WindowWidth>
+  <WindowTopX>-120</WindowTopX>
+  <WindowTopY>-45</WindowTopY>
+  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -99,6 +99,14 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior/>
+  </Style>
+  <Style ss:ID="s83" ss:Parent="s62">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -235,39 +243,39 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Profile.status</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">up</Data></Cell>
-    <Cell><Data ss:Type="String">up</Data></Cell>
-    <Cell><Data ss:Type="String">Current status</Data></Cell>
-    <Cell><Data ss:Type="String">Indicates where the profile exists in its overall life-cycle</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell><Data ss:Type="String">ResourceProfileStatus</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">draft | experimental | review | production | withdrawn | superseded</Data></Cell>
+    <Cell><Data ss:Type="String">The status of the profile</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">Allows filtering of profiles that are appropriate for use vs. not</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Profile.status.code</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">code</Data></Cell>
-    <Cell><Data ss:Type="String">ResourceProfileStatus</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">draft | testing | review | production | withdrawn | superseded</Data></Cell>
-    <Cell><Data ss:Type="String">A coded value for the position of the profile within its life-cycle</Data></Cell>
+    <Cell><Data ss:Type="String">Profile.experimental</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">If for testing purposes, not real usage</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">Allows filtering of profiles that are appropriate for use vs. not</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Profile.status.date</Data></Cell>
+    <Cell><Data ss:Type="String">Profile.date</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Date for given status</Data></Cell>
-    <Cell><Data ss:Type="String">The date that the current value for status was applied to the profile</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Date for this version of the profile</Data></Cell>
+    <Cell><Data ss:Type="String">The date that this version of the profile was published</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Profile.status.comment</Data></Cell>
+    <Cell><Data ss:Type="String">Profile.fhirVersion</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Supplemental status info</Data></Cell>
-    <Cell><Data ss:Type="String">Additional commentary related to the profile's status</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">id</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">FHIR Version this profile targets</Data></Cell>
+    <Cell><Data ss:Type="String">The version of the FHIR specification on which this conformance statement is based</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">A profile does not need to specify the target it applies to,as profiles will often be valid across multiple versions of FHIR. FHIR tooling can determine whether a profile is consistent with a particular profile if desired</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Profile.import</Data></Cell>
@@ -1096,7 +1104,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1109,11 +1117,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1541,7 +1550,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resource-profile-status">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="7" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:Width="60"/>
    <Column ss:Width="424.5"/>
@@ -1556,29 +1565,14 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">This profile is still under development</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">testing</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">This profile was authored for testing purposes (or education/evaluation/marketing)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">review</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">This profile is undergoing review to check that it is ready for production use</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">production</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">This profile is ready for use in production systems</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">This profile is ready for normal use</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">withdrawn</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">This profile has been withdrawn and should no longer be used</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">superseded</Data></Cell>
-    <Cell><Data ss:Type="String">This profile has been replaced and a different valueset should be used in its place</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">retired</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">This profile has been withdrawn or superceded and should no longer be used</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1593,10 +1587,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1708,7 +1704,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

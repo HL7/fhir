@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
+// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -226,14 +226,14 @@ public class FamilyHistory extends Resource {
     protected ResourceReference subject;
 
     /**
-     * The related person. Each FamilyHistory resource contains the entire family history for a single person.
-     */
-    protected List<FamilyHistoryRelationComponent> relation = new ArrayList<FamilyHistoryRelationComponent>();
-
-    /**
      * Conveys information about family history not specific to individual relations.
      */
     protected String_ note;
+
+    /**
+     * The related person. Each FamilyHistory resource contains the entire family history for a single person.
+     */
+    protected List<FamilyHistoryRelationComponent> relation = new ArrayList<FamilyHistoryRelationComponent>();
 
     public ResourceReference getSubject() { 
       return this.subject;
@@ -241,10 +241,6 @@ public class FamilyHistory extends Resource {
 
     public void setSubject(ResourceReference value) { 
       this.subject = value;
-    }
-
-    public List<FamilyHistoryRelationComponent> getRelation() { 
-      return this.relation;
     }
 
     public String_ getNote() { 
@@ -269,13 +265,17 @@ public class FamilyHistory extends Resource {
       }
     }
 
+    public List<FamilyHistoryRelationComponent> getRelation() { 
+      return this.relation;
+    }
+
       public FamilyHistory copy() {
         FamilyHistory dst = new FamilyHistory();
         dst.subject = subject == null ? null : subject.copy();
+        dst.note = note == null ? null : note.copy();
         dst.relation = new ArrayList<FamilyHistoryRelationComponent>();
         for (FamilyHistoryRelationComponent i : relation)
           dst.relation.add(i.copy(dst));
-        dst.note = note == null ? null : note.copy();
         return dst;
       }
 

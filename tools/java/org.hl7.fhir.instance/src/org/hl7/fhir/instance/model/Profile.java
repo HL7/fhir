@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
+// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -40,37 +40,25 @@ public class Profile extends Resource {
 
     public enum ResourceProfileStatus {
         draft, // This profile is still under development
-        testing, // This profile was authored for testing purposes (or education/evaluation/marketing)
-        review, // This profile is undergoing review to check that it is ready for production use
-        production, // This profile is ready for use in production systems
-        withdrawn, // This profile has been withdrawn and should no longer be used
-        superseded, // This profile has been replaced and a different valueset should be used in its place
+        active, // This profile is ready for normal use
+        retired, // This profile has been withdrawn or superceded and should no longer be used
         Null; // added to help the parsers
         public static ResourceProfileStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("draft".equals(codeString))
           return draft;
-        if ("testing".equals(codeString))
-          return testing;
-        if ("review".equals(codeString))
-          return review;
-        if ("production".equals(codeString))
-          return production;
-        if ("withdrawn".equals(codeString))
-          return withdrawn;
-        if ("superseded".equals(codeString))
-          return superseded;
+        if ("active".equals(codeString))
+          return active;
+        if ("retired".equals(codeString))
+          return retired;
         throw new Exception("Unknown ResourceProfileStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case draft: return "draft";
-            case testing: return "testing";
-            case review: return "review";
-            case production: return "production";
-            case withdrawn: return "withdrawn";
-            case superseded: return "superseded";
+            case active: return "active";
+            case retired: return "retired";
             default: return "?";
           }
         }
@@ -83,31 +71,19 @@ public class Profile extends Resource {
                 return null;
         if ("draft".equals(codeString))
           return ResourceProfileStatus.draft;
-        if ("testing".equals(codeString))
-          return ResourceProfileStatus.testing;
-        if ("review".equals(codeString))
-          return ResourceProfileStatus.review;
-        if ("production".equals(codeString))
-          return ResourceProfileStatus.production;
-        if ("withdrawn".equals(codeString))
-          return ResourceProfileStatus.withdrawn;
-        if ("superseded".equals(codeString))
-          return ResourceProfileStatus.superseded;
+        if ("active".equals(codeString))
+          return ResourceProfileStatus.active;
+        if ("retired".equals(codeString))
+          return ResourceProfileStatus.retired;
         throw new Exception("Unknown ResourceProfileStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
       if (code == ResourceProfileStatus.draft)
         return "draft";
-      if (code == ResourceProfileStatus.testing)
-        return "testing";
-      if (code == ResourceProfileStatus.review)
-        return "review";
-      if (code == ResourceProfileStatus.production)
-        return "production";
-      if (code == ResourceProfileStatus.withdrawn)
-        return "withdrawn";
-      if (code == ResourceProfileStatus.superseded)
-        return "superseded";
+      if (code == ResourceProfileStatus.active)
+        return "active";
+      if (code == ResourceProfileStatus.retired)
+        return "retired";
       return "?";
       }
     }
@@ -343,94 +319,6 @@ public class Profile extends Resource {
       return "?";
       }
     }
-
-    public class ProfileStatusComponent extends Element {
-        /**
-         * A coded value for the position of the profile within its life-cycle
-         */
-        protected Enumeration<ResourceProfileStatus> code;
-
-        /**
-         * The date that the current value for status was applied to the profile
-         */
-        protected DateTime date;
-
-        /**
-         * Additional commentary related to the profile's status
-         */
-        protected String_ comment;
-
-        public Enumeration<ResourceProfileStatus> getCode() { 
-          return this.code;
-        }
-
-        public void setCode(Enumeration<ResourceProfileStatus> value) { 
-          this.code = value;
-        }
-
-        public ResourceProfileStatus getCodeSimple() { 
-          return this.code == null ? null : this.code.getValue();
-        }
-
-        public void setCodeSimple(ResourceProfileStatus value) { 
-            if (this.code == null)
-              this.code = new Enumeration<ResourceProfileStatus>();
-            this.code.setValue(value);
-        }
-
-        public DateTime getDate() { 
-          return this.date;
-        }
-
-        public void setDate(DateTime value) { 
-          this.date = value;
-        }
-
-        public String getDateSimple() { 
-          return this.date == null ? null : this.date.getValue();
-        }
-
-        public void setDateSimple(String value) { 
-          if (value == null)
-            this.date = null;
-          else {
-            if (this.date == null)
-              this.date = new DateTime();
-            this.date.setValue(value);
-          }
-        }
-
-        public String_ getComment() { 
-          return this.comment;
-        }
-
-        public void setComment(String_ value) { 
-          this.comment = value;
-        }
-
-        public String getCommentSimple() { 
-          return this.comment == null ? null : this.comment.getValue();
-        }
-
-        public void setCommentSimple(String value) { 
-          if (value == null)
-            this.comment = null;
-          else {
-            if (this.comment == null)
-              this.comment = new String_();
-            this.comment.setValue(value);
-          }
-        }
-
-      public ProfileStatusComponent copy(Profile e) {
-        ProfileStatusComponent dst = e.new ProfileStatusComponent();
-        dst.code = code == null ? null : code.copy();
-        dst.date = date == null ? null : date.copy();
-        dst.comment = comment == null ? null : comment.copy();
-        return dst;
-      }
-
-  }
 
     public class ProfileImportComponent extends Element {
         /**
@@ -1716,9 +1604,24 @@ public class Profile extends Resource {
     protected List<Coding> code = new ArrayList<Coding>();
 
     /**
-     * Indicates where the profile exists in its overall life-cycle
+     * The status of the profile
      */
-    protected ProfileStatusComponent status;
+    protected Enumeration<ResourceProfileStatus> status;
+
+    /**
+     * This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
+     */
+    protected Boolean experimental;
+
+    /**
+     * The date that this version of the profile was published
+     */
+    protected DateTime date;
+
+    /**
+     * The version of the FHIR specification on which this conformance statement is based
+     */
+    protected Id fhirVersion;
 
     /**
      * Other profiles that define extensions and bindings that are used in this profile
@@ -1859,12 +1762,88 @@ public class Profile extends Resource {
       return this.code;
     }
 
-    public ProfileStatusComponent getStatus() { 
+    public Enumeration<ResourceProfileStatus> getStatus() { 
       return this.status;
     }
 
-    public void setStatus(ProfileStatusComponent value) { 
+    public void setStatus(Enumeration<ResourceProfileStatus> value) { 
       this.status = value;
+    }
+
+    public ResourceProfileStatus getStatusSimple() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    public void setStatusSimple(ResourceProfileStatus value) { 
+        if (this.status == null)
+          this.status = new Enumeration<ResourceProfileStatus>();
+        this.status.setValue(value);
+    }
+
+    public Boolean getExperimental() { 
+      return this.experimental;
+    }
+
+    public void setExperimental(Boolean value) { 
+      this.experimental = value;
+    }
+
+    public boolean getExperimentalSimple() { 
+      return this.experimental == null ? null : this.experimental.getValue();
+    }
+
+    public void setExperimentalSimple(boolean value) { 
+      if (value == false)
+        this.experimental = null;
+      else {
+        if (this.experimental == null)
+          this.experimental = new Boolean();
+        this.experimental.setValue(value);
+      }
+    }
+
+    public DateTime getDate() { 
+      return this.date;
+    }
+
+    public void setDate(DateTime value) { 
+      this.date = value;
+    }
+
+    public String getDateSimple() { 
+      return this.date == null ? null : this.date.getValue();
+    }
+
+    public void setDateSimple(String value) { 
+      if (value == null)
+        this.date = null;
+      else {
+        if (this.date == null)
+          this.date = new DateTime();
+        this.date.setValue(value);
+      }
+    }
+
+    public Id getFhirVersion() { 
+      return this.fhirVersion;
+    }
+
+    public void setFhirVersion(Id value) { 
+      this.fhirVersion = value;
+    }
+
+    public String getFhirVersionSimple() { 
+      return this.fhirVersion == null ? null : this.fhirVersion.getValue();
+    }
+
+    public void setFhirVersionSimple(String value) { 
+      if (value == null)
+        this.fhirVersion = null;
+      else {
+        if (this.fhirVersion == null)
+          this.fhirVersion = new Id();
+        this.fhirVersion.setValue(value);
+      }
     }
 
     public List<ProfileImportComponent> getImport() { 
@@ -1918,7 +1897,10 @@ public class Profile extends Resource {
         dst.code = new ArrayList<Coding>();
         for (Coding i : code)
           dst.code.add(i.copy());
-        dst.status = status == null ? null : status.copy(dst);
+        dst.status = status == null ? null : status.copy();
+        dst.experimental = experimental == null ? null : experimental.copy();
+        dst.date = date == null ? null : date.copy();
+        dst.fhirVersion = fhirVersion == null ? null : fhirVersion.copy();
         dst.import_ = new ArrayList<ProfileImportComponent>();
         for (ProfileImportComponent i : import_)
           dst.import_.add(i.copy(dst));

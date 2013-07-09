@@ -9,7 +9,7 @@
   <name value="Language Ability Mode"/>
   <publisher value="FHIR Project Team"/>
   <description value="All of the Codes defined in the V3 LanguageAbilityMode code system"/>
-  <status value="production"/>
+  <status value="active"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/LanguageAbilityMode"/>

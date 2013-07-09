@@ -6,6 +6,7 @@
       <pre>
 &lt;<a title="The findings and interpretation of a general lipid lab profile" class="dict" href="#DiagnosticReport">
           <b>DiagnosticReport</b>
+          (Sample, never intended for real use)<br/>
         </a> xmlns="http://hl7.org/fhir"&gt;
  <i class="inherited">&lt;<a title="Master Resource Id, always first in all resources" class="dict" href="#DiagnosticReport.id">
             <b>id</b>
@@ -613,11 +614,10 @@
     <value value="grahame@healthintersections.com.au"/>
   </telecom>
   <description value="Describes how the lab report is used for a standard Lipid Profile - Cholesterol, Triglyceride and Cholesterol fractions. Uses LOINC codes"/>
-  <status>
-    <code value="testing"/>
-    <date value="2012-05-12"/>
-    <comment value="Sample, never intended for real use"/>
-  </status>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2012-05-12"/>
+
   <structure>
     <type value="Resource"/>
     <name value="Lipids"/>

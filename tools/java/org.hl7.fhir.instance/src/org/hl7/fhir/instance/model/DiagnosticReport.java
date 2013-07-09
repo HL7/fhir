@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
+// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -114,9 +114,9 @@ public class DiagnosticReport extends Resource {
 
     public class DiagnosticReportRequestDetailComponent extends Element {
         /**
-         * The visit that this diagnostic investigation is associated with
+         * The encounter that this diagnostic investigation is associated with
          */
-        protected ResourceReference visit;
+        protected ResourceReference encounter;
 
         /**
          * The local ID assigned to the order by the order requester.
@@ -148,12 +148,12 @@ public class DiagnosticReport extends Resource {
          */
         protected String_ clinicalInfo;
 
-        public ResourceReference getVisit() { 
-          return this.visit;
+        public ResourceReference getEncounter() { 
+          return this.encounter;
         }
 
-        public void setVisit(ResourceReference value) { 
-          this.visit = value;
+        public void setEncounter(ResourceReference value) { 
+          this.encounter = value;
         }
 
         public Identifier getRequestOrderId() { 
@@ -216,7 +216,7 @@ public class DiagnosticReport extends Resource {
 
       public DiagnosticReportRequestDetailComponent copy(DiagnosticReport e) {
         DiagnosticReportRequestDetailComponent dst = e.new DiagnosticReportRequestDetailComponent();
-        dst.visit = visit == null ? null : visit.copy();
+        dst.encounter = encounter == null ? null : encounter.copy();
         dst.requestOrderId = requestOrderId == null ? null : requestOrderId.copy();
         dst.receiverOrderId = receiverOrderId == null ? null : receiverOrderId.copy();
         dst.requestTest = new ArrayList<CodeableConcept>();

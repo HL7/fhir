@@ -7,7 +7,7 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   <description value="Known Service types that can be referred to from a Document Reference"/>
-  <status value="review"/>
+  <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/document-reference-service-types"/>
     <caseSensitive value="true"/>

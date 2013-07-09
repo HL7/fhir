@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
+// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -37,6 +37,56 @@ import java.util.*;
  * A conformance statement about how an application or implementation supports FHIR or the set of requirements for a desired implementation
  */
 public class Conformance extends Resource {
+
+    public enum ConformanceStatementStatus {
+        draft, // This conformance statement is still under development
+        active, // This conformance statement is ready for use in production systems
+        retired, // This conformance statement has been withdrawn or superceded and should no longer be used
+        Null; // added to help the parsers
+        public static ConformanceStatementStatus fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("draft".equals(codeString))
+          return draft;
+        if ("active".equals(codeString))
+          return active;
+        if ("retired".equals(codeString))
+          return retired;
+        throw new Exception("Unknown ConformanceStatementStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case draft: return "draft";
+            case active: return "active";
+            case retired: return "retired";
+            default: return "?";
+          }
+        }
+    }
+
+  public class ConformanceStatementStatusEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("draft".equals(codeString))
+          return ConformanceStatementStatus.draft;
+        if ("active".equals(codeString))
+          return ConformanceStatementStatus.active;
+        if ("retired".equals(codeString))
+          return ConformanceStatementStatus.retired;
+        throw new Exception("Unknown ConformanceStatementStatus code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == ConformanceStatementStatus.draft)
+        return "draft";
+      if (code == ConformanceStatementStatus.active)
+        return "active";
+      if (code == ConformanceStatementStatus.retired)
+        return "retired";
+      return "?";
+      }
+    }
 
     public enum RestfulConformanceMode {
         client, // The application acts as a server for this resource
@@ -459,11 +509,6 @@ public class Conformance extends Resource {
          */
         protected Uri url;
 
-        /**
-         * The software running this instance
-         */
-        protected ConformanceSoftwareComponent software;
-
         public String_ getDescription() { 
           return this.description;
         }
@@ -504,51 +549,10 @@ public class Conformance extends Resource {
           }
         }
 
-        public ConformanceSoftwareComponent getSoftware() { 
-          return this.software;
-        }
-
-        public void setSoftware(ConformanceSoftwareComponent value) { 
-          this.software = value;
-        }
-
       public ConformanceImplementationComponent copy(Conformance e) {
         ConformanceImplementationComponent dst = e.new ConformanceImplementationComponent();
         dst.description = description == null ? null : description.copy();
         dst.url = url == null ? null : url.copy();
-        dst.software = software == null ? null : software.copy(e);
-        return dst;
-      }
-
-  }
-
-    public class ConformanceProposalComponent extends Element {
-        /**
-         * Provides details about the intention and scope of the proposal
-         */
-        protected String_ description;
-
-        public String_ getDescription() { 
-          return this.description;
-        }
-
-        public void setDescription(String_ value) { 
-          this.description = value;
-        }
-
-        public String getDescriptionSimple() { 
-          return this.description == null ? null : this.description.getValue();
-        }
-
-        public void setDescriptionSimple(String value) { 
-            if (this.description == null)
-              this.description = new String_();
-            this.description.setValue(value);
-        }
-
-      public ConformanceProposalComponent copy(Conformance e) {
-        ConformanceProposalComponent dst = e.new ConformanceProposalComponent();
-        dst.description = description == null ? null : description.copy();
         return dst;
       }
 
@@ -1459,9 +1463,9 @@ public class Conformance extends Resource {
     protected String_ version;
 
     /**
-     * Date that the conformance statement is published
+     * A free text natural language name identifying the conformance statement
      */
-    protected DateTime date;
+    protected String_ name;
 
     /**
      * Name of Organization
@@ -1474,6 +1478,26 @@ public class Conformance extends Resource {
     protected List<Contact> telecom = new ArrayList<Contact>();
 
     /**
+     * A free text natural language description of the conformance statement and its use. Typically, thsis is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP
+     */
+    protected String_ description;
+
+    /**
+     * The status of this conformance statement
+     */
+    protected Enumeration<ConformanceStatementStatus> status;
+
+    /**
+     * This conformance statement was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
+     */
+    protected Boolean experimental;
+
+    /**
+     * Date that the conformance statement is published
+     */
+    protected DateTime date;
+
+    /**
      * Describes the software that is covered by this conformance statement.  Used when the profile describes the capabilities of a particular software version, independent of an installation.
      */
     protected ConformanceSoftwareComponent software;
@@ -1482,11 +1506,6 @@ public class Conformance extends Resource {
      * Used when the statement describes the capabilities of a specific implementation instance - i.e. a particular installation, rather than the capabilities of a software program
      */
     protected ConformanceImplementationComponent implementation;
-
-    /**
-     * Describes the proposed solution described by this conformance statement.  Used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
-     */
-    protected ConformanceProposalComponent proposal;
 
     /**
      * The version of the FHIR specification on which this conformance statement is based
@@ -1562,22 +1581,26 @@ public class Conformance extends Resource {
       }
     }
 
-    public DateTime getDate() { 
-      return this.date;
+    public String_ getName() { 
+      return this.name;
     }
 
-    public void setDate(DateTime value) { 
-      this.date = value;
+    public void setName(String_ value) { 
+      this.name = value;
     }
 
-    public String getDateSimple() { 
-      return this.date == null ? null : this.date.getValue();
+    public String getNameSimple() { 
+      return this.name == null ? null : this.name.getValue();
     }
 
-    public void setDateSimple(String value) { 
-        if (this.date == null)
-          this.date = new DateTime();
-        this.date.setValue(value);
+    public void setNameSimple(String value) { 
+      if (value == null)
+        this.name = null;
+      else {
+        if (this.name == null)
+          this.name = new String_();
+        this.name.setValue(value);
+      }
     }
 
     public String_ getPublisher() { 
@@ -1602,6 +1625,90 @@ public class Conformance extends Resource {
       return this.telecom;
     }
 
+    public String_ getDescription() { 
+      return this.description;
+    }
+
+    public void setDescription(String_ value) { 
+      this.description = value;
+    }
+
+    public String getDescriptionSimple() { 
+      return this.description == null ? null : this.description.getValue();
+    }
+
+    public void setDescriptionSimple(String value) { 
+      if (value == null)
+        this.description = null;
+      else {
+        if (this.description == null)
+          this.description = new String_();
+        this.description.setValue(value);
+      }
+    }
+
+    public Enumeration<ConformanceStatementStatus> getStatus() { 
+      return this.status;
+    }
+
+    public void setStatus(Enumeration<ConformanceStatementStatus> value) { 
+      this.status = value;
+    }
+
+    public ConformanceStatementStatus getStatusSimple() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    public void setStatusSimple(ConformanceStatementStatus value) { 
+      if (value == null)
+        this.status = null;
+      else {
+        if (this.status == null)
+          this.status = new Enumeration<ConformanceStatementStatus>();
+        this.status.setValue(value);
+      }
+    }
+
+    public Boolean getExperimental() { 
+      return this.experimental;
+    }
+
+    public void setExperimental(Boolean value) { 
+      this.experimental = value;
+    }
+
+    public boolean getExperimentalSimple() { 
+      return this.experimental == null ? null : this.experimental.getValue();
+    }
+
+    public void setExperimentalSimple(boolean value) { 
+      if (value == false)
+        this.experimental = null;
+      else {
+        if (this.experimental == null)
+          this.experimental = new Boolean();
+        this.experimental.setValue(value);
+      }
+    }
+
+    public DateTime getDate() { 
+      return this.date;
+    }
+
+    public void setDate(DateTime value) { 
+      this.date = value;
+    }
+
+    public String getDateSimple() { 
+      return this.date == null ? null : this.date.getValue();
+    }
+
+    public void setDateSimple(String value) { 
+        if (this.date == null)
+          this.date = new DateTime();
+        this.date.setValue(value);
+    }
+
     public ConformanceSoftwareComponent getSoftware() { 
       return this.software;
     }
@@ -1616,14 +1723,6 @@ public class Conformance extends Resource {
 
     public void setImplementation(ConformanceImplementationComponent value) { 
       this.implementation = value;
-    }
-
-    public ConformanceProposalComponent getProposal() { 
-      return this.proposal;
-    }
-
-    public void setProposal(ConformanceProposalComponent value) { 
-      this.proposal = value;
     }
 
     public Id getFhirVersion() { 
@@ -1682,14 +1781,17 @@ public class Conformance extends Resource {
         Conformance dst = new Conformance();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.version = version == null ? null : version.copy();
-        dst.date = date == null ? null : date.copy();
+        dst.name = name == null ? null : name.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
         dst.telecom = new ArrayList<Contact>();
         for (Contact i : telecom)
           dst.telecom.add(i.copy());
+        dst.description = description == null ? null : description.copy();
+        dst.status = status == null ? null : status.copy();
+        dst.experimental = experimental == null ? null : experimental.copy();
+        dst.date = date == null ? null : date.copy();
         dst.software = software == null ? null : software.copy(dst);
         dst.implementation = implementation == null ? null : implementation.copy(dst);
-        dst.proposal = proposal == null ? null : proposal.copy(dst);
         dst.fhirVersion = fhirVersion == null ? null : fhirVersion.copy();
         dst.acceptUnknown = acceptUnknown == null ? null : acceptUnknown.copy();
         dst.format = new ArrayList<Code>();

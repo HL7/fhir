@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
+// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -310,9 +310,9 @@ public class DiagnosticOrder extends Resource {
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * A visit that provides additional informaton about the healthcare context in which this request is made
+     * A encounter that provides additional informaton about the healthcare context in which this request is made
      */
-    protected ResourceReference visit;
+    protected ResourceReference encounter;
 
     /**
      * An explanation or justification for why this diagnostic investigation is being requested
@@ -359,12 +359,12 @@ public class DiagnosticOrder extends Resource {
       return this.identifier;
     }
 
-    public ResourceReference getVisit() { 
-      return this.visit;
+    public ResourceReference getEncounter() { 
+      return this.encounter;
     }
 
-    public void setVisit(ResourceReference value) { 
-      this.visit = value;
+    public void setEncounter(ResourceReference value) { 
+      this.encounter = value;
     }
 
     public String_ getClinicalNotes() { 
@@ -430,7 +430,7 @@ public class DiagnosticOrder extends Resource {
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());
-        dst.visit = visit == null ? null : visit.copy();
+        dst.encounter = encounter == null ? null : encounter.copy();
         dst.clinicalNotes = clinicalNotes == null ? null : clinicalNotes.copy();
         dst.specimen = new ArrayList<ResourceReference>();
         for (ResourceReference i : specimen)

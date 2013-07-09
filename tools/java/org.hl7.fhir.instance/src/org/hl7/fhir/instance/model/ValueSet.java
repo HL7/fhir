@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
+// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -40,37 +40,25 @@ public class ValueSet extends Resource {
 
     public enum ValuesetStatus {
         draft, // This valueset is still under development
-        experimental, // This valueset was authored for experimentation/testing purposes (or education/evaluation/evangelisation)
-        review, // This valueset is undergoing review to check that it is ready for production use
-        production, // This valueset is ready for use in production systems
-        withdrawn, // This valueset has been withdrawn and should no longer be used
-        superseded, // This valueset has been replaced and a different valueset should be used in its place
+        active, // This valueset is ready for normal use
+        retired, // This valueset has been withdrawn or superceded and should no longer be used
         Null; // added to help the parsers
         public static ValuesetStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("draft".equals(codeString))
           return draft;
-        if ("experimental".equals(codeString))
-          return experimental;
-        if ("review".equals(codeString))
-          return review;
-        if ("production".equals(codeString))
-          return production;
-        if ("withdrawn".equals(codeString))
-          return withdrawn;
-        if ("superseded".equals(codeString))
-          return superseded;
+        if ("active".equals(codeString))
+          return active;
+        if ("retired".equals(codeString))
+          return retired;
         throw new Exception("Unknown ValuesetStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case draft: return "draft";
-            case experimental: return "experimental";
-            case review: return "review";
-            case production: return "production";
-            case withdrawn: return "withdrawn";
-            case superseded: return "superseded";
+            case active: return "active";
+            case retired: return "retired";
             default: return "?";
           }
         }
@@ -83,31 +71,19 @@ public class ValueSet extends Resource {
                 return null;
         if ("draft".equals(codeString))
           return ValuesetStatus.draft;
-        if ("experimental".equals(codeString))
-          return ValuesetStatus.experimental;
-        if ("review".equals(codeString))
-          return ValuesetStatus.review;
-        if ("production".equals(codeString))
-          return ValuesetStatus.production;
-        if ("withdrawn".equals(codeString))
-          return ValuesetStatus.withdrawn;
-        if ("superseded".equals(codeString))
-          return ValuesetStatus.superseded;
+        if ("active".equals(codeString))
+          return ValuesetStatus.active;
+        if ("retired".equals(codeString))
+          return ValuesetStatus.retired;
         throw new Exception("Unknown ValuesetStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
       if (code == ValuesetStatus.draft)
         return "draft";
-      if (code == ValuesetStatus.experimental)
-        return "experimental";
-      if (code == ValuesetStatus.review)
-        return "review";
-      if (code == ValuesetStatus.production)
-        return "production";
-      if (code == ValuesetStatus.withdrawn)
-        return "withdrawn";
-      if (code == ValuesetStatus.superseded)
-        return "superseded";
+      if (code == ValuesetStatus.active)
+        return "active";
+      if (code == ValuesetStatus.retired)
+        return "retired";
       return "?";
       }
     }
@@ -762,6 +738,11 @@ public class ValueSet extends Resource {
     protected Enumeration<ValuesetStatus> status;
 
     /**
+     * This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
+     */
+    protected Boolean experimental;
+
+    /**
      * The date that the value set status was last changed
      */
     protected DateTime date;
@@ -905,6 +886,28 @@ public class ValueSet extends Resource {
         this.status.setValue(value);
     }
 
+    public Boolean getExperimental() { 
+      return this.experimental;
+    }
+
+    public void setExperimental(Boolean value) { 
+      this.experimental = value;
+    }
+
+    public boolean getExperimentalSimple() { 
+      return this.experimental == null ? null : this.experimental.getValue();
+    }
+
+    public void setExperimentalSimple(boolean value) { 
+      if (value == false)
+        this.experimental = null;
+      else {
+        if (this.experimental == null)
+          this.experimental = new Boolean();
+        this.experimental.setValue(value);
+      }
+    }
+
     public DateTime getDate() { 
       return this.date;
     }
@@ -962,6 +965,7 @@ public class ValueSet extends Resource {
           dst.telecom.add(i.copy());
         dst.description = description == null ? null : description.copy();
         dst.status = status == null ? null : status.copy();
+        dst.experimental = experimental == null ? null : experimental.copy();
         dst.date = date == null ? null : date.copy();
         dst.define = define == null ? null : define.copy(dst);
         dst.compose = compose == null ? null : compose.copy(dst);

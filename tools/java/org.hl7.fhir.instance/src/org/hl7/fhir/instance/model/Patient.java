@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
+// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -55,7 +55,7 @@ public class Patient extends Resource {
         protected List<Contact> telecom = new ArrayList<Contact>();
 
         /**
-         * One or more addresses for the person
+         * Address for the contact person
          */
         protected Address address;
 
@@ -176,82 +176,6 @@ public class Patient extends Resource {
 
   }
 
-    public class PatientCommunicationComponent extends Element {
-        /**
-         * The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case. E.g. "en" for English, or "en-US" for American English versus "en-EN" for England English
-         */
-        protected CodeableConcept language;
-
-        /**
-         * A value representing the person's method of expression of this language. Examples: expressed spoken, expressed written, expressed signed, received spoken, received written, received signed
-         */
-        protected List<CodeableConcept> mode = new ArrayList<CodeableConcept>();
-
-        /**
-         * A code that describes how well the language is expressed or understood
-         */
-        protected CodeableConcept proficiencyLevel;
-
-        /**
-         * Indicates whether or not the Person prefers this language (over other languages he masters up a certain level)
-         */
-        protected Boolean preference;
-
-        public CodeableConcept getLanguage() { 
-          return this.language;
-        }
-
-        public void setLanguage(CodeableConcept value) { 
-          this.language = value;
-        }
-
-        public List<CodeableConcept> getMode() { 
-          return this.mode;
-        }
-
-        public CodeableConcept getProficiencyLevel() { 
-          return this.proficiencyLevel;
-        }
-
-        public void setProficiencyLevel(CodeableConcept value) { 
-          this.proficiencyLevel = value;
-        }
-
-        public Boolean getPreference() { 
-          return this.preference;
-        }
-
-        public void setPreference(Boolean value) { 
-          this.preference = value;
-        }
-
-        public boolean getPreferenceSimple() { 
-          return this.preference == null ? null : this.preference.getValue();
-        }
-
-        public void setPreferenceSimple(boolean value) { 
-          if (value == false)
-            this.preference = null;
-          else {
-            if (this.preference == null)
-              this.preference = new Boolean();
-            this.preference.setValue(value);
-          }
-        }
-
-      public PatientCommunicationComponent copy(Patient e) {
-        PatientCommunicationComponent dst = e.new PatientCommunicationComponent();
-        dst.language = language == null ? null : language.copy();
-        dst.mode = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : mode)
-          dst.mode.add(i.copy());
-        dst.proficiencyLevel = proficiencyLevel == null ? null : proficiencyLevel.copy();
-        dst.preference = preference == null ? null : preference.copy();
-        return dst;
-      }
-
-  }
-
     /**
      * An identifier that applies to this person as a patient
      */
@@ -313,9 +237,9 @@ public class Patient extends Resource {
     protected AnimalComponent animal;
 
     /**
-     * A language spoken by the person, with proficiency
+     * Languages which may be used to communicate with the patient
      */
-    protected List<PatientCommunicationComponent> communication = new ArrayList<PatientCommunicationComponent>();
+    protected List<CodeableConcept> communication = new ArrayList<CodeableConcept>();
 
     /**
      * The provider for whom this is a patient record
@@ -418,7 +342,7 @@ public class Patient extends Resource {
       this.animal = value;
     }
 
-    public List<PatientCommunicationComponent> getCommunication() { 
+    public List<CodeableConcept> getCommunication() { 
       return this.communication;
     }
 
@@ -482,9 +406,9 @@ public class Patient extends Resource {
         for (ContactComponent i : contact)
           dst.contact.add(i.copy(dst));
         dst.animal = animal == null ? null : animal.copy(dst);
-        dst.communication = new ArrayList<PatientCommunicationComponent>();
-        for (PatientCommunicationComponent i : communication)
-          dst.communication.add(i.copy(dst));
+        dst.communication = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : communication)
+          dst.communication.add(i.copy());
         dst.provider = provider == null ? null : provider.copy();
         dst.link = new ArrayList<ResourceReference>();
         for (ResourceReference i : link)

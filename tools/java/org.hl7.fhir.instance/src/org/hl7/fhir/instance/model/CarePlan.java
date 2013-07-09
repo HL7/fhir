@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
+// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -149,7 +149,7 @@ public class CarePlan extends Resource {
     public enum CarePlanActivityCategory {
         diet, // Plan for the patient to consume food of a specified nature
         drug, // Plan for the patient to consume/receive a drug, vaccine or other product
-        visit, // Plan to meet or communicate with the patient (in-patient, out-patient, phone call, etc.)
+        encounter, // Plan to meet or communicate with the patient (in-patient, out-patient, phone call, etc.)
         observation, // Plan to capture information about a patient (vitals, labs, diagnostic images, etc.)
         procedure, // Plan to modify the patient in some way (surgery, physio-therapy, education, counselling, etc.)
         supply, // Plan to provide something to the patient (medication, medical supply, etc.)
@@ -162,8 +162,8 @@ public class CarePlan extends Resource {
           return diet;
         if ("drug".equals(codeString))
           return drug;
-        if ("visit".equals(codeString))
-          return visit;
+        if ("encounter".equals(codeString))
+          return encounter;
         if ("observation".equals(codeString))
           return observation;
         if ("procedure".equals(codeString))
@@ -178,7 +178,7 @@ public class CarePlan extends Resource {
           switch (this) {
             case diet: return "diet";
             case drug: return "drug";
-            case visit: return "visit";
+            case encounter: return "encounter";
             case observation: return "observation";
             case procedure: return "procedure";
             case supply: return "supply";
@@ -197,8 +197,8 @@ public class CarePlan extends Resource {
           return CarePlanActivityCategory.diet;
         if ("drug".equals(codeString))
           return CarePlanActivityCategory.drug;
-        if ("visit".equals(codeString))
-          return CarePlanActivityCategory.visit;
+        if ("encounter".equals(codeString))
+          return CarePlanActivityCategory.encounter;
         if ("observation".equals(codeString))
           return CarePlanActivityCategory.observation;
         if ("procedure".equals(codeString))
@@ -214,8 +214,8 @@ public class CarePlan extends Resource {
         return "diet";
       if (code == CarePlanActivityCategory.drug)
         return "drug";
-      if (code == CarePlanActivityCategory.visit)
-        return "visit";
+      if (code == CarePlanActivityCategory.encounter)
+        return "encounter";
       if (code == CarePlanActivityCategory.observation)
         return "observation";
       if (code == CarePlanActivityCategory.procedure)
@@ -433,7 +433,7 @@ public class CarePlan extends Resource {
         protected Enumeration<CarePlanActivityCategory> category;
 
         /**
-         * Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of visit.
+         * Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of encounter.
          */
         protected CodeableConcept code;
 
@@ -483,7 +483,7 @@ public class CarePlan extends Resource {
         protected String_ details;
 
         /**
-         * Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, visit records, appointments, etc.
+         * Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.
          */
         protected List<ResourceReference> actionTaken = new ArrayList<ResourceReference>();
 

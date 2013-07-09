@@ -14,15 +14,13 @@
     </ul>
     </div>
   </text>
-  <date value="2013-06-18"/>
   <publisher value="FHIR Project"/>
   <telecom>
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <proposal>
-    <description value="Prototype Conformance Profile for September 2013 Connectathon"/>
-  </proposal>  
+  <description value="Prototype Conformance Profile for September 2013 Connectathon"/>
+  <date value="2013-06-18"/>
   
   <!-- while the FHIR infrastructure is turning over prior to development, a version is required. Note that this may be rescinded later -->
   <fhirVersion value="0.09"/>

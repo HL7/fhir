@@ -29,9 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
-
-import java.util.*;
+// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
 
 /**
  * Optional Extensions Element - found in all resources
@@ -52,11 +50,6 @@ public class Extension extends Element {
      * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list)
      */
     protected org.hl7.fhir.instance.model.Type value;
-
-    /**
-     * Nested Complex extensions
-     */
-    protected List<Extension> extension = new ArrayList<Extension>();
 
     public Uri getUrl() { 
       return this.url;
@@ -106,18 +99,11 @@ public class Extension extends Element {
       this.value = value;
     }
 
-    public List<Extension> getExtension() { 
-      return this.extension;
-    }
-
       public Extension copy() {
         Extension dst = new Extension();
         dst.url = url == null ? null : url.copy();
         dst.isModifier = isModifier == null ? null : isModifier.copy();
         dst.value = value == null ? null : value.copy();
-        dst.extension = new ArrayList<Extension>();
-        for (Extension i : extension)
-          dst.extension.add(i.copy());
         return dst;
       }
 

@@ -6,7 +6,7 @@
   <name value="Audit Event ID"/>
   <publisher value="NEMA/DICOM"/>
   <description value="Event Types for Security Events - defined by DICOM with some FHIR specific additions"/>
-  <status value="production"/>
+  <status value="active"/>
   <date value="2010-08-26"/>
   <define>
     <system value="http://hl7.org/fhir/security-event-type"/>

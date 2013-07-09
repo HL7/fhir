@@ -1085,7 +1085,7 @@ public class Publisher {
     vs.setNameSimple("v3 Code System "+id);
     vs.setPublisherSimple("HL7, Inc");
     vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org"));
-    vs.setStatusSimple(ValuesetStatus.production);
+    vs.setStatusSimple(ValuesetStatus.active);
     ValueSetDefineComponent def = vs.new ValueSetDefineComponent();
     vs.setDefine(def);
     def.setCaseSensitiveSimple(true);
@@ -1243,7 +1243,7 @@ public class Publisher {
     }
     vs.setPublisherSimple("HL7 v3");
     vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://www.hl7.org"));
-    vs.setStatusSimple(ValuesetStatus.production);
+    vs.setStatusSimple(ValuesetStatus.active);
     
     r = XMLUtil.getNamedChild(e, "version");
     if (r != null) {
@@ -1332,7 +1332,7 @@ public class Publisher {
     vs.setNameSimple("v2 table "+id);
     vs.setPublisherSimple("HL7, Inc");
     vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org"));
-    vs.setStatusSimple(ValuesetStatus.production);
+    vs.setStatusSimple(ValuesetStatus.active);
     vs.setDateSimple("2011-01-28"); // v2.7 version
     ValueSetDefineComponent def = vs.new ValueSetDefineComponent();
     vs.setDefine(def);
@@ -1402,7 +1402,7 @@ public class Publisher {
     vs.setNameSimple("v2 table "+id+", Version "+version);
     vs.setPublisherSimple("HL7, Inc");
     vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org"));
-    vs.setStatusSimple(ValuesetStatus.production);
+    vs.setStatusSimple(ValuesetStatus.active);
     vs.setDateSimple("2011-01-28"); // v2.7 version
     ValueSetDefineComponent def = vs.new ValueSetDefineComponent();
     vs.setDefine(def);
@@ -1580,7 +1580,7 @@ public class Publisher {
     p.putMetadata("author.name", "FHIR Specification");
     p.putMetadata("author.ref", "http://hl7.org/fhir");
     p.putMetadata("description", "Basic Profile for "+c.getCode()+" on "+c.getComment()+" for validation support");
-    p.putMetadata("status", "testing");
+    p.putMetadata("status", "draft");
     p.putMetadata("date", new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "US")).format(new Date()));
     ElementDefn type = page.getDefinitions().getElementDefn(c.getComment());
     p.getElements().add(type);
@@ -1604,7 +1604,7 @@ public class Publisher {
     p.putMetadata("author.name", "FHIR Specification");
     p.putMetadata("author.ref", "http://hl7.org/fhir");
     p.putMetadata("description", "Basic Profile for "+type.getName()+" for validation support");
-    p.putMetadata("status", "testing");
+    p.putMetadata("status", "draft");
     p.putMetadata("date", new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "US")).format(new Date()));
     p.getElements().add(type);
     ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
@@ -1911,7 +1911,7 @@ public class Publisher {
 		p.putMetadata("author.name", "todo (committee)");
 		p.putMetadata("author.ref", "todo");
 		p.putMetadata("description", "Basic Profile. "+ root.getRoot().getDefinition());
-		p.putMetadata("status", "testing");
+		p.putMetadata("status", "draft");
 		p.putMetadata("date", new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "US")).format(new Date()));
 		p.getResources().add(root);
 		ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());

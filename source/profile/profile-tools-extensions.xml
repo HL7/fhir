@@ -47,7 +47,7 @@
     <ValueSet id="v1">
       <name value="OperationOutcomeSource"/>
       <description value="Where in the code - schema, schematron, or validator - an error message comes from"/>
-      <status value="experimental"/>
+      <status value="draft"/>
       <define>
         <system value="http://hl7.org/fhir/operation-outcome-source"/>
         <caseSensitive value="true"/>
@@ -93,10 +93,8 @@
     <value value="http://hl7.org/fhir"/>    
   </telecom>
   <description value="Extensions defined by the build tools. These extensions are candidates for being elevated into the core"/>
-  <status> 
-    <code value="testing"/>
-    <date value="2013-07-07"/>
-  </status>
+  <status value="draft"/>
+  <date value="2013-07-07"/>
 
   <extensionDefn> 
     <code value="comment"/>

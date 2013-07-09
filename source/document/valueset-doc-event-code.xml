@@ -7,7 +7,7 @@
     <value value="http://ihe.net"/>
   </telecom>
   <description value="Example Connectathon Codes from http://ihexds.nist.gov:12080/xdsref/codes/codes.xml"/>
-  <status value="review"/>
+  <status value="draft"/>
   <define>
     <system value="urn:uuid:2c6b8cb7-8b2a-4051-b291-b1ae6a575ef4"/>
     <concept>

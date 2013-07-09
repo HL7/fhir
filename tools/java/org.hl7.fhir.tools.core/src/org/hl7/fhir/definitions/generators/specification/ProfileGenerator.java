@@ -96,13 +96,12 @@ public class ProfileGenerator {
       throw new Exception("profile evidence is not supported any more ("+p.getName()+")");
     if (profile.hasMetadata("comments"))
       throw new Exception("profile comments is not supported any more ("+p.getName()+")");
-    Profile.ProfileStatusComponent s = p.new ProfileStatusComponent();
-    p.setStatus(s);
+
     if (profile.hasMetadata("date"))
-      s.setDate(Factory.newDateTime(profile.metadata("date").substring(0, 10)));
+      p.setDate(Factory.newDateTime(profile.metadata("date").substring(0, 10)));
 
     if (profile.hasMetadata("status")) 
-      s.setCodeSimple(Profile.ResourceProfileStatus.fromCode(profile.metadata("status")));
+      p.setStatusSimple(Profile.ResourceProfileStatus.fromCode(profile.metadata("status")));
 
     for (ResourceDefn resource : profile.getResources()) {
       Profile.ProfileStructureComponent c = p.new ProfileStructureComponent();

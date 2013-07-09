@@ -7,7 +7,7 @@
     <value value="http://ihe.net"/>
   </telecom>
   <description value="Example Connectathon Codes from http://ihexds.nist.gov:12080/xdsref/codes/codes.xml, with substantial corrections applied"/>
-  <status value="review"/>
+  <status value="draft"/>
   <!-- errors in the source: 
     * the codes like "281PC2000N" are from 	Code System	2.16.840.1.113883.5.53 (2.16.840.1.113883.5.53)
     * the coding system 2.16.840.1.113883.5.11 is actually 2.16.840.1.113883.5.111

@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
+// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
 
 import java.util.*;
 
 /**
- * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during a Visit; populating a problem List or a Summary Statement, such as a Discharge Summary
+ * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during a Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary
  */
 public class Condition extends Resource {
 
@@ -322,9 +322,9 @@ public class Condition extends Resource {
     protected ResourceReference subject;
 
     /**
-     * Visit during which the condition was first asserted
+     * Encounter during which the condition was first asserted
      */
-    protected ResourceReference visit;
+    protected ResourceReference encounter;
 
     /**
      * Person who takes responsibility for asserting the existence of the condition as part of the electronic record
@@ -404,12 +404,12 @@ public class Condition extends Resource {
       this.subject = value;
     }
 
-    public ResourceReference getVisit() { 
-      return this.visit;
+    public ResourceReference getEncounter() { 
+      return this.encounter;
     }
 
-    public void setVisit(ResourceReference value) { 
-      this.visit = value;
+    public void setEncounter(ResourceReference value) { 
+      this.encounter = value;
     }
 
     public ResourceReference getAsserter() { 
@@ -553,7 +553,7 @@ public class Condition extends Resource {
       public Condition copy() {
         Condition dst = new Condition();
         dst.subject = subject == null ? null : subject.copy();
-        dst.visit = visit == null ? null : visit.copy();
+        dst.encounter = encounter == null ? null : encounter.copy();
         dst.asserter = asserter == null ? null : asserter.copy();
         dst.dateAsserted = dateAsserted == null ? null : dateAsserted.copy();
         dst.code = code == null ? null : code.copy();

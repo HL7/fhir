@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 4, 2013 15:40+1000 for FHIR v0.09
+// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -197,9 +197,9 @@ public class Procedure extends Resource {
     protected Period date;
 
     /**
-     * The visit during which the procedure was performed
+     * The encounter during which the procedure was performed
      */
-    protected ResourceReference visit;
+    protected ResourceReference encounter;
 
     /**
      * What was the outcome of the procedure - did it resolve reasons why the procedure was performed?
@@ -285,12 +285,12 @@ public class Procedure extends Resource {
       this.date = value;
     }
 
-    public ResourceReference getVisit() { 
-      return this.visit;
+    public ResourceReference getEncounter() { 
+      return this.encounter;
     }
 
-    public void setVisit(ResourceReference value) { 
-      this.visit = value;
+    public void setEncounter(ResourceReference value) { 
+      this.encounter = value;
     }
 
     public String_ getOutcome() { 
@@ -401,7 +401,7 @@ public class Procedure extends Resource {
         for (ProcedurePerformerComponent i : performer)
           dst.performer.add(i.copy(dst));
         dst.date = date == null ? null : date.copy();
-        dst.visit = visit == null ? null : visit.copy();
+        dst.encounter = encounter == null ? null : encounter.copy();
         dst.outcome = outcome == null ? null : outcome.copy();
         dst.report = new ArrayList<ResourceReference>();
         for (ResourceReference i : report)

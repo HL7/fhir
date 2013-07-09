@@ -8374,7 +8374,7 @@
   <name value="DICOM Code Definitions (DCM)"/>
   <publisher value="NEMA/DICOM"/>
   <description value="The meanings of codes defined in DICOM, either explicitly or by reference to another part of DICOM or an external reference document or standard (OID = 1.2.840.10008.2.16.4)"/>
-  <status value="production"/>
+  <status value="active"/>
   <date value="2010-08-26"/>
   <define>
     <system value="http://nema.org/dicom/dcid"/>

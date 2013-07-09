@@ -20,12 +20,12 @@
    -->
   <identifier value="68D043B5-9ECF-4559-A57A-396E0D452311"/>
   <version value="20130510"/>
-  <date value="2012-01-04"/>
   <publisher value="ACME Corporation"/>
   <telecom>
     <system value="email"/>
     <value value="wile@acme.org"/>
   </telecom>
+  <date value="2012-01-04"/>
   <software>
     <name value="EHR"/>
     <version value="0.00.020.2134"/>
