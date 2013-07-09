@@ -41,25 +41,24 @@ namespace Hl7.Fhir.Model
         {
             var result = new HumanName();
 
-            result.Family = new List<FhirString> { new FhirString(family) };
+            result.Family = new string[] { family };
 
             return result;
         }
 
         public HumanName WithGiven(string given)
         {
-            if (this.Given == null)
-                this.Given = new List<FhirString>();
-
-            this.Given.Add(given);
+            if (this.GivenElement == null) this.GivenElement = new List<FhirString>();
+            this.GivenElement.Add(new FhirString(given));
 
             return this;
         }
 
         public HumanName AndFamily(string family)
         {
-            if(this.Family == null) this.Family = new List<FhirString>();
-            this.Family.Add(family);
+            if(this.FamilyElement == null) this.FamilyElement = new List<FhirString>();
+            this.FamilyElement.Add(new FhirString(family));
+
             return this;
         }
 

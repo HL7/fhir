@@ -29,7 +29,7 @@ namespace Hl7.Fhir.Tests
             Narrative result = (Narrative)FhirParser.ParseElementFromXml(xmlString, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.AreEqual(Narrative.NarrativeStatus.Generated, result.Status.Value);
-            Assert.IsTrue(result.Div != null && result.Div.Value != null);
+            Assert.IsTrue(result.Div != null);
 
             xmlString = @"<testNarrative xmlns='http://hl7.org/fhir'>
                              <status value='generated' />
@@ -40,7 +40,7 @@ namespace Hl7.Fhir.Tests
             result = (Narrative)FhirParser.ParseElementFromXml(xmlString, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.AreEqual(Narrative.NarrativeStatus.Generated, result.Status.Value);
-            Assert.IsTrue(result.Div != null && result.Div.Value != null);
+            Assert.IsTrue(result.Div != null);
 
             xmlString = @"<testNarrative xmlns='http://hl7.org/fhir' xmlns:xhtml='http://www.w3.org/1999/xhtml'>
                               <status value='generated' />
@@ -51,7 +51,7 @@ namespace Hl7.Fhir.Tests
             result = (Narrative)FhirParser.ParseElementFromXml(xmlString, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.AreEqual(Narrative.NarrativeStatus.Generated, result.Status.Value);
-            Assert.IsTrue(result.Div != null && result.Div.Value != null);
+            Assert.IsTrue(result.Div != null);
 
             string jsonString = "{ \"testNarrative\" : {" +
                 "\"status\" : { \"value\" : \"generated\" }, " +
@@ -62,7 +62,7 @@ namespace Hl7.Fhir.Tests
             result = (Narrative)FhirParser.ParseElementFromJson(jsonString, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.AreEqual(Narrative.NarrativeStatus.Generated, result.Status.Value);
-            Assert.IsTrue(result.Div != null && result.Div.Value != null);
+            Assert.IsTrue(result.Div != null);
         }
 
 
@@ -75,11 +75,11 @@ namespace Hl7.Fhir.Tests
             Binary result = (Binary)FhirParser.ParseResourceFromXml(xmlString, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
 
-            Assert.AreEqual("image/gif", result.ContentType.Value);
-            Assert.AreEqual(993, result.Content.Value.Length);
-            Assert.IsTrue(Encoding.ASCII.GetString(result.Content.Value).StartsWith("GIF89a"));
+            Assert.AreEqual("image/gif", result.ContentType);
+            Assert.AreEqual(993, result.Content.Length);
+            Assert.IsTrue(Encoding.ASCII.GetString(result.Content).StartsWith("GIF89a"));
 
-            byte[] data = result.Content.Value;
+            byte[] data = result.Content;
             File.WriteAllBytes(@"c:\temp\test.gif", data);
 
             string json = "{ Binary: { contentType : \"image/gif\", " +
@@ -88,9 +88,9 @@ namespace Hl7.Fhir.Tests
             result = (Binary)FhirParser.ParseResourceFromJson(json, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
 
-            Assert.AreEqual("image/gif", result.ContentType.Value);
-            Assert.AreEqual(993, result.Content.Value.Length);
-            Assert.IsTrue(Encoding.ASCII.GetString(result.Content.Value).StartsWith("GIF89a"));
+            Assert.AreEqual("image/gif", result.ContentType);
+            Assert.AreEqual(993, result.Content.Length);
+            Assert.IsTrue(Encoding.ASCII.GetString(result.Content).StartsWith("GIF89a"));
         }
 
         [TestMethod]
@@ -102,7 +102,7 @@ namespace Hl7.Fhir.Tests
             var errors = new ErrorList();
             var result = (Extension)FhirParser.ParseElementFromJson(json, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
-            Assert.IsTrue(result.IsModifier.Value.Value);
+            Assert.IsTrue(result.IsModifier.Value);
             Assert.AreEqual(14, ((Integer)result.Value).Value.Value);
 
             string jsonWrong = "{ testExtension: { url: { value : \"http://bla.com\" }," +
@@ -126,8 +126,8 @@ namespace Hl7.Fhir.Tests
             Coding result = (Coding)FhirParser.ParseElementFromXml(xmlString, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.AreEqual("x4", result.LocalId.ToString());
-            Assert.AreEqual("G44.1", result.Code.Value);
-            Assert.AreEqual("http://hl7.org/fhir/sid/icd-10", result.System.Value.ToString());
+            Assert.AreEqual("G44.1", result.Code);
+            Assert.AreEqual("http://hl7.org/fhir/sid/icd-10", result.System.ToString());
             Assert.IsNull(result.Display);
 
             string jsonString = "{ \"testCoding\" : { \"_id\" : \"x4\", " +
@@ -137,9 +137,9 @@ namespace Hl7.Fhir.Tests
             errors.Clear();
             result = (Coding)FhirParser.ParseElementFromJson(jsonString, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
-            Assert.AreEqual("x4", result.LocalId.Value);
-            Assert.AreEqual("G44.1", result.Code.Value);
-            Assert.AreEqual("http://hl7.org/fhir/sid/icd-10", result.System.Value.ToString());
+            Assert.AreEqual("x4", result.LocalId);
+            Assert.AreEqual("G44.1", result.Code);
+            Assert.AreEqual("http://hl7.org/fhir/sid/icd-10", result.System.ToString());
             Assert.IsNull(result.Display);
         }
 
@@ -163,9 +163,9 @@ namespace Hl7.Fhir.Tests
             CodeableConcept result = (CodeableConcept)FhirParser.ParseElementFromXml(xmlString, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.AreEqual(2, result.Coding.Count);
-            Assert.AreEqual("R51", result.Coding[0].Code.Value);
-            Assert.AreEqual("25064002", result.Coding[1].Code.Value);
-            Assert.AreEqual("http://snomed.info/", result.Coding[1].System.Value.ToString());
+            Assert.AreEqual("R51", result.Coding[0].Code);
+            Assert.AreEqual("25064002", result.Coding[1].Code);
+            Assert.AreEqual("http://snomed.info/", result.Coding[1].System.ToString());
             Assert.AreEqual("1", result.Coding[1].LocalId.ToString());
 
 
@@ -182,9 +182,9 @@ namespace Hl7.Fhir.Tests
             result = (CodeableConcept)FhirParser.ParseElementFromJson(jsonString, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.AreEqual(2, result.Coding.Count);
-            Assert.AreEqual("R51", result.Coding[0].Code.Value);
-            Assert.AreEqual("25064002", result.Coding[1].Code.Value);
-            Assert.AreEqual("http://snomed.info/", result.Coding[1].System.Value.ToString());
+            Assert.AreEqual("R51", result.Coding[0].Code);
+            Assert.AreEqual("25064002", result.Coding[1].Code);
+            Assert.AreEqual("http://snomed.info/", result.Coding[1].System.ToString());
             Assert.AreEqual("1", result.Coding[1].LocalId.ToString());
         }
         
@@ -260,7 +260,7 @@ namespace Hl7.Fhir.Tests
 
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.IsNotNull(p);
-            Assert.AreEqual(1, p.Name[0].Prefix[0].Extension.Count());
+            Assert.AreEqual(1, p.Name[0].PrefixElement[0].Extension.Count());
         }
 
 
@@ -296,7 +296,7 @@ namespace Hl7.Fhir.Tests
 
             Assert.IsNotNull(rep.Contained[8] as Observation);
             Observation obs8 = (Observation)rep.Contained[8];
-            Assert.AreEqual("Neutrophils", obs8.Name.Coding[0].Display.Value);
+            Assert.AreEqual("Neutrophils", obs8.Name.Coding[0].Display);
         }
 
 

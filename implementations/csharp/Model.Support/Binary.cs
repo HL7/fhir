@@ -44,7 +44,7 @@ namespace Hl7.Fhir.Model
         {
             var result = new ErrorList();
             result.AddRange(base.ValidateRules());
-
+            
             if (Content == null)
                 result.Add("Entry must contain (possibly 0-length) data");
 

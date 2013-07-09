@@ -42,8 +42,8 @@ namespace Hl7.Fhir.Model
         {
             get
             {
-                if (this.Reference != null && this.Reference.Value != null)
-                    return new Uri(this.Reference.Value, UriKind.RelativeOrAbsolute);
+                if (this.Reference != null)
+                    return new Uri(this.Reference, UriKind.RelativeOrAbsolute);
                 else
                     return null;
             }

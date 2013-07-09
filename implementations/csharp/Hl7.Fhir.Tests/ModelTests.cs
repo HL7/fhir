@@ -68,36 +68,36 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual(Encoding.UTF8.HeaderName, Encoding.UTF8.WebName);
         }
 
-        [TestMethod]
-        public void VerifyCastOperators()
-        {
-            FhirBoolean b = true;
-            FhirBoolean bn = (bool?)null;
-            FhirBoolean bn2 = new FhirBoolean(null);
-            FhirBoolean bn3 = new FhirBoolean(false);
+        //[TestMethod]
+        //public void VerifyCastOperators()
+        //{
+        //    FhirBoolean b = true;
+        //    FhirBoolean bn = (bool?)null;
+        //    FhirBoolean bn2 = new FhirBoolean(null);
+        //    FhirBoolean bn3 = new FhirBoolean(false);
 
-            Assert.AreEqual(true, b.Value);
-            Assert.IsNull(bn);
+        //    Assert.AreEqual(true, b.Value);
+        //    Assert.IsNull(bn);
 
-            bool rb = (bool)b;
-            Assert.AreEqual(true, rb);
+        //    bool rb = (bool)b;
+        //    Assert.AreEqual(true, rb);
 
-            bool? rbn = (bool?)b;
-            Assert.AreEqual(true, rbn);
+        //    bool? rbn = (bool?)b;
+        //    Assert.AreEqual(true, rbn);
 
-            bool? rbn2 = (bool?)bn;
-            Assert.IsFalse(rbn2.HasValue);
-            Assert.IsNull(rbn2);
+        //    bool? rbn2 = (bool?)bn;
+        //    Assert.IsFalse(rbn2.HasValue);
+        //    Assert.IsNull(rbn2);
 
-            try
-            {
-                bool rb2 = (bool)bn;
-                Assert.Fail();
-            }
-            catch (InvalidCastException)
-            {
-            }
-        }
+        //    try
+        //    {
+        //        bool rb2 = (bool)bn;
+        //        Assert.Fail();
+        //    }
+        //    catch (InvalidCastException)
+        //    {
+        //    }
+        //}
 
 
         [TestMethod]
@@ -145,6 +145,63 @@ namespace Hl7.Fhir.Tests
 
             FhirDateTime dt2 = new FhirDateTime(1972, 11, 30, 15, 10);
             Assert.IsTrue(dt2.ToString().StartsWith("1972-11-30T15:10"));
+        }
+
+        [TestMethod]
+        public void TestSimpleValueSupport()
+        {
+            Conformance c = new Conformance();
+
+            Assert.IsNull(c.AcceptUnknown);
+            c.AcceptUnknown = true;
+            Assert.IsTrue(c.AcceptUnknown.GetValueOrDefault());
+            Assert.IsNotNull(c.AcceptUnknownElement);
+            Assert.IsTrue(c.AcceptUnknownElement.Value.GetValueOrDefault());
+
+            c.PublisherElement = new FhirString("Furore");
+            Assert.AreEqual("Furore", c.Publisher);
+            c.Publisher = null;
+            Assert.IsNull(c.PublisherElement);
+            c.Publisher = "Furore";
+            Assert.IsNotNull(c.PublisherElement);
+
+            c.Format = new string[] { "json", "xml" };
+            Assert.IsNotNull(c.FormatElement);
+            Assert.AreEqual(2, c.FormatElement.Count);
+            Assert.AreEqual("json", c.FormatElement.First().Value);
+
+            c.FormatElement = new List<Code>();
+            c.FormatElement.Add(new Code("csv"));
+            Assert.IsNotNull(c.Format);
+            Assert.AreEqual(1, c.Format.Count());
+        }
+
+
+        [TestMethod]
+        public void TestExtensionManagement()
+        {
+            Patient p = new Patient();
+            Uri u1 = new Uri("http://fhir.org/ext/ext-test");
+            Assert.IsNull(p.GetExtension(u1));
+
+            Extension newEx = p.SetExtension(u1, new FhirBoolean(true));
+            Assert.AreSame(newEx, p.GetExtension(u1));
+
+            p.AddExtension(new Uri("http://fhir.org/ext/ext-test2"), new FhirString("Ewout"));
+            Assert.AreSame(newEx, p.GetExtension(u1));
+
+            p.RemoveExtension(u1);
+            Assert.IsNull(p.GetExtension(u1));
+
+            p.SetExtension(new Uri("http://fhir.org/ext/ext-test2"), new FhirString("Ewout Kramer"));
+            var ew = p.GetExtensions(new Uri("http://fhir.org/ext/ext-test2"));
+            Assert.AreEqual(1, ew.Count());
+
+            p.AddExtension(new Uri("http://fhir.org/ext/ext-test2"), new FhirString("Wouter Kramer"));
+
+            ew = p.GetExtensions(new Uri("http://fhir.org/ext/ext-test2"));
+            Assert.AreEqual(2, ew.Count());
+
         }
     }
 }

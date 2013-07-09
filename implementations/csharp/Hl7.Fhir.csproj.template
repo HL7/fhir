@@ -72,6 +72,7 @@
     <Compile Include="Model.Support\Initializers.cs" />
     <Compile Include="Model.Support\ResourceReference.cs" />
     <Compile Include="Model.Support\Tag.cs" />
+	<Compile Include="Model.Support\ValueSet.cs" />
     <Compile Include="Parsers.Support\ParserUtils.cs" />
     <Compile Include="Parsers.Support\CodeParser.cs" />
     <Compile Include="Parsers.Support\IFhirReader.cs" />

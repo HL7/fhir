@@ -72,8 +72,10 @@ namespace Hl7.Fhir.Tests
                     Label = "SSN",
                     System = new Uri("http://hl7.org/fhir/sid/us-ssn"),
                     Key = "000111111",
-                    Period = new Period() { Start = new FhirDateTime(2001, 1, 2), End = new FhirDateTime(2010, 3, 4) },
-                    Assigner = new ResourceReference { Type = "Organization", Reference = "organization/@123",
+                    Period = new Period() { StartElement = new FhirDateTime(2001, 1, 2), 
+                        EndElement = new FhirDateTime(2010, 3, 4) },
+                    Assigner = new ResourceReference { Type = "Organization", 
+                                    Reference = "organization/@123",
                                         Display = "HL7, Inc" }
                 };
 
@@ -163,7 +165,7 @@ namespace Hl7.Fhir.Tests
 
             ErrorList list = new ErrorList();
             Patient p = (Patient)FhirParser.ParseResourceFromXml(xmlString, list);
-            p.Name[0].Given[0].Value = "Rex";
+            p.Name[0].GivenElement[0].Value = "Rex";
             string json = FhirSerializer.SerializeResourceToJson(p);
 
             Debug.WriteLine(json);
@@ -193,17 +195,18 @@ namespace Hl7.Fhir.Tests
         [TestMethod]
         public void ResourceWithExtensionAndNarrative()
         {
+            HumanName name = new HumanName().WithGiven("Wouter").WithGiven("Gert")
+                .AndFamily("van der").AndFamily("Vlies");
+
+            name.FamilyElement[0].AddExtension(new Uri("http://hl7.org/fhir/profile/@iso-21090#name-qualifier"),
+                        new Code("VV"));
+
             Patient p = new Patient()
             {
                 LocalId = "Ab4",
-                Identifier = new List<Identifier> { new Identifier() { Key = "3141" } },
-                BirthDate = new FhirDateTime(1972, 11, 30),
-                Name = new List<HumanName> {
-                        new HumanName() { Given = new List<FhirString>() { "Wouter", "Gert" },
-                                   Family = new List<FhirString>() { new FhirString() { Value = "van der", 
-                                        Extension = new List<Extension> { new Extension 
-                                                        { Url= new Uri("http://hl7.org/fhir/profile/@iso-21090#name-qualifier"),
-                                                            Value = new Code("VV") } } }, "Vlies" } } },
+                Identifier = new List<Identifier> { new Identifier { Key = "3141" } },
+                BirthDateElement = new FhirDateTime(1972, 11, 30),
+                Name = new List<HumanName> { name },
                 Text = new Narrative()
                  {
                      Status = Narrative.NarrativeStatus.Generated,

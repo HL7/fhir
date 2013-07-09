@@ -42,7 +42,7 @@ namespace Hl7.Fhir.Model
         // Just here for consistency in the parser generators
         public static IdRef Parse(string value)
         {
-            return value;
+            return new IdRef(value);
         }
 
         public override string ToString()

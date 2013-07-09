@@ -108,23 +108,23 @@ namespace Hl7.Fhir.Model
             Value = value;
         }
 
-        public static implicit operator Code<T>(T? value)
-        {
-            return new Code<T>(value);
-        }
+        //public static implicit operator Code<T>(T? value)
+        //{
+        //    return new Code<T>(value);
+        //}
 
-        public static explicit operator T(Code<T> source)
-        {
-            if (source.Value.HasValue)
-                return source.Value.Value;
-            else
-                throw new InvalidCastException();
-        }
+        //public static explicit operator T(Code<T> source)
+        //{
+        //    if (source.Value.HasValue)
+        //        return source.Value.Value;
+        //    else
+        //        throw new InvalidCastException();
+        //}
 
-        public static explicit operator T?(Code<T> source)
-        {
-            return source.Value;
-        }
+        //public static explicit operator T?(Code<T> source)
+        //{
+        //    return source.Value;
+        //}
 
 
         public static bool TryParse(string value, out Code<T> result)

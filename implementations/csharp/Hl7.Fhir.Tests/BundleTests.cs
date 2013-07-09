@@ -406,7 +406,7 @@ namespace Hl7.Fhir.Tests
             e3.Content = new Binary()
             {
                 ContentType = "application/x-test",
-                Content = new Base64Binary(new byte[] { 0x00, 0x01, 0x02, 0x03 })
+                Content = new byte[] { 0x00, 0x01, 0x02, 0x03 }
             };
             
             return e3;

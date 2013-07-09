@@ -26,7 +26,7 @@ namespace Hl7.Fhir.Tests
             Conformance c = client.Conformance();
 
             Assert.IsNotNull(c);
-            Assert.AreEqual("HL7Connect", c.Software.Name.Value);
+            Assert.AreEqual("HL7Connect", c.Software.Name);
             Assert.AreEqual(Conformance.RestfulConformanceMode.Server, c.Rest[0].Mode.Value);
             Assert.AreEqual("text/xml+fhir", client.LastResponseDetails.ContentType.ToLower());
             Assert.AreEqual(HttpStatusCode.OK, client.LastResponseDetails.Result);
@@ -70,7 +70,7 @@ namespace Hl7.Fhir.Tests
 
             Patient eve = client.Read<Patient>("1");
             Assert.IsNotNull(eve);
-            Assert.AreEqual("Eve", eve.Name[0].Given[0].Value);
+            Assert.AreEqual("Eve", eve.Name[0].GivenElement[0].Value);
 
             string version = new ResourceLocation(client.LastResponseDetails.ContentLocation).VersionId;               
             Assert.AreEqual("1", version);
@@ -89,7 +89,7 @@ namespace Hl7.Fhir.Tests
             Patient ewout = new Patient
             {
                 Name = new List<HumanName> { HumanName.ForFamily("Kramer").WithGiven("Wouter").WithGiven("Gert") },
-                BirthDate = new FhirDateTime(1972, 11, 30),
+                BirthDateElement = new FhirDateTime(1972, 11, 30),
                 Identifier = new List<Identifier> {
                     new Identifier() { System = new Uri("http://hl7.org/test/1"), Key = "3141" } }
             };

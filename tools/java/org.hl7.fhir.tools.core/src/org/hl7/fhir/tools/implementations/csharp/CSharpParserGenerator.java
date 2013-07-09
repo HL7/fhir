@@ -250,6 +250,7 @@ public class CSharpParserGenerator extends GenBlock
 	private void parseRepeatingElement(ElementDefn member) throws Exception
 	{
 		String resultMember = "result." + member.getGeneratorAnnotations().get(CSharpModelGenerator.CLASSGEN_MEMBER_NAME);
+		//resultMember += "Element";
 		
 		TypeRef resultType = GeneratorUtils.getMemberTypeForElement(getDefinitions(),member);
 				
@@ -286,9 +287,12 @@ public class CSharpParserGenerator extends GenBlock
 	
 	private void parseSingleElement( ElementDefn member ) throws Exception
 	{
+	  String memberName = member.getGeneratorAnnotations().get(CSharpModelGenerator.CLASSGEN_MEMBER_NAME);
+    //resultMember += "Element";
+    
 		bs();
 		   
-		ln("result." + member.getGeneratorAnnotations().get(CSharpModelGenerator.CLASSGEN_MEMBER_NAME) );
+		ln("result." + memberName );
 			nl(" = ");
 			nl( buildParserCall(member) );
 			nl(";");

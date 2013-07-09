@@ -66,7 +66,7 @@ namespace Hl7.Fhir.Model
             if (TryParse(value, out result))
                 return result;
             else
-                throw new FhirFormatException("Not an correctly formatted date value");
+                throw new FhirFormatException("Not a correctly formatted date value");
         }
 
         internal override ErrorList ValidateRules()

@@ -60,6 +60,8 @@ namespace Hl7.Fhir.Model
         List<Extension> Extension { get; set; }
     }
 
+
+
     public interface IValidatable
     {
         ErrorList Validate();
@@ -71,4 +73,93 @@ namespace Hl7.Fhir.Model
         public FhirFormatException(string message) : base(message) { }
         public FhirFormatException(string message, System.Exception inner) : base(message, inner) { }
     }
+
+
+    public static class ExtensionExtensions
+    {
+        /// <summary>
+        /// Return the first extension with the given uri
+        /// </summary>
+        /// <param name="extendable"></param>
+        /// <param name="uri"></param>
+        /// <returns>The first uri, or null if no extension with the given uri was found.</returns>
+        public static Extension GetExtension(this IExtendable extendable, Uri uri)
+        {
+            if (extendable.Extension != null)
+            {
+                return GetExtensions(extendable, uri).FirstOrDefault();
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Find all extensions with the given uri.
+        /// </summary>
+        /// <param name="extendable"></param>
+        /// <param name="uri"></param>
+        /// <returns>The list of extensions with a matching uri, or empty list if none were found.</returns>
+        public static IEnumerable<Extension> GetExtensions(this IExtendable extendable, Uri uri)
+        {
+            if (extendable.Extension != null)
+            {
+                return extendable.Extension
+                    .Where(ext => ext.Url != null && ext.Url.ToString() == uri.ToString());
+            }
+
+            return null;
+        }
+
+
+        /// <summary>
+        /// Add an extension with the given uri and value.
+        /// </summary>
+        /// <param name="extendable"></param>
+        /// <param name="uri"></param>
+        /// <param name="value"></param>
+        /// <returns>The newly added Extension</returns>
+        public static Extension AddExtension(this IExtendable extendable, Uri uri, Element value)
+        {
+            if (extendable.Extension == null)
+                extendable.Extension = new List<Extension>();
+
+            var newExtension = new Extension() { Url = uri, Value = value };
+            extendable.Extension.Add(newExtension);
+
+            return newExtension;
+        }
+
+
+        /// <summary>
+        /// Remove all extensions with the current uri, if any.
+        /// </summary>
+        /// <param name="extendable"></param>
+        /// <param name="uri"></param>
+        public static void RemoveExtension(this IExtendable extendable, Uri uri)
+        {
+            if (extendable.Extension == null) return;
+
+            extendable.Extension.RemoveAll(ext => ext.Url != null && ext.Url.ToString() == uri.ToString());
+        }
+
+        /// <summary>
+        /// Add an extension with the given uri and value, removing any pre-existsing extensions
+        /// with the same uri.
+        /// </summary>
+        /// <param name="extendable"></param>
+        /// <param name="uri"></param>
+        /// <param name="value"></param>
+        /// <returns>The newly added extension</returns>
+        public static Extension SetExtension(this IExtendable extendable, Uri uri, Element value)
+        {
+            if (extendable.Extension == null)
+                extendable.Extension = new List<Extension>();
+
+            RemoveExtension(extendable, uri);
+
+            return AddExtension(extendable, uri, value);
+        }
+    }
 }
+
+

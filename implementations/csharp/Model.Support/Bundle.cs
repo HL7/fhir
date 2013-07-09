@@ -225,11 +225,11 @@ namespace Hl7.Fhir.Model
         {
             get
             {
-                if( Content is Binary )
+                if (Content is Binary)
                     return string.Format("<div xmlns='http://www.w3.org/1999/xhtml'>" +
                         "Binary content (mediatype {0})</div>", ((Binary)Content).ContentType);
-                else if(Content != null && Content.Text != null && Content.Text.Div != null)
-                    return (string)Content.Text.Div;
+                else if (Content != null && Content.Text != null)
+                    return Content.Text.Div;
                 else
                     return null;
             }

@@ -262,8 +262,8 @@ public class CSharpSerializerGenerator extends GenBlock
 	private void generateMemberSerializer(ElementDefn member) throws Exception 
 	{
 		String propertyName = "value." + 
-			GeneratorUtils.generateCSharpMemberName(member);		
-
+		        member.getGeneratorAnnotations().get(CSharpModelGenerator.CLASSGEN_MEMBER_NAME);
+	  		
 		ln("if(" + propertyName + " != null");
 		
 		if(!member.isSummaryItem())
@@ -297,7 +297,7 @@ public class CSharpSerializerGenerator extends GenBlock
 	
 	
 	private void serializePrimitiveValue(ElementDefn member, String propertyName)
-	{
+	{ 
     // Primitive elements only serialize the element's Value.
     ln("writer.WritePrimitiveContents(");   
     nl("\"" + member.getName() + "\", " );

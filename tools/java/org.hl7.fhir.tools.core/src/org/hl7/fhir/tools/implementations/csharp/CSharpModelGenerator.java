@@ -123,6 +123,7 @@ public class CSharpModelGenerator extends GenBlock
 		ln("using System.Collections.Generic;");
 		ln("using Hl7.Fhir.Support;");
 		ln("using System.Xml.Linq;");
+		ln("using System.Linq;");
 		ln();
 		ln("/*");
 		ln(Config.FULL_LICENSE_CODE);
@@ -231,39 +232,110 @@ public class CSharpModelGenerator extends GenBlock
 		ln("/// </summary>");
 		ln("public ");
 		
-		if( member.getMaxCardinality() == -1 )  nl("List<");		
-
 		// Determine the most appropriate FHIR type to use for this
 		// (possibly polymorphic) element.
 		TypeRef tref = GeneratorUtils.getMemberTypeForElement(getDefinitions(),member);
 		
-		if( GeneratorUtils.isCodeWithCodeList( getDefinitions(), tref ) )
-		{
-			nl("Code<" + GeneratorUtils.buildFullyScopedTypeName(tref.getFullBindingRef()) + ">");
-		}
+		String memberCsType;
 		
-		// Primitive elements' value property maps directly to a C# type
+		if( GeneratorUtils.isCodeWithCodeList( getDefinitions(), tref ) )
+		  // Strongly typed enums use a special Code<T> type
+		  memberCsType = "Code<" + GeneratorUtils.buildFullyScopedTypeName(tref.getFullBindingRef()) + ">";	
 		else if( member.isPrimitiveValueElement() )
-		{
-			nl( GeneratorUtils.mapPrimitiveToCSharpType( context.getName() ));
-		}
+	    // Primitive elements' value property maps directly to a C# type
+		  memberCsType = GeneratorUtils.mapPrimitiveToCSharpType(context.getName());
 		else 
-		{
-			nl( GeneratorUtils.buildFullyScopedTypeName(tref) );
-		}
+			memberCsType = GeneratorUtils.buildFullyScopedTypeName(tref);
 
-		if( member.getMaxCardinality() == -1 ) nl(">");
+		String singleElementCsType = memberCsType;
+		
+		// Surround with List<T> if it is a repeating element
+		if( member.getMaxCardinality() == -1 )
+		  memberCsType = "List<" + memberCsType + ">";
 	
 		String memberName = GeneratorUtils.generateCSharpMemberName(member);
+		
+		boolean isSimpleElement = Character.isLowerCase(tref.getName().charAt(0)) && !member.isPrimitiveValueElement();
+    
+		if(isSimpleElement) memberName += "Element";
+		
 		member.getGeneratorAnnotations().put(CLASSGEN_MEMBER_NAME, memberName);
-		nl( " " + memberName  );
+		member.getGeneratorAnnotations().put(CLASSGEN_MEMBER_CSTYPE, memberCsType);
+	
+		nl( memberCsType + " " + memberName  );
+		
 		nl(" { get; set; }");
 		ln();
+		
+		if(isSimpleElement)
+	    // If this element is of a type that is a FHIR primitive, generate extra helper
+	    // access methods to get to easily get to the elements Value property.
+		  generateSimpleValueAccess(member, tref, memberCsType, singleElementCsType, memberName);
 	}
+
+
+  private void generateSimpleValueAccess(ElementDefn member, TypeRef tref, String memberCsType, 
+      String singleElementCsType, String memberName) throws Exception {
+	  boolean isList = member.getMaxCardinality() == -1; 
+	  boolean isTypedEnum = GeneratorUtils.isCodeWithCodeList( getDefinitions(), tref ); 
+	  String csType = null;
+	  String simpleMemberName = GeneratorUtils.generateCSharpMemberName(member);
+	  
+	  if( isTypedEnum  )
+	    csType = GeneratorUtils.buildFullyScopedTypeName(tref.getFullBindingRef()) + "?";
+	  else
+	    csType = GeneratorUtils.mapPrimitiveToCSharpType(tref.getName() );
+	  
+
+	  if( isList )
+	    csType = "IEnumerable<" + csType + ">";
+	  
+	  ln("public " + csType + " " + simpleMemberName);
+	  bs("{");
+	    ln("get { return " + memberName + " != null ? ");
+	    if(!isList)
+	      nl(memberName + ".Value");
+	    else
+	      nl(memberName + ".Select(elem => elem.Value)");
+	    nl(" : null; }");
+	    ln("set");
+	    bs("{");
+	      ln("if(value == null)");
+	      ln("  " + memberName + " = null; ");
+	      ln("else");
+	      ln("  " + memberName + " = new " + memberCsType);
+	      
+	      if( !isList )
+	        nl("(value);");
+	      else
+	      {
+	        nl("(value.Select(elem=>new ");
+	        nl(singleElementCsType + "(elem)));");
+	      }
+	      
+	    es("}");
+
+//	    Some new constructs for in-place editing of array. Not too sure whether
+//	    thats a good idea
+//
+//      public string GetLine(int index)
+//      {
+//          return LineElement != null ? LineElement[index].Value : null;
+//      }
+//
+//      public void SetLine(int index, string value)
+//      {
+//          if (LineElement == null) LineElement = new List<FhirString>();
+//          LineElement[index] = new FhirString(value);
+//      }
+
+	  es("}");
+	  ln();
+  }
 	
 
 	public final static String CLASSGEN_MEMBER_NAME = "classgen.membername";
-	
+	public final static String CLASSGEN_MEMBER_CSTYPE = "classgen.membercstype";
 	
 	private void nestedLocalTypes( List<CompositeTypeDefn> nestedTypes) throws Exception
 	{
@@ -434,7 +506,7 @@ public class CSharpModelGenerator extends GenBlock
 	public GenBlock generateExtraPrimitiveMembers(PrimitiveDefn primitive, String className) throws Exception
 	{	
 		String csharpPrimitive = GeneratorUtils.mapPrimitiveToCSharpType(primitive.getName()); 
-		boolean isNullablePrimitive = csharpPrimitive.endsWith("?");
+		//boolean isNullablePrimitive = csharpPrimitive.endsWith("?");
 
 		begin();
 		
@@ -462,48 +534,48 @@ public class CSharpModelGenerator extends GenBlock
         ln();
         
         // Generate the cast from a C# primitive to the Fhir primitive
-        ln("public static implicit operator ");
-        	nl(className);
-        	nl("(" + csharpPrimitive + " value)");
-        bs("{");
-            ln("if(value == null)");
-            ln("  return null;");
-            ln("else");
-            ln("  return new " );	nl(className + "(value);");
-        es("}");
-        ln();
+//        ln("public static implicit operator ");
+//        	nl(className);
+//        	nl("(" + csharpPrimitive + " value)");
+//        bs("{");
+//            ln("if(value == null)");
+//            ln("  return null;");
+//            ln("else");
+//            ln("  return new " );	nl(className + "(value);");
+//        es("}");
+//        ln();
         
         // Generate the cast from the Fhir primitive to the C# primitive
         // This is an explicit cast because you'll lose information about
         // dataAbsentReasons, refid, extensions
-        ln("public static explicit operator ");
-        	nl(csharpPrimitive);
-        	nl("(" + className + " value)");
-        bs("{");
-          ln("if(value != null)");
-          ln("  return value.Value;");
-          ln("else");
-          ln("  return null;");
-        es("}");
-        ln();
+//        ln("public static explicit operator ");
+//        	nl(csharpPrimitive);
+//        	nl("(" + className + " value)");
+//        bs("{");
+//          ln("if(value != null)");
+//          ln("  return value.Value;");
+//          ln("else");
+//          ln("  return null;");
+//        es("}");
+//        ln();
         
         // If the FhirPrimitive represents data using a C# nullable
         // primitive, generate another cast from the FhirPrimitive to the
         // non-nullable C# primitive.
-        if( isNullablePrimitive )
-        {
-        	String nonNullablePrimitive = csharpPrimitive.substring(0, csharpPrimitive.length()-1);
-        	
-        	ln("public static explicit operator ");
-        		nl(nonNullablePrimitive);
-        		nl("(" + className + " source)");
-        	bs("{");
-	            ln("if(source != null && source.Value != null)");
-	            ln("	return source.Value.Value;");
-	            ln("else");
-	            ln("	throw new InvalidCastException();");
-	        es("}");
-        }
+//        if( isNullablePrimitive )
+//        {
+//        	String nonNullablePrimitive = csharpPrimitive.substring(0, csharpPrimitive.length()-1);
+//        	
+//        	ln("public static explicit operator ");
+//        		nl(nonNullablePrimitive);
+//        		nl("(" + className + " source)");
+//        	bs("{");
+//	            ln("if(source != null && source.Value != null)");
+//	            ln("	return source.Value.Value;");
+//	            ln("else");
+//	            ln("	throw new InvalidCastException();");
+//	        es("}");
+//        }
        
         return end();
 	}
