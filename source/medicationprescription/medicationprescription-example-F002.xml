@@ -17,11 +17,11 @@
         <reference value="practitioner/@F006"/>
         <display value="R.A. van den Berk"/>
     </prescriber>
-    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
-        <type value="Encounter"/>
-        <reference value="encounter/@F001"/>
-        <display value="encounter who leads to this priscription"/>
-    </encounter>
+    <visit> <!-- Linked to a resource Visit between patient and practitioner-->
+        <type value="Visit"/>
+        <reference value="visit/@F001"/>
+        <display value="visit who leads to this priscription"/>
+    </visit>
     <reasonForPrescribingCodeableConcept>
         <coding>
             <system value="http://snomed.info"/>
@@ -29,7 +29,6 @@
             <display value="High density lipoprotein cholesterol level"/>
         </coding>
     </reasonForPrescribingCodeableConcept>
-    
     <medication> <!-- Linked to a RESOURCE Medication -->
         <type value="Medication"/>
         <reference value="medication/@F002"/>
@@ -45,8 +44,7 @@
                 <duration value="1"/>
                 <units value="d"/>
             </repeat>
-        </timingSchedule>
-            
+        </timingSchedule>  
         <site>
             <coding>
                 <system value="http://snomed.info"/>

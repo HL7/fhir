@@ -15,14 +15,14 @@
     <prescriber> <!-- Linked to the practitioner who treats patient -->
         <type value="Practitioner"/> 
         <reference value="practitioner/@f001"/>
-        <display value="R.A. van den Berg"/>
+        <display value="R.A. van den Berk"/>
     </prescriber>
-    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
+    <visit> <!-- Linked to a resource Visit between patient and practitioner-->
         <!-- TODO: Camiel nog correcte verwijzing (@f001 bestond nog niet) -->
-        <type value="Encounter"/>
-        <reference value="encounter/@f201"/>
-        <display value="encounter who leads to this priscription"/>
-    </encounter>
+        <type value="Visit"/>
+        <reference value="visit/@f201"/>
+        <display value="visit who leads to this priscription"/>
+    </visit>
     <reasonForPrescribingCodeableConcept>
         <coding>
             <system value="http://snomed.info"/>

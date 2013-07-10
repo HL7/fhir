@@ -65,7 +65,7 @@
                 <code value="mmol/l"/>
             </low>
             <high>
-                <value value="6.4"/>
+                <value value="6.2"/>
                 <units value="mmol/l"/>
                 <system value="http://unitsofmeasure.org"/>
                 <code value="mmol/l"/>

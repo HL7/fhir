@@ -16,9 +16,9 @@
     <!-- urn:oid:2.16.840.1.113883.4.642.1.36 -->
     <period>
         <start value="2011-06-26"/>
-        <end value="2013-06-27"/>
+        <end value="2011-06-27"/>
     </period>
-    <modified value="2013-06-27T09:30:10+01:00"/>
+    <modified value="2011-06-27T09:30:10+01:00"/>
     <concern>
         <type value="Condition"/>
         <reference value="condition/@f201"/>

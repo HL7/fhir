@@ -22,10 +22,10 @@
         <key value="nr1239044"/>
     </reportId>
     <requestDetail>
-        <encounter>
-            <type value="Encounter"/>
-            <reference value="encounter/@f201"/><!--TODO Correcte verwijzing-->
-        </encounter>
+        <visit>
+            <type value="Visit"/>
+            <reference value="visit/@f201"/><!--TODO Correcte verwijzing-->
+        </visit>
         <requestOrderId>
             <use value="official"/>
             <system value="http://www.bmc.nl/zorgportal/identifiers/labresults"/>

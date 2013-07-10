@@ -4,7 +4,7 @@
         <coding>
             <system value="http://loinc.org"/>
             <code value="28540-3"/>
-            <display value="Erythrocyte mean corpuscular hemoglobin concentration"/>
+            <display value="Erythrocyte concentration"/>
         </coding>
     </name>
     <valueQuantity>
