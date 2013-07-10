@@ -82,7 +82,7 @@ namespace Hl7.Fhir.Client
                 Resource result = parseResource();
 
                 if (!(result is Conformance))
-                    throw new FhirOperationException(
+                    throw new Exception(
                         String.Format("Received a resource of type {0}, expected a Conformance resource", result.GetType().Name));
 
                 return (Conformance)result;
@@ -91,10 +91,11 @@ namespace Hl7.Fhir.Client
             {
                 var outcome = tryParseOperationOutcome();
 
-                if (outcome != null)
-                    throw new FhirOperationException("Conformance operation failed with status code " + LastResponseDetails.Result);
-                else
-                    throw new FhirOperationException("Conformance operation failed with status code " + LastResponseDetails.Result, outcome);
+                // doesn't compile - gg- 11-jul
+                //if (outcome != null)
+                    throw new Exception("Conformance operation failed with status code " + LastResponseDetails.Result);
+                //else
+                //    throw new Exception("Conformance operation failed with status code " + LastResponseDetails.Result, outcome);
             }
         }
 
