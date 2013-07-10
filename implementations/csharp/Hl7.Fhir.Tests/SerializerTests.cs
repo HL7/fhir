@@ -118,7 +118,7 @@ namespace Hl7.Fhir.Tests
                 {
                     Url = new Uri("http://hl7.org/fhir/profiles/@3141#test"),
                     Value = new FhirBoolean(true),
-                    NestedExtension = new List<Extension>()
+                    Extension = new List<Extension>()
                         {
                             new Extension()
                             {
@@ -128,13 +128,17 @@ namespace Hl7.Fhir.Tests
                 };
 
             Assert.AreEqual(@"<?xml version=""1.0"" encoding=""utf-16""?>" +
-                @"<element xmlns=""http://hl7.org/fhir""><url value=""http://hl7.org/fhir/profiles/@3141#test"" /><valueBoolean value=""true"" />" +
-                @"<extension><valueCoding><system value=""http://hl7.org/fhir/sid/icd-10"" /><code value=""R51"" /></valueCoding></extension>" +
+                @"<element xmlns=""http://hl7.org/fhir"">" +
+                @"<extension><valueCoding><system value=""http://hl7.org/fhir/sid/icd-10"" /><code value=""R51"" /></valueCoding></extension>" +                
+                @"<url value=""http://hl7.org/fhir/profiles/@3141#test"" />" +
+                @"<valueBoolean value=""true"" />" +
                 @"</element>", FhirSerializer.SerializeElementAsXml(ext));
             Assert.AreEqual(
-                @"{""url"":{""value"":""http://hl7.org/fhir/profiles/@3141#test""},""valueBoolean"":{""value"":true}," +
-                @"""extension"":[{""valueCoding"":{""system"":{""value"":""http://hl7.org/fhir/sid/icd-10""},""code"":{""value"":""R51""}}}]}",
-                FhirSerializer.SerializeElementAsJson(ext));
+                @"{" +
+                @"""extension"":[{""valueCoding"":{""system"":{""value"":""http://hl7.org/fhir/sid/icd-10""},""code"":{""value"":""R51""}}}]," +
+                @"""url"":{""value"":""http://hl7.org/fhir/profiles/@3141#test""}," +  
+                @"""valueBoolean"":{""value"":true}" +
+                @"}", FhirSerializer.SerializeElementAsJson(ext));
         }
 
 
@@ -244,7 +248,7 @@ namespace Hl7.Fhir.Tests
         [TestMethod]
         public void SerializeAndDeserializeTagList()
         {
-            TagList tl = new TagList();
+            IList<Tag> tl = new List<Tag>();
 
             tl.Add(new Tag { Label = "No!", Uri = new Uri("http://www.nu.nl/tags") });
             tl.Add(new Tag { Label = "Maybe", Uri = new Uri("http://www.furore.com/tags") });
@@ -286,7 +290,7 @@ namespace Hl7.Fhir.Tests
         }
 
 
-        private static void verifyTagList(TagList tl)
+        private static void verifyTagList(IList<Tag> tl)
         {
             Assert.AreEqual(2, tl.Count);
             Assert.AreEqual("No!", tl[0].Label);

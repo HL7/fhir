@@ -46,7 +46,7 @@ namespace Hl7.Fhir.Parsers
 {
     internal static class TagListParser
     {
-        public static TagList ParseTagList(XmlReader xr, ErrorList errors)
+        public static IList<Tag> ParseTagList(XmlReader xr, ErrorList errors)
         {
             xr.MoveToContent();
 
@@ -73,7 +73,7 @@ namespace Hl7.Fhir.Parsers
         }
 
 
-        public static TagList ParseTagList(JsonReader xr, ErrorList errors)
+        public static IList<Tag> ParseTagList(JsonReader xr, ErrorList errors)
         {
             try
             {
@@ -101,9 +101,9 @@ namespace Hl7.Fhir.Parsers
         }
 
 
-        internal static TagList ParseTags(IEnumerable<XElement> tags)
+        internal static IList<Tag> ParseTags(IEnumerable<XElement> tags)
         {
-            var result = new TagList();
+            var result = new List<Tag>();
 
             if (tags != null)
             {
@@ -126,9 +126,9 @@ namespace Hl7.Fhir.Parsers
         }
 
 
-        internal static TagList ParseTags(JToken token)
+        internal static IList<Tag> ParseTags(JToken token)
         {
-            var result = new TagList();
+            var result = new List<Tag>();
             var tags = token as JArray;
 
             if (tags != null)

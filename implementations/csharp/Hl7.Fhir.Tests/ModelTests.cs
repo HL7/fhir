@@ -31,6 +31,8 @@ namespace Hl7.Fhir.Tests
 
             uri = FhirUri.Parse(illUuidUrl);
             Assert.AreEqual(1, uri.Validate().Count);
+
+            Assert.IsTrue(Uri.Equals(new Uri("http://nu.nl"), new Uri("http://nu.nl")));
         }
 
 
@@ -205,6 +207,26 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
+        public void TestTagSearching()
+        {
+            IList<Tag> tl = new List<Tag>();
+
+            tl.Add( new Tag("http://nu.nl", "v1" ) );
+            tl.Add(new Tag("http://nu.nl", "v2"));
+            tl.Add(new Tag("http://dan.nl", "v3"));
+
+            Assert.IsFalse(tl.HasTag("http://straks.nl"));
+            Assert.IsFalse(tl.HasTag("http://nu.nl", "v3" ));
+            Assert.IsTrue(tl.HasTag("http://dan.nl"));
+            Assert.IsTrue(tl.HasTag("http://dan.nl", "v3"));
+
+            Assert.AreEqual(0, tl.FindByUri("http://dan.nl", "v2").Count());
+            Assert.AreEqual(1, tl.FindByUri("http://dan.nl", "v3").Count());
+            Assert.AreEqual(1, tl.FindByUri("http://nu.nl", "v1").Count());
+            Assert.AreEqual(2, tl.FindByUri("http://nu.nl").Count());
+        }
+
+        [TestMethod]
         public void TestTypedResourceEntry()
         {
             var pe = new ResourceEntry<Patient>();
@@ -227,5 +249,29 @@ namespace Hl7.Fhir.Tests
                 // pass
             }
         }
+
+        [TestMethod]
+        public void TestResourceListFiltering()
+        {
+            var rl = new List<BundleEntry>();
+
+            rl.Add(new ResourceEntry<Patient> { Id = new Uri("http://x.com/@1"), SelfLink = new Uri("http://x.com/@1/history/@1") });
+            rl.Add(new ResourceEntry<Patient> { Id = new Uri("http://x.com/@1"), SelfLink = new Uri("http://x.com/@1/history/@2") });
+            rl.Add(new ResourceEntry<CarePlan> { Id = new Uri("http://x.com/@2"), SelfLink = new Uri("http://x.com/@2/history/@1") });
+            rl.Add(new DeletedEntry() { Id = new Uri("http://x.com/@2"), SelfLink = new Uri("http://x.com/@2/history/@2") });
+
+            var tr = rl.FilterByType<Patient>();
+            Assert.AreEqual(2, tr.Count());
+            var tr2 = rl.FilterByType<CarePlan>();
+            Assert.AreEqual(1, tr2.Count());
+
+            var ur = rl.FilterById(new Uri("http://x.com/@1"));
+            Assert.AreEqual(2, ur.Count());
+            Assert.AreEqual(2, ur.FilterByType<Patient>().Count());
+
+            Assert.IsNotNull(ur.FindBySelfLink(new Uri("http://x.com/@1/history/@1")));
+            Assert.IsNotNull(rl.FindBySelfLink(new Uri("http://x.com/@2/history/@2")));
+        }
+
     }
 }

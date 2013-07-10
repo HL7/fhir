@@ -371,6 +371,14 @@ public class GeneratorUtils {
 		return result;
 	}
 		
+	public static String makeCsStringLiteral(String contents)
+	{
+	  contents = "@" + "\"" + contents.replace("\"", "\"\"") + "\"";
+	  
+	  return contents;
+	}
+	
+	
 	public static String buildFullyScopedTypeName( TypeDefn type ) throws Exception
 	{
 		return buildFullyScopedTypeName(type.getFullName());

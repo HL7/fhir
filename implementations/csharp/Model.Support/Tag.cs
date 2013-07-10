@@ -50,6 +50,22 @@ namespace Hl7.Fhir.Model
 
         public string Label { get; set; }
 
+        public Tag()
+        {
+        }
+
+        public Tag(Uri uri, string label)
+        {
+            this.Uri = uri;
+            this.Label = label;
+        }
+
+        public Tag(string uri, string label)
+            : this(new Uri(uri,UriKind.Absolute), label)
+        {
+        }
+
+
         public ErrorList Validate()
         {
             ErrorList result = new ErrorList();
@@ -65,21 +81,42 @@ namespace Hl7.Fhir.Model
     }
 
 
-    public class TagList : List<Tag>
+    public static class TagListExtensions
     {
-        public Tag FindByUri(Uri uri)
+        public static IEnumerable<Tag> FindByUri(this IEnumerable<Tag> tags, Uri uri, string value = null)
         {
-            return this.FirstOrDefault(e => e.Uri != null && uri.ToString() == e.Uri.ToString());
+            if (value == null)
+                return tags.Where(e => Uri.Equals(e.Uri, uri));
+            else
+                return tags.Where(tag => Uri.Equals(tag.Uri, uri) && tag.Label == value);
         }
 
-        public ErrorList Validate()
+        public static IEnumerable<Tag> FindByUri(this IEnumerable<Tag> tags, string uri, string value = null)
+        {
+            return FindByUri(tags, new Uri(uri, UriKind.Absolute), value);
+        }
+
+        public static bool HasTag(this IEnumerable<Tag> tags, string uri, string value = null)
+        {
+            return HasTag(tags, new Uri(uri, UriKind.Absolute), value);
+        }
+
+        public static bool HasTag(this IEnumerable<Tag> tags, Uri uri, string value = null)
+        {
+            if(value == null)
+                return tags.Any(tag => Uri.Equals(tag.Uri, uri));
+            else
+                return tags.Any(tag => Uri.Equals(tag.Uri, uri) && tag.Label == value);
+        }
+
+        public static ErrorList Validate(this IEnumerable<Tag> tags)
         {
             ErrorList result = new ErrorList();
-            ForEach( tag => result.AddRange(tag.Validate()) );
+
+            foreach (var tag in tags) result.AddRange(tag.Validate());
 
             return result;
         }
     }
-
 }
 

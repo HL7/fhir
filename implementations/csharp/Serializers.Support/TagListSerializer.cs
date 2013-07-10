@@ -48,7 +48,7 @@ namespace Hl7.Fhir.Serializers
     {
         public const string TAGLIST_ROOT = "taglist";
 
-        internal static void SerializeTagList(TagList list, JsonWriter writer)
+        internal static void SerializeTagList(IList<Tag> list, JsonWriter writer)
         {
             JObject jTagList = new JObject(
                 new JProperty(TAGLIST_ROOT,
@@ -58,7 +58,7 @@ namespace Hl7.Fhir.Serializers
         }
 
 
-        internal static void SerializeTagList(TagList list, XmlWriter writer)
+        internal static void SerializeTagList(IList<Tag> list, XmlWriter writer)
         {
             XElement xTagList = new XElement(BundleXmlParser.XFHIRNS + TAGLIST_ROOT);
 
@@ -83,7 +83,7 @@ namespace Hl7.Fhir.Serializers
             return result;
         }
 
-        internal static JProperty CreateTagCategoryPropertyJson(TagList tagList)
+        internal static JProperty CreateTagCategoryPropertyJson(IList<Tag> tagList)
         {                       
             JArray jTags = new JArray();
             JProperty result = new JProperty(BundleXmlParser.XATOM_CATEGORY, jTags);

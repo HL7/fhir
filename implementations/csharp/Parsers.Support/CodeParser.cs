@@ -50,22 +50,26 @@ namespace Hl7.Fhir.Parsers
         public static Code<T> ParseCode<T>(IFhirReader reader, ErrorList errors,
                                 Code<T> existingInstance = null) where T : struct
         {
+            Hl7.Fhir.Model.Code<T> result = null;
+
             Code c = CodeParser.ParseCode(reader, errors);
 
-            Hl7.Fhir.Model.Code<T> result = existingInstance != null ? 
-                existingInstance : new Hl7.Fhir.Model.Code<T>();
-
-            result.Extension = c.Extension;
-            result.LocalId = c.LocalId;
-
-            try
+            if (c != null)
             {
-                result.Value = Code<T>.Parse(c.Value).Value;
+                result = existingInstance != null ? existingInstance : new Hl7.Fhir.Model.Code<T>();
+                result.Extension = c.Extension;
+                result.LocalId = c.LocalId;
+
+                try
+                {
+                    result.Value = Code<T>.Parse(c.Value).Value;
+                }
+                catch (Exception ex)
+                {
+                    errors.Add(ex.Message, reader);
+                }
             }
-            catch (Exception ex)
-            {
-                errors.Add(ex.Message, reader);
-            }
+
             return result;
         }
     }

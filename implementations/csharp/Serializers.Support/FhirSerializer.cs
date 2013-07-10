@@ -48,7 +48,7 @@ namespace Hl7.Fhir.Serializers
             return xmlWriterToString( xw => FhirSerializer.SerializeResource(resource, new XmlFhirWriter(xw), summary) );
         }
 
-        public static string SerializeTagListToXml(TagList list)
+        public static string SerializeTagListToXml(IList<Tag> list)
         {
             return xmlWriterToString(xw => TagListSerializer.SerializeTagList(list, xw));
         }
@@ -58,7 +58,7 @@ namespace Hl7.Fhir.Serializers
             return xmlWriterToBytes(xw => FhirSerializer.SerializeResource(resource, new XmlFhirWriter(xw), summary));
         }
 
-        public static byte[] SerializeTagListToXmlBytes(TagList list)
+        public static byte[] SerializeTagListToXmlBytes(IList<Tag> list)
         {
             return xmlWriterToBytes(xw => TagListSerializer.SerializeTagList(list, xw));
         }
@@ -68,7 +68,7 @@ namespace Hl7.Fhir.Serializers
             return jsonWriterToString(jw => FhirSerializer.SerializeResource(resource, new JsonFhirWriter(jw), summary));
         }
 
-        public static string SerializeTagListToJson(TagList list)
+        public static string SerializeTagListToJson(IList<Tag> list)
         {
             return jsonWriterToString(jw => TagListSerializer.SerializeTagList(list, jw));
         }
@@ -78,7 +78,7 @@ namespace Hl7.Fhir.Serializers
             return jsonWriterToBytes(jw => FhirSerializer.SerializeResource(resource, new JsonFhirWriter(jw), summary));
         }
 
-        public static byte[] SerializeTagListToJsonBytes(TagList list)
+        public static byte[] SerializeTagListToJsonBytes(IList<Tag> list)
         {
             return jsonWriterToBytes(jw => TagListSerializer.SerializeTagList(list, jw));
         }
@@ -89,12 +89,12 @@ namespace Hl7.Fhir.Serializers
             FhirSerializer.SerializeResource(resource, new JsonFhirWriter(writer), summary);
         }
 
-        public static void SerializeTagList(TagList list, JsonWriter jw)
+        public static void SerializeTagList(IList<Tag> list, JsonWriter jw)
         {
             TagListSerializer.SerializeTagList(list, jw);
         }
 
-        public static void SerializeTagList(TagList list, XmlWriter xw)
+        public static void SerializeTagList(IList<Tag> list, XmlWriter xw)
         {
             TagListSerializer.SerializeTagList(list, xw);
         }

@@ -102,6 +102,7 @@ public class CSharpModelGenerator extends GenBlock
 			ln("/// " +  constrained.getAnnotations().getShortDefinition());
 			ln("/// </summary>");
 			ln("[FhirComposite("); nl("\"" + constrained.getName() + "\""); nl(")]");
+			ln("[Serializable]");
 			ln("public partial class " +  GeneratorUtils.generateCSharpTypeName(constrained.getName()) );
 				nl(" : ");
 				nl(GeneratorUtils.generateCSharpTypeName(constrained.getConstrainedBaseType().getName()));
@@ -358,6 +359,7 @@ public class CSharpModelGenerator extends GenBlock
 		else if( composite.isResource() )
 			ln("[FhirResource(");
 		nl("\"" + composite.getName() + "\""); nl(")]");
+		ln("[Serializable]");
 		ln( "public ");
 			if( composite.isAbstract() ) nl("abstract ");
 			nl("partial class " + GeneratorUtils.generateCSharpTypeName(composite.getName()) );

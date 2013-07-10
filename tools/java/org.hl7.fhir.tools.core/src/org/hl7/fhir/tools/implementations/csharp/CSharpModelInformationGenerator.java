@@ -102,7 +102,7 @@ public class CSharpModelInformationGenerator extends GenBlock
               ln("new SearchParam() { ");
               nl("Resource = \"" + resource.getName() + "\"" );
               nl(", Name = \"" + param.getName() + "\"" );
-              nl(", Description = \"" + param.getDescription() + "\"" );
+              nl(", Description = " + GeneratorUtils.makeCsStringLiteral(param.getDescription()) );
               
               String type = Utilities.capitalize(param.getType().toString());
               nl(", Type = ParamType." + type );

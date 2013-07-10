@@ -428,7 +428,7 @@ namespace Hl7.Fhir.Tests
             e1.EntryAuthorName = "110.143.187.242";
             e1.Links.SelfLink = new Uri("http://test.com/fhir/patient/@233/history/@1");
             e1.Links.SearchLink = new Uri("http://test.com/fhir/patient/search?name=Kramer");
-            e1.Tags = new TagList() { new Tag() { Uri = new Uri("http://test.com/tag/test"), Label = "YES" } };
+            e1.Tags = new List<Tag>() { new Tag() { Uri = new Uri("http://test.com/tag/test"), Label = "YES" } };
 
 
             e1.Content = new Model.Patient()

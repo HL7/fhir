@@ -55,13 +55,13 @@ namespace Hl7.Fhir.Parsers
             return ParseResource(reader, errors);
         }
 
-        public static TagList ParseTagListFromXml(string xml, ErrorList errors)
+        public static IList<Tag> ParseTagListFromXml(string xml, ErrorList errors)
         {
             var reader = Util.XmlReaderFromString(xml);
             return ParseTagList(reader, errors);
         }
 
-        public static TagList ParseTagListFromJson(string json, ErrorList errors)
+        public static IList<Tag> ParseTagListFromJson(string json, ErrorList errors)
         {
             var reader = Util.JsonReaderFromString(json);
             return ParseTagList(reader, errors);
@@ -77,12 +77,12 @@ namespace Hl7.Fhir.Parsers
             return ParseResource(new JsonFhirReader(reader), errors);
         }
 
-        public static TagList ParseTagList(XmlReader reader, ErrorList errors)
+        public static IList<Tag> ParseTagList(XmlReader reader, ErrorList errors)
         {
             return TagListParser.ParseTagList(reader, errors);
         }
 
-        public static TagList ParseTagList(JsonReader reader, ErrorList errors)
+        public static IList<Tag> ParseTagList(JsonReader reader, ErrorList errors)
         {
             return TagListParser.ParseTagList(reader, errors);
         }
