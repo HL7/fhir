@@ -4,7 +4,7 @@ using Hl7.Fhir.Support;
 using System.Xml.Linq;
 
 /*
-  Copyright (c) 2011-2013, HL7, Inc.
+  IList<Tag>
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 

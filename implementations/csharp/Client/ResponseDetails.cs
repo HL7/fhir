@@ -1,5 +1,5 @@
 ﻿/*
-  Copyright (c) 2011-2012, HL7, Inc.
+  Copyright (c) 2011-2013, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -111,14 +111,6 @@ namespace Hl7.Fhir.Client
         {
             Encoding result = null;
 
-            //Stripped off, there will always be a content type according 
-            //to our specs and CharacterSet is not supported under WinRT
-            // First try .NET's idea of the CharacterSet
-            // if (!String.IsNullOrEmpty(response.CharacterSet))
-            //     result = Encoding.GetEncoding(response.CharacterSet);
-
-            // Then look at charset parameter on Content-Type header.
-            // This possibly overrides the CharacterSet header
             if (!String.IsNullOrEmpty(response.ContentType))
             {
 #if !NETFX_CORE

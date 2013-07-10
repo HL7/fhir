@@ -32,29 +32,47 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Hl7.Fhir;
+using Hl7.Fhir.Model;
+using Hl7.Fhir.Support;
+using System.Net;
+using Hl7.Fhir.Parsers;
+using Hl7.Fhir.Serializers;
+using System.IO;
+using Newtonsoft.Json;
 
 
-namespace Hl7.Fhir.Parsers
+
+namespace Hl7.Fhir.Client
 {
-    internal interface IFhirReader
+    [Serializable]
+    public class FhirOperationException : Exception
     {
-        void MoveToContent();
+        public OperationOutcome Outcome { get; set; }
 
-        string CurrentElementName { get; }
+        public FhirOperationException(string message) : base(message) 
+        { 
+        }
 
-        void EnterElement();
-        bool HasMoreElements();
-        void LeaveElement();
 
-        void EnterArray();
-        bool IsAtArrayMember();
-        void LeaveArray();
+        public FhirOperationException(string message, Exception inner) : base(message, inner)
+        { 
+        }
 
-        void SkipSubElementsFor(string elementName);
+        public FhirOperationException(string message, OperationOutcome outcome, Exception inner)
+            : base(message, inner)
+        {
+            Outcome = outcome;
+        }
 
-        string ReadPrimitiveContents(Type elementType);
+        public FhirOperationException(string message, OperationOutcome outcome)
+            : base(message)
+        {
+            Outcome = outcome;
+        }
 
-        int LineNumber { get; }
-        int LinePosition { get; }
     }
+
+
+
 }

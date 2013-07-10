@@ -1,5 +1,5 @@
 ﻿/*
-  Copyright (c) 2011-2012, HL7, Inc.
+  Copyright (c) 2011-2013, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -47,8 +47,6 @@ namespace Hl7.Fhir.Client
 {
     public class FhirClient
     {
-        //TODO: Binaries
-
         public Uri FhirEndpoint { get; private set; }
 
 
@@ -84,13 +82,20 @@ namespace Hl7.Fhir.Client
                 Resource result = parseResource();
 
                 if (!(result is Conformance))
-                    throw new InvalidOperationException(
+                    throw new FhirOperationException(
                         String.Format("Received a resource of type {0}, expected a Conformance resource", result.GetType().Name));
 
                 return (Conformance)result;
             }
             else
-                return null;
+            {
+                var outcome = tryParseOperationOutcome();
+
+                if (outcome != null)
+                    throw new FhirOperationException("Conformance operation failed with status code " + LastResponseDetails.Result);
+                else
+                    throw new FhirOperationException("Conformance operation failed with status code " + LastResponseDetails.Result, outcome);
+            }
         }
 
 
@@ -554,7 +559,6 @@ namespace Hl7.Fhir.Client
             req.UserAgent = agent;
 #endif
                        
-
             if (PreferredFormat == ContentType.ResourceFormat.Xml)
                 req.Accept = ContentType.BuildContentType(ContentType.ResourceFormat.Xml, forBundle);
             else if (PreferredFormat == ContentType.ResourceFormat.Json)
@@ -597,6 +601,24 @@ namespace Hl7.Fhir.Client
 #endif
             }
         }
+
+
+        private OperationOutcome tryParseOperationOutcome()
+        {
+            Resource body = null;
+
+            try
+            {
+                body = parseResource();
+            }
+            catch
+            {
+                return null;
+            }
+
+            return body as OperationOutcome;
+        }
+
 
         private Resource parseResource()
         {

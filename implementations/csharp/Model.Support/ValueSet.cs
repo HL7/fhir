@@ -5,7 +5,7 @@ using System.Xml.Linq;
 using System.Linq;
 
 /*
-  Copyright (c) 2011-2013, HL7, Inc.
+  IList<Tag>
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
