@@ -72,6 +72,7 @@ public class ElementDefn {
 	private String condition;
 	private String example;
 	private String profileName; // only in a profile, for slicing
+	private String discriminator; // when slicing
 	private String profile; // means some profile is applicable to this data type or resource reference
 	private String value; // only in a profile
 	private String aggregation; // only in a profile
@@ -693,6 +694,14 @@ public class ElementDefn {
 
   public void setUmlBreak(boolean umlBreak) {
     this.umlBreak = umlBreak;
+  }
+
+  public String getDiscriminator() {
+    return discriminator;
+  }
+
+  public void setDiscriminator(String discriminator) {
+    this.discriminator = discriminator;
   }
    
 	

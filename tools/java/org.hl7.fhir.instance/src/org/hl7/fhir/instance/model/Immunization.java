@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
+// Generated on Thu, Jul 11, 2013 17:46+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -321,34 +321,19 @@ public class Immunization extends Resource {
   }
 
     /**
-     * The patient to whom the vaccine was to be administered
-     */
-    protected ResourceReference subject;
-
-    /**
-     * Clinician who ordered the vaccination
-     */
-    protected ResourceReference requester;
-
-    /**
-     * Clinician that administered the vaccine
-     */
-    protected ResourceReference performer;
-
-    /**
-     * Name of vaccine manufacturer
-     */
-    protected ResourceReference manufacturer;
-
-    /**
-     * The service delivery location where the vaccine administration occurred.
-     */
-    protected ResourceReference location;
-
-    /**
      * Date vaccine administered or was to be administered
      */
     protected DateTime date;
+
+    /**
+     * Vaccine that was administered or was to be administered
+     */
+    protected CodeableConcept vaccineType;
+
+    /**
+     * The patient to whom the vaccine was to be administered
+     */
+    protected ResourceReference subject;
 
     /**
      * Indicates if the vaccination was refused.
@@ -361,9 +346,24 @@ public class Immunization extends Resource {
     protected Boolean reported;
 
     /**
-     * Vaccine that was administered or was to be administered
+     * Clinician that administered the vaccine
      */
-    protected CodeableConcept vaccineType;
+    protected ResourceReference performer;
+
+    /**
+     * Clinician who ordered the vaccination
+     */
+    protected ResourceReference requester;
+
+    /**
+     * Name of vaccine manufacturer
+     */
+    protected ResourceReference manufacturer;
+
+    /**
+     * The service delivery location where the vaccine administration occurred.
+     */
+    protected ResourceReference location;
 
     /**
      * Lot number of the  vaccine product
@@ -405,46 +405,6 @@ public class Immunization extends Resource {
      */
     protected ImmunizationVaccinationProtocolComponent vaccinationProtocol;
 
-    public ResourceReference getSubject() { 
-      return this.subject;
-    }
-
-    public void setSubject(ResourceReference value) { 
-      this.subject = value;
-    }
-
-    public ResourceReference getRequester() { 
-      return this.requester;
-    }
-
-    public void setRequester(ResourceReference value) { 
-      this.requester = value;
-    }
-
-    public ResourceReference getPerformer() { 
-      return this.performer;
-    }
-
-    public void setPerformer(ResourceReference value) { 
-      this.performer = value;
-    }
-
-    public ResourceReference getManufacturer() { 
-      return this.manufacturer;
-    }
-
-    public void setManufacturer(ResourceReference value) { 
-      this.manufacturer = value;
-    }
-
-    public ResourceReference getLocation() { 
-      return this.location;
-    }
-
-    public void setLocation(ResourceReference value) { 
-      this.location = value;
-    }
-
     public DateTime getDate() { 
       return this.date;
     }
@@ -461,6 +421,22 @@ public class Immunization extends Resource {
         if (this.date == null)
           this.date = new DateTime();
         this.date.setValue(value);
+    }
+
+    public CodeableConcept getVaccineType() { 
+      return this.vaccineType;
+    }
+
+    public void setVaccineType(CodeableConcept value) { 
+      this.vaccineType = value;
+    }
+
+    public ResourceReference getSubject() { 
+      return this.subject;
+    }
+
+    public void setSubject(ResourceReference value) { 
+      this.subject = value;
     }
 
     public Boolean getRefusedIndicator() { 
@@ -499,12 +475,36 @@ public class Immunization extends Resource {
         this.reported.setValue(value);
     }
 
-    public CodeableConcept getVaccineType() { 
-      return this.vaccineType;
+    public ResourceReference getPerformer() { 
+      return this.performer;
     }
 
-    public void setVaccineType(CodeableConcept value) { 
-      this.vaccineType = value;
+    public void setPerformer(ResourceReference value) { 
+      this.performer = value;
+    }
+
+    public ResourceReference getRequester() { 
+      return this.requester;
+    }
+
+    public void setRequester(ResourceReference value) { 
+      this.requester = value;
+    }
+
+    public ResourceReference getManufacturer() { 
+      return this.manufacturer;
+    }
+
+    public void setManufacturer(ResourceReference value) { 
+      this.manufacturer = value;
+    }
+
+    public ResourceReference getLocation() { 
+      return this.location;
+    }
+
+    public void setLocation(ResourceReference value) { 
+      this.location = value;
     }
 
     public String_ getLotNumber() { 
@@ -597,15 +597,15 @@ public class Immunization extends Resource {
 
       public Immunization copy() {
         Immunization dst = new Immunization();
-        dst.subject = subject == null ? null : subject.copy();
-        dst.requester = requester == null ? null : requester.copy();
-        dst.performer = performer == null ? null : performer.copy();
-        dst.manufacturer = manufacturer == null ? null : manufacturer.copy();
-        dst.location = location == null ? null : location.copy();
         dst.date = date == null ? null : date.copy();
+        dst.vaccineType = vaccineType == null ? null : vaccineType.copy();
+        dst.subject = subject == null ? null : subject.copy();
         dst.refusedIndicator = refusedIndicator == null ? null : refusedIndicator.copy();
         dst.reported = reported == null ? null : reported.copy();
-        dst.vaccineType = vaccineType == null ? null : vaccineType.copy();
+        dst.performer = performer == null ? null : performer.copy();
+        dst.requester = requester == null ? null : requester.copy();
+        dst.manufacturer = manufacturer == null ? null : manufacturer.copy();
+        dst.location = location == null ? null : location.copy();
         dst.lotNumber = lotNumber == null ? null : lotNumber.copy();
         dst.expirationDate = expirationDate == null ? null : expirationDate.copy();
         dst.site = site == null ? null : site.copy();

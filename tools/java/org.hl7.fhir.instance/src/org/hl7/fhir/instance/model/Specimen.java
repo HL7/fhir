@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
+// Generated on Thu, Jul 11, 2013 17:46+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -99,7 +99,7 @@ public class Specimen extends Resource {
         protected DateTime collectedTime;
 
         /**
-         * The quantity of speciment collected
+         * The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample
          */
         protected Quantity quantity;
 
@@ -128,13 +128,9 @@ public class Specimen extends Resource {
         }
 
         public void setCollectedTimeSimple(String value) { 
-          if (value == null)
-            this.collectedTime = null;
-          else {
             if (this.collectedTime == null)
               this.collectedTime = new DateTime();
             this.collectedTime.setValue(value);
-          }
         }
 
         public Quantity getQuantity() { 

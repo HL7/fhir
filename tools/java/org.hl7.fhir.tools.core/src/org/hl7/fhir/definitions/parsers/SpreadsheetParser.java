@@ -662,7 +662,8 @@ public class SpreadsheetParser {
 		if (path.contains("#"))
 			throw new Exception("Old path style @ " + getLocation(row));
 
-		String profileName = isProfile ? sheet.getColumn(row, "Profile Name") : "";
+    String profileName = isProfile ? sheet.getColumn(row, "Profile Name") : "";
+    String discriminator = isProfile ? sheet.getColumn(row, "Discriminator") : "";
 		
 		boolean isRoot = !path.contains(".");
 		
@@ -692,6 +693,7 @@ public class SpreadsheetParser {
 			e.setMaxCardinality("*".equals(card[1]) ? null : Integer.parseInt(card[1]));
 		}
 		e.setProfileName(profileName);
+		e.setDiscriminator(discriminator);
 		String aliases = sheet.getColumn(row, "Aliases");
 		if (!Utilities.noString(aliases))
 		  if (aliases.contains(";")) {

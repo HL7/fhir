@@ -73,8 +73,8 @@ The following kinds of statements can be made about how a resource or data type 
  <li>Restricting the types for an element that allows multiple types</li>
  <li>Requiring a typed element or the target of a resource reference to conform to a profile declared elsewhere</li>
  <li>Specifying a binding to a different terminology value set</li>
- <li>Providing alternative definitions that explain how the genreally defined elements are used in a particular context</li>
- <li>Providing more specific or additional mappings for the resource when used in a particular context</li> 
+ <li>Providing alternative definitions for the elements defined in a Resource to explain how they are used in the context of the Profile</li>
+ <li>Providing more specific or additional mappings (e.g. to v2 or v3) for the resource when used in a particular context</li> 
 </ul>
 <p>
 All of these changed definitions must be restrictions that are consistent with the 
@@ -147,11 +147,11 @@ are never exchanged. A resource instance looks like this:
  &lt;Observation&gt;
    &lt;component&gt;
      &lt;code value=&quot;8480-6&quot;/&gt;
-     &lt;value ...&gt;
+     &lt;valueQuantity ...&gt;
    &lt;/component&gt;
    &lt;component&gt;
      &lt;code value=&quot;8462-4&quot;/&gt;
-     &lt;value ...&gt;
+     &lt;valueQuantity ...&gt;
    &lt;/component&gt;
 </pre>
 <p>
@@ -170,7 +170,9 @@ TODO: how does the discrimator work with resource references?
 <p>
 Within a profile, a slice will mean that there are multiple entries in the element list with the 
 same path, each with a different name. All slices that are grouped together (no short path 
-in the elements between them) must have the same discriminator value, which can be a simple 
+in the elements between them) must have the same discriminator element in the profile, and 
+each slice must specify a distinct set of possible values for the element so that the different
+slice can be differentiated. The value of the discriminator is either a simple 
 name - the name of a child element, or an URI, which is identifies an extension that serves
 as the descriminator.
 </p>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
+// Generated on Thu, Jul 11, 2013 17:46+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -392,6 +392,11 @@ public class Profile extends Resource {
         protected String_ name;
 
         /**
+         * This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context
+         */
+        protected Boolean publish;
+
+        /**
          * Human summary: why describe this resource?
          */
         protected String_ purpose;
@@ -451,6 +456,28 @@ public class Profile extends Resource {
           }
         }
 
+        public Boolean getPublish() { 
+          return this.publish;
+        }
+
+        public void setPublish(Boolean value) { 
+          this.publish = value;
+        }
+
+        public boolean getPublishSimple() { 
+          return this.publish == null ? null : this.publish.getValue();
+        }
+
+        public void setPublishSimple(boolean value) { 
+          if (value == false)
+            this.publish = null;
+          else {
+            if (this.publish == null)
+              this.publish = new Boolean();
+            this.publish.setValue(value);
+          }
+        }
+
         public String_ getPurpose() { 
           return this.purpose;
         }
@@ -507,6 +534,7 @@ public class Profile extends Resource {
         ProfileStructureComponent dst = e.new ProfileStructureComponent();
         dst.type = type == null ? null : type.copy();
         dst.name = name == null ? null : name.copy();
+        dst.publish = publish == null ? null : publish.copy();
         dst.purpose = purpose == null ? null : purpose.copy();
         dst.profile = profile == null ? null : profile.copy();
         dst.element = new ArrayList<ElementComponent>();
@@ -530,6 +558,11 @@ public class Profile extends Resource {
          * A unique name referring to a specific set of constraints applied to this element
          */
         protected String_ name;
+
+        /**
+         * If this element is one of a number of slices (choices) then this element must be populated, and it designates which child element is used to discriminate between the slices
+         */
+        protected Id discriminator;
 
         /**
          * Definition of the content of the element to provide a more specific definition than that contained for the element in the base resource
@@ -581,6 +614,28 @@ public class Profile extends Resource {
           }
         }
 
+        public Id getDiscriminator() { 
+          return this.discriminator;
+        }
+
+        public void setDiscriminator(Id value) { 
+          this.discriminator = value;
+        }
+
+        public String getDiscriminatorSimple() { 
+          return this.discriminator == null ? null : this.discriminator.getValue();
+        }
+
+        public void setDiscriminatorSimple(String value) { 
+          if (value == null)
+            this.discriminator = null;
+          else {
+            if (this.discriminator == null)
+              this.discriminator = new Id();
+            this.discriminator.setValue(value);
+          }
+        }
+
         public ElementDefinitionComponent getDefinition() { 
           return this.definition;
         }
@@ -615,6 +670,7 @@ public class Profile extends Resource {
         ElementComponent dst = e.new ElementComponent();
         dst.path = path == null ? null : path.copy();
         dst.name = name == null ? null : name.copy();
+        dst.discriminator = discriminator == null ? null : discriminator.copy();
         dst.definition = definition == null ? null : definition.copy(e);
         dst.bundled = bundled == null ? null : bundled.copy();
         return dst;
@@ -1629,11 +1685,6 @@ public class Profile extends Resource {
     protected List<ProfileImportComponent> import_ = new ArrayList<ProfileImportComponent>();
 
     /**
-     * If this profile describes a bundle, the first resource in the bundle (usually a Message or a Document)
-     */
-    protected Code bundle;
-
-    /**
      * A constraint statement about what contents a resource or data type may have
      */
     protected List<ProfileStructureComponent> structure = new ArrayList<ProfileStructureComponent>();
@@ -1850,28 +1901,6 @@ public class Profile extends Resource {
       return this.import_;
     }
 
-    public Code getBundle() { 
-      return this.bundle;
-    }
-
-    public void setBundle(Code value) { 
-      this.bundle = value;
-    }
-
-    public String getBundleSimple() { 
-      return this.bundle == null ? null : this.bundle.getValue();
-    }
-
-    public void setBundleSimple(String value) { 
-      if (value == null)
-        this.bundle = null;
-      else {
-        if (this.bundle == null)
-          this.bundle = new Code();
-        this.bundle.setValue(value);
-      }
-    }
-
     public List<ProfileStructureComponent> getStructure() { 
       return this.structure;
     }
@@ -1904,7 +1933,6 @@ public class Profile extends Resource {
         dst.import_ = new ArrayList<ProfileImportComponent>();
         for (ProfileImportComponent i : import_)
           dst.import_.add(i.copy(dst));
-        dst.bundle = bundle == null ? null : bundle.copy();
         dst.structure = new ArrayList<ProfileStructureComponent>();
         for (ProfileStructureComponent i : structure)
           dst.structure.add(i.copy(dst));

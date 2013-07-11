@@ -281,8 +281,10 @@ public class ProfileGenerator {
     Profile.ElementComponent ce = p.new ElementComponent();
     c.getElement().add(ce);
     ce.setPath(Factory.newString_(path));
-    if (!"".equals(e.getProfileName()))
+    if (!Utilities.noString(e.getProfileName())) {
       ce.setName(Factory.newString_(e.getProfileName()));
+      ce.setDiscriminatorSimple(e.getDiscriminator());
+    }
     ce.setDefinition(p.new ElementDefinitionComponent());
     if (!"".equals(e.getComments()))
       ce.getDefinition().setComments(Factory.newString_(e.getComments()));

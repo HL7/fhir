@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:19:17Z</Created>
-  <LastSaved>2013-07-11T01:27:55Z</LastSaved>
+  <LastSaved>2013-07-11T05:20:38Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,6 +20,7 @@
   <WindowWidth>27780</WindowWidth>
   <WindowTopX>-120</WindowTopX>
   <WindowTopY>-45</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -272,7 +273,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">id</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">FHIR Version this profile targets</Data></Cell>
-    <Cell><Data ss:Type="String">The version of the FHIR specification on which this conformance statement is based</Data></Cell>
+    <Cell><Data ss:Type="String">The version of the FHIR specification on which this profile is based</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">A profile does not need to specify the target it applies to,as profiles will often be valid across multiple versions of FHIR. FHIR tooling can determine whether a profile is consistent with a particular profile if desired</Data></Cell>
    </Row>
@@ -1129,11 +1130,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>32</TopRowBottomPane>
+   <TopRowBottomPane>6</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1150,8 +1150,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>35</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1255,7 +1255,8 @@
     <Cell><Data ss:Type="Number">15</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile</Data></Cell>
     <Cell><Data ss:Type="String">Published Structures must have different types</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">todo</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">exists(f:structure) or exists(f:extensionDefn) or exists(f:binding)</Data></Cell>
+    <Cell><Data ss:Type="String">(still to do)</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1271,10 +1272,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>14</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>

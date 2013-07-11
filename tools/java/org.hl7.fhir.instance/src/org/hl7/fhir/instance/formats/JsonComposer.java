@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
+// Generated on Thu, Jul 11, 2013 17:46+1000 for FHIR v0.09
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -1919,15 +1919,15 @@ public class JsonComposer extends JsonComposerBase {
     if (element != null) {
       open(name);
       composeResourceElements(element);
-      composeResourceReference("subject", element.getSubject());
-      composeResourceReference("requester", element.getRequester());
-      composeResourceReference("performer", element.getPerformer());
-      composeResourceReference("manufacturer", element.getManufacturer());
-      composeResourceReference("location", element.getLocation());
       composeDateTime("date", element.getDate());
+      composeCodeableConcept("vaccineType", element.getVaccineType());
+      composeResourceReference("subject", element.getSubject());
       composeBoolean("refusedIndicator", element.getRefusedIndicator());
       composeBoolean("reported", element.getReported());
-      composeCodeableConcept("vaccineType", element.getVaccineType());
+      composeResourceReference("performer", element.getPerformer());
+      composeResourceReference("requester", element.getRequester());
+      composeResourceReference("manufacturer", element.getManufacturer());
+      composeResourceReference("location", element.getLocation());
       composeString("lotNumber", element.getLotNumber());
       composeDate("expirationDate", element.getExpirationDate());
       composeCodeableConcept("site", element.getSite());
@@ -3068,7 +3068,6 @@ public class JsonComposer extends JsonComposerBase {
           composeProfileProfileImportComponent(null, e);
         closeArray();
       };
-      composeCode("bundle", element.getBundle());
       if (element.getStructure().size() > 0) {
         openArray("structure");
         for (Profile.ProfileStructureComponent e : element.getStructure()) 
@@ -3107,6 +3106,7 @@ public class JsonComposer extends JsonComposerBase {
       composeElement(element);
       composeCode("type", element.getType());
       composeString("name", element.getName());
+      composeBoolean("publish", element.getPublish());
       composeString("purpose", element.getPurpose());
       composeUri("profile", element.getProfile());
       if (element.getElement().size() > 0) {
@@ -3131,6 +3131,7 @@ public class JsonComposer extends JsonComposerBase {
       composeElement(element);
       composeString("path", element.getPath());
       composeString("name", element.getName());
+      composeId("discriminator", element.getDiscriminator());
       composeProfileElementDefinitionComponent("definition", element.getDefinition());
       composeBoolean("bundled", element.getBundled());
       close();

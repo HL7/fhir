@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Jul 10, 2013 05:26+1000 for FHIR v0.09
+// Generated on Thu, Jul 11, 2013 17:46+1000 for FHIR v0.09
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -2092,24 +2092,24 @@ public class JsonParser extends JsonParserBase {
   private Immunization parseImmunization(JSONObject json) throws Exception {
     Immunization res = new Immunization();
     parseResourceProperties(json, res);
-    if (json.has("subject"))
-      res.setSubject(parseResourceReference(json.getJSONObject("subject")));
-    if (json.has("requester"))
-      res.setRequester(parseResourceReference(json.getJSONObject("requester")));
-    if (json.has("performer"))
-      res.setPerformer(parseResourceReference(json.getJSONObject("performer")));
-    if (json.has("manufacturer"))
-      res.setManufacturer(parseResourceReference(json.getJSONObject("manufacturer")));
-    if (json.has("location"))
-      res.setLocation(parseResourceReference(json.getJSONObject("location")));
     if (json.has("date"))
       res.setDate(parseDateTime(json.getJSONObject("date")));
+    if (json.has("vaccineType"))
+      res.setVaccineType(parseCodeableConcept(json.getJSONObject("vaccineType")));
+    if (json.has("subject"))
+      res.setSubject(parseResourceReference(json.getJSONObject("subject")));
     if (json.has("refusedIndicator"))
       res.setRefusedIndicator(parseBoolean(json.getJSONObject("refusedIndicator")));
     if (json.has("reported"))
       res.setReported(parseBoolean(json.getJSONObject("reported")));
-    if (json.has("vaccineType"))
-      res.setVaccineType(parseCodeableConcept(json.getJSONObject("vaccineType")));
+    if (json.has("performer"))
+      res.setPerformer(parseResourceReference(json.getJSONObject("performer")));
+    if (json.has("requester"))
+      res.setRequester(parseResourceReference(json.getJSONObject("requester")));
+    if (json.has("manufacturer"))
+      res.setManufacturer(parseResourceReference(json.getJSONObject("manufacturer")));
+    if (json.has("location"))
+      res.setLocation(parseResourceReference(json.getJSONObject("location")));
     if (json.has("lotNumber"))
       res.setLotNumber(parseString(json.getJSONObject("lotNumber")));
     if (json.has("expirationDate"))
@@ -3421,8 +3421,6 @@ public class JsonParser extends JsonParserBase {
         res.getImport().add(parseProfileProfileImportComponent(array.getJSONObject(i), res));
       }
     };
-    if (json.has("bundle"))
-      res.setBundle(parseCode(json.getJSONObject("bundle")));
     if (json.has("structure")) {
       JSONArray array = json.getJSONArray("structure");
       for (int i = 0; i < array.length(); i++) {
@@ -3461,6 +3459,8 @@ public class JsonParser extends JsonParserBase {
       res.setType(parseCode(json.getJSONObject("type")));
     if (json.has("name"))
       res.setName(parseString(json.getJSONObject("name")));
+    if (json.has("publish"))
+      res.setPublish(parseBoolean(json.getJSONObject("publish")));
     if (json.has("purpose"))
       res.setPurpose(parseString(json.getJSONObject("purpose")));
     if (json.has("profile"))
@@ -3487,6 +3487,8 @@ public class JsonParser extends JsonParserBase {
       res.setPath(parseString(json.getJSONObject("path")));
     if (json.has("name"))
       res.setName(parseString(json.getJSONObject("name")));
+    if (json.has("discriminator"))
+      res.setDiscriminator(parseId(json.getJSONObject("discriminator")));
     if (json.has("definition"))
       res.setDefinition(parseProfileElementDefinitionComponent(json.getJSONObject("definition"), owner));
     if (json.has("bundled"))

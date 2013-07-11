@@ -20,6 +20,7 @@
   <WindowWidth>15570</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -175,7 +176,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <LeftColumnVisible>1</LeftColumnVisible>
    <Panes>
     <Pane>
@@ -189,18 +189,18 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="LipidProfile">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="11" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="11" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s66" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="169.5"/>
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="56.25"/>
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="120"/>
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="40.5"/>
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="44.25"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="81"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="61.5"/>
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="81" ss:Span="1"/>
+   <Column ss:Index="9" ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="61.5"/>
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="99.75"/>
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="12" ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:Index="13" ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
@@ -212,6 +212,7 @@
     <Cell><Data ss:Type="String">Binding</Data></Cell>
     <Cell><Data ss:Type="String">Must Support</Data></Cell>
     <Cell><Data ss:Type="String">Profile</Data></Cell>
+    <Cell><Data ss:Type="String">Discriminator</Data></Cell>
     <Cell><Data ss:Type="String">Value</Data></Cell>
     <Cell><Data ss:Type="String">Editor's Comment</Data></Cell>
     <Cell><Data ss:Type="String">Short Name</Data></Cell>
@@ -227,31 +228,31 @@
     <Cell ss:Index="2"><Data ss:Type="String">DiagnosticReport</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Note that this profile doesn't mention workflow  elements - it's solely concerned with the semantics of a lipid report. Things that are ignored are not constrained</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Note that this profile doesn't mention workflow  elements - it's solely concerned with the semantics of a lipid report. Things that are ignored are not constrained</Data></Cell>
     <Cell><Data ss:Type="String">Lipid Lab Report</Data></Cell>
     <Cell><Data ss:Type="String">The findings and interpretation of a general lipd lab profile</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">In this profile, mustSupport means that authoring systems must include the ability to report these elements, and processing systems must cater for them by either displaying them to the user or considering them appropriately in decision support systems</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">In this profile, mustSupport means that authoring systems must include the ability to report these elements, and processing systems must cater for them by either displaying them to the user or considering them appropriately in decision support systems</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2"><Data ss:Type="String">DiagnosticReport.results</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">you have to this for structural reasons</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">you have to this for structural reasons</Data></Cell>
     <Cell><Data ss:Type="String">Lipid Lab Results</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:Index="2"><Data ss:Type="String">DiagnosticReport.results.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="Default"><Data ss:Type="String">http://loinc.org#57698-3|Lipid panel with direct LDL</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="Default"><Data ss:Type="String">http://loinc.org#57698-3|Lipid panel with direct LDL</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Fix the name of the report to an appropriate LOINC code</Data></Cell>
     <Cell><Data ss:Type="String">Loinc Code for Lipid Panel with LDL</Data></Cell>
     <Cell><Data ss:Type="String">Loinc Code for Lipid Panel with LDL</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">Loinc code includes &quot;direct&quot; LDL - does this mean LDL derived by measuring VLDL by ultracentrifugation? This panel includes both measured and calculated LDL</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Loinc code includes &quot;direct&quot; LDL - does this mean LDL derived by measuring VLDL by ultracentrifugation? This panel includes both measured and calculated LDL</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2"><Data ss:Type="String">DiagnosticReport.results.group</Data></Cell>
     <Cell><Data ss:Type="String">0..0</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="Default"/>
+    <Cell ss:Index="9" ss:StyleID="Default"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">No sub-groups allowed</Data></Cell>
     <Cell><Data ss:Type="String">No subgroups allowed</Data></Cell>
    </Row>
@@ -262,7 +263,8 @@
     <Cell><Data ss:Type="String">Resource(Observation)</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
     <Cell><Data ss:Type="String">#Cholesterol</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Now, Slice the result list into 4 parts for the for atomic results</Data></Cell>
+    <Cell><Data ss:Type="String">name</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Now, Slice the result list into 4 parts for the for atomic results</Data></Cell>
     <Cell><Data ss:Type="String">Cholesterol Result</Data></Cell>
     <Cell><Data ss:Type="String">Reference to Cholesterol Result</Data></Cell>
    </Row>
@@ -273,7 +275,8 @@
     <Cell><Data ss:Type="String">Resource(Observation)</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
     <Cell><Data ss:Type="String">#Triglyceride</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">the value with a # on a resource reference is reference to another profile wit the #[tab name]</Data></Cell>
+    <Cell><Data ss:Type="String">name</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">the value with a # on a resource reference is reference to another profile wit the #[tab name]</Data></Cell>
     <Cell><Data ss:Type="String">Triglyceride Result</Data></Cell>
     <Cell><Data ss:Type="String">Group of elements for Triglyceride result</Data></Cell>
    </Row>
@@ -284,7 +287,8 @@
     <Cell><Data ss:Type="String">Resource(Observation)</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
     <Cell><Data ss:Type="String">#HDLCholesterol</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">HDL Cholesterol Result</Data></Cell>
+    <Cell><Data ss:Type="String">name</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">HDL Cholesterol Result</Data></Cell>
     <Cell><Data ss:Type="String">Group of elements for HDL Cholesterol result</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -294,24 +298,25 @@
     <Cell><Data ss:Type="String">Resource(Observation)</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
     <Cell><Data ss:Type="String">#LDLCholesterol</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">LDL Cholesterol result, if reported</Data></Cell>
+    <Cell><Data ss:Type="String">name</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">LDL Cholesterol result, if reported</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2"><Data ss:Type="String">DiagnosticReport.conclusion</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Clinical Interpretation of Lipid Panel</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">Clinical Interpretation of Lipid Panel</Data></Cell>
     <Cell><Data ss:Type="String">May include diagnosis or suggestions for follow up testing</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">It's not unusual for the lab to make some kind of interpretative comment on the set of results</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">It's not unusual for the lab to make some kind of interpretative comment on the set of results</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2"><Data ss:Type="String">DiagnosticReport.codedDiagnosis</Data></Cell>
     <Cell><Data ss:Type="String">0..0</Data></Cell>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">we don't want codes….</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">we don't want codes….</Data></Cell>
     <Cell><Data ss:Type="String">No codes for a lipid panel</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">Not used in this context</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Not used in this context</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -321,11 +326,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
