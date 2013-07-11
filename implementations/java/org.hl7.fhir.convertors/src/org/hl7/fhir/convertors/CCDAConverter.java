@@ -26,15 +26,14 @@ import org.hl7.fhir.instance.model.List_;
 import org.hl7.fhir.instance.model.List_.ListEntryComponent;
 import org.hl7.fhir.instance.model.Organization;
 import org.hl7.fhir.instance.model.Patient;
-import org.hl7.fhir.instance.model.Patient.PatientCommunicationComponent;
 import org.hl7.fhir.instance.model.Practitioner;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceFactory;
 import org.hl7.fhir.instance.model.Substance;
-import org.hl7.fhir.instance.model.Visit;
+import org.hl7.fhir.instance.model.Encounter;
 import org.w3c.dom.Element;
 
-public class CCDAConverter {
+public class CcdaConverter {
 
 	private CDAUtilities cda;
 	private Element doc; 
@@ -111,7 +110,7 @@ public class CCDAConverter {
 		if (ee != null)
 			ee = cda.getChild(ee, "encompassingEncounter");
 		if (ee != null) {
-			Visit visit = new Visit();
+			Encounter visit = new Encounter();
 			for (Element e : cda.getChildren(ee, "id"))
 				visit.getIdentifier().add(convert.makeIdentifierFromII(e));
 			visit.getHospitalization().setPeriod(convert.makePeriodFromIVL(cda.getChild(ee, "effectiveTime")));
@@ -142,10 +141,10 @@ public class CCDAConverter {
 		pat.setGender(convert.makeCodeableConceptFromCD(cda.getChild(p, "administrativeGenderCode")));
 		pat.setBirthDate(convert.makeDateTimeFromTS(cda.getChild(p, "birthTime")));
 		pat.setMaritalStatus(convert.makeCodeableConceptFromCD(cda.getChild(p, "maritalStatusCode")));
-		pat.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/religious-affiliation", convert.makeCodeableConceptFromCD(cda.getChild(p, "religiousAffiliationCode")), false));
-		pat.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/race", convert.makeCodeableConceptFromCD(cda.getChild(p, "raceCode")), false));
-		pat.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/ethnic-group", convert.makeCodeableConceptFromCD(cda.getChild(p, "ethnicGroupCode")), false));
-		pat.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/birthplace", convert.makeAddressFromAD(cda.getChild(p, new String[] {"birthplace", "place", "addr"})), false));
+		pat.getExtensions().add(Factory.newExtension(CcdaExtensions.NAME_RELIGION, convert.makeCodeableConceptFromCD(cda.getChild(p, "religiousAffiliationCode")), false));
+		pat.getExtensions().add(Factory.newExtension(CcdaExtensions.NAME_RACE, convert.makeCodeableConceptFromCD(cda.getChild(p, "raceCode")), false));
+		pat.getExtensions().add(Factory.newExtension(CcdaExtensions.NAME_ETHNICITY, convert.makeCodeableConceptFromCD(cda.getChild(p, "ethnicGroupCode")), false));
+		pat.getExtensions().add(Factory.newExtension(CcdaExtensions.NAME_BIRTHPLACE, convert.makeAddressFromAD(cda.getChild(p, new String[] {"birthplace", "place", "addr"})), false));
 		
 		Patient.ContactComponent guardian = pat.new ContactComponent();
 		pat.getContact().add(guardian);
@@ -161,18 +160,16 @@ public class CCDAConverter {
 			if (guardian.getName() == null)
 				guardian.setName(convert.makeNameFromEN(e));
 
-		PatientCommunicationComponent lang = pat.new PatientCommunicationComponent();
-	  pat.getCommunication().add(lang);
 	  Element l = cda.getChild(p, "languageCommunication");
 	  CodeableConcept cc = new CodeableConcept();
 	  Coding c = new Coding();
 	  c.setCodeSimple(cda.getChild(l, "languageCode").getAttribute("code"));
 	  cc.getCoding().add(c);
-		lang.setLanguage(cc); 
+		pat.getCommunication().add(cc); 
 
 		// todo: this got broken.... lang.setMode(convert.makeCodeableConceptFromCD(cda.getChild(l, "modeCode")));
-		lang.setProficiencyLevel(convert.makeCodeableConceptFromCD(cda.getChild(l, "modeCode")));
-		pat.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/religious-affiliation", convert.makeCodeableConceptFromCD(cda.getChild(p, "religiousAffiliationCode")), false));
+		cc.getExtensions().add(Factory.newExtension(CcdaExtensions.NAME_LANG_PROF, convert.makeCodeableConceptFromCD(cda.getChild(l, "modeCode")), false));
+		pat.getExtensions().add(Factory.newExtension(CcdaExtensions.NAME_RELIGION, convert.makeCodeableConceptFromCD(cda.getChild(p, "religiousAffiliationCode")), false));
 		pat.setProvider(Factory.makeResourceReference("Organization", makeOrganization(cda.getChild(pr, "providerOrganization"), "Provider")));
 		return addResource(pat, "Subject", UUID.randomUUID().toString());
 	}

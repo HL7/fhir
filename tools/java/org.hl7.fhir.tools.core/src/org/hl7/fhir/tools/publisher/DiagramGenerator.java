@@ -32,8 +32,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import net.sourceforge.plantuml.SourceStringReader;
 
@@ -74,6 +76,7 @@ public class DiagramGenerator {
       Map<String, String> replacements = new HashMap<String, String>();
       Map<org.hl7.fhir.definitions.model.ElementDefn, String> names = new HashMap<org.hl7.fhir.definitions.model.ElementDefn, String>();
       Map<org.hl7.fhir.definitions.model.ElementDefn, String> defns = new HashMap<org.hl7.fhir.definitions.model.ElementDefn, String>();
+      Set<String> entryPoints = new HashSet<String>(); // if we want to finish supporting composite UML diagrams
       s.append("\r\n"+s2);
       for (String c : classes) {
         queue.add(page.getDefinitions().getElementDefn(c));
@@ -92,7 +95,7 @@ public class DiagramGenerator {
       while (queue.size() > 0) {
         org.hl7.fhir.definitions.model.ElementDefn r = queue.get(0);
         queue.remove(0);
-        generateDiagramClass(r, queue, names, defns, s, s2, elementClasses, null, false, true, replacements);
+        generateDiagramClass(r, queue, names, defns, s, s2, elementClasses, null, false, true, replacements, entryPoints);
       }  
       s.append("\r\n"+s2);
       s.append("hide methods\r\n");
@@ -151,6 +154,7 @@ public class DiagramGenerator {
     List<String> elementClasses = new ArrayList<String>();
     Map<String, String> replacements = new HashMap<String, String>();
     Map<org.hl7.fhir.definitions.model.ElementDefn, String> names = new HashMap<org.hl7.fhir.definitions.model.ElementDefn, String>(); 
+    Set<String> entryPoints = new HashSet<String>(); // if we want to finish supporting composite UML diagrams
     Map<org.hl7.fhir.definitions.model.ElementDefn, String> defns = new HashMap<org.hl7.fhir.definitions.model.ElementDefn, String>(); 
     queue.add(resource.getRoot());
     names.put(resource.getRoot(), resource.getName());
@@ -159,7 +163,7 @@ public class DiagramGenerator {
     while (queue.size() > 0) {
       org.hl7.fhir.definitions.model.ElementDefn r = queue.get(0);
       queue.remove(0);
-      generateDiagramClass(r, queue, names, defns, s, s2, elementClasses, resource.getRoot(), r == resource.getRoot(), true, replacements);
+      generateDiagramClass(r, queue, names, defns, s, s2, elementClasses, resource.getRoot(), r == resource.getRoot(), true, replacements, entryPoints);
     }  
     s.append("\r\n"+s2);
     s.append("hide methods\r\n");
@@ -182,7 +186,7 @@ private String getDefns() {
  
   private void generateDiagramClass(org.hl7.fhir.definitions.model.ElementDefn r, List<org.hl7.fhir.definitions.model.ElementDefn> queue, 
       Map<org.hl7.fhir.definitions.model.ElementDefn, String> names, Map<org.hl7.fhir.definitions.model.ElementDefn, String> defns, 
-      StringBuilder s, StringBuilder s2, List<String> elementClasses, ElementDefn root, boolean entry, boolean resource, Map<String, String> replacements) throws Exception {
+      StringBuilder s, StringBuilder s2, List<String> elementClasses, ElementDefn root, boolean entry, boolean resource, Map<String, String> replacements, Set<String> entryPoints) throws Exception {
     String rn; 
     if (names.keySet().contains(r))
       rn = names.get(r);
@@ -219,17 +223,27 @@ private String getDefns() {
         } else if (e.typeCode().startsWith("@")) {
           ElementDefn src = root.getElementForPath(e.typeCode().substring(1), page.getDefinitions(), "type cross reference");
           if (names.containsKey(src))
-        	n = names.get(src);      
+            n = names.get(src);      
           else {
             n = Utilities.capitalize(e.getName());
             names.put(e, n);
-            queue.add(e);
+            if (e.isUmlBreak())
+              entryPoints.add(e.typeCode().substring(1));
+            else
+              queue.add(e);
             defns.put(e, dn+"."+e.getName());
           }          
+          if (src.hasStatedType() && !src.getStatedType().equals(n)) {
+            replacements.put(n, src.getStatedType());
+            elementClasses.add(src.getStatedType());
+          }
         } else {
           n = Utilities.capitalize(e.getName());
           names.put(e, n);
-          queue.add(e);
+          if (e.isUmlBreak())
+            entryPoints.add(e.getName());
+          else
+            queue.add(e);
           defns.put(e, dn+"."+e.getName());
         }
         if (n == null)
@@ -243,13 +257,13 @@ private String getDefns() {
         if (replacements.containsKey(n))
           n = replacements.get(n);
         if (page.getDefinitions().hasType(rn))
-          s.append(cn+" << (D, #FFA500) >> *-"+e.getDir()+"- \""+e.describeCardinality()+"\" "+n+"  << "+ta+" >> : "+e.getName()+"\r\n");
+          s.append(cn+" << (D, #FFA500) >> *-"+e.getUmlDir()+"- \""+e.describeCardinality()+"\" "+n+"  << "+ta+" >> : "+e.getName()+"\r\n");
         else if (!entry)
-          s.append(cn+" << (E, Aliceblue) >>  *-"+e.getDir()+"- \""+e.describeCardinality()+"\" "+n+"  << "+ta+" >> : "+e.getName()+"\r\n");
+          s.append(cn+" << (E, Aliceblue) >>  *-"+e.getUmlDir()+"- \""+e.describeCardinality()+"\" "+n+"  << "+ta+" >> : "+e.getName()+"\r\n");
         else if (resource)
-          s.append(cn+" << (R, #FF7700) >> *-"+e.getDir()+"- \""+e.describeCardinality()+"\" "+n+"  << "+ta+" >> : "+e.getName()+"\r\n");
+          s.append(cn+" << (R, #FF7700) >> *-"+e.getUmlDir()+"- \""+e.describeCardinality()+"\" "+n+"  << "+ta+" >> : "+e.getName()+"\r\n");
         else
-          s.append(cn+" << (D, #FFA500) >> *-"+e.getDir()+"- \""+e.describeCardinality()+"\" "+n+"  << "+ta+" >> : "+e.getName()+"\r\n");
+          s.append(cn+" << (D, #FFA500) >> *-"+e.getUmlDir()+"- \""+e.describeCardinality()+"\" "+n+"  << "+ta+" >> : "+e.getName()+"\r\n");
       }
     }
     s2.append("url of "+cn+" is [["+dn+"]]\r\n");

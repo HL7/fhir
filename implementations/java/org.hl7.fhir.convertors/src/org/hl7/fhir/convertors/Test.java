@@ -12,7 +12,7 @@ public class Test {
 
 	public static final String DEF_PATH = "c:\\work\\org.hl7.fhir\\implementations\\java\\org.hl7.fhir.convertors\\samples\\";
 	public static void main(String[] args) {
-		CCDAConverter c = new CCDAConverter();
+		CcdaConverter c = new CcdaConverter();
 		try {
 			AtomFeed a = c.convert(new FileInputStream(DEF_PATH + "ccda.xml"));
 			String fx = DEF_PATH + "output.xml";

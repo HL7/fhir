@@ -59,7 +59,8 @@ public class ElementDefn {
 	private Map<String, String> mappings = new HashMap<String, String>();
 	// private String id;
 	private String bindingName;
-	private String dir;
+	private String umlDir;
+	private boolean umlBreak;
 	private String name;
 	private String shortDefn;
 	private String definition;
@@ -620,12 +621,12 @@ public class ElementDefn {
       return mappings.containsKey(name);
     }
 
-    public String getDir() {
-      return dir;
+    public String getUmlDir() {
+      return umlDir;
     }
 
-    public void setDir(String dir) {
-      this.dir = dir;
+    public void setUmlDir(String umlDir) {
+      this.umlDir = umlDir;
     }
 
     public List<String> getAliases() {
@@ -684,6 +685,14 @@ public class ElementDefn {
 
   public void setSummaryItem(boolean summaryItem) {
     this.summaryItem = summaryItem;
+  }
+
+  public boolean isUmlBreak() {
+    return umlBreak;
+  }
+
+  public void setUmlBreak(boolean umlBreak) {
+    this.umlBreak = umlBreak;
   }
    
 	

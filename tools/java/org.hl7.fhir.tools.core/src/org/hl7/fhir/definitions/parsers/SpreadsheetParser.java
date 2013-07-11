@@ -708,7 +708,13 @@ public class SpreadsheetParser {
     e.setMustSupport(parseBoolean(sheet.getColumn(row, "Must Support"), row, false));
     e.setSummaryItem(parseBoolean(sheet.getColumn(row, "Summary"), row, false));
     e.setRegex(sheet.getColumn(row, "Regex"));
-		e.setDir(sheet.getColumn(row, "UML"));
+		String uml = sheet.getColumn(row, "UML");
+		if (uml != null && uml.startsWith("break:")) {
+		  e.setUmlBreak(true);
+      e.setUmlDir(uml.substring(6));
+		} else {
+      e.setUmlDir(uml);
+		}
 		String s = sheet.getColumn(row, "Condition");
 		if (s != null && !s.equals(""))
 			throw new Exception("Found Condition in spreadsheet "+ getLocation(row));
