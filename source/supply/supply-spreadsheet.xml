@@ -20,6 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -155,18 +156,31 @@
   <Style ss:ID="s87">
    <Alignment ss:Vertical="Top"/>
   </Style>
+  <Style ss:ID="s91" ss:Parent="s62">
+   <Alignment ss:Vertical="Top"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Bold="1"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s92">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Bold="1"/>
+   <Interior/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="19" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="206.25"/>
-   <Column ss:StyleID="s64" ss:Width="29.25"/>
-   <Column ss:StyleID="s64" ss:Width="22.5"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="187.5"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="42.75"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="49.5"/>
    <Column ss:StyleID="s64" ss:Width="60"/>
-   <Column ss:StyleID="s64" ss:Width="27"/>
-   <Column ss:Index="7" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="61.5"/>
-   <Column ss:StyleID="s64" ss:Width="96" ss:Span="1"/>
-   <Column ss:Index="10" ss:StyleID="s64" ss:Width="38.25"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="54.75"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="224.25"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="61.5"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="225"/>
+   <Column ss:StyleID="s64" ss:Width="96"/>
+   <Column ss:StyleID="s64" ss:Width="38.25"/>
    <Column ss:StyleID="s64" ss:Width="72"/>
    <Column ss:StyleID="s64" ss:Width="55.5"/>
    <Column ss:StyleID="s64" ss:Width="67.5"/>
@@ -222,7 +236,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Supply.status</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">SupplyStatus</Data></Cell>
     <Cell><Data ss:Type="String">Dispensed|Received|Requested</Data></Cell>
     <Cell><Data ss:Type="String">Status of the supply</Data></Cell>
@@ -231,13 +245,13 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Supply.instance</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">SupplyInstance</Data></Cell>
     <Cell><Data ss:Type="String">Kind|Instance</Data></Cell>
     <Cell><Data ss:Type="String">Is the supply a specific, identified supply (instance) or just a kind</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Supply.patient</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Supply.patient</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -257,7 +271,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Supply.supplier</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Supply.supplier</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -276,7 +290,7 @@
     <Cell ss:Index="18" ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Supply.authorizingOrder</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Supply.authorizingOrder</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -314,7 +328,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Supply.dispense.identifier</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Supply.dispense.identifier</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -334,7 +348,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Supply.dispense.status</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Supply.dispense.status</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="Boolean">1</Data></Cell>
@@ -353,7 +367,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Supply.dispense.type</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Supply.dispense.type</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s82"/>
     <Cell ss:StyleID="s82"/>
@@ -373,7 +387,7 @@
     <Cell ss:StyleID="s82"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Supply.dispense.quantity</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Supply.dispense.quantity</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -397,7 +411,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Medication, Substance, Device)</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Medication|Substance|Device)</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s77"><Data ss:Type="String">Medication, Substance, or Device being supplied</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.</Data></Cell>
@@ -411,7 +425,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Supply.dispense.whenPrepared</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Supply.dispense.whenPrepared</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -430,7 +444,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Supply.dispense.whenHandedOver</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Supply.dispense.whenHandedOver</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -449,7 +463,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Supply.dispense.destination</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Supply.dispense.destination</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -468,7 +482,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Supply.dispense.receiver</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Supply.dispense.receiver</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -493,7 +507,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <VerticalResolution>0</VerticalResolution>
+   </Print>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -513,7 +531,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
+     <ActiveRow>18</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -668,57 +686,81 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="40" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="38" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="49.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="377.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
     <Cell><Data ss:Type="String">Path</Data></Cell>
    </Row>
-   <Row ss:Index="5" ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">name</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s65"><Data ss:Type="String">Supply.name</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">identifier</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s65"><Data ss:Type="String">Supply.identifier</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">status</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s65"><Data ss:Type="String">Supply.status</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">instance</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s65"><Data ss:Type="String">Supply.instance</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s70"><Data ss:Type="String">Supply.patient</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">supplier</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s70"><Data ss:Type="String">Supply.supplier</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">dispenseid</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s80"><Data ss:Type="String">Supply.dispense.identifier</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">dispensestatus</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s80"><Data ss:Type="String">Supply.dispense.status</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s78"><Data ss:Type="String">Supply.dispense.type</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s80"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s79"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s80"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s80"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s80"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s80"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -795,6 +837,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -814,8 +857,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R2</RangeSelection>
+     <ActiveRow>6</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -118,6 +118,11 @@ that is defined, and there is no need to perform comparison between any profiles
 to determine the meaning of any profile. 
 </p>
 
+<h3>Reusing Definitions</h3>
+<p>
+todo...
+</p>
+
 <h3>Slicing</h3>
 <p>
 One common thing in profiles is to take an element that may occur more than once, 
@@ -166,6 +171,7 @@ that enumerates the possible codes in the value set.
 </p>
 <p>
 TODO: how does the discrimator work with resource references? 
+TODO solicit comments about discriminating only on codes
 </p>
 <p>
 Within a profile, a slice will mean that there are multiple entries in the element list with the 
@@ -179,6 +185,11 @@ as the descriminator.
 <p>
 An additional reason to use slicing is when a single element has a choice of types, and
 different tyes need different definitions, mappings, or constraints. 
+</p>
+
+<h3>Bundles</h3>
+<p>
+specifying bundles .. todo
 </p>
 
 <h2>Extension Definitions</h2>
@@ -267,33 +278,28 @@ Thie interplay between the meaning of these is subtle but sometimes important. T
 define the meanings:
 </p>
 <table>
- <tr><td><b>Extensibility</b></td><td><b>False</b></td><td><b>True</b></td></tr>
+ <tr><td><b>Conformance</b></td><td><b>isExtensible=false</b></td><td><b>isExtensible=true</b></td></tr>
  <tr><td><b>Required</b></td><td>Implementers SHALL use a code from the defined set</td><td>Implementers SHALL use a code from the defined set if one is applicable, but otherwise may provide their own code or use text</td></tr>
  <tr><td><b>Preferred</b></td><td>Implementers SHOULD use a code from the defined set</td><td>Implementers SHOULD use a code from the defined set if one is applicable, but MAY provide their own code or use text</td></tr>
  <tr><td><b>Example</b></td><td>Implementers MAY use a code from the defined set</td><td>Implementers MAY use a code from the defined or provide their own code or use text</td></tr>
 </table>
 <p>
 A profile can define a set of bindings that it uses directly, or it can define a set of bindings 
-for re-use in other profiles. To re-use bindings in other profiles, the profile is referenced in 
-Profile.import.uri, and a prefix associated with import. Then the the prefix is used to refer
-to the bindings defined in the imported profile in the same way that XML namespaces work. So 
-this import:
-</p>
-<pre>
- &lt;import&gt;
-   &lt;uri value=&quot;http://hl7.org/fhir/tools/extensions&quot;/&gt;
-   &lt;prefix value=&quot;te&quot;/&gt;
- &lt;import&gt;
-</pre>
-<p>
-would be associated with this binding: 
+for re-use in other profiles. To use bindings in other profiles, just provide an absolute reference.
+This is a reference to a binding in the same profile:
 </p>
 <pre>
   &lt;binding value=&quot;te:OperationOutcomeSource&quot;/&gt;
 </pre>
+<p>
+This is a reference to a binding in some other profile:
+</p>
+<pre>
+  &lt;binding value=&quot;http://hl7.org/fhir/tooling/extensions#OperationOutcomeSource&quot;/&gt;
+</pre>
 
 <p>
-Value sets can be referenced by version or independent of version.  Value sets may themselves reference other 
+Bindings can reference value sets by version or independent of version.  Value sets may themselves reference other 
 value sets as well as code systems by version or independent of version.  Unless all references are 
 version-specific, it is possible that the set of codes permitted in the value set could change over time.
 </p>

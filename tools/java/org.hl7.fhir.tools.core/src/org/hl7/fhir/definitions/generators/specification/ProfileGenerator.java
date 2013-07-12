@@ -106,6 +106,7 @@ public class ProfileGenerator {
     for (ResourceDefn resource : profile.getResources()) {
       Profile.ProfileStructureComponent c = p.new ProfileStructureComponent();
       p.getStructure().add(c);
+      c.setPublishSimple(true); // todo: when should this be set to true?
       c.setType(Factory.newCode(resource.getRoot().getName()));
       // we don't profile URI when we generate in this mode - we are generating an actual statement, not a re-reference
       if (!"".equals(resource.getRoot().getProfileName()))

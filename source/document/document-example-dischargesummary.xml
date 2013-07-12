@@ -597,9 +597,11 @@
                 </text>
                 <name value="Doxycycline"/>
                 <type>
+                  <coding>
                     <system value="codesys"/>
                     <code value="123445"/>
                     <display value="Doxycycline"/>
+                  </coding>
                 </type>
             </Substance>
         </content>

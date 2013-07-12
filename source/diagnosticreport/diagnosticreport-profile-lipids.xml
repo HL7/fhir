@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
-  <LastSaved>2013-01-27T10:36:30Z</LastSaved>
+  <LastSaved>2013-07-11T14:18:02Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,7 @@
   <WindowWidth>15570</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -116,6 +116,15 @@
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
+  </Style>
+  <Style ss:ID="s81">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+  </Style>
+  <Style ss:ID="s82">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
@@ -326,7 +335,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -339,7 +347,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Cholesterol">
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="12" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="17" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="45.75">
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="130.5"/>
    <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="43.5"/>
@@ -381,12 +389,47 @@
     <Cell><Data ss:Type="String">Cholesterol</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s71">
-    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.value[x]</Data></Cell>
+    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.valueQuantity</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Cholesterol value</Data></Cell>
     <Cell><Data ss:Type="String">Cholesterol value. If a result is not available, use the comments field</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
+    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.valueQuantity.value</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">decimal</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Actual numerical value</Data></Cell>
+    <Cell><Data ss:Type="String">Actual numerical value</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
+    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.valueQuantity.comparator</Data></Cell>
+    <Cell><Data ss:Type="String">0..0</Data></Cell>
+    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">No need for this on cholesterol</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
+    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.valueQuantity.units</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">mmol/L</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
+    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.valueQuantity.system</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell><Data ss:Type="String">uri</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">http://unitsofmeasure.org</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
+    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.valueQuantity.code</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">mmol/L</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s71">
     <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.interpretation</Data></Cell>
@@ -450,7 +493,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -803,10 +846,10 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="LDLCholesterol">
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="11" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="12" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="130.5"/>
-   <Column ss:Index="8" ss:AutoFitWidth="0" ss:Width="110.25"/>
+   <Column ss:Index="9" ss:AutoFitWidth="0" ss:Width="110.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="111.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s68">
@@ -816,6 +859,7 @@
     <Cell><Data ss:Type="String">Type</Data></Cell>
     <Cell><Data ss:Type="String">Binding</Data></Cell>
     <Cell><Data ss:Type="String">Must Support</Data></Cell>
+    <Cell><Data ss:Type="String">Profile</Data></Cell>
     <Cell><Data ss:Type="String">Value</Data></Cell>
     <Cell><Data ss:Type="String">Editor's comments</Data></Cell>
     <Cell><Data ss:Type="String">Short Name</Data></Cell>
@@ -835,9 +879,29 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">todo - do we need to say anything about method?</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">LDL Cholesterol Result</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Group of elements for LDL Cholesterol result</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s66">
+    <Cell ss:StyleID="s71"><Data ss:Type="String">LDLCalculated</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.extension</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">#calculated</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">See comments on the extension definition</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Whether LDL value is calculated</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Whether LDL value is calculated</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -852,6 +916,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Can't fix to a single value. Need to define a value set</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">LDL Cholesterol -measured or calculated per code</Data></Cell>
@@ -872,6 +937,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">LDL Cholesterol value</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">LDL Cholesterol value. If a result is not available, use the comments field</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -888,6 +954,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">todo: subset this list </Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">+ | ++ | +++ | - | &#45;- | &#45;&#45;- </Data></Cell>
@@ -908,6 +975,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Comments about result</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -922,6 +990,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.reliability</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">ok</Data></Cell>
@@ -952,12 +1021,14 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s77">
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.meaning</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -978,6 +1049,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">&gt;3.0 mmol/L</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s75"/>
@@ -993,6 +1065,7 @@
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.component</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
@@ -1015,11 +1088,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>3</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1038,6 +1112,60 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Extensions">
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="2" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Index="7" ss:AutoFitWidth="0" ss:Width="153"/>
+   <Column ss:AutoFitWidth="0" ss:Width="270"/>
+   <Column ss:AutoFitWidth="0" ss:Width="198"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s68">
+    <Cell><Data ss:Type="String">Code</Data></Cell>
+    <Cell><Data ss:Type="String">Context Type</Data></Cell>
+    <Cell><Data ss:Type="String">Context</Data></Cell>
+    <Cell><Data ss:Type="String">Card.</Data></Cell>
+    <Cell><Data ss:Type="String">Type</Data></Cell>
+    <Cell><Data ss:Type="String">Binding</Data></Cell>
+    <Cell><Data ss:Type="String">Short Name</Data></Cell>
+    <Cell><Data ss:Type="String">Definition</Data></Cell>
+    <Cell><Data ss:Type="String">Comments</Data></Cell>
+    <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
+    <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
+    <Cell><Data ss:Type="String">To Do</Data></Cell>
+    <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
+    <Cell ss:StyleID="s67"><Data ss:Type="String">calculated</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">LDL is Calculated</Data></Cell>
+    <Cell><Data ss:Type="String">True if the LDL value is calculated from Chol, Trig, and HDLC</Data></Cell>
+    <Cell><Data ss:Type="String">It's definitely better that whether the LDL was calculated or not comes from the LOINC code. But this is defined to exercise the extension machinery in the publication tooling, and to make this comment. Actually, the location is odd too - it would probably be on the root observation, but this is for testing purposes</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <VerticalResolution>0</VerticalResolution>
+   </Print>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>8</ActiveCol>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

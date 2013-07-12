@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9090</WindowHeight>
+  <WindowHeight>9030</WindowHeight>
   <WindowWidth>27780</WindowWidth>
   <WindowTopX>-120</WindowTopX>
-  <WindowTopY>-45</WindowTopY>
+  <WindowTopY>15</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -110,7 +110,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="71" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="68" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="297.75"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="32.25"/>
@@ -277,30 +277,6 @@
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">A profile does not need to specify the target it applies to,as profiles will often be valid across multiple versions of FHIR. FHIR tooling can determine whether a profile is consistent with a particular profile if desired</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Profile.import</Data></Cell>
-    <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">up</Data></Cell>
-    <Cell><Data ss:Type="String">right</Data></Cell>
-    <Cell><Data ss:Type="String">External source of extensions and bindings</Data></Cell>
-    <Cell><Data ss:Type="String">Other profiles that define extensions and bindings that are used in this profile</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Profile.import.uri</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Profile location</Data></Cell>
-    <Cell><Data ss:Type="String">The identifier for the profile, ideally the URL it can be retrieved from</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Any resource definitions from these other profiles are not imported</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">Profile.import.prefix</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Short form for referencing</Data></Cell>
-    <Cell><Data ss:Type="String">The short label used for display of the profile when uniquely identifying imported extensions</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Profile instances are always conveyed using full URIs - the prefix is solely for use by entry and rendering tools</Data></Cell>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.structure</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
@@ -334,8 +310,8 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">Name for this particular resource profile (internal usage)</Data></Cell>
-    <Cell><Data ss:Type="String">The name of this resource constraint statement (to refer to it from other resource constraints)</Data></Cell>
+    <Cell><Data ss:Type="String">Name for this particular structure (reference target)</Data></Cell>
+    <Cell><Data ss:Type="String">The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.element.definition.type.profile)</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">This field is the target for a resource.profile</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -371,24 +347,6 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">Human summary: why describe this resource?</Data></Cell>
     <Cell><Data ss:Type="String">Human summary: why describe this resource?</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Profile.structure.profile</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">Resource Profile reference (supplies the constraints)</Data></Cell>
-    <Cell><Data ss:Type="String">Reference to a resource profile that includes the constraint statement that applies to this resource</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
@@ -441,8 +399,8 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">Name of constraint for slicing - see below</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">A unique name referring to a specific set of constraints applied to this element</Data></Cell>
+    <Cell><Data ss:Type="String">Name for this particular element definition (reference target)</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">The name of this element definition (to refer to it from other element definitions using Profile.structure.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
@@ -460,8 +418,8 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">If a slice, the slice discriminator</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">If this element is one of a number of slices (choices) then this element must be populated, and it designates which child element is used to discriminate between the slices</Data></Cell>
+    <Cell><Data ss:Type="String">If slice, the element that uniquely identifies which slice</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">If this element is one of a number of slices (choices) on a single element in the base resource, then this element must be populated, and it designates which child element is used to discriminate between the slices. The value of the child element in the instance must completely distinguish which slice the element in the resource matches</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
@@ -644,8 +602,8 @@
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Profile to apply</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Identifies a profile that must hold for resources or datatypes referenced as the type of this element</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Profile.structure to apply</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Identifies a profile that must hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
@@ -686,6 +644,22 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">To specify a fixed value for a complex data type, include the child elements for the type and specify fixed values for each property independently</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell><Data ss:Type="String">Profile.structure.element.definition.example[x]</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">Example value: [as defined for type]</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">An example value for this element</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">If the example value are fully populated, the publication tool can generate an instance automatically</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.maxLength</Data></Cell>
@@ -849,12 +823,12 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">Binding - see bindings below (only if coded)</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Identifies the set of codes that applies to this element if a data type supporting codes is used</Data></Cell>
+    <Cell><Data ss:Type="String">Reference to a binding (local or absolute)</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Identifies the set of codes that applies to this element if a data type supporting codes is used. The reference can be local - to a Profile.binding.name, or absolute, to a binding.name in another profile</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
@@ -1133,7 +1107,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>6</TopRowBottomPane>
+   <TopRowBottomPane>41</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1150,8 +1124,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>47</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1181,7 +1155,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.element.definition</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Either a name or a fixed value (but not both) is permitted</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Either a namereference or a fixed value (but not both) is permitted</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:nameReference) and exists(f:*[starts-with(local-name(.), 'value')]))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -1276,8 +1250,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
