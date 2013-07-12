@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Patrick</LastAuthor>
+  <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-07-09T22:03:44Z</LastSaved>
+  <LastSaved>2013-07-12T00:47:30Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -168,7 +168,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="19" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="19" ss:ExpandedRowCount="19" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="187.5"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="42.75"/>
@@ -178,8 +178,8 @@
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="224.25"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="61.5"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="225"/>
-   <Column ss:StyleID="s64" ss:Width="96"/>
-   <Column ss:StyleID="s64" ss:Width="38.25"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="315.75" ss:Span="1"/>
+   <Column ss:Index="11" ss:StyleID="s64" ss:Width="38.25"/>
    <Column ss:StyleID="s64" ss:Width="72"/>
    <Column ss:StyleID="s64" ss:Width="55.5"/>
    <Column ss:StyleID="s64" ss:Width="67.5"/>
@@ -193,6 +193,7 @@
     <Cell><Data ss:Type="String">Binding</Data></Cell>
     <Cell><Data ss:Type="String">Short Name</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
+    <Cell><Data ss:Type="String">Grahame's Comments</Data></Cell>
     <Cell><Data ss:Type="String">Aliases</Data></Cell>
     <Cell><Data ss:Type="String">Requirements</Data></Cell>
     <Cell><Data ss:Type="String">Comments</Data></Cell>
@@ -211,8 +212,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Sample for analysis</Data></Cell>
     <Cell><Data ss:Type="String">Sample for analysis</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="Default"/>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:Index="12" ss:StyleID="Default"/>
+    <Cell ss:Index="14" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -223,7 +224,8 @@
     <Cell><Data ss:Type="String">SupplyType</Data></Cell>
     <Cell><Data ss:Type="String">The kind of supply (central, non-stock, etc)</Data></Cell>
     <Cell><Data ss:Type="String">Category of supply</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">./code</Data></Cell>
+    <Cell><Data ss:Type="String">isn't &quot;name&quot; a misnomer? shouldn't it be &quot;kind&quot;? is that an important enough concept to come first? why does it even matter? isn't it a feature of the dspense?</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">./code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Supply.identifier</Data></Cell>
@@ -231,6 +233,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Unique identifier</Data></Cell>
     <Cell><Data ss:Type="String">Unique identifier for this kind of supply</Data></Cell>
+    <Cell><Data ss:Type="String">who assigns the identifier? is ..1 enough? should the orderer provide an identifier? what does it mean?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Supply.status</Data></Cell>
@@ -239,7 +242,8 @@
     <Cell><Data ss:Type="String">SupplyStatus</Data></Cell>
     <Cell><Data ss:Type="String">Dispensed|Received|Requested</Data></Cell>
     <Cell><Data ss:Type="String">Status of the supply</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">./statusCode</Data></Cell>
+    <Cell><Data ss:Type="String">the value set differs from the short description. What's the difference between requested and received? what does received mean?</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">./statusCode</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Supply.instance</Data></Cell>
@@ -248,6 +252,7 @@
     <Cell><Data ss:Type="String">SupplyInstance</Data></Cell>
     <Cell><Data ss:Type="String">Kind|Instance</Data></Cell>
     <Cell><Data ss:Type="String">Is the supply a specific, identified supply (instance) or just a kind</Data></Cell>
+    <Cell><Data ss:Type="String">I don't understand &quot;instance&quot; at all</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s70"><Data ss:Type="String">Supply.patient</Data></Cell>
@@ -259,6 +264,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Patient</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">A link to a resource representing the person to whom the medication will be given.</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">why is patient optional? If there's no patient, does that mean that there's another kind of &quot;subject&quot; such as ward, or something?</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">SubstanceAdministration-&gt;subject-&gt;Patient</Data></Cell>
@@ -279,6 +285,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s77"><Data ss:Type="String">Dispenser</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">The individual reponsible for dispensing the medication</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">doesn't supplier belong under dispense?</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -286,7 +293,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="18" ss:StyleID="Default"/>
+    <Cell ss:Index="19" ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s78"><Data ss:Type="String">Supply.authorizingOrder</Data></Cell>
@@ -298,6 +305,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Order the authorizes the supply</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the order that is beingsupplied against.</Data></Cell>
+    <Cell><Data ss:Type="String">I'm pretty sure that the relationship between the two is expressed on the order rather than the supply, but I'll consider that further</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -305,7 +313,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="18" ss:StyleID="Default"/>
+    <Cell ss:Index="19" ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s79"><Data ss:Type="String">Supply.dispense</Data></Cell>
@@ -317,13 +325,14 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Supply details</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the details of the dispense event such as the days supply and quantity of a supply dispensed.</Data></Cell>
+    <Cell><Data ss:Type="String">why more than one dispense, when there's only... hang on, what's actually ordered? where is it?</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="Default"/>
+    <Cell ss:Index="18" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -336,7 +345,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">External identifier</Data></Cell>
     <Cell><Data ss:Type="String">Identifier assigned by the dispensing facility.   This is an identifier assigned outside FHIR.</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s80"/>
@@ -356,13 +365,13 @@
     <Cell><Data ss:Type="String">SupplyStatus</Data></Cell>
     <Cell><Data ss:Type="String">Active/Completed/Aborted</Data></Cell>
     <Cell><Data ss:Type="String">A code specifying the state of the dispense event.</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="Default"/>
+    <Cell ss:Index="18" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -375,6 +384,7 @@
     <Cell><Data ss:Type="String">SupplyItemType</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Type of dispense</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc. </Data></Cell>
+    <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
@@ -395,14 +405,14 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Amount dispensed</Data></Cell>
     <Cell><Data ss:Type="String">The amount of supply that has been dispensed. Includes unit of measure.</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="18" ss:StyleID="Default"/>
+    <Cell ss:Index="19" ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s79"><Data ss:Type="String">Supply.dispense.suppliedItem</Data></Cell>
@@ -414,10 +424,10 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s77"><Data ss:Type="String">Medication, Substance, or Device being supplied</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s83"/>
-    <Cell ss:Index="14" ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s76"/>
@@ -433,13 +443,13 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Dispensing time</Data></Cell>
     <Cell><Data ss:Type="String">The time the dispense event occurred.</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="s76"/>
+    <Cell ss:Index="18" ss:StyleID="s76"/>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -452,13 +462,13 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Handover time</Data></Cell>
     <Cell><Data ss:Type="String">The time the dispense event occurred.</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="s76"/>
+    <Cell ss:Index="18" ss:StyleID="s76"/>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -471,13 +481,13 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Where the Supply was sent</Data></Cell>
     <Cell><Data ss:Type="String">Identification of the facility/location where the Supply was shipped to, as part of the dispense event. </Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="s76"/>
+    <Cell ss:Index="18" ss:StyleID="s76"/>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -490,13 +500,13 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Who collected the Supply</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the person who picked up the Supply.</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="Default"/>
+    <Cell ss:Index="18" ss:StyleID="Default"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -517,7 +527,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -525,14 +535,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
