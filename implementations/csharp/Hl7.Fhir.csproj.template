@@ -97,9 +97,11 @@
     <Compile Include="Support\ResourceLocation.cs" />
     <Compile Include="Model.Support\UriLinkList.cs" />
     <Compile Include="Support\Util.cs" />
+	<Compile Include="Support\HttpUtil.cs" />
     <Compile Include="Client\FhirClient.cs" />
     <Compile Include="Client\ResponseDetails.cs" />
     <Compile Include="Client\WebRequestExtensions.cs" />
+	<Compile Include="Client\FhirOperationException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

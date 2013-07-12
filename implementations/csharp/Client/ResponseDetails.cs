@@ -48,6 +48,9 @@ namespace Hl7.Fhir.Client
         public string ContentLocation { get; set; }
         public string Location { get; set; }
         public string LastModified { get; set; }
+        public string Category { get; set; }
+
+        public Uri ResponseUri { get; set; }
 
         public byte[] Body { get; set; }
 
@@ -69,6 +72,7 @@ namespace Hl7.Fhir.Client
         public const string CONTENTLOCATION = "Content-Location";
         public const string LOCATION = "Location";
         public const string LASTMODIFIED = "Last-Modified";
+        public const string CATEGORY = "Category";
 
 
         public static ResponseDetails FromHttpWebResponse(HttpWebResponse response)
@@ -76,12 +80,15 @@ namespace Hl7.Fhir.Client
             
             return new ResponseDetails
                 {
+                    ResponseUri = response.ResponseUri,
                     Result = response.StatusCode,
                     ContentType = getContentType(response),
                     CharacterEncoding = getContentEncoding(response),
                     ContentLocation = response.Headers[CONTENTLOCATION],
-                    Location = response.Headers[LOCATION],
+                    Location = response.Headers[LOCATION],                   
+                  //  LastModified = response.LastModified,
                     LastModified = response.Headers[LASTMODIFIED],
+                    Category = response.Headers[CATEGORY],
                     Body = readBody(response),
                     Reponse = response
                 };
@@ -89,7 +96,7 @@ namespace Hl7.Fhir.Client
 
         private static byte[] readBody(HttpWebResponse response)
         {
-            return Util.ReadAllFromStream(response.GetResponseStream(),
+            return HttpUtil.ReadAllFromStream(response.GetResponseStream(),
                 (int)response.ContentLength);
         }
 

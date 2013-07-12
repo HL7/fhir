@@ -64,8 +64,8 @@ namespace Hl7.Fhir.Client
         /// Get a conformance statement for the system
         /// </summary>
         /// <param name="useOptionsVerb">If true, uses the Http OPTIONS verb to get the conformance, otherwise uses the /metadata endpoint</param>
-        /// <returns>A Conformance resource, or null if the server did not return status 200</returns>
-        public Conformance Conformance(bool useOptionsVerb = false)
+        /// <returns>A Conformance resource. Throws an exception if the operation failed.</returns>
+        public ResourceEntry<Conformance> Conformance(bool useOptionsVerb = false)
         {
             var rl = new ResourceLocation(FhirEndpoint);
 
@@ -75,29 +75,9 @@ namespace Hl7.Fhir.Client
             var req = createRequest(rl, false);
             req.Method = useOptionsVerb ? "OPTIONS" : "GET";
 
-            doRequest(req);
-
-            if (LastResponseDetails.Result == HttpStatusCode.OK)
-            {
-                Resource result = parseResource();
-
-                if (!(result is Conformance))
-                    throw new Exception(
-                        String.Format("Received a resource of type {0}, expected a Conformance resource", result.GetType().Name));
-
-                return (Conformance)result;
-            }
-            else
-            {
-                var outcome = tryParseOperationOutcome();
-
-                // doesn't compile - gg- 11-jul
-                //if (outcome != null)
-                    throw new Exception("Conformance operation failed with status code " + LastResponseDetails.Result);
-                //else
-                //    throw new Exception("Conformance operation failed with status code " + LastResponseDetails.Result, outcome);
-            }
+            return doRequest(req, HttpStatusCode.OK, () => resourceEntryFromResponse<Conformance>() );
         }
+
 
 
         /// <summary>
@@ -105,19 +85,17 @@ namespace Hl7.Fhir.Client
         /// </summary>
         /// <param name="id">The id of the Resource to fetch</param>
         /// <typeparam name="TResource">The type of resource to fetch</typeparam>
-        /// <returns>The requested resource, or null if the server did not return status 200</returns>
-        public TResource Read<TResource>(string id) where TResource : Resource
+        /// <returns>The requested resource as a ResourceEntry. This operation will throw an exception if the resource has 
+        /// been deleted or does not exist</remarks></returns>
+        public ResourceEntry<TResource> Read<TResource>(string id) where TResource : Resource, new()
         {
+            if (String.IsNullOrEmpty(id)) throw new ArgumentNullException("id");
+
             var collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
             var req = createRequest(ResourceLocation.Build(FhirEndpoint, collection, id), false);
             req.Method = "GET";
             
-            doRequest(req);
-
-            if (LastResponseDetails.Result == HttpStatusCode.OK)
-                return (TResource)parseResource();
-            else
-                return null;
+            return doRequest(req, HttpStatusCode.OK, () => resourceEntryFromResponse<TResource>() );
         }
 
         
@@ -128,19 +106,18 @@ namespace Hl7.Fhir.Client
         /// <param name="versionId">The version id of the resource to fetch</param>
         /// <typeparam name="TResource">The type of resource to fetch</typeparam>
         /// <returns></returns>
-        public TResource VRead<TResource>(string id, string versionId) where TResource : Resource
+        /// <remarks>This operation will throw an exception if the resource has been deleted or does not exist</remarks>
+        public ResourceEntry<TResource> VRead<TResource>(string id, string versionId) where TResource : Resource, new()
         {
+            if (String.IsNullOrEmpty(id)) throw new ArgumentNullException("id");
+            if (String.IsNullOrEmpty(versionId)) throw new ArgumentNullException("versionId");
+
             var collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
             var vReadLocation = ResourceLocation.Build(FhirEndpoint, collection, id, versionId);
             var req = createRequest(vReadLocation, false);
             req.Method = "GET";
 
-            doRequest(req);
-
-            if (LastResponseDetails.Result == HttpStatusCode.OK)
-                return (TResource)parseResource();
-            else
-                return null;
+            return doRequest(req, HttpStatusCode.OK, () => resourceEntryFromResponse<TResource>() );
         }
 
 
@@ -152,20 +129,8 @@ namespace Hl7.Fhir.Client
         /// <param name="versionId">If not null, the version of the resource that is being updated</param>
         /// <typeparam name="TResource">The type of resource that is being updated</typeparam>
         /// <returns>The resource as updated on the server, or null if the update failed.</returns>
-        /// <remarks>
-        /// <para>The returned resource need not be the same as the resources passed as a parameter,
-        /// since the server may have updated or changed part of the data because of business rules.</para>
-        /// <para>If there was no existing resource to update with the given id, the server may allow the client
-        /// to create the resource instead. If so, it returns status code 201 (Created) instead of 200. If
-        /// the resource did not exist and creation using the id given by the client if forbidden, a
-        /// 405 (Method Not Allowed) is returned.</para>
-        /// <para>If a versionId parameter is provided, the update will only succeed if the last version
-        /// on the server corresponds to that versionId. This allows the client to detect update conflicts.
-        /// If a conflict arises, Update returns null and the result status code will be 409 (Conflict). If
-        /// the server requires version-aware updates but the client does not provide the versionId parameter,
-        /// Update also returns null, but the result status code will be 412 (Preconditions failed).</para></remarks>
-        public TResource Update<TResource>(TResource resource, string id, string versionId = null)
-                        where TResource : Resource
+        public ResourceEntry<TResource> Update<TResource>(TResource resource, string id, string versionId = null)
+                        where TResource : Resource, new()
         {
             string contentType = ContentType.BuildContentType(PreferredFormat, false);
             string collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
@@ -180,18 +145,16 @@ namespace Hl7.Fhir.Client
             req.ContentType = contentType;
             setRequestBody(req, data);
 
+            // If a version id is given, post the data to a version-specific url
             if (versionId != null)
             {
                 var versionUrl = ResourceLocation.Build(FhirEndpoint, collection, id, versionId).ToUri();
                 req.Headers[HttpRequestHeader.ContentLocation] = versionUrl.ToString();
             }
 
-            doRequest(req);
-
-            if (LastResponseDetails.Result == HttpStatusCode.Created || LastResponseDetails.Result == HttpStatusCode.OK)
-                return (TResource)parseResource();
-            else
-                return null;
+            //TODO: validate cast
+            //return doRequest(req, HttpStatusCode.Created, () => (ResourceEntry<TResource>)parseResourceEntry());
+            return null;
         }
 
 
@@ -200,20 +163,15 @@ namespace Hl7.Fhir.Client
         /// </summary>
         /// <param name="id">id of the resource to delete</param>
         /// <typeparam name="TResource">The type of the resource to delete</typeparam>
-        /// <returns>true if the delete succeeded, or false otherwise</returns>
-        public bool Delete<TResource>(string id) where TResource : Resource
+        /// <returns>Returns normally if delete succeeded, throws an exception otherwise</returns>
+        public void Delete<TResource>(string id) where TResource : Resource
         {
             var collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
             var req =
                   createRequest(ResourceLocation.Build(FhirEndpoint, collection, id), false);
             req.Method = "DELETE";
 
-            doRequest(req);
-
-            if (LastResponseDetails.Result == HttpStatusCode.NoContent)
-                return true;
-            else
-                return false;
+            doRequest(req, HttpStatusCode.NoContent, () => true );
         }
 
 
@@ -229,7 +187,7 @@ namespace Hl7.Fhir.Client
         /// <para>When the resource was created, but newId is null, the server failed to return the new
         /// id in the Http Location header.</para>
         /// </remarks>
-        public TResource Create<TResource>(TResource resource, out string newId) where TResource : Resource
+        public ResourceEntry<TResource> Create<TResource>(TResource resource) where TResource : Resource, new()
         {
             string contentType = ContentType.BuildContentType(PreferredFormat, false);
             string collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
@@ -242,19 +200,19 @@ namespace Hl7.Fhir.Client
             req.Method = "POST";
             req.ContentType = contentType;
             setRequestBody(req, data);
-         
-            doRequest(req);
 
-            newId = null;
+            //doRequest(req, HttpStatusCode.Created, () => );
 
-            if (LastResponseDetails.Result == HttpStatusCode.Created)
-            {
-                var result = parseResource();
-                if (LastResponseDetails.Location != null)
-                    newId = new ResourceLocation(LastResponseDetails.Location).Id;
-                return (TResource)result;
-            }
-            else
+            //newId = null;
+
+            //if (LastResponseDetails.Result == HttpStatusCode.Created)
+            //{
+            //    var result = parseResource();
+            //    if (LastResponseDetails.Location != null)
+            //        newId = new ResourceLocation(LastResponseDetails.Location).Id;
+            //    return (TResource)result;
+            //}
+            //else
                 return null;
         }
 
@@ -280,11 +238,11 @@ namespace Hl7.Fhir.Client
             var req = createRequest(rl, true);
             req.Method = "GET";
             
-            doRequest(req);
+            //doRequest(req);
 
-            if (LastResponseDetails.Result == HttpStatusCode.OK)
-                return parseBundle();
-            else
+            //if (LastResponseDetails.Result == HttpStatusCode.OK)
+            //    return parseBundle();
+            //else
                 return null;
         }
 
@@ -309,11 +267,11 @@ namespace Hl7.Fhir.Client
             var req = createRequest(rl, true);
             req.Method = "GET";
 
-            doRequest(req);
+            //doRequest(req);
 
-            if (LastResponseDetails.Result == HttpStatusCode.OK)
-                return parseBundle();
-            else
+            //if (LastResponseDetails.Result == HttpStatusCode.OK)
+            //    return parseBundle();
+            //else
                 return null;
         }
 
@@ -336,11 +294,11 @@ namespace Hl7.Fhir.Client
             var req = createRequest(rl, true);
             req.Method = "GET";
 
-            doRequest(req);
+            //doRequest(req);
 
-            if (LastResponseDetails.Result == HttpStatusCode.OK)
-                return parseBundle();
-            else
+            //if (LastResponseDetails.Result == HttpStatusCode.OK)
+            //    return parseBundle();
+            //else
                 return null;
         }
 
@@ -366,12 +324,12 @@ namespace Hl7.Fhir.Client
             req.ContentType = contentType;
             setRequestBody(req, data);
 
-            doRequest(req);
+            //doRequest(req);
 
-            if (LastResponseDetails.Result == HttpStatusCode.OK)
+            //if (LastResponseDetails.Result == HttpStatusCode.OK)
                 return null;
-            else
-                return (OperationOutcome)parseResource();
+            //else
+            //    return (OperationOutcome)parseResource();
         }
 
 
@@ -402,11 +360,11 @@ namespace Hl7.Fhir.Client
             var req = createRequest(rl, true);
             req.Method = "GET";
 
-            doRequest(req);
+            //doRequest(req);
 
-            if (LastResponseDetails.Result == HttpStatusCode.OK)
-                return parseBundle();
-            else
+            //if (LastResponseDetails.Result == HttpStatusCode.OK)
+            //    return parseBundle();
+            //else
                 return null;
         }
 
@@ -445,11 +403,11 @@ namespace Hl7.Fhir.Client
             var req = createRequest(rl, true);
             req.Method = "GET";
 
-            doRequest(req);
+            //doRequest(req);
 
-            if (LastResponseDetails.Result == HttpStatusCode.OK)
-                return parseBundle();
-            else
+            //if (LastResponseDetails.Result == HttpStatusCode.OK)
+            //    return parseBundle();
+            //else
                 return null;
 
         }
@@ -498,11 +456,11 @@ namespace Hl7.Fhir.Client
             req.ContentType = contentType;
             setRequestBody(req, data);
 
-            doRequest(req);
+            //doRequest(req);
 
-            if (LastResponseDetails.Result == HttpStatusCode.OK)
-                return parseBundle();
-            else
+            //if (LastResponseDetails.Result == HttpStatusCode.OK)
+            //    return parseBundle();
+            //else
                 return null;
         }
 
@@ -533,11 +491,11 @@ namespace Hl7.Fhir.Client
             req.ContentType = contentType;
             setRequestBody(req, data);
 
-            doRequest(req);
+            //doRequest(req);
 
-            if (LastResponseDetails.Result == HttpStatusCode.OK)
-                return true;
-            else
+            //if (LastResponseDetails.Result == HttpStatusCode.OK)
+            //    return true;
+            //else
                 return false;
         }
 
@@ -587,13 +545,52 @@ namespace Hl7.Fhir.Client
 
         public ResponseDetails LastResponseDetails { get; private set; }
 
-        private void doRequest(HttpWebRequest req)
+
+        private ResourceEntry<T> resourceEntryFromResponse<T>() where T : Resource, new()
+        {
+            ResourceEntry result = HttpUtil.SingleResourceResponse(LastResponseDetails.BodyAsString(),
+                    LastResponseDetails.ContentType, LastResponseDetails.ResponseUri.ToString(), LastResponseDetails.ContentLocation, LastResponseDetails.Category,
+                    LastResponseDetails.LastModified);
+
+            if (result.Content is T)
+                return (ResourceEntry<T>)result;
+            else
+                throw new FhirOperationException(
+                    String.Format("Received a resource of type {0}, expected a {1} resource",
+                                    result.Content.GetType().Name, typeof(T).Name));
+        }
+
+        private T doRequest<T>(HttpWebRequest req, HttpStatusCode success, Func<T> onSuccess)
         {
             HttpWebResponse response = (HttpWebResponse)req.GetResponseNoEx();
 
             try
             {
                 LastResponseDetails = ResponseDetails.FromHttpWebResponse(response);
+
+                if (LastResponseDetails.Result == success) 
+                    return onSuccess();
+                else
+                {
+                    // Try to parse the body as an OperationOutcome resource, but it is no
+                    // problem if it's something else, or there is no parseable body at all
+
+                    ResourceEntry<OperationOutcome> outcome = null;
+
+                    try
+                    {
+                        outcome = resourceEntryFromResponse<OperationOutcome>();
+                    }
+                    catch
+                    {
+                        // failed, too bad.
+                    }
+
+                    if (outcome != null)
+                        throw new FhirOperationException("Operation failed with status code " + LastResponseDetails.Result, outcome.Content);                        
+                    else
+                        throw new FhirOperationException("Operation failed with status code " + LastResponseDetails.Result);
+                }
             }
             finally
             {
@@ -601,52 +598,6 @@ namespace Hl7.Fhir.Client
                 response.Close();
 #endif
             }
-        }
-
-
-        private OperationOutcome tryParseOperationOutcome()
-        {
-            Resource body = null;
-
-            try
-            {
-                body = parseResource();
-            }
-            catch
-            {
-                return null;
-            }
-
-            return body as OperationOutcome;
-        }
-
-
-        private Resource parseResource()
-        {
-            string data = LastResponseDetails.BodyAsString();
-            string contentType = LastResponseDetails.ContentType;
-
-            ErrorList parseErrors = new ErrorList();
-            Resource result;
-
-            ContentType.ResourceFormat format = ContentType.GetResourceFormatFromContentType(contentType);
-
-            switch (format)
-            {
-                case ContentType.ResourceFormat.Json:
-                    result = FhirParser.ParseResourceFromJson(data, parseErrors);
-                    break;
-                case ContentType.ResourceFormat.Xml:
-                    result = FhirParser.ParseResourceFromXml(data, parseErrors);
-                    break;
-                default:
-                    throw new FhirParseException("Cannot decode resource: unrecognized content type");
-            }
-
-            if (parseErrors.Count() > 0)
-                throw new FhirParseException("Failed to parse the resource data", parseErrors, data);
-
-            return result;
         }
 
 

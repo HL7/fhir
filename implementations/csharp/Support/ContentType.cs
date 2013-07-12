@@ -34,6 +34,7 @@ using System.Text;
 using System.Net;
 using System.Text.RegularExpressions;
 
+
 namespace Hl7.Fhir.Support
 {
     public static class ContentType
@@ -153,5 +154,8 @@ namespace Hl7.Fhir.Support
             return (contentType == JSON_CONTENT_HEADER || contentType == JSON_CONTENT_HEADER2 ||
                 contentType == ATOM_CONTENT_HEADER);
         }
+
     }
+
+
 }

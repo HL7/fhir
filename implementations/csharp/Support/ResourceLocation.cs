@@ -481,6 +481,7 @@ namespace Hl7.Fhir.Support
             set
             {
                 _versionId = value;
+                _operation = RESTOPER_HISTORY;
                 _location.Path = buildPath();
             }
         }

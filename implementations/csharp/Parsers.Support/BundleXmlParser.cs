@@ -188,13 +188,7 @@ namespace Hl7.Fhir.Parsers
                     XElement content = entry.Element(XATOMNS + XATOM_CONTENT);
 
                     if (content != null)
-                    {
-                        var resource = getContents(content, errors);
-
-                        Type typedREType = typeof(ResourceEntry<>).MakeGenericType(resource.GetType());
-                        result = (ResourceEntry)Activator.CreateInstance(typedREType);
-                        ((ResourceEntry)result).Content = resource;
-                    }
+                        result = ResourceEntry.Create(getContents(content, errors));
                     else
                         throw new InvalidOperationException("BundleEntry has empty content: cannot determine Resource type in parser.");
 
@@ -216,10 +210,10 @@ namespace Hl7.Fhir.Parsers
                     re.Title = Util.StringValueOrNull(entry.Element(XATOMNS + XATOM_TITLE));
                     re.LastUpdated = Util.InstantOrNull(entry.Element(XATOMNS + XATOM_UPDATED));
                     re.Published = Util.InstantOrNull(entry.Element(XATOMNS + XATOM_PUBLISHED));
-                    re.EntryAuthorName = entry.Elements(XATOMNS + XATOM_AUTHOR).Count() == 0 ? null :
+                    re.AuthorName = entry.Elements(XATOMNS + XATOM_AUTHOR).Count() == 0 ? null :
                                 Util.StringValueOrNull(entry.Element(XATOMNS + XATOM_AUTHOR)
                                     .Element(XATOMNS + XATOM_AUTH_NAME));
-                    re.EntryAuthorUri = entry.Elements(XATOMNS + XATOM_AUTHOR).Count() == 0 ? null :
+                    re.AuthorUri = entry.Elements(XATOMNS + XATOM_AUTHOR).Count() == 0 ? null :
                                 Util.StringValueOrNull(entry.Element(XATOMNS + XATOM_AUTHOR)
                                     .Element(XATOMNS + XATOM_AUTH_URI));
 

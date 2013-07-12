@@ -273,5 +273,32 @@ namespace Hl7.Fhir.Tests
             Assert.IsNotNull(rl.FindBySelfLink(new Uri("http://x.com/@2/history/@2")));
         }
 
+        [TestMethod]
+        public void TestTagHeaderParsing()
+        {
+            string tag1 = @"http://furore.com/tags/test1; label = yes; scheme=""http://hl7.org/fhir/tag""";
+            string tag2 = @"http://furore.com/tags/test1; scheme=""http://hl7.org/fhir/tag""; label = ""confusion"";";
+            string tag3 = @"dog; label=""Canine""; scheme=""http://purl.org/net/animals""";
+
+            string tags = tag1 + ", " + tag2 + " , " + tag3;
+
+            var parsedTags = HttpUtil.ParseCategoryHeader(tag1);
+            Assert.AreEqual(1, parsedTags.Count());
+
+            parsedTags = HttpUtil.ParseCategoryHeader(tags);
+            Assert.AreEqual(2, parsedTags.Count());
+            var t1 = parsedTags.First();
+            Assert.AreEqual("yes", t1.Label);
+            Assert.AreEqual("http://furore.com/tags/test1", t1.Uri.ToString());
+            var t2 = parsedTags.Skip(1).First();
+            Assert.AreEqual(@"""confusion""", t2.Label);
+            Assert.AreEqual("http://furore.com/tags/test1", t2.Uri.ToString());
+
+            string cat = HttpUtil.BuildCategoryHeader(parsedTags);
+
+            Assert.AreEqual(@"http://furore.com/tags/test1; label=yes; scheme=""http://hl7.org/fhir/tag"", http://furore.com/tags/test1; " +
+                        @"label=""confusion""; scheme=""http://hl7.org/fhir/tag""", cat);
+        }
+
     }
 }

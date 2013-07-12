@@ -44,7 +44,7 @@ namespace Hl7.Fhir.Model
 {
     public class Tag
     {
-        public const string TAG_SCHEME = "http://hl7.org/fhir/tag";
+        public const string FHIRTAGNS = "http://hl7.org/fhir/tag";
 
         public Uri Uri { get; set; }
 

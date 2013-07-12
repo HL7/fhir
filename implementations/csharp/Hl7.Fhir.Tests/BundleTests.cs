@@ -425,7 +425,7 @@ namespace Hl7.Fhir.Tests
             e1.Title = "Resource 233 Version 1";
             e1.LastUpdated = new DateTimeOffset(2012, 11, 01, 13, 04, 14, TimeSpan.Zero);
             e1.Published = new DateTimeOffset(2012, 11, 2, 14, 17, 21, TimeSpan.Zero);
-            e1.EntryAuthorName = "110.143.187.242";
+            e1.AuthorName = "110.143.187.242";
             e1.Links.SelfLink = new Uri("http://test.com/fhir/patient/@233/history/@1");
             e1.Links.SearchLink = new Uri("http://test.com/fhir/patient/search?name=Kramer");
             e1.Tags = new List<Tag>() { new Tag() { Uri = new Uri("http://test.com/tag/test"), Label = "YES" } };

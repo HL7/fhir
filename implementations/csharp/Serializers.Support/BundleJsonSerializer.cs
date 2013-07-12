@@ -99,8 +99,8 @@ namespace Hl7.Fhir.Serializers
                 if (re.LastUpdated != null) result.Add(new JProperty(BundleXmlParser.XATOM_UPDATED, re.LastUpdated));
                 if (re.Published != null) result.Add(new JProperty(BundleXmlParser.XATOM_PUBLISHED, re.Published));
 
-                if (!String.IsNullOrWhiteSpace(re.EntryAuthorName))
-                    result.Add(jsonCreateAuthor(re.EntryAuthorName, re.EntryAuthorUri));
+                if (!String.IsNullOrWhiteSpace(re.AuthorName))
+                    result.Add(jsonCreateAuthor(re.AuthorName, re.AuthorUri));
             }
             else
             {
@@ -109,10 +109,10 @@ namespace Hl7.Fhir.Serializers
                 if (Util.UriHasValue(entry.Id)) result.Add(new JProperty(BundleXmlParser.XATOM_ID, entry.Id.ToString()));
             }
 
-            if(entry.Links != null && entry.Links.Count > 0)
+            if(entry.Links != null && entry.Links.Count() > 0)
                 result.Add(new JProperty(BundleXmlParser.XATOM_LINK, jsonCreateLinkArray(entry.Links)));
 
-            if (entry.Tags != null && entry.Tags.Count > 0) 
+            if (entry.Tags != null && entry.Tags.Count() > 0) 
                 result.Add(TagListSerializer.CreateTagCategoryPropertyJson(entry.Tags));
 
             if(entry is ResourceEntry)

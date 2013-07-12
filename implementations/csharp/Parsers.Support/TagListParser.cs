@@ -111,7 +111,7 @@ namespace Hl7.Fhir.Parsers
                 {
                     var scheme = Util.StringValueOrNull(tag.Attribute(BundleXmlParser.XATOM_CAT_SCHEME));
 
-                    if (scheme == Tag.TAG_SCHEME)
+                    if (scheme == Tag.FHIRTAGNS)
                     {
                         result.Add(new Tag
                         {
@@ -137,7 +137,7 @@ namespace Hl7.Fhir.Parsers
                 {
                     var scheme = tag.Value<string>(BundleXmlParser.XATOM_CAT_SCHEME);
 
-                    if (scheme == Tag.TAG_SCHEME)
+                    if (scheme == Tag.FHIRTAGNS)
                     {
                         result.Add(new Tag
                         {

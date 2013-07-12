@@ -29,6 +29,7 @@
 */
 
 
+using Hl7.Fhir.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -110,23 +111,7 @@ namespace Hl7.Fhir.Support
             return String.IsNullOrEmpty(value) ? (DateTimeOffset?)null : Util.ParseIsoDateTime(value);
         }
 
-        public static byte[] ReadAllFromStream(Stream s, int contentLength)
-        {
-            if (contentLength == 0) return null;
-
-            byte[] byteBuffer = new byte[4096];
-            MemoryStream buffer = new MemoryStream();
-            int readLen;
-
-            do
-            {
-                readLen = s.Read(byteBuffer, 0, byteBuffer.Length);
-                if (readLen > 0) buffer.Write(byteBuffer, 0, readLen);
-            } while (buffer.Length < contentLength);
-
-            return buffer.ToArray();
-        }
-
+        
         public static XmlReader XmlReaderFromString(string xml)
         {
             var settings = new XmlReaderSettings();
@@ -184,7 +169,6 @@ namespace Hl7.Fhir.Support
         public static DateTimeOffset RemoveMiliseconds(DateTimeOffset dt)
         {
             return new DateTimeOffset(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second, dt.Offset);
-        }
-
+        }      
     }
 }

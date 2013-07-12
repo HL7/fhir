@@ -101,7 +101,7 @@ namespace Hl7.Fhir.Model
         /// <typeparam name="T">Type of Resource to filter</typeparam>
         /// <returns>All ResourceEntries containing the given type of resource, or an empty list if none were found.</returns>
         // Note: works for IEnumerable<ResourceEntry> too
-        public static IEnumerable<ResourceEntry<T>> FilterByType<T>(this IEnumerable<BundleEntry> bes) where T: Resource
+        public static IEnumerable<ResourceEntry<T>> FilterByType<T>(this IEnumerable<BundleEntry> bes) where T: Resource, new()
         {   
             return bes.Where(be => be is ResourceEntry<T>).Cast<ResourceEntry<T>>();
         }
@@ -124,7 +124,7 @@ namespace Hl7.Fhir.Model
         /// <typeparam name="T">Type of Resource to filter</typeparam>
         /// <param name="id">Id of the Resource, as given in the ResourceEntry's id</param>
         /// <returns>A list of typed ResourceEntries with the given id, or an empty list if none were found.</returns>
-        public static IEnumerable<ResourceEntry<T>> FilterById<T>(this IEnumerable<ResourceEntry<T>> res, Uri id) where T : Resource
+        public static IEnumerable<ResourceEntry<T>> FilterById<T>(this IEnumerable<ResourceEntry<T>> res, Uri id) where T : Resource, new()
         {
             return res.Where(re => Uri.Equals(re.Id, id));
         }
@@ -148,7 +148,7 @@ namespace Hl7.Fhir.Model
         /// <param name="self">Sel-link id of the Resource, as given in the BundleEntry's link with rel='self'.</param>
         /// <returns>A list of ResourceEntries with the given self-link id. Returns
         /// the empty list if none were found.</returns>
-        public static ResourceEntry<T> FindBySelfLink<T>(this IEnumerable<ResourceEntry<T>> res, Uri self) where T: Resource
+        public static ResourceEntry<T> FindBySelfLink<T>(this IEnumerable<ResourceEntry<T>> res, Uri self) where T: Resource, new()
         {
             return res.FirstOrDefault(re => Uri.Equals(re.SelfLink, self));
         }
@@ -171,7 +171,7 @@ namespace Hl7.Fhir.Model
         /// <typeparam name="T">Type of Resource to filter</typeparam>
         /// <param name="tag">Tag to filter Resources on</param>
         /// <returns>A list of typed ResourceEntries having the given tag, or an empty list if none were found.</returns>
-        public static IEnumerable<ResourceEntry<T>> FilterByTag<T>(this IEnumerable<ResourceEntry<T>> res, Uri tag, string value=null) where T : Resource
+        public static IEnumerable<ResourceEntry<T>> FilterByTag<T>(this IEnumerable<ResourceEntry<T>> res, Uri tag, string value=null) where T : Resource, new()
         {
             return res.Where(re => re.Tags.HasTag(tag,value));
         }
@@ -188,7 +188,7 @@ namespace Hl7.Fhir.Model
         public Uri Id { get; set; }
         public Bundle Parent { set; get; }
         public UriLinkList Links { get; set; }
-        public IList<Tag> Tags { get; set; }
+        public IEnumerable<Tag> Tags { get; set; }
 
         public Uri SelfLink
         {
@@ -225,8 +225,10 @@ namespace Hl7.Fhir.Model
             return errors;
         }
 
+        /// <summary>
+        /// Read-only property getting a summary from a Resource or a descriptive text in other cases.
+        /// </summary>
         public abstract string Summary { get; }
-
     }
 
 
@@ -255,12 +257,21 @@ namespace Hl7.Fhir.Model
     }
 
 
-    public class ResourceEntry<T> : ResourceEntry where T : Resource
+    public class ResourceEntry<T> : ResourceEntry where T : Resource, new()
     {
         public new T Content
         { 
             get { return (T)((ResourceEntry)this).Content; }
             set { ((ResourceEntry)this).Content = value; }
+        }
+
+        public static ResourceEntry<T> Create(T resource)
+        {
+            var result = new ResourceEntry<T>();
+
+            result.Content = resource;
+
+            return result;
         }
     }
 
@@ -272,30 +283,24 @@ namespace Hl7.Fhir.Model
 
         public DateTimeOffset? LastUpdated { get; set; }
         public DateTimeOffset? Published { get; set; }
-        public string EntryAuthorName { get; set; }
-        public string EntryAuthorUri { get; set; }
+        public string AuthorName { get; set; }
+        public string AuthorUri { get; set; }
 
-        public string AuthorName
+
+        /// <summary>
+        /// Creates an instance of a typed ResourceEntry&lt;T&gt;, based on the actual type of the passed resource parameter
+        /// </summary>
+        /// <param name="resource"></param>
+        /// <returns></returns>
+        public static ResourceEntry Create(Resource resource)
         {
-            get
-            {
-                if (!String.IsNullOrEmpty(EntryAuthorName))
-                    return EntryAuthorName;
-                else
-                    return Parent.AuthorName;
-            }
+            Type typedREType = typeof(ResourceEntry<>).MakeGenericType(resource.GetType());
+            var result = (ResourceEntry)Activator.CreateInstance(typedREType);
+            result.Content = resource;
+
+            return result;
         }
 
-        public string AuthorUri
-        {
-            get
-            {
-                if (!String.IsNullOrEmpty(EntryAuthorUri))
-                    return EntryAuthorUri;
-                else
-                    return Parent.AuthorUri;
-            }
-        }
 
         public override ErrorList Validate()
         {
@@ -304,7 +309,7 @@ namespace Hl7.Fhir.Model
             if (String.IsNullOrWhiteSpace(Title))
                 errors.Add("Entry must contain a title");
 
-            if (String.IsNullOrWhiteSpace(AuthorName))
+            if (String.IsNullOrWhiteSpace(AuthorName) && String.IsNullOrEmpty(Parent.AuthorName))
                 errors.Add("Entry, or its parent feed, must have at least one author with a name");
 
             if (LastUpdated == null)
@@ -318,6 +323,9 @@ namespace Hl7.Fhir.Model
             return errors;
         } 
 
+        /// <summary>
+        /// Read-only. Returns the summary text from a Resource.
+        /// </summary>
         public override string Summary
         {
             get

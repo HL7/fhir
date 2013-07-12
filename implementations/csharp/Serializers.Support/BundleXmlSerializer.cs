@@ -95,8 +95,8 @@ namespace Hl7.Fhir.Serializers
                 if (re.LastUpdated != null) result.Add(new XElement(BundleXmlParser.XATOMNS + BundleXmlParser.XATOM_UPDATED, re.LastUpdated.Value));
                 if (re.Published != null) result.Add(new XElement(BundleXmlParser.XATOMNS + BundleXmlParser.XATOM_PUBLISHED, re.Published.Value));
 
-                if (!String.IsNullOrWhiteSpace(re.EntryAuthorName))
-                    result.Add(xmlCreateAuthor(re.EntryAuthorName, re.EntryAuthorUri));
+                if (!String.IsNullOrWhiteSpace(re.AuthorName))
+                    result.Add(xmlCreateAuthor(re.AuthorName, re.AuthorUri));
             }
             else
             {

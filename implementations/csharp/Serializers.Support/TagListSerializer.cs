@@ -78,12 +78,12 @@ namespace Hl7.Fhir.Serializers
                 result.Add(new XAttribute(BundleXmlParser.XATOM_CAT_TERM, tag.Uri.ToString()));
             if (!String.IsNullOrEmpty(tag.Label))
                 result.Add(new XAttribute(BundleXmlParser.XATOM_CAT_LABEL, tag.Label));
-            result.Add(new XAttribute(BundleXmlParser.XATOM_CAT_SCHEME, Tag.TAG_SCHEME));
+            result.Add(new XAttribute(BundleXmlParser.XATOM_CAT_SCHEME, Tag.FHIRTAGNS));
 
             return result;
         }
 
-        internal static JProperty CreateTagCategoryPropertyJson(IList<Tag> tagList)
+        internal static JProperty CreateTagCategoryPropertyJson(IEnumerable<Tag> tagList)
         {                       
             JArray jTags = new JArray();
             JProperty result = new JProperty(BundleXmlParser.XATOM_CATEGORY, jTags);
@@ -95,7 +95,7 @@ namespace Hl7.Fhir.Serializers
                     jTag.Add(new JProperty(BundleXmlParser.XATOM_CAT_TERM, tag.Uri.ToString()) );
                 if(!String.IsNullOrEmpty(tag.Label))
                     jTag.Add(new JProperty(BundleXmlParser.XATOM_CAT_LABEL, tag.Label));
-                jTag.Add(new JProperty(BundleXmlParser.XATOM_CAT_SCHEME, Tag.TAG_SCHEME));
+                jTag.Add(new JProperty(BundleXmlParser.XATOM_CAT_SCHEME, Tag.FHIRTAGNS));
                 jTags.Add(jTag);
             }
 

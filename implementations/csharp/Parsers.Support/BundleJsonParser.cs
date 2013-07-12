@@ -182,12 +182,7 @@ namespace Hl7.Fhir.Parsers
                     var content = entry[BundleXmlParser.XATOM_CONTENT];
 
                     if (content != null) 
-                    {
-                        var resource = getContents(content, errors);
-                        Type typedREType = typeof(ResourceEntry<>).MakeGenericType(resource.GetType());
-                        result = (ResourceEntry)Activator.CreateInstance(typedREType);
-                        ((ResourceEntry)result).Content = resource;
-                    }
+                        result = ResourceEntry.Create(getContents(content, errors));
                     else
                         throw new InvalidOperationException("BundleEntry has empty content: cannot determine Resource type in parser");
                 }
@@ -206,11 +201,11 @@ namespace Hl7.Fhir.Parsers
                     re.Title = entry.Value<string>(BundleXmlParser.XATOM_TITLE);
                     re.LastUpdated = instantOrNull(entry[BundleXmlParser.XATOM_UPDATED]);
                     re.Published = instantOrNull(entry[BundleXmlParser.XATOM_PUBLISHED]);
-                    re.EntryAuthorName = entry[BundleXmlParser.XATOM_AUTHOR] as JArray != null ?
+                    re.AuthorName = entry[BundleXmlParser.XATOM_AUTHOR] as JArray != null ?
                         entry[BundleXmlParser.XATOM_AUTHOR]
                             .Select(auth => auth.Value<string>(BundleXmlParser.XATOM_AUTH_NAME))
                             .FirstOrDefault() : null;
-                    re.EntryAuthorUri = entry[BundleXmlParser.XATOM_AUTHOR] as JArray != null ?
+                    re.AuthorUri = entry[BundleXmlParser.XATOM_AUTHOR] as JArray != null ?
                         entry[BundleXmlParser.XATOM_AUTHOR]
                             .Select(auth => auth.Value<string>(BundleXmlParser.XATOM_AUTH_URI))
                             .FirstOrDefault() : null;
