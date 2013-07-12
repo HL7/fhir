@@ -50,7 +50,7 @@
             <display value="Male"/>
         </coding>
     </gender>
-    <birthDate value="1968-11-21"/>
+    <birthDate value="1980-02-04"/>
 
     <organization>
         <type value="Organization"/>
@@ -71,7 +71,7 @@
             <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/>
             <!-- "AssignedRoleType" coding system -->
             <code value="01.018"/>
-            <display value="Keel- neus- en oorarts"/>
+            <display value="Ear-, Nose and Throat"/>
         </coding>
         <text value="specialisation"/>
     </specialty>

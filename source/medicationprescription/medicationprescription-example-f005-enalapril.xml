@@ -3,23 +3,23 @@
     <identifier>
         <use value="official"/>
         <system value="http://www.bmc.nl/portal/prescriptions"/>
-        <key value="order9845343"/>
+        <key value="order9823343"/>
     </identifier>
     <dateWritten value="2011-05-01"/>
     <status value="active"/>
     <patient> <!-- Linked to the resource patient who needs the medication -->
         <type value="Patient"/> 
-        <reference value="patient/@f007"/>
+        <reference value="patient/@f001"/>
         <display value="P. van den Heuvel"/>         
     </patient>
     <prescriber> <!-- Linked to the practitioner who treats patient -->
         <type value="Practitioner"/> 
-        <reference value="practitioner/@f001"/>
+        <reference value="practitioner/@f007"/>
         <display value="S.M. Heps"/>
     </prescriber>
     <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
         <type value="Encounter"/>
-        <reference value="encounter/f004"/>
+        <reference value="encounter/@f001"/>
         <display value="encounter who leads to this priscription"/>
     </encounter>
     <reasonForPrescribingCodeableConcept>
@@ -31,7 +31,7 @@
     </reasonForPrescribingCodeableConcept>
     <medication> <!-- Linked to a RESOURCE Medication -->
         <type value="Medication"/>
-        <reference value="medication/@f004"/>
+        <reference value="medication/@f005"/>
         <display value="prescribed medication"/>
     </medication> 
     <dosageInstructions>
@@ -60,7 +60,7 @@
             </coding>
         </route>
         <doseQuantity>
-            <value value="50"/>
+            <value value="5"/>
             <units value="mg"/>
             <system value="http://unitsofmeasure.org"/>
             <code value="mg"/>
@@ -71,7 +71,7 @@
             <start value="2011-05-01"/>
         </validityPeriod>
         <quantity>
-            <value value="90"/>
+            <value value="28"/>
             <system value="http://snomed.info"/> 
             <code value="46992007"/>
         </quantity>

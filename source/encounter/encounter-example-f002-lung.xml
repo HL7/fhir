@@ -4,7 +4,7 @@
     <identifier>
         <use value="official"/>
         <system value="http://www.bmc.nl/zorgportal/identifiers/encounters"/>
-        <key value="v1451"/>
+        <key value="v3251"/>
     </identifier>
     <status value="finished"/>
     <class value="outpatient"/>
@@ -17,89 +17,84 @@
     </type>
     <subject>
         <type value="Patient"/>
-        <reference value="patient/@F001"/>
+        <reference value="patient/@f001"/>
         <display value="P. van de Heuvel"/>
     </subject>
     <participant>
         <type value="consulting"/>
-        <partitioner>
+        <practitioner>
             <type value="Practitioner"/>
-            <reference value="practitioner/@F002"/>
-            <display value="P. Voigt"/>
-        </partitioner>
+            <reference value="practitioner/@f003"/>
+            <display value="M.I.M Versteegh"/>
+        </practitioner>
     </participant>
     <length>
         <value value="140"/>
-        <units value="min"/>    
+        <units value="min"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="min"/>
     </length>
-    <reason>
+    <reasonCodeableConcept>
         <coding>
             <system value="http://snomed.info"/>
             <code value="34068001"/>
-            <display value="Heart valve replacement"/>
+            <display value="Partial lobectomy of lung"/>
         </coding>
-    </reason>
+    </reasonCodeableConcept>
     <priority>
         <coding>
             <system value="http://snomed.info"/>
-            <coding value="310361003"/>
-            <display value="Non-urgent cardiological admission"/>
+            <code value="103391001"/>
+            <display value="Urgent"/>
         </coding>
     </priority>
     <hospitalization>
         <preAdmissionIdentifier>
             <use value="official"/>
             <system value="http://www.bmc.nl/zorgportal/identifiers/pre-admissions"/>
-            <key value="93042"/>
+            <key value="98682"/>
         </preAdmissionIdentifier>
         <preAdmissionTest>
             <coding>
                 <system value="http://snomed.info"/>
-                <coding value="164847006"/>
-                <display value="Standard ECG"/>
+                <code value="399208008"/>
+                <display value="Chest X-ray"/>
             </coding>
-        </preAdmissionTest>
-        <preAdmissionTest>
             <coding>
                 <system value="http://snomed.info"/>
-                <coding value="396550006"/>
+                <code value="396550006"/>
                 <display value="Blood test"/>
             </coding>
         </preAdmissionTest>
-        <origin></origin> <!-- resource location -->
         <admitSource>
             <coding>
                 <system value="http://snomed.info"/>
-                <coding value="Referral by physician"/>
-                <display value="305956004"/>
+                <code value="Referral by radiologist"/>
+                <display value="305997006"/>
             </coding>
         </admitSource>
         <period>
-            <start value="2011-06-26"/>
-            <end value="2011-06-30"
+            <start value="2012-07-06"/>
+            <end value="2012-07-13"/>
         </period>
         <accomodation>
-            <bed></bed> <!-- resource location -->
             <period>
-                <start value="2011-06-26"/>
-                <end value="2011-07-01"/>
+                <start value="2012-07-06"/>
+                <end value="2012-07-13"/>
             </period>
         </accomodation> 
-        <destination></destination> <!-- resource location -->
         <dischargeDisposition>
             <coding>
                 <system value="http://snomed.info"/>
-                <coding value="Discharge to home"/>
+                <code value="Discharge to home"/>
                 <display value="306689006"/>
             </coding>
         </dischargeDisposition>
         <reAdmission value="false"/>
     </hospitalization>
     <serviceProvider>
-        <type value="Organisation"/>
-        <reference value="organisation/@F001"/>
+        <type value="Organization"/>
+        <reference value="organization/@f001"/>
         <display value="BMC"/>
     </serviceProvider>
 </Encounter>

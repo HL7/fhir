@@ -602,12 +602,12 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="7" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="10" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="55.800000000000004"/>
+   <Column ss:AutoFitWidth="0" ss:Width="98.4"/>
    <Column ss:AutoFitWidth="0" ss:Width="146.39999999999998"/>
    <Column ss:AutoFitWidth="0" ss:Width="55.800000000000004"/>
-   <Column ss:AutoFitWidth="0" ss:Width="143.4"/>
+   <Column ss:Width="186"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s70"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Description</Data></Cell>
@@ -632,30 +632,51 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Fever</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">Real-word condition example</Data></Cell>
     <Cell><Data ss:Type="String">f201</Data></Cell>
     <Cell><Data ss:Type="String">condition-example-f201-fever.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Malignancy</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">Real-word condition example</Data></Cell>
     <Cell><Data ss:Type="String">f202</Data></Cell>
     <Cell><Data ss:Type="String">condition-example-f202-malignancy.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Sepsis</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">Real-word condition example</Data></Cell>
     <Cell><Data ss:Type="String">f203</Data></Cell>
     <Cell><Data ss:Type="String">condition-example-f203-sepsis.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Renal insufficiency</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">Real-word condition example</Data></Cell>
     <Cell><Data ss:Type="String">f204</Data></Cell>
     <Cell><Data ss:Type="String">condition-example-f204-renal.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Heart</Data></Cell>
+    <Cell><Data ss:Type="String">Real-word condition example</Data></Cell>
+    <Cell><Data ss:Type="String">f001</Data></Cell>
+    <Cell><Data ss:Type="String">condition-example-f001-heart.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Lung</Data></Cell>
+    <Cell><Data ss:Type="String">Real-word condition example</Data></Cell>
+    <Cell><Data ss:Type="String">f002</Data></Cell>
+    <Cell><Data ss:Type="String">condition-example-f002-lung.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Abscess</Data></Cell>
+    <Cell><Data ss:Type="String">Real-word condition example</Data></Cell>
+    <Cell><Data ss:Type="String">f003</Data></Cell>
+    <Cell><Data ss:Type="String">condition-example-f003-abscess.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
   </Table>
@@ -670,8 +691,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

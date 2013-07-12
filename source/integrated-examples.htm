@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Common Scenarios - FHIR v<%version%></title>
+    <link rel="Stylesheet" href="fhir.css" type="text/css"/>
+    <link rel="Stylesheet" href="fhir-print.css" type="text/css" media="print" />
+</head>
+<body>
+<%sidebar%>
+
+<%maindiv%>
+<%pageheader%>
+
+<%onthispage PHR#phr|XDS#xds|Decision Support#decision%>
+
+
+<a name="phr"></a>
+<h2>Personal Health Record (PHR)</h2>
+<p>
+In the PHR scenario, an Electronic Medical Record system (EMR, though many other names and acronyms 
+are also used) provides a RESTful API that allows patients to access their own medical
+record via a common web portal or mobile application, usually provided by a third party. 
+In this scenario, the PHR provider:
+</p> 
+
+<ul>
+ <li>Provides the patient with a login that identifies them (or links the patient record to an external identity provided by OpenID, Facebook, Google, etc.)</li>
+ <li>Authenticates the client using an appropriate OAuth server for the login (possibly their own) and restricts the client to viewing records associated with the specific patient (or patients, where appropriate access has been arranged)</li>
+</ul>
+
+<p>
+The EMR exposes a FHIR server that supports the <i>search</i> and <i>read</i> operations on the following resources: 
+</p>
+<ol>
+ <li>the <a href="patient.htm">patient</a> resource in order to provide demographics to the client. When a client searches patients with no search criteria, they get a list of all patients they have access too</li>
+ <li><i>search</i> and <i>read</i> on the <a href="documentreference.htm">Document Reference</a> resource to provide access to general patient documents in the form of PDFs etc (PDFs are preferred)</li>
+ <li><i>search</i> and <i>read</i> on a set of clinical resources potentially including Observation, DiagnosticReport, various Medication resources, AdverseReaction/AllergyIntolerance, 
+CarePlan, and Condition</li> 
+</ol>
+<p>
+Here is the conformance Profile for this scenario:
+ <a href="conformance-phr-example.xml">XML</a> <a href="conformance-phr-example.xml.htm">(for browser)</a> or 
+ <a href="conformance-phr-example.json">JSON</a> <a href="conformance-phr-example.json.htm">(for browser)</a>.
+</p>
+
+</p>
+The EMR may also choose to provide additional functionality, such as shared access to patient 
+records by relatives/carers, to allow the patient to upload their own documents, medication statements, observations
+(e.g. from patient monitoring devices) and/or to allow the patient to make appointments. This 
+additional functionality will involve additional API capabilities to be implemented and 
+exposed. The EMR server may also choose to expose the <i>read</i>, <i>search</i> and <i>updates</i> operation on 
+the Security Event resource for the patient-specific records to allow patient review of record access. Note that all 
+usage of the RESTful API should be logged in SecurityEvent resources.
+</p>
+
+
+<h2>Patient case 1</h2>
+
+The 69 years old Pieter van den Heuvel is charged with some serieus deseases in the last few years. In the spring and summer of 2011, Pieter had complains of fatique, dyspnea <br>
+and even fainting. After visiting his docter, Pieter was referred to the cariologist for further examination. At the hospital a malfunction of the heart valve was diagnosed<br>
+and replaced. Pieter recovered well in the next 2 moths but probably needs a life time prescription on blood pressure reducing medication.<br>
+In the summer of 2012, Pieter went again to the doktor for a chest injury after he fell from the stairs. By coincidence, the doctor noticed a suspicious stain on the photo <br>
+and performed some more tests on Pieter. After the results, Pieter was diagnosed with early stage non-small cell lung cancer. Fortunately, the tumor didn't spread to other<br>
+parts of the body. Tumor type and location made it possible to perform a partial lobectomy in the left lung. After his recovery, Pieter was submitted in a high risk control <br>
+group for yearly screening.<br>
+In 2013, Peiter was charged with an increasing neck swelling, a stiff neck and difficulty swallowing. Because of breathing problems, Pieter was urgently submitted <br>
+into the hospital. Surgery was needed to remove the abscess. An upper respiratory infection caused a retropharyngeal abscess in the back of the throat.The surgeons <br>
+recommanded a tracheotomy during the surgery, so there was less change of complication during the abcess removal. A tracheotomy was intubated before the surgery.<br>
+After the removal of the retropharyngeal abscess, the trachetomy was extubated as the swelling was reduced and normal breathing was reinstated.
+
+
+<h3>Patient contact information</h3>
+
+<pre>
+Patient name: <a href="patient/patient-example-f001-pieter.xml">Pieter van den Heuvel</a>
+Patient number: 0108173
+Date of birth: 17-11-1944
+Gender: Male
+</pre>
+
+<h3>Patient contact information</h3>
+<pre>
+Address: van Egmondkade 23
+Zip code: 1024 RJ
+City: Amsterdam
+Phone: 0648352638
+email: p.heuvel@gmail.com
+</pre>
+
+<table border="1">
+<caption>Intakes</caption>
+<tr>
+  <th>intake date</th>
+  <th>surgery date</th>
+  <th>surgeon</th>
+  <th>specialism</th>
+  <th>procedure</th>
+  <th>care plan</th>
+  <th>surgery code</th>
+  <th>snomed CT code</th>
+  <th>related encounter</th>
+</tr>
+<tr>
+  <td>26-6-2011</td>
+  <td>27-6-2011</td>
+  <td><a href="practitioner/practitioner-example-f002-pv.xml">P. Voigt</a></td>
+  <td><a href="organization/organization-example-f002-burgers-card.xml">CTC (Cardio-thoracale Chirurgie)</a></td>
+  <td><a href="procedure/procedure-example-F001.xml">Heart valve replacement</a></td>
+  <td><a href="careplan/careplan-example-f001-heart.xml">CP2903</a></td>
+  <td>1000263502</td>
+  <td>64915003</td>
+  <td><a href="encounter/encounter-example-F001.xml">v1451</a>
+</tr>
+<tr>
+  <td>6-7-2012</td>
+  <td>7-7-2012</td>
+  <td><a href="practitioner/practitioner-example-f003-mv.xml">M.I.M. Versteegh</a></td>
+  <td><a href="organization/organization-example-f002-burgers-card.xml">CTC (Cardio-thoracale Chirurgie)</a></td>
+  <td><a href="procedure/procedure-example-F001.xml">partial lobectomy</a></td>
+  <td><a href="careplan/careplan-example-f002-lung.xml">CP2934</a></td>
+  <td>1000263813</td>
+  <td>173171007</td>
+  <td><a href="encounter/encounter-example-F001.xml">v3251</a>
+</tr>
+<tr>
+  <td>22-3-2013</td>
+  <td>22-3-2013</td>
+  <td><a href="practitioner/practitioner-example-f005-al.xml">A.P.M. Langeveld</a></td>
+  <td><a href="organization/organization-example-f003-burgers-ENT.xml">KNO</a></td>
+  <td><a href="procedure/procedure-example-F001.xml">Trachea-tracheotomy</a></td>
+  <td>CP2938</td>
+  <td>1000050465</td>
+  <td>48387007</td>
+  <td><a href="encounter/encounter-example-F001.xml">v6751</a>
+</tr>
+<tr>
+  <td>24-3-2013</td>
+  <td>24-3-2013</td>
+  <td><a href="practitioner/practitioner-example-f001-evdb.xml">E.M.J.M. van den broek</a></td>
+  <td><a href="organization/organization-example-f003-burgers-ENT.xml">KNO</a></td>
+  <td><a href="procedure/procedure-example-F001.xml">retropharyngeal abscess</a></td>
+  <td><a href="careplan/careplan-example-f003-pharynx.xml">CP3953</a></td>
+  <td>1000049161</td>
+  <td>172960003</td>
+  <td><a href="encounter/encounter-example-F001.xml">v6751</a>
+</tr>
+<tr>
+  <td>27-3-2013</td>
+  <td>27-3-2013</td>
+  <td><a href="practitioner/practitioner-example-f004-rb.xml">R.J.P. Briet</a></td>
+  <td><a href="organization/organization-example-f003-burgers-ENT.xml">KNO</a></td>
+  <td>Trachea-extubatie</td>
+  <td>CP1283</td>
+  <td>1000050159</td>
+  <td>309812005</td>
+  <td><a href="encounter/encounter-example-F001.xml">v6751</a>
+</tr>
+</table>
+
+
+<table border="1">
+<caption>Active medication</caption>
+<tr>
+  <th>medication</th>
+  <th>hopital/home</th>
+  <th>dose</th>
+  <th>admission route</th>
+  <th>start date</th>
+  <th>presciber</th>
+  <th>SNOMED CT code 
+  <th>prescription nu
+</tr>
+<tr>
+  <td><a href="medication/medication-example-f001-combivent.xml">Salbutamol+ipratropium bromide</a>
+  <td>hopital</td>
+  <td>3/4 times daily 1 flacon</td>
+  <td>inhaler</td>
+  <td>8-4-2013</td>
+  <td>R.A. van den Berk</td>
+  <td>320442002 
+  <td><a href="medicationprescription/medicationprescription-example-f001-copd.xml">2983</a>
+</tr>
+<tr>
+  <td><a href="medication/medication-example-F002.xml">rosuvastatine</a></td>
+  <td>hopital</td>
+  <td>1 time daily 10 mg</td>
+  <td>oral</td>
+  <td>7-7-2011</td>
+  <td>R.A. van den Berk</td>
+  <td>408036003
+  <td><a href="medicationprescription/medicationprescription-example-F002.xml">1029</a>
+</tr>
+<tr>
+  <td><a href="medication/medication-example-F003.xml">Tolbutamide</a></td>
+  <td>home</td>
+  <td>3 times daily 500 mg</td>
+  <td>oral</td>
+  <td>7-7-2011</td>
+  <td>S.M. Heps</td>
+  <td>325267004
+  <td><a href="medicationprescription/medicationprescription-example-F003.xml">8473</a>
+</tr>
+<tr>
+  <td><a href="medication/medication-example-F004.xml">metoprolol</a></td>
+  <td>home</td>
+  <td>1 time daily 50 mg</td>
+  <td>oral</td>
+  <td>1-5-2011</td>
+  <td>S.M. Heps</td>
+  <td>318475005
+  <td><a href="medicationprescription/medicationprescription-example-F004.xml">9517</a>
+</tr>
+<tr>
+  <td><a href="medication/medication-example-F005.xml">enalapril</a></td>
+  <td>home</td>
+  <td>1 time daily 5 mg</td> 
+  <td>oral</td>
+  <td>1-5-2011</td>
+  <td>S.M. Heps</td>
+  <td>318851002
+  <td><a href="medicationprescription/medicationprescription-example-F005.xml">7119</a>
+</tr>
+</table>
+
+
+<table border="1">
+<caption>Device</caption>
+<tr>
+  <th>device</th>
+  <th>hopital/home</th>
+  <th>dose</th>
+  <th>admission route</th>
+  <th>start date</th>
+  <th>presciber</th>
+  <th>SNOMED CT code
+</tr>
+<tr>
+  <td><a href="device/device-example-f001-feedingtube.xml">Feeding tube</a></td>
+  <td>hopital</td>
+  <td>N.A.</td>
+  <td>tube</td>
+  <td>10-4-2013</td>
+  <td>R.A. van den Berk</td>
+  <td>61420007
+</tr>
+</table>
+
+<table border="1">
+<caption>Lab results</caption>
+<td><a href="diagnosticreport/diagnosticreport-example-f001-bloodexam.xml">diagnostic blood report</a></td>
+<tr>
+  <th>date</th>
+  <th>substance</th>
+  <th>value</th>
+  <th>status</th>
+</tr>
+<tr>
+  <td>2013-04-02</td>
+  <td><a href="observation/observation-example-f001-glucose.xml">glucose</a></td>
+  <td>6,3 mmol/l</td>
+  <td>abnormal</td>
+</tr>
+<tr>
+  <td>2013-04-02</td>
+  <td><a href="observation/observation-example-f001-glucose.xml">base excess</a></td>
+  <td>12,6 mmol/l</td>
+  <td>abnormal</td>
+</tr>
+<tr>
+  <td>2013-04-02</td>
+  <td><a href="observation/observation-example-f001-glucose.xml">carbon dioxide</a></td>
+  <td>6,2 mm[Hg]</td>
+  <td>abnormal</td>
+</tr>
+<tr>
+  <td>2013-04-02</td>
+  <td><a href="observation/observation-example-f001-glucose.xml">erytrocyten</a></td>
+  <td>18,7 g/dl</td>
+  <td>abnormal</td>
+</tr>
+<tr>
+  <td>2013-04-02</td>
+  <td><a href="observation/observation-example-f001-glucose.xml">Hemoglobin</a></td>
+  <td>7,5 g/dl</td>
+  <td>abnormal</td>
+</tr>
+</table>
+
+<h3>Anamnese</h3>
+
+date: 8-6-2012<br>
+Bronchoscopy; several biopts taken from pathological mucosa, right main bronchus biopt send for pathologic analysis.
+Bronchoscopy because of atelectasis right.
+<br>
+X-thorax; increase in atelectasis and pleural liquid.  
+
+<h3>Anamnese</h3>
+
+date: 10-7-2012<br>
+Bronchoscopy; several biopts taken from pathological mucosa, right main bronchus biopt send for pathologic analysis.
+Bronchoscopy because of atelectasis right.<br>
+
+X-thorax; increase in atelectasis and pleural liquid is stated after lobectomy.<br>
+
+Bronchoscopie;<br>
+- fluids drained from right main bronchus<br>
+- pathalogic mucous membrane right bronchus, easily bleeding<br>
+- Left bronchial system open<br>
+
+
+<h3>Physical investigation</h3>
+date: 18-3-2013<br>
+Neck; swelling and redness pretracheal extending to chest. No fluctation, however induration is present.<br>
+Swelling back pharynx, also present in postcricoid area. Light stridor sound when breathing. Overall<br>
+condition is good. scoop; little supraglottic swelling, vocal chords not judgable.<br>
+
+<h3>Anamnese</h3>
+
+date: 18-3-2013<br>
+Antiobiotic policy with retropharyngeal abcess with prolapse to the mediatinum. No surgical possibility to fully drain the mediatinum.
+
+<h3>Additional research</h3>
+CT thorax: no mediastinal/retropharyngal collering of the fluid collections. Diffuse edema retro/parapharyngeal and mediastinitis.<br>
+Preoperative culture shows; S pyogenes, sensitivity for peneciline and E. cloacae, sensitivity for Salbutamol.
+
+
+<h3>Policy</h3>
+Stop Salbutamol prescription. Continue penicilin and start salbutamol supplementation. Total treatment time is approximatly 6 weeks.<br>
+In consultation with the IC/anesthesia; intubation. Analyse lower respiratory tract.
+   	
+<h3>Conclusion</h3>
+Extubation on OR. Normal voice, no stridor. However, hypoxic at low respiratory tract obstruction with 84% O2 and rapid breathing.
+
+
+<h2>Patient case 2</h2>
+
+
+<pre>
+Patient name: <a href="patient/patient-example-f201-pieter.xml">Roel Bor</a>
+Patient number: 0108173
+Date of birth: 17-11-1944
+Gender: Male
+</pre>
+
+<h3>Patient contact information</h3>
+<pre>
+Address: van Egmondkade 23
+Zip code: 1024 RJ
+City: Amsterdam
+Phone: 0648352638
+email: p.heuvel@gmail.com
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

@@ -16,10 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6345</WindowHeight>
-  <WindowWidth>22755</WindowWidth>
+  <WindowHeight>6348</WindowHeight>
+  <WindowWidth>22752</WindowWidth>
   <WindowTopX>5520</WindowTopX>
-  <WindowTopY>6075</WindowTopY>
+  <WindowTopY>6072</WindowTopY>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -78,14 +79,16 @@
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="17" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="197.25"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
-   <Column ss:Index="4" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="34.5"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="35.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="197.4"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="56.4" ss:Span="1"/>
+   <Column ss:Index="4" ss:StyleID="s62" ss:AutoFitWidth="0"
+    ss:Width="34.799999999999997"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="35.4"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="93"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="82.5"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="10" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.25"
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="82.8"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="213.60000000000002"
+    ss:Span="1"/>
+   <Column ss:Index="10" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.4"
     ss:Span="1"/>
    <Column ss:Index="12" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
@@ -236,7 +239,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -281,9 +283,9 @@
  <Worksheet ss:Name="Events">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="69.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="93.75" ss:Span="1"/>
-   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="101.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="69.599999999999994"/>
+   <Column ss:AutoFitWidth="0" ss:Width="93.600000000000009" ss:Span="1"/>
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="101.4"/>
    <Column ss:AutoFitWidth="0" ss:Width="111"/>
    <Column ss:AutoFitWidth="0" ss:Width="69"/>
    <Row ss:AutoFitHeight="0" ss:Height="22.5">
@@ -322,8 +324,8 @@
  <Worksheet ss:Name="Search">
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="9" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
-   <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="70.8"/>
+   <Column ss:AutoFitWidth="0" ss:Width="382.79999999999995"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="273"/>
    <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -405,11 +407,11 @@
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="130.5"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="294.75"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="65.25"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="89.25"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="287.25"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="130.80000000000001"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="294.60000000000002"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="65.400000000000006"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="89.4"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="287.39999999999998"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Definition</Data></Cell>
@@ -459,11 +461,12 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="146.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="104.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="159.75"/>
+   <Column ss:Width="70.8"/>
+   <Column ss:AutoFitWidth="0" ss:Width="146.39999999999998"/>
+   <Column ss:AutoFitWidth="0" ss:Width="104.39999999999999"/>
+   <Column ss:Width="177.60000000000002"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
@@ -486,6 +489,13 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">device-example-ihe-pcd.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Feeding tube</Data></Cell>
+    <Cell><Data ss:Type="String">Example of device</Data></Cell>
+    <Cell><Data ss:Type="String">f001</Data></Cell>
+    <Cell><Data ss:Type="String">device-example-f001-feedingtube.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -494,11 +504,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

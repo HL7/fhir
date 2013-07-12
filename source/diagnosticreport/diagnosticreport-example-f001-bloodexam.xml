@@ -24,7 +24,7 @@
     <requestDetail>
         <encounter>
             <type value="Encounter"/>
-            <reference value="encounter/@f201"/><!--TODO Correcte verwijzing-->
+            <reference value="encounter/@f001"/><!--TODO Correcte verwijzing-->
         </encounter>
         <requestOrderId>
             <use value="official"/>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:/C:/SVN/schema/encounter.xsd">
+<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://hl7.org/fhir ../../schema/encounter.xsd">
     <identifier>
         <use value="official"/>
         <system value="http://www.bmc.nl/zorgportal/identifiers/encounters"/>
-        <key value="v3251"/>
+        <key value="v1451"/>
     </identifier>
     <status value="finished"/>
     <class value="outpatient"/>
@@ -16,54 +17,52 @@
     </type>
     <subject>
         <type value="Patient"/>
-        <reference value="patient/@F001"/>
+        <reference value="patient/@f001"/>
         <display value="P. van de Heuvel"/>
     </subject>
     <participant>
         <type value="consulting"/>
-        <partitioner>
+        <practitioner>
             <type value="Practitioner"/>
-            <reference value="practitioner/@F003"/>
-            <display value="M.I.M Versteegh"/>
-        </partitioner>
+            <reference value="practitioner/@F002"/>
+            <display value="P. Voigt"/>
+        </practitioner>
     </participant>
     <length>
         <value value="140"/>
-        <units value="min"/>
+        <units value="min"/>    
         <system value="http://unitsofmeasure.org"/>
         <code value="min"/>
     </length>
-    <reason>
+    <reasonCodeableConcept>
         <coding>
             <system value="http://snomed.info"/>
             <code value="34068001"/>
-            <display value="Partial lobectomy of lung"/>
+            <display value="Heart valve replacement"/>
         </coding>
-    </reason>
+    </reasonCodeableConcept>
     <priority>
         <coding>
             <system value="http://snomed.info"/>
-            <coding value="103391001"/>
-            <display value="Urgent"/>
+            <code value="310361003"/>
+            <display value="Non-urgent cardiological admission"/>
         </coding>
     </priority>
     <hospitalization>
         <preAdmissionIdentifier>
             <use value="official"/>
             <system value="http://www.bmc.nl/zorgportal/identifiers/pre-admissions"/>
-            <key value="98682"/>
+            <key value="93042"/>
         </preAdmissionIdentifier>
         <preAdmissionTest>
             <coding>
                 <system value="http://snomed.info"/>
-                <coding value="399208008"/>
-                <display value="Chest X-ray"/>
+                <code value="164847006"/>
+                <display value="Standard ECG"/>
             </coding>
-        </preAdmissionTest>
-        <preAdmissionTest>
-            <coding>
+             <coding>
                 <system value="http://snomed.info"/>
-                <coding value="396550006"/>
+                <code value="396550006"/>
                 <display value="Blood test"/>
             </coding>
         </preAdmissionTest>
@@ -71,26 +70,26 @@
         <admitSource>
             <coding>
                 <system value="http://snomed.info"/>
-                <coding value="Referral by radiologist"/>
-                <display value="305997006"/>
+                <code value="Referral by physician"/>
+                <display value="305956004"/>
             </coding>
         </admitSource>
         <period>
-            <start value="2012-07-06"/>
-            <end value="2012-07-13"/>
+            <start value="2011-06-26"/>
+            <end value="2011-06-30" />
         </period>
         <accomodation>
             <bed></bed> <!-- resource location -->
             <period>
-                <start value="2012-07-06"/>
-                <end value="2012-07-13"/>
+                <start value="2011-06-26"/>
+                <end value="2011-07-01"/>
             </period>
         </accomodation> 
         <destination></destination> <!-- resource location -->
         <dischargeDisposition>
             <coding>
                 <system value="http://snomed.info"/>
-                <coding value="Discharge to home"/>
+                <code value="Discharge to home"/>
                 <display value="306689006"/>
             </coding>
         </dischargeDisposition>

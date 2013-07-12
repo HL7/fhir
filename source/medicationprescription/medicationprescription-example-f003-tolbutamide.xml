@@ -9,29 +9,29 @@
     <status value="active"/>
     <patient> <!-- Linked to the resource patient who needs the medication -->
         <type value="Patient"/> 
-        <reference value="patient/@f007"/>
+        <reference value="patient/@f001"/>
         <display value="P. van den Heuvel"/>         
     </patient>
     <prescriber> <!-- Linked to the practitioner who treats patient -->
         <type value="Practitioner"/> 
-        <reference value="practitioner/@f001"/>
+        <reference value="practitioner/@f007"/>
         <display value="S.M. Heps"/>
     </prescriber>
     <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
         <type value="Encounter"/>
-        <reference value="encounter/f004"/>
+        <reference value="encounter/@f002"/>
         <display value="encounter who leads to this priscription"/>
     </encounter>
     <reasonForPrescribingCodeableConcept>
         <coding>
             <system value="http://snomed.info"/>
-            <code value="38341003"/>
-            <display value="High blood pressure"/>
+            <code value="444780001"/>
+            <display value="High glucose level in blood"/>
         </coding>
     </reasonForPrescribingCodeableConcept>
     <medication> <!-- Linked to a RESOURCE Medication -->
         <type value="Medication"/>
-        <reference value="medication/@f004"/>
+        <reference value="medication/@f003"/>
         <display value="prescribed medication"/>
     </medication> 
     <dosageInstructions>
@@ -40,7 +40,7 @@
                 <start value="2011-05-01"/>
             </event>
             <repeat>
-                <frequency value="1"/>
+                <frequency value="3"/>
                 <duration value="1"/>
                 <units value="d"/>
             </repeat>
@@ -60,7 +60,7 @@
             </coding>
         </route>
         <doseQuantity>
-            <value value="50"/>
+            <value value="500"/>
             <units value="mg"/>
             <system value="http://unitsofmeasure.org"/>
             <code value="mg"/>
