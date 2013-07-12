@@ -89,7 +89,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="14" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="15" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="206.25"/>
    <Column ss:StyleID="s63" ss:Width="29.25"/>
@@ -248,6 +248,14 @@
     <Cell ss:Index="8"><Data ss:Type="String">The quantity of specimen collected</Data></Cell>
     <Cell><Data ss:Type="String">The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample </Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Specimen.collection.method</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell><Data ss:Type="String">SpecimenCollectionMethod</Data></Cell>
+    <Cell><Data ss:Type="String">Specimen Collection Method</Data></Cell>
+    <Cell><Data ss:Type="String">A coded value specifying the technique that is used to perform the procedure</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -276,8 +284,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>22</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
