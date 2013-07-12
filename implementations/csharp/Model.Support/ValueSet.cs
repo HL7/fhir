@@ -41,8 +41,8 @@ namespace Hl7.Fhir.Model
         public static bool CodeEquals(string code, string value, bool caseSensitive)
         {
             return String.Equals(code,value,
-                caseSensitive ? StringComparison.InvariantCulture : 
-                        StringComparison.InvariantCultureIgnoreCase);
+                caseSensitive ? StringComparison.Ordinal : 
+                        StringComparison.OrdinalIgnoreCase);
         }
 
 

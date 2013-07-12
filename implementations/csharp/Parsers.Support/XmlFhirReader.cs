@@ -153,7 +153,8 @@ namespace Hl7.Fhir.Parsers
 
                 if( xr.NodeType == XmlNodeType.Text )
                 {
-                    var txt = xr.ReadString();
+                    var txt = xr.Value; 
+                    xr.Read();
                     contents.Elements.Push(new Tuple<string, string>(BINARY_CONTENT_NAME, txt));
                 }
             }

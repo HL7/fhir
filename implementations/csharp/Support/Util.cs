@@ -169,6 +169,26 @@ namespace Hl7.Fhir.Support
         public static DateTimeOffset RemoveMiliseconds(DateTimeOffset dt)
         {
             return new DateTimeOffset(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second, dt.Offset);
-        }      
+        }
     }
+
+#if NETFX_CORE
+    [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
+    sealed class Serializable : Attribute
+    {
+        // Just there to avoid compilation errors under NETFX
+        // (instead of putting this #if at every single [Serializable] attribute in the model
+    }
+
+
+    public static class ForEachExtension
+    {
+        public static void ForEach<T>(this List<T> list, Action<T> action)
+        {
+            foreach (T elem in list)
+                action(elem);
+        }
+    }
+#endif
+
 }

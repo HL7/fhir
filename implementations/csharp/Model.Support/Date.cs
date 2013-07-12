@@ -47,7 +47,7 @@ namespace Hl7.Fhir.Model
 
         public static bool TryParse(string value, out Date result)
         {
-            if (value==null || Regex.IsMatch(value,"^" + PATTERN + "$", RegexOptions.Singleline | RegexOptions.Compiled))
+            if (value==null || Regex.IsMatch(value,"^" + PATTERN + "$", RegexOptions.Singleline ))
             {
                 result = new Date(value);
                 return true;

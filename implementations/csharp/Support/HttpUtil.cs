@@ -115,14 +115,14 @@ namespace Hl7.Fhir.Support
                 if (Util.UriHasValue(tag.Uri))
                 {
                     var uri = tag.Uri.ToString();
-                    if (uri.Contains(',') || uri.Contains(';'))
+                    if (uri.Contains(",") || uri.Contains(";"))
                         throw new ArgumentException("Found tag containing ',' or ';' - this will produce an inparsable Category header");
                     sb.Append(tag.Uri.ToString());
                 }
 
                 if (!String.IsNullOrEmpty(tag.Label))
                 {
-                    if (tag.Label.Contains(',') || tag.Label.Contains(';'))
+                    if (tag.Label.Contains(",") || tag.Label.Contains(";"))
                         throw new ArgumentException("Found tag containing ',' or ';' - this will produce an inparsable Category header");
 
                     sb.AppendFormat("; label={0}", tag.Label);
