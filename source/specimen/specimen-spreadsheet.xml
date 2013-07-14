@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Lorraine Constable</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-07-08T16:37:14Z</LastSaved>
+  <LastSaved>2013-07-14T02:37:42Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -89,7 +89,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="21" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="28" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="206.25"/>
    <Column ss:StyleID="s63" ss:Width="29.25"/>
@@ -216,6 +216,13 @@
     <Cell><Data ss:Type="String">The identifier(s) assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures. </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Specimen.receivedTime</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Received Time</Data></Cell>
+    <Cell><Data ss:Type="String">Time when specimen was received for processing or testing</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen.collection</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Collection details</Data></Cell>
@@ -293,11 +300,52 @@
     <Cell ss:Index="8"><Data ss:Type="String">Specimen additive</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Specimen.receivedTime</Data></Cell>
+    <Cell><Data ss:Type="String">Specimen.container</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Specimen Container</Data></Cell>
+    <Cell><Data ss:Type="String">The container holding the specimen. May be recursive; ie blood in tube in tray in rack</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Specimen.container.identifier</Data></Cell>
+    <Cell><Data ss:Type="String">1..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Id for container</Data></Cell>
+    <Cell><Data ss:Type="String">Id for container. There may be muliple; a manufacturer's bar code, lab assigned identifier, etc</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Specimen.container.description</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Received Time</Data></Cell>
-    <Cell><Data ss:Type="String">Time when specimen was received for processing or testing</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Textual description of container</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Specimen.container.type</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell><Data ss:Type="String">SpecimenContainerType</Data></Cell>
+    <Cell><Data ss:Type="String">Specimen Container Type</Data></Cell>
+    <Cell><Data ss:Type="String">The type of container associated with the specimen (eg slide, aliquot, etc)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Specimen.container.position</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Specimen Position</Data></Cell>
+    <Cell><Data ss:Type="String">Identifiers the position of the container (eg aliquot within tray)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Specimen.container.additive</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Substance)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Container Additive</Data></Cell>
+    <Cell><Data ss:Type="String">Additive associated with the container</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Specimen.container.parentContainer</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Parent Container</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies the parent container of a specimen container. Eg, the rack that contains a tray</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -327,8 +375,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>27</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -641,7 +689,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="93"/>
    <Column ss:AutoFitWidth="0" ss:Width="221.25"/>
@@ -684,6 +732,12 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">valueset-specimen-treatment-procedure</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SpecimenContainerType</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Type of specimen container</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">valueset-specimen-container-type</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -716,8 +770,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
