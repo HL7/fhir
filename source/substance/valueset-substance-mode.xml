@@ -1,0 +1,30 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>This value sets indicates whether a given quantity is absolute or relative</p>
+    </div>
+  </text>
+  <name value="Substance Quantity Mode"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="Substance Quantity Mode"/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/substance-quantity-mode"/>
+    <concept>
+      <code value="abs"/>
+      <display value="Absolute"/>
+      <definition value="Quantity values are absolute."/>
+    </concept>
+    <concept>
+      <code value="rel"/>
+      <display value="Relative"/>
+      <definition value="Quantity values are relative to each other."/>
+    </concept>
+  </define>
+</ValueSet>
