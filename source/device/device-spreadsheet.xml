@@ -7,20 +7,19 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame</LastAuthor>
+  <LastAuthor>Lorraine Constable</LastAuthor>
   <Created>2012-03-19T11:15:30Z</Created>
-  <LastSaved>2013-04-11T11:55:30Z</LastSaved>
+  <LastSaved>2013-07-15T21:39:40Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6348</WindowHeight>
-  <WindowWidth>22752</WindowWidth>
+  <WindowHeight>6345</WindowHeight>
+  <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
-  <WindowTopY>6072</WindowTopY>
-  <ActiveSheet>5</ActiveSheet>
+  <WindowTopY>6075</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -79,16 +78,14 @@
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="17" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="197.4"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="56.4" ss:Span="1"/>
-   <Column ss:Index="4" ss:StyleID="s62" ss:AutoFitWidth="0"
-    ss:Width="34.799999999999997"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="35.4"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="197.25"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
+   <Column ss:Index="4" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="34.5"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="35.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="93"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="82.8"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="213.60000000000002"
-    ss:Span="1"/>
-   <Column ss:Index="10" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.4"
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="82.5"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
+   <Column ss:Index="10" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.25"
     ss:Span="1"/>
    <Column ss:Index="12" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
@@ -150,6 +147,13 @@
     <Cell><Data ss:Type="String">The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">Device.expiry</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Date of expiry of this device (if applicable)</Data></Cell>
+    <Cell><Data ss:Type="String">Date of expiry of this device (if applicable)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Device.identity</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">right</Data></Cell>
@@ -160,8 +164,8 @@
     <Cell><Data ss:Type="String">Device.identity.gtin</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">GTIN assigned to this device</Data></Cell>
-    <Cell><Data ss:Type="String">The number assigned to this device by an authorised issuer of Device GITNs</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Global Trade Identification Number</Data></Cell>
+    <Cell><Data ss:Type="String">The number assigned to this device by an authorised issuer of Device GTINs, based on the standards set by GS1</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">This is a 14 digit number that may include leading 0s</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -179,13 +183,6 @@
     <Cell ss:Index="8"><Data ss:Type="String">Serial number assigned by the manufacturer</Data></Cell>
     <Cell><Data ss:Type="String">The serial number assigned by the organisation when the device was manufactured</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Alphanumeric Maximum 20</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Device.identity.expiry</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Date of expiry of this device (if applicable)</Data></Cell>
-    <Cell><Data ss:Type="String">Date of expiry of this device (if applicable)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Device.owner</Data></Cell>
@@ -239,11 +236,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -283,9 +281,9 @@
  <Worksheet ss:Name="Events">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="69.599999999999994"/>
-   <Column ss:AutoFitWidth="0" ss:Width="93.600000000000009" ss:Span="1"/>
-   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="101.4"/>
+   <Column ss:AutoFitWidth="0" ss:Width="69.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="93.75" ss:Span="1"/>
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="101.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="111"/>
    <Column ss:AutoFitWidth="0" ss:Width="69"/>
    <Row ss:AutoFitHeight="0" ss:Height="22.5">
@@ -324,8 +322,8 @@
  <Worksheet ss:Name="Search">
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="9" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="70.8"/>
-   <Column ss:AutoFitWidth="0" ss:Width="382.79999999999995"/>
+   <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="273"/>
    <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -407,11 +405,11 @@
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="130.80000000000001"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="294.60000000000002"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="65.400000000000006"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="89.4"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="287.39999999999998"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="130.5"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="294.75"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="65.25"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="89.25"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="287.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Definition</Data></Cell>
@@ -463,10 +461,10 @@
  <Worksheet ss:Name="Examples">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:Width="70.8"/>
-   <Column ss:AutoFitWidth="0" ss:Width="146.39999999999998"/>
-   <Column ss:AutoFitWidth="0" ss:Width="104.39999999999999"/>
-   <Column ss:Width="177.60000000000002"/>
+   <Column ss:Width="70.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="146.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="104.25"/>
+   <Column ss:Width="177.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
@@ -504,7 +502,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
