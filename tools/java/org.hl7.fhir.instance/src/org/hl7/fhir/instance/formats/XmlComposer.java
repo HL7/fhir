@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Jul 11, 2013 17:46+1000 for FHIR v0.09
+// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -1478,8 +1478,8 @@ public class XmlComposer extends XmlComposerBase {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeElementElements(element);
-      for (CodeableConcept e : element.getType()) 
-        composeCodeableConcept("type", e);
+        for (Enumeration<Encounter.ParticipantType> e : element.getType()) 
+          composeEnumeration("type", e, new Encounter().new ParticipantTypeEnumFactory());
       composeResourceReference("practitioner", element.getPractitioner());
       xml.close(FHIR_NS, name);
     }
@@ -2606,25 +2606,12 @@ public class XmlComposer extends XmlComposerBase {
       composeBoolean("experimental", element.getExperimental());
       composeDateTime("date", element.getDate());
       composeId("fhirVersion", element.getFhirVersion());
-      for (Profile.ProfileImportComponent e : element.getImport()) 
-        composeProfileProfileImportComponent("import", e);
       for (Profile.ProfileStructureComponent e : element.getStructure()) 
         composeProfileProfileStructureComponent("structure", e);
       for (Profile.ProfileExtensionDefnComponent e : element.getExtensionDefn()) 
         composeProfileProfileExtensionDefnComponent("extensionDefn", e);
       for (Profile.ProfileBindingComponent e : element.getBinding()) 
         composeProfileProfileBindingComponent("binding", e);
-      xml.close(FHIR_NS, name);
-    }
-  }
-
-  private void composeProfileProfileImportComponent(String name, Profile.ProfileImportComponent element) throws Exception {
-    if (element != null) {
-      composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
-      composeElementElements(element);
-      composeUri("uri", element.getUri());
-      composeString("prefix", element.getPrefix());
       xml.close(FHIR_NS, name);
     }
   }
@@ -2638,7 +2625,6 @@ public class XmlComposer extends XmlComposerBase {
       composeString("name", element.getName());
       composeBoolean("publish", element.getPublish());
       composeString("purpose", element.getPurpose());
-      composeUri("profile", element.getProfile());
       for (Profile.ElementComponent e : element.getElement()) 
         composeProfileElementComponent("element", e);
       for (Profile.ProfileStructureSearchParamComponent e : element.getSearchParam()) 
@@ -2654,9 +2640,21 @@ public class XmlComposer extends XmlComposerBase {
       composeElementElements(element);
       composeString("path", element.getPath());
       composeString("name", element.getName());
-      composeId("discriminator", element.getDiscriminator());
+      composeProfileElementSlicingComponent("slicing", element.getSlicing());
       composeProfileElementDefinitionComponent("definition", element.getDefinition());
-      composeBoolean("bundled", element.getBundled());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeProfileElementSlicingComponent(String name, Profile.ElementSlicingComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeElementElements(element);
+      composeId("discriminator", element.getDiscriminator());
+      composeBoolean("ordered", element.getOrdered());
+      if (element.getRules() != null)
+        composeEnumeration("rules", element.getRules(), new Profile().new ResourceSlicingRulesEnumFactory());
       xml.close(FHIR_NS, name);
     }
   }
@@ -2678,6 +2676,7 @@ public class XmlComposer extends XmlComposerBase {
         composeProfileTypeRefComponent("type", e);
       composeString("nameReference", element.getNameReference());
       composeType("value", element.getValue());
+      composeType("example", element.getExample());
       composeInteger("maxLength", element.getMaxLength());
       for (Id e : element.getCondition()) 
         composeId("condition", e);
@@ -2685,7 +2684,7 @@ public class XmlComposer extends XmlComposerBase {
         composeProfileElementDefinitionConstraintComponent("constraint", e);
       composeBoolean("mustSupport", element.getMustSupport());
       composeBoolean("mustUnderstand", element.getMustUnderstand());
-      composeString("binding", element.getBinding());
+      composeUri("binding", element.getBinding());
       for (Profile.ElementDefinitionMappingComponent e : element.getMapping()) 
         composeProfileElementDefinitionMappingComponent("mapping", e);
       xml.close(FHIR_NS, name);
@@ -2699,6 +2698,7 @@ public class XmlComposer extends XmlComposerBase {
       composeElementElements(element);
       composeCode("code", element.getCode());
       composeUri("profile", element.getProfile());
+      composeBoolean("bundled", element.getBundled());
       xml.close(FHIR_NS, name);
     }
   }
@@ -3050,7 +3050,12 @@ public class XmlComposer extends XmlComposerBase {
       composeResourceReference("subject", element.getSubject());
       for (Identifier e : element.getAccessionIdentifier()) 
         composeIdentifier("accessionIdentifier", e);
+      composeDateTime("receivedTime", element.getReceivedTime());
       composeSpecimenSpecimenCollectionComponent("collection", element.getCollection());
+      for (Specimen.SpecimenTreatmentComponent e : element.getTreatment()) 
+        composeSpecimenSpecimenTreatmentComponent("treatment", e);
+      for (Specimen.SpecimenContainerComponent e : element.getContainer()) 
+        composeSpecimenSpecimenContainerComponent("container", e);
       xml.close(FHIR_NS, name);
     }
   }
@@ -3077,6 +3082,39 @@ public class XmlComposer extends XmlComposerBase {
         composeString("comments", e);
       composeDateTime("collectedTime", element.getCollectedTime());
       composeQuantity("quantity", element.getQuantity());
+      composeCodeableConcept("method", element.getMethod());
+      composeCodeableConcept("sourceSite", element.getSourceSite());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeSpecimenSpecimenTreatmentComponent(String name, Specimen.SpecimenTreatmentComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeElementElements(element);
+      composeString("description", element.getDescription());
+      composeCodeableConcept("procedure", element.getProcedure());
+      for (ResourceReference e : element.getAdditive()) 
+        composeResourceReference("additive", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeSpecimenSpecimenContainerComponent(String name, Specimen.SpecimenContainerComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeElementElements(element);
+      for (Identifier e : element.getIdentifier()) 
+        composeIdentifier("identifier", e);
+      composeString("description", element.getDescription());
+      composeCodeableConcept("type", element.getType());
+      composeQuantity("capacity", element.getCapacity());
+      composeQuantity("specimenQuantity", element.getSpecimenQuantity());
+      composeIdentifier("position", element.getPosition());
+      composeResourceReference("additive", element.getAdditive());
+      composeIdentifier("parentContainer", element.getParentContainer());
       xml.close(FHIR_NS, name);
     }
   }
@@ -3088,7 +3126,49 @@ public class XmlComposer extends XmlComposerBase {
       composeResourceElements(element);
       composeIdentifier("identifier", element.getIdentifier());
       composeString("name", element.getName());
-      composeCoding("type", element.getType());
+      composeCodeableConcept("type", element.getType());
+      composeString("description", element.getDescription());
+      composeCodeableConcept("status", element.getStatus());
+      composePeriod("effectiveTime", element.getEffectiveTime());
+      composeQuantity("quantity", element.getQuantity());
+      for (ResourceReference e : element.getIngredient()) 
+        composeResourceReference("ingredient", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeSupply(String name, Supply element) throws Exception {
+    if (element != null) {
+      composeResourceAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeResourceElements(element);
+      composeCodeableConcept("name", element.getName());
+      composeIdentifier("identifier", element.getIdentifier());
+      composeCode("status", element.getStatus());
+      composeResourceReference("orderedItem", element.getOrderedItem());
+      composeResourceReference("patient", element.getPatient());
+      for (Supply.SupplyDispenseComponent e : element.getDispense()) 
+        composeSupplySupplyDispenseComponent("dispense", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeSupplySupplyDispenseComponent(String name, Supply.SupplyDispenseComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeElementElements(element);
+      composeIdentifier("identifier", element.getIdentifier());
+      composeCode("status", element.getStatus());
+      composeCodeableConcept("type", element.getType());
+      composeQuantity("quantity", element.getQuantity());
+      composeResourceReference("suppliedItem", element.getSuppliedItem());
+      composeResourceReference("supplier", element.getSupplier());
+      composePeriod("whenPrepared", element.getWhenPrepared());
+      composePeriod("whenHandedOver", element.getWhenHandedOver());
+      composeResourceReference("destination", element.getDestination());
+      for (ResourceReference e : element.getReceiver()) 
+        composeResourceReference("receiver", e);
       xml.close(FHIR_NS, name);
     }
   }
@@ -3309,6 +3389,8 @@ public class XmlComposer extends XmlComposerBase {
       composeSpecimen("Specimen", (Specimen)resource);
     else if (resource instanceof Substance)
       composeSubstance("Substance", (Substance)resource);
+    else if (resource instanceof Supply)
+      composeSupply("Supply", (Supply)resource);
     else if (resource instanceof ValueSet)
       composeValueSet("ValueSet", (ValueSet)resource);
     else if (resource instanceof Binary)

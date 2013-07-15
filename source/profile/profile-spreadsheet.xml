@@ -9,18 +9,19 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:19:17Z</Created>
-  <LastSaved>2013-07-11T05:20:38Z</LastSaved>
+  <LastSaved>2013-07-15T00:51:46Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9030</WindowHeight>
+  <WindowHeight>8970</WindowHeight>
   <WindowWidth>27780</WindowWidth>
   <WindowTopX>-120</WindowTopX>
-  <WindowTopY>15</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <WindowTopY>75</WindowTopY>
+  <ActiveSheet>10</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -103,14 +104,25 @@
   <Style ss:ID="s79">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s80" ss:Parent="s62">
+  <Style ss:ID="s85" ss:Parent="s62">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
-   <Interior/>
+   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s86">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="68" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="71" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="297.75"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="32.25"/>
@@ -322,8 +334,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Profile.structure.publish</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell><Data ss:Type="Number">15</Data></Cell>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:Index="4" ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
@@ -331,7 +342,7 @@
     <Cell><Data ss:Type="String">This definition is published (i.e. for validation)</Data></Cell>
     <Cell><Data ss:Type="String">This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">There can only be one published structure for each type - else consuming software won't know where to start</Data></Cell>
+    <Cell><Data ss:Type="String">If there is more than one published structure for each type, and the URL reference to the profile doesn't specify which named structure to use (using a URL fragment, e.g. #...) then which profile to use is indeterminate, and an error should be raised</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
@@ -411,19 +422,65 @@
     <Cell ss:StyleID="s69"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
-    <Cell><Data ss:Type="String">Profile.structure.element.discriminator</Data></Cell>
+    <Cell><Data ss:Type="String">Profile.structure.element.slicing</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:Index="6" ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">right</Data></Cell>
+    <Cell><Data ss:Type="String">This element is sliced - slices follow</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Indicates that the element is sliced into a set of alternative definitions (there are multiple definitions on a single element in the base resource). The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set)</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="120">
+    <Cell><Data ss:Type="String">Profile.structure.element.slicing.discriminator</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">id</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">If slice, the element that uniquely identifies which slice</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">If this element is one of a number of slices (choices) on a single element in the base resource, then this element must be populated, and it designates which child element is used to discriminate between the slices. The value of the child element in the instance must completely distinguish which slice the element in the resource matches</Data></Cell>
+    <Cell><Data ss:Type="String">Element that used to distinguish the slices</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance must completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">All elements in the one slice set must have the same slice dicriminator, but it is repeated on each for implementation convenience</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="120">
+    <Cell><Data ss:Type="String">Profile.structure.element.slicing.ordered</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">If elements must be in same order as slices</Data></Cell>
+    <Cell><Data ss:Type="String">If the matching elements have to occur in the same order as defined in the profile</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Order should only be required when it is a pressing concern for presentation. Profile authors should consider making the order a feature of the rules about the narrative, not the rules about the data - requiring ordered data makes the profile much less re-usable</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="120">
+    <Cell><Data ss:Type="String">Profile.structure.element.slicing.rules</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell><Data ss:Type="String">SlicingRules</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Whether slice list is open or closed</Data></Cell>
+    <Cell><Data ss:Type="String">Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Allowing additional elements makes for a much for flexible template - it's open for use in wider contexts, but also means that the content of the resource is not closed, and applications have to decide how to handle content not described by the profile</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
@@ -431,7 +488,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.structure.element.definition</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String" x:Ticked="1">=ElementDefinition</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">break:left</Data></Cell>
     <Cell><Data ss:Type="String">down</Data></Cell>
@@ -612,6 +670,20 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">Profile.structure.element.definition.type.bundled</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">If code is a Resource, is it in the bundle?</Data></Cell>
+    <Cell><Data ss:Type="String">Whether the Resource that is the value for this element is included in the bundle, if the profile is specifying a bundle</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">If context includes bundling</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.nameReference</Data></Cell>
@@ -879,20 +951,6 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">For most mappings, the syntax is undefined.  Syntax will be provided for mappings to the RIM.  Multiple mappings may be possible and may include constraints on other resource elements that identify when a particular mapping applies</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Profile.structure.element.bundled</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell><Data ss:Type="Number">9</Data></Cell>
-    <Cell ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">boolean</Data></Cell>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">If type is Resource, is it in the bundle?</Data></Cell>
-    <Cell><Data ss:Type="String">Whether the Resource that is the value for this element is included in the bundle, if the profile is specifying a bundle</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">If context includes bundling</Data></Cell>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell><Data ss:Type="String">!Profile.structure.element.closed</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
@@ -1107,9 +1165,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>41</TopRowBottomPane>
+   <TopRowBottomPane>21</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1117,6 +1175,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -1124,8 +1183,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>47</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>24</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1191,9 +1250,9 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="Number">9</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.element</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.element.definition.type</Data></Cell>
     <Cell><Data ss:Type="String">Bundled may only be specified if one of the allowed types for the element is a resource</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:bundled)) or exists(f:definition/f:type/f:code[starts-with(@value, 'Resource(')])</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:bundled)) or exists(f:code[starts-with(@value, 'Resource(')])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="Number">10</Data></Cell>
@@ -1227,10 +1286,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">15</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">Profile</Data></Cell>
-    <Cell><Data ss:Type="String">Published Structures must have different types</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">exists(f:structure) or exists(f:extensionDefn) or exists(f:binding)</Data></Cell>
-    <Cell><Data ss:Type="String">(still to do)</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile.structure.element</Data></Cell>
+    <Cell><Data ss:Type="String">Provide either slicing details, or a definition, but not both</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">exists(f:slicing) != exists(f:definition)</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1246,12 +1304,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1398,8 +1455,10 @@
     <Cell ss:StyleID="s79"><Data ss:Type="String">#resource-profile-status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:Index="3" ss:StyleID="s79"/>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">SlicingRules</Data></Cell>
+    <Cell><Data ss:Type="String">How slices are interpreted when evaluating an instance</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">code list</Data></Cell>
+    <Cell><Data ss:Type="String">#resource-slicing-rules</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"/>
@@ -1432,8 +1491,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R2</RangeSelection>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1566,10 +1625,10 @@
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:Width="60"/>
    <Column ss:Width="424.5"/>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s86">
     <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Definition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -1597,13 +1656,12 @@
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>0</VerticalResolution>
+    <VerticalResolution>600</VerticalResolution>
    </Print>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <RangeSelection>R1:R1048576</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1754,6 +1812,61 @@
      <Number>3</Number>
      <ActiveRow>1</ActiveRow>
      <RangeSelection>R2C1:R2C5</RangeSelection>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="resource-slicing-rules">
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="6" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="147.75"/>
+   <Column ss:Width="424.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="361.5"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s86">
+    <Cell><Data ss:Type="String">Id</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell><Data ss:Type="String">Comments</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">closed</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">No additional content is allowed other than that described by the slices in this profile</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">open</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Additional content is allowed anywhere in the list</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">openAtEnd</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Additional content is allowed, but only at the end of the list</Data></Cell>
+    <Cell><Data ss:Type="String">This can only be used where the slice list is ordered</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="2" ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+   </Row>
+   <Row>
+    <Cell ss:Index="2" ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

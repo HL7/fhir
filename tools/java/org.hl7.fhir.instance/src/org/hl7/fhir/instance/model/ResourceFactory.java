@@ -29,13 +29,15 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 11, 2013 17:46+1000 for FHIR v0.09
+// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
 
 public class ResourceFactory {
 
     public static Resource createResource(String name) throws Exception {
         if ("Condition".equals(name))
             return new Condition();
+        if ("Supply".equals(name))
+            return new Supply();
         if ("Organization".equals(name))
             return new Organization();
         if ("Group".equals(name))
@@ -114,10 +116,10 @@ public class ResourceFactory {
             return new FamilyHistory();
         if ("Location".equals(name))
             return new Location();
-        if ("Observation".equals(name))
-            return new Observation();
         if ("AllergyIntolerance".equals(name))
             return new AllergyIntolerance();
+        if ("Observation".equals(name))
+            return new Observation();
         if ("ImmunizationProfile".equals(name))
             return new ImmunizationProfile();
         if ("RelatedPerson".equals(name))

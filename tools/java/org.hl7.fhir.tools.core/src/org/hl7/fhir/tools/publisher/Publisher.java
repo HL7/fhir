@@ -1996,7 +1996,7 @@ public class Publisher {
 
 		ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
     XmlComposer comp = new XmlComposer();
-    Profile p = pgen.generate(profile, xml, false);
+    Profile p = pgen.generate(profile, xml, true);
     comp.compose(new FileOutputStream(page.getFolders().dstDir + filename + ".profile.xml"), p, true, false);
 		Utilities.copyFile(new CSFile(page.getFolders().dstDir + filename + ".profile.xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + filename + ".profile.xml"));
 

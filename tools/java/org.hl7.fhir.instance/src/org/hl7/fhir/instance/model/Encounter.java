@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 11, 2013 17:46+1000 for FHIR v0.09
+// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -210,18 +210,100 @@ public class Encounter extends Resource {
       }
     }
 
+    public enum ParticipantType {
+        admitter, // 
+        discharger, // 
+        responsible, // 
+        attending, // 
+        consulting, // 
+        emergencyMinuscontact, // 
+        dischargeMinuscontact, // 
+        Null; // added to help the parsers
+        public static ParticipantType fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("admitter".equals(codeString))
+          return admitter;
+        if ("discharger".equals(codeString))
+          return discharger;
+        if ("responsible".equals(codeString))
+          return responsible;
+        if ("attending".equals(codeString))
+          return attending;
+        if ("consulting".equals(codeString))
+          return consulting;
+        if ("emergency-contact".equals(codeString))
+          return emergencyMinuscontact;
+        if ("discharge-contact".equals(codeString))
+          return dischargeMinuscontact;
+        throw new Exception("Unknown ParticipantType code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case admitter: return "admitter";
+            case discharger: return "discharger";
+            case responsible: return "responsible";
+            case attending: return "attending";
+            case consulting: return "consulting";
+            case emergencyMinuscontact: return "emergency-contact";
+            case dischargeMinuscontact: return "discharge-contact";
+            default: return "?";
+          }
+        }
+    }
+
+  public class ParticipantTypeEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("admitter".equals(codeString))
+          return ParticipantType.admitter;
+        if ("discharger".equals(codeString))
+          return ParticipantType.discharger;
+        if ("responsible".equals(codeString))
+          return ParticipantType.responsible;
+        if ("attending".equals(codeString))
+          return ParticipantType.attending;
+        if ("consulting".equals(codeString))
+          return ParticipantType.consulting;
+        if ("emergency-contact".equals(codeString))
+          return ParticipantType.emergencyMinuscontact;
+        if ("discharge-contact".equals(codeString))
+          return ParticipantType.dischargeMinuscontact;
+        throw new Exception("Unknown ParticipantType code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == ParticipantType.admitter)
+        return "admitter";
+      if (code == ParticipantType.discharger)
+        return "discharger";
+      if (code == ParticipantType.responsible)
+        return "responsible";
+      if (code == ParticipantType.attending)
+        return "attending";
+      if (code == ParticipantType.consulting)
+        return "consulting";
+      if (code == ParticipantType.emergencyMinuscontact)
+        return "emergency-contact";
+      if (code == ParticipantType.dischargeMinuscontact)
+        return "discharge-contact";
+      return "?";
+      }
+    }
+
     public class EncounterParticipantComponent extends Element {
         /**
          * Kind of involvement of the participant
          */
-        protected List<CodeableConcept> type = new ArrayList<CodeableConcept>();
+        protected List<Enumeration<ParticipantType>> type = new ArrayList<Enumeration<ParticipantType>>();
 
         /**
          * The practitioner that is involved
          */
         protected ResourceReference practitioner;
 
-        public List<CodeableConcept> getType() { 
+        public List<Enumeration<ParticipantType>> getType() { 
           return this.type;
         }
 
@@ -235,8 +317,8 @@ public class Encounter extends Resource {
 
       public EncounterParticipantComponent copy(Encounter e) {
         EncounterParticipantComponent dst = e.new EncounterParticipantComponent();
-        dst.type = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : type)
+        dst.type = new ArrayList<Enumeration<ParticipantType>>();
+        for (Enumeration<ParticipantType> i : type)
           dst.type.add(i.copy());
         dst.practitioner = practitioner == null ? null : practitioner.copy();
         return dst;

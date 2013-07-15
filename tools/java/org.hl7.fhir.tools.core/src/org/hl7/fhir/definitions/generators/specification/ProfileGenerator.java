@@ -61,6 +61,7 @@ import org.hl7.fhir.instance.model.Profile.ExtensionContext;
 import org.hl7.fhir.instance.model.Profile.ProfileBindingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureSearchParamComponent;
+import org.hl7.fhir.instance.model.Profile.ResourceSlicingRules;
 import org.hl7.fhir.instance.model.Profile.SearchParamType;
 import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
 import org.hl7.fhir.instance.model.Type;
@@ -103,6 +104,8 @@ public class ProfileGenerator {
     if (profile.hasMetadata("status")) 
       p.setStatusSimple(Profile.ResourceProfileStatus.fromCode(profile.metadata("status")));
 
+    Set<String> containedSlices = new HashSet<String>();
+
     for (ResourceDefn resource : profile.getResources()) {
       Profile.ProfileStructureComponent c = p.new ProfileStructureComponent();
       p.getStructure().add(c);
@@ -112,12 +115,13 @@ public class ProfileGenerator {
       if (!"".equals(resource.getRoot().getProfileName()))
         c.setName(Factory.newString_(resource.getRoot().getProfileName()));
       // no purpose element here
-      defineElement(p, c, resource.getRoot(), resource.getName(), addBase);
+      defineElement(profile, p, c, resource.getRoot(), resource.getName(), addBase, containedSlices);
 
       for (SearchParameter i : resource.getSearchParams().values()) {
         c.getSearchParam().add(makeSearchParam(p, i));
       }
     }
+    containedSlices.clear();
     for (ElementDefn elem : profile.getElements()) {
       Profile.ProfileStructureComponent c = p.new ProfileStructureComponent();
       p.getStructure().add(c);
@@ -126,7 +130,7 @@ public class ProfileGenerator {
       if (!"".equals(elem.getProfileName()))
         c.setName(Factory.newString_(elem.getProfileName()));
       // no purpose element here
-      defineElement(p, c, elem, elem.getName(), addBase);
+      defineElement(profile, p, c, elem, elem.getName(), addBase, containedSlices);
     }
 
     for (String bn : bindings) {
@@ -141,6 +145,7 @@ public class ProfileGenerator {
 
     for (ExtensionDefn ex : profile.getExtensions())
       p.getExtensionDefn().add(generateExtensionDefn(ex, p));
+
     for (BindingSpecification b : profile.getBindings()) 
       p.getBinding().add(generateBinding(b, p));
     XhtmlNode div = new XhtmlNode();
@@ -157,7 +162,8 @@ public class ProfileGenerator {
     ProfileStructureSearchParamComponent result = p.new ProfileStructureSearchParamComponent();
     result.setName(Factory.newString_(i.getCode()));
     result.setTypeSimple(getSearchParamType(i.getType()));
-    result.setDocumentation(Factory.newString_(i.getDescription()));    
+    result.setDocumentation(Factory.newString_(i.getDescription()));
+    // todo: path
     return result;
   }
 
@@ -260,7 +266,8 @@ public class ProfileGenerator {
       m.setTarget(Factory.newString_(dSrc.getMapping(ElementDefn.RIM_MAPPING)));
       dDst.getMapping().add(m);
     }
-    dDst.setBinding(Factory.newString_(dSrc.getBindingName()));
+    if (!Utilities.noString(dSrc.getBindingName()))
+      dDst.setBindingSimple(dSrc.getBindingName());
     return dst;
   }
 
@@ -278,13 +285,22 @@ public class ProfileGenerator {
     throw new Exception("unknown value ContextType."+type.toString());
   }
 
-  private void defineElement(Profile p, Profile.ProfileStructureComponent c, ElementDefn e, String path, boolean addBase) throws Exception {
+  private Profile.ElementComponent defineElement(ProfileDefn pd, Profile p, Profile.ProfileStructureComponent c, ElementDefn e, String path, boolean addBase, Set<String> slices) throws Exception {
     Profile.ElementComponent ce = p.new ElementComponent();
     c.getElement().add(ce);
     ce.setPath(Factory.newString_(path));
     if (!Utilities.noString(e.getProfileName())) {
+      if (!Utilities.noString(e.getDiscriminator()) && !slices.contains(path)) {
+        ce.setSlicing(p.new ElementSlicingComponent());
+        ce.getSlicing().setDiscriminatorSimple(e.getDiscriminator());
+        ce.getSlicing().setOrderedSimple(false);
+        ce.getSlicing().setRulesSimple(ResourceSlicingRules.open);
+        ce = p.new ElementComponent();
+        c.getElement().add(ce);
+        ce.setPath(Factory.newString_(path));
+        slices.add(path);
+      }
       ce.setName(Factory.newString_(e.getProfileName()));
-      ce.setDiscriminatorSimple(e.getDiscriminator());
     }
     ce.setDefinition(p.new ElementDefinitionComponent());
     if (!"".equals(e.getComments()))
@@ -326,26 +342,44 @@ public class ProfileGenerator {
     // we don't have anything to say about constraints on resources
 
     if (!"".equals(e.getBindingName())) {
-      ce.getDefinition().setBinding(Factory.newString_(e.getBindingName()));
+      ce.getDefinition().setBindingSimple(e.getBindingName());
       bindings.add(e.getBindingName());
     }
 
     if( e.hasAggregation() )
     {
-      ce.setBundled(Factory.newBoolean(true));
       TypeRefComponent t = p.new TypeRefComponent();
       ce.getDefinition().getType().add(t);
       t.setProfile(Factory.newUri(e.getAggregation()));
+      t.setBundled(Factory.newBoolean(true));
     }
 
-    if (addBase) {
+    Set<String> containedSlices = new HashSet<String>();
+//    if (e.getElementByName("extension") != null) {
+//      for (ElementDefn child : e.getElements()) {
+//        if (child.getName().equals("extension")) {
+//          String t = child.getProfile();
+//          ElementComponent elem = defineElement(pd, p, c, child, path+"."+child.getName(), false);
+//          elem.getDefinition().getType().get(0).setProfileSimple(t);
+//          elem.setDiscriminatorSimple("url");
+//        }
+//      }
+//      
+//      ElementComponent ex = createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("extension"));
+//      ex.setNameSimple("other extensions");
+//      c.getElement().add(ex);
+//    } else if (e.getElements().size() > 0)
       c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("extension")));
+      
+    if (addBase) {
       c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("text")));
       c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("contained")));
     }
     for (ElementDefn child : e.getElements()) {
-      defineElement(p, c, child, path+"."+child.getName(), false);
+      if (!child.getName().equals("extension"))
+        defineElement(pd, p, c, child, path+"."+child.getName(), false, containedSlices);
     }
+    return ce;
   }
 
   private ElementComponent createBaseDefinition(Profile p, String path, ElementDefn src) throws URISyntaxException {

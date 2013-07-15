@@ -29,7 +29,9 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 11, 2013 17:46+1000 for FHIR v0.09
+// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
+
+import java.util.*;
 
 /**
  * Substance
@@ -49,7 +51,32 @@ public class Substance extends Resource {
     /**
      * Type of the substance
      */
-    protected Coding type;
+    protected CodeableConcept type;
+
+    /**
+     * Description of the substance
+     */
+    protected String_ description;
+
+    /**
+     * Substance status
+     */
+    protected CodeableConcept status;
+
+    /**
+     * When the substance is active or effective
+     */
+    protected Period effectiveTime;
+
+    /**
+     * The amount of the substance
+     */
+    protected Quantity quantity;
+
+    /**
+     * A substance can be composed of other substances
+     */
+    protected List<ResourceReference> ingredient = new ArrayList<ResourceReference>();
 
     public Identifier getIdentifier() { 
       return this.identifier;
@@ -77,12 +104,62 @@ public class Substance extends Resource {
         this.name.setValue(value);
     }
 
-    public Coding getType() { 
+    public CodeableConcept getType() { 
       return this.type;
     }
 
-    public void setType(Coding value) { 
+    public void setType(CodeableConcept value) { 
       this.type = value;
+    }
+
+    public String_ getDescription() { 
+      return this.description;
+    }
+
+    public void setDescription(String_ value) { 
+      this.description = value;
+    }
+
+    public String getDescriptionSimple() { 
+      return this.description == null ? null : this.description.getValue();
+    }
+
+    public void setDescriptionSimple(String value) { 
+      if (value == null)
+        this.description = null;
+      else {
+        if (this.description == null)
+          this.description = new String_();
+        this.description.setValue(value);
+      }
+    }
+
+    public CodeableConcept getStatus() { 
+      return this.status;
+    }
+
+    public void setStatus(CodeableConcept value) { 
+      this.status = value;
+    }
+
+    public Period getEffectiveTime() { 
+      return this.effectiveTime;
+    }
+
+    public void setEffectiveTime(Period value) { 
+      this.effectiveTime = value;
+    }
+
+    public Quantity getQuantity() { 
+      return this.quantity;
+    }
+
+    public void setQuantity(Quantity value) { 
+      this.quantity = value;
+    }
+
+    public List<ResourceReference> getIngredient() { 
+      return this.ingredient;
     }
 
       public Substance copy() {
@@ -90,6 +167,13 @@ public class Substance extends Resource {
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.name = name == null ? null : name.copy();
         dst.type = type == null ? null : type.copy();
+        dst.description = description == null ? null : description.copy();
+        dst.status = status == null ? null : status.copy();
+        dst.effectiveTime = effectiveTime == null ? null : effectiveTime.copy();
+        dst.quantity = quantity == null ? null : quantity.copy();
+        dst.ingredient = new ArrayList<ResourceReference>();
+        for (ResourceReference i : ingredient)
+          dst.ingredient.add(i.copy());
         return dst;
       }
 

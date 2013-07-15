@@ -256,7 +256,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
         && !elem.getProfileName().equals("")) {
       for (int i = 0; i < indent; i++)
         write(" ");
-      write("<span style=\"color: Gray\">&lt;!--</span><span style=\"color: blue\">\"" + elem.getProfileName() + "\"</span>  <span style=\"color: Gray\"> --&gt;</span>\r\n");
+      write("<span style=\"color: Gray\">&lt;!--</span><span style=\"color: blue\">\"" + elem.getProfileName() + "\":</span>  <span style=\"color: Gray\"> --&gt;</span>\r\n");
     }
 
 		for (int i = 0; i < indent; i++) {

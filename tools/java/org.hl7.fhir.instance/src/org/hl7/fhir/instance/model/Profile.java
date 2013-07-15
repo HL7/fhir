@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jul 11, 2013 17:46+1000 for FHIR v0.09
+// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
 
 import java.util.*;
 
@@ -84,6 +84,56 @@ public class Profile extends Resource {
         return "active";
       if (code == ResourceProfileStatus.retired)
         return "retired";
+      return "?";
+      }
+    }
+
+    public enum ResourceSlicingRules {
+        closed, // No additional content is allowed other than that described by the slices in this profile
+        open, // Additional content is allowed anywhere in the list
+        openAtEnd, // Additional content is allowed, but only at the end of the list
+        Null; // added to help the parsers
+        public static ResourceSlicingRules fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("closed".equals(codeString))
+          return closed;
+        if ("open".equals(codeString))
+          return open;
+        if ("openAtEnd".equals(codeString))
+          return openAtEnd;
+        throw new Exception("Unknown ResourceSlicingRules code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case closed: return "closed";
+            case open: return "open";
+            case openAtEnd: return "openAtEnd";
+            default: return "?";
+          }
+        }
+    }
+
+  public class ResourceSlicingRulesEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("closed".equals(codeString))
+          return ResourceSlicingRules.closed;
+        if ("open".equals(codeString))
+          return ResourceSlicingRules.open;
+        if ("openAtEnd".equals(codeString))
+          return ResourceSlicingRules.openAtEnd;
+        throw new Exception("Unknown ResourceSlicingRules code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == ResourceSlicingRules.closed)
+        return "closed";
+      if (code == ResourceSlicingRules.open)
+        return "open";
+      if (code == ResourceSlicingRules.openAtEnd)
+        return "openAtEnd";
       return "?";
       }
     }
@@ -320,66 +370,6 @@ public class Profile extends Resource {
       }
     }
 
-    public class ProfileImportComponent extends Element {
-        /**
-         * The identifier for the profile, ideally the URL it can be retrieved from
-         */
-        protected Uri uri;
-
-        /**
-         * The short label used for display of the profile when uniquely identifying imported extensions
-         */
-        protected String_ prefix;
-
-        public Uri getUri() { 
-          return this.uri;
-        }
-
-        public void setUri(Uri value) { 
-          this.uri = value;
-        }
-
-        public String getUriSimple() { 
-          return this.uri == null ? null : this.uri.getValue();
-        }
-
-        public void setUriSimple(String value) { 
-            if (this.uri == null)
-              this.uri = new Uri();
-            this.uri.setValue(value);
-        }
-
-        public String_ getPrefix() { 
-          return this.prefix;
-        }
-
-        public void setPrefix(String_ value) { 
-          this.prefix = value;
-        }
-
-        public String getPrefixSimple() { 
-          return this.prefix == null ? null : this.prefix.getValue();
-        }
-
-        public void setPrefixSimple(String value) { 
-          if (value == null)
-            this.prefix = null;
-          else {
-            if (this.prefix == null)
-              this.prefix = new String_();
-            this.prefix.setValue(value);
-          }
-        }
-
-      public ProfileImportComponent copy(Profile e) {
-        ProfileImportComponent dst = e.new ProfileImportComponent();
-        dst.uri = uri == null ? null : uri.copy();
-        dst.prefix = prefix == null ? null : prefix.copy();
-        return dst;
-      }
-
-  }
-
     public class ProfileStructureComponent extends Element {
         /**
          * The Resource or Data type being described
@@ -387,7 +377,7 @@ public class Profile extends Resource {
         protected Code type;
 
         /**
-         * The name of this resource constraint statement (to refer to it from other resource constraints)
+         * The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.element.definition.type.profile)
          */
         protected String_ name;
 
@@ -400,11 +390,6 @@ public class Profile extends Resource {
          * Human summary: why describe this resource?
          */
         protected String_ purpose;
-
-        /**
-         * Reference to a resource profile that includes the constraint statement that applies to this resource
-         */
-        protected Uri profile;
 
         /**
          * Captures constraints on each element within the resource
@@ -500,28 +485,6 @@ public class Profile extends Resource {
           }
         }
 
-        public Uri getProfile() { 
-          return this.profile;
-        }
-
-        public void setProfile(Uri value) { 
-          this.profile = value;
-        }
-
-        public String getProfileSimple() { 
-          return this.profile == null ? null : this.profile.getValue();
-        }
-
-        public void setProfileSimple(String value) { 
-          if (value == null)
-            this.profile = null;
-          else {
-            if (this.profile == null)
-              this.profile = new Uri();
-            this.profile.setValue(value);
-          }
-        }
-
         public List<ElementComponent> getElement() { 
           return this.element;
         }
@@ -536,7 +499,6 @@ public class Profile extends Resource {
         dst.name = name == null ? null : name.copy();
         dst.publish = publish == null ? null : publish.copy();
         dst.purpose = purpose == null ? null : purpose.copy();
-        dst.profile = profile == null ? null : profile.copy();
         dst.element = new ArrayList<ElementComponent>();
         for (ElementComponent i : element)
           dst.element.add(i.copy(e));
@@ -555,24 +517,19 @@ public class Profile extends Resource {
         protected String_ path;
 
         /**
-         * A unique name referring to a specific set of constraints applied to this element
+         * The name of this element definition (to refer to it from other element definitions using Profile.structure.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element
          */
         protected String_ name;
 
         /**
-         * If this element is one of a number of slices (choices) then this element must be populated, and it designates which child element is used to discriminate between the slices
+         * Indicates that the element is sliced into a set of alternative definitions (there are multiple definitions on a single element in the base resource). The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set)
          */
-        protected Id discriminator;
+        protected ElementSlicingComponent slicing;
 
         /**
          * Definition of the content of the element to provide a more specific definition than that contained for the element in the base resource
          */
         protected ElementDefinitionComponent definition;
-
-        /**
-         * Whether the Resource that is the value for this element is included in the bundle, if the profile is specifying a bundle
-         */
-        protected Boolean bundled;
 
         public String_ getPath() { 
           return this.path;
@@ -614,6 +571,49 @@ public class Profile extends Resource {
           }
         }
 
+        public ElementSlicingComponent getSlicing() { 
+          return this.slicing;
+        }
+
+        public void setSlicing(ElementSlicingComponent value) { 
+          this.slicing = value;
+        }
+
+        public ElementDefinitionComponent getDefinition() { 
+          return this.definition;
+        }
+
+        public void setDefinition(ElementDefinitionComponent value) { 
+          this.definition = value;
+        }
+
+      public ElementComponent copy(Profile e) {
+        ElementComponent dst = e.new ElementComponent();
+        dst.path = path == null ? null : path.copy();
+        dst.name = name == null ? null : name.copy();
+        dst.slicing = slicing == null ? null : slicing.copy(e);
+        dst.definition = definition == null ? null : definition.copy(e);
+        return dst;
+      }
+
+  }
+
+    public class ElementSlicingComponent extends Element {
+        /**
+         * Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance must completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices
+         */
+        protected Id discriminator;
+
+        /**
+         * If the matching elements have to occur in the same order as defined in the profile
+         */
+        protected Boolean ordered;
+
+        /**
+         * Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end
+         */
+        protected Enumeration<ResourceSlicingRules> rules;
+
         public Id getDiscriminator() { 
           return this.discriminator;
         }
@@ -627,52 +627,52 @@ public class Profile extends Resource {
         }
 
         public void setDiscriminatorSimple(String value) { 
-          if (value == null)
-            this.discriminator = null;
-          else {
             if (this.discriminator == null)
               this.discriminator = new Id();
             this.discriminator.setValue(value);
-          }
         }
 
-        public ElementDefinitionComponent getDefinition() { 
-          return this.definition;
+        public Boolean getOrdered() { 
+          return this.ordered;
         }
 
-        public void setDefinition(ElementDefinitionComponent value) { 
-          this.definition = value;
+        public void setOrdered(Boolean value) { 
+          this.ordered = value;
         }
 
-        public Boolean getBundled() { 
-          return this.bundled;
+        public boolean getOrderedSimple() { 
+          return this.ordered == null ? null : this.ordered.getValue();
         }
 
-        public void setBundled(Boolean value) { 
-          this.bundled = value;
+        public void setOrderedSimple(boolean value) { 
+            if (this.ordered == null)
+              this.ordered = new Boolean();
+            this.ordered.setValue(value);
         }
 
-        public boolean getBundledSimple() { 
-          return this.bundled == null ? null : this.bundled.getValue();
+        public Enumeration<ResourceSlicingRules> getRules() { 
+          return this.rules;
         }
 
-        public void setBundledSimple(boolean value) { 
-          if (value == false)
-            this.bundled = null;
-          else {
-            if (this.bundled == null)
-              this.bundled = new Boolean();
-            this.bundled.setValue(value);
-          }
+        public void setRules(Enumeration<ResourceSlicingRules> value) { 
+          this.rules = value;
         }
 
-      public ElementComponent copy(Profile e) {
-        ElementComponent dst = e.new ElementComponent();
-        dst.path = path == null ? null : path.copy();
-        dst.name = name == null ? null : name.copy();
+        public ResourceSlicingRules getRulesSimple() { 
+          return this.rules == null ? null : this.rules.getValue();
+        }
+
+        public void setRulesSimple(ResourceSlicingRules value) { 
+            if (this.rules == null)
+              this.rules = new Enumeration<ResourceSlicingRules>();
+            this.rules.setValue(value);
+        }
+
+      public ElementSlicingComponent copy(Profile e) {
+        ElementSlicingComponent dst = e.new ElementSlicingComponent();
         dst.discriminator = discriminator == null ? null : discriminator.copy();
-        dst.definition = definition == null ? null : definition.copy(e);
-        dst.bundled = bundled == null ? null : bundled.copy();
+        dst.ordered = ordered == null ? null : ordered.copy();
+        dst.rules = rules == null ? null : rules.copy();
         return dst;
       }
 
@@ -730,6 +730,11 @@ public class Profile extends Resource {
         protected org.hl7.fhir.instance.model.Type value;
 
         /**
+         * An example value for this element
+         */
+        protected org.hl7.fhir.instance.model.Type example;
+
+        /**
          * Indicates the shortest length that must be supported by conformant instances without truncation
          */
         protected Integer maxLength;
@@ -755,9 +760,9 @@ public class Profile extends Resource {
         protected Boolean mustUnderstand;
 
         /**
-         * Identifies the set of codes that applies to this element if a data type supporting codes is used
+         * Identifies the set of codes that applies to this element if a data type supporting codes is used. The reference can be local - to a Profile.binding.name, or absolute, to a binding.name in another profile
          */
-        protected String_ binding;
+        protected Uri binding;
 
         /**
          * Identifies a concept from an external specification that roughly corresponds to this element
@@ -918,6 +923,14 @@ public class Profile extends Resource {
           this.value = value;
         }
 
+        public org.hl7.fhir.instance.model.Type getExample() { 
+          return this.example;
+        }
+
+        public void setExample(org.hl7.fhir.instance.model.Type value) { 
+          this.example = value;
+        }
+
         public Integer getMaxLength() { 
           return this.maxLength;
         }
@@ -992,11 +1005,11 @@ public class Profile extends Resource {
           }
         }
 
-        public String_ getBinding() { 
+        public Uri getBinding() { 
           return this.binding;
         }
 
-        public void setBinding(String_ value) { 
+        public void setBinding(Uri value) { 
           this.binding = value;
         }
 
@@ -1009,7 +1022,7 @@ public class Profile extends Resource {
             this.binding = null;
           else {
             if (this.binding == null)
-              this.binding = new String_();
+              this.binding = new Uri();
             this.binding.setValue(value);
           }
         }
@@ -1034,6 +1047,7 @@ public class Profile extends Resource {
           dst.type.add(i.copy(e));
         dst.nameReference = nameReference == null ? null : nameReference.copy();
         dst.value = value == null ? null : value.copy();
+        dst.example = example == null ? null : example.copy();
         dst.maxLength = maxLength == null ? null : maxLength.copy();
         dst.condition = new ArrayList<Id>();
         for (Id i : condition)
@@ -1059,9 +1073,14 @@ public class Profile extends Resource {
         protected Code code;
 
         /**
-         * Identifies a profile that must hold for resources or datatypes referenced as the type of this element
+         * Identifies a profile that must hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile
          */
         protected Uri profile;
+
+        /**
+         * Whether the Resource that is the value for this element is included in the bundle, if the profile is specifying a bundle
+         */
+        protected Boolean bundled;
 
         public Code getCode() { 
           return this.code;
@@ -1103,10 +1122,33 @@ public class Profile extends Resource {
           }
         }
 
+        public Boolean getBundled() { 
+          return this.bundled;
+        }
+
+        public void setBundled(Boolean value) { 
+          this.bundled = value;
+        }
+
+        public boolean getBundledSimple() { 
+          return this.bundled == null ? null : this.bundled.getValue();
+        }
+
+        public void setBundledSimple(boolean value) { 
+          if (value == false)
+            this.bundled = null;
+          else {
+            if (this.bundled == null)
+              this.bundled = new Boolean();
+            this.bundled.setValue(value);
+          }
+        }
+
       public TypeRefComponent copy(Profile e) {
         TypeRefComponent dst = e.new TypeRefComponent();
         dst.code = code == null ? null : code.copy();
         dst.profile = profile == null ? null : profile.copy();
+        dst.bundled = bundled == null ? null : bundled.copy();
         return dst;
       }
 
@@ -1675,14 +1717,9 @@ public class Profile extends Resource {
     protected DateTime date;
 
     /**
-     * The version of the FHIR specification on which this conformance statement is based
+     * The version of the FHIR specification on which this profile is based
      */
     protected Id fhirVersion;
-
-    /**
-     * Other profiles that define extensions and bindings that are used in this profile
-     */
-    protected List<ProfileImportComponent> import_ = new ArrayList<ProfileImportComponent>();
 
     /**
      * A constraint statement about what contents a resource or data type may have
@@ -1897,10 +1934,6 @@ public class Profile extends Resource {
       }
     }
 
-    public List<ProfileImportComponent> getImport() { 
-      return this.import_;
-    }
-
     public List<ProfileStructureComponent> getStructure() { 
       return this.structure;
     }
@@ -1930,9 +1963,6 @@ public class Profile extends Resource {
         dst.experimental = experimental == null ? null : experimental.copy();
         dst.date = date == null ? null : date.copy();
         dst.fhirVersion = fhirVersion == null ? null : fhirVersion.copy();
-        dst.import_ = new ArrayList<ProfileImportComponent>();
-        for (ProfileImportComponent i : import_)
-          dst.import_.add(i.copy(dst));
         dst.structure = new ArrayList<ProfileStructureComponent>();
         for (ProfileStructureComponent i : structure)
           dst.structure.add(i.copy(dst));
