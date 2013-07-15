@@ -20,8 +20,6 @@
   <WindowWidth>27780</WindowWidth>
   <WindowTopX>-120</WindowTopX>
   <WindowTopY>75</WindowTopY>
-  <ActiveSheet>10</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -104,7 +102,7 @@
   <Style ss:ID="s79">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s85" ss:Parent="s62">
+  <Style ss:ID="s80">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
@@ -112,7 +110,7 @@
     ss:Bold="1"/>
    <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s86">
+  <Style ss:ID="s81" ss:Parent="s62">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
@@ -424,8 +422,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell><Data ss:Type="String">Profile.structure.element.slicing</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell><Data ss:Type="Number">15</Data></Cell>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:Index="4" ss:StyleID="s69"/>
     <Cell ss:Index="6" ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">right</Data></Cell>
@@ -434,7 +431,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">The definition associated with this element definition is the master for all the slices</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
@@ -489,7 +486,6 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.structure.element.definition</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell><Data ss:Type="Number">15</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String" x:Ticked="1">=ElementDefinition</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">break:left</Data></Cell>
     <Cell><Data ss:Type="String">down</Data></Cell>
@@ -1162,12 +1158,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>21</TopRowBottomPane>
+   <TopRowBottomPane>20</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1175,7 +1172,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -1183,8 +1179,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>24</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>23</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1285,10 +1281,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">not(f:conformance/@value='example' and f:isExtensible.value='false')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">15</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile.structure.element</Data></Cell>
-    <Cell><Data ss:Type="String">Provide either slicing details, or a definition, but not both</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">exists(f:slicing) != exists(f:definition)</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s73"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1308,7 +1301,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>14</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <RangeSelection>R15</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1625,10 +1618,10 @@
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:Width="60"/>
    <Column ss:Width="424.5"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s86">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s80">
     <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Definition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -1824,10 +1817,10 @@
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="147.75"/>
    <Column ss:Width="424.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="361.5"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s86">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s80">
     <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Definition</Data></Cell>
     <Cell><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1846,11 +1839,11 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">Additional content is allowed, but only at the end of the list</Data></Cell>
     <Cell><Data ss:Type="String">This can only be used where the slice list is ordered</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
@@ -1861,12 +1854,12 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
+   <Unsynced/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>4</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

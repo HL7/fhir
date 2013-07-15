@@ -6,31 +6,12 @@
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <description value=" This example value set defines a set of codes that can be used to indicate the type of specimen."/>
+  <description value="Specimen type : HL7 v2 table 0847. For ballot: should this rather extracted from LOINC System? but this covers a much wider scope. Or it could be all Snomed descendents of 123038009 (Specimen)"/>
   <status value="draft"/>
-  <define>
-    <system value="http://hl7.org/fhir/specimen-type"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="food"/>
-      <display value="Food"/>
-      <definition value="Specimen collected from a substance which serves as sustenance"/>
-    </concept>
-    <concept>
-      <code value="human"/>
-      <display value="Human"/>
-      <definition value="Specimen collected from a human"/>
-    </concept>
-    <concept>
-      <code value="animal"/>
-      <display value="Animal"/>
-      <definition value="Specimen collected from an animal"/>
-    </concept>
-    <concept>
-      <code value="environmental"/>
-      <display value="Environmental"/>
-      <definition value="Specimen collected from the environment. For instance, a water sample from a lake."/>
-    </concept>
-  </define>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v2/0487"/>
+    </include>
+  </compose>
 </ValueSet>
 

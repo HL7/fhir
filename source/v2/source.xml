@@ -29886,7 +29886,7 @@
       <item id="11" code="TW&lt;integer&gt;" desc=""/>
     </version>
   </table>
-  <table id="487" state="exclude">
+  <table id="487" state="include">
     <version version="2.5" desc="Specimen Type">
       <item id="1" code="ABS" desc="Abscess"/>
       <item id="239" code="ACNE" desc="Tissue, Acne"/>
@@ -30973,7 +30973,7 @@
       <item id="121" code="WWT" desc="Environmental, Water  (Tap)"/>
     </version>
   </table>
-  <table id="488" state="exclude">
+  <table id="488" state="include">
     <version version="2.5" desc="Specimen Collection Method">
       <item id="22" code="ANP" desc="Plates, Anaerobic"/>
       <item id="23" code="BAP" desc="Plates, Blood Agar"/>
@@ -31151,7 +31151,7 @@
       <item id="32" code="WOOD" desc="Swab, Wooden Shaft"/>
     </version>
   </table>
-  <table id="489" state="exclude">
+  <table id="489" state="include">
     <version version="2.5" desc="Risk Codes">
       <item id="4" code="AGG" desc="Aggressive"/>
       <item id="8" code="BHZ" desc="Biohazard"/>
@@ -31205,7 +31205,7 @@
       <item id="11" code="RAD" desc="Radioactive"/>
     </version>
   </table>
-  <table id="490" state="exclude">
+  <table id="490" state="include">
     <version version="2.5" desc="Specimen Reject Reason">
       <item id="1" code="EX" desc="Expired"/>
       <item id="2" code="QS" desc="Quantity not sufficient"/>
@@ -31271,7 +31271,7 @@
       <item id="14" code="RS" desc="Name misspelling"/>
     </version>
   </table>
-  <table id="491" state="exclude">
+  <table id="491" state="include">
     <version version="2.5" desc="Specimen Quality">
       <item id="1" code="E" desc="Excellent"/>
       <item id="3" code="F" desc="Fair"/>
@@ -31297,7 +31297,7 @@
       <item id="4" code="P" desc="Poor"/>
     </version>
   </table>
-  <table id="492" state="exclude">
+  <table id="492" state="include">
     <version version="2.5" desc="Specimen Appropriateness">
       <item id="4" code="??" desc="Inappropriate due to _"/>
       <item id="2" code="A" desc="Appropriate"/>
@@ -31323,7 +31323,7 @@
       <item id="1" code="P" desc="Preferred"/>
     </version>
   </table>
-  <table id="493" state="exclude">
+  <table id="493" state="include">
     <version version="2.5" desc="Specimen Condition">
       <item id="1" code="AUT" desc="Autolyzed"/>
       <item id="2" code="CLOT" desc="Clotted"/>
@@ -31369,7 +31369,7 @@
       <item id="9" code="SNR" desc="Sample not received"/>
     </version>
   </table>
-  <table id="494" state="exclude">
+  <table id="494" state="include">
     <version version="2.5" desc="Specimen Child Role">
       <item id="1" code="A" desc="Aliquot"/>
       <item id="2" code="C" desc="Component"/>
@@ -31391,7 +31391,7 @@
       <item id="3" code="M" desc="Modified from original specimen"/>
     </version>
   </table>
-  <table id="495" state="exclude">
+  <table id="495" state="include">
     <version version="2.5" desc="Body Site Modifier">
       <item id="16" code=" UPP" desc="Upper"/>
       <item id="1" code="ANT" desc="Anterior"/>
@@ -31465,7 +31465,7 @@
       <item id="16" code="UPP" desc="Upper"/>
     </version>
   </table>
-  <table id="496" state="exclude">
+  <table id="496" state="include">
     <version version="2.5" desc="Consent Type">
       <item id="1" code="001" desc="Release of Information/MR / Authorization to Disclosure Protected Health Information"/>
       <item id="2" code="002" desc="Medical Procedure (invasive)"/>
@@ -32023,7 +32023,7 @@
       <item id="136" code="136" desc="Videotape"/>
     </version>
   </table>
-  <table id="497" state="exclude">
+  <table id="497" state="include">
     <version version="2.5" desc="Consent Mode">
       <item id="3" code="T" desc="Telephone"/>
       <item id="1" code="V" desc="Verbal"/>
@@ -32045,7 +32045,7 @@
       <item id="2" code="W" desc="Written"/>
     </version>
   </table>
-  <table id="498" state="exclude">
+  <table id="498" state="include">
     <version version="2.5" desc="Consent Status">
       <item id="1" code="A" desc="Active - Consent has been granted"/>
       <item id="6" code="B" desc="Bypassed (Consent not sought)"/>
@@ -32079,7 +32079,7 @@
       <item id="5" code="X" desc="Rescinded - Consent was initially granted, but was subsequently revoked or ended."/>
     </version>
   </table>
-  <table id="499" state="exclude">
+  <table id="499" state="include">
     <version version="2.5" desc="Consent Bypass Reason">
       <item id="1" code="E" desc="Emergency"/>
       <item id="2" code="PJ" desc="Professional Judgment"/>
@@ -32097,7 +32097,7 @@
       <item id="2" code="PJ" desc="Professional Judgment"/>
     </version>
   </table>
-  <table id="500" state="exclude">
+  <table id="500" state="include">
     <version version="2.5" desc="Consent Disclosure Level">
       <item id="1" code="F" desc="Full Disclosure"/>
       <item id="3" code="N" desc="No Disclosure"/>
@@ -32119,7 +32119,7 @@
       <item id="2" code="P" desc="Partial Disclosure"/>
     </version>
   </table>
-  <table id="501" state="exclude">
+  <table id="501" state="include">
     <version version="2.5" desc="Consent Non-Disclosure Reason">
       <item id="1" code="E" desc="Emergency"/>
       <item id="3" code="PR" desc="Patient Request"/>
@@ -32141,7 +32141,7 @@
       <item id="2" code="RX" desc="Rx Private"/>
     </version>
   </table>
-  <table id="502" state="exclude">
+  <table id="502" state="include">
     <version version="2.5" desc="Non-Subject Consenter Reason">
       <item id="3" code="LM" desc="Legally mandated"/>
       <item id="1" code="MIN" desc="Subject is a minor"/>
@@ -32163,7 +32163,7 @@
       <item id="2" code="NC" desc="Subject is not competent to consent"/>
     </version>
   </table>
-  <table id="503" state="exclude">
+  <table id="503" state="include">
     <version version="2.5" desc="Sequence/Results Flag">
       <item id="2" code="C" desc="Cyclical"/>
       <item id="3" code="R" desc="Reserved for future use"/>
@@ -32185,7 +32185,7 @@
       <item id="1" code="S" desc="Sequential"/>
     </version>
   </table>
-  <table id="504" state="exclude">
+  <table id="504" state="include">
     <version version="2.5" desc="Sequence Condition Code">
       <item id="1" code="EE" desc="End related service request(s), end current service request."/>
       <item id="2" code="ES" desc="End related service request(s), start current service request."/>
@@ -32211,7 +32211,7 @@
       <item id="3" code="SS" desc="Start related service request(s), start current service request."/>
     </version>
   </table>
-  <table id="505" state="exclude">
+  <table id="505" state="include">
     <version version="2.5" desc="Cyclic Entry/Exit Indicator">
       <item id="2" code="#" desc="The last service request in a cyclic group."/>
       <item id="1" code="*" desc="The first service request in a cyclic group"/>
@@ -32229,7 +32229,7 @@
       <item id="1" code="*" desc="The first service request in a cyclic group"/>
     </version>
   </table>
-  <table id="506" state="exclude">
+  <table id="506" state="include">
     <version version="2.5" desc="Service Request Relationship">
       <item id="2" code="C" desc="Compound"/>
       <item id="4" code="E" desc="Exclusive"/>
@@ -32259,7 +32259,7 @@
       <item id="3" code="T" desc="Tapering"/>
     </version>
   </table>
-  <table id="507" state="exclude">
+  <table id="507" state="include">
     <version version="2.5" desc="Observation Result Handling">
       <item id="1" code="F" desc="Film-with-patient"/>
       <item id="2" code="N" desc="Notify provider when ready"/>
@@ -32277,7 +32277,7 @@
       <item id="2" code="N" desc="Notify provider when ready"/>
     </version>
   </table>
-  <table id="508" state="exclude">
+  <table id="508" state="include">
     <version version="2.5" desc="Blood Product Processing Requirements">
       <item id="5" code="AU" desc="Autologous Unit"/>
       <item id="8" code="CM" desc="CMV Negative"/>
@@ -32343,7 +32343,7 @@
       <item id="1" code="…" desc="No suggested values"/>
     </version>
   </table>
-  <table id="510" state="exclude">
+  <table id="510" state="include">
     <version version="2.5" desc="Blood Product Dispense Status">
       <item id="10" code="CR" desc="Released into inventory for general availability"/>
       <item id="5" code="DS" desc="Dispensed to patient location"/>
@@ -32397,7 +32397,7 @@
       <item id="8" code="WA" desc="Wasted (product no longer viable)"/>
     </version>
   </table>
-  <table id="511" state="exclude">
+  <table id="511" state="include">
     <version version="2.5" desc="BP Observation Status Codes Interpretation">
       <item id="1" code="C" desc="Record coming over is a correction and thus replaces a final status"/>
       <item id="2" code="D" desc="Deletes the BPX record"/>
@@ -32443,7 +32443,7 @@
       <item id="1" code="…" desc="No suggested values"/>
     </version>
   </table>
-  <table id="513" state="exclude">
+  <table id="513" state="include">
     <version version="2.5" desc="Blood Product Transfusion/Disposition Status">
       <item id="1" code="RA" desc="Returned unused/no longer needed"/>
       <item id="2" code="RL" desc="Returned unused/keep linked to patient for possible use later"/>
@@ -32473,7 +32473,7 @@
       <item id="3" code="WA" desc="Wasted (product no longer viable)"/>
     </version>
   </table>
-  <table id="514" state="exclude">
+  <table id="514" state="include">
     <version version="2.5" desc="Transfusion Adverse Reaction">
       <item id="1" code="ABOINC" desc="ABO Incompatible Transfusion Reaction"/>
       <item id="2" code="ACUTHEHTR" desc="Acute Hemolytic Transfusion Reaction"/>
@@ -32571,7 +32571,7 @@
       <item id="1" code="…" desc="No suggested values"/>
     </version>
   </table>
-  <table id="516" state="exclude">
+  <table id="516" state="include">
     <version version="2.5" desc="Error severity">
       <item id="3" code="E" desc="Error"/>
       <item id="2" code="I" desc="Information"/>
@@ -32595,7 +32595,7 @@
       <item id="1" code="W" desc="Warning"/>
     </version>
   </table>
-  <table id="517" state="exclude">
+  <table id="517" state="include">
     <version version="2.5" desc="Inform person code">
       <item id="4" code="HD" desc="Inform help desk"/>
       <item id="2" code="NPAT" desc="Do NOT inform patient"/>
@@ -32621,7 +32621,7 @@
       <item id="3" code="USR" desc="Inform User"/>
     </version>
   </table>
-  <table id="518" state="exclude">
+  <table id="518" state="include">
     <version version="2.5" desc="Override type">
       <item id="3" code="EQV" desc="Equivalence Override"/>
       <item id="1" code="EXTN" desc="Extension Override"/>
@@ -32657,7 +32657,7 @@
       <item id="1" code="..." desc="No suggested values"/>
     </version>
   </table>
-  <table id="520" state="exclude">
+  <table id="520" state="include">
     <version version="2.6" desc="Message waiting priority">
       <item id="1" code="H" desc="High"/>
       <item id="3" code="L" desc="Low"/>

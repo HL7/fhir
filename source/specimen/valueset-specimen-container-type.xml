@@ -6,12 +6,17 @@
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <description value="Containers which may hold specimens or specimen containers"/>
+  <description value="Containers which may hold specimens or specimen containers - all snomed specimen containers"/>
   <status value="draft"/>
-  <define>
-    <system value="http://hl7.org/fhir/specimen-container-type"/>
-    <caseSensitive value="true"/>
-    
-  </define>
+  <compose>  
+    <include>
+      <system value="http://snomed.info"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is_a"/>
+        <value value="434711009"/>
+      </filter>
+    </include>
+  </compose>
 </ValueSet>
 

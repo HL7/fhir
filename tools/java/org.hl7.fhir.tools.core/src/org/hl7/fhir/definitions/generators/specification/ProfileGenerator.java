@@ -355,21 +355,25 @@ public class ProfileGenerator {
     }
 
     Set<String> containedSlices = new HashSet<String>();
-//    if (e.getElementByName("extension") != null) {
-//      for (ElementDefn child : e.getElements()) {
-//        if (child.getName().equals("extension")) {
-//          String t = child.getProfile();
-//          ElementComponent elem = defineElement(pd, p, c, child, path+"."+child.getName(), false);
-//          elem.getDefinition().getType().get(0).setProfileSimple(t);
-//          elem.setDiscriminatorSimple("url");
-//        }
-//      }
-//      
-//      ElementComponent ex = createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("extension"));
-//      ex.setNameSimple("other extensions");
-//      c.getElement().add(ex);
-//    } else if (e.getElements().size() > 0)
+    if (e.getElementByName("extension") != null) {
+      ElementComponent ex = createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("extension"));
+      ex.setNameSimple("base extension");
+      ex.setSlicing(p.new ElementSlicingComponent());
+      ex.getSlicing().setDiscriminatorSimple("url");
+      ex.getSlicing().setOrderedSimple(false);
+      ex.getSlicing().setRulesSimple(ResourceSlicingRules.open);
+      c.getElement().add(ex);
+      containedSlices.add("extension");
+      for (ElementDefn child : e.getElements()) {
+        if (child.getName().equals("extension")) {
+          String t = child.getProfile();
+          ElementComponent elem = defineElement(pd, p, c, child, path+"."+child.getName(), false, containedSlices);
+          elem.getDefinition().getType().get(0).setProfileSimple(t);
+          }
+      }
+    } else if (addBase) {
       c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("extension")));
+    }
       
     if (addBase) {
       c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("text")));

@@ -290,10 +290,8 @@ public class XSDBaseGenerator {
     write("      <xs:documentation>"+Utilities.escapeXml(elem.getDefinition())+"</xs:documentation>\r\n");
     write("      <xs:documentation>If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>\r\n");
     write("    </xs:annotation>\r\n");
-    if (!elem.getName().equals("Extension")) {
-      write("    <xs:complexContent>\r\n");
-      write("      <xs:extension base=\"Element\">\r\n");
-    };
+    write("    <xs:complexContent>\r\n");
+    write("      <xs:extension base=\"Element\">\r\n");
     write("        <xs:sequence>\r\n");
 
     for (ElementDefn e : elem.getElements()) {
@@ -303,11 +301,8 @@ public class XSDBaseGenerator {
         generateElement(elem, e, null);
     }
     write("        </xs:sequence>\r\n");
-    if (!elem.getName().equals("Extension")) {
-      write("      </xs:extension>\r\n");
-      write("    </xs:complexContent>\r\n");
-    } else
-      write("    <xs:attribute name=\"id\" type=\"id-primitive\"/>\r\n");
+    write("      </xs:extension>\r\n");
+    write("    </xs:complexContent>\r\n");
     write("  </xs:complexType>\r\n");
     while (!structures.isEmpty()) {
       String s = structures.keySet().iterator().next();

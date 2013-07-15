@@ -8,10 +8,10 @@
   </telecom>
   <description value="The  technique that is used to perform the process or preserve the specimen"/>
   <status value="draft"/>
-  <define>
-    <system value="http://hl7.org/fhir/specimen-treatment-procedure"/>
-    <caseSensitive value="true"/>
-    
-  </define>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v2/0373"/>
+    </include>
+  </compose>
 </ValueSet>
 
