@@ -84,6 +84,15 @@
   <Style ss:ID="s73">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
+  <Style ss:ID="s77">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Names>
@@ -1736,197 +1745,166 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="object-role">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="25" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="177.75" ss:Span="1"/>
-   <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="346.5"/>
-   <Column ss:AutoFitWidth="0" ss:Width="582.75"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="25" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s73" ss:DefaultRowHeight="15">
+   <Column ss:Index="3" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="177.75"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="487.5"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="582.75"/>
+   <Row ss:StyleID="s77">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Display</Data></Cell>
-    <Cell><Data ss:Type="String">Display New</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
     <Cell><Data ss:Type="String">Comments</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Patient</Data></Cell>
-    <Cell><Data ss:Type="String">Patient</Data></Cell>
-    <Cell><Data ss:Type="String">A person or animal that is the subject of care for the event</Data></Cell>
+    <Cell><Data ss:Type="String">This object is the patient that is the subject of care related to this event.  It is identifiable by patient ID or equivalent.  The patient may be either human or animal</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">Location</Data></Cell>
-    <Cell><Data ss:Type="String">Location</Data></Cell>
-    <Cell><Data ss:Type="String">A physical or logical location related to the event</Data></Cell>
-    <Cell><Data ss:Type="String">Usually, this is where the event occurred, but it may have other uses</Data></Cell>
+    <Cell><Data ss:Type="String">This is a location identified as related to the event.  This is usually the location where the event took place.  Note that for shipping, the usual events are arrival at a location or departure from a location.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">Report</Data></Cell>
-    <Cell><Data ss:Type="String">Resource (immutable)</Data></Cell>
-    <Cell><Data ss:Type="String">A resource that is immutable and stored</Data></Cell>
-    <Cell><Data ss:Type="String">Typically indicates that that this is a version specific reference</Data></Cell>
+    <Cell><Data ss:Type="String">This object is any kind of persistent document created as a result of the event.  This could be a paper report, film, electronic report, DICOM Study, etc.  Issues related to medical records life cycle management are conveyed elsewhere.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">Resource (dynamic)</Data></Cell>
-    <Cell><Data ss:Type="String">A resource that is either changeable or not even persisted</Data></Cell>
+    <Cell><Data ss:Type="String">A logical object related to the event.  (Deprecated)</Data></Cell>
+    <Cell><Data ss:Type="String">Still defined for existing use related to DICOM definitions</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="String">Master file</Data></Cell>
-    <Cell><Data ss:Type="String">Administrative Record</Data></Cell>
-    <Cell><Data ss:Type="String">An administrative record</Data></Cell>
-    <Cell><Data ss:Type="String">(Master files in the v2 sense)</Data></Cell>
+    <Cell><Data ss:Type="String">This is any configurable file used to control creation of documents.  Examples include the objects maintained by the HL7 Master File transactions, Value Sets, etc. </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="String">User</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">A logical agent involved in the event   (deprecated)</Data></Cell>
-    <Cell><Data ss:Type="String">Use &quot;Security User Group&quot; instead</Data></Cell>
+    <Cell><Data ss:Type="String">A human participant not otherwise identified by some other category</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell><Data ss:Type="String">List</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">(deprecated)</Data></Cell>
+    <Cell><Data ss:Type="String">(deprecated)</Data></Cell>
+    <Cell><Data ss:Type="String">Still defined for existing use related to DICOM definitions</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="String">Doctor</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">A person providing healthcare related to the event (deprecated)</Data></Cell>
-    <Cell><Data ss:Type="String">Use &quot;Practitioner&quot; instead</Data></Cell>
+    <Cell><Data ss:Type="String">Typically a licensed person who is providing or performing care related to the event, generally a physician.   The key distinction between doctor and practitioner is with regards to their role, not the licensing.  The doctor is the human who actually performed the work.  The practitioner is the human or organization that is responsible for the work.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell><Data ss:Type="String">Subscriber</Data></Cell>
-    <Cell><Data ss:Type="String">Subscriber</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">A system requesting/receiving notification related to the event</Data></Cell>
+    <Cell><Data ss:Type="String">A person or system that is being notified as part of the event.  This is relevant in situations where automated systems provide notifications to other parties when an event took place.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="String">Guarantor</Data></Cell>
-    <Cell><Data ss:Type="String">Guarantor</Data></Cell>
-    <Cell><Data ss:Type="String">A person or organisation who accepts responsibility for paying for healthcare provision the event contributes to</Data></Cell>
+    <Cell><Data ss:Type="String">Insurance company, or any other organization who accepts responsibility for paying for the healthcare event. </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell><Data ss:Type="Number">11</Data></Cell>
     <Cell><Data ss:Type="Number">11</Data></Cell>
     <Cell><Data ss:Type="String">Security User Entity</Data></Cell>
-    <Cell><Data ss:Type="String">Security User Entity</Data></Cell>
-    <Cell><Data ss:Type="String">A logical agent involved in the event</Data></Cell>
-    <Cell><Data ss:Type="String">Usually a human, but can also be machine, etc (Anyone that did security stuff)</Data></Cell>
+    <Cell><Data ss:Type="String">A person or active system object involved in the event with a security role.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="Number">12</Data></Cell>
     <Cell><Data ss:Type="Number">12</Data></Cell>
     <Cell><Data ss:Type="String">Security User Group</Data></Cell>
-    <Cell><Data ss:Type="String">Security User Group</Data></Cell>
-    <Cell><Data ss:Type="String">A user-role related to the event</Data></Cell>
-    <Cell><Data ss:Type="String">e.g rules that have the ability to modify access control or other security mechanisms</Data></Cell>
+    <Cell><Data ss:Type="String">A person or system object involved in the event with the authority to modify security roles of other objects.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="Number">13</Data></Cell>
     <Cell><Data ss:Type="Number">13</Data></Cell>
     <Cell><Data ss:Type="String">Security Resource</Data></Cell>
-    <Cell><Data ss:Type="String">Security Policy</Data></Cell>
-    <Cell><Data ss:Type="String">A policy (e.g. consent directive) related to the event</Data></Cell>
+    <Cell><Data ss:Type="String">A passive object, such as a role table, that is relevant to the event.</Data></Cell>
     <Cell><Data ss:Type="String">Consents, ACLs, Access Control rules, Audit repository analysis systems, etc.  Any non-human thing that is worth identifying as part of the security process</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell><Data ss:Type="Number">14</Data></Cell>
     <Cell><Data ss:Type="Number">14</Data></Cell>
     <Cell><Data ss:Type="String">Security Granularity Definition</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Deprecated</Data></Cell>
+    <Cell><Data ss:Type="String">(deprecated)  Relevant to certain RBAC security methodologies.</Data></Cell>
+    <Cell><Data ss:Type="String">Still defined for existing use related to DICOM definitions</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="Number">15</Data></Cell>
     <Cell><Data ss:Type="Number">15</Data></Cell>
     <Cell><Data ss:Type="String">Practitioner</Data></Cell>
-    <Cell><Data ss:Type="String">Practitioner</Data></Cell>
-    <Cell><Data ss:Type="String">A human or organization providing care the event occurs in the context of</Data></Cell>
-    <Cell><Data ss:Type="String">Same definition as the practitioner resource</Data></Cell>
+    <Cell><Data ss:Type="String">Any person or organization responsible for providing care.  This encompasses all forms of care, licensed or otherwise, and all sorts of teams and care groups. Note, the distinction between practitioners and the doctor that actually provided the care to the patient.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell><Data ss:Type="Number">16</Data></Cell>
     <Cell><Data ss:Type="Number">16</Data></Cell>
     <Cell><Data ss:Type="String">Data Destination</Data></Cell>
-    <Cell><Data ss:Type="String">Data Destination</Data></Cell>
-    <Cell><Data ss:Type="String">A system that was the target of communications related to the event </Data></Cell>
-    <Cell><Data ss:Type="String">source as well as target?</Data></Cell>
+    <Cell><Data ss:Type="String">The source or destination for data transfer, when it does not match some other role.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell><Data ss:Type="Number">17</Data></Cell>
     <Cell><Data ss:Type="Number">17</Data></Cell>
     <Cell><Data ss:Type="String">Data Repository</Data></Cell>
-    <Cell><Data ss:Type="String">Data Repository</Data></Cell>
-    <Cell><Data ss:Type="String">A system holding resources related to the event</Data></Cell>
+    <Cell><Data ss:Type="String">A source or destination for data transfer, that acts as an archive, database, or similar role.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="Number">18</Data></Cell>
     <Cell><Data ss:Type="Number">18</Data></Cell>
     <Cell><Data ss:Type="String">Schedule</Data></Cell>
-    <Cell><Data ss:Type="String">Schedule</Data></Cell>
-    <Cell><Data ss:Type="String"> A schedule resource related to the event</Data></Cell>
-    <Cell><Data ss:Type="String">i.e. a schedule that caused the event to occur</Data></Cell>
+    <Cell><Data ss:Type="String">An object that holds schedule information.  This could be an appointment book, availability information, etc.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="Number">19</Data></Cell>
     <Cell><Data ss:Type="Number">19</Data></Cell>
     <Cell><Data ss:Type="String">Customer</Data></Cell>
-    <Cell><Data ss:Type="String">Customer</Data></Cell>
-    <Cell><Data ss:Type="String">A person or animal that is the subject of services (not patient) related to the event</Data></Cell>
-    <Cell><Data ss:Type="String">Events may have both a patient &amp; a customer (e.g. animal &amp; owner)</Data></Cell>
+    <Cell><Data ss:Type="String">An organization or person that is the recipient of services.  This could be an organization that is buying services for a patient, or a person that is buying services for an animal.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="Number">20</Data></Cell>
     <Cell><Data ss:Type="Number">20</Data></Cell>
     <Cell><Data ss:Type="String">Job</Data></Cell>
-    <Cell><Data ss:Type="String">Task</Data></Cell>
-    <Cell><Data ss:Type="String">A task in an IT system related to the event</Data></Cell>
-    <Cell><Data ss:Type="String">usually the context of execution</Data></Cell>
+    <Cell><Data ss:Type="String">An order, task, work item, procedure step, or other description of work to be performed.  E.g., a particular instance of an MPPS.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell><Data ss:Type="Number">21</Data></Cell>
     <Cell><Data ss:Type="Number">21</Data></Cell>
     <Cell><Data ss:Type="String">Job Stream</Data></Cell>
-    <Cell><Data ss:Type="String">Sub-Task</Data></Cell>
-    <Cell><Data ss:Type="String">A sub-task in an IT system related to the event</Data></Cell>
-    <Cell><Data ss:Type="String">usually the context of execution</Data></Cell>
+    <Cell><Data ss:Type="String">A list of jobs or a system that provides lists of jobs.  E.g., an MWL SCP.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell><Data ss:Type="Number">22</Data></Cell>
     <Cell><Data ss:Type="Number">22</Data></Cell>
     <Cell><Data ss:Type="String">Table</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">A database table related to the event (deprecated)</Data></Cell>
+    <Cell><Data ss:Type="String">(Deprecated)</Data></Cell>
+    <Cell><Data ss:Type="String">Still defined for existing use related to DICOM definitions</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="Number">23</Data></Cell>
     <Cell><Data ss:Type="Number">23</Data></Cell>
     <Cell><Data ss:Type="String">Routing Criteria</Data></Cell>
-    <Cell><Data ss:Type="String">Routing Criteria</Data></Cell>
-    <Cell><Data ss:Type="String">A rule for how information related to the event is distributed</Data></Cell>
-    <Cell><Data ss:Type="String">things like hostfiles, DNS config, CC lists, BCC lists, automatic pre-fetch lists, automatic pub-sub lists.</Data></Cell>
+    <Cell><Data ss:Type="String">An object that specifies or controls the routing or delivery of items.  For example, a distribution list is the routing criteria for mail.  The items delivered may be documents, jobs, or other objects.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="Number">24</Data></Cell>
     <Cell><Data ss:Type="Number">24</Data></Cell>
     <Cell><Data ss:Type="String">Query</Data></Cell>
-    <Cell><Data ss:Type="String">Query</Data></Cell>
-    <Cell><Data ss:Type="String">A request for information related to the event</Data></Cell>
-    <Cell><Data ss:Type="String">Object will have query details</Data></Cell>
+    <Cell><Data ss:Type="String">The contents of a query.  This is used to capture the contents of any kind of query.  For security surveillance purposes knowing the queries being made is very important.</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1935,13 +1913,17 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <VerticalResolution>0</VerticalResolution>
+   </Print>
    <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
