@@ -69,11 +69,6 @@ namespace Hl7.Fhir.Client
         }
 
 
-        public const string CONTENTLOCATION = "Content-Location";
-        public const string LOCATION = "Location";
-        public const string LASTMODIFIED = "Last-Modified";
-        public const string CATEGORY = "Category";
-
 
         public static ResponseDetails FromHttpWebResponse(HttpWebResponse response)
         {
@@ -84,11 +79,11 @@ namespace Hl7.Fhir.Client
                     Result = response.StatusCode,
                     ContentType = getContentType(response),
                     CharacterEncoding = getContentEncoding(response),
-                    ContentLocation = response.Headers[CONTENTLOCATION],
-                    Location = response.Headers[LOCATION],                   
+                    ContentLocation = response.Headers[HttpUtil.CONTENTLOCATION],
+                    Location = response.Headers[HttpUtil.LOCATION],                   
                   //  LastModified = response.LastModified,
-                    LastModified = response.Headers[LASTMODIFIED],
-                    Category = response.Headers[CATEGORY],
+                    LastModified = response.Headers[HttpUtil.LASTMODIFIED],
+                    Category = response.Headers[HttpUtil.CATEGORY],
                     Body = readBody(response),
                     Reponse = response
                 };

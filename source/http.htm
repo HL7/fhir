@@ -254,7 +254,7 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
  <li><b>404 Not Found</b> - resource type not supported, or not a FHIR end point</li>
  <li><b>405 Method Not allowed</b> - the resource did not exist prior to the update, and the serer does not allow client defined ids</li>
  <li><b>409/412</b> - version conflict management - see above</li> 
- <li><b>422 Unprocessable Entity</b> - the proposed resource violated applicable FHIR profiles or server business rules. This should be accompanied by an <a href="operationoutcome.htm">Issue</a> resource providing additional detail</li>
+ <li><b>422 Unprocessable Entity</b> - the proposed resource violated applicable FHIR profiles or server business rules. This should be accompanied by an <a href="operationoutcome.htm">OperationOutcome</a> resource providing additional detail</li>
 </ul>
 <a name="delete"> </a>
 <h2>delete</h2>
@@ -311,7 +311,7 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
 <ul>
  <li><b>400 Bad Request</b> - resource could not be parsed or failed basic basic FHIR validation rules</li>
  <li><b>404 Not Found</b> - resource type not supported, or not a FHIR end point</li>
- <li><b>422 Unprocessable Entity</b> - the proposed resource violated applicable FHIR profiles or server business rules. This should be accompanied by an <a href="operationoutcome.htm">Issue</a> resource providing additional detail</li>
+ <li><b>422 Unprocessable Entity</b> - the proposed resource violated applicable FHIR profiles or server business rules. This should be accompanied by an <a href="operationoutcome.htm">OperationOutcome</a> resource providing additional detail</li>
 </ul>
 
 <a name="search"> </a>
@@ -347,8 +347,9 @@ Searches are processed as specified for the <a href="query.htm">Query handling m
 </p>
 <p>
 The return content is an <a href="resources.htm#bundle">Bundle</a> containing the results of the search as a list of resources
-in a defined order. Searches SHOULD use paging as described <a href="#paging">below</a>.
-</p>
+in a defined order. The result list can be long, so servers may use paging. If they do, they SHALL use the method described 
+in <a href="https://tools.ietf.org/html/rfc5005">RFC 5005 (Feed Paging and Archiving)</a> (also <a href="#paging">see below</a>) for breaking the 
+list into pages if appropriate.</p>
 
 <a name="validate"> </a>
 <h2>validate</h2>
@@ -374,7 +375,7 @@ one of the following values:
  <li><b>422 Unprocessable Entity</b> - the resource was valid, but it violates applicable FHIR profiles or server business rules</li>
 </ul>
 <p>
-Unless the result is 200 OK, the response must include an <a href="operationoutcome.htm">Issue Report</a> that lists the issues found on validation.
+Unless the result is 200 OK, the response must include an <a href="operationoutcome.htm">OperationOutcome</a> resource that lists the issues found on validation.
 </p>
 <p>
 The validation operation has complex semantics and rules; see the full discussion of the operation in the <a href="#hdata">OMG hData REST specification</a> for further details. 
@@ -527,8 +528,9 @@ they may receive notifications of a resource update on the boundary instant more
 not required to support a precision finer than by second. 
 </p>
 <p>
-The updates list can be long, so servers SHALL use the method described in <a href="https://tools.ietf.org/html/rfc5005">RFC 5005 (Feed 
-Paging and Archiving)</a> (also <a href="#paging">see above</a>) for breaking the updates list into pages if appropriate.
+The updates list can be long, so servers may use paging. If they do, they SHALL use the method described 
+in <a href="https://tools.ietf.org/html/rfc5005">RFC 5005 (Feed Paging and Archiving)</a> (also <a href="#paging">see below</a>) for breaking the 
+list into pages if appropriate.
 </p>
 <p>
 The history operation is suitable for use with internet pub/sub systems based on rss/atom, 
@@ -539,7 +541,6 @@ to another, so that resources are sychronised between them. Systems receiving su
 on enforcing resource integrity should note that <a href="#transaction">transaction</a> boundaries 
 are not reflected in the history list.
 </p>
- <p>Searches SHOULD use paging as described <a href="#paging">below</a></p>
  
  <a name="tags"> </a>
 <h2>Tag Operations</h2>
@@ -621,7 +622,7 @@ resources: they are always represented using their original content type.
 <a name="paging"> </a>
 <h2>Paging</h2>
 <p> 
-Servers SHOULD conform to the method described in <a href="https://tools.ietf.org/html/rfc5005">RFC 5005 (Feed 
+If servers provide paging, they SHALL conform to the method described in <a href="https://tools.ietf.org/html/rfc5005">RFC 5005 (Feed 
 Paging and Archiving)</a> for sending continuation links to the client when returning a bundle
 (e.g. with with history and search). If the server does not do this, there is no way to continue paging.
 </p>

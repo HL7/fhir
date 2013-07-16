@@ -22,9 +22,9 @@ namespace Hl7.Fhir.Tests
         [TestMethod]
         public void TestConformance()
         {
-            FhirClient client = new FhirClient(testEndpoint);
+            FhirClient client = new FhirClient();
 
-            Conformance c = client.Conformance().Content;
+            Conformance c = client.Conformance(testEndpoint).Content;
 
             Assert.IsNotNull(c);
             Assert.AreEqual("HL7Connect", c.Software.Name);
@@ -59,91 +59,115 @@ namespace Hl7.Fhir.Tests
                 Assert.IsTrue(client.LastResponseDetails.Result == HttpStatusCode.NotFound);
             }
 
-            var loc2 = client.VRead<Location>("1", version);
+            var loc2 = client.Fetch<Location>("1", version);
             Assert.IsNotNull(loc2);
             Assert.AreEqual(FhirSerializer.SerializeBundleEntryToJson(loc),
                             FhirSerializer.SerializeBundleEntryToJson(loc2));
+
+            var loc3 = client.Fetch<Location>(loc.SelfLink);
+            Assert.IsNotNull(loc3);
+            Assert.AreEqual(FhirSerializer.SerializeBundleEntryToJson(loc),
+                            FhirSerializer.SerializeBundleEntryToJson(loc3));
+
         }
 
 
-        [TestMethod]
-        public void TestSearch()
-        {
-            FhirClient client = new FhirClient(testEndpoint);
-            Bundle result;
+        //[TestMethod]
+        //public void TestSearch()
+        //{
+        //    FhirClient client = new FhirClient(testEndpoint);
+        //    Bundle result;
 
-            result = client.SearchAll<Patient>();
-            Assert.IsNotNull(result);
-            Assert.IsTrue(result.Entries.Count > 0);
-            Assert.IsTrue(result.Entries[0].Id.ToString().EndsWith("@1"));
+        //    result = client.SearchAll<Patient>();
+        //    Assert.IsNotNull(result);
+        //    Assert.IsTrue(result.Entries.Count > 0);
+        //    Assert.IsTrue(result.Entries[0].Id.ToString().EndsWith("@1"));
 
-            result = client.SearchAll<Patient>(10);
-            Assert.IsNotNull(result);
-            Assert.IsTrue(result.Entries.Count <= 10);
-            Assert.IsTrue(result.Entries[0].Id.ToString().EndsWith("@1"));
+        //    result = client.SearchAll<Patient>(10);
+        //    Assert.IsNotNull(result);
+        //    Assert.IsTrue(result.Entries.Count <= 10);
+        //    Assert.IsTrue(result.Entries[0].Id.ToString().EndsWith("@1"));
 
-            result = client.SearchById<DiagnosticReport>("101", "DiagnosticReport/subject");
-            Assert.IsNotNull(result);
+        //    result = client.SearchById<DiagnosticReport>("101", "DiagnosticReport/subject");
+        //    Assert.IsNotNull(result);
 
-            Assert.AreEqual(1,
-                    result.Entries.Where(entry => entry.Links.SelfLink.ToString()
-                        .Contains("diagnosticreport")).Count());
+        //    Assert.AreEqual(1,
+        //            result.Entries.Where(entry => entry.Links.SelfLink.ToString()
+        //                .Contains("diagnosticreport")).Count());
 
-            Assert.IsTrue(result.Entries.Any(entry =>
-                    entry.Links.SelfLink.ToString().Contains("patient/@pat2")));
+        //    Assert.IsTrue(result.Entries.Any(entry =>
+        //            entry.Links.SelfLink.ToString().Contains("patient/@pat2")));
 
-            result = client.Search<Patient>( new string[] { "name", "Everywoman",   "name", "Eve" } );
-            Assert.IsNotNull(result);
-            Assert.IsTrue(result.Entries[0].Links.SelfLink.ToString().Contains("patient/@1"));
-        }
+        //    result = client.Search<Patient>( new string[] { "name", "Everywoman",   "name", "Eve" } );
+        //    Assert.IsNotNull(result);
+        //    Assert.IsTrue(result.Entries[0].Links.SelfLink.ToString().Contains("patient/@1"));
+        //}
 
-       
 
-        private string lastNewId;
+
+        private Uri createdTestOrganization = null;
 
         [TestMethod]
         public void TestCreateEditDelete()
         {
-            //Patient ewout = new Patient
-            //{
-            //    Name = new List<HumanName> { HumanName.ForFamily("Kramer").WithGiven("Wouter").WithGiven("Gert") },
-            //    BirthDateElement = new FhirDateTime(1972, 11, 30),
-            //    Identifier = new List<Identifier> {
-            //        new Identifier() { System = new Uri("http://hl7.org/test/1"), Key = "3141" } }
-            //};
+            var furore = new Organization
+            {
+                Name = "Furore",
+                Identifier = new List<Identifier> { new Identifier("http://hl7.org/test/1", "3141") },
+                Telecom = new List<Contact> { new Contact { System = Contact.ContactSystem.Phone, Value = "+31-20-3467171" } }
+            };
 
-            //FhirClient client = new FhirClient(testEndpoint);
-            //string newId;
-            //ewout = client.Create<Patient>(ewout, out newId);
+            FhirClient client = new FhirClient(testEndpoint);
+            var tags = new List<Tag> { new Tag("http://nu.nl/testname", "TestCreateEditDelete") };
 
-            //Assert.IsNotNull(ewout);
-            //Assert.IsNotNull(newId);
+            var fe = client.Create(furore,tags);
 
-            //ewout.Name.Add(HumanName.ForFamily("Kramer").WithGiven("Ewout"));
+            Assert.IsNotNull(furore);
+            Assert.IsNotNull(fe);
+            Assert.IsNotNull(fe.Id);
+            Assert.IsNotNull(fe.SelfLink);
+            Assert.AreNotEqual(fe.Id,fe.SelfLink);
+            Assert.IsNotNull(fe.Tags);
+            Assert.AreEqual(1, fe.Tags.Count());
+            Assert.AreEqual(fe.Tags.First(), tags[0]);
+            createdTestOrganization = fe.Id;
 
-            //ewout = client.Update<Patient>(ewout, newId);
+            fe.Content.Identifier.Add(new Identifier("http://hl7.org/test/2", "3141592"));
 
-            //Assert.IsNotNull(ewout);
+            var fe2 = client.Update(fe);
 
-            //var result = client.Delete<Patient>(newId);
-            //Assert.IsTrue(result);
+            Assert.IsNotNull(fe2);
+            Assert.AreEqual(fe.Id, fe2.Id);
+            Assert.AreNotEqual(fe.SelfLink, fe2.SelfLink);
+            Assert.IsNotNull(fe2.Tags);
+            Assert.AreEqual(1, fe2.Tags.Count());
+            Assert.AreEqual(fe2.Tags.First(), tags[0]);
 
-            //ewout = client.Read<Patient>(newId);
-            //Assert.IsNull(ewout);
-            //Assert.AreEqual(HttpStatusCode.Gone, client.LastResponseDetails.Result);
+            client.Delete(fe2.Id);
 
-            //lastNewId = newId;
+            try
+            {
+                fe = client.Read<Organization>(ResourceLocation.GetIdFromResourceId(fe.Id));
+                Assert.Fail();
+            }
+            catch
+            {
+                Assert.IsTrue(client.LastResponseDetails.Result == HttpStatusCode.Gone);
+            }
+            
+            Assert.IsNull(fe);
         }
 
 
         [TestMethod]
         public void TestHistory()
         {
-            TestCreateEditDelete();
             DateTimeOffset now = DateTimeOffset.Now;
 
+            TestCreateEditDelete();
+
             FhirClient client = new FhirClient(testEndpoint);
-            Bundle history = client.History<Patient>(lastNewId);
+            Bundle history = client.History(createdTestOrganization);
             Assert.IsNotNull(history);
             Assert.AreEqual(3, history.Entries.Count());
             Assert.AreEqual(2, history.Entries.Where(entry => entry is ResourceEntry).Count());
@@ -152,7 +176,7 @@ namespace Hl7.Fhir.Tests
             // Now, assume no one is quick enough to insert something between now and the next
             // tests....
 
-            history = client.History<Patient>(now);
+            history = client.History<Organization>(now);
             Assert.IsNotNull(history);
             Assert.AreEqual(3, history.Entries.Count());
             Assert.AreEqual(2, history.Entries.Where(entry => entry is ResourceEntry).Count());
@@ -163,7 +187,6 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual(3, history.Entries.Count());
             Assert.AreEqual(2, history.Entries.Where(entry => entry is ResourceEntry).Count());
             Assert.AreEqual(1, history.Entries.Where(entry => entry is DeletedEntry).Count());
-
         }
     }
 }

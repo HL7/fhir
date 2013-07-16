@@ -78,6 +78,26 @@ namespace Hl7.Fhir.Model
 
             return result;
         }
+
+        public override bool Equals(object obj)
+        {
+            // Check for null values and compare run-time types.
+            if (obj == null || GetType() != obj.GetType())
+                return false;
+
+            var t = (Tag)obj;
+            return (Uri.Equals(this.Uri, t.Uri) && this.Label == t.Label);
+        }
+
+        public override int GetHashCode()
+        {
+            int hash = 0;
+
+            if (Uri != null) hash ^= Uri.GetHashCode();
+            if (Label != null) hash ^= Label.GetHashCode();
+
+            return hash;
+        }
     }
 
 

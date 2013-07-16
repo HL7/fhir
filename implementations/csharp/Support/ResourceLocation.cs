@@ -635,19 +635,16 @@ namespace Hl7.Fhir.Support
         }
 
 
-        [Obsolete]
         public static Uri BuildResourceIdPath(string collection, string id)
         {
             return ResourceLocation.Build(LOCALHOST, collection, id).OperationPath;
         }
 
-        [Obsolete]
         public static Uri BuildResourceIdPath(string collection, string id, string version)
         {
             return ResourceLocation.Build(LOCALHOST, collection, id, version).OperationPath;
         }
 
-        [Obsolete]
         public static string GetCollectionFromResourceId(Uri versionedUrl)
         {
             if (versionedUrl.IsAbsoluteUri)
@@ -656,7 +653,6 @@ namespace Hl7.Fhir.Support
                 return new ResourceLocation(LOCALHOST, versionedUrl).Collection;
         }
 
-        [Obsolete]
         public static string GetIdFromResourceId(Uri versionedUrl)
         {
             if (versionedUrl.IsAbsoluteUri)
@@ -730,6 +726,7 @@ namespace Hl7.Fhir.Support
             return result;
         }
 
+
         public static string JoinParams(Dictionary<string,string> pars)
         {
             StringBuilder result = new StringBuilder();
@@ -740,7 +737,8 @@ namespace Hl7.Fhir.Support
                 var values = paramContent.Split(',');
 
                 foreach (var value in values)
-                    result.AppendFormat("{0}={1}&", paramName, value);
+                    result.AppendFormat("{0}={1}&", Uri.EscapeDataString(paramName), 
+                                    Uri.EscapeDataString(value) );
             }
             
             return result.ToString().TrimEnd('&');

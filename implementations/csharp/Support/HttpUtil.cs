@@ -45,6 +45,12 @@ namespace Hl7.Fhir.Support
 {
     public static class HttpUtil
     {
+        public const string CONTENTLOCATION = "Content-Location";
+        public const string LOCATION = "Location";
+        public const string LASTMODIFIED = "Last-Modified";
+        public const string CATEGORY = "Category";
+
+
         public static byte[] ReadAllFromStream(Stream s, int contentLength)
         {
             if (contentLength == 0) return null;
@@ -72,7 +78,7 @@ namespace Hl7.Fhir.Support
             var categories = value.Split(new string[] { "," },StringSplitOptions.RemoveEmptyEntries)
                                 .Select(c => c.Trim());
 
-            var result = new List<Tag>();
+            List<Tag> result = null;
 
             foreach (var category in categories)
             {
@@ -92,6 +98,8 @@ namespace Hl7.Fhir.Support
 
                     if (pars.Any(t => t.Item1 == "scheme" && t.Item2 == TAGSCHEME))
                     {
+                        if(result == null) result = new List<Tag>();
+
                         var newTag = new Tag()
                         {
                             Label = pars.Where(t => t.Item1 == "label").Select(t => t.Item2).FirstOrDefault(),
@@ -135,7 +143,8 @@ namespace Hl7.Fhir.Support
             return String.Join(", ", result);
         }
 
-        public static ResourceEntry SingleResourceResponse(string body, string contentType, string requestUri=null, string location=null,
+        public static ResourceEntry SingleResourceResponse(string body, string contentType, 
+            string requestUri=null, string location=null,
             string category=null, string lastModified=null )
         {
             ErrorList parseErrors = new ErrorList();

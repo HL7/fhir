@@ -47,293 +47,348 @@ namespace Hl7.Fhir.Client
 {
     public class FhirClient
     {
-        public Uri FhirEndpoint { get; private set; }
-
-
-        public FhirClient(Uri endpoint)
+        /// <summary>
+        /// Creates a new client without setting a default endpoint
+        /// </summary>
+        public FhirClient()
         {
-            if (!endpoint.IsAbsoluteUri)
-                throw new ArgumentException("endpoint must be an absolute path");
-
-            FhirEndpoint = endpoint;
             PreferredFormat = ContentType.ResourceFormat.Xml;
         }
 
+        /// <summary>
+        /// Creates a new client using a default endpoint
+        /// </summary>
+        public FhirClient(Uri endpoint)
+        {
+            if (endpoint == null) throw new ArgumentNullException("endpoint");
+
+            PreferredFormat = ContentType.ResourceFormat.Xml;
+            Endpoint = endpoint;
+        }
+
+        /// <summary>
+        /// The default endpoint for use with operations that use discrete id/version parameters
+        /// instead of explicit uri endpoints.
+        /// </summary>
+        public Uri Endpoint { get; set; }
 
         /// <summary>
         /// Get a conformance statement for the system
         /// </summary>
         /// <param name="useOptionsVerb">If true, uses the Http OPTIONS verb to get the conformance, otherwise uses the /metadata endpoint</param>
         /// <returns>A Conformance resource. Throws an exception if the operation failed.</returns>
-        public ResourceEntry<Conformance> Conformance(bool useOptionsVerb = false)
+        public ResourceEntry<Conformance> Conformance(Uri endpoint, bool useOptionsVerb = false)
         {
-            var rl = new ResourceLocation(FhirEndpoint);
+            if (endpoint == null) throw new ArgumentNullException("endpoint");
 
-            if( !useOptionsVerb )
-                rl.Operation = ResourceLocation.RESTOPER_METADATA;
+            var rl = new ResourceLocation(endpoint);
+            if( !useOptionsVerb ) rl.Operation = ResourceLocation.RESTOPER_METADATA;
 
-            var req = createRequest(rl, false);
+            var req = createRequest(rl.ToUri(), false);
             req.Method = useOptionsVerb ? "OPTIONS" : "GET";
 
             return doRequest(req, HttpStatusCode.OK, () => resourceEntryFromResponse<Conformance>() );
         }
 
 
+        /// <summary>
+        /// Get a conformance statement for the system using the default endpoint
+        /// </summary>
+        /// <param name="useOptionsVerb">If true, uses the Http OPTIONS verb to get the conformance, otherwise uses the /metadata endpoint</param>
+        /// <returns>A Conformance resource. Throws an exception if the operation failed.</returns>
+        public ResourceEntry<Conformance> Conformance(bool useOptionsVerb = false)
+        {
+            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of Conformance");
+
+            return Conformance(Endpoint);
+        }
+
 
         /// <summary>
-        /// Fetches the latest version of a resource
+        /// Fetches a resource from a FHIR resource endpoint. This can be a Resource id url or a version-specific
+        /// Resource url.
         /// </summary>
-        /// <param name="id">The id of the Resource to fetch</param>
+        /// <param name="endpoint">The url of the Resource to fetch. This can be a Resource id url or a version-specific
+        /// Resource url.</param>
         /// <typeparam name="TResource">The type of resource to fetch</typeparam>
-        /// <returns>The requested resource as a ResourceEntry. This operation will throw an exception if the resource has 
-        /// been deleted or does not exist</remarks></returns>
-        public ResourceEntry<TResource> Read<TResource>(string id) where TResource : Resource, new()
+        /// <returns>The requested resource as a ResourceEntry. This operation will throw an exception
+        /// if the resource has been deleted or does not exist</returns>
+        public ResourceEntry<TResource> Fetch<TResource>(Uri endpoint) where TResource : Resource, new()
         {
-            if (String.IsNullOrEmpty(id)) throw new ArgumentNullException("id");
+            if (endpoint == null) throw new ArgumentNullException("id");
 
-            var collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
-            var req = createRequest(ResourceLocation.Build(FhirEndpoint, collection, id), false);
+            var req = createRequest(endpoint, false);
             req.Method = "GET";
             
             return doRequest(req, HttpStatusCode.OK, () => resourceEntryFromResponse<TResource>() );
         }
 
-        
-        /// <summary>
-        /// Fetches a specific version of a resource
-        /// </summary>
-        /// <param name="id">The id of the resource to fetch</param>
-        /// <param name="versionId">The version id of the resource to fetch</param>
-        /// <typeparam name="TResource">The type of resource to fetch</typeparam>
-        /// <returns></returns>
-        /// <remarks>This operation will throw an exception if the resource has been deleted or does not exist</remarks>
+
+        public ResourceEntry<TResource> Fetch<TResource>(string id, string versionId=null) where TResource : Resource, new()
+        {
+            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of Fetch");
+
+            var rl = buildResourceEndpoint<TResource>(id);
+            if (!String.IsNullOrEmpty(versionId)) rl.VersionId = versionId;
+
+            return Fetch<TResource>(rl.ToUri());
+        }
+
+
+        public ResourceEntry<TResource> Read<TResource>(string id) where TResource : Resource, new()
+        {
+            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of Read");
+            if (String.IsNullOrEmpty(id)) throw new ArgumentNullException("id");
+
+            return Fetch<TResource>(id);
+        }
+
         public ResourceEntry<TResource> VRead<TResource>(string id, string versionId) where TResource : Resource, new()
         {
+            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of VRead");
             if (String.IsNullOrEmpty(id)) throw new ArgumentNullException("id");
             if (String.IsNullOrEmpty(versionId)) throw new ArgumentNullException("versionId");
-
-            var collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
-            var vReadLocation = ResourceLocation.Build(FhirEndpoint, collection, id, versionId);
-            var req = createRequest(vReadLocation, false);
-            req.Method = "GET";
-
-            return doRequest(req, HttpStatusCode.OK, () => resourceEntryFromResponse<TResource>() );
+            
+            return Fetch<TResource>(id,versionId);
         }
 
 
         /// <summary>
-        /// Update (or create) a resource
+        /// Update (or create) a resource at a given endpoint
         /// </summary>
-        /// <param name="resource">The updated resource content</param>
-        /// <param name="id">The id of the resource to be updated</param>
-        /// <param name="versionId">If not null, the version of the resource that is being updated</param>
+        /// <param name="entry">A ResourceEntry containing the resource to update</param>
+        /// <param name="versionAware">Whether or not version aware update is used.</param>
         /// <typeparam name="TResource">The type of resource that is being updated</typeparam>
-        /// <returns>The resource as updated on the server, or null if the update failed.</returns>
-        public ResourceEntry<TResource> Update<TResource>(TResource resource, string id, string versionId = null)
+        /// <returns>The resource as updated on the server. Throws an exception when the update failed,
+        /// in particular may throw an exception when the server returns a 409 when a conflict is detected
+        /// while using version-aware updates or 412 if the server requires version-aware updates.</returns>
+        public ResourceEntry<TResource> Update<TResource>(ResourceEntry<TResource> entry, bool versionAware = false)
                         where TResource : Resource, new()
         {
+            if (entry == null) throw new ArgumentNullException("entry");
+            if (entry.Content == null) throw new ArgumentException("Entry does not contain a Resource to update", "entry");
+            if (entry.Id == null) throw new ArgumentException("Entry needs a non-null entry.id to send the update to", "entry");
+            if (versionAware && entry.SelfLink == null) throw new ArgumentException("When requesting version-aware updates, Entry.SelfLink may not be null.", "entry");
+
             string contentType = ContentType.BuildContentType(PreferredFormat, false);
-            string collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
 
             byte[] data = PreferredFormat == ContentType.ResourceFormat.Xml ?
-                FhirSerializer.SerializeResourceToXmlBytes(resource) :
-                FhirSerializer.SerializeResourceToJsonBytes(resource);
+                FhirSerializer.SerializeResourceToXmlBytes(entry.Content) :
+                FhirSerializer.SerializeResourceToJsonBytes(entry.Content);
 
-            var req = createRequest(ResourceLocation.Build(FhirEndpoint, collection, id), false);
+            var req = createRequest(entry.Id, false);
 
             req.Method = "PUT";
             req.ContentType = contentType;
-            setRequestBody(req, data);
+            initializeResourceSubmission(req, data, entry.Tags);
 
             // If a version id is given, post the data to a version-specific url
-            if (versionId != null)
-            {
-                var versionUrl = ResourceLocation.Build(FhirEndpoint, collection, id, versionId).ToUri();
-                req.Headers[HttpRequestHeader.ContentLocation] = versionUrl.ToString();
-            }
+            if (versionAware)
+                req.Headers[HttpRequestHeader.ContentLocation] = entry.SelfLink.ToString();
 
-            //TODO: validate cast
-            //return doRequest(req, HttpStatusCode.Created, () => (ResourceEntry<TResource>)parseResourceEntry());
-            return null;
+            return doRequest(req, new HttpStatusCode[] { HttpStatusCode.Created, HttpStatusCode.OK }, 
+                    () => resourceEntryFromResponse<TResource>() );
         }
 
-
+ 
         /// <summary>
-        /// Delete a resource
+        /// Delete a resource at the given endpoint
         /// </summary>
-        /// <param name="id">id of the resource to delete</param>
+        /// <param name="id">endpoint of the resource to delete</param>
         /// <typeparam name="TResource">The type of the resource to delete</typeparam>
-        /// <returns>Returns normally if delete succeeded, throws an exception otherwise</returns>
-        public void Delete<TResource>(string id) where TResource : Resource
+        /// <returns>Returns normally if delete succeeded, throws an exception otherwise, though this might
+        /// just mean the server returned 404 (the resource didn't exist before) or 410 (the resource was
+        /// already deleted).</returns>
+        public void Delete(Uri endpoint)
         {
-            var collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
-            var req =
-                  createRequest(ResourceLocation.Build(FhirEndpoint, collection, id), false);
+            if (endpoint == null) throw new ArgumentNullException("endpoint");
+
+            var req = createRequest(endpoint, false);
             req.Method = "DELETE";
 
             doRequest(req, HttpStatusCode.NoContent, () => true );
         }
 
 
+        public void Delete<TResource>(string id) where TResource : Resource, new()
+        {
+            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of Delete");
+            if (String.IsNullOrEmpty(id)) throw new ArgumentNullException("id");
+
+            var rl = buildResourceEndpoint<TResource>(id);
+
+            Delete(rl.ToUri());
+        }
+
+
         /// <summary>
         /// Create a resource
         /// </summary>
+        /// <param name="collectionEndpoint">Endpoint where the resource is sent to be created</param>
         /// <param name="resource">The resource instance to create</param>
-        /// <param name="newId">Newly assigned id by server after successful creation</param>
-        /// <returns>The resource as created on the server, or null if the create failed.</returns>
+        /// <param name="tags">Optional. List of Tags to add to the created instance.</param>
+        /// <returns>The resource as created on the server, or an exception if the create failed.</returns>
         /// <typeparam name="TResource">The type of resource to create</typeparam>
         /// <remarks><para>The returned resource need not be the same as the resources passed as a parameter,
         /// since the server may have updated or changed part of the data because of business rules.</para>
-        /// <para>When the resource was created, but newId is null, the server failed to return the new
-        /// id in the Http Location header.</para>
         /// </remarks>
-        public ResourceEntry<TResource> Create<TResource>(TResource resource) where TResource : Resource, new()
+        public ResourceEntry<TResource> Create<TResource>(Uri collectionEndpoint, TResource resource, IEnumerable<Tag> tags=null) where TResource : Resource, new()
         {
+            if (collectionEndpoint == null) throw new ArgumentNullException("collectionEndpoint");
+            if (resource == null) throw new ArgumentNullException("resource");
+
             string contentType = ContentType.BuildContentType(PreferredFormat, false);
-            string collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
 
             byte[] data = PreferredFormat == ContentType.ResourceFormat.Xml ?
                 FhirSerializer.SerializeResourceToXmlBytes(resource) :
                 FhirSerializer.SerializeResourceToJsonBytes(resource);
 
-            var req = createRequest(new ResourceLocation(FhirEndpoint,collection), false);
+            var req = createRequest(collectionEndpoint, false);
             req.Method = "POST";
             req.ContentType = contentType;
-            setRequestBody(req, data);
+            initializeResourceSubmission(req, data, tags);
 
-            //doRequest(req, HttpStatusCode.Created, () => );
-
-            //newId = null;
-
-            //if (LastResponseDetails.Result == HttpStatusCode.Created)
-            //{
-            //    var result = parseResource();
-            //    if (LastResponseDetails.Location != null)
-            //        newId = new ResourceLocation(LastResponseDetails.Location).Id;
-            //    return (TResource)result;
-            //}
-            //else
-                return null;
+            return doRequest(req, HttpStatusCode.Created, () => resourceEntryFromResponse<TResource>() );
         }
+
+       
+        public ResourceEntry<TResource> Create<TResource>(TResource resource, IEnumerable<Tag> tags=null) where TResource : Resource, new()
+        {
+            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of Create");
+            if (resource == null) throw new ArgumentNullException("resource");
+
+            string collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
+            var rl = new ResourceLocation(Endpoint,collection);
+
+            return Create<TResource>(rl.ToUri(), resource, tags);
+        }
+
+
+        /// <summary>
+        /// Retrieve the version history from a history endpoint
+        /// </summary>
+        /// <param name="endpoint">The endpoint where the history request is sent.</param>
+        /// <param name="since">Optional. Returns only changes after the given date</param>
+        /// <param name="count">Optional. Asks server to limit the number of entries returned</param>
+        /// <returns>A bundle with the requested history, may contain both ResourceEntries and DeletedEntries.</returns>
+        /// <remarks>The endpoint may be a FHIR server for server-wide history, a collection endpoint (
+        /// i.e. /patient) for history of a certain type of resources or a resource id, for the
+        /// history of that specific resource instance.</remarks>
+        public Bundle History(Uri endpoint, DateTimeOffset? since = null, int? count = null)
+        {
+            if (endpoint == null) throw new ArgumentNullException("endpoint");
+
+            var rl = new ResourceLocation(endpoint);
+
+            if (since != null) rl.SetParam(Util.HISTORY_PARAM_SINCE, Util.FormatIsoDateTime(since.Value));
+            if(count != null) rl.SetParam(Util.HISTORY_PARAM_COUNT, count.ToString());
+
+            var req = createRequest(rl.ToUri(), true);
+            req.Method = "GET";
+
+            return doRequest(req, HttpStatusCode.OK, () => bundleFromResponse());
+        }
+
 
 
         /// <summary>
         /// Retrieve the version history for a specific resource instance
         /// </summary>
         /// <param name="id">The id of the resource to get the history for</param>
-        /// <param name="lastUpdate">If provided, only get updates on or after the given point in time</param>
-        /// <typeparam name="TResource">The type of resource to get the history for</typeparam>
-        /// <returns>A Bundle listing all versions for the given resource id</returns>
-	    public Bundle History<TResource>(string id, DateTimeOffset? lastUpdate = null ) where TResource : Resource
+        /// <param name="since">Optional. Returns only changes after the given date</param>
+        /// <param name="count">Optional. Asks server to limit the number of entries returned</param>
+        /// <returns>A bundle with the history for the indicated instance, may contain both 
+        /// ResourceEntries and DeletedEntries.</returns>
+	    public Bundle History<TResource>(string id, DateTimeOffset? since = null, int? count = null ) where TResource : Resource, new()
         {
+            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of History");
+            if (String.IsNullOrEmpty(id)) throw new ArgumentNullException("id");
+
             var collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
-            var rl = ResourceLocation.Build(FhirEndpoint, collection, id);
+            var rl = ResourceLocation.Build(Endpoint, collection, id);
             rl.Operation = ResourceLocation.RESTOPER_HISTORY;
-
-            string query = "";
-            if (lastUpdate.HasValue)
-                query = addParam(query, Util.HISTORY_PARAM_SINCE, Util.FormatIsoDateTime(lastUpdate.Value));
-            rl.Query = query;
-
-            var req = createRequest(rl, true);
-            req.Method = "GET";
             
-            //doRequest(req);
-
-            //if (LastResponseDetails.Result == HttpStatusCode.OK)
-            //    return parseBundle();
-            //else
-                return null;
+            return History(rl.ToUri(), since, count);
         }
 
-       
+
         /// <summary>
         /// Retrieve the version history for all resources of a certain type
         /// </summary>
-        /// <param name="lastUpdate">If provided, only get updates on or after the given point in time</param>
-        /// <typeparam name="TResource">The type of resource to get the history for</typeparam>
-        /// <returns>A Bundle listing all versions for all resources of the given type</returns>
-        public Bundle History<TResource>(DateTimeOffset? lastUpdate = null) where TResource : Resource
+        /// <param name="since">Optional. Returns only changes after the given date</param>
+        /// <param name="count">Optional. Asks server to limit the number of entries returned</param>
+        /// <returns>A bundle with the history for the indicated instance, may contain both 
+        /// ResourceEntries and DeletedEntries.</returns>
+        public Bundle History<TResource>(DateTimeOffset? since = null, int? count = null ) where TResource : Resource, new()
         {
+            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of History");
+
             var collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
-            var rl = ResourceLocation.Build(FhirEndpoint, collection);
+            var rl = ResourceLocation.Build(Endpoint, collection);
             rl.Operation = ResourceLocation.RESTOPER_HISTORY;
 
-            string query = "";
-            if (lastUpdate.HasValue)
-                query = addParam(query, Util.HISTORY_PARAM_SINCE, Util.FormatIsoDateTime(lastUpdate.Value));
-            rl.Query = query;
-
-            var req = createRequest(rl, true);
-            req.Method = "GET";
-
-            //doRequest(req);
-
-            //if (LastResponseDetails.Result == HttpStatusCode.OK)
-            //    return parseBundle();
-            //else
-                return null;
+            return History(rl.ToUri(), since, count);
         }
 
 
         /// <summary>
         /// Retrieve the version history of any resource on the server
         /// </summary>
-        /// <param name="lastUpdate">If provided, only get updates on or after the given point in time</param>
-        /// <returns>A Bundle listing all versions of all resource on the server</returns>
-        public Bundle History(DateTimeOffset? lastUpdate = null)
+        /// <param name="since">Optional. Returns only changes after the given date</param>
+        /// <param name="count">Optional. Asks server to limit the number of entries returned</param>
+        /// <returns>A bundle with the history for the indicated instance, may contain both 
+        /// ResourceEntries and DeletedEntries.</returns>
+        public Bundle History(DateTimeOffset? since = null, int? count = null )
         {
-            var rl = new ResourceLocation(FhirEndpoint);
+            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of History");
+
+            var rl = new ResourceLocation(Endpoint);
             rl.Operation = ResourceLocation.RESTOPER_HISTORY;
 
-            string query = "";
-            if (lastUpdate.HasValue)
-                query = addParam(query, Util.HISTORY_PARAM_SINCE, Util.FormatIsoDateTime(lastUpdate.Value));
-            rl.Query = query;
-
-            var req = createRequest(rl, true);
-            req.Method = "GET";
-
-            //doRequest(req);
-
-            //if (LastResponseDetails.Result == HttpStatusCode.OK)
-            //    return parseBundle();
-            //else
-                return null;
+            return History(rl.ToUri(), since, count);
         }
 
 
         /// <summary>
         /// Validates whether the contents of the resource would be acceptable as an update
         /// </summary>
-        /// <param name="resource">The resource contents to validate</param>
-        /// <param name="id">The id that would be updated</param>
-        /// <returns>null is validation succeeded, otherwise returns an IssueReport detailing the validation errors</returns>
-        public OperationOutcome Validate<TResource>(TResource resource, string id) where TResource : Resource
+        /// <param name="entry">The entry containing the updated Resource to validate</param>
+        /// <returns>null if validation succeeded, otherwise returns OperationOutcome detailing the validation errors.
+        /// If the server returned an error, but did not return an OperationOutcome resource, an exception will be
+        /// thrown.</returns>
+        public OperationOutcome Validate<TResource>(ResourceEntry<TResource> entry) where TResource : Resource, new()
         {
+            if (entry == null) throw new ArgumentNullException("entry");
+            if (entry.Content == null) throw new ArgumentException("Entry does not contain a Resource to validate", "entry");
+            if (entry.Id == null) throw new ArgumentException("Entry needs a non-null entry.id to use for validation", "entry");
+
             string contentType = ContentType.BuildContentType(PreferredFormat, false);
-            string collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
 
             byte[] data = PreferredFormat == ContentType.ResourceFormat.Xml ?
-                FhirSerializer.SerializeResourceToXmlBytes(resource) :
-                FhirSerializer.SerializeResourceToJsonBytes(resource);
+                FhirSerializer.SerializeResourceToXmlBytes(entry.Content) :
+                FhirSerializer.SerializeResourceToJsonBytes(entry.Content);
 
-            var req = createRequest(ResourceLocation.Build(FhirEndpoint, collection, id), false);
+            var req = createRequest(entry.Id, false);
 
             req.Method = "POST";
             req.ContentType = contentType;
-            setRequestBody(req, data);
+            initializeResourceSubmission(req, data, entry.Tags);
 
-            //doRequest(req);
-
-            //if (LastResponseDetails.Result == HttpStatusCode.OK)
+            try
+            {
+                doRequest(req, HttpStatusCode.OK, () => true);
                 return null;
-            //else
-            //    return (OperationOutcome)parseResource();
+            }
+            catch(FhirOperationException foe)
+            {
+                if(foe.Outcome != null)
+                    return foe.Outcome;
+                else
+                    throw foe;
+            }
         }
 
-
-     
+  /*   
         /// <summary>
         /// Return all resources of a certain type
         /// </summary>
@@ -454,7 +509,7 @@ namespace Hl7.Fhir.Client
             var req = createRequest(new ResourceLocation(FhirEndpoint), true);
             req.Method = "POST";
             req.ContentType = contentType;
-            setRequestBody(req, data);
+            initializeResourceSubmission(req, data);
 
             //doRequest(req);
 
@@ -489,7 +544,7 @@ namespace Hl7.Fhir.Client
             var req = createRequest(new ResourceLocation(FhirEndpoint, path), true);
             req.Method = "POST";
             req.ContentType = contentType;
-            setRequestBody(req, data);
+            initializeResourceSubmission(req, data);
 
             //doRequest(req);
 
@@ -499,17 +554,17 @@ namespace Hl7.Fhir.Client
                 return false;
         }
 
-
+*/
         public ContentType.ResourceFormat PreferredFormat { get; set; }
 
-        private HttpWebRequest createRequest(ResourceLocation location, bool forBundle)
+        private HttpWebRequest createRequest(Uri location, bool forBundle)
         {
             //if( PreferredFormat == ContentType.ResourceFormat.Json )
             //    endpoint = addParam(endpoint, ContentType.FORMAT_PARAM, ContentType.FORMAT_PARAM_JSON);
             //if (PreferredFormat == ContentType.ResourceFormat.Xml)
             //    endpoint = addParam(endpoint, ContentType.FORMAT_PARAM, ContentType.FORMAT_PARAM_XML);
 
-            var req = (HttpWebRequest)HttpWebRequest.Create(location.ToUri());
+            var req = (HttpWebRequest)HttpWebRequest.Create(location);
             var agent =  "FhirClient for FHIR " + Model.ModelInfo.Version;
 
 #if NETFX_CORE
@@ -528,29 +583,25 @@ namespace Hl7.Fhir.Client
             return req;
         }
 
-        private static string addParam(string original, string paramName, string paramValue)
-        {
-            string url = original;
-
-            if (!original.Contains("?"))
-                url += "?";
-            else
-                url += "&";
-
-            url += Uri.EscapeDataString(paramName) + "=" + Uri.EscapeDataString(paramValue);
-
-            return url;
-        }
-
 
         public ResponseDetails LastResponseDetails { get; private set; }
+
+        private ResourceLocation buildResourceEndpoint<TResource>(string id) where TResource : Resource, new()
+        {
+            var rl = new ResourceLocation(Endpoint);
+            rl.Id = id;
+            rl.Collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
+            return rl;
+        }
 
 
         private ResourceEntry<T> resourceEntryFromResponse<T>() where T : Resource, new()
         {
+            // Initialize a resource entry from the received data. Note: Location overrides ContentLocation
             ResourceEntry result = HttpUtil.SingleResourceResponse(LastResponseDetails.BodyAsString(),
-                    LastResponseDetails.ContentType, LastResponseDetails.ResponseUri.ToString(), LastResponseDetails.ContentLocation, LastResponseDetails.Category,
-                    LastResponseDetails.LastModified);
+                    LastResponseDetails.ContentType, LastResponseDetails.ResponseUri.ToString(), 
+                    LastResponseDetails.Location ?? LastResponseDetails.ContentLocation, 
+                    LastResponseDetails.Category, LastResponseDetails.LastModified);
 
             if (result.Content is T)
                 return (ResourceEntry<T>)result;
@@ -560,7 +611,42 @@ namespace Hl7.Fhir.Client
                                     result.Content.GetType().Name, typeof(T).Name));
         }
 
+
+        private Bundle bundleFromResponse()
+        {
+            string data = LastResponseDetails.BodyAsString();
+            string contentType = LastResponseDetails.ContentType;
+
+            ErrorList parseErrors = new ErrorList();
+            Bundle result;
+
+            ContentType.ResourceFormat format = ContentType.GetResourceFormatFromContentType(contentType);
+
+            switch (format)
+            {
+                case ContentType.ResourceFormat.Json:
+                    result = FhirParser.ParseBundleFromJson(data, parseErrors);
+                    break;
+                case ContentType.ResourceFormat.Xml:
+                    result = FhirParser.ParseBundleFromXml(data, parseErrors);
+                    break;
+                default:
+                    throw new FhirParseException("Cannot decode bundle: unrecognized content type " + format);
+            }
+
+            if (parseErrors.Count() > 0)
+                throw new FhirParseException("Failed to parse bundle data: " + parseErrors.ToString(), parseErrors, data);
+
+            return result;
+        }
+
+
         private T doRequest<T>(HttpWebRequest req, HttpStatusCode success, Func<T> onSuccess)
+        {
+            return doRequest(req, new HttpStatusCode[] { success }, onSuccess);
+        }
+
+        private T doRequest<T>(HttpWebRequest req, HttpStatusCode[] success, Func<T> onSuccess)
         {
             HttpWebResponse response = (HttpWebResponse)req.GetResponseNoEx();
 
@@ -568,7 +654,7 @@ namespace Hl7.Fhir.Client
             {
                 LastResponseDetails = ResponseDetails.FromHttpWebResponse(response);
 
-                if (LastResponseDetails.Result == success) 
+                if ( success.Contains(LastResponseDetails.Result) ) 
                     return onSuccess();
                 else
                 {
@@ -601,36 +687,11 @@ namespace Hl7.Fhir.Client
         }
 
 
-        private Bundle parseBundle()
+        private void initializeResourceSubmission(HttpWebRequest request, byte[] data, IEnumerable<Tag> tags=null)
         {
-            string data = LastResponseDetails.BodyAsString();
-            string contentType = LastResponseDetails.ContentType;
+            if (tags != null)
+                request.Headers[HttpUtil.CATEGORY] = HttpUtil.BuildCategoryHeader(tags);
 
-            ErrorList parseErrors = new ErrorList();
-            Bundle result;
-
-            ContentType.ResourceFormat format = ContentType.GetResourceFormatFromContentType(contentType);
-
-            switch (format)
-            {
-                case ContentType.ResourceFormat.Json:
-                    result = FhirParser.ParseBundleFromJson(data, parseErrors);
-                    break;
-                case ContentType.ResourceFormat.Xml:
-                    result = FhirParser.ParseBundleFromXml(data, parseErrors);
-                    break;
-                default:
-                    throw new FhirParseException("Cannot decode bundle: unrecognized content type");
-            }
-
-            if (parseErrors.Count() > 0)
-                throw new FhirParseException("Failed to parse the bundle data: ", parseErrors, data);
-
-            return result;
-        }
-
-        private void setRequestBody(HttpWebRequest request, byte[] data)
-        {
 #if NETFX_CORE
             var getStreamTask = request.GetRequestStreamAsync();
             getStreamTask.RunSynchronously();

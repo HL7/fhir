@@ -260,14 +260,14 @@ namespace Hl7.Fhir.Tests
             rl.Add(new ResourceEntry<CarePlan> { Id = new Uri("http://x.com/@2"), SelfLink = new Uri("http://x.com/@2/history/@1") });
             rl.Add(new DeletedEntry() { Id = new Uri("http://x.com/@2"), SelfLink = new Uri("http://x.com/@2/history/@2") });
 
-            var tr = rl.FilterByType<Patient>();
+            var tr = rl.FilterResourceEntriesByType<Patient>();
             Assert.AreEqual(2, tr.Count());
-            var tr2 = rl.FilterByType<CarePlan>();
+            var tr2 = rl.FilterResourceEntriesByType<CarePlan>();
             Assert.AreEqual(1, tr2.Count());
 
             var ur = rl.FilterById(new Uri("http://x.com/@1"));
             Assert.AreEqual(2, ur.Count());
-            Assert.AreEqual(2, ur.FilterByType<Patient>().Count());
+            Assert.AreEqual(2, ur.FilterResourceEntriesByType<Patient>().Count());
 
             Assert.IsNotNull(ur.FindBySelfLink(new Uri("http://x.com/@1/history/@1")));
             Assert.IsNotNull(rl.FindBySelfLink(new Uri("http://x.com/@2/history/@2")));
@@ -299,6 +299,22 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual(@"http://furore.com/tags/test1; label=yes; scheme=""http://hl7.org/fhir/tag"", http://furore.com/tags/test1; " +
                         @"label=""confusion""; scheme=""http://hl7.org/fhir/tag""", cat);
         }
+
+
+        [TestMethod]
+        public void TestTagEquality()
+        {
+            var t1 = new Tag("http://www.nu.nl", "labeltje");
+            var t2 = new Tag("http://www.nu.nl", "labeltje");
+            var t3 = new Tag("http://www.nu.nl", "labeltjes");
+            var t4 = new Tag("http://www.nu.nl/x", "labeltje");
+
+            Assert.AreEqual(t1, t2);
+            Assert.AreNotEqual(t1, t4);
+            Assert.AreNotEqual(t1, t3);
+        }
+
+
 
     }
 }

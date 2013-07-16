@@ -101,9 +101,27 @@ namespace Hl7.Fhir.Model
         /// <typeparam name="T">Type of Resource to filter</typeparam>
         /// <returns>All ResourceEntries containing the given type of resource, or an empty list if none were found.</returns>
         // Note: works for IEnumerable<ResourceEntry> too
-        public static IEnumerable<ResourceEntry<T>> FilterByType<T>(this IEnumerable<BundleEntry> bes) where T: Resource, new()
+        public static IEnumerable<ResourceEntry<T>> FilterResourceEntriesByType<T>(this IEnumerable<BundleEntry> bes) where T: Resource, new()
         {   
             return bes.Where(be => be is ResourceEntry<T>).Cast<ResourceEntry<T>>();
+        }
+
+        /// <summary>
+        /// Collect all ResourceEntries in the IEnumerable. No DeletedEntries are returned.
+        /// </summary>
+        /// <param name="bes"></param>
+        public static IEnumerable<ResourceEntry> FilterResourceEntries(this IEnumerable<BundleEntry> bes) 
+        {
+            return bes.Where(be => be is ResourceEntry).Cast<ResourceEntry>();
+        }
+
+        /// <summary>
+        /// Collect all DeletedEntries in the IEnumerable. No ResourceEntries are returned.
+        /// </summary>
+        /// <param name="bes"></param>
+        public static IEnumerable<DeletedEntry> FilterDeletedEntries(this IEnumerable<BundleEntry> bes)
+        {
+            return bes.Where(be => be is DeletedEntry).Cast<DeletedEntry>();
         }
 
 
