@@ -662,7 +662,6 @@ namespace Hl7.Fhir.Support
         }
 
 
-        [Obsolete]
         public static string GetVersionFromResourceId(Uri versionedUrl)
         {
             if (versionedUrl.IsAbsoluteUri)
@@ -671,24 +670,25 @@ namespace Hl7.Fhir.Support
                 return new ResourceLocation(LOCALHOST, versionedUrl).VersionId;
         }
 
+
         public void SetParam(string key, string value)
         {
-            var pars = SplitParams(Query);
+            var pars = splitParams(Query);
             pars[key] = value;
-            Query = JoinParams(pars);
+            Query = joinParams(pars);
         }
 
         public void ClearParam(string key)
         {
-            var pars = SplitParams(Query);
+            var pars = splitParams(Query);
             pars.Remove(key);
-            Query = JoinParams(pars);
+            Query = joinParams(pars);
         }
 
 
         public void AddParam(string key, string value)
         {
-            var pars = SplitParams(Query);
+            var pars = splitParams(Query);
 
             if(value==null) value = String.Empty;
 
@@ -697,39 +697,33 @@ namespace Hl7.Fhir.Support
             else
                 pars[key] = value;
 
-            Query = JoinParams(pars);
+            Query = joinParams(pars);
         }
 
-        public static Dictionary<string,string> SplitParams(string query)
+        private static Dictionary<string,string> splitParams(string query)
         {
             var result = new Dictionary<string,string>();
 
-            if (!String.IsNullOrEmpty(query))
+            var pars = QueryParam.Split(query);
+
+            foreach(var kv in pars)
             {
-                var q = query.TrimStart('?');
-
-                var querySegments = q.Split(new string[] { "&" }, StringSplitOptions.RemoveEmptyEntries);
-                foreach (var segment in querySegments)
-                {
-                    string[] pair = segment.Split('=');
-
-                    var key = pair[0];
-                    var value = pair.Length == 2 ? pair[1] : string.Empty;
-
-                    if (result.ContainsKey(key))
+               var key = kv.Item1;
+               var value = kv.Item2;
+ 
+               if (result.ContainsKey(key))
                         result[key] = result[key] + "," + value;
                     else
                         result.Add(key, value);
-                }
             }
 
             return result;
         }
 
 
-        public static string JoinParams(Dictionary<string,string> pars)
+        private static string joinParams(Dictionary<string,string> pars)
         {
-            StringBuilder result = new StringBuilder();
+            var result = new List<Tuple<string, string>>();
 
             foreach (var paramName in pars.Keys)
             {
@@ -737,24 +731,24 @@ namespace Hl7.Fhir.Support
                 var values = paramContent.Split(',');
 
                 foreach (var value in values)
-                    result.AppendFormat("{0}={1}&", Uri.EscapeDataString(paramName), 
-                                    Uri.EscapeDataString(value) );
+                    result.Add(new Tuple<string, string>(paramName, value));
             }
-            
-            return result.ToString().TrimEnd('&');
+
+            return QueryParam.Join(result);
         }
 
 
-        public void SetParams(Dictionary<string,string> parameters)
+        public void AddParams(IEnumerable<Tuple<string,string>> parameters)
         {
-            foreach (var key in parameters.Keys)
-                SetParam(key, parameters[key]);
+            foreach (var kv in parameters)
+                AddParam(kv.Item1, kv.Item2);
         }
 
-        public void AddParams(Dictionary<string,string> parameters)
+        public void SetParams(IEnumerable<Tuple<string,string>> parameters)
         {
-            foreach (var key in parameters.Keys)
-                AddParam(key, parameters[key]);
+            ClearParams();
+
+            AddParams(parameters);
         }
 
         public void ClearParams()

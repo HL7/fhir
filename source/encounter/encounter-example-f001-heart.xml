@@ -53,7 +53,7 @@
             <system value="http://www.amc.nl/zorgportal/identifiers/pre-admissions"/>
             <key value="93042"/>
         </preAdmissionIdentifier>
-        <preAdmissionTest>
+  <!--      <preAdmissionTest>
             <coding>
                 <system value="http://snomed.info"/>
                 <code value="164847006"/>
@@ -64,7 +64,7 @@
                 <code value="396550006"/>
                 <display value="Blood test"/>
             </coding>
-        </preAdmissionTest>
+        </preAdmissionTest> -->
         <admitSource>
             <coding>
                 <system value="http://snomed.info"/>

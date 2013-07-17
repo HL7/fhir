@@ -109,7 +109,7 @@ separated from the parameter name by a dot. Modifiers are:</p>
 
 <h4>integer</h4>
 <p>
-The prefixes &gt;, &gt;=, =&lt;, and &lt; may be used on the parameter value, 
+The prefixes &gt;, &gt;=, &lt;=, and &lt; may be used on the parameter value, 
 and has the usual meaning. Note that '=" must be escaped in the 
 value in a URL.
 </p>
@@ -219,14 +219,15 @@ The interpretation of a <i>reference</i> parameter is either:
 </p>
 <ul>
  <li><b>name=id</b> the id of a resource (not including the @ the goes in the URL)</li>
- <li><b>name:type=id</b> matches an id of a resource with a specific target type. This is useful if the resource reference can refer to multiple different resource types.</li>
+ <li><b>name=type/id</b> matches an id of a resource with a specific target type. This is useful if the resource reference can refer to multiple different resource types.</li>
 </ul>
 <p>
 In order to save a client from doing a series of search operations, 
 reference parameters may be "chained" by appending them with 
 modifiers which are search parameters defined for the target 
 resource. This can be done recursively, following a logical path 
-through a graph of related resources. For instance, given that 
+through a graph of related resources, separated by ":".
+For instance, given that 
 the resource <a href="diagnosticreport.htm">DiagnosticReport</a> 
 has a search parameter named <i>subject</i>, which is usually a 
 reference to a <a href="patient.htm">Patient</a> resource, and 
@@ -234,7 +235,7 @@ the Patient resource includes a parameter <i>name</i> which
 searches on patient name, then the search
 </p>
 <pre>
- GET [baseurl]/diagnosticreport/search?subject.name=peter
+ GET [baseurl]/diagnosticreport/search?subject:name="peter"
 </pre>
 <p>
 is a request to return all the lab reports that have a subject whose name includes "peter". Because 
@@ -242,7 +243,7 @@ the Diagnostic Report subject can be one of a set of different resources, it's p
 the search to a particular type:
 </p>
 <pre>
- GET [baseurl]/diagnosticreport/search?subject:patient.name=peter
+ GET [baseurl]/diagnosticreport/search?subject:patient.name="peter"
 </pre>
 <p>
 Advanced Search Note: 

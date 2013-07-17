@@ -98,6 +98,8 @@
     <Compile Include="Model.Support\UriLinkList.cs" />
     <Compile Include="Support\Util.cs" />
 	<Compile Include="Support\HttpUtil.cs" />
+	<Compile Include="Support\SearchParam.cs" />
+	<Compile Include="Support\QueryParam.cs" />
     <Compile Include="Client\FhirClient.cs" />
     <Compile Include="Client\ResponseDetails.cs" />
     <Compile Include="Client\WebRequestExtensions.cs" />

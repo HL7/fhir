@@ -54,7 +54,7 @@
             <system value="http://www.bmc.nl/zorgportal/identifiers/pre-admissions"/>
             <key value="98682"/>
         </preAdmissionIdentifier>
-        <preAdmissionTest>
+    <!--    <preAdmissionTest>
             <coding>
                 <system value="http://snomed.info"/>
                 <code value="399208008"/>
@@ -65,7 +65,7 @@
                 <code value="396550006"/>
                 <display value="Blood test"/>
             </coding>
-        </preAdmissionTest>
+        </preAdmissionTest> -->
         <admitSource>
             <coding>
                 <system value="http://snomed.info"/>
