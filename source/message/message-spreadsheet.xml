@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd McKenzie</LastAuthor>
+  <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:16:02Z</Created>
-  <LastSaved>2012-07-16T00:00:42Z</LastSaved>
+  <LastSaved>2013-07-17T14:46:30Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,6 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6195</WindowTopY>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -40,7 +41,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s75" ss:Name="Normal 3">
+  <Style ss:ID="s63" ss:Name="Normal 3">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -48,17 +49,17 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s63">
+  <Style ss:ID="s64">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s64">
+  <Style ss:ID="s65">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s65">
+  <Style ss:ID="s66">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -68,30 +69,34 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s66">
+  <Style ss:ID="s67">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s67">
+  <Style ss:ID="s69" ss:Parent="s63">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s70">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s69">
+  <Style ss:ID="s72">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s70">
+  <Style ss:ID="s73">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s71">
+  <Style ss:ID="s74">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s72">
+  <Style ss:ID="s75">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s74" ss:Parent="s62">
+  <Style ss:ID="s77" ss:Parent="s62">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -99,26 +104,23 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s82" ss:Parent="s75">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="26" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="150.75"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="42" ss:Span="2"/>
-   <Column ss:Index="5" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="33.75"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="86.25"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="82.5"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="161.25"
+   x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="150.75"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="42" ss:Span="2"/>
+   <Column ss:Index="5" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="33.75"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="86.25"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="82.5"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
+   <Column ss:Index="10" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="161.25"
     ss:Span="1"/>
-   <Column ss:Index="12" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="269.25"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="100.5"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="113.25"/>
-   <Row ss:AutoFitHeight="0" ss:Height="60" ss:StyleID="s65">
+   <Column ss:Index="12" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="135"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="269.25"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="100.5"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="113.25"/>
+   <Row ss:AutoFitHeight="0" ss:Height="60" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Inv</Data></Cell>
@@ -137,10 +139,10 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Message</Data></Cell>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A message that contains resources</Data></Cell>
     <Cell><Data ss:Type="String">A transmission requesting action on a bundle of one or more resources or a response to such a request</Data></Cell>
@@ -156,7 +158,7 @@
     <Cell><Data ss:Type="String">The identifier of this message</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">This must be unique within the scope of this stream of messages</Data></Cell>
     <Cell><Data ss:Type="String">Message.id</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">MSH-10-message control ID</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">MSH-10-message control ID</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Message.timestamp</Data></Cell>
@@ -166,7 +168,7 @@
     <Cell><Data ss:Type="String">The time that the message was sent</Data></Cell>
     <Cell><Data ss:Type="String">Allows limited detection of out-of-order and delayed transmission.  Also supports audit.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">./creationTime[isNormalDatatype()]</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">MSH-7-message date/time</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">MSH-7-message date/time</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Message.event</Data></Cell>
@@ -178,7 +180,7 @@
     <Cell><Data ss:Type="String">Code that identifies the event this message represents and connects it with the event definition in the FHIR specification</Data></Cell>
     <Cell><Data ss:Type="String">Drives the behavior associated with this message</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">./payload[classCode=&quot;CACT&quot; and moodCode=&quot;EVN&quot; and isNormalAct()]/code[isNormalDatatype()]/code</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">MSH-9.2-message type.trigger event</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">MSH-9.2-message type.trigger event</Data></Cell>
     <Cell><Data ss:Type="String">Consider changing to Coding to support profile-defined events</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -199,7 +201,7 @@
     <Cell><Data ss:Type="String">The id of the message that this a response to</Data></Cell>
     <Cell><Data ss:Type="String">Allows receiver to know what message is being responded to</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">./acknowledges.id[isNormalDatatype()]</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">MSA-2-message control ID</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">MSA-2-message control ID</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Message.response.code</Data></Cell>
@@ -212,7 +214,7 @@
     <Cell><Data ss:Type="String">Allows the sender of the acknowledge message to know if the request was successful or if action is needed.</Data></Cell>
     <Cell><Data ss:Type="String">This is a generic response to the request Message. Specific data for the response will be found in Message.data</Data></Cell>
     <Cell><Data ss:Type="String">./typeCode[isNormalDatatype()]</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">MSA-1-acknowledgment code</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">MSA-1-acknowledgment code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Message.response.details</Data></Cell>
@@ -222,7 +224,7 @@
     <Cell><Data ss:Type="String">Full details of any issues found in the message</Data></Cell>
     <Cell><Data ss:Type="String">Allows the sender of the message to determine what the specific issues are</Data></Cell>
     <Cell><Data ss:Type="String">This must be contained in the bundle. If any of the issues are errors, the response code must be an error</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">AcknowledgementDetail or Observation[classCode=&quot;ALRT&quot; and moodCode=&quot;EVN&quot;]</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">AcknowledgementDetail or Observation[classCode=&quot;ALRT&quot; and moodCode=&quot;EVN&quot;]</Data></Cell>
     <Cell><Data ss:Type="String">ERR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -244,7 +246,7 @@
     <Cell><Data ss:Type="String">Human readable name for the target system</Data></Cell>
     <Cell><Data ss:Type="String">May be used to support audit</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">unique(./entity[determinerCode=&quot;INST&quot; and classCode=&quot;DEV&quot;]/name[type='ST' and isNormalDatatype()])</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">MSH-3-sending application</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">MSH-3-sending application</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Message.source.software</Data></Cell>
@@ -264,7 +266,7 @@
     <Cell><Data ss:Type="String">Can convey versions of multiple systems in situations where a message passes through multiple hands.</Data></Cell>
     <Cell><Data ss:Type="String">Supports audit and possibly interface engine behavior</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">(Not supported)</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">SFT-2-software certified version or release number</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">SFT-2-software certified version or release number</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Version is not captured as a distinct property in v3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
@@ -308,7 +310,7 @@
     <Cell><Data ss:Type="String">Human readable name for the source system</Data></Cell>
     <Cell><Data ss:Type="String">May be used for routing of response and/or to support audit</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">unique(./entity[determinerCode=&quot;INST&quot; and (classCode=(&quot;DEV&quot;, &quot;PSN&quot;, &quot;ORG&quot;]/name[type='ST' and isNormalDatatype()])</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">MSH-5-receiving application</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">MSH-5-receiving application</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Message.destination.target</Data></Cell>
@@ -414,7 +416,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -445,8 +446,8 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="1" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
-   <Row ss:AutoFitHeight="0" ss:StyleID="s65">
+   x:FullRows="1" ss:StyleID="s72" ss:DefaultRowHeight="15">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Context</Data></Cell>
@@ -474,30 +475,34 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="3" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s70" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="86.25"/>
-   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="189.75"/>
-   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="63"/>
-   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="151.5"/>
-   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="198"/>
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s73" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="86.25"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="189.75"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="63" ss:Span="1"/>
+   <Column ss:Index="5" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="151.5"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="198"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Reference</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Binding Name</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Example</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Reference</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">EventReason</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">The reason for an event occurring</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">EventReason</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">The reason for an event occurring</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-message-reason-encounter</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">ResponseCode</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">The kind of response to a message</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">#response-code</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">ResponseCode</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">The kind of response to a message</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">#response-code</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -507,11 +512,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -520,38 +526,38 @@
  </Worksheet>
  <Worksheet ss:Name="response-code">
   <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s72" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s72" ss:Width="71.25"/>
-   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="719.25"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s65">
+   x:FullRows="1" ss:StyleID="s75" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s75" ss:Width="71.25"/>
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="719.25"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ok</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">The message was accepted and processed without error</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">ok</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">The message was accepted and processed without error</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">rejection</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">The message was rejected because of some content in it. There is no point in re-sending without change. The response narrative must describe what the issue is.</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">rejection</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">The message was rejected because of some content in it. There is no point in re-sending without change. The response narrative must describe what the issue is.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">rules</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">The message was rejected because of some event-specific business rules, and it may be possible to modify the request and re-submit (as a different request). The response must include an Issue report that describes what problem is</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">rules</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">The message was rejected because of some event-specific business rules, and it may be possible to modify the request and re-submit (as a different request). The response must include an Issue report that describes what problem is</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">undeliverable</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">A middleware agent was unable to deliver the message to its intended destination</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">undeliverable</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">A middleware agent was unable to deliver the message to its intended destination</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
