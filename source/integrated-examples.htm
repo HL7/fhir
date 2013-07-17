@@ -85,17 +85,19 @@ Gender: Male
 Address: van Egmondkade 23
 Zip code: 1024 RJ
 City: Amsterdam
-Phone: 0648352638
+Phone: +31648352638
 email: p.heuvel@gmail.com
 </pre>
+
 
 <table border="1">
 <caption>Intakes</caption>
 <tr>
   <th>intake date</th>
   <th>surgery date</th>
-  <th>surgeon</th>
+  <th>practitioner</th>
   <th>specialism</th>
+  <th>diagnose 
   <th>procedure</th>
   <th>care plan</th>
   <th>surgery code</th>
@@ -107,55 +109,60 @@ email: p.heuvel@gmail.com
   <td>27-6-2011</td>
   <td><a href="practitioner/practitioner-example-f002-pv.xml">P. Voigt</a></td>
   <td><a href="organization/organization-example-f002-burgers-card.xml">CTC (Cardio-thoracale Chirurgie)</a></td>
-  <td><a href="procedure/procedure-example-F001.xml">Heart valve replacement</a></td>
+  <td><a href="condition/condition-example-f001-heart.xml">Heart valve disorder</a></td>
+  <td><a href="procedure/procedure-example-f001-heart.xml">Heart valve replacement</a></td>
   <td><a href="careplan/careplan-example-f001-heart.xml">CP2903</a></td>
   <td>1000263502</td>
   <td>64915003</td>
-  <td><a href="encounter/encounter-example-F001.xml">v1451</a>
+  <td><a href="encounter/encounter-example-f001-heart.xml">v1451</a></td>
 </tr>
 <tr>
   <td>6-7-2012</td>
   <td>7-7-2012</td>
   <td><a href="practitioner/practitioner-example-f003-mv.xml">M.I.M. Versteegh</a></td>
   <td><a href="organization/organization-example-f002-burgers-card.xml">CTC (Cardio-thoracale Chirurgie)</a></td>
-  <td><a href="procedure/procedure-example-F001.xml">partial lobectomy</a></td>
+  <td><a href="condition/condition-example-f002-lung.xml">NSCLC - Non-small cell lung cancer</a></td>
+  <td><a href="procedure/procedure-example-f002-lung.xml">partial lobectomy</a></td>
   <td><a href="careplan/careplan-example-f002-lung.xml">CP2934</a></td>
   <td>1000263813</td>
   <td>173171007</td>
-  <td><a href="encounter/encounter-example-F001.xml">v3251</a>
+  <td><a href="encounter/encounter-example-f002-lung.xml">v3251</a></td>
 </tr>
 <tr>
   <td>22-3-2013</td>
   <td>22-3-2013</td>
   <td><a href="practitioner/practitioner-example-f005-al.xml">A.P.M. Langeveld</a></td>
-  <td><a href="organization/organization-example-f003-burgers-ENT.xml">KNO</a></td>
-  <td><a href="procedure/procedure-example-F001.xml">Trachea-tracheotomy</a></td>
+  <td><a href="organization/organization-example-f003-burgers-ENT.xml">ENT</a></td>
+  <td><a href="condition/condition-example-f003-abcess.xml">Retropharyngeal abscess</a></td>
+  <td><a href="procedure/procedure-example-f003-abcess.xml">Trachea-tracheotomy</a></td>
   <td>CP2938</td>
   <td>1000050465</td>
   <td>48387007</td>
-  <td><a href="encounter/encounter-example-F001.xml">v6751</a>
+  <td><a href="encounter/encounter-example-f003-abcess.xml">v6751</a></td>
 </tr>
 <tr>
   <td>24-3-2013</td>
   <td>24-3-2013</td>
   <td><a href="practitioner/practitioner-example-f001-evdb.xml">E.M.J.M. van den broek</a></td>
-  <td><a href="organization/organization-example-f003-burgers-ENT.xml">KNO</a></td>
-  <td><a href="procedure/procedure-example-F001.xml">retropharyngeal abscess</a></td>
+  <td><a href="organization/organization-example-f003-burgers-ENT.xml">ENT</a></td>
+  <td><a href="condition/condition-example-f003-abcess.xml">Retropharyngeal abscess</a></td>
+  <td><a href="procedure/procedure-example-f003-abcess.xml">retropharyngeal abscess</a></td>
   <td><a href="careplan/careplan-example-f003-pharynx.xml">CP3953</a></td>
   <td>1000049161</td>
   <td>172960003</td>
-  <td><a href="encounter/encounter-example-F001.xml">v6751</a>
+  <td><a href="encounter/encounter-example-f003-abcess.xml">v6751</a></td>
 </tr>
 <tr>
   <td>27-3-2013</td>
   <td>27-3-2013</td>
   <td><a href="practitioner/practitioner-example-f004-rb.xml">R.J.P. Briet</a></td>
-  <td><a href="organization/organization-example-f003-burgers-ENT.xml">KNO</a></td>
+  <td><a href="organization/organization-example-f003-burgers-ENT.xml">ENT</a></td>
+  <td><a href="condition/condition-example-f003-abcess.xml">Retropharyngeal abscess</a></td>
   <td>Trachea-extubatie</td>
   <td>CP1283</td>
   <td>1000050159</td>
   <td>309812005</td>
-  <td><a href="encounter/encounter-example-F001.xml">v6751</a>
+  <td><a href="encounter/encounter-example-f003-abcess.xml">v6751</a></td>
 </tr>
 </table>
 
@@ -339,45 +346,197 @@ Extubation on OR. Normal voice, no stridor. However, hypoxic at low respiratory 
 
 <pre>
 Patient name: <a href="patient/patient-example-f201-pieter.xml">Roel Bor</a>
-Patient number: 0108173
-Date of birth: 17-11-1944
+Patient number: 123456789
+Date of birth: 1960-03-13
 Gender: Male
 </pre>
 
 <h3>Patient contact information</h3>
 <pre>
-Address: van Egmondkade 23
-Zip code: 1024 RJ
+Address: Bos en Lommerplein 280
+Zip code: 1055 RW
 City: Amsterdam
-Phone: 0648352638
-email: p.heuvel@gmail.com
+Phone: +31612345678
 </pre>
 
 
+<table border="1">
+<caption>Intakes</caption>
+<tr>
+  <th>practitioner</th>
+  <th>organisation</th>
+  <th>careplan</th>
+  <th>start date</th>
+  <th>substance</th>
+  <th>condition</th>
+  <th>other participant</th>
+  <th>procedure</th>
+  <th>encounter ID</th>
+  <th>surgery code</th>
+  <th>snomed CT code</th>
+</tr>
+<tr>
+  <td><a href="practitioner/practitioner-example-f201-ab.xml">A. Bronsig</a></td>
+  <td><a href="organization/organization-example-f201-aumc.xml">Artis University Medical Center</a></td>
+  <td><a href="careplan/careplan-example-f201-renal.xml">CP3928</a></td>
+  <td>2013-03-11</td>
+  <td><a href="substance/substance-example-f203-potassium.xml">potassium</a></td>
+  <td><a href="condition/condition-example-f201-fever.xml">fever</a></td>
+  <td><a href="practitioner/practitioner-example-f204-ce.xml">Carla Espinosa</a></td>
+  <td></td>
+  <td><a href="encounter/encounter-example-f201-20130404.xml">20130404</a></td>
+  <td>100028475</td>
+  <td>64915003</td>
+</tr>
+
+<tr>
+  <td><a href="practitioner/practitioner-example-f201-ab.xml">A. Bronsig</a></td>
+  <td><a href="organization/organization-example-f201-aumc.xml">Artis University Medical Center</a></td>
+  <td><a href="careplan/careplan-example-f202-malignancy.xml">CP7364</a></td>
+  <td></td>
+  <td></td>
+  <td><a href="condition/condition-example-f202-malignancy.xml">malignant tumor</a></td>
+  <td></td>
+  <td><a href="procedure/procedure-example-f201-tpf.xml">chemotherapy</td>
+  <td><a href="encounter/encounter-example-f202-20130128.xml">20130128</a></td>
+  <td>100028475</td>
+  <td>363346000</td>
+</tr>
+
+<tr>
+  <td><a href="practitioner/practitioner-example-f201-ab.xml">A. Bronsig</a></td>
+  <td><a href="organization/organization-example-f201-aumc.xml">Artis University Medical Center</a></td>
+  <td><a href="careplan/careplan-example-f203-sepsis.xml">CP8766</a></td>
+  <td>2013-03-11</td>
+  <td></td>
+  <td><a href="condition/condition-example-f203-sepsis.xml">Bacterial sepsis</a></td>
+  <td><a href="practitioner/practitioner-example-f202-lm.xml">Luigi Maas</a></td>
+  <td>observation</td>
+  <td><a href="encounter/encounter-example-f203-20130311.xml">20130311</a></td>
+  <td>100028475</td>
+  <td>363346000</td>
+</tr>
 
 
+<table border="1">
+<caption>Diagnoses</caption>
+<tr>
+  <th>practitioner</th>
+  <th>date</th>
+  <th>encounter</th>
+  <th>reason</th>
+  <th>condition</th>
+  <th>medication</th>
+  <th>medication prescription</th>
+  <th>procedure</th>
+  <th>diagnostic report</th>
+  <th>issued by</th>
+</tr>
+<tr>
+  <td><a href="practitioner/practitioner-example-f201-ab.xml">A. Bronsig</a></td>
+  <td>28-1-2013</td>
+  <td><a href="encounter/encounter-example-f202-20130128.xml">20130128</a></td>
+  <td>chemotherapy</td>
+  <td><a href="condition/condition-example-f202-malignancy.xml">malignant tumor</a></td>
+  <td></td>
+  <td></td>
+  <td><a href="procedure/procedure-example-f201-tpf.xml">chemotherapy</a></td>
+  <td><a href="diagnosticreport/diagnosticreport-example-f201-brainct.xml">CT scan</a></td>
+  <td><a href="organization/organization-example-f203-bumc.xml">BUMC</a></td>
+</tr>
+<tr>
+  <td><a href="practitioner/practitioner-example-f201-ab.xml">A. Bronsig</a></td>
+  <td>4-3-2013</td>
+  <td><a href="encounter/encounter-example-f201-20130404.xml">20130404</a></td>
+  <td>fever</td>
+  <td><a href="condition/condition-example-f201-fever.xml">fever</a></td>
+  <td><a href="medication/medication-example-f203-paracetamol.xml">paracetamol</a></td>
+  <td><a href="medicationprescription/medicationprescription-example-f203-paracetamol.xml">Paracetamol 500mg tablet</a></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+  <td><a href="practitioner/practitioner-example-f201-ab.xml">A. Bronsig</a></td>
+  <td>11-3-2013</td>
+  <td><a href="encounter/encounter-example-f203-20130311.xml">20130311</a></td>
+  <td>sepsis</td>
+  <td><a href="condition/condition-example-f203-sepsis.xml">Bacterial sepsis</a></td>
+  <td><a href="medication/medication-example-f201-salmeterol.xml">Flutacisone + Salmeterol</a></td>
+  <td><a href="medicationprescription/medicationprescription-example-f201-salmeterol.xml">Salmeterol+fluticasone inhaler</a></td>
+  <td></td>
+  <td><a href="diagnosticreport/diagnosticreport-example-f202-bloodculture.xml">blood culture</a></td>
+  <td><a href="organization/organization-example-f201-aumc.xml">AUMC</a></td>
+</tr>
+<tr>
+  <td><a href="practitioner/practitioner-example-f201-ab.xml">A. Bronsig</a></td>
+  <td>11-3-2013</td>
+  <td><a href="encounter/encounter-example-f203-20130311.xml">20130311</a></td>
+  <td>renal</td>
+  <td><a href="condition/condition-example-f204-renal.xml">Renal insufficiency</a></td>
+  <td><a href="medication/medication-example-f202-flucloxacilline.xml">Flucloxacillin</a></td>
+  <td><a href="medicationprescription/medicationprescription-example-f202-flucloxacilline.xml">Injected floxacillin</a></td>
+  <td></td>
+  <td><a href="diagnosticreport/diagnosticreport-example-f202-bloodculture.xml">blood culture</a></td>
+  <td><a href="organization/organization-example-f201-aumc.xml">AUMC</a></td>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+<table border="1">
+<caption>Observations</caption>
+<tr>
+  <th>practitioner</th>
+  <th>date</th>
+  <th>observation</th>
+  <th>value</th>
+  <th>status</th>
+  <th>snomed CT code</th>
+</tr>
+<tr>
+  <td><a href="practitioner/practitioner-example-f202-lm.xml">Luigi Maas</a></td>
+  <td>11-3-2013</td>
+  <td><a href="observation/observation-example-f206-staphylococcus.xml">Blood culture for bacteria</a></td>
+  <td>Gram-positive bacteria</td>
+  <td>positive</td>
+  <td>8745002</td>
+</tr>
+<tr>
+  <td><a href="practitioner/practitioner-example-f201-ab.xml">A. Bronsig</a></td>
+  <td>4-4-2013</td>
+  <td><a href="observation/observation-example-f201-bmi.xml">BMI</a></td>
+  <td>31.31</td>
+  <td>high</td>
+  <td>60621009</td>
+</tr>
+<tr>
+  <td><a href="practitioner/practitioner-example-f201-ab.xml">A. Bronsig</a></td>
+  <td>4-4-2013</td>
+  <td><a href="observation/observation-example-f202-temperature.xml">temperature taken</a></td>
+  <td>39 degrees Celsius1</td>
+  <td>high</td>
+  <td>89003005</td>
+</tr>
+<tr>
+  <td><a href="practitioner/practitioner-example-f201-ab.xml">A. Bronsig</a></td>
+  <td>4-4-2013</td>
+  <td><a href="observation/observation-example-f203-bicarbonate.xml">Serum bicarbonate measurement</a></td>
+  <td>28mmol/L</td>
+  <td>normal</td>
+  <td>271239003</td>
+</tr>
+<tr>
+  <td><a href="practitioner/practitioner-example-f202-lm.xml">Luigi Maas</a></td>
+  <td>4-4-2013</td>
+  <td><a href="observation/observation-example-f204-creatinine.xml">Serum creatinine raised</a></td>
+  <td>122 umol/L</td>
+  <td>high</td>
+  <td>166717003</td>
+</tr>
+<tr>
+  <td><a href="practitioner/practitioner-example-f202-lm.xml">Luigi Maas</a></td>
+  <td>4-4-2013</td>
+  <td><a href="observation/observation-example-f205-egfr.xml">Epidermal Growth Factor Receptor</a></td>
+  <td>Negative for EGF receptor expression (Non-small cell lung cancer)</td>
+  <td>negative</td>
+  <td>427038005</td>
+</tr>
 </body>
 </html>

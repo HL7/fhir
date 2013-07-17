@@ -7,7 +7,7 @@
        <display value="Creatinine level"/>
     </coding>
  </name>
- <valueQuantity><!--Creatinine=28mmol/L-->
+ <valueQuantity><!--Creatinine=122mmol/L-->
     <value value="122"/>
     <units value="umol/L"/>
     <system value="http://snomed.info"/>

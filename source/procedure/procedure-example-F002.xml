@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:/C:/SVN/schema/procedure.xsd">
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir  ../../schema/procedure.xsd">
     <subject>
         <type value="Patient"/>
         <reference value="patient/@F001"/>
         <display value="P. van de Heuvel"/>
     </subject>
-    <description>
         <type>
             <coding>
                 <system value="http://snomed.info"/>
@@ -20,7 +19,6 @@
                 <display value="Lung structure"/>
             </coding>
         </bodySite>
-    </description>
     <indication value="Malignant tumor of lung"/>
     <performer>
         <person>

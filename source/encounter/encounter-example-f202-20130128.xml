@@ -26,10 +26,10 @@
     </practitioner>
  </participant>
  <length>
-    <value value="56" />
-    <units value="minutes" />
-    <system value="http://snomed.info" />
-    <code value="258701004" />
+    <value value="56"/>
+    <units value="minutes"/>
+    <system value="http://snomed.info"/>
+    <code value="258701004"/>
  </length>
  <reasonString value="The patient is treated for a tumor."/>
  <indication>

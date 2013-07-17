@@ -18,7 +18,7 @@
     <reference value="encounter/@f203"/>
     <display value="Roel's encounter on March eleventh 2013"/>
  </encounter>
- <reasonForPrescribingString value="problem/@f203"/><!--TODO Why isn't this Resource (any)?-->
+ <reasonForPrescribingString value="condition/@f203"/><!--TODO Why isn't this Resource (any)?-->
  <medication>
     <type value="Medication"/>
     <reference value="medication/@f201"/>

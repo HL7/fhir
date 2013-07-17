@@ -17,7 +17,7 @@
     <reference value="encounter/@f203"/>
     <display value="Roel's encounter on March eleventh 2013"/>
  </encounter>
- <reasonForPrescribingString value="problem/@f203"/>
+ <reasonForPrescribingString value="condtition/@f203"/>
  <medication>
     <type value="Medication"/>
     <reference value="medication/@f202"/>
