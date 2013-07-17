@@ -10,7 +10,7 @@
   <LastAuthor>Joginder Madra</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2013-06-28T22:54:37Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,7 @@
   <WindowWidth>20445</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -180,7 +180,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">down</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Vaccine administration recommendations</Data></Cell>
     <Cell><Data ss:Type="String">Vaccine administration recommendations</Data></Cell>
@@ -262,7 +262,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">down</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Pertinent dates</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Vaccine date recommentations - e.g. earliest date to administer, latest date to administer, etc.</Data></Cell>
@@ -306,7 +306,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">down</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Vaccine Administration Protocol</Data></Cell>
@@ -371,6 +371,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
+    <Cell><Data ss:Type="String">down</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Supporting adverse event report</Data></Cell>
     <Cell><Data ss:Type="String">Adverse event report information that supports the status and recommendation</Data></Cell>
    </Row>
@@ -458,7 +459,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -466,14 +467,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -656,7 +658,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">vaccineType</Data></Cell>
+    <Cell><Data ss:Type="String">vaccine-type</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
@@ -807,7 +809,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -828,7 +829,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>3</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -914,6 +915,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">DUE</Data></Cell>
+    <Cell><Data ss:Type="String">This immunization is due to be given now</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -929,11 +931,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

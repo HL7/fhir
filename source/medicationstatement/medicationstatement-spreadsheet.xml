@@ -7,10 +7,10 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Hugh Glover</LastAuthor>
+  <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-04-15T20:50:00Z</LastSaved>
-  <Version>15.00</Version>
+  <LastSaved>2013-07-17T04:39:38Z</LastSaved>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -619,7 +619,7 @@
  <Worksheet ss:Name="Search">
   <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="37" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="151.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="164.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s66">
@@ -635,7 +635,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">MedicationStatement.patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">whengiven</Data></Cell>
+    <Cell><Data ss:Type="String">when-given</Data></Cell>
     <Cell><Data ss:Type="String">Date of administration</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">MedicationStatement.whenGiven</Data></Cell>
@@ -655,7 +655,7 @@
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">administrationDevice</Data></Cell>
+    <Cell><Data ss:Type="String">administration-device</Data></Cell>
     <Cell><Data ss:Type="String">Return administrations with this administration device identity</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">MedicationStatement.administrationDevice</Data></Cell>
@@ -788,8 +788,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>15</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

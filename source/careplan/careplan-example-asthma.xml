@@ -106,7 +106,7 @@
         <reference value="#med1"/>
         <display value="Prednisone 5mg tablet"/>
       </medication>
-      <dosageInstructions>
+      <dosageInstruction>
         <dosageInstructionsText value="Take 6 tablets once a day for 2 days"/>
         <timing>
           <repeat>
@@ -116,8 +116,8 @@
             <count value="2"/>
           </repeat>
         </timing>
-      </dosageInstructions>
-      <dosageInstructions>
+      </dosageInstruction>
+      <dosageInstruction>
         <dosageInstructionsText value="Take 5 tablets once a day for 2 days"/>
         <timing>
           <repeat>
@@ -130,8 +130,8 @@
         <doseQuantity>
           <value value="5"/>          
         </doseQuantity>
-      </dosageInstructions>
-      <dosageInstructions>
+      </dosageInstruction>
+      <dosageInstruction>
         <dosageInstructionsText value="Take 4 tablets once a day for 2 days"/>
         <timing>
           <repeat>
@@ -144,8 +144,8 @@
         <doseQuantity>
           <value value="4"/>          
         </doseQuantity>
-      </dosageInstructions>
-      <dosageInstructions>
+      </dosageInstruction>
+      <dosageInstruction>
         <dosageInstructionsText value="Take 3 tablets once a day for 2 days"/>
         <timing>
           <repeat>
@@ -158,8 +158,8 @@
         <doseQuantity>
           <value value="3"/>          
         </doseQuantity>
-      </dosageInstructions>
-      <dosageInstructions>
+      </dosageInstruction>
+      <dosageInstruction>
         <dosageInstructionsText value="Take 2 tablets once a day for 2 days"/>
         <timing>
           <repeat>
@@ -172,8 +172,8 @@
         <doseQuantity>
           <value value="2"/>          
         </doseQuantity>
-      </dosageInstructions>
-      <dosageInstructions>
+      </dosageInstruction>
+      <dosageInstruction>
         <dosageInstructionsText value="Take 1 tablet once a day for 2 days"/>
         <timing>
           <repeat>
@@ -186,7 +186,7 @@
         <doseQuantity>
           <value value="1"/>          
         </doseQuantity>
-      </dosageInstructions>
+      </dosageInstruction>
     </MedicationPrescription>
   </contained>
   <patient>

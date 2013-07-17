@@ -314,7 +314,7 @@ public class Publisher {
 	      buildFlags.put(n.toLowerCase(), b);
 	      doAny = doAny || b;
 	    }
-	    if (!doAny)
+	    if (!doAny || !(new File(page.getFolders().dstDir+"qa.htm").exists()))
         buildFlags.put("all", true); // nothing - build all
 	    cache.save();
 	    
@@ -533,7 +533,7 @@ public class Publisher {
 
 	private boolean validate() throws Exception {
 		log("Validating");
-		ResourceValidator val = new ResourceValidator(page.getDefinitions(), translations.getDocumentElement());
+		ResourceValidator val = new ResourceValidator(page.getDefinitions(), translations.getDocumentElement(), page.getCodeSystems());
 
 		List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
     for (String n : page.getDefinitions().getTypes().keySet())

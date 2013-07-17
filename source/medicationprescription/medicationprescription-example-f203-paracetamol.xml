@@ -23,7 +23,7 @@
     <reference value="medication/@f203"/>
     <display value="Paracetamol"/>
  </medication>
- <dosageInstructions>  
+ <dosageInstruction>  
   <dosageInstructionsText value="Paracetamol 3xdaags 1000mg"/>
   <!--No defined schedule (<timing>)-->
   <method>
@@ -47,6 +47,6 @@
         <code value="258702006"/>
     </denominator>
   </maxDosePerPeriod>
- </dosageInstructions>
+ </dosageInstruction>
  <!--<dispense> and <substitution> are not available for this patient--> 
 </MedicationPrescription>

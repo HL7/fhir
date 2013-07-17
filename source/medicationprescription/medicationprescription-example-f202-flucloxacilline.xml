@@ -23,7 +23,7 @@
     <reference value="medication/@f202"/>
     <display value="Flucloxacilline"/>
  </medication>
- <dosageInstructions>  
+ <dosageInstruction>  
   <dosageInstructionsText value="Flucloxacilline 12g/24h"/>
   <timingSchedule>
       <event>
@@ -59,6 +59,6 @@
         <code value="258702006"/>
     </denominator>
   </maxDosePerPeriod>
- </dosageInstructions>
+ </dosageInstruction>
  <!--<dispense> and <substitution> are not available for this patient--> 
 </MedicationPrescription>

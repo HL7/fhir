@@ -349,7 +349,7 @@ public class Utilities {
 
   public static boolean isPlural(String word) {
     word = word.toLowerCase();
-    if ("restricts".equals(word) || "data".equals(word))
+    if ("restricts".equals(word) || "contains".equals(word) || "data".equals(word) || "specimen".equals(word))
       return false;
     Inflector inf = new Inflector();
     return !inf.singularize(word).equals(word);

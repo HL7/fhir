@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>1296</WindowHeight>
-  <WindowWidth>9576</WindowWidth>
-  <WindowTopX>4248</WindowTopX>
-  <WindowTopY>3192</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
+  <WindowHeight>1290</WindowHeight>
+  <WindowWidth>9570</WindowWidth>
+  <WindowTopX>4245</WindowTopX>
+  <WindowTopY>3195</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -87,15 +87,14 @@
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="27" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="197.4"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="56.4" ss:Span="1"/>
-   <Column ss:Index="4" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="35.4"
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="197.25"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
+   <Column ss:Index="4" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="35.25"
     ss:Span="1"/>
    <Column ss:Index="6" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="93"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="82.8"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="213.60000000000002"
-    ss:Span="1"/>
-   <Column ss:Index="10" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.4"
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="82.5"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
+   <Column ss:Index="10" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.25"
     ss:Span="1"/>
    <Column ss:Index="12" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
@@ -241,6 +240,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Condition.evidence</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Supporting evidence</Data></Cell>
     <Cell><Data ss:Type="String">Supporting Evidence / manfiestions that are the basis on which this condition is suspected or confirmed</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">The evidence may be a simple lost of coded symptoms/manifestations, or references to observations or formal assessments, or both</Data></Cell>
@@ -254,7 +254,7 @@
     <Cell><Data ss:Type="String">A manifestion or symptom that led to the recording of this condition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Condition.evidence.details</Data></Cell>
+    <Cell><Data ss:Type="String">Condition.evidence.detail</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Any)</Data></Cell>
@@ -279,7 +279,7 @@
     <Cell ss:Index="11"><Data ss:Type="String">May include laterality</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Condition.location.details</Data></Cell>
+    <Cell><Data ss:Type="String">Condition.location.detail</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
@@ -289,6 +289,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Condition.relatedItem</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Causes or precedents for this Condition</Data></Cell>
     <Cell><Data ss:Type="String">Further conditions, problems, diagnoses, procedures or events that are related in some way to this condition, or the substance that caused/triggered this Condition</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Although a condition may be caused by a substance, this is not intended to be used to record allergies/adverse reactions to substances</Data></Cell>
@@ -340,11 +341,11 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <TopRowVisible>13</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>19</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -354,10 +355,9 @@
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s67" ss:DefaultRowHeight="15">
-   <Column ss:Index="3" ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="96.6"/>
-   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="220.8"/>
-   <Column ss:Index="6" ss:StyleID="s67" ss:AutoFitWidth="0"
-    ss:Width="365.40000000000003"/>
+   <Column ss:Index="3" ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="96.75"/>
+   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="220.5"/>
+   <Column ss:Index="6" ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="365.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -378,14 +378,14 @@
     <Cell><Data ss:Type="String">Evidence</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Condition.evidence</Data></Cell>
     <Cell><Data ss:Type="String">evidence must have code or details</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">exists(f:code) or exists(f:details)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">exists(f:code) or exists(f:detail)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">Location</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Condition.location</Data></Cell>
     <Cell><Data ss:Type="String">location must have code or details</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">exists(f:code) or exists(f:details)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">exists(f:code) or exists(f:detail)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
@@ -402,11 +402,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -416,9 +417,9 @@
  <Worksheet ss:Name="Events">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="69.599999999999994"/>
-   <Column ss:AutoFitWidth="0" ss:Width="93.600000000000009" ss:Span="1"/>
-   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="101.4"/>
+   <Column ss:AutoFitWidth="0" ss:Width="69.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="93.75" ss:Span="1"/>
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="101.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="111"/>
    <Column ss:AutoFitWidth="0" ss:Width="69"/>
    <Row ss:AutoFitHeight="0" ss:Height="22.5">
@@ -457,9 +458,9 @@
  <Worksheet ss:Name="Search">
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="28" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="70.8"/>
-   <Column ss:AutoFitWidth="0" ss:Width="382.79999999999995"/>
-   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="354.59999999999997"/>
+   <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="354.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
@@ -512,7 +513,7 @@
     <Cell ss:StyleID="s63"><Data ss:Type="String">Condition.asserter</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">dateAsserted</Data></Cell>
+    <Cell><Data ss:Type="String">date-asserted</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Condition.dateAsserted</Data></Cell>
    </Row>
@@ -593,8 +594,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -604,9 +605,9 @@
  <Worksheet ss:Name="Examples">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="10" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="98.4"/>
-   <Column ss:AutoFitWidth="0" ss:Width="146.39999999999998"/>
-   <Column ss:AutoFitWidth="0" ss:Width="55.800000000000004"/>
+   <Column ss:AutoFitWidth="0" ss:Width="98.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="146.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="55.5"/>
    <Column ss:Width="186"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s70"><Data ss:Type="String">Name</Data></Cell>
@@ -687,7 +688,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -702,12 +702,12 @@
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s66" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="130.80000000000001"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="294.60000000000002"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="57.6"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="65.400000000000006"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="89.4"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="287.39999999999998"/>
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="130.5"/>
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="294.75"/>
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="57.75"/>
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="65.25"/>
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="89.25"/>
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="287.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Definition</Data></Cell>
@@ -789,7 +789,7 @@
  <Worksheet ss:Name="condition-relationship-type">
   <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="3" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="294.60000000000002"/>
+   <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="294.75"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
@@ -820,7 +820,7 @@
  <Worksheet ss:Name="condition-status">
   <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="9" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="116.4"/>
+   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="116.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>

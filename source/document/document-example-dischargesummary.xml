@@ -421,7 +421,7 @@
                     <display value="Theophylline 200mg BD"/>
                 </medication>
 
-                <dosageInstructions>
+                <dosageInstruction>
                     <additionalInstructionsString value="Take with Food"/>
                     <!-- twice a day -->
                     <timingSchedule>
@@ -446,7 +446,7 @@
                         <system value="http://unitsofmeasure.org"/>
                         <code value="tbl"/>
                     </doseQuantity>
-                </dosageInstructions>
+                </dosageInstruction>
 
             </MedicationPrescription>
         </content>
@@ -540,11 +540,11 @@
                     <reference value="urn:guid:4c2d16c0-b102-486c-aa7c-b266ce98709f"/>
                     <display value="Doxycycline"/>
                 </substance>
-                <reactions>
+                <reaction>
                     <type value="AdverseReaction"/>
                     <reference value="urn:guid:25be7cdf-7055-40fa-80ac-defd531180dd"/>
                     <display value="Hives"/>
-                </reactions>
+                </reaction>
 
             </AllergyIntolerance>
         </content>

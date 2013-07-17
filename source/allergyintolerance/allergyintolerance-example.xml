@@ -20,10 +20,10 @@
     <type value="Substance"/>
     <reference value="substance/@example"/>
   </substance>
-  <reactions>
+  <reaction>
     <type value="AdverseReaction"/>
     <reference value="adversereaction/@example"/>
-  </reactions>
+  </reaction>
   <sensitivityTest>
     <type value="Observation"/>
     <reference value="observation/@example"/>

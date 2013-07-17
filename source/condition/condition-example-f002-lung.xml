@@ -64,6 +64,6 @@
                 <display value="Thorax"/>    
             </coding>
         </code>
-        <details value="lung"/>
+        <detail value="lung"/>
     </location>
 </Condition>

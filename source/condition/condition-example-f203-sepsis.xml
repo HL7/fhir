@@ -51,11 +51,11 @@
  </severity>
  <onsetDate value="2013-03-08"/>
  <evidence>
-  <details>
+  <detail>
      <type value="DiagnosticReport"/>
      <reference value="diagnosticreport/@f202"/>
      <display value="Diagnostic report for Roel's sepsis"/>
-  </details>
+  </detail>
  </evidence>
  <location><!--Location is intravascular pulmonary-->
   <code>

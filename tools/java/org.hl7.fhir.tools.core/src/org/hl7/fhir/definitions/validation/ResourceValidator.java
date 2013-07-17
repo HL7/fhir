@@ -47,6 +47,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameter;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.validation.BaseValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
@@ -72,12 +73,16 @@ public class ResourceValidator extends BaseValidator {
   private Definitions definitions;
 	private Map<String, Usage> usages = new HashMap<String, Usage>();
   private Element translations;
+  private Map<String, AtomEntry> codeSystems = new HashMap<String, AtomEntry>();
+  
+  
 
-	public ResourceValidator(Definitions definitions, Element translations) {
+	public ResourceValidator(Definitions definitions, Element translations, Map<String, AtomEntry> codeSystems) {
 		super();
     source = Source.ResourceValidator;
 		this.definitions = definitions;
 		this.translations = translations;
+		this.codeSystems = codeSystems;
 	}
 
 	// public void setConceptDomains(List<ConceptDomain> conceptDomains) {
@@ -125,14 +130,14 @@ public class ResourceValidator extends BaseValidator {
     if (parent.getRoot().getElementByName("subject") != null && parent.getRoot().getElementByName("subject").typeCode().startsWith("Resource"))
       rule(errors, "structure", parent.getName(), parent.getSearchParams().containsKey("subject"), "A resource that contains a subject reference must have a search parameter 'subject'");
     if (parent.getRoot().getElementByName("patient") != null && parent.getRoot().getElementByName("patient").typeCode().startsWith("Resource"))
-      warning(errors, "structure", parent.getName(), parent.getSearchParams().containsKey("subject"), "A resource that contains a patient reference must have a search parameter 'patient'");
+      rule(errors, "structure", parent.getName(), parent.getSearchParams().containsKey("patient"), "A resource that contains a patient reference must have a search parameter 'patient'");
     for (org.hl7.fhir.definitions.model.SearchParameter p : parent.getSearchParams().values()) {
       if (!usages.containsKey(p.getCode()))
         usages.put(p.getCode(), new Usage());
       usages.get(p.getCode()).usage.add(p.getType());
       rule(errors, "structure", parent.getName(), !p.getCode().contains("."), "Search Parameter Names cannot contain a '.' (\""+p.getCode()+"\")");
-      warning(errors, "structure", parent.getName(), !p.getCode().equalsIgnoreCase("id"), "Search Parameter Names cannot be named 'id' (\""+p.getCode()+"\")");
-      warning(errors, "structure", parent.getName(), p.getCode().equals(p.getCode().toLowerCase()), "Search Parameter Names should be all lowercase (\""+p.getCode()+"\")");
+      rule(errors, "structure", parent.getName(), !p.getCode().equalsIgnoreCase("id"), "Search Parameter Names cannot be named 'id' (\""+p.getCode()+"\")");
+      rule(errors, "structure", parent.getName(), p.getCode().equals(p.getCode().toLowerCase()), "Search Parameter Names should be all lowercase (\""+p.getCode()+"\")");
     }
 //    rule(errors, parent.getName(), !parent.getSearchParams().containsKey("id"), "A resource cannot have a search parameter 'id'");
     for (Compartment c : definitions.getCompartments()) 
@@ -164,11 +169,11 @@ public class ResourceValidator extends BaseValidator {
 		hint(errors, "structure", path, !nameOverlaps(e.getName(), parentName), "Name of child ("+e.getName()+") overlaps with name of parent ("+parentName+")");
 		rule(errors, "structure", path, e.hasShortDefn(), "Must have a short defn");
     warning(errors, "structure", path, !Utilities.isPlural(e.getName()) || !e.unbounded(), "Element names should be singular");
-    warning(errors, "structure", path, !e.getName().equals("id"), "Element named \"id\" not allowed");
+    rule(errors, "structure", path, !e.getName().equals("id"), "Element named \"id\" not allowed");
     rule(errors, "structure", path, !e.getName().equals("extension"), "Element named \"extension\" not allowed");
     rule(errors, "structure", path, !e.getName().equals("entries"), "Element named \"entries\" not allowed");
     rule(errors, "structure", path, (parentName == null) || e.getName().charAt(0) == e.getName().toLowerCase().charAt(0), "Element Names must not start with an uppercase character");
-    warning(errors, "structure", path, e.getName().equals(path) || e.getElements().size() == 0 || (e.isUmlBreak() || !Utilities.noString(e.getUmlDir())), "Element is missing a UML layout direction");
+    rule(errors, "structure", path, e.getName().equals(path) || e.getElements().size() == 0 || (e.isUmlBreak() || !Utilities.noString(e.getUmlDir())), "Element is missing a UML layout direction");
 // this isn't a real hint, just a way to gather information   hint(errors, path, !e.isModifier(), "isModifier, minimum cardinality = "+e.getMinCardinality().toString());
     
     if( e.getShortDefn().length() > 0)
@@ -298,7 +303,8 @@ public class ResourceValidator extends BaseValidator {
       if (Utilities.noString(d))
         d = c.getDisplay();
       
-      warning(errors, "structure", "Binding "+n, !Utilities.noString(c.getDefinition()), "Code "+d+" must have a definition");
+      if (Utilities.noString(c.getSystem()))
+        warning(errors, "structure", "Binding "+n, !Utilities.noString(c.getDefinition()), "Code "+d+" must have a definition");
       warning(errors, "structure", "Binding "+n, !(Utilities.noString(c.getId()) && Utilities.noString(c.getSystem())) , "Code "+d+" must have a id or a system");
     }
     

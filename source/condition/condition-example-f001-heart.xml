@@ -55,6 +55,6 @@
                 <display value="Left thorax"/>
             </coding>
         </code>
-        <details value="heart structure"/>
+        <detail value="heart structure"/>
     </location>
 </Condition>

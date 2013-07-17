@@ -48,11 +48,11 @@
    <!--No remission means no <rebatement>-->
    <evidence>
       <!--Problem is confirmed in diagnostic report-->
-      <details>
+      <detail>
          <type value="DiagnosticReport"/>
          <reference value="diagnosticreport/@f201"/>
          <display value="Erasmus' diagnostic report of Roel's tumor"/>
-      </details>
+      </detail>
    </evidence>
    <location>
       <!--Head and neck malignancy-->

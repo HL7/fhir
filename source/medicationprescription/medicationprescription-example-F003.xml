@@ -40,7 +40,7 @@
         <reference value="medication/@F003"/>
         <display value="prescribed medication"/>
     </medication> 
-    <dosageInstructions>
+    <dosageInstruction>
         <timing>
             <event>
                 <start value="2011-05-01"/>
@@ -71,7 +71,7 @@
             <system value="http://unitsofmeasure.org"/>
             <code value="mg"/>
         </doseQuantity>
-    </dosageInstructions>         
+    </dosageInstruction>         
     <dispense>
         <validityPeriod>
             <start value="2011-05-01"/>

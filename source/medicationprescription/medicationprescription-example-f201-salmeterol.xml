@@ -24,7 +24,7 @@
     <reference value="medication/@f201"/>
     <display value="Flutacisone + Salmeterol"/>
  </medication>
- <dosageInstructions>  
+ <dosageInstruction>  
   <dosageInstructionsText value="aerosol 25/250ug/do 120do 2x - 1 dose - daily"/>
   <timingSchedule><!--2 months-->
       <event>
@@ -76,6 +76,6 @@
         <code value="259032004"/>
     </denominator>
   </maxDosePerPeriod>
- </dosageInstructions>
+ </dosageInstruction>
  <!--<dispense> and <substitution> are not available for this patient--> 
 </MedicationPrescription>

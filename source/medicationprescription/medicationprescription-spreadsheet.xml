@@ -309,7 +309,7 @@
     <Cell><Data ss:Type="String">RXE-2-Give Code / RXO-1-Requested Give Code / RXD-2-Dispense/Give Code&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstructions</Data></Cell>
+    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstruction</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">left</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -318,7 +318,7 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Indicates how the medication is to be used by the patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstructions.dosageInstructionsText</Data></Cell>
+    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstruction.dosageInstructionsText</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s71"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -327,7 +327,7 @@
     <Cell ss:Index="14"><Data ss:Type="String">RXE-7.2-Provider's Administration Instructions.text / RXO-7.2-Provider's Administration Instructions.text / TQ1-10-Condition Text / TQ1-11-Text Instruction&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstructions.additionalInstructions[x]</Data></Cell>
+    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstruction.additionalInstructions[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s71"><Data ss:Type="String">string | CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -336,7 +336,7 @@
     <Cell ss:Index="14"><Data ss:Type="String">RXE-7.2-Provider's Administration Instructions.text / RXO-7.2-Provider's Administration Instructions.text / TQ1-10-Condition Text / TQ1-11-Text Instruction ?&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstructions.timing[x]</Data></Cell>
+    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstruction.timing[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">dateTime|Period|Schedule</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Medication timing</Data></Cell>
@@ -345,7 +345,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">RDS:TQ1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstructions.site</Data></Cell>
+    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstruction.site</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">ApproachSite</Data></Cell>
@@ -355,7 +355,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">RXR-2-Administration Site</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstructions.route</Data></Cell>
+    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstruction.route</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">RouteOfAdministration</Data></Cell>
@@ -365,7 +365,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">RXR-1-Route</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstructions.method</Data></Cell>
+    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstruction.method</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
@@ -378,7 +378,7 @@
     <Cell ss:Index="14" ss:StyleID="s77"><Data ss:Type="String">RXR-4-Administration Method</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstructions.doseQuantity</Data></Cell>
+    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstruction.doseQuantity</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Dose quantity per dose</Data></Cell>
@@ -387,7 +387,7 @@
     <Cell><Data ss:Type="String">RXE-23-Give Rate Amount / RXE-24.1-Give Rate Units.code / RXE-24.3-Give Rate Units.name of coding system&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstructions.rate</Data></Cell>
+    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstruction.rate</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Ratio</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Dose quantity per unit of time</Data></Cell>
@@ -396,7 +396,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">RXE-22-Give Per (Time Unit)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstructions.maxDosePerPeriod</Data></Cell>
+    <Cell><Data ss:Type="String">MedicationPrescription.dosageInstruction.maxDosePerPeriod</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Ratio</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Total dose that should be consumed per unit of time</Data></Cell>
@@ -503,7 +503,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>14</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -520,8 +520,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>20</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
