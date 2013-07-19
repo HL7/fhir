@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
+// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -112,7 +112,7 @@ public class MedicationPrescription extends Resource {
       }
     }
 
-    public class MedicationPrescriptionDosageInstructionsComponent extends Element {
+    public class MedicationPrescriptionDosageInstructionComponent extends Element {
         /**
          * Free text dosage instructions for cases where the instructions are too complex to code.
          */
@@ -246,8 +246,8 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           this.maxDosePerPeriod = value;
         }
 
-      public MedicationPrescriptionDosageInstructionsComponent copy(MedicationPrescription e) {
-        MedicationPrescriptionDosageInstructionsComponent dst = e.new MedicationPrescriptionDosageInstructionsComponent();
+      public MedicationPrescriptionDosageInstructionComponent copy(MedicationPrescription e) {
+        MedicationPrescriptionDosageInstructionComponent dst = e.new MedicationPrescriptionDosageInstructionComponent();
         dst.dosageInstructionsText = dosageInstructionsText == null ? null : dosageInstructionsText.copy();
         dst.additionalInstructions = additionalInstructions == null ? null : additionalInstructions.copy();
         dst.timing = timing == null ? null : timing.copy();
@@ -437,7 +437,7 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * Indicates how the medication is to be used by the patient
      */
-    protected List<MedicationPrescriptionDosageInstructionsComponent> dosageInstructions = new ArrayList<MedicationPrescriptionDosageInstructionsComponent>();
+    protected List<MedicationPrescriptionDosageInstructionComponent> dosageInstruction = new ArrayList<MedicationPrescriptionDosageInstructionComponent>();
 
     /**
      * Deals with details of the dispense part of the order
@@ -537,8 +537,8 @@ In some situations, this attribute may be used instead of quantity to identify t
       this.medication = value;
     }
 
-    public List<MedicationPrescriptionDosageInstructionsComponent> getDosageInstructions() { 
-      return this.dosageInstructions;
+    public List<MedicationPrescriptionDosageInstructionComponent> getDosageInstruction() { 
+      return this.dosageInstruction;
     }
 
     public MedicationPrescriptionDispenseComponent getDispense() { 
@@ -569,9 +569,9 @@ In some situations, this attribute may be used instead of quantity to identify t
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.reasonForPrescribing = reasonForPrescribing == null ? null : reasonForPrescribing.copy();
         dst.medication = medication == null ? null : medication.copy();
-        dst.dosageInstructions = new ArrayList<MedicationPrescriptionDosageInstructionsComponent>();
-        for (MedicationPrescriptionDosageInstructionsComponent i : dosageInstructions)
-          dst.dosageInstructions.add(i.copy(dst));
+        dst.dosageInstruction = new ArrayList<MedicationPrescriptionDosageInstructionComponent>();
+        for (MedicationPrescriptionDosageInstructionComponent i : dosageInstruction)
+          dst.dosageInstruction.add(i.copy(dst));
         dst.dispense = dispense == null ? null : dispense.copy(dst);
         dst.substitution = substitution == null ? null : substitution.copy(dst);
         return dst;

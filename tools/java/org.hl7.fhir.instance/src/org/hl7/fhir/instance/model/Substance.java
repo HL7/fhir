@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
+// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -77,6 +77,11 @@ public class Substance extends Resource {
      * A substance can be composed of other substances
      */
     protected List<ResourceReference> ingredient = new ArrayList<ResourceReference>();
+
+    /**
+     * Indicates whether the substance quantity (used for ingredients) are absolute values or values relative to each other (percentages)
+     */
+    protected CodeableConcept quantityMode;
 
     public Identifier getIdentifier() { 
       return this.identifier;
@@ -162,6 +167,14 @@ public class Substance extends Resource {
       return this.ingredient;
     }
 
+    public CodeableConcept getQuantityMode() { 
+      return this.quantityMode;
+    }
+
+    public void setQuantityMode(CodeableConcept value) { 
+      this.quantityMode = value;
+    }
+
       public Substance copy() {
         Substance dst = new Substance();
         dst.identifier = identifier == null ? null : identifier.copy();
@@ -174,6 +187,7 @@ public class Substance extends Resource {
         dst.ingredient = new ArrayList<ResourceReference>();
         for (ResourceReference i : ingredient)
           dst.ingredient.add(i.copy());
+        dst.quantityMode = quantityMode == null ? null : quantityMode.copy();
         return dst;
       }
 

@@ -10,7 +10,7 @@
   </subject>
   <type>
     <coding>
-      <system value="http://snomed.info"/>
+      <system value="http://snomed.info/id"/>
       <code value="90105005"/>
       <display value="Biopsy of soft tissue of forearm (Procedure)"/>
     </coding>
@@ -18,7 +18,7 @@
   </type>
   <bodySite>
     <coding>
-      <system value="http://snomed.info"/>
+      <system value="http://snomed.info/id"/>
       <code value="368225008"/>
       <display value="Entire Left Forearm"/>
     </coding>

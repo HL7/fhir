@@ -19,7 +19,7 @@ In a codeableConcept with no translation to Snomed-CT:
    <display>Headache</display>
   </coding>
   <coding> 
-    <system>http://snomed.info</system>
+    <system>http://snomed.info/id</system>
   </coding>
 </CodeableConcept>
 

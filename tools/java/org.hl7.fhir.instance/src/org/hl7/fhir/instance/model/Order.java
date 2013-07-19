@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
+// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -103,11 +103,6 @@ public class Order extends Resource {
      * If required by policy
      */
     protected ResourceReference authority;
-
-    /**
-     * How action is financed (if required)
-     */
-    protected ResourceReference payment;
 
     /**
      * When order should be filfulled
@@ -195,14 +190,6 @@ public class Order extends Resource {
       this.authority = value;
     }
 
-    public ResourceReference getPayment() { 
-      return this.payment;
-    }
-
-    public void setPayment(ResourceReference value) { 
-      this.payment = value;
-    }
-
     public OrderWhenComponent getWhen() { 
       return this.when;
     }
@@ -223,7 +210,6 @@ public class Order extends Resource {
         dst.target = target == null ? null : target.copy();
         dst.reason = reason == null ? null : reason.copy();
         dst.authority = authority == null ? null : authority.copy();
-        dst.payment = payment == null ? null : payment.copy();
         dst.when = when == null ? null : when.copy(dst);
         dst.detail = new ArrayList<ResourceReference>();
         for (ResourceReference i : detail)

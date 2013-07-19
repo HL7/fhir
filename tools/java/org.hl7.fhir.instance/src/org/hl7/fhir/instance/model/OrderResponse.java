@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
+// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -39,14 +39,14 @@ import java.util.*;
 public class OrderResponse extends Resource {
 
     public enum OrderOutcomeCode {
-        pending, // 
-        review, // 
-        rejected, // 
-        error, // 
-        accepted, // 
-        cancelled, // 
-        aborted, // 
-        complete, // 
+        pending, // The order is known, but no processing has occurred at this time
+        review, // The order is undergoing initial processing to determine whether it will be accepted (usually this involves human review)
+        rejected, // The order was rejected because of a workflow/business logic reason
+        error, // The order was unable to be processed because of a technical error (i.e. unexpected error)
+        accepted, // The order has been accepted, and work is in progress
+        cancelled, // Processing the order was halted at the initiators request
+        aborted, // Processing the order was stopped because of some workflow/business logic reason
+        complete, // The order has been completed
         Null; // added to help the parsers
         public static OrderOutcomeCode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))

@@ -8,7 +8,7 @@
   </text>
   <type>
     <coding>
-      <system value="http://snomed.info"/>
+      <system value="http://snomed.info/id"/>
       <code value="86184003"/>
       <display value="Electrocardiographic monitor and recorder"/>
     </coding>

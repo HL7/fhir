@@ -17,7 +17,7 @@
   <status value="draft"/>
   <compose>
     <include>
-      <system value="http://snomed.info"/>
+      <system value="http://snomed.info/id"/>
       <filter>
         <!-- any clinical finding -->
         <property value="concept"/>

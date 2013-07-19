@@ -294,7 +294,7 @@ public class CcdaConverter {
 			ai.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/allergy-category", type, false));
 			ai.setCriticalitySimple(readCriticality(cda.getSeverity(obs)));
 			Substance subst = new Substance();
-			subst.setType(convert.makeCodingFromCV(cda.getDescendent(obs, "participant/participantRole/playingEntity/code"))); 
+			subst.setType(convert.makeCodeableConceptFromCD(cda.getDescendent(obs, "participant/participantRole/playingEntity/code"))); 
 			subst.setXmlId("s1");
 		  ai.getContained().add(subst);
 			ai.setSubstance(Factory.makeResourceReference("Substance", "#s1"));

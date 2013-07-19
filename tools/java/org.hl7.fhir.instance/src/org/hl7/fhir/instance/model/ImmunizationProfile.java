@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
+// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -39,7 +39,7 @@ import java.util.*;
 public class ImmunizationProfile extends Resource {
 
     public enum ImmunizationForecastStatus {
-        dUE, // 
+        dUE, // This immunization is due to be given now
         Null; // added to help the parsers
         public static ImmunizationForecastStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))

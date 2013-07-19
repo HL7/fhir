@@ -27,7 +27,7 @@
  </requestDetail>
  <serviceCategory><!--Lab test-->
     <coding>
-        <system value="http://snomed.info"/>
+        <system value="http://snomed.info/id"/>
         <code value="15220000"/>
         <display value="Laboratory test"/> 
     </coding>
@@ -40,7 +40,7 @@
  <results> 
   <name>
     <coding>
-        <system value="http://snomed.info"/>
+        <system value="http://snomed.info/id"/>
         <code value="104177005"/>
         <display value="Blood culture for bacteria"/> 
     </coding>
@@ -54,7 +54,7 @@
  <conclusion value="Blood culture tested positive on staphylococcus aureus"/>
  <codedDiagnosis>
     <coding>
-        <system value="http://snomed.info"/>
+        <system value="http://snomed.info/id"/>
         <code value="428763004"/>
         <display value="Bacteremia due to staphylococcus"/> 
     </coding>

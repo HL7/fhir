@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
+// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -247,7 +247,7 @@ public class AllergyIntolerance extends Resource {
     /**
      * Reactions associated with the sensitivity
      */
-    protected List<ResourceReference> reactions = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> reaction = new ArrayList<ResourceReference>();
 
     /**
      * Observations that confirm or refute the sensitivity
@@ -366,8 +366,8 @@ public class AllergyIntolerance extends Resource {
       this.substance = value;
     }
 
-    public List<ResourceReference> getReactions() { 
-      return this.reactions;
+    public List<ResourceReference> getReaction() { 
+      return this.reaction;
     }
 
     public List<ResourceReference> getSensitivityTest() { 
@@ -384,9 +384,9 @@ public class AllergyIntolerance extends Resource {
         dst.subject = subject == null ? null : subject.copy();
         dst.recorder = recorder == null ? null : recorder.copy();
         dst.substance = substance == null ? null : substance.copy();
-        dst.reactions = new ArrayList<ResourceReference>();
-        for (ResourceReference i : reactions)
-          dst.reactions.add(i.copy());
+        dst.reaction = new ArrayList<ResourceReference>();
+        for (ResourceReference i : reaction)
+          dst.reaction.add(i.copy());
         dst.sensitivityTest = new ArrayList<ResourceReference>();
         for (ResourceReference i : sensitivityTest)
           dst.sensitivityTest.add(i.copy());

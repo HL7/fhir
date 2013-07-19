@@ -8,14 +8,14 @@
     <description>
         <type>
             <coding>
-                <system value="http://snomed.info"/>
+                <system value="http://snomed.info/id"/>
                 <code value="48387007"/>
                 <display value="Tracheotomy"/>
             </coding>
         </type>
         <bodySite>
             <coding>
-                <system value="http://snomed.info"/>
+                <system value="http://snomed.info/id"/>
                 <code value="83030008"/>
                 <display value="Retropharyngeal area"/>
             </coding>

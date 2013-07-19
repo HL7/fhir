@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
+// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -180,88 +180,6 @@ public class Profile extends Resource {
       }
     }
 
-    public enum SearchParamType {
-        integer, // Search parameter must be a simple whole number
-        string, // Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces and are delineated by double quotes, e.g. "van Zanten".
-        text, // Search parameter is on a long string. Used for text filter type search: it functions on searches within a body of text and may contain spaces to separate words. May match even if the separate words are found out of order. Text parameters are delineated by double quotes.
-        date, // Search parameter is on a date (and should support :before and :after modifiers). The date format is the standard XML format, though other formats may be supported
-        token, // Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). It's value is either a string or a pair of namespace and value, separated by a "!".
-        reference, // A pair of resource type and resource id, separated by "/". Matches when the resource reference resolves to a resource of the given type and id.
-        composite, // A composite search parameter that combines other search parameters together
-        Null; // added to help the parsers
-        public static SearchParamType fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("integer".equals(codeString))
-          return integer;
-        if ("string".equals(codeString))
-          return string;
-        if ("text".equals(codeString))
-          return text;
-        if ("date".equals(codeString))
-          return date;
-        if ("token".equals(codeString))
-          return token;
-        if ("reference".equals(codeString))
-          return reference;
-        if ("composite".equals(codeString))
-          return composite;
-        throw new Exception("Unknown SearchParamType code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case integer: return "integer";
-            case string: return "string";
-            case text: return "text";
-            case date: return "date";
-            case token: return "token";
-            case reference: return "reference";
-            case composite: return "composite";
-            default: return "?";
-          }
-        }
-    }
-
-  public class SearchParamTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("integer".equals(codeString))
-          return SearchParamType.integer;
-        if ("string".equals(codeString))
-          return SearchParamType.string;
-        if ("text".equals(codeString))
-          return SearchParamType.text;
-        if ("date".equals(codeString))
-          return SearchParamType.date;
-        if ("token".equals(codeString))
-          return SearchParamType.token;
-        if ("reference".equals(codeString))
-          return SearchParamType.reference;
-        if ("composite".equals(codeString))
-          return SearchParamType.composite;
-        throw new Exception("Unknown SearchParamType code '"+codeString+"'");
-        }
-    public String toCode(Enum<?> code) throws Exception {
-      if (code == SearchParamType.integer)
-        return "integer";
-      if (code == SearchParamType.string)
-        return "string";
-      if (code == SearchParamType.text)
-        return "text";
-      if (code == SearchParamType.date)
-        return "date";
-      if (code == SearchParamType.token)
-        return "token";
-      if (code == SearchParamType.reference)
-        return "reference";
-      if (code == SearchParamType.composite)
-        return "composite";
-      return "?";
-      }
-    }
-
     public enum ExtensionContext {
         resource, // The context is all elements matching a particular resource element path
         datatype, // The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name)
@@ -396,11 +314,6 @@ public class Profile extends Resource {
          */
         protected List<ElementComponent> element = new ArrayList<ElementComponent>();
 
-        /**
-         * Defines additional search parameters for implementations to support and/or make use of
-         */
-        protected List<ProfileStructureSearchParamComponent> searchParam = new ArrayList<ProfileStructureSearchParamComponent>();
-
         public Code getType() { 
           return this.type;
         }
@@ -489,10 +402,6 @@ public class Profile extends Resource {
           return this.element;
         }
 
-        public List<ProfileStructureSearchParamComponent> getSearchParam() { 
-          return this.searchParam;
-        }
-
       public ProfileStructureComponent copy(Profile e) {
         ProfileStructureComponent dst = e.new ProfileStructureComponent();
         dst.type = type == null ? null : type.copy();
@@ -502,9 +411,6 @@ public class Profile extends Resource {
         dst.element = new ArrayList<ElementComponent>();
         for (ElementComponent i : element)
           dst.element.add(i.copy(e));
-        dst.searchParam = new ArrayList<ProfileStructureSearchParamComponent>();
-        for (ProfileStructureSearchParamComponent i : searchParam)
-          dst.searchParam.add(i.copy(e));
         return dst;
       }
 
@@ -1369,86 +1275,6 @@ public class Profile extends Resource {
         ElementDefinitionMappingComponent dst = e.new ElementDefinitionMappingComponent();
         dst.target = target == null ? null : target.copy();
         dst.map = map == null ? null : map.copy();
-        return dst;
-      }
-
-  }
-
-    public class ProfileStructureSearchParamComponent extends Element {
-        /**
-         * Corresponds to the name of the standard or custom search parameter
-         */
-        protected String_ name;
-
-        /**
-         * The type of value a search parameter refers to, and how the content is interpreted
-         */
-        protected Enumeration<SearchParamType> type;
-
-        /**
-         * For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does
-         */
-        protected String_ documentation;
-
-        public String_ getName() { 
-          return this.name;
-        }
-
-        public void setName(String_ value) { 
-          this.name = value;
-        }
-
-        public String getNameSimple() { 
-          return this.name == null ? null : this.name.getValue();
-        }
-
-        public void setNameSimple(String value) { 
-            if (this.name == null)
-              this.name = new String_();
-            this.name.setValue(value);
-        }
-
-        public Enumeration<SearchParamType> getType() { 
-          return this.type;
-        }
-
-        public void setType(Enumeration<SearchParamType> value) { 
-          this.type = value;
-        }
-
-        public SearchParamType getTypeSimple() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        public void setTypeSimple(SearchParamType value) { 
-            if (this.type == null)
-              this.type = new Enumeration<SearchParamType>();
-            this.type.setValue(value);
-        }
-
-        public String_ getDocumentation() { 
-          return this.documentation;
-        }
-
-        public void setDocumentation(String_ value) { 
-          this.documentation = value;
-        }
-
-        public String getDocumentationSimple() { 
-          return this.documentation == null ? null : this.documentation.getValue();
-        }
-
-        public void setDocumentationSimple(String value) { 
-            if (this.documentation == null)
-              this.documentation = new String_();
-            this.documentation.setValue(value);
-        }
-
-      public ProfileStructureSearchParamComponent copy(Profile e) {
-        ProfileStructureSearchParamComponent dst = e.new ProfileStructureSearchParamComponent();
-        dst.name = name == null ? null : name.copy();
-        dst.type = type == null ? null : type.copy();
-        dst.documentation = documentation == null ? null : documentation.copy();
         return dst;
       }
 

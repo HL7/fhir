@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
+// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ public class Device extends Resource {
 
     public class DeviceIdentityComponent extends Element {
         /**
-         * The number assigned to this device by an authorised issuer of Device GITNs
+         * The number assigned to this device by an authorised issuer of Device GTINs, based on the standards set by GS1
          */
         protected String_ gtin;
 
@@ -53,11 +53,6 @@ public class Device extends Resource {
          * The serial number assigned by the organisation when the device was manufactured
          */
         protected String_ serialNumber;
-
-        /**
-         * Date of expiry of this device (if applicable)
-         */
-        protected Date expiry;
 
         public String_ getGtin() { 
           return this.gtin;
@@ -121,34 +116,11 @@ public class Device extends Resource {
             this.serialNumber.setValue(value);
         }
 
-        public Date getExpiry() { 
-          return this.expiry;
-        }
-
-        public void setExpiry(Date value) { 
-          this.expiry = value;
-        }
-
-        public String getExpirySimple() { 
-          return this.expiry == null ? null : this.expiry.getValue();
-        }
-
-        public void setExpirySimple(String value) { 
-          if (value == null)
-            this.expiry = null;
-          else {
-            if (this.expiry == null)
-              this.expiry = new Date();
-            this.expiry.setValue(value);
-          }
-        }
-
       public DeviceIdentityComponent copy(Device e) {
         DeviceIdentityComponent dst = e.new DeviceIdentityComponent();
         dst.gtin = gtin == null ? null : gtin.copy();
         dst.lot = lot == null ? null : lot.copy();
         dst.serialNumber = serialNumber == null ? null : serialNumber.copy();
-        dst.expiry = expiry == null ? null : expiry.copy();
         return dst;
       }
 
@@ -173,6 +145,11 @@ public class Device extends Resource {
      * The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware
      */
     protected String_ version;
+
+    /**
+     * Date of expiry of this device (if applicable)
+     */
+    protected Date expiry;
 
     /**
      * Universal Device Id fields
@@ -283,6 +260,28 @@ public class Device extends Resource {
       }
     }
 
+    public Date getExpiry() { 
+      return this.expiry;
+    }
+
+    public void setExpiry(Date value) { 
+      this.expiry = value;
+    }
+
+    public String getExpirySimple() { 
+      return this.expiry == null ? null : this.expiry.getValue();
+    }
+
+    public void setExpirySimple(String value) { 
+      if (value == null)
+        this.expiry = null;
+      else {
+        if (this.expiry == null)
+          this.expiry = new Date();
+        this.expiry.setValue(value);
+      }
+    }
+
     public DeviceIdentityComponent getIdentity() { 
       return this.identity;
     }
@@ -351,6 +350,7 @@ public class Device extends Resource {
         dst.manufacturer = manufacturer == null ? null : manufacturer.copy();
         dst.model = model == null ? null : model.copy();
         dst.version = version == null ? null : version.copy();
+        dst.expiry = expiry == null ? null : expiry.copy();
         dst.identity = identity == null ? null : identity.copy(dst);
         dst.owner = owner == null ? null : owner.copy();
         dst.assignedId = new ArrayList<Identifier>();

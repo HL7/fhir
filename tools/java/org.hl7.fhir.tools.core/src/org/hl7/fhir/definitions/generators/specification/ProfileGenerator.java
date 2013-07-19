@@ -60,9 +60,7 @@ import org.hl7.fhir.instance.model.Profile.ElementDefinitionMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ExtensionContext;
 import org.hl7.fhir.instance.model.Profile.ProfileBindingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
-import org.hl7.fhir.instance.model.Profile.ProfileStructureSearchParamComponent;
 import org.hl7.fhir.instance.model.Profile.ResourceSlicingRules;
-import org.hl7.fhir.instance.model.Profile.SearchParamType;
 import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.Utilities;
@@ -116,10 +114,6 @@ public class ProfileGenerator {
         c.setName(Factory.newString_(resource.getRoot().getProfileName()));
       // no purpose element here
       defineElement(profile, p, c, resource.getRoot(), resource.getName(), addBase, containedSlices);
-
-      for (SearchParameter i : resource.getSearchParams().values()) {
-        c.getSearchParam().add(makeSearchParam(p, i));
-      }
     }
     containedSlices.clear();
     for (ElementDefn elem : profile.getElements()) {
@@ -156,30 +150,6 @@ public class ProfileGenerator {
     p.getText().setStatusSimple(NarrativeStatus.generated);
     p.getText().setDiv(div);
     return p;
-  }
-
-  private ProfileStructureSearchParamComponent makeSearchParam(Profile p, SearchParameter i) {
-    ProfileStructureSearchParamComponent result = p.new ProfileStructureSearchParamComponent();
-    result.setName(Factory.newString_(i.getCode()));
-    result.setTypeSimple(getSearchParamType(i.getType()));
-    result.setDocumentation(Factory.newString_(i.getDescription()));
-    // todo: path
-    return result;
-  }
-
-
-
-  private SearchParamType getSearchParamType(SearchType type) {
-    switch (type) {
-    case integer: return SearchParamType.integer;
-    case string: return SearchParamType.string;
-    case text: return SearchParamType.text;
-    case date: return SearchParamType.date;
-    case reference: return SearchParamType.reference;
-    case token: return SearchParamType.token;
-    case composite: return SearchParamType.composite;
-    }
-    return null;
   }
 
   private ProfileBindingComponent generateBinding(BindingSpecification src, Profile p) throws Exception {

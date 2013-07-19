@@ -22,7 +22,7 @@
     <condition>
       <type>
       <coding>
-        <system value="http://snomed.info"/>
+        <system value="http://snomed.info/id"/>
         <code value="315619001"/>
         <display value="Myocardial Infarction"/>
       </coding>

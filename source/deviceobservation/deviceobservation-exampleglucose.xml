@@ -28,7 +28,7 @@
                     <Observation id="o1">
                         <name>
                             <coding>
-                                <system value="http://snomed.info"/> <!--   snomed   -->
+                                <system value="http://snomed.info/id"/> <!--   snomed   -->
                                 <code value="308113006"/>
                                 <display value="Self Monitoring Blood glucose"/>
                             </coding>
@@ -38,7 +38,7 @@
                         <component>
                             <name>
                                 <coding>
-                                    <system value="http://snomed.info"/> <!--   snomed   -->
+                                    <system value="http://snomed.info/id"/> <!--   snomed   -->
                                     <code value="308113006"/>
                                     <display value="Self Monitoring Blood glucose"/>
                                 </coding>
@@ -91,7 +91,7 @@
                     <Observation id="o2">
                         <name>
                             <coding>
-                                <system value="http://snomed.info"/> <!--   snomed   -->
+                                <system value="http://snomed.info/id"/> <!--   snomed   -->
                                 <code value="308113006"/>
                                 <display value="Self Monitoring Blood glucose"/>
                             </coding>
@@ -101,7 +101,7 @@
                         <component>
                             <name>
                                 <coding>
-                                    <system value="http://snomed.info"/> <!--   snomed   -->
+                                    <system value="http://snomed.info/id"/> <!--   snomed   -->
                                     <code value="308113006"/>
                                     <display value="Self Monitoring Blood glucose"/>
                                 </coding>

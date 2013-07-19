@@ -323,7 +323,7 @@ and interpretation tasks to track which minor release (version) of the code syst
 </p>
 <p>
 For SNOMED-CT, the minor release (and optionally module/release) are indicated as part of the 
-<i>system</i> element using the http://snomed.info identifier as defined by SNOMED-CT. For
+<i>system</i> element using the http://snomed.info/id identifier as defined by SNOMED-CT. For
 all other code systems, the <i>version</i> element is used to indicate the minor release. 
 In the absence of a specified version release format by the code system (such as 2.36 for 
 LOINC), the release date is to be used.
@@ -360,7 +360,7 @@ particular context by <a href="terminologies.htm">binding</a> the element to a v
 <p>A SNOMED-CT expression:</p>
 <pre class="xml" fragment="Coding">
   &lt;problem&gt;
-    &lt;system value="http://snomed.info" /&gt;
+    &lt;system value="http://snomed.info/id" /&gt;
     &lt;code value="128045006:{363698007=56459004}" /&gt;
   &lt;/problem&gt;
 </pre>
@@ -427,7 +427,7 @@ particular context by <a href="terminologies.htm">binding</a> the element to a v
       &lt;code value="R51" /&gt;
     &lt;/coding&gt;
     &lt;coding id="a1"&gt;
-      &lt;system value="http://snomed.info" /&gt;
+      &lt;system value="http://snomed.info/id" /&gt;
       &lt;code value="25064002" /&gt;
       &lt;display value="Headache" /&gt;
     &lt;/coding&gt;
@@ -452,7 +452,7 @@ particular context by <a href="terminologies.htm">binding</a> the element to a v
 <pre class="xml" fragment="CodeableConcept">
   &lt;diagnosis&gt;
     &lt;coding&gt;
-      &lt;system value="http://snomed.info" /&gt;
+      &lt;system value="http://snomed.info/id" /&gt;
       &lt;code value="128045006:{363698007=56459004}" /&gt;
     &lt;/coding&gt;
     &lt;text value="Cellulitis of the foot" /&gt;
@@ -580,7 +580,7 @@ These are used as types in resource content models, but they are really just a Q
   &lt;dose&gt;
     &lt;value value="3" /&gt;
     &lt;units value="capsules" /&gt;
-    &lt;system value="http://snomed.info" /&gt;
+    &lt;system value="http://snomed.info/id" /&gt;
     &lt;code value="385049006" /&gt;
   &lt;/dose&gt;
 </pre>

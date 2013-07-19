@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
+// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -141,7 +141,7 @@ public class Conformance extends Resource {
         create, // Create a new resource with a server assigned id
         search, // Supports search operations using the parameters described in the profile
         transaction, // Transaction performed on multiple resources
-        historyMinusssytem, // Get a list of updates to all resources on the system
+        historyMinussystem, // Get a list of updates to all resources on the system
         Null; // added to help the parsers
         public static RestfulOperation fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -166,8 +166,8 @@ public class Conformance extends Resource {
           return search;
         if ("transaction".equals(codeString))
           return transaction;
-        if ("history-ssytem".equals(codeString))
-          return historyMinusssytem;
+        if ("history-system".equals(codeString))
+          return historyMinussystem;
         throw new Exception("Unknown RestfulOperation code '"+codeString+"'");
         }
         public String toCode() {
@@ -182,7 +182,7 @@ public class Conformance extends Resource {
             case create: return "create";
             case search: return "search";
             case transaction: return "transaction";
-            case historyMinusssytem: return "history-ssytem";
+            case historyMinussystem: return "history-system";
             default: return "?";
           }
         }
@@ -213,8 +213,8 @@ public class Conformance extends Resource {
           return RestfulOperation.search;
         if ("transaction".equals(codeString))
           return RestfulOperation.transaction;
-        if ("history-ssytem".equals(codeString))
-          return RestfulOperation.historyMinusssytem;
+        if ("history-system".equals(codeString))
+          return RestfulOperation.historyMinussystem;
         throw new Exception("Unknown RestfulOperation code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -238,8 +238,8 @@ public class Conformance extends Resource {
         return "search";
       if (code == RestfulOperation.transaction)
         return "transaction";
-      if (code == RestfulOperation.historyMinusssytem)
-        return "history-ssytem";
+      if (code == RestfulOperation.historyMinussystem)
+        return "history-system";
       return "?";
       }
     }
@@ -589,6 +589,11 @@ public class Conformance extends Resource {
          */
         protected Boolean history;
 
+        /**
+         * Definition of a named query and it's parameters and their meaning
+         */
+        protected List<ConformanceRestQueryComponent> query = new ArrayList<ConformanceRestQueryComponent>();
+
         public Enumeration<RestfulConformanceMode> getMode() { 
           return this.mode;
         }
@@ -685,6 +690,10 @@ public class Conformance extends Resource {
           }
         }
 
+        public List<ConformanceRestQueryComponent> getQuery() { 
+          return this.query;
+        }
+
       public ConformanceRestComponent copy(Conformance e) {
         ConformanceRestComponent dst = e.new ConformanceRestComponent();
         dst.mode = mode == null ? null : mode.copy();
@@ -695,6 +704,9 @@ public class Conformance extends Resource {
           dst.resource.add(i.copy(e));
         dst.batch = batch == null ? null : batch.copy();
         dst.history = history == null ? null : history.copy();
+        dst.query = new ArrayList<ConformanceRestQueryComponent>();
+        for (ConformanceRestQueryComponent i : query)
+          dst.query.add(i.copy(e));
         return dst;
       }
 
@@ -1016,6 +1028,11 @@ public class Conformance extends Resource {
         protected String_ documentation;
 
         /**
+         * An XPath expression that extracts the set of elements that contain values that a search parameter matches
+         */
+        protected String_ xpath;
+
+        /**
          * Types of resource (if a resource reference)
          */
         protected List<Code> target = new ArrayList<Code>();
@@ -1101,6 +1118,28 @@ public class Conformance extends Resource {
             this.documentation.setValue(value);
         }
 
+        public String_ getXpath() { 
+          return this.xpath;
+        }
+
+        public void setXpath(String_ value) { 
+          this.xpath = value;
+        }
+
+        public String getXpathSimple() { 
+          return this.xpath == null ? null : this.xpath.getValue();
+        }
+
+        public void setXpathSimple(String value) { 
+          if (value == null)
+            this.xpath = null;
+          else {
+            if (this.xpath == null)
+              this.xpath = new String_();
+            this.xpath.setValue(value);
+          }
+        }
+
         public List<Code> getTarget() { 
           return this.target;
         }
@@ -1115,12 +1154,81 @@ public class Conformance extends Resource {
         dst.source = source == null ? null : source.copy();
         dst.type = type == null ? null : type.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
+        dst.xpath = xpath == null ? null : xpath.copy();
         dst.target = new ArrayList<Code>();
         for (Code i : target)
           dst.target.add(i.copy());
         dst.chain = new ArrayList<String_>();
         for (String_ i : chain)
           dst.chain.add(i.copy());
+        return dst;
+      }
+
+  }
+
+    public class ConformanceRestQueryComponent extends Element {
+        /**
+         * The name of this query, which is used in the _query parameter when the query is used
+         */
+        protected String_ name;
+
+        /**
+         * Description of the query - the functionality it offers, and considerations about how it functions and to use it
+         */
+        protected String_ documentation;
+
+        /**
+         * Parameter for the named query
+         */
+        protected List<ConformanceRestResourceSearchParamComponent> parameter = new ArrayList<ConformanceRestResourceSearchParamComponent>();
+
+        public String_ getName() { 
+          return this.name;
+        }
+
+        public void setName(String_ value) { 
+          this.name = value;
+        }
+
+        public String getNameSimple() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        public void setNameSimple(String value) { 
+            if (this.name == null)
+              this.name = new String_();
+            this.name.setValue(value);
+        }
+
+        public String_ getDocumentation() { 
+          return this.documentation;
+        }
+
+        public void setDocumentation(String_ value) { 
+          this.documentation = value;
+        }
+
+        public String getDocumentationSimple() { 
+          return this.documentation == null ? null : this.documentation.getValue();
+        }
+
+        public void setDocumentationSimple(String value) { 
+            if (this.documentation == null)
+              this.documentation = new String_();
+            this.documentation.setValue(value);
+        }
+
+        public List<ConformanceRestResourceSearchParamComponent> getParameter() { 
+          return this.parameter;
+        }
+
+      public ConformanceRestQueryComponent copy(Conformance e) {
+        ConformanceRestQueryComponent dst = e.new ConformanceRestQueryComponent();
+        dst.name = name == null ? null : name.copy();
+        dst.documentation = documentation == null ? null : documentation.copy();
+        dst.parameter = new ArrayList<ConformanceRestResourceSearchParamComponent>();
+        for (ConformanceRestResourceSearchParamComponent i : parameter)
+          dst.parameter.add(i.copy(e));
         return dst;
       }
 

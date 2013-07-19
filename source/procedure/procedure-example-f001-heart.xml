@@ -7,14 +7,14 @@
     </subject>
         <type>
             <coding>
-                <system value="http://snomed.info"/>
+                <system value="http://snomed.info/id"/>
                 <code value="34068001"/>
                 <display value="Heart valve replacement"/>
             </coding>
         </type>
         <bodySite>
             <coding>
-                <system value="http://snomed.info"/>
+                <system value="http://snomed.info/id"/>
                 <code value="17401000"/>
                 <display value="Heart valve structure"/>
             </coding>

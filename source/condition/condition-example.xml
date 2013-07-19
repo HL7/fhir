@@ -10,7 +10,7 @@
   </subject>
   <code> 
     <coding>
-      <system value="http://snomed.info"/>
+      <system value="http://snomed.info/id"/>
       <code value="39065001"/>
       <display value="Burn of ear"/>
     </coding>
@@ -24,7 +24,7 @@
    </coding>
    <!-- and also a snomed coding -->
    <coding>
-    <system value="http://snomed.info"/>
+    <system value="http://snomed.info/id"/>
     <code value="439401001"/> 
     <display value="Diagnosis"/>
    </coding>
@@ -32,7 +32,7 @@
  <status value="confirmed"/>
  <severity>
    <coding>
-    <system value="http://snomed.info"/>
+    <system value="http://snomed.info/id"/>
     <code value="24484000"/>
     <display value="Severe"/>
    </coding>
@@ -41,7 +41,7 @@
  <location>
   <code>
     <coding>
-      <system value="http://snomed.info"/>
+      <system value="http://snomed.info/id"/>
       <code value="49521004"/>
       <display value="Left external ear structure"/>
     </coding>

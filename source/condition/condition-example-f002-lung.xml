@@ -17,14 +17,14 @@
     <dateAsserted value="2012-06-03"/>
     <code>
         <coding>
-            <system value="http://snomed.info"/>
+            <system value="http://snomed.info/id"/>
             <code value="254637007"/>
             <display value="NSCLC - Non-small cell lung cancer"/>
         </coding>
     </code>
     <category>
         <coding>
-            <system value="http://snomed.info"/>
+            <system value="http://snomed.info/id"/>
             <code value="diagnosis"/>
             <display value="439401001"/>
         </coding>
@@ -32,7 +32,7 @@
     <status value="confirmed"/>
     <severity>
         <coding>
-            <system value="http://snomed.info"/>
+            <system value="http://snomed.info/id"/>
             <code value="24484000"/>
             <display value="Severe"/>
         </coding>
@@ -41,7 +41,7 @@
     <stage>
         <summary>
             <coding>
-                <system value="http://snomed.info"/>
+                <system value="http://snomed.info/id"/>
                 <code value="stage II"/>
                 <display value="258219007"/>
             </coding>
@@ -50,7 +50,7 @@
     <evidence>
         <code>
             <coding>
-                <system value="http://snomed.info"/>
+                <system value="http://snomed.info/id"/>
                 <code value="169069000"/>
                 <display value="CT of thorax"/>
             </coding>
@@ -59,7 +59,7 @@
     <location>
         <code>
             <coding>
-                <system value="http://snomed.info"/>
+                <system value="http://snomed.info/id"/>
                 <code value="51185008"/>
                 <display value="Thorax"/>    
             </coding>

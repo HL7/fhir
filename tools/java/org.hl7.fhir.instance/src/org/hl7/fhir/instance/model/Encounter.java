@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
+// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -333,11 +333,6 @@ public class Encounter extends Resource {
         protected Identifier preAdmissionIdentifier;
 
         /**
-         * Tests to be done before admission
-         */
-        protected CodeableConcept preAdmissionTest;
-
-        /**
          * The location the patient came from before admission
          */
         protected ResourceReference origin;
@@ -393,14 +388,6 @@ public class Encounter extends Resource {
 
         public void setPreAdmissionIdentifier(Identifier value) { 
           this.preAdmissionIdentifier = value;
-        }
-
-        public CodeableConcept getPreAdmissionTest() { 
-          return this.preAdmissionTest;
-        }
-
-        public void setPreAdmissionTest(CodeableConcept value) { 
-          this.preAdmissionTest = value;
         }
 
         public ResourceReference getOrigin() { 
@@ -488,7 +475,6 @@ public class Encounter extends Resource {
       public EncounterHospitalizationComponent copy(Encounter e) {
         EncounterHospitalizationComponent dst = e.new EncounterHospitalizationComponent();
         dst.preAdmissionIdentifier = preAdmissionIdentifier == null ? null : preAdmissionIdentifier.copy();
-        dst.preAdmissionTest = preAdmissionTest == null ? null : preAdmissionTest.copy();
         dst.origin = origin == null ? null : origin.copy();
         dst.admitSource = admitSource == null ? null : admitSource.copy();
         dst.period = period == null ? null : period.copy();

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
+// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -298,7 +298,7 @@ public class DiagnosticReport extends Resource {
     /**
      * The date and/or time that this version of the report was released from the source diagnostic service
      */
-    protected Instant issued;
+    protected DateTime issued;
 
     /**
      * The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources
@@ -373,21 +373,21 @@ public class DiagnosticReport extends Resource {
         this.status.setValue(value);
     }
 
-    public Instant getIssued() { 
+    public DateTime getIssued() { 
       return this.issued;
     }
 
-    public void setIssued(Instant value) { 
+    public void setIssued(DateTime value) { 
       this.issued = value;
     }
 
-    public Calendar getIssuedSimple() { 
+    public String getIssuedSimple() { 
       return this.issued == null ? null : this.issued.getValue();
     }
 
-    public void setIssuedSimple(Calendar value) { 
+    public void setIssuedSimple(String value) { 
         if (this.issued == null)
-          this.issued = new Instant();
+          this.issued = new DateTime();
         this.issued.setValue(value);
     }
 

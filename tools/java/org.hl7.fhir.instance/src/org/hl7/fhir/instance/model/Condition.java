@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
+// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -181,7 +181,7 @@ public class Condition extends Resource {
         /**
          * Links to other relevant information, including pathology reports
          */
-        protected List<ResourceReference> details = new ArrayList<ResourceReference>();
+        protected List<ResourceReference> detail = new ArrayList<ResourceReference>();
 
         public CodeableConcept getCode() { 
           return this.code;
@@ -191,16 +191,16 @@ public class Condition extends Resource {
           this.code = value;
         }
 
-        public List<ResourceReference> getDetails() { 
-          return this.details;
+        public List<ResourceReference> getDetail() { 
+          return this.detail;
         }
 
       public ConditionEvidenceComponent copy(Condition e) {
         ConditionEvidenceComponent dst = e.new ConditionEvidenceComponent();
         dst.code = code == null ? null : code.copy();
-        dst.details = new ArrayList<ResourceReference>();
-        for (ResourceReference i : details)
-          dst.details.add(i.copy());
+        dst.detail = new ArrayList<ResourceReference>();
+        for (ResourceReference i : detail)
+          dst.detail.add(i.copy());
         return dst;
       }
 
@@ -215,7 +215,7 @@ public class Condition extends Resource {
         /**
          * Detailed anatomical location information
          */
-        protected String_ details;
+        protected String_ detail;
 
         public CodeableConcept getCode() { 
           return this.code;
@@ -225,32 +225,32 @@ public class Condition extends Resource {
           this.code = value;
         }
 
-        public String_ getDetails() { 
-          return this.details;
+        public String_ getDetail() { 
+          return this.detail;
         }
 
-        public void setDetails(String_ value) { 
-          this.details = value;
+        public void setDetail(String_ value) { 
+          this.detail = value;
         }
 
-        public String getDetailsSimple() { 
-          return this.details == null ? null : this.details.getValue();
+        public String getDetailSimple() { 
+          return this.detail == null ? null : this.detail.getValue();
         }
 
-        public void setDetailsSimple(String value) { 
+        public void setDetailSimple(String value) { 
           if (value == null)
-            this.details = null;
+            this.detail = null;
           else {
-            if (this.details == null)
-              this.details = new String_();
-            this.details.setValue(value);
+            if (this.detail == null)
+              this.detail = new String_();
+            this.detail.setValue(value);
           }
         }
 
       public ConditionLocationComponent copy(Condition e) {
         ConditionLocationComponent dst = e.new ConditionLocationComponent();
         dst.code = code == null ? null : code.copy();
-        dst.details = details == null ? null : details.copy();
+        dst.detail = detail == null ? null : detail.copy();
         return dst;
       }
 

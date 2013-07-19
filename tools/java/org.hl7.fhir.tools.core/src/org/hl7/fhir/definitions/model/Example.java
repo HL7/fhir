@@ -76,7 +76,7 @@ public class Example {
       path = tmp;
     }
     
-    if (!path.getName().equals("profiles-resources.xml")) {//profiles-resources is going to produced later and is a feed
+    if (type != ExampleType.Tool) {//profiles-resources is going to produced later and is a feed
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
       factory.setNamespaceAware(true);
       try {

@@ -197,7 +197,7 @@
   </define>
   <compose>
     <include>
-      <system value="http://snomed.info"/>
+      <system value="http://snomed.info/id"/>
       <code value="394802001">
         <extension>
           <!-- just to hook in the snomed display name, until build issues with snomed are resolved -->

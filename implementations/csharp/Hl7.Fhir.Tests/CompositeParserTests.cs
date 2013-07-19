@@ -154,7 +154,7 @@ namespace Hl7.Fhir.Tests
                         <code value=""R51"" />
                     </coding>
                     <coding id='1'>
-                        <system value=""http://snomed.info"" />
+                        <system value=""http://snomed.info/id"" />
                         <code value=""25064002"" />
                     </coding>
                 </testCodeableConcept>";
@@ -165,7 +165,7 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual(2, result.Coding.Count);
             Assert.AreEqual("R51", result.Coding[0].Code);
             Assert.AreEqual("25064002", result.Coding[1].Code);
-            Assert.AreEqual("http://snomed.info/", result.Coding[1].System.ToString());
+            Assert.AreEqual("http://snomed.info/id/", result.Coding[1].System.ToString());
             Assert.AreEqual("1", result.Coding[1].LocalId.ToString());
 
 
@@ -174,7 +174,7 @@ namespace Hl7.Fhir.Tests
                         { ""system"" : { ""value"" : ""http://hl7.org/fhir/sid/icd-10"" },
                           ""code"" : { ""value"" : ""R51"" } },
                         { ""_id"" : ""1"", 
-                          ""system"": { ""value"" : ""http://snomed.info"" },
+                          ""system"": { ""value"" : ""http://snomed.info/id"" },
                           ""code"" : { ""value"" : ""25064002"" } } ]
                     } }";
 
@@ -184,7 +184,7 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual(2, result.Coding.Count);
             Assert.AreEqual("R51", result.Coding[0].Code);
             Assert.AreEqual("25064002", result.Coding[1].Code);
-            Assert.AreEqual("http://snomed.info/", result.Coding[1].System.ToString());
+            Assert.AreEqual("http://snomed.info/id/", result.Coding[1].System.ToString());
             Assert.AreEqual("1", result.Coding[1].LocalId.ToString());
         }
         
@@ -199,7 +199,7 @@ namespace Hl7.Fhir.Tests
                         <code value='R51' />
                     </coding>
                     <coding id='1'>
-                        <system value='http://snomed.info' />
+                        <system value='http://snomed.info/id' />
                         <code value='25064002' />
                     </coding>
                     <grahame></grahame>
@@ -218,7 +218,7 @@ namespace Hl7.Fhir.Tests
                           ""code"" : { ""value"" : ""R51"" } 
                         },
                         { ""_id"" : ""1"", 
-                          ""system"": { ""value"" : ""http://snomed.info"" }, 
+                          ""system"": { ""value"" : ""http://snomed.info/id"" }, 
                           ""code"" : { ""value"" : ""25064002""  }
                         } ],
                        ""grahame"" : { ""value"" : ""x"" } } }";

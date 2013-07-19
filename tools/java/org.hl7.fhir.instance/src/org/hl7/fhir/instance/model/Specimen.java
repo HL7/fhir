@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
+// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -38,32 +38,74 @@ import java.util.*;
  */
 public class Specimen extends Resource {
 
+    public enum HierarchicalRelationshipType {
+        parent, // The target resource is the parent of the focal specimen resource
+        child, // The target resource is the child of the focal specimen resource
+        Null; // added to help the parsers
+        public static HierarchicalRelationshipType fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("parent".equals(codeString))
+          return parent;
+        if ("child".equals(codeString))
+          return child;
+        throw new Exception("Unknown HierarchicalRelationshipType code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case parent: return "parent";
+            case child: return "child";
+            default: return "?";
+          }
+        }
+    }
+
+  public class HierarchicalRelationshipTypeEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("parent".equals(codeString))
+          return HierarchicalRelationshipType.parent;
+        if ("child".equals(codeString))
+          return HierarchicalRelationshipType.child;
+        throw new Exception("Unknown HierarchicalRelationshipType code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == HierarchicalRelationshipType.parent)
+        return "parent";
+      if (code == HierarchicalRelationshipType.child)
+        return "child";
+      return "?";
+      }
+    }
+
     public class SpecimenSourceComponent extends Element {
         /**
-         * Parent | Child
+         * Whether this relationship is to a parent or to a child
          */
-        protected Code relationship;
+        protected Enumeration<HierarchicalRelationshipType> relationship;
 
         /**
          * The specimen resource that is the target of this relationship
          */
         protected List<ResourceReference> target = new ArrayList<ResourceReference>();
 
-        public Code getRelationship() { 
+        public Enumeration<HierarchicalRelationshipType> getRelationship() { 
           return this.relationship;
         }
 
-        public void setRelationship(Code value) { 
+        public void setRelationship(Enumeration<HierarchicalRelationshipType> value) { 
           this.relationship = value;
         }
 
-        public String getRelationshipSimple() { 
+        public HierarchicalRelationshipType getRelationshipSimple() { 
           return this.relationship == null ? null : this.relationship.getValue();
         }
 
-        public void setRelationshipSimple(String value) { 
+        public void setRelationshipSimple(HierarchicalRelationshipType value) { 
             if (this.relationship == null)
-              this.relationship = new Code();
+              this.relationship = new Enumeration<HierarchicalRelationshipType>();
             this.relationship.setValue(value);
         }
 
@@ -91,7 +133,7 @@ public class Specimen extends Resource {
         /**
          * To communicate any details or issues encountered during the specimen collection procedure.
          */
-        protected List<String_> comments = new ArrayList<String_>();
+        protected List<String_> comment = new ArrayList<String_>();
 
         /**
          * Time when specimen was collected from subject - the physiologically relevant time
@@ -121,8 +163,8 @@ public class Specimen extends Resource {
           this.collector = value;
         }
 
-        public List<String_> getComments() { 
-          return this.comments;
+        public List<String_> getComment() { 
+          return this.comment;
         }
 
         public DateTime getCollectedTime() { 
@@ -170,9 +212,9 @@ public class Specimen extends Resource {
       public SpecimenCollectionComponent copy(Specimen e) {
         SpecimenCollectionComponent dst = e.new SpecimenCollectionComponent();
         dst.collector = collector == null ? null : collector.copy();
-        dst.comments = new ArrayList<String_>();
-        for (String_ i : comments)
-          dst.comments.add(i.copy());
+        dst.comment = new ArrayList<String_>();
+        for (String_ i : comment)
+          dst.comment.add(i.copy());
         dst.collectedTime = collectedTime == null ? null : collectedTime.copy();
         dst.quantity = quantity == null ? null : quantity.copy();
         dst.method = method == null ? null : method.copy();
@@ -271,19 +313,9 @@ public class Specimen extends Resource {
         protected Quantity specimenQuantity;
 
         /**
-         * Identifiers the position of the container (eg aliquot within tray)
-         */
-        protected Identifier position;
-
-        /**
          * Additive associated with the container
          */
         protected ResourceReference additive;
-
-        /**
-         * Identifies the parent container of a specimen container. Eg, the rack that contains a tray
-         */
-        protected Identifier parentContainer;
 
         public List<Identifier> getIdentifier() { 
           return this.identifier;
@@ -335,28 +367,12 @@ public class Specimen extends Resource {
           this.specimenQuantity = value;
         }
 
-        public Identifier getPosition() { 
-          return this.position;
-        }
-
-        public void setPosition(Identifier value) { 
-          this.position = value;
-        }
-
         public ResourceReference getAdditive() { 
           return this.additive;
         }
 
         public void setAdditive(ResourceReference value) { 
           this.additive = value;
-        }
-
-        public Identifier getParentContainer() { 
-          return this.parentContainer;
-        }
-
-        public void setParentContainer(Identifier value) { 
-          this.parentContainer = value;
         }
 
       public SpecimenContainerComponent copy(Specimen e) {
@@ -368,9 +384,7 @@ public class Specimen extends Resource {
         dst.type = type == null ? null : type.copy();
         dst.capacity = capacity == null ? null : capacity.copy();
         dst.specimenQuantity = specimenQuantity == null ? null : specimenQuantity.copy();
-        dst.position = position == null ? null : position.copy();
         dst.additive = additive == null ? null : additive.copy();
-        dst.parentContainer = parentContainer == null ? null : parentContainer.copy();
         return dst;
       }
 
@@ -382,7 +396,7 @@ public class Specimen extends Resource {
     protected Identifier identifier;
 
     /**
-     * Category of specimen material
+     * The type of the specimen. This is sometimes called the "matrix"
      */
     protected CodeableConcept type;
 

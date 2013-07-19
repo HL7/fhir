@@ -8,7 +8,7 @@
   </text>
   <code>
     <coding>
-      <system value="http://snomed.info"/>
+      <system value="http://snomed.info/id"/>
       <code value="182836005"/>
       <display value="Review of medication"/>
     </coding>

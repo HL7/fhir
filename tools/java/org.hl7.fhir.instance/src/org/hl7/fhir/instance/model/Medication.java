@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
+// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -39,8 +39,8 @@ import java.util.*;
 public class Medication extends Resource {
 
     public enum MedicationKind {
-        product, // 
-        package_, // 
+        product, // The medication is a product
+        package_, // The medication is a package - a contained group of one of more products
         Null; // added to help the parsers
         public static MedicationKind fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))

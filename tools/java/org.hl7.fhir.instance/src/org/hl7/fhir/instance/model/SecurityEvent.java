@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
+// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -287,30 +287,30 @@ public class SecurityEvent extends Resource {
     }
 
     public enum ObjectRole {
-        _1, // A person or animal that is the subject of care for the event
-        _2, // A physical or logical location related to the event
-        _3, // A resource that is immutable and stored
-        _4, // A resource that is either changeable or not even persisted
-        _5, // An administrative record
-        _6, // A logical agent involved in the event   (deprecated)
+        _1, // This object is the patient that is the subject of care related to this event.  It is identifiable by patient ID or equivalent.  The patient may be either human or animal
+        _2, // This is a location identified as related to the event.  This is usually the location where the event took place.  Note that for shipping, the usual events are arrival at a location or departure from a location.
+        _3, // This object is any kind of persistent document created as a result of the event.  This could be a paper report, film, electronic report, DICOM Study, etc.  Issues related to medical records life cycle management are conveyed elsewhere.
+        _4, // A logical object related to the event.  (Deprecated)
+        _5, // This is any configurable file used to control creation of documents.  Examples include the objects maintained by the HL7 Master File transactions, Value Sets, etc.
+        _6, // A human participant not otherwise identified by some other category
         _7, // (deprecated)
-        _8, // A person providing healthcare related to the event (deprecated)
-        _9, // A system requesting/receiving notification related to the event
-        _10, // A person or organisation who accepts responsibility for paying for healthcare provision the event contributes to
-        _11, // A logical agent involved in the event
-        _12, // A user-role related to the event
-        _13, // A policy (e.g. consent directive) related to the event
-        _14, // Deprecated
-        _15, // A human or organization providing care the event occurs in the context of
-        _16, // A system that was the target of communications related to the event
-        _17, // A system holding resources related to the event
-        _18, // A schedule resource related to the event
-        _19, // A person or animal that is the subject of services (not patient) related to the event
-        _20, // A task in an IT system related to the event
-        _21, // A sub-task in an IT system related to the event
-        _22, // A database table related to the event (deprecated)
-        _23, // A rule for how information related to the event is distributed
-        _24, // A request for information related to the event
+        _8, // Typically a licensed person who is providing or performing care related to the event, generally a physician.   The key distinction between doctor and practitioner is with regards to their role, not the licensing.  The doctor is the human who actually performed the work.  The practitioner is the human or organization that is responsible for the work.
+        _9, // A person or system that is being notified as part of the event.  This is relevant in situations where automated systems provide notifications to other parties when an event took place.
+        _10, // Insurance company, or any other organization who accepts responsibility for paying for the healthcare event.
+        _11, // A person or active system object involved in the event with a security role.
+        _12, // A person or system object involved in the event with the authority to modify security roles of other objects.
+        _13, // A passive object, such as a role table, that is relevant to the event.
+        _14, // (deprecated)  Relevant to certain RBAC security methodologies.
+        _15, // Any person or organization responsible for providing care.  This encompasses all forms of care, licensed or otherwise, and all sorts of teams and care groups. Note, the distinction between practitioners and the doctor that actually provided the care to the patient.
+        _16, // The source or destination for data transfer, when it does not match some other role.
+        _17, // A source or destination for data transfer, that acts as an archive, database, or similar role.
+        _18, // An object that holds schedule information.  This could be an appointment book, availability information, etc.
+        _19, // An organization or person that is the recipient of services.  This could be an organization that is buying services for a patient, or a person that is buying services for an animal.
+        _20, // An order, task, work item, procedure step, or other description of work to be performed.  E.g., a particular instance of an MPPS.
+        _21, // A list of jobs or a system that provides lists of jobs.  E.g., an MWL SCP.
+        _22, // (Deprecated)
+        _23, // An object that specifies or controls the routing or delivery of items.  For example, a distribution list is the routing criteria for mail.  The items delivered may be documents, jobs, or other objects.
+        _24, // The contents of a query.  This is used to capture the contents of any kind of query.  For security surveillance purposes knowing the queries being made is very important.
         Null; // added to help the parsers
         public static ObjectRole fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -1142,7 +1142,7 @@ public class SecurityEvent extends Resource {
         /**
          * Additional Information about the Object
          */
-        protected List<SecurityEventObjectDetailsComponent> details = new ArrayList<SecurityEventObjectDetailsComponent>();
+        protected List<SecurityEventObjectDetailComponent> detail = new ArrayList<SecurityEventObjectDetailComponent>();
 
         public Identifier getIdentifier() { 
           return this.identifier;
@@ -1278,8 +1278,8 @@ public class SecurityEvent extends Resource {
           }
         }
 
-        public List<SecurityEventObjectDetailsComponent> getDetails() { 
-          return this.details;
+        public List<SecurityEventObjectDetailComponent> getDetail() { 
+          return this.detail;
         }
 
       public SecurityEventObjectComponent copy(SecurityEvent e) {
@@ -1292,15 +1292,15 @@ public class SecurityEvent extends Resource {
         dst.sensitivity = sensitivity == null ? null : sensitivity.copy();
         dst.name = name == null ? null : name.copy();
         dst.query = query == null ? null : query.copy();
-        dst.details = new ArrayList<SecurityEventObjectDetailsComponent>();
-        for (SecurityEventObjectDetailsComponent i : details)
-          dst.details.add(i.copy(e));
+        dst.detail = new ArrayList<SecurityEventObjectDetailComponent>();
+        for (SecurityEventObjectDetailComponent i : detail)
+          dst.detail.add(i.copy(e));
         return dst;
       }
 
   }
 
-    public class SecurityEventObjectDetailsComponent extends Element {
+    public class SecurityEventObjectDetailComponent extends Element {
         /**
          * Name of the property
          */
@@ -1347,8 +1347,8 @@ public class SecurityEvent extends Resource {
             this.value.setValue(value);
         }
 
-      public SecurityEventObjectDetailsComponent copy(SecurityEvent e) {
-        SecurityEventObjectDetailsComponent dst = e.new SecurityEventObjectDetailsComponent();
+      public SecurityEventObjectDetailComponent copy(SecurityEvent e) {
+        SecurityEventObjectDetailComponent dst = e.new SecurityEventObjectDetailComponent();
         dst.type = type == null ? null : type.copy();
         dst.value = value == null ? null : value.copy();
         return dst;

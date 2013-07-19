@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
+// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -1356,7 +1356,7 @@ public class ImagingStudy extends Resource {
     /**
      * A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19)
      */
-    protected List<Enumeration<ImagingModality>> modalities = new ArrayList<Enumeration<ImagingModality>>();
+    protected List<Enumeration<ImagingModality>> modality = new ArrayList<Enumeration<ImagingModality>>();
 
     /**
      * The requesting/referring physician
@@ -1468,8 +1468,8 @@ public class ImagingStudy extends Resource {
       return this.identifier;
     }
 
-    public List<Enumeration<ImagingModality>> getModalities() { 
-      return this.modalities;
+    public List<Enumeration<ImagingModality>> getModality() { 
+      return this.modality;
     }
 
     public ResourceReference getReferrer() { 
@@ -1629,9 +1629,9 @@ public class ImagingStudy extends Resource {
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());
-        dst.modalities = new ArrayList<Enumeration<ImagingModality>>();
-        for (Enumeration<ImagingModality> i : modalities)
-          dst.modalities.add(i.copy());
+        dst.modality = new ArrayList<Enumeration<ImagingModality>>();
+        for (Enumeration<ImagingModality> i : modality)
+          dst.modality.add(i.copy());
         dst.referrer = referrer == null ? null : referrer.copy();
         dst.availability = availability == null ? null : availability.copy();
         dst.url = url == null ? null : url.copy();

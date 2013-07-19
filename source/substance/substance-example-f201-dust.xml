@@ -3,7 +3,7 @@
   <name value="House Dust"/>
   <type>     
     <coding>
-      <system value="http://snomed.info"/>
+      <system value="http://snomed.info/id"/>
       <code value="406466009"/>
       <display value="House dust allergen"/>
     </coding>

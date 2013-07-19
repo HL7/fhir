@@ -19,7 +19,7 @@
  <participant>  
   <role>
      <coding>
-       <system value="http://snomed.info"/>
+       <system value="http://snomed.info/id"/>
        <code value="425268008"/>
        <display value="Review of care plan"/>
      </coding>
@@ -33,7 +33,7 @@
  <participant>  
   <role>
      <coding>
-       <system value="http://snomed.info"/>
+       <system value="http://snomed.info/id"/>
        <code value="229774002"/>
        <display value="Carer"/>
      </coding>
@@ -52,7 +52,7 @@
   <category value="diet"/>
   <code>
      <coding>
-       <system value="http://snomed.info"/>
+       <system value="http://snomed.info/id"/>
        <code value="284093001"/>
        <display value="Potassium supplement"/>
      </coding>
@@ -69,7 +69,7 @@
   <dailyAmount>
     <value value="80"/>
     <units value="mmol"/>
-    <system value="http://snomed.info"/>
+    <system value="http://snomed.info/id"/>
     <code value="258718000"/>
   </dailyAmount>
  </activity>
@@ -77,7 +77,7 @@
   <category value="observation"/>
   <code>
      <coding>
-       <system value="http://snomed.info"/>
+       <system value="http://snomed.info/id"/>
        <code value="306005"/>
        <display value="Echography of the kidney"/>
      </coding>

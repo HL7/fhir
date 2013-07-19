@@ -20,7 +20,7 @@
  <when>
   <code>
     <coding>
-       <system value="http://snomed.info"/>
+       <system value="http://snomed.info/id"/>
        <code value="394848005"/>
        <display value="Normal priority"/>
     </coding>

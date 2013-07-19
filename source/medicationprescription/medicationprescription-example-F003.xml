@@ -30,7 +30,7 @@
     </encounter>
     <reasonForPrescribing>
         <coding>
-            <system value="http://snomed.info"/>
+            <system value="http://snomed.info/id"/>
             <code value="444780001"/>
             <display value="High glucose level in blood"/>
         </coding>
@@ -53,14 +53,14 @@
         </timing>
         <site>
             <coding>
-                <system value="http://snomed.info"/>
+                <system value="http://snomed.info/id"/>
                 <code value="181220002"/>
                 <display value="Entire oral cavity"/>
             </coding>
         </site>
         <route>
             <coding>
-                <system value="http://snomed.info"/>
+                <system value="http://snomed.info/id"/>
                 <code value="386359008"/>
                 <display value="Administration of drug or medicament via oral route"/>
             </coding>
@@ -78,7 +78,7 @@
         </validityPeriod>
         <quantity>
             <value value="90"/>
-            <system value="http://snomed.info"/> 
+            <system value="http://snomed.info/id"/> 
             <code value="46992007"/>
         </quantity>
     </dispense>   

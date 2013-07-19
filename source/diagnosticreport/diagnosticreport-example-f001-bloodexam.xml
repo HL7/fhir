@@ -46,7 +46,7 @@
         </requestTest>
         <bodySite>
             <coding>
-                <system value="http://snomed.info"/>
+                <system value="http://snomed.info/id"/>
                 <code value="14975008"/>
                 <display value="Forearm structure"/>
             </coding>
@@ -60,7 +60,7 @@
     </requestDetail>
     <serviceCategory>
         <coding>
-            <system value="http://snomed.info"/>
+            <system value="http://snomed.info/id"/>
             <code value="252275004"/>
             <display value="Haematology test"/>
         </coding>

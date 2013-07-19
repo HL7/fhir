@@ -46,6 +46,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.print.attribute.standard.MediaSize.NA;
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -74,7 +75,9 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.EventDefn;
 import org.hl7.fhir.definitions.model.Example;
+import org.hl7.fhir.definitions.model.SearchParameter;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
+import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
 import org.hl7.fhir.definitions.model.ResourceDefn;
@@ -90,6 +93,14 @@ import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Code;
+import org.hl7.fhir.instance.model.Conformance;
+import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
+import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceComponent;
+import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceOperationComponent;
+import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceSearchParamComponent;
+import org.hl7.fhir.instance.model.Conformance.ConformanceStatementStatus;
+import org.hl7.fhir.instance.model.Conformance.RestfulConformanceMode;
+import org.hl7.fhir.instance.model.Conformance.RestfulOperation;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Narrative;
@@ -384,6 +395,107 @@ public class Publisher {
     }
     generateCodeSystemsPart2();
     generateValueSetsPart2();
+    generateConformanceStatement();
+  }
+
+  private void generateConformanceStatement() throws Exception {
+    Conformance conf = new Conformance();
+    conf.setIdentifierSimple("http://hl7.org/fhir/conformance/base");
+    conf.setVersionSimple(page.getVersion()+"-"+page.getSvnRevision());
+    conf.setNameSimple("Base FHIR Conformance Profile");
+    conf.setPublisherSimple("FHIR Project Team");
+    conf.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org/fhir"));
+    conf.setDescriptionSimple("This is the base conformance statement for FHIR. It represents a server that provides the full set of functionality defined by FHIR. It is provided to use as a template for system designers to build their own conformance statements from");
+    conf.setStatusSimple(ConformanceStatementStatus.draft);
+    conf.setDateSimple(new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "US")).format(page.getGenDate().getTime()));
+    conf.setFhirVersionSimple(page.getVersion());
+    conf.setAcceptUnknownSimple(false);
+    conf.getFormat().add(Factory.newCode("xml"));
+    conf.getFormat().add(Factory.newCode("json"));
+    ConformanceRestComponent rest = conf.new ConformanceRestComponent();
+    conf.getRest().add(rest);
+    rest.setModeSimple(RestfulConformanceMode.server);
+    rest.setDocumentationSimple("All the functionality defined in FHIR");
+    rest.setBatchSimple(true);
+    rest.setHistorySimple(true);
+    for (String rn : page.getDefinitions().sortedResourceNames()) {
+      ResourceDefn rd = page.getDefinitions().getResourceByName(rn);
+      ConformanceRestResourceComponent res = conf.new ConformanceRestResourceComponent();
+      rest.getResource().add(res);
+      res.setTypeSimple(rn);
+      res.setProfile(Factory.makeResourceReference("Profile", "http://hl7.org/fhir/"+rn));
+      genConfOp(conf, res, RestfulOperation.read);
+      genConfOp(conf, res, RestfulOperation.vread);
+      genConfOp(conf, res, RestfulOperation.update);
+      genConfOp(conf, res, RestfulOperation.delete);
+      genConfOp(conf, res, RestfulOperation.historyMinusinstance);
+      genConfOp(conf, res, RestfulOperation.validate);
+      genConfOp(conf, res, RestfulOperation.historyMinustype);
+      genConfOp(conf, res, RestfulOperation.create);
+      genConfOp(conf, res, RestfulOperation.search);
+      genConfOp(conf, res, RestfulOperation.transaction);
+      genConfOp(conf, res, RestfulOperation.historyMinussystem);
+
+      for (SearchParameter i : rd.getSearchParams().values()) {
+        res.getSearchParam().add(makeSearchParam(conf, rn, i));
+      }
+    }
+    NarrativeGenerator gen = new NarrativeGenerator();
+    gen.generate(conf);    
+    new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir +"conformance-base.xml"), conf, true, true);
+    cloneToXhtml("conformance-base", "Basic Conformance Profile");
+    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir +"conformance-base.json"), conf);
+
+    String json;
+    try {
+      json = Utilities.escapeXml(new JSONObject(TextFile.fileToString(page.getFolders().dstDir +"conformance-base.json")).toString(2));
+    } catch (Throwable t) {
+      t.printStackTrace(System.err);
+      json = t.getMessage();
+    }
+    
+    String head = 
+    "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>Base Conformance Profile</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
+    "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<div class=\"example\">\r\n<p>Base Conformance Profile</p>\r\n<pre class=\"json\">\r\n";
+    String tail = "\r\n</pre>\r\n</div>\r\n</body>\r\n</html>\r\n";
+    TextFile.stringToFile(head+json+tail, page.getFolders().dstDir + "conformance-base.json.htm");
+    
+    Utilities.copyFile(new CSFile(page.getFolders().dstDir + "conformance-base.xml"), new CSFile(page.getFolders().dstDir+ "examples" + File.separator + "conformance-base.xml"));
+    if (buildFlags.get("all"))
+      addToResourceFeed(conf, "conformance-base", profileFeed);
+  }
+
+  private ConformanceRestResourceSearchParamComponent makeSearchParam(Conformance p, String rn, SearchParameter i) {
+    ConformanceRestResourceSearchParamComponent result = p.new ConformanceRestResourceSearchParamComponent();
+    result.setNameSimple(i.getCode());
+    result.setSourceSimple("http://hl7.org/fhir/"+rn+"/search#"+i.getCode());
+    result.setTypeSimple(getSearchParamType(i.getType()));
+    result.setDocumentation(Factory.newString_(i.getDescription()));
+    if (i.getPaths().size() == 1) {
+      result.setXpathSimple("f:"+i.getPaths().get(0).replace(".", "/f:"));
+    }
+    return result;
+  }
+
+  private Conformance.SearchParamType getSearchParamType(SearchType type) {
+    switch (type) {
+    case integer: return Conformance.SearchParamType.integer;
+    case string: return Conformance.SearchParamType.string;
+    case text: return Conformance.SearchParamType.text;
+    case date: return Conformance.SearchParamType.date;
+    case reference: return Conformance.SearchParamType.reference;
+    case token: return Conformance.SearchParamType.token;
+    case composite: return Conformance.SearchParamType.composite;
+    }
+    return null;
+  }
+
+
+
+  private void genConfOp(Conformance conf, ConformanceRestResourceComponent res, RestfulOperation op) {
+    ConformanceRestResourceOperationComponent t = conf.new ConformanceRestResourceOperationComponent();
+    t.setCodeSimple(op);
+    res.getOperation().add(t);
   }
 
   private IniFile ini;
@@ -1956,8 +2068,8 @@ public class Publisher {
     e.setTitle("\"" + id+ "\" as a profile (to help derivation)");
     e.setUpdated(page.getGenDate());
     e.setPublished(page.getGenDate());
-    e.setAuthorName("HL7, Inc");
-    e.setAuthorUri("http://hl7.org");
+    e.setAuthorName("HL7, Inc (FHIR Project)");
+    e.setAuthorUri("http://hl7.org/fhir");
     e.setResource(profile);
     if (profile.getText() == null || profile.getText().getDiv() == null)
       throw new Exception("Example Resource "+id+" does not have any narrative");
@@ -1972,12 +2084,26 @@ public class Publisher {
     e.setTitle("Valueset \"" + id+ "\" to support automated processing");
     e.setUpdated(page.getGenDate());
     e.setPublished(page.getGenDate());
-    e.setAuthorName("HL7, Inc");
-    e.setAuthorUri("http://hl7.org");
+    e.setAuthorName("HL7, Inc (FHIR Project)");
+    e.setAuthorUri("http://hl7.org/fhir");
     e.setResource(vs);
     if (vs.getText() == null || vs.getText().getDiv() == null)
       throw new Exception("Example Resource "+id+" does not have any narrative");
     e.setSummary(vs.getText().getDiv());
+    dest.getEntryList().add(e);
+  }
+
+  private void addToResourceFeed(Conformance conf, String id, AtomFeed dest) throws Exception {
+    AtomEntry e = new AtomEntry();
+    e.setId("http://hl7.org/fhir/conformance/" + id);
+    e.getLinks().put("self", "http://hl7.org/implement/standards/fhir/conformance/" + id);
+    e.setTitle("\"" + id+ "\" - to help with system development");
+    e.setUpdated(page.getGenDate());
+    e.setPublished(page.getGenDate());
+    e.setAuthorName("HL7, Inc (FHIR Project)");
+    e.setAuthorUri("http://hl7.org/fhir");
+    e.setResource(conf);
+    e.setSummary(conf.getText().getDiv());
     dest.getEntryList().add(e);
   }
 

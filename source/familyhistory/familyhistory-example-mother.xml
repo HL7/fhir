@@ -19,7 +19,7 @@
     <condition>
       <type>
        <coding>
-         <system value="http://snomed.info"/>
+         <system value="http://snomed.info/id"/>
          <code value="371041009"/>
          <display value="Embolic Stroke"/>
        </coding>
@@ -44,7 +44,7 @@
     <condition>
       <type>
         <coding>
-          <system value="http://snomed.info"/>
+          <system value="http://snomed.info/id"/>
           <code value="190372001"/>
           <display value="Type 1 Diabetes, Maturity Onset"/>
         </coding>

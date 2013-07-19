@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
+// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -39,8 +39,8 @@ import java.util.*;
 public class Procedure extends Resource {
 
     public enum ProcedureRelationshipType {
-        causedMinusby, // 
-        caused, // 
+        causedMinusby, // This procedure had to be performed because of the related one
+        caused, // This procedure caused the related one to be performed
         Null; // added to help the parsers
         public static ProcedureRelationshipType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))

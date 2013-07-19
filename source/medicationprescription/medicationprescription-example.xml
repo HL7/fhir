@@ -39,7 +39,7 @@
     </timingSchedule>
     <route>
       <coding>
-        <system value="http://snomed.info"/>
+        <system value="http://snomed.info/id"/>
         <code value="363743006"/>
         <display value="oral administration of treatment"/>
       </coding>

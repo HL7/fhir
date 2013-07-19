@@ -9,7 +9,7 @@
  <relation><!--ROB's Mother has a hernia-->
   <relationship>
     <coding>
-       <system value="http://snomed.info"/>
+       <system value="http://snomed.info/id"/>
        <code value="72705000"/>
        <display value="Mother"/>
     </coding>      
@@ -18,7 +18,7 @@
   <condition>  
    <type>
     <coding>
-       <system value="http://snomed.info"/>
+       <system value="http://snomed.info/id"/>
        <code value="39839004"/>
        <display value="Diaphragmatic hernia"/>
     </coding>      
@@ -28,7 +28,7 @@
  <relation><!--ROB's uncle from mother's side died from cancer-->
   <relationship>
     <coding>
-       <system value="http://snomed.info"/>
+       <system value="http://snomed.info/id"/>
        <code value="38048003"/>
        <display value="Uncle"/>
     </coding>      
@@ -37,14 +37,14 @@
   <condition>  
    <type>
     <coding>
-       <system value="http://snomed.info"/>
+       <system value="http://snomed.info/id"/>
        <code value="115665000"/>
        <display value="Atopy"/>
     </coding>      
    </type>
    <outcome>       
     <coding>
-       <system value="http://snomed.info"/>
+       <system value="http://snomed.info/id"/>
        <code value="419099009"/>
        <display value="Died"/>
     </coding> 

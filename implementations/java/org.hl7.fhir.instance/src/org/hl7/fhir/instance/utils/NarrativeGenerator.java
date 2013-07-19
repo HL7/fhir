@@ -4,8 +4,14 @@ import java.net.URI;
 import java.util.Map;
 
 import org.hl7.fhir.instance.model.AtomEntry;
+import org.hl7.fhir.instance.model.Boolean;
 import org.hl7.fhir.instance.model.Code;
 import org.hl7.fhir.instance.model.Coding;
+import org.hl7.fhir.instance.model.Conformance;
+import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
+import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceComponent;
+import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceOperationComponent;
+import org.hl7.fhir.instance.model.Conformance.RestfulOperation;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Narrative;
@@ -352,6 +358,75 @@ public class NarrativeGenerator {
 	  if (type.getCode() != null)
 	  	return type.getCodeSimple();
 	  return null;
+  }
+
+  public void generate(Conformance conf) {
+    XhtmlNode x = new XhtmlNode();
+    x.setNodeType(NodeType.Element);
+    x.setName("div");
+    x.addTag("h2").addText(conf.getNameSimple());
+    x.addTag("p").addText(conf.getDescriptionSimple());
+    ConformanceRestComponent rest = conf.getRest().get(0);
+    XhtmlNode t = x.addTag("table");
+    addTableRow(t, "Mode", rest.getModeSimple().toString());
+    addTableRow(t, "Description", rest.getDocumentationSimple());
+    addTableRow(t, "Batch", showBoolean(rest.getBatch()));
+    addTableRow(t, "System History", showBoolean(rest.getHistory()));
+    
+    t = x.addTag("table");
+    XhtmlNode tr = t.addTag("tr");
+    tr.addTag("th").addTag("b").addText("Resource Type");
+    tr.addTag("th").addTag("b").addText("Profile");
+    tr.addTag("th").addTag("b").addText("Read");
+    tr.addTag("th").addTag("b").addText("V-Read");
+    tr.addTag("th").addTag("b").addText("Search");
+    tr.addTag("th").addTag("b").addText("Update");
+    tr.addTag("th").addTag("b").addText("Updates");
+    tr.addTag("th").addTag("b").addText("Create");
+    tr.addTag("th").addTag("b").addText("Delete");
+    tr.addTag("th").addTag("b").addText("History");
+    
+    for (ConformanceRestResourceComponent r : rest.getResource()) {
+      tr = t.addTag("tr");
+      tr.addTag("td").addText(r.getTypeSimple());
+      XhtmlNode a = tr.addTag("td").addTag("a");
+      a.addText(r.getProfile().getReferenceSimple());
+      a.setAttribute("href", r.getProfile().getReferenceSimple());
+      tr.addTag("td").addText(showOp(r, RestfulOperation.read));
+      tr.addTag("td").addText(showOp(r, RestfulOperation.vread));
+      tr.addTag("td").addText(showOp(r, RestfulOperation.search));
+      tr.addTag("td").addText(showOp(r, RestfulOperation.update));
+      tr.addTag("td").addText(showOp(r, RestfulOperation.historyMinusinstance));
+      tr.addTag("td").addText(showOp(r, RestfulOperation.create));
+      tr.addTag("td").addText(showOp(r, RestfulOperation.delete));
+      tr.addTag("td").addText(showOp(r, RestfulOperation.historyMinustype));
+    }
+    
+    conf.setText(new Narrative());
+    conf.getText().setDiv(x);
+    conf.getText().setStatusSimple(NarrativeStatus.generated);
+  }
+
+  private String showOp(ConformanceRestResourceComponent r, RestfulOperation on) {
+    for (ConformanceRestResourceOperationComponent op : r.getOperation()) {
+      if (op.getCodeSimple() == on)
+        return "y";
+    }
+    return "";
+  }
+
+  private void addTableRow(XhtmlNode t, String name, String value) {
+    XhtmlNode tr = t.addTag("tr");
+    tr.addTag("td").addText(name);
+    tr.addTag("td").addText(value);    
+  }
+
+  private String showBoolean(Boolean bool) {
+    if (bool == null)
+      return "";
+    if (bool.getValue())
+      return "y"; 
+    return "";        
   }
 
 

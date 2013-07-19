@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 15, 2013 10:55+1000 for FHIR v0.09
+// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -39,10 +39,10 @@ import java.util.*;
 public class MedicationDispense extends Resource {
 
     public enum MedicationDispenseStatus {
-        active, // 
-        paused, // 
-        completed, // 
-        nullified, // 
+        active, // The dispensing of the medication has started and is currently in progress.
+        paused, // The dispensing of the medication has started but is currently stopped with a firm intention of restarting.
+        completed, // The dispensing of the medication has finished
+        nullified, // The dispensing of the medication was recorded in error and the record should now be disregarded.
         Null; // added to help the parsers
         public static MedicationDispenseStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
