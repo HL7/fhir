@@ -10,16 +10,17 @@
   <LastAuthor>Camiel Tromp</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2013-07-11T14:06:15Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12060</WindowHeight>
-  <WindowWidth>23250</WindowWidth>
+  <WindowHeight>13020</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -146,10 +147,6 @@
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s85">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#FF0000"/>
-  </Style>
   <Style ss:ID="s86">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
@@ -160,14 +157,6 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s87" ss:Parent="s62">
-   <Alignment ss:Vertical="Top"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
   <Style ss:ID="s88">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Color="#000000"/>
@@ -177,6 +166,17 @@
   </Style>
   <Style ss:ID="s90">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+  </Style>
+  <Style ss:ID="s95">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s96" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -499,11 +499,10 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>8</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -520,8 +519,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -687,23 +686,16 @@
     <Cell><Data ss:Type="String">Path</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"><Data ss:Type="String">patient</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">The identity of a patient to list dispenses  for</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicationPrescription.patient</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">datewritten</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Return prescriptions written on this date</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">MedicationPrescription.dateWritten</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"><Data ss:Type="String">status</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Status of the prescription</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">MedicationPrescription.status</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"><Data ss:Type="String">medicine</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Code for medicine or text in medicine name</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">encounter</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Return prescriptions with this encounter identity</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">MedicationPrescription.medication</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicationPrescription.encounter</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -714,17 +706,24 @@
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"><Data ss:Type="String">datewritten</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Return prescriptions written on this date</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">MedicationPrescription.dateWritten</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">medication</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Code for medicine or text in medicine name</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">MedicationPrescription.medication</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"><Data ss:Type="String">encounter</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Return prescriptions with this encounter identity</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The identity of a patient to list dispenses  for</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicationPrescription.encounter</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicationPrescription.patient</Data></Cell>
+    <Cell ss:Index="8" ss:StyleID="s65"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s82"><Data ss:Type="String">status</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Status of the prescription</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">MedicationPrescription.status</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -903,7 +902,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>4</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -961,7 +960,7 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">A code specifying the state of the prescribing event.</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">#medication-prescription-status</Data></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Tie this into the HL7 V3 Event act state model for administration</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Describes the lifecycle of the prescription.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s64"><Data ss:Type="String">RouteOfAdministration</Data></Cell>
@@ -977,6 +976,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -996,8 +996,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1005,55 +1005,51 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="medication-prescription-status">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="7" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="90"/>
-   <Column ss:AutoFitWidth="0" ss:Width="308.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="240"/>
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="7" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s81" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="90"/>
+   <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="308.25"/>
+   <Column ss:StyleID="s81" ss:Width="75.75"/>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Rim Equivalent</Data></Cell>
-    <Cell ss:StyleID="s86"/>
-    <Cell ss:StyleID="s86"/>
-    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Id</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Rim Equivalent</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="25.5">
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">active</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The prescribing of the medication has started and is currently in progress.</Data></Cell>
+   <Row ss:Height="25.5">
+    <Cell ss:StyleID="s95"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The prescription is 'actionable', but not all actions that are implied by it have occured yet.</Data></Cell>
     <Cell><Data ss:Type="String">Active</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="38.25">
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">held</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The prescribing of the medication has started but is currently stopped with a firm intention of restarting.</Data></Cell>
+   <Row ss:Height="38.25">
+    <Cell ss:StyleID="s95"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Actions implied by the prescription have been temporarily halted, but are expected to continue later.  May also be called &quot;held&quot;.</Data></Cell>
     <Cell><Data ss:Type="String">Suspended</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The prescribing of the medication has finished</Data></Cell>
+   <Row ss:Height="25.5">
+    <Cell ss:StyleID="s95"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">All actions that are implied by the prescription have occured (this will rarely be made explicit).</Data></Cell>
     <Cell><Data ss:Type="String">Completed</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="38.25">
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">entered in error</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The prescribing of the medication was recorded in error and the record should now be disregarded.</Data></Cell>
+   <Row ss:Height="25.5">
+    <Cell ss:StyleID="s95"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">entered in error</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The prescription was entered in error and therefore nullified.</Data></Cell>
     <Cell><Data ss:Type="String">Nullified</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">stopped</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The prescription has been terminated prior to the originally inteded completion</Data></Cell>
+   <Row ss:Height="25.5">
+    <Cell ss:StyleID="s95"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">stopped</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Actions implied by the prescription have been permanently halted, before all of them occured.</Data></Cell>
     <Cell><Data ss:Type="String">Aborted</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">cancelled</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The prescription has been terminated before it started</Data></Cell>
-    <Cell><Data ss:Type="String">Cancelled</Data></Cell>
+   <Row ss:Height="25.5">
+    <Cell ss:StyleID="s95"><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="String">obsolete</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The prescription was replaced by a newer one, which encompasses all the information in the previous one.</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1066,9 +1062,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>20</ActiveRow>
+     <ActiveRow>14</ActiveRow>
      <ActiveCol>2</ActiveCol>
-     <RangeSelection>R21C3:R26C3</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
