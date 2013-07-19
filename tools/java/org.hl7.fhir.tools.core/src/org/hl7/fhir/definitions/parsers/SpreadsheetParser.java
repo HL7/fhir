@@ -763,6 +763,8 @@ public class SpreadsheetParser {
 		e.addMapping(ElementDefn.DICOM_MAPPING, sheet.getColumn(row, "DICOM Mapping"));
     e.addMapping(ElementDefn.vCard_MAPPING, sheet.getColumn(row, "vCard Mapping"));
     e.addMapping(ElementDefn.XDS_MAPPING, sheet.getColumn(row, "XDS Mapping"));
+    e.addMapping(ElementDefn.LOINC_MAPPING, sheet.getColumn(row, "LOINC"));
+    e.addMapping(ElementDefn.SNOMED_MAPPING, sheet.getColumn(row, "SNOMED"));
 		e.setTodo(sheet.getColumn(row, "To Do"));
 		e.setExample(sheet.getColumn(row, "Example"));
 		e.setCommitteeNotes(sheet.getColumn(row, "Committee Notes"));

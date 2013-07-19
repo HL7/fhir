@@ -297,7 +297,13 @@ public class ProfileGenerator {
       ce.getDefinition().getCondition().add(Factory.newId(e.getCondition()));
     // we don't know mustSupport here
     ce.getDefinition().setMustUnderstand(Factory.newBoolean(e.isModifier()));
-    // todo: mappings
+    addMapping(p, ce.getDefinition(), "http://loinc.org", e.getMapping(ElementDefn.LOINC_MAPPING));
+    addMapping(p, ce.getDefinition(), "http://snomed.info", e.getMapping(ElementDefn.SNOMED_MAPPING));
+    addMapping(p, ce.getDefinition(), "http://hl7.org/v3", e.getMapping(ElementDefn.RIM_MAPPING));
+    addMapping(p, ce.getDefinition(), "http://hl7.org/v2", e.getMapping(ElementDefn.v2_MAPPING));
+    addMapping(p, ce.getDefinition(), "http://nema.org/dicom", e.getMapping(ElementDefn.DICOM_MAPPING));
+    addMapping(p, ce.getDefinition(), "http://w3.org/vcard", e.getMapping(ElementDefn.vCard_MAPPING));
+    addMapping(p, ce.getDefinition(), "http://ihe.net/xds", e.getMapping(ElementDefn.XDS_MAPPING));
 
     for (String in : e.getInvariants().keySet()) {
       ElementDefinitionConstraintComponent con = p.new ElementDefinitionConstraintComponent();
@@ -354,6 +360,15 @@ public class ProfileGenerator {
         defineElement(pd, p, c, child, path+"."+child.getName(), false, containedSlices);
     }
     return ce;
+  }
+
+  private void addMapping(Profile p, ElementDefinitionComponent definition, String target, String map) {
+    if (!Utilities.noString(map)) {
+      ElementDefinitionMappingComponent m = p.new ElementDefinitionMappingComponent();
+      m.setTargetSimple(target);
+      m.setMapSimple(map);
+      definition.getMapping().add(m);
+    }
   }
 
   private ElementComponent createBaseDefinition(Profile p, String path, ElementDefn src) throws URISyntaxException {

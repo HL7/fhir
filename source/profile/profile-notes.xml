@@ -39,7 +39,16 @@ though the maximum one still does.
   the element against which the rule is expressed is the one against which the error will be reported.</li>
 </ul>
 
-
+<h3>Common Mapping Targets</h3>
+<table class="lines">
+  <tr><td>http://loinc.org</td><td>LOINC code for the element</td></tr>
+  <tr><td>http://snomed.info</td><td>SNOMED-CT code for the element</td></tr>
+  <tr><td>http://hl7.org/v3</td><td>RIM mapping</td></tr>
+  <tr><td>http://hl7.org/v2</td><td>v2 mapping</td></tr>
+  <tr><td>http://nema.org/dicom</td><td>DICOM tag mapping</td></tr>
+  <tr><td>http://w3.org/vcard</td><td>vCard equivalent field</td></tr>
+  <tr><td>http://ihe.net/xds</td><td>XDS metadata equivalent</td></tr>
+</table>
 
 <h2>Profiled FHIR</h2>
 <p>

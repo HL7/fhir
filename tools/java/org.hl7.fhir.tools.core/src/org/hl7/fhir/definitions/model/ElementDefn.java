@@ -43,6 +43,8 @@ public class ElementDefn {
 	public static final String DICOM_MAPPING = "dicom";
   public static final String vCard_MAPPING = "vcard";
   public static final String XDS_MAPPING = "xds";
+  public static final String LOINC_MAPPING = "loinc";
+  public static final String SNOMED_MAPPING = "snomed";
 	
 
 	private List<TypeRef> types = new ArrayList<TypeRef>();
