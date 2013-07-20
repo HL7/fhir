@@ -226,7 +226,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">True if medication was not given</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">True if asserting medication was not given</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Set this to true if the record is saying that the medication was NOT administered.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -463,8 +463,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
