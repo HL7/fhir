@@ -16,11 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12435</WindowHeight>
+  <WindowHeight>11160</WindowHeight>
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -183,16 +182,16 @@
    <Alignment ss:Vertical="Top"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#FF0000"/>
   </Style>
-  <Style ss:ID="s97" ss:Parent="s63">
+  <Style ss:ID="s93">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s94" ss:Parent="s63">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
-  </Style>
-  <Style ss:ID="s98">
-   <Alignment ss:Horizontal="Center" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -338,7 +337,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">True if asserting medication was not given.</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">True if asserting medication was not given</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Set this to true if the record is saying that the medication was NOT administered.</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
@@ -555,6 +554,7 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -574,7 +574,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>8</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
@@ -1030,33 +1030,33 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">Definition</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">RIM Equivalent</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s98"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">active</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s93"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The administration has started but has not yet completed.</Data></Cell>
     <Cell><Data ss:Type="String">Active</Data></Cell>
    </Row>
-   <Row ss:Height="38.25">
-    <Cell ss:StyleID="s98"><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">held</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25">
+    <Cell ss:StyleID="s93"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">held</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called &quot;held&quot;.</Data></Cell>
     <Cell><Data ss:Type="String">Suspended</Data></Cell>
    </Row>
-   <Row ss:Height="25.5">
-    <Cell ss:StyleID="s98"><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">completed</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="25.5">
+    <Cell ss:StyleID="s93"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">All actions that are implied by the administration have occured.</Data></Cell>
     <Cell><Data ss:Type="String">Completed</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s98"><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">entered in error</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s93"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">entered in error</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The administration was entered in error and therefore nullified.</Data></Cell>
     <Cell><Data ss:Type="String">Nullified</Data></Cell>
    </Row>
-   <Row ss:Height="25.5">
-    <Cell ss:StyleID="s98"><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">stopped</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="25.5">
+    <Cell ss:StyleID="s93"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">stopped</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Actions implied by the administration have been permanently halted, before all of them occured.</Data></Cell>
     <Cell><Data ss:Type="String">Aborted</Data></Cell>
    </Row>
@@ -1074,7 +1074,6 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
