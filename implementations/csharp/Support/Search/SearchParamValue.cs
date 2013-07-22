@@ -43,6 +43,66 @@ namespace Hl7.Fhir.Support.Search
     public abstract class SearchParamValue
     {
         internal abstract string QueryValue { get; }
+
+        public DateParamValue AsDateParam()
+        {
+            if (this is DateParamValue)
+                return (DateParamValue)this;
+            else if (this is UntypedParamValue)
+                return DateParamValue.FromQueryValue(((UntypedParamValue)this).Value);
+            else
+                throw new InvalidCastException("Cannot convert to Date Param as this is a" + this.GetType().Name);                
+        }
+
+        public IntegerParamValue AsIntegerParam()
+        {
+            if (this is IntegerParamValue)
+                return (IntegerParamValue)this;
+            else if (this is UntypedParamValue)
+                return IntegerParamValue.FromQueryValue(((UntypedParamValue)this).Value);
+            else
+                throw new InvalidCastException("Cannot convert to Integer Param as this is a" + this.GetType().Name); 
+        }
+
+        public ReferenceParamValue AsReferenceParam()
+        {
+            if (this is ReferenceParamValue)
+                return (ReferenceParamValue)this;
+            else if (this is UntypedParamValue)
+                return ReferenceParamValue.FromQueryValue(((UntypedParamValue)this).Value);
+            else
+                throw new InvalidCastException("Cannot convert to Reference Param as this is a" + this.GetType().Name); 
+        }
+
+        public StringParamValue AsStringParam()
+        {
+            if (this is StringParamValue)
+                return (StringParamValue)this;
+            else if (this is UntypedParamValue)
+                return StringParamValue.FromQueryValue(((UntypedParamValue)this).Value);
+            else
+                throw new InvalidCastException("Cannot convert to String Param as this is a" + this.GetType().Name); 
+        }
+
+        public TokenParamValue AsTokenParam()
+        {
+            if (this is TokenParamValue)
+                return (TokenParamValue)this;
+            else if (this is UntypedParamValue)
+                return TokenParamValue.FromQueryValue(((UntypedParamValue)this).Value);
+            else
+                throw new InvalidCastException("Cannot convert to Token Param as this is a" + this.GetType().Name); 
+        }
+
+        public CombinedParamValue AsCombinedParam()
+        {
+            if (this is CombinedParamValue)
+                return (CombinedParamValue)this;
+            else if (this is UntypedParamValue)
+                return CombinedParamValue.FromQueryValue(((UntypedParamValue)this).Value);
+            else
+                throw new InvalidCastException("Cannot convert to Combined Param as this is a" + this.GetType().Name); 
+        }
     }
 
 
@@ -59,7 +119,7 @@ namespace Hl7.Fhir.Support.Search
     }
 
 
-    public class UntypedParamValue : SearchParamValue
+    internal class UntypedParamValue : SearchParamValue
     {
         internal string Value { get; set; }
 
@@ -74,36 +134,6 @@ namespace Hl7.Fhir.Support.Search
             {
                 return Value;
             }
-        }
-
-        public DateParamValue AsDateParam()
-        {
-            return DateParamValue.FromQueryValue(Value);
-        }
-
-        public IntegerParamValue AsIntegerParam()
-        {
-            return IntegerParamValue.FromQueryValue(Value);
-        }
-
-        public ReferenceParamValue AsReferenceParam()
-        {
-            return ReferenceParamValue.FromQueryValue(Value);
-        }
-
-        public StringParamValue AsStringParam()
-        {
-            return StringParamValue.FromQueryValue(Value);
-        }
-
-        public TokenParamValue AsTokenParam()
-        {
-            return TokenParamValue.FromQueryValue(Value);
-        }
-
-        public CombinedParamValue AsCombinedParam()
-        {
-            return CombinedParamValue.FromQueryValue(Value);
         }
     }
 }

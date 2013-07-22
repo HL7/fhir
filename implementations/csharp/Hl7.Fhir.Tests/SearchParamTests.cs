@@ -112,8 +112,26 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
+        public void TestHandleUntypedParam()
+        {
+            var p1 = new UntypedParamValue("<=18");
+            Assert.AreEqual("<=18", p1.Value);
+            Assert.AreEqual(18, p1.AsIntegerParam().Value);
+        }
+
+
+        [TestMethod]
         public void TestHandleCombinedParam()
         {
+            var p1 = new CombinedParamValue(new TokenParamValue("NOK"), new IntegerParamValue(18));
+            Assert.AreEqual("NOK$18", p1.QueryValue);
+
+            var p2 = CombinedParamValue.FromQueryValue("!NOK$>=18");
+            Assert.AreEqual(2, p2.Values.Count());
+            Assert.AreEqual("NOK", ((UntypedParamValue)p2.Values.First()).AsTokenParam().Value);
+            Assert.AreEqual(18, ((UntypedParamValue)p2.Values.Skip(1).First()).AsIntegerParam().Value);
+
+
         }
 
         [TestMethod]
