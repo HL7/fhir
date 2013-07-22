@@ -40,7 +40,11 @@ namespace Hl7.Fhir.Model
 {
     public partial class FhirDateTime
     {
-        public FhirDateTime(DateTime dt) : this(dt.ToString(FMT_FULL))
+        public FhirDateTime(DateTimeOffset dt) : this(dt.ToString(FMT_FULL))
+        {
+        }
+
+        public FhirDateTime(DateTime dt) : this( new DateTimeOffset(dt) )
         {
         }
 
