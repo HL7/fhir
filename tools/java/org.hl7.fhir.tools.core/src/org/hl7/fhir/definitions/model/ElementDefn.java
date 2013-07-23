@@ -62,7 +62,10 @@ public class ElementDefn {
 	// private String id;
 	private String bindingName;
 	private String umlDir;
-	private boolean umlBreak;
+  private boolean umlBreak;
+  private int svgLeft;
+  private int svgTop;
+  private int svgWidth;
 	private String name;
 	private String shortDefn;
 	private String definition;
@@ -87,6 +90,9 @@ public class ElementDefn {
 	
 	public ElementDefn() {
 		super();
+	  svgLeft = -1;
+	  svgTop = -1;
+	  svgWidth = -1;
 	}
 
 	public ElementDefn(ElementDefn pattern) {
@@ -705,7 +711,35 @@ public class ElementDefn {
   public void setDiscriminator(String discriminator) {
     this.discriminator = discriminator;
   }
+
+  public boolean hasSvg() {
+    return svgLeft != -1;
+  }
+
+  public void setSvgLeft(int value) {
+    svgLeft = value;   
+  }
+
+  public void setSvgTop(int value) {
+    svgTop = value;       
+  }
+
+  public void setSvgWidth(int value) {
+    svgWidth = value;    
+  }
    
+  public int getSvgLeft() {
+    return svgLeft;
+  }
+
+  public int getSvgTop() {
+    return svgTop;
+  }
+
+  public int getSvgWidth() {
+    return svgWidth;
+  }
+
 	
 	
 }

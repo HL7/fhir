@@ -233,8 +233,8 @@ public class SourceParser {
 
 		eCoreParseResults.getType().add(CompositeTypeConverter.buildBinaryResourceDefn());
 		
-		for (String n : ini.getPropertyNames("diagrams"))
-		  definitions.getDiagrams().put(n, ini.getStringProperty("diagrams", n));
+		for (String n : ini.getPropertyNames("svg"))
+		  definitions.getDiagrams().put(n, ini.getStringProperty("svg", n));
 		
 		for (String n : ini.getPropertyNames("future-resources")) 
 		{

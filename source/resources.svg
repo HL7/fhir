@@ -1,0 +1,340 @@
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   width="371"
+   height="158"
+   id="svg2">
+  <defs
+     id="defs4">
+    <filter
+       id="shadow"
+       x="0"
+       y="0"
+       width="200%"
+       height="200%">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset7" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix9" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur11" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend13" />
+    </filter>
+  </defs>
+  <rect
+     x="6"
+     y="12"
+     rx="2"
+     ry="2"
+     width="72"
+     height="24"
+     filter="url(#shadow)"
+     style="fill:#f0f8ff;stroke:grey;stroke-width:1"
+     id="rect15" />
+  <text
+     x="10"
+     y="28"
+     fill="black"
+     style="font-size: 12; text-anchor: left; font-family: sans-serif"
+     id="text17">
+    <a
+       xlink:href="#diagnostics"
+       id="a19">Diagnostics</a>
+  </text>
+  <rect
+     x="97"
+     y="9"
+     rx="2"
+     ry="2"
+     width="47"
+     height="24"
+     filter="url(#shadow)"
+     style="fill:#f0f8ff;stroke:grey;stroke-width:1"
+     id="rect21" />
+  <text
+     x="101"
+     y="25"
+     fill="black"
+     style="font-size: 12; text-anchor: left; font-family: sans-serif"
+     id="text23">
+    <a
+       xlink:href="#clinical"
+       id="a25">Clinical</a>
+  </text>
+  <rect
+     x="156"
+     y="9"
+     rx="2"
+     ry="2"
+     width="76"
+     height="24"
+     filter="url(#shadow)"
+     style="fill:#f0f8ff;stroke:grey;stroke-width:1"
+     id="rect27" />
+  <text
+     x="160"
+     y="25"
+     fill="black"
+     style="font-size: 12; text-anchor: left; font-family: sans-serif"
+     id="text29">
+    <a
+       xlink:href="#foundation"
+       id="a31">Foundation</a>
+  </text>
+  <rect
+     x="244"
+     y="12"
+     rx="2"
+     ry="2"
+     width="93"
+     height="24"
+     filter="url(#shadow)"
+     style="fill:#f0f8ff;stroke:grey;stroke-width:1"
+     id="rect33" />
+  <text
+     x="248"
+     y="28"
+     fill="black"
+     style="font-size: 12; text-anchor: left; font-family: sans-serif"
+     id="text35">
+    <a
+       xlink:href="#administrative"
+       id="a37">Administrative</a>
+  </text>
+  <rect
+     x="35"
+     y="56"
+     rx="2"
+     ry="2"
+     width="75"
+     height="24"
+     filter="url(#shadow)"
+     style="fill:#f0f8ff;stroke:grey;stroke-width:1"
+     id="rect39" />
+  <text
+     x="39"
+     y="72"
+     fill="black"
+     style="font-size: 12; text-anchor: left; font-family: sans-serif"
+     id="text41">
+    <a
+       xlink:href="#medications"
+       id="a43">Medications</a>
+  </text>
+  <rect
+     x="128"
+     y="56"
+     rx="2"
+     ry="2"
+     width="75"
+     height="24"
+     filter="url(#shadow)"
+     style="fill:#f0f8ff;stroke:grey;stroke-width:1"
+     id="rect45" />
+  <text
+     x="132"
+     y="72"
+     fill="black"
+     style="font-size: 12; font-weight: bold; text-anchor: left; font-family: sans-serif"
+     id="text47">Resources</text>
+  <rect
+     x="215"
+     y="56"
+     rx="2"
+     ry="2"
+     width="140"
+     height="24"
+     style="fill:#f0f8ff;stroke:grey;stroke-width:1"
+     id="rect49"
+     filter="url(#shadow)" />
+  <text
+     x="219"
+     y="72"
+     fill="black"
+     style="font-size: 12; text-anchor: left; font-family: sans-serif"
+     id="text51">
+    <a
+       xlink:href="#devicecommunications"
+       id="a53">DeviceCommunications</a>
+  </text>
+  <rect
+     x="55"
+     y="102"
+     rx="2"
+     ry="2"
+     width="61"
+     height="24"
+     filter="url(#shadow)"
+     style="fill:#f0f8ff;stroke:grey;stroke-width:1"
+     id="rect55" />
+  <text
+     x="59"
+     y="118"
+     fill="black"
+     style="font-size: 12; text-anchor: left; font-family: sans-serif"
+     id="text57">
+    <a
+       xlink:href="#financial"
+       id="a59">Financial</a>
+  </text>
+  <rect
+     x="131"
+     y="102"
+     rx="2"
+     ry="2"
+     width="61"
+     height="24"
+     filter="url(#shadow)"
+     style="fill:#f0f8ff;stroke:grey;stroke-width:1"
+     id="rect61" />
+  <text
+     x="135"
+     y="118"
+     fill="black"
+     style="font-size: 12; text-anchor: left; font-family: sans-serif"
+     id="text63">
+    <a
+       xlink:href="#technical"
+       id="a65">Technical</a>
+  </text>
+  <rect
+     x="209"
+     y="102"
+     rx="2"
+     ry="2"
+     width="87"
+     height="24"
+     filter="url(#shadow)"
+     style="fill:#f0f8ff;stroke:grey;stroke-width:1"
+     id="rect67" />
+  <text
+     x="213"
+     y="118"
+     fill="black"
+     style="font-size: 12; text-anchor: left; font-family: sans-serif"
+     id="text69">
+    <a
+       xlink:href="#conformance"
+       id="a71">Conformance</a>
+  </text>
+  <line
+     x1="78.821892"
+     y1="36.464905"
+     x2="128.05756"
+     y2="56.057564"
+     style="stroke:#000080;stroke-width:1;stroke-dasharray:9, 5"
+     id="line73" />
+  <!--
+
+  skinparam classBackgroundColor Aliceblue
+skinparam classBorderColor Gray
+skinparam classArrowColor Navy
+
+Resources .up. Administrative
+Resources .up. Foundation
+Resources .up. Clinical
+Resources .left. Medications
+Resources .up. Diagnostics
+Resources .down. Financial
+Resources .right. DeviceCommunications
+Resources .down. Technical
+Resources .down. Conformance
+
+url of Administrative is [[#administrative]]
+url of Foundation is [[#foundation]]
+url of Clinical is [[#clinical]]
+url of Medications is [[#medications]]
+url of Diagnostics is [[#diagnostics]]
+url of Financial is [[#financial]]
+url of DeviceCommunications is [[#devicecommunications]]
+url of Technical is [[#technical]]
+url of Conformance is [[#conformance]]
+
+hide methods
+hide attributes
+hide Resources circle
+hide Administrative circle
+hide Foundation circle
+hide Clinical circle
+hide Medications circle
+hide Diagnostics circle
+hide Financial circle
+hide DeviceCommunications circle
+hide Technical circle
+hide Conformance circle
+
+@enduml
+-->
+  <line
+     x1="120.70574"
+     y1="32.566525"
+     x2="150.57417"
+     y2="56.411407"
+     style="stroke:#000080;stroke-width:1;stroke-dasharray:9, 5"
+     id="line73-1" />
+  <line
+     x1="189.97771"
+     y1="32.934006"
+     x2="172.34036"
+     y2="56.273235"
+     style="stroke:#000080;stroke-width:1;stroke-dasharray:9, 5"
+     id="line73-7" />
+  <line
+     x1="243.92998"
+     y1="35.851921"
+     x2="198.18979"
+     y2="58.17094"
+     style="stroke:#000080;stroke-width:1;stroke-dasharray:9, 5"
+     id="line73-4" />
+  <line
+     x1="203.3595"
+     y1="67.72599"
+     x2="212.6183"
+     y2="68.032227"
+     style="stroke:#000080;stroke-width:1;stroke-dasharray:9, 5"
+     id="line73-0" />
+  <line
+     x1="184.62733"
+     y1="81.124008"
+     x2="209.1069"
+     y2="102.10249"
+     style="stroke:#000080;stroke-width:1;stroke-dasharray:9, 5"
+     id="line73-9" />
+  <line
+     x1="164.06429"
+     y1="80.403046"
+     x2="163.16852"
+     y2="100.5303"
+     style="stroke:#000080;stroke-width:1;stroke-dasharray:9, 5"
+     id="line73-48" />
+  <line
+     x1="129.9247"
+     y1="80.833313"
+     x2="113.60807"
+     y2="101.47592"
+     style="stroke:#000080;stroke-width:1;stroke-dasharray:9, 5"
+     id="line73-8" />
+  <line
+     x1="109.34726"
+     y1="68.217667"
+     x2="126.38878"
+     y2="68.457832"
+     style="stroke:#000080;stroke-width:1;stroke-dasharray:9, 5"
+     id="line73-2" />
+</svg>

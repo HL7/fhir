@@ -64,6 +64,7 @@ import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
 import org.hl7.fhir.definitions.generators.specification.MappingsGenerator;
 import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
 import org.hl7.fhir.definitions.generators.specification.SchematronGenerator;
+import org.hl7.fhir.definitions.generators.specification.SvgGenerator;
 import org.hl7.fhir.definitions.generators.specification.TerminologyNotesGenerator;
 import org.hl7.fhir.definitions.generators.specification.XmlSpecGenerator;
 import org.hl7.fhir.definitions.generators.xsd.SchemaGenerator;
@@ -998,7 +999,7 @@ public class Publisher {
       
       for (String n : page.getDefinitions().getDiagrams().keySet()) {
         log(" ...diagram "+n);
-        page.getImageMaps().put(n, new DiagramGenerator(page).generateFromSource(n, page.getFolders().srcDir + page.getDefinitions().getDiagrams().get(n)));
+        page.getSvgs().put(n, TextFile.fileToString(page.getFolders().srcDir+page.getDefinitions().getDiagrams().get(n)));
       }
 
       loadValueSets();      
@@ -1849,8 +1850,9 @@ public class Publisher {
 	  String mappings = mgen.getMappings();
 	  String mappingsList = mgen.getMappingsList();
 	  
-	  page.getImageMaps().put(n, new DiagramGenerator(page).generate(resource, n));
-
+	  SvgGenerator svg = new SvgGenerator(page.getDefinitions());
+	  svg.generate(resource, page.getFolders().dstDir+n+".svg");
+	  
 	  for (RegisteredProfile p : resource.getProfiles())
 		  p.setResource(produceProfile(p.getFilename(), p.getProfile(), p.getExamplePath(), p.getExample()));
 

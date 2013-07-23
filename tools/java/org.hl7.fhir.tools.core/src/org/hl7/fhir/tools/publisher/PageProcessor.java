@@ -48,6 +48,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
 import org.hl7.fhir.definitions.generators.specification.MappingsGenerator;
+import org.hl7.fhir.definitions.generators.specification.SvgGenerator;
 import org.hl7.fhir.definitions.generators.specification.TerminologyNotesGenerator;
 import org.hl7.fhir.definitions.generators.specification.XmlSpecGenerator;
 import org.hl7.fhir.definitions.model.BindingSpecification;
@@ -114,7 +115,6 @@ public class PageProcessor implements Logger  {
   private List<String> orderedResources = new ArrayList<String>();
   private Map<String, SectionTracker> sectionTrackerCache = new HashMap<String, SectionTracker>(); 
   private Map<String, TocEntry> toc = new HashMap<String, TocEntry>();
-  private Map<String, String> imageMaps = new HashMap<String, String>();
   private Document v2src;
   private Document v3src;
   private QaTracker qa = new QaTracker();
@@ -122,6 +122,7 @@ public class PageProcessor implements Logger  {
   private AtomFeed v2Valuesets;
   private Map<String, AtomEntry> codeSystems = new HashMap<String, AtomEntry>();
   private Map<String, AtomEntry> valueSets = new HashMap<String, AtomEntry>();
+  private Map<String, String> svgs = new HashMap<String, String>();
   
 //  private boolean notime;
   
@@ -309,14 +310,14 @@ public class PageProcessor implements Logger  {
         src = s1+onThisPage(s2.substring(com[0].length()+1))+s3;
       else if (com[0].equals("maponthispage"))
           src = s1+mapOnThisPage(null)+s3;
-      else if (com[0].equals("map"))
-        src = s1+imageMaps.get(com[1])+s3;
       else if (com[0].equals("res-category"))
         src = s1+resCategory(s2.substring(com[0].length()+1))+s3;
       else if (com[0].equals("res-item"))
         src = s1+resItem(com[1])+s3;
       else if (com[0].equals("sidebar"))
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
+      else if (com[0].equals("svg"))
+        src = s1+svgs.get(com[1])+s3;
       else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("pageheader"))
@@ -1816,14 +1817,14 @@ private String resItem(String name) throws Exception {
           src = s1+mapOnThisPage(null)+s3;
       else if (com[0].equals("onthispage"))
           src = s1+onThisPage(s2.substring(com[0].length()+1))+s3;
-      else if (com[0].equals("map"))
-        src = s1+imageMaps.get(com[1])+s3;
       else if (com[0].equals("res-category"))
-          src = s1+resCategory(s2.substring(com[0].length()+1))+s3;
-        else if (com[0].equals("res-item"))
-          src = s1+resItem(com[1])+s3;
-        else if (com[0].equals("sidebar"))
-          src = s1+s3;
+        src = s1+resCategory(s2.substring(com[0].length()+1))+s3;
+      else if (com[0].equals("res-item"))
+        src = s1+resItem(com[1])+s3;
+      else if (com[0].equals("sidebar"))
+        src = s1+s3;
+      else if (com[0].equals("svg"))
+        src = s1+svgs.get(com[1])+s3;
       else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("footer"))
@@ -2000,8 +2001,6 @@ private String resItem(String name) throws Exception {
         src = s1+genResourceConstraints(resource)+s3;
       else if (com[0].equals("plural"))
         src = s1+Utilities.pluralizeMe(name)+s3;
-      else if (com[0].equals("map"))
-        src = s1+imageMaps.get(name)+s3;
       else if (com[0].equals("notes")) {
         src = s1+loadXmlNotes(name, "notes")+s3;
       } else if (com[0].equals("dictionary"))
@@ -2010,6 +2009,8 @@ private String resItem(String name) throws Exception {
           src = s1+mappings+s3;
       else if (com[0].equals("mappingslist"))
           src = s1+mappingsList+s3;
+      else if (com[0].equals("svg"))
+        src = s1+new SvgGenerator(definitions).generate(resource)+s3;        
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
@@ -2322,10 +2323,6 @@ public void log(String content) {
     return toc;
   }
 
-  public Map<String, String> getImageMaps() {
-    return imageMaps;
-  }
-
   public String getSvnRevision() {
     return svnRevision;
   }
@@ -2391,6 +2388,10 @@ public void log(String content) {
 
   public AtomFeed getV2Valuesets() {
     return v2Valuesets;
+  }
+
+  public Map<String, String> getSvgs() {
+    return svgs;
   }
 
   

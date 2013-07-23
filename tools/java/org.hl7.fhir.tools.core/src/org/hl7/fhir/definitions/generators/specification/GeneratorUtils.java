@@ -1,0 +1,92 @@
+package org.hl7.fhir.definitions.generators.specification;
+
+public class GeneratorUtils {
+
+  public static String getSrcFile(String name) throws Exception {
+  	if (name == null)
+  		throw new Exception("unknown null type");
+  	if (name.equals("Attachment"))
+  		return "datatypes";
+  	if (name.equals("Identifier"))
+  		return "datatypes";
+  	if (name.equals("Period"))
+  		return "datatypes";
+  	if (name.equals("Schedule"))
+  		return "datatypes";
+  	if (name.equals("Range"))
+  		return "datatypes";
+  	if (name.equals("HumanId"))
+  		return "datatypes";
+  	if (name.equals("Contact"))
+  		return "datatypes";
+    if (name.equals("CodeableConcept"))
+      return "datatypes";
+    if (name.equals("Array"))
+      return "datatypes";
+  	if (name.equals("Quantity"))
+  		return "datatypes";
+  	if (name.equals("Ratio"))
+  		return "datatypes";
+  	if (name.equals("Age"))
+  		return "datatypes";
+  	if (name.equals("HumanName"))
+  		return "datatypes";
+  	if (name.equals("Coding"))
+  		return "datatypes";
+  	if (name.equals("Choice"))
+  		return "datatypes";
+  	if (name.equals("Address"))
+  		return "datatypes";
+  	if (name.equals("boolean"))
+  		return "datatypes";
+  	if (name.equals("integer"))
+  		return "datatypes";
+  	if (name.equals("decimal"))
+  		return "datatypes";
+  	if (name.equals("instant"))
+  		return "datatypes";
+  	if (name.equals("base64Binary"))
+  		return "datatypes";
+  	if (name.equals("datetime"))
+  		return "datatypes";
+  	if (name.equals("string"))
+  		return "datatypes";
+  	if (name.equals("uri"))
+  		return "datatypes";
+  	if (name.equals("code"))
+  		return "datatypes";
+  	if (name.equals("oid"))
+  		return "datatypes";
+  	if (name.equals("uuid"))
+  		return "datatypes";
+  	if (name.equals("sid"))
+  		return "datatypes";
+  	if (name.equals("id"))
+  		return "datatypes";
+  	if (name.equals("idref"))
+  		return "resources";
+  	if (name.equals("Duration"))
+  		return "datatypes";
+  	if (name.equals("date"))
+  		return "datatypes";
+  	if (name.equals("dateTime"))
+  		return "datatypes";
+  	if (name.equals("Money"))
+  		return "datatypes";
+  	if (name.equals("narrative"))
+  		return "formats";
+  	if (name.equals("Narrative"))
+  		return "formats";
+  	if (name.equals("Extension"))
+  		return "extensibility";
+  	if (name.equals("Resource"))
+  		return "resources";
+  	if (name.equals("Constraint"))
+  		return "constraint";
+  	if (name.equals("resourceType"))
+  		return "terminologies";
+  	return name.toLowerCase();
+  
+  }
+
+}

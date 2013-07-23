@@ -135,6 +135,11 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s84">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <NumberFormat ss:Format="#,##0"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="40" x:FullColumns="1"
@@ -174,6 +179,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">ValueSet</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">10;10</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A set of codes drawn from one or more code systems</Data></Cell>
     <Cell><Data ss:Type="String">A value set specifies a set of codes drawn from one or more code systems</Data></Cell>
@@ -293,7 +299,7 @@
     <Cell><Data ss:Type="String">ValueSet.define</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">10;220</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When value set defines it's own codes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -313,7 +319,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet.define.concept</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s84"><Data ss:Type="String">10;340</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Concepts in the code system</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -352,7 +358,7 @@
     <Cell><Data ss:Type="String">ValueSet.compose</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="String">right</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">500;50</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When value set includes codes from elsewhere</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="165">
@@ -377,7 +383,7 @@
     <Cell><Data ss:Type="String">ValueSet.compose.include</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">500;180</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=ConceptSet</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Include one or more codes from a code system</Data></Cell>
     <Cell><Data ss:Type="String">Include one or more codes from a code system</Data></Cell>
@@ -429,7 +435,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="165">
     <Cell><Data ss:Type="String">ValueSet.compose.include.filter</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s84"><Data ss:Type="String">500;320</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Select codes/concepts by their properties (including relationships)</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they must all be true.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Selecting codes by specifying filters based on properties is only possible where the underlying code system defines appropriate properties. Note that in some cases, the underlying code system defines the logical concepts but not the literal codes for the concepts. In such cases, the literal definitions may be provided by a third party</Data></Cell>
@@ -480,7 +486,7 @@
     <Cell><Data ss:Type="String">ValueSet.expansion</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">270;220</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When value set is an expansion</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -492,7 +498,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet.expansion.contains</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s84"><Data ss:Type="String">270;320</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Codes in the value set</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -540,7 +546,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -557,7 +563,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>23</ActiveRow>
+     <ActiveRow>15</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>

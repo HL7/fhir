@@ -183,7 +183,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		    write(" <span style=\"color: navy\">"+Utilities.escapeXml(ex.getDefinition().getShortDefn())+"</span>");
 		    write(" <span style=\" color: Gray\">--&gt; </span>&lt;/" + vn + ">\r\n");
 		  } else if (ex.getDefinition().getTypes().size() == 1) {
-		    write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + getSrcFile(t)+ ".htm#" + t) + "\">" + t+ "</a></span>]\"/>");
+		    write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t)+ ".htm#" + t) + "\">" + t+ "</a></span>]\"/>");
 		    write("<span style=\" color: Gray\">&lt;!-- </span>");
 		    write("<span style=\"color: navy\">"
 		        + Utilities.escapeXml(ex.getDefinition().getShortDefn())
@@ -323,7 +323,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			  if (elem.typeCode().equals("idref"))
           write(" value=\"[<span style=\"color: darkgreen\"><a href=\"formats.htm#idref\">" + t.getName()+ "</a></span>]\"/");
 			  else
-  			  write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + getSrcFile(t.getName())+ ".htm#" + t.getName()).replace("[", "_").replace("]", "_") + "\">" + t.getName()+ "</a></span>]\"/");
+  			  write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t.getName())+ ".htm#" + t.getName()).replace("[", "_").replace("]", "_") + "\">" + t.getName()+ "</a></span>]\"/");
 			}
 			write("&gt;");
 
@@ -486,7 +486,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       else if (t.getName().equals("Extension") && t.getParams().size() == 0 && !Utilities.noString(elem.getProfile()))
         write("<a href=\""+elem.getProfile()+"\"><span style=\"color: DarkViolet\">@"+elem.getProfile().substring(1)+"</span></a>");     
       else
-        write("<a href=\"" + (dtRoot + getSrcFile(t.getName())
+        write("<a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t.getName())
             + ".htm#" + t.getName() + "\">" + t.getName()).replace("[", "_").replace("]", "_")
             + "</a>");
       if (t.hasParams()) {
@@ -503,7 +503,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
             // of the profile as specified
             // in the aggregation. For now it links to the
             // base resource.
-            write("<a href=\"" + (dtRoot + getSrcFile(p)
+            write("<a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(p)
                 + ".htm#" + p + "\">"
                 + elem.getAggregation()).replace("[", "_").replace("]", "_") + "</a>");
           } 
@@ -515,7 +515,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
           else if (t.getName().equals("Resource") && t.getParams().size() == 1 && !Utilities.noString(elem.getProfile()))
             write("<a href=\""+elem.getProfile()+"\"><span style=\"color: DarkViolet\">@"+elem.getProfile().substring(1)+"</span></a>");     
           else
-            write("<a href=\"" + (dtRoot + getSrcFile(p)
+            write("<a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(p)
                 + ".htm#" + p).replace("[", "_").replace("]", "_") + "\">" + p + "</a>");
 
           firstp = false;
@@ -606,93 +606,6 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 				+ "  &lt;system&gt;urn:hl7-org:sid/ucum&lt;/system&gt;");
 		s.append("\r\n" + ind);
 		return s.toString();
-	}
-
-	private String getSrcFile(String name) throws Exception {
-		if (name == null)
-			throw new Exception("unknown null type");
-		if (name.equals("Attachment"))
-			return "datatypes";
-		if (name.equals("Identifier"))
-			return "datatypes";
-		if (name.equals("Period"))
-			return "datatypes";
-		if (name.equals("Schedule"))
-			return "datatypes";
-		if (name.equals("Range"))
-			return "datatypes";
-		if (name.equals("HumanId"))
-			return "datatypes";
-		if (name.equals("Contact"))
-			return "datatypes";
-    if (name.equals("CodeableConcept"))
-      return "datatypes";
-    if (name.equals("Array"))
-      return "datatypes";
-		if (name.equals("Quantity"))
-			return "datatypes";
-		if (name.equals("Ratio"))
-			return "datatypes";
-		if (name.equals("Age"))
-			return "datatypes";
-		if (name.equals("HumanName"))
-			return "datatypes";
-		if (name.equals("Coding"))
-			return "datatypes";
-		if (name.equals("Choice"))
-			return "datatypes";
-		if (name.equals("Address"))
-			return "datatypes";
-		if (name.equals("boolean"))
-			return "datatypes";
-		if (name.equals("integer"))
-			return "datatypes";
-		if (name.equals("decimal"))
-			return "datatypes";
-		if (name.equals("instant"))
-			return "datatypes";
-		if (name.equals("base64Binary"))
-			return "datatypes";
-		if (name.equals("datetime"))
-			return "datatypes";
-		if (name.equals("string"))
-			return "datatypes";
-		if (name.equals("uri"))
-			return "datatypes";
-		if (name.equals("code"))
-			return "datatypes";
-		if (name.equals("oid"))
-			return "datatypes";
-		if (name.equals("uuid"))
-			return "datatypes";
-		if (name.equals("sid"))
-			return "datatypes";
-		if (name.equals("id"))
-			return "datatypes";
-		if (name.equals("idref"))
-			return "resources";
-		if (name.equals("Duration"))
-			return "datatypes";
-		if (name.equals("date"))
-			return "datatypes";
-		if (name.equals("dateTime"))
-			return "datatypes";
-		if (name.equals("Money"))
-			return "datatypes";
-		if (name.equals("narrative"))
-			return "formats";
-		if (name.equals("Narrative"))
-			return "formats";
-		if (name.equals("Extension"))
-			return "extensibility";
-		if (name.equals("Resource"))
-			return "resources";
-		if (name.equals("Constraint"))
-			return "constraint";
-		if (name.equals("resourceType"))
-			return "terminologies";
-		return name.toLowerCase();
-
 	}
 
 

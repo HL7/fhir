@@ -154,7 +154,6 @@ public class ProfileValidator extends BaseValidator {
         profileElement.getElements().add(i, n);
       }
       else {
-        
         fillOutElement(m, path+"."+m.getName());
       }
       i++;

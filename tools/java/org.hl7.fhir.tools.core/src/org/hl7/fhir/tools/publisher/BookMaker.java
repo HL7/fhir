@@ -405,6 +405,8 @@ public class BookMaker {
       } else { 
         String s = node.getAttributes().get("href");
         if (s == null || s.length() == 0)
+          s = node.getAttributes().get("xlink:href");
+        if (s == null || s.length() == 0)
           throw new Error("empty \"href\" element in \"a\" tag around "+parent.allText());
         if (s.startsWith("#")) {
           s = "#"+name+"."+s.substring(1);
