@@ -137,7 +137,8 @@ namespace Hl7.Fhir.Parsers
 
             foreach (var entry in entries)
             {
-                result.Add(loadEntry(entry, errors));
+                var loaded = loadEntry(entry, errors);
+                if(entry != null) result.Add(loaded);
             }
 
             return result;
@@ -181,8 +182,14 @@ namespace Hl7.Fhir.Parsers
                 {
                     var content = entry[BundleXmlParser.XATOM_CONTENT];
 
-                    if (content != null) 
-                        result = ResourceEntry.Create(getContents(content, errors));
+                    if (content != null)
+                    {
+                        var parsed = getContents(content, errors);
+                        if (parsed != null)
+                            result = ResourceEntry.Create(parsed);
+                        else
+                            return null;
+                    }
                     else
                         throw new InvalidOperationException("BundleEntry has empty content: cannot determine Resource type in parser");
                 }

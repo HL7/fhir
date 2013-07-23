@@ -19,7 +19,7 @@ namespace Hl7.Fhir.Tests
     public class BundleTests
     {
         [TestMethod]
-        public void TestSerializeBundleXml()
+        public void SerializeBundleXml()
         {
             Bundle b = createTestBundle();
             var actual = FhirSerializer.SerializeBundleToXml(b);
@@ -31,7 +31,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestSerializeResourceEntryXml()
+        public void SerializeResourceEntryXml()
         {
             var re = createTestResourceEntry();
             var actual = FhirSerializer.SerializeBundleEntryToXml(re);
@@ -44,7 +44,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestSerializeDeletedEntryXml()
+        public void SerializeDeletedEntryXml()
         {
             var re = createTestDeletedEntry();
             var actual = FhirSerializer.SerializeBundleEntryToXml(re);
@@ -57,7 +57,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestSerializeBinaryEntryXml()
+        public void SerializeBinaryEntryXml()
         {
             var re = createTestBinaryEntry();
             var actual = FhirSerializer.SerializeBundleEntryToXml(re);
@@ -70,7 +70,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestSerializeResourceEntryJson()
+        public void SerializeResourceEntryJson()
         {
             var re = createTestResourceEntry();
             var actual = FhirSerializer.SerializeBundleEntryToJson(re);
@@ -82,7 +82,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestSerializeDeletedEntryJson()
+        public void SerializeDeletedEntryJson()
         {
             var re = createTestDeletedEntry();
             var actual = FhirSerializer.SerializeBundleEntryToJson(re);
@@ -94,7 +94,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestSerializeBinaryEntryJson()
+        public void SerializeBinaryEntryJson()
         {
             var re = createTestBinaryEntry();
             var actual = FhirSerializer.SerializeBundleEntryToJson(re);
@@ -113,7 +113,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestSerializeBundleJson()
+        public void SerializeBundleJson()
         {
             Bundle b = createTestBundle();
             var actual = FhirSerializer.SerializeBundleToJson(b);
@@ -126,7 +126,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestHandleCrapInBundle()
+        public void HandleCrapInBundle()
         {
             var errors = new ErrorList();
             FhirParser.ParseBundleFromJson("Crap!", errors);
@@ -158,7 +158,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestParseBundleXml()
+        public void ParseBundleXml()
         {
             ErrorList errors = new ErrorList();
 
@@ -174,7 +174,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestParseBundleResourceEntryXml()
+        public void ParseBundleResourceEntryXml()
         {
             ErrorList errors = new ErrorList();
 
@@ -190,7 +190,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestParseBundleDeletedEntryXml()
+        public void ParseBundleDeletedEntryXml()
         {
             ErrorList errors = new ErrorList();
 
@@ -206,7 +206,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestParseBundleBinaryEntryXml()
+        public void ParseBundleBinaryEntryXml()
         {
             ErrorList errors = new ErrorList();
 
@@ -223,7 +223,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestParseBundleResourceEntryJson()
+        public void ParseBundleResourceEntryJson()
         {
             ErrorList errors = new ErrorList();
 
@@ -239,7 +239,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestParseBundleDeletedEntryJson()
+        public void ParseBundleDeletedEntryJson()
         {
             ErrorList errors = new ErrorList();
 
@@ -254,7 +254,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestParseBundleBinaryEntryJson()
+        public void ParseBundleBinaryEntryJson()
         {
             ErrorList errors = new ErrorList();
 
@@ -277,7 +277,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestParseBundleJson()
+        public void ParseBundleJson()
         {
             ErrorList errors = new ErrorList();
 

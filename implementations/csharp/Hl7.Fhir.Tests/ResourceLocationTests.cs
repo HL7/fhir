@@ -205,7 +205,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestLocationModification()
+        public void LocationModification()
         {
             var rl = new ResourceLocation("http://hl7.org");
             Assert.AreEqual("http://hl7.org/", rl.ToString());
@@ -234,7 +234,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestUseOfRelativePaths()
+        public void UseOfRelativePaths()
         {
             Assert.AreEqual("patient/@1", ResourceLocation.Build("patient", "1").OperationPath.ToString());
             Assert.AreEqual("patient/@1", new ResourceLocation("patient/@1").OperationPath.ToString());
@@ -255,7 +255,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestParamManipulation()
+        public void ParamManipulation()
         {
             var rl = new ResourceLocation("patient/search?name=Kramer&name=Moreau&oauth=XXX");
 

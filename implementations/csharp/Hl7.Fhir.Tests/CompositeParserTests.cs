@@ -18,7 +18,7 @@ namespace Hl7.Fhir.Tests
     public class CompositeParserTests
     {
         [TestMethod]
-        public void TestNarrativeParsing()
+        public void NarrativeParsing()
         {
             string xmlString = @"<testNarrative xmlns='http://hl7.org/fhir'>
                                     <status value='generated' />
@@ -67,7 +67,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestBinaryParsing()
+        public void BinaryParsing()
         {
             string xmlString = @"<Binary id='pic1' contentType='image/gif' xmlns='http://hl7.org/fhir'>R0lGODlhEwARAPcAAAAAAAAA/+9aAO+1AP/WAP/eAP/eCP/eEP/eGP/nAP/nCP/nEP/nIf/nKf/nUv/nWv/vAP/vCP/vEP/vGP/vIf/vKf/vMf/vOf/vWv/vY//va//vjP/3c//3lP/3nP//tf//vf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAAEALAAAAAATABEAAAi+AAMIDDCgYMGBCBMSvMCQ4QCFCQcwDBGCA4cLDyEGECDxAoAQHjxwyKhQAMeGIUOSJJjRpIAGDS5wCDly4AALFlYOgHlBwwOSNydM0AmzwYGjBi8IHWoTgQYORg8QIGDAwAKhESI8HIDgwQaRDI1WXXAhK9MBBzZ8/XDxQoUFZC9IiCBh6wEHGz6IbNuwQoSpWxEgyLCXL8O/gAnylNlW6AUEBRIL7Og3KwQIiCXb9HsZQoIEUzUjNEiaNMKAAAA7</Binary>";
 
@@ -94,7 +94,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestParseJsonNativeTypes()
+        public void ParseJsonNativeTypes()
         {
             string json = "{ testExtension: { url: { value : \"http://bla.com\" }," +  
                         "isModifier: { value: true }, valueInteger: { value: 14 } } }";
@@ -115,7 +115,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestParseSimpleComposite()
+        public void ParseSimpleComposite()
         {
             string xmlString = @"<testCoding id='x4' xmlns='http://hl7.org/fhir'>
                                     <system value='http://hl7.org/fhir/sid/icd-10' />
@@ -145,7 +145,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestCompositeWithRepeatingElement()
+        public void CompositeWithRepeatingElement()
         {
             string xmlString = @"
                 <testCodeableConcept xmlns='http://hl7.org/fhir'>
@@ -165,7 +165,7 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual(2, result.Coding.Count);
             Assert.AreEqual("R51", result.Coding[0].Code);
             Assert.AreEqual("25064002", result.Coding[1].Code);
-            Assert.AreEqual("http://snomed.info/id/", result.Coding[1].System.ToString());
+            Assert.AreEqual("http://snomed.info/id", result.Coding[1].System.ToString());
             Assert.AreEqual("1", result.Coding[1].LocalId.ToString());
 
 
@@ -184,13 +184,13 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual(2, result.Coding.Count);
             Assert.AreEqual("R51", result.Coding[0].Code);
             Assert.AreEqual("25064002", result.Coding[1].Code);
-            Assert.AreEqual("http://snomed.info/id/", result.Coding[1].System.ToString());
+            Assert.AreEqual("http://snomed.info/id", result.Coding[1].System.ToString());
             Assert.AreEqual("1", result.Coding[1].LocalId.ToString());
         }
         
 
         [TestMethod]
-        public void TestParseUnknownMembersAndRecover()
+        public void ParseUnknownMembersAndRecover()
         {
             string xmlString = @"<testCodeableConcept xmlns='http://hl7.org/fhir'>
                     <coding>
@@ -232,7 +232,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestParseNameWithExtensions()
+        public void ParseNameWithExtensions()
         {
             string xmlString =
                 @"<Patient xmlns='http://hl7.org/fhir'>
@@ -265,7 +265,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestParseLargeComposite()
+        public void ParseLargeComposite()
         {
             XmlReader xr = XmlReader.Create(new StreamReader(@"..\..\..\..\..\publish\diagnosticreport-example.xml"));
             ErrorList errors = new ErrorList();
@@ -301,7 +301,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestParsePerformance()
+        public void ParsePerformance()
         {
             //string file = @"..\..\..\loinc.json";
             string file = @"..\..\..\..\..\publish\diagnosticreport-example.xml";
@@ -335,7 +335,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestHandleCrapInFhirParser()
+        public void HandleCrapInFhirParser()
         {
             var errors = new ErrorList();
             FhirParser.ParseResourceFromJson("Crap!", errors);

@@ -40,71 +40,32 @@ using System.Text;
 
 namespace Hl7.Fhir.Support.Search
 {
-    public abstract class SearchParamValue
+    public class BoolParamValue : SearchParamValue
     {
-        internal abstract string QueryValue { get; }
-    }
+        public bool Value { get; internal set; }
 
-
-    /// <summary>
-    /// Types of comparison operator applicable to searching on integer values
-    /// </summary>
-    public enum ComparisonOperator
-    {
-        LT,     // less than
-        LTE,    // less than or equals
-        EQ,     // equals (default)
-        GTE,    // greater than or equals
-        GT      // greater than
-    }
-
-
-    public class UntypedParamValue : SearchParamValue
-    {
-        internal string Value { get; set; }
-
-        internal UntypedParamValue(string value)
+        public BoolParamValue(bool value)
         {
             Value = value;
+        }
+
+
+        internal static BoolParamValue FromQueryValue(string queryValue)
+        {
+            if (queryValue == "true")
+                return new BoolParamValue(true);
+            else if(queryValue == "false")
+                return new BoolParamValue(false);
+            else
+                throw new FormatException("Boolean query parameters should be either true or false");
         }
 
         internal override string QueryValue
         {
             get
             {
-                return Value;
+                return Value ? "true" : "false";
             }
-        }
-
-
-        public IntegerParamValue AsIntegerParam()
-        {
-            return IntegerParamValue.FromQueryValue(Value);
-        }
-
-        public ReferenceParamValue AsReferenceParam()
-        {
-            return ReferenceParamValue.FromQueryValue(Value);
-        }
-
-        public StringParamValue AsStringParam()
-        {
-            return StringParamValue.FromQueryValue(Value);
-        }
-
-        public TokenParamValue AsTokenParam()
-        {
-            return TokenParamValue.FromQueryValue(Value);
-        }
-
-        public CombinedParamValue AsCombinedParam()
-        {
-            return CombinedParamValue.FromQueryValue(Value);
-        }
-
-        public BoolParamValue AsBoolParam()
-        {
-            return BoolParamValue.FromQueryValue(Value);
         }
     }
 }

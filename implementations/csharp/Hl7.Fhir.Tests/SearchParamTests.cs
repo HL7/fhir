@@ -24,7 +24,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestHandleIntegerParam()
+        public void HandleIntegerParam()
         {
             var p1 = new IntegerParamValue(18);
             Assert.AreEqual("18", p1.QueryValue);
@@ -42,7 +42,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestHandleDateParam()
+        public void HandleDateParam()
         {
             var p1 = new DateParamValue(new DateTimeOffset(1972,11,30,15,20,49, TimeSpan.Zero));
             Assert.AreEqual("1972-11-30T15:20:49+00:00", p1.QueryValue);
@@ -60,7 +60,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestHandleReferenceParam()
+        public void HandleReferenceParam()
         {
             var p1 = new ReferenceParamValue("patient", "2");
             Assert.AreEqual("patient/2", p1.QueryValue);
@@ -72,7 +72,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestHandleStringParam()
+        public void HandleStringParam()
         {
             var p1 = new StringParamValue("patient");
             Assert.AreEqual("\"patient\"", p1.QueryValue);
@@ -83,7 +83,20 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestHandleTokenParam()
+        public void HandleBoolParam()
+        {
+            var p1 = new BoolParamValue(true);
+            Assert.AreEqual("true", p1.QueryValue);
+            
+            p1 = new BoolParamValue(false);
+            Assert.AreEqual("false", p1.QueryValue);
+
+            var p2 = BoolParamValue.FromQueryValue("true");
+            Assert.AreEqual(true, p2.Value);
+        }
+
+        [TestMethod]
+        public void HandleTokenParam()
         {
             var p1 = new TokenParamValue("NOK", "http://somewhere.nl/codes");
             Assert.AreEqual("http://somewhere.nl/codes!NOK", p1.QueryValue);
@@ -112,7 +125,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestHandleUntypedParam()
+        public void HandleUntypedParam()
         {
             var p1 = new UntypedParamValue("<=18");
             Assert.AreEqual("<=18", p1.Value);
@@ -121,7 +134,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestHandleCombinedParam()
+        public void HandleCombinedParam()
         {
             var p1 = new CombinedParamValue(new TokenParamValue("NOK"), new IntegerParamValue(18));
             Assert.AreEqual("NOK$18", p1.QueryValue);
@@ -130,33 +143,24 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual(2, p2.Values.Count());
             Assert.AreEqual("NOK", ((UntypedParamValue)p2.Values.First()).AsTokenParam().Value);
             Assert.AreEqual(18, ((UntypedParamValue)p2.Values.Skip(1).First()).AsIntegerParam().Value);
-
-
         }
 
         [TestMethod]
-        public void ParseIntegerParam()
+        public void ParseSearchParam()
         {
-            //var p1 = IntegerParam.FromQueryParam("age=18");
-            //Assert.AreEqual("age", p1.Name);
-            //Assert.AreEqual(18, p1.Value);
-            //Assert.AreEqual(ComparisonOperator.EQ,p1.Comparison);
+            var p1 = new SearchParam("dummy", "exact", new IntegerParamValue(ComparisonOperator.LTE,18),
+                    new CombinedParamValue( new StringParamValue("ewout"), new ReferenceParamValue("patient","1")));
+            Assert.AreEqual("dummy:exact=<=18,\"ewout\"$patient/1", p1.QueryPair);
 
-            //var p2 = IntegerParam.FromQueryParam("age=%3E18");
-            //Assert.AreEqual(ComparisonOperator.GT, p2.Comparison);
-            //Assert.AreEqual(18, p2.Value);
+            var p2 = new SearchParam("name", isMissing:true);
+            Assert.AreEqual("name:missing=true", p2.QueryPair);
 
-            //var p3 = IntegerParam.FromQueryParam("age=%3C%3D18");
-            //Assert.AreEqual(ComparisonOperator.LTE, p3.Comparison);
-            //Assert.AreEqual(18, p3.Value);
-
-            //var p4 = IntegerParam.FromQueryParam("age:missing=true");
-            //Assert.AreEqual(MissingOperator.HasNoValue, p4.Missing);
-            //Assert.AreEqual("age", p4.Name);
-
-            //var p5 = IntegerParam.FromQueryParam("age:missing=false");
-            //Assert.AreEqual(MissingOperator.HasAnyValue, p5.Missing);
-            //Assert.AreEqual("age", p5.Name);
+            var p3 = SearchParam.FromQueryKeyAndValue("dummy:exact", "<=18,\"ewout\"$patient/1");
+            Assert.AreEqual("dummy", p3.Name);
+            Assert.AreEqual("exact", p3.Modifier);
+            Assert.AreEqual(2, p3.Values.Count());
+            Assert.AreEqual(18, ((UntypedParamValue)p3.Values.First()).AsIntegerParam().Value);
+            Assert.AreEqual("\"ewout\"$patient/1", ((UntypedParamValue)p3.Values.Skip(1).First()).AsCombinedParam().QueryValue);
         }
     }
 }

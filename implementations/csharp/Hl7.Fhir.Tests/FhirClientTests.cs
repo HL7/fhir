@@ -9,6 +9,7 @@ using Hl7.Fhir.Model;
 using System.Net;
 using Hl7.Fhir.Support;
 using Hl7.Fhir.Serializers;
+using Hl7.Fhir.Support.Search;
 
 namespace Hl7.Fhir.Tests
 {
@@ -20,7 +21,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestConformance()
+        public void FetchConformance()
         {
             FhirClient client = new FhirClient();
 
@@ -35,7 +36,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestRead()
+        public void Read()
         {
             FhirClient client = new FhirClient(testEndpoint);
 
@@ -72,43 +73,50 @@ namespace Hl7.Fhir.Tests
         }
 
 
-        //[TestMethod]
-        //public void TestSearch()
-        //{
-        //    FhirClient client = new FhirClient(testEndpoint);
-        //    Bundle result;
+        [TestMethod]
+        public void Search()
+        {
+            FhirClient client = new FhirClient(testEndpoint);
+            Bundle result;
 
-        //    result = client.SearchAll<Patient>();
-        //    Assert.IsNotNull(result);
-        //    Assert.IsTrue(result.Entries.Count > 0);
-        //    Assert.IsTrue(result.Entries[0].Id.ToString().EndsWith("@1"));
+            result = client.Search(ResourceType.DiagnosticReport);
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Entries.Count > 0);
+            Assert.IsTrue(result.Entries[0].Id.ToString().EndsWith("@101"));
+            Assert.IsTrue(result.Entries.Count() > 10, "Test should use testdata with more than 10 reports");
 
-        //    result = client.SearchAll<Patient>(10);
-        //    Assert.IsNotNull(result);
-        //    Assert.IsTrue(result.Entries.Count <= 10);
-        //    Assert.IsTrue(result.Entries[0].Id.ToString().EndsWith("@1"));
+            result = client.Search(ResourceType.DiagnosticReport,count:10);
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Entries.Count <= 10);
+            Assert.IsTrue(result.Entries[0].Id.ToString().EndsWith("@101"));
 
-        //    result = client.SearchById<DiagnosticReport>("101", "DiagnosticReport/subject");
-        //    Assert.IsNotNull(result);
+            //result = client.SearchById<DiagnosticReport>("101", "DiagnosticReport/subject");
+            result = client.Search(ResourceType.DiagnosticReport, "_id", "101", new string[] { "DiagnosticReport.subject" } );
+            Assert.IsNotNull(result);
 
-        //    Assert.AreEqual(1,
-        //            result.Entries.Where(entry => entry.Links.SelfLink.ToString()
-        //                .Contains("diagnosticreport")).Count());
+            Assert.AreEqual(1,
+                    result.Entries.Where(entry => entry.Links.SelfLink.ToString()
+                        .Contains("diagnosticreport")).Count());
 
-        //    Assert.IsTrue(result.Entries.Any(entry =>
-        //            entry.Links.SelfLink.ToString().Contains("patient/@pat2")));
+            Assert.IsTrue(result.Entries.Any(entry =>
+                    entry.Links.SelfLink.ToString().Contains("patient/@pat2")));
 
-        //    result = client.Search<Patient>( new string[] { "name", "Everywoman",   "name", "Eve" } );
-        //    Assert.IsNotNull(result);
-        //    Assert.IsTrue(result.Entries[0].Links.SelfLink.ToString().Contains("patient/@1"));
-        //}
+            result = client.Search(ResourceType.DiagnosticReport, new SearchParam[] 
+                {
+                    new SearchParam("name", new StringParamValue("Everywoman")),
+                    new SearchParam("name", new StringParamValue("Eve")) 
+                });
+
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Entries[0].Links.SelfLink.ToString().Contains("patient/@1"));
+        }
 
 
 
         private Uri createdTestOrganization = null;
 
         [TestMethod]
-        public void TestCreateEditDelete()
+        public void CreateEditDelete()
         {
             var furore = new Organization
             {
@@ -160,11 +168,11 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestHistory()
+        public void History()
         {
             DateTimeOffset now = DateTimeOffset.Now;
 
-            TestCreateEditDelete();
+            CreateEditDelete();
 
             FhirClient client = new FhirClient(testEndpoint);
             Bundle history = client.History(createdTestOrganization);

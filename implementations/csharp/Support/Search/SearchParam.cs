@@ -55,12 +55,27 @@ namespace Hl7.Fhir.Support.Search
         {
         }
 
+        public SearchParam(string name, string value)
+            : this(name, (string)null, new UntypedParamValue(value))
+        {
+        }
+
+        public SearchParam(string name, string modifier, string value)
+            : this(name, modifier, new UntypedParamValue(value))
+        {
+        }
+
         public SearchParam(string name, string modifier, SearchParamValue value)
             : this(name, modifier, new List<SearchParamValue> { value })
         {
         }
 
         public SearchParam(string name, IEnumerable<SearchParamValue> values)
+            : this(name, null, values)
+        {
+        }
+
+        public SearchParam(string name, IEnumerable<string> values)
             : this(name, null, values)
         {
         }
@@ -72,17 +87,32 @@ namespace Hl7.Fhir.Support.Search
             Values = values;
         }
 
+        public SearchParam(string name, string modifier, IEnumerable<string> values) : this(name,modifier)
+        {
+            Values = values.Select(v => new UntypedParamValue(v));
+        }
+
         public SearchParam(string name, params SearchParamValue[] values)
             : this(name, null, values)
         {
         }
 
-        public SearchParam(string name, string modifier, params SearchParamValue[] values)
+        public SearchParam(string name, params string[] values)
+            : this(name, null, values)
         {
         }
 
+        public SearchParam(string name, string modifier, params SearchParamValue[] values) 
+            : this(name,modifier, (IEnumerable<SearchParamValue>)values)
+        {
+        }
 
-        internal static SearchParam FromQueryKeyAndValue(string qryKey, string qryValue)
+        public SearchParam(string name, bool isMissing) 
+            : this(name, "missing", new BoolParamValue(isMissing))
+        {
+        }
+
+        public static SearchParam FromQueryKeyAndValue(string qryKey, string qryValue)
         {
             string[] pair = qryKey.Split(':');
 
@@ -120,6 +150,14 @@ namespace Hl7.Fhir.Support.Search
                 var values = Values.Select(par => par.QueryValue);
 
                 return String.Join(",",values);
+            }
+        }
+
+        internal string QueryPair
+        {
+            get
+            {
+                return QueryKey + "=" + QueryValue;
             }
         }
 

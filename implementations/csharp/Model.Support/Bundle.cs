@@ -84,7 +84,7 @@ namespace Hl7.Fhir.Model
 
             if(Entries != null)
             {
-                foreach(var entry in Entries)
+                foreach(var entry in Entries.Where(e=>e != null))
                     errors.AddRange(entry.Validate());
             }
 
@@ -101,7 +101,7 @@ namespace Hl7.Fhir.Model
         /// <typeparam name="T">Type of Resource to filter</typeparam>
         /// <returns>All ResourceEntries containing the given type of resource, or an empty list if none were found.</returns>
         // Note: works for IEnumerable<ResourceEntry> too
-        public static IEnumerable<ResourceEntry<T>> FilterResourceEntriesByType<T>(this IEnumerable<BundleEntry> bes) where T: Resource, new()
+        public static IEnumerable<ResourceEntry<T>> ByResourceType<T>(this IEnumerable<BundleEntry> bes) where T: Resource, new()
         {   
             return bes.Where(be => be is ResourceEntry<T>).Cast<ResourceEntry<T>>();
         }
@@ -130,7 +130,7 @@ namespace Hl7.Fhir.Model
         /// </summary>
         /// <param name="id">Id of the Resource, as given in the BundleEntry's id</param>
         /// <returns>A list of BundleEntries with the given id, or an empty list if none were found.</returns>
-        public static IEnumerable<BundleEntry> FilterById(this IEnumerable<BundleEntry> bes, Uri id)
+        public static IEnumerable<BundleEntry> ById(this IEnumerable<BundleEntry> bes, Uri id)
         {
             return bes.Where(be => Uri.Equals(be.Id, id));
         }
@@ -142,7 +142,7 @@ namespace Hl7.Fhir.Model
         /// <typeparam name="T">Type of Resource to filter</typeparam>
         /// <param name="id">Id of the Resource, as given in the ResourceEntry's id</param>
         /// <returns>A list of typed ResourceEntries with the given id, or an empty list if none were found.</returns>
-        public static IEnumerable<ResourceEntry<T>> FilterById<T>(this IEnumerable<ResourceEntry<T>> res, Uri id) where T : Resource, new()
+        public static IEnumerable<ResourceEntry<T>> ById<T>(this IEnumerable<ResourceEntry<T>> res, Uri id) where T : Resource, new()
         {
             return res.Where(re => Uri.Equals(re.Id, id));
         }
@@ -153,7 +153,7 @@ namespace Hl7.Fhir.Model
         /// </summary>
         /// <param name="self">Sel-link id of the Resource, as given in the BundleEntry's link with rel='self'.</param>
         /// <returns>A list of BundleEntries with the given self-link id, or an empty list if none were found.</returns>
-        public static BundleEntry FindBySelfLink(this IEnumerable<BundleEntry> bes, Uri self)
+        public static BundleEntry BySelfLink(this IEnumerable<BundleEntry> bes, Uri self)
         {
             return bes.FirstOrDefault(be => Uri.Equals(be.SelfLink, self));
         }
@@ -166,7 +166,7 @@ namespace Hl7.Fhir.Model
         /// <param name="self">Sel-link id of the Resource, as given in the BundleEntry's link with rel='self'.</param>
         /// <returns>A list of ResourceEntries with the given self-link id. Returns
         /// the empty list if none were found.</returns>
-        public static ResourceEntry<T> FindBySelfLink<T>(this IEnumerable<ResourceEntry<T>> res, Uri self) where T: Resource, new()
+        public static ResourceEntry<T> BySelfLink<T>(this IEnumerable<ResourceEntry<T>> res, Uri self) where T: Resource, new()
         {
             return res.FirstOrDefault(re => Uri.Equals(re.SelfLink, self));
         }
@@ -177,7 +177,7 @@ namespace Hl7.Fhir.Model
         /// </summary>
         /// <param name="tag">Tag to filter Resources on</param>
         /// <returns>A list of BundleEntries having the given tag, or an empty list if none were found.</returns>
-        public static IEnumerable<BundleEntry> FilterByTag(this IEnumerable<BundleEntry> bes, Uri tag, string value=null )
+        public static IEnumerable<BundleEntry> ByTag(this IEnumerable<BundleEntry> bes, Uri tag, string value=null )
         {
             return bes.Where(be => be.Tags.HasTag(tag,value));
         }
@@ -189,7 +189,7 @@ namespace Hl7.Fhir.Model
         /// <typeparam name="T">Type of Resource to filter</typeparam>
         /// <param name="tag">Tag to filter Resources on</param>
         /// <returns>A list of typed ResourceEntries having the given tag, or an empty list if none were found.</returns>
-        public static IEnumerable<ResourceEntry<T>> FilterByTag<T>(this IEnumerable<ResourceEntry<T>> res, Uri tag, string value=null) where T : Resource, new()
+        public static IEnumerable<ResourceEntry<T>> ByTag<T>(this IEnumerable<ResourceEntry<T>> res, Uri tag, string value=null) where T : Resource, new()
         {
             return res.Where(re => re.Tags.HasTag(tag,value));
         }

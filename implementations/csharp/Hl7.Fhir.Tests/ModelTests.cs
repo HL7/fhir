@@ -13,7 +13,7 @@ namespace Hl7.Fhir.Tests
     public class ModelTests
     {
         [TestMethod]
-        public void TestOIDandUUIDUrls()
+        public void OIDandUUIDUrls()
         {
             var oidUrl = "urn:oid:1.2.3";
             var illOidUrl = "urn:oid:datmagdusniet";
@@ -103,7 +103,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestEnumParsing()
+        public void EnumParsing()
         {
             var c = Code<Address.AddressUse>.Parse("temp");
             Assert.AreEqual(Address.AddressUse.Temp, c.Value);
@@ -116,7 +116,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestInstantParsing()
+        public void InstantParsing()
         {
             Instant ins = Instant.Parse("2011-03-04T14:45:33Z");
             Assert.AreEqual("2011-03-04T14:45:33+00:00", ins.ToString());
@@ -139,7 +139,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestDateTimeHandling()
+        public void DateTimeHandling()
         {
             FhirDateTime dt = FhirDateTime.Parse("2010-01-01");
 
@@ -150,7 +150,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestSimpleValueSupport()
+        public void SimpleValueSupport()
         {
             Conformance c = new Conformance();
 
@@ -180,7 +180,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestExtensionManagement()
+        public void ExtensionManagement()
         {
             Patient p = new Patient();
             Uri u1 = new Uri("http://fhir.org/ext/ext-test");
@@ -207,7 +207,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestTagSearching()
+        public void TagSearching()
         {
             IList<Tag> tl = new List<Tag>();
 
@@ -227,7 +227,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestTypedResourceEntry()
+        public void TypedResourceEntry()
         {
             var pe = new ResourceEntry<Patient>();
 
@@ -251,7 +251,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestResourceListFiltering()
+        public void ResourceListFiltering()
         {
             var rl = new List<BundleEntry>();
 
@@ -260,21 +260,21 @@ namespace Hl7.Fhir.Tests
             rl.Add(new ResourceEntry<CarePlan> { Id = new Uri("http://x.com/@2"), SelfLink = new Uri("http://x.com/@2/history/@1") });
             rl.Add(new DeletedEntry() { Id = new Uri("http://x.com/@2"), SelfLink = new Uri("http://x.com/@2/history/@2") });
 
-            var tr = rl.FilterResourceEntriesByType<Patient>();
+            var tr = rl.ByResourceType<Patient>();
             Assert.AreEqual(2, tr.Count());
-            var tr2 = rl.FilterResourceEntriesByType<CarePlan>();
+            var tr2 = rl.ByResourceType<CarePlan>();
             Assert.AreEqual(1, tr2.Count());
 
-            var ur = rl.FilterById(new Uri("http://x.com/@1"));
+            var ur = rl.ById(new Uri("http://x.com/@1"));
             Assert.AreEqual(2, ur.Count());
-            Assert.AreEqual(2, ur.FilterResourceEntriesByType<Patient>().Count());
+            Assert.AreEqual(2, ur.ByResourceType<Patient>().Count());
 
-            Assert.IsNotNull(ur.FindBySelfLink(new Uri("http://x.com/@1/history/@1")));
-            Assert.IsNotNull(rl.FindBySelfLink(new Uri("http://x.com/@2/history/@2")));
+            Assert.IsNotNull(ur.BySelfLink(new Uri("http://x.com/@1/history/@1")));
+            Assert.IsNotNull(rl.BySelfLink(new Uri("http://x.com/@2/history/@2")));
         }
 
         [TestMethod]
-        public void TestTagHeaderParsing()
+        public void TagHeaderParsing()
         {
             string tag1 = @"http://furore.com/tags/test1; label = yes; scheme=""http://hl7.org/fhir/tag""";
             string tag2 = @"http://furore.com/tags/test1; scheme=""http://hl7.org/fhir/tag""; label = ""confusion"";";
@@ -302,7 +302,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestTagEquality()
+        public void TagEquality()
         {
             var t1 = new Tag("http://www.nu.nl", "labeltje");
             var t2 = new Tag("http://www.nu.nl", "labeltje");

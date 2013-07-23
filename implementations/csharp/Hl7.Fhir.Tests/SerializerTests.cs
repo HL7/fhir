@@ -40,7 +40,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestMilisecondsOnInstant()
+        public void MilisecondsOnInstant()
         {
             Instant i = new Instant(new DateTimeOffset(2013, 4, 19, 16, 27, 23, 233, TimeSpan.Zero));
 
@@ -100,7 +100,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestNativelySerializedElements()
+        public void NativelySerializedElements()
         {
             Integer i = new Integer(3141);
             var json = FhirSerializer.SerializeElementAsJson(i);
@@ -176,7 +176,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestSummaryResource()
+        public void SummaryResource()
         {
             Patient p = new Patient();
 

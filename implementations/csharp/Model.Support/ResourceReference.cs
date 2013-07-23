@@ -35,21 +35,23 @@ using System.Text;
 
 namespace Hl7.Fhir.Model
 {
-    // value can be true or false
     public partial class ResourceReference
     {
         public Uri Url
         {
             get
             {
-                if (this.Reference != null)
-                    return new Uri(this.Reference, UriKind.RelativeOrAbsolute);
+                if (Reference != null)
+                    return new Uri(Reference, UriKind.RelativeOrAbsolute);
                 else
                     return null;
             }
             set
             {
-                this.Reference = value.ToString();
+                if (value != null)
+                    Reference = value.ToString();
+                else
+                    Reference = null;
             }
         }
     }

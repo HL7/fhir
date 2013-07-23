@@ -40,6 +40,7 @@ using Hl7.Fhir.Parsers;
 using Hl7.Fhir.Serializers;
 using System.IO;
 using Newtonsoft.Json;
+using Hl7.Fhir.Support.Search;
 
 
 
@@ -180,7 +181,7 @@ namespace Hl7.Fhir.Client
 
             req.Method = "PUT";
             req.ContentType = contentType;
-            initializeResourceSubmission(req, data, entry.Tags);
+            prepareRequest(req, data, entry.Tags);
 
             // If a version id is given, post the data to a version-specific url
             if (versionAware)
@@ -246,7 +247,7 @@ namespace Hl7.Fhir.Client
             var req = createRequest(collectionEndpoint, false);
             req.Method = "POST";
             req.ContentType = contentType;
-            initializeResourceSubmission(req, data, tags);
+            prepareRequest(req, data, tags);
 
             return doRequest(req, HttpStatusCode.Created, () => resourceEntryFromResponse<TResource>() );
         }
@@ -372,7 +373,7 @@ namespace Hl7.Fhir.Client
 
             req.Method = "POST";
             req.ContentType = contentType;
-            initializeResourceSubmission(req, data, entry.Tags);
+            prepareRequest(req, data, entry.Tags);
 
             try
             {
@@ -388,83 +389,77 @@ namespace Hl7.Fhir.Client
             }
         }
 
-  /*   
+    
         /// <summary>
-        /// Return all resources of a certain type
+        /// Search for Resources at a given endpoint
         /// </summary>
+        /// <param name="endpoint">The endpoint where the search request is sent.</param>
         /// <param name="count">The maximum number of resources to return</param>
         /// <param name="includes">Zero or more include paths</param>
         /// <typeparam name="TResource">The type of resource to list</typeparam>
-        /// <returns>A Bundle with all resources of the given type, or an empty Bundle if none were found.</returns>
-        /// <remarks>This operation supports include parameters to include resources in the bundle that the
-        /// returned resources refer to.</remarks>
-        public Bundle SearchAll<TResource>(int? count = null, params string[] includes) where TResource : Resource
+        /// <returns>A Bundle with all resources found by the search, or an empty Bundle if none were found.</returns>
+        /// <remarks>The endpoint may be a FHIR server for server-wide search or a collection endpoint 
+        /// (i.e. /patient) for searching within a certain type of resources. This operation supports include 
+        /// parameters to include resources in the bundle that the returned resources refer to.</remarks>
+        public Bundle Search(Uri endpoint, SearchParam[] criteria = null, string[] includes = null, int? count = null)
         {
-            var collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
-            string query = "";
+            if (endpoint == null) throw new ArgumentNullException("endpoint");
+
+            var rl = new ResourceLocation(endpoint);
 
             if( count.HasValue )
-                query = addParam("", Util.SEARCH_PARAM_COUNT, count.Value.ToString());
-            
-            foreach (string includeParam in includes)
-                query = addParam(query, Util.SEARCH_PARAM_INCLUDE, includeParam);
+                rl.AddParam(Util.SEARCH_PARAM_COUNT, count.Value.ToString());
 
-            var rl = ResourceLocation.Build(FhirEndpoint, collection);
-            rl.Query = query;
+            if (criteria != null)
+            {
+                foreach (var criterium in criteria)
+                    rl.AddParam(criterium.QueryKey, criterium.QueryValue);
+            }
 
-            var req = createRequest(rl, true);
+            if (includes != null)
+            {
+                foreach (string includeParam in includes)
+                    rl.AddParam(Util.SEARCH_PARAM_INCLUDE, includeParam);
+            }
+
+            var req = createRequest(rl.ToUri(), true);
             req.Method = "GET";
 
-            //doRequest(req);
-
-            //if (LastResponseDetails.Result == HttpStatusCode.OK)
-            //    return parseBundle();
-            //else
-                return null;
+            return doRequest(req, HttpStatusCode.OK, () => bundleFromResponse() );
         }
 
-
-        /// <summary>
-        /// Search for resources based on search criteria
-        /// </summary>
-        /// <param name="parameters">A list of key,value pairs that contain the search params and their search criteria</param>
-        /// <param name="count">The maximum number of resources to return</param>
-        /// <param name="includes">Zero or more include paths</param>
-        /// <typeparam name="TResource">The type of resource to search for</typeparam>
-        /// <returns>A Bundle with the BundleEntries matching the search criteria, or an empty
-        /// Bundle if no resources were found.</returns>
-        /// <remarks>This operation supports include parameters to include resources in the bundle that the
-        /// returned resources refer to.</remarks> 
-        public Bundle Search<TResource>(string[] parameters, int? count = null, 
-                        params string[] includes) where TResource : Resource
+        public Bundle Search(Uri endpoint, string name, string value, string[] includes = null, int? count = null)
         {
-            var collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
-            var rl = ResourceLocation.Build(FhirEndpoint, collection);
-            rl.Operation = ResourceLocation.RESTOPER_SEARCH;
+            return Search(endpoint, new SearchParam[] { new SearchParam(name, value) }, includes, count);
+        }
 
-            if (parameters.Length % 2 != 0)
-                throw new ArgumentException("Parameters should contain pairs of keys and values");
+        public Bundle Search(SearchParam[] criteria = null, string[] includes = null, int? count = null)
+        {
+            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of Search");
+            var rl = new ResourceLocation(Endpoint);
 
-            string query = "";
+            return Search(rl.ToUri(), criteria, includes, count);
+        }
 
-            for (var pi = 0; pi < parameters.Length; pi+=2)
-                query = addParam(query, parameters[pi], parameters[pi+1]);
+        public Bundle Search(string name, string value, string[] includes = null, int? count = null)
+        {
+            return Search(new SearchParam[] { new SearchParam(name, value) }, includes, count);
+        }
 
-            foreach (var include in includes)
-                query = addParam(query, Util.SEARCH_PARAM_INCLUDE, include);
+        public Bundle Search(ResourceType resource, SearchParam[] criteria = null, string[] includes = null, int? count = null)
+        {
+            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of Search");
+            if (resource == null) throw new ArgumentNullException("resource");
 
-            rl.Query = query;
+            var collection = resource.ToString().ToLower();
+            var rl = ResourceLocation.Build(Endpoint, collection);
 
-            var req = createRequest(rl, true);
-            req.Method = "GET";
+            return Search(rl.ToUri(), criteria, includes, count);
+        }
 
-            //doRequest(req);
-
-            //if (LastResponseDetails.Result == HttpStatusCode.OK)
-            //    return parseBundle();
-            //else
-                return null;
-
+        public Bundle Search(ResourceType resource, string name, string value, string[] includes = null, int? count = null)
+        {
+            return Search(resource, new SearchParam[] { new SearchParam(name, value) }, includes, count);
         }
   
 
@@ -479,13 +474,10 @@ namespace Hl7.Fhir.Client
         /// <remarks>This operation is similar to Read, but additionally,
         /// it is possible to specify include parameters to include resources in the bundle that the
         /// returned resource refers to.</remarks>
-        public Bundle SearchById<TResource>(string id, params string[] includes) where TResource : Resource
+        public Bundle SearchById(ResourceType resource, string id, string[] includes=null, int? count=null)
         {
-            var idCriteria = new Dictionary<string, string>();
-            idCriteria.Add(Util.SEARCH_PARAM_ID, id);
-            return Search<TResource>( new string[] { Util.SEARCH_PARAM_ID, id }, 1, includes);
+            return Search(resource, Util.SEARCH_PARAM_ID, id, includes, count);
         }
-
 
 
         /// <summary>
@@ -496,6 +488,9 @@ namespace Hl7.Fhir.Client
         /// if an error occurred.</returns>
         public Bundle Batch(Bundle batch)
         {
+            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of Batch");
+            if (batch == null) throw new ArgumentNullException("batch");
+
             byte[] data;
             string contentType = ContentType.BuildContentType(PreferredFormat, false);
 
@@ -506,17 +501,12 @@ namespace Hl7.Fhir.Client
             else
                 throw new ArgumentException("Cannot encode a batch into format " + PreferredFormat.ToString());
 
-            var req = createRequest(new ResourceLocation(FhirEndpoint), true);
+            var req = createRequest(Endpoint, true);
             req.Method = "POST";
             req.ContentType = contentType;
-            initializeResourceSubmission(req, data);
+            prepareRequest(req, data);
 
-            //doRequest(req);
-
-            //if (LastResponseDetails.Result == HttpStatusCode.OK)
-            //    return parseBundle();
-            //else
-                return null;
+            return doRequest(req, HttpStatusCode.OK, () => bundleFromResponse());
         }
 
 
@@ -541,20 +531,15 @@ namespace Hl7.Fhir.Client
             else
                 throw new ArgumentException("Cannot encode a batch into format " + PreferredFormat.ToString());
 
-            var req = createRequest(new ResourceLocation(FhirEndpoint, path), true);
+            var req = createRequest(Endpoint, true);
             req.Method = "POST";
             req.ContentType = contentType;
-            initializeResourceSubmission(req, data);
+            prepareRequest(req, data);
 
-            //doRequest(req);
-
-            //if (LastResponseDetails.Result == HttpStatusCode.OK)
-            //    return true;
-            //else
-                return false;
+            return doRequest(req, HttpStatusCode.OK, () => true);
         }
 
-*/
+
         public ContentType.ResourceFormat PreferredFormat { get; set; }
 
         private HttpWebRequest createRequest(Uri location, bool forBundle)
@@ -687,7 +672,7 @@ namespace Hl7.Fhir.Client
         }
 
 
-        private void initializeResourceSubmission(HttpWebRequest request, byte[] data, IEnumerable<Tag> tags=null)
+        private void prepareRequest(HttpWebRequest request, byte[] data, IEnumerable<Tag> tags=null)
         {
             if (tags != null)
                 request.Headers[HttpUtil.CATEGORY] = HttpUtil.BuildCategoryHeader(tags);

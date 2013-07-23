@@ -142,7 +142,8 @@ namespace Hl7.Fhir.Parsers
 
             foreach (var entry in entries)
             {
-                result.Add(loadEntry(entry, errors));
+                var loaded = loadEntry(entry, errors);
+                if (entry != null) result.Add(loaded);
             }
 
             return result;
@@ -182,20 +183,28 @@ namespace Hl7.Fhir.Parsers
                 {
                     result = new DeletedEntry();
                     result.Id = Util.UriValueOrNull(entry.Attribute(XATOM_DELETED_REF));
+                    if (result.Id != null) errors.DefaultContext = String.Format("Entry '{0}'", result.Id.ToString());
                 }
                 else
                 {
                     XElement content = entry.Element(XATOMNS + XATOM_CONTENT);
+                    var id = Util.UriValueOrNull(entry.Element(XATOMNS + XATOM_ID));
+
+                    if (id != null) errors.DefaultContext = String.Format("Entry '{0}'", id.ToString());
 
                     if (content != null)
-                        result = ResourceEntry.Create(getContents(content, errors));
+                    {
+                        var parsed = getContents(content, errors);
+                        if (parsed != null)
+                            result = ResourceEntry.Create(parsed);
+                        else
+                            return null;
+                    }
                     else
                         throw new InvalidOperationException("BundleEntry has empty content: cannot determine Resource type in parser.");
 
-                    result.Id = Util.UriValueOrNull(entry.Element(XATOMNS + XATOM_ID));
+                    result.Id = id;
                 }
-
-                if (result.Id != null) errors.DefaultContext = String.Format("Entry '{0}'", result.Id.ToString());
 
                 result.Links = getLinks(entry.Elements(XATOMNS + XATOM_LINK));
                 result.Tags = TagListParser.ParseTags(entry.Elements(XATOMNS + XATOM_CATEGORY));

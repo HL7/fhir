@@ -18,7 +18,7 @@ namespace Hl7.Fhir.Tests
     public class PrimitiveParserTests
     {
         [TestMethod]
-        public void TestBasicTypePatterns()
+        public void BasicTypePatterns()
         {
             Id result;
 
@@ -38,7 +38,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestContinueOnEmptyElements()
+        public void ContinueOnEmptyElements()
         {
             string xmlString = "<x xmlns='http://hl7.org/fhir'><someElem value='true' id='3141' /><someElem2 /></x>";
             XmlReader xr = fromString(xmlString); xr.Read();
@@ -90,7 +90,7 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TestParsePrimitive()
+        public void ParsePrimitive()
         {
             string xmlString = "<someBoolean xmlns='http://hl7.org/fhir' value='true' id='3141' />";
             ErrorList errors = new ErrorList();
@@ -109,7 +109,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestParsePrimitiveWithIllegalAttribute()
+        public void ParsePrimitiveWithIllegalAttribute()
         {
             string xmlString = "<someBoolean xmlns='http://hl7.org/fhir' value='true' unknownattr='yes' />";
             ErrorList errors = new ErrorList();
@@ -126,7 +126,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestParseEmptyPrimitive()
+        public void ParseEmptyPrimitive()
         {
             string xmlString = "<someString xmlns='http://hl7.org/fhir' id='4' />";
             ErrorList errors = new ErrorList();
@@ -164,7 +164,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestParseExtendedPrimitive()
+        public void ParseExtendedPrimitive()
         {
             string xmlString =
                 @"<birthDate xmlns='http://hl7.org/fhir' value='1972-11-30'>
@@ -208,7 +208,7 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void TestParseExtendedPrimitiveWithOtherElements()
+        public void ParseExtendedPrimitiveWithOtherElements()
         {
             string xmlString =
                 @"<birthDate xmlns='http://hl7.org/fhir' value='1972-11-30'>
