@@ -29,7 +29,7 @@ If present, the signature is always a signature of the target resource XML repre
 The digital signature is always included as a plain string with appropriate escaping for both XML and JSON.
 </p>
 <p>
-Note that servers that modify the resource on submission will break the digital signature. 
+Note that modifications to the resource subsequent to the create of the provenance resource will break the digital signature. 
 </p>
 <p>
 Todo: how can you sign tags as well as the resource?
@@ -39,37 +39,61 @@ Todo: how can you sign tags as well as the resource?
 
 <p>
 Because the Provenance resource often refers to parties that are not represented 
-as FHIR resources, the <i>party</i> doesn't have a simple reference
-to other resources. Instead, if the party refers to a FHIR resource, the 
-party is represented like this:
+as FHIR resources, Agent and Entity references are allowed to be either references 
+to other resources, or they can refer to other entities that are not FHIR resoutces.
 </p>
+<p>
+The code in the <i>.type</i> element is used to differentiate between the two: if the 
+code is in the system "http://hl7.org/fhir/resource-types", then the reference is to 
+a resource, and the element <i>reference</i> functions exactly the same as in 
+a <a href="resources.htm#references">Resource Reference</a>. 
+</p>
+
+
+
 <div class="example">
+<p>
+A version specific reference to a FHIR resource on the same server:
+</p>
 <pre class="xml">
-  &lt;party&gt;
+  &lt;agent&gt;
     &lt;type&gt;
-	  &lt;system&gt;http://hl7.org/fhir/resource-types&lt;/system&gt;
-	  &lt;code&gt;Person&lt;/code&gt;
-	&lt;/type&gt;
-	&lt;id&gt;http://acme.org/fhir/person/@34/history/@3&lt;/id&gt;
-  &lt;/x&gt;
+      &lt;system value="http://hl7.org/fhir/resource-types"/&gt;
+      &lt;code value="Person"/&gt;
+    &lt;/type&gt;
+    &lt;reference value="person/@34/history/@3"/&gt;
+  &lt;/agent&gt;
 </pre>
 </div>
 <p>
-This is the same pattern as a standard resource reference, but the type becomes extensible to allow referencing other kinds of resources.
-This form of reference is a reference to the real world concept represented by the resource. If, on the other hand, the reference was
-to the resource itself (i.e. as the source of information on another resource), then the reference would be represented like this:
+In effect, this is the same pattern as a standard resource reference, 
+but the type becomes extensible to allow referencing other kinds of 
+resources. 
 </p>
+
 <div class="example">
+<p>
+A reference to a user (a person) not represented by a FHIR resource:
+</p>
 <pre class="xml">
-  &lt;party&gt;
+  &lt;agent&gt;
     &lt;type&gt;
-	  &lt;system&gt;http://hl7.org/fhir/provenance-participant-type&lt;/system&gt;
-	  &lt;code&gt;resource&lt;/code&gt;
-	&lt;/type&gt;
-	&lt;id&gt;http://acme.org/fhir/person/@34/history/@3&lt;/id&gt;
-  &lt;/x&gt;
+      &lt;system value="http://hl7.org/fhir/provenance-participant-type"/&gt;  
+      &lt;code value="person"/&gt;
+    &lt;/type&gt;  
+    &lt;reference value="http://acme.com/users/34"/&gt;
+  &lt;/agent&gt;
 </pre>
 </div>
+
+<p>
+One subtle issue with the use of the Provenance resource is to differentiate
+between whether the reference is to the Resource itself, or whether the 
+the reference is to the real world thing that the resource represents,
+e.g. was it the person involved in the activity, or the record of the person. 
+For Agents, it should be understood that the reference is to the real 
+world thing that the resource represents. 
+</p>
 
 <h3>W3C Provenance Mappings</h3>
 <p>

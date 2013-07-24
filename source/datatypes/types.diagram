@@ -1,6 +1,5 @@
 [diagram]
 classes=Quantity,Attachment,Choice,Range,Period,Ratio,CodeableConcept,Coding
-title=Types
 
 [directions]
 Quantity=left

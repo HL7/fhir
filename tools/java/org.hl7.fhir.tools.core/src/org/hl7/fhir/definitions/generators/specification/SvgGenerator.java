@@ -13,6 +13,7 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLWriter;;
 
@@ -125,6 +126,38 @@ public class SvgGenerator {
     this.definitions = definitions;
   }
 
+  public String generate(String filename) throws Exception {
+    IniFile ini = new IniFile(filename);
+    String[] classNames = ini.getStringProperty("diagram", "classes").split("\\,");
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    XMLWriter xml = new XMLWriter(bytes, "UTF-8");
+    
+    minx = 0;
+    miny = 0;
+    
+    Point size = determineMetrics(ini, classNames);
+    adjustAllForMin(size);
+    xml.setPretty(true);
+    xml.start();
+    xml.setDefaultNamespace(NS_SVG);
+    xml.namespace(NS_XLINK, "xlink");
+    xml.attribute("version", "1.1");
+    xml.attribute("width", Double.toString(size.x));
+    xml.attribute("height", Double.toString(size.y));
+    xml.open("svg");
+    shadowFilter(xml);
+    drawElement(xml, ini, classNames);
+    countDuplicateLinks();
+    for (Link l : links) {
+      drawLink(xml, l);
+    }
+    xml.close("svg");
+    xml.close();
+    
+    String s = new String(bytes.toByteArray());
+    return s.substring(s.indexOf(">")+1);
+  }
+
   public String generate(ResourceDefn resource) throws Exception {
       ByteArrayOutputStream bytes = new ByteArrayOutputStream();
       XMLWriter xml = new XMLWriter(bytes, "UTF-8");
@@ -144,7 +177,7 @@ public class SvgGenerator {
     minx = 10000;
     miny = 10000;
     
-    Point size = determinateMetrics(resource.getRoot(), null);
+    Point size = determineMetrics(resource.getRoot(), null);
     adjustAllForMin(size);
     xml.setPretty(true);
     xml.start();
@@ -173,7 +206,27 @@ public class SvgGenerator {
     }
   }
 
-  private Point determinateMetrics(ElementDefn e, ClassItem source) {
+  private Point determineMetrics(IniFile ini, String[] classNames) throws Exception {
+    double width = textWidth("Element") * 1.8;
+    double height = HEADER_HEIGHT + GAP_HEIGHT*2;
+    Point p = new Point(0, 0, PointKind.unknown);
+    ClassItem item = new ClassItem(p.x, p.y, width, height);
+    classes.put(null, item);
+    double x = item.right()+MARGIN_X;
+    double y = item.bottom()+MARGIN_Y;
+    
+    for (String cn : classNames) {
+      ElementDefn c = definitions.getElementDefn(cn);
+      String uml = ini.getStringProperty("directions", cn);
+      c.setUmlDir(uml);
+      p = determineMetrics(c, item);
+      x = Math.max(x, p.x+MARGIN_X);
+      y = Math.max(y, p.y+MARGIN_Y);
+    }
+    return new Point(x, y, PointKind.unknown);
+  }
+  
+  private Point determineMetrics(ElementDefn e, ClassItem source) {
     
     double width = textWidth(e.getName()) * 1.8;
     int i = 0;
@@ -220,7 +273,7 @@ public class SvgGenerator {
     
     for (ElementDefn c : e.getElements()) {  
       if (!isAttribute(c) && (Utilities.noString(c.typeCode()) || !c.typeCode().startsWith("@"))) {
-        p = determinateMetrics(c, item);
+        p = determineMetrics(c, item);
         x = Math.max(x, p.x+MARGIN_X);
         y = Math.max(y, p.y+MARGIN_Y);
       }
@@ -331,51 +384,54 @@ public class SvgGenerator {
     }
 
     if (start != null && end != null) {
+      if (l.name == null){
+        //todo: draw the gen arrow
+      } else {
+        // draw the diamond
+        Point pd2 = calcDiamondEnd(start, p1);
+        Point pd1 = calcDiamondRight(start, p1);
+        Point pd3 = calcDiamondLeft(start, p1);
+        xml.attribute("points", start.toPoint() +" " +pd1.toPoint() +" " +pd2.toPoint() +" " +pd3.toPoint()+" "+start.toPoint());
+        xml.attribute("style", "fill:navy;stroke:navy;stroke-width:1");
+        xml.attribute("transform", "rotate("+getAngle(start, p1)+" "+Double.toString(start.x)+" "+Double.toString(start.y)+")");
+        xml.element("polygon", null);
 
-      // draw the diamond
-      Point pd2 = calcDiamondEnd(start, p1);
-      Point pd1 = calcDiamondRight(start, p1);
-      Point pd3 = calcDiamondLeft(start, p1);
-      xml.attribute("points", start.toPoint() +" " +pd1.toPoint() +" " +pd2.toPoint() +" " +pd3.toPoint()+" "+start.toPoint());
-      xml.attribute("style", "fill:navy;stroke:navy;stroke-width:1");
-      xml.attribute("transform", "rotate("+getAngle(start, p1)+" "+Double.toString(start.x)+" "+Double.toString(start.y)+")");
-      xml.element("polygon", null);
+        // draw the name half way along
+        double x = (int) (p1.x + p2.x) / 2;
+        double y = (int) (p1.y + p2.y) / 2 + LINE_HEIGHT / 2 + LINE_HEIGHT * l.index;
+        double w = (int) (textWidth(l.name));        
+        xml.attribute("x", Double.toString(x - w/2));
+        xml.attribute("y", Double.toString(y - LINE_HEIGHT ));
+        xml.attribute("width", Double.toString(w));
+        xml.attribute("height", Double.toString(LINE_HEIGHT + GAP_HEIGHT));
+        xml.attribute("style", "fill:white;stroke:black;stroke-width:0");
+        xml.element("rect", null);    
+        xml.attribute("x", Double.toString(x));
+        xml.attribute("y", Double.toString(y - GAP_HEIGHT));
+        xml.attribute("fill", "black");
+        xml.attribute("style", "font-size: 10; text-anchor: middle; font-family: sans-serif; opacity: 1");
+        xml.element("text", l.name);  
 
-      // draw the name half way along
-      double x = (int) (p1.x + p2.x) / 2;
-      double y = (int) (p1.y + p2.y) / 2 + LINE_HEIGHT / 2 + LINE_HEIGHT * l.index;
-      double w = (int) (textWidth(l.name));        
-      xml.attribute("x", Double.toString(x - w/2));
-      xml.attribute("y", Double.toString(y - LINE_HEIGHT ));
-      xml.attribute("width", Double.toString(w));
-      xml.attribute("height", Double.toString(LINE_HEIGHT + GAP_HEIGHT));
-      xml.attribute("style", "fill:white;stroke:black;stroke-width:0");
-      xml.element("rect", null);    
-      xml.attribute("x", Double.toString(x));
-      xml.attribute("y", Double.toString(y - GAP_HEIGHT));
-      xml.attribute("fill", "black");
-      xml.attribute("style", "font-size: 10; text-anchor: middle; font-family: sans-serif; opacity: 1");
-      xml.element("text", l.name);  
-
-      // draw the cardinality at the terminal end
-      x = end.x;
-      y = end.y;
-      if (end.kind == PointKind.left) {
-        y = y - GAP_HEIGHT;
-        x = x - 20;
-      } else if (end.kind == PointKind.top)
-        y = y - GAP_HEIGHT;
-      else if (end.kind == PointKind.right) {
-        y = y - GAP_HEIGHT;
-        x = x + 15;
-      } else if (end.kind == PointKind.bottom) 
-        y = y + LINE_HEIGHT;
-      w = 18;        
-      xml.attribute("x", Double.toString(x));
-      xml.attribute("y", Double.toString(y));
-      xml.attribute("fill", "black");
-      xml.attribute("style", "font-size: 10; text-anchor: middle; font-family: sans-serif; opacity: 1");
-      xml.element("text", l.cardinality);  
+        // draw the cardinality at the terminal end
+        x = end.x;
+        y = end.y;
+        if (end.kind == PointKind.left) {
+          y = y - GAP_HEIGHT;
+          x = x - 20;
+        } else if (end.kind == PointKind.top)
+          y = y - GAP_HEIGHT;
+        else if (end.kind == PointKind.right) {
+          y = y - GAP_HEIGHT;
+          x = x + 15;
+        } else if (end.kind == PointKind.bottom) 
+          y = y + LINE_HEIGHT;
+        w = 18;        
+        xml.attribute("x", Double.toString(x));
+        xml.attribute("y", Double.toString(y));
+        xml.attribute("fill", "black");
+        xml.attribute("style", "font-size: 10; text-anchor: middle; font-family: sans-serif; opacity: 1");
+        xml.element("text", l.cardinality);
+      }
     }
   }
 
@@ -468,6 +524,31 @@ public class SvgGenerator {
             "    </filter>\r\n"+
         "  </defs>");
 
+  }
+
+  private ClassItem drawElement(XMLWriter xml, IniFile ini, String[] classNames) throws Exception {
+    ClassItem item = classes.get(null);
+    String tn = "Element";
+    xml.attribute("x", Double.toString(item.left));
+    xml.attribute("y", Double.toString(item.top));
+    xml.attribute("rx", "4");
+    xml.attribute("ry", "4");
+    xml.attribute("width", Double.toString(item.width));
+    xml.attribute("height", Double.toString(item.height));
+    xml.attribute("filter", "url(#shadow)");
+    xml.attribute("style", "fill:#f0f8ff;stroke:black;stroke-width:1");
+    xml.element("rect", null);    
+
+    xml.attribute("x", Double.toString(item.left + item.width / 2));
+    xml.attribute("y", Double.toString(item.top+HEADER_HEIGHT));
+    xml.attribute("fill", "black");
+    xml.attribute("style", "font-size: 14; text-anchor: middle; font-family: sans-serif; font-weight: bold");
+    xml.element("text", tn);
+
+    for (String cn : classNames) {  
+      links.add(new Link(item, drawClass(xml, definitions.getElementDefn(cn), false, null), null, null, PointKind.unknown));        
+    }
+    return item;
   }
 
   private ClassItem drawClass(XMLWriter xml, ElementDefn e, boolean isRoot, ResourceDefn resource) throws Exception {

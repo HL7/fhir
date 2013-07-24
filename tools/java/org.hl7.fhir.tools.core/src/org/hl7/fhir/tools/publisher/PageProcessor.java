@@ -318,6 +318,8 @@ public class PageProcessor implements Logger  {
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("svg"))
         src = s1+svgs.get(com[1])+s3;
+      else if (com[0].equals("diagram"))
+        src = s1+new SvgGenerator(definitions).generate(folders.srcDir+ com[1])+s3;
       else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("pageheader"))
@@ -1825,6 +1827,8 @@ private String resItem(String name) throws Exception {
         src = s1+s3;
       else if (com[0].equals("svg"))
         src = s1+svgs.get(com[1])+s3;
+      else if (com[0].equals("diagram"))
+        src = s1+new SvgGenerator(definitions).generate(folders.srcDir+ com[1])+s3;
       else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("footer"))
