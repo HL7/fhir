@@ -20,7 +20,6 @@
   <WindowWidth>9570</WindowWidth>
   <WindowTopX>4245</WindowTopX>
   <WindowTopY>3195</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -83,6 +82,9 @@
   <Style ss:ID="s71">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
+  <Style ss:ID="s72">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="27" x:FullColumns="1"
@@ -124,19 +126,22 @@
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String"> Detailed information about conditions, problems or diagnoses</Data></Cell>
     <Cell><Data ss:Type="String">Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during a Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">* Age is questionable, you might well need a range of Age or even (in practice)&#10;&#10;a text like &quot;in their teens&quot;. =&gt; new ballot comment.&#10;&#10;* Todo: discuss the applicability of assessing stages&#10;&#10;* Change the description: it is circular</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">PPR message</Data></Cell>
+    <Cell><Data ss:Type="String">* Age is questionable, you might well need a range of Age or even (in practice)&#10;&#10;a text like &quot;in their teens&quot;. =&gt; new ballot comment.&#10;&#10;* Todo: discuss the applicability of assessing stages&#10;&#10;* Change the description: it is circular</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Condition.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Subject of this condition</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">PID-3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Condition.encounter</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Encounter during which the condition was first asserted</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">PV1-19 (+PV1-54)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Condition.asserter</Data></Cell>
@@ -144,6 +149,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner|Patient)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Person who asserts this condition</Data></Cell>
     <Cell><Data ss:Type="String">Person who takes responsibility for asserting the existence of the condition as part of the electronic record</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">REL-7.1 identifier + REL-7.12 type code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Condition.dateAsserted</Data></Cell>
@@ -151,6 +157,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When the first detected/suspected/entered</Data></Cell>
     <Cell><Data ss:Type="String">Estimated or actual date the condition/problem/diagnosis was first detected/suspected</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">REL-11</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Condition.code</Data></Cell>
@@ -159,6 +166,7 @@
     <Cell><Data ss:Type="String">ConditionCode</Data></Cell>
     <Cell><Data ss:Type="String">Identification of the condition, problem or diagnosis</Data></Cell>
     <Cell><Data ss:Type="String">Identification of the condition, problem or diagnosis. </Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">PRB-3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Condition.category</Data></Cell>
@@ -168,6 +176,7 @@
     <Cell><Data ss:Type="String">E.g. complaint | symptom | finding | diagnosis</Data></Cell>
     <Cell><Data ss:Type="String">A category assigned to the condition. E.g. finding | Condition | diagnosis | concern | condition</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">The categorization is often highly contextual and may appear poorly differentiated or not very useful in other contexts</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">'problem' if from PRB-3. 'diagnosis' if from DG1 segment in PV1 message</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Condition.status</Data></Cell>
@@ -177,6 +186,7 @@
     <Cell><Data ss:Type="String">ConditionStatus</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">provisional | working | confirmed | refuted</Data></Cell>
     <Cell><Data ss:Type="String">The clinical status of the condition</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">PRB-14 / DG1-6</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Condition.certainty</Data></Cell>
@@ -187,6 +197,7 @@
     <Cell><Data ss:Type="String">Degree of confidence</Data></Cell>
     <Cell><Data ss:Type="String">The degree of confidence that this condition is correct</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">May be a percentage</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">PRB-19</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Condition.severity</Data></Cell>
@@ -196,6 +207,7 @@
     <Cell><Data ss:Type="String">Subjective severity of condition</Data></Cell>
     <Cell><Data ss:Type="String">A subjective assessment of the severity of the condition as evaluated by the clinician.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String"> Coding of the severity with a terminology is preferred, where possible</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">PRB-26 / ABS-3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Condition.onset[x]</Data></Cell>
@@ -204,6 +216,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Estimated or actual date, or age</Data></Cell>
     <Cell><Data ss:Type="String">Estimated or actual date the condition began, in the opinion of the clinician</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Age is generally used when the patient reports an age at which the Condition began to occur</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">PRB-16</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Condition.abatement[x]</Data></Cell>
@@ -293,6 +306,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Causes or precedents for this Condition</Data></Cell>
     <Cell><Data ss:Type="String">Further conditions, problems, diagnoses, procedures or events that are related in some way to this condition, or the substance that caused/triggered this Condition</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Although a condition may be caused by a substance, this is not intended to be used to record allergies/adverse reactions to substances</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s72"><Data ss:Type="String">could infer from presence of multiple PRB segments in a PPR message that the problems are related, but not clear how to communicate the nature of the relationship</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Condition.relatedItem.type</Data></Cell>
@@ -325,7 +339,8 @@
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Additional information about the Condition</Data></Cell>
     <Cell><Data ss:Type="String">Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, it's diagnosis and prognosis</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Definition needs checking</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="Default"><Data ss:Type="String">NTE child of PRB</Data></Cell>
+    <Cell><Data ss:Type="String">Definition needs checking</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -341,11 +356,14 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <TopRowVisible>13</TopRowVisible>
+   <LeftColumnVisible>4</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>19</ActiveRow>
+     <ActiveRow>24</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -402,7 +420,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

@@ -170,8 +170,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Person(classCode=&quot;PSN&quot; and determinerCode=&quot;INST&quot; and quantity=&quot;1&quot;)</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:Index="15" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="94.5">
@@ -188,7 +187,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">.plays:Role(classCode='IDENT').id</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-3</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">NK1-33</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Keeping RelatedPerson.id cardinality as a matter of safety in the same manner as Person Activate</Data></Cell>
    </Row>
@@ -206,7 +205,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-3</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -224,7 +223,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">NK1-3</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -242,7 +241,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">./name</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-5, PID-9</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">NK1-2</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -260,7 +259,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">Person may have multiple ways to be contacted with different uses or applicable periods. &#13;May need to have options for contacting the person urgently, and also to help with identification</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">./telecom</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-13, PID-14</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">NK1-5 / NK1-6 / NK1-40</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -278,7 +277,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">./administrativeGender</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-8</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">NK1-15</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -296,7 +295,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">./addr</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-11</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">NK1-4</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -314,7 +313,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">OBX-5 - needs a profile</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -339,7 +338,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -347,14 +346,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

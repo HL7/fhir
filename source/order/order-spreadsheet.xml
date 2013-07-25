@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lorraine Constable</LastAuthor>
+  <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-07-15T22:16:22Z</LastSaved>
+  <LastSaved>2013-07-25T13:29:05Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -81,6 +81,14 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s72">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="12" x:FullColumns="1"
@@ -140,7 +148,7 @@
     <Cell><Data ss:Type="String">When the order was made</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ORC-9</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -156,7 +164,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">May be left blank if the request reference identifies the patient, or if the request is not associated with a patient</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-3</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -171,7 +179,7 @@
     <Cell ss:Index="10"><Data ss:Type="String">Author, Practitioner</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">ORC-12 / OBR-16 / RXO-14 / RXE-13 / PRT-5 (PRT-4-Participation='OP')</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -185,7 +193,7 @@
     <Cell><Data ss:Type="String">Who is intended to fulfill the order</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Unclear: MSH-5 / IPC-7 / BPO-8 / RXO-32 / RXE-40 / RXD-30 / RXG-11 / RXG-27 / PRT-8 (PRT-4-participation in { 'AP', 'DP', 'PO', 'RT' })&#10;</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -199,7 +207,7 @@
     <Cell><Data ss:Type="String">Text - why the order was made</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">ORC-16.2 / OBR-31.2 / BPO-13.2-BP / RXO-20.2 / RXE-27.2 / RXD-21.2 / RXG-22.2 / RXA-19.2</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -214,7 +222,7 @@
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">reference will be constrained when suitable targets exist</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">if ordering provider, then ORC-12, OBR-16, etc.</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -227,7 +235,7 @@
     <Cell><Data ss:Type="String">When order should be filfulled</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">TQ1, TQ2</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -302,8 +310,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>8</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R9</RangeSelection>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
