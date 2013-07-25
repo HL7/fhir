@@ -63,14 +63,14 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 	public void generate(ElementDefn root) throws Exception {
 		write("<pre class=\"spec\">\r\n");
 
-		generateInner(root);
+		generateInner(root, true);
 
 		write("</pre>\r\n");
 		flush();
 		close();
 	}
 
-	private void generateInner(ElementDefn root) throws IOException, Exception {
+	private void generateInner(ElementDefn root, boolean resource) throws IOException, Exception {
 		String rn;
 		if (root.getTypes().size() > 0 && (root.getTypes().get(0).getName().equals("Type")
 				|| (root.getTypes().get(0).getName().equals("Structure"))))
@@ -99,7 +99,9 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		if (hasXmlLang)
 		  write(" xml:lang?");
 		write(" xmlns=\"http://hl7.org/fhir\"&gt;\r\n");
-
+    if (rn.equals(root.getName()) && resource) {
+      write("  &lt;!-- from <span class=\"dict\"><a href=\"resources.htm\">Resource</a>: <a href=\"extensibility.htm\">extension</a>, <a href=\"formats.htm#Narrative\">narrative</a>, and <a href=\"resources.htm#contained\">contained</a></span> -->\r\n");
+    }
 		for (ElementDefn elem : root.getElements()) {
 		  if (!elem.typeCode().equals("xml:lang"))
 		    generateCoreElem(elem, 1, rn, root.getName());
@@ -117,7 +119,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			write("<span style=\"color: Gray\">&lt;!-- <span style=\"color: Darkviolet\">Resources</span> --&gt;</span>\r\n");
 			for (ResourceDefn r : profile.getResources()) {
 	      write("<span style=\"color: Gray\">&lt;!--<a name=\"" + r.getRoot().getProfileName() + "\"> </a><span style=\"color: Darkviolet\">"+Utilities.escapeXml(r.getRoot().getProfileName())+"</span> --&gt;</span>\r\n");
-				generateInner(r.getRoot());
+				generateInner(r.getRoot(), false);
         write("\r\n");
 			}
 		}

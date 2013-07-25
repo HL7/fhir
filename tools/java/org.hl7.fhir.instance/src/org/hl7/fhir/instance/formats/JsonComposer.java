@@ -65,7 +65,7 @@ public class JsonComposer extends JsonComposerBase {
     if (value != null) {
       open(name);
       composeElement(value);
-        prop("value", toString(value.getValue()));
+        prop("value", java.lang.Integer.valueOf(value.getValue()));
       close();
     }    
   }    
@@ -164,7 +164,7 @@ public class JsonComposer extends JsonComposerBase {
     if (value != null) {
       open(name);
       composeElement(value);
-        prop("value", toString(value.getValue()));
+        prop("value", value.getValue());
       close();
     }    
   }    

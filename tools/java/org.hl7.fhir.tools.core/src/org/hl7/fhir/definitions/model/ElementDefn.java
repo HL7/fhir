@@ -45,6 +45,7 @@ public class ElementDefn {
   public static final String XDS_MAPPING = "xds";
   public static final String LOINC_MAPPING = "loinc";
   public static final String SNOMED_MAPPING = "snomed";
+  public static final int MAX_NEG = -1000000;
 	
 
 	private List<TypeRef> types = new ArrayList<TypeRef>();
@@ -90,9 +91,9 @@ public class ElementDefn {
 	
 	public ElementDefn() {
 		super();
-	  svgLeft = -1;
-	  svgTop = -1;
-	  svgWidth = -1;
+	  svgLeft = MAX_NEG;
+	  svgTop = MAX_NEG;
+	  svgWidth = MAX_NEG;
 	}
 
 	public ElementDefn(ElementDefn pattern) {

@@ -1,10 +1,10 @@
 [diagram]
 classes=Identifier,HumanName,Address,Contact,Schedule
-title=Types (2)
 
 [directions]
-Identifier=up
-HumanName=up
-Address=right
-Contact=down
-Schedule=left
+HumanName=-230;-170
+Address=-30;-180
+Contact=180;-160
+Identifier=-230;-20
+Schedule=10;50
+Schedule.repeat=200;-20

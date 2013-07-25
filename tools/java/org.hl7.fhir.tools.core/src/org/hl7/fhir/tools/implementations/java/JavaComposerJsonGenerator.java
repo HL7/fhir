@@ -227,9 +227,14 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
       write("    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || !Utilities.noString(value.getValue()))) {\r\n");
     write("      open(name);\r\n");
     write("      composeElement(value);\r\n");
-    if (!dc.getCode().equals("integer") && !dc.getCode().equals("boolean"))
+    if (dc.getCode().equals("integer"))
+      write("        prop(\"value\", java.lang.Integer.valueOf(value.getValue()));\r\n");
+    else  if (dc.getCode().equals("boolean")) 
+      write("        prop(\"value\", value.getValue());\r\n");
+    else {
       write("      if (value.getValue() != null) \r\n");
-    write("        prop(\"value\", toString(value.getValue()));\r\n");
+      write("        prop(\"value\", toString(value.getValue()));\r\n");
+    }
     write("      close();\r\n");
     write("    }    \r\n");
     write("  }    \r\n");

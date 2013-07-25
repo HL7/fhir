@@ -125,28 +125,39 @@ implicit).
 </p>
 <p>
 If the parameter has no modifier, or the modifier ":text", the 
-search parameter is a string, if the modifier is ":code" the 
+search parameter is a string; if the modifier is ":code" the 
 parameter is a pair of fixed value strings, namespace and 
-value, separated by a "!". Without modifier, the search will 
+value, separated by a "/"; if the modifier is :anyns, the 
+parameter is a single value fixed string. Without modifier, the search will 
 use the textual parameter to do a partial match on code, 
 text or display. With modifier ":text" the search will do 
 a partial match on text or display. With the ":code"
 modifier, the search will work as follows:
 </p>
 <ul>
- <li><b>name=namespace!code</b> specifies matches on both the namespace and the code (or, for identifiers, key)</li>
- <li><b>name=!code</b> matches a code that has no specified namespace</li>
- <li><b>name=code</b> matches all codes irrespective of the namespace</li>
+ <li><b>name=namespace/code</b> specifies matches on both the namespace and the code (or, for identifiers, key)</li>
+ <li><b>name=/code</b> matches a code that has no specified namespace</li>
 </ul>
-<p>In the url of the code system, the “#” (fragment identifier) must be escaped, and in some implementations, the ":" does too.</p>
+<p>In the url of the code system, the “#” (fragment identifier) must be escaped, and in some implementations, the ":" does too.
+The modifier :anyns means that the code matches all all codes irrespective of the namespace.</p>
 <p>
 As an example, the following search:
 </p>
 <pre>
-  GET [base-url]/patient?identifier=http://acme.org/patient!2345
+  GET [base-url]/patient?identifier=http://acme.org/patient/2345
 </pre>
 <p>
-searches for all the patients with an identifier with key = "2345" in the system "http://acme.org/patient".
+searches for all the patients with an identifier with key = "2345" in the system "http://acme.org/patient". These examnples:
+</p>
+<pre>
+  GET [base-url]/patient?gender=male
+  GET [base-url]/patient?gender:code=http://hl7.org/fhir/v2/0001/M
+  GET [base-url]/patient?gender:anyns=male
+</pre>
+<p>
+The first means to search for any gender that has a text or code "male". Note that this will also match "female" since that also contains "male". 
+The second means to search for any gender which is coded as "M" in the HL7 Administrative Gender table, and the last means to search for any
+gender where the code is "male". Note that searching any namespace for a particular code is often not very useful. 
 </p>
 
 <h4>date</h4>
@@ -224,7 +235,7 @@ The interpretation of a <i>reference</i> parameter is either:
 <p>
 In order to save a client from doing a series of search operations, 
 reference parameters may be "chained" by appending them with 
-modifiers which are search parameters defined for the target 
+a period (.) followed by the name of a search parameters defined for the target 
 resource. This can be done recursively, following a logical path 
 through a graph of related resources, separated by ":".
 For instance, given that 
@@ -235,7 +246,7 @@ the Patient resource includes a parameter <i>name</i> which
 searches on patient name, then the search
 </p>
 <pre>
- GET [baseurl]/diagnosticreport/search?subject:name="peter"
+ GET [baseurl]/diagnosticreport/search?subject.name="peter"
 </pre>
 <p>
 is a request to return all the lab reports that have a subject whose name includes "peter". Because 

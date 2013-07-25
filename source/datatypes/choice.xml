@@ -127,7 +127,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Choice.option</Data></Cell>
     <Cell><Data ss:Type="String">1..*</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">left</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">List of possible code values</Data></Cell>
     <Cell><Data ss:Type="String">A list of possible values for the code</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Need to know the possible codes the user could have chosen</Data></Cell>
@@ -174,7 +174,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -187,10 +187,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>

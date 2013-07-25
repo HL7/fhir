@@ -17,7 +17,7 @@
  no repeating primitives in datatypes? No id's on primitives in datatypes...No dar on primitives in datatypes. It would be worthwile to document that and the reason for it.
 -->
 
-[%onthispage Primitive Types#primitive|Data Types#Types|Other Types#other%]
+[%onthispage Primitive Types#primitive|Data Types 1#Types|Data Types 2#Types2|Other Types#other%]
 
 <h1>Data Types</h1>
 
@@ -26,20 +26,18 @@ The FHIR specification defines a set of types that are used for the
 resource elements. There are two categories of data type: simple / primitive types, imported from XML schema, and complex types, which are re-usable clusters of elements
 </p>
 
-[-%map alltypes%-]
-<p align="left">
-<img alt="Data Type Index" src="alltypes.png"  usemap="#alltypes"/>
-</p>
+[%diagram datatypes\alltypes.diagram%]
+
 <p>
 The data types are available as a <a href="fhir-base.xsd">W3C Schema</a>.
 </p>
 
 <a name="primitive"></a>
 <h2>Primitive Types</h2>
-<p style="text-alignment: left">
+
 
 <%svg primitives%>
-</p>
+
 <a name="imports"></a>
 <p>
 The following table summarizes the primitive types and their simple restrictions that
@@ -787,10 +785,10 @@ The default value for <i>factor</i> is 1.
 
 
 <hr/>
+<a name="Types2"/>
 <p>
-[-%map types2%-]
+[%diagram datatypes\types2.diagram%]
 
-<img alt="Types (2)" src="types2.png" usemap="#types2"/>
 </p>
 
 <a name="Identifier"></a>
@@ -1125,11 +1123,8 @@ Note that the end date is inclusive like the high date of a Period.
 <p>
 The following types are defined as part of the data types, but are documented elsewhere in the specification:
 </p>
-<p style="text-alignment: left">
-[-%map types3%-]
+[%diagram datatypes\types3.diagram%]
 
-<img alt="Other Types" src="types3.png" usemap="#types3"/>
-</p>
 <ul>
  <li><b><a href="resources.htm#metadata">Resource</a></b> - The conceptual base class for all resources</li>
  <li><b><a href="resources.htm#Resource">ResourceReference</a></b> - for references from one resource to another</li>

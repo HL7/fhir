@@ -9,6 +9,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import net.sf.saxon.query.UnboundFunctionLibrary;
+
+import org.hl7.fhir.definitions.model.BindingSpecification;
+import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
+import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
@@ -100,12 +105,16 @@ public class SvgGenerator {
     }
   }
   private class Link {
-    public Link(ClassItem source, ClassItem target, String name, String cardinality, PointKind kind) {
+    private String path;
+    private String description;
+    public Link(ClassItem source, ClassItem target, String name, String cardinality, PointKind kind, String path, String description) {
       this.source = source;
       this.target = target;
       this.name = name;
       this.cardinality = cardinality;
       this.kind = kind;
+      this.path = path;
+      this.description = description;
     }
     private ClassItem source;
     private ClassItem target;
@@ -117,27 +126,32 @@ public class SvgGenerator {
   }
 
   private Map<ElementDefn, ClassItem> classes = new HashMap<ElementDefn, ClassItem>();
+  private Map<String, ElementDefn> fakes = new HashMap<String, ElementDefn>();
   private List<Link> links = new ArrayList<SvgGenerator.Link>();  
   private Definitions definitions;
   private double minx = 0;
   private double miny = 0;
+  private boolean attributes = true;
+  IniFile ini;
 
   public SvgGenerator(Definitions definitions) {
     this.definitions = definitions;
   }
 
   public String generate(String filename) throws Exception {
-    IniFile ini = new IniFile(filename);
+    ini = new IniFile(filename);
     String[] classNames = ini.getStringProperty("diagram", "classes").split("\\,");
+    if ("false".equals(ini.getStringProperty("diagram", "attributes")))
+      attributes = false;
     ByteArrayOutputStream bytes = new ByteArrayOutputStream();
     XMLWriter xml = new XMLWriter(bytes, "UTF-8");
     
     minx = 0;
     miny = 0;
     
-    Point size = determineMetrics(ini, classNames);
+    Point size = determineMetrics(classNames);
     adjustAllForMin(size);
-    xml.setPretty(true);
+    xml.setPretty(false);
     xml.start();
     xml.setDefaultNamespace(NS_SVG);
     xml.namespace(NS_XLINK, "xlink");
@@ -177,9 +191,9 @@ public class SvgGenerator {
     minx = 10000;
     miny = 10000;
     
-    Point size = determineMetrics(resource.getRoot(), null);
+    Point size = determineMetrics(resource.getRoot(), null, resource.getRoot().getName(), true);
     adjustAllForMin(size);
-    xml.setPretty(true);
+    xml.setPretty(false);
     xml.start();
     xml.setDefaultNamespace(NS_SVG);
     xml.namespace(NS_XLINK, "xlink");
@@ -188,7 +202,7 @@ public class SvgGenerator {
     xml.attribute("height", Double.toString(size.y));
     xml.open("svg");
     shadowFilter(xml);
-    drawClass(xml, resource.getRoot(), true, resource);
+    drawClass(xml, resource.getRoot(), true, resource, false, resource.getName());
     countDuplicateLinks();
     for (Link l : links) {
       drawLink(xml, l);
@@ -206,7 +220,7 @@ public class SvgGenerator {
     }
   }
 
-  private Point determineMetrics(IniFile ini, String[] classNames) throws Exception {
+  private Point determineMetrics(String[] classNames) throws Exception {
     double width = textWidth("Element") * 1.8;
     double height = HEADER_HEIGHT + GAP_HEIGHT*2;
     Point p = new Point(0, 0, PointKind.unknown);
@@ -216,32 +230,53 @@ public class SvgGenerator {
     double y = item.bottom()+MARGIN_Y;
     
     for (String cn : classNames) {
-      ElementDefn c = definitions.getElementDefn(cn);
-      String uml = ini.getStringProperty("directions", cn);
-      c.setUmlDir(uml);
-      p = determineMetrics(c, item);
+      if (definitions.getConstraints().containsKey(cn)) {
+        DefinedCode cd = definitions.getConstraints().get(cn);
+        ElementDefn ed = definitions.getElementDefn(cd.getComment());
+        ClassItem parentClss = classes.get(ed);
+        ElementDefn fake = new ElementDefn();
+        fake.setName(cn);
+        fakes.put(cn, fake);
+        p = determineMetrics(fake, parentClss, cn, false);
+      } else {
+        ElementDefn c = definitions.getElementDefn(cn);
+        p = determineMetrics(c, item, c.getName(), false);
+      }
       x = Math.max(x, p.x+MARGIN_X);
       y = Math.max(y, p.y+MARGIN_Y);
     }
     return new Point(x, y, PointKind.unknown);
   }
   
-  private Point determineMetrics(ElementDefn e, ClassItem source) {
+  private Point determineMetrics(ElementDefn e, ClassItem source, String path, boolean isRoot) {
     
-    double width = textWidth(e.getName()) * 1.8;
-    int i = 0;
-    for (ElementDefn c : e.getElements()) 
-      if (isAttribute(c)) {
-        i++;
-        double w = textWidth(textForAttribute(c));
-        if (w > width)
-          width = w;
-      }
-    double height = HEADER_HEIGHT + GAP_HEIGHT*2 + LINE_HEIGHT * i + GAP_HEIGHT * 2;
+    double width = textWidth(e.getName()) * 1.8 + (isRoot ? textWidth(" (Resource)") : 0);
+    double height;
+    if (attributes) {
+      int i = 0;
+      for (ElementDefn c : e.getElements()) 
+        if (isAttribute(c)) {
+          i++;
+          double w = textWidth(textForAttribute(c));
+          if (w > width)
+            width = w;
+        }
+      height = HEADER_HEIGHT + GAP_HEIGHT*2 + LINE_HEIGHT * i + GAP_HEIGHT * 2;
+    }  else
+      height = HEADER_HEIGHT + GAP_HEIGHT*2;
 
+    if (ini != null) {
+      String uml = ini.getStringProperty("directions", path);
+      if (!Utilities.noString(uml) && uml.contains(";")) {
+        String[] svg = uml.split("\\;");
+        e.setSvgLeft(Integer.parseInt(svg[0]));
+        e.setSvgTop(Integer.parseInt(svg[1]));
+      } else
+        e.setUmlDir(uml);
+    }
     
     Point p = new Point(e.getSvgLeft(), e.getSvgTop(), PointKind.unknown);
-    if (p.y < 0 || p.x < 0) {
+    if (p.y == ElementDefn.MAX_NEG || p.x == ElementDefn.MAX_NEG) {
       if ("left".equals(e.getUmlDir())) {
         p.x = source.left - 120 - width;
         p.y = source.centerV() - height / 2;
@@ -271,11 +306,13 @@ public class SvgGenerator {
     double x = item.right()+MARGIN_X;
     double y = item.bottom()+MARGIN_Y;
     
-    for (ElementDefn c : e.getElements()) {  
-      if (!isAttribute(c) && (Utilities.noString(c.typeCode()) || !c.typeCode().startsWith("@"))) {
-        p = determineMetrics(c, item);
-        x = Math.max(x, p.x+MARGIN_X);
-        y = Math.max(y, p.y+MARGIN_Y);
+    if (attributes) {
+      for (ElementDefn c : e.getElements()) {  
+        if (!isAttribute(c) && (Utilities.noString(c.typeCode()) || !c.typeCode().startsWith("@"))) {
+          p = determineMetrics(c, item, path+"."+c.getName(), false);
+          x = Math.max(x, p.x+MARGIN_X);
+          y = Math.max(y, p.y+MARGIN_Y);
+        }
       }
     }
     return new Point(x, y, PointKind.unknown);
@@ -385,7 +422,12 @@ public class SvgGenerator {
 
     if (start != null && end != null) {
       if (l.name == null){
-        //todo: draw the gen arrow
+        Point pd1 = calcGenRight(start, p1);
+        Point pd2 = calcGenLeft(start, p1);
+        xml.attribute("points", start.toPoint() +" " +pd1.toPoint() +" " +pd2.toPoint() +" " +start.toPoint());
+        xml.attribute("style", "fill:white;stroke:navy;stroke-width:1");
+        xml.attribute("transform", "rotate("+getAngle(start, p1)+" "+Double.toString(start.x)+" "+Double.toString(start.y)+")");
+        xml.element("polygon", null);
       } else {
         // draw the diamond
         Point pd2 = calcDiamondEnd(start, p1);
@@ -410,7 +452,13 @@ public class SvgGenerator {
         xml.attribute("y", Double.toString(y - GAP_HEIGHT));
         xml.attribute("fill", "black");
         xml.attribute("style", "font-size: 10; text-anchor: middle; font-family: sans-serif; opacity: 1");
-        xml.element("text", l.name);  
+        xml.open("text");
+        xml.attribute("xlink:href", l.path);
+        xml.open("a");
+        xml.element("title", l.description);
+        xml.text(l.name);
+        xml.close("a");
+        xml.close("text");
 
         // draw the cardinality at the terminal end
         x = end.x;
@@ -476,7 +524,15 @@ public class SvgGenerator {
   }
 
   private Point calcDiamondLeft(Point start, Point end) {
-    return new Point(start.x+6, start.y-4, PointKind. unknown);
+    return new Point(start.x+6, start.y-4, PointKind.unknown);
+  }
+
+  private Point calcGenRight(Point start, Point end) {
+    return new Point(start.x+8, start.y+6, PointKind.unknown);
+  }
+
+  private Point calcGenLeft(Point start, Point end) {
+    return new Point(start.x+8, start.y-6, PointKind.unknown);
   }
 
   private Point intersection(Point start, Point end, ClassItem box) {
@@ -546,12 +602,18 @@ public class SvgGenerator {
     xml.element("text", tn);
 
     for (String cn : classNames) {  
-      links.add(new Link(item, drawClass(xml, definitions.getElementDefn(cn), false, null), null, null, PointKind.unknown));        
+      if (definitions.getConstraints().containsKey(cn)) {
+        DefinedCode cd = definitions.getConstraints().get(cn);
+        ElementDefn fake = fakes.get(cn);
+        ClassItem parent = classes.get(definitions.getElementDefn(cd.getComment()));
+        links.add(new Link(parent, drawClass(xml, fake, false, null, true, null), null, null, PointKind.unknown, null, null));        
+      } else 
+        links.add(new Link(item, drawClass(xml, definitions.getElementDefn(cn), false, null, true, cn), null, null, PointKind.unknown, null, null));        
     }
     return item;
   }
 
-  private ClassItem drawClass(XMLWriter xml, ElementDefn e, boolean isRoot, ResourceDefn resource) throws Exception {
+  private ClassItem drawClass(XMLWriter xml, ElementDefn e, boolean isRoot, ResourceDefn resource, boolean link, String path) throws Exception {
     ClassItem item = classes.get(e);
     String tn = Utilities.capitalize(e.getName());
     xml.attribute("x", Double.toString(item.left));
@@ -561,7 +623,10 @@ public class SvgGenerator {
     xml.attribute("width", Double.toString(item.width));
     xml.attribute("height", Double.toString(item.height));
     xml.attribute("filter", "url(#shadow)");
-    xml.attribute("style", "fill:#f0f8ff;stroke:black;stroke-width:1");
+    if (fakes.values().contains(e))
+      xml.attribute("style", "fill:#f8ddf8;stroke:black;stroke-width:1");
+    else
+      xml.attribute("style", "fill:#f0f8ff;stroke:black;stroke-width:1");
     xml.element("rect", null);    
 
     xml.attribute("x1", Double.toString(item.left));
@@ -575,27 +640,65 @@ public class SvgGenerator {
     xml.attribute("y", Double.toString(item.top+HEADER_HEIGHT));
     xml.attribute("fill", "black");
     xml.attribute("style", "font-size: 14; text-anchor: middle; font-family: sans-serif"+(isRoot ? "; font-weight: bold" : ""));
-    xml.element("text", tn);
+    if (link) {
+      xml.open("text");
+      xml.attribute("xlink:href", "#"+tn);
+      xml.open("a");
+      xml.text(tn);
+      xml.close("a");
+      xml.close("text");
+    } else if (isRoot) {
+      xml.open("text");
+      xml.text(tn);
+      xml.attribute("style", "font-size: 10; text-anchor: middle; font-family: sans-serif; font-weight: normal");
+      xml.open("tspan");
+      xml.text(" (");
+      xml.attribute("xlink:href", "resources.htm");
+      xml.attribute("style", "fill:navy;font-size: 10; text-anchor: middle; font-family: sans-serif; font-weight: normal");
+      xml.element("a", "Resource");
+      xml.text(")");
+      xml.close("tspan");
+      xml.close("text");
+    } else 
+      xml.element("text", tn);
 
-    int i = 0;
-    for (ElementDefn c : e.getElements()) {
-      if (isAttribute(c)) {
-        i++;
-        addAttribute(xml, item.left, item.top+HEADER_HEIGHT + GAP_HEIGHT*2 + LINE_HEIGHT * i, c);
+    if (attributes) {
+      int i = 0;
+      for (ElementDefn c : e.getElements()) {
+        if (isAttribute(c)) {
+          i++;
+          addAttribute(xml, item.left, item.top+HEADER_HEIGHT + GAP_HEIGHT*2 + LINE_HEIGHT * i, c, path);
+        }
       }
-    }
 
-    for (ElementDefn c : e.getElements()) {  
-      if (!isAttribute(c)) {
-        if (Utilities.noString(c.typeCode()) || !c.typeCode().startsWith("@")) {
-          links.add(new Link(item, drawClass(xml, c, false, resource), c.getName(), c.describeCardinality(), PointKind.unknown));        
-        } else {
-          ClassItem target = getItemForPath(resource, c.typeCode().substring(1));
-          links.add(new Link(item, target, c.getName(), e.describeCardinality(), PointKind.unknown));                  
+      for (ElementDefn c : e.getElements()) {  
+        if (!isAttribute(c)) {
+          if (Utilities.noString(c.typeCode()) || !c.typeCode().startsWith("@")) {
+            links.add(new Link(item, drawClass(xml, c, false, resource, false, path+"."+c.getName()), c.getName(), c.describeCardinality(), PointKind.unknown, baseUrl(path)+path+"."+c.getName(), c.getEnhancedDefinition()));        
+          } else {
+            ClassItem target = getItemForPath(resource, c.typeCode().substring(1));
+            links.add(new Link(item, target, c.getName(), e.describeCardinality(), PointKind.unknown, baseUrl(path)+path+"."+c.getName(), c.getEnhancedDefinition()));                  
+          }
         }
       }
     }
     return item;
+  }
+
+  private String baseUrl(String path) throws Exception {
+    String root = path.contains(".") ? path.substring(0, path.indexOf(".")) : path;
+    if (definitions.hasResource(root))
+      return root.toLowerCase()+"-definitions.htm#";
+    else if ("Narrative".equals(root))
+      return "formats-definitions.htm#";
+    else if ("ResourceReference".equals(root))
+      return "resources-definitions.htm#";
+    else if ("Extension".equals(root))
+      return "extensibility-definitions.htm#";
+    else if (definitions.hasType(root))
+      return "datatypes-definitions.htm#";
+    else
+      throw new Exception(root+" not handled yet");
   }
 
   private ClassItem getItemForPath(ResourceDefn resource, String path) throws Exception {
@@ -608,20 +711,20 @@ public class SvgGenerator {
   }
 
   private String textForAttribute(ElementDefn e) {
-    return e.getName()+" : "+e.typeCode()+" : "+e.describeCardinality()+(e.hasBinding() ? "  « "+e.getBindingName()+" »" : "");
+    return e.getName()+" : "+e.typeCode()+" : "+e.describeCardinality()+(e.hasBinding() ? " <<"+e.getBindingName()+">>" : "");
   }
 
   private boolean isAttribute(ElementDefn c) {
     return c.getElements().size() == 0 && !c.typeCode().startsWith("@");
   }
 
-  private void addAttribute(XMLWriter xml, double left, double top, ElementDefn e) throws Exception  {
+  private void addAttribute(XMLWriter xml, double left, double top, ElementDefn e, String path) throws Exception  {
     xml.attribute("x", Double.toString(left + LEFT_MARGIN));
     xml.attribute("y", Double.toString(top));
     xml.attribute("fill", "black");
     xml.attribute("style", "font-size: 10; text-anchor: left; font-family: sans-serif");
     xml.open("text");
-    xml.attribute("xlink:href", "datatypes.htm");
+    xml.attribute("xlink:href", baseUrl(path)+path+"."+e.getName().replace("[", "_").replace("]", "_"));
     xml.open("a");
     xml.element("title", e.getEnhancedDefinition());
     xml.text(e.getName());
@@ -629,18 +732,54 @@ public class SvgGenerator {
     xml.text(" : ");
     encodeTypes(xml, e.getTypes());
     xml.text(" "+e.describeCardinality());
-    if (e.hasBinding()) {
-      xml.text("  «");
-      xml.attribute("xlink:href", "todo.htm");
+    if (e.hasBinding() && definitions.getBindingByName(e.getBindingName()).getBinding() != Binding.Unbound) {
+      xml.text(" <<");
+      xml.attribute("xlink:href", getBindingLink(e));
       xml.open("a");
-      xml.element("title", "Binding Description");
+      xml.element("title", definitions.getBindingByName(e.getBindingName()).getDefinition());
       xml.text(e.getBindingName());
       xml.close("a");
-      xml.text("»");
+      xml.text(">>");
     }
     xml.close("text");
   }
 
+  private String getBindingLink(ElementDefn e) throws Exception {
+    BindingSpecification bs = definitions.getBindingByName(e.getBindingName());
+    if (bs.getBinding() == Binding.Reference)
+      return bs.getReference();      
+    else if (bs.getBinding() == Binding.CodeList)
+      return bs.getReference().substring(1)+".htm";
+    else if (bs.getBinding() == Binding.ValueSet) {
+      if (Utilities.noString(bs.getReference())) 
+        return "??";
+      else if (bs.getReference().startsWith("valueset-"))
+        return bs.getReference()+".htm";            
+      else if (bs.getReference().startsWith("http://hl7.org/fhir")) {
+        if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/"))
+          return "v3/"+bs.getReference().substring(26)+"/index.htm";
+        else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/"))
+          return bs.getReference().substring(23)+".htm";
+        else
+          throw new Exception("Internal reference "+bs.getReference()+" not handled yet");
+      } else
+        return bs.getReference()+".htm";            
+    } else if (bs.getBinding() == Binding.Special) {
+      if (bs.getName().equals("MessageEvent"))
+        return "message-events.htm";
+      else if (bs.getName().equals("ResourceType"))
+        return "resource-types.htm";
+      else if (bs.getName().equals("DataType"))
+        return "data-types.htm";
+      else if (bs.getName().equals("FHIRDefinedType"))
+        return "defined-types.htm";
+      else 
+        throw new Exception("Unknown special type "+bs.getName());
+    } else 
+      throw new Exception("not handled yet");
+  }
+
+  
   private void encodeTypes(XMLWriter xml, List<TypeRef> types)  throws Exception {
     boolean first = true;
     for (TypeRef tr : types) {

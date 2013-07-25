@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10230</WindowHeight>
+  <WindowHeight>10170</WindowHeight>
   <WindowWidth>20700</WindowWidth>
   <WindowTopX>15360</WindowTopX>
-  <WindowTopY>4305</WindowTopY>
+  <WindowTopY>4365</WindowTopY>
   <TabRatio>651</TabRatio>
   <ActiveSheet>12</ActiveSheet>
   <FirstVisibleSheet>8</FirstVisibleSheet>
@@ -110,51 +110,28 @@
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s76">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
-  </Style>
-  <Style ss:ID="s78">
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s79" ss:Parent="s62">
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s80">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s81">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s82">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:WrapText="1"/>
-   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
-  </Style>
-  <Style ss:ID="s83" ss:Parent="s62">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
-  <Style ss:ID="s84" ss:Parent="s62">
+  <Style ss:ID="s77">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
   </Style>
-  <Style ss:ID="s85">
+  <Style ss:ID="s79">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s80" ss:Parent="s62">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s81">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -163,6 +140,29 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s82" ss:Parent="s62">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s83">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s84" ss:Parent="s62">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s85">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -1230,9 +1230,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"><Data ss:Type="String">SearchParamType</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Data types allowed to be used for search parameters</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Data types allowed to be used for search parameters</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">#search-param-type</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">#search-param-type</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1279,14 +1279,14 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">General</Data></Cell>
     <Cell><Data ss:Type="String">General Condition Example</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">example</Data></Cell>
     <Cell><Data ss:Type="String">conformance-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">PHR</Data></Cell>
     <Cell><Data ss:Type="String">PHR Example</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">phr</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">phr</Data></Cell>
     <Cell><Data ss:Type="String">conformance-phr-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
@@ -1662,10 +1662,10 @@
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="102.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="435"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s78">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s79">
     <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Definition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -1708,10 +1708,10 @@
  </Worksheet>
  <Worksheet ss:Name="search-param-type">
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="8" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s76" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="84"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="578.25"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s85">
+   x:FullRows="1" ss:StyleID="s77" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="84"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="578.25"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s81">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
@@ -1719,34 +1719,34 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">integer</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Search parameter must be a simple whole number</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">integer</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Search parameter must be a simple whole number</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="33.75">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces and are delineated by double quotes, e.g. &quot;van Zanten&quot;.</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces and are delineated by double quotes, e.g. &quot;van Zanten&quot;.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">text</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Search parameter is on a long string. Used for text filter type search: it functions on searches within a body of text and may contain spaces to separate words. May match even if the separate words are found out of order. Text parameters are delineated by double quotes.</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">text</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Search parameter is on a long string. Used for text filter type search: it functions on searches within a body of text and may contain spaces to separate words. May match even if the separate words are found out of order. Text parameters are delineated by double quotes.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Search parameter is on a date (and should support :before and :after modifiers). The date format is the standard XML format, though other formats may be supported</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Search parameter is on a date (and should support :before and :after modifiers). The date format is the standard XML format, though other formats may be supported</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). It's value is either a string or a pair of namespace and value, separated by a &quot;!&quot;. </Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). It's value is either a string or a pair of namespace and value, separated by a &quot;/&quot;, depending on the modifier used</Data></Cell>
     <Cell><Data ss:Type="String"> </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="24" ss:StyleID="s81">
+   <Row ss:AutoFitHeight="0" ss:Height="24" ss:StyleID="s85">
     <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">A pair of resource type and resource id, separated by &quot;/&quot;. Matches when the resource reference resolves to a resource of the given type and id.</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">A pair of resource type and resource id, separated by &quot;/&quot;. Matches when the resource reference resolves to a resource of the given type and id. The resource type may be omitted to search all types if used with the modifier :any</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">7</Data></Cell>
@@ -1771,7 +1771,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>7</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>

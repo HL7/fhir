@@ -31393,7 +31393,7 @@
   </table>
   <table id="495" state="include">
     <version version="2.5" desc="Body Site Modifier">
-      <item id="16" code=" UPP" desc="Upper"/>
+      <item id="16" code="UPP" desc="Upper"/>
       <item id="1" code="ANT" desc="Anterior"/>
       <item id="2" code="BIL" desc="Bilateral"/>
       <item id="3" code="DIS" desc="Distal"/>

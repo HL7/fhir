@@ -1,102 +1,26 @@
-@startuml
-title Data Types
-skinparam nodesep 30
-skinparam ranksep 30
-skinparam classBackgroundColor Aliceblue
-skinparam classBorderColor Gray
-skinparam classArrowColor Navy
+[diagram]
+classes=Identifier,HumanName,Address,Contact,Schedule,Quantity,Attachment,Choice,Range,Period,Ratio,CodeableConcept,Coding,SampledData,Age,Distance,Duration,Count,Money
+attributes=false
 
-DataType <|-up- Coding
-DataType <|-up- Choice
-DataType <|-up- Identifier
-DataType <|-up- Attachment
-DataType <|-up- Contact
-DataType <|-up- Address
-DataType <|-left- HumanName
-DataType <|-right- CodeableConcept
-DataType <|-down- Schedule
-DataType <|-down- Period
-DataType <|-down- Quantity
-DataType <|-down- Range
-DataType <|-down- Ratio
-DataType <|-down- SampledData
-Quantity <|-down- Age
-Quantity <|-down- Distance
-Quantity <|-down- Duration
-Quantity <|-down- Count
-Quantity <|-down- Money
+[directions]
+CodeableConcept=-150;50
+Coding=-150;10
+Choice=-150;10
+Schedule=-150;-30
+Ratio=-135;-70
+Period=-70;-70
+Range=0;-70
+Attachment=50;-70
+Identifier=150;-70
+HumanName=160;-30
+Address=165;10
+Contact=170;50
+Quantity=-10;50
+SampledData=70;50
+Age=-150;100
+Distance=-95;100
+Duration=-10;100
+Count=75;100
+Money=150;100
 
-class DataType
-url of Coding is [[#Coding]]
-class Coding
-url of CodeableConcept is [[#CodeableConcept]]
-class CodeableConcept
-url of Choice is [[#Choice]]
-class Choice
-url of Attachment is [[#Attachment]]
-class Attachment
-url of Identifier is [[#Identifier]]
-class Identifier
-url of Quantity is [[#Quantity]]
-class Quantity
-url of Period is [[#Period]]
-class Period
-url of Range is [[#Range]]
-class Range
-url of Ratio is [[#Ratio]]
-class Ratio
-url of SampledData is [[#SampledData]]
-class Array
-url of HumanName is [[#HumanName]]
-class HumanName
-url of Address is [[#Address]]
-class Address
-url of Schedule is [[#Schedule]]
-class Schedule
-url of Contact is [[#Contact]]
-class Contact
-url of Age is [[#Age]]
-class Age << constraint >>
-url of Distance is [[#Distance]]
-class Distance << constraint >>
-url of Duration is [[#Duration]]
-class Duration << constraint >>
-url of Count is [[#Count]]
-class Count << constraint >>
-url of Money is [[#Money]]
-class Money << constraint >>
 
-hide methods
-hide attributes
-hide DataType circle
-hide Coding circle
-hide CodeableConcept circle
-hide Choice circle
-hide Attachment circle
-hide Identifier circle
-hide Quantity circle
-hide Period circle
-hide Range circle
-hide Ratio circle
-hide SampledData circle
-hide HumanName circle
-hide Address circle
-hide Schedule circle
-hide Contact circle
-hide Age circle
-hide Distance circle
-hide Duration circle
-hide Count circle
-hide Money circle
-
-hide Age stereotype
-hide Distance stereotype
-hide Duration stereotype
-hide Count stereotype
-hide Money stereotype
-
-skinparam class {
-	BackgroundColor<<constraint>> Thistle
-}
-
-@enduml
