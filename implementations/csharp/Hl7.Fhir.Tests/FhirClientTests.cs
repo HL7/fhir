@@ -23,9 +23,9 @@ namespace Hl7.Fhir.Tests
         [TestMethod]
         public void FetchConformance()
         {
-            FhirClient client = new FhirClient();
+            FhirClient client = new FhirClient(testEndpoint);
 
-            Conformance c = client.Conformance(testEndpoint).Content;
+            Conformance c = client.Conformance().Content;
 
             Assert.IsNotNull(c);
             Assert.AreEqual("HL7Connect", c.Software.Name);
@@ -60,7 +60,7 @@ namespace Hl7.Fhir.Tests
                 Assert.IsTrue(client.LastResponseDetails.Result == HttpStatusCode.NotFound);
             }
 
-            var loc2 = client.Fetch<Location>("1", version);
+            var loc2 = client.VRead<Location>("1", version);
             Assert.IsNotNull(loc2);
             Assert.AreEqual(FhirSerializer.SerializeBundleEntryToJson(loc),
                             FhirSerializer.SerializeBundleEntryToJson(loc2));
@@ -91,7 +91,7 @@ namespace Hl7.Fhir.Tests
             Assert.IsTrue(result.Entries[0].Id.ToString().EndsWith("@101"));
 
             //result = client.SearchById<DiagnosticReport>("101", "DiagnosticReport/subject");
-            result = client.Search(ResourceType.DiagnosticReport, "_id", "101", new string[] { "DiagnosticReport.subject" } );
+            result = client.Search(ResourceType.DiagnosticReport, "_id", "101", includes: new string[] { "DiagnosticReport.subject" } );
             Assert.IsNotNull(result);
 
             Assert.AreEqual(1,
@@ -109,6 +109,31 @@ namespace Hl7.Fhir.Tests
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Entries[0].Links.SelfLink.ToString().Contains("patient/@1"));
+        }
+
+        [TestMethod]
+        public void Paging()
+        {
+            FhirClient client = new FhirClient(testEndpoint);
+
+            var result = client.Search(ResourceType.DiagnosticReport, count: 10);
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Entries.Count <= 10);
+
+            var firstId = result.Entries.First().Id;
+
+            // Browse forward
+            result = client.Continue(result);
+            Assert.IsNotNull(result);
+            var nextId = result.Entries.First().Id;
+            Assert.AreNotEqual(firstId, nextId);
+
+            // Browse backward
+            //result = client.Continue(result, PageDirection.Previous);
+            result = client.Continue(result, PageDirection.First);
+            Assert.IsNotNull(result);
+            var prevId = result.Entries.First().Id;
+            Assert.AreEqual(firstId, prevId);
         }
 
 
@@ -195,6 +220,30 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual(3, history.Entries.Count());
             Assert.AreEqual(2, history.Entries.Where(entry => entry is ResourceEntry).Count());
             Assert.AreEqual(1, history.Entries.Where(entry => entry is DeletedEntry).Count());
+        }
+
+        [TestMethod]
+        public void ReadTags()
+        {
+            FhirClient client = new FhirClient(testEndpoint);
+
+            var tags = new List<Tag>() { new Tag("http://readtag.nu.nl", "readTagTest") };
+
+            client.AffixTags(tags, ResourceType.Location, "1");
+
+            var list = client.GetTags();
+            Assert.IsTrue(list.Any(t => t == tags.First()));
+
+            list = client.GetTags(ResourceType.Location);
+            Assert.IsTrue(list.Any(t => t == tags.First()));
+
+            list = client.GetTags(ResourceType.Location, "1", "1");
+            Assert.IsTrue(list.Any(t => t == tags.First()));
+
+            client.DeleteTags(tags, ResourceType.Location, "1", "1");
+
+            list = client.GetTags();
+            Assert.IsFalse(list.Any(t => t == tags.First()));
         }
     }
 }

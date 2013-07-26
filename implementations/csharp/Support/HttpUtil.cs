@@ -31,6 +31,7 @@
 
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Parsers;
+using Hl7.Fhir.Serializers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -147,25 +148,9 @@ namespace Hl7.Fhir.Support
             string requestUri=null, string location=null,
             string category=null, string lastModified=null )
         {
-            ErrorList parseErrors = new ErrorList();
-            Resource resource;
-
-            ContentType.ResourceFormat format = ContentType.GetResourceFormatFromContentType(contentType);
-
-            switch (format)
-            {
-                case ContentType.ResourceFormat.Json:
-                    resource = FhirParser.ParseResourceFromJson(body, parseErrors);
-                    break;
-                case ContentType.ResourceFormat.Xml:
-                    resource = FhirParser.ParseResourceFromXml(body, parseErrors);
-                    break;
-                default:
-                    throw new FhirParseException("Cannot decode resource: unrecognized content type");
-            }
-
-            if (parseErrors.Count() > 0)
-                throw new FhirParseException("Failed to parse the resource data: " + parseErrors.ToString(), parseErrors, body);
+            var resource = parseBody<Resource>(body,contentType,
+                    (b,e) =>  FhirParser.ParseResourceFromXml(b, e),
+                    (b,e) =>  FhirParser.ParseResourceFromJson(b, e) );
 
             ResourceEntry result = ResourceEntry.Create(resource);
             string versionIdInRequestUri = null;
@@ -204,6 +189,68 @@ namespace Hl7.Fhir.Support
             return result;
         }
 
+
+
+        public static Bundle BundleResponse(string body, string contentType)
+        {
+            return parseBody<Bundle>(body, contentType, 
+                (b,e) => FhirParser.ParseBundleFromXml(b, e), 
+                (b,e) => FhirParser.ParseBundleFromJson(b, e));            
+        }
+
+
+        public static IList<Tag> TagListResponse(string body, string contentType)
+        {
+            return parseBody(body, contentType,
+                (b, e) => FhirParser.ParseTagListFromXml(b, e),
+                (b, e) => FhirParser.ParseTagListFromJson(b, e));
+        }
+
+        public static byte[] TagListBody(IEnumerable<Tag> tags, ContentType.ResourceFormat format)
+        {
+            return serializeBody<IEnumerable<Tag>>(tags, format,
+                t => FhirSerializer.SerializeTagListToXmlBytes(tags),
+                t => FhirSerializer.SerializeTagListToJsonBytes(tags));
+        }
+
+        private static byte[] serializeBody<T>(T data, ContentType.ResourceFormat format, Func<T, byte[]> xmlSerializer, Func<T, byte[]> jsonSerializer)
+        {
+            var isBundle = data is Bundle;
+
+            if (format == ContentType.ResourceFormat.Json)
+                return jsonSerializer(data); // FhirSerializer.SerializeBundleToJsonBytes(bundle);
+            else if (format == ContentType.ResourceFormat.Xml)
+                return xmlSerializer(data);   // FhirSerializer.SerializeBundleToXmlBytes(bundle);
+            else
+                throw new ArgumentException("Cannot encode a batch into format " + format.ToString());
+
+        }
+
+        private static T parseBody<T>(string body, string contentType, 
+                    Func<string, ErrorList, T> xmlParser, Func<string, ErrorList, T> jsonParser) where T : class
+        {
+            ErrorList parseErrors = new ErrorList();
+            T result = null;
+
+            ContentType.ResourceFormat format = ContentType.GetResourceFormatFromContentType(contentType);
+
+            switch (format)
+            {
+                case ContentType.ResourceFormat.Json:
+                    result = jsonParser(body, parseErrors); 
+                    break;
+                case ContentType.ResourceFormat.Xml:
+                    result = xmlParser(body, parseErrors);
+                    break;
+                default:
+                    throw new FhirParseException("Cannot decode body: unrecognized content type " + format);
+            }
+
+            if (parseErrors.Count() > 0)
+                throw new FhirParseException("Failed to parse body: " + parseErrors.ToString(), parseErrors, body);
+
+            return result;
+        }
 
     }
 }

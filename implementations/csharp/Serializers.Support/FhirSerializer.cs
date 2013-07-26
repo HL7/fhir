@@ -48,7 +48,7 @@ namespace Hl7.Fhir.Serializers
             return xmlWriterToString( xw => FhirSerializer.SerializeResource(resource, new XmlFhirWriter(xw), summary) );
         }
 
-        public static string SerializeTagListToXml(IList<Tag> list)
+        public static string SerializeTagListToXml(IEnumerable<Tag> list)
         {
             return xmlWriterToString(xw => TagListSerializer.SerializeTagList(list, xw));
         }
@@ -58,7 +58,7 @@ namespace Hl7.Fhir.Serializers
             return xmlWriterToBytes(xw => FhirSerializer.SerializeResource(resource, new XmlFhirWriter(xw), summary));
         }
 
-        public static byte[] SerializeTagListToXmlBytes(IList<Tag> list)
+        public static byte[] SerializeTagListToXmlBytes(IEnumerable<Tag> list)
         {
             return xmlWriterToBytes(xw => TagListSerializer.SerializeTagList(list, xw));
         }
@@ -78,7 +78,7 @@ namespace Hl7.Fhir.Serializers
             return jsonWriterToBytes(jw => FhirSerializer.SerializeResource(resource, new JsonFhirWriter(jw), summary));
         }
 
-        public static byte[] SerializeTagListToJsonBytes(IList<Tag> list)
+        public static byte[] SerializeTagListToJsonBytes(IEnumerable<Tag> list)
         {
             return jsonWriterToBytes(jw => TagListSerializer.SerializeTagList(list, jw));
         }

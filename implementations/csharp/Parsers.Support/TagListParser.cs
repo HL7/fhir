@@ -46,7 +46,7 @@ namespace Hl7.Fhir.Parsers
 {
     internal static class TagListParser
     {
-        public static IList<Tag> ParseTagList(XmlReader xr, ErrorList errors)
+        internal static IList<Tag> ParseTags(XmlReader xr, ErrorList errors)
         {
             xr.MoveToContent();
 
@@ -72,8 +72,7 @@ namespace Hl7.Fhir.Parsers
             return null;
         }
 
-
-        public static IList<Tag> ParseTagList(JsonReader xr, ErrorList errors)
+        internal static IList<Tag> ParseTags(JsonReader xr, ErrorList errors)
         {
             try
             {
@@ -99,7 +98,6 @@ namespace Hl7.Fhir.Parsers
 
             return null;
         }
-
 
         internal static IList<Tag> ParseTags(IEnumerable<XElement> tags)
         {

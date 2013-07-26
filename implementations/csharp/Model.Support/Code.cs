@@ -89,6 +89,7 @@ namespace Hl7.Fhir.Model
     }
 
 
+    [Serializable]
     public class Code<T> : Element  where T : struct
     {
         // Primitive value of element

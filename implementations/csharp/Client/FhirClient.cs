@@ -49,22 +49,18 @@ namespace Hl7.Fhir.Client
     public class FhirClient
     {
         /// <summary>
-        /// Creates a new client without setting a default endpoint
-        /// </summary>
-        public FhirClient()
-        {
-            PreferredFormat = ContentType.ResourceFormat.Xml;
-        }
-
-        /// <summary>
         /// Creates a new client using a default endpoint
         /// </summary>
-        public FhirClient(Uri endpoint)
+        public FhirClient(Uri endpoint) : this()
         {
             if (endpoint == null) throw new ArgumentNullException("endpoint");
 
-            PreferredFormat = ContentType.ResourceFormat.Xml;
             Endpoint = endpoint;
+        }
+
+        public FhirClient()
+        {
+            PreferredFormat = ContentType.ResourceFormat.Xml;
         }
 
         /// <summary>
@@ -72,6 +68,55 @@ namespace Hl7.Fhir.Client
         /// instead of explicit uri endpoints.
         /// </summary>
         public Uri Endpoint { get; set; }
+
+
+        /// <summary>
+        /// Fetches a typed resource from a FHIR resource endpoint.
+        /// </summary>
+        /// <param name="endpoint">The url of the Resource to fetch. This can be a Resource id url or a version-specific
+        /// Resource url.</param>
+        /// <typeparam name="TResource">The type of resource to fetch</typeparam>
+        /// <returns>The requested resource as a ResourceEntry&lt;T&gt;. This operation will throw an exception
+        /// if the resource has been deleted or does not exist</returns>
+        public ResourceEntry<TResource> Fetch<TResource>(Uri endpoint) where TResource : Resource, new()
+        {
+            if (endpoint == null) throw new ArgumentNullException("endpoint");
+
+            var req = createRequest(endpoint, false);
+
+            return doRequest(req, HttpStatusCode.OK, () => resourceEntryFromResponse<TResource>());
+        }
+
+
+
+        /// <summary>
+        /// Fetches a bundle from a FHIR resource endpoint. 
+        /// </summary>
+        /// <param name="endpoint">The url of the endpoint which returns a Bundle</param>
+        /// <returns>The Bundle as received by performing a GET on the endpoint. This operation will throw an exception
+        /// if the operation does not result in a HttpStatus OK.</returns>
+        public Bundle FetchBundle(Uri endpoint)
+        {
+            if (endpoint == null) throw new ArgumentNullException("endpoint");
+
+            var req = createRequest(endpoint, true);
+
+            return doRequest(req, HttpStatusCode.OK, () => bundleFromResponse());
+        }
+
+
+        /// <summary>
+        /// Get a conformance statement for the system
+        /// </summary>
+        /// <param name="useOptionsVerb">If true, uses the Http OPTIONS verb to get the conformance, otherwise uses the /metadata endpoint</param>
+        /// <returns>A Conformance resource. Throws an exception if the operation failed.</returns>
+        public ResourceEntry<Conformance> Conformance(bool useOptionsVerb = false)
+        {
+            if (Endpoint == null) throw new InvalidOperationException("Endpoint must be provided using either the Endpoint property or the FhirClient constructor");
+
+            return Conformance(Endpoint, useOptionsVerb);
+        }
+
 
         /// <summary>
         /// Get a conformance statement for the system
@@ -83,74 +128,34 @@ namespace Hl7.Fhir.Client
             if (endpoint == null) throw new ArgumentNullException("endpoint");
 
             var rl = new ResourceLocation(endpoint);
-            if( !useOptionsVerb ) rl.Operation = ResourceLocation.RESTOPER_METADATA;
+            if (!useOptionsVerb) rl.Operation = ResourceLocation.RESTOPER_METADATA;
 
             var req = createRequest(rl.ToUri(), false);
             req.Method = useOptionsVerb ? "OPTIONS" : "GET";
 
-            return doRequest(req, HttpStatusCode.OK, () => resourceEntryFromResponse<Conformance>() );
+            return doRequest(req, HttpStatusCode.OK, () => resourceEntryFromResponse<Conformance>());
         }
 
-
-        /// <summary>
-        /// Get a conformance statement for the system using the default endpoint
-        /// </summary>
-        /// <param name="useOptionsVerb">If true, uses the Http OPTIONS verb to get the conformance, otherwise uses the /metadata endpoint</param>
-        /// <returns>A Conformance resource. Throws an exception if the operation failed.</returns>
-        public ResourceEntry<Conformance> Conformance(bool useOptionsVerb = false)
+       
+        public ResourceEntry<TResource> Read<TResource>(string id, string versionId=null) where TResource : Resource, new()
         {
-            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of Conformance");
-
-            return Conformance(Endpoint);
-        }
-
-
-        /// <summary>
-        /// Fetches a resource from a FHIR resource endpoint. This can be a Resource id url or a version-specific
-        /// Resource url.
-        /// </summary>
-        /// <param name="endpoint">The url of the Resource to fetch. This can be a Resource id url or a version-specific
-        /// Resource url.</param>
-        /// <typeparam name="TResource">The type of resource to fetch</typeparam>
-        /// <returns>The requested resource as a ResourceEntry. This operation will throw an exception
-        /// if the resource has been deleted or does not exist</returns>
-        public ResourceEntry<TResource> Fetch<TResource>(Uri endpoint) where TResource : Resource, new()
-        {
-            if (endpoint == null) throw new ArgumentNullException("id");
-
-            var req = createRequest(endpoint, false);
-            req.Method = "GET";
-            
-            return doRequest(req, HttpStatusCode.OK, () => resourceEntryFromResponse<TResource>() );
-        }
-
-
-        public ResourceEntry<TResource> Fetch<TResource>(string id, string versionId=null) where TResource : Resource, new()
-        {
-            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of Fetch");
+            if (Endpoint == null) throw new InvalidOperationException("Endpoint must be provided using either the Endpoint property or the FhirClient constructor");
+            if (String.IsNullOrEmpty(id)) throw new ArgumentNullException("id");
 
             var rl = buildResourceEndpoint<TResource>(id);
-            if (!String.IsNullOrEmpty(versionId)) rl.VersionId = versionId;
+            rl.VersionId = versionId;
 
             return Fetch<TResource>(rl.ToUri());
         }
 
 
-        public ResourceEntry<TResource> Read<TResource>(string id) where TResource : Resource, new()
-        {
-            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of Read");
-            if (String.IsNullOrEmpty(id)) throw new ArgumentNullException("id");
-
-            return Fetch<TResource>(id);
-        }
-
         public ResourceEntry<TResource> VRead<TResource>(string id, string versionId) where TResource : Resource, new()
         {
-            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of VRead");
+            if (Endpoint == null) throw new InvalidOperationException("Endpoint must be provided using either the Endpoint property or the FhirClient constructor");
             if (String.IsNullOrEmpty(id)) throw new ArgumentNullException("id");
             if (String.IsNullOrEmpty(versionId)) throw new ArgumentNullException("versionId");
             
-            return Fetch<TResource>(id,versionId);
+            return Read<TResource>(id,versionId);
         }
 
 
@@ -172,6 +177,7 @@ namespace Hl7.Fhir.Client
             if (versionAware && entry.SelfLink == null) throw new ArgumentException("When requesting version-aware updates, Entry.SelfLink may not be null.", "entry");
 
             string contentType = ContentType.BuildContentType(PreferredFormat, false);
+
 
             byte[] data = PreferredFormat == ContentType.ResourceFormat.Xml ?
                 FhirSerializer.SerializeResourceToXmlBytes(entry.Content) :
@@ -213,7 +219,7 @@ namespace Hl7.Fhir.Client
 
         public void Delete<TResource>(string id) where TResource : Resource, new()
         {
-            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of Delete");
+            if (Endpoint == null) throw new InvalidOperationException("Endpoint must be provided using either the Endpoint property or the FhirClient constructor");
             if (String.IsNullOrEmpty(id)) throw new ArgumentNullException("id");
 
             var rl = buildResourceEndpoint<TResource>(id);
@@ -255,7 +261,7 @@ namespace Hl7.Fhir.Client
        
         public ResourceEntry<TResource> Create<TResource>(TResource resource, IEnumerable<Tag> tags=null) where TResource : Resource, new()
         {
-            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of Create");
+            if (Endpoint == null) throw new InvalidOperationException("Endpoint must be provided using either the Endpoint property or the FhirClient constructor");
             if (resource == null) throw new ArgumentNullException("resource");
 
             string collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
@@ -284,10 +290,7 @@ namespace Hl7.Fhir.Client
             if (since != null) rl.SetParam(Util.HISTORY_PARAM_SINCE, Util.FormatIsoDateTime(since.Value));
             if(count != null) rl.SetParam(Util.HISTORY_PARAM_COUNT, count.ToString());
 
-            var req = createRequest(rl.ToUri(), true);
-            req.Method = "GET";
-
-            return doRequest(req, HttpStatusCode.OK, () => bundleFromResponse());
+            return FetchBundle(rl.ToUri());
         }
 
 
@@ -302,7 +305,7 @@ namespace Hl7.Fhir.Client
         /// ResourceEntries and DeletedEntries.</returns>
 	    public Bundle History<TResource>(string id, DateTimeOffset? since = null, int? count = null ) where TResource : Resource, new()
         {
-            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of History");
+            if (Endpoint == null) throw new InvalidOperationException("Endpoint must be provided using either the Endpoint property or the FhirClient constructor");
             if (String.IsNullOrEmpty(id)) throw new ArgumentNullException("id");
 
             var collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
@@ -322,7 +325,7 @@ namespace Hl7.Fhir.Client
         /// ResourceEntries and DeletedEntries.</returns>
         public Bundle History<TResource>(DateTimeOffset? since = null, int? count = null ) where TResource : Resource, new()
         {
-            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of History");
+            if (Endpoint == null) throw new InvalidOperationException("Endpoint must be provided using either the Endpoint property or the FhirClient constructor");
 
             var collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
             var rl = ResourceLocation.Build(Endpoint, collection);
@@ -341,7 +344,7 @@ namespace Hl7.Fhir.Client
         /// ResourceEntries and DeletedEntries.</returns>
         public Bundle History(DateTimeOffset? since = null, int? count = null )
         {
-            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of History");
+            if (Endpoint == null) throw new InvalidOperationException("Endpoint must be provided using either the Endpoint property or the FhirClient constructor");
 
             var rl = new ResourceLocation(Endpoint);
             rl.Operation = ResourceLocation.RESTOPER_HISTORY;
@@ -369,7 +372,9 @@ namespace Hl7.Fhir.Client
                 FhirSerializer.SerializeResourceToXmlBytes(entry.Content) :
                 FhirSerializer.SerializeResourceToJsonBytes(entry.Content);
 
-            var req = createRequest(entry.Id, false);
+            var rl = new ResourceLocation(entry.Id);
+            rl.Operation = ResourceLocation.RESTOPER_VALIDATE;
+            var req = createRequest(rl.ToUri(), false);
 
             req.Method = "POST";
             req.ContentType = contentType;
@@ -401,7 +406,7 @@ namespace Hl7.Fhir.Client
         /// <remarks>The endpoint may be a FHIR server for server-wide search or a collection endpoint 
         /// (i.e. /patient) for searching within a certain type of resources. This operation supports include 
         /// parameters to include resources in the bundle that the returned resources refer to.</remarks>
-        public Bundle Search(Uri endpoint, SearchParam[] criteria = null, string[] includes = null, int? count = null)
+        public Bundle Search(Uri endpoint, SearchParam[] criteria = null, string sort = null, string[] includes = null, int? count = null)
         {
             if (endpoint == null) throw new ArgumentNullException("endpoint");
 
@@ -409,6 +414,9 @@ namespace Hl7.Fhir.Client
 
             if( count.HasValue )
                 rl.AddParam(Util.SEARCH_PARAM_COUNT, count.Value.ToString());
+
+            if (sort != null)
+                rl.AddParam(Util.SEARCH_PARAM_SORT, sort);
 
             if (criteria != null)
             {
@@ -422,44 +430,40 @@ namespace Hl7.Fhir.Client
                     rl.AddParam(Util.SEARCH_PARAM_INCLUDE, includeParam);
             }
 
-            var req = createRequest(rl.ToUri(), true);
-            req.Method = "GET";
-
-            return doRequest(req, HttpStatusCode.OK, () => bundleFromResponse() );
+            return FetchBundle(rl.ToUri());
         }
 
-        public Bundle Search(Uri endpoint, string name, string value, string[] includes = null, int? count = null)
+        public Bundle Search(Uri endpoint, string name, string value, string sort=null, string[] includes = null, int? count = null)
         {
-            return Search(endpoint, new SearchParam[] { new SearchParam(name, value) }, includes, count);
+            return Search(endpoint, new SearchParam[] { new SearchParam(name, value) }, sort, includes, count);
         }
 
-        public Bundle Search(SearchParam[] criteria = null, string[] includes = null, int? count = null)
+        public Bundle Search(SearchParam[] criteria = null, string sort=null, string[] includes = null, int? count = null)
         {
-            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of Search");
+            if (Endpoint == null) throw new InvalidOperationException("Endpoint must be provided using either the Endpoint property or the FhirClient constructor");
             var rl = new ResourceLocation(Endpoint);
 
-            return Search(rl.ToUri(), criteria, includes, count);
+            return Search(rl.ToUri(), criteria, sort, includes, count);
         }
 
-        public Bundle Search(string name, string value, string[] includes = null, int? count = null)
+        public Bundle Search(string name, string value, string sort=null, string[] includes = null, int? count = null)
         {
-            return Search(new SearchParam[] { new SearchParam(name, value) }, includes, count);
+            return Search(new SearchParam[] { new SearchParam(name, value) }, sort, includes, count);
         }
 
-        public Bundle Search(ResourceType resource, SearchParam[] criteria = null, string[] includes = null, int? count = null)
+        public Bundle Search(ResourceType resource, SearchParam[] criteria = null, string sort=null, string[] includes = null, int? count = null)
         {
-            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of Search");
-            if (resource == null) throw new ArgumentNullException("resource");
+            if (Endpoint == null) throw new InvalidOperationException("Endpoint must be provided using either the Endpoint property or the FhirClient constructor");
 
             var collection = resource.ToString().ToLower();
             var rl = ResourceLocation.Build(Endpoint, collection);
 
-            return Search(rl.ToUri(), criteria, includes, count);
+            return Search(rl.ToUri(), criteria, sort, includes, count);
         }
 
-        public Bundle Search(ResourceType resource, string name, string value, string[] includes = null, int? count = null)
+        public Bundle Search(ResourceType resource, string name, string value, string sort=null, string[] includes = null, int? count = null)
         {
-            return Search(resource, new SearchParam[] { new SearchParam(name, value) }, includes, count);
+            return Search(resource, new SearchParam[] { new SearchParam(name, value) }, sort, includes, count);
         }
   
 
@@ -476,7 +480,39 @@ namespace Hl7.Fhir.Client
         /// returned resource refers to.</remarks>
         public Bundle SearchById(ResourceType resource, string id, string[] includes=null, int? count=null)
         {
-            return Search(resource, Util.SEARCH_PARAM_ID, id, includes, count);
+            return Search(resource, Util.SEARCH_PARAM_ID, id, null, includes, count);
+        }
+
+
+        /// <summary>
+        /// Uses the FHIR paging mechanism to go navigate around a series of paged result Bundles
+        /// </summary>
+        /// <param name="current">The bundle as received from the last response</param>
+        /// <param name="direction">Optional. Direction to browse to, default is the next page of results.</param>
+        /// <returns>A bundle containing a new page of results based on the browse direction, or null if
+        /// the server did not have more results in that direction.</returns>
+        public Bundle Continue(Bundle current, PageDirection direction = PageDirection.Next)
+        {
+            if (current.Links == null) return null;
+
+            Uri continueAt = null;
+
+            switch (direction)
+            {
+                case PageDirection.First:
+                    continueAt = current.Links.FirstLink; break;
+                case PageDirection.Previous:
+                    continueAt = current.Links.PreviousLink; break;
+                case PageDirection.Next:
+                    continueAt = current.Links.NextLink; break;
+                case PageDirection.Last:
+                    continueAt = current.Links.LastLink; break;
+            }
+
+            if (continueAt != null)
+                return FetchBundle(continueAt);
+            else
+                return null;
         }
 
 
@@ -488,7 +524,7 @@ namespace Hl7.Fhir.Client
         /// if an error occurred.</returns>
         public Bundle Batch(Bundle batch)
         {
-            if (Endpoint == null) throw new InvalidOperationException("You must set a default endpoint when using this overload of Batch");
+            if (Endpoint == null) throw new InvalidOperationException("Endpoint must be provided using either the Endpoint property or the FhirClient constructor");
             if (batch == null) throw new ArgumentNullException("batch");
 
             byte[] data;
@@ -521,6 +557,8 @@ namespace Hl7.Fhir.Client
         /// REST endpoint.</remarks>
         public bool DeliverBundle(Bundle bundle, string path)
         {
+            if (Endpoint == null) throw new InvalidOperationException("Endpoint must be provided using either the Endpoint property or the FhirClient constructor");
+
             byte[] data;
             string contentType = ContentType.BuildContentType(PreferredFormat, false);
 
@@ -542,22 +580,90 @@ namespace Hl7.Fhir.Client
 
         public ContentType.ResourceFormat PreferredFormat { get; set; }
 
+
+
+        public IEnumerable<Tag> GetTags()
+        {
+            if (Endpoint == null) throw new InvalidOperationException("Endpoint must be provided using either the Endpoint property or the FhirClient constructor");
+
+            var rl = new ResourceLocation(Endpoint);
+            rl.Operation = ResourceLocation.RESTOPER_TAGS;
+
+            var req = createRequest(rl.ToUri(), true);
+
+            return doRequest(req, HttpStatusCode.OK, () => tagListFromResponse());
+        }
+
+
+        public IEnumerable<Tag> GetTags(ResourceType type, string id=null, string version=null)
+        {
+            if (Endpoint == null) throw new InvalidOperationException("Endpoint must be provided using either the Endpoint property or the FhirClient constructor");
+            if (version != null && id == null) throw new ArgumentException("Must specify an id if you specify a version");
+
+            var rl = new ResourceLocation(Endpoint);
+            rl.Operation = ResourceLocation.RESTOPER_TAGS;
+            rl.Collection = type.ToString().ToLower();
+            rl.Id = id;
+            rl.VersionId = version;
+
+            var req = createRequest(rl.ToUri(), true);
+            return doRequest(req, HttpStatusCode.OK, () => tagListFromResponse());
+        }
+
+
+        public IEnumerable<Tag> AffixTags(IEnumerable<Tag> tags, ResourceType type, string id, string version=null)
+        {
+            if (Endpoint == null) throw new InvalidOperationException("Endpoint must be provided using either the Endpoint property or the FhirClient constructor");
+            if (id == null) throw new ArgumentNullException("id");
+            if (tags == null) throw new ArgumentNullException("tags");
+
+            var rl = new ResourceLocation(Endpoint);
+            rl.Operation = ResourceLocation.RESTOPER_TAGS;
+            rl.Collection = type.ToString().ToLower();
+            rl.Id = id;
+            rl.VersionId = version;
+
+            var data = HttpUtil.TagListBody(tags, PreferredFormat);
+            var req = createRequest(rl.ToUri(), true);
+            req.Method = "POST";
+            prepareRequest(req, data);
+
+            return doRequest(req, HttpStatusCode.OK, () => tagListFromResponse());
+        }
+
+
+        public void DeleteTags(IEnumerable<Tag> tags, ResourceType type, string id, string version = null)
+        {
+            if (Endpoint == null) throw new InvalidOperationException("Endpoint must be provided using either the Endpoint property or the FhirClient constructor");
+            if (id == null) throw new ArgumentNullException("id");
+            if (tags == null) throw new ArgumentNullException("tags");
+
+            var rl = new ResourceLocation(Endpoint);
+            rl.Operation = ResourceLocation.RESTOPER_TAGS;
+            rl.Collection = type.ToString().ToLower();
+            rl.Id = id;
+            rl.VersionId = version;
+
+            var data = HttpUtil.TagListBody(tags, PreferredFormat);
+            var req = createRequest(rl.ToUri(), true);
+            req.Method = "DELETE";
+            prepareRequest(req, data);
+
+            doRequest(req, HttpStatusCode.OK, () => true);
+        }
+
         private HttpWebRequest createRequest(Uri location, bool forBundle)
         {
-            //if( PreferredFormat == ContentType.ResourceFormat.Json )
-            //    endpoint = addParam(endpoint, ContentType.FORMAT_PARAM, ContentType.FORMAT_PARAM_JSON);
-            //if (PreferredFormat == ContentType.ResourceFormat.Xml)
-            //    endpoint = addParam(endpoint, ContentType.FORMAT_PARAM, ContentType.FORMAT_PARAM_XML);
-
             var req = (HttpWebRequest)HttpWebRequest.Create(location);
             var agent =  "FhirClient for FHIR " + Model.ModelInfo.Version;
+            req.Method = "GET";
 
 #if NETFX_CORE
             req.Headers[HttpRequestHeader.UserAgent] = agent;
 #else
             req.UserAgent = agent;
 #endif
-                       
+
             if (PreferredFormat == ContentType.ResourceFormat.Xml)
                 req.Accept = ContentType.BuildContentType(ContentType.ResourceFormat.Xml, forBundle);
             else if (PreferredFormat == ContentType.ResourceFormat.Json)
@@ -580,6 +686,11 @@ namespace Hl7.Fhir.Client
         }
 
 
+        private IEnumerable<Tag> tagListFromResponse()
+        {
+            return HttpUtil.TagListResponse(LastResponseDetails.BodyAsString(), LastResponseDetails.ContentType);
+        }
+
         private ResourceEntry<T> resourceEntryFromResponse<T>() where T : Resource, new()
         {
             // Initialize a resource entry from the received data. Note: Location overrides ContentLocation
@@ -599,30 +710,7 @@ namespace Hl7.Fhir.Client
 
         private Bundle bundleFromResponse()
         {
-            string data = LastResponseDetails.BodyAsString();
-            string contentType = LastResponseDetails.ContentType;
-
-            ErrorList parseErrors = new ErrorList();
-            Bundle result;
-
-            ContentType.ResourceFormat format = ContentType.GetResourceFormatFromContentType(contentType);
-
-            switch (format)
-            {
-                case ContentType.ResourceFormat.Json:
-                    result = FhirParser.ParseBundleFromJson(data, parseErrors);
-                    break;
-                case ContentType.ResourceFormat.Xml:
-                    result = FhirParser.ParseBundleFromXml(data, parseErrors);
-                    break;
-                default:
-                    throw new FhirParseException("Cannot decode bundle: unrecognized content type " + format);
-            }
-
-            if (parseErrors.Count() > 0)
-                throw new FhirParseException("Failed to parse bundle data: " + parseErrors.ToString(), parseErrors, data);
-
-            return result;
+            return HttpUtil.BundleResponse(LastResponseDetails.BodyAsString(), LastResponseDetails.ContentType);
         }
 
 
@@ -694,4 +782,14 @@ namespace Hl7.Fhir.Client
         }
 
     }
+
+    public enum PageDirection
+    {
+        First,
+        Previous,
+        Next,
+        Last
+    }
+
+
 }

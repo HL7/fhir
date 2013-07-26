@@ -54,6 +54,8 @@ namespace Hl7.Fhir.Support
         public const string SEARCH_PARAM_COUNT = "_count";
         public const string SEARCH_PARAM_INCLUDE = "_include";
         public const string HISTORY_PARAM_SINCE = "_since";
+        public const string SEARCH_PARAM_SORT = "_sort";
+
         public const string HISTORY_PARAM_COUNT = SEARCH_PARAM_COUNT;
 
         public static bool UriHasValue(Uri u)
@@ -170,6 +172,8 @@ namespace Hl7.Fhir.Support
         {
             return new DateTimeOffset(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second, dt.Offset);
         }
+
+
     }
 
 #if NETFX_CORE

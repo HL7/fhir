@@ -737,14 +737,22 @@ These tables present a summary of the operations described here.
 <tr><td>conformance</td><td>/ or /metadata</td>               <td>OPTIONS / GET</td><td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
 <tr><td>update</td>     <td>/[type]/@[id]</td>                <td>PUT</td>          <td>R</td>            <td>Resource</td> <td>O</td>      <td>O or R</td></tr>
 <tr><td>create</td>     <td>/[type]</td>           		      <td>POST</td>         <td>R</td>            <td>Resource</td> <td>O</td>      <td>N/A</td></tr>
-<tr><td>transaction</td>      <td>/</td>                            <td>POST</td>         <td>R</td>            <td>Bundle</td>   <td>O</td>      <td>N/A</td></tr>
+<tr><td>transaction</td><td>/</td>                            <td>POST</td>         <td>R</td>            <td>Bundle</td>   <td>O</td>      <td>N/A</td></tr>
 <tr><td>delete</td>     <td>/[type]/@[id]</td>                <td>DELETE</td>       <td>N/A</td>          <td>N/A</td>      <td>N/A</td>    <td>N/A</td></tr>
-<tr><td>search</td>     <td>/[type]/search</td>               <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
-<tr><td>search-all</td>	<td>/[type]</td>              		  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
+<tr><td>search</td>     <td>/[type]/search or /[type]</td>               <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
+<tr><td>search-all</td>	<td>/</td>                   		  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
 <tr><td>validate</td>   <td>/[type]/validate/@[id]</td>       <td>POST</td>         <td>R</td>            <td>Resource</td> <td>O</td>      <td>N/A</td></tr>
 <tr><td>history</td>	<td>/[type]/@[id]/history</td> 		  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
 <tr><td>history-type</td><td>/[type]/history</td> 		  	  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
 <tr><td>history-all</td><td>/history</td> 		  			  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
+<tr><td>tags-all</td><td>/tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
+<tr><td>tags-type</td><td>/[type]/tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
+<tr><td rowspan="3">tags</td><td rowspan="3">/[type]/@[id]/tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
+<tr><td>POST</td><td>R</td><td>TagList</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>DELETE</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
+<tr><td rowspan="3">tags-version</td><td rowspan="3">/[type]/@[id]/history/@[vid]/tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
+<tr><td>POST</td><td>R</td><td>TagList</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>DELETE</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
 </table>
 
 <p>
@@ -755,7 +763,7 @@ Note: N/A = not present, R = Required, O = optional.
 <tr><th>Operation</th><th colspan="5">Response</th></tr>
 <tr><th colspan="1"></th> <th>Content-Type</th> <th>Body</th>               <th>Location</th> <th>Content-Location</th> <th>Status Codes</th></tr>
 <tr><td>read</td>         <td>R</td>            <td>Resource</td>           <td>N/A</td>      <td>R</td>                <td>200, 404, 410</td></tr>
-<tr><td>vread</td>        <td>R</td>            <td>Resource</td>           <td>N/A</td>      <td>O</td>                <td>200, 404, 405, 410</td></tr>
+<tr><td>vread</td>        <td>R</td>            <td>Resource</td>           <td>N/A</td>      <td>O</td>                <td>200, 404, 405</td></tr>
 <tr><td>conformance</td>  <td>R</td>            <td>Conformance</td>        <td>N/A</td>      <td>O</td>                <td>200, 404</td></tr>
 <tr><td>update</td>       <td>R</td>            <td>Resource</td>           <td>N/A</td>      <td>R</td>                <td>201, 400, 404, 405, 409, 412, 422</td></tr>
 <tr><td>create</td>       <td>R</td>            <td>Resource</td>           <td>R</td>        <td>O</td>                <td>200, 201, 400, 404, 405, 422</td></tr>
@@ -767,6 +775,14 @@ Note: N/A = not present, R = Required, O = optional.
 <tr><td>history</td>   	  <td>R</td>            <td>Bundle</td>             <td>N/A</td>      <td>N/A</td>              <td>200</td></tr>
 <tr><td>history-type</td> <td>R</td>            <td>Bundle</td>             <td>N/A</td>      <td>N/A</td>              <td>200</td></tr>
 <tr><td>history-all</td>  <td>R</td>            <td>Bundle</td>             <td>N/A</td>      <td>N/A</td>              <td>200</td></tr>
+<tr><td>tags-all</td><td>R</td><td>TagList</td><td>N/A</td><td>N/A</td><td>200</td></tr>
+<tr><td>tags-type</td><td>R</td><td>TagList</td><td>N/A</td><td>N/A</td><td>200</td></tr><tr><td rowspan="3">tags</td><td>R (GET)</td><td>TagList</td><td>N/A</td><td>N
+/A</td><td>200, 404, 410</td></tr>
+<tr><td>N/A (POST)</td><td>N/A</td><td>N/A</td><td>N/A</td><td>204</td></tr>
+<tr><td>N/A (DELETE)</td><td>N/A</td><td>N/A</td><td>N/A</td><td>204</td></tr>
+<tr><td rowspan="3">tags-version</td><td>R (GET)</td><td>TagList</td><td>N/A</td><td>N/A</td><td>200, 404</td></tr>
+<tr><td>N/A (POST)</td><td>N/A</td><td>N/A</td><td>N/A</td><td>204</td></tr>
+<tr><td>N/A (DELETE)</td><td>N/A</td><td>N/A</td><td>N/A</td><td>204</td></tr>
 </table>
 
 <p>

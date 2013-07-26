@@ -129,6 +129,8 @@ namespace Hl7.Fhir.Parsers
                 return readPropertyAsString(JsonToken.Boolean);
             else if (primitiveType == typeof(Integer))
                 return readPropertyAsString(JsonToken.Integer);
+            else if (primitiveType == typeof(FhirDecimal))
+                return readPropertyAsString(JsonToken.Float);
             else
                 return processStringProperty();
         }

@@ -81,15 +81,15 @@ namespace Hl7.Fhir.Serializers
         public void WritePrimitiveContents(string name, Element value, XmlSerializationHint xmlFormatHint)
         {
             WriteStartElement(name);
-            
+
             if (value is FhirBoolean)
                 jw.WriteValue(((FhirBoolean)value).Value);
             else if (value is Integer)
                 jw.WriteValue(((Integer)value).Value);
+            else if (value is FhirDecimal)
+                jw.WriteValue(((FhirDecimal)value).Value);
             else
                 jw.WriteValue(value.ToString());
-
-            
         }
 
 

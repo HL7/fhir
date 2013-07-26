@@ -79,12 +79,12 @@ namespace Hl7.Fhir.Parsers
 
         public static IList<Tag> ParseTagList(XmlReader reader, ErrorList errors)
         {
-            return TagListParser.ParseTagList(reader, errors);
+            return TagListParser.ParseTags(reader, errors);
         }
 
         public static IList<Tag> ParseTagList(JsonReader reader, ErrorList errors)
         {
-            return TagListParser.ParseTagList(reader, errors);
+            return TagListParser.ParseTags(reader, errors);
         }
 
         public static BundleEntry ParseBundleEntry(JsonReader reader, ErrorList errors)

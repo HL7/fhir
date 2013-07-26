@@ -48,9 +48,8 @@ namespace Hl7.Fhir.Support
         public const string RESTOPER_SEARCH = "search";
         public const string RESTOPER_BINARY = "binary";
         public const string RESTOPER_VALIDATE = "validate";
+        public const string RESTOPER_TAGS = "tags";
        
-        public const string BINARY_COLLECTION_NAME = "binary";
-
         public static string GetCollectionNameForResource(Resource r)
         {
             if (r == null) return null;
@@ -71,7 +70,12 @@ namespace Hl7.Fhir.Support
                         "not a resource type", t.Name));
         }
 
-    
+        public static string GetCollectionName(ResourceType t)
+        {
+            return t.ToString().ToLower();
+        }
+
+
          //No, this is not Path.Combine. It's for Uri's
         public static string Combine(string path1, string path2)
         {
@@ -185,17 +189,6 @@ namespace Hl7.Fhir.Support
                 baseUri = new Uri(baseUri.ToString() + "/");
 
             construct(new Uri(baseUri, location));
-
-            //// if location starts with "/", use the default Uri functionality
-            //// to concatenate the two, any path parts in basePath will be ignored, and
-            //// location will replace the path part, and start right after the hostname
-            //if (location.ToString().StartsWith("/"))
-            //    construct(new Uri(baseUri, location));
-
-            //// Otherwise, use the constructor to normalize the combined version. The
-            //// constructor will resolve ..-type path navigation and result in an
-            //// absolute path.
-            //construct(new Uri(Combine(baseUri.ToString(), location.ToString()), UriKind.Absolute));
         }
 
         private static readonly Uri LOCALHOST = new Uri("http://localhost");
@@ -289,7 +282,6 @@ namespace Hl7.Fhir.Support
                 throw new ArgumentException("versionId must not be empty", "versionId");
 
             var result = ResourceLocation.Build(baseUri, collectionName, id);
-            result.Operation = ResourceLocation.RESTOPER_HISTORY;
             result.VersionId = versionId;
             var x = result.ToString();
             return result;
@@ -432,41 +424,34 @@ namespace Hl7.Fhir.Support
 
         private string buildOperationPath()
         {
-            var path = new StringBuilder();
+            string path = String.Empty;
 
             if (!String.IsNullOrEmpty(Collection))
             {
-                path.Append(Collection + "/");
+                path = Collection;
 
                 if (!String.IsNullOrEmpty(Id))
                 {
-                    path.Append("@" + Id);
+                    // Exception: the VALIDATE operation sits between the collection and the id
+                    if(Operation == RESTOPER_VALIDATE)
+                        path += "/" + Operation;
 
-                    if (!String.IsNullOrEmpty(Operation))
-                    {
-                        path.Append("/" + Operation);
+                    path += "/@" + Id;
 
-                        if (!String.IsNullOrEmpty(VersionId))
-                            path.Append("/@" + VersionId);
-                    }
-                }
-                else
-                {
-                    if (!String.IsNullOrEmpty(Operation))
-                    {
-                        path.Append(Operation);
-                    }
+                    // If there's a version id, append the version, separated by the path part /history/
+                    if (!String.IsNullOrEmpty(VersionId))
+                        path += "/history/@" + VersionId;
                 }
             }
-            else
+
+            // All operations, except Validate, are appended at the end of the operation path
+            if (!String.IsNullOrEmpty(Operation) && Operation != RESTOPER_VALIDATE )
             {
-                if (!String.IsNullOrEmpty(Operation))
-                {
-                    path.Append(Operation);
-                }
+                if (path != String.Empty && !path.EndsWith("/")) path += "/";
+                path += Operation;
             }
 
-            return path.ToString();
+            return path;
         }
 
         
@@ -481,16 +466,15 @@ namespace Hl7.Fhir.Support
             set
             {
                 _versionId = value;
-                _operation = RESTOPER_HISTORY;
                 _location.Path = buildPath();
             }
         }
 
         private static readonly string[] resourceCollections = ModelInfo.SupportedResources.Select(res => res.ToLower()).ToArray();
 
-        private bool isResourceOrBinaryCollection(string part)
+        private bool isResourceCollection(string part)
         {
-            return part == ResourceLocation.BINARY_COLLECTION_NAME || resourceCollections.Contains(part);
+            return resourceCollections.Contains(part);
         }
 
         private void parseLocationParts()
@@ -509,19 +493,44 @@ namespace Hl7.Fhir.Support
                 if (path == String.Empty)
                     return;
 
-                // Parse <service>/<resourcetype>/@<id>/history/@<version>
-                var instancePattern = @"^(?:(.*)/)?(\w+)/@([^/]+)(?:/(\w+)(?:/@([^/]+))?)?$";
+                // Parse <service>/<resourcetype>/@<id>(/operation(/@<version>(/operation)?)?)?
+                var instancePattern = @"^(?:(.*)/)?         # 1: Capture the service path
+                                        (\w+)               # 2: Capture the resourcetype (mandatory)....
+                                        /@([^/]+)           # 3:...always followed by /@id
+                                        (?:                 # optionally, this is followed by
+                                          /(\w+)            # 4: /operation
+                                          (?:               # optionally, followed by
+                                            /@([^/]+)       # 5: /@version
+                                            (?:             # optionally, followed by
+                                              /(\w+)        # 6: /operation
+                                            )?              # (optional operation)
+                                          )?                # (optional @version)
+                                        )?                  # (optional after id)
+                                        $";              
 
-                Regex instanceRegEx = new Regex(instancePattern, RegexOptions.RightToLeft);
-                var match = instanceRegEx.Match(path);
+                var match = Regex.Match(path,instancePattern, RegexOptions.RightToLeft | RegexOptions.IgnorePatternWhitespace);
               
-                if (match.Success)
+                // unfortunately /patient/validate/@id matches this too, check for that
+                if (match.Success && match.Groups[2].Value != RESTOPER_VALIDATE )
                 {
                     // Match groups from back to front: versionId, history?, id, collection, service path
+                    if (match.Groups[6].Success)
+                        _operation = match.Groups[6].Value;
                     if (match.Groups[5].Success)
                         _versionId = match.Groups[5].Value;
                     if (match.Groups[4].Success)
-                        _operation = match.Groups[4].Value;
+                    {
+                        if (match.Groups[4].Value == RESTOPER_HISTORY && _versionId != null )
+                        { 
+                            //Ignore history as a keyword between id and version: not a true operation, just a separator. between id and version
+                            ;
+                        }
+                        else if (_operation != null)
+                            // Two operations, both behind the id and behind the full path...unsupported
+                            throw new ArgumentException("Path " + path + " contains two possible operations");
+                        else
+                            _operation = match.Groups[4].Value;
+                    }
                     _id = match.Groups[3].Value;
                     _collection = match.Groups[2].Value;
                     if (match.Groups[1].Success)
@@ -532,28 +541,39 @@ namespace Hl7.Fhir.Support
                                 
                 // Not a resource id or version-specific location, try other options...
                 var parts = path.Split('/');
-                var lastPart = parts[parts.Length - 1];
+                var lastPart = parts.Length - 1;
                 var serviceParts = parts.Length;
 
+                // Check for <service>/<resourcetype>/validate/@id
+                if (parts.Length >= 3 && parts[lastPart-1] == RESTOPER_VALIDATE)
+                {
+                    _operation = RESTOPER_VALIDATE;
+                    _id = parts[lastPart].TrimStart('@');
+                    _collection = parts[lastPart-2];
+                    serviceParts = parts.Length - 3;
+                }
+
                 // Check for <service>/<resourcetype>/<operation>
-                if( parts.Length >= 2 && isResourceOrBinaryCollection(parts[parts.Length - 2]) )
+                else if( parts.Length >= 2 && isResourceCollection(parts[lastPart - 1]) )
                 {
                     _operation = parts[parts.Length - 1];
                     _collection = parts[parts.Length - 2];
                     serviceParts = parts.Length - 2;
                 }
 
-                // Check for <service>/<history|metadata>
-                else if (lastPart == ResourceLocation.RESTOPER_METADATA || lastPart == ResourceLocation.RESTOPER_HISTORY)
+                // Check for <service>/<history|metadata|tags>
+                else if (parts[lastPart] == ResourceLocation.RESTOPER_METADATA 
+                    || parts[lastPart] == ResourceLocation.RESTOPER_HISTORY 
+                    || parts[lastPart] == ResourceLocation.RESTOPER_TAGS) 
                 {
-                    _operation = lastPart;
+                    _operation = parts[lastPart];
                     serviceParts = parts.Length - 1;                    
                 }
 
                 // Check for <service>/<resourcetype>
-                else if (isResourceOrBinaryCollection(lastPart))
+                else if (isResourceCollection(parts[lastPart]))
                 {
-                    _collection = lastPart;
+                    _collection = parts[lastPart];
                     serviceParts = parts.Length - 1;
                 }
 
