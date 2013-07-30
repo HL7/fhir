@@ -36,6 +36,7 @@ using System.Xml;
 using Hl7.Fhir.Support;
 using Newtonsoft.Json;
 using Hl7.Fhir.Model;
+using System.Globalization;
 
 namespace Hl7.Fhir.Parsers
 {
@@ -46,6 +47,7 @@ namespace Hl7.Fhir.Parsers
         public JsonFhirReader(JsonReader jr)
         {
             jr.DateParseHandling = DateParseHandling.None;
+            jr.FloatParseHandling = FloatParseHandling.Decimal;
             this.jr = jr;
         }
 
@@ -107,8 +109,12 @@ namespace Hl7.Fhir.Parsers
 
                 if (jr.Value is string)
                     value = (string)jr.Value;
-                else
+                else if (jr.Value is bool)
                     value = jr.Value.ToString().ToLower();
+                else if (jr.Value is decimal)
+                    value = ((decimal)jr.Value).ToString(CultureInfo.InvariantCulture);
+                else
+                    value = jr.Value.ToString();
 
                 jr.Read();
                 return value;

@@ -10,6 +10,7 @@ using System.IO;
 using Newtonsoft.Json;
 using Hl7.Fhir.Parsers;
 using Hl7.Fhir.Support;
+using Hl7.Fhir.Serializers;
 
 
 namespace Hl7.Fhir.Tests
@@ -206,6 +207,33 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual("UNK", ((Code)result.Extension[0].Value).Value);
         }
 
+
+        [TestMethod]
+        public void ParseJsonNativeValues()
+        {
+            Patient p = new Patient();
+
+            p.SetExtension(new Uri("http://blabla.nl/number"),new FhirDecimal(new Decimal(3.14)));
+            p.SetExtension(new Uri("http://blabla.nl/int"), new Integer(150));
+            p.SetExtension(new Uri("http://blabla.nl/bool"), new FhirBoolean(true));
+
+            var json = FhirSerializer.SerializeResourceToJson(p);
+
+            Assert.IsTrue(json.Contains("\"value\":3.14"));
+            Assert.IsTrue(json.Contains("\"value\":150"));
+            Assert.IsTrue(json.Contains("\"value\":true"));
+
+            var err = new ErrorList();
+            p = (Patient)FhirParser.ParseResourceFromJson(json, err);
+            Assert.IsTrue(err.Count == 0);
+
+            var ex = p.GetExtension(new Uri("http://blabla.nl/number"));
+            Assert.AreEqual(new Decimal(3.14), ((FhirDecimal)ex.Value).Value.Value);
+            ex = p.GetExtension(new Uri("http://blabla.nl/int"));
+            Assert.AreEqual(150, ((Integer)ex.Value).Value.Value);
+            ex = p.GetExtension(new Uri("http://blabla.nl/bool"));
+            Assert.AreEqual(true, ((FhirBoolean)ex.Value).Value.Value);
+        }
 
         [TestMethod]
         public void ParseExtendedPrimitiveWithOtherElements()

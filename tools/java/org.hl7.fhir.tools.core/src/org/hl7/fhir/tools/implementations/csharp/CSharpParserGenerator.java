@@ -172,8 +172,8 @@ public class CSharpParserGenerator extends GenBlock
 
 	private void buildCompositeElementParser(CompositeTypeDefn composite) throws Exception 
 	{
-		ln("try");
-		bs("{");
+//		ln("try");
+//		bs("{");
         	ln("string currentElementName = reader.CurrentElementName;");
         	ln("reader.EnterElement();");
             ln(); 
@@ -187,11 +187,11 @@ public class CSharpParserGenerator extends GenBlock
             es("}");
           ln();
           ln("reader.LeaveElement();");
-		es("}");
-		ln("catch (Exception ex)");
-		bs("{");
-			ln("errors.Add(ex.Message, reader);");
-		es("}");   
+//		es("}");
+//		ln("catch (Exception ex)");
+//		bs("{");
+//			ln("errors.Add(ex.Message, reader);");
+//		es("}");   
 	}
 
 	
