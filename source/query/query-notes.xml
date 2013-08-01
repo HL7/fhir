@@ -23,7 +23,7 @@ Notes about the Query resource:
 <p>
 In order to initiate a message-based query, a sender sends a message consisting
 of a <a href="message.htm">Message</a> resource, and a <i>Query</i> resource.
-The message resource routes the messasge to the correct destination, and the 
+The message resource routes the message to the correct destination, and the 
 query contains the parameters of the search that is requested. See 
 <a href="query-examples.htm">the examples</a> for an example query request 
 message.
@@ -46,7 +46,7 @@ request/response as described above. This works well as long it doesn't take
 very long to process a query. As the query processing time gets longer, the
 synchronous search starts to take too long to manage in this kind of framework.
 In particular, some queries may require human intervention to process correctly,
-or may even by direct humna-human queries. For these, some asynchronous approach
+or may even by direct human-human queries. For these, some asynchronous approach
 is required. The messaging solution discussed above can be used asynchronously, 
 but it's also possible to implement asynchronous queries in a RESTful environment.
 Here's how this would work:
@@ -92,7 +92,7 @@ is proceeding.
 <p>
 Query result sets may include resources created by the processing of the 
 search. Typically, these are the results of queries for decision support,
-value set expansion, etc, and represent the outcome of processing the 
+value set expansion, etc., and represent the outcome of processing the 
 query. In order to be usable in the scenarios above, these resources
 have a defined structure and have the same metadata as any other resource,
 including a known identity, but they have the same currency issues as
@@ -111,7 +111,7 @@ note: known issues relating to this page:
 </p>
 <ul>
  <li>The question of searching on a particular resource (as described by the RESTful interface). is this a parameter? Should the restful search operate at the system level as well?</li>
- <li>The overlap between query response and operation outcome in the case of errors in them messasging context</li>
+ <li>The overlap between query response and operation outcome in the case of errors in them messaging context</li>
 </ul>
 
 <!--
