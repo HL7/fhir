@@ -4,12 +4,12 @@
 expected to lead to one or more <a href="orderresponse.htm">responses</a> that describe 
 the outcome of processing/handling the order. The order resource is focused on
 the process of actually requesting an action be performed; the actual action to 
-be perfomed  is detailed in a separate resource that contains the details. 
+be performed  is detailed in a separate resource that contains the details. 
 Note that orders are often called "requests", but this name is not used here 
 since the word "request" is used differently elsewhere in this specification.</p>
 
 <p>
-Note that there is a variety of proceses associated with making and processing 
+Note that there is a variety of processes associated with making and processing 
 orders. Some orders may be handled immediately by automated systems but most require 
 real world actions by one or more humans. Some orders can only be processed when other real 
 world actions happen, such as a patient actually presenting themselves so that 
@@ -20,7 +20,7 @@ implicit in the order details.
 <h2>Separation of Order and Order details</h2>
 <p>
 In healthcare, information that a particular action has been requested is often widely 
-disseminated thoughout the context of a patient's healthcare. For example, the patients
+disseminated throughout the context of a patient's healthcare. For example, the patients
 healthcare record will often include a list of prescriptions that have been made for 
 the patient. For this reason, the presence of a prescription record itself is not 
 enough to create an obligation for a dispense to occur. Most other things that can be
