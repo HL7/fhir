@@ -212,7 +212,7 @@
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">FamilialRelationship</Data></Cell>
     <Cell><Data ss:Type="String">Relationship to the subject</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">The type of relationship this person has to the patient (father, mother, brother etc.) At the moment this is a code linking to a fixed set of values. I'm not sure if there is an international standard for this. A fixed (possibly extensible) set of codes feels better than a codeable concept for somehting like this...</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">The type of relationship this person has to the patient (father, mother, brother etc.) At the moment this is a code linking to a fixed set of values. I'm not sure if there is an international standard for this. A fixed (possibly extensible) set of codes feels better than a codeable concept for something like this...</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">y</Data></Cell>
@@ -226,7 +226,7 @@
     <Cell><Data ss:Type="String">boolean | Age | Range | string</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Is the person deceased</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outomce code of the condition - in this case the deceased property should still be set.</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
