@@ -298,7 +298,7 @@
     <Cell><Data ss:Type="String">DicomRoleId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
-       html:Color="#000000">User ro</Font><Font>les (e.g. local RBAC codes</Font><Font
+       html:Color="#000000">User roles (e.g. local RBAC codes</Font><Font
        html:Color="#000000">)</Font></ss:Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -381,7 +381,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">This value is used to distinguish between requestor-users and recipient-users. For example, one person may initiate a report-output to be sent to a another user </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">There can only be one initiator. If the initiator is not clear, then do noe choose any one participant as the initiator</Data><NamedCell
+    <Cell><Data ss:Type="String">There can only be one initiator. If the initiator is not clear, then do not choose any one participant as the initiator</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -655,7 +655,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">This field identifies a specific instance of an object, such as a patient, to detect/track privacy and security issues</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Values from ATNA are institution- and implementation-defined text strings (in sensitivity.text). HL7 defines confidentiality codes for records, documents etc that can also be used here</Data><NamedCell
+    <Cell><Data ss:Type="String">Values from ATNA are institution- and implementation-defined text strings (in sensitivity.text). HL7 defines confidentiality codes for records, documents etc. that can also be used here</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -755,7 +755,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String">Objec t Name</Data></Cell>
+    <Cell><Data ss:Type="String">Object Name</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">SecurityEvent.object</Data></Cell>
     <Cell><Data ss:Type="String">Either a name or a query</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:name)) or not(exists(f:query))</Data></Cell>
@@ -1551,7 +1551,7 @@
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">12</Data></Cell>
     <Cell><Data ss:Type="String">Major failure</Data></Cell>
-    <Cell><Data ss:Type="String">An error of such magnitude occurred that the system is not longer availkable for use (i.e. the system died)</Data></Cell>
+    <Cell><Data ss:Type="String">An error of such magnitude occurred that the system is not longer available for use (i.e. the system died)</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
