@@ -234,7 +234,7 @@
     <Cell><Data ss:Type="String">Whether items in the list have a meaningful order</Data></Cell>
     <Cell><Data ss:Type="String">Whether items in the list have a meaningful order</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">Important for presentation and rendering.  Lists may be sorted to place more important information first or to group related entries.</Data></Cell>
-    <Cell><Data ss:Type="String">Applications SHOULD render ordered lists in the order provided, but MAY allow users to re-order based on their own preferences as well. This is marked as &quot;is modified&quot; because whether the list is ordered or not has may change how the reuslts are processed or displayed</Data></Cell>
+    <Cell><Data ss:Type="String">Applications SHOULD render ordered lists in the order provided, but MAY allow users to re-order based on their own preferences as well. This is marked as &quot;is modified&quot; because whether the list is ordered or not has may change how the results are processed or displayed</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">count(distinct-values(./outboundRelationship[typeCode=COMP and isNormalActRelationship()]/sequenceNumber))&gt;1 &#10;or &#10;count(./participation[isNormalParticipation() and typeCode=SBJ]/sequenceNumber))&gt;1</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
@@ -248,7 +248,7 @@
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">ListMode</Data></Cell>
     <Cell><Data ss:Type="String">working | snapshot | changes</Data></Cell>
-    <Cell><Data ss:Type="String">How this list was prepared - whether it is a working list that is suitable for being maintained in an ongoing basis, or if it represents a snapshort of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted</Data></Cell>
+    <Cell><Data ss:Type="String">How this list was prepared - whether it is a working list that is suitable for being maintained in an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">Lists are used in various ways, and it must be known in what way it is safe to use them</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s66"><Data ss:Type="String">??</Data></Cell>
     <Cell ss:StyleID="s66"/>
