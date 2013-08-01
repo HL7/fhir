@@ -11,10 +11,10 @@ is being made, or when specific events are being described.
 An Adverse Reaction normally has a set of sign or symptoms that are 
 reported in the Symptom class. However, it is possible to convey that 
 an adverse reaction occurred without knowing the specific signs or 
-symptoms that occured, eg. <i>Some unknown reaction occurred.</i>
+symptoms that occurred, e.g. <i>Some unknown reaction occurred.</i>
 Similarly, it is possible to convey that an adverse reaction with 
 a set of symptoms occurred but not indicate the substance if it 
-is not known.  eg. <i>A rash occurred for some unknown reason.</i>
+is not known.  e.g. <i>A rash occurred for some unknown reason.</i>
 </p>
 <p>
 The Exposure class is used to indicate a set of exposures 
