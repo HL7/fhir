@@ -44,7 +44,7 @@ The EMR exposes a FHIR server that supports the <i>search</i> and <i>read</i> op
 </p>
 <ol>
  <li>the <a href="patient.htm">patient</a> resource in order to provide demographics to the client. When a client searches patients with no search criteria, they get a list of all patients they have access too</li>
- <li><i>search</i> and <i>read</i> on the <a href="documentreference.htm">Document Reference</a> resource to provide access to general patient documents in the form of PDFs etc (PDFs are preferred)</li>
+ <li><i>search</i> and <i>read</i> on the <a href="documentreference.htm">Document Reference</a> resource to provide access to general patient documents in the form of PDFs etc. (PDFs are preferred)</li>
  <li><i>search</i> and <i>read</i> on a set of clinical resources potentially including Observation, DiagnosticReport, various Medication resources, AdverseReaction/AllergyIntolerance, 
 CarePlan, and Condition</li> 
 </ol>
@@ -74,14 +74,14 @@ allows for less stringent alignment around policy, procedures, and record-keepin
 standards.
 </p>
 <p>
-The most widely adoped framwork for sharing documents within institutions, regions, states
+The most widely adopted framework for sharing documents within institutions, regions, states
 or countries is IHE Cross-Enterprise Document Sharing (XDS). XDS allows for a federated 
 system of repositories with a registry to provide co-ordinated access to the documents. 
 </p>
 <p>
 FHIR provides equivalent functionality to XDS that can be used to implement XDS behind
 the existing XDS.b interface, to provide a simpler mobile-friendly interface to an 
-existing XDS eco-system, or to link document sharing into other functionality provided
+existing XDS ecosystem, or to link document sharing into other functionality provided
 through a FHIR interface. 
 </p>
 <p>
