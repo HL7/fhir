@@ -157,7 +157,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Identification of the procedure</Data></Cell>
-    <Cell><Data ss:Type="String">The specific procedure that is perfromed</Data></Cell>
+    <Cell><Data ss:Type="String">The specific procedure that is performed</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">CodeableConcept</Data></Cell>
    </Row>
@@ -166,7 +166,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Precise location details</Data></Cell>
-    <Cell><Data ss:Type="String">Detailed and structured anatomical location information. Multiple locations are allowed - eg multiple punch biopsies of a lesion</Data></Cell>
+    <Cell><Data ss:Type="String">Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">CodeableConcept</Data></Cell>
    </Row>
@@ -201,7 +201,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The role the person was in</Data></Cell>
-    <Cell><Data ss:Type="String">Eg surgeon, anaethetist, endoscopist</Data></Cell>
+    <Cell><Data ss:Type="String">E.g. surgeon, anaethetist, endoscopist</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">CodeableConcept</Data></Cell>
    </Row>
@@ -209,8 +209,8 @@
     <Cell><Data ss:Type="String">Procedure.date</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Period</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The date the procedure was perfomed</Data></Cell>
-    <Cell><Data ss:Type="String">The dates over which the period was perfromed. Allows a period to support complex procedures that span more that one date, and also allows for the length of the procedure to be captured.</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">The date the procedure was performed</Data></Cell>
+    <Cell><Data ss:Type="String">The dates over which the period was performed. Allows a period to support complex procedures that span more that one date, and also allows for the length of the procedure to be captured.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Period</Data></Cell>
    </Row>
@@ -226,7 +226,7 @@
     <Cell><Data ss:Type="String">Procedure.outcome</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Outcome of the procuedure</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Outcome of the procedure</Data></Cell>
     <Cell><Data ss:Type="String">What was the outcome of the procedure - did it resolve reasons why the procedure was performed? </Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(Observation) | CodeableConcept | string</Data></Cell>
@@ -236,7 +236,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(DiagnosticReport)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Any report that results from the procedure</Data></Cell>
-    <Cell><Data ss:Type="String">This could be a histology result. There could potentially be multiple reports - eg if this was a procedure that made multiple biopsies</Data></Cell>
+    <Cell><Data ss:Type="String">This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(DiagnosticReport)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -244,7 +244,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Complications</Data></Cell>
-    <Cell><Data ss:Type="String">Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, whicg typically will describe the procedure itself rather than any 'post procedure' issues</Data></Cell>
+    <Cell><Data ss:Type="String">Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, which typically will describe the procedure itself rather than any 'post procedure' issues</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">string</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="126">
@@ -252,7 +252,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string </Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Instructions for follow up</Data></Cell>
-    <Cell><Data ss:Type="String">If the procedure required specific follow up - eg removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used</Data></Cell>
+    <Cell><Data ss:Type="String">If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(Careplan) | string </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -260,7 +260,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A procedure that is related to this one</Data></Cell>
-    <Cell><Data ss:Type="String">Procedures may be related to other items such as procedures or medciations. For example treating wound dehiscence following a previous procedure</Data></Cell>
+    <Cell><Data ss:Type="String">Procedures may be related to other items such as procedures or medications. For example treating wound dehiscence following a previous procedure</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.9375">
     <Cell><Data ss:Type="String">Procedure.relatedItem.type</Data></Cell>
@@ -275,7 +275,7 @@
     <Cell><Data ss:Type="String">Procedure.relatedItem.target</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Procedure | MedicationPrescription)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The related item - eg a procedure</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">The related item - e.g. a procedure</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(Procedure | Prescription)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -283,7 +283,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Procedure notes</Data></Cell>
-    <Cell><Data ss:Type="String">Any other notes about the procedure - eg the operative notes</Data></Cell>
+    <Cell><Data ss:Type="String">Any other notes about the procedure - e.g. the operative notes</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">string</Data></Cell>
    </Row>
   </Table>
@@ -509,7 +509,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell><Data ss:Type="String">the date the procedure was perfromed on</Data></Cell>
+    <Cell><Data ss:Type="String">the date the procedure was performed on</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
     <Cell><Data ss:Type="String">Procedure.date</Data></Cell>
    </Row>
@@ -776,7 +776,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Abcess</Data></Cell>
+    <Cell><Data ss:Type="String">AbXXXscess</Data></Cell>
     <Cell><Data ss:Type="String">Real-world procedure example</Data></Cell>
     <Cell><Data ss:Type="String">f003</Data></Cell>
     <Cell><Data ss:Type="String">procedure-example-f003-abcess.xml</Data></Cell>
