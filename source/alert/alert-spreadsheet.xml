@@ -140,7 +140,7 @@
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">The category of this alert</Data></Cell>
-    <Cell><Data ss:Type="String">Allows an alert to be divided int different categories like clinical, administartive etc.</Data></Cell>
+    <Cell><Data ss:Type="String">Allows an alert to be divided into different categories like clinical, administrative etc.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -643,7 +643,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="15">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">active</Data></Cell>
-    <Cell><Data ss:Type="String">A current alert that should be displayed to a user. A system may use the category to determine whoch roles should view the alert</Data></Cell>
+    <Cell><Data ss:Type="String">A current alert that should be displayed to a user. A system may use the category to determine which roles should view the alert</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
     <Cell><Data ss:Type="Number">2</Data></Cell>
