@@ -3,8 +3,8 @@
 The core extensions provide HL7 provided extensions to the <a href="questionnaire.htm">Questionnaire</a> resource.</p>
 
 <h2>Questionnaire structure and validation</h2>
-<p>There are two extensions to help with defining the structure of a Questionnaire, especially useful when sending an "empty form" Questionnaire, e.g. a Quesionnaire where only the questions are provided.
-such Questionnaires contain the text and descriptions of sections and questions within the sections, and these tweo extensions provide extra information to a client displaying such
+<p>There are two extensions to help with defining the structure of a Questionnaire, especially useful when sending an "empty form" Questionnaire, e.g. a Questionnaire where only the questions are provided.
+such Questionnaires contain the text and descriptions of sections and questions within the sections, and these two extensions provide extra information to a client displaying such
 an empty Questionnaire and make it possible to do basic validation of the input. It is expected that more extensive validation for Questionnaires is added by creating new extensions.</p>
 
 <ul>
