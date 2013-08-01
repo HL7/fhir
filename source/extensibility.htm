@@ -64,7 +64,7 @@ Notes:
 </p>
 <ul>
  <li>The <i>url</i> is a mandatory field, and identifies an extension definition in a <a href="profile.htm">resource profile</a> that defines the content and meaning of the extension.</li>
- <li><i>isModifier</i> is used to indicate that this value influences the interpretation, meaning or understanding of other elements. It's use is further discussed below</li>
+ <li><i>isModifier</i> is used to indicate that this value influences the interpretation, meaning or understanding of other elements. Its use is further discussed below</li>
  <li>The actual content of the extension consists of either a single value in the <i>value[x]</i> element, or it can be extended itself with other extensions, each with their own defining url and content</li>
  <li>The <i>url</i> and <i>isModifier</i> elements cannot have extensions themselves</li>
  <li>An extension must have either a value (i.e. a value[x] element) or child extensions. The value element must have content, and/or an id attribute that is the target of a reference from the Narrative</li>
@@ -224,7 +224,7 @@ that they may be used to extend. The following are possible contexts for an exte
  <tr><td>A particular element (including the root) in a single resource</td><td>The element path for that element</td><td>Profile.resource.element; Person</td></tr>
  <tr><td>A particular element (including the root) in a particular data type</td><td>The data type name for primitive types or the element path for complex data types</td><td>Address.part.value; string</td></tr>
  <tr><td>A particular context in one of the mapped reference models</td><td>The name of the reference model followed by the mapping path</td><td>RIM: Act[moodCode="EVN"]</td></tr>
- <tr><td>Another extension</td><td>The profile uri of the extension followed b the extension code</td><td>http://myextensions.org#someExtension</td></tr>
+ <tr><td>Another extension</td><td>The profile uri of the extension followed by the extension code</td><td>http://myextensions.org#someExtension</td></tr>
  <tr><td>A set of some combination of the above</td><td>As above, separated by ';'</td><td>Address; Contact</td></tr>
 </table>
 <p>
@@ -247,7 +247,7 @@ Each extension is defined using the following fields:
  <tr><td>XPaths</td><td>Optional</td><td>One or more XPath statements that must evaluate to true when the extension is used</td></tr>
  <tr><td>Must Understand</td><td>Required</td><td>Whether the extension must be understood by any system reading the resource. There are 3 possible values: "true" - the extension must be understood, "false" - the extension does not need to be understood, and "sender" - the sender can decide whether the extension needs to be understood</td></tr>
  <tr><td>RIM Mapping</td><td>Conditional</td><td>The formal mapping from this extension to the RIM. Required for HL7-defined extensions that apply to resources with RIM mappings, but may be optional in other contexts</td></tr>
- <tr><td>v2 Mapping</td><td>Optional</td><td>Mapping to a v2 segment/field/etc, if desired and appropriate. </td></tr>
+ <tr><td>v2 Mapping</td><td>Optional</td><td>Mapping to a v2 segment/field/etc., if desired and appropriate. </td></tr>
  <tr><td>Binding</td><td>Conditional</td><td>For the types CodeableConcept and Coding. See <a href="terminologies.htm">Terminologies</a></td></tr>
 </table>
 <p>
