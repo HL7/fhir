@@ -14,7 +14,7 @@
 [%maindiv%]
 [%dtheader%]
 <!--
- no repeating primitives in datatypes? No id's on primitives in datatypes...No dar on primitives in datatypes. It would be worthwile to document that and the reason for it.
+ no repeating primitives in datatypes? No id's on primitives in datatypes...No dar on primitives in datatypes. It would be worthwhile to document that and the reason for it.
 -->
 
 [%onthispage Primitive Types#primitive|Data Types 1#Types|Data Types 2#Types2|Other Types#other%]
@@ -114,8 +114,8 @@ These types are represented as XML Elements with the value of the type in the va
 The XML elements may have an <a href="formats.htm#idref">id attribute</a>. 
  According to XML schema, leading and trailing whitespace in the value attribute is ignored for the types 
 boolean, integer, decimal, base64Binary, instant, uri, date and dateTime, oid, and uri. The means the 
-schema aware XML libraries give different attribute values to non schema aware libraries when reading the 
-XML isntances. For this reason, the value attribute for theese types SHOULD not have leading and trailing spaces.
+schema aware XML libraries give different attribute values to non-schema aware libraries when reading the 
+XML instances. For this reason, the value attribute for these types SHOULD not have leading and trailing spaces.
 String values should only have leading and trailing spaces if they are part of the content of the value. 
 </p>
 <p>
@@ -163,7 +163,7 @@ The primitive data types can have <a href="extensibility.htm">extensions</a> lik
 
 <p>
 These types are represented as XML Elements with child elements with the name of the defined elements of the type. The name of the element is defined where the type is used. 
-Any of the XML elements may have an <a href="formats.htm#idref">id attribute</a>. In JSON, the data type is represented by an object with properties named the same as the the
+Any of the XML elements may have an <a href="formats.htm#idref">id attribute</a>. In JSON, the data type is represented by an object with properties named the same as the
 XML elements. The JSON representation is almost exactly the same, so only the first example has an additional JSON representation.
 </p>
 <p>
@@ -200,7 +200,7 @@ or a <i>url</i> reference can be provided. If both are provided, the reference m
 point to the same content as found in the data. The reference can never be reused to point to
 some different data (i.e. the reference is version specific). The
 <i>url</i> reference must point to a location that resolves to actual data; some
-uris such as cid: meet this requirement.
+URIs such as cid: meet this requirement.
 </p>
 <p>
 The <i>hash</i> is included so that applications can verify that the contents that a url have not changed. 
@@ -237,7 +237,7 @@ The context of use may frequently make rules about the kind of attachment
 <pre class="json">
   document : {
     contentType :  { value : "application/pdf" },
-    languge : { value : "en" },
+    language : { value : "en" },
     data :  { value : "/9j/4...KAP//Z"},
     title :  { value : "Definition of Procedure" }
   }
@@ -293,7 +293,7 @@ If the system is present, and there is no code, then this is understood to mean 
 is no suitable code in the system in which to represent the code. 
 </p>
 <p>
-If two Codings have the same the <i>system</i> and <i>code</i> then they have the same meaning.
+If two codings have the same the <i>system</i> and <i>code</i> then they have the same meaning.
 Note that if a code system redefines the meaning of codes across different releases, then 
 the different releases must have different values for <i>system</i>.
 If either the <i>system</i> or the <i>code</i> differs, then how they are related can only be 
@@ -476,7 +476,7 @@ The <i>code</i> is the selected value. A list of possible options for code must 
 The selected code must be found in the list of possible codes. 
 </p>
 <p>
-If isOrdered is true, then the values have an inherent meaningful order and the list of values must be provided in the correct orderr in the instance.
+If isOrdered is true, then the values have an inherent meaningful order and the list of values must be provided in the correct order in the instance.
 </p>
 <!--<div class="use">
 <p><b>Constraints</b></p>
@@ -824,7 +824,7 @@ context. This practice should be avoided where possible in order to future-proof
 information sharing in a wider context is very likely to arise eventually.
 </p>
 <p>
-The <i>assigner</i> is used to indicate what registry/state/facility/etc assigned the identifier. 
+The <i>assigner</i> is used to indicate what registry/state/facility/etc. assigned the identifier. 
 </p>  
 
 
@@ -852,7 +852,7 @@ to some organisation to further sub-allocate):</p>
     &lt;/period&gt;
   &lt;/identifier&gt;
 </pre>
-<p>In this case, tThe period is used to track when the identifier was first assigned to the patient.</p>
+<p>In this case, the period is used to track when the identifier was first assigned to the patient.</p>
 
 <p>An identifier that refers to a patient FHIR resource on a particular system:</p>
 <pre class="xml" fragment="Identifier">
