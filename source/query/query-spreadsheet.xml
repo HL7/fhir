@@ -137,7 +137,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String" x:Ticked="1">Extension</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Set of query parameters with vslues</Data></Cell>
+    <Cell><Data ss:Type="String">Set of query parameters with values</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Unless otherwise specified, parameters are usually strings</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -652,7 +652,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">error</Data></Cell>
-    <Cell><Data ss:Type="String">The server tried to process the query, but some erorr occurred</Data></Cell>
+    <Cell><Data ss:Type="String">The server tried to process the query, but some error occurred</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
