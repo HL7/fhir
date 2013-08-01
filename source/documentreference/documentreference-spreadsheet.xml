@@ -230,7 +230,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Classification: 41a5887f-8865-4c09-adf7-e362475b143a (classCode)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Specifies the particular kind of document (e.g. Patient Summary, Discharge Summary, Prescription, etc)</Data><NamedCell
+    <Cell><Data ss:Type="String">Specifies the particular kind of document (e.g. Patient Summary, Discharge Summary, Prescription, etc.)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Key metadata element describing the document, used in searching/filtering.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -269,7 +269,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Who/what authored the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Classifiction: 93606bcf-9494-43ec-9b4e-a7748d1a838d (author)</Data><NamedCell
+    <Cell><Data ss:Type="String">Classification: 93606bcf-9494-43ec-9b4e-a7748d1a838d (author)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Identifies who is responsible for adding the information to the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -368,7 +368,7 @@
     <Cell><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">DocumentReferenceStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">current | superceded | error</Data><NamedCell
+    <Cell><Data ss:Type="String">current | superseded | error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">implied by XDS workflow</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -489,7 +489,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The mime type of the source document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Note: application/hl7-v3+xml for CDA. application/binary for properitary record formats</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">Note: application/hl7-v3+xml for CDA. application/binary for proprietary record formats</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s69"><Data ss:Type="String">TXA-3-Document Content Presentation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -577,7 +577,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">DocumentServiceType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Type of service (i.e XDS.b)</Data><NamedCell
+    <Cell><Data ss:Type="String">Type of service (i.e. XDS.b)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">The type of the service that can be used to access the documents</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -859,7 +859,7 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">DocumentReference.status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">supercedes</Data></Cell>
+    <Cell><Data ss:Type="String">supersedes</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">DocumentReference.supercedes</Data></Cell>
    </Row>
@@ -1100,8 +1100,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">superceded</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">This reference has been superceded by another reference</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">superseded</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">This reference has been superseded by another reference</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
