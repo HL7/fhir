@@ -245,7 +245,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">No nested contained resources</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">If the resource is contained in another resource, it SHALL not contain nexted Resources</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">If the resource is contained in another resource, it SHALL not contain nested Resources</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">not(parent::f:contained and f:contained)</Data></Cell>
    </Row>
