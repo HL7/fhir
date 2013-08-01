@@ -6,7 +6,7 @@ This specification describes a set of base resources that are used in many diffe
 contexts in healthcare. In order to make this manageable, applications and specifications need to be
 able to describe restrictions on how one or more resource(s) are used, including 
 defining extensions, and controlling how terminology is used. These descriptions 
-need to be able to be shared through repositoties of profile definitions, and need
+need to be able to be shared through repositories of profile definitions, and need
 to allow for these usage statements to be published, compared, and used as the basis
 for code, report and UI generation. All these things are done using a Resource 
 Profile, which itself is a resource. 
@@ -50,7 +50,7 @@ find the profile when registered in profile repositories.
  <tr><td>status</td><td>The status of the profile	Allows filtering of profiles that are appropriate for use vs. not. See the <a href="resource-profile-status.htm">Status Codes</a></td></tr>
  <tr><td>experimental</td><td>This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage</td></tr>
  <tr><td>date</td><td>The date that this version of the profile was published	</td></tr>
- <tr><td>fhirVersion</td><td>The version of the FHIR specification on which this profile is based. It is not necessary to specify the version, as most profiles are valid across multiple versions, and the validatity of a profile against a particular version of FHIR can easily be checked by tooling.	</td></tr>
+ <tr><td>fhirVersion</td><td>The version of the FHIR specification on which this profile is based. It is not necessary to specify the version, as most profiles are valid across multiple versions, and the validity of a profile against a particular version of FHIR can easily be checked by tooling.	</td></tr>
 </table>
 
 <p>Notes:</p>
@@ -170,7 +170,7 @@ binding, it must be associated with a complete binding with a version specific <
 that enumerates the possible codes in the value set.
 </p>
 <p>
-TODO: how does the discrimator work with resource references? 
+TODO: how does the discriminator work with resource references? 
 TODO solicit comments about discriminating only on codes
 </p>
 <p>
@@ -180,11 +180,11 @@ in the elements between them) must have the same discriminator element in the pr
 each slice must specify a distinct set of possible values for the element so that the different
 slice can be differentiated. The value of the discriminator is either a simple 
 name - the name of a child element, or an URI, which is identifies an extension that serves
-as the descriminator.
+as the discriminator.
 </p>
 <p>
 An additional reason to use slicing is when a single element has a choice of types, and
-different tyes need different definitions, mappings, or constraints. 
+different types need different definitions, mappings, or constraints. 
 </p>
 
 <h3>Bundles</h3>
@@ -221,7 +221,7 @@ use a resource, the extension list on the resource needs to be sliced. To do thi
 Note that the minimum cardinality of an extension must be a valid restriction
 on the minimum cardinality in the definition of the extension. if the minimum
 cardinality of the extension is 1 when it is defined, it can only be mandatory
-when it is added to a profile. This is not recommended - the minumum cardinality
+when it is added to a profile. This is not recommended - the minimum cardinality
 of an extension should be 0. 
 </p>
 
@@ -238,17 +238,17 @@ The set of possible codes is either a formal reference to a value set
 resource, which may be version specific, or a general reference to some web content that defines a set of 
 codes. The second is most appropriate where set of values is defined by 
 some external standard (such as mime types). Alternatively, where the binding
-is incomplete (e.g.e under development) just a text description of the 
+is incomplete (e.g. under development) just a text description of the 
 possible codes can be provided. 
 </p>
 <p> 
-Bindings have two properties that define how the set of ocdes is used: <i>isExtensible</i> and <i>conformance</i>.
+Bindings have two properties that define how the set of codes is used: <i>isExtensible</i> and <i>conformance</i>.
 </p>
 <ul>
   <li><b>isExtensible</b><a name="extensibility"> </a>indicates whether additional codes are allowed beyond those in the defined set of codes.<br/>
     <table>
       <tr><td>false</td> <td>No additional codes are to be used beyond the list provided</td> </tr>
-      <tr><td>true</td>  <td>Supplemental codes or plain text may be needed (this is usually because it is reasonabel think that concepts will need to be used which won't be in the defined set of codes)</td></tr>
+      <tr><td>true</td>  <td>Supplemental codes or plain text may be needed (this is usually because it is reasonable think that concepts will need to be used which won't be in the defined set of codes)</td></tr>
     </table>
   </li>
   <li><b>Conformance</b><a name="conformance"> </a>indicates the expectations for implementers of the specification.  
@@ -274,7 +274,7 @@ Bindings have two properties that define how the set of ocdes is used: <i>isExte
 </ul>
 
 <p>
-Thie interplay between the meaning of these is subtle but sometimes important. The following table helps 
+The interplay between the meaning of these is subtle but sometimes important. The following table helps 
 define the meanings:
 </p>
 <table>
