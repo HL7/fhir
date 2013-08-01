@@ -255,7 +255,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Supporting evidence</Data></Cell>
-    <Cell><Data ss:Type="String">Supporting Evidence / manfiestions that are the basis on which this condition is suspected or confirmed</Data></Cell>
+    <Cell><Data ss:Type="String">Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">The evidence may be a simple lost of coded symptoms/manifestations, or references to observations or formal assessments, or both</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -264,7 +264,7 @@
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Manifestation/symptom</Data></Cell>
-    <Cell><Data ss:Type="String">A manifestion or symptom that led to the recording of this condition</Data></Cell>
+    <Cell><Data ss:Type="String">A manifestation or symptom that led to the recording of this condition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Condition.evidence.detail</Data></Cell>
@@ -278,7 +278,7 @@
     <Cell><Data ss:Type="String">Condition.location</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">up</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Snatomical location, if relevant</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Anatomical location, if relevant</Data></Cell>
     <Cell><Data ss:Type="String">The anatomical location where this condition manifests itself</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">May be a summary code, or a reference to a very precise definition of the location, or both</Data></Cell>
    </Row>
@@ -820,7 +820,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">following</Data></Cell>
-    <Cell><Data ss:Type="String">this condition follows the identified condition/procedure/substance, but it is not known whether they are causually linked</Data></Cell>
+    <Cell><Data ss:Type="String">this condition follows the identified condition/procedure/substance, but it is not known whether they are causally linked</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
