@@ -37,7 +37,7 @@ The XML syntax uses the following notation:
 </p>
 <pre class="spec">
  &lt;<b>name</b> xmlns="http://hl7.org/fhir" (attrA="value")&gt; 
-   &lt;<u><b title="Formal Definition (must tbe supported or understood)">nameA</b></u>&gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="Darkgreen">type</font> <font color="Navy">description of content</font> <font color="Gray"> --&gt;</font>&lt;nameA&gt;
+   &lt;<u><b title="Formal Definition (must be supported or understood)">nameA</b></u>&gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="Darkgreen">type</font> <font color="Navy">description of content</font> <font color="Gray"> --&gt;</font>&lt;nameA&gt;
    &lt;<b title="Formal Definition">nameB[x]</b>&gt;<font color="Gray">&lt;!-- </font><font color="deeppink" title="Condition">0..1</font> <font color="darkgreen">type1</font>|<font color="darkgreen">type1</font> <font color="Navy">description</font> <font color="Gray"> --&gt;</font>&lt;/nameB&gt;
    &lt;<b>nameC</b>&gt; <font color="Brown"><font color="Gray">&lt;!-- </font> <b>1..*</b> --&gt;</font>
      &lt;<b>nameD</b> &gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="darkgreen">type</font>&gt;<font color="navy">Relevant records</font> <font color="Gray"> --&gt;</font>&lt;/nameD&gt;
@@ -55,7 +55,7 @@ Notes:
  <li>Elements are assigned a cardinality that specifies how many times the element may or must appear. If the cardinality is shown in 
     <font color="deeppink">Pink</font> then there is an additional condition that impacts on the allowed cardinality. This is available as a mouse-over text, or in the formal definitions</li>
  <li>The elements are assigned one or more types. All of the types are defined in <a href="datatypes.htm">the data types</a> except for "Resource" and "Narrative" that are documented below. The type names are hyperlinked</li>
- <li>When a logical element can have more than one type, it's name takes the form nnn[x]. The "nnn" part of the name is constant, and 
+ <li>When a logical element can have more than one type, its name takes the form nnn[x]. The "nnn" part of the name is constant, and 
    the [x] is replaced with the title-cased name of the type that is actually used. The types that are allowed are listed with a "|" used to separate them. 
    When one of the types is Resource([X]), the type name in the element name is simply "Resource"</li>
  <li>Each element name in the pseudo-syntax is also a hyperlink to the formal definition of the element in the data dictionary that underlies the exchange formats. </li>
@@ -91,7 +91,7 @@ resource or a data type.
 Where an element can have a choice of data types, these are represented in the 
 choice using the same syntax as the xml syntax. Due to way UML works, the actual 
 order of the elements cannot be determined from the diagram, nor is it visible 
-whether a proprerty is an element or an attribute. 
+whether a property is an element or an attribute. 
 </p>
 <p>
 These UML diagrams are intended to communicate the contents of the resource
@@ -115,7 +115,7 @@ what content should be represented in the narrative to ensure clinical safety.
 The narrative for a resource is allowed to contain additional information that is not in 
 the structured data, including human-edited content. Such additional information must be 
 in the scope of the definition of the resource, though it is common for the narrative to
-include additional decriptional information extracted from other referenced resources.
+include additional descriptional information extracted from other referenced resources.
 </p>
 <p>
 While resources SHOULD always contain narrative, so that to support human-consumption
@@ -317,7 +317,7 @@ The JSON representation is described relative to the XML representation:
 <p>There are differences too:</p>
 <ul>
  <li>There are no namespaces in the JSON representation</li>
- <li>The oder of properties of an object not significant in the JSON representation, though order within an array must be maintained</li>
+ <li>The order of properties of an object not significant in the JSON representation, though order within an array must be maintained</li>
  <li>JSON does not have a notion of attributes versus elements, so attributes (xml:id, value) are treated as JSON object members (see below for more details)</li>
  <li>JSON has a notation for arrays, which are used to represent repeating elements. Note that this is the case, even if they do not repeat in the actual instance</li>
  <li>The XHTML &lt;div&gt; element in the Narrative datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content etc. The XHTML most still conform to the rules described above</li>
@@ -578,7 +578,7 @@ other implementation-specific method for resolving how to find the resource.
 <ul>
 <li>Atom Feeds may be signed following the rules described in the Atom specification. One consequence of 
 signing the document is that URLs, Identifiers and internal references are frozen and cannot be changed.
-This might be a desired feature, but it may also cripple interoperability between closed eco-systems where
+This might be a desired feature, but it may also cripple interoperability between closed ecosystems where
 <a href="implementation.htm#identity">re-identification</a> frequently occurs. For this reason, it is recommended that only Document Bundles
 are signed and then only when all the related resources are found in the bundle.</li>
 <li>
