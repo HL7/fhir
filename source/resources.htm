@@ -52,7 +52,7 @@ All resources have the following aspects:
  <li>A human readable narrative description of the resource (see <a href="formats.htm#Narrative">"Narrative"</a>)</li>
  <li>Contained resources - additional resources that are part of the identification and transaction space of this resource (see <a href="#contained">below</a>)</li>
  <li>Metadata - important information about the resource that is not part of the content model of the resource</li>
- <li>Tags - labels affixed to the resources that may be used to define additional operation behaviour such as security, workflow, etc</li>
+ <li>Tags - labels affixed to the resources that may be used to define additional operation behaviour such as security, workflow, etc.</li>
 </ul>
 <p>
 The contents of the base resource from which all other resources derive are:
@@ -119,7 +119,7 @@ long, and contain any combination of ASCII letters, numerals, "-" and ".".
 In addition to the basic contents of Resources, and their metadata, each resource can be labelled
 with one or more "Tags". These tags can be used to associate additional operational information 
 with the Resources, including defining security labels used in access control policies, workflow
-management, and other uses. Tags are attached to resources, and and exchanged with the resource.
+management, and other uses. Tags are attached to resources, and exchanged with the resource.
 Tags are never used to keep information that needs to be understood when interpreting the content
 of a resource; their function is limited to finding and controlling access to the resource.
 </p>
@@ -187,7 +187,7 @@ items that identify different subjects. Such cross-linking may arise for
 many valid reasons, including:
 </p>
 <ul>
- <li>Cases where subject records are inter-linked - Transplants, Perinatal care, family therapy etc</li>
+ <li>Cases where subject records are inter-linked - Transplants, Perinatal care, family therapy etc.</li>
  <li>Workflow management where action lists link multiple patients and/or practitioners</li>
 </ul>
 <p>
@@ -215,10 +215,10 @@ different reasons, including:
 </ul>
 <p>
 Conceptually, a bundle has an identifier (url) and a date updated, and a list of resources. 
-For each resource in the list, the bundle has the resource and also it's metadata as listed above.
-Each entry in the bundle retains it's original identifier. This means that applications reading
-the bundle should always look for a resource by it's identity (after converting relative URLs
-absolute URL) in the bundle first before trying to access it by it's URL.
+For each resource in the list, the bundle has the resource and also its metadata as listed above.
+Each entry in the bundle retains its original identifier. This means that applications reading
+the bundle should always look for a resource by its identity (after converting relative URLs
+absolute URL) in the bundle first before trying to access it by its URL.
 </p>
 
 
@@ -227,7 +227,7 @@ absolute URL) in the bundle first before trying to access it by it's URL.
 <h2>Conformance</h2>
 <p>
 The contents of the resource and the formats used to represent it must conform to the rules described in this specification.
-Because of it's general nature and wide applicability, the rules made in this specification are generally loose compared 
+Because of its general nature and wide applicability, the rules made in this specification are generally loose compared 
 to the rules suitable for particular use cases. This specification provides a conformance layer that implementers and 
 national/regional programs can use to provide a computable statement about how the resources and their exchange 
 paradigms are used to solve particular use cases. This conformance layer is delivered through use of the 
@@ -240,7 +240,7 @@ to this base specification:
 <ul>
  <li>Schema &amp; Schematron</li>
  <li>Reference Platforms</li>
- <li>TODO: RDF/OWL, etc</li>
+ <li>TODO: RDF/OWL, etc.</li>
 </ul> 
 <p>
 Note that none of these are able to check complete conformance to this specification.
@@ -297,7 +297,7 @@ of the resource.
 <p>
 Implementations processing resources SHALL understand the impact of the element when they process 
 the resource. Implementations are not required to "support" the element in any meaningful way - they 
-amy achieve this by rejecting instances that contain values outside those they support (for instance,
+may achieve this by rejecting instances that contain values outside those they support (for instance,
 an application may refuse to accept observations with a reliability != "ok"). Alternatively,
 implementations may be able to be sure, due to their implementation environment, that such values 
 will never occur. However applications SHOULD always check the value irrespective of this.
@@ -370,9 +370,9 @@ external infrastructure to track the relationship between resources.
 <p>
 Because resources are processed independently, relationships are not considered to be transitive. 
 For example, if a <a href="condition.htm">Condition</a> resource references a particular 
-<a href="patient.htm">Patient</a> as it's subject, and it links to a <a href="procedure.htm">Procedure</a>
-resource as it's cause, there is no automatic rule or implication that the procedure 
-has the same patient as it's subject. Instead, the subject of the procedure must be established 
+<a href="patient.htm">Patient</a> as its subject, and it links to a <a href="procedure.htm">Procedure</a>
+resource as its cause, there is no automatic rule or implication that the procedure 
+has the same patient as its subject. Instead, the subject of the procedure must be established 
 directly in the procedure itself. Another way to state this is that the context of the subject
 is not "inherited" and it does not "conduct" along the relationship to procedure. 
 The only exception to this in the case of contained resources (see below). Note that in
@@ -396,7 +396,7 @@ for details of the way resource contents are described):
  <li>The <i>type</i> must specify the resource type, whether or not the type of the resource reference is fixed for the element in the resource definition</li>
  <li>The <i>reference</i> element contains a url that is either an absolute URL, or a relative URL that is relative to the <a href="http.htm#root">Service Base URL</a>, or an internal fragment reference (see below)</li>
  <li>Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a 
-   flexible approach suitable for use when trading across closed eco-system boundaries. (see <a href="implementation.htm#identity">implementation issues for further discussion</a>)</li>
+   flexible approach suitable for use when trading across closed ecosystem boundaries. (see <a href="implementation.htm#identity">implementation issues for further discussion</a>)</li>
  <li>Absolute URLs do not need to point to a <a href="http.htm">FHIR RESTful server</a>, though this is the preferred approach. If the tail of the url 
    conforms to the structure "/[type]/@[id]" or "/[type]/@[id]/history/@[id]" then it should be assumed that the reference is to a <a href="http.htm">FHIR RESTful server</a>. 
    Whether or not the reference is to a FHIR RESTful server, the reference must point to a Resource as defined by this specification</li>
@@ -448,7 +448,7 @@ This text can be used by a system that is unable to resolve the reference to an 
 <p>
 In some circumstances, the content referred to in the resource reference does not have an independent 
 existence apart from the resource that contains it - it cannot be identified independently, and nor 
-can it have it's own independent transaction scope. Typically, such circumstances arise where the resource
+can it have its own independent transaction scope. Typically, such circumstances arise where the resource
 is being assembled by a secondary user of the source data, such as a middleware engine. If the data available
 when the resource is constructed does not include record keys or absolute identification information, then
 a properly identified resource cannot be assembled, and even if an arbitrary identification was associated
@@ -521,7 +521,7 @@ Some notes about use and interpretation of contained resources:
   <li>Contained resources share the same internal id resolution space as the parent resource</li>
   <li>Contained resources do not contain additional contained resources</li>
   <li>Resources that are contained inline also "inherit" context from their parent resource. For instance, if 
-    the parent resource contains a "subject", and the contained resource also has a a subject element defined, 
+    the parent resource contains a "subject", and the contained resource also has a subject element defined, 
     but does not specify any subject, a processing application may infer that the subject is the same. Note,
     however, that such inferences are specific to a particular circumstance. There is no rule, for instance, 
 	that the meaning of the "subject" element is the same in both parent and contained resources</li>
