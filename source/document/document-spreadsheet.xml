@@ -257,7 +257,7 @@
     <Cell><Data ss:Type="String">More detail about the document type</Data></Cell>
     <Cell><Data ss:Type="String">Additional detailed type for the document</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">Helps humans to assess whether the document is of interest when viewing an index of documetns</Data></Cell>
+    <Cell><Data ss:Type="String">Helps humans to assess whether the document is of interest when viewing an index of documents</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -710,7 +710,7 @@
     <Cell><Data ss:Type="String">Identifies the discrete data that provides the content for the section.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Because documents represent point-in-time snapshots, resource references should generally be to a specific version.</Data></Cell>
     <Cell><Data ss:Type="String">unique(./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[moodCode=&quot;EVN&quot; and classCode!=&quot;DOCSECT&quot; and isNormalAct])</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">This may need to be 0..*.  May need to consider adding text here to to account for missing resources.</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">This may need to be 0..*.  May need to consider adding text here to account for missing resources.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">!Document.section.text</Data></Cell>
@@ -1210,7 +1210,7 @@
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">withdrawn</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">The document has been withdrawn following prior release</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Usually this is because some error has been detected in the document, or the document was associated with the wrong patient/author etc</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Usually this is because some error has been detected in the document, or the document was associated with the wrong patient/author etc.</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
