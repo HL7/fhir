@@ -138,7 +138,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">description</Data></Cell>
-    <Cell><Data ss:Type="String">Contains standard extensions for Questionnaire, amonst others for validation</Data></Cell>
+    <Cell><Data ss:Type="String">Contains standard extensions for Questionnaire, amongst others for validation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">evidence</Data></Cell>
@@ -169,7 +169,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">supercedes</Data></Cell>
+    <Cell><Data ss:Type="String">supersedes</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
