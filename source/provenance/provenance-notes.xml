@@ -40,7 +40,7 @@ Todo: how can you sign tags as well as the resource?
 <p>
 Because the Provenance resource often refers to parties that are not represented 
 as FHIR resources, Agent and Entity references are allowed to be either references 
-to other resources, or they can refer to other entities that are not FHIR resoutces.
+to other resources, or they can refer to other entities that are not FHIR resources.
 </p>
 <p>
 The code in the <i>.type</i> element is used to differentiate between the two: if the 
