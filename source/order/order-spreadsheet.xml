@@ -232,7 +232,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">right</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">When order should be filfulled</Data></Cell>
+    <Cell><Data ss:Type="String">When order should be fulfilled</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">TQ1, TQ2</Data></Cell>
