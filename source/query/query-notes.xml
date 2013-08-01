@@ -4,7 +4,7 @@
 Notes about the Query resource:
 </p>
 <ul>
- <li>The id is usually a UUID (urn:uuid:...). It's sole use is to match request and response logically</li>
+ <li>The id is usually a UUID (urn:uuid:...). Its sole use is to match request and response logically</li>
  <li>The parameters defined for use with the query the resource are all those described above</li>
  <li>The <a href="extexibility.htm">extension</a> type is used for parameters. The namespace http://hl7.org/fhir/query is used in the uri value for all the named parameters. Other namespaces may be used for parameters that would/could not appear in the named parameter list in a query url.</li>
  <li>Parameter names are mandatory, and values are optional. Parameters with missing values are ignored when processing the query</li>
@@ -53,7 +53,7 @@ Here's how this would work:
 </p>
 <ol>
  <li>The requester constructs a <i>Query</i> resource, and performs a create operation to the /query endpoint, and gets the id of the query resource on the server</li>
- <li>The requester constructs an <a href="order.htm">Order</a> resource that contains details as appropriate, and which as the query resource as it's order detail, and creates that on the server</li>
+ <li>The requester constructs an <a href="order.htm">Order</a> resource that contains details as appropriate, and which as the query resource as its order detail, and creates that on the server</li>
  <li>A responder picks up the existence of the order resource (either the server acting directly, or a client that is subscribed to the order feed on the server)</li>
  <li>The responder retrieves the query, and then processes it, generating a new query resource that is the response, and then creates that on the server</li>
  <li>The responder constructs an <a href="orderresponse.htm">Order Response</a> resource with a reference to the request from Step #2, a code of "complete", and a fulfillment that points to the query response from step #4</li>

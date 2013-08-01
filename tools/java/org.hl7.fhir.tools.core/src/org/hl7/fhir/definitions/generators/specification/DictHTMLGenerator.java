@@ -74,20 +74,20 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 
 	private void writeEntry(String path, String cardinality, String type, String conceptDomain, ElementDefn e) throws Exception {
 		write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+path.replace("[", "_").replace("]", "_")+"\"></a><b>"+path+"</b></td></tr>\r\n");
-		tableRow("Definition", e.getDefinition());
-		tableRow("Control", cardinality + (e.hasCondition() ? ": "+  e.getCondition(): ""));
-		tableRowNE("Binding", describeBinding(e));
-		tableRow("Type", type + (conceptDomain != "" ? " from "+conceptDomain : ""));
-		tableRow("Must Understand", displayBoolean(e.isModifier()));
-		tableRow("Requirements", e.getRequirements());
-    tableRow("Aliases", toSeperatedString(e.getAliases()));
+		tableRow("Definition", null, e.getDefinition());
+		tableRow("Control", "resources.htm#conformance", cardinality + (e.hasCondition() ? ": "+  e.getCondition(): ""));
+		tableRowNE("Binding", "terminologies.htm", describeBinding(e));
+		tableRow("Type", "datatypes.htm", type + (conceptDomain != "" ? " from "+conceptDomain : ""));
+		tableRow("Is Modifier", "resorrces.htm#ismodifier", displayBoolean(e.isModifier()));
+		tableRow("Requirements", null, e.getRequirements());
+    tableRow("Aliases", null, toSeperatedString(e.getAliases()));
     if (e.isSummaryItem())
-      tableRow("Summary", Boolean.toString(e.isSummaryItem()));
-    tableRow("Comments", e.getComments());
-    tableRowNE("Invariants", invariants(e.getInvariants(), e.getStatedInvariants()));
-    tableRow("LOINC Code", e.getMapping(ElementDefn.LOINC_MAPPING));
-    tableRow("SNOMED-CT Code", e.getMapping(ElementDefn.SNOMED_MAPPING));
-		tableRow("To Do", e.getTodo());
+      tableRow("Summary", "query.htm#summary", Boolean.toString(e.isSummaryItem()));
+    tableRow("Comments", null, e.getComments());
+    tableRowNE("Invariants", null, invariants(e.getInvariants(), e.getStatedInvariants()));
+    tableRow("LOINC Code", null, e.getMapping(ElementDefn.LOINC_MAPPING));
+    tableRow("SNOMED-CT Code", null, e.getMapping(ElementDefn.SNOMED_MAPPING));
+		tableRow("To Do", null, e.getTodo());
 		
 	}
 	
@@ -163,15 +163,22 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 			return null;
 	}
 
-	private void tableRow(String name, String value) throws IOException {
-		if (value != null && !"".equals(value))
-			write("  <tr><td>"+name+"</td><td>"+Utilities.escapeXml(value)+"</td></tr>\r\n");
+	private void tableRow(String name, String defRef, String value) throws IOException {
+		if (value != null && !"".equals(value)) {
+		  if (defRef != null) 
+	      write("  <tr><td><a href=\""+defRef+"\">"+name+"</a></td><td>"+Utilities.escapeXml(value)+"</td></tr>\r\n");
+		  else
+		    write("  <tr><td>"+name+"</td><td>"+Utilities.escapeXml(value)+"</td></tr>\r\n");
+		}
 	}
 
 	
-  private void tableRowNE(String name, String value) throws IOException {
+  private void tableRowNE(String name, String defRef, String value) throws IOException {
     if (value != null && !"".equals(value))
-      write("  <tr><td>"+name+"</td><td>"+value+"</td></tr>\r\n");
+      if (defRef != null) 
+        write("  <tr><td><a href=\""+defRef+"\">"+name+"</a></td><td>"+value+"</td></tr>\r\n");
+      else
+        write("  <tr><td>"+name+"</td><td>"+value+"</td></tr>\r\n");
   }
 
 

@@ -338,7 +338,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Additional information about the Condition</Data></Cell>
-    <Cell><Data ss:Type="String">Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, it's diagnosis and prognosis</Data></Cell>
+    <Cell><Data ss:Type="String">Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="Default"><Data ss:Type="String">NTE child of PRB</Data></Cell>
     <Cell><Data ss:Type="String">Definition needs checking</Data></Cell>
    </Row>
@@ -772,7 +772,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s62"><Data ss:Type="String">ConditionRelationshipType</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">The type of relationship between a condition and it's related item</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">The type of relationship between a condition and its related item</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#condition-relationship-type</Data></Cell>

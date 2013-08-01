@@ -30,6 +30,7 @@ package org.hl7.fhir.tools.publisher;
  */
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -445,21 +446,16 @@ public class Publisher {
     gen.generate(conf);    
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir +"conformance-base.xml"), conf, true, true);
     cloneToXhtml("conformance-base", "Basic Conformance Profile");
-    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir +"conformance-base.json"), conf);
-
-    String json;
-    try {
-      json = Utilities.escapeXml(new JSONObject(TextFile.fileToString(page.getFolders().dstDir +"conformance-base.json")).toString(2));
-    } catch (Throwable t) {
-      t.printStackTrace(System.err);
-      json = t.getMessage();
-    }
+    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir +"conformance-base.json"), conf, false);
+    ByteArrayOutputStream b = new ByteArrayOutputStream();
+    new JsonComposer().compose(b, conf, true);
+    String json = new String(b.toByteArray());
     
     String head = 
     "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>Base Conformance Profile</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
     "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<div class=\"example\">\r\n<p>Base Conformance Profile</p>\r\n<pre class=\"json\">\r\n";
     String tail = "\r\n</pre>\r\n</div>\r\n</body>\r\n</html>\r\n";
-    TextFile.stringToFile(head+json+tail, page.getFolders().dstDir + "conformance-base.json.htm");
+    TextFile.stringToFile(head+Utilities.escapeXml(json)+tail, page.getFolders().dstDir + "conformance-base.json.htm");
     
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + "conformance-base.xml"), new CSFile(page.getFolders().dstDir+ "examples" + File.separator + "conformance-base.xml"));
     if (buildFlags.get("all"))
@@ -1048,21 +1044,21 @@ public class Publisher {
       
       log(" ...collections ");
       new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.xml"), profileFeed, true, false);
-      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.json"), profileFeed);
+      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.json"), profileFeed, false);
       cloneToXhtml("profiles-resources", "Base Resources defined as profiles (implementation assistance, for for validation, derivation and product development)");
       new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-types.xml"), typeFeed, true, false);
-      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-types.json"), typeFeed);
+      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-types.json"), typeFeed, false);
       cloneToXhtml("profiles-types", "Base Types defined as profiles (implementation assistance, for validation, derivation and product development)");
       new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.xml"), valueSetsFeed, true, false);
-      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.json"), valueSetsFeed);
+      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.json"), valueSetsFeed, false);
       cloneToXhtml("valuesets", "Base Valuesets (implementation assistance, for validation, derivation and product development)");
       new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.xml"), v2Valuesets, true, false);
       Utilities.copyFile(page.getFolders().dstDir + "v2-tables.xml", page.getFolders().dstDir + "examples"+ File.separator+"v2-tables.xml");
-      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.json"), v2Valuesets);
+      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.json"), v2Valuesets, false);
       cloneToXhtml("v2-tables", "V2 Tables defined as value sets (implementation assistance, for derivation and product development)");
       new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.xml"), v3Valuesets, true, false);
       Utilities.copyFile(page.getFolders().dstDir + "v3-codesystems.xml", page.getFolders().dstDir + "examples"+ File.separator+"v3-codesystems.xml");
-      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.json"), v3Valuesets);
+      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.json"), v3Valuesets, false);
       cloneToXhtml("v3-codesystems", "v3 Code Systems defined as value sets (implementation assistance, for derivation and product development)");
 
       log("....validator");
@@ -1969,20 +1965,14 @@ public class Publisher {
     el = XMLUtil.getNamedChild(el, "div");
     String narrative = XMLUtil.elementToString(el); 
     
-
+    String json;
 		// generate the json version (use the java reference platform)
     try {
-      javaReferencePlatform.convertToJson(page.getFolders().dstDir, page.getFolders().dstDir + n + ".xml", page.getFolders().dstDir + n + ".json");
+      json = javaReferencePlatform.convertToJson(page.getFolders().dstDir, page.getFolders().dstDir + n + ".xml", page.getFolders().dstDir + n + ".json");
     } catch (Throwable t) {
       System.out.println("Error processing "+page.getFolders().dstDir + n + ".xml");
       t.printStackTrace(System.err);
       TextFile.stringToFile(t.getMessage(), page.getFolders().dstDir + n + ".json");
-    }
-    String json;
-    try {
-      json = Utilities.escapeXml(new JSONObject(TextFile.fileToString(page.getFolders().dstDir + n + ".json")).toString(2));
-    } catch (Throwable t) {
-      t.printStackTrace(System.err);
       json = t.getMessage();
     }
     
@@ -1990,8 +1980,8 @@ public class Publisher {
     "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>"+Utilities.escapeXml(e.getDescription())+"</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
     "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<div class=\"example\">\r\n<p>"+Utilities.escapeXml(e.getDescription())+"</p>\r\n<pre class=\"json\">\r\n";
     String tail = "\r\n</pre>\r\n</div>\r\n</body>\r\n</html>\r\n";
-    TextFile.stringToFile(head+json+tail, page.getFolders().dstDir + n + ".json.htm");
-    e.setJson("<div class=\"example\">\r\n<p>"+Utilities.escapeXml(e.getDescription())+"</p>\r\n<pre class=\"json\">\r\n"+json+"\r\n</pre>\r\n</div>\r\n");  
+    TextFile.stringToFile(head+Utilities.escapeXml(json)+tail, page.getFolders().dstDir + n + ".json.htm");
+    e.setJson("<div class=\"example\">\r\n<p>"+Utilities.escapeXml(e.getDescription())+"</p>\r\n<pre class=\"json\">\r\n"+Utilities.escapeXml(json)+"\r\n</pre>\r\n</div>\r\n");  
 
 		// reload it now, xml to xhtml of xml
 		builder = factory.newDocumentBuilder();
@@ -2158,19 +2148,14 @@ public class Publisher {
 	    cloneToXhtml(n, "Example for Profile "+profile.metadata("name"));
 
 	    
+	    String json;
 	    // generate the json version (use the java reference platform)
 	    try {
-	      javaReferencePlatform.convertToJson(page.getFolders().dstDir, page.getFolders().dstDir + n + ".xml", page.getFolders().dstDir + n + ".json");
+	      json = javaReferencePlatform.convertToJson(page.getFolders().dstDir, page.getFolders().dstDir + n + ".xml", page.getFolders().dstDir + n + ".json");
 	    } catch (Throwable t) {
 	      System.out.println("Error processing "+page.getFolders().dstDir + n + ".xml");
 	      t.printStackTrace(System.err);
 	      TextFile.stringToFile(t.getMessage(), page.getFolders().dstDir + n + ".json");
-	    }
-	    String json;
-	    try {
-	      json = Utilities.escapeXml(new JSONObject(TextFile.fileToString(page.getFolders().dstDir + n + ".json")).toString(2));
-	    } catch (Throwable t) {
-	      t.printStackTrace(System.err);
 	      json = t.getMessage();
 	    }
 	    
@@ -2178,7 +2163,7 @@ public class Publisher {
 	    "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>"+Utilities.escapeXml("Example for Profile "+profile.metadata("name"))+"</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
 	    "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<div class=\"example\">\r\n<p>"+Utilities.escapeXml("Example for Profile "+profile.metadata("name"))+"</p>\r\n<pre class=\"json\">\r\n";
 	    String tail = "\r\n</pre>\r\n</div>\r\n</body>\r\n</html>\r\n";
-	    TextFile.stringToFile(head+json+tail, page.getFolders().dstDir + n + ".json.htm");
+	    TextFile.stringToFile(head+Utilities.escapeXml(json)+tail, page.getFolders().dstDir + n + ".json.htm");
 		}
 		//
 		// DictHTMLGenerator dgen = new DictHTMLGenerator(new
@@ -2321,7 +2306,8 @@ public class Publisher {
       insertSectionNumbersInNode(doc, st, link);
       return new XhtmlComposer().compose(doc);
     } catch (Exception e) {
-      throw new Exception("Exception processing "+link+": "+e.getMessage(), e);
+      TextFile.stringToFile(src, "c:\\temp\\dump.htm");
+      throw new Exception("Exception inserting section numbers in "+link+": "+e.getMessage(), e);
     } 
   }
 
@@ -2772,7 +2758,7 @@ public class Publisher {
       cachePage(name+".htm", src);
 
       JsonComposer json = new JsonComposer();
-      json.compose(new FileOutputStream(page.getFolders().dstDir+name+".json"), vs);
+      json.compose(new FileOutputStream(page.getFolders().dstDir+name+".json"), vs, false);
       XmlComposer xml = new XmlComposer();
       xml.compose(new FileOutputStream(page.getFolders().dstDir+name+".xml"), vs, true);
       cloneToXhtml(name, "Definition for Value Set"+vs.getNameSimple());
@@ -2806,6 +2792,9 @@ public class Publisher {
     vs.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.url, Utilities.noString(cd.getWebSite())? "http://hl7.org/fhir" : cd.getWebSite()));
     vs.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.email, Utilities.noString(cd.getEmail())? "fhir@lists.hl7.org" : cd.getEmail()));
     vs.setDescriptionSimple(Utilities.noString(cd.getDescription()) ? cd.getDefinition() : cd.getDefinition()+"\r\n\r\n"+cd.getDescription());
+    if (!Utilities.noString(cd.getCopyright()))
+      vs.setCopyrightSimple(cd.getCopyright());
+
     vs.setStatusSimple(ValuesetStatus.draft); // until we publish DSTU, then .review
     vs.setDate(org.hl7.fhir.instance.model.Factory.nowDateTime());
 
@@ -2868,7 +2857,7 @@ public class Publisher {
 
 
       JsonComposer json = new JsonComposer();
-      json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, ".json")), vs);
+      json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, ".json")), vs, false);
       XmlComposer xml = new XmlComposer();
       xml.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, ".xml")), vs, true);
       cloneToXhtml(Utilities.fileTitle(filename), "Definition for Value Set"+vs.getNameSimple());

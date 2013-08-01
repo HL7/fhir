@@ -267,8 +267,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 				cc = "greaterOrEqual";
       else if (cc.equals("="))
         cc = "equal";
+			else if (allPlusMinus(cc))
+			  cc = cc.replace("-", "Minus").replace("+", "Plus");
 			else
-				cc = cc.replace("-", "Minus").replace("+", "Plus");
+			  cc = cc.replace("-", "").replace("+", "");
 			write("        "+cc+", // "+c.getDefinition()+"\r\n");
 		}
     write("        Null; // added to help the parsers\r\n");
@@ -293,8 +295,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 				cc = "greaterOrEqual";
       else if (cc.equals("="))
         cc = "equal";
+      else if (allPlusMinus(cc))
+        cc = cc.replace("-", "Minus").replace("+", "Plus");
 			else
-				cc = cc.replace("-", "Minus").replace("+", "Plus");
+				cc = cc.replace("-", "").replace("+", "");
 			write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
 			write("          return "+cc+";\r\n");
 		}		
@@ -319,8 +323,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 				cc = "greaterOrEqual";
       else if (cc.equals("="))
         cc = "equal";
+      else if (allPlusMinus(cc))
+        cc = cc.replace("-", "Minus").replace("+", "Plus");
 			else
-				cc = cc.replace("-", "Minus").replace("+", "Plus");
+				cc = cc.replace("-", "").replace("+", "");
 			write("            case "+cc+": return \""+c.getCode()+"\";\r\n");
 		}   
 		write("            default: return \"?\";\r\n");
@@ -353,8 +359,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         cc = "greaterOrEqual";
       else if (cc.equals("="))
         cc = "equal";
-      else
+      else if (allPlusMinus(cc))
         cc = cc.replace("-", "Minus").replace("+", "Plus");
+      else
+        cc = cc.replace("-", "").replace("+", "");
       write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
       write("          return "+tns+"."+cc+";\r\n");
     }   
@@ -377,8 +385,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         cc = "greaterOrEqual";
       else if (cc.equals("="))
         cc = "equal";
-      else
+      else if (allPlusMinus(cc))
         cc = cc.replace("-", "Minus").replace("+", "Plus");
+      else
+        cc = cc.replace("-", "").replace("+", "");
       write("      if (code == "+tns+"."+cc+")\r\n        return \""+c.getCode()+"\";\r\n");
     }
     write("      return \"?\";\r\n"); 
@@ -387,7 +397,14 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("\r\n");
 	}
 
-	private void generateType(ElementDefn e) throws Exception {
+	private boolean allPlusMinus(String cc) {
+	  for (char c : cc.toCharArray())
+	    if (!(c == '-' || c == '+'))
+	      return false;
+    return true;
+  }
+
+  private void generateType(ElementDefn e) throws Exception {
 		String tn = typeNames.get(e);
 
 		write("    public class "+tn+" extends Element {\r\n");

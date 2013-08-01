@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Tue, Jul 30, 2013 13:32+1000 for FHIR v0.10
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -3228,7 +3228,7 @@ public class JsonComposer extends JsonComposerBase {
     if (element != null) {
       open(name);
       composeElement(element);
-      composeString("target", element.getTarget());
+      composeUri("target", element.getTarget());
       composeString("map", element.getMap());
       close();
     }
@@ -3276,11 +3276,26 @@ public class JsonComposer extends JsonComposerBase {
           composeResourceReference(null, e);
         closeArray();
       };
-      composeProvenanceProvenanceActivityComponent("activity", element.getActivity());
-      if (element.getParty().size() > 0) {
-        openArray("party");
-        for (Provenance.ProvenancePartyComponent e : element.getParty()) 
-          composeProvenanceProvenancePartyComponent(null, e);
+      composePeriod("period", element.getPeriod());
+      composeInstant("recorded", element.getRecorded());
+      composeCodeableConcept("reason", element.getReason());
+      composeResourceReference("location", element.getLocation());
+      if (element.getPolicy().size() > 0) {
+        openArray("policy");
+        for (Uri e : element.getPolicy()) 
+          composeUri(null, e);
+        closeArray();
+      };
+      if (element.getAgent().size() > 0) {
+        openArray("agent");
+        for (Provenance.ProvenanceAgentComponent e : element.getAgent()) 
+          composeProvenanceProvenanceAgentComponent(null, e);
+        closeArray();
+      };
+      if (element.getEntity().size() > 0) {
+        openArray("entity");
+        for (Provenance.ProvenanceEntityComponent e : element.getEntity()) 
+          composeProvenanceProvenanceEntityComponent(null, e);
         closeArray();
       };
       composeString("signature", element.getSignature());
@@ -3288,27 +3303,28 @@ public class JsonComposer extends JsonComposerBase {
     }
   }
 
-  private void composeProvenanceProvenanceActivityComponent(String name, Provenance.ProvenanceActivityComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeElement(element);
-      composePeriod("period", element.getPeriod());
-      composeInstant("recorded", element.getRecorded());
-      composeCodeableConcept("reason", element.getReason());
-      composeResourceReference("location", element.getLocation());
-      composeUri("policy", element.getPolicy());
-      close();
-    }
-  }
-
-  private void composeProvenanceProvenancePartyComponent(String name, Provenance.ProvenancePartyComponent element) throws Exception {
+  private void composeProvenanceProvenanceAgentComponent(String name, Provenance.ProvenanceAgentComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeElement(element);
       composeCoding("role", element.getRole());
       composeCoding("type", element.getType());
-      composeUri("identifier", element.getIdentifier());
-      composeString("description", element.getDescription());
+      composeUri("reference", element.getReference());
+      composeString("display", element.getDisplay());
+      close();
+    }
+  }
+
+  private void composeProvenanceProvenanceEntityComponent(String name, Provenance.ProvenanceEntityComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      if (element.getRole() != null)
+        composeEnumeration("role", element.getRole(), new Provenance().new ProvenanceEntityRoleEnumFactory());
+      composeCoding("type", element.getType());
+      composeUri("reference", element.getReference());
+      composeString("display", element.getDisplay());
+      composeProvenanceProvenanceAgentComponent("agent", element.getAgent());
       close();
     }
   }
@@ -3793,6 +3809,7 @@ public class JsonComposer extends JsonComposerBase {
         closeArray();
       };
       composeString("description", element.getDescription());
+      composeString("copyright", element.getCopyright());
       if (element.getStatus() != null)
         composeEnumeration("status", element.getStatus(), new ValueSet().new ValuesetStatusEnumFactory());
       composeBoolean("experimental", element.getExperimental());

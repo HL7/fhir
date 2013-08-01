@@ -515,7 +515,7 @@ public class PageProcessor implements Logger  {
     xml.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml"), vs, true);
     cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 2);
     JsonComposer json = new JsonComposer();
-    json.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs);
+    json.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs, false);
 
     return new XhtmlComposer().compose(vs.getText().getDiv());
   }
@@ -526,7 +526,7 @@ public class PageProcessor implements Logger  {
     xml.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml"), vs, true);
     cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 2);
     JsonComposer json = new JsonComposer();
-    json.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs);
+    json.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs, false);
 
     return new XhtmlComposer().compose(vs.getText().getDiv()).replace("href=\"v3/", "href=\"../");
   }
@@ -538,7 +538,7 @@ public class PageProcessor implements Logger  {
     xml.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml"), vs, true);
     cloneToXhtml(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml", folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 3);
     JsonComposer json = new JsonComposer();
-    json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".json"), vs);
+    json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".json"), vs, false);
     addToValuesets(v2Valuesets, vs, vs.getIdentifierSimple());
 
     return new XhtmlComposer().compose(vs.getText().getDiv());
@@ -550,7 +550,7 @@ public class PageProcessor implements Logger  {
     xml.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml"), vs, true);
     cloneToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 2);
     JsonComposer json = new JsonComposer();
-    json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".json"), vs);
+    json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".json"), vs, false);
     addToValuesets(v2Valuesets, vs, vs.getIdentifierSimple());
     return new XhtmlComposer().compose(vs.getText().getDiv());
   }
@@ -719,28 +719,31 @@ private String resItem(String name) throws Exception {
   }
 
   private String mapOnThisPage(String mappings) {
-	  if (mappings == null) {
-			List<ElementDefn> list = new ArrayList<ElementDefn>();
-			list.addAll(definitions.getStructures().values());
-			list.addAll(definitions.getTypes().values());
-			list.addAll(definitions.getInfrastructure().values());
-			MappingsGenerator maps = new MappingsGenerator();
-			maps.generate(list);
-			mappings = maps.getMappingsList();
-	  }
-	    String[] entries = mappings.split("\\|");
-	    StringBuilder b = new StringBuilder();
-	    b.append("<div class=\"itoc\">\r\n<p>Mappings:</p>\r\n");
-	    for (String e : entries) {
-	      String[] p = e.split("#");
-	      if (p.length == 2)
-	        b.append("<p class=\"link\"><a href=\"#"+p[1]+"\">"+Utilities.escapeXml(p[0])+"</a></p>");
-	      if (p.length == 1)
-	        b.append("<p class=\"link\"><a href=\"#\">"+Utilities.escapeXml(p[0])+"</a></p>");
-	    }
-	    b.append("</div>\r\n");
-	    return b.toString();
-	  }
+    if (mappings == null) {
+      List<ElementDefn> list = new ArrayList<ElementDefn>();
+      list.addAll(definitions.getStructures().values());
+      list.addAll(definitions.getTypes().values());
+      list.addAll(definitions.getInfrastructure().values());
+      MappingsGenerator maps = new MappingsGenerator();
+      maps.generate(list);
+      mappings = maps.getMappingsList();
+    }
+    if (Utilities.noString(mappings))
+      return "";
+    
+    String[] entries = mappings.split("\\|");
+    StringBuilder b = new StringBuilder();
+    b.append("<div class=\"itoc\">\r\n<p>Mappings:</p>\r\n");
+    for (String e : entries) {
+      String[] p = e.split("#");
+      if (p.length == 2)
+        b.append("<p class=\"link\"><a href=\"#"+p[1]+"\">"+Utilities.escapeXml(p[0])+"</a></p>");
+      if (p.length == 1)
+        b.append("<p class=\"link\"><a href=\"#\">"+Utilities.escapeXml(p[0])+"</a></p>");
+    }
+    b.append("</div>\r\n");
+    return b.toString();
+  }
 
   private class TocSort implements Comparator<String> {
 
@@ -1254,10 +1257,10 @@ private String resItem(String name) throws Exception {
       else
         b.append("<li class=\"nselected\"><span><a href=\""+n+"-mappings.htm\">Mappings</a></span></li>");
 
-    if ("explanations".equals(mode))
-      b.append("<li class=\"selected\"><span>Design Notes</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-explanations.htm\">Design Notes</a></span></li>");
+//    if ("explanations".equals(mode))
+//      b.append("<li class=\"selected\"><span>Design Notes</span></li>");
+//    else
+//      b.append("<li class=\"nselected\"><span><a href=\""+n+"-explanations.htm\">Design Notes</a></span></li>");
     
     if ("profiles".equals(mode))
       b.append("<li class=\"selected\"><span>Profiles</span></li>");
@@ -1744,7 +1747,7 @@ private String resItem(String name) throws Exception {
     List<String> vslist = cd.getVSSources();
     StringBuilder b = new StringBuilder();
     if (vslist.contains("")) {
-      b.append("This value set defines it's own codes");
+      b.append("This value set defines its own codes");
       vslist.remove(0);
       if (vslist.size() > 0)
         b.append(" and includes codes taken from");
@@ -1754,7 +1757,7 @@ private String resItem(String name) throws Exception {
     for (String n : cd.getVSSources()) {
       i++;
       if (Utilities.noString(n)) {
-        b.append("ones defined internally");
+        //b.append("Codes defined internally");
       } else {
         String an = fixUrlReference(n);
         b.append("<a href=\""+an+"\">"+n+"</a>");
@@ -2073,8 +2076,12 @@ private String resItem(String name) throws Exception {
 
   private String produceProfiles(ResourceDefn resource) {
     StringBuilder s = new StringBuilder();
-    for (RegisteredProfile p: resource.getProfiles()) {
+    if (resource.getProfiles().size() == 0) {
+      s.append("<tr><td colspan=\"2\">No Profiles defined for this resource</td></tr>");
+    } else { 
+      for (RegisteredProfile p: resource.getProfiles()) {
         s.append("<tr><td><a href=\""+p.getFilename()+".htm\">"+Utilities.escapeXml(p.getName())+"</a></td><td>"+Utilities.escapeXml(p.getDescription())+"</td></tr>");
+      }
     }
     return s.toString();
   }

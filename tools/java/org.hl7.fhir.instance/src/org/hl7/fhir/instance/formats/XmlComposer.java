@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Tue, Jul 30, 2013 13:32+1000 for FHIR v0.10
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -2736,7 +2736,7 @@ public class XmlComposer extends XmlComposerBase {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeElementElements(element);
-      composeString("target", element.getTarget());
+      composeUri("target", element.getTarget());
       composeString("map", element.getMap());
       xml.close(FHIR_NS, name);
     }
@@ -2779,37 +2779,45 @@ public class XmlComposer extends XmlComposerBase {
       composeResourceElements(element);
       for (ResourceReference e : element.getTarget()) 
         composeResourceReference("target", e);
-      composeProvenanceProvenanceActivityComponent("activity", element.getActivity());
-      for (Provenance.ProvenancePartyComponent e : element.getParty()) 
-        composeProvenanceProvenancePartyComponent("party", e);
+      composePeriod("period", element.getPeriod());
+      composeInstant("recorded", element.getRecorded());
+      composeCodeableConcept("reason", element.getReason());
+      composeResourceReference("location", element.getLocation());
+      for (Uri e : element.getPolicy()) 
+        composeUri("policy", e);
+      for (Provenance.ProvenanceAgentComponent e : element.getAgent()) 
+        composeProvenanceProvenanceAgentComponent("agent", e);
+      for (Provenance.ProvenanceEntityComponent e : element.getEntity()) 
+        composeProvenanceProvenanceEntityComponent("entity", e);
       composeString("signature", element.getSignature());
       xml.close(FHIR_NS, name);
     }
   }
 
-  private void composeProvenanceProvenanceActivityComponent(String name, Provenance.ProvenanceActivityComponent element) throws Exception {
-    if (element != null) {
-      composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
-      composeElementElements(element);
-      composePeriod("period", element.getPeriod());
-      composeInstant("recorded", element.getRecorded());
-      composeCodeableConcept("reason", element.getReason());
-      composeResourceReference("location", element.getLocation());
-      composeUri("policy", element.getPolicy());
-      xml.close(FHIR_NS, name);
-    }
-  }
-
-  private void composeProvenanceProvenancePartyComponent(String name, Provenance.ProvenancePartyComponent element) throws Exception {
+  private void composeProvenanceProvenanceAgentComponent(String name, Provenance.ProvenanceAgentComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeElementElements(element);
       composeCoding("role", element.getRole());
       composeCoding("type", element.getType());
-      composeUri("identifier", element.getIdentifier());
-      composeString("description", element.getDescription());
+      composeUri("reference", element.getReference());
+      composeString("display", element.getDisplay());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeProvenanceProvenanceEntityComponent(String name, Provenance.ProvenanceEntityComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeElementElements(element);
+      if (element.getRole() != null)
+        composeEnumeration("role", element.getRole(), new Provenance().new ProvenanceEntityRoleEnumFactory());
+      composeCoding("type", element.getType());
+      composeUri("reference", element.getReference());
+      composeString("display", element.getDisplay());
+      composeProvenanceProvenanceAgentComponent("agent", element.getAgent());
       xml.close(FHIR_NS, name);
     }
   }
@@ -3184,6 +3192,7 @@ public class XmlComposer extends XmlComposerBase {
       for (Contact e : element.getTelecom()) 
         composeContact("telecom", e);
       composeString("description", element.getDescription());
+      composeString("copyright", element.getCopyright());
       if (element.getStatus() != null)
         composeEnumeration("status", element.getStatus(), new ValueSet().new ValuesetStatusEnumFactory());
       composeBoolean("experimental", element.getExperimental());

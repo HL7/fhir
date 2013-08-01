@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Tue, Jul 30, 2013 10:16+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -733,6 +733,11 @@ public class ValueSet extends Resource {
     protected String_ description;
 
     /**
+     * A copyright statement relating to the value set and/or it's contents
+     */
+    protected String_ copyright;
+
+    /**
      * The status of the value set
      */
     protected Enumeration<ValuesetStatus> status;
@@ -868,6 +873,28 @@ public class ValueSet extends Resource {
         this.description.setValue(value);
     }
 
+    public String_ getCopyright() { 
+      return this.copyright;
+    }
+
+    public void setCopyright(String_ value) { 
+      this.copyright = value;
+    }
+
+    public String getCopyrightSimple() { 
+      return this.copyright == null ? null : this.copyright.getValue();
+    }
+
+    public void setCopyrightSimple(String value) { 
+      if (value == null)
+        this.copyright = null;
+      else {
+        if (this.copyright == null)
+          this.copyright = new String_();
+        this.copyright.setValue(value);
+      }
+    }
+
     public Enumeration<ValuesetStatus> getStatus() { 
       return this.status;
     }
@@ -964,6 +991,7 @@ public class ValueSet extends Resource {
         for (Contact i : telecom)
           dst.telecom.add(i.copy());
         dst.description = description == null ? null : description.copy();
+        dst.copyright = copyright == null ? null : copyright.copy();
         dst.status = status == null ? null : status.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
         dst.date = date == null ? null : date.copy();

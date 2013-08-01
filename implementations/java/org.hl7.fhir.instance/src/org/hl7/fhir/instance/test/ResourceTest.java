@@ -61,9 +61,9 @@ public class ResourceTest {
     FileOutputStream out = new FileOutputStream(source.getAbsoluteFile()+".out.json");
     JsonComposer json1 = new JsonComposer();
     if (rf.getFeed() != null) 
-      json1.compose(out, rf.getFeed());
+      json1.compose(out, rf.getFeed(), true);
     else
-      json1.compose(out, rf.getResource());
+      json1.compose(out, rf.getResource(), true);
 
     JsonParser json = new JsonParser();
     rf = json.parseGeneral(new FileInputStream(source.getAbsoluteFile()+".out.json"));

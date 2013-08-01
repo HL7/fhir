@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Tue, Jul 30, 2013 13:32+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -1224,18 +1224,18 @@ public class Profile extends Resource {
         /**
          * The name of the specification is mapping is being expressed to
          */
-        protected String_ target;
+        protected Uri target;
 
         /**
          * Expresses what part of the target specification corresponds to this element
          */
         protected String_ map;
 
-        public String_ getTarget() { 
+        public Uri getTarget() { 
           return this.target;
         }
 
-        public void setTarget(String_ value) { 
+        public void setTarget(Uri value) { 
           this.target = value;
         }
 
@@ -1245,7 +1245,7 @@ public class Profile extends Resource {
 
         public void setTargetSimple(String value) { 
             if (this.target == null)
-              this.target = new String_();
+              this.target = new Uri();
             this.target.setValue(value);
         }
 

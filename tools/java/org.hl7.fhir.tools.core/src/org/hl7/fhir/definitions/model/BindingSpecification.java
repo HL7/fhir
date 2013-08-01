@@ -85,6 +85,7 @@ public class BindingSpecification {
   private String oid; // oid of the value set if you don't want a generated one
   private String webSite;
   private String email;
+  private String copyright;
   private List<DefinedCode> codes = new ArrayList<DefinedCode>();
 	
 	// these are implied by the use of the binding at the specification level
@@ -320,6 +321,14 @@ public class BindingSpecification {
 
   public void setOid(String oid) {
     this.oid = oid;
+  }
+
+  public String getCopyright() {
+    return copyright;
+  }
+
+  public void setCopyright(String copyright) {
+    this.copyright = copyright;
   }
 
   

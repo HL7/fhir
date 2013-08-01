@@ -57,7 +57,7 @@ to compute the relationship, which might not be possible for a profile tool</li>
  <li>Using the property filters is only possible where the underlying code system defines 
   appropriate properties. Note that in some cases, the underlying code system defines the 
   logical concepts but not the syntax for exercising them. In such cases, the literal 
-  definitions may be provided by a third party. See below for notes about it's use against common code systems</li>
+  definitions may be provided by a third party. See below for notes about its use against common code systems</li>
 </ul>
 
 <h3>Code systems Note</h3>

@@ -21,7 +21,6 @@
   <WindowTopX>900</WindowTopX>
   <WindowTopY>525</WindowTopY>
   <TabRatio>614</TabRatio>
-  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -185,7 +184,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The people who performed the procedure</Data></Cell>
-    <Cell><Data ss:Type="String">This is limited to 'real' people rather than equipment</Data></Cell>
+    <Cell><Data ss:Type="String">Limited to 'real' people rather than equipment</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="44.0625">
@@ -301,10 +300,11 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -317,12 +317,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -834,7 +833,6 @@
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

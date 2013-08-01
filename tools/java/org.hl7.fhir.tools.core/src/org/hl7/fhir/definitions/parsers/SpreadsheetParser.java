@@ -414,6 +414,7 @@ public class SpreadsheetParser {
       cd.setOid(sheet.getColumn(row, "Oid"));
       cd.setWebSite(sheet.getColumn(row, "Website"));
       cd.setEmail(sheet.getColumn(row, "Email"));
+      cd.setCopyright(sheet.getColumn(row, "Copyright"));
 
 			if (cd.getBinding() == BindingSpecification.Binding.CodeList) {
 				Sheet codes = xls.getSheets().get(
@@ -480,7 +481,7 @@ public class SpreadsheetParser {
 			c.setCode(sheet.getColumn(row, "Code"));
       c.setDisplay(sheet.getColumn(row, "Display"));
       c.setSystem(sheet.getColumn(row, "System"));
-			c.setDefinition(sheet.getColumn(row, "Definition"));
+			c.setDefinition(Utilities.appendPeriod(sheet.getColumn(row, "Definition")));
       c.setComment(sheet.getColumn(row, "Comment"));
       c.setParent(sheet.getColumn(row, "Parent"));
       if (Utilities.noString(c.getId()) && Utilities.noString(c.getSystem()))
@@ -611,7 +612,7 @@ public class SpreadsheetParser {
 					EventDefn e = new EventDefn();
 					events.add(e);
 					e.setCode(code);
-					e.setDefinition(sheet.getColumn(row, "Description"));
+					e.setDefinition(Utilities.appendPeriod(sheet.getColumn(row, "Description")));
 					EventUsage u = new EventUsage();
 					e.getUsages().add(u);
 					u.setNotes(sheet.getColumn(row, "Notes"));
@@ -759,14 +760,14 @@ public class SpreadsheetParser {
     else // todo: make this a warning when a fair chunk of the spreadsheets have been converted 
       e.setShortDefn(sheet.getColumn(row, "Short Name"));
     
-		e.setDefinition(sheet.getColumn(row, "Definition"));
+		e.setDefinition(Utilities.appendPeriod(sheet.getColumn(row, "Definition")));
 		
 		if (isRoot) {
 			root.setDefinition(e.getDefinition());
 		} 
 		
-		e.setRequirements(sheet.getColumn(row, "Requirements"));
-		e.setComments(sheet.getColumn(row, "Comments"));
+		e.setRequirements(Utilities.appendPeriod(sheet.getColumn(row, "Requirements")));
+		e.setComments(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
 		e.addMapping(ElementDefn.RIM_MAPPING, sheet.getColumn(row, "RIM Mapping"));
 		e.addMapping(ElementDefn.v2_MAPPING, sheet.getColumn(row, "v2 Mapping"));
 		e.addMapping(ElementDefn.DICOM_MAPPING, sheet.getColumn(row, "DICOM Mapping"));
@@ -774,9 +775,9 @@ public class SpreadsheetParser {
     e.addMapping(ElementDefn.XDS_MAPPING, sheet.getColumn(row, "XDS Mapping"));
     e.addMapping(ElementDefn.LOINC_MAPPING, sheet.getColumn(row, "LOINC"));
     e.addMapping(ElementDefn.SNOMED_MAPPING, sheet.getColumn(row, "SNOMED"));
-		e.setTodo(sheet.getColumn(row, "To Do"));
+		e.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
 		e.setExample(sheet.getColumn(row, "Example"));
-		e.setCommitteeNotes(sheet.getColumn(row, "Committee Notes"));
+		e.setCommitteeNotes(Utilities.appendPeriod(sheet.getColumn(row, "Committee Notes")));
 		if (isProfile) {
 			e.setValue(sheet.getColumn(row, "Value"));
 			e.setAggregation(sheet.getColumn(row, "Aggregation"));
@@ -784,7 +785,10 @@ public class SpreadsheetParser {
 		return e;
 	}
 
-	private ExtensionDefn processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri) throws Exception {
+
+
+
+  private ExtensionDefn processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri) throws Exception {
 	  // first, we build the extension definition
 	  org.hl7.fhir.definitions.model.ExtensionDefn ex = new org.hl7.fhir.definitions.model.ExtensionDefn();
 	  ex.setCode(sheet.getColumn(row, "Code"));
@@ -810,17 +814,17 @@ public class SpreadsheetParser {
     exe.setCondition(sheet.getColumn(row, "Condition"));
     exe.setBindingName(sheet.getColumn(row, "Binding"));
     exe.setIsModifier(parseBoolean(sheet.getColumn(row, "Must Understand"), row, false));
-    exe.setDefinition(sheet.getColumn(row, "Definition"));
-    exe.setRequirements(sheet.getColumn(row, "Requirements"));
-    exe.setComments(sheet.getColumn(row, "Comments"));
+    exe.setDefinition(Utilities.appendPeriod(sheet.getColumn(row, "Definition")));
+    exe.setRequirements(Utilities.appendPeriod(sheet.getColumn(row, "Requirements")));
+    exe.setComments(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
     exe.addMapping(ElementDefn.RIM_MAPPING, sheet.getColumn(row, "RIM Mapping"));
     exe.addMapping(ElementDefn.v2_MAPPING, sheet.getColumn(row, "v2 Mapping"));
     exe.addMapping(ElementDefn.DICOM_MAPPING, sheet.getColumn(row, "DICOM Mapping"));
     exe.addMapping(ElementDefn.vCard_MAPPING, sheet.getColumn(row, "vCard Mapping"));
     exe.addMapping(ElementDefn.XDS_MAPPING, sheet.getColumn(row, "XDS Mapping"));
-    exe.setTodo(sheet.getColumn(row, "To Do"));
+    exe.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
     exe.setExample(sheet.getColumn(row, "Example"));
-    exe.setCommitteeNotes(sheet.getColumn(row, "Committee Notes"));
+    exe.setCommitteeNotes(Utilities.appendPeriod(sheet.getColumn(row, "Committee Notes")));
     exe.setShortDefn(sheet.getColumn(row, "Short Name"));
     String s = sheet.getColumn(row, "Must Understand").toLowerCase();
     if (s.equals("false") || s.equals("0") || s.equals("f")

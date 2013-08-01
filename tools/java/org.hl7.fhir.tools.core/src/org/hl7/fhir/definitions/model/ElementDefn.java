@@ -38,16 +38,15 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class ElementDefn {
 	
-	public static final String RIM_MAPPING = "_rim";
-	public static final String v2_MAPPING = "v2";
-	public static final String DICOM_MAPPING = "dicom";
-  public static final String vCard_MAPPING = "vcard";
-  public static final String XDS_MAPPING = "xds";
-  public static final String LOINC_MAPPING = "loinc";
-  public static final String SNOMED_MAPPING = "snomed";
+	public static final String RIM_MAPPING = "http://hl7.org/v3";
+	public static final String v2_MAPPING = "http://hl7.org/v2";
+	public static final String DICOM_MAPPING = "http://nema.org/dicom";
+  public static final String vCard_MAPPING = "http://w3.org/vcard";
+  public static final String XDS_MAPPING = "http://ihe.net/xds";
+  public static final String LOINC_MAPPING = "http://loinc.org";
+  public static final String SNOMED_MAPPING = "http://snomed.info";
   public static final int MAX_NEG = -1000000;
 	
-
 	private List<TypeRef> types = new ArrayList<TypeRef>();
 	private List<ElementDefn> elements = new ArrayList<ElementDefn>();
 
@@ -162,19 +161,19 @@ public class ElementDefn {
 	}
 
 	public String getDefinition() {
-		return (definition == null || "".equals(definition)) ? shortDefn
+		return (definition == null || "".equals(definition)) ? Utilities.appendPeriod(shortDefn)
 				: definition;
 	}
 
 	public String getEnhancedDefinition() {
 	  if (isModifier() && isMustSupport())
-      return getDefinition() + " (this element must be supported and understood)";
+      return Utilities.removePeriod(getDefinition()) + " (this element modifies the meaning of other elements, and must be supported)";
     else if (isModifier())
-      return getDefinition() + " (this element must be understood)";
+      return Utilities.removePeriod(getDefinition()) + " (this element modifies the meaning of other elements)";
     else if (isMustSupport())
-      return getDefinition() + " (this element must be supported)";
+      return Utilities.removePeriod(getDefinition()) + " (this element must be supported)";
     else
-      return getDefinition();
+      return Utilities.removePeriod(getDefinition());
 	}
 	
 	public void setDefinition(String definition) {

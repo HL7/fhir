@@ -98,7 +98,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	  	addCode(inc.getSystemSimple(), c.getValue(), getCodeDisplay(cs, c.getValue()));
 	  }
 	  for (ConceptSetFilterComponent fc : inc.getFilter()) {
-	  	if ("concept".equals(fc.getPropertySimple()) && fc.getOpSimple() == FilterOperator.isA) {
+	  	if ("concept".equals(fc.getPropertySimple()) && fc.getOpSimple() == FilterOperator.isa) {
 	  		// special: all non-abstract codes in the target code system under the value
 	  		ValueSetDefineConceptComponent def = getConceptForCode(cs.getDefine().getConcept(), fc.getValueSimple());
 	  		if (def == null)

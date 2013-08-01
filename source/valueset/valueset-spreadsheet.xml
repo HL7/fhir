@@ -16,10 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6165</WindowHeight>
+  <WindowHeight>6105</WindowHeight>
   <WindowWidth>27120</WindowWidth>
   <WindowTopX>960</WindowTopX>
-  <WindowTopY>2715</WindowTopY>
+  <WindowTopY>2775</WindowTopY>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -81,11 +82,16 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s73" ss:Parent="s62">
+  <Style ss:ID="s71">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <NumberFormat ss:Format="#,##0"/>
+  </Style>
+  <Style ss:ID="s74" ss:Parent="s62">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s74">
+  <Style ss:ID="s75">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -93,21 +99,21 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s76">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s77">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s77">
+  <Style ss:ID="s78">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s78">
+  <Style ss:ID="s79">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s80">
+  <Style ss:ID="s81">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
@@ -115,7 +121,7 @@
     ss:Bold="1"/>
    <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s81">
+  <Style ss:ID="s82">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -125,7 +131,7 @@
     ss:Bold="1"/>
    <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s83">
+  <Style ss:ID="s84">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -135,14 +141,9 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s84">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <NumberFormat ss:Format="#,##0"/>
-  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="40" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="41" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="267.75"/>
@@ -262,6 +263,14 @@
     <Cell><Data ss:Type="String">The description is not intended to describe the semantics of the Value Set - there are no intrinsic semantics separate from the codes contained in its expansion. The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes.</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">ValueSet.copyright</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">About the value set or its content</Data></Cell>
+    <Cell><Data ss:Type="String">A copyright statement relating to the value set and/or its contents</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Frequently, the copyright differs between the value set, and codes that are included. The copyright statement should clearly differentiate between these when required</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">ValueSet.status</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
@@ -299,8 +308,8 @@
     <Cell><Data ss:Type="String">ValueSet.define</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">10;220</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">When value set defines it's own codes</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">10;240</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">When value set defines its own codes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet.define.system</Data></Cell>
@@ -319,7 +328,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet.define.concept</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="4" ss:StyleID="s84"><Data ss:Type="String">10;340</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s71"><Data ss:Type="String">10;360</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Concepts in the code system</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -358,7 +367,7 @@
     <Cell><Data ss:Type="String">ValueSet.compose</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">500;50</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">500;50</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When value set includes codes from elsewhere</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="165">
@@ -383,7 +392,7 @@
     <Cell><Data ss:Type="String">ValueSet.compose.include</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">500;180</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">500;180</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=ConceptSet</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Include one or more codes from a code system</Data></Cell>
     <Cell><Data ss:Type="String">Include one or more codes from a code system</Data></Cell>
@@ -398,7 +407,7 @@
     <Cell><Data ss:Type="String">The code system from which the selected codes come from</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">See [[Coding.system]] for further documentation</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
-    <Cell ss:Index="15" ss:StyleID="s73" ss:HRef="mailto:ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/@Href"><Data
+    <Cell ss:Index="15" ss:StyleID="s74" ss:HRef="mailto:ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/@Href"><Data
       ss:Type="String">ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/@Href</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
@@ -409,7 +418,7 @@
     <Cell><Data ss:Type="String">The version of the code system that the codes are selected from</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">This is used when selecting the descendents of a concept - they may change between versions. If no version is specified, then the exact contents of the value set may not be known until a context of use binds it to a particular version</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
-    <Cell ss:Index="15" ss:StyleID="s73" ss:HRef="mailto:ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/@Version"><Data
+    <Cell ss:Index="15" ss:StyleID="s74" ss:HRef="mailto:ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/@Version"><Data
       ss:Type="String">ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/@Version</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
@@ -435,9 +444,9 @@
    <Row ss:AutoFitHeight="0" ss:Height="165">
     <Cell><Data ss:Type="String">ValueSet.compose.include.filter</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="4" ss:StyleID="s84"><Data ss:Type="String">500;320</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s71"><Data ss:Type="String">500;320</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Select codes/concepts by their properties (including relationships)</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they must all be true.</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they must all be true.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Selecting codes by specifying filters based on properties is only possible where the underlying code system defines appropriate properties. Note that in some cases, the underlying code system defines the logical concepts but not the literal codes for the concepts. In such cases, the literal definitions may be provided by a third party</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
@@ -450,7 +459,7 @@
        html:Color="#000000">A property defined by the code system</Font><Font
        html:Face="Arial Unicode MS" x:Family="Swiss" html:Size="10"
        html:Color="#808080"> </Font></ss:Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">A code that identifies a property defined in the code system</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">A code that identifies a property defined in the code system</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -459,7 +468,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">FilterOperator</Data></Cell>
     <Cell><Data ss:Type="String">= | is_a | is_not_a | regex</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">The kind of operation to perform as part of the filter criteria</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The kind of operation to perform as part of the filter criteria</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -468,8 +477,8 @@
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">!</Data></Cell>
     <Cell><Data ss:Type="String">Code from the system, or regex criteria</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">Use regex matching with care - full regex matching on every SNOMED-CT term is prohibitive, for example</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s75"><Data ss:Type="String">Use regex matching with care - full regex matching on every SNOMED-CT term is prohibitive, for example</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -486,7 +495,7 @@
     <Cell><Data ss:Type="String">ValueSet.expansion</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">270;220</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">270;220</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When value set is an expansion</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -498,7 +507,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet.expansion.contains</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="4" ss:StyleID="s84"><Data ss:Type="String">270;320</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s71"><Data ss:Type="String">270;320</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Codes in the value set</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -542,11 +551,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>8</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -563,7 +571,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>16</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
@@ -574,11 +582,11 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s75" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s76" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:Index="3" ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="162.75"/>
-   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="309.75"/>
-   <Column ss:Index="6" ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="447"/>
+   <Column ss:Index="3" ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="162.75"/>
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="309.75"/>
+   <Column ss:Index="6" ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="447"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -596,7 +604,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">A value set with only one import must also have an include and/or an exclude unless the value set defines it's own codes</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">A value set with only one import must also have an include and/or an exclude unless the value set defines its own codes</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:compose)) or (count(f:compose/f:import)!=1 or exists(f:compose/f:include) or exists(f:compose/f:exclude) or exists(f:define))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -607,7 +615,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s76"><Data ss:Type="String">ValueSet.expansion.contains</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s77"><Data ss:Type="String">ValueSet.expansion.contains</Data></Cell>
     <Cell><Data ss:Type="String">Must have a code or a display</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:code) or exists(f:display)</Data></Cell>
    </Row>
@@ -645,11 +653,11 @@
  </Worksheet>
  <Worksheet ss:Name="Search">
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="10" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s77" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s78" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="71.25"/>
-   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="383.25"/>
-   <Column ss:Index="4" ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="301.5"/>
+   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="71.25"/>
+   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="383.25"/>
+   <Column ss:Index="4" ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="301.5"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
@@ -660,49 +668,49 @@
     <Cell><Data ss:Type="String">name</Data></Cell>
     <Cell><Data ss:Type="String">a portion of the name of the value set</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">ValueSet.name</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">ValueSet.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">identifier</Data></Cell>
     <Cell><Data ss:Type="String">the identifier of the value set</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">ValueSet.identifier</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">ValueSet.identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">version</Data></Cell>
     <Cell><Data ss:Type="String">the version identifier of the value set</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">ValueSet.version</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">ValueSet.version</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">status</Data></Cell>
     <Cell><Data ss:Type="String">the status of the value set</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">ValueSet.status</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">ValueSet.status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">system</Data></Cell>
     <Cell><Data ss:Type="String">the system for any codes defined by this value set</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">ValueSet.define.system</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">ValueSet.define.system</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">a code defined in the value set</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">ValueSet.define.concept.code</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">ValueSet.define.concept.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">a code system included or excluded in the value set or an imported value set</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">ValueSet.compose.include.system</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">ValueSet.compose.include.system</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!restricts</Data></Cell>
     <Cell><Data ss:Type="String">a value set listed in the restricts list</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">ValueSet.compose.restricts</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">ValueSet.compose.restricts</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">description</Data></Cell>
@@ -738,13 +746,13 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="4" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s78" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s79" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="113.25"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="209.25"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="78.75"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="140.25"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="113.25"/>
+   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="209.25"/>
+   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="78.75"/>
+   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="140.25"/>
+   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s66"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
@@ -871,12 +879,12 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">is_a</Data></Cell>
+    <Cell><Data ss:Type="String">is-a</Data></Cell>
     <Cell><Data ss:Type="String">The property value has a concept that has an is_a relationship with the value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="String">is_not_a</Data></Cell>
+    <Cell><Data ss:Type="String">is-not-a</Data></Cell>
     <Cell><Data ss:Type="String">The property value has a concept that does not have an is_a relationship with the value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -892,10 +900,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -908,14 +918,14 @@
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="104.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="435.75"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s80">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s81">
     <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -965,11 +975,11 @@
    <Column ss:AutoFitWidth="0" ss:Width="99"/>
    <Column ss:AutoFitWidth="0" ss:Width="258.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Example</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Example</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet Extensions</Data></Cell>
@@ -1004,33 +1014,33 @@
    <Column ss:Width="166.5"/>
    <Column ss:Width="183"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Identity</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">In Book</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">General</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">General ValueSet Example</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="Number">101</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">valueset-example.xml</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s77"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">General</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">General ValueSet Example</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="Number">101</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">valueset-example.xml</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s78"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">DICOM DICM</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Codes defined by DICOM</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">valueset-dicom-dcim</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">valueset-dicom-dcim.xml</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s77"/>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">DICOM DICM</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Codes defined by DICOM</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">valueset-dicom-dcim</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">valueset-dicom-dcim.xml</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:Index="6" ss:StyleID="s77"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:Index="6" ss:StyleID="s78"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

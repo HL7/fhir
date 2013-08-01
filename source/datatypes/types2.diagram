@@ -1,5 +1,6 @@
 [diagram]
 classes=Identifier,HumanName,Address,Contact,Schedule
+element-attributes=true
 
 [directions]
 HumanName=-230;-170

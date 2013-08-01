@@ -20,7 +20,6 @@
   <WindowWidth>29040</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>-15</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -194,7 +193,7 @@
     <Cell><Data ss:Type="String">ImagingStudy</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Manifest of a set of images produced in study</Data></Cell>
+    <Cell><Data ss:Type="String">A set of images produced in study</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Reference IHE radiology TF vol 2 table 4.14.1</Data></Cell>
     <Cell><Data ss:Type="String">Manifest,XDS-I summary, Key Images</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Manifest of a set of images produced in study. The set of images may include every image in the study, or it may be an incomplete sample, such as a list of key images</Data></Cell>
@@ -882,6 +881,7 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Zoom>110</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -901,8 +901,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1289,7 +1289,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1334,7 +1333,7 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Description</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Oid</Data></Cell>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Copyright</Data></Cell>
     <Cell ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1343,12 +1342,14 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#modality</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">1.2.840.10008.6.1.811</Data></Cell>
+    <Cell><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s79"><Data ss:Type="String">InstanceAvailability</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Availability of the resource</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">#instance-availability</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s79"><Data ss:Type="String">ImagingModality</Data></Cell>
@@ -1356,6 +1357,7 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#imaging-modality</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s81"><Data ss:Type="String">1.2.840.10008.6.1.19</Data></Cell>
+    <Cell><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1390,8 +1392,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

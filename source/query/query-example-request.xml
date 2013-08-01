@@ -3,7 +3,7 @@
 
   <!-- this element is tax for using atom. it has no meaningful use in FHIR, but it's required in atom -->
   <title>Query Message</title>
-  <!-- this is the envelope id - see the Message resource for a discussion of it's use -->
+  <!-- this is the envelope id - see the Message resource for a discussion of its use -->
   <id>urn:uuid:13daadee-26e1-4d6a-9e6a-7f4af9b58877</id>
   <updated>2013-05-18T08:14:00+10:00</updated>
   <!-- more Atom tax: author is not meaningful here, but it's required by Atom -->
@@ -19,7 +19,7 @@
     <updated>2013-05-18T08:14:00+10:00</updated>
     <content type="text/xml">
       <Message xmlns="http://hl7.org/fhir">
-        <!-- this is the message id - see the Message resource for a discussion of it's use -->
+        <!-- this is the message id - see the Message resource for a discussion of its use -->
         <identifier value="bd5a062a-9d5c-4cb2-bcc8-1836618c5226"/>
         <timestamp value="2013-05-18T08:14:00+10:00"/>
        

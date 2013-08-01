@@ -224,7 +224,7 @@
   </xs:element>
   <xs:element name="comments">
     <xs:annotation>
-      <xs:documentation>Additional other information about the extension, including information concerning it's conditionality if indicated in the conformance field</xs:documentation>
+      <xs:documentation>Additional other information about the extension, including information concerning its conditionality if indicated in the conformance field</xs:documentation>
     </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:string"/>

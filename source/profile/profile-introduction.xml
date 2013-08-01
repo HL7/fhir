@@ -68,7 +68,7 @@ The following kinds of statements can be made about how a resource or data type 
 </p>
 <ul>
  <li>Restricting the cardinality of the element. e.g. the base might allow 0..*, and a particular application might support 1..2</li>
- <li>Ruling out use of an element by setting it's maximum cardinality to 0</li>
+ <li>Ruling out use of an element by setting its maximum cardinality to 0</li>
  <li>Making additional invariants on the content of nested elements within the resource (expressed as XPath statements)</li>
  <li>Restricting the types for an element that allows multiple types</li>
  <li>Requiring a typed element or the target of a resource reference to conform to a profile declared elsewhere</li>
@@ -105,7 +105,7 @@ defines the following structure:
  &lt;/Root&gt;
 </pre>
 <p>
-or it's JSON equivalent. The structure must be coherent - children are never 
+or its JSON equivalent. The structure must be coherent - children are never 
 implied, and the path statements must always be in order. The element list is 
 a linear list rather than being explicitly nested because profile structures
 are frequently used in multiple places within a single profile, and this re-use

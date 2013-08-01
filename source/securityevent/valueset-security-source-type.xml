@@ -9,9 +9,9 @@
   </text>
   <identifier value="http://hl7.org/fhir/vs/security-source-type"/>
   <version value="20100826"/>
-  <name value="Security Alert Type Code"/>
+  <name value="Security Event Source Type"/>
   <publisher value="NEMA/DICOM"/>
-  <description value="Security Alert Type Code"/>
+  <description value="The type of process where the security event originated from"/>
   <status value="active"/>
   <date value="2010-08-26"/>
   <define>

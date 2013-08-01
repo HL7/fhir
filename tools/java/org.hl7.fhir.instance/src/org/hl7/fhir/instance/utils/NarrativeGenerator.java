@@ -63,14 +63,23 @@ public class NarrativeGenerator {
     h.addText(vs.getNameSimple());
     XhtmlNode p = x.addTag("p");
     p.addText(vs.getDescriptionSimple());
+    if (vs.getCopyright() != null)
+      generateCopyright(x, vs);
     p = x.addTag("p");
-    p.addText("This value set defines it's own terms in the system "+vs.getDefine().getSystemSimple());
+    p.addText("This value set defines its own terms in the system "+vs.getDefine().getSystemSimple());
     XhtmlNode t = x.addTag("table");
     addTableHeaderRowStandard(t, false);
     for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
       addDefineRowToTable(t, c, 0);
     }    
   }
+
+  private void generateCopyright(XhtmlNode x, ValueSet vs) {
+    XhtmlNode p = x.addTag("p");
+    p.addTag("b").addText("Copyright Statement:");
+    p.addText(" " + vs.getCopyrightSimple());
+  }
+
 
   private void addTableHeaderRowStandard(XhtmlNode t, boolean comments) {
     XhtmlNode tr = t.addTag("tr");
@@ -111,6 +120,8 @@ public class NarrativeGenerator {
       h.addText(vs.getNameSimple());
       XhtmlNode p = x.addTag("p");
       p.addText(vs.getDescriptionSimple());
+      if (vs.getCopyright() != null)
+        generateCopyright(x, vs);
       p = x.addTag("p");
       p.addText("This value set includes codes defined in other code systems, using the following rules:");
     } else {

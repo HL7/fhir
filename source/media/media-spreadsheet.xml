@@ -214,7 +214,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Identifier(s) for the image</Data></Cell>
     <Cell><Data ss:Type="String">0008,0018 | ~0008,0050 | 0020,000D | 0020,000E&#10;</Data></Cell>
-    <Cell><Data ss:Type="String">Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of it's collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers</Data></Cell>
+    <Cell><Data ss:Type="String">Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">The identifier label and use can be used to determine what kind of identifier it is</Data></Cell>

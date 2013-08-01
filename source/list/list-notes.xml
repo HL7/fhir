@@ -19,7 +19,7 @@ item has actually been deleted must have the deleted element set to true.
 Note that there is no implication about the status of a resource that has been deleted.
 The only statement that is made is that the resource has been dropped from the list. 
 However applications should ensure that the implication of adding or deleting items
-from the list is consistent with the logical status of the resource and it's contents.
+from the list is consistent with the logical status of the resource and its contents.
 </p>
 <p>
 A proper use of List.mode = "changes" with a deleted resource is in a medications list 

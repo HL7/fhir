@@ -73,7 +73,7 @@ the bundle identifier should be changed to a new identifier.
 When a receiver receives and processes the message, it responds with a 
 new message with a new id, wrapped in a bundle which also has a new id. 
 The response message also quotes the request message id so that the source
-system can relate the response to it's request.
+system can relate the response to its request.
 </p>
 
 <a name="reliable"> </a>

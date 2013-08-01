@@ -9,9 +9,10 @@
   </text>
   <identifier value="http://nema.org/dicom/dcid/404"/>
   <version value="20100826"/>
-  <name value="Audit Participant Object ID Type Code"/>
+  <name value="Type of participant in a Security Event"/>
   <publisher value="NEMA/DICOM"/>
-  <description value="Audit Participant Object ID Type Code"/>
+  <description value="Type of participant in a Security Event"/>
+  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
   <status value="active"/>
   <date value="2010-08-26"/>
   <compose>

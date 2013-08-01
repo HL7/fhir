@@ -117,7 +117,7 @@ value in a URL.
 <h4>token</h4>
 <p>
 A token type is a parameter that searches on a code or identifier 
-value where the value may have a URI that scopes it's meaning
+value where the value may have a URI that scopes its meaning
 (from a <a href="datatypes.htm#Coding">Coding</a> or an 
 <a href="datatypes.htm#Identifier">Identifier</a> type, and also 
 from a <a href="datatypes.htm#code">code</a> where the URI is 
@@ -259,7 +259,7 @@ the search to a particular type:
 <p>
 Advanced Search Note: 
 Where a chained parameter searches a resource reference that may have more than one 
-different type of resource as it's target, the parameter chain may end up referring 
+different type of resource as its target, the parameter chain may end up referring 
 to search parameters with the same name on more than one kind of resource at once. 
 The parameter names defined in FHIR have consistent types wherever they are used. 
 Implementers defining their own names need to be sure that they do not create 
@@ -331,7 +331,7 @@ search set. For a simple RESTful search, the page links are
 <a href="http.htm#paging">contained in the returned bundle as links</a>.
 </p>
 <p>
-Typically a server will it's own parameters to the links
+Typically a server will its own parameters to the links
 that it uses to manage the state of the query as pages are 
 retrieved. These parameters do not need to be understood 
 or processed by the client.

@@ -438,12 +438,12 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
         throw new Exception("Neither output nor error file created");
   }
 
-  public void convertToJson(String rootDir, String sourceFile, String destFile) throws Exception {
+  public String convertToJson(String rootDir, String sourceFile, String destFile) throws Exception {
     // for debugging: do it in process
     if (IN_PROCESS) {
       ToolsHelper t = new ToolsHelper();
       String[] cmds = new String[] {"json", sourceFile, destFile};    
-      t.executeJson(cmds);
+      return t.executeJson(cmds);
     } else {
 
       // execute the jar file javatest.jar
@@ -480,7 +480,8 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
       if (!(new File(destFile).exists()))
         throw new Exception("Neither output nor error file created doing json conversion");    
       if (new File(destFile).length() == 0)
-        throw new Exception("Output file '"+destFile+"' empty");    
+        throw new Exception("Output file '"+destFile+"' empty");  
+      return TextFile.fileToString(destFile);
     } 
   }
 

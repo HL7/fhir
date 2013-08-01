@@ -279,7 +279,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Human description of the conformance statement</Data></Cell>
     <Cell><Data ss:Type="String">A free text natural language description of the conformance statement and its use. Typically, thsis is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">This field can be used for things such as why the confomrance statement was written, comments about it's context etc. This does not need to be populated when the description is adequately implied by the software or implementation details</Data></Cell>
+    <Cell><Data ss:Type="String">This field can be used for things such as why the confomrance statement was written, comments about its context etc. This does not need to be populated when the description is adequately implied by the software or implementation details</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Conformance.status</Data></Cell>
@@ -725,7 +725,7 @@
     <Cell ss:Index="6" ss:StyleID="Default"><Data ss:Type="String">right</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Definition of a named query</Data></Cell>
-    <Cell><Data ss:Type="String">Definition of a named query and it's parameters and their meaning</Data></Cell>
+    <Cell><Data ss:Type="String">Definition of a named query and its parameters and their meaning</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -1740,7 +1740,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). It's value is either a string or a pair of namespace and value, separated by a &quot;/&quot;, depending on the modifier used</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a &quot;/&quot;, depending on the modifier used</Data></Cell>
     <Cell><Data ss:Type="String"> </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="24" ss:StyleID="s85">

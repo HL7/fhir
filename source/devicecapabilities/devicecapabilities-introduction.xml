@@ -11,7 +11,7 @@ There are 4 device related resources
 </ul>
 <p>
 The device capabilities and log resources are used when communicating with a device, either directly or indirectly. 
-When a channel is opened with the device, or it's proxy, it first sends the Capabilities resource, and then a 
+When a channel is opened with the device, or its proxy, it first sends the Capabilities resource, and then a 
 series of log resources. The FHIR JSON format is used in this case. (TODO: What's the communication protocol?)
 The application that receives the log resources may choose to merge the log with the capabilities 
 statement to create a device observation, which is suitable for wider use within a EHR/Clinical record context. 
@@ -39,7 +39,7 @@ using the following main structure:
  <li><b>Virtual Medical Device</b> - A medical-related subsystem of a medical device. The virtual device that may be part of the containing device, or a separate device that may be communicating with it</li>
  <li><b>Channel</b> - Groups together physiological measurement data and derived data</li>
  <li><b>Metrics</b> - A piece of measured or derived data that will be reported by the machine</li>
- <li><b>Facets</b> - Additional data that qualifies the metric, or contributes to it's assessment</li>
+ <li><b>Facets</b> - Additional data that qualifies the metric, or contributes to its assessment</li>
 </ol>
 
 <p>

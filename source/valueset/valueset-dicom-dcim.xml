@@ -4,9 +4,10 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <h2>DICOM Code Definitions (DCM)</h2>
-      <p>The meanings of codes defined in DICOM, either explicitly or by reference to another part of DICOM or an external reference document or standard</p>
-    <table>
+   <h2>DICOM Code Definitions (DCM)</h2>
+   <p>The meanings of codes defined in DICOM, either explicitly or by reference to another part of DICOM or an external reference document or standard</p>
+   <p>These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"</p>
+   <table>
       <tr>
         <td><b>Code</b></td>
         <td><b>Display</b></td>
@@ -8374,6 +8375,7 @@
   <name value="DICOM Code Definitions (DCM)"/>
   <publisher value="NEMA/DICOM"/>
   <description value="The meanings of codes defined in DICOM, either explicitly or by reference to another part of DICOM or an external reference document or standard (OID = 1.2.840.10008.2.16.4)"/>
+  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
   <status value="active"/>
   <date value="2010-08-26"/>
   <define>

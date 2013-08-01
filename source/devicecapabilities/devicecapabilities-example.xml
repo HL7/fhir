@@ -7,7 +7,7 @@
  * one channel
  * nine metrics
  * no facets
- The device does not know it's own identity (this resource is hard coded at design time
+ The device does not know its own identity (this resource is hard coded at design time
 -->
 
   <text>

@@ -36,13 +36,13 @@ The data types are available as a <a href="fhir-base.xsd">W3C Schema</a>.
 <h2>Primitive Types</h2>
 
 
-<%svg primitives%>
+[%diagram datatypes\primitives.diagram%]
 
 <a name="imports"></a>
 <p>
 The following table summarizes the primitive types and their simple restrictions that
-are used in throughout this specification. These types 
-are those defined in the <a href="http://www.w3.org/TR/xmlschema-2/">W3C Schema (1.0) specification part 2</a>, 
+are used in throughout this specification. These types all have <a href="extensibility.htm">extensions</a>,
+and a value attribute which has the same value domain as defined in the <a href="http://www.w3.org/TR/xmlschema-2/">W3C Schema (1.0) specification part 2</a>, 
 with additional constraints marked in bold. 
 </p>
 
@@ -113,8 +113,8 @@ with additional constraints marked in bold.
 These types are represented as XML Elements with the value of the type in the value attribute. The name of the element is defined where the type is used. 
 The XML elements may have an <a href="formats.htm#idref">id attribute</a>. 
  According to XML schema, leading and trailing whitespace in the value attribute is ignored for the types 
-boolean, integer, decimal, base64Binary, instant, uri, date and dateTime, oid, and uri. The means the 
-schema aware XML libraries give different attribute values to non-schema aware libraries when reading the 
+boolean, integer, decimal, base64Binary, instant, uri, date and dateTime, oid, and uri. Note that this means that the 
+schema aware XML libraries give different attribute values to non schema aware libraries when reading the 
 XML instances. For this reason, the value attribute for these types SHOULD not have leading and trailing spaces.
 String values should only have leading and trailing spaces if they are part of the content of the value. 
 </p>

@@ -4,7 +4,7 @@
 Value sets may be constructed in one of two ways:
 </p>
 <ul>
- <li>A value set can <i>define</i> it's own codes, and/or</li>
+ <li>A value set can <i>define</i> its own codes, and/or</li>
  <li>A value set can be <i>composed</i> of codes defined in other code systems, either by listing the codes or by providing a set of selection criteria</li>
 </ul>
 <p>

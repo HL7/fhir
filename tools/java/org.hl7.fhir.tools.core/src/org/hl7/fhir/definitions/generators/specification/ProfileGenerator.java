@@ -233,7 +233,7 @@ public class ProfileGenerator {
     if (dSrc.hasMapping(ElementDefn.RIM_MAPPING)) {
       ElementDefinitionMappingComponent m = p.new ElementDefinitionMappingComponent();
       m.setMap(Factory.newString_("RIM"));
-      m.setTarget(Factory.newString_(dSrc.getMapping(ElementDefn.RIM_MAPPING)));
+      m.setTarget(Factory.newUri(dSrc.getMapping(ElementDefn.RIM_MAPPING)));
       dDst.getMapping().add(m);
     }
     if (!Utilities.noString(dSrc.getBindingName()))

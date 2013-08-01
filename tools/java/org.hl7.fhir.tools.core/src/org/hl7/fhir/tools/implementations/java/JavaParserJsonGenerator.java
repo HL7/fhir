@@ -187,7 +187,10 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("    "+tn+" res = new "+tn+"();\r\n");
     write("    parseElementProperties(json, res);\r\n");
     write("    if (json.has(\"value\"))\r\n");
-    write("      res.setValue(parse"+upFirst(dc.getCode())+"Primitive(json.getString(\"value\")));\r\n");
+    if (dc.getCode().equals("boolean"))
+      write("      res.setValue(json.getBoolean(\"value\"));\r\n");
+    else
+      write("      res.setValue(parse"+upFirst(dc.getCode())+"Primitive(json.getString(\"value\")));\r\n");
     write("    return res;\r\n");
     write("  }\r\n");
     write("\r\n");

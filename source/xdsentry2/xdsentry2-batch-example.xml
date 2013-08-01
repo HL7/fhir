@@ -144,7 +144,7 @@
             in XDS, it's common not to. Here we assume is that 
             all we get is a name. That's not enough to properly 
             identify the content, and therefore not enough to give
-            the created resource it's own transaction scope - what 
+            the created resource its own transaction scope - what 
             does it mean to change that name? - nothing. So it's a
             contained resource
            -->

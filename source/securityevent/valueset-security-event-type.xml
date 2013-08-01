@@ -6,6 +6,7 @@
   <name value="Audit Event ID"/>
   <publisher value="NEMA/DICOM"/>
   <description value="Event Types for Security Events - defined by DICOM with some FHIR specific additions"/>
+  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
   <status value="active"/>
   <date value="2010-08-26"/>
   <define>
@@ -14,7 +15,7 @@
     <concept>
       <code value="rest"/>
       <display value="RESTful Operation"/>
-      <definition value="Audit Event: Execution of a RESTful operation as defined by FHIR"/>
+      <definition value="Security Event: Execution of a RESTful operation as defined by FHIR"/>
     </concept>
   </define>
   <compose>

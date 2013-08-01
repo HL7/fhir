@@ -687,7 +687,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they must be semantically equivalent.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Laboratory needs to be able to provide it's own fully formatted report for clinical fidelity</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">Laboratory needs to be able to provide its own fully formatted report for clinical fidelity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Possible formats: text/html, text/plain, text/rtf, application/msword, application/pdf, application/rtf, application/vnd.oasis.opendocument.text, application/vnd.openxmlformats-officedocument.wordprocessingml.document. Application/pdf is recommended as the most reliable and interoperable in this context</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

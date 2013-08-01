@@ -5,7 +5,7 @@ The response to an order indicates the outcome of processing the order itself - 
 was accepted or rejected, or is still in process. The order response resource does not itself convey 
 or represent information that arises as a result of performing the actual order, but it may have 
 references to other resources that do have this information, in order to link between the original
-order and it's outcome.
+order and its outcome.
 </p>
 <p>
 There may be multiple responses for a given order. For some requests, a responding system

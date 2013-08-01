@@ -163,7 +163,7 @@ public class ToolsHelper {
       new XmlComposer().compose(new FileOutputStream(dest), rf.getResource(), true);
   }
 
-  public void executeJson(String[] args) throws Exception {
+  public String executeJson(String[] args) throws Exception {
     FileInputStream in;
     File source = new CSFile(args[1]);
     File dest = new CSFile(args[2]);
@@ -174,9 +174,10 @@ public class ToolsHelper {
     XmlParser p = new XmlParser();
     ResourceOrFeed rf = p.parseGeneral(in);
     if (rf.getFeed() != null)
-      new JsonComposer().compose(new FileOutputStream(dest), rf.getFeed());
+      new JsonComposer().compose(new FileOutputStream(dest), rf.getFeed(), true);
     else
-      new JsonComposer().compose(new FileOutputStream(dest), rf.getResource());
+      new JsonComposer().compose(new FileOutputStream(dest), rf.getResource(), true);
+    return TextFile.fileToString(dest.getAbsolutePath());
   }
 
 }

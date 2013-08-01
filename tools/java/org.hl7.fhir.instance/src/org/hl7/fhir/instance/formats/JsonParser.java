@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Tue, Jul 30, 2013 13:32+1000 for FHIR v0.10
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -3600,7 +3600,7 @@ public class JsonParser extends JsonParserBase {
     Profile.ElementDefinitionMappingComponent res = owner.new ElementDefinitionMappingComponent();
     parseElementProperties(json, res);
     if (json.has("target"))
-      res.setTarget(parseString(json.getJSONObject("target")));
+      res.setTarget(parseUri(json.getJSONObject("target")));
     if (json.has("map"))
       res.setMap(parseString(json.getJSONObject("map")));
     return res;
@@ -3650,22 +3650,6 @@ public class JsonParser extends JsonParserBase {
         res.getTarget().add(parseResourceReference(array.getJSONObject(i)));
       }
     };
-    if (json.has("activity"))
-      res.setActivity(parseProvenanceProvenanceActivityComponent(json.getJSONObject("activity"), res));
-    if (json.has("party")) {
-      JSONArray array = json.getJSONArray("party");
-      for (int i = 0; i < array.length(); i++) {
-        res.getParty().add(parseProvenanceProvenancePartyComponent(array.getJSONObject(i), res));
-      }
-    };
-    if (json.has("signature"))
-      res.setSignature(parseString(json.getJSONObject("signature")));
-    return res;
-  }
-
-  private Provenance.ProvenanceActivityComponent parseProvenanceProvenanceActivityComponent(JSONObject json, Provenance owner) throws Exception {
-    Provenance.ProvenanceActivityComponent res = owner.new ProvenanceActivityComponent();
-    parseElementProperties(json, res);
     if (json.has("period"))
       res.setPeriod(parsePeriod(json.getJSONObject("period")));
     if (json.has("recorded"))
@@ -3674,22 +3658,56 @@ public class JsonParser extends JsonParserBase {
       res.setReason(parseCodeableConcept(json.getJSONObject("reason")));
     if (json.has("location"))
       res.setLocation(parseResourceReference(json.getJSONObject("location")));
-    if (json.has("policy"))
-      res.setPolicy(parseUri(json.getJSONObject("policy")));
+    if (json.has("policy")) {
+      JSONArray array = json.getJSONArray("policy");
+      for (int i = 0; i < array.length(); i++) {
+        res.getPolicy().add(parseUri(array.getJSONObject(i)));
+      }
+    };
+    if (json.has("agent")) {
+      JSONArray array = json.getJSONArray("agent");
+      for (int i = 0; i < array.length(); i++) {
+        res.getAgent().add(parseProvenanceProvenanceAgentComponent(array.getJSONObject(i), res));
+      }
+    };
+    if (json.has("entity")) {
+      JSONArray array = json.getJSONArray("entity");
+      for (int i = 0; i < array.length(); i++) {
+        res.getEntity().add(parseProvenanceProvenanceEntityComponent(array.getJSONObject(i), res));
+      }
+    };
+    if (json.has("signature"))
+      res.setSignature(parseString(json.getJSONObject("signature")));
     return res;
   }
 
-  private Provenance.ProvenancePartyComponent parseProvenanceProvenancePartyComponent(JSONObject json, Provenance owner) throws Exception {
-    Provenance.ProvenancePartyComponent res = owner.new ProvenancePartyComponent();
+  private Provenance.ProvenanceAgentComponent parseProvenanceProvenanceAgentComponent(JSONObject json, Provenance owner) throws Exception {
+    Provenance.ProvenanceAgentComponent res = owner.new ProvenanceAgentComponent();
     parseElementProperties(json, res);
     if (json.has("role"))
       res.setRole(parseCoding(json.getJSONObject("role")));
     if (json.has("type"))
       res.setType(parseCoding(json.getJSONObject("type")));
-    if (json.has("identifier"))
-      res.setIdentifier(parseUri(json.getJSONObject("identifier")));
-    if (json.has("description"))
-      res.setDescription(parseString(json.getJSONObject("description")));
+    if (json.has("reference"))
+      res.setReference(parseUri(json.getJSONObject("reference")));
+    if (json.has("display"))
+      res.setDisplay(parseString(json.getJSONObject("display")));
+    return res;
+  }
+
+  private Provenance.ProvenanceEntityComponent parseProvenanceProvenanceEntityComponent(JSONObject json, Provenance owner) throws Exception {
+    Provenance.ProvenanceEntityComponent res = owner.new ProvenanceEntityComponent();
+    parseElementProperties(json, res);
+    if (json.has("role"))
+      res.setRole(parseEnumeration(json.getJSONObject("role"), Provenance.ProvenanceEntityRole.Null, new Provenance().new ProvenanceEntityRoleEnumFactory()));
+    if (json.has("type"))
+      res.setType(parseCoding(json.getJSONObject("type")));
+    if (json.has("reference"))
+      res.setReference(parseUri(json.getJSONObject("reference")));
+    if (json.has("display"))
+      res.setDisplay(parseString(json.getJSONObject("display")));
+    if (json.has("agent"))
+      res.setAgent(parseProvenanceProvenanceAgentComponent(json.getJSONObject("agent"), owner));
     return res;
   }
 
@@ -4225,6 +4243,8 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("description"))
       res.setDescription(parseString(json.getJSONObject("description")));
+    if (json.has("copyright"))
+      res.setCopyright(parseString(json.getJSONObject("copyright")));
     if (json.has("status"))
       res.setStatus(parseEnumeration(json.getJSONObject("status"), ValueSet.ValuesetStatus.Null, new ValueSet().new ValuesetStatusEnumFactory()));
     if (json.has("experimental"))

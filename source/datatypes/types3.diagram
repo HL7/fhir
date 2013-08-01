@@ -1,5 +1,6 @@
 [diagram]
 classes=Extension,Narrative,ResourceReference
+element-attributes=true
 
 [directions]
 Extension=right

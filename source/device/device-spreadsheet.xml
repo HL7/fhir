@@ -138,7 +138,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Model id assigned by the manufacturer</Data></Cell>
-    <Cell><Data ss:Type="String">The &quot;model&quot; - an identifier assigned by the manufacturer to identify the product by it's type. This number is shared by the all devices sold as the same type</Data></Cell>
+    <Cell><Data ss:Type="String">The &quot;model&quot; - an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Device.version</Data></Cell>

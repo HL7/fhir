@@ -9,9 +9,10 @@
   </text>
   <identifier value="http://nema.org/dicom/dcid/401"/>
   <version value="20100826"/>
-  <name value="Audit Event Type Code"/>
+  <name value="Security Event Sub-Type"/>
   <publisher value="NEMA/DICOM"/>
-  <description value="Audit Event Type Code"/>
+  <description value="More detailed code concerning the type of the security event - defined by DICOM with some FHIR specific additions"/>
+  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
   <status value="active"/>
   <date value="2010-08-26"/>
   <compose>

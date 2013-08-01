@@ -10,7 +10,7 @@
   <LastAuthor>Hugh Glover</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2013-07-20T09:17:31Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,6 @@
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -296,7 +295,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Practitioner (responsible Health Care professional)</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">This is the individual who is responsible for giving the medication to the patient.</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The individual who is responsible for giving the medication to the patient.</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s77"><Data ss:Type="String">RXA-10-Administering Provider / PRT-5-Participation Person: PRT-4-Participation='AP' (RXA-10 is deprecated)&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -555,12 +554,13 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -568,15 +568,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1006,7 +1006,6 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

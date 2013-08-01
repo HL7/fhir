@@ -100,7 +100,9 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		  write(" xml:lang?");
 		write(" xmlns=\"http://hl7.org/fhir\"&gt;\r\n");
     if (rn.equals(root.getName()) && resource) {
-      write("  &lt;!-- from <span class=\"dict\"><a href=\"resources.htm\">Resource</a>: <a href=\"extensibility.htm\">extension</a>, <a href=\"formats.htm#Narrative\">narrative</a>, and <a href=\"resources.htm#contained\">contained</a></span> -->\r\n");
+      write(" &lt;!-- from <a href=\"resources.htm\">Resource</a>: <a href=\"extensibility.htm\">extension</a>, <a href=\"formats.htm#Narrative\">narrative</a>, and <a href=\"resources.htm#contained\">contained</a> -->\r\n");
+    } else {
+      write(" &lt;!-- from Element: <a href=\"extensibility.htm\">extension</a> -->\r\n");
     }
 		for (ElementDefn elem : root.getElements()) {
 		  if (!elem.typeCode().equals("xml:lang"))

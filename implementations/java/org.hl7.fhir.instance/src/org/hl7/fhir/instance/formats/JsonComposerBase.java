@@ -45,39 +45,40 @@ import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.*;
 import org.hl7.fhir.utilities.xml.*;
-import org.json.JSONWriter;
+
 
 public abstract class JsonComposerBase extends XmlBase {
 
-	protected JSONWriter json;
+	protected JsonWriter json;
 	private boolean htmlPretty;
+	private boolean jsonPretty;
 
-	public void compose(OutputStream stream, Resource resource) throws Exception {
+	public void compose(OutputStream stream, Resource resource, boolean pretty) throws Exception {
 		OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
-		JSONWriter writer = new JSONWriter(osw);
-		// writer.setPretty(pretty);
+		JsonWriter writer = new JsonWriter(osw);
+		writer.setPretty(pretty);
 		writer.object();
 		compose(writer, resource);
 		writer.endObject();
 		osw.flush();
 	}
 
-	public void compose(OutputStream stream, AtomFeed feed) throws Exception {
+	public void compose(OutputStream stream, AtomFeed feed, boolean pretty) throws Exception {
 		OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
-		JSONWriter writer = new JSONWriter(osw);
-		// writer.setPretty(pretty);
+		JsonWriter writer = new JsonWriter(osw);
+		writer.setPretty(pretty);
 		writer.object();
 		compose(writer, feed);
 		writer.endObject();
 		osw.flush();
 	}
 
-	public void compose(JSONWriter writer, Resource resource) throws Exception {
+	public void compose(JsonWriter writer, Resource resource) throws Exception {
 		json = writer;
 		composeResource(resource);
 	}
 
-	public void compose(JSONWriter writer, AtomFeed feed) throws Exception {
+	public void compose(JsonWriter writer, AtomFeed feed) throws Exception {
 		json = writer;
 		composeFeed(feed);
 	}

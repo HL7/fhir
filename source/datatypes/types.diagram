@@ -1,14 +1,15 @@
 [diagram]
-classes=Quantity,Attachment,Choice,Range,Period,Ratio,CodeableConcept,Coding
+classes=Quantity,Attachment,Choice,Range,Period,Ratio,CodeableConcept,Coding,SampledData
+element-attributes=true
 
 [directions]
 Quantity=-300;-15
 Attachment=150;-30
 Choice=-130;110
-Range=150;-100
-Period=-10;-100
-Ratio=-200;-100
+Range=230;-100
+Period=80;-100
+Ratio=-260;-100
 CodeableConcept=150;110
 Coding=10;110
-Choice.option=-300;110
-
+Choice.option=-310;110
+SampledData=-40;-150

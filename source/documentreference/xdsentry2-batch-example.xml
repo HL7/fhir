@@ -26,7 +26,7 @@
     this is a convenient demonstration of the way binary resources work.
 
     Using a binary resource allows the document itself to be submitted 
-    to the FHIR server as part of the batch, even though it's got nothing
+    to the FHIR server as part of the batch, even though its got nothing
     to do with FHIR itself.
   -->
 	<entry>
@@ -144,7 +144,7 @@
             in XDS, it's common not to. Here we assume is that 
             all we get is a name. That's not enough to properly 
             identify the content, and therefore not enough to give
-            the created resource it's own transaction scope - what 
+            the created resource its own transaction scope - what 
             does it mean to change that name? - nothing. So it's a
             contained resource
            -->

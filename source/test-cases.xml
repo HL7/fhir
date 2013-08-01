@@ -11,7 +11,7 @@ for servers to handle as part of a batch post
 	<!-- 
 	  the first pair of entries is a simple person resource, followed by 
 	  the provenance for the resource. The provenance identifies the 
-	  resource by it's randomly chosen identifier. The server has to reidentify
+	  resource by its randomly chosen identifier. The server has to reidentify
 	  both the resources, and update the reference from the provenance resource
 	  to the person resoure (and fill out the version)
     -->

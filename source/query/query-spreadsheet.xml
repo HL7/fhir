@@ -123,7 +123,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Links query and it's response(s)</Data></Cell>
+    <Cell><Data ss:Type="String">Links query and its response(s)</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>

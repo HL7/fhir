@@ -137,8 +137,8 @@
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">ContactSystem</Data></Cell>
-    <Cell><Data ss:Type="String">What kind of contact this is</Data></Cell>
-    <Cell><Data ss:Type="String">What kind of contact this is - what communications system is required to make use of the contact</Data></Cell>
+    <Cell><Data ss:Type="String">Telecommunications form for contact</Data></Cell>
+    <Cell><Data ss:Type="String">Telecommunications form for contact - what communications system is required to make use of the contact</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">./scheme</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -251,7 +251,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s69"><Data ss:Type="String">ContactSystem</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">What kind of contact this is</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Telecommunications form for contact</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">#contact-system</Data></Cell>
    </Row>

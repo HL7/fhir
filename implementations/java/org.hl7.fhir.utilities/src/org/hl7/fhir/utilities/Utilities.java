@@ -429,5 +429,21 @@ public class Utilities {
     else
       return filepath.substring(0, i);
   }
-	
+
+  public static String appendPeriod(String s) {
+    if (Utilities.noString(s))
+      return s;
+    if (s.endsWith("."))
+      return s;
+    return s.trim()+".";
+  }
+
+
+  public static String removePeriod(String s) {
+    if (Utilities.noString(s))
+      return s;
+    if (s.endsWith("."))
+      return s.substring(0, s.length()-1);
+    return s;
+  }
 }
