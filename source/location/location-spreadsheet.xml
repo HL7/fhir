@@ -170,7 +170,7 @@
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Contact details and position information for a physical place</Data></Cell>
-    <Cell><Data ss:Type="String">Contact details and position information for a physical place that may be visited and where healthcare resources and participants may be found or contained, accomodated, or stored</Data></Cell>
+    <Cell><Data ss:Type="String">Contact details and position information for a physical place that may be visited and where healthcare resources and participants may be found or contained, accommodated, or stored</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"><Data ss:Type="String">ServiceDeliveryLocation</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -354,7 +354,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

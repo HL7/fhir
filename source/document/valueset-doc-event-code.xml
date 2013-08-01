@@ -1056,7 +1056,7 @@
       <code value="T-49424">
         <extension>
           <url value="http://hl7.org/fhir/tools/extensions#display"/>
-          <valueString value="Boyd?s perforating vein"/>
+          <valueString value="Boyd's perforating vein"/>
         </extension>
       </code>
       <code value="T-47160">
@@ -1170,7 +1170,7 @@
       <code value="T-49429">
         <extension>
           <url value="http://hl7.org/fhir/tools/extensions#display"/>
-          <valueString value="Dodd?s perforating vein"/>
+          <valueString value="Dodd's perforating vein"/>
         </extension>
       </code>
       <code value="T-45200">
