@@ -194,7 +194,7 @@
     <Cell><Data ss:Type="String">The status of the questionnaire as a whole</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">The information on qestionnaires  may possibly gathered during multiple sessions and altered after considered being finished.</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">The information on questionnaires  may possibly gathered during multiple sessions and altered after considered being finished.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s66"/>
@@ -249,7 +249,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Need to know who interpreted the subject's answers to the questions in the questionnaire, and selected the appropriate options for answers.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Mapping a subject's answers to multple choice options and determining what to put in textual answer is a matter of interpretation.</Data><NamedCell
+    <Cell><Data ss:Type="String">Mapping a subject's answers to multiple choice options and determining what to put in textual answer is a matter of interpretation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s66"/>
    </Row>
@@ -264,9 +264,9 @@
     <Cell><Data ss:Type="String">The person that answered the questions about the subject. Only used when this is not the subject him/herself</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">When anwering questions about a subject that is minor, incapable of answering or an animal, another human source is used to answer the questions</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">When answering questions about a subject that is minor, incapable of answering or an animal, another human source is used to answer the questions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">source shoud be a reference to a Person resource too</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">source shod be a reference to a Person resource too</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s66"/>
    </Row>
@@ -428,7 +428,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Remarks about the answer given</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The remark contains information about the answer given. This is additional information about the anwer the author wishes to convey, but should not be used to contain information that is part of the answer itself.</Data><NamedCell
+    <Cell><Data ss:Type="String">The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Many questionnaires allow you to include &quot;comments&quot; in addition to the answers given.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -514,7 +514,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Whether the group may occur multiple times in the instance, containing multiple sets of answers</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Groups may be used to create set of (related) questions that can be repeated to give mulitple answers to such a set</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">Groups may be used to create set of (related) questions that can be repeated to give multiple answers to such a set</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">When repeats is not given, false is assumed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
