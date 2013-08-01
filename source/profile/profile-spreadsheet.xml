@@ -399,7 +399,7 @@
     <Cell><Data ss:Type="String">The Resource or Data type being described</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Only complex types can be constrained, not primitive types such as string etc</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Only complex types can be constrained, not primitive types such as string etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1600,7 +1600,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">12</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.structure</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Only complex types can be constrained, not primitive types such as string etc</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Only complex types can be constrained, not primitive types such as string etc.</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">upper-case(substring(f:type,1,1))=substring(f:type,1,1)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1970,7 +1970,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">retired</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">This profile has been withdrawn or superceded and should no longer be used</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">This profile has been withdrawn or superseded and should no longer be used</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
