@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -39,30 +39,34 @@ import java.util.*;
 public class MedicationDispense extends Resource {
 
     public enum MedicationDispenseStatus {
-        active, // The dispensing of the medication has started and is currently in progress.
-        paused, // The dispensing of the medication has started but is currently stopped with a firm intention of restarting.
-        completed, // The dispensing of the medication has finished
-        nullified, // The dispensing of the medication was recorded in error and the record should now be disregarded.
+        active, // The dispense has started but has not yet completed.
+        suspended, // Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called "held".
+        completed, // All actions that are implied by the dispense have occured.
+        enteredInError, // The dispense was entered in error and therefore nullified.
+        stopped, // Actions implied by the dispense have been permanently halted, before all of them occured.
         Null; // added to help the parsers
         public static MedicationDispenseStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("active".equals(codeString))
           return active;
-        if ("paused".equals(codeString))
-          return paused;
+        if ("suspended".equals(codeString))
+          return suspended;
         if ("completed".equals(codeString))
           return completed;
-        if ("nullified".equals(codeString))
-          return nullified;
+        if ("entered in error".equals(codeString))
+          return enteredInError;
+        if ("stopped".equals(codeString))
+          return stopped;
         throw new Exception("Unknown MedicationDispenseStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case active: return "active";
-            case paused: return "paused";
+            case suspended: return "suspended";
             case completed: return "completed";
-            case nullified: return "nullified";
+            case enteredInError: return "entered in error";
+            case stopped: return "stopped";
             default: return "?";
           }
         }
@@ -75,23 +79,27 @@ public class MedicationDispense extends Resource {
                 return null;
         if ("active".equals(codeString))
           return MedicationDispenseStatus.active;
-        if ("paused".equals(codeString))
-          return MedicationDispenseStatus.paused;
+        if ("suspended".equals(codeString))
+          return MedicationDispenseStatus.suspended;
         if ("completed".equals(codeString))
           return MedicationDispenseStatus.completed;
-        if ("nullified".equals(codeString))
-          return MedicationDispenseStatus.nullified;
+        if ("entered in error".equals(codeString))
+          return MedicationDispenseStatus.enteredInError;
+        if ("stopped".equals(codeString))
+          return MedicationDispenseStatus.stopped;
         throw new Exception("Unknown MedicationDispenseStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
       if (code == MedicationDispenseStatus.active)
         return "active";
-      if (code == MedicationDispenseStatus.paused)
-        return "paused";
+      if (code == MedicationDispenseStatus.suspended)
+        return "suspended";
       if (code == MedicationDispenseStatus.completed)
         return "completed";
-      if (code == MedicationDispenseStatus.nullified)
-        return "nullified";
+      if (code == MedicationDispenseStatus.enteredInError)
+        return "entered in error";
+      if (code == MedicationDispenseStatus.stopped)
+        return "stopped";
       return "?";
       }
     }
@@ -143,7 +151,7 @@ public class MedicationDispense extends Resource {
         protected List<ResourceReference> receiver = new ArrayList<ResourceReference>();
 
         /**
-         * Indicates how the medication is to be used by the patient
+         * Indicates how the medication is to be used by the patient.
          */
         protected List<MedicationDispenseDispenseDosageComponent> dosage = new ArrayList<MedicationDispenseDispenseDosageComponent>();
 
@@ -261,12 +269,12 @@ public class MedicationDispense extends Resource {
         protected Type additionalInstructions;
 
         /**
-         * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013"
+         * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
          */
         protected Type timing;
 
         /**
-         * A coded specification of the anatomic site where the medication first enters the body
+         * A coded specification of the anatomic site where the medication first enters the body.
          */
         protected CodeableConcept site;
 
@@ -388,7 +396,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         protected List<CodeableConcept> reason = new ArrayList<CodeableConcept>();
 
         /**
-         * The person or organization that has primary responsibility for the substitution
+         * The person or organization that has primary responsibility for the substitution.
          */
         protected List<ResourceReference> responsibleParty = new ArrayList<ResourceReference>();
 
@@ -438,7 +446,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     protected ResourceReference patient;
 
     /**
-     * The individual reponsible for dispensing the medication
+     * The individual reponsible for dispensing the medication.
      */
     protected ResourceReference dispenser;
 

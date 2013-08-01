@@ -30,7 +30,7 @@
       <filter>
         <!-- Snomed CT - Children of SCTID: 107733003 "introduction (procedure)" " -->
         <property value="concept"/>
-        <op value="is_a"/>
+        <op value="is-a"/>
         <value value="107733003"/>
       </filter>
     </include>

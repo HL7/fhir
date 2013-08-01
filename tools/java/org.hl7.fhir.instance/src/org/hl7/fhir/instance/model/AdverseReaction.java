@@ -29,20 +29,20 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * AdverseReaction
+ * AdverseReaction.
  */
 public class AdverseReaction extends Resource {
 
     public enum ReactionSeverity {
-        severe, // Severe complications arose due to the reaction
-        serious, // Serious inconvience to the subject
-        moderate, // Moderate inconvience to the subject
-        minor, // Minor inconvience to the subject
+        severe, // Severe complications arose due to the reaction.
+        serious, // Serious inconvience to the subject.
+        moderate, // Moderate inconvience to the subject.
+        minor, // Minor inconvience to the subject.
         Null; // added to help the parsers
         public static ReactionSeverity fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -97,9 +97,9 @@ public class AdverseReaction extends Resource {
     }
 
     public enum ExposureType {
-        drugadmin, // Drug Administration
-        immuniz, // Immunization
-        coincidental, // In the same area as the substance
+        drugadmin, // Drug Administration.
+        immuniz, // Immunization.
+        coincidental, // In the same area as the substance.
         Null; // added to help the parsers
         public static ExposureType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -147,10 +147,10 @@ public class AdverseReaction extends Resource {
     }
 
     public enum CausalityExpectation {
-        likely, // Likely that this specific exposure caused the reaction
-        unlikely, // Unlikely that this specific exposure caused the reaction - the exposure is being linked to for information purposes
-        confirmed, // It has been confirmed that this exposure was one of the causes of the reaction
-        unknown, // It is unknown whether this exposure had anything to do with the reaction
+        likely, // Likely that this specific exposure caused the reaction.
+        unlikely, // Unlikely that this specific exposure caused the reaction - the exposure is being linked to for information purposes.
+        confirmed, // It has been confirmed that this exposure was one of the causes of the reaction.
+        unknown, // It is unknown whether this exposure had anything to do with the reaction.
         Null; // added to help the parsers
         public static CausalityExpectation fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -206,12 +206,12 @@ public class AdverseReaction extends Resource {
 
     public class AdverseReactionSymptomComponent extends Element {
         /**
-         * Indicates the specific sign or symptom that was observed
+         * Indicates the specific sign or symptom that was observed.
          */
         protected CodeableConcept code;
 
         /**
-         * The severity of the sign or symptom
+         * The severity of the sign or symptom.
          */
         protected Enumeration<ReactionSeverity> severity;
 
@@ -256,22 +256,22 @@ public class AdverseReaction extends Resource {
 
     public class AdverseReactionExposureComponent extends Element {
         /**
-         * When the exposure occurred
+         * When the exposure occurred.
          */
         protected DateTime exposureDate;
 
         /**
-         * Drug Administration, Immunization, Coincidental
+         * Drug Administration, Immunization, Coincidental.
          */
         protected Enumeration<ExposureType> exposureType;
 
         /**
-         * A statement of how confident that the recorder was that this exposure caused the reaction
+         * A statement of how confident that the recorder was that this exposure caused the reaction.
          */
         protected Enumeration<CausalityExpectation> causalityExpectation;
 
         /**
-         * Substance(s) that is presumed to have caused the adverse reaction
+         * Substance(s) that is presumed to have caused the adverse reaction.
          */
         protected ResourceReference substance;
 
@@ -361,32 +361,32 @@ public class AdverseReaction extends Resource {
   }
 
     /**
-     * When the reaction occurred
+     * When the reaction occurred.
      */
     protected DateTime reactionDate;
 
     /**
-     * The subject of the adverse reaction
+     * The subject of the adverse reaction.
      */
     protected ResourceReference subject;
 
     /**
-     * To say that a reaction to substance did not occur
+     * To say that a reaction to substance did not occur.
      */
     protected Boolean didNotOccurFlag;
 
     /**
-     * Who recorded the reaction
+     * Who recorded the reaction.
      */
     protected ResourceReference recorder;
 
     /**
-     * The signs and symptoms that were observed as part of the reaction
+     * The signs and symptoms that were observed as part of the reaction.
      */
     protected List<AdverseReactionSymptomComponent> symptom = new ArrayList<AdverseReactionSymptomComponent>();
 
     /**
-     * An exposure to a substance that preceded a reaction occurrence
+     * An exposure to a substance that preceded a reaction occurrence.
      */
     protected List<AdverseReactionExposureComponent> exposure = new ArrayList<AdverseReactionExposureComponent>();
 

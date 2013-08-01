@@ -29,19 +29,19 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A set of information summarized from a list of other resources
+ * A set of information summarized from a list of other resources.
  */
 public class List_ extends Resource {
 
     public enum ListMode {
-        working, // This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes
-        snapshot, // This list was prepared as a snapshot. It should not be assumed to be current
-        changes, // The list is prepared as a statement of changes that have been made or recommended
+        working, // This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes.
+        snapshot, // This list was prepared as a snapshot. It should not be assumed to be current.
+        changes, // The list is prepared as a statement of changes that have been made or recommended.
         Null; // added to help the parsers
         public static ListMode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -90,7 +90,7 @@ public class List_ extends Resource {
 
     public class ListEntryComponent extends Element {
         /**
-         * The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list
+         * The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list.
          */
         protected List<CodeableConcept> flag = new ArrayList<CodeableConcept>();
 
@@ -100,12 +100,12 @@ public class List_ extends Resource {
         protected Boolean deleted;
 
         /**
-         * When this item was added to the list
+         * When this item was added to the list.
          */
         protected DateTime date;
 
         /**
-         * A reference to the actual resource from which data was derived
+         * A reference to the actual resource from which data was derived.
          */
         protected ResourceReference item;
 
@@ -179,37 +179,37 @@ public class List_ extends Resource {
   }
 
     /**
-     * This code defines the purpose of the list - why it was created
+     * This code defines the purpose of the list - why it was created.
      */
     protected CodeableConcept code;
 
     /**
-     * The entity responsible for deciding what the contents of the list were
+     * The entity responsible for deciding what the contents of the list were.
      */
     protected ResourceReference source;
 
     /**
-     * The date that the list was prepared
+     * The date that the list was prepared.
      */
     protected DateTime date;
 
     /**
-     * Whether items in the list have a meaningful order
+     * Whether items in the list have a meaningful order.
      */
     protected Boolean ordered;
 
     /**
-     * How this list was prepared - whether it is a working list that is suitable for being maintained in an ongoing basis, or if it represents a snapshort of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted
+     * How this list was prepared - whether it is a working list that is suitable for being maintained in an ongoing basis, or if it represents a snapshort of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
      */
     protected Enumeration<ListMode> mode;
 
     /**
-     * Entries in this list
+     * Entries in this list.
      */
     protected List<ListEntryComponent> entry = new ArrayList<ListEntryComponent>();
 
     /**
-     * If the list is empty, why the list is empty
+     * If the list is empty, why the list is empty.
      */
     protected CodeableConcept emptyReason;
 

@@ -29,23 +29,23 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * Demographics and other administrative information about a person or animal receiving care or other health-related services
+ * Demographics and other administrative information about a person or animal receiving care or other health-related services.
  */
 public class Patient extends Resource {
 
     public class ContactComponent extends Element {
         /**
-         * The nature of the relationship between the patient and the contactperson
+         * The nature of the relationship between the patient and the contactperson.
          */
         protected List<CodeableConcept> relationship = new ArrayList<CodeableConcept>();
 
         /**
-         * A name associated with the person
+         * A name associated with the person.
          */
         protected HumanName name;
 
@@ -55,7 +55,7 @@ public class Patient extends Resource {
         protected List<Contact> telecom = new ArrayList<Contact>();
 
         /**
-         * Address for the contact person
+         * Address for the contact person.
          */
         protected Address address;
 
@@ -128,7 +128,7 @@ public class Patient extends Resource {
 
     public class AnimalComponent extends Element {
         /**
-         * Identifies the high level categorization of the kind of animal
+         * Identifies the high level categorization of the kind of animal.
          */
         protected CodeableConcept species;
 
@@ -138,7 +138,7 @@ public class Patient extends Resource {
         protected CodeableConcept breed;
 
         /**
-         * Indicates the current state of the animal's reproductive organs
+         * Indicates the current state of the animal's reproductive organs.
          */
         protected CodeableConcept genderStatus;
 
@@ -177,7 +177,7 @@ public class Patient extends Resource {
   }
 
     /**
-     * An identifier that applies to this person as a patient
+     * An identifier that applies to this person as a patient.
      */
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
@@ -197,17 +197,17 @@ public class Patient extends Resource {
     protected CodeableConcept gender;
 
     /**
-     * The date and time of birth for the individual
+     * The date and time of birth for the individual.
      */
     protected DateTime birthDate;
 
     /**
-     * Indicates if the individual is deceased or not
+     * Indicates if the individual is deceased or not.
      */
     protected Type deceased;
 
     /**
-     * Addresses for the individual
+     * Addresses for the individual.
      */
     protected List<Address> address = new ArrayList<Address>();
 
@@ -222,27 +222,27 @@ public class Patient extends Resource {
     protected Type multipleBirth;
 
     /**
-     * Image of the person
+     * Image of the person.
      */
     protected List<Attachment> photo = new ArrayList<Attachment>();
 
     /**
-     * A contact party (e.g. guardian, partner, friend) for the patient
+     * A contact party (e.g. guardian, partner, friend) for the patient.
      */
     protected List<ContactComponent> contact = new ArrayList<ContactComponent>();
 
     /**
-     * This element has a value if the patient is an animal
+     * This element has a value if the patient is an animal.
      */
     protected AnimalComponent animal;
 
     /**
-     * Languages which may be used to communicate with the patient
+     * Languages which may be used to communicate with the patient.
      */
     protected List<CodeableConcept> communication = new ArrayList<CodeableConcept>();
 
     /**
-     * The provider for whom this is a patient record
+     * The provider for whom this is a patient record.
      */
     protected ResourceReference provider;
 
@@ -252,7 +252,7 @@ public class Patient extends Resource {
     protected List<ResourceReference> link = new ArrayList<ResourceReference>();
 
     /**
-     * Whether this patient record is in active use
+     * Whether this patient record is in active use.
      */
     protected Boolean active;
 

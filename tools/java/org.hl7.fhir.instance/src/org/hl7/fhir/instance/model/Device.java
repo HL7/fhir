@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -40,17 +40,17 @@ public class Device extends Resource {
 
     public class DeviceIdentityComponent extends Element {
         /**
-         * The number assigned to this device by an authorised issuer of Device GTINs, based on the standards set by GS1
+         * The number assigned to this device by an authorised issuer of Device GTINs, based on the standards set by GS1.
          */
         protected String_ gtin;
 
         /**
-         * Lot number of manufacture
+         * Lot number of manufacture.
          */
         protected String_ lot;
 
         /**
-         * The serial number assigned by the organisation when the device was manufactured
+         * The serial number assigned by the organisation when the device was manufactured.
          */
         protected String_ serialNumber;
 
@@ -127,62 +127,62 @@ public class Device extends Resource {
   }
 
     /**
-     * Describes what kind of device that this
+     * Describes what kind of device that this.
      */
     protected CodeableConcept type;
 
     /**
-     * The name of the manufacturer
+     * The name of the manufacturer.
      */
     protected String_ manufacturer;
 
     /**
-     * The "model" - an identifier assigned by the manufacturer to identify the product by it's type. This number is shared by the all devices sold as the same type
+     * The "model" - an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.
      */
     protected String_ model;
 
     /**
-     * The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware
+     * The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware.
      */
     protected String_ version;
 
     /**
-     * Date of expiry of this device (if applicable)
+     * Date of expiry of this device (if applicable).
      */
     protected Date expiry;
 
     /**
-     * Universal Device Id fields
+     * Universal Device Id fields.
      */
     protected DeviceIdentityComponent identity;
 
     /**
-     * The organization that is responsible for the provision and ongoing maintenance of the device
+     * The organization that is responsible for the provision and ongoing maintenance of the device.
      */
     protected ResourceReference owner;
 
     /**
-     * Identifiers assigned to this device by various organizations (unless other specific fields exist for them)
+     * Identifiers assigned to this device by various organizations (unless other specific fields exist for them).
      */
     protected List<Identifier> assignedId = new ArrayList<Identifier>();
 
     /**
-     * The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. "in/with the patient"), or a coded location
+     * The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. "in/with the patient"), or a coded location.
      */
     protected ResourceReference location;
 
     /**
-     * If the resource is affixed to a person
+     * If the resource is affixed to a person.
      */
     protected ResourceReference patient;
 
     /**
-     * Contact details for an organization or a particular human that is responsible for the device
+     * Contact details for an organization or a particular human that is responsible for the device.
      */
     protected List<Contact> contact = new ArrayList<Contact>();
 
     /**
-     * A network address on which the device may be contacted directly
+     * A network address on which the device may be contacted directly.
      */
     protected Uri url;
 

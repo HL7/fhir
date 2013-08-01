@@ -29,25 +29,25 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 /**
- * A reference from one resource to another
+ * A reference from one resource to another.
  */
 public class ResourceReference extends Type {
 
     /**
-     * The name of one of the resource types defined in this specification to identify the type of the resource being referenced
+     * The name of one of the resource types defined in this specification to identify the type of the resource being referenced.
      */
     protected Code type;
 
     /**
-     * A reference to a location at which the other resource is found. The reference may a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources
+     * A reference to a location at which the other resource is found. The reference may a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.
      */
     protected String_ reference;
 
     /**
-     * Plain text narrative that identifies the resource in addition to the resource reference
+     * Plain text narrative that identifies the resource in addition to the resource reference.
      */
     protected String_ display;
 

@@ -29,22 +29,22 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A human's name with the ability to identify parts and usage
+ * A human's name with the ability to identify parts and usage.
  */
 public class HumanName extends Type {
 
     public enum NameUse {
-        usual, // Known as/conventional/the one you normally use
+        usual, // Known as/conventional/the one you normally use.
         official, // The formal name as registered in an official (government) registry, but which name might not be commonly used. May be called "legal name".
         temp, // A temporary name. A name valid time can provide more detailed information. This may also be used for temporary names assigned at birth or in emergency situations.
-        nickname, // A name that is used to address the person in an informal manner, but is not part of their formal or usual name
-        anonymous, // Anonymous assigned name, alias, or pseudonym (used to protect a person's identity for privacy reasons)
-        old, // This name is no longer in use (or was never correct, but retained for records)
+        nickname, // A name that is used to address the person in an informal manner, but is not part of their formal or usual name.
+        anonymous, // Anonymous assigned name, alias, or pseudonym (used to protect a person's identity for privacy reasons).
+        old, // This name is no longer in use (or was never correct, but retained for records).
         maiden, // A name used prior to marriage. Marriage naming customs vary greatly around the world. This name use is for use by applications that collect and store "maiden" names. Though the concept of maiden name is often gender specific, the use of this term is not gender specific. The use of this term does not imply any particular history for a person's name, nor should the maiden name be determined algorithmically.
         Null; // added to help the parsers
         public static NameUse fromCode(String codeString) throws Exception {
@@ -121,12 +121,12 @@ public class HumanName extends Type {
     }
 
     /**
-     * Identifies the purpose for this name
+     * Identifies the purpose for this name.
      */
     protected Enumeration<NameUse> use;
 
     /**
-     * A full text representation of the name
+     * A full text representation of the name.
      */
     protected String_ text;
 
@@ -141,12 +141,12 @@ public class HumanName extends Type {
     protected List<String_> given = new ArrayList<String_>();
 
     /**
-     * Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the start of the name
+     * Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the start of the name.
      */
     protected List<String_> prefix = new ArrayList<String_>();
 
     /**
-     * Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the end of the name
+     * Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the end of the name.
      */
     protected List<String_> suffix = new ArrayList<String_>();
 

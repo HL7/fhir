@@ -21,7 +21,7 @@
       <filter>
         <!-- any qualifier from "Known" -->
         <property value="concept"/>
-        <op value="is_a"/>
+        <op value="is-a"/>
         <value value="36692007"/>
       </filter>
     </include>

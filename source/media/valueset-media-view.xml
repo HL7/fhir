@@ -12,9 +12,9 @@
     <include>
       <system value="http://snomed.info/id"/>
       <filter>
-        <!-- todo: work this over. what this means is any concepts where they have is_a with 260419006 how should this be done? -->
+        <!-- todo: work this over. what this means is any concepts where they have is-a with 260419006 how should this be done? -->
         <property value="concept"/>
-        <op value="is_a"/>
+        <op value="is-a"/>
         <value value="260419006"/>
       </filter>
     </include>

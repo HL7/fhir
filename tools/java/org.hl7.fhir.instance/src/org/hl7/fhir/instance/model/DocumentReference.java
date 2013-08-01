@@ -29,19 +29,19 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A reference to a document
+ * A reference to a document.
  */
 public class DocumentReference extends Resource {
 
     public enum DocumentReferenceStatus {
-        current, // This is the current reference for this document
-        superceded, // This reference has been superceded by another reference
-        error, // This reference was created in error
+        current, // This is the current reference for this document.
+        superceded, // This reference has been superceded by another reference.
+        error, // This reference was created in error.
         Null; // added to help the parsers
         public static DocumentReferenceStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -90,17 +90,17 @@ public class DocumentReference extends Resource {
 
     public class DocumentReferenceServiceComponent extends Element {
         /**
-         * The type of the service that can be used to access the documents
+         * The type of the service that can be used to access the documents.
          */
         protected CodeableConcept type;
 
         /**
-         * Where the service end-point is located
+         * Where the service end-point is located.
          */
         protected String_ address;
 
         /**
-         * A list of named parameters that is used in the service call
+         * A list of named parameters that is used in the service call.
          */
         protected List<DocumentReferenceServiceParameterComponent> parameter = new ArrayList<DocumentReferenceServiceParameterComponent>();
 
@@ -152,12 +152,12 @@ public class DocumentReference extends Resource {
 
     public class DocumentReferenceServiceParameterComponent extends Element {
         /**
-         * The name of a parameter
+         * The name of a parameter.
          */
         protected String_ name;
 
         /**
-         * The value of the named parameter
+         * The value of the named parameter.
          */
         protected String_ value;
 
@@ -212,17 +212,17 @@ public class DocumentReference extends Resource {
 
     public class DocumentReferenceContextComponent extends Element {
         /**
-         * The type of clinical context, such as a kind of surgery, or a kind of speciality, or a clinical type
+         * The type of clinical context, such as a kind of surgery, or a kind of speciality, or a clinical type.
          */
         protected List<CodeableConcept> code = new ArrayList<CodeableConcept>();
 
         /**
-         * The time period of the patient's care that is described by the document
+         * The time period of the patient's care that is described by the document.
          */
         protected Period period;
 
         /**
-         * The kind of facility where the patient was seen
+         * The kind of facility where the patient was seen.
          */
         protected CodeableConcept facilityType;
 
@@ -259,117 +259,117 @@ public class DocumentReference extends Resource {
   }
 
     /**
-     * Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document
+     * Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document.
      */
     protected Identifier masterIdentifier;
 
     /**
-     * Other identifiers associated with the record
+     * Other identifiers associated with the record.
      */
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)
+     * Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).
      */
     protected ResourceReference subject;
 
     /**
-     * Specifies the particular kind of document (e.g. Patient Summary, Discharge Summary, Prescription, etc)
+     * Specifies the particular kind of document (e.g. Patient Summary, Discharge Summary, Prescription, etc).
      */
     protected CodeableConcept type;
 
     /**
-     * More detailed information about the document type
+     * More detailed information about the document type.
      */
     protected CodeableConcept subtype;
 
     /**
-     * Identifies who is responsible for adding the information to the document
+     * Identifies who is responsible for adding the information to the document.
      */
     protected List<ResourceReference> author = new ArrayList<ResourceReference>();
 
     /**
-     * Identifies the organization or group who is responsible for ongoing maintenance of and access to the document
+     * Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.
      */
     protected ResourceReference custodian;
 
     /**
-     * Which person or organization authenticates that this document is valid
+     * Which person or organization authenticates that this document is valid.
      */
     protected ResourceReference authenticator;
 
     /**
-     * When the document was created
+     * When the document was created.
      */
     protected DateTime created;
 
     /**
-     * When the document reference was created
+     * When the document reference was created.
      */
     protected Instant indexed;
 
     /**
-     * The status of this document reference
+     * The status of this document reference.
      */
     protected Enumeration<DocumentReferenceStatus> status;
 
     /**
-     * The status of the underlying document
+     * The status of the underlying document.
      */
     protected CodeableConcept docStatus;
 
     /**
-     * If this document replaces another
+     * If this document replaces another.
      */
     protected ResourceReference supercedes;
 
     /**
-     * Human Readable description of the source document. This is sometimes known as the "title"
+     * Human Readable description of the source document. This is sometimes known as the "title".
      */
     protected String_ description;
 
     /**
-     * A code specifying the level of confidentiality of the XDS Document
+     * A code specifying the level of confidentiality of the XDS Document.
      */
     protected CodeableConcept confidentiality;
 
     /**
-     * The primary language in which the source document is written
+     * The primary language in which the source document is written.
      */
     protected Code primaryLanguage;
 
     /**
-     * The mime type of the source document
+     * The mime type of the source document.
      */
     protected Code mimeType;
 
     /**
-     * The format of the document. This is used when the mimeType of the document does not provide enough differentiating information (typically, when the mime type of the document is text/xml)
+     * The format of the document. This is used when the mimeType of the document does not provide enough differentiating information (typically, when the mime type of the document is text/xml).
      */
     protected CodeableConcept format;
 
     /**
-     * The size of the source document this reference refers to in bytes
+     * The size of the source document this reference refers to in bytes.
      */
     protected Integer size;
 
     /**
-     * A hash of the source document to ensure that changes have not occurred
+     * A hash of the source document to ensure that changes have not occurred.
      */
     protected String_ hash;
 
     /**
-     * A url at which the document can be accessed
+     * A url at which the document can be accessed.
      */
     protected Uri location;
 
     /**
-     * A description of a service call that can be used to retrieve the document
+     * A description of a service call that can be used to retrieve the document.
      */
     protected DocumentReferenceServiceComponent service;
 
     /**
-     * The clinical context in which the document was prepared
+     * The clinical context in which the document was prepared.
      */
     protected DocumentReferenceContextComponent context;
 

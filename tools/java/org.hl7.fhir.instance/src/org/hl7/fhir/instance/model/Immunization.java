@@ -29,23 +29,23 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * Immunization event information
+ * Immunization event information.
  */
 public class Immunization extends Resource {
 
     public class ImmunizationExplanationComponent extends Element {
         /**
-         * Reasons why a vaccine was administered
+         * Reasons why a vaccine was administered.
          */
         protected List<CodeableConcept> reason = new ArrayList<CodeableConcept>();
 
         /**
-         * Refusal or exemption reasons
+         * Refusal or exemption reasons.
          */
         protected List<CodeableConcept> refusalReason = new ArrayList<CodeableConcept>();
 
@@ -72,17 +72,17 @@ public class Immunization extends Resource {
 
     public class ImmunizationReactionComponent extends Element {
         /**
-         * Date of reaction to the immunization
+         * Date of reaction to the immunization.
          */
         protected DateTime date;
 
         /**
-         * Details of the reaction
+         * Details of the reaction.
          */
         protected ResourceReference detail;
 
         /**
-         * Self-reported indicator
+         * Self-reported indicator.
          */
         protected Boolean reported;
 
@@ -150,22 +150,22 @@ public class Immunization extends Resource {
 
     public class ImmunizationVaccinationProtocolComponent extends Element {
         /**
-         * Nominal position in a series
+         * Nominal position in a series.
          */
         protected Integer doseSequence;
 
         /**
-         * Contains the description about the protocol under which the vaccine was administered
+         * Contains the description about the protocol under which the vaccine was administered.
          */
         protected String_ description;
 
         /**
-         * Indicates the authority who published the protocol?  E.g. ACIP
+         * Indicates the authority who published the protocol?  E.g. ACIP.
          */
         protected ResourceReference authority;
 
         /**
-         * One possible path to achieve presumed immunity against a disease - within the context of an authority
+         * One possible path to achieve presumed immunity against a disease - within the context of an authority.
          */
         protected String_ series;
 
@@ -175,7 +175,7 @@ public class Immunization extends Resource {
         protected Integer seriesDoses;
 
         /**
-         * The targeted disease
+         * The targeted disease.
          */
         protected CodeableConcept doseTarget;
 
@@ -321,17 +321,17 @@ public class Immunization extends Resource {
   }
 
     /**
-     * Date vaccine administered or was to be administered
+     * Date vaccine administered or was to be administered.
      */
     protected DateTime date;
 
     /**
-     * Vaccine that was administered or was to be administered
+     * Vaccine that was administered or was to be administered.
      */
     protected CodeableConcept vaccineType;
 
     /**
-     * The patient to whom the vaccine was to be administered
+     * The patient to whom the vaccine was to be administered.
      */
     protected ResourceReference subject;
 
@@ -346,17 +346,17 @@ public class Immunization extends Resource {
     protected Boolean reported;
 
     /**
-     * Clinician that administered the vaccine
+     * Clinician that administered the vaccine.
      */
     protected ResourceReference performer;
 
     /**
-     * Clinician who ordered the vaccination
+     * Clinician who ordered the vaccination.
      */
     protected ResourceReference requester;
 
     /**
-     * Name of vaccine manufacturer
+     * Name of vaccine manufacturer.
      */
     protected ResourceReference manufacturer;
 
@@ -366,17 +366,17 @@ public class Immunization extends Resource {
     protected ResourceReference location;
 
     /**
-     * Lot number of the  vaccine product
+     * Lot number of the  vaccine product.
      */
     protected String_ lotNumber;
 
     /**
-     * Date vaccine batch expires
+     * Date vaccine batch expires.
      */
     protected Date expirationDate;
 
     /**
-     * Body site where vaccine was administered
+     * Body site where vaccine was administered.
      */
     protected CodeableConcept site;
 
@@ -386,22 +386,22 @@ public class Immunization extends Resource {
     protected CodeableConcept route;
 
     /**
-     * The quantity of vaccine product that was administered
+     * The quantity of vaccine product that was administered.
      */
     protected Quantity doseQuantity;
 
     /**
-     * Reasons why a vaccine was administered or refused
+     * Reasons why a vaccine was administered or refused.
      */
     protected ImmunizationExplanationComponent explanation;
 
     /**
-     * Categorical data indicating that an adverse event is associated in time to an immunization
+     * Categorical data indicating that an adverse event is associated in time to an immunization.
      */
     protected List<ImmunizationReactionComponent> reaction = new ArrayList<ImmunizationReactionComponent>();
 
     /**
-     * Contains information about the protocol under which the vaccine was administered
+     * Contains information about the protocol under which the vaccine was administered.
      */
     protected ImmunizationVaccinationProtocolComponent vaccinationProtocol;
 

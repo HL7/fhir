@@ -29,25 +29,25 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 /**
- * Optional Extensions Element - found in all resources
+ * Optional Extensions Element - found in all resources.
  */
 public class Extension extends Element {
 
     /**
-     * Source of the definition for the extension code - a logical name or a URL
+     * Source of the definition for the extension code - a logical name or a URL.
      */
     protected Uri url;
 
     /**
-     * This value should be set to true if the value of the extension qualifies or negates data in other content
+     * This value should be set to true if the value of the extension qualifies or negates data in other content.
      */
     protected Boolean isModifier;
 
     /**
-     * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list)
+     * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
      */
     protected org.hl7.fhir.instance.model.Type value;
 

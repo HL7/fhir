@@ -29,18 +29,18 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * This is primarily for identification and definition of Medication, but also covers ingredients and packaging
+ * Primarily used for identification and definition of Medication, but also covers ingredients and packaging.
  */
 public class Medication extends Resource {
 
     public enum MedicationKind {
-        product, // The medication is a product
-        package_, // The medication is a package - a contained group of one of more products
+        product, // The medication is a product.
+        package_, // The medication is a package - a contained group of one of more products.
         Null; // added to help the parsers
         public static MedicationKind fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -82,12 +82,12 @@ public class Medication extends Resource {
 
     public class MedicationProductComponent extends Element {
         /**
-         * Describes the form of the item.  Powder; tables; carton
+         * Describes the form of the item.  Powder; tables; carton.
          */
         protected CodeableConcept form;
 
         /**
-         * The ingredients of the medication
+         * The ingredients of the medication.
          */
         protected List<MedicationProductIngredientComponent> ingredient = new ArrayList<MedicationProductIngredientComponent>();
 
@@ -116,12 +116,12 @@ public class Medication extends Resource {
 
     public class MedicationProductIngredientComponent extends Element {
         /**
-         * The actual ingredient - either a substance (simple ingredient) or another medication
+         * The actual ingredient - either a substance (simple ingredient) or another medication.
          */
         protected ResourceReference item;
 
         /**
-         * Specifies how many (or how much) of the items there are in this Medication.  E.g. 250 mg per tablet
+         * Specifies how many (or how much) of the items there are in this Medication.  E.g. 250 mg per tablet.
          */
         protected Ratio amount;
 
@@ -152,7 +152,7 @@ public class Medication extends Resource {
 
     public class MedicationPackageComponent extends Element {
         /**
-         * The kind of container that this package comes as
+         * The kind of container that this package comes as.
          */
         protected CodeableConcept container;
 
@@ -186,12 +186,12 @@ public class Medication extends Resource {
 
     public class MedicationPackageContentComponent extends Element {
         /**
-         * The product that is in the package
+         * The product that is in the package.
          */
         protected ResourceReference item;
 
         /**
-         * The amount of the product that is in the package
+         * The amount of the product that is in the package.
          */
         protected Quantity amount;
 
@@ -221,37 +221,37 @@ public class Medication extends Resource {
   }
 
     /**
-     * The common name of the medication
+     * The common name of the medication.
      */
     protected String_ name;
 
     /**
-     * References to codes for this medication in standard medication terminologies, drug dictionaries, etc
+     * References to codes for this medication in standard medication terminologies, drug dictionaries, etc.
      */
     protected CodeableConcept code;
 
     /**
-     * Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is)
+     * Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).
      */
     protected Boolean isBrand;
 
     /**
-     * Describes the details of the manufacturer
+     * Describes the details of the manufacturer.
      */
     protected ResourceReference manufacturer;
 
     /**
-     * product | package
+     * product | package.
      */
     protected Enumeration<MedicationKind> kind;
 
     /**
-     * If is a product
+     * If is a product.
      */
     protected MedicationProductComponent product;
 
     /**
-     * Specifies Ingredient / Product / Package
+     * Specifies Ingredient / Product / Package.
      */
     protected MedicationPackageComponent package_;
 

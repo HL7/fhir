@@ -34,7 +34,7 @@
       <filter>
         <!-- Snomed CT - selected children of SCTID:91723000 "anatomical structure" -->
         <property value="concept"/>
-        <op value="is_a"/>
+        <op value="is-a"/>
         <value value="91723000"/>
       </filter>
     </include>

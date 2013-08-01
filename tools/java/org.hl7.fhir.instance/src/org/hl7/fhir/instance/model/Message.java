@@ -29,21 +29,21 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A transmission requesting action on a bundle of one or more resources or a response to such a request
+ * A transmission requesting action on a bundle of one or more resources or a response to such a request.
  */
 public class Message extends Resource {
 
     public enum ResponseCode {
-        ok, // The message was accepted and processed without error
-        error, // Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required
+        ok, // The message was accepted and processed without error.
+        error, // Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required.
         rejection, // The message was rejected because of some content in it. There is no point in re-sending without change. The response narrative must describe what the issue is.
-        rules, // The message was rejected because of some event-specific business rules, and it may be possible to modify the request and re-submit (as a different request). The response must include an Issue report that describes what problem is
-        undeliverable, // A middleware agent was unable to deliver the message to its intended destination
+        rules, // The message was rejected because of some event-specific business rules, and it may be possible to modify the request and re-submit (as a different request). The response must include an Issue report that describes what problem is.
+        undeliverable, // A middleware agent was unable to deliver the message to its intended destination.
         Null; // added to help the parsers
         public static ResponseCode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -106,17 +106,17 @@ public class Message extends Resource {
 
     public class MessageResponseComponent extends Element {
         /**
-         * The id of the message that this a response to
+         * The id of the message that this a response to.
          */
         protected Id identifier;
 
         /**
-         * Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not
+         * Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.
          */
         protected Enumeration<ResponseCode> code;
 
         /**
-         * Full details of any issues found in the message
+         * Full details of any issues found in the message.
          */
         protected ResourceReference details;
 
@@ -176,7 +176,7 @@ public class Message extends Resource {
 
     public class MessageSourceComponent extends Element {
         /**
-         * Human readable name for the target system
+         * Human readable name for the target system.
          */
         protected String_ name;
 
@@ -302,7 +302,7 @@ public class Message extends Resource {
 
     public class MessageDestinationComponent extends Element {
         /**
-         * Human readable name for the source system
+         * Human readable name for the source system.
          */
         protected String_ name;
 
@@ -375,17 +375,17 @@ public class Message extends Resource {
   }
 
     /**
-     * The identifier of this message
+     * The identifier of this message.
      */
     protected Id identifier;
 
     /**
-     * The time that the message was sent
+     * The time that the message was sent.
      */
     protected Instant timestamp;
 
     /**
-     * Code that identifies the event this message represents and connects it with the event definition in the FHIR specification
+     * Code that identifies the event this message represents and connects it with the event definition in the FHIR specification.
      */
     protected Code event;
 
@@ -395,22 +395,22 @@ public class Message extends Resource {
     protected MessageResponseComponent response;
 
     /**
-     * The source application from which this message originated
+     * The source application from which this message originated.
      */
     protected MessageSourceComponent source;
 
     /**
-     * The destination application which the message is intended for
+     * The destination application which the message is intended for.
      */
     protected MessageDestinationComponent destination;
 
     /**
-     * The person or device that performed the data entry leading to this Message. Where there is more than one candidate, pick the most proximal to the Message. Can provide other enterers in extensions
+     * The person or device that performed the data entry leading to this Message. Where there is more than one candidate, pick the most proximal to the Message. Can provide other enterers in extensions.
      */
     protected ResourceReference enterer;
 
     /**
-     * The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the Message. Can provide other authors in extensions
+     * The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the Message. Can provide other authors in extensions.
      */
     protected ResourceReference author;
 
@@ -420,17 +420,17 @@ public class Message extends Resource {
     protected ResourceReference receiver;
 
     /**
-     * The person or organization that accepts overall responsibility for the contents of the Message. The implication is that the message event happened under the policies of the responsible party
+     * The person or organization that accepts overall responsibility for the contents of the Message. The implication is that the message event happened under the policies of the responsible party.
      */
     protected ResourceReference responsible;
 
     /**
-     * The effective time - the real world time of the event that the message represents. Usually this is just a starting time, but some message events also have an end time (do x for period y)
+     * The effective time - the real world time of the event that the message represents. Usually this is just a starting time, but some message events also have an end time (do x for period y).
      */
     protected Period effective;
 
     /**
-     * The cause of the event - a reason for the event that is a focus of this message occurred
+     * The cause of the event - a reason for the event that is a focus of this message occurred.
      */
     protected CodeableConcept reason;
 

@@ -29,17 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 /**
- * A technical identifier - identifies some entity uniquely and unambiguously
+ * A technical identifier - identifies some entity uniquely and unambiguously.
  */
 public class Identifier extends Type {
 
     public enum IdentifierUse {
-        usual, // the identifier recommended for display and use in real-world interactions
-        official, // the identifier considered to be most trusted for the identification of this item
-        temp, // A temporary identifier
+        usual, // the identifier recommended for display and use in real-world interactions.
+        official, // the identifier considered to be most trusted for the identification of this item.
+        temp, // A temporary identifier.
         Null; // added to help the parsers
         public static IdentifierUse fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -87,12 +87,12 @@ public class Identifier extends Type {
     }
 
     /**
-     * Identifies the use for this identifier, if known
+     * Identifies the use for this identifier, if known.
      */
     protected Enumeration<IdentifierUse> use;
 
     /**
-     * A label for the identifier that can be displayed to a human so they can recognise the identifier
+     * A label for the identifier that can be displayed to a human so they can recognise the identifier.
      */
     protected String_ label;
 
@@ -107,12 +107,12 @@ public class Identifier extends Type {
     protected String_ key;
 
     /**
-     * Time period during which identifier was valid for use
+     * Time period during which identifier was valid for use.
      */
     protected Period period;
 
     /**
-     * Organisation that issued/manages the identifier
+     * Organisation that issued/manages the identifier.
      */
     protected ResourceReference assigner;
 

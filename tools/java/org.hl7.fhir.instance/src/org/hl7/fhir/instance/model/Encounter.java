@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -105,14 +105,14 @@ public class Encounter extends Resource {
     }
 
     public enum EncounterClass {
-        inpatient, // A patient that stays overnight
+        inpatient, // A patient that stays overnight.
         outpatient, // 
         ambulatory, // 
         emergency, // 
         home, // 
         field, // 
         acute, // 
-        nonMinusacute, // 
+        nonacute, // 
         daytime, // 
         virtual, // 
         Null; // added to help the parsers
@@ -134,7 +134,7 @@ public class Encounter extends Resource {
         if ("acute".equals(codeString))
           return acute;
         if ("non-acute".equals(codeString))
-          return nonMinusacute;
+          return nonacute;
         if ("daytime".equals(codeString))
           return daytime;
         if ("virtual".equals(codeString))
@@ -150,7 +150,7 @@ public class Encounter extends Resource {
             case home: return "home";
             case field: return "field";
             case acute: return "acute";
-            case nonMinusacute: return "non-acute";
+            case nonacute: return "non-acute";
             case daytime: return "daytime";
             case virtual: return "virtual";
             default: return "?";
@@ -178,7 +178,7 @@ public class Encounter extends Resource {
         if ("acute".equals(codeString))
           return EncounterClass.acute;
         if ("non-acute".equals(codeString))
-          return EncounterClass.nonMinusacute;
+          return EncounterClass.nonacute;
         if ("daytime".equals(codeString))
           return EncounterClass.daytime;
         if ("virtual".equals(codeString))
@@ -200,7 +200,7 @@ public class Encounter extends Resource {
         return "field";
       if (code == EncounterClass.acute)
         return "acute";
-      if (code == EncounterClass.nonMinusacute)
+      if (code == EncounterClass.nonacute)
         return "non-acute";
       if (code == EncounterClass.daytime)
         return "daytime";
@@ -216,8 +216,8 @@ public class Encounter extends Resource {
         responsible, // 
         attending, // 
         consulting, // 
-        emergencyMinuscontact, // 
-        dischargeMinuscontact, // 
+        emergencycontact, // 
+        dischargecontact, // 
         Null; // added to help the parsers
         public static ParticipantType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -233,9 +233,9 @@ public class Encounter extends Resource {
         if ("consulting".equals(codeString))
           return consulting;
         if ("emergency-contact".equals(codeString))
-          return emergencyMinuscontact;
+          return emergencycontact;
         if ("discharge-contact".equals(codeString))
-          return dischargeMinuscontact;
+          return dischargecontact;
         throw new Exception("Unknown ParticipantType code '"+codeString+"'");
         }
         public String toCode() {
@@ -245,8 +245,8 @@ public class Encounter extends Resource {
             case responsible: return "responsible";
             case attending: return "attending";
             case consulting: return "consulting";
-            case emergencyMinuscontact: return "emergency-contact";
-            case dischargeMinuscontact: return "discharge-contact";
+            case emergencycontact: return "emergency-contact";
+            case dischargecontact: return "discharge-contact";
             default: return "?";
           }
         }
@@ -268,9 +268,9 @@ public class Encounter extends Resource {
         if ("consulting".equals(codeString))
           return ParticipantType.consulting;
         if ("emergency-contact".equals(codeString))
-          return ParticipantType.emergencyMinuscontact;
+          return ParticipantType.emergencycontact;
         if ("discharge-contact".equals(codeString))
-          return ParticipantType.dischargeMinuscontact;
+          return ParticipantType.dischargecontact;
         throw new Exception("Unknown ParticipantType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -284,9 +284,9 @@ public class Encounter extends Resource {
         return "attending";
       if (code == ParticipantType.consulting)
         return "consulting";
-      if (code == ParticipantType.emergencyMinuscontact)
+      if (code == ParticipantType.emergencycontact)
         return "emergency-contact";
-      if (code == ParticipantType.dischargeMinuscontact)
+      if (code == ParticipantType.dischargecontact)
         return "discharge-contact";
       return "?";
       }
@@ -294,12 +294,12 @@ public class Encounter extends Resource {
 
     public class EncounterParticipantComponent extends Element {
         /**
-         * Kind of involvement of the participant
+         * Kind of involvement of the participant.
          */
         protected List<Enumeration<ParticipantType>> type = new ArrayList<Enumeration<ParticipantType>>();
 
         /**
-         * The practitioner that is involved
+         * The practitioner that is involved.
          */
         protected ResourceReference practitioner;
 
@@ -328,17 +328,17 @@ public class Encounter extends Resource {
 
     public class EncounterHospitalizationComponent extends Element {
         /**
-         * Pre-admission identifier
+         * Pre-admission identifier.
          */
         protected Identifier preAdmissionIdentifier;
 
         /**
-         * The location the patient came from before admission
+         * The location the patient came from before admission.
          */
         protected ResourceReference origin;
 
         /**
-         * Where the patient was admitted from (physician referral, transfer)
+         * Where the patient was admitted from (physician referral, transfer).
          */
         protected CodeableConcept admitSource;
 
@@ -348,37 +348,37 @@ public class Encounter extends Resource {
         protected Period period;
 
         /**
-         * Where the patient stays during this encounter
+         * Where the patient stays during this encounter.
          */
         protected List<EncounterHospitalizationAccomodationComponent> accomodation = new ArrayList<EncounterHospitalizationAccomodationComponent>();
 
         /**
-         * Dietary restrictions for the patient
+         * Dietary restrictions for the patient.
          */
         protected CodeableConcept diet;
 
         /**
-         * Special courtesies (vip, hospital board member)
+         * Special courtesies (vip, hospital board member).
          */
         protected List<CodeableConcept> specialCourtesy = new ArrayList<CodeableConcept>();
 
         /**
-         * Special arrangements (wheelchair, translator, stretcher)
+         * Special arrangements (wheelchair, translator, stretcher).
          */
         protected List<CodeableConcept> specialArrangement = new ArrayList<CodeableConcept>();
 
         /**
-         * Location the patient is discharged to
+         * Location the patient is discharged to.
          */
         protected ResourceReference destination;
 
         /**
-         * Disposition a patient was released into
+         * Disposition a patient was released into.
          */
         protected CodeableConcept dischargeDisposition;
 
         /**
-         * Is readmission?
+         * Is readmission?.
          */
         protected Boolean reAdmission;
 
@@ -498,12 +498,12 @@ public class Encounter extends Resource {
 
     public class EncounterHospitalizationAccomodationComponent extends Element {
         /**
-         * Bed
+         * Bed.
          */
         protected ResourceReference bed;
 
         /**
-         * Period during which the patient was assigned the bed
+         * Period during which the patient was assigned the bed.
          */
         protected Period period;
 
@@ -534,12 +534,12 @@ public class Encounter extends Resource {
 
     public class EncounterLocationComponent extends Element {
         /**
-         * The location the encounter takes place
+         * The location the encounter takes place.
          */
         protected ResourceReference location;
 
         /**
-         * Time period during which the patient was present at the location
+         * Time period during which the patient was present at the location.
          */
         protected Period period;
 
@@ -569,42 +569,42 @@ public class Encounter extends Resource {
   }
 
     /**
-     * Identifier(s) by which this encounter is known
+     * Identifier(s) by which this encounter is known.
      */
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * E.g. active, aborted, finished
+     * E.g. active, aborted, finished.
      */
     protected Enumeration<EncounterState> status;
 
     /**
-     * Inpatient | Outpatient etc
+     * Inpatient | Outpatient etc.
      */
     protected Enumeration<EncounterClass> class_;
 
     /**
-     * Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)
+     * Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).
      */
     protected List<CodeableConcept> type = new ArrayList<CodeableConcept>();
 
     /**
-     * The patient present at the encounter
+     * The patient present at the encounter.
      */
     protected ResourceReference subject;
 
     /**
-     * The main practitioner responsible for providing the service
+     * The main practitioner responsible for providing the service.
      */
     protected List<EncounterParticipantComponent> participant = new ArrayList<EncounterParticipantComponent>();
 
     /**
-     * The appointment that scheduled this encounter
+     * The appointment that scheduled this encounter.
      */
     protected ResourceReference fulfills;
 
     /**
-     * The date and time the encounter starts, e.g. the patient arrives
+     * The date and time the encounter starts, e.g. the patient arrives.
      */
     protected DateTime start;
 
@@ -614,22 +614,22 @@ public class Encounter extends Resource {
     protected Duration length;
 
     /**
-     * Reason the encounter takes place
+     * Reason the encounter takes place.
      */
     protected Type reason;
 
     /**
-     * Reason the encounter takes place
+     * Reason the encounter takes place.
      */
     protected ResourceReference indication;
 
     /**
-     * Indicates the urgency of the encounter
+     * Indicates the urgency of the encounter.
      */
     protected CodeableConcept priority;
 
     /**
-     * Details about an admission to a clinic
+     * Details about an admission to a clinic.
      */
     protected EncounterHospitalizationComponent hospitalization;
 
@@ -639,12 +639,12 @@ public class Encounter extends Resource {
     protected List<EncounterLocationComponent> location = new ArrayList<EncounterLocationComponent>();
 
     /**
-     * The department or team that is providing care
+     * The department or team that is providing care.
      */
     protected ResourceReference serviceProvider;
 
     /**
-     * Another Encounter this encounter is part of (administratively or in time)
+     * Another Encounter this encounter is part of (administratively or in time).
      */
     protected ResourceReference partOf;
 

@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process
+ * Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.
  */
 public class RelatedPerson extends Resource {
 
@@ -44,17 +44,17 @@ public class RelatedPerson extends Resource {
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * The patient this person is related to
+     * The patient this person is related to.
      */
     protected ResourceReference patient;
 
     /**
-     * The nature of the relationship between a patient and the related person
+     * The nature of the relationship between a patient and the related person.
      */
     protected CodeableConcept relationship;
 
     /**
-     * A name associated with the person
+     * A name associated with the person.
      */
     protected HumanName name;
 
@@ -69,12 +69,12 @@ public class RelatedPerson extends Resource {
     protected CodeableConcept gender;
 
     /**
-     * Address where the related person can be contacted or visited
+     * Address where the related person can be contacted or visited.
      */
     protected Address address;
 
     /**
-     * Image of the person
+     * Image of the person.
      */
     protected List<Attachment> photo = new ArrayList<Attachment>();
 

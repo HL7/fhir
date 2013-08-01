@@ -29,25 +29,25 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A request for a diagnostic investigation service to be performed
+ * A request for a diagnostic investigation service to be performed.
  */
 public class DiagnosticOrder extends Resource {
 
     public enum DiagnosticOrderStatus {
-        requested, // The request has been placed
-        received, // The receiving system has received the order, but not yet decided whether it will be performed
-        accepted, // The receiving system has accepted the order, but work has not yet commenced
-        inprogress, // The work to fulfill the order is happening
-        review, // The work is complete, and the outcomes are being reviewed for approval
-        complete, // The work has been complete, the report(s) released, and no further work is planned
-        suspended, // The request has been held by originating system/user request
-        rejected, // The receiving system has declined to fulfill the request
-        failed, // The diagnostic investigation was attempted, but due to some procedural error, it could not be completed
+        requested, // The request has been placed.
+        received, // The receiving system has received the order, but not yet decided whether it will be performed.
+        accepted, // The receiving system has accepted the order, but work has not yet commenced.
+        inprogress, // The work to fulfill the order is happening.
+        review, // The work is complete, and the outcomes are being reviewed for approval.
+        complete, // The work has been complete, the report(s) released, and no further work is planned.
+        suspended, // The request has been held by originating system/user request.
+        rejected, // The receiving system has declined to fulfill the request.
+        failed, // The diagnostic investigation was attempted, but due to some procedural error, it could not be completed.
         Null; // added to help the parsers
         public static DiagnosticOrderStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -138,17 +138,17 @@ public class DiagnosticOrder extends Resource {
 
     public class DiagnosticOrderEventComponent extends Element {
         /**
-         * The status for the event
+         * The status for the event.
          */
         protected Enumeration<DiagnosticOrderStatus> status;
 
         /**
-         * The date/time at which the event occurred
+         * The date/time at which the event occurred.
          */
         protected DateTime date;
 
         /**
-         * The person who was responsible for performing or recording the action
+         * The person who was responsible for performing or recording the action.
          */
         protected ResourceReference actor;
 
@@ -208,27 +208,27 @@ public class DiagnosticOrder extends Resource {
 
     public class DiagnosticOrderItemComponent extends Element {
         /**
-         * A code that identifies a particular diagnostic investigation that has been requested
+         * A code that identifies a particular diagnostic investigation that has been requested.
          */
         protected CodeableConcept code;
 
         /**
-         * If the item is related to a specific speciment
+         * If the item is related to a specific speciment.
          */
         protected List<ResourceReference> specimen = new ArrayList<ResourceReference>();
 
         /**
-         * Anatomical location where the request test should be performed
+         * Anatomical location where the request test should be performed.
          */
         protected CodeableConcept bodySite;
 
         /**
-         * The status of this individual item within the order
+         * The status of this individual item within the order.
          */
         protected Enumeration<DiagnosticOrderStatus> status;
 
         /**
-         * A summary of the events of interest that have occurred as this item of the request is processed
+         * A summary of the events of interest that have occurred as this item of the request is processed.
          */
         protected List<DiagnosticOrderEventComponent> event = new ArrayList<DiagnosticOrderEventComponent>();
 
@@ -295,47 +295,47 @@ public class DiagnosticOrder extends Resource {
   }
 
     /**
-     * Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans)
+     * Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).
      */
     protected ResourceReference subject;
 
     /**
-     * The practitioner that holds legal responsibility for ordering the investigation
+     * The practitioner that holds legal responsibility for ordering the investigation.
      */
     protected ResourceReference orderer;
 
     /**
-     * Identifiers assigned to this order by the order or by the receiver
+     * Identifiers assigned to this order by the order or by the receiver.
      */
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * A encounter that provides additional informaton about the healthcare context in which this request is made
+     * A encounter that provides additional informaton about the healthcare context in which this request is made.
      */
     protected ResourceReference encounter;
 
     /**
-     * An explanation or justification for why this diagnostic investigation is being requested
+     * An explanation or justification for why this diagnostic investigation is being requested.
      */
     protected String_ clinicalNotes;
 
     /**
-     * One or more specimens that the diagnostic investigation is about
+     * One or more specimens that the diagnostic investigation is about.
      */
     protected List<ResourceReference> specimen = new ArrayList<ResourceReference>();
 
     /**
-     * The status of the order
+     * The status of the order.
      */
     protected Enumeration<DiagnosticOrderStatus> status;
 
     /**
-     * A summary of the events of interest that have occurred as the request is processed
+     * A summary of the events of interest that have occurred as the request is processed.
      */
     protected List<DiagnosticOrderEventComponent> event = new ArrayList<DiagnosticOrderEventComponent>();
 
     /**
-     * The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested
+     * The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested.
      */
     protected List<DiagnosticOrderItemComponent> item = new ArrayList<DiagnosticOrderItemComponent>();
 

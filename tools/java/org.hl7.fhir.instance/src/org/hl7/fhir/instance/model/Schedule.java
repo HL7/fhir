@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -40,16 +40,16 @@ import java.math.*;
 public class Schedule extends Type {
 
     public enum EventTiming {
-        hS, // event occurs [duration] before the hour of sleep (or trying to)
-        wAKE, // event occurs [duration] after waking
-        aC, // event occurs [duration] before a meal (from the Latin ante cibus)
-        aCM, // event occurs [duration] before breakfast (from the Latin ante cibus matutinus)
-        aCD, // event occurs [duration] before lunch (from the Latin ante cibus diurnus)
-        aCV, // event occurs [duration] before dinner (from the Latin ante cibus vespertinus)
-        pC, // event occurs [duration] after a meal (from the Latin post cibus)
-        pCM, // event occurs [duration] after breakfast (from the Latin post cibus matutinus)
-        pCD, // event occurs [duration] after lunch (from the Latin post cibus diurnus)
-        pCV, // event occurs [duration] after dinner (from the Latin post cibus vespertinus)
+        hS, // event occurs [duration] before the hour of sleep (or trying to).
+        wAKE, // event occurs [duration] after waking.
+        aC, // event occurs [duration] before a meal (from the Latin ante cibus).
+        aCM, // event occurs [duration] before breakfast (from the Latin ante cibus matutinus).
+        aCD, // event occurs [duration] before lunch (from the Latin ante cibus diurnus).
+        aCV, // event occurs [duration] before dinner (from the Latin ante cibus vespertinus).
+        pC, // event occurs [duration] after a meal (from the Latin post cibus).
+        pCM, // event occurs [duration] after breakfast (from the Latin post cibus matutinus).
+        pCD, // event occurs [duration] after lunch (from the Latin post cibus diurnus).
+        pCV, // event occurs [duration] after dinner (from the Latin post cibus vespertinus).
         Null; // added to help the parsers
         public static EventTiming fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -146,13 +146,13 @@ public class Schedule extends Type {
     }
 
     public enum UnitsOfTime {
-        s, // second
-        min, // minute
-        h, // hour
-        d, // day
-        wk, // week
-        mo, // month
-        a, // year
+        s, // second.
+        min, // minute.
+        h, // hour.
+        d, // day.
+        wk, // week.
+        mo, // month.
+        a, // year.
         Null; // added to help the parsers
         public static UnitsOfTime fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -234,27 +234,27 @@ public class Schedule extends Type {
         protected Integer frequency;
 
         /**
-         * Identifies the occurrence of daily life that determine timing
+         * Identifies the occurrence of daily life that determine timing.
          */
         protected Enumeration<EventTiming> when;
 
         /**
-         * How long each repetition should last
+         * How long each repetition should last.
          */
         protected Decimal duration;
 
         /**
-         * The units of time for the duration
+         * The units of time for the duration.
          */
         protected Enumeration<UnitsOfTime> units;
 
         /**
-         * A total count of the desired number of repetitions
+         * A total count of the desired number of repetitions.
          */
         protected Integer count;
 
         /**
-         * When to stop repeats
+         * When to stop repeats.
          */
         protected DateTime end;
 
@@ -396,7 +396,7 @@ public class Schedule extends Type {
   }
 
     /**
-     * Identifies specific time periods when the event should occur
+     * Identifies specific time periods when the event should occur.
      */
     protected List<Period> event = new ArrayList<Period>();
 

@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * Simple assertions and measurements made about a patient, device or other subject
+ * Simple assertions and measurements made about a patient, device or other subject.
  */
 public class Observation extends Resource {
 
@@ -113,13 +113,13 @@ public class Observation extends Resource {
     }
 
     public enum ObservationReliability {
-        ok, // The result has no reliability concerns
-        ongoing, // An early estimate of value; measurement is still occurring
-        early, // An early estimate of value; processing is still occurring
-        questionable, // The observation value should be treated with care
-        calibrating, // The result has been generated while calibration is occurring
-        error, // The observation could not be completed because of an error
-        unknown, // No observation value was available
+        ok, // The result has no reliability concerns.
+        ongoing, // An early estimate of value; measurement is still occurring.
+        early, // An early estimate of value; processing is still occurring.
+        questionable, // The observation value should be treated with care.
+        calibrating, // The result has been generated while calibration is occurring.
+        error, // The observation could not be completed because of an error.
+        unknown, // No observation value was available.
         Null; // added to help the parsers
         public static ObservationReliability fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -196,12 +196,12 @@ public class Observation extends Resource {
 
     public class ObservationReferenceRangeComponent extends Element {
         /**
-         * Code for the meaning of the reference range
+         * Code for the meaning of the reference range.
          */
         protected CodeableConcept meaning;
 
         /**
-         * Actual value of the reference range.  May be a quantity (<20mg/L), an range (10-20 umol/L), or some text
+         * Actual value of the reference range.  May be a quantity (<20mg/L), an range (10-20 umol/L), or some text.
          */
         protected Type range;
 
@@ -232,12 +232,12 @@ public class Observation extends Resource {
 
     public class ObservationComponentComponent extends Element {
         /**
-         * Identifies what type of sub-observation was performed
+         * Identifies what type of sub-observation was performed.
          */
         protected CodeableConcept name;
 
         /**
-         * The information determined as a result of making the sub-observation
+         * The information determined as a result of making the sub-observation.
          */
         protected Type value;
 
@@ -267,12 +267,12 @@ public class Observation extends Resource {
   }
 
     /**
-     * Identifies what type of observation was performed
+     * Identifies what type of observation was performed.
      */
     protected CodeableConcept name;
 
     /**
-     * The information determined as a result of making the observation
+     * The information determined as a result of making the observation.
      */
     protected Type value;
 
@@ -292,17 +292,17 @@ public class Observation extends Resource {
     protected Type applies;
 
     /**
-     * Date/Time this was made available
+     * Date/Time this was made available.
      */
     protected Instant issued;
 
     /**
-     * The status of the result value
+     * The status of the result value.
      */
     protected Enumeration<ObservationStatus> status;
 
     /**
-     * An estimate of the degree to which quality issues have impacted on the value reported
+     * An estimate of the degree to which quality issues have impacted on the value reported.
      */
     protected Enumeration<ObservationReliability> reliability;
 
@@ -312,32 +312,32 @@ public class Observation extends Resource {
     protected CodeableConcept bodySite;
 
     /**
-     * Indicates the mechanism used to perform the observation
+     * Indicates the mechanism used to perform the observation.
      */
     protected CodeableConcept method;
 
     /**
-     * A unique identifier for the simple observation
+     * A unique identifier for the simple observation.
      */
     protected Identifier identifier;
 
     /**
-     * The thing the observation is being made about
+     * The thing the observation is being made about.
      */
     protected ResourceReference subject;
 
     /**
-     * Who was responsible for asserting the observed value as "true"
+     * Who was responsible for asserting the observed value as "true".
      */
     protected ResourceReference performer;
 
     /**
-     * Guidance on how to interpret the value by comparison to a normal or recommended range
+     * Guidance on how to interpret the value by comparison to a normal or recommended range.
      */
     protected List<ObservationReferenceRangeComponent> referenceRange = new ArrayList<ObservationReferenceRangeComponent>();
 
     /**
-     * Component observation
+     * Component observation.
      */
     protected List<ObservationComponentComponent> component = new ArrayList<ObservationComponentComponent>();
 

@@ -66,7 +66,7 @@ public class NarrativeGenerator {
     if (vs.getCopyright() != null)
       generateCopyright(x, vs);
     p = x.addTag("p");
-    p.addText("This value set defines its own terms in the system "+vs.getDefine().getSystemSimple());
+    p.addText("This value set defines it's own terms in the system "+vs.getDefine().getSystemSimple());
     XhtmlNode t = x.addTag("table");
     addTableHeaderRowStandard(t, false);
     for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
@@ -216,8 +216,8 @@ public class NarrativeGenerator {
   private String describe(FilterOperator opSimple) {
     switch (opSimple) {
     case equal: return " = ";
-    case isA: return " is-a ";
-    case isNotA: return " is-not-a ";
+    case isa: return " is-a ";
+    case isnota: return " is-not-a ";
     case regex: return " matches (by regex) ";
     
     }
@@ -407,10 +407,10 @@ public class NarrativeGenerator {
       tr.addTag("td").addText(showOp(r, RestfulOperation.vread));
       tr.addTag("td").addText(showOp(r, RestfulOperation.search));
       tr.addTag("td").addText(showOp(r, RestfulOperation.update));
-      tr.addTag("td").addText(showOp(r, RestfulOperation.historyMinusinstance));
+      tr.addTag("td").addText(showOp(r, RestfulOperation.historyinstance));
       tr.addTag("td").addText(showOp(r, RestfulOperation.create));
       tr.addTag("td").addText(showOp(r, RestfulOperation.delete));
-      tr.addTag("td").addText(showOp(r, RestfulOperation.historyMinustype));
+      tr.addTag("td").addText(showOp(r, RestfulOperation.historytype));
     }
     
     conf.setText(new Narrative());

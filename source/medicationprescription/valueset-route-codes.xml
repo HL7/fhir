@@ -32,7 +32,7 @@
       <filter>
         <!-- Snomed CT - Children of SCTID: 284009009 "route of administration value" -->
         <property value="concept"/>
-        <op value="is_a"/>
+        <op value="is-a"/>
         <value value="284009009"/>
       </filter>
     </include>

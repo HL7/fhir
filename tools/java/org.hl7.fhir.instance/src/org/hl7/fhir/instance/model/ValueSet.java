@@ -29,19 +29,19 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 30, 2013 10:16+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A value set specifies a set of codes drawn from one or more code systems
+ * A value set specifies a set of codes drawn from one or more code systems.
  */
 public class ValueSet extends Resource {
 
     public enum ValuesetStatus {
-        draft, // This valueset is still under development
-        active, // This valueset is ready for normal use
-        retired, // This valueset has been withdrawn or superceded and should no longer be used
+        draft, // This valueset is still under development.
+        active, // This valueset is ready for normal use.
+        retired, // This valueset has been withdrawn or superceded and should no longer be used.
         Null; // added to help the parsers
         public static ValuesetStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -89,20 +89,20 @@ public class ValueSet extends Resource {
     }
 
     public enum FilterOperator {
-        equal, // The property value has the concept specified by the value
-        isA, // The property value has a concept that has an is_a relationship with the value
-        isNotA, // The property value has a concept that does not have an is_a relationship with the value
-        regex, // The property value representation matches the regex specified in the value
+        equal, // The property value has the concept specified by the value.
+        isa, // The property value has a concept that has an is_a relationship with the value.
+        isnota, // The property value has a concept that does not have an is_a relationship with the value.
+        regex, // The property value representation matches the regex specified in the value.
         Null; // added to help the parsers
         public static FilterOperator fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("=".equals(codeString))
           return equal;
-        if ("is_a".equals(codeString))
-          return isA;
-        if ("is_not_a".equals(codeString))
-          return isNotA;
+        if ("is-a".equals(codeString))
+          return isa;
+        if ("is-not-a".equals(codeString))
+          return isnota;
         if ("regex".equals(codeString))
           return regex;
         throw new Exception("Unknown FilterOperator code '"+codeString+"'");
@@ -110,8 +110,8 @@ public class ValueSet extends Resource {
         public String toCode() {
           switch (this) {
             case equal: return "=";
-            case isA: return "is_a";
-            case isNotA: return "is_not_a";
+            case isa: return "is-a";
+            case isnota: return "is-not-a";
             case regex: return "regex";
             default: return "?";
           }
@@ -125,10 +125,10 @@ public class ValueSet extends Resource {
                 return null;
         if ("=".equals(codeString))
           return FilterOperator.equal;
-        if ("is_a".equals(codeString))
-          return FilterOperator.isA;
-        if ("is_not_a".equals(codeString))
-          return FilterOperator.isNotA;
+        if ("is-a".equals(codeString))
+          return FilterOperator.isa;
+        if ("is-not-a".equals(codeString))
+          return FilterOperator.isnota;
         if ("regex".equals(codeString))
           return FilterOperator.regex;
         throw new Exception("Unknown FilterOperator code '"+codeString+"'");
@@ -136,10 +136,10 @@ public class ValueSet extends Resource {
     public String toCode(Enum<?> code) throws Exception {
       if (code == FilterOperator.equal)
         return "=";
-      if (code == FilterOperator.isA)
-        return "is_a";
-      if (code == FilterOperator.isNotA)
-        return "is_not_a";
+      if (code == FilterOperator.isa)
+        return "is-a";
+      if (code == FilterOperator.isnota)
+        return "is-not-a";
       if (code == FilterOperator.regex)
         return "regex";
       return "?";
@@ -148,17 +148,17 @@ public class ValueSet extends Resource {
 
     public class ValueSetDefineComponent extends Element {
         /**
-         * URI to identify the code system
+         * URI to identify the code system.
          */
         protected Uri system;
 
         /**
-         * If code comparison is case sensitive when codes within this systemare compared to each other
+         * If code comparison is case sensitive when codes within this systemare compared to each other.
          */
         protected Boolean caseSensitive;
 
         /**
-         * Concepts in the code system
+         * Concepts in the code system.
          */
         protected List<ValueSetDefineConceptComponent> concept = new ArrayList<ValueSetDefineConceptComponent>();
 
@@ -220,27 +220,27 @@ public class ValueSet extends Resource {
 
     public class ValueSetDefineConceptComponent extends Element {
         /**
-         * Code that identifies concept
+         * Code that identifies concept.
          */
         protected Code code;
 
         /**
-         * If this code is not for use as a real concept
+         * If this code is not for use as a real concept.
          */
         protected Boolean abstract_;
 
         /**
-         * Text to Display to the user
+         * Text to Display to the user.
          */
         protected String_ display;
 
         /**
-         * Formal Definition
+         * Formal Definition.
          */
         protected String_ definition;
 
         /**
-         * Child Concepts (is-a / contains)
+         * Child Concepts (is-a / contains).
          */
         protected List<ValueSetDefineConceptComponent> concept = new ArrayList<ValueSetDefineConceptComponent>();
 
@@ -348,17 +348,17 @@ public class ValueSet extends Resource {
 
     public class ValueSetComposeComponent extends Element {
         /**
-         * Includes the contents of the referenced value set as part of the contents of this value set
+         * Includes the contents of the referenced value set as part of the contents of this value set.
          */
         protected List<Uri> import_ = new ArrayList<Uri>();
 
         /**
-         * Include one or more codes from a code system
+         * Include one or more codes from a code system.
          */
         protected List<ConceptSetComponent> include = new ArrayList<ConceptSetComponent>();
 
         /**
-         * Exclude one or more codes from the value set
+         * Exclude one or more codes from the value set.
          */
         protected List<ConceptSetComponent> exclude = new ArrayList<ConceptSetComponent>();
 
@@ -392,17 +392,17 @@ public class ValueSet extends Resource {
 
     public class ConceptSetComponent extends Element {
         /**
-         * The code system from which the selected codes come from
+         * The code system from which the selected codes come from.
          */
         protected Uri system;
 
         /**
-         * The version of the code system that the codes are selected from
+         * The version of the code system that the codes are selected from.
          */
         protected String_ version;
 
         /**
-         * Specifies a code or concept to be included or excluded
+         * Specifies a code or concept to be included or excluded.
          */
         protected List<Code> code = new ArrayList<Code>();
 
@@ -476,17 +476,17 @@ public class ValueSet extends Resource {
 
     public class ConceptSetFilterComponent extends Element {
         /**
-         * A code that identifies a property defined in the code system
+         * A code that identifies a property defined in the code system.
          */
         protected Code property;
 
         /**
-         * The kind of operation to perform as part of the filter criteria
+         * The kind of operation to perform as part of the filter criteria.
          */
         protected Enumeration<FilterOperator> op;
 
         /**
-         * The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value
+         * The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value.
          */
         protected Code value;
 
@@ -556,12 +556,12 @@ public class ValueSet extends Resource {
 
     public class ValueSetExpansionComponent extends Element {
         /**
-         * Time valueset expansion happened
+         * Time valueset expansion happened.
          */
         protected Instant timestamp;
 
         /**
-         * Codes in the value set
+         * Codes in the value set.
          */
         protected List<ValueSetExpansionContainsComponent> contains = new ArrayList<ValueSetExpansionContainsComponent>();
 
@@ -600,22 +600,22 @@ public class ValueSet extends Resource {
 
     public class ValueSetExpansionContainsComponent extends Element {
         /**
-         * System value for the code
+         * System value for the code.
          */
         protected Uri system;
 
         /**
-         * Code - if blank, this is not a choosable code
+         * Code - if blank, this is not a choosable code.
          */
         protected Code code;
 
         /**
-         * User display for the concept
+         * User display for the concept.
          */
         protected String_ display;
 
         /**
-         * Codes contained in this concept
+         * Codes contained in this concept.
          */
         protected List<ValueSetExpansionContainsComponent> contains = new ArrayList<ValueSetExpansionContainsComponent>();
 
@@ -703,27 +703,27 @@ public class ValueSet extends Resource {
   }
 
     /**
-     * The identifier that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI)
+     * The identifier that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
      */
     protected String_ identifier;
 
     /**
-     * The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp
+     * The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
     protected String_ version;
 
     /**
-     * A free text natural language name describing the value set
+     * A free text natural language name describing the value set.
      */
     protected String_ name;
 
     /**
-     * The name of the individual or organization that published the value set
+     * The name of the individual or organization that published the value set.
      */
     protected String_ publisher;
 
     /**
-     * Contacts of the publisher to assist a user in finding and communicating with the publisher
+     * Contacts of the publisher to assist a user in finding and communicating with the publisher.
      */
     protected List<Contact> telecom = new ArrayList<Contact>();
 
@@ -733,37 +733,37 @@ public class ValueSet extends Resource {
     protected String_ description;
 
     /**
-     * A copyright statement relating to the value set and/or it's contents
+     * A copyright statement relating to the value set and/or its contents.
      */
     protected String_ copyright;
 
     /**
-     * The status of the value set
+     * The status of the value set.
      */
     protected Enumeration<ValuesetStatus> status;
 
     /**
-     * This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
+     * This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
     protected Boolean experimental;
 
     /**
-     * The date that the value set status was last changed
+     * The date that the value set status was last changed.
      */
     protected DateTime date;
 
     /**
-     * When value set defines it's own codes
+     * When value set defines its own codes.
      */
     protected ValueSetDefineComponent define;
 
     /**
-     * When value set includes codes from elsewhere
+     * When value set includes codes from elsewhere.
      */
     protected ValueSetComposeComponent compose;
 
     /**
-     * When value set is an expansion
+     * When value set is an expansion.
      */
     protected ValueSetExpansionComponent expansion;
 

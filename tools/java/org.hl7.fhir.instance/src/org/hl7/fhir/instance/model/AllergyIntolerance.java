@@ -29,20 +29,20 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * Allergy/Intolerance
+ * Allergy/Intolerance.
  */
 public class AllergyIntolerance extends Resource {
 
     public enum Criticality {
-        fatal, // Likely to result in death if re-exposed
-        high, // Likely to result in reactions that will need to be treated if re-exposed
-        medium, // Likely to result in reactions that will inconvenience the subject
-        low, // Not likely to result in any inconveniences for the subject
+        fatal, // Likely to result in death if re-exposed.
+        high, // Likely to result in reactions that will need to be treated if re-exposed.
+        medium, // Likely to result in reactions that will inconvenience the subject.
+        low, // Not likely to result in any inconveniences for the subject.
         Null; // added to help the parsers
         public static Criticality fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -97,9 +97,9 @@ public class AllergyIntolerance extends Resource {
     }
 
     public enum Sensitivitytype {
-        allergy, // Allergic Reaction
-        intolerance, // Non-Allergic Reaction
-        unknown, // Unknown type
+        allergy, // Allergic Reaction.
+        intolerance, // Non-Allergic Reaction.
+        unknown, // Unknown type.
         Null; // added to help the parsers
         public static Sensitivitytype fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -147,10 +147,10 @@ public class AllergyIntolerance extends Resource {
     }
 
     public enum Sensitivitystatus {
-        suspected, // A suspected sensitivity to a substance
-        confirmed, // The sensitivity has been confirmed and is active
-        refuted, // The sensitivity has been shown to never have existed
-        resolved, // The sensitivity used to exist but no longer does
+        suspected, // A suspected sensitivity to a substance.
+        confirmed, // The sensitivity has been confirmed and is active.
+        refuted, // The sensitivity has been shown to never have existed.
+        resolved, // The sensitivity used to exist but no longer does.
         Null; // added to help the parsers
         public static Sensitivitystatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -205,52 +205,52 @@ public class AllergyIntolerance extends Resource {
     }
 
     /**
-     * An external identifier for the sensitivity
+     * An external identifier for the sensitivity.
      */
     protected Identifier identifier;
 
     /**
-     * Criticality of the sensitivity
+     * Criticality of the sensitivity.
      */
     protected Enumeration<Criticality> criticality;
 
     /**
-     * Type of the sensitivity
+     * Type of the sensitivity.
      */
     protected Enumeration<Sensitivitytype> sensitivityType;
 
     /**
-     * Date when the sensitivity was recorded
+     * Date when the sensitivity was recorded.
      */
     protected DateTime recordedDate;
 
     /**
-     * Suspected, Confirmed, Refuted, Resolved
+     * Suspected, Confirmed, Refuted, Resolved.
      */
     protected Enumeration<Sensitivitystatus> status;
 
     /**
-     * Who the sensitivity is for
+     * Who the sensitivity is for.
      */
     protected ResourceReference subject;
 
     /**
-     * Who recorded the sensitivity
+     * Who recorded the sensitivity.
      */
     protected ResourceReference recorder;
 
     /**
-     * The substance that causes the sensitivity
+     * The substance that causes the sensitivity.
      */
     protected ResourceReference substance;
 
     /**
-     * Reactions associated with the sensitivity
+     * Reactions associated with the sensitivity.
      */
     protected List<ResourceReference> reaction = new ArrayList<ResourceReference>();
 
     /**
-     * Observations that confirm or refute the sensitivity
+     * Observations that confirm or refute the sensitivity.
      */
     protected List<ResourceReference> sensitivityTest = new ArrayList<ResourceReference>();
 

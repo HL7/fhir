@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * The findings and interpretation of diagnostic  tests performed on patients and/or specimens. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretation, and formatted representation of diagnostic reports
+ * The findings and interpretation of diagnostic  tests performed on patients and/or specimens. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretation, and formatted representation of diagnostic reports.
  */
 public class DiagnosticReport extends Resource {
 
@@ -114,7 +114,7 @@ public class DiagnosticReport extends Resource {
 
     public class DiagnosticReportRequestDetailComponent extends Element {
         /**
-         * The encounter that this diagnostic investigation is associated with
+         * The encounter that this diagnostic investigation is associated with.
          */
         protected ResourceReference encounter;
 
@@ -124,27 +124,27 @@ public class DiagnosticReport extends Resource {
         protected Identifier requestOrderId;
 
         /**
-         * The local ID assigned to the test order by the diagnostic service provider
+         * The local ID assigned to the test order by the diagnostic service provider.
          */
         protected Identifier receiverOrderId;
 
         /**
-         * Identification of pathology test requested,
+         * Identification of pathology test requested,.
          */
         protected List<CodeableConcept> requestTest = new ArrayList<CodeableConcept>();
 
         /**
-         * Anatomical location where the request test should be performed
+         * Anatomical location where the request test should be performed.
          */
         protected CodeableConcept bodySite;
 
         /**
-         * Details of the clinician or organisation requesting the diagnostic service
+         * Details of the clinician or organisation requesting the diagnostic service.
          */
         protected ResourceReference requester;
 
         /**
-         * Details of the clinical information provided to the diagnostic service along with the original request
+         * Details of the clinical information provided to the diagnostic service along with the original request.
          */
         protected String_ clinicalInfo;
 
@@ -232,17 +232,17 @@ public class DiagnosticReport extends Resource {
 
     public class ResultGroupComponent extends Element {
         /**
-         * A code or name that describes this group of results. For the base group, this is the report name
+         * A code or name that describes this group of results. For the base group, this is the report name.
          */
         protected CodeableConcept name;
 
         /**
-         * Details about the individual specimen to which these 'Result group' test results refer
+         * Details about the individual specimen to which these 'Result group' test results refer.
          */
         protected ResourceReference specimen;
 
         /**
-         * A sub-group in a report group. Sub groups can be grouped in arbitrary ways. The group.name defines the purpose and interpretation of the grouping
+         * A sub-group in a report group. Sub groups can be grouped in arbitrary ways. The group.name defines the purpose and interpretation of the grouping.
          */
         protected List<ResultGroupComponent> group = new ArrayList<ResultGroupComponent>();
 
@@ -291,27 +291,27 @@ public class DiagnosticReport extends Resource {
   }
 
     /**
-     * The status of the diagnostic report as a whole
+     * The status of the diagnostic report as a whole.
      */
     protected Enumeration<ObservationStatus> status;
 
     /**
-     * The date and/or time that this version of the report was released from the source diagnostic service
+     * The date and/or time that this version of the report was released from the source diagnostic service.
      */
     protected DateTime issued;
 
     /**
-     * The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources
+     * The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.
      */
     protected ResourceReference subject;
 
     /**
-     * The diagnostic service that is responsible for issuing the report
+     * The diagnostic service that is responsible for issuing the report.
      */
     protected ResourceReference performer;
 
     /**
-     * The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider
+     * The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider.
      */
     protected Identifier reportId;
 
@@ -321,12 +321,12 @@ public class DiagnosticReport extends Resource {
     protected List<DiagnosticReportRequestDetailComponent> requestDetail = new ArrayList<DiagnosticReportRequestDetailComponent>();
 
     /**
-     * The section of the diagnostic service that performs the examination e.g. biochemistry, haematology, MRI
+     * The section of the diagnostic service that performs the examination e.g. biochemistry, haematology, MRI.
      */
     protected CodeableConcept serviceCategory;
 
     /**
-     * The diagnostically relevant time for this report
+     * The diagnostically relevant time for this report.
      */
     protected DateTime diagnosticTime;
 
@@ -336,17 +336,17 @@ public class DiagnosticReport extends Resource {
     protected ResultGroupComponent results;
 
     /**
-     * A list of key images associated with this report. The images are generally created during the diagnostic process, and maybe directly of the patient, or of treated specimens (i.e. slides of interest)
+     * A list of key images associated with this report. The images are generally created during the diagnostic process, and maybe directly of the patient, or of treated specimens (i.e. slides of interest).
      */
     protected List<ResourceReference> image = new ArrayList<ResourceReference>();
 
     /**
-     * Concise and clinically contextualised narrative interpretation of the diagnostic report
+     * Concise and clinically contextualised narrative interpretation of the diagnostic report.
      */
     protected String_ conclusion;
 
     /**
-     * Codes for the conclusion
+     * Codes for the conclusion.
      */
     protected List<CodeableConcept> codedDiagnosis = new ArrayList<CodeableConcept>();
 

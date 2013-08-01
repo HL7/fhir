@@ -29,19 +29,19 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A conformance statement about how an application or implementation supports FHIR or the set of requirements for a desired implementation
+ * A conformance statement about how an application or implementation supports FHIR or the set of requirements for a desired implementation.
  */
 public class Conformance extends Resource {
 
     public enum ConformanceStatementStatus {
-        draft, // This conformance statement is still under development
-        active, // This conformance statement is ready for use in production systems
-        retired, // This conformance statement has been withdrawn or superceded and should no longer be used
+        draft, // This conformance statement is still under development.
+        active, // This conformance statement is ready for use in production systems.
+        retired, // This conformance statement has been withdrawn or superceded and should no longer be used.
         Null; // added to help the parsers
         public static ConformanceStatementStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -89,8 +89,8 @@ public class Conformance extends Resource {
     }
 
     public enum RestfulConformanceMode {
-        client, // The application acts as a server for this resource
-        server, // The application acts as a client for this resource
+        client, // The application acts as a server for this resource.
+        server, // The application acts as a client for this resource.
         Null; // added to help the parsers
         public static RestfulConformanceMode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -131,17 +131,17 @@ public class Conformance extends Resource {
     }
 
     public enum RestfulOperation {
-        read, // Read the current state of the resource
-        vread, // Read the state of a specific version of the resource
-        update, // Update an existing resource by its id (or create it if it is new)
-        delete, // Delete a resource
-        historyMinusinstance, // Retrieve the update history for a resource instance
-        validate, // Check that the content would be acceptable as an update
-        historyMinustype, // Get a list of updates to resources of this type
-        create, // Create a new resource with a server assigned id
-        search, // Supports search operations using the parameters described in the profile
-        transaction, // Transaction performed on multiple resources
-        historyMinussystem, // Get a list of updates to all resources on the system
+        read, // Read the current state of the resource.
+        vread, // Read the state of a specific version of the resource.
+        update, // Update an existing resource by its id (or create it if it is new).
+        delete, // Delete a resource.
+        historyinstance, // Retrieve the update history for a resource instance.
+        validate, // Check that the content would be acceptable as an update.
+        historytype, // Get a list of updates to resources of this type.
+        create, // Create a new resource with a server assigned id.
+        search, // Supports search operations using the parameters described in the profile.
+        transaction, // Transaction performed on multiple resources.
+        historysystem, // Get a list of updates to all resources on the system.
         Null; // added to help the parsers
         public static RestfulOperation fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -155,11 +155,11 @@ public class Conformance extends Resource {
         if ("delete".equals(codeString))
           return delete;
         if ("history-instance".equals(codeString))
-          return historyMinusinstance;
+          return historyinstance;
         if ("validate".equals(codeString))
           return validate;
         if ("history-type".equals(codeString))
-          return historyMinustype;
+          return historytype;
         if ("create".equals(codeString))
           return create;
         if ("search".equals(codeString))
@@ -167,7 +167,7 @@ public class Conformance extends Resource {
         if ("transaction".equals(codeString))
           return transaction;
         if ("history-system".equals(codeString))
-          return historyMinussystem;
+          return historysystem;
         throw new Exception("Unknown RestfulOperation code '"+codeString+"'");
         }
         public String toCode() {
@@ -176,13 +176,13 @@ public class Conformance extends Resource {
             case vread: return "vread";
             case update: return "update";
             case delete: return "delete";
-            case historyMinusinstance: return "history-instance";
+            case historyinstance: return "history-instance";
             case validate: return "validate";
-            case historyMinustype: return "history-type";
+            case historytype: return "history-type";
             case create: return "create";
             case search: return "search";
             case transaction: return "transaction";
-            case historyMinussystem: return "history-system";
+            case historysystem: return "history-system";
             default: return "?";
           }
         }
@@ -202,11 +202,11 @@ public class Conformance extends Resource {
         if ("delete".equals(codeString))
           return RestfulOperation.delete;
         if ("history-instance".equals(codeString))
-          return RestfulOperation.historyMinusinstance;
+          return RestfulOperation.historyinstance;
         if ("validate".equals(codeString))
           return RestfulOperation.validate;
         if ("history-type".equals(codeString))
-          return RestfulOperation.historyMinustype;
+          return RestfulOperation.historytype;
         if ("create".equals(codeString))
           return RestfulOperation.create;
         if ("search".equals(codeString))
@@ -214,7 +214,7 @@ public class Conformance extends Resource {
         if ("transaction".equals(codeString))
           return RestfulOperation.transaction;
         if ("history-system".equals(codeString))
-          return RestfulOperation.historyMinussystem;
+          return RestfulOperation.historysystem;
         throw new Exception("Unknown RestfulOperation code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -226,11 +226,11 @@ public class Conformance extends Resource {
         return "update";
       if (code == RestfulOperation.delete)
         return "delete";
-      if (code == RestfulOperation.historyMinusinstance)
+      if (code == RestfulOperation.historyinstance)
         return "history-instance";
       if (code == RestfulOperation.validate)
         return "validate";
-      if (code == RestfulOperation.historyMinustype)
+      if (code == RestfulOperation.historytype)
         return "history-type";
       if (code == RestfulOperation.create)
         return "create";
@@ -238,20 +238,20 @@ public class Conformance extends Resource {
         return "search";
       if (code == RestfulOperation.transaction)
         return "transaction";
-      if (code == RestfulOperation.historyMinussystem)
+      if (code == RestfulOperation.historysystem)
         return "history-system";
       return "?";
       }
     }
 
     public enum SearchParamType {
-        integer, // Search parameter must be a simple whole number
+        integer, // Search parameter must be a simple whole number.
         string, // Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces and are delineated by double quotes, e.g. "van Zanten".
         text, // Search parameter is on a long string. Used for text filter type search: it functions on searches within a body of text and may contain spaces to separate words. May match even if the separate words are found out of order. Text parameters are delineated by double quotes.
-        date, // Search parameter is on a date (and should support :before and :after modifiers). The date format is the standard XML format, though other formats may be supported
-        token, // Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). It's value is either a string or a pair of namespace and value, separated by a "!".
-        reference, // A pair of resource type and resource id, separated by "/". Matches when the resource reference resolves to a resource of the given type and id.
-        composite, // A composite search parameter that combines other search parameters together
+        date, // Search parameter is on a date (and should support :before and :after modifiers). The date format is the standard XML format, though other formats may be supported.
+        token, // Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "/", depending on the modifier used.
+        reference, // A pair of resource type and resource id, separated by "/". Matches when the resource reference resolves to a resource of the given type and id. The resource type may be omitted to search all types if used with the modifier :any.
+        composite, // A composite search parameter that combines other search parameters together.
         Null; // added to help the parsers
         public static SearchParamType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -327,8 +327,8 @@ public class Conformance extends Resource {
     }
 
     public enum MessageConformanceEventMode {
-        sender, // The application sends requests and receives responses
-        receiver, // The application receives requests and sends responses
+        sender, // The application sends requests and receives responses.
+        receiver, // The application receives requests and sends responses.
         Null; // added to help the parsers
         public static MessageConformanceEventMode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -369,8 +369,8 @@ public class Conformance extends Resource {
     }
 
     public enum DocumentMode {
-        producer, // The application produces documents of the specified type
-        consumer, // The application consumes documents of the specified type
+        producer, // The application produces documents of the specified type.
+        consumer, // The application consumes documents of the specified type.
         Null; // added to help the parsers
         public static DocumentMode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -412,17 +412,17 @@ public class Conformance extends Resource {
 
     public class ConformanceSoftwareComponent extends Element {
         /**
-         * Name software is known by
+         * Name software is known by.
          */
         protected String_ name;
 
         /**
-         * Version covered by this statement
+         * Version covered by this statement.
          */
         protected String_ version;
 
         /**
-         * Date this version of the software released
+         * Date this version of the software released.
          */
         protected DateTime releaseDate;
 
@@ -500,7 +500,7 @@ public class Conformance extends Resource {
 
     public class ConformanceImplementationComponent extends Element {
         /**
-         * Information about the specific installation that this conformance statement relates to
+         * Information about the specific installation that this conformance statement relates to.
          */
         protected String_ description;
 
@@ -560,37 +560,37 @@ public class Conformance extends Resource {
 
     public class ConformanceRestComponent extends Element {
         /**
-         * Identifies whether this portion of the statement is describing ability to initiate or receive restful operations
+         * Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.
          */
         protected Enumeration<RestfulConformanceMode> mode;
 
         /**
-         * Provides documentation about the system's restful capabilities that apply across all applications, such as security
+         * Provides documentation about the system's restful capabilities that apply across all applications, such as security.
          */
         protected String_ documentation;
 
         /**
-         * Information about security of implementation
+         * Information about security of implementation.
          */
         protected ConformanceRestSecurityComponent security;
 
         /**
-         * Identifies the restful capabilities of the solution for a specific resource type
+         * Identifies the restful capabilities of the solution for a specific resource type.
          */
         protected List<ConformanceRestResourceComponent> resource = new ArrayList<ConformanceRestResourceComponent>();
 
         /**
-         * If batches are supported
+         * If batches are supported.
          */
         protected Boolean batch;
 
         /**
-         * If a system wide history list is supported
+         * If a system wide history list is supported.
          */
         protected Boolean history;
 
         /**
-         * Definition of a named query and it's parameters and their meaning
+         * Definition of a named query and its parameters and their meaning.
          */
         protected List<ConformanceRestQueryComponent> query = new ArrayList<ConformanceRestQueryComponent>();
 
@@ -714,17 +714,17 @@ public class Conformance extends Resource {
 
     public class ConformanceRestSecurityComponent extends Element {
         /**
-         * What type of security services are supported/required
+         * What type of security services are supported/required.
          */
         protected List<CodeableConcept> service = new ArrayList<CodeableConcept>();
 
         /**
-         * General description of how security works
+         * General description of how security works.
          */
         protected String_ description;
 
         /**
-         * Certificates associated with security profiles
+         * Certificates associated with security profiles.
          */
         protected List<ConformanceRestSecurityCertificateComponent> certificate = new ArrayList<ConformanceRestSecurityCertificateComponent>();
 
@@ -774,12 +774,12 @@ public class Conformance extends Resource {
 
     public class ConformanceRestSecurityCertificateComponent extends Element {
         /**
-         * Mime type for certificate
+         * Mime type for certificate.
          */
         protected Code type;
 
         /**
-         * Actual certificate
+         * Actual certificate.
          */
         protected Base64Binary blob;
 
@@ -838,32 +838,32 @@ public class Conformance extends Resource {
 
     public class ConformanceRestResourceComponent extends Element {
         /**
-         * Identifies the resource exposed via the restful interface
+         * Identifies the resource exposed via the restful interface.
          */
         protected Code type;
 
         /**
-         * Identifies the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations
+         * Identifies the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.
          */
         protected ResourceReference profile;
 
         /**
-         * Identifies a restful operation supported by the solution
+         * Identifies a restful operation supported by the solution.
          */
         protected List<ConformanceRestResourceOperationComponent> operation = new ArrayList<ConformanceRestResourceOperationComponent>();
 
         /**
-         * A flag for whether the server is able to return past versions as part of the vRead operation
+         * A flag for whether the server is able to return past versions as part of the vRead operation.
          */
         protected Boolean readHistory;
 
         /**
-         * _include values supported by the server
+         * _include values supported by the server.
          */
         protected List<String_> searchInclude = new ArrayList<String_>();
 
         /**
-         * Defines additional search parameters for implementations to support and/or make use of
+         * Defines additional search parameters for implementations to support and/or make use of.
          */
         protected List<ConformanceRestResourceSearchParamComponent> searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
 
@@ -948,12 +948,12 @@ public class Conformance extends Resource {
 
     public class ConformanceRestResourceOperationComponent extends Element {
         /**
-         * Identifies which operation is supported
+         * Identifies which operation is supported.
          */
         protected Enumeration<RestfulOperation> code;
 
         /**
-         * Provides guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'
+         * Provides guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.
          */
         protected String_ documentation;
 
@@ -1008,37 +1008,37 @@ public class Conformance extends Resource {
 
     public class ConformanceRestResourceSearchParamComponent extends Element {
         /**
-         * Corresponds to the name of the standard or custom search parameter
+         * Corresponds to the name of the standard or custom search parameter.
          */
         protected String_ name;
 
         /**
-         * A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter
+         * A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.
          */
         protected Uri source;
 
         /**
-         * The type of value a search parameter refers to, and how the content is interpreted
+         * The type of value a search parameter refers to, and how the content is interpreted.
          */
         protected Enumeration<SearchParamType> type;
 
         /**
-         * For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does
+         * For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.
          */
         protected String_ documentation;
 
         /**
-         * An XPath expression that extracts the set of elements that contain values that a search parameter matches
+         * An XPath expression that extracts the set of elements that contain values that a search parameter matches.
          */
         protected String_ xpath;
 
         /**
-         * Types of resource (if a resource reference)
+         * Types of resource (if a resource reference).
          */
         protected List<Code> target = new ArrayList<Code>();
 
         /**
-         * Chained names supported
+         * Chained names supported.
          */
         protected List<String_> chain = new ArrayList<String_>();
 
@@ -1168,17 +1168,17 @@ public class Conformance extends Resource {
 
     public class ConformanceRestQueryComponent extends Element {
         /**
-         * The name of this query, which is used in the _query parameter when the query is used
+         * The name of this query, which is used in the _query parameter when the query is used.
          */
         protected String_ name;
 
         /**
-         * Description of the query - the functionality it offers, and considerations about how it functions and to use it
+         * Description of the query - the functionality it offers, and considerations about how it functions and to use it.
          */
         protected String_ documentation;
 
         /**
-         * Parameter for the named query
+         * Parameter for the named query.
          */
         protected List<ConformanceRestResourceSearchParamComponent> parameter = new ArrayList<ConformanceRestResourceSearchParamComponent>();
 
@@ -1241,7 +1241,7 @@ public class Conformance extends Resource {
         protected Uri endpoint;
 
         /**
-         * The length if the receiver's reliable messaging cache length (if a receiver) or how long the cache length on the receiver should be (if a sender)
+         * The length if the receiver's reliable messaging cache length (if a receiver) or how long the cache length on the receiver should be (if a sender).
          */
         protected Integer reliableCache;
 
@@ -1340,17 +1340,17 @@ public class Conformance extends Resource {
 
     public class ConformanceMessagingEventComponent extends Element {
         /**
-         * Identifies the supported messaging event
+         * Identifies the supported messaging event.
          */
         protected Code code;
 
         /**
-         * The mode of this event declaration - whether application is sender or receiver
+         * The mode of this event declaration - whether application is sender or receiver.
          */
         protected Enumeration<MessageConformanceEventMode> mode;
 
         /**
-         * Identifies the messaging transport protocol(s) supported by this endpoint
+         * Identifies the messaging transport protocol(s) supported by this endpoint.
          */
         protected List<Coding> protocol = new ArrayList<Coding>();
 
@@ -1360,12 +1360,12 @@ public class Conformance extends Resource {
         protected Code focus;
 
         /**
-         * Information about the request for this event
+         * Information about the request for this event.
          */
         protected ResourceReference request;
 
         /**
-         * Information about the response for this event
+         * Information about the response for this event.
          */
         protected ResourceReference response;
 
@@ -1488,7 +1488,7 @@ public class Conformance extends Resource {
 
     public class ConformanceDocumentComponent extends Element {
         /**
-         * The mode of this event declaration - whether application is sender or receiver
+         * The mode of this event declaration - whether application is sender or receiver.
          */
         protected Enumeration<DocumentMode> mode;
 
@@ -1498,7 +1498,7 @@ public class Conformance extends Resource {
         protected String_ documentation;
 
         /**
-         * Constraint on a resource used in the document
+         * Constraint on a resource used in the document.
          */
         protected ResourceReference profile;
 
@@ -1561,22 +1561,22 @@ public class Conformance extends Resource {
   }
 
     /**
-     * The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI)
+     * The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
      */
     protected String_ identifier;
 
     /**
-     * The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp
+     * The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
     protected String_ version;
 
     /**
-     * A free text natural language name identifying the conformance statement
+     * A free text natural language name identifying the conformance statement.
      */
     protected String_ name;
 
     /**
-     * Name of Organization
+     * Name of Organization.
      */
     protected String_ publisher;
 
@@ -1586,22 +1586,22 @@ public class Conformance extends Resource {
     protected List<Contact> telecom = new ArrayList<Contact>();
 
     /**
-     * A free text natural language description of the conformance statement and its use. Typically, thsis is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP
+     * A free text natural language description of the conformance statement and its use. Typically, thsis is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
      */
     protected String_ description;
 
     /**
-     * The status of this conformance statement
+     * The status of this conformance statement.
      */
     protected Enumeration<ConformanceStatementStatus> status;
 
     /**
-     * This conformance statement was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
+     * This conformance statement was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
     protected Boolean experimental;
 
     /**
-     * Date that the conformance statement is published
+     * Date that the conformance statement is published.
      */
     protected DateTime date;
 
@@ -1611,37 +1611,37 @@ public class Conformance extends Resource {
     protected ConformanceSoftwareComponent software;
 
     /**
-     * Used when the statement describes the capabilities of a specific implementation instance - i.e. a particular installation, rather than the capabilities of a software program
+     * Used when the statement describes the capabilities of a specific implementation instance - i.e. a particular installation, rather than the capabilities of a software program.
      */
     protected ConformanceImplementationComponent implementation;
 
     /**
-     * The version of the FHIR specification on which this conformance statement is based
+     * The version of the FHIR specification on which this conformance statement is based.
      */
     protected Id fhirVersion;
 
     /**
-     * Whether the application accepts unknown non-"must understand" elements as part of a resource. This does not include extensions, but genuine new additions to a resource
+     * Whether the application accepts unknown non-"must understand" elements as part of a resource. This does not include extensions, but genuine new additions to a resource.
      */
     protected Boolean acceptUnknown;
 
     /**
-     * The formats supported by this implementation
+     * The formats supported by this implementation.
      */
     protected List<Code> format = new ArrayList<Code>();
 
     /**
-     * Defines the restful capabilities of the solution, if any
+     * Defines the restful capabilities of the solution, if any.
      */
     protected List<ConformanceRestComponent> rest = new ArrayList<ConformanceRestComponent>();
 
     /**
-     * Describes the messaging capabilities of the solution
+     * Describes the messaging capabilities of the solution.
      */
     protected List<ConformanceMessagingComponent> messaging = new ArrayList<ConformanceMessagingComponent>();
 
     /**
-     * A document definition
+     * A document definition.
      */
     protected List<ConformanceDocumentComponent> document = new ArrayList<ConformanceDocumentComponent>();
 

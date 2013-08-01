@@ -14,7 +14,7 @@
             <system value="http://hl7.org/fhir/v3/RoleCode"/>
             <filter>
                 <property value="concept"/>
-                <op value="is_a"/>
+                <op value="is-a"/>
                 <value value="_PersonalRelationshipRoleType"/>
             </filter>
         </include>

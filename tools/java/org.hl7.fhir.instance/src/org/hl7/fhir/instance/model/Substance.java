@@ -29,57 +29,57 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * Substance
+ * Substance.
  */
 public class Substance extends Resource {
 
     /**
-     * Identifier of the substance
+     * Identifier of the substance.
      */
     protected Identifier identifier;
 
     /**
-     * Name of the substance
+     * Name of the substance.
      */
     protected String_ name;
 
     /**
-     * Type of the substance
+     * Type of the substance.
      */
     protected CodeableConcept type;
 
     /**
-     * Description of the substance
+     * Description of the substance.
      */
     protected String_ description;
 
     /**
-     * Substance status
+     * Substance status.
      */
     protected CodeableConcept status;
 
     /**
-     * When the substance is active or effective
+     * When the substance is active or effective.
      */
     protected Period effectiveTime;
 
     /**
-     * The amount of the substance
+     * The amount of the substance.
      */
     protected Quantity quantity;
 
     /**
-     * A substance can be composed of other substances
+     * A substance can be composed of other substances.
      */
     protected List<ResourceReference> ingredient = new ArrayList<ResourceReference>();
 
     /**
-     * Indicates whether the substance quantity (used for ingredients) are absolute values or values relative to each other (percentages)
+     * Indicates whether the substance quantity (used for ingredients) are absolute values or values relative to each other (percentages).
      */
     protected CodeableConcept quantityMode;
 

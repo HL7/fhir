@@ -29,20 +29,20 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 
 import java.math.*;
 /**
- * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies
+ * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
  */
 public class Quantity extends Type {
 
     public enum QuantityComparator {
-        lessThan, // The actual value is less than the given value
-        lessOrEqual, // The actual value is less than or equal to the given value
-        greaterOrEqual, // The actual value is greater than or equal to the given value
-        greaterThan, // The actual value is greater than the given value
+        lessThan, // The actual value is less than the given value.
+        lessOrEqual, // The actual value is less than or equal to the given value.
+        greaterOrEqual, // The actual value is greater than or equal to the given value.
+        greaterThan, // The actual value is greater than the given value.
         Null; // added to help the parsers
         public static QuantityComparator fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -97,27 +97,27 @@ public class Quantity extends Type {
     }
 
     /**
-     * The value of the measured amount. The value includes an implicit precision in the presentation of the value
+     * The value of the measured amount. The value includes an implicit precision in the presentation of the value.
      */
     protected Decimal value;
 
     /**
-     * How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is "<" , then the real value is < stated value
+     * How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is "<" , then the real value is < stated value.
      */
     protected Enumeration<QuantityComparator> comparator;
 
     /**
-     * A human readable form of the units
+     * A human readable form of the units.
      */
     protected String_ units;
 
     /**
-     * The identification of the system that provides the coded form of the unit
+     * The identification of the system that provides the coded form of the unit.
      */
     protected Uri system;
 
     /**
-     * A computer processable form of the units in some unit representation system
+     * A computer processable form of the units in some unit representation system.
      */
     protected Code code;
 

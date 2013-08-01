@@ -29,18 +29,18 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * Significant health events and conditions for people related to the subject relevant in the context of care for the subject
+ * Significant health events and conditions for people related to the subject relevant in the context of care for the subject.
  */
 public class FamilyHistory extends Resource {
 
     public class FamilyHistoryRelationComponent extends Element {
         /**
-         * This will either be a name or a description.  E.g. "Aunt Susan", "my cousin with the red hair"
+         * This will either be a name or a description.  E.g. "Aunt Susan", "my cousin with the red hair".
          */
         protected String_ name;
 
@@ -144,7 +144,7 @@ public class FamilyHistory extends Resource {
 
     public class FamilyHistoryRelationConditionComponent extends Element {
         /**
-         * The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like 'cancer' depending on how much is known about the condition and the capabilities of the creating system
+         * The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like 'cancer' depending on how much is known about the condition and the capabilities of the creating system.
          */
         protected CodeableConcept type;
 
@@ -221,7 +221,7 @@ public class FamilyHistory extends Resource {
   }
 
     /**
-     * The person who this history concerns
+     * The person who this history concerns.
      */
     protected ResourceReference subject;
 

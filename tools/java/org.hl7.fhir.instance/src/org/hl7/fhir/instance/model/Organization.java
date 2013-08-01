@@ -29,23 +29,23 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc
+ * A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.
  */
 public class Organization extends Resource {
 
     public class OrganizationContactComponent extends Element {
         /**
-         * Indicates a purpose for which the contact can be reached
+         * Indicates a purpose for which the contact can be reached.
          */
         protected CodeableConcept purpose;
 
         /**
-         * A name associated with the contact
+         * A name associated with the contact.
          */
         protected HumanName name;
 
@@ -55,7 +55,7 @@ public class Organization extends Resource {
         protected List<Contact> telecom = new ArrayList<Contact>();
 
         /**
-         * Visiting or postal addresses for the contact
+         * Visiting or postal addresses for the contact.
          */
         protected Address address;
 
@@ -115,42 +115,42 @@ public class Organization extends Resource {
   }
 
     /**
-     * Identifier for the organization that is used to identify the organization across multiple disparate systems
+     * Identifier for the organization that is used to identify the organization across multiple disparate systems.
      */
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * A name associated with the organization
+     * A name associated with the organization.
      */
     protected String_ name;
 
     /**
-     * The kind of organization that this is
+     * The kind of organization that this is.
      */
     protected CodeableConcept type;
 
     /**
-     * A contact detail for the organization
+     * A contact detail for the organization.
      */
     protected List<Contact> telecom = new ArrayList<Contact>();
 
     /**
-     * An address for the organization
+     * An address for the organization.
      */
     protected List<Address> address = new ArrayList<Address>();
 
     /**
-     * The organization of which this organization forms a part
+     * The organization of which this organization forms a part.
      */
     protected ResourceReference partOf;
 
     /**
-     * Contact for the organization for a certain purpose
+     * Contact for the organization for a certain purpose.
      */
     protected List<OrganizationContactComponent> contact = new ArrayList<OrganizationContactComponent>();
 
     /**
-     * Whether the organization's record is still in active use
+     * Whether the organization's record is still in active use.
      */
     protected Boolean active;
 

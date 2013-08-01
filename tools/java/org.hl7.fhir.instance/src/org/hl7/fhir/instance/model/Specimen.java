@@ -29,18 +29,18 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * Sample for analysis
+ * Sample for analysis.
  */
 public class Specimen extends Resource {
 
     public enum HierarchicalRelationshipType {
-        parent, // The target resource is the parent of the focal specimen resource
-        child, // The target resource is the child of the focal specimen resource
+        parent, // The target resource is the parent of the focal specimen resource.
+        child, // The target resource is the child of the focal specimen resource.
         Null; // added to help the parsers
         public static HierarchicalRelationshipType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -82,12 +82,12 @@ public class Specimen extends Resource {
 
     public class SpecimenSourceComponent extends Element {
         /**
-         * Whether this relationship is to a parent or to a child
+         * Whether this relationship is to a parent or to a child.
          */
         protected Enumeration<HierarchicalRelationshipType> relationship;
 
         /**
-         * The specimen resource that is the target of this relationship
+         * The specimen resource that is the target of this relationship.
          */
         protected List<ResourceReference> target = new ArrayList<ResourceReference>();
 
@@ -126,7 +126,7 @@ public class Specimen extends Resource {
 
     public class SpecimenCollectionComponent extends Element {
         /**
-         * Person who collected the specimen
+         * Person who collected the specimen.
          */
         protected ResourceReference collector;
 
@@ -136,22 +136,22 @@ public class Specimen extends Resource {
         protected List<String_> comment = new ArrayList<String_>();
 
         /**
-         * Time when specimen was collected from subject - the physiologically relevant time
+         * Time when specimen was collected from subject - the physiologically relevant time.
          */
         protected DateTime collectedTime;
 
         /**
-         * The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample
+         * The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample.
          */
         protected Quantity quantity;
 
         /**
-         * A coded value specifying the technique that is used to perform the procedure
+         * A coded value specifying the technique that is used to perform the procedure.
          */
         protected CodeableConcept method;
 
         /**
-         * Anatomical location from which the specimen should be collected
+         * Anatomical location from which the specimen should be collected.
          */
         protected CodeableConcept sourceSite;
 
@@ -226,17 +226,17 @@ public class Specimen extends Resource {
 
     public class SpecimenTreatmentComponent extends Element {
         /**
-         * Textual description of procedure
+         * Textual description of procedure.
          */
         protected String_ description;
 
         /**
-         * A coded value specifying the procedure used to process the specimen
+         * A coded value specifying the procedure used to process the specimen.
          */
         protected CodeableConcept procedure;
 
         /**
-         * Specimen additive
+         * Specimen additive.
          */
         protected List<ResourceReference> additive = new ArrayList<ResourceReference>();
 
@@ -288,17 +288,17 @@ public class Specimen extends Resource {
 
     public class SpecimenContainerComponent extends Element {
         /**
-         * Id for container. There may be muliple; a manufacturer's bar code, lab assigned identifier, etc
+         * Id for container. There may be muliple; a manufacturer's bar code, lab assigned identifier, etc.
          */
         protected List<Identifier> identifier = new ArrayList<Identifier>();
 
         /**
-         * Textual description of container
+         * Textual description of container.
          */
         protected String_ description;
 
         /**
-         * The type of container associated with the specimen (eg slide, aliquot, etc)
+         * The type of container associated with the specimen (eg slide, aliquot, etc).
          */
         protected CodeableConcept type;
 
@@ -308,12 +308,12 @@ public class Specimen extends Resource {
         protected Quantity capacity;
 
         /**
-         * The quantity of specimen in the container; may be volume, dimensions, or other appropriate measurements, depending on the specimen type
+         * The quantity of specimen in the container; may be volume, dimensions, or other appropriate measurements, depending on the specimen type.
          */
         protected Quantity specimenQuantity;
 
         /**
-         * Additive associated with the container
+         * Additive associated with the container.
          */
         protected ResourceReference additive;
 
@@ -391,22 +391,22 @@ public class Specimen extends Resource {
   }
 
     /**
-     * Id for specimen
+     * Id for specimen.
      */
     protected Identifier identifier;
 
     /**
-     * The type of the specimen. This is sometimes called the "matrix"
+     * The type of the specimen. This is sometimes called the "matrix".
      */
     protected CodeableConcept type;
 
     /**
-     * Parent specimen from which the focal specimen was a component
+     * Parent specimen from which the focal specimen was a component.
      */
     protected List<SpecimenSourceComponent> source = new ArrayList<SpecimenSourceComponent>();
 
     /**
-     * The subject of the report
+     * The subject of the report.
      */
     protected ResourceReference subject;
 
@@ -416,22 +416,22 @@ public class Specimen extends Resource {
     protected List<Identifier> accessionIdentifier = new ArrayList<Identifier>();
 
     /**
-     * Time when specimen was received for processing or testing
+     * Time when specimen was received for processing or testing.
      */
     protected DateTime receivedTime;
 
     /**
-     * Details concerning the specimen collection
+     * Details concerning the specimen collection.
      */
     protected SpecimenCollectionComponent collection;
 
     /**
-     * Details concerning treatment and processing steps for the specimen
+     * Details concerning treatment and processing steps for the specimen.
      */
     protected List<SpecimenTreatmentComponent> treatment = new ArrayList<SpecimenTreatmentComponent>();
 
     /**
-     * The container holding the specimen. May be recursive; ie blood in tube in tray in rack
+     * The container holding the specimen. May be recursive; ie blood in tube in tray in rack.
      */
     protected List<SpecimenContainerComponent> container = new ArrayList<SpecimenContainerComponent>();
 

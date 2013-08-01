@@ -29,26 +29,26 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 /**
- * Financial instrument by which payment information for health care
+ * Financial instrument by which payment information for health care.
  */
 public class Coverage extends Resource {
 
     public class CoverageSubscriberComponent extends Element {
         /**
-         * The name of the PolicyHolder
+         * The name of the PolicyHolder.
          */
         protected HumanName name;
 
         /**
-         * The mailing address, typically home, of the PolicyHolder
+         * The mailing address, typically home, of the PolicyHolder.
          */
         protected Address address;
 
         /**
-         * The date of birth of the PolicyHolder
+         * The date of birth of the PolicyHolder.
          */
         protected Date birthdate;
 
@@ -121,7 +121,7 @@ public class Coverage extends Resource {
     protected Identifier identifier;
 
     /**
-     * Todo
+     * Todo.
      */
     protected Identifier group;
 
@@ -146,7 +146,7 @@ public class Coverage extends Resource {
     protected Integer sequence;
 
     /**
-     * Planholder information
+     * Planholder information.
      */
     protected CoverageSubscriberComponent subscriber;
 

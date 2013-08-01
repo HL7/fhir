@@ -29,23 +29,23 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A request to perform an action
+ * A request to perform an action.
  */
 public class Order extends Resource {
 
     public class OrderWhenComponent extends Element {
         /**
-         * Code specifies when request should be done. The code may simply be a priority code
+         * Code specifies when request should be done. The code may simply be a priority code.
          */
         protected CodeableConcept code;
 
         /**
-         * A formal schedule
+         * A formal schedule.
          */
         protected Schedule schedule;
 
@@ -75,42 +75,42 @@ public class Order extends Resource {
   }
 
     /**
-     * When the order was made
+     * When the order was made.
      */
     protected DateTime date;
 
     /**
-     * Patient this order is about
+     * Patient this order is about.
      */
     protected ResourceReference subject;
 
     /**
-     * Who initiated the order
+     * Who initiated the order.
      */
     protected ResourceReference source;
 
     /**
-     * Who is intended to fulfill the order
+     * Who is intended to fulfill the order.
      */
     protected ResourceReference target;
 
     /**
-     * Text - why the order was made
+     * Text - why the order was made.
      */
     protected String_ reason;
 
     /**
-     * If required by policy
+     * If required by policy.
      */
     protected ResourceReference authority;
 
     /**
-     * When order should be filfulled
+     * When order should be filfulled.
      */
     protected OrderWhenComponent when;
 
     /**
-     * What action is being ordered
+     * What action is being ordered.
      */
     protected List<ResourceReference> detail = new ArrayList<ResourceReference>();
 

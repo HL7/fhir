@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * Manifest of a set of images produced in study. The set of images may include every image in the study, or it may be an incomplete sample, such as a list of key images
+ * Manifest of a set of images produced in study. The set of images may include every image in the study, or it may be an incomplete sample, such as a list of key images.
  */
 public class ImagingStudy extends Resource {
 
@@ -353,9 +353,9 @@ public class ImagingStudy extends Resource {
     }
 
     public enum InstanceAvailability {
-        oNLINE, // Resources are immediately available,
-        oFFLINE, // Resources need to be retrieved by manual intervention
-        nEARLINE, // Resources need to be retrieved from relatively slow media
+        oNLINE, // Resources are immediately available,.
+        oFFLINE, // Resources need to be retrieved by manual intervention.
+        nEARLINE, // Resources need to be retrieved from relatively slow media.
         uNAVAILABLE, // Resources cannot be retrieved.
         Null; // added to help the parsers
         public static InstanceAvailability fromCode(String codeString) throws Exception {
@@ -902,52 +902,52 @@ public class ImagingStudy extends Resource {
 
     public class ImagingStudySeriesComponent extends Element {
         /**
-         * The number of this series in the overall sequence
+         * The number of this series in the overall sequence.
          */
         protected Integer number;
 
         /**
-         * The modality of this sequence
+         * The modality of this sequence.
          */
         protected Enumeration<Modality> modality;
 
         /**
-         * Formal identifier for this series
+         * Formal identifier for this series.
          */
         protected Oid uid;
 
         /**
-         * A description of the series
+         * A description of the series.
          */
         protected String_ description;
 
         /**
-         * Sequence that contains attributes from the
+         * Sequence that contains attributes from the.
          */
         protected Integer numberOfInstances;
 
         /**
-         * Availability of series (online, offline or nearlnie)
+         * Availability of series (online, offline or nearlnie).
          */
         protected Enumeration<InstanceAvailability> availability;
 
         /**
-         * WADO-RS URI where Series is available
+         * WADO-RS URI where Series is available.
          */
         protected Uri url;
 
         /**
-         * Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed
+         * Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed.
          */
         protected Coding bodySite;
 
         /**
-         * When the series started
+         * When the series started.
          */
         protected DateTime dateTime;
 
         /**
-         * A single image taken from a patient
+         * A single image taken from a patient.
          */
         protected List<ImagingStudySeriesInstanceComponent> instance = new ArrayList<ImagingStudySeriesInstanceComponent>();
 
@@ -1148,37 +1148,37 @@ public class ImagingStudy extends Resource {
 
     public class ImagingStudySeriesInstanceComponent extends Element {
         /**
-         * The number of this image in the series
+         * The number of this image in the series.
          */
         protected Integer number;
 
         /**
-         * Formal identifier for this image
+         * Formal identifier for this image.
          */
         protected Oid uid;
 
         /**
-         * DICOM Image type
+         * DICOM Image type.
          */
         protected Oid sopclass;
 
         /**
-         * Type of instance (0004,1430)
+         * Type of instance (0004,1430).
          */
         protected String_ type;
 
         /**
-         * Description to be provided
+         * Description to be provided.
          */
         protected String_ title;
 
         /**
-         * WADO url where image is available
+         * WADO url where image is available.
          */
         protected Uri url;
 
         /**
-         * A FHIR resource with content for this instance
+         * A FHIR resource with content for this instance.
          */
         protected ResourceReference attachment;
 
@@ -1329,82 +1329,82 @@ public class ImagingStudy extends Resource {
   }
 
     /**
-     * Date and Time the study took place
+     * Date and Time the study took place.
      */
     protected DateTime dateTime;
 
     /**
-     * Who the images are of
+     * Who the images are of.
      */
     protected ResourceReference subject;
 
     /**
-     * Formal identifier for the study
+     * Formal identifier for the study.
      */
     protected Oid uid;
 
     /**
-     * Accession Number
+     * Accession Number.
      */
     protected Identifier accessionNo;
 
     /**
-     * Other identifiers for the study
+     * Other identifiers for the study.
      */
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19)
+     * A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).
      */
     protected List<Enumeration<ImagingModality>> modality = new ArrayList<Enumeration<ImagingModality>>();
 
     /**
-     * The requesting/referring physician
+     * The requesting/referring physician.
      */
     protected ResourceReference referrer;
 
     /**
-     * Availability of study (online, offline or nearlnie)
+     * Availability of study (online, offline or nearlnie).
      */
     protected Enumeration<InstanceAvailability> availability;
 
     /**
-     * WADO-RS URI where Study is available
+     * WADO-RS URI where Study is available.
      */
     protected Uri url;
 
     /**
-     * Number of Series in Study
+     * Number of Series in Study.
      */
     protected Integer numberOfSeries;
 
     /**
-     * Number of SOP Instances in Study
+     * Number of SOP Instances in Study.
      */
     protected Integer numberOfInstances;
 
     /**
-     * Diagnoses etc provided with request
+     * Diagnoses etc provided with request.
      */
     protected String_ clinicalInformation;
 
     /**
-     * Type of procedure performed
+     * Type of procedure performed.
      */
     protected List<Coding> procedure = new ArrayList<Coding>();
 
     /**
-     * Who read study and interpreted the images
+     * Who read study and interpreted the images.
      */
     protected ResourceReference interpreter;
 
     /**
-     * Institution-generated description or classification of the Study (component) performed
+     * Institution-generated description or classification of the Study (component) performed.
      */
     protected String_ description;
 
     /**
-     * Each study has one or more series of image instances
+     * Each study has one or more series of image instances.
      */
     protected List<ImagingStudySeriesComponent> series = new ArrayList<ImagingStudySeriesComponent>();
 

@@ -29,23 +29,23 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A code taken from a short list of codes that are not defined in a formal code system
+ * A code taken from a short list of codes that are not defined in a formal code system.
  */
 public class Choice extends Type {
 
     public class ChoiceOptionComponent extends Element {
         /**
-         * A possible code or value that the user could have chosen
+         * A possible code or value that the user could have chosen.
          */
         protected Code code;
 
         /**
-         * A set of words associated with the code to give it meaning and displayed to the user
+         * A set of words associated with the code to give it meaning and displayed to the user.
          */
         protected String_ display;
 
@@ -99,17 +99,17 @@ public class Choice extends Type {
   }
 
     /**
-     * The code or value that the user selected from the list of possible codes
+     * The code or value that the user selected from the list of possible codes.
      */
     protected Code code;
 
     /**
-     * A list of possible values for the code
+     * A list of possible values for the code.
      */
     protected List<ChoiceOptionComponent> option = new ArrayList<ChoiceOptionComponent>();
 
     /**
-     * Whether the order of the values has an assigned meaning
+     * Whether the order of the values has an assigned meaning.
      */
     protected Boolean isOrdered;
 

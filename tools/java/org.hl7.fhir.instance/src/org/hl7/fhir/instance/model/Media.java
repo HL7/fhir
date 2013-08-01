@@ -29,19 +29,19 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A Photo, Video, or audio recording acquired or used in healthcare. The actual content maybe inline or provided by direct reference
+ * A Photo, Video, or audio recording acquired or used in healthcare. The actual content maybe inline or provided by direct reference.
  */
 public class Media extends Resource {
 
     public enum MediaType {
-        photo, // The media consists of one or more unmoving images
-        video, // The media consists of a series of frames that capture a moving image
-        audio, // The media consists of a sound recording
+        photo, // The media consists of one or more unmoving images.
+        video, // The media consists of a series of frames that capture a moving image.
+        audio, // The media consists of a sound recording.
         Null; // added to help the parsers
         public static MediaType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -89,37 +89,37 @@ public class Media extends Resource {
     }
 
     /**
-     * Whether the media is a photo (still image), an audio recording, or a video recording
+     * Whether the media is a photo (still image), an audio recording, or a video recording.
      */
     protected Enumeration<MediaType> type;
 
     /**
-     * Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality
+     * Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.
      */
     protected CodeableConcept subtype;
 
     /**
-     * Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of it's collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers
+     * Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers.
      */
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording
+     * When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.
      */
     protected DateTime dateTime;
 
     /**
-     * Who/What this Media is a record of
+     * Who/What this Media is a record of.
      */
     protected ResourceReference subject;
 
     /**
-     * Who requested that this image be collected
+     * Who requested that this image be collected.
      */
     protected ResourceReference requester;
 
     /**
-     * The person who administered the collection of the image
+     * The person who administered the collection of the image.
      */
     protected ResourceReference operator;
 
@@ -129,32 +129,32 @@ public class Media extends Resource {
     protected CodeableConcept view;
 
     /**
-     * The name of the device / manufacturer of the device  that was used to make the recording
+     * The name of the device / manufacturer of the device  that was used to make the recording.
      */
     protected String_ deviceName;
 
     /**
-     * Height of the image in pixels(photo/video)
+     * Height of the image in pixels(photo/video).
      */
     protected Integer height;
 
     /**
-     * Width of the image in pixels (photo/video)
+     * Width of the image in pixels (photo/video).
      */
     protected Integer width;
 
     /**
-     * The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single iamge, or an animated gif. If there is more than one frame, this must have a value in order to alert interface software that a multi-frame capable rendering widget is required
+     * The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single iamge, or an animated gif. If there is more than one frame, this must have a value in order to alert interface software that a multi-frame capable rendering widget is required.
      */
     protected Integer frames;
 
     /**
-     * The length of the recording in seconds - for audio and video
+     * The length of the recording in seconds - for audio and video.
      */
     protected Integer length;
 
     /**
-     * The actual content of the media - inline or by direct reference to the media source file
+     * The actual content of the media - inline or by direct reference to the media source file.
      */
     protected Attachment content;
 

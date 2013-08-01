@@ -29,75 +29,75 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 /**
- * An Image used in healthcare. The actual pixels maybe inline or provided by direct reference
+ * An Image used in healthcare. The actual pixels maybe inline or provided by direct reference.
  */
 public class Picture extends Resource {
 
     public enum PictureType {
-        dIA, // Hand-drawn diagram
-        aR, // Autorefraction
-        aU, // Audio
-        bDUS, // Bone Densitometry (Ultrasound)
-        bI, // Biomagnetic Imaging
-        bMD, // Bone Densitometry (X-Ray)
-        cR, // Computed Radiography
-        cT, // Computed Tomography
-        dG, // Diaphanography
-        dOC, // Document
-        dX, // Digital Radiography
-        eCG, // Electrocardiograms
-        eM, // Electron Microscope
-        ePS, // Cardiac Electrophysiology
-        eS, // Endoscopy
-        fID, // Fiducials
-        gM, // General Microscopy
-        hC, // Hard Copy
-        hD, // Hemodynamic Waveform
-        iO, // Intra-oral Radiography
-        iOL, // Intraocular Lens Data
-        iVOCT, // Intravascular Optical Coherence Tomography
-        iVUS, // Intravascular Ultrasound
-        kO, // Key Object Selection
-        kER, // Keratometry
-        lEN, // Lensometry
-        lS, // Laser Surface Scan
-        mG, // Mammography
-        mR, // Magnetic Resonance
-        nM, // Nuclear Medicine
-        oAM, // Opthalmic Axial Measurements
-        oCT, // Optical Coherence Tomography
-        oPM, // Ophthalmic Mapping
-        oPT, // Opthalmic Tomography
-        oPV, // Ophthalmic Visual Field
-        oT, // Other
-        pLAN, // Plan
-        pR, // Presentation State
-        pT, // Positron Emission Tomography (PET)
-        pX, // Panoramic X-Ray
-        rEG, // Registration
-        rESP, // Respiratory Waveform
-        rF, // Radio Fluoroscopy
-        rG, // Radiographic Imaging (conventional film screen)
-        rTDOSE, // Radiotherapy Dose
-        rTIMAGE, // Radiotherapy Image
-        rTPLAN, // Radiotherapy Plan (a.k.a. RTPLAN)
-        rTRECORD, // RT Treatment Record
-        rTSTRUCT, // Radiotherapy Structure Set (a.k.a. RTSTRUCT)
-        sC, // Secondary Capture
-        sEG, // Segmentation
-        sM, // Slide Microscopy
-        sMR, // Stereometric Relationship
-        sR, // SR Document
-        sRF, // Subjective Refraction
-        tG, // Thermography
-        uS, // Ultrasound
-        vA, // Visual Acuity
-        vL, // Visible Light
-        xA, // X-Ray Angiography
-        xC, // External Camera (Photography)
+        dIA, // Hand-drawn diagram.
+        aR, // Autorefraction.
+        aU, // Audio.
+        bDUS, // Bone Densitometry (Ultrasound).
+        bI, // Biomagnetic Imaging.
+        bMD, // Bone Densitometry (X-Ray).
+        cR, // Computed Radiography.
+        cT, // Computed Tomography.
+        dG, // Diaphanography.
+        dOC, // Document.
+        dX, // Digital Radiography.
+        eCG, // Electrocardiograms.
+        eM, // Electron Microscope.
+        ePS, // Cardiac Electrophysiology.
+        eS, // Endoscopy.
+        fID, // Fiducials.
+        gM, // General Microscopy.
+        hC, // Hard Copy.
+        hD, // Hemodynamic Waveform.
+        iO, // Intra-oral Radiography.
+        iOL, // Intraocular Lens Data.
+        iVOCT, // Intravascular Optical Coherence Tomography.
+        iVUS, // Intravascular Ultrasound.
+        kO, // Key Object Selection.
+        kER, // Keratometry.
+        lEN, // Lensometry.
+        lS, // Laser Surface Scan.
+        mG, // Mammography.
+        mR, // Magnetic Resonance.
+        nM, // Nuclear Medicine.
+        oAM, // Opthalmic Axial Measurements.
+        oCT, // Optical Coherence Tomography.
+        oPM, // Ophthalmic Mapping.
+        oPT, // Opthalmic Tomography.
+        oPV, // Ophthalmic Visual Field.
+        oT, // Other.
+        pLAN, // Plan.
+        pR, // Presentation State.
+        pT, // Positron Emission Tomography (PET).
+        pX, // Panoramic X-Ray.
+        rEG, // Registration.
+        rESP, // Respiratory Waveform.
+        rF, // Radio Fluoroscopy.
+        rG, // Radiographic Imaging (conventional film screen).
+        rTDOSE, // Radiotherapy Dose.
+        rTIMAGE, // Radiotherapy Image.
+        rTPLAN, // Radiotherapy Plan (a.k.a. RTPLAN).
+        rTRECORD, // RT Treatment Record.
+        rTSTRUCT, // Radiotherapy Structure Set (a.k.a. RTSTRUCT).
+        sC, // Secondary Capture.
+        sEG, // Segmentation.
+        sM, // Slide Microscopy.
+        sMR, // Stereometric Relationship.
+        sR, // SR Document.
+        sRF, // Subjective Refraction.
+        tG, // Thermography.
+        uS, // Ultrasound.
+        vA, // Visual Acuity.
+        vL, // Visible Light.
+        xA, // X-Ray Angiography.
+        xC, // External Camera (Photography).
         Null; // added to help the parsers
         public static PictureType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -551,27 +551,27 @@ public class Picture extends Resource {
     }
 
     /**
-     * Who/What this image is taken of
+     * Who/What this image is taken of.
      */
     protected ResourceReference subject;
 
     /**
-     * When the image was taken
+     * When the image was taken.
      */
     protected DateTime dateTime;
 
     /**
-     * The person who generated the image
+     * The person who generated the image.
      */
     protected ResourceReference operator;
 
     /**
-     * Identifier for the image
+     * Identifier for the image.
      */
     protected Identifier identifier;
 
     /**
-     * An identifier for the order that is used by the application/system that requested the image to link back to the original context (if there was such a system). This is not the identity of the image, but of the "request for an image to be generated"
+     * An identifier for the order that is used by the application/system that requested the image to link back to the original context (if there was such a system). This is not the identity of the image, but of the "request for an image to be generated".
      */
     protected Identifier accessionNo;
 
@@ -581,52 +581,52 @@ public class Picture extends Resource {
     protected Identifier studyId;
 
     /**
-     * The series of images in which this picture was taken
+     * The series of images in which this picture was taken.
      */
     protected Identifier seriesId;
 
     /**
-     * A reference to the method/protocol that was followed when the images were taken
+     * A reference to the method/protocol that was followed when the images were taken.
      */
     protected CodeableConcept method;
 
     /**
-     * Who asked that this image be collected
+     * Who asked that this image be collected.
      */
     protected ResourceReference requester;
 
     /**
-     * Type of the image capturing machinery
+     * Type of the image capturing machinery.
      */
     protected Enumeration<PictureType> modality;
 
     /**
-     * Name of the manufacturer
+     * Name of the manufacturer.
      */
     protected String_ deviceName;
 
     /**
-     * Height of the image
+     * Height of the image.
      */
     protected Integer height;
 
     /**
-     * Width of the image
+     * Width of the image.
      */
     protected Integer width;
 
     /**
-     * Number of bits of colour (2..32)
+     * Number of bits of colour (2..32).
      */
     protected Integer bits;
 
     /**
-     * Number of frames
+     * Number of frames.
      */
     protected Integer frames;
 
     /**
-     * Length of time between frames
+     * Length of time between frames.
      */
     protected Duration frameDelay;
 
@@ -636,7 +636,7 @@ public class Picture extends Resource {
     protected CodeableConcept view;
 
     /**
-     * Actual picture - reference or data
+     * Actual picture - reference or data.
      */
     protected Attachment content;
 

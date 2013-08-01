@@ -21,7 +21,7 @@
       <filter>
         <!-- any clinical finding -->
         <property value="concept"/>
-        <op value="is_a"/>
+        <op value="is-a"/>
         <value value="404684003"/>
       </filter>
     </include>

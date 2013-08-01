@@ -29,28 +29,28 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * Demographics and qualification information for an individual who is directly or indirectly involved in the provisioning of healthcare
+ * Demographics and qualification information for an individual who is directly or indirectly involved in the provisioning of healthcare.
  */
 public class Practitioner extends Resource {
 
     public class PractitionerQualificationComponent extends Element {
         /**
-         * Coded representation of the qualification
+         * Coded representation of the qualification.
          */
         protected CodeableConcept code;
 
         /**
-         * Period during which the qualification is valid
+         * Period during which the qualification is valid.
          */
         protected Period period;
 
         /**
-         * Organization that regulates and issues the qualification
+         * Organization that regulates and issues the qualification.
          */
         protected ResourceReference issuer;
 
@@ -89,12 +89,12 @@ public class Practitioner extends Resource {
   }
 
     /**
-     * An identifier that applies to this person in this role
+     * An identifier that applies to this person in this role.
      */
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * A name associated with the person
+     * A name associated with the person.
      */
     protected HumanName name;
 
@@ -104,7 +104,7 @@ public class Practitioner extends Resource {
     protected List<Contact> telecom = new ArrayList<Contact>();
 
     /**
-     * One or more addresses where the practitioner can be found or visited
+     * One or more addresses where the practitioner can be found or visited.
      */
     protected Address address;
 
@@ -114,42 +114,42 @@ public class Practitioner extends Resource {
     protected CodeableConcept gender;
 
     /**
-     * The date and time of birth for the practitioner
+     * The date and time of birth for the practitioner.
      */
     protected DateTime birthDate;
 
     /**
-     * Image of the person
+     * Image of the person.
      */
     protected List<Attachment> photo = new ArrayList<Attachment>();
 
     /**
-     * The organisation that the practitioner represents
+     * The organisation that the practitioner represents.
      */
     protected ResourceReference organization;
 
     /**
-     * The way in which the person represents the organisation - what role do they have?
+     * The way in which the person represents the organisation - what role do they have?.
      */
     protected List<CodeableConcept> role = new ArrayList<CodeableConcept>();
 
     /**
-     * Specific specialty of the practitioner
+     * Specific specialty of the practitioner.
      */
     protected List<CodeableConcept> specialty = new ArrayList<CodeableConcept>();
 
     /**
-     * The period during which the person is authorized to perform the service
+     * The period during which the person is authorized to perform the service.
      */
     protected Period period;
 
     /**
-     * Qualifications relevant to the provided service
+     * Qualifications relevant to the provided service.
      */
     protected List<PractitionerQualificationComponent> qualification = new ArrayList<PractitionerQualificationComponent>();
 
     /**
-     * A language the practitioner is able to use in patient communication
+     * A language the practitioner is able to use in patient communication.
      */
     protected List<CodeableConcept> communication = new ArrayList<CodeableConcept>();
 

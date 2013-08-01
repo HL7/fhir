@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 /**
  * For referring to data content defined in other formats.
@@ -37,22 +37,22 @@ package org.hl7.fhir.instance.model;
 public class Attachment extends Type {
 
     /**
-     * Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate
+     * Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
      */
     protected Code contentType;
 
     /**
-     * The human language of the content. The value can be any valid value according to BCP 47
+     * The human language of the content. The value can be any valid value according to BCP 47.
      */
     protected Code language;
 
     /**
-     * The actual data of the attachment - a sequence of bytes. In XML, represented using base64
+     * The actual data of the attachment - a sequence of bytes. In XML, represented using base64.
      */
     protected Base64Binary data;
 
     /**
-     * An alternative location where the data can be accessed
+     * An alternative location where the data can be accessed.
      */
     protected Uri url;
 
@@ -62,12 +62,12 @@ public class Attachment extends Type {
     protected Integer size;
 
     /**
-     * The calculated hash of the data using SHA-1. Represented using base64
+     * The calculated hash of the data using SHA-1. Represented using base64.
      */
     protected Base64Binary hash;
 
     /**
-     * A label or set of text to display in place of the data
+     * A label or set of text to display in place of the data.
      */
     protected String_ title;
 

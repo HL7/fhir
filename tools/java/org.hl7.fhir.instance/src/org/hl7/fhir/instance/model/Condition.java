@@ -29,20 +29,20 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during a Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary
+ * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during a Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary.
  */
 public class Condition extends Resource {
 
     public enum ConditionStatus {
-        provisional, // This is a tentative diagnosis - still a candidate that is under consideration
-        working, // The patient is being treated on the basis that this is the condition, but it is still not confirmed
-        confirmed, // There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition
-        refuted, // This condition has been ruled out by diagnostic and clinical evidence
+        provisional, // This is a tentative diagnosis - still a candidate that is under consideration.
+        working, // The patient is being treated on the basis that this is the condition, but it is still not confirmed.
+        confirmed, // There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.
+        refuted, // This condition has been ruled out by diagnostic and clinical evidence.
         Null; // added to help the parsers
         public static ConditionStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -97,21 +97,21 @@ public class Condition extends Resource {
     }
 
     public enum ConditionRelationshipType {
-        dueMinusto, // this condition is a consequence of the identified condition/procedure/substance
-        following, // this condition follows the identified condition/procedure/substance, but it is not known whether they are causually linked
+        dueto, // this condition is a consequence of the identified condition/procedure/substance.
+        following, // this condition follows the identified condition/procedure/substance, but it is not known whether they are causually linked.
         Null; // added to help the parsers
         public static ConditionRelationshipType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("due-to".equals(codeString))
-          return dueMinusto;
+          return dueto;
         if ("following".equals(codeString))
           return following;
         throw new Exception("Unknown ConditionRelationshipType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case dueMinusto: return "due-to";
+            case dueto: return "due-to";
             case following: return "following";
             default: return "?";
           }
@@ -124,13 +124,13 @@ public class Condition extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("due-to".equals(codeString))
-          return ConditionRelationshipType.dueMinusto;
+          return ConditionRelationshipType.dueto;
         if ("following".equals(codeString))
           return ConditionRelationshipType.following;
         throw new Exception("Unknown ConditionRelationshipType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ConditionRelationshipType.dueMinusto)
+      if (code == ConditionRelationshipType.dueto)
         return "due-to";
       if (code == ConditionRelationshipType.following)
         return "following";
@@ -140,12 +140,12 @@ public class Condition extends Resource {
 
     public class ConditionStageComponent extends Element {
         /**
-         * A simple summary of the stage such as "Stage 3". The determination of the stage is disease-specific
+         * A simple summary of the stage such as "Stage 3". The determination of the stage is disease-specific.
          */
         protected CodeableConcept summary;
 
         /**
-         * Reference to a formal record of the evidence on which the staging assessment is based
+         * Reference to a formal record of the evidence on which the staging assessment is based.
          */
         protected List<ResourceReference> assessment = new ArrayList<ResourceReference>();
 
@@ -174,12 +174,12 @@ public class Condition extends Resource {
 
     public class ConditionEvidenceComponent extends Element {
         /**
-         * A manifestion or symptom that led to the recording of this condition
+         * A manifestion or symptom that led to the recording of this condition.
          */
         protected CodeableConcept code;
 
         /**
-         * Links to other relevant information, including pathology reports
+         * Links to other relevant information, including pathology reports.
          */
         protected List<ResourceReference> detail = new ArrayList<ResourceReference>();
 
@@ -208,12 +208,12 @@ public class Condition extends Resource {
 
     public class ConditionLocationComponent extends Element {
         /**
-         * Code that identifies the structural location
+         * Code that identifies the structural location.
          */
         protected CodeableConcept code;
 
         /**
-         * Detailed anatomical location information
+         * Detailed anatomical location information.
          */
         protected String_ detail;
 
@@ -258,17 +258,17 @@ public class Condition extends Resource {
 
     public class ConditionRelatedItemComponent extends Element {
         /**
-         * The type of relationship that this condition has to the related item
+         * The type of relationship that this condition has to the related item.
          */
         protected Enumeration<ConditionRelationshipType> type;
 
         /**
-         * Code that identifies the target of this relationship. The code takes the place of a detailed instance target
+         * Code that identifies the target of this relationship. The code takes the place of a detailed instance target.
          */
         protected CodeableConcept code;
 
         /**
-         * Target of the relationship
+         * Target of the relationship.
          */
         protected ResourceReference target;
 
@@ -317,22 +317,22 @@ public class Condition extends Resource {
   }
 
     /**
-     * Subject of this condition
+     * Subject of this condition.
      */
     protected ResourceReference subject;
 
     /**
-     * Encounter during which the condition was first asserted
+     * Encounter during which the condition was first asserted.
      */
     protected ResourceReference encounter;
 
     /**
-     * Person who takes responsibility for asserting the existence of the condition as part of the electronic record
+     * Person who takes responsibility for asserting the existence of the condition as part of the electronic record.
      */
     protected ResourceReference asserter;
 
     /**
-     * Estimated or actual date the condition/problem/diagnosis was first detected/suspected
+     * Estimated or actual date the condition/problem/diagnosis was first detected/suspected.
      */
     protected Date dateAsserted;
 
@@ -342,17 +342,17 @@ public class Condition extends Resource {
     protected CodeableConcept code;
 
     /**
-     * A category assigned to the condition. E.g. finding | Condition | diagnosis | concern | condition
+     * A category assigned to the condition. E.g. finding | Condition | diagnosis | concern | condition.
      */
     protected CodeableConcept category;
 
     /**
-     * The clinical status of the condition
+     * The clinical status of the condition.
      */
     protected Enumeration<ConditionStatus> status;
 
     /**
-     * The degree of confidence that this condition is correct
+     * The degree of confidence that this condition is correct.
      */
     protected CodeableConcept certainty;
 
@@ -362,7 +362,7 @@ public class Condition extends Resource {
     protected CodeableConcept severity;
 
     /**
-     * Estimated or actual date the condition began, in the opinion of the clinician
+     * Estimated or actual date the condition began, in the opinion of the clinician.
      */
     protected Type onset;
 
@@ -372,27 +372,27 @@ public class Condition extends Resource {
     protected Type abatement;
 
     /**
-     * Clinical stage or grade of a condition. May include formal severity assessments
+     * Clinical stage or grade of a condition. May include formal severity assessments.
      */
     protected ConditionStageComponent stage;
 
     /**
-     * Supporting Evidence / manfiestions that are the basis on which this condition is suspected or confirmed
+     * Supporting Evidence / manfiestions that are the basis on which this condition is suspected or confirmed.
      */
     protected List<ConditionEvidenceComponent> evidence = new ArrayList<ConditionEvidenceComponent>();
 
     /**
-     * The anatomical location where this condition manifests itself
+     * The anatomical location where this condition manifests itself.
      */
     protected List<ConditionLocationComponent> location = new ArrayList<ConditionLocationComponent>();
 
     /**
-     * Further conditions, problems, diagnoses, procedures or events that are related in some way to this condition, or the substance that caused/triggered this Condition
+     * Further conditions, problems, diagnoses, procedures or events that are related in some way to this condition, or the substance that caused/triggered this Condition.
      */
     protected List<ConditionRelatedItemComponent> relatedItem = new ArrayList<ConditionRelatedItemComponent>();
 
     /**
-     * Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, it's diagnosis and prognosis
+     * Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.
      */
     protected String_ notes;
 

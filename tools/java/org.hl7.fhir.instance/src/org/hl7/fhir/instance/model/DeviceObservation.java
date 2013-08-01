@@ -29,42 +29,42 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A set of observations produced by a device
+ * A set of observations produced by a device.
  */
 public class DeviceObservation extends Resource {
 
     /**
-     * A code that identifies what type of device observation this is
+     * A code that identifies what type of device observation this is.
      */
     protected CodeableConcept code;
 
     /**
-     * Identifiers assigned to this observation
+     * Identifiers assigned to this observation.
      */
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * Date the measurements were made
+     * Date the measurements were made.
      */
     protected Instant issued;
 
     /**
-     * The subject of the measurements. Usually, but not always, this is a patient. However devices are also used to make measurements on other things as well
+     * The subject of the measurements. Usually, but not always, this is a patient. However devices are also used to make measurements on other things as well.
      */
     protected ResourceReference subject;
 
     /**
-     * Device that produced the results
+     * Device that produced the results.
      */
     protected ResourceReference device;
 
     /**
-     * The actual measurements that the device produced
+     * The actual measurements that the device produced.
      */
     protected List<ResourceReference> measurement = new ArrayList<ResourceReference>();
 

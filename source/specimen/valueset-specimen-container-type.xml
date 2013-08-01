@@ -13,7 +13,7 @@
       <system value="http://snomed.info/id"/>
       <filter>
         <property value="concept"/>
-        <op value="is_a"/>
+        <op value="is-a"/>
         <value value="434711009"/>
       </filter>
     </include>

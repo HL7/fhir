@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -40,8 +40,8 @@ public class CarePlan extends Resource {
 
     public enum CarePlanStatus {
         planned, // The plan is in development or awaiting use but is not yet intended to be acted upon.
-        active, // The plan is intended to be followed and used as part of patient care
-        ended, // The plan is no longer in use and is not expected to be followed or used in patient care
+        active, // The plan is intended to be followed and used as part of patient care.
+        ended, // The plan is no longer in use and is not expected to be followed or used in patient care.
         Null; // added to help the parsers
         public static CarePlanStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -89,10 +89,10 @@ public class CarePlan extends Resource {
     }
 
     public enum CarePlanGoalStatus {
-        inProgress, // The goal is being sought but has not yet been reached.  (Also applies if goal was reached in the past but there has been regression and goal is being sought again)
-        achieved, // The goal has been met and no further action is needed
-        sustaining, // The goal has been met, but ongoing activity is needed to sustain the goal objective
-        abandoned, // The goal is no longer being sought
+        inProgress, // The goal is being sought but has not yet been reached.  (Also applies if goal was reached in the past but there has been regression and goal is being sought again).
+        achieved, // The goal has been met and no further action is needed.
+        sustaining, // The goal has been met, but ongoing activity is needed to sustain the goal objective.
+        abandoned, // The goal is no longer being sought.
         Null; // added to help the parsers
         public static CarePlanGoalStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -147,13 +147,13 @@ public class CarePlan extends Resource {
     }
 
     public enum CarePlanActivityCategory {
-        diet, // Plan for the patient to consume food of a specified nature
-        drug, // Plan for the patient to consume/receive a drug, vaccine or other product
-        encounter, // Plan to meet or communicate with the patient (in-patient, out-patient, phone call, etc.)
-        observation, // Plan to capture information about a patient (vitals, labs, diagnostic images, etc.)
-        procedure, // Plan to modify the patient in some way (surgery, physio-therapy, education, counselling, etc.)
-        supply, // Plan to provide something to the patient (medication, medical supply, etc.)
-        other, // Some other form of action
+        diet, // Plan for the patient to consume food of a specified nature.
+        drug, // Plan for the patient to consume/receive a drug, vaccine or other product.
+        encounter, // Plan to meet or communicate with the patient (in-patient, out-patient, phone call, etc.).
+        observation, // Plan to capture information about a patient (vitals, labs, diagnostic images, etc.).
+        procedure, // Plan to modify the patient in some way (surgery, physio-therapy, education, counselling, etc.).
+        supply, // Plan to provide something to the patient (medication, medical supply, etc.).
+        other, // Some other form of action.
         Null; // added to help the parsers
         public static CarePlanActivityCategory fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -229,12 +229,12 @@ public class CarePlan extends Resource {
     }
 
     public enum CarePlanActivityStatus {
-        notStarted, // Activity is planned but no action has yet been taken
-        scheduled, // Appointment or other booking has occurred but activity has not yet begun
-        ongoing, // Activity has been started but is not yet complete
+        notStarted, // Activity is planned but no action has yet been taken.
+        scheduled, // Appointment or other booking has occurred but activity has not yet begun.
+        ongoing, // Activity has been started but is not yet complete.
         onHold, // Activity was started but has temporarily ceased with an expectation of resumption at a future time.
-        completed, // The activities have been completed (more or less) as planned
-        discontinued, // The activities have been ended prior to completion (perhaps even before they were started)
+        completed, // The activities have been completed (more or less) as planned.
+        discontinued, // The activities have been ended prior to completion (perhaps even before they were started).
         Null; // added to help the parsers
         public static CarePlanActivityStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -345,12 +345,12 @@ public class CarePlan extends Resource {
         protected String_ description;
 
         /**
-         * Indicates whether the goal has been reached and is still considered relevant
+         * Indicates whether the goal has been reached and is still considered relevant.
          */
         protected Enumeration<CarePlanGoalStatus> status;
 
         /**
-         * Any comments related to the goal
+         * Any comments related to the goal.
          */
         protected String_ notes;
 
@@ -488,7 +488,7 @@ public class CarePlan extends Resource {
         protected List<ResourceReference> actionTaken = new ArrayList<ResourceReference>();
 
         /**
-         * Notes about the execution of the activity
+         * Notes about the execution of the activity.
          */
         protected String_ notes;
 
@@ -720,7 +720,7 @@ public class CarePlan extends Resource {
     protected List<CarePlanActivityComponent> activity = new ArrayList<CarePlanActivityComponent>();
 
     /**
-     * General notes about the care plan not covered elsewhere
+     * General notes about the care plan not covered elsewhere.
      */
     protected String_ notes;
 

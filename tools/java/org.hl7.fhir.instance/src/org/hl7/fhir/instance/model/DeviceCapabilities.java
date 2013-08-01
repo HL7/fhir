@@ -29,22 +29,22 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 import java.math.*;
 /**
- * Describes the set of data produced by a device
+ * Describes the set of data produced by a device.
  */
 public class DeviceCapabilities extends Resource {
 
     public enum DeviceDataType {
-        quantity, // The data item is a quantity. The string value should be merged with the units, and the ucum value if provided, to create a valid quantity
-        range, // The data item is a range. The string value should be split about the " - " into low and high, with the units and ucum (if provided) filling out the low and high quantities
-        coding, // The data item is a code (i.e. true/false etc). The value should be built into a valid coding by filling out the system element provided
-        array, // The data item is an Array (a sequence of sample measures, which must be merged with the Array template)
-        string, // The data item is a simple string
+        quantity, // The data item is a quantity. The string value should be merged with the units, and the ucum value if provided, to create a valid quantity.
+        range, // The data item is a range. The string value should be split about the " - " into low and high, with the units and ucum (if provided) filling out the low and high quantities.
+        coding, // The data item is a code (i.e. true/false etc). The value should be built into a valid coding by filling out the system element provided.
+        array, // The data item is an Array (a sequence of sample measures, which must be merged with the Array template).
+        string, // The data item is a simple string.
         Null; // added to help the parsers
         public static DeviceDataType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -107,12 +107,12 @@ public class DeviceCapabilities extends Resource {
 
     public class DeviceCapabilitiesVirtualDeviceComponent extends Element {
         /**
-         * Describes the compartment
+         * Describes the compartment.
          */
         protected CodeableConcept code;
 
         /**
-         * Groups together physiological measurement data and derived data
+         * Groups together physiological measurement data and derived data.
          */
         protected List<DeviceCapabilitiesVirtualDeviceChannelComponent> channel = new ArrayList<DeviceCapabilitiesVirtualDeviceChannelComponent>();
 
@@ -141,12 +141,12 @@ public class DeviceCapabilities extends Resource {
 
     public class DeviceCapabilitiesVirtualDeviceChannelComponent extends Element {
         /**
-         * Describes the channel
+         * Describes the channel.
          */
         protected CodeableConcept code;
 
         /**
-         * A piece of measured or derived data that will be reported by the machine
+         * A piece of measured or derived data that will be reported by the machine.
          */
         protected List<DeviceCapabilitiesVirtualDeviceChannelMetricComponent> metric = new ArrayList<DeviceCapabilitiesVirtualDeviceChannelMetricComponent>();
 
@@ -175,22 +175,22 @@ public class DeviceCapabilities extends Resource {
 
     public class DeviceCapabilitiesVirtualDeviceChannelMetricComponent extends Element {
         /**
-         * Describes the metrics
+         * Describes the metrics.
          */
         protected CodeableConcept code;
 
         /**
-         * Used to link to data in device log
+         * Used to link to data in device log.
          */
         protected String_ key;
 
         /**
-         * How to interpret this metric value
+         * How to interpret this metric value.
          */
         protected DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent info;
 
         /**
-         * Additional data that qualifies the metric, or contributes to it's assessment
+         * Additional data that qualifies the metric, or contributes to its assessment.
          */
         protected List<DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent> facet = new ArrayList<DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent>();
 
@@ -247,27 +247,27 @@ public class DeviceCapabilities extends Resource {
 
     public class DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent extends Element {
         /**
-         * Type of data for this metric
+         * Type of data for this metric.
          */
         protected Enumeration<DeviceDataType> type;
 
         /**
-         * Units for this data item (if a quantity or a range)
+         * Units for this data item (if a quantity or a range).
          */
         protected String_ units;
 
         /**
-         * UCUM units (if a quantity or a range)
+         * UCUM units (if a quantity or a range).
          */
         protected Code ucum;
 
         /**
-         * A template containing the fixed values for an array output (all the values but the data)
+         * A template containing the fixed values for an array output (all the values but the data).
          */
         protected SampledData template;
 
         /**
-         * System of the codes, if the type is a Coding
+         * System of the codes, if the type is a Coding.
          */
         protected Uri system;
 
@@ -377,22 +377,22 @@ public class DeviceCapabilities extends Resource {
 
     public class DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent extends Element {
         /**
-         * Describes the facet
+         * Describes the facet.
          */
         protected CodeableConcept code;
 
         /**
-         * The factor to apply to the raw values to get the correct value
+         * The factor to apply to the raw values to get the correct value.
          */
         protected Decimal scale;
 
         /**
-         * Used to link to data in device log
+         * Used to link to data in device log.
          */
         protected String_ key;
 
         /**
-         * How to interpret this facet value
+         * How to interpret this facet value.
          */
         protected DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent info;
 
@@ -464,27 +464,27 @@ public class DeviceCapabilities extends Resource {
   }
 
     /**
-     * The name of this device
+     * The name of this device.
      */
     protected String_ name;
 
     /**
-     * The kind of device - what kind of functionality it provides
+     * The kind of device - what kind of functionality it provides.
      */
     protected CodeableConcept type;
 
     /**
-     * The company that built this device
+     * The company that built this device.
      */
     protected String_ manufacturer;
 
     /**
-     * Identifies this particular device uniquely
+     * Identifies this particular device uniquely.
      */
     protected ResourceReference identity;
 
     /**
-     * A medical-related subsystem of a medical device
+     * A medical-related subsystem of a medical device.
      */
     protected List<DeviceCapabilitiesVirtualDeviceComponent> virtualDevice = new ArrayList<DeviceCapabilitiesVirtualDeviceComponent>();
 

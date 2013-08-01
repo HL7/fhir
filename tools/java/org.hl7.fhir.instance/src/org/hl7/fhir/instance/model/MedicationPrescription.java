@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -39,38 +39,38 @@ import java.util.*;
 public class MedicationPrescription extends Resource {
 
     public enum MedicationPrescriptionStatus {
-        active, // The prescribing of the medication has started and is currently in progress.
-        held, // The prescribing of the medication has started but is currently stopped with a firm intention of restarting.
-        completed, // The prescribing of the medication has finished
-        enteredInError, // The prescribing of the medication was recorded in error and the record should now be disregarded.
-        stopped, // The prescription has been terminated prior to the originally inteded completion
-        cancelled, // The prescription has been terminated before it started
+        active, // The prescription is 'actionable', but not all actions that are implied by it have occured yet.
+        suspended, // Actions implied by the prescription have been temporarily halted, but are expected to continue later.  May also be called "held".
+        completed, // All actions that are implied by the prescription have occured (this will rarely be made explicit).
+        enteredInError, // The prescription was entered in error and therefore nullified.
+        stopped, // Actions implied by the prescription have been permanently halted, before all of them occured.
+        obsolete, // The prescription was replaced by a newer one, which encompasses all the information in the previous one.
         Null; // added to help the parsers
         public static MedicationPrescriptionStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("active".equals(codeString))
           return active;
-        if ("held".equals(codeString))
-          return held;
+        if ("suspended".equals(codeString))
+          return suspended;
         if ("completed".equals(codeString))
           return completed;
         if ("entered in error".equals(codeString))
           return enteredInError;
         if ("stopped".equals(codeString))
           return stopped;
-        if ("cancelled".equals(codeString))
-          return cancelled;
+        if ("obsolete".equals(codeString))
+          return obsolete;
         throw new Exception("Unknown MedicationPrescriptionStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case active: return "active";
-            case held: return "held";
+            case suspended: return "suspended";
             case completed: return "completed";
             case enteredInError: return "entered in error";
             case stopped: return "stopped";
-            case cancelled: return "cancelled";
+            case obsolete: return "obsolete";
             default: return "?";
           }
         }
@@ -83,31 +83,31 @@ public class MedicationPrescription extends Resource {
                 return null;
         if ("active".equals(codeString))
           return MedicationPrescriptionStatus.active;
-        if ("held".equals(codeString))
-          return MedicationPrescriptionStatus.held;
+        if ("suspended".equals(codeString))
+          return MedicationPrescriptionStatus.suspended;
         if ("completed".equals(codeString))
           return MedicationPrescriptionStatus.completed;
         if ("entered in error".equals(codeString))
           return MedicationPrescriptionStatus.enteredInError;
         if ("stopped".equals(codeString))
           return MedicationPrescriptionStatus.stopped;
-        if ("cancelled".equals(codeString))
-          return MedicationPrescriptionStatus.cancelled;
+        if ("obsolete".equals(codeString))
+          return MedicationPrescriptionStatus.obsolete;
         throw new Exception("Unknown MedicationPrescriptionStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
       if (code == MedicationPrescriptionStatus.active)
         return "active";
-      if (code == MedicationPrescriptionStatus.held)
-        return "held";
+      if (code == MedicationPrescriptionStatus.suspended)
+        return "suspended";
       if (code == MedicationPrescriptionStatus.completed)
         return "completed";
       if (code == MedicationPrescriptionStatus.enteredInError)
         return "entered in error";
       if (code == MedicationPrescriptionStatus.stopped)
         return "stopped";
-      if (code == MedicationPrescriptionStatus.cancelled)
-        return "cancelled";
+      if (code == MedicationPrescriptionStatus.obsolete)
+        return "obsolete";
       return "?";
       }
     }
@@ -124,17 +124,17 @@ public class MedicationPrescription extends Resource {
         protected Type additionalInstructions;
 
         /**
-         * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013"
+         * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
          */
         protected Type timing;
 
         /**
-         * A coded specification of the anatomic site where the medication first enters the body
+         * A coded specification of the anatomic site where the medication first enters the body.
          */
         protected CodeableConcept site;
 
         /**
-         * A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
+         * A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient.
          */
         protected CodeableConcept route;
 
@@ -400,12 +400,12 @@ In some situations, this attribute may be used instead of quantity to identify t
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * The date (and perhaps time) when the prescription was written
+     * The date (and perhaps time) when the prescription was written.
      */
     protected DateTime dateWritten;
 
     /**
-     * A code specifying the state of the order.  Generally this will be active or completed state
+     * A code specifying the state of the order.  Generally this will be active or completed state.
      */
     protected Enumeration<MedicationPrescriptionStatus> status;
 
@@ -415,7 +415,7 @@ In some situations, this attribute may be used instead of quantity to identify t
     protected ResourceReference patient;
 
     /**
-     * The healthcare professional responsible for authorising the prescription
+     * The healthcare professional responsible for authorising the prescription.
      */
     protected ResourceReference prescriber;
 
@@ -435,12 +435,12 @@ In some situations, this attribute may be used instead of quantity to identify t
     protected ResourceReference medication;
 
     /**
-     * Indicates how the medication is to be used by the patient
+     * Indicates how the medication is to be used by the patient.
      */
     protected List<MedicationPrescriptionDosageInstructionComponent> dosageInstruction = new ArrayList<MedicationPrescriptionDosageInstructionComponent>();
 
     /**
-     * Deals with details of the dispense part of the order
+     * Deals with details of the dispense part of the order.
      */
     protected MedicationPrescriptionDispenseComponent dispense;
 

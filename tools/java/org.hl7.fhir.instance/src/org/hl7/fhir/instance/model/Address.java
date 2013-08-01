@@ -29,20 +29,20 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for addresses all around the world
+ * There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for addresses all around the world.
  */
 public class Address extends Type {
 
     public enum AddressUse {
-        home, // A communication address at a home
-        work, // An office address. First choice for business related contacts during business hours
-        temp, // A temporary address. The period can provide more detailed information
-        old, // This address is no longer in use (or was never correct, but retained for records)
+        home, // A communication address at a home.
+        work, // An office address. First choice for business related contacts during business hours.
+        temp, // A temporary address. The period can provide more detailed information.
+        old, // This address is no longer in use (or was never correct, but retained for records).
         Null; // added to help the parsers
         public static AddressUse fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -97,12 +97,12 @@ public class Address extends Type {
     }
 
     /**
-     * Identifies the intended purpose of this address
+     * Identifies the intended purpose of this address.
      */
     protected Enumeration<AddressUse> use;
 
     /**
-     * A full text representation of the address
+     * A full text representation of the address.
      */
     protected String_ text;
 
@@ -132,7 +132,7 @@ public class Address extends Type {
     protected String_ country;
 
     /**
-     * Time period when address was/is in use
+     * Time period when address was/is in use.
      */
     protected Period period;
 

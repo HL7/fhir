@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 /**
  * All kinds of technology mediated contact details for a person or organisation, including telephone, email, etc.
@@ -39,8 +39,8 @@ public class Contact extends Type {
     public enum ContactSystem {
         phone, // The value is a telephone number used for voice calls. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required.
         fax, // The value is a fax machine. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required.
-        email, // The value is an email address
-        url, // The value is a url. This is intended for various personal contacts including blogs, Twitter, Facebook, etc. Do not use for email addresses
+        email, // The value is an email address.
+        url, // The value is a url. This is intended for various personal contacts including blogs, Twitter, Facebook, etc. Do not use for email addresses.
         Null; // added to help the parsers
         public static ContactSystem fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -98,8 +98,8 @@ public class Contact extends Type {
         home, // A communication contact at a home; attempted contacts for business purposes might intrude privacy and chances are one will contact family or other household members instead of the person one wishes to call. Typically used with urgent cases, or if no other contacts are available.
         work, // An office contact. First choice for business related contacts during business hours.
         temp, // A temporary contact. The period can provide more detailed information.
-        old, // This contact is no longer in use (or was never correct, but retained for records)
-        mobile, // A telecommunication device that moves and stays with its owner. May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business
+        old, // This contact is no longer in use (or was never correct, but retained for records).
+        mobile, // A telecommunication device that moves and stays with its owner. May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business.
         Null; // added to help the parsers
         public static ContactUse fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -161,7 +161,7 @@ public class Contact extends Type {
     }
 
     /**
-     * What kind of contact this is - what communications system is required to make use of the contact
+     * What kind of contact this is - what communications system is required to make use of the contact.
      */
     protected Enumeration<ContactSystem> system;
 
@@ -171,12 +171,12 @@ public class Contact extends Type {
     protected String_ value;
 
     /**
-     * Identifies the context for the address
+     * Identifies the context for the address.
      */
     protected Enumeration<ContactUse> use;
 
     /**
-     * Time period when the contact was/is in use
+     * Time period when the contact was/is in use.
      */
     protected Period period;
 

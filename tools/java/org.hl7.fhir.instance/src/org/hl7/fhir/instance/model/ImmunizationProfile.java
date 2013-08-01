@@ -29,17 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A patient's point-of-time immunization status and recommendation with optional supporting justification
+ * A patient's point-of-time immunization status and recommendation with optional supporting justification.
  */
 public class ImmunizationProfile extends Resource {
 
     public enum ImmunizationForecastStatus {
-        dUE, // This immunization is due to be given now
+        dUE, // This immunization is due to be given now.
         Null; // added to help the parsers
         public static ImmunizationForecastStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -74,22 +74,22 @@ public class ImmunizationProfile extends Resource {
 
     public class ImmunizationProfileRecommendationComponent extends Element {
         /**
-         * The date of the immunization recommendation
+         * The date of the immunization recommendation.
          */
         protected DateTime recommendationDate;
 
         /**
-         * Vaccine that pertains to the recommendation
+         * Vaccine that pertains to the recommendation.
          */
         protected CodeableConcept vaccineType;
 
         /**
-         * Recommended dose number
+         * Recommended dose number.
          */
         protected Integer doseNumber;
 
         /**
-         * Vaccine administration status
+         * Vaccine administration status.
          */
         protected Enumeration<ImmunizationForecastStatus> forecastStatus;
 
@@ -99,22 +99,22 @@ public class ImmunizationProfile extends Resource {
         protected List<ImmunizationProfileRecommendationDateCriterionComponent> dateCriterion = new ArrayList<ImmunizationProfileRecommendationDateCriterionComponent>();
 
         /**
-         * Contains information about the protocol under which the vaccine was administered
+         * Contains information about the protocol under which the vaccine was administered.
          */
         protected ImmunizationProfileRecommendationProtocolComponent protocol;
 
         /**
-         * Immunization event history that supports the status and recommendation
+         * Immunization event history that supports the status and recommendation.
          */
         protected List<ResourceReference> supportingImmunization = new ArrayList<ResourceReference>();
 
         /**
-         * Adverse event report information that supports the status and recommendation
+         * Adverse event report information that supports the status and recommendation.
          */
         protected List<ImmunizationProfileRecommendationSupportingAdverseEventReportComponent> supportingAdverseEventReport = new ArrayList<ImmunizationProfileRecommendationSupportingAdverseEventReportComponent>();
 
         /**
-         * Patient observation that supports the status and recommendation
+         * Patient observation that supports the status and recommendation.
          */
         protected List<ResourceReference> supportingPatientObservation = new ArrayList<ResourceReference>();
 
@@ -239,7 +239,7 @@ public class ImmunizationProfile extends Resource {
         protected CodeableConcept code;
 
         /**
-         * Date recommendation
+         * Date recommendation.
          */
         protected DateTime value;
 
@@ -280,22 +280,22 @@ public class ImmunizationProfile extends Resource {
 
     public class ImmunizationProfileRecommendationProtocolComponent extends Element {
         /**
-         * Nominal position in a series
+         * Nominal position in a series.
          */
         protected Integer doseSequence;
 
         /**
-         * Contains the description about the protocol under which the vaccine was administered
+         * Contains the description about the protocol under which the vaccine was administered.
          */
         protected String_ description;
 
         /**
-         * Indicates the authority who published the protocol?  E.g. ACIP
+         * Indicates the authority who published the protocol?  E.g. ACIP.
          */
         protected ResourceReference authority;
 
         /**
-         * One possible path to achieve presumed immunity against a disease - within the context of an authority
+         * One possible path to achieve presumed immunity against a disease - within the context of an authority.
          */
         protected String_ series;
 
@@ -386,27 +386,27 @@ public class ImmunizationProfile extends Resource {
 
     public class ImmunizationProfileRecommendationSupportingAdverseEventReportComponent extends Element {
         /**
-         * Unique identifier of the adverse event report
+         * Unique identifier of the adverse event report.
          */
         protected List<Id> identifier = new ArrayList<Id>();
 
         /**
-         * Advers event report classification
+         * Advers event report classification.
          */
         protected CodeableConcept reportType;
 
         /**
-         * The date of the adverse event report
+         * The date of the adverse event report.
          */
         protected DateTime reportDate;
 
         /**
-         * The content of the adverse event report
+         * The content of the adverse event report.
          */
         protected String_ text;
 
         /**
-         * The documented reaction described in the adverse event report
+         * The documented reaction described in the adverse event report.
          */
         protected List<ResourceReference> reaction = new ArrayList<ResourceReference>();
 
@@ -487,12 +487,12 @@ public class ImmunizationProfile extends Resource {
   }
 
     /**
-     * The patient who is the subject of the profile
+     * The patient who is the subject of the profile.
      */
     protected ResourceReference subject;
 
     /**
-     * Vaccine administration recommendations
+     * Vaccine administration recommendations.
      */
     protected List<ImmunizationProfileRecommendationComponent> recommendation = new ArrayList<ImmunizationProfileRecommendationComponent>();
 

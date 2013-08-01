@@ -29,20 +29,20 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A collection of Error, warning or information messages that result from a system action
+ * A collection of Error, warning or information messages that result from a system action.
  */
 public class OperationOutcome extends Resource {
 
     public enum IssueSeverity {
-        fatal, // The issue caused the action to fail, and no further checking could be performed
-        error, // The issue is sufficiently important to cause the action to fail
-        warning, // The issue is not important enough to cause the action to fail, but may cause it to be performed suboptimally or in a way that is not as desired
-        information, // The issue has no relation to the degree of success of the action
+        fatal, // The issue caused the action to fail, and no further checking could be performed.
+        error, // The issue is sufficiently important to cause the action to fail.
+        warning, // The issue is not important enough to cause the action to fail, but may cause it to be performed suboptimally or in a way that is not as desired.
+        information, // The issue has no relation to the degree of success of the action.
         Null; // added to help the parsers
         public static IssueSeverity fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -98,7 +98,7 @@ public class OperationOutcome extends Resource {
 
     public class OperationOutcomeIssueComponent extends Element {
         /**
-         * Indicates whether the issue indicates a variation from successful processing
+         * Indicates whether the issue indicates a variation from successful processing.
          */
         protected Enumeration<IssueSeverity> severity;
 
@@ -108,7 +108,7 @@ public class OperationOutcome extends Resource {
         protected Coding type;
 
         /**
-         * Additional description of the issue
+         * Additional description of the issue.
          */
         protected String_ details;
 
@@ -183,7 +183,7 @@ public class OperationOutcome extends Resource {
   }
 
     /**
-     * An error, warning or information message that results from a system action
+     * An error, warning or information message that results from a system action.
      */
     protected List<OperationOutcomeIssueComponent> issue = new ArrayList<OperationOutcomeIssueComponent>();
 

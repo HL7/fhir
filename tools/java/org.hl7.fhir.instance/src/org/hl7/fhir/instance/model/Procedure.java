@@ -29,31 +29,31 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * An action that is performed on a patient. This can be a physical 'thing' like an operation, or less invasive like counselling or hypnotherapy
+ * An action that is performed on a patient. This can be a physical 'thing' like an operation, or less invasive like counselling or hypnotherapy.
  */
 public class Procedure extends Resource {
 
     public enum ProcedureRelationshipType {
-        causedMinusby, // This procedure had to be performed because of the related one
-        caused, // This procedure caused the related one to be performed
+        causedby, // This procedure had to be performed because of the related one.
+        caused, // This procedure caused the related one to be performed.
         Null; // added to help the parsers
         public static ProcedureRelationshipType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("caused-by".equals(codeString))
-          return causedMinusby;
+          return causedby;
         if ("caused".equals(codeString))
           return caused;
         throw new Exception("Unknown ProcedureRelationshipType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case causedMinusby: return "caused-by";
+            case causedby: return "caused-by";
             case caused: return "caused";
             default: return "?";
           }
@@ -66,13 +66,13 @@ public class Procedure extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("caused-by".equals(codeString))
-          return ProcedureRelationshipType.causedMinusby;
+          return ProcedureRelationshipType.causedby;
         if ("caused".equals(codeString))
           return ProcedureRelationshipType.caused;
         throw new Exception("Unknown ProcedureRelationshipType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ProcedureRelationshipType.causedMinusby)
+      if (code == ProcedureRelationshipType.causedby)
         return "caused-by";
       if (code == ProcedureRelationshipType.caused)
         return "caused";
@@ -82,12 +82,12 @@ public class Procedure extends Resource {
 
     public class ProcedurePerformerComponent extends Element {
         /**
-         * The practitioner who was involved in the procedure
+         * The practitioner who was involved in the procedure.
          */
         protected ResourceReference person;
 
         /**
-         * Eg surgeon, anaethetist, endoscopist
+         * Eg surgeon, anaethetist, endoscopist.
          */
         protected CodeableConcept role;
 
@@ -118,12 +118,12 @@ public class Procedure extends Resource {
 
     public class ProcedureRelatedItemComponent extends Element {
         /**
-         * The nature of the relationship
+         * The nature of the relationship.
          */
         protected Enumeration<ProcedureRelationshipType> type;
 
         /**
-         * The related item - eg a procedure
+         * The related item - eg a procedure.
          */
         protected ResourceReference target;
 
@@ -167,27 +167,27 @@ public class Procedure extends Resource {
   }
 
     /**
-     * The person on whom the procedure was performed
+     * The person on whom the procedure was performed.
      */
     protected ResourceReference subject;
 
     /**
-     * The specific procedure that is perfromed
+     * The specific procedure that is perfromed.
      */
     protected CodeableConcept type;
 
     /**
-     * Detailed and structured anatomical location information. Multiple locations are allowed - eg multiple punch biopsies of a lesion
+     * Detailed and structured anatomical location information. Multiple locations are allowed - eg multiple punch biopsies of a lesion.
      */
     protected List<CodeableConcept> bodySite = new ArrayList<CodeableConcept>();
 
     /**
-     * The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text
+     * The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text.
      */
     protected String_ indication;
 
     /**
-     * This is limited to 'real' people rather than equipment
+     * Limited to 'real' people rather than equipment.
      */
     protected List<ProcedurePerformerComponent> performer = new ArrayList<ProcedurePerformerComponent>();
 
@@ -197,37 +197,37 @@ public class Procedure extends Resource {
     protected Period date;
 
     /**
-     * The encounter during which the procedure was performed
+     * The encounter during which the procedure was performed.
      */
     protected ResourceReference encounter;
 
     /**
-     * What was the outcome of the procedure - did it resolve reasons why the procedure was performed?
+     * What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.
      */
     protected String_ outcome;
 
     /**
-     * This could be a histology result. There could potentially be multiple reports - eg if this was a procedure that made multiple biopsies
+     * This could be a histology result. There could potentially be multiple reports - eg if this was a procedure that made multiple biopsies.
      */
     protected List<ResourceReference> report = new ArrayList<ResourceReference>();
 
     /**
-     * Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, whicg typically will describe the procedure itself rather than any 'post procedure' issues
+     * Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, whicg typically will describe the procedure itself rather than any 'post procedure' issues.
      */
     protected String_ complication;
 
     /**
-     * If the procedure required specific follow up - eg removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used
+     * If the procedure required specific follow up - eg removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.
      */
     protected String_ followUp;
 
     /**
-     * Procedures may be related to other items such as procedures or medciations. For example treating wound dehiscence following a previous procedure
+     * Procedures may be related to other items such as procedures or medciations. For example treating wound dehiscence following a previous procedure.
      */
     protected List<ProcedureRelatedItemComponent> relatedItem = new ArrayList<ProcedureRelatedItemComponent>();
 
     /**
-     * Any other notes about the procedure - eg the operative notes
+     * Any other notes about the procedure - eg the operative notes.
      */
     protected String_ notes;
 

@@ -29,29 +29,29 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A set of raw data produced by a device
+ * A set of raw data produced by a device.
  */
 public class DeviceLog extends Resource {
 
     public enum DeviceValueFlag {
-        ok, // the value is valid
-        ongoing, // An early estimate of value; measurement is still occurring
-        early, // An early estimate of value; processing is still occurring
-        questionable, // The observation value should be treated with care (there are reasons for doubting the accuracy of the current value)
-        calibrating, // The value has been generated while calibration is occurring
-        error, // the current conditions are invalid, and the value should not be used
-        unknown, // No observation value was available
-        test, // this is test data
-        demo, // this is demo data
-        under, // the value is under accurate measurement limits
-        over, // the value is over accurate measurement limits
-        alarm, // the value is associated with an active alarm condition
-        alarmMinusoff, // the value would be associated with an active alarm, but alarms are turned off
+        ok, // the value is valid.
+        ongoing, // An early estimate of value; measurement is still occurring.
+        early, // An early estimate of value; processing is still occurring.
+        questionable, // The observation value should be treated with care (there are reasons for doubting the accuracy of the current value).
+        calibrating, // The value has been generated while calibration is occurring.
+        error, // the current conditions are invalid, and the value should not be used.
+        unknown, // No observation value was available.
+        test, // this is test data.
+        demo, // this is demo data.
+        under, // the value is under accurate measurement limits.
+        over, // the value is over accurate measurement limits.
+        alarm, // the value is associated with an active alarm condition.
+        alarmoff, // the value would be associated with an active alarm, but alarms are turned off.
         Null; // added to help the parsers
         public static DeviceValueFlag fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -81,7 +81,7 @@ public class DeviceLog extends Resource {
         if ("alarm".equals(codeString))
           return alarm;
         if ("alarm-off".equals(codeString))
-          return alarmMinusoff;
+          return alarmoff;
         throw new Exception("Unknown DeviceValueFlag code '"+codeString+"'");
         }
         public String toCode() {
@@ -98,7 +98,7 @@ public class DeviceLog extends Resource {
             case under: return "under";
             case over: return "over";
             case alarm: return "alarm";
-            case alarmMinusoff: return "alarm-off";
+            case alarmoff: return "alarm-off";
             default: return "?";
           }
         }
@@ -134,7 +134,7 @@ public class DeviceLog extends Resource {
         if ("alarm".equals(codeString))
           return DeviceValueFlag.alarm;
         if ("alarm-off".equals(codeString))
-          return DeviceValueFlag.alarmMinusoff;
+          return DeviceValueFlag.alarmoff;
         throw new Exception("Unknown DeviceValueFlag code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -162,7 +162,7 @@ public class DeviceLog extends Resource {
         return "over";
       if (code == DeviceValueFlag.alarm)
         return "alarm";
-      if (code == DeviceValueFlag.alarmMinusoff)
+      if (code == DeviceValueFlag.alarmoff)
         return "alarm-off";
       return "?";
       }
@@ -170,17 +170,17 @@ public class DeviceLog extends Resource {
 
     public class DeviceLogItemComponent extends Element {
         /**
-         * Reference to a device capabilities declaration
+         * Reference to a device capabilities declaration.
          */
         protected String_ key;
 
         /**
-         * The value of the data item, if available. Irrespective of the logical format of the data item, the value is always represented as a string
+         * The value of the data item, if available. Irrespective of the logical format of the data item, the value is always represented as a string.
          */
         protected String_ value;
 
         /**
-         * Information about the quality of the data etc
+         * Information about the quality of the data etc.
          */
         protected List<Enumeration<DeviceValueFlag>> flag = new ArrayList<Enumeration<DeviceValueFlag>>();
 
@@ -241,22 +241,22 @@ public class DeviceLog extends Resource {
   }
 
     /**
-     * The point in time that the values are reported
+     * The point in time that the values are reported.
      */
     protected Instant instant;
 
     /**
-     * An explicit reference  to the capabilities
+     * An explicit reference  to the capabilities.
      */
     protected ResourceReference capabilities;
 
     /**
-     * The subject of the measurement
+     * The subject of the measurement.
      */
     protected ResourceReference subject;
 
     /**
-     * An item of data that the device produces
+     * An item of data that the device produces.
      */
     protected List<DeviceLogItemComponent> item = new ArrayList<DeviceLogItemComponent>();
 

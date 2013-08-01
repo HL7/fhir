@@ -430,13 +430,13 @@ public class Publisher {
       genConfOp(conf, res, RestfulOperation.vread);
       genConfOp(conf, res, RestfulOperation.update);
       genConfOp(conf, res, RestfulOperation.delete);
-      genConfOp(conf, res, RestfulOperation.historyMinusinstance);
+      genConfOp(conf, res, RestfulOperation.historyinstance);
       genConfOp(conf, res, RestfulOperation.validate);
-      genConfOp(conf, res, RestfulOperation.historyMinustype);
+      genConfOp(conf, res, RestfulOperation.historytype);
       genConfOp(conf, res, RestfulOperation.create);
       genConfOp(conf, res, RestfulOperation.search);
       genConfOp(conf, res, RestfulOperation.transaction);
-      genConfOp(conf, res, RestfulOperation.historyMinussystem);
+      genConfOp(conf, res, RestfulOperation.historysystem);
 
       for (SearchParameter i : rd.getSearchParams().values()) {
         res.getSearchParam().add(makeSearchParam(conf, rn, i));
@@ -1377,7 +1377,7 @@ public class Publisher {
         if (cnt.getNodeName().equals("codeBasedContent") && (XMLUtil.getNamedChild(cnt, "includeRelatedCodes") != null)) {
           // common case: include a child and all or some of it's descendants
           ConceptSetFilterComponent f = vs.new ConceptSetFilterComponent();
-          f.setOpSimple(FilterOperator.isA);
+          f.setOpSimple(FilterOperator.isa);
           f.setPropertySimple("concept");
           f.setValueSimple(cnt.getAttribute("code"));
           imp.getFilter().add(f);

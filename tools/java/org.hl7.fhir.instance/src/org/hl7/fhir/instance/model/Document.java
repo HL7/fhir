@@ -29,20 +29,20 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A documentation of healthcare-related information that is assembled together into a single statement of meaning that establishes its own context. A document is composed of a set of resources that include both human and computer readable portions. A human may attest to the accuracy of the human readable portion and may authenticate and/or sign the entire whole. A document may be kept as a set of logically linked resources, or they may be bundled together in an atom feed
+ * A documentation of healthcare-related information that is assembled together into a single statement of meaning that establishes its own context. A document is composed of a set of resources that include both human and computer readable portions. A human may attest to the accuracy of the human readable portion and may authenticate and/or sign the entire whole. A document may be kept as a set of logically linked resources, or they may be bundled together in an atom feed.
  */
 public class Document extends Resource {
 
     public enum DocumentStatus {
-        interim, // This is an initial or interim document. The content may be incomplete or unverified
-        final_, // The document is complete and verified by an appropriate person
-        amended, // The document has been modified subsequent to being released as "final", and is complete and verified by an authorised person
-        withdrawn, // The document has been withdrawn following prior release
+        interim, // This is an initial or interim document. The content may be incomplete or unverified.
+        final_, // The document is complete and verified by an appropriate person.
+        amended, // The document has been modified subsequent to being released as "final", and is complete and verified by an authorised person.
+        withdrawn, // The document has been withdrawn following prior release.
         Null; // added to help the parsers
         public static DocumentStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -97,10 +97,10 @@ public class Document extends Resource {
     }
 
     public enum DocumentAttestationMode {
-        personal, // The person authenticated the document in their personal capacity
-        professional, // The person authenticated the document in their professional capacity
-        legal, // The person authenticated the document and accepted legal responsibility for its content
-        official, // The organization authenticated the document as consistent with their policies and procedures
+        personal, // The person authenticated the document in their personal capacity.
+        professional, // The person authenticated the document in their professional capacity.
+        legal, // The person authenticated the document and accepted legal responsibility for its content.
+        official, // The organization authenticated the document as consistent with their policies and procedures.
         Null; // added to help the parsers
         public static DocumentAttestationMode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -156,17 +156,17 @@ public class Document extends Resource {
 
     public class DocumentAttesterComponent extends Element {
         /**
-         * The type of attestation the authenticator offers
+         * The type of attestation the authenticator offers.
          */
         protected Enumeration<DocumentAttestationMode> mode;
 
         /**
-         * When document was attested by the party
+         * When document was attested by the party.
          */
         protected DateTime time;
 
         /**
-         * Who attested the document in the specified way
+         * Who attested the document in the specified way.
          */
         protected ResourceReference party;
 
@@ -235,12 +235,12 @@ public class Document extends Resource {
         protected List<CodeableConcept> code = new ArrayList<CodeableConcept>();
 
         /**
-         * The period of time covered by the document. There is no assertion that the document is a complete representation for this period, only that it documents events during this time
+         * The period of time covered by the document. There is no assertion that the document is a complete representation for this period, only that it documents events during this time.
          */
         protected Period period;
 
         /**
-         * Full details for the event(s) the document concents
+         * Full details for the event(s) the document concents.
          */
         protected List<ResourceReference> detail = new ArrayList<ResourceReference>();
 
@@ -276,7 +276,7 @@ public class Document extends Resource {
 
     public class SectionComponent extends Element {
         /**
-         * A code identifying the kind of content contained within the section
+         * A code identifying the kind of content contained within the section.
          */
         protected CodeableConcept code;
 
@@ -291,7 +291,7 @@ public class Document extends Resource {
         protected ResourceReference content;
 
         /**
-         * Identifies a subtopic within the section as part of the document's table of contents
+         * Identifies a subtopic within the section as part of the document's table of contents.
          */
         protected List<SectionComponent> section = new ArrayList<SectionComponent>();
 
@@ -337,12 +337,12 @@ public class Document extends Resource {
   }
 
     /**
-     * Logical Identifier for the document, assigned when created. This identifier stays constant when subsequent versions of the document are created
+     * Logical Identifier for the document, assigned when created. This identifier stays constant when subsequent versions of the document are created.
      */
     protected Identifier identifier;
 
     /**
-     * Version specific identifier for the document, assigned when created. This identifier changes when subsequent versions of the document are created
+     * Version specific identifier for the document, assigned when created. This identifier changes when subsequent versions of the document are created.
      */
     protected Identifier versionIdentifier;
 
@@ -352,22 +352,22 @@ public class Document extends Resource {
     protected Instant created;
 
     /**
-     * Specifies the particular kind of document (e.g. History and Physical, Discharge Summary, Progress Note)
+     * Specifies the particular kind of document (e.g. History and Physical, Discharge Summary, Progress Note).
      */
     protected CodeableConcept type;
 
     /**
-     * Additional detailed type for the document
+     * Additional detailed type for the document.
      */
     protected CodeableConcept subtype;
 
     /**
-     * Official human-readable label for the document
+     * Official human-readable label for the document.
      */
     protected String_ title;
 
     /**
-     * The workflow/clinical status of this document. The status is a rough guide to the clinical standing of the document
+     * The workflow/clinical status of this document. The status is a rough guide to the clinical standing of the document.
      */
     protected Enumeration<DocumentStatus> status;
 
@@ -377,17 +377,17 @@ public class Document extends Resource {
     protected Coding confidentiality;
 
     /**
-     * Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)
+     * Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).
      */
     protected ResourceReference subject;
 
     /**
-     * Identifies who is responsible for the information in the document.  (Not necessarily who typed it in.)
+     * Identifies who is responsible for the information in the document.  (Not necessarily who typed it in.).
      */
     protected List<ResourceReference> author = new ArrayList<ResourceReference>();
 
     /**
-     * A participant who has attested to the accuracy of the document
+     * A participant who has attested to the accuracy of the document.
      */
     protected List<DocumentAttesterComponent> attester = new ArrayList<DocumentAttesterComponent>();
 
@@ -397,7 +397,7 @@ public class Document extends Resource {
     protected ResourceReference custodian;
 
     /**
-     * The main event/act/item, such as a colonoscopy or an appendectomy, being documented
+     * The main event/act/item, such as a colonoscopy or an appendectomy, being documented.
      */
     protected DocumentEventComponent event;
 
@@ -412,22 +412,22 @@ public class Document extends Resource {
     protected Id replaces;
 
     /**
-     * Additional provenance about the document and the resources that are the sections
+     * Additional provenance about the document and the resources that are the sections.
      */
     protected List<ResourceReference> provenance = new ArrayList<ResourceReference>();
 
     /**
-     * A fixed CSS stylesheet to use when rendering the documents
+     * A fixed CSS stylesheet to use when rendering the documents.
      */
     protected Attachment stylesheet;
 
     /**
-     * An alternative representation of the document that can be used in place of the html based rendering
+     * An alternative representation of the document that can be used in place of the html based rendering.
      */
     protected Attachment representation;
 
     /**
-     * Identifies a main topic within the document's table of contents
+     * Identifies a main topic within the document's table of contents.
      */
     protected List<SectionComponent> section = new ArrayList<SectionComponent>();
 

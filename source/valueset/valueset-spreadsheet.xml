@@ -467,7 +467,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">FilterOperator</Data></Cell>
-    <Cell><Data ss:Type="String">= | is_a | is_not_a | regex</Data></Cell>
+    <Cell><Data ss:Type="String">= | is-a | is_not_a | regex</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">The kind of operation to perform as part of the filter criteria</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">N/A</Data></Cell>
    </Row>
@@ -822,7 +822,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">children</Data></Cell>
-    <Cell><Data ss:Type="String">Only the immediate children (codes with a is_a relationship) are selected, but not this code itself</Data></Cell>
+    <Cell><Data ss:Type="String">Only the immediate children (codes with a is-a relationship) are selected, but not this code itself</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
@@ -880,12 +880,12 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">is-a</Data></Cell>
-    <Cell><Data ss:Type="String">The property value has a concept that has an is_a relationship with the value</Data></Cell>
+    <Cell><Data ss:Type="String">The property value has a concept that has an is-a relationship with the value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">is-not-a</Data></Cell>
-    <Cell><Data ss:Type="String">The property value has a concept that does not have an is_a relationship with the value</Data></Cell>
+    <Cell><Data ss:Type="String">The property value has a concept that does not have an is-a relationship with the value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>

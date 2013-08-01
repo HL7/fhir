@@ -29,20 +29,20 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 /**
- * A human readable formatted text, including images
+ * A human readable formatted text, including images.
  */
 public class Narrative extends Element {
 
     public enum NarrativeStatus {
         generated, // The contents of the narrative are entirely generated from the structured data in the resource.
-        extensions, // The contents of the narrative are entirely generated from the structured data in the resource and some of the content is generated from extensions
-        additional, // The contents of the narrative contain additional information not found in the structured data
-        empty, // the contents of the narrative are some equivalent of "No human readable text provided for this resource"
+        extensions, // The contents of the narrative are entirely generated from the structured data in the resource and some of the content is generated from extensions.
+        additional, // The contents of the narrative contain additional information not found in the structured data.
+        empty, // the contents of the narrative are some equivalent of "No human readable text provided for this resource".
         Null; // added to help the parsers
         public static NarrativeStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -97,12 +97,12 @@ public class Narrative extends Element {
     }
 
     /**
-     * The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data
+     * The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.
      */
     protected Enumeration<NarrativeStatus> status;
 
     /**
-     * The actual narrative content, a stripped down version of XHTML
+     * The actual narrative content, a stripped down version of XHTML.
      */
     protected XhtmlNode div;
 

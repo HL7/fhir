@@ -29,24 +29,24 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A Response to an order
+ * A Response to an order.
  */
 public class OrderResponse extends Resource {
 
     public enum OrderOutcomeCode {
-        pending, // The order is known, but no processing has occurred at this time
-        review, // The order is undergoing initial processing to determine whether it will be accepted (usually this involves human review)
-        rejected, // The order was rejected because of a workflow/business logic reason
-        error, // The order was unable to be processed because of a technical error (i.e. unexpected error)
-        accepted, // The order has been accepted, and work is in progress
-        cancelled, // Processing the order was halted at the initiators request
-        aborted, // Processing the order was stopped because of some workflow/business logic reason
-        complete, // The order has been completed
+        pending, // The order is known, but no processing has occurred at this time.
+        review, // The order is undergoing initial processing to determine whether it will be accepted (usually this involves human review).
+        rejected, // The order was rejected because of a workflow/business logic reason.
+        error, // The order was unable to be processed because of a technical error (i.e. unexpected error).
+        accepted, // The order has been accepted, and work is in progress.
+        cancelled, // Processing the order was halted at the initiators request.
+        aborted, // Processing the order was stopped because of some workflow/business logic reason.
+        complete, // The order has been completed.
         Null; // added to help the parsers
         public static OrderOutcomeCode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -129,42 +129,42 @@ public class OrderResponse extends Resource {
     }
 
     /**
-     * The order this is a response to
+     * The order this is a response to.
      */
     protected ResourceReference request;
 
     /**
-     * When the response was made
+     * When the response was made.
      */
     protected DateTime date;
 
     /**
-     * Who made the rResponse
+     * Who made the rResponse.
      */
     protected ResourceReference who;
 
     /**
-     * If required by policy
+     * If required by policy.
      */
     protected ResourceReference authority;
 
     /**
-     * How much the request will/did cost
+     * How much the request will/did cost.
      */
     protected Money cost;
 
     /**
-     * The status of the response
+     * The status of the response.
      */
     protected Enumeration<OrderOutcomeCode> code;
 
     /**
-     * Additional description of the response
+     * Additional description of the response.
      */
     protected String_ description;
 
     /**
-     * Details of the outcome of performing the order
+     * Details of the outcome of performing the order.
      */
     protected List<ResourceReference> fulfillment = new ArrayList<ResourceReference>();
 

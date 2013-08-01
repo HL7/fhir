@@ -29,21 +29,21 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage
+ * A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.
  */
 public class SecurityEvent extends Resource {
 
     public enum SecurityEventAction {
         C, // Create a new database object, such as Placing an Order.
-        R, // Display or print data, such as a Doctor Census
-        U, // Update data, such as Revise Patient Information
-        D, // Delete items, such as a doctor master file record
-        E, // Perform a system or application function such as log-on, program execution or use of an object's method, or perform a query/search operation
+        R, // Display or print data, such as a Doctor Census.
+        U, // Update data, such as Revise Patient Information.
+        D, // Delete items, such as a doctor master file record.
+        E, // Perform a system or application function such as log-on, program execution or use of an object's method, or perform a query/search operation.
         Null; // added to help the parsers
         public static SecurityEventAction fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -105,10 +105,10 @@ public class SecurityEvent extends Resource {
     }
 
     public enum SecurityEventOutcome {
-        _0, // The operation completed successfully (whether with warnings or not)
-        _4, // The action was not successful due to some kind of catered for error (often equivalent to an HTTP 400 response)
-        _8, // The action was not successful due to some kind of unexpected error (often equivalent to an HTTP 500 response)
-        _12, // An error of such magnitude occurred that the system is not longer availkable for use (i.e. the system died)
+        _0, // The operation completed successfully (whether with warnings or not).
+        _4, // The action was not successful due to some kind of catered for error (often equivalent to an HTTP 400 response).
+        _8, // The action was not successful due to some kind of unexpected error (often equivalent to an HTTP 500 response).
+        _12, // An error of such magnitude occurred that the system is not longer availkable for use (i.e. the system died).
         Null; // added to help the parsers
         public static SecurityEventOutcome fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -163,11 +163,11 @@ public class SecurityEvent extends Resource {
     }
 
     public enum NetworkType {
-        name, // Machine Name, including DNS name
-        ip, // IP Address
-        phone, // Telephone Number
-        email, // Email address
-        uri, // URI (User directory, HTTP-PUT, ftp, etc.)
+        name, // Machine Name, including DNS name.
+        ip, // IP Address.
+        phone, // Telephone Number.
+        email, // Email address.
+        uri, // URI (User directory, HTTP-PUT, ftp, etc.).
         Null; // added to help the parsers
         public static NetworkType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -229,10 +229,10 @@ public class SecurityEvent extends Resource {
     }
 
     public enum ObjectType {
-        _1, // Person
-        _2, // System Object
-        _3, // Organization
-        _4, // Other
+        _1, // Person.
+        _2, // System Object.
+        _3, // Organization.
+        _4, // Other.
         Null; // added to help the parsers
         public static ObjectType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -287,13 +287,13 @@ public class SecurityEvent extends Resource {
     }
 
     public enum ObjectRole {
-        _1, // This object is the patient that is the subject of care related to this event.  It is identifiable by patient ID or equivalent.  The patient may be either human or animal
+        _1, // This object is the patient that is the subject of care related to this event.  It is identifiable by patient ID or equivalent.  The patient may be either human or animal.
         _2, // This is a location identified as related to the event.  This is usually the location where the event took place.  Note that for shipping, the usual events are arrival at a location or departure from a location.
         _3, // This object is any kind of persistent document created as a result of the event.  This could be a paper report, film, electronic report, DICOM Study, etc.  Issues related to medical records life cycle management are conveyed elsewhere.
-        _4, // A logical object related to the event.  (Deprecated)
+        _4, // A logical object related to the event.  (Deprecated).
         _5, // This is any configurable file used to control creation of documents.  Examples include the objects maintained by the HL7 Master File transactions, Value Sets, etc.
-        _6, // A human participant not otherwise identified by some other category
-        _7, // (deprecated)
+        _6, // A human participant not otherwise identified by some other category.
+        _7, // (deprecated).
         _8, // Typically a licensed person who is providing or performing care related to the event, generally a physician.   The key distinction between doctor and practitioner is with regards to their role, not the licensing.  The doctor is the human who actually performed the work.  The practitioner is the human or organization that is responsible for the work.
         _9, // A person or system that is being notified as part of the event.  This is relevant in situations where automated systems provide notifications to other parties when an event took place.
         _10, // Insurance company, or any other organization who accepts responsibility for paying for the healthcare event.
@@ -308,7 +308,7 @@ public class SecurityEvent extends Resource {
         _19, // An organization or person that is the recipient of services.  This could be an organization that is buying services for a patient, or a person that is buying services for an animal.
         _20, // An order, task, work item, procedure step, or other description of work to be performed.  E.g., a particular instance of an MPPS.
         _21, // A list of jobs or a system that provides lists of jobs.  E.g., an MWL SCP.
-        _22, // (Deprecated)
+        _22, // (Deprecated).
         _23, // An object that specifies or controls the routing or delivery of items.  For example, a distribution list is the routing criteria for mail.  The items delivered may be documents, jobs, or other objects.
         _24, // The contents of a query.  This is used to capture the contents of any kind of query.  For security surveillance purposes knowing the queries being made is very important.
         Null; // added to help the parsers
@@ -505,21 +505,21 @@ public class SecurityEvent extends Resource {
     }
 
     public enum ObjectLifecycle {
-        _1, // Origination / Creation
-        _2, // Import / Copy from original
-        _3, // Amendment
-        _4, // Verification
-        _5, // Translation
-        _6, // Access / Use
-        _7, // De-identification
-        _8, // Aggregation, summarization, derivation
-        _9, // Report
-        _10, // Export / Copy to target
-        _11, // Disclosure
-        _12, // Receipt of disclosure
-        _13, // Archiving
-        _14, // Logical deletion
-        _15, // Permanent erasure / Physical destruction
+        _1, // Origination / Creation.
+        _2, // Import / Copy from original.
+        _3, // Amendment.
+        _4, // Verification.
+        _5, // Translation.
+        _6, // Access / Use.
+        _7, // De-identification.
+        _8, // Aggregation, summarization, derivation.
+        _9, // Report.
+        _10, // Export / Copy to target.
+        _11, // Disclosure.
+        _12, // Receipt of disclosure.
+        _13, // Archiving.
+        _14, // Logical deletion.
+        _15, // Permanent erasure / Physical destruction.
         Null; // added to help the parsers
         public static ObjectLifecycle fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -652,32 +652,32 @@ public class SecurityEvent extends Resource {
 
     public class SecurityEventEventComponent extends Element {
         /**
-         * Identifier for a family of the event
+         * Identifier for a family of the event.
          */
         protected CodeableConcept type;
 
         /**
-         * Identifier for the category of event
+         * Identifier for the category of event.
          */
         protected List<CodeableConcept> subtype = new ArrayList<CodeableConcept>();
 
         /**
-         * Indicator for type of action performed during the event that generated the audit
+         * Indicator for type of action performed during the event that generated the audit.
          */
         protected Enumeration<SecurityEventAction> action;
 
         /**
-         * The time when the event occurred on the source
+         * The time when the event occurred on the source.
          */
         protected Instant dateTime;
 
         /**
-         * Indicates whether the event succeeded or failed
+         * Indicates whether the event succeeded or failed.
          */
         protected Enumeration<SecurityEventOutcome> outcome;
 
         /**
-         * A free text description of the outcome of the event
+         * A free text description of the outcome of the event.
          */
         protected String_ outcomeDesc;
 
@@ -794,27 +794,27 @@ public class SecurityEvent extends Resource {
 
     public class SecurityEventParticipantComponent extends Element {
         /**
-         * Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context
+         * Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context.
          */
         protected List<CodeableConcept> role = new ArrayList<CodeableConcept>();
 
         /**
-         * Direct reference to a resource that identifies the participant
+         * Direct reference to a resource that identifies the participant.
          */
         protected ResourceReference reference;
 
         /**
-         * Unique identifier for the user actively participating in the event
+         * Unique identifier for the user actively participating in the event.
          */
         protected String_ userId;
 
         /**
-         * User identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available
+         * User identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.
          */
         protected String_ authId;
 
         /**
-         * Human-meaningful name for the user
+         * Human-meaningful name for the user.
          */
         protected String_ name;
 
@@ -824,12 +824,12 @@ public class SecurityEvent extends Resource {
         protected Boolean requestor;
 
         /**
-         * Type of media involved. Used when the event is about exporting/importing onto media
+         * Type of media involved. Used when the event is about exporting/importing onto media.
          */
         protected Coding media;
 
         /**
-         * Logical network location for application activity, if the activity has a network location
+         * Logical network location for application activity, if the activity has a network location.
          */
         protected SecurityEventParticipantNetworkComponent network;
 
@@ -964,12 +964,12 @@ public class SecurityEvent extends Resource {
 
     public class SecurityEventParticipantNetworkComponent extends Element {
         /**
-         * An identifier for the network access point of the user device for the audit event
+         * An identifier for the network access point of the user device for the audit event.
          */
         protected String_ identifier;
 
         /**
-         * An identifier for the type of network access point that originated the audit event
+         * An identifier for the type of network access point that originated the audit event.
          */
         protected Enumeration<NetworkType> type;
 
@@ -1028,17 +1028,17 @@ public class SecurityEvent extends Resource {
 
     public class SecurityEventSourceComponent extends Element {
         /**
-         * Logical source location within the healthcare enterprise network
+         * Logical source location within the healthcare enterprise network.
          */
         protected String_ site;
 
         /**
-         * Identifier of the source where the event originated
+         * Identifier of the source where the event originated.
          */
         protected String_ identifier;
 
         /**
-         * Code specifying the type of source where event originated
+         * Code specifying the type of source where event originated.
          */
         protected List<Coding> type = new ArrayList<Coding>();
 
@@ -1100,47 +1100,47 @@ public class SecurityEvent extends Resource {
 
     public class SecurityEventObjectComponent extends Element {
         /**
-         * Identifies a specific instance of the participant object. The reference should always be version specific
+         * Identifies a specific instance of the participant object. The reference should always be version specific.
          */
         protected Identifier identifier;
 
         /**
-         * Identifies a specific instance of the participant object. The reference should always be version specific
+         * Identifies a specific instance of the participant object. The reference should always be version specific.
          */
         protected ResourceReference reference;
 
         /**
-         * Object type being audited
+         * Object type being audited.
          */
         protected Enumeration<ObjectType> type;
 
         /**
-         * Code representing the functional application role of Participant Object being audited
+         * Code representing the functional application role of Participant Object being audited.
          */
         protected Enumeration<ObjectRole> role;
 
         /**
-         * Identifier for the data life-cycle stage for the participant object
+         * Identifier for the data life-cycle stage for the participant object.
          */
         protected Enumeration<ObjectLifecycle> lifecycle;
 
         /**
-         * Denotes policy-defined sensitivity for the Participant Object ID such as VIP, HIV status, mental health status or similar topics
+         * Denotes policy-defined sensitivity for the Participant Object ID such as VIP, HIV status, mental health status or similar topics.
          */
         protected CodeableConcept sensitivity;
 
         /**
-         * An instance-specific descriptor of the Participant Object ID audited, such as a person's name
+         * An instance-specific descriptor of the Participant Object ID audited, such as a person's name.
          */
         protected String_ name;
 
         /**
-         * The actual query for a query-type participant object
+         * The actual query for a query-type participant object.
          */
         protected Base64Binary query;
 
         /**
-         * Additional Information about the Object
+         * Additional Information about the Object.
          */
         protected List<SecurityEventObjectDetailComponent> detail = new ArrayList<SecurityEventObjectDetailComponent>();
 
@@ -1302,12 +1302,12 @@ public class SecurityEvent extends Resource {
 
     public class SecurityEventObjectDetailComponent extends Element {
         /**
-         * Name of the property
+         * Name of the property.
          */
         protected String_ type;
 
         /**
-         * Property value
+         * Property value.
          */
         protected Base64Binary value;
 
@@ -1357,22 +1357,22 @@ public class SecurityEvent extends Resource {
   }
 
     /**
-     * Identifies the name, action type, time, and disposition of the audited event
+     * Identifies the name, action type, time, and disposition of the audited event.
      */
     protected SecurityEventEventComponent event;
 
     /**
-     * A person, a hardware device or software process
+     * A person, a hardware device or software process.
      */
     protected List<SecurityEventParticipantComponent> participant = new ArrayList<SecurityEventParticipantComponent>();
 
     /**
-     * Application systems and processes
+     * Application systems and processes.
      */
     protected SecurityEventSourceComponent source;
 
     /**
-     * Specific instances of data or objects that have been accessed
+     * Specific instances of data or objects that have been accessed.
      */
     protected List<SecurityEventObjectComponent> object = new ArrayList<SecurityEventObjectComponent>();
 

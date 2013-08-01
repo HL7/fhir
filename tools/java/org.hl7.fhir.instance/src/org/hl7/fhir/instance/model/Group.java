@@ -29,21 +29,21 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized.  I.e. A collection of entities that isn't an Organization
+ * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized.  I.e. A collection of entities that isn't an Organization.
  */
 public class Group extends Resource {
 
     public enum GroupType {
-        person, // Group contains "person" Patient resources
-        animal, // Group contains "animal" Patient resources
-        device, // Group contains Device resources
-        medication, // Group contains Medication resources
-        substance, // Group contains Substance resources
+        person, // Group contains "person" Patient resources.
+        animal, // Group contains "animal" Patient resources.
+        device, // Group contains Device resources.
+        medication, // Group contains Medication resources.
+        substance, // Group contains Substance resources.
         Null; // added to help the parsers
         public static GroupType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -106,17 +106,17 @@ public class Group extends Resource {
 
     public class GroupCharacteristicComponent extends Element {
         /**
-         * Identifies the kind of trait being asserted
+         * Identifies the kind of trait being asserted.
          */
         protected CodeableConcept type;
 
         /**
-         * The value of the trait that holds (or does not hold - see 'exclude') for members of the group
+         * The value of the trait that holds (or does not hold - see 'exclude') for members of the group.
          */
         protected Type value;
 
         /**
-         * If true, indicates the characteristic is one that is NOT held by members of the group
+         * If true, indicates the characteristic is one that is NOT held by members of the group.
          */
         protected Boolean exclude;
 
@@ -165,17 +165,17 @@ public class Group extends Resource {
   }
 
     /**
-     * A unique business identifier for this group
+     * A unique business identifier for this group.
      */
     protected Identifier identifier;
 
     /**
-     * Identifies the broad classification of the kind of resources the group includes
+     * Identifies the broad classification of the kind of resources the group includes.
      */
     protected Enumeration<GroupType> type;
 
     /**
-     * If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals
+     * If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.
      */
     protected Boolean actual;
 
@@ -185,17 +185,17 @@ public class Group extends Resource {
     protected CodeableConcept code;
 
     /**
-     * A label assigned to the group for human identification and communication
+     * A label assigned to the group for human identification and communication.
      */
     protected String_ name;
 
     /**
-     * A count of the number of resource instances that are part of the group
+     * A count of the number of resource instances that are part of the group.
      */
     protected Integer quantity;
 
     /**
-     * Identifies the traits shared by members of the group
+     * Identifies the traits shared by members of the group.
      */
     protected List<GroupCharacteristicComponent> characteristic = new ArrayList<GroupCharacteristicComponent>();
 

@@ -29,20 +29,20 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 /**
- * A reference to a code defined by a terminology system
+ * A reference to a code defined by a terminology system.
  */
 public class Coding extends Type {
 
     /**
-     * The identification of the system that defines the meaning of the symbol in the code. Can be a simple list of enumerations, a list of codes with meanings or all the way to a complex semantic web such as SNOMED-CT, whether classification, terminology, or ontology
+     * The identification of the system that defines the meaning of the symbol in the code. Can be a simple list of enumerations, a list of codes with meanings or all the way to a complex semantic web such as SNOMED-CT, whether classification, terminology, or ontology.
      */
     protected Uri system;
 
     /**
-     * A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system
+     * A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system.
      */
     protected Code code;
 

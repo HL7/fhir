@@ -29,19 +29,19 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 30, 2013 13:32+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A Resource Profile - a statement of use of one or more FHIR Resources.  It may include constraints on Resources and Data Types, Terminology Binding Statements and Extension Definitions
+ * A Resource Profile - a statement of use of one or more FHIR Resources.  It may include constraints on Resources and Data Types, Terminology Binding Statements and Extension Definitions.
  */
 public class Profile extends Resource {
 
     public enum ResourceProfileStatus {
-        draft, // This profile is still under development
-        active, // This profile is ready for normal use
-        retired, // This profile has been withdrawn or superceded and should no longer be used
+        draft, // This profile is still under development.
+        active, // This profile is ready for normal use.
+        retired, // This profile has been withdrawn or superceded and should no longer be used.
         Null; // added to help the parsers
         public static ResourceProfileStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -89,9 +89,9 @@ public class Profile extends Resource {
     }
 
     public enum ResourceSlicingRules {
-        closed, // No additional content is allowed other than that described by the slices in this profile
-        open, // Additional content is allowed anywhere in the list
-        openAtEnd, // Additional content is allowed, but only at the end of the list
+        closed, // No additional content is allowed other than that described by the slices in this profile.
+        open, // Additional content is allowed anywhere in the list.
+        openAtEnd, // Additional content is allowed, but only at the end of the list.
         Null; // added to help the parsers
         public static ResourceSlicingRules fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -139,7 +139,7 @@ public class Profile extends Resource {
     }
 
     public enum ConstraintSeverity {
-        error, // If the constraint is violated, the resource is not conformant
+        error, // If the constraint is violated, the resource is not conformant.
         warning, // If the constraint is violated, the resource is conformant, but it is not necessarily following best practice.
         Null; // added to help the parsers
         public static ConstraintSeverity fromCode(String codeString) throws Exception {
@@ -181,10 +181,10 @@ public class Profile extends Resource {
     }
 
     public enum ExtensionContext {
-        resource, // The context is all elements matching a particular resource element path
-        datatype, // The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name)
-        mapping, // The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used, though this
-        extension, // The context is a particular extension from a particular profile.  Expressed as uri#name, where uri identifies the profile and #name identifies the extension code
+        resource, // The context is all elements matching a particular resource element path.
+        datatype, // The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name).
+        mapping, // The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used, though this.
+        extension, // The context is a particular extension from a particular profile.  Expressed as uri#name, where uri identifies the profile and #name identifies the extension code.
         Null; // added to help the parsers
         public static ExtensionContext fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -239,9 +239,9 @@ public class Profile extends Resource {
     }
 
     public enum BindingConformance {
-        required, // Only codes in the specified set are allowed.  If the binding is extensible, other codes may be used for concepts not covered by the bound set of codes
-        preferred, // For greater interoperability, implementers are strongly encouraged to use the bound set of codes, however alternate codes may be used in derived profiles and implementations if necessary without being considered non-conformant
-        example, // The codes in the set are an example to illustrate the meaning of the field. There is no particular preference for its use nor any assertion that the provided values are sufficient to meet implementation needs
+        required, // Only codes in the specified set are allowed.  If the binding is extensible, other codes may be used for concepts not covered by the bound set of codes.
+        preferred, // For greater interoperability, implementers are strongly encouraged to use the bound set of codes, however alternate codes may be used in derived profiles and implementations if necessary without being considered non-conformant.
+        example, // The codes in the set are an example to illustrate the meaning of the field. There is no particular preference for its use nor any assertion that the provided values are sufficient to meet implementation needs.
         Null; // added to help the parsers
         public static BindingConformance fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -290,27 +290,27 @@ public class Profile extends Resource {
 
     public class ProfileStructureComponent extends Element {
         /**
-         * The Resource or Data type being described
+         * The Resource or Data type being described.
          */
         protected Code type;
 
         /**
-         * The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.element.definition.type.profile)
+         * The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.element.definition.type.profile).
          */
         protected String_ name;
 
         /**
-         * This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context
+         * This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.
          */
         protected Boolean publish;
 
         /**
-         * Human summary: why describe this resource?
+         * Human summary: why describe this resource?.
          */
         protected String_ purpose;
 
         /**
-         * Captures constraints on each element within the resource
+         * Captures constraints on each element within the resource.
          */
         protected List<ElementComponent> element = new ArrayList<ElementComponent>();
 
@@ -418,22 +418,22 @@ public class Profile extends Resource {
 
     public class ElementComponent extends Element {
         /**
-         * The path identifies the element and is expressed as a "."-separated list of ancestor elements, beginning with the name of the resource
+         * The path identifies the element and is expressed as a "."-separated list of ancestor elements, beginning with the name of the resource.
          */
         protected String_ path;
 
         /**
-         * The name of this element definition (to refer to it from other element definitions using Profile.structure.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element
+         * The name of this element definition (to refer to it from other element definitions using Profile.structure.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.
          */
         protected String_ name;
 
         /**
-         * Indicates that the element is sliced into a set of alternative definitions (there are multiple definitions on a single element in the base resource). The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set)
+         * Indicates that the element is sliced into a set of alternative definitions (there are multiple definitions on a single element in the base resource). The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set).
          */
         protected ElementSlicingComponent slicing;
 
         /**
-         * Definition of the content of the element to provide a more specific definition than that contained for the element in the base resource
+         * Definition of the content of the element to provide a more specific definition than that contained for the element in the base resource.
          */
         protected ElementDefinitionComponent definition;
 
@@ -506,17 +506,17 @@ public class Profile extends Resource {
 
     public class ElementSlicingComponent extends Element {
         /**
-         * Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance must completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices
+         * Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance must completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices.
          */
         protected Id discriminator;
 
         /**
-         * If the matching elements have to occur in the same order as defined in the profile
+         * If the matching elements have to occur in the same order as defined in the profile.
          */
         protected Boolean ordered;
 
         /**
-         * Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end
+         * Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.
          */
         protected Enumeration<ResourceSlicingRules> rules;
 
@@ -586,12 +586,12 @@ public class Profile extends Resource {
 
     public class ElementDefinitionComponent extends Element {
         /**
-         * A concise definition that  is shown in the concise XML format that summarizes profiles
+         * A concise definition that  is shown in the concise XML format that summarizes profiles.
          */
         protected String_ short_;
 
         /**
-         * The definition must be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource
+         * The definition must be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.
          */
         protected String_ formal;
 
@@ -601,77 +601,77 @@ public class Profile extends Resource {
         protected String_ comments;
 
         /**
-         * Explains why this element is needed and why it's been constrained as it has
+         * Explains why this element is needed and why it's been constrained as it has.
          */
         protected String_ requirements;
 
         /**
-         * Identifies additional names by which this element might also be known
+         * Identifies additional names by which this element might also be known.
          */
         protected List<String_> synonym = new ArrayList<String_>();
 
         /**
-         * The minimum number of times this element must appear in the instance
+         * The minimum number of times this element must appear in the instance.
          */
         protected Integer min;
 
         /**
-         * The maximum number of times this element is permitted to appear in the instance
+         * The maximum number of times this element is permitted to appear in the instance.
          */
         protected String_ max;
 
         /**
-         * The data type or resource that the value of this element is permitted to be
+         * The data type or resource that the value of this element is permitted to be.
          */
         protected List<TypeRefComponent> type = new ArrayList<TypeRefComponent>();
 
         /**
-         * Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element
+         * Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element.
          */
         protected String_ nameReference;
 
         /**
-         * Specifies a value that must hold for this element in the instance
+         * Specifies a value that must hold for this element in the instance.
          */
         protected org.hl7.fhir.instance.model.Type value;
 
         /**
-         * An example value for this element
+         * An example value for this element.
          */
         protected org.hl7.fhir.instance.model.Type example;
 
         /**
-         * Indicates the shortest length that must be supported by conformant instances without truncation
+         * Indicates the shortest length that must be supported by conformant instances without truncation.
          */
         protected Integer maxLength;
 
         /**
-         * A reference to an invariant that may make additional statements about the cardinality in the instance
+         * A reference to an invariant that may make additional statements about the cardinality in the instance.
          */
         protected List<Id> condition = new ArrayList<Id>();
 
         /**
-         * Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance
+         * Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance.
          */
         protected List<ElementDefinitionConstraintComponent> constraint = new ArrayList<ElementDefinitionConstraintComponent>();
 
         /**
-         * If true, conformant resource authors must be capable of providing a value for the element and resource consumers must be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported
+         * If true, conformant resource authors must be capable of providing a value for the element and resource consumers must be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported.
          */
         protected Boolean mustSupport;
 
         /**
-         * If true, the element cannot be ignored by systems unless they recognize the element and a pre-determination has been made that it is not relevant to their particular system
+         * If true, the element cannot be ignored by systems unless they recognize the element and a pre-determination has been made that it is not relevant to their particular system.
          */
         protected Boolean mustUnderstand;
 
         /**
-         * Identifies the set of codes that applies to this element if a data type supporting codes is used. The reference can be local - to a Profile.binding.name, or absolute, to a binding.name in another profile
+         * Identifies the set of codes that applies to this element if a data type supporting codes is used. The reference can be local - to a Profile.binding.name, or absolute, to a binding.name in another profile.
          */
         protected Uri binding;
 
         /**
-         * Identifies a concept from an external specification that roughly corresponds to this element
+         * Identifies a concept from an external specification that roughly corresponds to this element.
          */
         protected List<ElementDefinitionMappingComponent> mapping = new ArrayList<ElementDefinitionMappingComponent>();
 
@@ -974,17 +974,17 @@ public class Profile extends Resource {
 
     public class TypeRefComponent extends Element {
         /**
-         * Data type or Resource
+         * Data type or Resource.
          */
         protected Code code;
 
         /**
-         * Identifies a profile that must hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile
+         * Identifies a profile that must hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.
          */
         protected Uri profile;
 
         /**
-         * Whether the Resource that is the value for this element is included in the bundle, if the profile is specifying a bundle
+         * Whether the Resource that is the value for this element is included in the bundle, if the profile is specifying a bundle.
          */
         protected Boolean bundled;
 
@@ -1062,32 +1062,32 @@ public class Profile extends Resource {
 
     public class ElementDefinitionConstraintComponent extends Element {
         /**
-         * Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality
+         * Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality.
          */
         protected Id key;
 
         /**
-         * Used to label the constraint in OCL or in short displays incapable of displaying the full human description
+         * Used to label the constraint in OCL or in short displays incapable of displaying the full human description.
          */
         protected String_ name;
 
         /**
-         * Identifies the impact constraint violation has on the conformance of the instance
+         * Identifies the impact constraint violation has on the conformance of the instance.
          */
         protected Enumeration<ConstraintSeverity> severity;
 
         /**
-         * This is the text that describes the constraint in messages identifying that the constraint has been violated
+         * Text that can be used to describe the constraint in messages identifying that the constraint has been violated.
          */
         protected String_ human;
 
         /**
-         * XPath expression of constraint
+         * XPath expression of constraint.
          */
         protected String_ xpath;
 
         /**
-         * OCL expression of constraint
+         * OCL expression of constraint.
          */
         protected String_ ocl;
 
@@ -1222,12 +1222,12 @@ public class Profile extends Resource {
 
     public class ElementDefinitionMappingComponent extends Element {
         /**
-         * The name of the specification is mapping is being expressed to
+         * The name of the specification is mapping is being expressed to.
          */
         protected Uri target;
 
         /**
-         * Expresses what part of the target specification corresponds to this element
+         * Expresses what part of the target specification corresponds to this element.
          */
         protected String_ map;
 
@@ -1282,22 +1282,22 @@ public class Profile extends Resource {
 
     public class ProfileExtensionDefnComponent extends Element {
         /**
-         * A unique code (within the profile) used to identify the extension
+         * A unique code (within the profile) used to identify the extension.
          */
         protected Code code;
 
         /**
-         * Identifies the type of context to which the extension applies
+         * Identifies the type of context to which the extension applies.
          */
         protected Enumeration<ExtensionContext> contextType;
 
         /**
-         * Identifies the types of resource or data type elements to which the extension can be applied
+         * Identifies the types of resource or data type elements to which the extension can be applied.
          */
         protected List<String_> context = new ArrayList<String_>();
 
         /**
-         * Definition of the extension and its content
+         * Definition of the extension and its content.
          */
         protected ElementDefinitionComponent definition;
 
@@ -1364,27 +1364,27 @@ public class Profile extends Resource {
 
     public class ProfileBindingComponent extends Element {
         /**
-         * The name to be associated with this set of codes
+         * The name to be associated with this set of codes.
          */
         protected String_ name;
 
         /**
-         * If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone
+         * If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.
          */
         protected Boolean isExtensible;
 
         /**
-         * Indicates the degree of conformance expectations associated with this binding
+         * Indicates the degree of conformance expectations associated with this binding.
          */
         protected Enumeration<BindingConformance> conformance;
 
         /**
-         * Describes the intended use of this particular set of codes
+         * Describes the intended use of this particular set of codes.
          */
         protected String_ description;
 
         /**
-         * Points to the value set or external definition that identifies the set of codes to be used
+         * Points to the value set or external definition that identifies the set of codes to be used.
          */
         protected Type reference;
 
@@ -1493,32 +1493,32 @@ public class Profile extends Resource {
   }
 
     /**
-     * The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI)
+     * The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI).
      */
     protected String_ identifier;
 
     /**
-     * The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp
+     * The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
     protected String_ version;
 
     /**
-     * A free text natural language name identifying the Profile
+     * A free text natural language name identifying the Profile.
      */
     protected String_ name;
 
     /**
-     * Details of the individual or organization who accepts responsibility for publishing the profile
+     * Details of the individual or organization who accepts responsibility for publishing the profile.
      */
     protected String_ publisher;
 
     /**
-     * Contact details to assist a user in finding and communicating with the publisher
+     * Contact details to assist a user in finding and communicating with the publisher.
      */
     protected List<Contact> telecom = new ArrayList<Contact>();
 
     /**
-     * A free text natural language description of the profile and its use
+     * A free text natural language description of the profile and its use.
      */
     protected String_ description;
 
@@ -1528,37 +1528,37 @@ public class Profile extends Resource {
     protected List<Coding> code = new ArrayList<Coding>();
 
     /**
-     * The status of the profile
+     * The status of the profile.
      */
     protected Enumeration<ResourceProfileStatus> status;
 
     /**
-     * This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
+     * This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
     protected Boolean experimental;
 
     /**
-     * The date that this version of the profile was published
+     * The date that this version of the profile was published.
      */
     protected DateTime date;
 
     /**
-     * The version of the FHIR specification on which this profile is based
+     * The version of the FHIR specification on which this profile is based.
      */
     protected Id fhirVersion;
 
     /**
-     * A constraint statement about what contents a resource or data type may have
+     * A constraint statement about what contents a resource or data type may have.
      */
     protected List<ProfileStructureComponent> structure = new ArrayList<ProfileStructureComponent>();
 
     /**
-     * An extension defined as part of the profile
+     * An extension defined as part of the profile.
      */
     protected List<ProfileExtensionDefnComponent> extensionDefn = new ArrayList<ProfileExtensionDefnComponent>();
 
     /**
-     * Defines a linkage between a vocabulary binding name used in the profile (or expected to be used in profile importing this one) and a value set or code list
+     * Defines a linkage between a vocabulary binding name used in the profile (or expected to be used in profile importing this one) and a value set or code list.
      */
     protected List<ProfileBindingComponent> binding = new ArrayList<ProfileBindingComponent>();
 

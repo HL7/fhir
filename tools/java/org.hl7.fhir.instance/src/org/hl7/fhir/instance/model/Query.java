@@ -29,20 +29,20 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A description of a query with a set of parameters
+ * A description of a query with a set of parameters.
  */
 public class Query extends Resource {
 
     public enum QueryOutcome {
-        ok, // The query was processed successfully
-        limited, // The query was processed successfully, but some additional limitations were added
-        refused, // The server refused to process the query
-        error, // The server tried to process the query, but some erorr occurred
+        ok, // The query was processed successfully.
+        limited, // The query was processed successfully, but some additional limitations were added.
+        refused, // The server refused to process the query.
+        error, // The server tried to process the query, but some erorr occurred.
         Null; // added to help the parsers
         public static QueryOutcome fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -98,47 +98,47 @@ public class Query extends Resource {
 
     public class QueryResponseComponent extends Element {
         /**
-         * Links response to source query
+         * Links response to source query.
          */
         protected Uri identifier;
 
         /**
-         * Outcome of processing the query
+         * Outcome of processing the query.
          */
         protected Enumeration<QueryOutcome> outcome;
 
         /**
-         * Total number of matching records
+         * Total number of matching records.
          */
         protected Integer total;
 
         /**
-         * Parameters server used
+         * Parameters server used.
          */
         protected List<Extension> parameter = new ArrayList<Extension>();
 
         /**
-         * To get first page (if paged)
+         * To get first page (if paged).
          */
         protected List<Extension> first = new ArrayList<Extension>();
 
         /**
-         * To get previous page (if paged)
+         * To get previous page (if paged).
          */
         protected List<Extension> previous = new ArrayList<Extension>();
 
         /**
-         * To get next page (if paged)
+         * To get next page (if paged).
          */
         protected List<Extension> next = new ArrayList<Extension>();
 
         /**
-         * To get last page (if paged)
+         * To get last page (if paged).
          */
         protected List<Extension> last = new ArrayList<Extension>();
 
         /**
-         * Resources that are the results of the search
+         * Resources that are the results of the search.
          */
         protected List<ResourceReference> reference = new ArrayList<ResourceReference>();
 
@@ -253,17 +253,17 @@ public class Query extends Resource {
   }
 
     /**
-     * Links query and it's response(s)
+     * Links query and its response(s).
      */
     protected Uri identifier;
 
     /**
-     * Set of query parameters with vslues
+     * Set of query parameters with vslues.
      */
     protected List<Extension> parameter = new ArrayList<Extension>();
 
     /**
-     * If this is a response to a query
+     * If this is a response to a query.
      */
     protected QueryResponseComponent response;
 

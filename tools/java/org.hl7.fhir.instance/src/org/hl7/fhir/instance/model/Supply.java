@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A supply -  request and provision
+ * A supply -  request and provision.
  */
 public class Supply extends Resource {
 
@@ -65,7 +65,7 @@ public class Supply extends Resource {
         protected ResourceReference suppliedItem;
 
         /**
-         * The individual reponsible for dispensing the medication
+         * The individual reponsible for dispensing the medication.
          */
         protected ResourceReference supplier;
 
@@ -199,22 +199,22 @@ public class Supply extends Resource {
   }
 
     /**
-     * Category of supply
+     * Category of supply.
      */
     protected CodeableConcept name;
 
     /**
-     * Unique identifier for this kind of supply
+     * Unique identifier for this kind of supply.
      */
     protected Identifier identifier;
 
     /**
-     * Status of the supply
+     * Status of the supply.
      */
     protected Code status;
 
     /**
-     * The item which was ordered
+     * The item which was ordered.
      */
     protected ResourceReference orderedItem;
 

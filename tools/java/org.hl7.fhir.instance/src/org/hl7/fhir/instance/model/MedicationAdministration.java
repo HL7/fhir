@@ -29,42 +29,46 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
  * Describes the event of a patient being given a dose of a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.
 
-Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner
+Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.
  */
 public class MedicationAdministration extends Resource {
 
     public enum MedicationAdminStatus {
-        active, // The administration of the medication has started and is currently in progress.
-        paused, // The administration of the medication has started but is currently stopped with a firm intention of restarting.
-        completed, // The administration of the medication has finished
-        nullified, // The administration of the medication was recorded in error and the record should now be disregarded.
+        active, // The administration has started but has not yet completed.
+        held, // Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called "held".
+        completed, // All actions that are implied by the administration have occured.
+        enteredInError, // The administration was entered in error and therefore nullified.
+        stopped, // Actions implied by the administration have been permanently halted, before all of them occured.
         Null; // added to help the parsers
         public static MedicationAdminStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("active".equals(codeString))
           return active;
-        if ("paused".equals(codeString))
-          return paused;
+        if ("held".equals(codeString))
+          return held;
         if ("completed".equals(codeString))
           return completed;
-        if ("nullified".equals(codeString))
-          return nullified;
+        if ("entered in error".equals(codeString))
+          return enteredInError;
+        if ("stopped".equals(codeString))
+          return stopped;
         throw new Exception("Unknown MedicationAdminStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case active: return "active";
-            case paused: return "paused";
+            case held: return "held";
             case completed: return "completed";
-            case nullified: return "nullified";
+            case enteredInError: return "entered in error";
+            case stopped: return "stopped";
             default: return "?";
           }
         }
@@ -77,35 +81,39 @@ public class MedicationAdministration extends Resource {
                 return null;
         if ("active".equals(codeString))
           return MedicationAdminStatus.active;
-        if ("paused".equals(codeString))
-          return MedicationAdminStatus.paused;
+        if ("held".equals(codeString))
+          return MedicationAdminStatus.held;
         if ("completed".equals(codeString))
           return MedicationAdminStatus.completed;
-        if ("nullified".equals(codeString))
-          return MedicationAdminStatus.nullified;
+        if ("entered in error".equals(codeString))
+          return MedicationAdminStatus.enteredInError;
+        if ("stopped".equals(codeString))
+          return MedicationAdminStatus.stopped;
         throw new Exception("Unknown MedicationAdminStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
       if (code == MedicationAdminStatus.active)
         return "active";
-      if (code == MedicationAdminStatus.paused)
-        return "paused";
+      if (code == MedicationAdminStatus.held)
+        return "held";
       if (code == MedicationAdminStatus.completed)
         return "completed";
-      if (code == MedicationAdminStatus.nullified)
-        return "nullified";
+      if (code == MedicationAdminStatus.enteredInError)
+        return "entered in error";
+      if (code == MedicationAdminStatus.stopped)
+        return "stopped";
       return "?";
       }
     }
 
     public class MedicationAdministrationDosageComponent extends Element {
         /**
-         * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013"
+         * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
          */
         protected Schedule timing;
 
         /**
-         * A coded specification of the anatomic site where the medication first enters the body
+         * A coded specification of the anatomic site where the medication first enters the body.
          */
         protected CodeableConcept site;
 
@@ -122,12 +130,12 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         protected CodeableConcept method;
 
         /**
-         * The amount of the therapeutic or other substance given at one administration event.
+         * The amount of themedication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.
          */
         protected Quantity quantity;
 
         /**
-         * Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.
+         * Identifies the speed with which the medication is introduced into the patient. Typically the rate for an infusion e.g. 200ml in 2 hours.  May also expressed as a rate per unit of time such as 100ml per hour - the duration is then not specified, or is specified in the quantity.
          */
         protected Ratio rate;
 
@@ -222,7 +230,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     protected ResourceReference patient;
 
     /**
-     * This is the individual who is responsible for giving the medication to the patient.
+     * The individual who is responsible for giving the medication to the patient.
      */
     protected ResourceReference practitioner;
 
@@ -244,7 +252,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * A code indicating why the administration has been negated.
 
-Use only if isNegated is set to TRUE
+Use only if isNegated is set to TRUE.
      */
     protected List<CodeableConcept> reasonNotGiven = new ArrayList<CodeableConcept>();
 
@@ -264,7 +272,7 @@ Use only if isNegated is set to TRUE
     protected List<ResourceReference> administrationDevice = new ArrayList<ResourceReference>();
 
     /**
-     * Indicates how the medication is to be used by the patient
+     * Indicates how the medication is to be used by the patient.
      */
     protected List<MedicationAdministrationDosageComponent> dosage = new ArrayList<MedicationAdministrationDosageComponent>();
 

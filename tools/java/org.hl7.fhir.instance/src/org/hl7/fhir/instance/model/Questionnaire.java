@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -114,32 +114,32 @@ public class Questionnaire extends Resource {
 
     public class QuestionComponent extends Element {
         /**
-         * Structured name for the question
+         * Structured name for the question.
          */
         protected CodeableConcept name;
 
         /**
-         * Text of the question as it may appear on screen or on a form
+         * Text of the question as it may appear on screen or on a form.
          */
         protected String_ text;
 
         /**
-         * Single-valued answer to the question
+         * Single-valued answer to the question.
          */
         protected Type answer;
 
         /**
-         * One of more selections from the list of options
+         * One of more selections from the list of options.
          */
         protected List<Coding> choice = new ArrayList<Coding>();
 
         /**
-         * Reference to a valueset containing the possible options
+         * Reference to a valueset containing the possible options.
          */
         protected Type options;
 
         /**
-         * Structured answer in the form of a FHIR Resource or datatype
+         * Structured answer in the form of a FHIR Resource or datatype.
          */
         protected org.hl7.fhir.instance.model.Type data;
 
@@ -251,27 +251,27 @@ public class Questionnaire extends Resource {
         protected CodeableConcept name;
 
         /**
-         * Header for the group, used for display purposes
+         * Header for the group, used for display purposes.
          */
         protected String_ header;
 
         /**
-         * Additional text for the group, used for display purposes
+         * Additional text for the group, used for display purposes.
          */
         protected String_ text;
 
         /**
-         * More specific subject this section's answers are about, details the subject given in Questionnaire
+         * More specific subject this section's answers are about, details the subject given in Questionnaire.
          */
         protected ResourceReference subject;
 
         /**
-         * Set of questions within this group
+         * Set of questions within this group.
          */
         protected List<QuestionComponent> question = new ArrayList<QuestionComponent>();
 
         /**
-         * A sub-group within a group
+         * A sub-group within a group.
          */
         protected List<GroupComponent> group = new ArrayList<GroupComponent>();
 
@@ -361,37 +361,37 @@ public class Questionnaire extends Resource {
   }
 
     /**
-     * The status of the questionnaire as a whole
+     * The status of the questionnaire as a whole.
      */
     protected Enumeration<ObservationStatus> status;
 
     /**
-     * The date and/or time that this version of the questionnaire was authored
+     * The date and/or time that this version of the questionnaire was authored.
      */
     protected DateTime authored;
 
     /**
-     * The subject of the questionnaires: this is the patient that the answers apply to, but this person is not necessarily the source of information
+     * The subject of the questionnaires: this is the patient that the answers apply to, but this person is not necessarily the source of information.
      */
     protected ResourceReference subject;
 
     /**
-     * Person that collected the answers to the questions in the Questionnaire
+     * Person that collected the answers to the questions in the Questionnaire.
      */
     protected ResourceReference author;
 
     /**
-     * The person that answered the questions about the subject. Only used when this is not the subject him/herself
+     * The person that answered the questions about the subject. Only used when this is not the subject him/herself.
      */
     protected ResourceReference source;
 
     /**
-     * Structured name for a predefined list of questions this questionnaire is responding to
+     * Structured name for a predefined list of questions this questionnaire is responding to.
      */
     protected CodeableConcept name;
 
     /**
-     * An identifier that identifier this specific set of answers
+     * An identifier that identifier this specific set of answers.
      */
     protected Identifier identifier;
 
@@ -401,12 +401,12 @@ public class Questionnaire extends Resource {
     protected ResourceReference encounter;
 
     /**
-     * Answers to questions on a questionnaire
+     * Answers to questions on a questionnaire.
      */
     protected List<QuestionComponent> question = new ArrayList<QuestionComponent>();
 
     /**
-     * A group of questions to a possibly similarly grouped set of question in the questionnaire
+     * A group of questions to a possibly similarly grouped set of question in the questionnaire.
      */
     protected List<GroupComponent> group = new ArrayList<GroupComponent>();
 

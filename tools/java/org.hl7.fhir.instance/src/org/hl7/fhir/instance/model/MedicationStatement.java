@@ -29,23 +29,23 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A record of medication being taken by a patient, or that the medication has been given to a patient where the record is the result of a report from the patient, or another clinician
+ * A record of medication being taken by a patient, or that the medication has been given to a patient where the record is the result of a report from the patient, or another clinician.
  */
 public class MedicationStatement extends Resource {
 
     public class MedicationStatementDosageComponent extends Element {
         /**
-         * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013"
+         * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
          */
         protected Schedule timing;
 
         /**
-         * A coded specification of the anatomic site where the medication first enters the body
+         * A coded specification of the anatomic site where the medication first enters the body.
          */
         protected CodeableConcept site;
 
@@ -164,7 +164,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * A code indicating why the administration has been negated.
 
-Use only if isNegated is set to TRUE
+Use only if isNegated is set to TRUE.
      */
     protected List<CodeableConcept> reasonNotGiven = new ArrayList<CodeableConcept>();
 
@@ -184,7 +184,7 @@ Use only if isNegated is set to TRUE
     protected List<ResourceReference> administrationDevice = new ArrayList<ResourceReference>();
 
     /**
-     * Indicates how the medication is to be used by the patient
+     * Indicates how the medication is to be used by the patient.
      */
     protected List<MedicationStatementDosageComponent> dosage = new ArrayList<MedicationStatementDosageComponent>();
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 /**
  * A time period defined by a start and end time.
@@ -42,7 +42,7 @@ public class Period extends Type {
     protected DateTime start;
 
     /**
-     * The end of the period. If the high is missing, it means that the period is ongoing
+     * The end of the period. If the high is missing, it means that the period is ongoing.
      */
     protected DateTime end;
 

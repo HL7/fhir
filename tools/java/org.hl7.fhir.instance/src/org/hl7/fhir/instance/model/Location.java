@@ -29,29 +29,29 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jul 19, 2013 10:49+1000 for FHIR v0.10
+// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
 
 import java.util.*;
 
 import java.math.*;
 /**
- * Contact details and position information for a physical place that may be visited and where healthcare resources and participants may be found or contained, accomodated, or stored
+ * Contact details and position information for a physical place that may be visited and where healthcare resources and participants may be found or contained, accomodated, or stored.
  */
 public class Location extends Resource {
 
     public class LocationPositionComponent extends Element {
         /**
-         * Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML
+         * Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML.
          */
         protected Decimal longitude;
 
         /**
-         * Lattitude. The value domain and the interpretation are the same as for the text of the lattitude element in KML
+         * Lattitude. The value domain and the interpretation are the same as for the text of the lattitude element in KML.
          */
         protected Decimal latitude;
 
         /**
-         * Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML
+         * Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML.
          */
         protected Decimal altitude;
 
@@ -124,47 +124,47 @@ public class Location extends Resource {
   }
 
     /**
-     * Name of the location which identifies it to its users
+     * Name of the location which identifies it to its users.
      */
     protected String_ name;
 
     /**
-     * Description of the Location, which helps in finding or referencing the place
+     * Description of the Location, which helps in finding or referencing the place.
      */
     protected String_ description;
 
     /**
-     * Classification of the location
+     * Classification of the location.
      */
     protected List<CodeableConcept> type = new ArrayList<CodeableConcept>();
 
     /**
-     * The contact details of the main communication devices present at the location
+     * The contact details of the main communication devices present at the location.
      */
     protected Contact telecom;
 
     /**
-     * Physical location
+     * Physical location.
      */
     protected Address address;
 
     /**
-     * The absolute geographic location of the Location, expressed in a KML compatible manner
+     * The absolute geographic location of the Location, expressed in a KML compatible manner.
      */
     protected LocationPositionComponent position;
 
     /**
-     * The organization that provides services at the location
+     * The organization that provides services at the location.
      */
     protected ResourceReference provider;
 
     /**
-     * Whether the location is still used to provide services
+     * Whether the location is still used to provide services.
      */
     protected Boolean active;
 
     /**
-     * Another Location which this Location is physically inside of
+     * Another Location which this Location is physically inside of.
      */
     protected ResourceReference partOf;
 
