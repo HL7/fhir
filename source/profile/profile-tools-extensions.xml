@@ -69,7 +69,7 @@
         <concept>
           <code value="InstanceValidator"/>
           <display value="InstanceValidator"/>
-          <definition value="The error comes from code that checks isntances against the base profiles and any additional identified profiles"/>
+          <definition value="The error comes from code that checks instances against the base profiles and any additional identified profiles"/>
         </concept>
         <concept>
           <code value="Schema"/>
