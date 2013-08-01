@@ -854,17 +854,17 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">serious</Data></Cell>
-    <Cell><Data ss:Type="String">Serious inconvience to the subject</Data></Cell>
+    <Cell><Data ss:Type="String">Serious inconvenience to the subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">moderate</Data></Cell>
-    <Cell><Data ss:Type="String">Moderate inconvience to the subject</Data></Cell>
+    <Cell><Data ss:Type="String">Moderate inconvenience to the subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">minor</Data></Cell>
-    <Cell><Data ss:Type="String">Minor inconvience to the subject</Data></Cell>
+    <Cell><Data ss:Type="String">Minor inconvenience to the subject</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
