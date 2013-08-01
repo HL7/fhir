@@ -103,7 +103,7 @@ separated from the parameter name by a dot. Modifiers are:</p>
   equates to not having the relevant element in the resource). Searching for "gender:missing=false"
   will return all the resources that have a value for the "gender" parameter. </li>
 <li>For dates: ":before" and ":after". E.g. birthdate:before=1972-11-30. See below for how date searches are interpreted.</li>
-<li>For string: ":exact" (the match needs to be exact, no partial matches, case sensitive and accent-sensitive) and  ":partial" (the search may function on partial matches). It is at the descretion of the server whether to do a left-partial search</li>
+<li>For string: ":exact" (the match needs to be exact, no partial matches, case sensitive and accent-sensitive) and  ":partial" (the search may function on partial matches). It is at the discretion of the server whether to do a left-partial search</li>
 <li>For token: ":text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), ":code" (a match on code and system of the coding/codeable concept).</li>
 </ul>
 
@@ -139,7 +139,7 @@ modifier, the search will work as follows:
  <li><b>name=/code</b> matches a code that has no specified namespace</li>
 </ul>
 <p>In the url of the code system, the “#” (fragment identifier) must be escaped, and in some implementations, the ":" does too.
-The modifier :anyns means that the code matches all all codes irrespective of the namespace.</p>
+The modifier :anyns means that the code matches all codes irrespective of the namespace.</p>
 <p>
 As an example, the following search:
 </p>
@@ -147,7 +147,7 @@ As an example, the following search:
   GET [base-url]/patient?identifier=http://acme.org/patient/2345
 </pre>
 <p>
-searches for all the patients with an identifier with key = "2345" in the system "http://acme.org/patient". These examnples:
+searches for all the patients with an identifier with key = "2345" in the system "http://acme.org/patient". These examples:
 </p>
 <pre>
   GET [base-url]/patient?gender=male
@@ -200,7 +200,7 @@ ensuring consistent behavior.
  <li>Similarly, when the date parameter is not fully specified, matches against it are based on the behavior of intervals, where:
 	<ul>
 		<li>Dates with just the year specified are equivalent to an interval that starts at the first instant of January 1st to the last instant of December 31st, e.g. 2000 is equivalent to an interval of [2000-01-01T00:00, 2000-12-31T23:59]</li>
-		<li>Dates with the year and month are equivalent to an interval that starts at the first instant of the first day of the month and ends on the last instant of the last day of the month, eg. 2000-04 is equivalent to an interval of [2000-04-01T00:00, 2000-04-30T23:59]</li>
+		<li>Dates with the year and month are equivalent to an interval that starts at the first instant of the first day of the month and ends on the last instant of the last day of the month, e.g. 2000-04 is equivalent to an interval of [2000-04-01T00:00, 2000-04-30T23:59]</li>
 	</ul>
  </li>
  <li>Where possible, the system should correct for timezones when performing queries. Dates do not have timezones, and timezones 
@@ -263,7 +263,7 @@ different type of resource as its target, the parameter chain may end up referri
 to search parameters with the same name on more than one kind of resource at once. 
 The parameter names defined in FHIR have consistent types wherever they are used. 
 Implementers defining their own names need to be sure that they do not create 
-unprocessible combinations. 
+unprocessable combinations. 
 </p>
 
 <h3>Combining Search Parameters</h3>
