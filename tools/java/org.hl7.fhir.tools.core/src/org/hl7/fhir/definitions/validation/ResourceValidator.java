@@ -318,6 +318,7 @@ public class ResourceValidator extends BaseValidator {
     warning(errors, "structure", "Binding "+n, cd.getBinding() != Binding.Unbound, "Need to provide a binding");
     rule(errors, "structure", "Binding "+n, cd.getElementType() != ElementType.Simple || cd.getBinding() != Binding.Unbound, "Need to provide a binding for code elements");
     rule(errors, "structure", "Binding "+n, (cd.getElementType() == ElementType.Complex || cd.getElementType() == ElementType.Unknown) || !cd.isExample(), "Can only be an example binding if bound to Coding/CodeableConcept");
+    rule(errors, "structure", "Binding "+n, Utilities.noString(cd.getDefinition())  || (cd.getDefinition().charAt(0) == cd.getDefinition().toUpperCase().charAt(0)), "Definition cannot start with a lowercase letter");
     
 
     // set these for when the profiles are generated

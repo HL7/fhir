@@ -73,7 +73,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 	private void generateInner(ElementDefn root, boolean resource) throws IOException, Exception {
 		String rn;
 		if (root.getTypes().size() > 0 && (root.getTypes().get(0).getName().equals("Type")
-				|| (root.getTypes().get(0).getName().equals("Structure"))))
+				|| (root.getTypes().get(0).getName().equals("Structure")) && !root.getName().equals("Extension")))
 			rn = "[name]";
 		else
 			rn = root.getName();

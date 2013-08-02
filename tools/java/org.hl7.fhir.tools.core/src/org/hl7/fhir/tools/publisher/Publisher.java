@@ -37,6 +37,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.sql.ResultSetMetaData;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -453,7 +454,7 @@ public class Publisher {
     
     String head = 
     "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>Base Conformance Profile</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
-    "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<div class=\"example\">\r\n<p>Base Conformance Profile</p>\r\n<pre class=\"json\">\r\n";
+    "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<div class=\"example\">\r\n<p>Base Conformance Profile</p>\r\n<p><a href=\"conformance-base.json\">Raw JSON</a></p>\r\n<pre class=\"json\">\r\n";
     String tail = "\r\n</pre>\r\n</div>\r\n</body>\r\n</html>\r\n";
     TextFile.stringToFile(head+Utilities.escapeXml(json)+tail, page.getFolders().dstDir + "conformance-base.json.htm");
     
@@ -1046,20 +1047,25 @@ public class Publisher {
       new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.xml"), profileFeed, true, false);
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.json"), profileFeed, false);
       cloneToXhtml("profiles-resources", "Base Resources defined as profiles (implementation assistance, for for validation, derivation and product development)");
+      jsonToXhtml("profiles-resources", "Base Resources defined as profiles (implementation assistance, for for validation, derivation and product development)", resource2Json(profileFeed));
       new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-types.xml"), typeFeed, true, false);
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-types.json"), typeFeed, false);
       cloneToXhtml("profiles-types", "Base Types defined as profiles (implementation assistance, for validation, derivation and product development)");
+      jsonToXhtml("profiles-types", "Base Types defined as profiles (implementation assistance, for validation, derivation and product development)", resource2Json(typeFeed));
       new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.xml"), valueSetsFeed, true, false);
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.json"), valueSetsFeed, false);
       cloneToXhtml("valuesets", "Base Valuesets (implementation assistance, for validation, derivation and product development)");
+      jsonToXhtml("valuesets", "Base Valuesets (implementation assistance, for validation, derivation and product development)", resource2Json(valueSetsFeed));
       new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.xml"), v2Valuesets, true, false);
       Utilities.copyFile(page.getFolders().dstDir + "v2-tables.xml", page.getFolders().dstDir + "examples"+ File.separator+"v2-tables.xml");
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.json"), v2Valuesets, false);
       cloneToXhtml("v2-tables", "V2 Tables defined as value sets (implementation assistance, for derivation and product development)");
+      jsonToXhtml("v2-tables", "V2 Tables defined as value sets (implementation assistance, for derivation and product development)", resource2Json(v2Valuesets));
       new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.xml"), v3Valuesets, true, false);
       Utilities.copyFile(page.getFolders().dstDir + "v3-codesystems.xml", page.getFolders().dstDir + "examples"+ File.separator+"v3-codesystems.xml");
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.json"), v3Valuesets, false);
       cloneToXhtml("v3-codesystems", "v3 Code Systems defined as value sets (implementation assistance, for derivation and product development)");
+      jsonToXhtml("v3-codesystems", "v3 Code Systems defined as value sets (implementation assistance, for derivation and product development)", resource2Json(v3Valuesets));
 
       log("....validator");
       ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "validation.zip");
@@ -1106,6 +1112,18 @@ public class Publisher {
 	  else 
 	    log("Partial Build - terminating now");
 	}
+
+  private String resource2Json(AtomFeed profileFeed2) throws Exception {
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    new JsonComposer().compose(bytes, profileFeed, true);
+    return new String(bytes.toByteArray());
+  }
+
+  private String resource2Json(org.hl7.fhir.instance.model.Resource r) throws Exception {
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    new JsonComposer().compose(bytes, r, true);
+    return new String(bytes.toByteArray());
+  }
 
   private void produceQA() throws Exception {
     page.getQa().countDefinitions(page.getDefinitions());
@@ -1698,12 +1716,13 @@ public class Publisher {
     Profile rp = pgen.generate(p, "<div>Type definition for "+type.getName()+" from <a href=\"http://hl7.org/fhir/datatypes.htm#"+type.getName()+"\">FHIR Specification</a></div>", false);
     rp.getStructure().get(0).setNameSimple(c.getCode());
     
-    XmlComposer comp = new XmlComposer();
-    comp.compose(new FileOutputStream(page.getFolders().dstDir + fn), rp, true, false);
+    new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + fn), rp, true, false);
+    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json")), rp, true);
     
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
     addToResourceFeed(rp, c.getCode().toLowerCase(), typeFeed);
     cloneToXhtml("type-"+c.getCode()+".profile", "Profile for "+c.getCode());
+    jsonToXhtml("type-"+c.getCode()+".profile", "Profile for "+c.getCode(), resource2Json(rp));
   }
 
   private void produceTypeProfile(ElementDefn type) throws Exception {
@@ -1719,13 +1738,14 @@ public class Publisher {
     ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
     String fn = "type-"+type.getName()+".profile.xml";
     Profile rp = pgen.generate(p, "<div>Type definition for "+type.getName()+" from <a href=\"http://hl7.org/fhir/datatypes.htm#"+type.getName()+"\">FHIR Specification</a></div>", false);
-    XmlComposer comp = new XmlComposer();
-    comp.compose(new FileOutputStream(page.getFolders().dstDir + fn), rp, true, false);
+    new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + fn), rp, true, false);
+    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json")), rp, true);
 
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
     addToResourceFeed(rp, type.getName().toLowerCase(), typeFeed);
     // saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html" + File.separator + "datatypes.htm"));
     cloneToXhtml("type-"+type.getName()+".profile", "Profile for "+type.getName());
+    jsonToXhtml("type-"+type.getName()+".profile", "Profile for "+type.getName(), resource2Json(rp));
   }
 
   protected XmlPullParser loadXml(InputStream stream) throws Exception {
@@ -1910,6 +1930,10 @@ public class Publisher {
 
 	}
 
+  private void jsonToXhtml(String n, String description, String json) throws Exception {
+    page.jsonToXhtml(n+".json", n+".json.htm", n, description, 0, json);
+  }
+  
   private void cloneToXhtml(String n, String description) throws Exception {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setNamespaceAware(true);
@@ -2020,14 +2044,15 @@ public class Publisher {
 		p.getResources().add(root);
 		ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
 		Profile rp = pgen.generate(p, xmlSpec, addBase);
-    XmlComposer comp = new XmlComposer();
-    comp.compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.xml"), rp, true, false);
+    new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.xml"), rp, true, false);
+    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.json"), rp, true);
 
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + n+ ".profile.xml"), new CSFile(page.getFolders().dstDir+ "examples" + File.separator + n + ".profile.xml"));
 		if (buildFlags.get("all"))
 		  addToResourceFeed(rp, root.getName().toLowerCase(), profileFeed);
 		saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html" + File.separator + n + ".htm"));
     cloneToXhtml(n+".profile", "Profile for "+n);
+    jsonToXhtml(n+".profile", "Profile for "+n, resource2Json(rp));
 	}
 
 	private void saveAsPureHtml(Profile resource, FileOutputStream stream) throws Exception {
@@ -2145,7 +2170,7 @@ public class Publisher {
 	    xdoc = builder.parse(new CSFileInputStream(dst.getAbsolutePath()));
 	    XhtmlGenerator xhtml = new XhtmlGenerator(null);
 	    exXml = xhtml.generateInsert(xdoc, "Example for Profile "+profile.metadata("name"), null);
-	    cloneToXhtml(n, "Example for Profile "+profile.metadata("name"));
+      cloneToXhtml(n, "Example for Profile "+profile.metadata("name"));
 
 	    
 	    String json;
@@ -2161,7 +2186,7 @@ public class Publisher {
 	    
 	    String head = 
 	    "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>"+Utilities.escapeXml("Example for Profile "+profile.metadata("name"))+"</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
-	    "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<div class=\"example\">\r\n<p>"+Utilities.escapeXml("Example for Profile "+profile.metadata("name"))+"</p>\r\n<pre class=\"json\">\r\n";
+	    "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<div class=\"example\">\r\n<p>"+Utilities.escapeXml("Example for Profile "+profile.metadata("name"))+"</p><p><a href=\""+n + ".json\">Raw JSON</a></p>\r\n\r\n<pre class=\"json\">\r\n";
 	    String tail = "\r\n</pre>\r\n</div>\r\n</body>\r\n</html>\r\n";
 	    TextFile.stringToFile(head+Utilities.escapeXml(json)+tail, page.getFolders().dstDir + n + ".json.htm");
 		}
@@ -2762,6 +2787,7 @@ public class Publisher {
       XmlComposer xml = new XmlComposer();
       xml.compose(new FileOutputStream(page.getFolders().dstDir+name+".xml"), vs, true);
       cloneToXhtml(name, "Definition for Value Set"+vs.getNameSimple());
+      jsonToXhtml(name, "Definition for Value Set"+vs.getNameSimple(), resource2Json(vs));
     }
   }
   
@@ -2821,6 +2847,8 @@ public class Publisher {
             cc.getCode().add(nc);
             if (!Utilities.noString(c.getComment()))
               ToolingExtensions.addComment(nc, c.getComment());
+            if (!Utilities.noString(c.getDefinition()))
+              ToolingExtensions.addDefinition(nc, c.getDefinition());
           }
         }        
       }
@@ -2861,6 +2889,7 @@ public class Publisher {
       XmlComposer xml = new XmlComposer();
       xml.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, ".xml")), vs, true);
       cloneToXhtml(Utilities.fileTitle(filename), "Definition for Value Set"+vs.getNameSimple());
+      jsonToXhtml(Utilities.fileTitle(filename), "Definition for Value Set"+vs.getNameSimple(), resource2Json(vs));
     }
   }
 

@@ -31,6 +31,11 @@ public class ToolingExtensions {
       nc.getExtensions().add(Factory.newExtension(EXT_COMMENT, Factory.newString_(comment), true));   
   }
 
+  public static void addDefinition(Code nc, String definition) throws Exception {
+    if (!Utilities.noString(definition))
+      nc.getExtensions().add(Factory.newExtension(EXT_DEFINITION, Factory.newString_(definition), true));   
+  }
+
   public static String readStringExtension(Element c, String uri) {
     Extension ex = c.getExtension(uri);
     if (ex == null)

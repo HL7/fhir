@@ -126,6 +126,8 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	    }
 	  }
     if (stated.size() > 0) {
+      if (s.length() > 0)
+        s.append("<br/>");
       s.append("<b>Affect this element</b><br/>\r\n");
       boolean b = false;
       for (Invariant id : stated) {

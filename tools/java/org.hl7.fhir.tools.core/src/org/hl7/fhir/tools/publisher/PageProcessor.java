@@ -27,8 +27,10 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
 import java.net.URI;
@@ -95,6 +97,7 @@ import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XhtmlGenerator;
+import org.hl7.fhir.utilities.xml.XhtmlGeneratorAdorner.XhtmlGeneratorAdornerState;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -511,11 +514,10 @@ public class PageProcessor implements Logger  {
 
   private String genV3CodeSystem(String name) throws Exception {
     ValueSet vs = (ValueSet) codeSystems.get("http://hl7.org/fhir/v3/"+name).getResource();
-    XmlComposer xml = new XmlComposer();
-    xml.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml"), vs, true);
+    new XmlComposer().compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml"), vs, true);
     cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 2);
-    JsonComposer json = new JsonComposer();
-    json.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs, false);
+    new JsonComposer().compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs, false);
+    jsonToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
 
     return new XhtmlComposer().compose(vs.getText().getDiv());
   }
@@ -527,6 +529,7 @@ public class PageProcessor implements Logger  {
     cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 2);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs, false);
+    jsonToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
 
     return new XhtmlComposer().compose(vs.getText().getDiv()).replace("href=\"v3/", "href=\"../");
   }
@@ -539,6 +542,7 @@ public class PageProcessor implements Logger  {
     cloneToXhtml(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml", folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 3);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".json"), vs, false);
+    jsonToXhtml(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".json", folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".json.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 3, r2Json(vs));
     addToValuesets(v2Valuesets, vs, vs.getIdentifierSimple());
 
     return new XhtmlComposer().compose(vs.getText().getDiv());
@@ -551,8 +555,15 @@ public class PageProcessor implements Logger  {
     cloneToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 2);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".json"), vs, false);
+    jsonToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".json", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".json.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
     addToValuesets(v2Valuesets, vs, vs.getIdentifierSimple());
     return new XhtmlComposer().compose(vs.getText().getDiv());
+  }
+
+  private String r2Json(ValueSet vs) throws Exception {
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    new JsonComposer().compose(bytes, vs, true);
+    return new String(bytes.toByteArray());
   }
 
   private void cloneToXhtml(String src, String dst, String name, String description, int level) throws Exception {
@@ -563,6 +574,34 @@ public class PageProcessor implements Logger  {
     Document xdoc = builder.parse(new CSFileInputStream(new CSFile(src)));
     XhtmlGenerator xhtml = new XhtmlGenerator(null);
     xhtml.generate(xdoc, new CSFile(dst), name, description, level);
+  }
+
+  public void jsonToXhtml(String src, String dst, String name, String description, int level, String json) throws Exception {
+
+    FileOutputStream outs = new FileOutputStream(dst);
+    OutputStreamWriter out = new OutputStreamWriter(outs);
+    
+    out.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n");
+    out.write("<head>\r\n");
+    out.write(" <title>Example Instance for "+name+"</title>\r\n");
+    out.write(" <link rel=\"Stylesheet\" href=\"");
+    for (int i = 0; i < level; i++)
+      out.write("../");
+    out.write("fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n");
+    out.write("</head>\r\n");
+    out.write("<body>\r\n");
+    out.write("<p>&nbsp;</p>\r\n"); 
+    out.write("<div class=\"example\">\r\n");
+    out.write("<p>"+Utilities.escapeXml(description)+"</p>\r\n"); 
+    out.write("<p><a href=\""+dst.substring(0, dst.length()-4)+"\">Raw JSON</a></p>\r\n"); 
+    out.write("<pre class=\"json\">\r\n");
+    out.write(json);    
+    out.write("</pre>\r\n");
+    out.write("</div>\r\n");
+    out.write("</body>\r\n");
+    out.write("</html>\r\n");
+    out.flush();
+    outs.close();
   }
 
   
