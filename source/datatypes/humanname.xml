@@ -20,7 +20,7 @@
   <WindowWidth>24915</WindowWidth>
   <WindowTopX>3360</WindowTopX>
   <WindowTopY>3510</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -99,6 +99,17 @@
    <Interior/>
    <NumberFormat/>
    <Protection/>
+  </Style>
+  <Style ss:ID="s77" ss:Parent="s62">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s79">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -315,7 +326,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -355,7 +365,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">temp</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">A temporary name. A name valid time can provide more detailed information. This may also be used for temporary names assigned at birth or in emergency situations.</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">A temporary name. Name.period can provide more detailed information. This may also be used for temporary names assigned at birth or in emergency situations.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
@@ -373,9 +383,9 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">This name is no longer in use (or was never correct, but retained for records)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="Number">7</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">maiden</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">A name used prior to marriage. Marriage naming customs vary greatly around the world. This name use is for use by applications that collect and store &quot;maiden&quot; names. Though the concept of maiden name is often gender specific, the use of this term is not gender specific. The use of this term does not imply any particular history for a person's name, nor should the maiden name be determined algorithmically.</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">maiden</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">A name used prior to marriage. Marriage naming customs vary greatly around the world. This name use is for use by applications that collect and store &quot;maiden&quot; names. Though the concept of maiden name is often gender specific, the use of this term is not gender specific. The use of this term does not imply any particular history for a person's name, nor should the maiden name be determined algorithmically.</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -385,10 +395,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

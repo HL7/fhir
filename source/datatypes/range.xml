@@ -115,7 +115,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Range.low</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">2,3</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Low limit </Data></Cell>
     <Cell><Data ss:Type="String">The low limit. The boundary is inclusive.</Data></Cell>
@@ -125,7 +125,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="195">
     <Cell><Data ss:Type="String">Range.high</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">2,3</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">High limit </Data></Cell>
     <Cell><Data ss:Type="String">The high limit. The boundary is inclusive. </Data></Cell>
@@ -144,7 +144,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -152,7 +152,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s66" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="26.25"/>
    <Column ss:StyleID="s66" ss:Width="128.25"/>
@@ -169,12 +169,19 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">XPath</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Low &lt; high</Data></Cell>
+    <Cell><Data ss:Type="String">Range</Data></Cell>
+    <Cell><Data ss:Type="String">If present, low must have a lower value than high</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:low)) or not(exists(f:high)) or (f:low/@value &lt;= f:high/@value)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">No Range flag on Quantity</Data></Cell>
     <Cell><Data ss:Type="String">Range</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Quantity values cannot have a range when used in a Range</Data></Cell>
-    <Cell><Data ss:Type="String">low.range.oclIsUndefined and high.range.oclIsUndefined)</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">not(exists(f:low/f:range) or exists(f:high/f:range))</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Quantity values cannot have a comparator when used in a Range</Data></Cell>
+    <Cell><Data ss:Type="String">lowcomparator.oclIsUndefined and high.comparator.oclIsUndefined)</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">not(exists(f:low/f:comparator) or exists(f:high/f:comparator))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="4" ss:StyleID="Default"/>
@@ -203,7 +210,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>1</ActiveRow>
-     <RangeSelection>R2</RangeSelection>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

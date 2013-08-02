@@ -20,7 +20,6 @@
   <WindowWidth>23475</WindowWidth>
   <WindowTopX>4800</WindowTopX>
   <WindowTopY>5220</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -116,7 +115,7 @@
     <Cell><Data ss:Type="String">Structure</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A schedule that specifies an event that may occur multiple times</Data></Cell>
     <Cell><Data ss:Type="String">A schedule that specifies an event that may occur multiple times. Schedules are not used for recording when things did happen, but when they are expected or requested to occur.</Data></Cell>
-    <Cell><Data ss:Type="String">Need to able to track schedules. There are several different ways to do scheduling: one or more specified times, a simple rules like three times a day, or to say, x before/after meals, or something like that</Data></Cell>
+    <Cell><Data ss:Type="String">Need to able to track schedules. There are several different ways to do scheduling: one or more specified times, a simple rules like three times a day, or to say, x before/after meals</Data></Cell>
     <Cell><Data ss:Type="String">  A schedule can be either a list of events - intervals on which the event occurs, or a single event with repeating criteria or just repeating criteria with no actual event. </Data></Cell>
     <Cell><Data ss:Type="String">GTS</Data></Cell>
    </Row>
@@ -201,11 +200,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -279,7 +279,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -308,7 +307,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s71"><Data ss:Type="String">EventTiming</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">A real world event that a schedule is related to</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Real world event that the schedule relates to</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">#event-timing</Data></Cell>
    </Row>
@@ -329,7 +328,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
@@ -348,52 +347,52 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">Definition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">HS</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] before the hour of sleep (or trying to)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">WAKE</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] after waking</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">AC</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] before a meal (from the Latin ante cibus)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">ACM</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] before breakfast (from the Latin ante cibus matutinus)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">ACD</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] before lunch (from the Latin ante cibus diurnus)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">ACV</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] before dinner (from the Latin ante cibus vespertinus)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">PC</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] after a meal (from the Latin post cibus)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">PCM</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] after breakfast (from the Latin post cibus matutinus)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">PCD</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] after lunch (from the Latin post cibus diurnus)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3//timingevent</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">PCV</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">event occurs [duration] after dinner (from the Latin post cibus vespertinus) </Data></Cell>
    </Row>
@@ -408,7 +407,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>6</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -418,6 +417,7 @@
  <Worksheet ss:Name="units-of-time">
   <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="142.5"/>
    <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="260.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">System</Data></Cell>
@@ -470,7 +470,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

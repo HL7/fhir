@@ -4,7 +4,7 @@
 <ul>
 <li>
 In very simple devices, the device capabilities will be fixed for every device. In particular, there will be no identity reference. 
-With devices such as these, the system receiving the data must be aware of the device identity etc so that data can be interpreted correctly. 
+With devices such as these, the system receiving the data must be aware of the device identity and the subject so that data can be interpreted correctly. 
 More sophisticated machines may identify themselves as part of their capabilities declaration.
 </li>
 <li>

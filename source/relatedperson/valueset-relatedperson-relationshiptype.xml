@@ -6,7 +6,7 @@
         <system value="url"/>
         <value value="http://hl7.org/fhir"/>
     </telecom>
-    <description value="A set of codes that can be used to indicate the relationsip between a Patient and a RelatedPerson."/>
+    <description value="A set of codes that can be used to indicate the relationship between a Patient and a RelatedPerson."/>
     <status value="draft"/>
     <compose>
         <import value="http://hl7.org/fhir/vs/patient-contact-relationship" />

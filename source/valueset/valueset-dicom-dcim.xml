@@ -16451,6 +16451,11 @@
       <definition value="Intra-oral Radiography device"/>
     </concept>  
     <concept>
+      <code value="IVOCT"/>
+      <display value="Intravascular Optical Coherence Tomography"/>
+      <definition value="Intravascular Optical Coherence Tomography device"/>
+    </concept>       
+    <concept>
       <code value="IVUS"/>
       <display value="Intravascular Ultrasound"/>
       <definition value="Intravascular Ultrasound device"/>

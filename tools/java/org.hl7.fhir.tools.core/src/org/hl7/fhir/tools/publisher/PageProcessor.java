@@ -578,7 +578,7 @@ public class PageProcessor implements Logger  {
 
   public void jsonToXhtml(String src, String dst, String name, String description, int level, String json) throws Exception {
 
-    FileOutputStream outs = new FileOutputStream(dst);
+    FileOutputStream outs = new FileOutputStream(dst.contains(File.separator) ? dst : folders.dstDir+ dst);
     OutputStreamWriter out = new OutputStreamWriter(outs);
     
     out.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n");
@@ -595,7 +595,7 @@ public class PageProcessor implements Logger  {
     out.write("<p>"+Utilities.escapeXml(description)+"</p>\r\n"); 
     out.write("<p><a href=\""+dst.substring(0, dst.length()-4)+"\">Raw JSON</a></p>\r\n"); 
     out.write("<pre class=\"json\">\r\n");
-    out.write(json);    
+    out.write(Utilities.escapeXml(json));    
     out.write("</pre>\r\n");
     out.write("</div>\r\n");
     out.write("</body>\r\n");
@@ -2134,8 +2134,8 @@ private String resItem(String name) throws Exception {
           s.append("<p>Additional Examples:</p>\r\n<table class=\"list\">\r\n");
         started = true;
         s.append("<tr><td>"+Utilities.escapeXml(e.getDescription())+"</td>");
-        s.append("<td><a href=\""+e.getFileTitle()+".xml\">XML</a></td><td><a href=\""+e.getFileTitle()+".xml.htm\">(for browser)</a></td>");
-        s.append("<td><a href=\""+e.getFileTitle()+".json\">JSON</a></td><td><a href=\""+e.getFileTitle()+".json.htm\">(for browser)</a></td>");
+        s.append("<td><a href=\""+e.getFileTitle()+".xml.htm\">XML</a></td>");
+        s.append("<td><a href=\""+e.getFileTitle()+".json.htm\">JSON</a></td>");
         s.append("</tr>");
       }
   //  }

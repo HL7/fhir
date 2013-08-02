@@ -114,6 +114,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Period.start</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">The start of the period</Data></Cell>
     <Cell><Data ss:Type="String">The start of the period. The boundary is inclusive.</Data></Cell>
@@ -123,6 +124,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="195">
     <Cell><Data ss:Type="String">Period.end</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">The end of the period, if not ongoing</Data></Cell>
     <Cell><Data ss:Type="String">The end of the period. If the high is missing, it means that the period is ongoing</Data></Cell>
@@ -140,8 +142,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -166,7 +167,11 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">XPath</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="Default"/>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Start &lt;= End</Data></Cell>
+    <Cell><Data ss:Type="String">Period</Data></Cell>
+    <Cell><Data ss:Type="String">If present, start must have a lower value than end</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:start)) or not(exists(f:end)) or (f:start/@value &lt;= f:end/@value)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="4" ss:StyleID="Default"/>
@@ -192,8 +197,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <RangeSelection>R2</RangeSelection>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

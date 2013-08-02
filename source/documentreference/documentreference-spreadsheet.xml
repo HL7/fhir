@@ -21,6 +21,7 @@
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6315</WindowTopY>
   <TabRatio>1000</TabRatio>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -698,7 +699,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <TopRowVisible>6</TopRowVisible>
    <Panes>
     <Pane>
@@ -953,7 +953,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">DocumentFormat</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">The format that the source document has</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Format of the source document</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">valueset-xds-formatcodes</Data></Cell>
@@ -1072,11 +1072,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

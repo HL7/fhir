@@ -9,17 +9,18 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-05-24T02:05:00Z</LastSaved>
+  <LastSaved>2013-08-02T05:52:07Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>18240</WindowHeight>
-  <WindowWidth>29040</WindowWidth>
+  <WindowHeight>12480</WindowHeight>
+  <WindowWidth>28815</WindowWidth>
   <WindowTopX>-15</WindowTopX>
-  <WindowTopY>-15</WindowTopY>
+  <WindowTopY>45</WindowTopY>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -193,7 +194,7 @@
     <Cell><Data ss:Type="String">ImagingStudy</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">A set of images produced in study</Data></Cell>
+    <Cell><Data ss:Type="String">A set of images produced in single study (one or more series of references images)</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Reference IHE radiology TF vol 2 table 4.14.1</Data></Cell>
     <Cell><Data ss:Type="String">Manifest,XDS-I summary, Key Images</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Manifest of a set of images produced in study. The set of images may include every image in the study, or it may be an incomplete sample, such as a list of key images</Data></Cell>
@@ -207,7 +208,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Shortname</Data></Cell>
+    <Cell><Data ss:Type="String">When the study was performed</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">0008,0020+0008,0030</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">StudyDate, StudyTime</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">2011-01-01T11:01:20.000000</Data></Cell>
@@ -881,7 +882,6 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Zoom>110</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -901,7 +901,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
@@ -1402,7 +1402,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="modality">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="59" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="54" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="166.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="44.25"/>
@@ -1445,10 +1445,6 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
-    <Cell><Data ss:Type="String">DOC</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
     <Cell><Data ss:Type="String">DX</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1465,10 +1461,6 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
-    <Cell><Data ss:Type="String">FID</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
     <Cell><Data ss:Type="String">GM</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1482,10 +1474,6 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
     <Cell><Data ss:Type="String">IO</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
-    <Cell><Data ss:Type="String">IOL</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
@@ -1553,10 +1541,6 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
-    <Cell><Data ss:Type="String">PLAN</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
     <Cell><Data ss:Type="String">PR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1570,10 +1554,6 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
     <Cell><Data ss:Type="String">REG</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
-    <Cell><Data ss:Type="String">RESP</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">http://nema.org/dicom/dcid</Data></Cell>
@@ -1651,10 +1631,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <RangeSelection>C1:C2</RangeSelection>
+     <ActiveRow>34</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -60,7 +60,6 @@ public class TextFile {
 		File file = new CSFile(path);
 		FileOutputStream s = new FileOutputStream(file);
 		OutputStreamWriter sw = new OutputStreamWriter(s, "UTF-8");
-		
 		for( String line : lines )
 			sw.write(line + "\r\n");
 		
@@ -83,13 +82,13 @@ public class TextFile {
 	}
 
   public static String streamToString(InputStream input) throws Exception {
-    InputStreamReader sr = new InputStreamReader(input, "UTF-8");
+    InputStreamReader sr = new InputStreamReader(input, "UTF-8");    
     StringBuilder b = new StringBuilder();
     while (sr.ready()) {
       char c = (char) sr.read();
       b.append(c);
     }
     sr.close();
-    return b.toString();
+    return b.toString().replace("\uFEFF", "");
   }
 }

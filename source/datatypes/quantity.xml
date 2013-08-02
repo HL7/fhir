@@ -310,7 +310,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s63"><Data ss:Type="String">QuantityCompararator</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">how the Quantity should be understood and represented</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">How the Quantity should be understood and represented</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">#quantity-comparator</Data></Cell>
    </Row>
@@ -326,8 +326,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

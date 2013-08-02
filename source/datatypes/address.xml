@@ -20,7 +20,6 @@
   <WindowWidth>27795</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>150</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -186,7 +185,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Name of city, town etc.</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">The name of the city, town, village or other community or delivery centre.</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">The name of the city, town, village or other community or delivery center.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Muncipality</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">locality</Data></Cell>
    </Row>
@@ -240,11 +239,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -329,7 +329,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

@@ -1,15 +1,15 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <name value="Media Method Codes"/>
+  <name value="Media SubType"/>
   <publisher value="FHIR Project team"/>
   <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <description value="Codes defined in Snomed-CT that can be used to record how images were recorded"/>
+  <description value="Detailed information about the type of the image - it's kind, purpose, or the kind of equipment used to generate it"/>
   <status value="draft"/>
   <define>
-    <system value="http://hl7.org/fhir/vs/media-method"/>  
+    <system value="http://hl7.org/fhir/vs/media-subtype"/>  
     <caseSensitive value="true"/>
     <concept>
       <code value="diagram"/>

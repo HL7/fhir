@@ -477,11 +477,14 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
       process.waitFor();
       if (new File(destFile+".err").exists())
         throw new Exception(TextFile.fileToString(destFile+".err"));
-      if (!(new File(destFile).exists()))
+      if (!(new File(destFile+".tmp").exists()))
         throw new Exception("Neither output nor error file created doing json conversion");    
-      if (new File(destFile).length() == 0)
-        throw new Exception("Output file '"+destFile+"' empty");  
-      return TextFile.fileToString(destFile);
+      if (new File(destFile+".tmp").length() == 0)
+        throw new Exception("Output file '"+destFile+".tmp' empty");  
+      String txt = TextFile.fileToString(destFile+".tmp");
+      new File(destFile+".tmp").delete();
+      return txt;
+      
     } 
   }
 

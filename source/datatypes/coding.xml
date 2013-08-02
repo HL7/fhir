@@ -117,7 +117,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Referring to codes is a ubiquitous task in healthcare models</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Codes may defined very casually in enumerations or code lists, up to very formal definitions such as SNOMED-CT - see the v3 core principles for more information</Data><NamedCell
+    <Cell><Data ss:Type="String">Codes may be defined very casually in enumerations or code lists, up to very formal definitions such as SNOMED-CT - see the v3 core principles for more information</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">CV</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -195,7 +195,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>1</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

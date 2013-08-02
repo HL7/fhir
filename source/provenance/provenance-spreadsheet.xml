@@ -20,6 +20,7 @@
   <WindowWidth>9570</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6435</WindowTopY>
+  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -74,7 +75,7 @@
   <Style ss:ID="s70">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s72">
+  <Style ss:ID="s73">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
  </Styles>
@@ -445,7 +446,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -811,7 +811,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Provenance HL7 Extensions</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Defines common extensions used with or related to the Provenance resource</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Defines common extensions used with or related to the Provenance resource</Data></Cell>
     <Cell><Data ss:Type="String">provenance-extensions-spreadsheet.xml</Data></Cell>
     <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
    </Row>
@@ -841,36 +841,36 @@
    <Column ss:AutoFitWidth="0" ss:Width="69.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="546"/>
    <Column ss:AutoFitWidth="0" ss:Width="575.25"/>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">id</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">parent</Data></Cell>
     <Cell><Data ss:Type="String">definition</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">derivation</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">A transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">A transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a preexisting entity</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">revision</Data></Cell>
     <Cell><Data ss:Type="String">derivation</Data></Cell>
     <Cell><Data ss:Type="String">A derivation for which the resulting entity is a revised version of some original.</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">quotation</Data></Cell>
     <Cell><Data ss:Type="String">derivation</Data></Cell>
     <Cell><Data ss:Type="String">The repeat of (some or all of) an entity, such as text or image, by someone who may or may not be its original author</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">source</Data></Cell>
     <Cell><Data ss:Type="String">derivation</Data></Cell>
     <Cell><Data ss:Type="String">A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight.</Data></Cell>
    </Row>
-   <Row ss:Index="15">
+   <Row ss:Index="15" ss:AutoFitHeight="0">
     <Cell ss:Index="5" ss:StyleID="s62"/>
    </Row>
   </Table>
@@ -880,10 +880,13 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

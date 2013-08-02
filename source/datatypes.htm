@@ -17,7 +17,7 @@
  no repeating primitives in datatypes? No id's on primitives in datatypes...No dar on primitives in datatypes. It would be worthwhile to document that and the reason for it.
 -->
 
-[%onthispage Primitive Types#primitive|Data Types 1#Types|Data Types 2#Types2|Other Types#other%]
+[%onthispage Primitive Types#primitive|Data Types#Types|Other Types#other%]
 
 <h1>Data Types</h1>
 
@@ -50,11 +50,13 @@ with additional constraints marked in bold.
 <a name="integer"> </a>
 <a name="decimal"> </a>
 <a name="base64Binary"> </a>
+<a name="base64binary"> </a>
 <a name="instant"> </a>
 <a name="string"> </a>
 <a name="uri"> </a>
 <a name="date"> </a>
 <a name="dateTime"> </a>
+<a name="datetime"> </a>
 
  
 <table class="list">
@@ -113,7 +115,7 @@ with additional constraints marked in bold.
 These types are represented as XML Elements with the value of the type in the value attribute. The name of the element is defined where the type is used. 
 The XML elements may have an <a href="formats.htm#idref">id attribute</a>. 
  According to XML schema, leading and trailing whitespace in the value attribute is ignored for the types 
-boolean, integer, decimal, base64Binary, instant, uri, date and dateTime, oid, and uri. Note that this means that the 
+boolean, integer, decimal, base64Binary, instant, uri, date, dateTime, oid, and uri. Note that this means that the 
 schema aware XML libraries give different attribute values to non schema aware libraries when reading the 
 XML instances. For this reason, the value attribute for these types SHOULD not have leading and trailing spaces.
 String values should only have leading and trailing spaces if they are part of the content of the value. 
@@ -173,11 +175,12 @@ values are.
 </p>
 
 
-<p>
 [%diagram datatypes\types.diagram%]
 
-</p>
+[%diagram datatypes\types2.diagram%]
+
 <a name="Attachment"></a>
+<a name="attachment"></a>
 <h2>
 Attachment
 </h2>
@@ -203,7 +206,7 @@ some different data (i.e. the reference is version specific). The
 URIs such as cid: meet this requirement.
 </p>
 <p>
-The <i>hash</i> is included so that applications can verify that the contents that a url have not changed. 
+The <i>hash</i> is included so that applications can verify that the content returned by the url has not changed. 
 </p>
 <p>
 In many cases where Attachment is used, the cardinality is &gt;1;. A valid use of repeats is to convey the same content in different mime types and languages.
@@ -256,6 +259,7 @@ Since the JSON examples have the same structure as the XML, only XML is shown fo
 </div>
 
 <a name="Coding"></a>
+<a name="coding"></a>
 <h2>Coding</h2>
 <p>
 A "<i>coding</i>" is a representation of a defined concept using a symbol from a defined "code system" - 
@@ -270,7 +274,7 @@ The <i>system</i> is a URI that references the enumeration, terminology
 or ontology that defines the <i>code</i>. The URI may be an OID (urn:oid:) or 
 a UUID (urn:uuid:), a specially defined URI from <a href="terminologies-systems.htm">the 
 named systems list</a>, a url that references a definition of the system or any other URI 
-that uniquely identifies the definitions.  This could include a reference to a <a href="valueset.htm">ValueSet</a> stored in a fhir server. OIDs and UUIDs may be registered in the <a href="http://hl7.org/oid">HL7 OID 
+that uniquely identifies the definitions.  This could include a reference to a <a href="valueset.htm">ValueSet</a> stored in a FHIR server that defines the code system. OIDs and UUIDs may be registered in the <a href="http://hl7.org/oid">HL7 OID 
 registry</a> and should be if the content is shared or exchanged across institutional boundaries.
 </p>
 <p>
@@ -376,11 +380,12 @@ case means that the profile can define a better structure than the general case 
 </p>
 
 <a name="CodeableConcept"></a>
+<a name="codeableconcept"></a>
 <h2>
 CodeableConcept
 </h2>
 <p>
-A CodeableConcept represents a represents a field that is usually defined by formal 
+A CodeableConcept represents a field that is usually defined by formal 
 reference to one or more terminologies or ontologies, but may also be defined by the 
 provision of text. This is a common pattern in healthcare data.
 </p>
@@ -461,6 +466,7 @@ In this case, there is no display element, because no display is defined for Sno
 </div>
 
 <a name="Choice"></a>
+<a name="choice"></a>
 <h2>
 Choice
 </h2>
@@ -510,6 +516,7 @@ If isOrdered is true, then the values have an inherent meaningful order and the 
 </div>
 
 <a name="Quantity"></a>
+<a name="quantity"></a>
 <h2>
 Quantity
 </h2>
@@ -595,6 +602,7 @@ These are used as types in resource content models, but they are really just a Q
 
 
 <a name="Range"></a>
+<a name="range"></a>
 <h2>
 Range
 </h2>
@@ -641,6 +649,7 @@ includes 1.50, and 2.50 but not 1.49 or 2.51.
 </div>
 
 <a name="Ratio"></a>
+<a name="ratio"></a>
 <h2>
 Ratio
 </h2>
@@ -697,6 +706,7 @@ The context of use may require particular types of Quantity for the numerator or
 </div>
 
 <a name="Period"></a>
+<a name="period"></a>
 <h2>
 Period
 </h2>
@@ -736,6 +746,7 @@ the end of the 27th May.
 </div>
 
 <a name="SampledData"></a>
+<a name="sampleddata"></a>
 <h2>
 SampledData
 </h2>
@@ -784,20 +795,15 @@ The default value for <i>factor</i> is 1.
 </div>
 
 
-<hr/>
-<a name="Types2"/>
-<p>
-[%diagram datatypes\types2.diagram%]
-
-</p>
 
 <a name="Identifier"></a>
+<a name="identifier"></a>
 <h2>
 Identifier
 </h2>
 <p>
-An identifier intended for use external to the FHIR protocol. As an external
-identifier, they may be changed or retired due to human or system process and
+A logical identifier that is or can be used to identify an object or entity. Typically, identifiers are used to connect content in resources to external content available in other frameworks or protocols.
+Identifiers are associated with objects, and may be changed or retired due to human or system process and
 errors. 
 </p>
 
@@ -903,6 +909,7 @@ to some organisation to further sub-allocate):</p>
 </div>
 
 <a name="HumanName"></a>
+<a name="humanname"></a>
 <h2>
 HumanName
 </h2>
@@ -958,6 +965,7 @@ family name and given names depends on culture and context of use.
 </ul>
 </div>
 <a name="Address"></a>
+<a name="address"></a>
 <h2>
 Address
 </h2>
@@ -1011,6 +1019,7 @@ of the two is present.
 </div>
 
 <a name="Contact"></a>
+<a name="contact"></a>
 <h2>
 Contact
 </h2>
@@ -1041,6 +1050,7 @@ However, this is frequently not possible due to legacy data and/or recording met
 </div>
 
 <a name="Schedule"></a>
+<a name="schedule"></a>
 <h2>
 Schedule
 </h2>
@@ -1049,12 +1059,14 @@ A schedule that specifies an event that may occur multiple times. Schedules are 
 A schedule can be either a list of events - periods on which the event occurs, 
 or a single event with repeating criteria, or just repeating criteria with no actual event. 
 </p>
+<!--
 <p>
 Note: a possible enhancement to this is to have the repeat content repeat with each event. This is richer and more complex - is the added functionality useful?
 </p>
+-->
 [%dt Schedule%]
 <p>
-If events are specified, at least a low must be specified for each event. If no high is 
+If events are specified, at least <i>event.start</i> must be specified for each event. If no <i>event.end</i> is 
 specified, the event is assumed to last a limited but unknown time as clinically relevant.
 </p>
 <p>

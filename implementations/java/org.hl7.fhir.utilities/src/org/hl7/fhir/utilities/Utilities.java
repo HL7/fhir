@@ -446,4 +446,9 @@ public class Utilities {
       return s.substring(0, s.length()-1);
     return s;
   }
+
+
+	public static String stripBOM(String string) {
+	  return string.replace("\uFEFF", "");
+  }
 }

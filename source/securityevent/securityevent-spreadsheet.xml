@@ -1172,7 +1172,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s63"><Data ss:Type="String">SecurityEventParticipantNetworkType</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">the type of network access point that originated the audit event</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">The type of network access point that originated the audit event</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#network-type</Data></Cell>
@@ -1376,7 +1376,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>16</ActiveRow>
+     <ActiveRow>5</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
@@ -1564,7 +1564,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>5</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
