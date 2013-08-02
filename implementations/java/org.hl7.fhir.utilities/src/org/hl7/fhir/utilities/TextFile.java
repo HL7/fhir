@@ -72,6 +72,7 @@ public class TextFile {
     public static void stringToFile(String content, String path) throws Exception {
 		File file = new CSFile(path);
 		OutputStreamWriter sw = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
+		sw.write('\ufeff');
 		sw.write(content);
 		sw.flush();
 		sw.close();

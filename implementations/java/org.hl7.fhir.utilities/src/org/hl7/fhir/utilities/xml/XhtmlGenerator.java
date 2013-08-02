@@ -87,6 +87,7 @@ public class XhtmlGenerator {
     out.write("<p>&nbsp;</p>\r\n");	
     out.write("<div class=\"example\">\r\n");
     out.write("<p>"+Utilities.escapeXml(desc)+"</p>\r\n"); 
+    out.write("<p><a href=\""+xhtml.getName().substring(0, xhtml.getName().length()-4)+"\">Raw XML</a></p>\r\n"); 
     out.write("<pre class=\"xml\">\r\n");
 
     XhtmlGeneratorAdornerState state = null; // adorner == null ? new XhtmlGeneratorAdornerState("", "") : adorner.getState(this, null, null);
