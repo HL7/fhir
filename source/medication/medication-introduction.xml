@@ -20,8 +20,8 @@ will make the <i>kind</i> element required.
 </p>
 <p>
 Depending on whether the medication is a product or a package, further details about the composition can be provided. A product
-has a form (tablet, suspension, etc) and a list of ingredients with quantities. The ingredients may be other medications or 
-substances. A package has a container (vacuum packed box, jar, etc) and a list of the products or other packages that are in the package.
+has a form (tablet, suspension, etc.) and a list of ingredients with quantities. The ingredients may be other medications or 
+substances. A package has a container (vacuum packed box, jar, etc.) and a list of the products or other packages that are in the package.
 </p>
     
 <p>
