@@ -14,7 +14,7 @@ This resource references the following resources:
 <ul>
     <li>AdverseReaction</li>
     <li>Patient</li>
-    <li>Practioner</li>
+    <li>Practitioner</li>
     <li>Organization</li>
     <li>Location</li>
     <li>Observation</li>
