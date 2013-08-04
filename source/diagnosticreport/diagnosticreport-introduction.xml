@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <p>
-A diganostic report is used for the set of information that is typically provided by a diagnostic service 
+A diagnostic report is used for the set of information that is typically provided by a diagnostic service 
 when investigations are complete. The information includes a mix of atomic results, text reports, images,
 and codes. The mix varies depending on the nature of the diagnostic procedure, and sometimes on the nature
 of the outcomes for a particular investigation. 
@@ -10,10 +10,10 @@ of the outcomes for a particular investigation.
 The Diagnostic Report Resource is suitable for the following kinds of Diagnostic Reports:
 </p>
 <ul>
- <li>Laboratory (Clinical Chemistry, Hematology, Microbiology, etc)</li>
+ <li>Laboratory (Clinical Chemistry, Hematology, Microbiology, etc.)</li>
  <li>Pathology / Histopathology / related disciplines</li>
- <li>Imaging Investigations (x-ray, CT, MRI etc)</li>
- <li>Other diagnostics - Cardiology, Gastroenterology etc</li>
+ <li>Imaging Investigations (x-ray, CT, MRI etc.)</li>
+ <li>Other diagnostics - Cardiology, Gastroenterology etc.</li>
 </ul>
 <p>
 The Diagnostic Report is not intended to support:
