@@ -15,7 +15,7 @@ To convert the data from a Device Log to a Device Observation:
  <li>Use the key values on the device log to identify the relevant metric or facet for each item</li>
  <li>Use the information for the metric or facet to build a set of <a href="observation.htm">observation</a> resources (see below)</li>
  <li>Create a device observation that provides the device context for the observations</li>
- <li>Fill out the missing information (device identity, subject, etc). This information may be 
+ <li>Fill out the missing information (device identity, subject, etc.). This information may be 
    explicit in the device capabilities and device log resources, but the simpler the device, the more likely it must come from local context/configuration</li>
  <li>Submit the device observation to the patient record</li>
 </ul>
