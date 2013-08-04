@@ -13,7 +13,7 @@ for servers to handle as part of a batch post
 	  the provenance for the resource. The provenance identifies the 
 	  resource by its randomly chosen identifier. The server has to reidentify
 	  both the resources, and update the reference from the provenance resource
-	  to the person resoure (and fill out the version)
+	  to the person resource (and fill out the version)
     -->
 	<entry>
 		<title>test person</title>
