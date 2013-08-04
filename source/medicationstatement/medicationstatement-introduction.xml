@@ -12,7 +12,7 @@
     </tr>
     <tr>
         <td><a href="medicationadministration.htm">MedicationAdministration</a></td>
-        <td>When a patient actually consumes a medicine, or it is otherwised administered to them</td>
+        <td>When a patient actually consumes a medicine, or it is otherwise administered to them</td>
     </tr>
     <tr>
         <td>MedicationStatement</td>
