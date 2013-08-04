@@ -15,14 +15,14 @@ When a channel is opened with the device, or its proxy, it first sends the Capab
 series of log resources. The FHIR JSON format is used in this case. (TODO: What's the communication protocol?)
 The application that receives the log resources may choose to merge the log with the capabilities 
 statement to create a device observation, which is suitable for wider use within a EHR/Clinical record context. 
-The Device Capabilites and Device Log resources may be used in a RESTful context, but in many contexts this 
+The Device Capabilities and Device Log resources may be used in a RESTful context, but in many contexts this 
 will not be very useful - the data should be converted to a device observation for normal RESTful use in a 
 patient care context.
 </p>
 
 <p>
 Note that this resource is entirely concerned with devices that report data; interacting with and
-controlling devices such as infusion pumps etc is not in scope for this resource (no solution for this yet). 
+controlling devices such as infusion pumps etc. is not in scope for this resource (no solution for this yet). 
 This resource is based on ISO 11073.
 </p>
 
