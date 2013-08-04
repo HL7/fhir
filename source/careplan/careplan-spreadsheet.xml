@@ -252,7 +252,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">PTH-6-change pathway life cycle status date/time</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Do we need this in addition to the resouce metadata which tracks last changed?</Data></Cell>
+    <Cell><Data ss:Type="String">Do we need this in addition to the resource metadata which tracks last changed?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">CarePlan.concern</Data></Cell>
@@ -416,7 +416,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Should this be an HL7-defined code?  Do we need more (e.g. accomodation)</Data></Cell>
+    <Cell><Data ss:Type="String">Should this be an HL7-defined code?  Do we need more (e.g. accommodation)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">CarePlan.activity.code</Data></Cell>
