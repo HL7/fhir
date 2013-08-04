@@ -21,7 +21,7 @@ of their role. The Person resource is referred to for person details for a varie
 that represent a particular role, such as SubjectofCare (a.k.a Patient), Practitioner and Agent (a
 person acting on behalf of an organisation). Very few attributes are common to any role and
 so the <i>Person</i> resource is kept lean. Most attributes are expected to be found in these other 
-resources. (e.g: guardian on SubjectofCare, contact parties on SubjectOfCare &amp; Practitioner, 
+resources. (e.g.: guardian on SubjectofCare, contact parties on SubjectOfCare &amp; Practitioner, 
 and multiple birth flag on SubjectofCare).
 </p>
 
