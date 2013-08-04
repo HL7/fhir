@@ -538,7 +538,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">General-Secondary</Data></Cell>
-    <Cell><Data ss:Type="String">General Person Seconday Coverage Example</Data></Cell>
+    <Cell><Data ss:Type="String">General Person Secondary Coverage Example</Data></Cell>
     <Cell><Data ss:Type="String">7546D</Data></Cell>
     <Cell><Data ss:Type="String">coverage-example-2.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
@@ -597,7 +597,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">Coding</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Written language for communications</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">The language to be used for written comminucations.</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">The language to be used for written communications.</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:Index="19"><Data ss:Type="String">Was inside the planHolder </Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">&lt;language&gt;</Data></Cell>
