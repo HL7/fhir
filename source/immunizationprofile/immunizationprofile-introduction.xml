@@ -22,7 +22,7 @@ This resource references the following resources:
 There are not any resources that reference this resource directly.
 </p>
 <p>
-One of the considerations for this resource is if it is better for this resource to be a profile of the CarePlan resource or if it is more appropriate for this to be a separate resource due to the the number of immunization profile-specific data elements.  Please consider this when submitting your ballot comments.
+One of the considerations for this resource is if it is better for this resource to be a profile of the CarePlan resource or if it is more appropriate for this to be a separate resource due to the number of immunization profile-specific data elements.  Please consider this when submitting your ballot comments.
 </p>
 
 </div>
