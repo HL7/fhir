@@ -17,7 +17,7 @@ The application that receives the log resources may choose to merge the log with
 statement to create a device observation, which is suitable for wider use within a EHR/Clinical record context.
 The application that receives the log resources may choose to merge the log with the capabilities 
 statement to create a device observation, which is suitable for wider use within a EHR/Clinical record context. 
-The Device Capabilites and Device Log resources may be used in a RESTful context, but in many contexts this 
+The Device Capabilities and Device Log resources may be used in a RESTful context, but in many contexts this 
 will not be very useful - the data should be converted to a Device Observation for normal RESTful use in a 
 patient care context.
 </p>
