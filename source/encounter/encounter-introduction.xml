@@ -18,7 +18,7 @@ Even more aggregation may occur where jurisdictions introduce groups of Encounte
 Encounters can be aggregated or grouped under other Encounters using the <i>partOf</i> element.</p>
 
 <p>Encounter instances may exist before the actual encounter takes place to convey pre-admission information, including
-using Encounters elements to reflect the planned start date, planned accomodation or planned encounter locations. In 
+using Encounters elements to reflect the planned start date, planned accommodation or planned encounter locations. In 
 this case the <i>status</i> element is set to 'planned'.</p>
 
 
