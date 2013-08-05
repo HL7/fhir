@@ -20,7 +20,7 @@ be different.
 </p>
 <ul>
  <li><i>ValueSet.define.system</i> is the URI that identifies these codes 
-   when used in a <i>Coding</i></li>
+   when used in a <a href="datatypes.htm#Coding">Coding</a></li>
  <li>The usability of the codes is closely linked to the quality of the definitions. 
    Although a definition is not required for each concept, a good definition SHOULD be provided</li>
  <li>If concepts contain other concepts, then the contained concepts are "subsumed" by 
@@ -41,7 +41,7 @@ kind of general selection criteria using the facilities provided by the code sys
    conditions specified must be true.</li>
  <li>The value set always includes any codes it defines itself. A typical use for this
     is when including a set of codes from elsewhere, and adding a few additional codes to cover
-    cases not catered for  by the included codes</li>
+    cases not catered to by the included codes</li>
  <li>An include statement includes any enumerated codes and any codes that meet the filter criteria</li>
  <li>If the system reference is not version specific and filters are present, then the contents of the value set are open and change 
     over time as the underlying code systems are updated</li>

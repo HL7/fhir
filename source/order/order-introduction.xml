@@ -20,7 +20,7 @@ implicit in the order details.
 <h2>Separation of Order and Order details</h2>
 <p>
 In healthcare, information that a particular action has been requested is often widely 
-disseminated throughout the context of a patient's healthcare. For example, the patients
+disseminated throughout the context of a patient's healthcare. For example, the patient's
 healthcare record will often include a list of prescriptions that have been made for 
 the patient. For this reason, the presence of a prescription record itself is not 
 enough to create an obligation for a dispense to occur. Most other things that can be
@@ -31,7 +31,7 @@ ordered follow this same pattern.
 For this reason, the information about what is requested is separated from the 
 actual request for an action to be taken. The various workflows around the
 actual order/fulfillment process are associated with this resource and the 
-<a href="orderresponse.htm">order response</a> resource, while the details
+<a href="orderresponse.htm">Order Response</a> resource, while the details
 of what is actually ordered are delegated to other resources.
 </p>
 
@@ -55,7 +55,7 @@ with no matching responses (see below)</p>
 In a synchronous message, an order message (i.e. a <a href="resources.htm#bundle">bundle</a> with a
 <a href="message.htm">message</a> resource, an order resource and a details resource) 
 is sent to a system, and it responds with a message that includes the <a href="orderresponse.htm">response</a> 
-(a message resource, and order response resource, along with additional details as appropriate). This 
+(a message resource, and Order Response resource, along with additional details as appropriate). This 
 synchronous message exchange is simple, but only useful where there only needs to be one response, and where 
 the response can be made in a timely fashion.
 </p>
@@ -72,7 +72,7 @@ an acknowledgement message.
 <h2>Using orders in a other contexts</h2>
 
 <p>
-There are a wide variety of ways to implement Order/Order response. The Order and Order response 
+There are a wide variety of ways to implement Order/Order Response. The Order and Order Response 
 resources are special resources created to manage behaviour in a RESTful or messaging context. 
 In other contexts, such as a Service based environment, there may be alternate methods for 
 managing this behavior that are more appropriate, and there is no need to use Order/Order Response

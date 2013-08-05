@@ -27,7 +27,7 @@ This granularity could include:
 <ul>
 <li>more detail about the location of an issue</li>
 <li>the ability to identify multiple distinct issues</li>
-<li>the need to drive automated behavior at a more detailed level than supported by HTTP codes</li>
+<li>provision of finer error codes that connect to known business failure states</li>
 </ul>
 
 <p>

@@ -4,7 +4,7 @@
 Notes:
 </h2>
 <ul>
-<li>The resource references enterer, author and responsible may 
+<li>The resources referenced by the enterer, author and responsible elements may 
   all be included in the bundle or left out on the basis that the recipient (and any intermediaries) are able to locate/resolve the resources
   independently. The former would be suitable for loosely coupled systems, and the latter for tightly coupled systems. The messaging conformance 
   statement for an application may reference <a href="profile.htm">a profile</a> that describes how the bundling occurs</li>
@@ -15,7 +15,17 @@ Notes:
 <a name="events"></a>
 <h2>Event List</h2>
 
+<p>
+The <i>message.code</i> element carries a simple code that identifies the even that the message conveys. 
+This table lists the codes that are allowed to be used in a message event:
+</p>
+
 [%events%]
+
+<p>
+In this table, the request and response columns list the focus resource for the event, along with other resources that should also be carried in the message directly (if they exist).
+Open Issue for ballot: Does this list need to be extensible? 
+</p>
 
 <a name="mailbox"></a>
 <h2>Mailbox</h2>
@@ -52,7 +62,7 @@ FHIR RESTful servers.
 </p>
 <p>
 In order to ensure consistency of processing, the <a href="#reliable">logical rules regarding processing of envelope id and 
-message id described above</a> SHALL be followed when messages are processed using the MailBox. No such rules apply regarding
+message id described above</a> SHALL be followed when messages are processed using the mailbox. No such rules apply regarding
 documents - if the client receives no response, it should continue to submit the document until it does. Servers SHALL 
 accept multiple document submissions and process them correctly.
 </p>

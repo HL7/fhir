@@ -31,9 +31,6 @@ The digital signature is always included as a plain string with appropriate esca
 <p>
 Note that modifications to the resource subsequent to the create of the provenance resource will break the digital signature. 
 </p>
-<p>
-Todo: how can you sign tags as well as the resource?
-</p>
 
 <h3>Party References</h3>
 
@@ -94,19 +91,5 @@ e.g. was it the person involved in the activity, or the record of the person.
 For Agents, it should be understood that the reference is to the real 
 world thing that the resource represents. 
 </p>
-
-<h3>W3C Provenance Mappings</h3>
-<p>
-The provenance resource is based on known practices in the HL7 implementation space, particularly those found in the 
-v2 EVN segment, the v3 ControlAct Wrapper, the CDA header, and the IHE ATNA (<a href="http://www.rfc3881.net">RFC 3881</a>).
-The conceptual model underlying the design is the <a href="http://www.w3.org/2011/prov/wiki/Main_Page">W3C Provenance
-Specification</a>. Though the content and format of the resource is designed to meet specific requirements for FHIR, 
-all the parts of the resource are formally mapped to the PROV-O specification, and FHIR resources can be transformed 
-to their W3C PROV equivalent.
-</p>
-
-<div class="mapping">
-<p>Formal W3C Provenance Mappings - to do</p>
-</div>
 
 </div>

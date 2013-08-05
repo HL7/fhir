@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-[%onthispage Search/Query#base|Standard Parameters#standard|Managing Returned Resources#return|Conformance#conformance|Advanced Query#advanced|Query Resource#query|Managing Search Results#results%]
+[%onthispage Search/Query#base|Standard Parameters#standard|Managing Returned Resources#return|Conformance#conformance|Advanced Query#advanced|Query Resource#query|Managing Search Results#currency%]
 
 <a name="base"> </a>
 <h2>Search / Query</h2>
@@ -44,7 +44,7 @@ Search operations are executed in one of 3 defined contexts that control which s
 <p>
 Search/Query operations can also be initiated by other more complex and flexible
 methods described below, which change both the way the search/query is initiated, and 
-the results are returned. 
+the results that are returned. 
 </p>
 <a name="standard"> </a>
 <h2>Standard Parameters</h2>
@@ -74,6 +74,14 @@ meanings. Mostly, the defined search parameters correspond to a
 single element in the resource, but this is not required, and some 
 search parameters refer to the same type of element in multiple 
 places, or refer to derived values.
+</p>
+<p>
+Some of the search parameters defined by the resources are associated 
+with more than one path in the resource. This means that the search 
+parameter matches if any of the paths contain matching content, and
+which ever path matches, the whole resource is returned in the 
+search results. The client may have to examine the resource to determine
+which path contains the match.
 </p>
 <p>
 Servers are not required to implement any of these search parameters
@@ -141,24 +149,16 @@ modifier, the search will work as follows:
 <p>In the url of the code system, the “#” (fragment identifier) must be escaped, and in some implementations, the ":" does too.
 The modifier :anyns means that the code matches all codes irrespective of the namespace.</p>
 <p>
-As an example, the following search:
+Here are some example searches:
 </p>
-<pre>
-  GET [base-url]/patient?identifier=http://acme.org/patient/2345
-</pre>
-<p>
-searches for all the patients with an identifier with key = "2345" in the system "http://acme.org/patient". These examples:
-</p>
-<pre>
-  GET [base-url]/patient?gender=male
-  GET [base-url]/patient?gender:code=http://hl7.org/fhir/v2/0001/M
-  GET [base-url]/patient?gender:anyns=male
-</pre>
-<p>
-The first means to search for any gender that has a text or code "male". Note that this will also match "female" since that also contains "male". 
-The second means to search for any gender which is coded as "M" in the HL7 Administrative Gender table, and the last means to search for any
-gender where the code is "male". Note that searching any namespace for a particular code is often not very useful. 
-</p>
+<table>
+ <tr><td><b>Search</b></td><td><b>Description</b></td></tr>
+ <tr><td><pre>  GET [base-url]/patient?identifier=http://acme.org/patient/2345</pre></td><td>Search for all the patients with an identifier with key = "2345" in the system "http://acme.org/patient"</td></tr>
+ <tr><td><pre>  GET [base-url]/patient?gender=male</pre></td><td>Search for any gender that has a text or code "male". <i>Note that this will also match "female" since that also contains "male"</i></td></tr>
+ <tr><td><pre>  GET [base-url]/patient?gender:code=http://hl7.org/fhir/v2/0001/M</pre></td><td>Search for any gender which is coded as "M" in the HL7 Administrative Gender table</td></tr>
+ <tr><td><pre>  GET [base-url]/patient?gender:anyns=male</pre></td><td>Search for any gender where the code is "male". Note that searching any namespace for a particular code is mostly not very useful.</td></tr>
+</table>
+
 
 <h4>date</h4>
 <p>
@@ -169,12 +169,12 @@ ensuring consistent behavior.
 <ul>
  <li>The date parameter format is yyyy-mm-ddThh:nn:ss(TZ) (the standard XML format). 
    <ul>
-     <li>Technically, this is any of the <a href="datatypes.htm#date">date</a>, <a href="datatypes.htm#datetTime">dateTime</a>, and <a href="datatypes.htm#instant">instant</a> data types</li>
+     <li>Technically, this is any of the <a href="datatypes.htm#date">date</a>, <a href="datatypes.htm#dateTime">dateTime</a>, and <a href="datatypes.htm#instant">instant</a> data types</li>
      <li>e.g. Any degree of precision can be provided, but it must be populated from the left (e.g. can't specify a month without a year), except that the minutes SHALL be present if an hour is present, and you SHOULD provide a timezone if the time part is present</li>
      <li>Some user agents may escape the ":" characters in the URL, and servers SHALL handle this correctly</li>
    </ul>
  </li>
- <li>Date parameters have the :before and :after modifiers. [date]=[value] searches for where the date is within
+ <li>Date parameters have the :before and :after modifiers. [date]=[value] searches for resources where the date is within
    the given date value. [date]:after=[value] searches for all resources where the specified date is after [value]. 
    [date]:before=[value] searches for all resources where the specified date is before [value]. </li>
  <li>The element the search refers to may be a date, a dateTime, a Period, or a Schedule. All of these time related 
@@ -185,9 +185,9 @@ ensuring consistent behavior.
     <li>An instant (which is the same as a fully specified dateTime with milliseconds) is considered a fixed point in time with an interval smaller than the precision of the system, i.e. an interval with an effective width of 0.</li>
    </ul>
  </li>
- <li>Date parameter searches are always matches based on the behavior of intervals, as follows:
+ <li>Date parameter searches are always matched based on the behavior of intervals, as follows:
    <ul>
-     <li>For [date]=[value], the requirement is that the search interval fully contains the time of the target. i.e. 2013-01-14 includes 2013-01-14T10:00 but not 2013-01-15T00:00</li>
+     <li>For [date]=[value], the requirement is that the search interval fully contains the time of the target. i.e. 2013-01-14 includes 2013-01-14T00:00 (obviously) and also 2013-01-14T10:00 but not 2013-01-15T00:00</li>
 	 <li>For [date]:before=[value], the requirement is that the interval of the time before [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
 	    For instance, the resource time 2013-01-14 is included in the set of values that come before 2013-01-14T10:00, because it includes the part of 14-Jan 2013 before 10am </li>
 	 <li>For [date]:after=[value], the requirement is that the interval of the time after [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
@@ -229,7 +229,7 @@ Conditions where the subject reference is a particular patient by the patient id
 The interpretation of a <i>reference</i> parameter is either:
 </p>
 <ul>
- <li><b>name=id</b> the id of a resource (not including the @ the goes in the URL)</li>
+ <li><b>name=id</b> the id of a resource (not including the @ that goes in the URL)</li>
  <li><b>name=type/id</b> matches an id of a resource with a specific target type. This is useful if the resource reference can refer to multiple different resource types.</li>
 </ul>
 <p>
@@ -331,7 +331,7 @@ search set. For a simple RESTful search, the page links are
 <a href="http.htm#paging">contained in the returned bundle as links</a>.
 </p>
 <p>
-Typically a server will its own parameters to the links
+Typically a server will provide its own parameters in the links
 that it uses to manage the state of the query as pages are 
 retrieved. These parameters do not need to be understood 
 or processed by the client.

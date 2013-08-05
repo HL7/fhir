@@ -20,7 +20,6 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -144,7 +143,6 @@
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The name of this device</Data></Cell>
     <Cell><Data ss:Type="String">The name of this device</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">Not all devices have clocks, and so the time may not be included</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">DeviceCapabilities.type</Data></Cell>
@@ -191,7 +189,6 @@
     <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Groups related data items</Data></Cell>
     <Cell><Data ss:Type="String">Groups together physiological measurement data and derived data</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">Usually, either a value or some flags should be provided</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">DeviceCapabilities.virtualDevice.channel.code</Data></Cell>
@@ -207,7 +204,6 @@
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Piece of data reported by device</Data></Cell>
     <Cell><Data ss:Type="String">A piece of measured or derived data that will be reported by the machine</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">Usually, either a value or some flags should be provided</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">DeviceCapabilities.virtualDevice.channel.metric.code</Data></Cell>
@@ -223,7 +219,6 @@
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Used to link to data in device log</Data></Cell>
     <Cell><Data ss:Type="String">Used to link to data in device log</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">Usually, either a value or some flags should be provided</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceCapabilities.virtualDevice.channel.metric.info</Data></Cell>
@@ -326,12 +321,12 @@
     <PaperSizeIndex>9</PaperSizeIndex>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <TopRowVisible>3</TopRowVisible>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -395,7 +390,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

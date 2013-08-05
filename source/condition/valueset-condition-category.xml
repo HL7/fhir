@@ -29,7 +29,7 @@
     <concept>
       <code value="diagnosis"/>
       <display value="Diagnosis"/>
-      <definition value="This is a judgement made by a healthcare provider that the patient has a particular disease or condition"/>
+      <definition value="This is a judgment made by a healthcare provider that the patient has a particular disease or condition"/>
     </concept>
   </define>
 </ValueSet>

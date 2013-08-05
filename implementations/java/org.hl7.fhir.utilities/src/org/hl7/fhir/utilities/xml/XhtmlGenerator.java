@@ -47,7 +47,8 @@ import org.w3c.dom.Text;
 
 public class XhtmlGenerator {
 
-	private XhtmlGeneratorAdorner adorner;
+	private static final int LINE_LIMIT = 85;
+  private XhtmlGeneratorAdorner adorner;
 	
   public XhtmlGenerator(XhtmlGeneratorAdorner adorner) {
     super();
@@ -63,7 +64,7 @@ public class XhtmlGenerator {
 
     XhtmlGeneratorAdornerState state = null; // adorner == null ? new XhtmlGeneratorAdornerState("", "") : adorner.getState(this, null, null);
     for (int i = 0; i < doc.getChildNodes().getLength(); i++)
-      writeNode(out, doc.getChildNodes().item(i), state);
+      writeNode(out, doc.getChildNodes().item(i), state, 0);
     
     out.write("</pre>\r\n");
     out.write("</div>\r\n");
@@ -92,7 +93,7 @@ public class XhtmlGenerator {
 
     XhtmlGeneratorAdornerState state = null; // adorner == null ? new XhtmlGeneratorAdornerState("", "") : adorner.getState(this, null, null);
 		for (int i = 0; i < doc.getChildNodes().getLength(); i++)
-			writeNode(out, doc.getChildNodes().item(i), state);
+			writeNode(out, doc.getChildNodes().item(i), state, level);
 		
     out.write("</pre>\r\n");
     out.write("</div>\r\n");
@@ -102,13 +103,13 @@ public class XhtmlGenerator {
 		outs.close();
 	}
 
-	private void writeNode(Writer out, Node node, XhtmlGeneratorAdornerState state) throws Exception {
+	private void writeNode(Writer out, Node node, XhtmlGeneratorAdornerState state, int level) throws Exception {
 		if (node.getNodeType() == Node.ELEMENT_NODE)
-			writeElement(out, (Element) node, state);
+			writeElement(out, (Element) node, state, level);
 		else if (node.getNodeType() == Node.TEXT_NODE)
-			writeText(out, (Text) node);
+			writeText(out, (Text) node, level);
 		else if (node.getNodeType() == Node.COMMENT_NODE)
-			writeComment(out, (Comment) node);
+			writeComment(out, (Comment) node, level);
 		else if (node.getNodeType() == Node.PROCESSING_INSTRUCTION_NODE)
 			writeProcessingInstruction(out, (ProcessingInstruction) node);
 		else if (node.getNodeType() != Node.ATTRIBUTE_NODE)
@@ -120,15 +121,15 @@ public class XhtmlGenerator {
 		
 	}
 
-	private void writeComment(Writer out, Comment node) throws DOMException, IOException {
-		out.write("<span class=\"xmlcomment\">&lt;!-- "+escapeHtml(Utilities.escapeXml(node.getTextContent()))+" --&gt;</span>");
+	private void writeComment(Writer out, Comment node, int level) throws DOMException, IOException {
+		out.write("<span class=\"xmlcomment\">&lt;!-- "+escapeHtml(Utilities.escapeXml(node.getTextContent()), level)+" --&gt;</span>");
 	}
 
-	private void writeText(Writer out, Text node) throws DOMException, IOException {
-		out.write("<b>"+escapeHtml(Utilities.escapeXml(node.getTextContent()))+"</b>");
+	private void writeText(Writer out, Text node, int level) throws DOMException, IOException {
+		out.write("<b>"+escapeHtml(Utilities.escapeXml(node.getTextContent()), level)+"</b>");
 	}
 
-	private void writeElement(Writer out, Element node, XhtmlGeneratorAdornerState state) throws Exception {
+	private void writeElement(Writer out, Element node, XhtmlGeneratorAdornerState state, int level) throws Exception {
 		out.write("<span class=\"xmltag\">&lt;"+node.getNodeName()+"</span>");
 		if (node.hasAttributes()) {
 			out.write("<span class=\"xmlattr\">");
@@ -136,9 +137,9 @@ public class XhtmlGenerator {
 			for (int i = 0; i < node.getAttributes().getLength(); i++) {
 			  if (adorner != null) {
 		      XhtmlGeneratorAdornerState attrState = adorner.getAttributeMarkup(this, newstate, node, node.getAttributes().item(i).getNodeName(), node.getAttributes().item(i).getTextContent());
-		      out.write(" "+node.getAttributes().item(i).getNodeName()+"=\"<span class=\"xmlattrvalue\">"+attrState.getPrefix()+escapeHtml(Utilities.escapeXml(node.getAttributes().item(i).getTextContent()))+attrState.getSuffix()+"</span>\"");
+		      out.write(" "+node.getAttributes().item(i).getNodeName()+"=\"<span class=\"xmlattrvalue\">"+attrState.getPrefix()+escapeHtml(Utilities.escapeXml(node.getAttributes().item(i).getTextContent()), level)+attrState.getSuffix()+"</span>\"");
 			  } else
-				out.write(" "+node.getAttributes().item(i).getNodeName()+"=\"<span class=\"xmlattrvalue\">"+escapeHtml(Utilities.escapeXml(node.getAttributes().item(i).getTextContent()))+"</span>\"");
+				out.write(" "+node.getAttributes().item(i).getNodeName()+"=\"<span class=\"xmlattrvalue\">"+escapeHtml(Utilities.escapeXml(node.getAttributes().item(i).getTextContent()), level)+"</span>\"");
 			}
 			out.write("</span>");
 	
@@ -148,7 +149,7 @@ public class XhtmlGenerator {
 			XhtmlGeneratorAdornerState newstate = adorner == null ? new XhtmlGeneratorAdornerState("", "") : adorner.getState(this, state, node);
 			out.write(newstate.getPrefix());
 			for (int i = 0; i < node.getChildNodes().getLength(); i++)
-				writeNode(out, node.getChildNodes().item(i), newstate);
+				writeNode(out, node.getChildNodes().item(i), newstate, level+2);
 			
       out.write(newstate.getSuffix());
 			out.write("<span class=\"xmltag\">&lt;/"+node.getNodeName()+"&gt;</span>");
@@ -157,12 +158,22 @@ public class XhtmlGenerator {
 			out.write("<span class=\"xmltag\">/&gt;</span>");
 	}
 	
-	private String escapeHtml(String doco) {
+	private String escapeHtml(String doco, int indent) {
 		if (doco == null)
 			return "";
 		
+		int i = 0;
 		StringBuilder b = new StringBuilder();
 		for (char c : doco.toCharArray()) {
+		  i++;
+      if (c == '\r' || c == '\n')
+        i = 0;
+		  if ((i > LINE_LIMIT && c == ' ') || (i > LINE_LIMIT + 15)) {
+		    b.append("\r\n");
+		    for (int j = 0; j < indent; j++)
+	        b.append(" ");
+		    i = 0;		    
+		  }
 		  if (c == '<')
 			  b.append("&lt;");
 		  else if (c == '>')

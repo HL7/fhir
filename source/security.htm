@@ -38,7 +38,7 @@ list</a> for prompt consideration. Alternatively, issues can be raised through t
 </p>
 
 <p>
-Implementers should track developing IHE IUA Profile for additional security considerations.
+Implementers should track the developing IHE IUA Profile for additional security considerations.
 </p>
 
 <p>
@@ -66,12 +66,12 @@ In this diagram, the red lines represent FHIR interfaces. From the perspective o
 the client (consumer of FHIR services) may either interact with a security system that manifests
 as a FHIR server, and which depends on a subsequent FHIR interface to provide the actual storage,
 or either the client or server interacts with the security system independently. In each of these
-3 scenarios, the different components may be assembled into applications or networks components
+3 scenarios, the different components may be assembled into applications or network components
 differently, but the same logical layout applies. 
 </p>
 <p>
 The FHIR specification assumes that a security system exists, and that it may be deployed 
-in front or behind the FHIR API. Because there are a plethora of standards relating to 
+in front of or behind the FHIR API. Because there are a plethora of standards relating to 
 the administration and functionality of the security system, FHIR does not provide user,
 profile, or other such administration resources. Instead, the FHIR resources are the targets
 of the policies expressed in these other approaches. What FHIR does specify is a way to apply
@@ -119,37 +119,39 @@ the users.
 
 <!-- note about using OAuth and delegating user authority -->
 
+<a name="binding"> </a>
 <h2>
 Authorization/Access Control
 </h2>
 
-<p>todo</p>
 
- <li>Mapping - However authentication is done, there may need to be mapping between security protocol identification and device, person and organisation resources</li>
-
- 
-<a name="binding"> </a>
-<h2>
-Mapping between resources and security systems
-</h2>
 <p>
-
-
-Correctly identifying people, devices, locations and organisations is one of the foundations that any security system is built on. 
-Most uses of security protocols, whether authentication, access control, digital signatures etc. rely on the correct mapping between
+Correctly identifying people, devices, locations and organizations is one of the foundations that any security system is built on. 
+Most uses of security protocols, whether authentication, access control, digital signatures, etc. rely on the correct mapping between
 the relevant resources and the underlying systems. Note that this isn't necessary: there is nothing in FHIR that requires or relies 
 on any security being in place, or any particular implementation. But real world usage will generally require this. 
 </p>
 <p>
 
-Todo.. outline general considerations
+Todo.. outline general considerations. Note: this is under active investigation through connectathons running 
+parallel to the ballot process, and further work is expected on this section. Interested parties should track 
+the joint security / FHIR work in this area.
 </p>
-
+<p>
+RBAC notes go here
+</p>
 
 <h2>
 Digital Signatures
 </h2>
-<p>to do</p>
+<p>This specification recommends the use of <a href="http://www.w3.org/TR/xmldsig-core/">W3C Digital Signatures</a> to sign resources, and  
+provides an element in the <a href="provenance.htm">Provenance</a> resource to carry 
+a detached digital signature for a resource. This does not prohibit other ways of using digital signatures.</p>
+
+<p>
+Additional work is anticipated in this area, including alignment with the <a href="http://wiki.ihe.net/index.php?title=Document_Digital_Signature">IHE DSG profile</a>.
+</p>
+
 
 <h2>Attachments</h2>
 <p>

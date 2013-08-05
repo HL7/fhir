@@ -182,7 +182,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Serial number assigned by the manufacturer</Data></Cell>
-    <Cell><Data ss:Type="String">The serial number assigned by the organisation when the device was manufactured</Data></Cell>
+    <Cell><Data ss:Type="String">The serial number assigned by the organization when the device was manufactured</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Alphanumeric Maximum 20</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -363,7 +363,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">assigned-id</Data></Cell>
-    <Cell><Data ss:Type="String">identifier assigned by the organisation</Data></Cell>
+    <Cell><Data ss:Type="String">identifier assigned by the organization</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Device.assignedId</Data></Cell>
    </Row>

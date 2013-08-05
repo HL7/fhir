@@ -77,8 +77,11 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		tableRow("Definition", null, e.getDefinition());
 		tableRow("Control", "resources.htm#conformance", cardinality + (e.hasCondition() ? ": "+  e.getCondition(): ""));
 		tableRowNE("Binding", "terminologies.htm", describeBinding(e));
-		tableRow("Type", "datatypes.htm", type + (conceptDomain != "" ? " from "+conceptDomain : ""));
-		tableRow("Is Modifier", "resorrces.htm#ismodifier", displayBoolean(e.isModifier()));
+		if (!Utilities.noString(type) && type.startsWith("@"))
+		  tableRowNE("Type", null, "<a href=\"#"+type.substring(1)+"\">See "+type.substring(1)+"</a>");
+		else
+		  tableRowNE("Type", "datatypes.htm", type);
+		tableRow("Is Modifier", "resources.htm#ismodifier", displayBoolean(e.isModifier()));
 		tableRow("Requirements", null, e.getRequirements());
     tableRow("Aliases", null, toSeperatedString(e.getAliases()));
     if (e.isSummaryItem())
@@ -91,7 +94,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		
 	}
 	
-	private String describeBinding(ElementDefn e) throws Exception {
+  private String describeBinding(ElementDefn e) throws Exception {
 
 	  if (!e.hasBinding())
 	    return null;
@@ -121,7 +124,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	      Invariant inv = invariants.get(i.toString());
 	      if (b)
 	        s.append("<br/>");
-	      s.append("<b>Inv-"+i.toString()+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (xpath: "+Utilities.escapeXml(inv.getXpath())+")");
+	      s.append("<b title=\"Formal Invariant Identifier\">Inv-"+i.toString()+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (xpath: "+Utilities.escapeXml(inv.getXpath())+")");
 	      b = true;
 	    }
 	  }
@@ -184,21 +187,21 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   }
 
 
-	private String describeType(ElementDefn e) {
+	private String describeType(ElementDefn e) throws Exception {
 		StringBuilder b = new StringBuilder();
 		boolean first = true;
 		for (TypeRef t : e.getTypes())
 		{
 		  if (!first)
 			  b.append("|");
-          b.append(t.getName());
+          b.append("<a href=\""+typeLink(t.getName())+"\">"+t.getName()+"</a>");
           if (t.hasParams()) {
               b.append("(");
               boolean firstp = true;
               for (String p : t.getParams()) {
             	  if (!firstp)
             		  b.append("|");
-            	  b.append(p);
+            	  b.append("<a href=\""+typeLink(p)+"\">"+p+"</a>");
             	  firstp = false;
               }
               b.append(")");
@@ -206,5 +209,9 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		}
 		return b.toString();
 	}
+
+  private String typeLink(String name) throws Exception {
+    return GeneratorUtils.getSrcFile(name)+ ".htm#" + name;
+  }
 	
 }

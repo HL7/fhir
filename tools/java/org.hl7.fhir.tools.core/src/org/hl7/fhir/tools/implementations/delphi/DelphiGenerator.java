@@ -2276,11 +2276,11 @@ public String getName() {
     def.append("    }\r\n");
     def.append("    property language : TFhirCode read FLanguage write SetLanguage;\r\n");
     def.append("    {@member text\r\n");
-    def.append("      Text summary of resource, for human interpretation\r\n");
+    def.append("      Text summary of resource content, for human interpretation\r\n");
     def.append("    }\r\n");
     def.append("    property text : TFhirNarrative read FText write SetText;\r\n");
     def.append("    {@member containedList\r\n");
-    def.append("      Text summary of resource, for human interpretation\r\n");
+    def.append("      Text summary of resource content, for human interpretation\r\n");
     def.append("    }\r\n");
     def.append("    property containedList : TFhirResourceList read FContainedList;\r\n");
     def.append("    {@member _source_format\r\n");

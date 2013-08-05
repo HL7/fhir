@@ -47,7 +47,7 @@ find the profile when registered in profile repositories.
  <tr><td>telecom</td><td>Contact details to assist a user in finding and communicating with the publisher</td></tr>	
  <tr><td>description</td><td>A free text natural language description of the profile and its use</td></tr>	
  <tr><td>code</td><td>A set of terms from external terminologies that may be used to assist with indexing and searching of templates</td></tr>
- <tr><td>status</td><td>The status of the profile	Allows filtering of profiles that are appropriate for use vs. not. See the <a href="resource-profile-status.htm">Status Codes</a></td></tr>
+ <tr><td>status</td><td>The status of the profile	allows filtering of profiles that are appropriate for use vs. not. See the <a href="resource-profile-status.htm">Status Codes</a></td></tr>
  <tr><td>experimental</td><td>This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage</td></tr>
  <tr><td>date</td><td>The date that this version of the profile was published	</td></tr>
  <tr><td>fhirVersion</td><td>The version of the FHIR specification on which this profile is based. It is not necessary to specify the version, as most profiles are valid across multiple versions, and the validity of a profile against a particular version of FHIR can easily be checked by tooling.	</td></tr>
@@ -118,10 +118,13 @@ that is defined, and there is no need to perform comparison between any profiles
 to determine the meaning of any profile. 
 </p>
 
+<!--
+Grahame says: I don't even know what this section was supposed to be about...
 <h3>Reusing Definitions</h3>
 <p>
-todo...
+??
 </p>
+-->
 
 <h3>Slicing</h3>
 <p>
@@ -163,15 +166,14 @@ are never exchanged. A resource instance looks like this:
 The only way to determine that the first component corresponds to "Systolic" in the profile is 
 to check the values of the elements - in this case, the code element. In order to make this 
 easy to use, particularly in the context of code generation tools that work with profiles, 
-any time slicing is preformed in a profile, the profile must nominate a "discriminator" - a child
+any time slicing is performed in a profile, the profile must nominate a "discriminator" - a child
 element that is used to discriminate between the different slices. The child element must be 
 associated with a fixed value in each of the definitions, or if the child element has a terminology
 binding, it must be associated with a complete binding with a version specific <a href="valueset.htm">Value Set</a> reference 
-that enumerates the possible codes in the value set.
+that enumerates the possible codes in the value set, and where there is no overlap between the codes in the value sets.
 </p>
 <p>
-TODO: how does the discriminator work with resource references? 
-TODO solicit comments about discriminating only on codes
+TODO: how does the discriminator work with resource references? - This is a open question under investigation during the current connectathon parallel to the ballot.
 </p>
 <p>
 Within a profile, a slice will mean that there are multiple entries in the element list with the 
@@ -189,7 +191,7 @@ different types need different definitions, mappings, or constraints.
 
 <h3>Bundles</h3>
 <p>
-specifying bundles .. todo
+TODO: how are bundles managed in profiles? - This is a open question under investigation during the current connectathon parallel to the ballot.
 </p>
 
 <h2>Extension Definitions</h2>
@@ -231,7 +233,7 @@ of an extension should be 0.
 This section defines a set of bindings. A binding links from an element that may 
 contain a code to a definition of the set of possible codes the element may 
 contain. The binding identifies the definition of the set of possible codes, 
-and controls how tightly the set of the possible codes is interpreted,
+and controls how tightly the set of the possible codes is interpreted.
 </p>
 <p>
 The set of possible codes is either a formal reference to a value set 
@@ -248,7 +250,7 @@ Bindings have two properties that define how the set of codes is used: <i>isExte
   <li><b>isExtensible</b><a name="extensibility"> </a>indicates whether additional codes are allowed beyond those in the defined set of codes.<br/>
     <table>
       <tr><td>false</td> <td>No additional codes are to be used beyond the list provided</td> </tr>
-      <tr><td>true</td>  <td>Supplemental codes or plain text may be needed (this is usually because it is reasonable think that concepts will need to be used which won't be in the defined set of codes)</td></tr>
+      <tr><td>true</td>  <td>Supplemental codes or plain text may be needed (this is usually because it is reasonable to think that concepts will need to be used which won't be in the defined set of codes)</td></tr>
     </table>
   </li>
   <li><b>Conformance</b><a name="conformance"> </a>indicates the expectations for implementers of the specification.  
@@ -281,7 +283,7 @@ define the meanings:
  <tr><td><b>Conformance</b></td><td><b>isExtensible=false</b></td><td><b>isExtensible=true</b></td></tr>
  <tr><td><b>Required</b></td><td>Implementers SHALL use a code from the defined set</td><td>Implementers SHALL use a code from the defined set if one is applicable, but otherwise may provide their own code or use text</td></tr>
  <tr><td><b>Preferred</b></td><td>Implementers SHOULD use a code from the defined set</td><td>Implementers SHOULD use a code from the defined set if one is applicable, but MAY provide their own code or use text</td></tr>
- <tr><td><b>Example</b></td><td>Implementers MAY use a code from the defined set</td><td>Implementers MAY use a code from the defined or provide their own code or use text</td></tr>
+ <tr><td><b>Example</b></td><td>Implementers MAY use a code from the defined set</td><td>Implementers MAY use a code from the defined set or provide their own code or use text</td></tr>
 </table>
 <p>
 A profile can define a set of bindings that it uses directly, or it can define a set of bindings 

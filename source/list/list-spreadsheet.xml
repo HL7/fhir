@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-01-19T00:21:44Z</LastSaved>
+  <LastSaved>2013-08-05T01:16:39Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -424,7 +424,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Deleted Rule</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">List</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">The deleted flag can only be used if the </Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">The deleted flag can only be used if the mode of the list is &quot;changes&quot;</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">(f:mode/@value = 'changes') or not(exists(f:entry/f:item/f:deleted))</Data></Cell>
    </Row>
@@ -480,7 +480,6 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>3</ActiveRow>
-     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -693,7 +692,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -721,42 +719,48 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="93"/>
    <Column ss:AutoFitWidth="0" ss:Width="221.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="81.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="106.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="81.75" ss:Span="1"/>
+   <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="106.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Definition</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15.75" ss:StyleID="s72">
     <Cell><Data ss:Type="String">ListCode</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">What the purpose of a list is</Data></Cell>
-    <Cell><Data ss:Type="String">unbound</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-list-example-codes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s66"><Data ss:Type="String">ListMode</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">The processing mode that applies to this list</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s73"/>
     <Cell><Data ss:Type="String">#list-mode</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s66"><Data ss:Type="String">ListItemFlag</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Codes that provide further information about the reason and meaning of the item in the list</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">unbound</Data></Cell>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-list-item-flag</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s62"><Data ss:Type="String">ListEmptyReason</Data></Cell>
     <Cell><Data ss:Type="String">If a list is empty, why it is empty</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-list-empty-reason</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -766,6 +770,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -785,7 +790,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

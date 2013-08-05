@@ -8,8 +8,8 @@ With devices such as these, the system receiving the data must be aware of the d
 More sophisticated machines may identify themselves as part of their capabilities declaration.
 </li>
 <li>
-The device log resource uses the key values on the metric and facet elements to link a piece of data to the correct information that defines how to 
-interpret it. This process is discussed in detail on the <a href="devicelog.htm">Device Log</a> resource.
+The device log resource specifies the key values on the metric and facet elements which are used to link a 
+piece of data in the device log to the metric and facet definitions in the this resource. See the <a href="devicelog.htm">Device Log</a> resource for more information.
 </li>
 </ul>
 

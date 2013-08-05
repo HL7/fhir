@@ -30,6 +30,7 @@ package org.hl7.fhir.definitions.generators.specification;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -38,19 +39,59 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class MappingsGenerator {
 
-	String mappings;
+	public class Sorter implements Comparator<String> {
+
+	  private int v(String s){
+      if (ElementDefn.DICOM_MAPPING.equals(s))
+        return 1;
+      if (ElementDefn.XDS_MAPPING.equals(s))
+        return 2;
+      if (ElementDefn.PROV_MAPPING.equals(s))
+        return 3;
+      if (ElementDefn.vCard_MAPPING.equals(s))
+        return 4;
+	    if (ElementDefn.RIM_MAPPING.equals(s))
+	      return 5;
+	    if (ElementDefn.v2_MAPPING.equals(s))
+	      return 6;
+	    if (ElementDefn.LOINC_MAPPING.equals(s))
+	      return 7;
+	    if (ElementDefn.SNOMED_MAPPING.equals(s))
+	      return 8;
+	    return 0;
+	  }
+
+	  @Override
+    public int compare(String o1, String o2) {
+      return v(o1) - v(o2);
+    }
+
+  }
+
+  private Object preamble(String s) {
+    if (ElementDefn.PROV_MAPPING.equals(s))
+      return "<p>The provenance resource is based on known practices in the\r\nHL7 implementation space, particularly those found in the \r\n"+
+"v2 EVN segment, the v3 ControlAct Wrapper, the CDA header, and \r\nthe IHE ATNA (<a href=\"http://www.rfc3881.net\">RFC 3881</a>).\r\n"+
+"The conceptual model underlying the design is the <a href=\"http://www.w3.org/2011/prov/wiki/Main_Page\">W3C\r\nProvenance Specification</a>. Though the content and format\r\n"+
+"of the resource is designed to meet specific requirements for FHIR, all the parts of the resource are formally mapped to the PROV-O\r\n"+
+"specification, and FHIR resources can be transformed to their W3C\r\nPROV equivalent.</p>";
+    return "";
+  }
+	
+  String mappings;
 	String mappingsList;
 	
 	public void generate(ResourceDefn resource) {
 		StringBuilder s = new StringBuilder();
 		List<String> maps = new ArrayList<String>();
 		listKnownMappings(resource.getRoot(), maps);
-		Collections.sort(maps);
+		Collections.sort(maps, new Sorter());
 		StringBuilder list = new StringBuilder();
 		for (String m : maps) {
 			list.append("|"+titleFor(m) + "#"+m);
 
-			s.append("<a name=\""+m+"\"> </a><h3>Mappings for "+m.toUpperCase()+"</h3>");
+			s.append("<a name=\""+m+"\"> </a><h3>Mappings for "+titleFor(m)+" ("+m+")</h3>");
+			s.append(preamble(m));
 			s.append("<table class=\"grid\">\r\n");
 			genElement(s, 0, resource.getRoot(), m, true);
 			s.append("</table>\r\n");
@@ -59,7 +100,8 @@ public class MappingsGenerator {
 	  mappingsList = list.length() == 0 ? "" : list.toString().substring(1);
 	}
 
-	public void generate(List<ElementDefn> elements) {
+
+  public void generate(List<ElementDefn> elements) {
 		StringBuilder s = new StringBuilder();
 		List<String> maps = new ArrayList<String>();
 		for (ElementDefn e : elements)
@@ -71,7 +113,7 @@ public class MappingsGenerator {
 		for (String m : maps) {
 			list.append("|"+titleFor(m) + "#"+m);
 			s.append("<a name=\""+m+"\"> </a>\r\n");
-			s.append("<h3>Mappings for "+titleFor(m)+"</h3>\r\n");
+			s.append("<h3>Mappings for "+titleFor(m)+" ("+m+")</h3>\r\n");
 			s.append("<table class=\"grid\">\r\n");
 			for (ElementDefn e : elements) 
 				if (elementHasMapping(e, m)) {
@@ -95,6 +137,14 @@ public class MappingsGenerator {
 		if (m.equals(ElementDefn.vCard_MAPPING))
 			return "vCard";
 		
+    if (ElementDefn.XDS_MAPPING.equals(m))
+      return "XDS";
+    if (ElementDefn.PROV_MAPPING.equals(m))
+      return "W3C PROV";
+     if (ElementDefn.LOINC_MAPPING.equals(m))
+       return "LOINC";
+     if (ElementDefn.SNOMED_MAPPING.equals(m))
+       return "SNOMED-CT";		
 		return m.toUpperCase();
 	}
 

@@ -1,26 +1,35 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 <p>
-A document reference is a reference to a document defined in some other format, or stored in some other system.
+A document reference resource is used to describe a document that is made available to a healthcare system. 
+A document is some sequence of bytes that is identifiable, establishes it's own context (e.g. what subject, 
+author etc), can be displayed to the user, and has defined update management. The document resource can be 
+used with any document format that has a recognised mime type, and that conforms to this definition.
+</p>
+<p>
 Typically, Document Reference Resources are used in document indexing systems, such as IHE XDS (see the <a href="xds-profile.xml.htm">XDS specific profile</a>),
-and also to refer to:
+and are used to refer to:
 </p>
 <ul>
  <li><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA documents</a> in FHIR systems</li>
- <li><a href="document.htm">FHIR documents</a> stored elsewhere</li>
+ <li><a href="document.htm">FHIR documents</a> stored elsewhere (i.e. registry/repository following the XDS model)</li>
  <li><a href="http://en.wikipedia.org/wiki/Portable_Document_Format">PDF documents</a>, and even digital records of faxes where sufficient information is available</li>
  <li>Other kinds of documents, such as records of prescriptions.</li> 
 </ul>
 
 <p>
 FHIR defines both a <a href="document.htm">document format</a> and this document reference. FHIR documents are for documents 
-that are authored and assembled in FHIR. This resource is for general references to other documents. 
+that are authored and assembled in FHIR. This resource is mainly intended for general references to other documents. 
 </p>
 <p>
-Note that there is no formal or limited definition of what a document is. 
+ 
 </p>
 
 <p>
-The document that is a target of the reference can be a reference to a FHIR document served by another server, or the target can be stored in the special <a href="http.htm#binary">FHIR Binary Resource</a>, or the target can be stored on some other server system. The document reference is also able to address documents that are retrieved by a service call such as an XDS.b RetrieveDocumentSet, or a DICOM exchange, or a v2 message query, though the way each of these works must be specified in an implementation guide.
+The document that is a target of the reference can be a reference to a FHIR document served by another server, or 
+the target can be stored in the special <a href="http.htm#binary">FHIR Binary Resource</a>, or the target can be 
+stored on some other server system. The document reference is also able to address documents that are retrieved 
+by a service call such as an XDS.b RetrieveDocumentSet, or a DICOM exchange, or a v2 message query, though 
+the way each of these service calls works must be specified in some external stanard or other documentation.
 </p>
 
 <a name="resource"></a>

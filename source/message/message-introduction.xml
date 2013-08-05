@@ -61,18 +61,18 @@ in both directions.
 <h3>Message Identifiers</h3>
 <p>
 An incoming message contains two identifiers: the envelope id 
-(<a href="formats.htm#atom">feed</a>.id) and the <a href="message.htm">message</a>.id. 
+(<a href="formats.htm#atom">feed</a>.id) and the <a href="message.htm">message</a>.identifier. 
 Each time a new message is created, it must be assigned an identifier that is 
 unique within that message stream. Note that since message streams are often 
-merged with other streams, it is recommended that the id should be globally 
+merged with other streams, it is recommended that the identifier should be globally 
 unique. This can be achieved by using a UUID or an OID or appropriately 
 chosen URI with a serially incrementing number. Each time a message is sent, 
-the bundle identifier should be changed to a new identifier. 
+the bundle identifier (feed.id) should be changed to a new value. 
 </p>
 <p>
 When a receiver receives and processes the message, it responds with a 
-new message with a new id, wrapped in a bundle which also has a new id. 
-The response message also quotes the request message id so that the source
+new message with a new identifier, wrapped in a bundle which also has a new id. 
+The response message also quotes the request message identifier so that the source
 system can relate the response to its request.
 </p>
 
@@ -104,23 +104,23 @@ original sender of the message SHALL do the following when it receives
 no response to a message within a configured timeout period:
 </p>
 <table class="grid">
- <tr><td>Consequence</td><td>Resend the same message (including with the same id) with the same envelope id</td></tr>
- <tr><td>Currency</td><td>Resend the same message (including with the same id) with a different envelope id</td></tr>
- <tr><td>Neither</td><td>Resend the same message (including with the same id) with a different envelope id</td></tr>
+ <tr><td>Consequence</td><td>Resend the same message (including with the same identifier) with the same envelope id</td></tr>
+ <tr><td>Currency</td><td>Resend the same message (including with the same identifier) with a different envelope id</td></tr>
+ <tr><td>Neither</td><td>Resend the same message (including with the same identifier) with a different envelope id</td></tr>
 </table>
 <p>
 When a receiver declares that it implements reliable answers, it SHALL check the 
-incoming envelope and message ids against a cache of previously received messages. 
+incoming envelope id and message identifier against a cache of previously received messages. 
 The correct action to take depends on what is received:
 </p>
-<table class="list">
- <tr><td>Both the envelope and message id have not been received</td><td>This is the normal case, and the message should be processed</td></tr>
- <tr><td>Both envelope &amp; message already received</td><td>The original response has been lost (failed to return to the request issuer), and the original response must be resent</td></tr>
- <tr><td>The message id has already been received, but the envelope id is new</td><td>A previously seen message has been resubmitted for processing again. The server may either reprocess the message, or reject the message</td></tr>
- <tr><td>The envelope id has already been received, but the message id is new</td><td>This is an error - envelope ids should never be reused</td></tr>
+<table class="grid">
+ <tr><td>Both the envelope id and message identifier have not been received</td><td>This is the normal case, and the message should be processed</td></tr>
+ <tr><td>Both envelope and message already received</td><td>The original response has been lost (failed to return to the request issuer), and the original response must be resent</td></tr>
+ <tr><td>The message identifier has already been received, but the envelope id is new</td><td>A previously seen message has been resubmitted for processing again. The server may either reprocess the message, or reject the message</td></tr>
+ <tr><td>The envelope id has already been received, but the message identifier is new</td><td>This is an error - envelope ids should never be reused</td></tr>
 </table>
 <p>
-The duration period for caching does generally not need to very long. At a minimum, it 
+The duration period for caching does generally not need to be very long. At a minimum, it 
 could be 1 minute longer than the timeout of the sending system, though it may need to 
 be longer depending on the re-sending policies of the sending system. 
 </p>
@@ -153,13 +153,13 @@ statement is a <a href="conformance.htm">resource with the name
  <li>[baseurl]/mailbox: an address at which messages can be delivered</li> 
 </ul>
 <p>
-The first end-point is used for working within the message contents, for instance, for building 
+The first end-point ([baseurl]/message/) is used for working within the message contents, for instance, for building 
 messages piecemeal or for auditing received messages. <b>Creating or updating Message resources
 to this end point does not represent the actual occurrence of any event, nor can it trigger
 any logic associated with the actual event.</b> It is just for managing message resources.
 </p>
 <p>
-The second end-point is used for actually sending messages as <a href="resources.htm#bundle">bundles</a>, to indicate 
+The second end-point ([baseurl]/mailbox) is used for actually sending messages as <a href="resources.htm#bundle">bundles</a>, to indicate 
 that the event identified by the code has occurred. The end-point responds with a message
 response as defined for the particular event, or an error indicating that the attempt to 
 process the message was unsuccessful. The functionality of this end-point <a href="#mailbox">is described below</a>.

@@ -405,7 +405,7 @@ public class Publisher {
     Conformance conf = new Conformance();
     conf.setIdentifierSimple("http://hl7.org/fhir/conformance/base");
     conf.setVersionSimple(page.getVersion()+"-"+page.getSvnRevision());
-    conf.setNameSimple("Base FHIR Conformance Profile");
+    conf.setNameSimple("Base FHIR Conformance Statement");
     conf.setPublisherSimple("FHIR Project Team");
     conf.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org/fhir"));
     conf.setDescriptionSimple("This is the base conformance statement for FHIR. It represents a server that provides the full set of functionality defined by FHIR. It is provided to use as a template for system designers to build their own conformance statements from");
@@ -446,15 +446,15 @@ public class Publisher {
     NarrativeGenerator gen = new NarrativeGenerator();
     gen.generate(conf);    
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir +"conformance-base.xml"), conf, true, true);
-    cloneToXhtml("conformance-base", "Basic Conformance Profile");
+    cloneToXhtml("conformance-base", "Basic Conformance Statement");
     new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir +"conformance-base.json"), conf, false);
     ByteArrayOutputStream b = new ByteArrayOutputStream();
     new JsonComposer().compose(b, conf, true);
     String json = new String(b.toByteArray());
     
     String head = 
-    "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>Base Conformance Profile</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
-    "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<div class=\"example\">\r\n<p>Base Conformance Profile</p>\r\n<p><a href=\"conformance-base.json\">Raw JSON</a></p>\r\n<pre class=\"json\">\r\n";
+    "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>Base Conformance Statement</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
+    "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<div class=\"example\">\r\n<p>Base Conformance Statement</p>\r\n<p><a href=\"conformance-base.json\">Raw JSON</a></p>\r\n<pre class=\"json\">\r\n";
     String tail = "\r\n</pre>\r\n</div>\r\n</body>\r\n</html>\r\n";
     TextFile.stringToFile(head+Utilities.escapeXml(json)+tail, page.getFolders().dstDir + "conformance-base.json.htm");
     
@@ -625,6 +625,8 @@ public class Publisher {
 				checkFile("schema", page.getFolders().srcDir, n, errors, "all");
 			for (String n : page.getIni().getPropertyNames("pages"))
 				checkFile("page", page.getFolders().srcDir, n, errors, "page-"+n);
+			for (String n : page.getIni().getPropertyNames("files"))
+        checkFile("file", page.getFolders().rootDir, n, errors, "page-"+n);
 		}
 		if (checkFile("translations", page.getFolders().rootDir+"implementations"+File.separator, "translations.xml", errors, null)) {
 		  Utilities.copyFile(page.getFolders().rootDir + "implementations"+File.separator+"translations.xml", page.getFolders().dstDir + "translations.xml");
@@ -977,6 +979,9 @@ public class Publisher {
 	    for (String n : page.getIni().getPropertyNames("images"))
 	      Utilities.copyFile(new CSFile(page.getFolders().imgDir + n),
 	          new CSFile(page.getFolders().dstDir + n));
+      for (String n : page.getIni().getPropertyNames("files"))
+        Utilities.copyFile(new CSFile(page.getFolders().rootDir + n),
+            new CSFile(page.getFolders().dstDir + page.getIni().getStringProperty("files", n)));
 
 	    profileFeed = new AtomFeed();
 	    profileFeed.setId("http://hl7.org/fhir/profile/resources");
@@ -1367,6 +1372,8 @@ public class Publisher {
     Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"), "text");
     if (r != null) {
       vs.setDescriptionSimple(XMLUtil.htmlToXmlEscapedPlainText(r)+" (OID = "+e.getAttribute("id")+")");
+    } else {
+      vs.setDescriptionSimple("?? (OID = "+e.getAttribute("id")+")");
     }
     vs.setPublisherSimple("HL7 v3");
     vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://www.hl7.org"));
@@ -2717,7 +2724,7 @@ public class Publisher {
         generateValueSetPart1(bs.getReference(), bs);
     for (String n : page.getDefinitions().getExtraValuesets().keySet()) {
       ValueSet vs = page.getDefinitions().getExtraValuesets().get(n);
-      generateValueSetPart1(n, vs);
+      generateValueSetPart1(n, vs, n);
     }
   }
   
@@ -2738,10 +2745,10 @@ public class Publisher {
       n = name;
     cd.getReferredValueSet().setIdentifierSimple("http://hl7.org/fhir/vs/"+n);
     ValueSet vs = cd.getReferredValueSet();
-    generateValueSetPart1(n, vs);
+    generateValueSetPart1(n, vs, name);
   }
   
-  private void generateValueSetPart1(String name, ValueSet vs) throws Exception {
+  private void generateValueSetPart1(String name, ValueSet vs, String path) throws Exception {
     if (vs.getText() == null) {
       vs.setText(new Narrative());
       vs.getText().setStatusSimple(NarrativeStatus.empty);
@@ -2753,7 +2760,7 @@ public class Publisher {
 
     AtomEntry ae = new AtomEntry();
     ae.getLinks().put("self", "??");
-    ae.getLinks().put("path", name+".htm");
+    ae.getLinks().put("path", path+".htm");
     ae.setResource(vs);
     page.getValueSets().put(vs.getIdentifierSimple(), ae);
     if (vs.getDefine() != null) {

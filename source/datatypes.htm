@@ -288,7 +288,7 @@ the meaning of the code by an application that is not aware of the <i>system</i>
 In some cases, the <i>system</i> may not be known - only the code is known. 
 In this case, no useful processing of the code may be performed unless
 the system can be safely inferred by the context. 
-This practice should be avoided where possible in order to future-proof implementations, as 
+This practice should be avoided where possible, as 
 information sharing in a wider context is very likely to arise eventually, and codes cannot
 be used in the absence of a known system.
 </p>
@@ -297,7 +297,7 @@ If the system is present, and there is no code, then this is understood to mean 
 is no suitable code in the system in which to represent the code. 
 </p>
 <p>
-If two codings have the same the <i>system</i> and <i>code</i> then they have the same meaning.
+If two codings have the same <i>system</i> and <i>code</i> then they have the same meaning.
 Note that if a code system redefines the meaning of codes across different releases, then 
 the different releases must have different values for <i>system</i>.
 If either the <i>system</i> or the <i>code</i> differs, then how they are related can only be 
@@ -826,8 +826,8 @@ then the <i>system</i> must be "urn:ietf:rfc:3986", and the URI would be in the 
 In some cases, the system may not be known - only the key is known (e.g. a simple device that scans a barcode), 
 or the system is known implicitly (simple exchange in a limited context, often driven by barcode readers). 
 In this case, no useful matching may be performed using the key unless the system can be safely inferred by the 
-context. This practice should be avoided where possible in order to future-proof implementations, as 
-information sharing in a wider context is very likely to arise eventually.
+context. This practice should be avoided where possible, as 
+information sharing in a wider context is very likely to arise eventually, and key values without a system are inherently limited in value.
 </p>
 <p>
 The <i>assigner</i> is used to indicate what registry/state/facility/etc. assigned the identifier. 
@@ -838,7 +838,7 @@ The <i>assigner</i> is used to indicate what registry/state/facility/etc. assign
 <div class="example">
 <p><b>Examples</b></p>
 <p>A primary key from an application table (an OID in the space allocated by HL7
-to some organisation to further sub-allocate):</p>
+to some organization to further sub-allocate):</p>
 <pre class="xml" fragment="Identifier">
   &lt;identifier&gt;
     &lt;use value="official" /&gt;
@@ -1024,7 +1024,7 @@ of the two is present.
 Contact
 </h2>
 <p>
-All kinds of technology-mediated contact details for a person or organisation, including telephone, email, etc.
+All kinds of technology-mediated contact details for a person or organization, including telephone, email, etc.
 </p>
 [%dt Contact%]
 <p>

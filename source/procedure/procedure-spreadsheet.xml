@@ -137,7 +137,7 @@
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">An action that is performed on a patient</Data></Cell>
-    <Cell><Data ss:Type="String">An action that is performed on a patient. This can be a physical 'thing' like an operation, or less invasive like counselling or hypnotherapy</Data></Cell>
+    <Cell><Data ss:Type="String">An action that is performed on a patient. This can be a physical 'thing' like an operation, or less invasive like counseling or hypnotherapy</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:Index="14" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>

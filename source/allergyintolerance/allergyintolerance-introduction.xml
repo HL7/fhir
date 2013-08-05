@@ -33,7 +33,7 @@ a reaction upon future exposure to a specified substance.
 <p>
 Note that this specification draws a distinction between the 
 patients condition/problem list and an allergy/intolerance list, even 
-though allergies and intolerances are also conditions. This is because it 
+though allergies and intolerances are also conditions. This is because the distinction 
 is a long established clinical workflow, even to patients. Asking an individual 
 "if they have any problems" is not going to invoke an account of their past 
 reactions to medications or foods. Instead, they are asked if they "have any allergies".    

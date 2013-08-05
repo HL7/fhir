@@ -45,6 +45,7 @@ public class ElementDefn {
   public static final String XDS_MAPPING = "http://ihe.net/xds";
   public static final String LOINC_MAPPING = "http://loinc.org";
   public static final String SNOMED_MAPPING = "http://snomed.info";
+  public static final String PROV_MAPPING = "http://www.w3.org/ns/prov";
   public static final int MAX_NEG = -1000000;
 	
 	private List<TypeRef> types = new ArrayList<TypeRef>();

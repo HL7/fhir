@@ -44,7 +44,7 @@
                         value="http://hl7connect.healthintersections.com.au/svc/fhir/practitioner/@example"/>
                     <display value="Doctor Dave"/>
                 </author>
-                <!-- The Encounter resource. Points directly to a Encounter resource. Contains the dates of admission, specialtyu etc. -->
+                <!-- The Encounter resource. Points directly to an Encounter resource. Contains the dates of admission, specialtyu etc. -->
 
                 <section>
                     <code>

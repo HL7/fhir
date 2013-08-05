@@ -304,6 +304,7 @@ public class ProfileGenerator {
     addMapping(p, ce.getDefinition(), "http://nema.org/dicom", e.getMapping(ElementDefn.DICOM_MAPPING));
     addMapping(p, ce.getDefinition(), "http://w3.org/vcard", e.getMapping(ElementDefn.vCard_MAPPING));
     addMapping(p, ce.getDefinition(), "http://ihe.net/xds", e.getMapping(ElementDefn.XDS_MAPPING));
+    addMapping(p, ce.getDefinition(), ElementDefn.PROV_MAPPING, e.getMapping(ElementDefn.PROV_MAPPING));
 
     for (String in : e.getInvariants().keySet()) {
       ElementDefinitionConstraintComponent con = p.new ElementDefinitionConstraintComponent();

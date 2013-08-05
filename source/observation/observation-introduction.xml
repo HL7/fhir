@@ -10,7 +10,7 @@ patterns for observations. Expected uses for this resource include:</p>
 	<li>Measurements emitted by Devices</li>
     <li>Clinical assessments such as APGAR</li>
     <li>Personal characteristics: height, weight, eye-color</li>
-    <li>Diagnoses (Note: track-able conditions, allergies, adverse reactions and more complex structures are handled elsewhere)</li>
+    <li>Diagnoses (Note: trackable conditions, allergies, adverse reactions and more complex structures are handled elsewhere)</li>
     <li>Social history: tobacco use, family supports, cognitive status</li>
     <li>Core characteristics: pregnancy status, death assertion</li>
   </ul>

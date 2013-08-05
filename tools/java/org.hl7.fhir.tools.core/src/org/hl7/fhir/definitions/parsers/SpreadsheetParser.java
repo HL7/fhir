@@ -773,6 +773,7 @@ public class SpreadsheetParser {
 		e.addMapping(ElementDefn.DICOM_MAPPING, sheet.getColumn(row, "DICOM Mapping"));
     e.addMapping(ElementDefn.vCard_MAPPING, sheet.getColumn(row, "vCard Mapping"));
     e.addMapping(ElementDefn.XDS_MAPPING, sheet.getColumn(row, "XDS Mapping"));
+    e.addMapping(ElementDefn.PROV_MAPPING, sheet.getColumn(row, "Prov Mapping"));
     e.addMapping(ElementDefn.LOINC_MAPPING, sheet.getColumn(row, "LOINC"));
     e.addMapping(ElementDefn.SNOMED_MAPPING, sheet.getColumn(row, "SNOMED"));
 		e.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
@@ -822,6 +823,7 @@ public class SpreadsheetParser {
     exe.addMapping(ElementDefn.DICOM_MAPPING, sheet.getColumn(row, "DICOM Mapping"));
     exe.addMapping(ElementDefn.vCard_MAPPING, sheet.getColumn(row, "vCard Mapping"));
     exe.addMapping(ElementDefn.XDS_MAPPING, sheet.getColumn(row, "XDS Mapping"));
+    exe.addMapping(ElementDefn.PROV_MAPPING, sheet.getColumn(row, "Prov Mapping"));
     exe.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
     exe.setExample(sheet.getColumn(row, "Example"));
     exe.setCommitteeNotes(Utilities.appendPeriod(sheet.getColumn(row, "Committee Notes")));

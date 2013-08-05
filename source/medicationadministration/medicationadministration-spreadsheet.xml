@@ -1045,7 +1045,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="25.5">
     <Cell ss:StyleID="s93"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">All actions that are implied by the administration have occured.</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">All actions that are implied by the administration have occurred.</Data></Cell>
     <Cell><Data ss:Type="String">Completed</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1057,7 +1057,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="25.5">
     <Cell ss:StyleID="s93"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">stopped</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Actions implied by the administration have been permanently halted, before all of them occured.</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Actions implied by the administration have been permanently halted, before all of them occurred.</Data></Cell>
     <Cell><Data ss:Type="String">Aborted</Data></Cell>
    </Row>
   </Table>

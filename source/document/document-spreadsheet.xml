@@ -466,7 +466,7 @@
     <Cell><Data ss:Type="String">Resource(Practitioner|Organization)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Expected to receive a copy </Data></Cell>
-    <Cell><Data ss:Type="String">Identifies the people and organisations for whom the document is intended</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies the people and organizations for whom the document is intended</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">Identifies where to go to find the current version, where to report issues, etc.</Data></Cell>
     <Cell ss:StyleID="Default"/>

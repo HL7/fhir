@@ -149,7 +149,7 @@ public class XSDBaseGenerator {
     write("          </xs:element>\r\n");
     write("          <xs:element name=\"text\" type=\"Narrative\" minOccurs=\"0\" maxOccurs=\"1\">\r\n");
     write("            <xs:annotation>\r\n");
-    write("              <xs:documentation>Text summary of resource (for human interpretation)</xs:documentation>\r\n");
+    write("              <xs:documentation>Text summary of resource content (for human interpretation)</xs:documentation>\r\n");
     write("            </xs:annotation>\r\n");
     write("          </xs:element>\r\n");
     write("          <xs:element name=\"contained\" type=\"Resource.Inline\" minOccurs=\"0\" maxOccurs=\"unbounded\">\r\n");

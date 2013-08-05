@@ -213,8 +213,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Resource(Organization)</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Organisation that issued id (may be just text)</Data></Cell>
-    <Cell><Data ss:Type="String">Organisation that issued/manages the identifier</Data></Cell>
+    <Cell><Data ss:Type="String">Organization that issued id (may be just text)</Data></Cell>
+    <Cell><Data ss:Type="String">Organization that issued/manages the identifier</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">The reference may be just a text description of the assigner</Data></Cell>

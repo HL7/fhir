@@ -23,7 +23,7 @@
 A resource is an entity that:
 </p>
 <ul>
- <li>Has a known identity by which it can be addressed</li>
+ <li>has a known identity by which it can be addressed</li>
  <li>identifies itself as one of the resource types defined in this specification</li>
  <li>contains a set of structured data items as described by the resource definition</li>
  <li>contains a human readable XHTML representation of the content of the resource</li>
@@ -49,10 +49,10 @@ All resources have the following aspects:
 <ul>
  <li>A base set of defined data elements</li>
  <li>Extensions (optional) - additional data elements added by implementations (see <a href="extensibility.htm">"Extensibility"</a>)</li>
- <li>A human readable narrative description of the resource (see <a href="formats.htm#Narrative">"Narrative"</a>)</li>
+ <li>A human readable narrative description of the contents of the resource (see <a href="formats.htm#Narrative">"Narrative"</a>)</li>
  <li>Contained resources - additional resources that are part of the identification and transaction space of this resource (see <a href="#contained">below</a>)</li>
  <li>Metadata - important information about the resource that is not part of the content model of the resource</li>
- <li>Tags - labels affixed to the resources that may be used to define additional operation behaviour such as security, workflow, etc.</li>
+ <li>Tags - labels affixed to the resources that may be used to define additional operational behaviour such as security, workflow, etc.</li>
 </ul>
 <p>
 The contents of the base resource from which all other resources derive are:
@@ -61,7 +61,7 @@ The contents of the base resource from which all other resources derive are:
 &lt;<a href="#content" title="A Resource Definition for FHIR" class="dict"><b>[Name]</b></a> xmlns="http://hl7.org/fhir"&gt;
  &lt;<a href="extensibility.htm" title="See Extensions" class="dict"><b>extension</b></a>&gt;<font color="Gray">&lt;!-- <font color="brown"><b>0..*</b></font> </font> <font color="darkgreen"><a href="extensibility.htm">Extension</a></font>   <a href="extensibility.htm"><font color="navy">See Extensions</font></a> <font color="Gray"> --&gt;</font>&lt;/extension&gt;
  &lt;<a title="The base human language of the resource content. The value can be any valid value following BCP 47" class="dict" href="resources-definitions.htm#Resource.language"><b>language</b></a> value="[<span style="color: darkgreen"><a href="datatypes.htm#code">code</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy">Human language of the content (BCP-47)</span><span style="color: Gray"> --&gt;</span>
- &lt;<a href="formats.htm#Narrative" title="Text summary of resource, for human interpretation" class="dict"><b>text</b></a>&gt;<font color="Gray">&lt;!--</font> <font color="brown"><b>1..1</b></font> <font color="darkgreen"><a href="formats.htm#Narrative">Narrative</a></font> <font color="navy">Text summary of resource, for human interpretation</font><font color="Gray"> --&gt;</font>&lt;/text&gt;
+ &lt;<a href="formats.htm#Narrative" title="Text summary of resource content, for human interpretation" class="dict"><b>text</b></a>&gt;<font color="Gray">&lt;!--</font> <font color="brown"><b>1..1</b></font> <font color="darkgreen"><a href="formats.htm#Narrative">Narrative</a></font> <font color="navy">Text summary of resource content, for human interpretation</font><font color="Gray"> --&gt;</font>&lt;/text&gt;
  &lt;<a href="#contained" title="See Contained Resources" class="dict"><b>contained</b></a>&gt;<font color="Gray">&lt;!-- <font color="brown"><b>0..*</b></font> </font> <font color="darkgreen"><a href="#contained">Resource</a></font>   <a href="#contained"><font color="navy">Contained Resources</font></a> <font color="Gray"> --&gt;</font>&lt;/contained&gt;
  <font color="Gray">&lt;!-- Defined Data Elements for Resource --&gt;</font>
 &lt;/[Name]&gt;
@@ -77,7 +77,7 @@ If a language is specified, it should also be specified on the <a href="formats.
 </p>
 <p>
 The language element is provided to support indexing and accessibility (e.g. text-to-speech use the language tag). 
-The html language tag in the narrative applies is used when processing the narrative. The language tag on the resource is provided 
+The html language tag in the narrative is used when processing the narrative. The language tag on the resource is provided 
 for use to specify the language of alternate presentations generated from the data in the resource
 </p>
 
@@ -99,9 +99,14 @@ The metadata properties are key aspects of the resource and how it behaves. For 
      scoped by the logical id, or a uuid, though neither of these approaches is required</td></tr>
 	 
   <tr><td>Last Modified Date</td><td><a href="datatypes.htm#instant">instant</a></td><td>Changed each time the content of the resource 
-    changes. Can be used by a system or a human to judge the currency of the resource content. </td></tr>
+    changes. Can be used by a system or a human to judge the currency of the resource content.   </td></tr>
 	
 </table>
+<p>
+Note that the version id changes any time the resource changes, and so does the last modified date. The Version Id is more useful for managing
+concurrency issues and version specific references because of the inherent uncertainties and precision limits associated with date times. The Last Modified Date 
+is useful for a human to ascertain the logical currency of the information in the resource.
+</p>
 <p>
 In any environment where the resources are used, the technical details of how these metadata elements 
 are represented will need to be resolved. For further details, see <a href="implementation.htm">Implementation 
@@ -119,7 +124,7 @@ long, and contain any combination of ASCII letters, numerals, "-" and ".".
 In addition to the basic contents of Resources, and their metadata, each resource can be labelled
 with one or more "Tags". These tags can be used to associate additional operational information 
 with the Resources, including defining security labels used in access control policies, workflow
-management, and other uses. Tags are attached to resources, and exchanged with the resource.
+management, and other uses. Tags are attached to resources, and exchanged with their resource.
 Tags are never used to keep information that needs to be understood when interpreting the content
 of a resource; their function is limited to finding and controlling access to the resource.
 </p>
@@ -127,13 +132,13 @@ of a resource; their function is limited to finding and controlling access to th
 Each tag has two properties:
 </p>
 <table class="grid">
- <tr><td>Uri : uri</td><td>A term that defines the meaning of the tag</td></tr>
+ <tr><td>URI : uri</td><td>A term that defines the meaning of the tag</td></tr>
  <tr><td>Label : string</td><td>(Optional) A human-readable label for the tag for use when displaying in end-user applications</td></tr>
 </table>
 <p>
-The Uri may be a reference to a healthcare vocabulary, including ones defined in this specification,
+The URI may be a reference to a healthcare vocabulary, including ones defined in this specification,
 such as the basic <a href="security.htm#labels">security label set</a>, or vocabularies such as 
-those defined by HL7 (v2 and v3/CDA), Loinc, or Snomed-CT. Alternatively, the URI may be one
+those defined by HL7 (v2 and v3/CDA), LOINC, or SNOMED-CT. Alternatively, the URI may be one
 defined by the implementation in the local context. Literal references that refer directly 
 to a description of the tag (typically just an HTML page) are preferred over symbolic references 
 but this is not required.
@@ -141,7 +146,7 @@ but this is not required.
 <p>
 If the end user application provides functionality to the user that allows the user to 
 affix arbitrary text tags to the resource for their own purpose, the application can 
-automatically construct a Uri by appending the mime encoding of the Label to the base
+automatically construct a URI by appending the mime encoding of the Label to the base
 URL "http://hl7.org/fhir/tags/text/". When applications processing resources see this
 base URL, they can automatically know that this is a pure text label with no formal
 meaning.
@@ -238,9 +243,9 @@ The specification also provides a number of technical resources that can assist 
 to this base specification:
 </p>
 <ul>
- <li>Schema &amp; Schematron</li>
- <li>Reference Platforms</li>
- <li>TODO: RDF/OWL, etc.</li>
+ <li><a href="fhir-all-xsd.zip">Schema &amp; Schematron</a></li>
+ <li><a href="validation.zip">Validator Package</a></li>
+ <li><a href="implementation.htm#Use">Reference Platforms</a></li>
 </ul> 
 <p>
 Note that none of these are able to check complete conformance to this specification.
@@ -252,23 +257,36 @@ These interact to place conformance requirements on implementations.
 </p>
 
 <a name="cardinality"> </a>
-<h2>Cardinality</h2>
+<h3>Cardinality</h3>
 <p>
-The cardinality of an element is to upper and limit of the number of elements
-present in the actual resource. When present, elements cannot be empty - they must
-have either a value attribute, child elements, or extensions. This specification
+All elements defined in FHIR have a cardinality as part of their definition - a minimum number 
+of required appearances, and a maximum number. This number specifies the number of times
+the element may appear in any instance of the resource type. This specification
 only defines the following cardinalities: 0..1, 0..*, 1..1, and 1..*. Profiles 
-that describe specific use cases may use other cardinalities within the limits 
-defined by the resources. 
+that describe specific use cases may use other values for cardinality within the limits 
+of the cardinality defined by the resource. 
+</p>
+<p>
+Note that when present, elements cannot be empty - they must have either a value attribute, child elements, or extensions. 
 </p>
 <p>
 In this specification, very few elements have a minimum cardinality of 1. 
 Resources are used in many contexts, often quite removed from their primary
-use case, where information is sometimes very incomplete. For this reason,
+use case, and sometimes even basic information is sometimes very incomplete. For this reason,
 the only elements that have a minimum cardinality of 1 are those where they
-are necessary to basic understanding of the element that contains them. 
+are necessary to any understanding of the element that contains them. 
 The minimum cardinalities should not be taken as a guide to which elements
 are expected to be present in any particular use of the resource.
+</p>
+<p>
+For elements that have cardinality &gt; 1, the order in which they appear may have meaning.
+Unless the element definition (either in this specification or the extension) defines a meaning 
+to the order explicitly, the meaning of the order is not defined, and implementations are allowed 
+to reorder the elements. Note that you cannot define a meaning for the order of the elements in 
+a profile. When there is no definition of the meaning of the order, implementations that need 
+to choose a single element from a list of elements for some use must do so based on the semantics 
+of the content of the elements that repeats. Profiles and Implementation guides may often make 
+rules about this selection process.
 </p>
 
 
@@ -329,27 +347,6 @@ Note that an element that has the property IsModifier is not necessarily a "key"
 the important elements to make use of the resource), nor is it automatically mustSupport - however both 
 of these things are more likely to be true for IsModifier elements than for other elements.
 </p>
-<a name="cardinality"> </a>
-<h3>Cardinality</h3> 
-<p>
-All elements defined in FHIR have a cardinality as part of their definition - a minimum number 
-of required appearances, and a maximum number allowed. This number specifies the number of times
-the element may appear in the instance. In the specification, the minimum number
-is always 0 or 1, and the maximum number is always 1 or *, meaning no limit. Profiles may
-use any whole number for both minimum and maximum cardinality, as long as minimum &lt;= maximum.
-</p>
-<p>
-For elements that have cardinality &gt; 1, the order in which they appear may have meaning.
-Unless the element definition (either in this specification or the extension) defines a meaning 
-to the order explicitly, the meaning of the order is not defined, and implementations are allowed 
-to reorder the elements. Note that you cannot define a meaning for the order of the elements in 
-a profile. When there is not definition of the meaning of the order, implementations that need 
-to choose a single element from a list of elements for some use must do so based on the semantics 
-of the content of the elements that repeats. Profiles and Implementation guides may often make 
-rules about this selection process.
-</p>
-
-
 
 
 <a name="ResourceReference"> </a>
@@ -382,7 +379,7 @@ practice, the relationships do need to describe a logical and coherent record.
 <p>
 In a resource, 
 references are represented with a type, a reference, and a text description.
-The key property of the reference is the <i>reference</i> - resources are identified and address by their URL.
+The key property of the reference is the <i>reference</i> - resources are identified and addressed by their URL.
 The actual reference looks like this (see <a href="formats.htm#syntax">"XML Format"</a>
 for details of the way resource contents are described):
 </p>
@@ -510,7 +507,7 @@ The same example in JSON:
 
 <p>
 The type and url are always required, even though somewhat redundant in this case, to ensure that a
-single approach to resolving resource references can be used - simply be resolving the URL, and accessing
+single approach to resolving resource references can be used - simply by resolving the URL, and accessing
 accordingly.
 </p>
 <p>

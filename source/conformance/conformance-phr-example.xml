@@ -4,7 +4,7 @@
   <text> 
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-     <p>Prototype Conformance Profile for September 2013 Connectathon</p>
+     <p>Prototype Conformance Statement for September 2013 Connectathon</p>
      <p>The server offers read and search support on the following resource types:</p>
      <ul>
       <li>Patient</li>
@@ -19,7 +19,7 @@
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <description value="Prototype Conformance Profile for September 2013 Connectathon"/>
+  <description value="Prototype Conformance Statement for September 2013 Connectathon"/>
   <date value="2013-06-18"/>
   
   <!-- while the FHIR infrastructure is turning over prior to development, a version is required. Note that this may be rescinded later -->

@@ -68,10 +68,23 @@ public class NarrativeGenerator {
     p = x.addTag("p");
     p.addText("This value set defines it's own terms in the system "+vs.getDefine().getSystemSimple());
     XhtmlNode t = x.addTag("table");
-    addTableHeaderRowStandard(t, false);
+    boolean comments = false;
     for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
-      addDefineRowToTable(t, c, 0);
+      comments = comments || conceptsHaveComments(c);
+    }
+    addTableHeaderRowStandard(t, comments);
+    for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
+      addDefineRowToTable(t, c, 0, comments);
     }    
+  }
+
+  private boolean conceptsHaveComments(ValueSetDefineConceptComponent c) {
+    if (ToolingExtensions.hasComment(c)) 
+      return true;
+    for (ValueSetDefineConceptComponent g : c.getConcept()) 
+      if (conceptsHaveComments(g))
+        return true;
+    return false;
   }
 
   private void generateCopyright(XhtmlNode x, ValueSet vs) {
@@ -97,7 +110,7 @@ public class NarrativeGenerator {
     }
   }
 
-  private void addDefineRowToTable(XhtmlNode t, ValueSetDefineConceptComponent c, int i) {
+  private void addDefineRowToTable(XhtmlNode t, ValueSetDefineConceptComponent c, int i, boolean comment) {
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
     String s = Utilities.padLeft("", '.', i*2);
@@ -108,8 +121,14 @@ public class NarrativeGenerator {
     td = tr.addTag("td");
     if (c.getDefinitionSimple() != null)
       td.addText(c.getDefinitionSimple());
+    if (comment) {
+      td = tr.addTag("td");
+      s = ToolingExtensions.getComment(c);
+      if (s != null)
+        td.addText(s);      
+    }
     for (ValueSetDefineConceptComponent cc : c.getConcept()) {
-      addDefineRowToTable(t, cc, i+1);
+      addDefineRowToTable(t, cc, i+1, comment);
     }    
   }
 

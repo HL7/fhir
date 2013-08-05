@@ -5,6 +5,7 @@ import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.String_;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -31,6 +32,11 @@ public class ToolingExtensions {
       nc.getExtensions().add(Factory.newExtension(EXT_COMMENT, Factory.newString_(comment), true));   
   }
 
+  public static void addDefinition(Code nc, String definition) throws Exception {
+    if (!Utilities.noString(definition))
+      nc.getExtensions().add(Factory.newExtension(EXT_DEFINITION, Factory.newString_(definition), true));   
+  }
+
   public static String readStringExtension(Element c, String uri) {
     Extension ex = c.getExtension(uri);
     if (ex == null)
@@ -38,6 +44,23 @@ public class ToolingExtensions {
     if (!(ex.getValue() instanceof String_))
       return null;
     return ((String_) ex.getValue()).getValue();
+  }
+
+  public static boolean findStringExtension(Element c, String uri) {
+    Extension ex = c.getExtension(uri);
+    if (ex == null)
+      return false;
+    if (!(ex.getValue() instanceof String_))
+      return false;
+    return !Utilities.noString(((String_) ex.getValue()).getValue());
+  }
+
+  public static String getComment(ValueSetDefineConceptComponent c) {
+    return readStringExtension(c, EXT_COMMENT);    
+  }
+
+  public static boolean hasComment(ValueSetDefineConceptComponent c) {
+    return findStringExtension(c, EXT_COMMENT);    
   }
 
 }

@@ -20,6 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>4560</WindowTopX>
   <WindowTopY>4155</WindowTopY>
+  <ActiveSheet>8</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -361,7 +362,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">CarePlanGoalStatus</Data></Cell>
-    <Cell><Data ss:Type="String">in progress|achieved|sustaining | abandoned</Data></Cell>
+    <Cell><Data ss:Type="String">in progress | achieved | sustaining | abandoned</Data></Cell>
     <Cell><Data ss:Type="String">Indicates whether the goal has been reached and is still considered relevant</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Allows measuring outcome and also indicates relevance of goal to plan.</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s68"/>
@@ -630,7 +631,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1379,7 +1379,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="String">procedure</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Plan to modify the patient in some way (surgery, physio-therapy, education, counselling, etc.)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Plan to modify the patient in some way (surgery, physiotherapy, education, counseling, etc.)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>
@@ -1399,6 +1399,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1420,7 +1421,6 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>6</ActiveRow>
-     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

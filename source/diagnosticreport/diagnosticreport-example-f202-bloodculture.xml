@@ -8,7 +8,7 @@
      <display value="Roel"/>
  </subject>
  <performer><!--The diagnostic report was issued by AUMC-->
-     <type value="Organization"/><!--TODO Why can't this be a practitioner (OR organisation)?-->
+     <type value="Organization"/><!--TODO Why can't this be a practitioner (OR organization)?-->
      <reference value="organization/@f201"/>
      <display value="AUMC"/>
  </performer>

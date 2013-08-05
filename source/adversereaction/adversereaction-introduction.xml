@@ -8,7 +8,7 @@ but can be reported on their own when no assumption of further reactions
 is being made, or when specific events are being described.
 </p>
 <p>
-An Adverse Reaction normally has a set of sign or symptoms that are 
+An Adverse Reaction normally has a set of signs or symptoms that are 
 reported in the Symptom class. However, it is possible to convey that 
 an adverse reaction occurred without knowing the specific signs or 
 symptoms that occurred, e.g. <i>Some unknown reaction occurred.</i>

@@ -1053,12 +1053,18 @@ private String resItem(String name) throws Exception {
   }
 
   private void generateConstraints(String path, ElementDefn e, StringBuilder b, boolean base) {
+    List<Integer> ids = new ArrayList<Integer>();
     for (String n : e.getInvariants().keySet()) {
-      Invariant inv = e.getInvariants().get(n);
+      ids.add(Integer.parseInt(n));
+    }
+    Collections.sort(ids);
+    
+    for (Integer n : ids) {
+      Invariant inv = e.getInvariants().get(n.toString());
       if (base)
-        b.append("<li>"+Utilities.escapeXml(inv.getEnglish())+" (xpath: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
+        b.append("<li><b title=\"Formal Invariant Identifier\">Inv-"+inv.getId()+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (xpath: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
       else
-        b.append("<li>On "+path+": "+Utilities.escapeXml(inv.getEnglish())+" (xpath on "+presentPath(path)+": <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
+        b.append("<li><b title=\"Formal Invariant Identifier\">Inv-"+inv.getId()+"</b>: On "+path+": "+Utilities.escapeXml(inv.getEnglish())+" (xpath on "+presentPath(path)+": <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
     }
     for (ElementDefn c : e.getElements()) {
       generateConstraints(path+"."+c.getName(), c, b, false);
@@ -1460,7 +1466,7 @@ private String resItem(String name) throws Exception {
               if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs")) 
                 s.append("</td><td><a href=\"v3/"+cd.getReference().substring(26)+"/index.htm\">"+cd.getReference()+"</a></td></tr>\r\n");          
               else if (cd.getReference().startsWith("http://hl7.org/fhir")) 
-                s.append("</td><td><a href=\"??.htm\">??</a></td></tr>\r\n");          
+                s.append("</td><td><a href=\""+cd.getReference().substring(23)+".htm\">"+cd.getReference()+"</a></td></tr>\r\n");          
               else
                 s.append("</td><td><a href=\""+cd.getReference()+".htm\">"+cd.getReferredValueSet().getIdentifierSimple()+"</a></td></tr>\r\n");          
             } else 
@@ -2061,7 +2067,7 @@ private String resItem(String name) throws Exception {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
         else
-          src = s1+"<p>The resource name as it appears in a <a href=\"http.htm\"> RESTful URL</a> is /"+name+"/</p>"+s3;
+          src = s1+"<p>The resource name as it appears in a  RESTful URL is <a href=\"http.htm#root\">[root]</a>/"+name+"/</p>"+s3;
       } else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+name);
 
@@ -2077,8 +2083,12 @@ private String resItem(String name) throws Exception {
     else {
       StringBuilder b = new StringBuilder();
       b.append("<h2>Search Parameters</h2>\r\n");
-      b.append("<p>Search Parameters for RESTful searches. The standard parameters also apply. See <a href=\"query.htm#base\">Searching</a> for more information.</p>\r\n");
+      if (resource.getName().equals("Query"))
+        b.append("<p>Search Parameters for RESTful searches. The standard parameters also apply as described above.</p>\r\n");
+      else
+        b.append("<p>Search Parameters for RESTful searches. The standard parameters also apply. See <a href=\"query.htm#base\">Searching</a> for more information.</p>\r\n");
       b.append("<table class=\"list\">\r\n");
+      b.append("<tr><td><b>Name / Type</b></td><td><b>Description</b></td><td><b>Paths</b></td></tr>\r\n");
       List<String> names = new ArrayList<String>();
       names.addAll(resource.getSearchParams().keySet());
       Collections.sort(names);
@@ -2131,7 +2141,7 @@ private String resItem(String name) throws Exception {
     for (Example e: resource.getExamples()) {
    //   if (!e.isInBook()) {
         if (!started)
-          s.append("<p>Additional Examples:</p>\r\n<table class=\"list\">\r\n");
+          s.append("<p>Example Index:</p>\r\n<table class=\"list\">\r\n");
         started = true;
         s.append("<tr><td>"+Utilities.escapeXml(e.getDescription())+"</td>");
         s.append("<td><a href=\""+e.getFileTitle()+".xml.htm\">XML</a></td>");

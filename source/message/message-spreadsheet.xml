@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:16:02Z</Created>
-  <LastSaved>2013-07-17T14:46:30Z</LastSaved>
+  <LastSaved>2013-08-04T02:27:30Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,6 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6195</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -94,18 +93,18 @@
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s75">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s76">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s77" ss:Parent="s62">
+  <Style ss:ID="s78" ss:Parent="s62">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
-  </Style>
-  <Style ss:ID="s78">
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -148,7 +147,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A message that contains resources</Data></Cell>
-    <Cell><Data ss:Type="String">A transmission requesting action on a bundle of one or more resources or a response to such a request</Data></Cell>
+    <Cell><Data ss:Type="String">The root for a transmission either requesting or responding to an action.  The resource(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle of which the Message resource instance is the first resource in the bundle</Data></Cell>
     <Cell><Data ss:Type="String">Many implementations are not prepared to use REST and need a message based infrastructure</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Message</Data></Cell>
     <Cell><Data ss:Type="String">MSH / MSA / ERR</Data></Cell>
@@ -179,7 +178,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">MessageEvent</Data></Cell>
-    <Cell><Data ss:Type="String">Code for the event his message represents</Data></Cell>
+    <Cell><Data ss:Type="String">Code for the event this message represents</Data></Cell>
     <Cell><Data ss:Type="String">Code that identifies the event this message represents and connects it with the event definition in the FHIR specification</Data></Cell>
     <Cell><Data ss:Type="String">Drives the behavior associated with this message</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">./payload[classCode=&quot;CACT&quot; and moodCode=&quot;EVN&quot; and isNormalAct()]/code[isNormalDatatype()]/code</Data></Cell>
@@ -239,7 +238,6 @@
     <Cell><Data ss:Type="String">The source application from which this message originated</Data></Cell>
     <Cell><Data ss:Type="String">Allows replies, supports audit.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">unique(./communicationFunction[typeCode=&quot;SND&quot;])</Data></Cell>
-    <Cell><Data ss:Type="String">NA</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Message.source.name</Data></Cell>
@@ -303,7 +301,6 @@
     <Cell><Data ss:Type="String">The destination application which the message is intended for</Data></Cell>
     <Cell><Data ss:Type="String">Indicates where message is to be sent to for routing purposes.  Allows verification of &quot;am I the intended recipient&quot;</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">./communicationFunction[typeCode=&quot;RCV&quot;]</Data></Cell>
-    <Cell><Data ss:Type="String">NA</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Message.destination.name</Data></Cell>
@@ -340,7 +337,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The source of the data entry</Data></Cell>
-    <Cell><Data ss:Type="String">The person or device that performed the data entry leading to this Message. Where there is more than one candidate, pick the most proximal to the Message. Can provide other enterers in extensions</Data></Cell>
+    <Cell><Data ss:Type="String">The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions</Data></Cell>
     <Cell><Data ss:Type="String">Need to know for audit/traceback requirements and possibly for authorization.</Data></Cell>
     <Cell><Data ss:Type="String">Usually only for the request, but can be used in a response</Data></Cell>
     <Cell><Data ss:Type="String">unique(./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/participation[typeCode=&quot;ENT&quot; and isNormalParticipation]/role[classCode=&quot;ASSIGNED&quot; and isNormalRole()]/player[isNormalEntity() and classCode=(&quot;DEV&quot;, &quot;PSN&quot;) and determinerCode=&quot;INST&quot;])</Data></Cell>
@@ -363,7 +360,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner | Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Intended &quot;real-world&quot; recipient for the data</Data></Cell>
     <Cell><Data ss:Type="String">Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.</Data></Cell>
-    <Cell><Data ss:Type="String">Allows routing beyond just to the application level</Data></Cell>
+    <Cell><Data ss:Type="String">Allows routing beyond just the application level</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">PRT-5-Participation Person:PRT-4-Participation='WAYR' / PRT-8-Participation Organization:PRT-4-Participation='WAYR'&#10;</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Is this in the 80%?</Data></Cell>
    </Row>
@@ -396,8 +393,8 @@
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">EventReason</Data></Cell>
     <Cell><Data ss:Type="String">Cause of event</Data></Cell>
-    <Cell><Data ss:Type="String">The cause of the event - a reason for the event that is a focus of this message occurred</Data></Cell>
-    <Cell><Data ss:Type="String">Need to be able to track why resources are being changed and report in the audit log / history of the resource.  May affect authorization.</Data></Cell>
+    <Cell><Data ss:Type="String">Coded indication of the cause for the event - indicates  a reason for the occurance of the event that is a focus of this message</Data></Cell>
+    <Cell><Data ss:Type="String">Need to be able to track why resources are being changed and report in the audit log/history of the resource.  May affect authorization.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">unique(./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/reasonCode[isNormalDatatype()])</Data></Cell>
     <Cell><Data ss:Type="String">EVN.4 / ORC.16 / OBR-31-reason for study / BPO-13-BP indication for use / RXO-20-indication / RXE-27-give indication / RXD-21-indication / RXG-22-indication / RXA-19-indication&#10;</Data></Cell>
    </Row>
@@ -408,7 +405,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">The actual content of the message</Data></Cell>
     <Cell><Data ss:Type="String">The actual data of the message - a reference to the root/focus class of the event. </Data></Cell>
     <Cell><Data ss:Type="String">Every message event is about actual data, a single resource, that is identified in the definition of the event, and perhaps some or all linked resources</Data></Cell>
-    <Cell><Data ss:Type="String">The data is defined where the transaction type is defined. The transaction data is always included in the bundle that is the full message.  Only the root resource is specified.  The tree of referenced resources conveyed in the atom feed is determined by navigating the tree and consulting the &quot;bundled&quot; property of the profile, not by listing all resources here.  Multiple repetitions are provided for merges and other situations with multiple focal targets</Data></Cell>
+    <Cell><Data ss:Type="String">The data is defined where the transaction type is defined. The transaction data is always included in the bundle that is the full message.  Only the root resource is specified.  The resources it references should be contained in the bundle but are not also listed here.  Multiple repetitions are allowed to cater for merges and other situations with multiple focal targets</Data></Cell>
     <Cell><Data ss:Type="String">unique(./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/participation[typeCode=&quot;SUBJ&quot; and isNormalParticipation]/role or ./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/outboundRelationship[typeCode=&quot;SBJ&quot; and isNormalActRelatoinship]/target)</Data></Cell>
    </Row>
   </Table>
@@ -419,12 +416,13 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>23</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -436,11 +434,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>26</ActiveRow>
+     <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -495,7 +494,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">EventReason</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Reason for event occurrence</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Reason for event occurrence</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">valueset-message-reason-encounter</Data></Cell>
@@ -515,7 +514,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -529,9 +527,9 @@
  </Worksheet>
  <Worksheet ss:Name="response-code">
   <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s75" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s75" ss:Width="71.25"/>
-   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="719.25"/>
+   x:FullRows="1" ss:StyleID="s76" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s76" ss:Width="71.25"/>
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="719.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
@@ -539,28 +537,28 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">ok</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">The message was accepted and processed without error</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">ok</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The message was accepted and processed without error</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">rejection</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">The message was rejected because of some content in it. There is no point in re-sending without change. The response narrative must describe what the issue is.</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">rejection</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The message was rejected because of some content in it. There is no point in re-sending without change. The response narrative must describe what the issue is.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">rules</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">The message was rejected because of some event-specific business rules, and it may be possible to modify the request and re-submit (as a different request). The response must include an Issue report that describes what problem is</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">rules</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The message was rejected because of some event-specific business rules, and it may be possible to modify the request and re-submit (as a different request). The response must include an Issue report that describes what problem is</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">undeliverable</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">A middleware agent was unable to deliver the message to its intended destination</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">undeliverable</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">A middleware agent was unable to deliver the message to its intended destination</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

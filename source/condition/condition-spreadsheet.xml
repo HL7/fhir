@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>1290</WindowHeight>
+  <WindowHeight>1230</WindowHeight>
   <WindowWidth>9570</WindowWidth>
   <WindowTopX>4245</WindowTopX>
-  <WindowTopY>3195</WindowTopY>
+  <WindowTopY>3255</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -58,18 +58,21 @@
    <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s66">
-   <Alignment ss:Vertical="Top"/>
-  </Style>
-  <Style ss:ID="s67">
-   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s68">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s69">
-   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
+  <Style ss:ID="s67">
+   <Alignment ss:Vertical="Top"/>
+  </Style>
+  <Style ss:ID="s68">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s70">
+   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s71">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s72">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -79,11 +82,8 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s71">
+  <Style ss:ID="s73">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
-  </Style>
-  <Style ss:ID="s72">
-   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -125,7 +125,7 @@
     <Cell ss:StyleID="s65"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String"> Detailed information about conditions, problems or diagnoses</Data></Cell>
-    <Cell><Data ss:Type="String">Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during a Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary</Data></Cell>
+    <Cell><Data ss:Type="String">Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during an Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">PPR message</Data></Cell>
     <Cell><Data ss:Type="String">* Age is questionable, you might well need a range of Age or even (in practice)&#10;&#10;a text like &quot;in their teens&quot;. =&gt; new ballot comment.&#10;&#10;* Todo: discuss the applicability of assessing stages&#10;&#10;* Change the description: it is circular</Data></Cell>
    </Row>
@@ -149,13 +149,13 @@
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner|Patient)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Person who asserts this condition</Data></Cell>
     <Cell><Data ss:Type="String">Person who takes responsibility for asserting the existence of the condition as part of the electronic record</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">REL-7.1 identifier + REL-7.12 type code</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s66"><Data ss:Type="String">REL-7.1 identifier + REL-7.12 type code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Condition.dateAsserted</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">When the first detected/suspected/entered</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">When first detected/suspected/entered</Data></Cell>
     <Cell><Data ss:Type="String">Estimated or actual date the condition/problem/diagnosis was first detected/suspected</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">REL-11</Data></Cell>
    </Row>
@@ -166,7 +166,7 @@
     <Cell><Data ss:Type="String">ConditionCode</Data></Cell>
     <Cell><Data ss:Type="String">Identification of the condition, problem or diagnosis</Data></Cell>
     <Cell><Data ss:Type="String">Identification of the condition, problem or diagnosis. </Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">PRB-3</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s66"><Data ss:Type="String">PRB-3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Condition.category</Data></Cell>
@@ -184,7 +184,7 @@
     <Cell ss:Index="4"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">ConditionStatus</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">provisional | working | confirmed | refuted</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">provisional | working | confirmed | refuted</Data></Cell>
     <Cell><Data ss:Type="String">The clinical status of the condition</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">PRB-14 / DG1-6</Data></Cell>
    </Row>
@@ -216,7 +216,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Estimated or actual date, or age</Data></Cell>
     <Cell><Data ss:Type="String">Estimated or actual date the condition began, in the opinion of the clinician</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Age is generally used when the patient reports an age at which the Condition began to occur</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">PRB-16</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s66"><Data ss:Type="String">PRB-16</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Condition.abatement[x]</Data></Cell>
@@ -306,7 +306,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Causes or precedents for this Condition</Data></Cell>
     <Cell><Data ss:Type="String">Further conditions, problems, diagnoses, procedures or events that are related in some way to this condition, or the substance that caused/triggered this Condition</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Although a condition may be caused by a substance, this is not intended to be used to record allergies/adverse reactions to substances</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s72"><Data ss:Type="String">could infer from presence of multiple PRB segments in a PPR message that the problems are related, but not clear how to communicate the nature of the relationship</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">could infer from presence of multiple PRB segments in a PPR message that the problems are related, but not clear how to communicate the nature of the relationship</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Condition.relatedItem.type</Data></Cell>
@@ -340,7 +340,6 @@
     <Cell ss:Index="8"><Data ss:Type="String">Additional information about the Condition</Data></Cell>
     <Cell><Data ss:Type="String">Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="Default"><Data ss:Type="String">NTE child of PRB</Data></Cell>
-    <Cell><Data ss:Type="String">Definition needs checking</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -357,13 +356,12 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>13</TopRowVisible>
-   <LeftColumnVisible>4</LeftColumnVisible>
+   <TopRowVisible>15</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>24</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>25</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -372,10 +370,11 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s67" ss:DefaultRowHeight="15">
-   <Column ss:Index="3" ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="96.75"/>
-   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="220.5"/>
-   <Column ss:Index="6" ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="365.25"/>
+   x:FullRows="1" ss:StyleID="s70" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="79.5"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="96.75"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="310.5"/>
+   <Column ss:Index="6" ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="365.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -423,8 +422,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -440,18 +439,18 @@
    <Column ss:AutoFitWidth="0" ss:Width="111"/>
    <Column ss:AutoFitWidth="0" ss:Width="69"/>
    <Row ss:AutoFitHeight="0" ss:Height="22.5">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Event Code</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Notes</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Request Resources</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Response Resources</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Follow Ups</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Event Code</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Notes</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Request Resources</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Response Resources</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">admin-notify</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">(see Person)</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Device</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">admin-notify</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">(see Person)</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Device</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -561,7 +560,7 @@
     <Cell><Data ss:Type="String">related-code</Data></Cell>
     <Cell ss:StyleID="s63"/>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Condition.relatedItem.code</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Condition.relatedItem.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s63"/>
@@ -627,24 +626,24 @@
    <Column ss:AutoFitWidth="0" ss:Width="55.5"/>
    <Column ss:Width="186"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Identity</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">In Book</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">General</Data></Cell>
     <Cell><Data ss:Type="String">General Condition Example</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">example</Data></Cell>
     <Cell><Data ss:Type="String">condition-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">2nd Case</Data></Cell>
     <Cell><Data ss:Type="String">2nd Example</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">example2</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">example2</Data></Cell>
     <Cell><Data ss:Type="String">condition-example2.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
@@ -718,13 +717,13 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="8" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s66" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="130.5"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="294.75"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="57.75"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="65.25"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="89.25"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="287.25"/>
+   x:FullRows="1" ss:StyleID="s67" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="130.5"/>
+   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="294.75"/>
+   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="57.75"/>
+   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="65.25"/>
+   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="89.25"/>
+   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="287.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Definition</Data></Cell>
@@ -734,33 +733,33 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ConditionCode</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">ConditionCode</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Identification of the Condition or diagnosis. </Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">valueset-condition-code</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ConditionCategory</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">ConditionCategory</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">A category assigned to the condition. E.g. finding | Condition | diagnosis | concern | condition</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">valueset-condition-category</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ConditionStatus</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">ConditionStatus</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">The clinical status of the Condition or diagnosis</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#condition-status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ConditionCertainty</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">ConditionCertainty</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">The degree of confidence that this condition is correct</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">valueset-condition-certainty</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -820,7 +819,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">following</Data></Cell>
-    <Cell><Data ss:Type="String">this condition follows the identified condition/procedure/substance, but it is not known whether they are causally linked</Data></Cell>
+    <Cell><Data ss:Type="String">this condition follows the identified condition/procedure/substance, but it is not known whether they are causually linked</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -830,6 +829,13 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -864,7 +870,7 @@
     <Cell><Data ss:Type="String">This condition has been ruled out by diagnostic and clinical evidence</Data></Cell>
    </Row>
    <Row ss:Index="9" ss:AutoFitHeight="0">
-    <Cell ss:Index="2" ss:StyleID="s66"/>
+    <Cell ss:Index="2" ss:StyleID="s67"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

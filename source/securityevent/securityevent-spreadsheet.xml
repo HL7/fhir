@@ -21,7 +21,7 @@
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>180</WindowTopY>
   <TabRatio>782</TabRatio>
-  <ActiveSheet>5</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -297,9 +297,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">DicomRoleId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
-       html:Color="#000000">User roles (e.g. local RBAC codes</Font><Font
-       html:Color="#000000">)</Font></ss:Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">User roles (e.g. local RBAC codes)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">This value ties an audited event to a user's role(s). It is an optional value that might be used to group events for analysis by user functional role categories</Data><NamedCell
@@ -728,7 +727,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>38</ActiveRow>
+     <ActiveRow>11</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -757,21 +756,21 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Object Name</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">SecurityEvent.object</Data></Cell>
-    <Cell><Data ss:Type="String">Either a name or a query</Data></Cell>
+    <Cell><Data ss:Type="String">Either a name or a query (or both)</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:name)) or not(exists(f:query))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">Object Identification</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">SecurityEvent.object</Data></Cell>
-    <Cell><Data ss:Type="String">Either an identifier or a reference</Data></Cell>
+    <Cell><Data ss:Type="String">Either an identifier or a reference, but not both</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:identifier) != exists(f:reference)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">Participant Identification</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">SecurityEvent.participant</Data></Cell>
-    <Cell><Data ss:Type="String">Either an userId or a reference</Data></Cell>
+    <Cell><Data ss:Type="String">Either an userId or a reference, but not both</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:userId) != exists(f:reference)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -788,11 +787,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1372,7 +1372,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

@@ -24,13 +24,13 @@ Fast Healthcare Interoperability Resources (FHIR) defines a set of resources for
 Resources are:
 </p>
 <ul class="dense">
- <li>Atomic - they are the smallest defined unit of operation and a transaction scope of their own</li>
+ <li>Atomic - they are the smallest defined unit of operation and have a transaction scope of their own</li>
  <li>Connected - resources refer to other resources to allow for clean modular reuse of information</li>
  <li>Independent - the content of a resource can be processed without having to retrieve referenced resources</li>
  <li>Simple - each resource definition is easy to understand, and to implement without needing specialized tooling or infrastructure (though that can be used if desired)</li>
  <li>RESTful - resources are able to be used in a RESTful exchange context</li>
  <li>Flexible - resources can also be used in non-RESTful contexts, such as messaging or SOA architectures and can be moved in and out of RESTful paradigms as convenient</li>
- <li>Extensible - resources can be extended to allow for local requirements without impacting on interoperability</li>
+ <li>Extensible - resources can be extended to allow for local requirements without impacting interoperability</li>
  <li>Webcentric - where possible and appropriate, open internet standards are used for data representation</li>
  <li>Free for use - the FHIR specification itself is open - anyone can implement FHIR or derive related specifications without any IP restrictions</li>
 </ul>
@@ -162,7 +162,7 @@ By default, underlying web frameworks such as SAML would be used. See <a href="s
 <tr><td>IN.2.4</td><td>Extraction of Health Record Information</td><td>FHIR does not provide report formats (yet?), but does provide extensive search and retrieval functions to assist with building such reports</td></tr>
 <tr><td>IN.2.5</td><td>Store and Manage Health Record Information</td><td>A FHIR RESTful server can store and manage health information persistently - see below for further information. </td></tr>
 <tr><td>IN.2.5.1/2</td><td>Manage Structured and Unstructured Health Record Information</td><td>The dual contents of FHIR resources - structured data and XHTML narrative - provide seamless support for dealing with a mix of structured and unstructured information</td></tr>
-<tr><td>IN.3</td><td>Registry and Directory Services</td><td>The FHIR <a href="resourcelist.htm#administrative">Administration resources</a> provide a naturally registry based access to patients, providers, etc.</td></tr>
+<tr><td>IN.3</td><td>Registry and Directory Services</td><td>The FHIR <a href="resourcelist.htm#administrative">Administration resources</a> provide a registry based access to patients, providers, etc.</td></tr>
 <tr><td>IN.4</td><td>Standard Terminologies and Terminology Services</td><td>FHIR encourages the use of standard terminologies wherever possible, and provides full support for their use through a variety of terminology related <a href="datatypes.htm">data types</a>. FHIR does not define a terminology infrastructure or service, but does define the <a href="profile.htm">Profile</a> and <a href="valueset.htm">ValueSet</a> resources to describe how terminology is used in a FHIR context</td></tr>
 <tr><td>IN.5</td><td>Standards-based Interoperability</td><td>FHIR is a definition of a standard on which to base interoperability</td></tr>
 <tr><td>IN.5.1</td><td>Interchange Standards</td><td>This is the core focus of FHIR. See below for discussion of interaction modes</td></tr>

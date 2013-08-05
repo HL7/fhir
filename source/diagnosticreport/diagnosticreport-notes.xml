@@ -12,8 +12,8 @@ of the ordering cycle, see the Order, OrderResponse, and DiagnosticOrder resourc
 <li>
 If the diagnostic procedure was performed on the patient directly, <i>diagnosticTime</i> is the time it was peformed. 
 If specimens were taken, the diagnostically relevant time can be derived from the specimen collection times, but 
-since the specimen information is not always available, and nor is the exact relationship always automatic, the
-reports must always include a <i>diagnosticTime</i> element.
+since the specimen information is not always available, and nor is the diagnostically relevant time always exactly the specimen collection time (e.g. complex timed tests), the
+reports must always include a <i>diagnosticTime</i> element. Note that v2 messages often carry a diagnostically relevant time without carrying any specimne information.
 </li>
 <li>
 A report always contains a base group for individual results. As a minimum, this contains the name of the report 
@@ -26,7 +26,7 @@ goup of antibody related test, or the organism code for a group of isolate/sensi
 measurements on a single fetus.
 </li>
 <li>
-Applications consuming diagnostic reports must take careful note of updates to them, and particularly note withdrawn reports. 
+Applications consuming diagnostic reports must take careful note of updated reports, and ensure that withdrawn reports are appropriately handled. 
 </li>
 <li>
 For applications providing diagnostic reports, a report shouldn't be final until all the individual data items

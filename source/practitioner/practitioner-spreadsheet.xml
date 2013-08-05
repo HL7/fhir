@@ -293,8 +293,8 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The represented organization</Data></Cell>
-    <Cell><Data ss:Type="String">The organisation that the practitioner represents</Data></Cell>
-    <Cell><Data ss:Type="String">Need to be able to track the represented organisation separately, if any.</Data></Cell>
+    <Cell><Data ss:Type="String">The organization that the practitioner represents</Data></Cell>
+    <Cell><Data ss:Type="String">Need to be able to track the represented organization separately, if any.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">PRD-10 (-&gt; 14) / PRA-9-Institution / PRT-8-Participation Organization for person participation</Data></Cell>
    </Row>
@@ -304,12 +304,12 @@
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">PractitionerRole</Data></Cell>
     <Cell><Data ss:Type="String">A role the practitioner has</Data></Cell>
-    <Cell><Data ss:Type="String">The way in which the person represents the organisation - what role do they have?</Data></Cell>
+    <Cell><Data ss:Type="String">The way in which the person represents the organization - what role do they have?</Data></Cell>
     <Cell><Data ss:Type="String">Need to know what authority the practitioner has - what can they do?</Data></Cell>
     <Cell><Data ss:Type="String">A person may have more than one role. At least one role is required.</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">PRD-1 / STF-18-job title / PRA-3-practitioner category  / PRT-4-Participation / ROL-3-role-ROL / ORC-12-ordering provider / OBR-16-ordering provider / PV1-7-attending doctor / PV1-8-referring doctor / PV1-9-consulting doctor / PV1-17-admitting doctor&#10;</Data></Cell>
-    <Cell><Data ss:Type="String">We have de-empasized the organisation. So is this no longer the &quot;role&quot; within the organization?</Data></Cell>
+    <Cell><Data ss:Type="String">We have de-empasized the organization. So is this no longer the &quot;role&quot; within the organization?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Practitioner.specialty</Data></Cell>

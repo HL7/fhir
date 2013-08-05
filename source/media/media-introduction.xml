@@ -3,7 +3,7 @@
 <p>The Media resource contains photos, videos, and audio recordings. It is used with media acquired or used as part of the healthcare process. Here are some typical usages:</p>
 <ul>
  <li>Photos of patients and staff for identification purposes</li>
- <li>Photo's and videos of diagnostic or care provision procedures for recording purposes </li>
+ <li>Photos and videos of diagnostic or care provision procedures for recording purposes </li>
  <li>Storing scans and faxes of paper documents where not enough metadata exists to create a <a href="documentreference.htm">DocumentReference</a></li>
  <li>Images on diagnostic reports</li> 
 </ul>

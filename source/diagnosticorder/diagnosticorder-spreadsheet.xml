@@ -16,10 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>5250</WindowHeight>
+  <WindowHeight>5190</WindowHeight>
   <WindowWidth>13680</WindowWidth>
   <WindowTopX>5520</WindowTopX>
-  <WindowTopY>6135</WindowTopY>
+  <WindowTopY>6195</WindowTopY>
+  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -93,13 +94,21 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
+  <Style ss:ID="s75">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R41C16"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R42C16"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="28" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="29" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="156"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="30"/>
@@ -204,7 +213,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The encounter that this diagnostic order is associated with</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A encounter that provides additional informaton about the healthcare context in which this request is made</Data><NamedCell
+    <Cell><Data ss:Type="String">An encounter that provides additional informaton about the healthcare context in which this request is made</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
@@ -249,6 +258,22 @@
     <Cell><Data ss:Type="String">The status of the order</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Typically the system placing the order sets the status to requested. There after, the order is maintained by the receiver that updates the status as the request is handled</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">DiagnosticOrder.priority</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">code</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">DiagnosticOrderPriority</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">normal | urgent | stat</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">The clinical priority associated with this order</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">The Order resource also has a priority. Generally, these should be the same, but they can be different, for instance in the case where the clinician indicates that the order is urgent, but the subsequent workflow process overrule this priority for some reason. The effective default value is &quot;normal&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
@@ -397,13 +422,13 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:Index="23" ss:AutoFitHeight="0">
+   <Row ss:Index="24" ss:AutoFitHeight="0">
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:Index="28" ss:AutoFitHeight="0">
+   <Row ss:Index="29" ss:AutoFitHeight="0">
     <Cell ss:Index="13" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
   </Table>
@@ -419,7 +444,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -439,8 +463,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -713,9 +737,11 @@
     <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">DiagnosticOrderPriority</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The clinical priority of a diagnostic order</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">code list</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">#diagnostic-order-priority</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"/>
@@ -751,7 +777,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>49</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -798,7 +825,7 @@
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="113.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="229.5"/>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
@@ -865,8 +892,61 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="diagnostic-order-priority">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="4" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="34.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="108" ss:Span="1"/>
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="276.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="130.5"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell><Data ss:Type="String">Id</Data></Cell>
+    <Cell><Data ss:Type="String">Code</Data></Cell>
+    <Cell><Data ss:Type="String">Display</Data></Cell>
+    <Cell><Data ss:Type="String">Definition</Data></Cell>
+    <Cell><Data ss:Type="String">Comments</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">normal</Data></Cell>
+    <Cell><Data ss:Type="String">Normal</Data></Cell>
+    <Cell><Data ss:Type="String">The order has no particular priority with it</Data></Cell>
+    <Cell><Data ss:Type="String">This is the effective default if no code is specified</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">urgent</Data></Cell>
+    <Cell><Data ss:Type="String">Urgent</Data></Cell>
+    <Cell><Data ss:Type="String">The order should be urgently</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">stat</Data></Cell>
+    <Cell><Data ss:Type="String">Stat</Data></Cell>
+    <Cell><Data ss:Type="String">The order is time-critical</Data></Cell>
+    <Cell><Data ss:Type="String">Usually the patient's life depends on the outcome of the diagnostic investigation</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

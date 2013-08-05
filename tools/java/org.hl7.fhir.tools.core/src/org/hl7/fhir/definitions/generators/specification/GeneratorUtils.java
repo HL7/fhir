@@ -21,10 +21,10 @@ public class GeneratorUtils {
   		return "datatypes";
     if (name.equals("CodeableConcept"))
       return "datatypes";
-    if (name.equals("Array"))
+    if (name.equals("Quantity"))
       return "datatypes";
-  	if (name.equals("Quantity"))
-  		return "datatypes";
+    if (name.equals("SampledData"))
+      return "datatypes";
   	if (name.equals("Ratio"))
   		return "datatypes";
   	if (name.equals("Age"))

@@ -58,26 +58,26 @@
    <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s67">
-   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s68">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s69">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-  </Style>
-  <Style ss:ID="s70">
-   <Alignment ss:Vertical="Top"/>
-  </Style>
-  <Style ss:ID="s71">
+  <Style ss:ID="s68">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
+  </Style>
+  <Style ss:ID="s69">
+   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s70">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s71">
+   <Alignment ss:Vertical="Top"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -121,7 +121,7 @@
     <Cell ss:StyleID="s65"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">A Response to an order</Data></Cell>
+    <Cell><Data ss:Type="String">A response to an order</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -135,7 +135,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Resource(Order)</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">The order this is a response to</Data></Cell>
+    <Cell><Data ss:Type="String">The order that this is a response to</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ORC-2 / ORC-3</Data></Cell>
@@ -155,7 +155,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ORC-9</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">ORC-9</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -167,7 +167,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Resource(Practitioner|Organization)</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Who made the rResponse</Data></Cell>
+    <Cell><Data ss:Type="String">Who made the response</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Practitioner: ORC-19 / Organization: N/A</Data></Cell>
@@ -199,7 +199,7 @@
     <Cell><Data ss:Type="String">How much the request will/did cost</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">unclear how this would map to V2; FT1 segment isn't explicitly provided for in order responses</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">unclear how this would map to V2; FT1 segment isn't explicitly provided for in order responses</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -213,7 +213,7 @@
     <Cell><Data ss:Type="String">The status of the response</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ORC-1 + ORC-5</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">ORC-1 + ORC-5</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -227,7 +227,7 @@
     <Cell><Data ss:Type="String">Additional description of the response</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ORC-16.2-order control code reason.text</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">ORC-16.2-order control code reason.text</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -241,7 +241,7 @@
     <Cell><Data ss:Type="String">Details of the outcome of performing the order</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">OBR+OBX[n] / RXE / RXD / RXG / RXA / BPX / BTX&#10;</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">OBR+OBX[n] / RXE / RXD / RXG / RXA / BPX / BTX&#10;</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
   </Table>
@@ -272,8 +272,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -282,12 +282,12 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s67" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="115.5"/>
-   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="153"/>
-   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="204.75"/>
-   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="188.25"/>
+   x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="115.5"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="153"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="188.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -387,10 +387,10 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -441,39 +441,39 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">request</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">OrderResponse.request</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OrderResponse.request</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">date</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">OrderResponse.date</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OrderResponse.date</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">who</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">OrderResponse.who</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OrderResponse.who</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">authority</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">OrderResponse.authority</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OrderResponse.authority</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">cost</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">integer</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">OrderResponse.cost</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OrderResponse.cost</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">OrderResponse.code</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OrderResponse.code</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">fulfillment</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">OrderResponse.fulfillment</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OrderResponse.fulfillment</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -631,20 +631,20 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OrderOutcomeCode</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">The status of the response to an order</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#order-outcome-code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

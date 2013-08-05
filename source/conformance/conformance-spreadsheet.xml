@@ -995,7 +995,7 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Content Required</Data></Cell>
     <Cell><Data ss:Type="String">Conformance</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">A Conformance profile must have at least one of rest, messaging or document</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">A Conformance statement must have at least one of rest, messaging or document</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:rest) or exists(f:messaging) or exists(f:document)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -1064,7 +1064,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">resource</Data></Cell>
-    <Cell><Data ss:Type="String">name of a resource mentioned in a conformance profile</Data></Cell>
+    <Cell><Data ss:Type="String">name of a resource mentioned in a conformance statement</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Conformance.rest.resource.type</Data></Cell>
    </Row>
@@ -1251,7 +1251,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Base</Data></Cell>
-    <Cell><Data ss:Type="String">Base Conformance Profile</Data></Cell>
+    <Cell><Data ss:Type="String">Base Conformance Statement</Data></Cell>
     <Cell><Data ss:Type="String">conformance-base</Data></Cell>
     <Cell><Data ss:Type="String">conformance-base.xml</Data></Cell>
     <Cell><Data ss:Type="String">tool</Data></Cell>
