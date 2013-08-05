@@ -531,7 +531,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">Courtesies</Data></Cell>
-    <Cell><Data ss:Type="String">Special courtesies (vip, hospital board member)</Data></Cell>
+    <Cell><Data ss:Type="String">Special courtesies (VIP, hospital board member)</Data></Cell>
     <Cell ss:Index="15" ss:StyleID="s71"><Data ss:Type="String">PV1-16-VIP indicator</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1212,7 +1212,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">current</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">The Encounter has begun and the patient is present / the pracitioner and the patient are meeting</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">The Encounter has begun and the patient is present / the practitioner and the patient are meeting</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>

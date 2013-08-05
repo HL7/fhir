@@ -590,7 +590,7 @@
     <Cell ss:StyleID="s82"><Data ss:Type="String">Organization.identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!accredation</Data></Cell>
+    <Cell><Data ss:Type="String">!accreditation</Data></Cell>
     <Cell><Data ss:Type="String">Any accreditation code</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">Organization.accreditation.code</Data></Cell>
