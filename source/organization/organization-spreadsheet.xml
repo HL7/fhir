@@ -20,6 +20,7 @@
   <WindowWidth>17490</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -257,7 +258,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Address</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">An address for the organization</Data></Cell>
     <Cell><Data ss:Type="String">An address for the organization</Data></Cell>
-    <Cell><Data ss:Type="String">May need to keep track of the organizations addresses for contacting, billing or reporting requirements</Data></Cell>
+    <Cell><Data ss:Type="String">May need to keep track of the organization's addresses for contacting, billing or reporting requirements</Data></Cell>
     <Cell><Data ss:Type="String">Organization may have multiple addresses with different uses or applicable periods. The use code home is not to be used</Data></Cell>
     <Cell><Data ss:Type="String">.address</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">No authoritative equivalent in V2.x; some V2.x segments such as OBX might provide a serialized instance value</Data></Cell>
@@ -428,12 +429,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
-   <TopRowVisible>8</TopRowVisible>
+   <TopRowVisible>5</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>1</ActivePane>
    <Panes>
     <Pane>
@@ -441,8 +441,8 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -468,7 +468,7 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">AtLeastANameOrId</Data></Cell>
     <Cell><Data ss:Type="String">Organization</Data></Cell>
-    <Cell><Data ss:Type="String">The organization must at least have a name or and id, and possibly more</Data></Cell>
+    <Cell><Data ss:Type="String">The organization must at least have a name or an id, and possibly more</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s80"><Data ss:Type="String">count(f:identifier | f:name) &gt; 0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -499,10 +499,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -565,13 +567,13 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">name</Data></Cell>
-    <Cell><Data ss:Type="String">A portion of the Organization's name</Data></Cell>
+    <Cell><Data ss:Type="String">A portion of the organization's name</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">Organization.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">phonetic</Data></Cell>
-    <Cell><Data ss:Type="String">A portion of the Organization's name using some kind of phonetic matching algorithm</Data></Cell>
+    <Cell><Data ss:Type="String">A portion of the organization's name using some kind of phonetic matching algorithm</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s83"/>
    </Row>
@@ -622,7 +624,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

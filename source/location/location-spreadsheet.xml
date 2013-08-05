@@ -20,6 +20,7 @@
   <WindowWidth>19440</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -251,8 +252,8 @@
     <Cell><Data ss:Type="String">Location.position</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The absolute geographic location (from KML)</Data></Cell>
-    <Cell><Data ss:Type="String">The absolute geographic location of the Location, expressed in a KML compatible manner</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">The absolute geographic location </Data></Cell>
+    <Cell><Data ss:Type="String">The absolute geographic location of the Location, expressed in a KML compatible manner (see notes below for KML)</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">For mobile applications and automated route-finding knowing the exact location of the Location is required</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -261,8 +262,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="6"><Data ss:Type="String">decimal</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Longitude (from KML)</Data></Cell>
-    <Cell><Data ss:Type="String">Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Longitude</Data></Cell>
+    <Cell><Data ss:Type="String">Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Location.position.latitude</Data></Cell>
@@ -270,8 +271,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="6"><Data ss:Type="String">decimal</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Lattitude (from KML)</Data></Cell>
-    <Cell><Data ss:Type="String">Lattitude. The value domain and the interpretation are the same as for the text of the lattitude element in KML</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Lattitude</Data></Cell>
+    <Cell><Data ss:Type="String">Lattitude. The value domain and the interpretation are the same as for the text of the lattitude element in KML (see notes below)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Location.position.altitude</Data></Cell>
@@ -279,8 +280,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="6"><Data ss:Type="String">decimal</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Altitude (from KML)</Data></Cell>
-    <Cell><Data ss:Type="String">Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Altitude</Data></Cell>
+    <Cell><Data ss:Type="String">Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Location.provider</Data></Cell>
@@ -334,13 +335,12 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -348,13 +348,16 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -545,7 +548,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">near</Data></Cell>
-    <Cell><Data ss:Type="String">The coordinates expressed as [lat],[long] (refer KML) to find locations near to (servers may search using a square rather than a circle for efficiency)</Data></Cell>
+    <Cell><Data ss:Type="String">The coordinates expressed as [lat],[long] (using KML, see notes) to find locations near to (servers may search using a square rather than a circle for efficiency)</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s63"/>
    </Row>
@@ -662,6 +665,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -681,8 +685,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>7</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -26,7 +26,6 @@
   <WindowWidth>13680</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -132,10 +131,10 @@
    <Protection/>
   </Style>
   <Style ss:ID="s83">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
-  </Style>
-  <Style ss:ID="s171">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+  </Style>
+  <Style ss:ID="s84">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -404,9 +403,8 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">Contact persons need to be identified by name, but it is uncommon to need details about multiple other names for that person</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">./name</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">./name</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PID-5, PID-9</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -424,9 +422,8 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">People have (primary) ways to contact them in some way such as phone, email.</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Person may have multiple ways to be contacted with different uses or applicable periods. &#13;May need to have options for contacting the person urgently, and also to help with identification</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">./telecom</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">./telecom</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PID-13, PID-14</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -444,9 +441,8 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Need to keep track where the contact person can be contacted per postal mail or visited</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">./addr</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">./addr</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PID-11</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -464,9 +460,8 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Needed to address the person correctly</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">./administrativeGender</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">./administrativeGender</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PID-8</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -524,10 +519,9 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">If the patient is non-human, at least a species must be specified</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s77"><Data ss:Type="String">.playedRole[classCode=GEN].scoper[classCode=ANM, determinerCode=KIND].code</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">PID.35</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="17" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -544,10 +538,9 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s77"><Data ss:Type="String">.code</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">PID.37</Data></Cell>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:Index="17" ss:StyleID="s77"/>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -564,10 +557,9 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s77"><Data ss:Type="String">.genderStatusCode</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">N/A</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="17" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -733,10 +725,12 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
+   <TopRowVisible>28</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>12</LeftColumnRightPane>
    <ActivePane>1</ActivePane>
    <Panes>
     <Pane>
@@ -744,7 +738,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>34</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -809,7 +803,7 @@
     <Cell><Data ss:Type="String">Response Resources</Data></Cell>
     <Cell><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="110.25">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
@@ -826,8 +820,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <RangeSelection>R2:R4</RangeSelection>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1001,7 +995,7 @@
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s171"/>
+    <Cell ss:StyleID="s83"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s79"/>
    </Row>
@@ -1010,7 +1004,7 @@
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s171"/>
+    <Cell ss:StyleID="s83"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s79"/>
    </Row>
@@ -1028,7 +1022,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1067,14 +1060,14 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Patient1</Data></Cell>
     <Cell><Data ss:Type="String">Patient 1 for linking</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">pat1</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">pat1</Data></Cell>
     <Cell><Data ss:Type="String">patient-example-a.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Patient2</Data></Cell>
     <Cell><Data ss:Type="String">Patient 2 for linking</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">pat2</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">pat2</Data></Cell>
     <Cell><Data ss:Type="String">patient-example-b.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>

@@ -20,7 +20,6 @@
   <WindowWidth>19440</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>90</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -126,7 +125,7 @@
    <Column ss:Index="12" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="69"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="16" ss:StyleID="s64" ss:Width="80.25"/>
+   <Column ss:Index="16" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="180.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -166,9 +165,9 @@
     <Cell ss:Index="8"><Data ss:Type="String">A identifier for the person as this agent</Data></Cell>
     <Cell><Data ss:Type="String">An identifier that applies to this person in this role</Data></Cell>
     <Cell><Data ss:Type="String">Often, specific identities are assigned for the agent</Data></Cell>
-    <Cell><Data ss:Type="String">The identifier changes when a new/different person steps into the same role</Data></Cell>
-    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">PRD-7 (or XCN.1 Person Identifier)</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">Under &quot;Comments&quot; it said: &quot;The identifier changes when a new/different person steps into the same role&quot;. This depends on business rules, I would assume a new instance is created instead.  did keep the text here just in case.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s68"><Data ss:Type="String">Practitioner.name</Data></Cell>
@@ -309,7 +308,6 @@
     <Cell><Data ss:Type="String">A person may have more than one role. At least one role is required.</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">PRD-1 / STF-18-job title / PRA-3-practitioner category  / PRT-4-Participation / ROL-3-role-ROL / ORC-12-ordering provider / OBR-16-ordering provider / PV1-7-attending doctor / PV1-8-referring doctor / PV1-9-consulting doctor / PV1-17-admitting doctor&#10;</Data></Cell>
-    <Cell><Data ss:Type="String">We have de-empasized the organization. So is this no longer the &quot;role&quot; within the organization?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Practitioner.specialty</Data></Cell>
@@ -327,10 +325,10 @@
     <Cell ss:Index="6"><Data ss:Type="String">Period</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The period during which the person is authorized to perform the service</Data></Cell>
     <Cell><Data ss:Type="String">The period during which the person is authorized to perform the service</Data></Cell>
-    <Cell><Data ss:Type="String">Qualifications are often for a limited period of time, and can be revoked. Even after the agencies is revoked, the fact that it existed must still be recorded</Data></Cell>
+    <Cell><Data ss:Type="String">Even after the agencies is revoked, the fact that it existed must still be recorded</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">PRD-8/9 / PRA-5.4-date of certification&#10;</Data></Cell>
-    <Cell><Data ss:Type="String">Is this separate from the period of validity of the qualification?</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">Is this separate from the period of validity of the qualification?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Practitioner.qualification</Data></Cell>
@@ -349,12 +347,13 @@
     <Cell><Data ss:Type="String">Coded representation of the qualification</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s74"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Practitioner.qualification.period</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Period</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Period during which the qualification is valid</Data></Cell>
     <Cell><Data ss:Type="String">Period during which the qualification is valid</Data></Cell>
+    <Cell><Data ss:Type="String">Qualifications are often for a limited period of time, and can be revoked.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Practitioner.qualification.issuer</Data></Cell>
@@ -378,8 +377,7 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">./languageCode</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">PID-15, NK1-20, LAN-2</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Note: cannot be named &quot;language&quot; because of technical reasons</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="16" ss:StyleID="s71"><Data ss:Type="String">Note: cannot be named &quot;language&quot; because of technical reasons</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -395,11 +393,14 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <TopRowVisible>3</TopRowVisible>
+   <Selected/>
+   <TopRowVisible>8</TopRowVisible>
+   <LeftColumnVisible>2</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>17</ActiveRow>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -564,7 +565,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

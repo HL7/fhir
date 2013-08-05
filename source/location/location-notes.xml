@@ -6,6 +6,6 @@ Notes:
 </h2>
 <ul>
 <li>Locations may range from whole buildings to cabinets; it is possible to relate smaller Locations to their containing bigger Location using the Location.partOf element.</li>
-<li>Location.position is expressed using the same syntax, datum and reference system as Google/OGS's <a href="http://www.opengeospatial.org/standards/kml">KML</a>.</li>
+<li>Location.position is expressed using the same syntax, datum and reference system as used in Google Earth's KML files, see <a href="http://www.opengeospatial.org/standards/kml">Google/OGS's KML</a>.</li>
 </ul>
 </div>
