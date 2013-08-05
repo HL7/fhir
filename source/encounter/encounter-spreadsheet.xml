@@ -21,6 +21,7 @@
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
   <TabRatio>654</TabRatio>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -87,6 +88,10 @@
    <Interior/>
   </Style>
   <Style ss:ID="s72">
+   <Alignment ss:Vertical="Top"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s73">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -95,21 +100,21 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s73">
+  <Style ss:ID="s74">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s74">
+  <Style ss:ID="s75">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s76">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s77">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s77">
+  <Style ss:ID="s78">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -117,13 +122,13 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s78">
+  <Style ss:ID="s79">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s79">
+  <Style ss:ID="s80">
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s80">
+  <Style ss:ID="s81">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -133,12 +138,14 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s83">
+  <Style ss:ID="s84">
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s84">
-   <Alignment ss:Vertical="Top"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  <Style ss:ID="s85">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s86">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -294,7 +301,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ParticipantType</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Role of participant in encounter</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Role of participant in encounter</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="15" ss:StyleID="s71"><Data ss:Type="String">PRT-4-participation</Data></Cell>
@@ -366,7 +373,7 @@
     <Cell><Data ss:Type="String">Reason the encounter takes place</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="15" ss:StyleID="s69"><Data ss:Type="String">EVN-4-event reason code / PV2-3-admit reason (note: PV2-3 is nominally constrained to inpatient admissions; V2.x makes no vocabulary suggestions for PV2-3; would not expect PV2 segment or PV2-3 to be in use in all implementations&#10;)&#10;</Data></Cell>
@@ -511,16 +518,16 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Encounter.hospitalization.diet</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Encounter.hospitalization.diet</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">PatientDiet</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Dietary restrictions for the patient</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Dietary restrictions for the patient</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">Track patients reported dietary restrictions to help with catering requirements</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">PatientDiet</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Dietary restrictions for the patient</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Dietary restrictions for the patient</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s75"><Data ss:Type="String">Track patients reported dietary restrictions to help with catering requirements</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="Default"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">PV1-38-diet type</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -611,7 +618,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -643,12 +649,12 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s75" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="115.5"/>
-   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="153"/>
-   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="204.75"/>
-   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="188.25"/>
+   x:FullRows="1" ss:StyleID="s76" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="115.5"/>
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="153"/>
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="188.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -749,10 +755,10 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -943,20 +949,20 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s76"><Data ss:Type="String">EncounterState</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Current state of the encounter</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s76"><Data ss:Type="String">#encounter-state</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">EncounterState</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Current state of the encounter</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s77"><Data ss:Type="String">#encounter-state</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">EncounterType</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">The type of encounter</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">valueset-encounter-type</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">valueset-encounter-type</Data></Cell>
     <Cell><Data ss:Type="String">A specific code indicating type of service provided</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -967,7 +973,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ParticipantType</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Role of participant in encounter</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Role of participant in encounter</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#participant-type</Data></Cell>
    </Row>
@@ -975,7 +981,7 @@
     <Cell><Data ss:Type="String">Courtesies</Data></Cell>
     <Cell><Data ss:Type="String">Special courtesies</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s78"><Data ss:Type="String">valueset-encounter-special-courtesy</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s79"><Data ss:Type="String">valueset-encounter-special-courtesy</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Arrangements</Data></Cell>
@@ -984,10 +990,10 @@
     <Cell ss:Index="5"><Data ss:Type="String">valueset-encounter-special-arrangements</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">PatientDiet</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Medical, cultural or ethical food preferences to help with catering requirements</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s78"><Data ss:Type="String">valueset-encounter-diet</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">PatientDiet</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Medical, cultural or ethical food preferences to help with catering requirements</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s79"><Data ss:Type="String">valueset-encounter-diet</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Priority</Data></Cell>
@@ -1057,58 +1063,54 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="encounter-class">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="11" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="9" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="102.75"/>
-   <Column ss:Width="231.75"/>
+   <Column ss:Width="639"/>
    <Row ss:AutoFitHeight="0" ss:Height="18">
     <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Definition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">inpatient</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">A patient that stays overnight</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">An encounter during which the patient is hospitalized and stays overnight</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">outpatient</Data></Cell>
-    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">An encounter during which the patient is not hospitalized overnight</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">ambulatory</Data></Cell>
-    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">An encounter where the patient visits the practitioner in his/her office, e.g. a G.P. visit</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">emergency</Data></Cell>
-    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">An encounter where the patient needs urgent care</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="String">home</Data></Cell>
+    <Cell><Data ss:Type="String">An encounter where the practitioner visits the patient at his/her home</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="String">field</Data></Cell>
+    <Cell><Data ss:Type="String">An encounter taking place outside the regular environment for giving care</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">7</Data></Cell>
-    <Cell><Data ss:Type="String">acute</Data></Cell>
+    <Cell><Data ss:Type="String">daytime</Data></Cell>
+    <Cell><Data ss:Type="String">An encounter where the patient needs more prolonged treatment or investigations than outpatients, but who do not need to stay in the hospital overnight</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">8</Data></Cell>
-    <Cell><Data ss:Type="String">non-acute</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">9</Data></Cell>
-    <Cell><Data ss:Type="String">daytime</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="String">virtual</Data></Cell>
+    <Cell><Data ss:Type="String">An encounter that takes place where the patient and practitioner do not physically meet but use electronic means for contact</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1118,11 +1120,18 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>-3</HorizontalResolution>
+    <VerticalResolution>-3</VerticalResolution>
+   </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1136,8 +1145,8 @@
    <Column ss:Width="494.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Definition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -1152,22 +1161,22 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">responsible</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">The practitioner responsible for overseeing a patient's care during a patient encounter</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">The practitioner responsible for overseeing a patient's care during a patient encounter</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">attending</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">The practitioner responsible for overseeing a patient's care during a patient encounter</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">The practitioner responsible for overseeing a patient's care during a patient encounter</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="String">consulting</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">An advisor participating in the service by performing evaluations and making recommendations</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">An advisor participating in the service by performing evaluations and making recommendations</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="String">referrer</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">The practitioner that referred the patient to another practitioner</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">The practitioner that referred the patient to another practitioner</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1201,8 +1210,8 @@
    <Column ss:AutoFitWidth="0" ss:Width="438.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="18">
     <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Definition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -1256,12 +1265,12 @@
    <Column ss:Width="42"/>
    <Column ss:AutoFitWidth="0" ss:Width="191.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Identity</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">In Book</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">example</Data></Cell>
