@@ -309,7 +309,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">The person's  proficiency level of a language</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">A language spoken by the person, with proficiency</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">If a patient does not speak the local language, interpreters may be required, so languages spoken and profiency is an important things to keep track of both for patient and other persons of interest</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">If a patient does not speak the local language, interpreters may be required, so languages spoken and proficiency is an important things to keep track of both for patient and other persons of interest</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">If no language is specified, this *implies* that the default local language is spoken.&#13;If you need to convey proficiency for multiple modes than you need multiple Person.language associations.</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">.LanguageCommunication</Data></Cell>
     <Cell ss:StyleID="s68"/>
