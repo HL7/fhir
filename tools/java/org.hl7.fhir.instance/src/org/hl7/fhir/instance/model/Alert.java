@@ -29,15 +29,15 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 /**
- * Prospective warnings of things that should be taken notice of when providing care to the patient.
+ * Prospective warnings of potential issues when providing care to the patient.
  */
 public class Alert extends Resource {
 
     public enum AlertStatus {
-        active, // A current alert that should be displayed to a user. A system may use the category to determine whoch roles should view the alert.
+        active, // A current alert that should be displayed to a user. A system may use the category to determine which roles should view the alert.
         inactive, // The alert does not need to be displayed any more.
         error, // The alert was added in error, and should no longer be displayed.
         Null; // added to help the parsers
@@ -87,7 +87,7 @@ public class Alert extends Resource {
     }
 
     /**
-     * Allows an alert to be divided int different categories like clinical, administartive etc.
+     * Allows an alert to be divided into different categories like clinical, administrative etc.
      */
     protected CodeableConcept category;
 

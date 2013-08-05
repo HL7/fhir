@@ -223,7 +223,7 @@ public class ProfileGenerator {
       dDst.setMax(Factory.newString_(dSrc.getMaxCardinality().toString()));
     dDst.setMin(Factory.newInteger(dSrc.getMinCardinality()));
     dDst.setMustSupport(Factory.newBoolean(dSrc.isMustSupport()));
-    dDst.setMustUnderstand(Factory.newBoolean(dSrc.isModifier()));
+    dDst.setIsModifier(Factory.newBoolean(dSrc.isModifier()));
     // dDst.
     for (TypeRef t : dSrc.getTypes()) {
       TypeRefComponent type = p.new TypeRefComponent();
@@ -296,7 +296,7 @@ public class ProfileGenerator {
     if (!"".equals(e.getCondition()))
       ce.getDefinition().getCondition().add(Factory.newId(e.getCondition()));
     // we don't know mustSupport here
-    ce.getDefinition().setMustUnderstand(Factory.newBoolean(e.isModifier()));
+    ce.getDefinition().setIsModifier(Factory.newBoolean(e.isModifier()));
     addMapping(p, ce.getDefinition(), "http://loinc.org", e.getMapping(ElementDefn.LOINC_MAPPING));
     addMapping(p, ce.getDefinition(), "http://snomed.info", e.getMapping(ElementDefn.SNOMED_MAPPING));
     addMapping(p, ce.getDefinition(), "http://hl7.org/v3", e.getMapping(ElementDefn.RIM_MAPPING));
@@ -391,7 +391,7 @@ public class ProfileGenerator {
       ce.getDefinition().getType().get(0).setProfile(Factory.newUri(src.getProfile()));
     // todo? conditions, constraints, binding, mapping
     if (src.isModifier())
-      ce.getDefinition().setMustUnderstand(Factory.newBoolean(true));
+      ce.getDefinition().setIsModifier(Factory.newBoolean(true));
     return ce;
   }
 

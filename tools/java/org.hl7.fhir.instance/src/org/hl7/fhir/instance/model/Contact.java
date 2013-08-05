@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 /**
  * All kinds of technology mediated contact details for a person or organisation, including telephone, email, etc.
@@ -161,7 +161,7 @@ public class Contact extends Type {
     }
 
     /**
-     * What kind of contact this is - what communications system is required to make use of the contact.
+     * Telecommunications form for contact - what communications system is required to make use of the contact.
      */
     protected Enumeration<ContactSystem> system;
 

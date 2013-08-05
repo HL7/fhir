@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * Substance.
+ * A homogeneous material with a definite composition used in healthcare.
  */
 public class Substance extends Resource {
 

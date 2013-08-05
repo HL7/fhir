@@ -9,6 +9,7 @@
 </head>
 
 <body>
+[%header%]
 [%sidebar%]
 
 [%maindiv%]
@@ -93,12 +94,12 @@ The metadata properties are key aspects of the resource and how it behaves. For 
   <tr><td>Logical Id</td> <td><a href="datatypes.htm#id">id</a></td> <td>The identity of the resource. 
     Resources always have a known identity and it is constant for the entire lifetime of the resource. Resource identification is <a href="#Identification">discussed further below</a></td></tr>
 	
-  <tr><td>Version Id</td><td><a href="datatypes.htm#id">id</a></td><td>Changed each time the content of the resource changes. 
+  <tr><td>Version Id</td><td><a href="datatypes.htm#id">id</a></td><td>Changes each time the content of the resource changes. 
     Can be referenced in a resource reference (<a href="#Resource">see below</a>). Can be used to ensure that updates are based on the latest version of the resource. 
   <br/>The version can be globally unique, or scoped by the Logical Id. Since version ids must be unique within the scope of a single resource, they are generally either a serially incrementing id 
      scoped by the logical id, or a uuid, though neither of these approaches is required</td></tr>
 	 
-  <tr><td>Last Modified Date</td><td><a href="datatypes.htm#instant">instant</a></td><td>Changed each time the content of the resource 
+  <tr><td>Last Modified Date</td><td><a href="datatypes.htm#instant">instant</a></td><td>Changes each time the content of the resource 
     changes. Can be used by a system or a human to judge the currency of the resource content.   </td></tr>
 	
 </table>
@@ -308,7 +309,7 @@ it is a modifier, and/or which elements the element may modify.
 Generally, elements labelled "Is-Modifier = true" also have a minimum cardinality of 1, to introduce
 certainty in their handling. If the value of such an element is not explicit in the instance, or known 
 by the context, the resource cannot be safely understood. Irrespective of the minimum cardinality, 
-implementations producing resources SHALL ensure that appropriate values for mustUnderstand 
+implementations producing resources SHALL ensure that appropriate values for isModifier 
 elements are provided. Is-Modifier elements SHALL be represented in the narrative summary 
 of the resource.
 </p>
@@ -556,7 +557,7 @@ which version of FHIR an implementation is using.
 </p>
 <p>
 In a typical scenario, mixed versions may need to exist, so applications SHOULD ignore elements 
-that they do not recognize unless they are extensions with a mustUnderstand element with value="true". 
+that they do not recognize unless they are extensions with a isModifier element with value="true". 
 However, in a healthcare context, many application vendors are unwilling to 
 consider this approach because of concerns about clinical risk or 
 technical limitations in their software (i.e. schema based processing). 

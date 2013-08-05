@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -112,7 +112,7 @@ public class Address extends Type {
     protected List<String_> line = new ArrayList<String_>();
 
     /**
-     * The name of the city, town, village or other community or delivery centre.
+     * The name of the city, town, village or other community or delivery center.
      */
     protected String_ city;
 

@@ -6,9 +6,9 @@
     <page title="Introduction" filenme="introduction.htm">
       <page title="Summary" filename="summary.htm"/>
       <page title="Table of Contents" filename="toc.htm"/>
-      <page title="Road map / Overview" filename="overview.htm"/>
+      <page title="Overview" filename="overview.htm"/>
       <page title="Coming Challenges" filename="changes.htm"/>
-      <page title="License / disclaimer / community" filename="legal.htm"/>
+      <page title="License &amp; disclaimer / community" filename="legal.htm"/>
       <page title="EHR FM map" filename="ehr-fm.htm"/>
     </page>
     <page title="Resource Definitions" filename="definitions.htm">
@@ -18,14 +18,14 @@
       <page title="Bundles" filename="bundles.htm"/>
       <page title="Narratives" filename="bundles.htm"/>
       <page title="Extensibility" filename="extensibility.htm">
-        <page title="Example" filename="extensibility-example.htm"/>
+        <page title="Example" filename="extensibility-examples.htm"/>
       </page>
       <page title="Formal Definitions" filename="base-definitions.htm"/>
     </page>
-    <page title="Data Types" filename="datatypes/datatypes.htm"/>
-      <page title="Examples" filename="datatypes/datatypes-examples.htm"/>
-      <page title="Formal Definitions" filename="datatypes/datatypes-definitions.htm"/>
-      <page title="Mappings" filename="datatypes/datatypes-mappings.htm"/>
+    <page title="Data Types" filename="datatypes.htm"/>
+      <page title="Examples" filename="datatypes-examples.htm"/>
+      <page title="Formal Definitions" filename="datatypes-definitions.htm"/>
+      <page title="Mappings" filename="datatypes-mappings.htm"/>
     </page>
     <page title="Using Codes" filename="terminologies.htm">
       <page title="Defined Systems" filename="systems.htm"/>
@@ -48,7 +48,7 @@
     <page title="Security" filename="security.htm"/>
   </page>
   <page title="API (REST)" filename="http-api.htm">
-    <page title="Search / Query" type="resource" resource="query"/>
+    <page title="Search &amp; Query" type="resource" resource="query"/>
     <page title="Documents" type="resource" resource="document"/>
     <page title="Messaging" type="resource" resource="message"/>
   </page>

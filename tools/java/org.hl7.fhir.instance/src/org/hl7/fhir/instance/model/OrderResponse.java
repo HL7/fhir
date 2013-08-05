@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A Response to an order.
+ * A response to an order.
  */
 public class OrderResponse extends Resource {
 
@@ -129,7 +129,7 @@ public class OrderResponse extends Resource {
     }
 
     /**
-     * The order this is a response to.
+     * The order that this is a response to.
      */
     protected ResourceReference request;
 
@@ -139,7 +139,7 @@ public class OrderResponse extends Resource {
     protected DateTime date;
 
     /**
-     * Who made the rResponse.
+     * Who made the response.
      */
     protected ResourceReference who;
 

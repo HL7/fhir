@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -419,17 +419,14 @@ public class ImagingStudy extends Resource {
         cR, // 
         cT, // 
         dG, // 
-        dOC, // 
         dX, // 
         eCG, // 
         ePS, // 
         eS, // 
-        fID, // 
         gM, // 
         hC, // 
         hD, // 
         iO, // 
-        iOL, // 
         iVOCT, // 
         iVUS, // 
         kER, // 
@@ -446,12 +443,10 @@ public class ImagingStudy extends Resource {
         oPT, // 
         oPV, // 
         oT, // 
-        pLAN, // 
         pR, // 
         pT, // 
         pX, // 
         rEG, // 
-        rESP, // 
         rF, // 
         rG, // 
         rTDOSE, // 
@@ -489,8 +484,6 @@ public class ImagingStudy extends Resource {
           return cT;
         if ("DG".equals(codeString))
           return dG;
-        if ("DOC".equals(codeString))
-          return dOC;
         if ("DX".equals(codeString))
           return dX;
         if ("ECG".equals(codeString))
@@ -499,8 +492,6 @@ public class ImagingStudy extends Resource {
           return ePS;
         if ("ES".equals(codeString))
           return eS;
-        if ("FID".equals(codeString))
-          return fID;
         if ("GM".equals(codeString))
           return gM;
         if ("HC".equals(codeString))
@@ -509,8 +500,6 @@ public class ImagingStudy extends Resource {
           return hD;
         if ("IO".equals(codeString))
           return iO;
-        if ("IOL".equals(codeString))
-          return iOL;
         if ("IVOCT".equals(codeString))
           return iVOCT;
         if ("IVUS".equals(codeString))
@@ -543,8 +532,6 @@ public class ImagingStudy extends Resource {
           return oPV;
         if ("OT".equals(codeString))
           return oT;
-        if ("PLAN".equals(codeString))
-          return pLAN;
         if ("PR".equals(codeString))
           return pR;
         if ("PT".equals(codeString))
@@ -553,8 +540,6 @@ public class ImagingStudy extends Resource {
           return pX;
         if ("REG".equals(codeString))
           return rEG;
-        if ("RESP".equals(codeString))
-          return rESP;
         if ("RF".equals(codeString))
           return rF;
         if ("RG".equals(codeString))
@@ -601,17 +586,14 @@ public class ImagingStudy extends Resource {
             case cR: return "CR";
             case cT: return "CT";
             case dG: return "DG";
-            case dOC: return "DOC";
             case dX: return "DX";
             case eCG: return "ECG";
             case ePS: return "EPS";
             case eS: return "ES";
-            case fID: return "FID";
             case gM: return "GM";
             case hC: return "HC";
             case hD: return "HD";
             case iO: return "IO";
-            case iOL: return "IOL";
             case iVOCT: return "IVOCT";
             case iVUS: return "IVUS";
             case kER: return "KER";
@@ -628,12 +610,10 @@ public class ImagingStudy extends Resource {
             case oPT: return "OPT";
             case oPV: return "OPV";
             case oT: return "OT";
-            case pLAN: return "PLAN";
             case pR: return "PR";
             case pT: return "PT";
             case pX: return "PX";
             case rEG: return "REG";
-            case rESP: return "RESP";
             case rF: return "RF";
             case rG: return "RG";
             case rTDOSE: return "RTDOSE";
@@ -677,8 +657,6 @@ public class ImagingStudy extends Resource {
           return Modality.cT;
         if ("DG".equals(codeString))
           return Modality.dG;
-        if ("DOC".equals(codeString))
-          return Modality.dOC;
         if ("DX".equals(codeString))
           return Modality.dX;
         if ("ECG".equals(codeString))
@@ -687,8 +665,6 @@ public class ImagingStudy extends Resource {
           return Modality.ePS;
         if ("ES".equals(codeString))
           return Modality.eS;
-        if ("FID".equals(codeString))
-          return Modality.fID;
         if ("GM".equals(codeString))
           return Modality.gM;
         if ("HC".equals(codeString))
@@ -697,8 +673,6 @@ public class ImagingStudy extends Resource {
           return Modality.hD;
         if ("IO".equals(codeString))
           return Modality.iO;
-        if ("IOL".equals(codeString))
-          return Modality.iOL;
         if ("IVOCT".equals(codeString))
           return Modality.iVOCT;
         if ("IVUS".equals(codeString))
@@ -731,8 +705,6 @@ public class ImagingStudy extends Resource {
           return Modality.oPV;
         if ("OT".equals(codeString))
           return Modality.oT;
-        if ("PLAN".equals(codeString))
-          return Modality.pLAN;
         if ("PR".equals(codeString))
           return Modality.pR;
         if ("PT".equals(codeString))
@@ -741,8 +713,6 @@ public class ImagingStudy extends Resource {
           return Modality.pX;
         if ("REG".equals(codeString))
           return Modality.rEG;
-        if ("RESP".equals(codeString))
-          return Modality.rESP;
         if ("RF".equals(codeString))
           return Modality.rF;
         if ("RG".equals(codeString))
@@ -796,8 +766,6 @@ public class ImagingStudy extends Resource {
         return "CT";
       if (code == Modality.dG)
         return "DG";
-      if (code == Modality.dOC)
-        return "DOC";
       if (code == Modality.dX)
         return "DX";
       if (code == Modality.eCG)
@@ -806,8 +774,6 @@ public class ImagingStudy extends Resource {
         return "EPS";
       if (code == Modality.eS)
         return "ES";
-      if (code == Modality.fID)
-        return "FID";
       if (code == Modality.gM)
         return "GM";
       if (code == Modality.hC)
@@ -816,8 +782,6 @@ public class ImagingStudy extends Resource {
         return "HD";
       if (code == Modality.iO)
         return "IO";
-      if (code == Modality.iOL)
-        return "IOL";
       if (code == Modality.iVOCT)
         return "IVOCT";
       if (code == Modality.iVUS)
@@ -850,8 +814,6 @@ public class ImagingStudy extends Resource {
         return "OPV";
       if (code == Modality.oT)
         return "OT";
-      if (code == Modality.pLAN)
-        return "PLAN";
       if (code == Modality.pR)
         return "PR";
       if (code == Modality.pT)
@@ -860,8 +822,6 @@ public class ImagingStudy extends Resource {
         return "PX";
       if (code == Modality.rEG)
         return "REG";
-      if (code == Modality.rESP)
-        return "RESP";
       if (code == Modality.rF)
         return "RF";
       if (code == Modality.rG)

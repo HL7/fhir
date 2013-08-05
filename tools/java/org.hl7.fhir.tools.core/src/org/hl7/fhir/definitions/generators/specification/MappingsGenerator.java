@@ -90,7 +90,7 @@ public class MappingsGenerator {
 		for (String m : maps) {
 			list.append("|"+titleFor(m) + "#"+m);
 
-			s.append("<a name=\""+m+"\"> </a><h3>Mappings for "+titleFor(m)+" ("+m+")</h3>");
+			s.append("<a name=\""+m+"\"> </a><a name=\""+m.toLowerCase()+"\"> </a><h3>Mappings for "+titleFor(m)+" ("+m+")</h3>");
 			s.append(preamble(m));
 			s.append("<table class=\"grid\">\r\n");
 			genElement(s, 0, resource.getRoot(), m, true);
@@ -112,7 +112,8 @@ public class MappingsGenerator {
 		boolean first = true;
 		for (String m : maps) {
 			list.append("|"+titleFor(m) + "#"+m);
-			s.append("<a name=\""+m+"\"> </a>\r\n");
+      s.append("<a name=\""+m+"\"> </a>\r\n");
+      s.append("<a name=\""+m.toLowerCase()+"\"> </a>\r\n");
 			s.append("<h3>Mappings for "+titleFor(m)+" ("+m+")</h3>\r\n");
 			s.append("<table class=\"grid\">\r\n");
 			for (ElementDefn e : elements) 
@@ -160,6 +161,10 @@ public class MappingsGenerator {
 
 	private void genElement(StringBuilder s, int indent, ElementDefn elem, String m, boolean first) {
 		s.append(" <tr><td>");
+		if (indent == 0) {
+      s.append("<a name=\""+elem.getName()+"\"> </a>");
+      s.append("<a name=\""+elem.getName().toLowerCase()+"\"> </a>");
+		}
 		for (int i = 0; i < indent; i++) {
 			s.append("&nbsp;");
 			s.append("&nbsp;");

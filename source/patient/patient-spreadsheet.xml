@@ -596,7 +596,7 @@
     <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">.LanguageCommunication</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">LAN</Data></Cell>
     <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Rationale for putting this in the core is based on input from Canada. Other persons on call are from single language countries. Committee felt uncomfortable with leaving any of the 3 optional attributes modeCode, proficiencyLevelCode, or preferenceInd up to extensions. Instead we said that mustUnderstand is &quot;no&quot; on modeCode and preferenceInd.</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Rationale for putting this in the core is based on input from Canada. Other persons on call are from single language countries. Committee felt uncomfortable with leaving any of the 3 optional attributes modeCode, proficiencyLevelCode, or preferenceInd up to extensions. Instead we said that isModifier is &quot;no&quot; on modeCode and preferenceInd.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">!Patient.communication.language</Data></Cell>

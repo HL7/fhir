@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -144,7 +144,7 @@ public class Questionnaire extends Resource {
         protected org.hl7.fhir.instance.model.Type data;
 
         /**
-         * The remark contains information about the answer given. This is additional information about the anwer the author wishes to convey, but should not be used to contain information that is part of the answer itself.
+         * The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.
          */
         protected String_ remarks;
 

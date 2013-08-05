@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -1215,6 +1215,8 @@ public class XmlComposer extends XmlComposerBase {
         composeResourceReference("specimen", e);
       if (element.getStatus() != null)
         composeEnumeration("status", element.getStatus(), new DiagnosticOrder().new DiagnosticOrderStatusEnumFactory());
+      if (element.getPriority() != null)
+        composeEnumeration("priority", element.getPriority(), new DiagnosticOrder().new DiagnosticOrderPriorityEnumFactory());
       for (DiagnosticOrder.DiagnosticOrderEventComponent e : element.getEvent()) 
         composeDiagnosticOrderDiagnosticOrderEventComponent("event", e);
       for (DiagnosticOrder.DiagnosticOrderItemComponent e : element.getItem()) 
@@ -2695,7 +2697,7 @@ public class XmlComposer extends XmlComposerBase {
       for (Profile.ElementDefinitionConstraintComponent e : element.getConstraint()) 
         composeProfileElementDefinitionConstraintComponent("constraint", e);
       composeBoolean("mustSupport", element.getMustSupport());
-      composeBoolean("mustUnderstand", element.getMustUnderstand());
+      composeBoolean("isModifier", element.getIsModifier());
       composeUri("binding", element.getBinding());
       for (Profile.ElementDefinitionMappingComponent e : element.getMapping()) 
         composeProfileElementDefinitionMappingComponent("mapping", e);

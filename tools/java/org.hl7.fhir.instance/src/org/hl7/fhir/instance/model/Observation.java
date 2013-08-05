@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -201,7 +201,7 @@ public class Observation extends Resource {
         protected CodeableConcept meaning;
 
         /**
-         * Actual value of the reference range.  May be a quantity (<20mg/L), an range (10-20 umol/L), or some text.
+         * Actual value of the reference range.  May be a quantity (<20mg/L), a range (10-20 umol/L), or some text.
          */
         protected Type range;
 
@@ -282,7 +282,7 @@ public class Observation extends Resource {
     protected CodeableConcept interpretation;
 
     /**
-     * May include statements about significant, unexpected or unreliable. values, or information about the source of the value where this may be relevant to the interpretation of the result.
+     * May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.
      */
     protected String_ comments;
 

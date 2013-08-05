@@ -29,13 +29,13 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
 import java.math.*;
 /**
- * Contact details and position information for a physical place that may be visited and where healthcare resources and participants may be found or contained, accomodated, or stored.
+ * Contact details and position information for a physical place that may be visited and where healthcare resources and participants may be found or contained, accommodated, or stored.
  */
 public class Location extends Resource {
 

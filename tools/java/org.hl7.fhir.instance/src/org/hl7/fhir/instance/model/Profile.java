@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -41,7 +41,7 @@ public class Profile extends Resource {
     public enum ResourceProfileStatus {
         draft, // This profile is still under development.
         active, // This profile is ready for normal use.
-        retired, // This profile has been withdrawn or superceded and should no longer be used.
+        retired, // This profile has been withdrawn or superseded and should no longer be used.
         Null; // added to help the parsers
         public static ResourceProfileStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -661,9 +661,9 @@ public class Profile extends Resource {
         protected Boolean mustSupport;
 
         /**
-         * If true, the element cannot be ignored by systems unless they recognize the element and a pre-determination has been made that it is not relevant to their particular system.
+         * If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they must either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.
          */
-        protected Boolean mustUnderstand;
+        protected Boolean isModifier;
 
         /**
          * Identifies the set of codes that applies to this element if a data type supporting codes is used. The reference can be local - to a Profile.binding.name, or absolute, to a binding.name in another profile.
@@ -889,26 +889,22 @@ public class Profile extends Resource {
           }
         }
 
-        public Boolean getMustUnderstand() { 
-          return this.mustUnderstand;
+        public Boolean getIsModifier() { 
+          return this.isModifier;
         }
 
-        public void setMustUnderstand(Boolean value) { 
-          this.mustUnderstand = value;
+        public void setIsModifier(Boolean value) { 
+          this.isModifier = value;
         }
 
-        public boolean getMustUnderstandSimple() { 
-          return this.mustUnderstand == null ? null : this.mustUnderstand.getValue();
+        public boolean getIsModifierSimple() { 
+          return this.isModifier == null ? null : this.isModifier.getValue();
         }
 
-        public void setMustUnderstandSimple(boolean value) { 
-          if (value == false)
-            this.mustUnderstand = null;
-          else {
-            if (this.mustUnderstand == null)
-              this.mustUnderstand = new Boolean();
-            this.mustUnderstand.setValue(value);
-          }
+        public void setIsModifierSimple(boolean value) { 
+            if (this.isModifier == null)
+              this.isModifier = new Boolean();
+            this.isModifier.setValue(value);
         }
 
         public Uri getBinding() { 
@@ -962,7 +958,7 @@ public class Profile extends Resource {
         for (ElementDefinitionConstraintComponent i : constraint)
           dst.constraint.add(i.copy(e));
         dst.mustSupport = mustSupport == null ? null : mustSupport.copy();
-        dst.mustUnderstand = mustUnderstand == null ? null : mustUnderstand.copy();
+        dst.isModifier = isModifier == null ? null : isModifier.copy();
         dst.binding = binding == null ? null : binding.copy();
         dst.mapping = new ArrayList<ElementDefinitionMappingComponent>();
         for (ElementDefinitionMappingComponent i : mapping)

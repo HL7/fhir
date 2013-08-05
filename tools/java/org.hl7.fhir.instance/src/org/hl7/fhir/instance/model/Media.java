@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A Photo, Video, or audio recording acquired or used in healthcare. The actual content maybe inline or provided by direct reference.
+ * A photo, video, or audio recording acquired or used in healthcare. The actual content maybe inline or provided by direct reference.
  */
 public class Media extends Resource {
 

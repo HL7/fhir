@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -42,7 +42,7 @@ public class Query extends Resource {
         ok, // The query was processed successfully.
         limited, // The query was processed successfully, but some additional limitations were added.
         refused, // The server refused to process the query.
-        error, // The server tried to process the query, but some erorr occurred.
+        error, // The server tried to process the query, but some error occurred.
         Null; // added to help the parsers
         public static QueryOutcome fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -258,7 +258,7 @@ public class Query extends Resource {
     protected Uri identifier;
 
     /**
-     * Set of query parameters with vslues.
+     * Set of query parameters with values.
      */
     protected List<Extension> parameter = new ArrayList<Extension>();
 

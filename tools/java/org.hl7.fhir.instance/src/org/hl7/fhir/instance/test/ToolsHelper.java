@@ -29,6 +29,7 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.hl7.fhir.instance.test;
 
 import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -167,17 +168,21 @@ public class ToolsHelper {
     FileInputStream in;
     File source = new CSFile(args[1]);
     File dest = new CSFile(args[2]);
+    File destt = new CSFile(args[2]+".tmp");
 
     if (!source.exists())        
       throw new Exception("Source File \""+source.getAbsolutePath()+"\" not found");
     in = new CSFileInputStream(source);
     XmlParser p = new XmlParser();
     ResourceOrFeed rf = p.parseGeneral(in);
-    if (rf.getFeed() != null)
-      new JsonComposer().compose(new FileOutputStream(dest), rf.getFeed(), true);
-    else
-      new JsonComposer().compose(new FileOutputStream(dest), rf.getResource(), true);
-    return TextFile.fileToString(dest.getAbsolutePath());
+    if (rf.getFeed() != null) {
+      new JsonComposer().compose(new FileOutputStream(dest), rf.getFeed(), false);
+      new JsonComposer().compose(new FileOutputStream(destt), rf.getFeed(), true);
+    } else {
+      new JsonComposer().compose(new FileOutputStream(dest), rf.getResource(), false);
+      new JsonComposer().compose(new FileOutputStream(destt), rf.getResource(), true);
+    }
+    return TextFile.fileToString(destt.getAbsolutePath());
   }
 
 }

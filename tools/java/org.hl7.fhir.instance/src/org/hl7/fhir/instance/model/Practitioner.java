@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -124,12 +124,12 @@ public class Practitioner extends Resource {
     protected List<Attachment> photo = new ArrayList<Attachment>();
 
     /**
-     * The organisation that the practitioner represents.
+     * The organization that the practitioner represents.
      */
     protected ResourceReference organization;
 
     /**
-     * The way in which the person represents the organisation - what role do they have?.
+     * The way in which the person represents the organization - what role do they have?.
      */
     protected List<CodeableConcept> role = new ArrayList<CodeableConcept>();
 

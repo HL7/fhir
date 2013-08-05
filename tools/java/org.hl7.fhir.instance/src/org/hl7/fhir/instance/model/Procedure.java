@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * An action that is performed on a patient. This can be a physical 'thing' like an operation, or less invasive like counselling or hypnotherapy.
+ * An action that is performed on a patient. This can be a physical 'thing' like an operation, or less invasive like counseling or hypnotherapy.
  */
 public class Procedure extends Resource {
 
@@ -87,7 +87,7 @@ public class Procedure extends Resource {
         protected ResourceReference person;
 
         /**
-         * Eg surgeon, anaethetist, endoscopist.
+         * E.g. surgeon, anaethetist, endoscopist.
          */
         protected CodeableConcept role;
 
@@ -123,7 +123,7 @@ public class Procedure extends Resource {
         protected Enumeration<ProcedureRelationshipType> type;
 
         /**
-         * The related item - eg a procedure.
+         * The related item - e.g. a procedure.
          */
         protected ResourceReference target;
 
@@ -172,12 +172,12 @@ public class Procedure extends Resource {
     protected ResourceReference subject;
 
     /**
-     * The specific procedure that is perfromed.
+     * The specific procedure that is performed.
      */
     protected CodeableConcept type;
 
     /**
-     * Detailed and structured anatomical location information. Multiple locations are allowed - eg multiple punch biopsies of a lesion.
+     * Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion.
      */
     protected List<CodeableConcept> bodySite = new ArrayList<CodeableConcept>();
 
@@ -192,7 +192,7 @@ public class Procedure extends Resource {
     protected List<ProcedurePerformerComponent> performer = new ArrayList<ProcedurePerformerComponent>();
 
     /**
-     * The dates over which the period was perfromed. Allows a period to support complex procedures that span more that one date, and also allows for the length of the procedure to be captured.
+     * The dates over which the period was performed. Allows a period to support complex procedures that span more that one date, and also allows for the length of the procedure to be captured.
      */
     protected Period date;
 
@@ -207,27 +207,27 @@ public class Procedure extends Resource {
     protected String_ outcome;
 
     /**
-     * This could be a histology result. There could potentially be multiple reports - eg if this was a procedure that made multiple biopsies.
+     * This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies.
      */
     protected List<ResourceReference> report = new ArrayList<ResourceReference>();
 
     /**
-     * Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, whicg typically will describe the procedure itself rather than any 'post procedure' issues.
+     * Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, which typically will describe the procedure itself rather than any 'post procedure' issues.
      */
     protected String_ complication;
 
     /**
-     * If the procedure required specific follow up - eg removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.
+     * If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.
      */
     protected String_ followUp;
 
     /**
-     * Procedures may be related to other items such as procedures or medciations. For example treating wound dehiscence following a previous procedure.
+     * Procedures may be related to other items such as procedures or medications. For example treating wound dehiscence following a previous procedure.
      */
     protected List<ProcedureRelatedItemComponent> relatedItem = new ArrayList<ProcedureRelatedItemComponent>();
 
     /**
-     * Any other notes about the procedure - eg the operative notes.
+     * Any other notes about the procedure - e.g. the operative notes.
      */
     protected String_ notes;
 

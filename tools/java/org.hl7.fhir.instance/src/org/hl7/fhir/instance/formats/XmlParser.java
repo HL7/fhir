@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -1827,6 +1827,8 @@ public class XmlParser extends XmlParserBase {
         res.getSpecimen().add(parseResourceReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
         res.setStatus(parseEnumeration(xpp, DiagnosticOrder.DiagnosticOrderStatus.Null, new DiagnosticOrder().new DiagnosticOrderStatusEnumFactory()));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("priority")) {
+        res.setPriority(parseEnumeration(xpp, DiagnosticOrder.DiagnosticOrderPriority.Null, new DiagnosticOrder().new DiagnosticOrderPriorityEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("event")) {
         res.getEvent().add(parseDiagnosticOrderDiagnosticOrderEventComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("item")) {
@@ -4161,8 +4163,8 @@ public class XmlParser extends XmlParserBase {
         res.getConstraint().add(parseProfileElementDefinitionConstraintComponent(xpp, owner));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("mustSupport")) {
         res.setMustSupport(parseBoolean(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("mustUnderstand")) {
-        res.setMustUnderstand(parseBoolean(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("isModifier")) {
+        res.setIsModifier(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("binding")) {
         res.setBinding(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("mapping")) {

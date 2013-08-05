@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -1586,7 +1586,7 @@ public class Conformance extends Resource {
     protected List<Contact> telecom = new ArrayList<Contact>();
 
     /**
-     * A free text natural language description of the conformance statement and its use. Typically, thsis is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
+     * A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
      */
     protected String_ description;
 

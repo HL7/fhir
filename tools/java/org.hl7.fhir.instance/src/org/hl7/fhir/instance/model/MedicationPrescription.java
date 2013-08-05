@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -39,11 +39,11 @@ import java.util.*;
 public class MedicationPrescription extends Resource {
 
     public enum MedicationPrescriptionStatus {
-        active, // The prescription is 'actionable', but not all actions that are implied by it have occured yet.
+        active, // The prescription is 'actionable', but not all actions that are implied by it have occurred yet.
         suspended, // Actions implied by the prescription have been temporarily halted, but are expected to continue later.  May also be called "held".
-        completed, // All actions that are implied by the prescription have occured (this will rarely be made explicit).
+        completed, // All actions that are implied by the prescription have occurred (this will rarely be made explicit).
         enteredInError, // The prescription was entered in error and therefore nullified.
-        stopped, // Actions implied by the prescription have been permanently halted, before all of them occured.
+        stopped, // Actions implied by the prescription have been permanently halted, before all of them occurred.
         obsolete, // The prescription was replaced by a newer one, which encompasses all the information in the previous one.
         Null; // added to help the parsers
         public static MedicationPrescriptionStatus fromCode(String codeString) throws Exception {

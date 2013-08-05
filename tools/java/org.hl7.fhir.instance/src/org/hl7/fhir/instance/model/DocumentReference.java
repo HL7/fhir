@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ public class DocumentReference extends Resource {
 
     public enum DocumentReferenceStatus {
         current, // This is the current reference for this document.
-        superceded, // This reference has been superceded by another reference.
+        superseded, // This reference has been superseded by another reference.
         error, // This reference was created in error.
         Null; // added to help the parsers
         public static DocumentReferenceStatus fromCode(String codeString) throws Exception {
@@ -48,8 +48,8 @@ public class DocumentReference extends Resource {
                 return null;
         if ("current".equals(codeString))
           return current;
-        if ("superceded".equals(codeString))
-          return superceded;
+        if ("superseded".equals(codeString))
+          return superseded;
         if ("error".equals(codeString))
           return error;
         throw new Exception("Unknown DocumentReferenceStatus code '"+codeString+"'");
@@ -57,7 +57,7 @@ public class DocumentReference extends Resource {
         public String toCode() {
           switch (this) {
             case current: return "current";
-            case superceded: return "superceded";
+            case superseded: return "superseded";
             case error: return "error";
             default: return "?";
           }
@@ -71,8 +71,8 @@ public class DocumentReference extends Resource {
                 return null;
         if ("current".equals(codeString))
           return DocumentReferenceStatus.current;
-        if ("superceded".equals(codeString))
-          return DocumentReferenceStatus.superceded;
+        if ("superseded".equals(codeString))
+          return DocumentReferenceStatus.superseded;
         if ("error".equals(codeString))
           return DocumentReferenceStatus.error;
         throw new Exception("Unknown DocumentReferenceStatus code '"+codeString+"'");
@@ -80,8 +80,8 @@ public class DocumentReference extends Resource {
     public String toCode(Enum<?> code) throws Exception {
       if (code == DocumentReferenceStatus.current)
         return "current";
-      if (code == DocumentReferenceStatus.superceded)
-        return "superceded";
+      if (code == DocumentReferenceStatus.superseded)
+        return "superseded";
       if (code == DocumentReferenceStatus.error)
         return "error";
       return "?";
@@ -274,7 +274,7 @@ public class DocumentReference extends Resource {
     protected ResourceReference subject;
 
     /**
-     * Specifies the particular kind of document (e.g. Patient Summary, Discharge Summary, Prescription, etc).
+     * Specifies the particular kind of document (e.g. Patient Summary, Discharge Summary, Prescription, etc.).
      */
     protected CodeableConcept type;
 

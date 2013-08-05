@@ -62,20 +62,29 @@ public class NarrativeGenerator {
     XhtmlNode h = x.addTag("h2");
     h.addText(vs.getNameSimple());
     XhtmlNode p = x.addTag("p");
-    p.addText(vs.getDescriptionSimple());
+    smartAddText(p, vs.getDescriptionSimple());
     if (vs.getCopyright() != null)
       generateCopyright(x, vs);
     p = x.addTag("p");
     p.addText("This value set defines it's own terms in the system "+vs.getDefine().getSystemSimple());
     XhtmlNode t = x.addTag("table");
-    boolean comments = false;
+    boolean commentS = false;
     for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
-      comments = comments || conceptsHaveComments(c);
+      commentS = commentS || conceptsHaveComments(c);
     }
-    addTableHeaderRowStandard(t, comments);
+    addTableHeaderRowStandard(t, commentS);
     for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
-      addDefineRowToTable(t, c, 0, comments);
+      addDefineRowToTable(t, c, 0, commentS);
     }    
+  }
+
+  private void smartAddText(XhtmlNode p, String text) {
+    String[] lines = text.split("\\r\\n");
+    for (int i = 0; i < lines.length; i++) {
+      if (i > 0)
+        p.addTag("br");
+      p.addText(lines[i]);
+    }
   }
 
   private boolean conceptsHaveComments(ValueSetDefineConceptComponent c) {
@@ -90,7 +99,7 @@ public class NarrativeGenerator {
   private void generateCopyright(XhtmlNode x, ValueSet vs) {
     XhtmlNode p = x.addTag("p");
     p.addTag("b").addText("Copyright Statement:");
-    p.addText(" " + vs.getCopyrightSimple());
+    smartAddText(p, " " + vs.getCopyrightSimple());
   }
 
 
@@ -120,12 +129,12 @@ public class NarrativeGenerator {
       td.addText(c.getDisplaySimple());
     td = tr.addTag("td");
     if (c.getDefinitionSimple() != null)
-      td.addText(c.getDefinitionSimple());
+      smartAddText(td, c.getDefinitionSimple());
     if (comment) {
       td = tr.addTag("td");
       s = ToolingExtensions.getComment(c);
       if (s != null)
-        td.addText(s);      
+        smartAddText(td, s);      
     }
     for (ValueSetDefineConceptComponent cc : c.getConcept()) {
       addDefineRowToTable(t, cc, i+1, comment);
@@ -138,7 +147,7 @@ public class NarrativeGenerator {
       XhtmlNode h = x.addTag("h2");
       h.addText(vs.getNameSimple());
       XhtmlNode p = x.addTag("p");
-      p.addText(vs.getDescriptionSimple());
+      smartAddText(p, vs.getDescriptionSimple());
       if (vs.getCopyright() != null)
         generateCopyright(x, vs);
       p = x.addTag("p");
@@ -209,12 +218,12 @@ public class NarrativeGenerator {
           
           td = tr.addTag("td");
           if (c.hasExtension(ToolingExtensions.EXT_DEFINITION))
-            td.addText(ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_DEFINITION));
+            smartAddText(td, ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_DEFINITION));
           else if (cc != null && !Utilities.noString(cc.getDefinitionSimple()))
-            td.addText(cc.getDefinitionSimple());
+            smartAddText(td, cc.getDefinitionSimple());
 
           if (c.hasExtension(ToolingExtensions.EXT_COMMENT)) {
-            tr.addTag("td").addText("Note: "+ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_COMMENT));
+            smartAddText(tr.addTag("td"), "Note: "+ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_COMMENT));
           }
         }
       }
@@ -356,7 +365,7 @@ public class NarrativeGenerator {
     					d = true;
     				td.addText(s.getValue());      		
     			}
-    			tr.addTag("td").addText(i.getDetailsSimple());
+    			smartAddText(tr.addTag("td"), i.getDetailsSimple());
     			if (hasType)
     				tr.addTag("td").addText(gen(i.getType()));
     			if (hasSource)
@@ -395,7 +404,7 @@ public class NarrativeGenerator {
     x.setNodeType(NodeType.Element);
     x.setName("div");
     x.addTag("h2").addText(conf.getNameSimple());
-    x.addTag("p").addText(conf.getDescriptionSimple());
+    smartAddText(x.addTag("p"), conf.getDescriptionSimple());
     ConformanceRestComponent rest = conf.getRest().get(0);
     XhtmlNode t = x.addTag("table");
     addTableRow(t, "Mode", rest.getModeSimple().toString());

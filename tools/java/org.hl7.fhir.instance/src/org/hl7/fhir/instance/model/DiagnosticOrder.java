@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -132,6 +132,56 @@ public class DiagnosticOrder extends Resource {
         return "rejected";
       if (code == DiagnosticOrderStatus.failed)
         return "failed";
+      return "?";
+      }
+    }
+
+    public enum DiagnosticOrderPriority {
+        normal, // The order has no particular priority with it.
+        urgent, // The order should be urgently.
+        stat, // The order is time-critical.
+        Null; // added to help the parsers
+        public static DiagnosticOrderPriority fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("normal".equals(codeString))
+          return normal;
+        if ("urgent".equals(codeString))
+          return urgent;
+        if ("stat".equals(codeString))
+          return stat;
+        throw new Exception("Unknown DiagnosticOrderPriority code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case normal: return "normal";
+            case urgent: return "urgent";
+            case stat: return "stat";
+            default: return "?";
+          }
+        }
+    }
+
+  public class DiagnosticOrderPriorityEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("normal".equals(codeString))
+          return DiagnosticOrderPriority.normal;
+        if ("urgent".equals(codeString))
+          return DiagnosticOrderPriority.urgent;
+        if ("stat".equals(codeString))
+          return DiagnosticOrderPriority.stat;
+        throw new Exception("Unknown DiagnosticOrderPriority code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == DiagnosticOrderPriority.normal)
+        return "normal";
+      if (code == DiagnosticOrderPriority.urgent)
+        return "urgent";
+      if (code == DiagnosticOrderPriority.stat)
+        return "stat";
       return "?";
       }
     }
@@ -310,7 +360,7 @@ public class DiagnosticOrder extends Resource {
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * A encounter that provides additional informaton about the healthcare context in which this request is made.
+     * An encounter that provides additional informaton about the healthcare context in which this request is made.
      */
     protected ResourceReference encounter;
 
@@ -328,6 +378,11 @@ public class DiagnosticOrder extends Resource {
      * The status of the order.
      */
     protected Enumeration<DiagnosticOrderStatus> status;
+
+    /**
+     * The clinical priority associated with this order.
+     */
+    protected Enumeration<DiagnosticOrderPriority> priority;
 
     /**
      * A summary of the events of interest that have occurred as the request is processed.
@@ -415,6 +470,28 @@ public class DiagnosticOrder extends Resource {
       }
     }
 
+    public Enumeration<DiagnosticOrderPriority> getPriority() { 
+      return this.priority;
+    }
+
+    public void setPriority(Enumeration<DiagnosticOrderPriority> value) { 
+      this.priority = value;
+    }
+
+    public DiagnosticOrderPriority getPrioritySimple() { 
+      return this.priority == null ? null : this.priority.getValue();
+    }
+
+    public void setPrioritySimple(DiagnosticOrderPriority value) { 
+      if (value == null)
+        this.priority = null;
+      else {
+        if (this.priority == null)
+          this.priority = new Enumeration<DiagnosticOrderPriority>();
+        this.priority.setValue(value);
+      }
+    }
+
     public List<DiagnosticOrderEventComponent> getEvent() { 
       return this.event;
     }
@@ -436,6 +513,7 @@ public class DiagnosticOrder extends Resource {
         for (ResourceReference i : specimen)
           dst.specimen.add(i.copy());
         dst.status = status == null ? null : status.copy();
+        dst.priority = priority == null ? null : priority.copy();
         dst.event = new ArrayList<DiagnosticOrderEventComponent>();
         for (DiagnosticOrderEventComponent i : event)
           dst.event.add(i.copy(dst));

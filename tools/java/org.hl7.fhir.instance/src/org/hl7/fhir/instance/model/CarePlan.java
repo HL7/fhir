@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -151,7 +151,7 @@ public class CarePlan extends Resource {
         drug, // Plan for the patient to consume/receive a drug, vaccine or other product.
         encounter, // Plan to meet or communicate with the patient (in-patient, out-patient, phone call, etc.).
         observation, // Plan to capture information about a patient (vitals, labs, diagnostic images, etc.).
-        procedure, // Plan to modify the patient in some way (surgery, physio-therapy, education, counselling, etc.).
+        procedure, // Plan to modify the patient in some way (surgery, physiotherapy, education, counseling, etc.).
         supply, // Plan to provide something to the patient (medication, medical supply, etc.).
         other, // Some other form of action.
         Null; // added to help the parsers

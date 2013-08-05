@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -1335,6 +1335,8 @@ public class JsonComposer extends JsonComposerBase {
       };
       if (element.getStatus() != null)
         composeEnumeration("status", element.getStatus(), new DiagnosticOrder().new DiagnosticOrderStatusEnumFactory());
+      if (element.getPriority() != null)
+        composeEnumeration("priority", element.getPriority(), new DiagnosticOrder().new DiagnosticOrderPriorityEnumFactory());
       if (element.getEvent().size() > 0) {
         openArray("event");
         for (DiagnosticOrder.DiagnosticOrderEventComponent e : element.getEvent()) 
@@ -3186,7 +3188,7 @@ public class JsonComposer extends JsonComposerBase {
         closeArray();
       };
       composeBoolean("mustSupport", element.getMustSupport());
-      composeBoolean("mustUnderstand", element.getMustUnderstand());
+      composeBoolean("isModifier", element.getIsModifier());
       composeUri("binding", element.getBinding());
       if (element.getMapping().size() > 0) {
         openArray("mapping");

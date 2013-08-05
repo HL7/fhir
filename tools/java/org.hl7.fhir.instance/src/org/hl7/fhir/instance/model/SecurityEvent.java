@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -108,7 +108,7 @@ public class SecurityEvent extends Resource {
         _0, // The operation completed successfully (whether with warnings or not).
         _4, // The action was not successful due to some kind of catered for error (often equivalent to an HTTP 400 response).
         _8, // The action was not successful due to some kind of unexpected error (often equivalent to an HTTP 500 response).
-        _12, // An error of such magnitude occurred that the system is not longer availkable for use (i.e. the system died).
+        _12, // An error of such magnitude occurred that the system is not longer available for use (i.e. the system died).
         Null; // added to help the parsers
         public static SecurityEventOutcome fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))

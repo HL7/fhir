@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -199,7 +199,7 @@ public class List_ extends Resource {
     protected Boolean ordered;
 
     /**
-     * How this list was prepared - whether it is a working list that is suitable for being maintained in an ongoing basis, or if it represents a snapshort of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
+     * How this list was prepared - whether it is a working list that is suitable for being maintained in an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
      */
     protected Enumeration<ListMode> mode;
 

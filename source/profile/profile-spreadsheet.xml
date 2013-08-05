@@ -1106,27 +1106,27 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Allows a profile to set expectations for system capabilities beyond merely respecting cardinality constraints</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">&quot;Something useful&quot; is context dependent.  Key test is what would a reasonable observer expect of a system that explicitly claims to &quot;support&quot; this element</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">&quot;Something useful&quot; is context dependent. This flag is never set to true by the FHIR specification itself - it is only set to true in profiles, and when the profile sets it true, it must describe what it means for applications to support the element. In general, the question is what would a reasonable observer expect of a system that explicitly claims to &quot;support&quot; this element?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">Profile.structure.element.definition.mustUnderstand</Data><NamedCell
+    <Cell><Data ss:Type="String">Profile.structure.element.definition.isModifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="4" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">boolean</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">If the element must be understood</Data><NamedCell
+    <Cell><Data ss:Type="String">If this modifies the meaning of other elements</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">If true, the element cannot be ignored by systems unless they recognize the element and a pre-determination has been made that it is not relevant to their particular system</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they must either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Allows elements to be introduced into a specification that can't safely be ignored by applications that don't recognize them</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MustUnderstand elements can be ignored by applications that recognize the element and know that the element is not relevant in the context of their system.</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Only the definition of an element can set IsModifier true - either the specification itself or where an extension is originally defined. Once set to false, it cannot be set to true in derived profiles. An element/extension that has isModifier=true SHOULD also have a minimum cardinality of 1, so that there is no lack of clarity about what to do if it is missing. If it can be missing, the definition SHALL make the meaning of a missing element clear</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -1494,7 +1494,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>34</TopRowBottomPane>
+   <TopRowBottomPane>40</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1511,8 +1511,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>47</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>49</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1635,8 +1635,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>14</ActiveRow>
-     <RangeSelection>R15</RangeSelection>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -1426,6 +1426,8 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("status"))
       res.setStatus(parseEnumeration(json.getJSONObject("status"), DiagnosticOrder.DiagnosticOrderStatus.Null, new DiagnosticOrder().new DiagnosticOrderStatusEnumFactory()));
+    if (json.has("priority"))
+      res.setPriority(parseEnumeration(json.getJSONObject("priority"), DiagnosticOrder.DiagnosticOrderPriority.Null, new DiagnosticOrder().new DiagnosticOrderPriorityEnumFactory()));
     if (json.has("event")) {
       JSONArray array = json.getJSONArray("event");
       for (int i = 0; i < array.length(); i++) {
@@ -3553,8 +3555,8 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("mustSupport"))
       res.setMustSupport(parseBoolean(json.getJSONObject("mustSupport")));
-    if (json.has("mustUnderstand"))
-      res.setMustUnderstand(parseBoolean(json.getJSONObject("mustUnderstand")));
+    if (json.has("isModifier"))
+      res.setIsModifier(parseBoolean(json.getJSONObject("isModifier")));
     if (json.has("binding"))
       res.setBinding(parseUri(json.getJSONObject("binding")));
     if (json.has("mapping")) {

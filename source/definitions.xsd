@@ -51,7 +51,7 @@
         <xs:element ref="conformance"/>
         <xs:element ref="types" minOccurs="0"/>
         <xs:element ref="conceptDomain" minOccurs="0"/>
-        <xs:element ref="mustUnderstand"/>
+        <xs:element ref="isModifier"/>
         <xs:element ref="definition"/>
         <xs:element ref="requirements"/>
         <xs:element ref="comments" minOccurs="0"/>
@@ -80,7 +80,7 @@
         <xs:element ref="conformance"/>
         <xs:element ref="types"/>
         <xs:element ref="conceptDomain" minOccurs="0"/>
-        <xs:element ref="mustUnderstand"/>
+        <xs:element ref="isModifier"/>
         <xs:element ref="definition"/>
         <xs:element ref="requirements"/>
         <xs:element ref="comments" minOccurs="0"/>
@@ -186,15 +186,14 @@
       </xs:restriction>
     </xs:simpleType>
   </xs:element>
-  <xs:element name="mustUnderstand">
+  <xs:element name="isModifier">
     <xs:annotation>
-      <xs:documentation>Whether the extension must be understood by any system reading the resource. There is 3 possible values: "true" - the extension must be understood, "false" - the extension does not need to be understood, and "sender" - the sender can decide whether the extension needs to be understood</xs:documentation>
+      <xs:documentation>Whether the extension must be understood by any system reading the resource. Boolean</xs:documentation>
     </xs:annotation>
     <xs:simpleType>
-      <xs:restriction base="xs:string">
+      <xs:restriction base="xs:boolean">
         <xs:enumeration value="true"/>
         <xs:enumeration value="false"/>
-        <xs:enumeration value="sender"/>
       </xs:restriction>
     </xs:simpleType>
   </xs:element>

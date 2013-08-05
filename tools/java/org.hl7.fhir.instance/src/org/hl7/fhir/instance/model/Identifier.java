@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 /**
  * A technical identifier - identifies some entity uniquely and unambiguously.
@@ -112,7 +112,7 @@ public class Identifier extends Type {
     protected Period period;
 
     /**
-     * Organisation that issued/manages the identifier.
+     * Organization that issued/manages the identifier.
      */
     protected ResourceReference assigner;
 

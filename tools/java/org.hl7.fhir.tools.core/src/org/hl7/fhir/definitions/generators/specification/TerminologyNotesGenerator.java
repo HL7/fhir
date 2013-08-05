@@ -149,7 +149,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
         write("<td>Unknown</td><td valign=\"top\">No details provided yet</td>");
       else {
         if (cd.isExample())
-          write("<td>Example</td>");
+          write("<td><a href=\"terminologies.htm#example\">Example</a></td>");
         else if (cd.getBinding() == Binding.CodeList)
           write("<td><a href=\"terminologies.htm#code\">Fixed</a></td>");
         else

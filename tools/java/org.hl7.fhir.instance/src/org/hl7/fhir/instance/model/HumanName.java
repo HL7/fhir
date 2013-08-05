@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -41,7 +41,7 @@ public class HumanName extends Type {
     public enum NameUse {
         usual, // Known as/conventional/the one you normally use.
         official, // The formal name as registered in an official (government) registry, but which name might not be commonly used. May be called "legal name".
-        temp, // A temporary name. A name valid time can provide more detailed information. This may also be used for temporary names assigned at birth or in emergency situations.
+        temp, // A temporary name. Name.period can provide more detailed information. This may also be used for temporary names assigned at birth or in emergency situations.
         nickname, // A name that is used to address the person in an informal manner, but is not part of their formal or usual name.
         anonymous, // Anonymous assigned name, alias, or pseudonym (used to protect a person's identity for privacy reasons).
         old, // This name is no longer in use (or was never correct, but retained for records).

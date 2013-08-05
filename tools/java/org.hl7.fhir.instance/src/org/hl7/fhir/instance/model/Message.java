@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A transmission requesting action on a bundle of one or more resources or a response to such a request.
+ * The root for a transmission either requesting or responding to an action.  The resource(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle of which the Message resource instance is the first resource in the bundle.
  */
 public class Message extends Resource {
 
@@ -405,7 +405,7 @@ public class Message extends Resource {
     protected MessageDestinationComponent destination;
 
     /**
-     * The person or device that performed the data entry leading to this Message. Where there is more than one candidate, pick the most proximal to the Message. Can provide other enterers in extensions.
+     * The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.
      */
     protected ResourceReference enterer;
 
@@ -430,7 +430,7 @@ public class Message extends Resource {
     protected Period effective;
 
     /**
-     * The cause of the event - a reason for the event that is a focus of this message occurred.
+     * Coded indication of the cause for the event - indicates  a reason for the occurance of the event that is a focus of this message.
      */
     protected CodeableConcept reason;
 

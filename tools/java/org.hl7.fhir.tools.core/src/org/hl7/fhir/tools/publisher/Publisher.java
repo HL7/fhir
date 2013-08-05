@@ -88,6 +88,7 @@ import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.parsers.SourceParser;
 import org.hl7.fhir.definitions.validation.ProfileValidator;
 import org.hl7.fhir.definitions.validation.ResourceValidator;
+import org.hl7.fhir.definitions.validation.ValueSetValidator;
 import org.hl7.fhir.instance.formats.AtomComposer;
 import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.XmlBase;
@@ -344,6 +345,8 @@ public class Publisher {
         Utilities.clearDirectory(page.getFolders().rootDir+"temp"+File.separator+"hl7"+File.separator+"web");
         Utilities.clearDirectory(page.getFolders().rootDir+"temp"+File.separator+"hl7"+File.separator+"dload");
 			}
+			page.getBreadCrumbManager().parse(page.getFolders().srcDir+"heirarchy.xml");
+			
 			prsr.parse(page.getGenDate(), page.getVersion());
 			defineSpecialValues();
 
@@ -593,7 +596,7 @@ public class Publisher {
 	private boolean initialize(String folder) throws Exception {
 		page.setDefinitions(new Definitions());
 		page.setFolders(new FolderManager(folder));
-
+		
 		log("Checking Source for " + folder);
 
 		List<String> errors = new ArrayList<String>();
@@ -610,7 +613,8 @@ public class Publisher {
 			Utilities.checkFolder(page.getFolders().xsdDir, errors);
 			for (PlatformGenerator gen : page.getReferenceImplementations())
 				Utilities.checkFolder(page.getFolders().implDir(gen.getName()),errors);
-			checkFile("required", page.getFolders().srcDir, "fhir-all.xsd", errors, "all");
+      checkFile("required", page.getFolders().srcDir, "heirarchy.xml", errors, "all");
+      checkFile("required", page.getFolders().srcDir, "fhir-all.xsd", errors, "all");
 			checkFile("required", page.getFolders().srcDir, "header.htm", errors, "all");
 			checkFile("required", page.getFolders().srcDir, "footer.htm", errors, "all");
 			checkFile("required", page.getFolders().srcDir, "template.htm", errors, "all");
@@ -1291,6 +1295,8 @@ public class Publisher {
     vs.setText(new Narrative());
     vs.getText().setStatusSimple(NarrativeStatus.generated); 
     vs.getText().setDiv(new XhtmlParser().parse("<div>"+s.toString()+"</div>", "div").getElement("div"));
+    new ValueSetValidator(page.getDefinitions(), "v3: "+id).validate(vs, false);
+    
     return vs;
   }
   
@@ -1412,6 +1418,7 @@ public class Publisher {
     }
     NarrativeGenerator gen = new NarrativeGenerator();
     gen.generate(vs, page.getCodeSystems(), page.getValueSets());
+    new ValueSetValidator(page.getDefinitions(), "v3: "+id).validate(vs, false);
     return vs;
 
     
@@ -1523,6 +1530,7 @@ public class Publisher {
     vs.setText(new Narrative());
     vs.getText().setStatusSimple(NarrativeStatus.additional); // because we add v2 versioning information
     vs.getText().setDiv(new XhtmlParser().parse("<div>"+s.toString()+"</div>", "div").getElement("div"));
+    new ValueSetValidator(page.getDefinitions(), "v2: "+id).validate(vs, false);
     return vs;
   }
     
@@ -1602,6 +1610,7 @@ public class Publisher {
     vs.setText(new Narrative());
     vs.getText().setStatusSimple(NarrativeStatus.additional); // because we add v2 versioning information
     vs.getText().setDiv(new XhtmlParser().parse("<div>"+s.toString()+"</div>", "div").getElement("div"));
+    new ValueSetValidator(page.getDefinitions(), "v2/v"+version+": "+id).validate(vs, false);
     return vs;
   }
   private void analyseV2() throws Exception {
@@ -1980,8 +1989,9 @@ public class Publisher {
 		if (xdoc.getDocumentElement().getLocalName().equals("ValueSet")) {
 		  XmlParser xml = new XmlParser();
 		  ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
-		  if (vs.getIdentifier() == null)
-		    throw new Exception("Value set example "+e.getPath()+" has no identifier");
+	    new ValueSetValidator(page.getDefinitions(), e.getPath().getAbsolutePath()).validate(vs, false);
+	    if (vs.getIdentifier() == null)
+	      throw new Exception("Value set example "+e.getPath().getAbsolutePath()+" has no identifier");
 		  if (vs.getDefine() != null) {
         AtomEntry ae = new AtomEntry();
         ae.getLinks().put("self", n+".htm");
@@ -2779,6 +2789,7 @@ public class Publisher {
     
     if (vs.getText().getDiv().allChildrenAreText() && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
       new NarrativeGenerator().generate(vs, page.getCodeSystems(), page.getValueSets());
+    new ValueSetValidator(page.getDefinitions(), name).validate(vs, true);
     
     if (isGenerate) {
       addToResourceFeed(vs, n, valueSetsFeed);
@@ -2861,6 +2872,7 @@ public class Publisher {
       }
     }
     
+    new ValueSetValidator(page.getDefinitions(), filename).validate(vs, true);
     cd.setReferredValueSet(vs);
     AtomEntry e = new AtomEntry();
     e.setResource(vs);

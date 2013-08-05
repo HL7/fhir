@@ -29,20 +29,20 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * AdverseReaction.
+ * Specific reactions to a substance.
  */
 public class AdverseReaction extends Resource {
 
     public enum ReactionSeverity {
         severe, // Severe complications arose due to the reaction.
-        serious, // Serious inconvience to the subject.
-        moderate, // Moderate inconvience to the subject.
-        minor, // Minor inconvience to the subject.
+        serious, // Serious inconvenience to the subject.
+        moderate, // Moderate inconvenience to the subject.
+        minor, // Minor inconvenience to the subject.
         Null; // added to help the parsers
         public static ReactionSeverity fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))

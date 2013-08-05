@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * A collection of Error, warning or information messages that result from a system action.
+ * A collection of error, warning or information messages that result from a system action.
  */
 public class OperationOutcome extends Resource {
 

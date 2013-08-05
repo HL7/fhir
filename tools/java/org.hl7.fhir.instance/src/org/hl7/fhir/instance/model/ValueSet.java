@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -90,8 +90,8 @@ public class ValueSet extends Resource {
 
     public enum FilterOperator {
         equal, // The property value has the concept specified by the value.
-        isa, // The property value has a concept that has an is_a relationship with the value.
-        isnota, // The property value has a concept that does not have an is_a relationship with the value.
+        isa, // The property value has a concept that has an is-a relationship with the value.
+        isnota, // The property value has a concept that does not have an is-a relationship with the value.
         regex, // The property value representation matches the regex specified in the value.
         Null; // added to help the parsers
         public static FilterOperator fromCode(String codeString) throws Exception {

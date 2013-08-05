@@ -126,6 +126,7 @@ public class PageProcessor implements Logger  {
   private Map<String, AtomEntry> codeSystems = new HashMap<String, AtomEntry>();
   private Map<String, AtomEntry> valueSets = new HashMap<String, AtomEntry>();
   private Map<String, String> svgs = new HashMap<String, String>();
+  private BreadCrumbManager breadCrumbManager = new BreadCrumbManager();
   
 //  private boolean notime;
   
@@ -327,6 +328,8 @@ public class PageProcessor implements Logger  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("pageheader"))
         src = s1+pageHeader(name.toUpperCase().substring(0, 1)+name.substring(1))+s3;
+      else if (com[0].equals("header"))
+        src = s1+TextFile.fileToString(folders.srcDir + "header.htm")+s3;
       else if (com[0].equals("footer"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer.htm")+s3;
       else if (com[0].equals("footer1"))
@@ -447,6 +450,8 @@ public class PageProcessor implements Logger  {
         src = s1 + compMembership(name) + s3;
       else if (com[0].equals("comp-resources"))
         src = s1 + compResourceMap(name) + s3;
+      else if (com[0].equals("breadcrumb"))
+        src = s1 + breadCrumbManager.make(name) + s3;
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -1696,6 +1701,8 @@ private String resItem(String name) throws Exception {
           src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
       else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
+      else if (com[0].equals("header"))
+        src = s1+TextFile.fileToString(folders.srcDir + "header.htm")+s3;
       else if (com[0].equals("footer"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer.htm")+s3;
       else if (com[0].equals("footer1"))
@@ -1879,6 +1886,8 @@ private String resItem(String name) throws Exception {
         src = s1+new SvgGenerator(definitions).generate(folders.srcDir+ com[1])+s3;
       else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
+      else if (com[0].equals("header"))
+        src = s1+s3;
       else if (com[0].equals("footer"))
         src = s1+s3;
       else if (com[0].equals("footer1"))
@@ -1985,6 +1994,8 @@ private String resItem(String name) throws Exception {
         src = s1 + compMembership(name) + s3;
       else if (com[0].equals("comp-resources"))
         src = s1 + compResourceMap(name) + s3;
+      else if (com[0].equals("breadcrumb"))
+        src = s1 + breadCrumbManager.make(name) + s3;
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -2013,6 +2024,8 @@ private String resItem(String name) throws Exception {
         src = s1+pageHeader(resource.getName())+s3;
       else if (com[0].equals("maponthispage"))
           src = s1+mapOnThisPage(mappingsList)+s3;
+      else if (com[0].equals("header"))
+        src = s1+TextFile.fileToString(folders.srcDir + "header.htm")+s3;
       else if (com[0].equals("footer"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer.htm")+s3;
       else if (com[0].equals("footer1"))
@@ -2063,6 +2076,8 @@ private String resItem(String name) throws Exception {
           src = s1+mappingsList+s3;
       else if (com[0].equals("svg"))
         src = s1+new SvgGenerator(definitions).generate(resource)+s3;        
+      else if (com[0].equals("breadcrumb"))
+        src = s1 + breadCrumbManager.make(name) + s3;
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
@@ -2221,6 +2236,8 @@ private String resItem(String name) throws Exception {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
       else if (com[0].equals("pageheader"))
         src = s1+pageHeader(profile.getMetadata().get("name").get(0))+s3;
+      else if (com[0].equals("header"))
+        src = s1+TextFile.fileToString(folders.srcDir + "header.htm")+s3;
       else if (com[0].equals("footer"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer.htm")+s3;
       else if (com[0].equals("footer1"))
@@ -2273,6 +2290,8 @@ private String resItem(String name) throws Exception {
         src = s1+"todo" /*Utilities.fileToString(folders.srcDir + filename+File.separatorChar+filename+".htm")*/ +s3;
       else if (com[0].equals("dictionary"))
         src = s1+"todo"+s3;
+      else if (com[0].equals("breadcrumb"))
+        src = s1 + breadCrumbManager.make(filename) + s3;
       else if (com[0].equals("resurl")) {
           src = s1+"The id of this profile is "+profile.getMetadata().get("id").get(0)+s3;
       } else 
@@ -2453,6 +2472,11 @@ public void log(String content) {
   public Map<String, String> getSvgs() {
     return svgs;
   }
+
+  public BreadCrumbManager getBreadCrumbManager() {
+    return breadCrumbManager;
+  }
+
 
   
 }

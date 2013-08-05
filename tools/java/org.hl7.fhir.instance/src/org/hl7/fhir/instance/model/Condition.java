@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
 /**
- * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during a Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary.
+ * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during an Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary.
  */
 public class Condition extends Resource {
 
@@ -174,7 +174,7 @@ public class Condition extends Resource {
 
     public class ConditionEvidenceComponent extends Element {
         /**
-         * A manifestion or symptom that led to the recording of this condition.
+         * A manifestation or symptom that led to the recording of this condition.
          */
         protected CodeableConcept code;
 
@@ -377,7 +377,7 @@ public class Condition extends Resource {
     protected ConditionStageComponent stage;
 
     /**
-     * Supporting Evidence / manfiestions that are the basis on which this condition is suspected or confirmed.
+     * Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.
      */
     protected List<ConditionEvidenceComponent> evidence = new ArrayList<ConditionEvidenceComponent>();
 

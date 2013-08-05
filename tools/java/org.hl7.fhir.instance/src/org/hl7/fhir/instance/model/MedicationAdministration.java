@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -43,9 +43,9 @@ public class MedicationAdministration extends Resource {
     public enum MedicationAdminStatus {
         active, // The administration has started but has not yet completed.
         held, // Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called "held".
-        completed, // All actions that are implied by the administration have occured.
+        completed, // All actions that are implied by the administration have occurred.
         enteredInError, // The administration was entered in error and therefore nullified.
-        stopped, // Actions implied by the administration have been permanently halted, before all of them occured.
+        stopped, // Actions implied by the administration have been permanently halted, before all of them occurred.
         Null; // added to help the parsers
         public static MedicationAdminStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -151,7 +151,7 @@ public class Specimen extends Resource {
         protected CodeableConcept method;
 
         /**
-         * Anatomical location from which the specimen should be collected.
+         * Anatomical location from which the specimen should be collected (if subject is a patient).
          */
         protected CodeableConcept sourceSite;
 

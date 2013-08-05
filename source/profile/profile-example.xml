@@ -634,7 +634,7 @@
           <code value="Resource"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -648,7 +648,7 @@
           <code value="id"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -662,7 +662,7 @@
           <code value="code"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
         <binding value="LabReportStatus"/>
       </definition>
     </element>
@@ -678,7 +678,7 @@
           <code value="instant"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -692,7 +692,7 @@
           <code value="Resource(Patient)"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -706,7 +706,7 @@
           <code value="Resource(Admission)"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -721,7 +721,7 @@
           <code value="Resource(Organization)"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -735,7 +735,7 @@
           <code value="Identifier"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -747,7 +747,7 @@
         <min value="0"/>
         <max value="*"/>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -762,7 +762,7 @@
           <code value="Identifier"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -777,7 +777,7 @@
           <code value="Identifier"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -792,7 +792,7 @@
           <code value="CodeableConcept"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
         <binding value="LabRequests"/>
       </definition>
     </element>
@@ -807,7 +807,7 @@
           <code value="Resource(Practitioner|Organization)"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -821,7 +821,7 @@
           <code value="Resource(Any)"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -836,7 +836,7 @@
           <code value="CodeableConcept"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
         <binding value="LabReportNames"/>
       </definition>
     </element>
@@ -851,7 +851,7 @@
           <code value="CodeableConcept"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
         <binding value="LabServices"/>
       </definition>
     </element>
@@ -867,7 +867,7 @@
           <code value="dateTime"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -882,7 +882,7 @@
           <code value="Resource(Specimen)"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -894,7 +894,7 @@
         <min value="1"/>
         <max value="1"/>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
       </definition>
     </element>
     <element>
@@ -909,7 +909,7 @@
           <code value="CodeableConcept"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
         <binding value="LabResultGroupNames"/>
       </definition>
     </element>
@@ -924,7 +924,7 @@
           <code value="Resource(Specimen)"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -936,7 +936,7 @@
         <min value="1"/>
         <max value="1"/>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
       </definition>
     </element>
     <element>
@@ -951,7 +951,7 @@
           <code value="CodeableConcept"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
         <binding value="LabResultNames"/>
       </definition>
     </element>
@@ -966,7 +966,7 @@
           <code value="Quantity"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
       </definition>
     </element>
     <element>
@@ -980,7 +980,7 @@
           <code value="code"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
         <binding value="LabResultFlag"/>
       </definition>
     </element>
@@ -995,7 +995,7 @@
           <code value="code"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
         <binding value="LabReportStatus"/>
       </definition>
     </element>
@@ -1010,7 +1010,7 @@
           <code value="string"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
       </definition>
     </element>
     <element>
@@ -1022,7 +1022,7 @@
         <min value="1"/>
         <max value="1"/>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
       </definition>
     </element>
     <element>
@@ -1037,7 +1037,7 @@
           <code value="CodeableConcept"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
         <binding value="LabReferenceRanges"/>
       </definition>
     </element>
@@ -1053,7 +1053,7 @@
           <code value="Quantity"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -1065,7 +1065,7 @@
         <min value="1"/>
         <max value="1"/>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
       </definition>
     </element>
     <element>
@@ -1080,7 +1080,7 @@
           <code value="CodeableConcept"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
         <binding value="LabResultNames"/>
       </definition>
     </element>
@@ -1095,7 +1095,7 @@
           <code value="Quantity"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
       </definition>
     </element>
     <element>
@@ -1109,7 +1109,7 @@
           <code value="code"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
         <binding value="LabResultFlag"/>
       </definition>
     </element>
@@ -1124,7 +1124,7 @@
           <code value="string"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
       </definition>
     </element>
     <element>
@@ -1136,7 +1136,7 @@
         <min value="1"/>
         <max value="1"/>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
       </definition>
     </element>
     <element>
@@ -1151,7 +1151,7 @@
           <code value="CodeableConcept"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
         <binding value="LabReferenceRanges"/>
       </definition>
     </element>
@@ -1167,7 +1167,7 @@
           <code value="Quantity"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -1179,7 +1179,7 @@
         <min value="1"/>
         <max value="1"/>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
       </definition>
     </element>
     <element>
@@ -1194,7 +1194,7 @@
           <code value="CodeableConcept"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
         <binding value="LabResultNames"/>
       </definition>
     </element>
@@ -1209,7 +1209,7 @@
           <code value="Quantity"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
       </definition>
     </element>
     <element>
@@ -1223,7 +1223,7 @@
           <code value="code"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
         <binding value="LabResultFlag"/>
       </definition>
     </element>
@@ -1238,7 +1238,7 @@
           <code value="string"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
       </definition>
     </element>
     <element>
@@ -1250,7 +1250,7 @@
         <min value="1"/>
         <max value="1"/>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
       </definition>
     </element>
     <element>
@@ -1265,7 +1265,7 @@
           <code value="CodeableConcept"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
         <binding value="LabReferenceRanges"/>
       </definition>
     </element>
@@ -1281,7 +1281,7 @@
           <code value="Quantity"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -1293,7 +1293,7 @@
         <min value="0"/>
         <max value="1"/>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
       </definition>
     </element>
     <element>
@@ -1308,7 +1308,7 @@
           <code value="CodeableConcept"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
         <binding value="LOINC 35198-1 | LOINC 13457-7"/>
       </definition>
     </element>
@@ -1323,7 +1323,7 @@
           <code value="Quantity"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
       </definition>
     </element>
     <element>
@@ -1337,7 +1337,7 @@
           <code value="code"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
         <binding value="LabResultFlag"/>
       </definition>
     </element>
@@ -1352,7 +1352,7 @@
           <code value="string"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
       </definition>
     </element>
     <element>
@@ -1364,7 +1364,7 @@
         <min value="1"/>
         <max value="1"/>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
       </definition>
     </element>
     <element>
@@ -1379,7 +1379,7 @@
           <code value="CodeableConcept"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
         <binding value="LabReferenceRanges"/>
       </definition>
     </element>
@@ -1395,7 +1395,7 @@
           <code value="Quantity"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -1410,7 +1410,7 @@
           <code value="Narrative"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="true"/>
+        <isModifier value="true"/>
       </definition>
     </element>
     <element>
@@ -1424,7 +1424,7 @@
           <code value="CodeableConcept"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
         <binding value="LabDiagnosisCodes"/>
       </definition>
     </element>
@@ -1440,7 +1440,7 @@
           <code value="Attachment"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -1451,7 +1451,7 @@
         <min value="0"/>
         <max value="*"/>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
     <element>
@@ -1465,7 +1465,7 @@
           <code value="Narrative"/>
         </type>
         <mustSupport value="false"/>
-        <mustUnderstand value="false"/>
+        <isModifier value="false"/>
       </definition>
     </element>
   </structure>

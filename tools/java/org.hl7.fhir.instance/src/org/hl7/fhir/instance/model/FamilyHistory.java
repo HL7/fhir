@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 1, 2013 23:51+1000 for FHIR v0.10
+// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
 
 import java.util.*;
 
@@ -45,12 +45,12 @@ public class FamilyHistory extends Resource {
         protected String_ name;
 
         /**
-         * The type of relationship this person has to the patient (father, mother, brother etc.) At the moment this is a code linking to a fixed set of values. I'm not sure if there is an international standard for this. A fixed (possibly extensible) set of codes feels better than a codeable concept for somehting like this...
+         * The type of relationship this person has to the patient (father, mother, brother etc.) At the moment this is a code linking to a fixed set of values. I'm not sure if there is an international standard for this. A fixed (possibly extensible) set of codes feels better than a codeable concept for something like this...
          */
         protected CodeableConcept relationship;
 
         /**
-         * If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outomce code of the condition - in this case the deceased property should still be set.
+         * If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set.
          */
         protected Type deceased;
 

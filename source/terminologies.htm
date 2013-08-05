@@ -9,6 +9,7 @@
 </head>
 
 <body>
+<%header%>
 <%sidebar%>
 
 <%maindiv%>
@@ -46,7 +47,7 @@ examples of references are <a href="http://www.rfc-editor.org/bcp/bcp13.txt">Mim
 <p>
 The value of an element of type <i>code</i> SHALL be one of the codes defined by the code list or reference. 
 Code comparison is always case sensitive for codes unless the codes are defined by a reference, and the 
-reference specifically sates otherwise.
+reference specifically states otherwise.
 </p>
 <p>
 No other codes can be used in an instance. If the binding is a code list, the list of codes may
@@ -60,13 +61,10 @@ may be used in particular contexts, but cannot define new or additional codes fo
 For elements with type <a href="datatypes.htm#CodeableConcept">CodeableConcept</a> or 
 <a href="datatypes.htm#Coding">Coding</a>, the binding refers to a <a href="valueset.htm">
 Value Set</a> that defines a list of concepts along with the code/system pairs that refer
-to them. Code System values are always case sensitive. Different code systems make their own
-rules as to whether the codes they define are case sensitive or not. The binding to the 
-value set may be labelled as just an example. 
-</p>
-<p>
-If the binding is not an example binding, then an code/system pair in the instance
-SHOULD refer to one of the concepts that is a member of the value set.
+to them. System values are always case sensitive. Different code systems make their own
+rules as to whether the codes they define are case sensitive or not. Note that all the 
+codes defined by FHIR itself are case sensitive and must be used in the provided case 
+(usually, but not always, lowercase).
 </p>
 <p>
 Bindings to value sets provided as part of the specification are always specific
@@ -79,6 +77,24 @@ or change over time.
 Profiles can redefine the binding and are able to be much more precise about
 exactly which codes can be used for these elements (see <a href="profile.htm#binding">Binding 
 Control</a> for more detail).
+</p>
+
+<a name="example"> </a>
+<h3>Example Bindings</h3>
+<p>
+The value set binding may be labelled as an example bindings. 
+Example bindings are provided where the element has a very broad 
+meaning (such as <a href="list.htm">List</a>.code), or where 
+there is not enough consensus about which code system to use. 
+In these cases, an indicative value set of the kind of codes that
+could be used in the element is provided. Applications MAY choose
+to use these codes where appropriate.
+</p>
+<p>
+Generally it is expected that jurisdictions, projects and vendors 
+will work together to choose actual working value sets. Subsequent
+versions of FHIR may replace example value sets with full bindings
+if enough consensus emerges. 
 </p>
 
 <a name="references"> </a>
