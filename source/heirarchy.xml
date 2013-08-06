@@ -51,7 +51,7 @@
     </page>
   </page>
   
-  <page title="API (REST)" filename="http-api.htm">
+  <page title="API (REST)" filename="http.htm">
     <page title="Search &amp; Query" type="resource" resource="query"/>
     <page title="Documents" type="resource" resource="document"/>
     <page title="Messaging" type="resource" resource="message"/>
