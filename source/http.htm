@@ -18,16 +18,16 @@
 This specification defines a number of ways of exchanging content using the base set of <a href="resourcelist.htm">defined resources</a>:
 </p>
 <ul>
- <li>Using RESTful API over HTTP (see below)</li>
+ <li>Using RESTful API over <a href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">HTTP</a> (see below)</li>
  <li><a href="message.htm">Messaging based framework</a> (much like v2 for HL7 v2 users)</li>
  <li><a href="document.htm">Document Exchange</a> (much like CDA)</li>
 </ul>
 <p>
-In addition, resources can be exchanged ina SOA based framework.
+In addition, resources can be exchanged in a <a href="implementation.htm#soa">SOA based framework"</a>.
 </p>
 
 <h2>RESTful HTTP Details</h2>
-This specification defines a simple RESTful implementation using <a href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">HTTP</a>.
+<p>
 Each resource type has the same set of interactions defined that can be used to manage the resources 
 in a highly granular fashion. Applications claiming conformance to this framework
 claim to be conformant to "RESTful FHIR".
