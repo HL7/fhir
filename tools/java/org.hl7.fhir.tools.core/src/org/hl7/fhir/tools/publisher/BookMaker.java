@@ -72,7 +72,7 @@ public class BookMaker {
     checkCrossLinks();
     
     String src = TextFile.fileToString(page.getFolders().srcDir+"book.htm");
-    src = page.processPageIncludes(page.getFolders().srcDir+"book.htm", src);
+    src = page.processPageIncludes(page.getFolders().srcDir+"book.htm", src, "book");
     XhtmlDocument doc = new XhtmlParser().parse(src, "html");
     XhtmlNode body = doc.getElement("html").getElement("body");
     addTOC(body);   

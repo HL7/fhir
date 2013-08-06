@@ -271,7 +271,11 @@ public class PageProcessor implements Logger  {
   }
 
 
-  public String processPageIncludes(String file, String src) throws Exception {
+  public String processPageIncludes(String file, String src, String type) throws Exception {
+    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_Index_Page";
+    String workingTitle = null;
+    int level = 0;
+    
     while (src.contains("<%") || src.contains("[%"))
     {
       int i1 = src.indexOf("<%");
@@ -324,14 +328,33 @@ public class PageProcessor implements Logger  {
         src = s1+svgs.get(com[1])+s3;
       else if (com[0].equals("diagram"))
         src = s1+new SvgGenerator(definitions).generate(folders.srcDir+ com[1])+s3;
-      else if (com.length != 1)
+      else if (com[0].equals("file"))
+        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".htm")+s3;
+      else if (com[0].equals("setwiki")) {
+        wikilink = com[1];
+        src = s1+s3;
+      } else if (com[0].equals("settitle")) {
+        workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
+        src = s1+s3;
+      } else if (com[0].equals("setlevel")) {
+        level = Integer.parseInt(com[1]);
+        src = s1+s3;
+      } else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
+      else if (com[0].equals("wiki"))
+        src = s1+wikilink+s3;
       else if (com[0].equals("pageheader"))
         src = s1+pageHeader(name.toUpperCase().substring(0, 1)+name.substring(1))+s3;
       else if (com[0].equals("header"))
         src = s1+TextFile.fileToString(folders.srcDir + "header.htm")+s3;
+      else if (com[0].equals("newheader"))
+        src = s1+TextFile.fileToString(folders.srcDir + "newheader.htm")+s3;
+      else if (com[0].equals("newheader1"))
+        src = s1+TextFile.fileToString(folders.srcDir + "newheader1.htm")+s3;
       else if (com[0].equals("footer"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer.htm")+s3;
+      else if (com[0].equals("newfooter"))
+        src = s1+TextFile.fileToString(folders.srcDir + "newfooter.htm")+s3;
       else if (com[0].equals("footer1"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer1.htm")+s3;
       else if (com[0].equals("footer2"))
@@ -339,6 +362,8 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("footer3"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer3.htm")+s3;
       else if (com[0].equals("title"))
+        src = s1+(workingTitle == null ? Utilities.escapeXml(name.toUpperCase().substring(0, 1)+name.substring(1)) : workingTitle)+s3;
+      else if (com[0].equals("xtitle"))
         src = s1+Utilities.escapeXml(name.toUpperCase().substring(0, 1)+name.substring(1))+s3;
       else if (com[0].equals("name"))
         src = s1+name+s3;
@@ -452,10 +477,29 @@ public class PageProcessor implements Logger  {
         src = s1 + compResourceMap(name) + s3;
       else if (com[0].equals("breadcrumb"))
         src = s1 + breadCrumbManager.make(name) + s3;
+      else if (com[0].equals("navlist"))
+        src = s1 + breadCrumbManager.navlist(name) + s3;
+      else if (com[0].equals("breadcrumblist"))
+        src = s1 + breadCrumbManager.makelist(name, type, genlevel(level)) + s3;      
+      else if (com[0].equals("year"))
+        src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
+      else if (com[0].equals("revision"))
+        src = s1 + svnRevision + s3;  
+      else if (com[0].equals("level"))
+        src = s1 + genlevel(level) + s3;  
+        
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String genlevel(int level) {
+    StringBuilder b = new StringBuilder();
+    for (int i = 0; i < level; i++) {
+      b.append("../");
+    }
+    return b.toString();
   }
 
   private String compTitle(String name) {
@@ -750,7 +794,7 @@ private String resItem(String name) throws Exception {
   private String onThisPage(String tail) {
     String[] entries = tail.split("\\|");
     StringBuilder b = new StringBuilder();
-    b.append("<div class=\"itoc\">\r\n<p>On This Page:</p>\r\n");
+    b.append("<div class=\"col-3\"><div class=\"itoc\">\r\n<p>On This Page:</p>\r\n");
     for (String e : entries) {
       String[] p = e.split("#");
       if (p.length == 2)
@@ -758,7 +802,7 @@ private String resItem(String name) throws Exception {
       if (p.length == 1)
         b.append("<p class=\"link\"><a href=\"#\">"+Utilities.escapeXml(p[0])+"</a></p>");
     }
-    b.append("</div>\r\n");
+    b.append("\r\n</div></div>\r\n");
     return b.toString();
   }
 
@@ -1664,7 +1708,9 @@ private String resItem(String name) throws Exception {
 
 
   String processPageIncludesForPrinting(String file, String src) throws Exception {
-	  while (src.contains("<%") || src.contains("[%"))
+    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_Index_Page";
+
+    while (src.contains("<%") || src.contains("[%"))
 	  {
 		  int i1 = src.indexOf("<%");
 		  int i2 = src.indexOf("%>");
@@ -1699,12 +1745,26 @@ private String resItem(String name) throws Exception {
           src = s1+resItem(com[1])+s3;
         else if (com[0].equals("sidebar"))
           src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
+        else if (com[0].equals("file"))
+          src = s1+TextFile.fileToString(folders.srcDir + com[1]+".htm")+s3;
+        else if (com[0].equals("setwiki")) {
+          wikilink = com[1];
+          src = s1+s3;
+        }
       else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
+      else if (com[0].equals("wiki"))
+        src = s1+wikilink+s3;
       else if (com[0].equals("header"))
         src = s1+TextFile.fileToString(folders.srcDir + "header.htm")+s3;
+      else if (com[0].equals("newheader"))
+        src = s1+TextFile.fileToString(folders.srcDir + "newheader.htm")+s3;
+      else if (com[0].equals("newheader1"))
+        src = s1+TextFile.fileToString(folders.srcDir + "newheader1.htm")+s3;
       else if (com[0].equals("footer"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer.htm")+s3;
+      else if (com[0].equals("newfooter"))
+        src = s1+TextFile.fileToString(folders.srcDir + "newfooter.htm")+s3;
       else if (com[0].equals("footer1"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer1.htm")+s3;
       else if (com[0].equals("footer2"))
@@ -1840,8 +1900,12 @@ private String resItem(String name) throws Exception {
       return cd.getReferredValueSet().getDescriptionSimple();
   }
 
-  String processPageIncludesForBook(String file, String src) throws Exception {
-	  while (src.contains("<%") || src.contains("[%"))
+  String processPageIncludesForBook(String file, String src, String type) throws Exception {
+    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_Index_Page";
+    String workingTitle = null;
+    int level = 0;
+    
+    while (src.contains("<%") || src.contains("[%"))
 	  {
 		  int i1 = src.indexOf("<%");
 		  int i2 = src.indexOf("%>");
@@ -1884,11 +1948,30 @@ private String resItem(String name) throws Exception {
         src = s1+svgs.get(com[1])+s3;
       else if (com[0].equals("diagram"))
         src = s1+new SvgGenerator(definitions).generate(folders.srcDir+ com[1])+s3;
-      else if (com.length != 1)
+      else if (com[0].equals("file"))
+        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".htm")+s3;
+      else if (com[0].equals("setwiki")) {
+        wikilink = com[1];
+        src = s1+s3;
+      } else if (com[0].equals("settitle")) {
+        workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
+        src = s1+s3;
+      } else if (com[0].equals("setlevel")) {
+        level = Integer.parseInt(com[1]);
+        src = s1+s3;
+      } else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
+      else if (com[0].equals("wiki"))
+        src = s1+wikilink+s3;
       else if (com[0].equals("header"))
         src = s1+s3;
+      else if (com[0].equals("newheader"))
+        src = s1+s3;
+      else if (com[0].equals("newheader1"))
+        src = s1+s3;
       else if (com[0].equals("footer"))
+        src = s1+s3;
+      else if (com[0].equals("newfooter"))
         src = s1+s3;
       else if (com[0].equals("footer1"))
         src = s1+s3;
@@ -1897,6 +1980,8 @@ private String resItem(String name) throws Exception {
       else if (com[0].equals("footer3"))
         src = s1+s3;
       else if (com[0].equals("title"))
+        src = s1+(workingTitle == null ? Utilities.escapeXml(name.toUpperCase().substring(0, 1)+name.substring(1)) : workingTitle)+s3;
+      else if (com[0].equals("xtitle"))
         src = s1+Utilities.escapeXml(name.toUpperCase().substring(0, 1)+name.substring(1))+s3;
       else if (com[0].equals("name"))
         src = s1+name+s3;
@@ -1996,6 +2081,16 @@ private String resItem(String name) throws Exception {
         src = s1 + compResourceMap(name) + s3;
       else if (com[0].equals("breadcrumb"))
         src = s1 + breadCrumbManager.make(name) + s3;
+      else if (com[0].equals("navlist"))
+        src = s1 + breadCrumbManager.navlist(name) + s3;
+      else if (com[0].equals("breadcrumblist"))
+        src = s1 + breadCrumbManager.makelist(name, type, genlevel(level)) + s3;      
+      else if (com[0].equals("year"))
+        src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
+      else if (com[0].equals("revision"))
+        src = s1 + svnRevision + s3;      
+      else if (com[0].equals("level"))
+        src = s1 + genlevel(level) + s3;  
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -2004,7 +2099,10 @@ private String resItem(String name) throws Exception {
 
 
 
-  String processResourceIncludes(String name, ResourceDefn resource, String xml, String tx, String dict, String src, String mappings, String mappingsList) throws Exception {
+  String processResourceIncludes(String name, ResourceDefn resource, String xml, String tx, String dict, String src, String mappings, String mappingsList, String type) throws Exception {
+    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_Index_Page";
+    String workingTitle = Utilities.escapeXml(resource.getName());
+    
     while (src.contains("<%"))
     {
       int i1 = src.indexOf("<%");
@@ -2018,16 +2116,34 @@ private String resItem(String name) throws Exception {
         src = s1+resHeader(name, resource.getName(), com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("sidebar"))
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
+      else if (com[0].equals("file"))
+        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".htm")+s3;
+      else if (com[0].equals("setwiki")) {
+        wikilink = com[1];
+        src = s1+s3;
+      }
+      else if (com[0].equals("settitle")) {
+        workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
+        src = s1+s3;
+      }
       else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+name);
+      else if (com[0].equals("wiki"))
+        src = s1+wikilink+s3;
       else if (com[0].equals("pageheader"))
         src = s1+pageHeader(resource.getName())+s3;
       else if (com[0].equals("maponthispage"))
           src = s1+mapOnThisPage(mappingsList)+s3;
       else if (com[0].equals("header"))
         src = s1+TextFile.fileToString(folders.srcDir + "header.htm")+s3;
+      else if (com[0].equals("newheader"))
+        src = s1+TextFile.fileToString(folders.srcDir + "newheader.htm")+s3;
+      else if (com[0].equals("newheader1"))
+        src = s1+TextFile.fileToString(folders.srcDir + "newheader1.htm")+s3;
       else if (com[0].equals("footer"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer.htm")+s3;
+      else if (com[0].equals("newfooter"))
+        src = s1+TextFile.fileToString(folders.srcDir + "newfooter.htm")+s3;
       else if (com[0].equals("footer1"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer1.htm")+s3;
       else if (com[0].equals("footer2"))
@@ -2035,6 +2151,8 @@ private String resItem(String name) throws Exception {
       else if (com[0].equals("footer3"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer3.htm")+s3;
       else if (com[0].equals("title"))
+        src = s1+workingTitle+s3;
+      else if (com[0].equals("xtitle"))
         src = s1+Utilities.escapeXml(resource.getName())+s3;
       else if (com[0].equals("status"))
         src = s1+resource.getStatus()+s3;
@@ -2078,6 +2196,14 @@ private String resItem(String name) throws Exception {
         src = s1+new SvgGenerator(definitions).generate(resource)+s3;        
       else if (com[0].equals("breadcrumb"))
         src = s1 + breadCrumbManager.make(name) + s3;
+      else if (com[0].equals("navlist"))
+        src = s1 + breadCrumbManager.navlist(name) + s3;
+      else if (com[0].equals("breadcrumblist"))
+        src = s1 + breadCrumbManager.makelist(name, type, genlevel(0)) + s3;      
+      else if (com[0].equals("year"))
+        src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
+      else if (com[0].equals("revision"))
+        src = s1 + svnRevision + s3;      
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
@@ -2195,7 +2321,7 @@ private String resItem(String name) throws Exception {
     }
 
     String cnt = TextFile.fileToString(filename);
-    cnt = processPageIncludes(filename, cnt).trim()+"\r\n";
+    cnt = processPageIncludes(filename, cnt, "notes").trim()+"\r\n";
     if (cnt.startsWith("<div")) {
       if (!cnt.startsWith(HTML_PREFIX))
         throw new Exception("unable to process start xhtml content "+filename+" : "+cnt.substring(0, HTML_PREFIX.length()));
@@ -2221,6 +2347,8 @@ private String resItem(String name) throws Exception {
   }
 
   String processProfileIncludes(String filename, ProfileDefn profile, String xml, String tx, String src, String example, String intro, String notes) throws Exception {
+    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_Index_Page";
+
     while (src.contains("<%"))
     {
       int i1 = src.indexOf("<%");
@@ -2232,14 +2360,28 @@ private String resItem(String name) throws Exception {
       String[] com = s2.split(" ");
       if (com[0].equals("sidebar"))
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
+      else if (com[0].equals("file"))
+        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".htm")+s3;
+      else if (com[0].equals("setwiki")) {
+        wikilink = com[1];
+        src = s1+s3;
+      }
       else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
+      else if (com[0].equals("wiki"))
+        src = s1+wikilink+s3;
       else if (com[0].equals("pageheader"))
         src = s1+pageHeader(profile.getMetadata().get("name").get(0))+s3;
       else if (com[0].equals("header"))
         src = s1+TextFile.fileToString(folders.srcDir + "header.htm")+s3;
+      else if (com[0].equals("newheader"))
+        src = s1+TextFile.fileToString(folders.srcDir + "newheader.htm")+s3;
+      else if (com[0].equals("newheader1"))
+        src = s1+TextFile.fileToString(folders.srcDir + "newheader1.htm")+s3;
       else if (com[0].equals("footer"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer.htm")+s3;
+      else if (com[0].equals("newfooter"))
+        src = s1+TextFile.fileToString(folders.srcDir + "newfooter.htm")+s3;
       else if (com[0].equals("footer1"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer1.htm")+s3;
       else if (com[0].equals("footer2"))
@@ -2292,6 +2434,14 @@ private String resItem(String name) throws Exception {
         src = s1+"todo"+s3;
       else if (com[0].equals("breadcrumb"))
         src = s1 + breadCrumbManager.make(filename) + s3;
+      else if (com[0].equals("navlist"))
+        src = s1 + breadCrumbManager.navlist(filename) + s3;
+      else if (com[0].equals("breadcrumblist"))
+        src = s1 + breadCrumbManager.makelist(filename, "profile", genlevel(0)) + s3;      
+      else if (com[0].equals("year"))
+        src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
+      else if (com[0].equals("revision"))
+        src = s1 + svnRevision + s3;      
       else if (com[0].equals("resurl")) {
           src = s1+"The id of this profile is "+profile.getMetadata().get("id").get(0)+s3;
       } else 

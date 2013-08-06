@@ -1,0 +1,118 @@
+/* Navbar with two levels 
+----------------------------------------------------------------------------------------*/
+
+/*
+Normal is 
+LI .dropdown of .dropdown.open {
+	a.dropdown-toggle {}
+	+ul.dropdown-menu 
+}
+
+logica= 
+.nav-collapse .open > .dropdown-menu {
+    display: block;
+}
+
+structuur level
+data-toggle="dropdown"  IS KEY
+
+*/
+
+
+
+.nav-levels {  
+	width: 100%;
+	> li.active {
+		margin-bottom: @navbarLevelHeight ;
+	}
+	
+	// SHOWING AND HIDDING THE SUBMENU
+	li.active > .sub-menu {
+		display: block;
+	}
+	li > a:hover + .sub-menu { 
+		display: block;
+		z-index: 2;
+	}
+	li .sub-menu:hover { 
+		display: block;
+		z-index: 3;
+	}
+
+	.sub-menu {
+		list-style: none outside none;
+		position: absolute;
+		display: none; // default hiding the submenu
+		left: 0;
+		width: 100%;
+		z-index: 1; // layering and 1px upwards pull for roll-out  			
+		#gradient > .vertical(@navbarLevelBackgroundHighlight, @navbarLevelBackground);
+		.border-radius (0 0 4px 4px);
+		border: 1px solid @navbarBorder;		
+		//.box-shadow(0 1px 4px rgba(0,0,0,0.65)); 
+		padding: 0 20px; 
+		margin: -1px -20px 0 -20px;
+		
+		
+		> li { // do what menu items do
+    		float: left;	
+			
+			> a {
+				color: @navbarlevelLinkColor;
+				display: block;
+			    float: none;
+			    padding: ((@navbarLevelHeight - @baseLineHeight) / 2) 15px ((@navbarLevelHeight - @baseLineHeight) / 2);
+				text-decoration: none;
+				text-shadow: 0 1px 0 @navbarBackgroundHighlight;
+			    
+			    &:hover {
+			    	color: @navbarlevelLinkColorHover;
+			    } 
+			}		
+			&.active > a{
+				color: @navbarlevelLinkColorActive;
+				
+				&:hover {
+					color: @navbarlevelLinkColorHover;
+				}
+			}		
+		}
+	}
+
+}
+
+
+/*
+
+@media (max-width: 979px) {
+	.nav.navbar-levels .sub-menu {
+    	position: relative;
+	}
+	.navbar-levels .sub-menu { // Set second level shape 
+		background: none;
+		-webkit-box-shadow: none; 
+		-moz-box-shadow: none;
+		box-shadow: none;
+		display: block;
+		position: relative;
+		margin-left: 15px; // LESS 
+		margin-right: 15px; // LESS 
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.navbar-levels .nav .level-open > a { // Hide selected state for first level 
+		background: none;
+	}
+	.nav-collapse .nav li > a { // Set second level shape
+	 	padding: 6px 15px; // LESS
+		font-weight: bold;
+	    //color: #999999;  LESS 
+	    -webkit-border-radius: 3px; // LESS 
+	    -moz-border-radius: 3px; // LESS 
+	    border-radius: 3px; // LESS 
+	}
+	.nav-collapse .nav li > a:hover {// Set second level hover shape 
+    	//background-color: blue;
+	}
+}
+*/

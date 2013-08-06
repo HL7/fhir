@@ -1,0 +1,70 @@
+/* Joyo Widgets
+------------------------------------------------- */
+.widgets {
+    list-style: none outside none;
+    margin-left: 0;
+}
+.widgets-row {
+    list-style: none outside none;
+} 
+// Set overflow hidden and margin-bottom
+.widgets > li,
+.widgets-row > li {
+	margin-bottom: @defaultBottomMargin;
+	//overflow: hidden;
+	> .inner-wrapper {
+		overflow: hidden;
+	}
+}
+
+
+// Stick to Pagemargin
+// -----------------------------------
+
+.joyo_accepted_widget,
+.joyo_widget {
+	> .inner-wrapper {
+	}
+	&.to-pagemargin-right {
+		margin-right: -@pageMargin;
+	}
+	&.to-pagemargin-left {
+		margin-left: -@pageMargin;
+	}	
+}
+.to-pagemargin-right {
+	margin-right: -@pageMargin;
+}
+
+
+// Yojo Aankeiler
+// -----------------------------------
+.joyo_aankeiler_horizontal img {
+	float: left;
+	margin-right: @imageMarginRight; 
+	margin-bottom: @imageMarginBottom;
+	width: 50%;
+}
+//JOYO P2P
+//JOYO TWITTER
+
+
+@media (max-width: 767px) {
+/*
+	.span12 > .widgets-row > .joyo_aankeiler.span6 {
+		background-color: gray;
+		float: left;
+		width: 48.5%;
+	}
+	.span12 > .widgets-row > .joyo_aankeiler.span6:nth-child(2n) {
+		float:right;
+	}
+	
+.span12 > .widgets-row > .joyo_aankeiler.span6 > .inner-wrapper {
+		margin-left: 20px;
+	}
+	.span12 > .widgets-row > .joyo_aankeiler.span6:nth-child(2n+1) > .inner-wrapper {
+		margin-left: 0;
+	}
+*/
+}

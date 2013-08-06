@@ -1,0 +1,192 @@
+/* Listing of content
+----------------------------------------------------------------------------------------*/
+
+/*
+listing of content NO LEVELS
+Use '.nav nav-listing' for listing off complete enclosed links
+*/
+
+
+@listingIndent: @baseFontSize + 6px; // Indentation is somehow related to em size of the font
+@listingTopPadding: 6px;
+@tableHeaderSize: 16px; //~'';
+
+
+// Default with bullits
+.listing {
+	list-style: square outside none;
+	padding-left: @listingIndent;
+	margin-left: 0;
+	overflow: hidden;
+}
+.listing > li {
+	margin-left: 0px;
+	&:first-child {
+		padding-top: @listingTopPadding;
+	}
+	&.listing-header {
+		list-style: none outside none;
+		margin-left: -@listingIndent;
+		font-size: 16px;
+		border-bottom: 1px solid @tableBorder;
+		color: @grayLight;
+		width: auto;
+		float: none;
+	}
+}
+
+.listing.bordered {
+	border: 1px solid @tableBorder;
+	> li {
+		margin-right: 20px;
+		&:first-child {
+			border-top: none;
+		}
+		&.listing-header {
+			padding: 6px 12px;
+			font-size: 16px;
+		}
+	}
+}
+// No bullits
+.listing.no-bullets {
+	list-style: none outside none;
+}
+
+// Spacing of items vertical
+.listing > li {
+    margin-bottom: 1em;
+	position: relative;
+	line-height: 1.4em;
+}
+.listing.loose > li {
+    margin-bottom: 2em;
+}
+.listing.condensed > li {
+    margin-bottom: 0.2em;
+}
+
+.listing-title { 
+	font-size: @baseFontSize * @listingTitleScale;
+}
+
+.listing.dividers {
+	> li {
+	    padding-top: 0.4em; 
+	    border-top: 1px solid #dddddd;
+	}
+}
+.listing.well {
+	margin-left: 0;
+	padding-left: @listingIndent + @wellPadding ;
+	overflow: hidden;
+}
+
+//nav-listing is puur links
+
+.listing.columns2 > li {
+	width: 46%;
+	margin-right: 4%;
+	float: left;
+	&.listing-header {
+		width: auto;
+		float: none;
+		margin-right: 0%; 
+		& + li + li  {
+			padding-top: @listingTopPadding;
+		}		
+	}
+	&:nth-child(2){
+		padding-top: @listingTopPadding;
+	}
+}
+.listing.columns3 > li {
+	width: 29%;
+	margin-right: 4%;
+	float: left;
+	&.listing-header {
+		width: auto;
+		float: none;
+		margin-right: 0%;
+		& + li + li + li  {
+			padding-top: @listingTopPadding;
+		}	
+	}	
+		 
+	&:nth-child(2),
+	&:nth-child(3){
+		padding-top: @listingTopPadding;
+	}	
+}
+.listing.columns4 > li {
+	width: 21%;
+	margin-right: 4%;
+	float: left;
+	&.listing-header {
+		width: auto;
+		float: none;
+		margin-right: 0%; 
+		& + li + li + li + li  {
+			padding-top: @listingTopPadding;
+		}
+	}
+}
+
+
+
+/*
+.listing dt.hidden + dd {
+	margin-left: 0;
+}
+
+.listing.compact > li {
+    margin-bottom: 1em;
+}
+.listing.bordered.borders-stacked > li {
+	margin-bottom: -1px;
+}
+
+.listing .title {
+	color: @titleColorListing;
+	font-size: @baseFontSize * @TitleInListingScale;
+	line-height: 1.1em;
+	margin-bottom: 0.2em;
+}
+.listing .title + .sub-title {
+}
+
+// Custom color for titles in listing 
+//------------------------------
+.listing .anchor-title > .title:hover {
+	color: @titleColorListingHover;
+	text-decoration: underline;
+}
+.listing .anchor-title:hover {
+	text-decoration: none;
+}
+
+
+
+// Bordered
+//-----------------------------
+.listing.bordered {
+    list-style: none outside none;
+    margin-left: 0;
+}
+.listing.bordered > li {
+    border: 1px solid @tableBorder; 
+    .border-radius(4px 4px 0 0);
+    line-height: 18px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.listing.bordered .dl-bordered.borders-merged {
+	border-left: none;
+    border-right: none;
+	margin-left: -13px;
+	margin-right: -13px;
+}
+*/

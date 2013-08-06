@@ -1,0 +1,160 @@
+/*
+ 
+     Wordpress specific
+			
+*/	
+/* Changing the navbar from 'fixed' to 'relative' to accomodate the WP-admin bar
+----------------------------------------------------------------------------------------*/
+.admin-bar .navbar-fixed-top {
+	margin-top: 28px;
+}
+/* Text meant only for screen readers 
+----------------------------------------------------------------------------------------*/
+.assistive-text {
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+}
+/* WP Form  
+----------------------------------------------------------------------------------------*/
+.required {
+	position: absolute;
+	margin-left: -10px;
+}
+
+/* WP Required Styles
+----------------------------------------------------------------------------------------*/
+
+
+/* WP Media Scaling
+----------------------------------------------------------------------------------------*/
+img[class*="align"],
+img[class*="wp-image-"],
+img[class*="attachment-"] {
+	height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+}
+img.size-full,
+img.size-large,
+img.header-image,
+img.wp-post-image {
+	max-width: 100%;
+	height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+}
+/* Make sure videos and embeds fit their containers */
+embed,
+iframe,
+object,
+video {
+	max-width: 100%;
+}
+.entry-content .twitter-tweet-rendered {
+	max-width: 100% !important; /* Override the Twitter embed fixed width */
+}
+
+
+
+/* WP Images and captions in .entry-content
+----------------------------------------------------------------------------------------*/
+
+/*
+zonder onderschrift zal de image in een <p> worden gestopt.
+<p>
+	<img class="alignright size-full" title="Een titel">
+</p>
+
+Met onderschrift komt de image in een DIV
+<div class="wp-caption alignright">
+	<img class="size-full" title="Een titel">
+	<p class="wp-caption-text">Het onderschrift</p>
+</div>
+
+Options are 
+- alignnone 
+- alignleft
+- aligncenter
+- alignright
+
+*/
+.alignnone {
+	// As it is… Full width
+	margin-bottom: @imageMarginBottom;
+}
+.alignleft {
+	float: left;
+	margin-right: @imageMarginRight;
+	margin-bottom: @imageMarginBottom;
+}
+.alignright {
+	float: right;
+	margin-left: @imageMarginLeft;
+	margin-bottom: @imageMarginBottom;
+}
+.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: @imageMarginBottom;
+	img{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;	
+	}
+	.wp-caption-text {
+		text-align: center;
+	}
+}
+.wp-caption{	
+    border: 0 solid transparent;
+    max-width: 100%; /* Keep wide captions from overflowing their container. */
+    padding: 0 0 0 0;
+    	margin-bottom: @imageMarginBottom * 1.5;
+    p{
+    	margin-bottom: 0;
+    }
+}
+.wp-caption-text,
+.gallery-caption,
+.entry-caption {
+	font-style: italic;
+	font-size: 12px;
+	font-size: 0.857142857rem;
+	line-height: 1.5em;
+	color: #757575;
+}
+img.wp-smiley,
+.rsswidget img {
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* WP gallery CHECK-M
+----------------------------------------------------------------------------------------*/
+.entry-content dl.gallery-item {
+	margin: 0;
+}
+.gallery-item a,
+.gallery-caption {
+	width: 90%;
+}
+.gallery-item a {
+	display: block;
+}
+.gallery-caption a {
+	display: inline;
+}
+.gallery-columns-1 .gallery-item a {
+	max-width: 100%;
+	width: auto;
+}
+.gallery .gallery-icon img {
+	height: auto;
+	max-width: 90%;
+	padding: 5%;
+}
+.gallery-columns-1 .gallery-icon img {
+	padding: 3%;
+}

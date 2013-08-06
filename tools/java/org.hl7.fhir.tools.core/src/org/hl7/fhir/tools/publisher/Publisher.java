@@ -987,6 +987,9 @@ public class Publisher {
         Utilities.copyFile(new CSFile(page.getFolders().rootDir + n),
             new CSFile(page.getFolders().dstDir + page.getIni().getStringProperty("files", n)));
 
+      page.log("Copy HTML templates");
+      Utilities.copyDirectory(page.getFolders().rootDir+page.getIni().getStringProperty("html", "source"), page.getFolders().dstDir);
+      
 	    profileFeed = new AtomFeed();
 	    profileFeed.setId("http://hl7.org/fhir/profile/resources");
 	    profileFeed.setTitle("Resources as Profiles");
@@ -1138,7 +1141,7 @@ public class Publisher {
     page.getQa().countDefinitions(page.getDefinitions());
     
     String src = TextFile.fileToString(page.getFolders().srcDir+ "qa.htm");
-    TextFile.stringToFile(page.processPageIncludes("qa.htm", src), page.getFolders().dstDir+"qa.htm");
+    TextFile.stringToFile(page.processPageIncludes("qa.htm", src, "page"), page.getFolders().dstDir+"qa.htm");
     
     if (web) {
       page.getQa().commit(page.getFolders().rootDir);
@@ -1430,9 +1433,9 @@ public class Publisher {
     Utilities.createDirectory(page.getFolders().dstDir + "v3");
     Utilities.clearDirectory(page.getFolders().dstDir + "v3");
     String src = TextFile.fileToString(page.getFolders().srcDir+ "v3"+File.separator+"template.htm");
-    TextFile.stringToFile(page.processPageIncludes("v3/template.htm", src), page.getFolders().dstDir+"terminologies-v3.htm");
+    TextFile.stringToFile(page.processPageIncludes("v3/template.htm", src, "page"), page.getFolders().dstDir+"terminologies-v3.htm");
     src = TextFile.fileToString(page.getFolders().srcDir+ "v3"+File.separator+"template.htm");
-    cachePage("terminologies-v3.htm", page.processPageIncludesForBook("v3/template.htm", src));
+    cachePage("terminologies-v3.htm", page.processPageIncludesForBook("v3/template.htm", src, "page"));
     IniFile ini = new IniFile(page.getFolders().srcDir + "v3"+File.separator+"valuesets.ini");
     
     Element e = XMLUtil.getFirstChild(page.getV3src().getDocumentElement());
@@ -1445,7 +1448,7 @@ public class Publisher {
             Utilities.createDirectory(page.getFolders().dstDir + "v3"+File.separator+id);
             Utilities.clearDirectory(page.getFolders().dstDir + "v3"+File.separator+id);
             src = TextFile.fileToString(page.getFolders().srcDir+ "v3"+File.separator+"template-cs.htm");
-            TextFile.stringToFile(page.processPageIncludes(id+".htm", src), page.getFolders().dstDir + "v3"+File.separator+id+File.separator+"index.htm");
+            TextFile.stringToFile(page.processPageIncludes(id+".htm", src, "v3Vocab"), page.getFolders().dstDir + "v3"+File.separator+id+File.separator+"index.htm");
           }
         }
       }
@@ -1455,7 +1458,7 @@ public class Publisher {
           Utilities.createDirectory(page.getFolders().dstDir + "v3"+File.separator+id);
           Utilities.clearDirectory(page.getFolders().dstDir + "v3"+File.separator+id);
           src = TextFile.fileToString(page.getFolders().srcDir+ "v3"+File.separator+"template-vs.htm");
-          TextFile.stringToFile(page.processPageIncludes(id+".htm", src), page.getFolders().dstDir + "v3"+File.separator+id+File.separator+"index.htm");
+          TextFile.stringToFile(page.processPageIncludes(id+".htm", src, "v3Vocab"), page.getFolders().dstDir + "v3"+File.separator+id+File.separator+"index.htm");
         }
       }
       e = XMLUtil.getNextSibling(e);
@@ -1661,9 +1664,9 @@ public class Publisher {
     Utilities.createDirectory(page.getFolders().dstDir + "v2");
     Utilities.clearDirectory(page.getFolders().dstDir + "v2");
     String src = TextFile.fileToString(page.getFolders().srcDir+ "v2"+File.separator+"template.htm");
-    TextFile.stringToFile(page.processPageIncludes("v2/template.htm", src), page.getFolders().dstDir + "terminologies-v2.htm");
+    TextFile.stringToFile(page.processPageIncludes("v2/template.htm", src, "v2Vocab"), page.getFolders().dstDir + "terminologies-v2.htm");
     src = TextFile.fileToString(page.getFolders().srcDir+ "v2"+File.separator+"template.htm");
-    cachePage("terminologies-v2.htm", page.processPageIncludesForBook("v2/template.htm", src));
+    cachePage("terminologies-v2.htm", page.processPageIncludesForBook("v2/template.htm", src, "v2Vocab"));
     
     Element e = XMLUtil.getFirstChild(page.getV2src().getDocumentElement());
     while (e != null) {
@@ -1673,7 +1676,7 @@ public class Publisher {
         Utilities.createDirectory(page.getFolders().dstDir + "v2"+File.separator+id);
         Utilities.clearDirectory(page.getFolders().dstDir + "v2"+File.separator+id);
         src = TextFile.fileToString(page.getFolders().srcDir+ "v2"+File.separator+"template-tbl.htm");
-        TextFile.stringToFile(page.processPageIncludes(id+".htm", src), page.getFolders().dstDir + "v2"+File.separator+id+File.separator+"index.htm");
+        TextFile.stringToFile(page.processPageIncludes(id+".htm", src, "v2Vocab"), page.getFolders().dstDir + "v2"+File.separator+id+File.separator+"index.htm");
       } else if ("versioned".equals(st)) {
         String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
         Utilities.createDirectory(page.getFolders().dstDir + "v2"+File.separator+id);
@@ -1691,7 +1694,7 @@ public class Publisher {
             Utilities.createDirectory(page.getFolders().dstDir + "v2"+File.separator+id+File.separator+ver);
             Utilities.clearDirectory(page.getFolders().dstDir + "v2"+File.separator+id+File.separator+ver);
             src = TextFile.fileToString(page.getFolders().srcDir+ "v2"+File.separator+"template-tbl-ver.htm");
-            TextFile.stringToFile(page.processPageIncludes(id+"|"+ver+".htm", src), page.getFolders().dstDir + "v2"+File.separator+id+File.separator+ver+File.separator+"index.htm");
+            TextFile.stringToFile(page.processPageIncludes(id+"|"+ver+".htm", src, "v2Vocab"), page.getFolders().dstDir + "v2"+File.separator+id+File.separator+ver+File.separator+"index.htm");
           }
         }        
       }
@@ -1904,7 +1907,7 @@ public class Publisher {
     page.getSectionTrackerCache().put(n, st);
 
     String src = TextFile.fileToString(page.getFolders().srcDir+ "template.htm");
-		src = insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList), st, n+".htm");
+		src = insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "resource"), st, n+".htm");
 		TextFile.stringToFile(src, page.getFolders().dstDir + n + ".htm");
 			
     String pages = page.getIni().getStringProperty("resource-pages", n);
@@ -1915,24 +1918,24 @@ public class Publisher {
     }
 		
 		src = TextFile.fileToString(page.getFolders().srcDir+ "template-examples.htm");
-		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList), st, n + "-examples.htm"), page.getFolders().dstDir + n + "-examples.htm");
+		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-examples"), st, n + "-examples.htm"), page.getFolders().dstDir + n + "-examples.htm");
 		src = TextFile.fileToString(page.getFolders().srcDir + "template-definitions.htm");
-		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList), st, n + "-definitions.htm"), page.getFolders().dstDir + n + "-definitions.htm");
+		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-definitions"), st, n + "-definitions.htm"), page.getFolders().dstDir + n + "-definitions.htm");
 		src = TextFile.fileToString(page.getFolders().srcDir + "template-mappings.htm");
-		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList), st, n + "-mappings.htm"), page.getFolders().dstDir + n + "-mappings.htm");
+		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-mappings"), st, n + "-mappings.htm"), page.getFolders().dstDir + n + "-mappings.htm");
 		src = TextFile.fileToString(page.getFolders().srcDir + "template-explanations.htm");
-		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList), st, n + "-explanations.htm"), page.getFolders().dstDir + n + "-explanations.htm");
+		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-explanations"), st, n + "-explanations.htm"), page.getFolders().dstDir + n + "-explanations.htm");
 		src = TextFile.fileToString(page.getFolders().srcDir + "template-profiles.htm");
-		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList), st, n + "-profiles.htm"), page.getFolders().dstDir + n + "-profiles.htm");
+		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-profiles"), st, n + "-profiles.htm"), page.getFolders().dstDir + n + "-profiles.htm");
 
 		src = TextFile.fileToString(page.getFolders().srcDir + "template-book.htm").replace("<body>", "<body style=\"margin: 10px\">");
-		src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList);
+		src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "resource");
 		cachePage(n + ".htm", src);
 		src = TextFile.fileToString(page.getFolders().srcDir + "template-book-ex.htm").replace("<body>", "<body style=\"margin: 10px\">");
-		src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList);
+		src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-examples");
 		cachePage(n + "Ex.htm", src);
 		src = TextFile.fileToString(page.getFolders().srcDir + "template-book-defn.htm").replace("<body>", "<body style=\"margin: 10px\">");
-		src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList);
+		src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-definitions");
 		cachePage(n + "-definitions.htm", src);
 		cachePage(n + "Defn.htm", src);
 
@@ -2296,7 +2299,7 @@ public class Publisher {
 
 	private void producePage(String file, String logicalName) throws Exception {
 		String src = TextFile.fileToString(page.getFolders().srcDir + file);
-		src = page.processPageIncludes(file, src);
+		src = page.processPageIncludes(file, src, "page");
 		// before we save this page out, we're going to figure out what it's index is, and number the headers if we can
 		
 		if (!Utilities.noString(logicalName)) {
@@ -2312,7 +2315,7 @@ public class Publisher {
 		TextFile.stringToFile(src, page.getFolders().dstDir + file);		
 
 		src = TextFile.fileToString(page.getFolders().srcDir + file).replace("<body>", "<body style=\"margin: 10px\">");
-		src = page.processPageIncludesForBook(file, src);
+		src = page.processPageIncludesForBook(file, src, "page");
 		cachePage(file, src);
 	}
 
@@ -2321,7 +2324,7 @@ public class Publisher {
     String logicalName = "compartment-"+c.getName();
     String file = logicalName + ".htm";
     String src = TextFile.fileToString(page.getFolders().srcDir + "template-compartment.htm");
-    src = page.processPageIncludes(file, src);
+    src = page.processPageIncludes(file, src, "compartment");
 
 //    String prefix = "";
 //    if (!page.getSectionTrackerCache().containsKey("compartment-"+c.getName())) {
@@ -2337,7 +2340,7 @@ public class Publisher {
     TextFile.stringToFile(src, page.getFolders().dstDir + file);    
 
     src = TextFile.fileToString(page.getFolders().srcDir + "template-compartment.htm").replace("<body>", "<body style=\"margin: 10px\">");
-    src = page.processPageIncludesForBook(file, src);
+    src = page.processPageIncludesForBook(file, src, "compartment");
     cachePage(file, src);
   }
 
@@ -2796,8 +2799,8 @@ public class Publisher {
 
       ae.getLinks().put("path", name+".htm");
       
-      TextFile.stringToFile(page.processPageIncludes(title+".htm", TextFile.fileToString(page.getFolders().srcDir+"template-vs.htm")), page.getFolders().dstDir+name+".htm");
-      String src = page.processPageIncludesForBook(title+".htm", TextFile.fileToString(page.getFolders().srcDir+"template-vs-book.htm"));
+      TextFile.stringToFile(page.processPageIncludes(title+".htm", TextFile.fileToString(page.getFolders().srcDir+"template-vs.htm"), "valueSet"), page.getFolders().dstDir+name+".htm");
+      String src = page.processPageIncludesForBook(title+".htm", TextFile.fileToString(page.getFolders().srcDir+"template-vs-book.htm"), "valueSet");
       cachePage(name+".htm", src);
 
       JsonComposer json = new JsonComposer();
@@ -2898,8 +2901,8 @@ public class Publisher {
     if (isGenerate) {
       addToResourceFeed(vs, Utilities.fileTitle(filename), valueSetsFeed);
 
-      TextFile.stringToFile(page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx.htm")), page.getFolders().dstDir+filename);
-      String src = page.processPageIncludesForBook(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx-book.htm"));
+      TextFile.stringToFile(page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx.htm"), "codeSystem"), page.getFolders().dstDir+filename);
+      String src = page.processPageIncludesForBook(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx-book.htm"), "codeSystem");
       cachePage(filename, src);
 
 

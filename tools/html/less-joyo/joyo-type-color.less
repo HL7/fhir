@@ -1,0 +1,107 @@
+// Coloring the titles
+// --------------------------------------------------
+
+
+// Titles 
+// -------------------------
+h1,h2,h3,h4,h5,h6,
+.title{
+    color: @headingsColor;
+}
+.entry-title {
+    color: @titleColorPageTitle;    
+}
+.title.title-focus {
+    color: @titleColorFocus;
+}
+.title.title-signal {
+	color: @TitleColorSignal;
+}
+.title.title-listing {
+	color: @colorTwo;
+}
+
+// Overruling by context
+// -------------------------
+.context .title {
+	color: @contextTitleColor;
+}
+.context .title.title-default { // overruling the overule!
+	color: @headingsColor;
+}
+.context .title.entry-title {
+    color: @titleColorPageTitle;    
+}
+.context .title.title-focus {
+	color: @titleColorFocus;
+}
+.context .title.title-signal {
+	color: @TitleColorSignal;
+}
+// sectioning optional
+//.sidebar .title: @graydark
+//.footer .title: @graydark;
+// service: lighten( @colorTwo );
+// utility: lighten( @colorTwo );
+// quick-contact: lighten( @colorTwo );
+
+
+// Blocktitles 
+// -------------------------
+
+.block-title {
+    background-color: @colorTwo;
+    color: @white;
+}
+.block-title.inverted {
+    background-color: @white;
+    color: @colorTwo;
+}
+
+
+// Small text
+// -------------------------
+.entry-meta {
+	color: @grayLight;
+}
+// tiny titles 
+//.lees-verder: @graylight:
+//.lees-verder.block: color:@white; background-color: @graylight;
+//.date: @graylight:
+
+
+// JOYO Addition
+// ul & ol
+// --------------------------------------------------
+ul.square {
+    list-style: square outside none;
+}
+.ul-bordered > li  {
+	background-color: #f2f2f2;
+	border-top: none;
+	border-right: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+	border-left: 1px solid #dddddd;
+	padding-top: 12px;
+}
+.ul-bordered > li:first-child  {
+	border-top: 1px solid #dddddd;
+	border-right: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+	border-left: 1px solid #dddddd;
+}
+
+
+//h6: @grayLight;
+//.titles (base): @colorOne / @headingsColor
+//.entry-title: @colorTwo
+//.sub-title: @colorOne / @graylight
+
+/* Overruling headers for listing of content */
+//.listing .title: @degradedTitle / darken( todeath @colorOne )
+//.listing a .title:hover: @linkColorHover;
+
+/* Collapsable listing of titles with selected item FAQ / Glossery */
+//.listing.collapsable: @degradedTitle / darken( todeath @colorOne )
+//.listing.collapsable.active: @colorTwo
+

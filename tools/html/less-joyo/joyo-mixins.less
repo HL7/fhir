@@ -1,0 +1,12 @@
+//
+// JOYO Mixins
+// --------------------------------------------------
+.dl-horizontal-mixin(@width:@horizontalComponentOffset,@spacing:20 ){
+	dt{
+		width: @width - @spacing;
+	}
+	dd{
+		margin-left: @width;
+	}
+}
+

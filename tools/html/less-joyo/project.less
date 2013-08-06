@@ -1,0 +1,382 @@
+ /*
+ 
+    Specific layout and styling, project based
+        
+    
+*/
+
+@import "../less/variables.less";
+@import "../less/mixins.less";
+@import "joyo-mixins.less";
+@import "joyo-variables.less";
+
+/*
+
+- SCAFFOLDING							Groundwork for the site. Background colors are set in less or overruled here
+- SCAFFOLDING OBJECTS					Objects reoccurring on every page
+- COMPONENTS							Everything what can be moved around				
+- BACK TO TOP							Anchor animating to top of the page
+- EXCEPTIONS FOR SPECIFIC SITUATIONS	Some pages are not like the others
+- D-I-D AREA							Do-It-Dirty 
+
+*/
+
+
+@common-line: 1px solid @common-line-color;
+@common-line-color: @table-border-color; //@gray-light;
+
+/* SCAFFOLDING STYLING 
+----------------------------------------------------------------------------------------*/
+	html {
+		background-color: @html-background; 
+	}
+    body{
+    	background-color: @body-background;
+    	position: relative;
+    	padding-top: 0;
+        }
+        .segment {
+        	position: relative;
+            > .container {
+            background-color: @container-background;   
+            position: relative;            
+            }
+        }
+        #segment-header{
+        	background-color: lighten(@black, 96%);
+            > .container{
+            	background-color: lighten(@black, 90%)
+            }
+        }
+        #segment-navbar{
+        	//background-color: lighten(@black, 96%);
+            > .container{
+            	//background-color: lighten(@black, 90%)
+            }
+        }
+        #segment-content{
+            > .container{
+            }
+        }
+        #segment-footer{
+        	background-color: lighten(@black, 44%);
+            > .container{
+            	background-color: desaturate(darken(@color-two, 5%),20%);
+            	color: @white;
+            	.inner-wrapper {
+            		padding: @padding-large;
+            	}
+            }
+        }
+        #segment-post-footer{
+        	background-color: lighten(@black, 96%);
+            > .container{
+            	background-color: lighten(@black, 90%);
+            	min-height: 90px; 
+            }
+        }       
+
+// overruling BS body margins
+/*
+@media (max-width: 767px) {
+	body {
+		//padding-left: 0;
+		//padding-right: 0;
+		.segment > .container {
+			//padding-left: 10px;
+			//padding-right: 10px; 
+		}
+	}
+	.segment {
+		margin-left: -20px;
+		margin-right: -20px;
+		&#segment-content {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+}
+*/
+
+// Setting global margins for the page
+#sidebar > .inner-wrapper {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+#content > .inner-wrapper,
+.container > .row > .inner-wrapper {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+
+/* SCAFFOlDING OBJECTS
+----------------------------------------------------------------------------------------*/
+
+#logo {
+    float: left;
+    margin-top: 6px;
+    margin-left: 20px;
+    margin-bottom: 4px;
+    display: block;
+    img {
+        max-width: 100%;
+        }
+}
+#hl7-nav{
+	line-height: 50px;
+	float: right;
+	margin-top: 16px;
+	color: lighten(@black,50%);
+	a {
+		color: inherit;
+	}
+}
+#hl7-logo {
+	float:right;
+	margin-left: 6px;
+	margin-right: 6px;
+}
+#stripe{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 8px;
+	background: lighten(@black,60%);
+	
+}
+#notes a {
+	color: @gray;
+}
+
+
+/* GENERIC OBJECTS
+----------------------------------------------------------------------------------------*/
+
+// NAVBAR ---------------------------------
+.navbar {
+	clear: both;
+	.border-top-radius(0);
+    .border-right-radius(0);
+    .border-bottom-radius(0);
+    .border-left-radius(0);	
+    border-color: @white;
+	border-width: 0px;
+	.box-shadow(none);
+	padding-left: @page-margin;
+	padding-right: @page-margin; 
+	margin-bottom: 0;
+}
+.navbar .nav > li > a {
+	//font-weight: 400;
+	font-family: @headings-font-family;
+}
+.navbar .nav {
+	//margin-right: 0;	
+}
+.navbar .nav > li > a {
+	padding: 10px 12px;
+	text-shadow: none;
+}
+
+.navbar .nav > li > a,
+.navbar .nav > .active > a, 
+.navbar .nav > .active > a:hover, 
+.navbar .nav > .active > a:focus {
+	.box-shadow(none);
+}
+
+// DE-STYLE SUBMENU
+.dropdown-menu {
+    .border-top-radius(0);
+    .border-right-radius(0);
+    .border-bottom-radius(0);
+    .border-left-radius(0);
+	//margin: 2px 0 0 0;
+    //min-width: 160px;
+	//padding: 0; //5px 0;
+	li > a {
+		padding: 6px 20px;
+		
+	}
+}
+.dropdown-menu > li > a:hover, 
+.dropdown-menu > li > a:focus, 
+.dropdown-submenu:hover > a, 
+.dropdown-submenu:focus > a {
+	//color: @dropdown-link-color-hover;
+	#gradient > .vertical(@color-two, @color-two);
+	//background: @color-two;
+}
+
+.dropdown-menu > .active > a, 
+.dropdown-menu > .active > a:hover, 
+.dropdown-menu > .active > a:focus {
+	//color: @dropdown-link-color-active;
+	#gradient > .vertical(@color-two, @color-two);
+}
+
+// COLLAPSED MENU
+.nav-collapse .nav > li > a:hover, 
+.nav-collapse .nav > li > a:focus, 
+.nav-collapse .dropdown-menu a:hover, 
+.nav-collapse .dropdown-menu a:focus {
+    //background-color: @color-one;
+}
+
+// TABS ---------------------------------
+@tabs-special-color: desaturate(lighten(@color-two, 0%),60%);
+.nav-tabs {
+	margin-bottom: 20px;
+}
+.nav-tabs a {
+	color: @gray;
+}
+
+.nav-tabs li a:hover,
+.nav-tabs li a:focus {
+	border-bottom-color: @tabs-special-color;
+}
+.nav-tabs {
+	border-bottom-color: @tabs-special-color; 
+	> .active > a, 
+	> .active > a:hover, 
+	> .active > a:focus {
+		color: @color-two;
+		border-color:  @tabs-special-color  @tabs-special-color transparent;
+	}
+}
+
+/*
+@media (max-width: 979px) {
+    // make tabs act like nav-stacked
+    // (mostly) copied from bootstrap/navs.less
+    .nav-tabs > li {
+        float: none;
+    }
+    .nav-tabs > li > a {
+        margin-right: 0; // no need for the gap between nav items
+    }
+    .nav-tabs {
+        border-bottom: 0;
+    }
+    .nav-tabs > li > a {
+        border: 1px solid #ddd;        
+        .border-top-radius(0);
+        .border-right-radius(0);
+        .border-bottom-radius(0);
+        .border-left-radius(0);
+    }
+    .nav-tabs > .active > a,
+    .nav-tabs > .active > a:hover {
+        border: 1px solid #ddd;
+    }
+    .nav-tabs > li:first-child > a {
+        .border-top-radius(4px);
+    }
+    .nav-tabs > li:last-child > a {
+        .border-bottom-radius(4px);
+    }
+    .nav-tabs > li > a:hover,
+    .nav-tabs > li > a:focus {
+        border-color: #ddd;
+        z-index: 2;
+    }
+}	
+*/
+
+
+.nav-list > li > a { // EVIL
+    padding: 3px 15px;
+}
+
+
+// BREADCRUMBS ---------------------------------
+.breadcrumb {
+	margin-bottom: 0;
+	a {
+		color: @gray;
+	}
+}
+
+.nav-listing {
+	overflow: hidden;	
+	> li{
+		float: left;
+		width: 25%; 
+		> a {
+			padding: 2px 6px;
+		}
+	}
+} 
+
+// SMALL STUFF
+.sectioncount {
+	float: right;
+	color: @gray;
+	font-size: 12px;
+	a {
+		color: inherit;
+	}
+}
+h1,h2,h3,h4,h5,h6 {
+	&.underlined {
+		border-bottom: @common-line;
+		padding-bottom: 0.2em;
+	}
+}
+
+p > img {
+	float: left;
+	margin-top: @image-margin-top;
+	margin-right: @image-margin-right;
+	margin-bottom: @image-margin-bottom;
+	margin-left: 0; //@image-margin-left;
+}; 
+
+// TABLES
+.table td {
+	padding: 6px;
+	line-height: 18px;
+}
+.table th {
+	h1,h2,h3,h4,h5,h6{
+		margin-bottom: 0;
+	}
+	&.inverted {
+		background-color: @gray;
+		color: @white;
+		border: none!important;
+		h1,h2,h3,h4,h5,h6{
+			color: inherit;
+		}
+	} 
+}
+
+// LISTING simple tweak for plain ul
+.listing {
+
+}
+
+/* BACK TO TOP
+----------------------------------------------------------------------------------------*/
+a.to-top {
+    background: url('../images/theme/up.png') no-repeat; 
+    display: block;
+    float: right;
+    width: 25px;
+    height: 25px;
+    text-indent: -9999px;
+    margin-top: -28px;
+}
+
+
+/* EXCEPTIONS FOR SPECIFIC SITUATIONS
+----------------------------------------------------------------------------------------*/
+
+
+/* D-I-D AREA
+----------------------------------------------------------------------------------------*/
+
+
