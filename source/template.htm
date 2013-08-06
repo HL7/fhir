@@ -1,19 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<%setwiki http://wiki.hl7.org/index.php?title=FHIR_Overview_Page%>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title><%title%> - FHIR v<%version%></title>
-    <link rel="Stylesheet" href="fhir.css" type="text/css"/>
-    <link rel="Stylesheet" href="fhir-print.css" type="text/css" media="print" />
+<%file newheader%>
 </head>
-
 <body>
-<%header%>
-<%sidebar%>
+<%file newnavbar%>
 
-<div class="content">
+<div class="col-9">
+
 <%resheader%>
 <h1>Resource <%title%> - Content</h1>
 <!-- <p class="status">Status: <%status%></p> -->
@@ -49,9 +46,9 @@ RDF (to do), XMI (to do), <a href="<%name%>.profile.xml">Resource Profile</a> (<
 <%search%>
 
 
-<%footer%>
+</div>
 
-</div> 
+<%file newfooter%>
     
 </body>
 </html>

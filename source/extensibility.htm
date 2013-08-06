@@ -1,25 +1,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+[%setwiki http://wiki.hl7.org/index.php?title=FHIR_Overview_Page%]       
+[%settitle Extensibility%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Extensibility - FHIR v<%version%></title>
-    <link rel="Stylesheet" href="fhir.css" type="text/css"/>
-    <link rel="Stylesheet" href="fhir-print.css" type="text/css" media="print" />
+[%file newheader%]
 </head>
-
 <body>
-<%header%>
-<%sidebar%>
+[%file newnavbar%]
 
-<%maindiv%>
-<%extheader%>
 
-[%onthispage Extensibility#root|isModifier#isModifier|Defining Extensions#definition%]
+<div class="col-9">
+
 
 <a name="root"> </a>
 <h1>Extensibility</h1>
-
+<p>
+See also Extensibility <a href="extensibility-examples.htm">Examples</a> as well.
+</p>
 <p>
 This exchange specification is based on generally agreed common
 requirements across healthcare - covering many jurisdictions, domains, and
@@ -324,8 +323,9 @@ that do not affect interoperability are permitted.)  Rather than modifying an ex
 Revisions to an extension may extend the set of contexts in which the extension apply but may not remove or constrain any context previously listed</p>
 <!-- Todo: Figure out how to manage "deprecating" extensions and pointing at their new versions -->
 
-<%footer%>
+</div>
+[%onthispage Extensibility#root|isModifier#isModifier|Defining Extensions#definition%]
 
-<%/maindiv%>
+[%file newfooter%]
 </body>
 </html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+[%setwiki http://wiki.hl7.org/index.php?title=FHIR_Overview_Page%]       
+[%settitle Outstanding Issues%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<a name="todo"> </a>
+<h2>Outstanding Issues</h2>
+<p>
+These are recognized outstanding tasks that are yet to be completed. There are many tasks still to be done that are not listed here.
+</p>
+<ul>
+ <li>Improve summary material for non-technical users, particularly a clinically-orientated benefits summary</li>
+ <li>Should a resource identify which profile(s) it conforms to? (why?) (related discussion: rules of handling and version dependency)</li>
+ <li>What consistent life cycle patterns do we need for resources?</li>
+ <li>How to do digital signatures in json? For servers that store json/bson?</li>
+ <li>How do we define the Zed resource (or the resource with no name)</li>
+ <li>Minor technical issues:
+   <ul>
+     <li>issue with json lists and datatype choices</li>
+	 <li>de-anonymize div element?</li>
+     <li>Fix problem with schematron paths capturing resources and datatypes used in extensions (by looking for valuexxx)?</li>
+	 <li>improve path display for schematrons</li>
+     <li>Decide what our policy is on including formatting in Excel columns (e.g. italics in formal constraints)</li>
+	 <li>remove profile bindings from bindings summary (i.e. EntityNamePartQualifier)</li>
+	 <li>Many presentation improvements for presenting profiles</li>
+   </ul>
+ </li>
+</ul>
+<p>
+Additional open issues can be found throughout the text of the specification and on the 
+<a href="http://wiki.hl7.org/index.php?title=Category:Active_FHIR_Discussion">FHIR active discussions</a> 
+wiki page.
+</p>
+
+</div>
+
+[%file newfooter%]
+    
+    
+</body>
+</html>

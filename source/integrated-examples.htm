@@ -2,75 +2,35 @@
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+[%setwiki http://wiki.hl7.org/index.php?title=FHIR_Overview_Page%]       
+[%settitle Integrated Examples%]
 <head>
-    <title>Common Scenarios - FHIR v<%version%></title>
-    <link rel="Stylesheet" href="fhir.css" type="text/css"/>
-    <link rel="Stylesheet" href="fhir-print.css" type="text/css" media="print" />
+[%file newheader%]
 </head>
 <body>
-<%header%>
-<%sidebar%>
+[%file newnavbar%]
 
-<%maindiv%>
-<%pageheader%>
-
-<%onthispage PHR#phr|XDS#xds|Decision Support#decision%>
-
-
-<a name="phr"></a>
-<h2>Personal Health Record (PHR)</h2>
-<p>
-In the PHR scenario, an Electronic Medical Record system (EMR, though many other names and acronyms 
-are also used) provides a RESTful API that allows patients to access their own medical
-record via a common web portal or mobile application, usually provided by a third party. 
-In this scenario, the PHR provider:
-</p> 
-
-<ul>
- <li>Provides the patient with a login that identifies them (or links the patient record to an external identity provided by OpenID, Facebook, Google, etc.)</li>
- <li>Authenticates the client using an appropriate OAuth server for the login (possibly their own) and restricts the client to viewing records associated with the specific patient (or patients, where appropriate access has been arranged)</li>
-</ul>
-
-<p>
-The EMR exposes a FHIR server that supports the <i>search</i> and <i>read</i> operations on the following resources: 
-</p>
-<ol>
- <li>the <a href="patient.htm">patient</a> resource in order to provide demographics to the client. When a client searches patients with no search criteria, they get a list of all patients they have access too</li>
- <li><i>search</i> and <i>read</i> on the <a href="documentreference.htm">Document Reference</a> resource to provide access to general patient documents in the form of PDFs etc (PDFs are preferred)</li>
- <li><i>search</i> and <i>read</i> on a set of clinical resources potentially including Observation, DiagnosticReport, various Medication resources, AdverseReaction/AllergyIntolerance, 
-CarePlan, and Condition</li> 
-</ol>
-<p>
-Here is the conformance Statement for this scenario:
- <a href="conformance-phr-example.xml.htm">XML</a> or 
- <a href="conformance-phr-example.json.htm">JSON</a>.
-</p>
-
-</p>
-The EMR may also choose to provide additional functionality, such as shared access to patient 
-records by relatives/carers, to allow the patient to upload their own documents, medication statements, observations
-(e.g. from patient monitoring devices) and/or to allow the patient to make appointments. This 
-additional functionality will involve additional API capabilities to be implemented and 
-exposed. The EMR server may also choose to expose the <i>read</i>, <i>search</i> and <i>updates</i> operation on 
-the Security Event resource for the patient-specific records to allow patient review of record access. Note that all 
-usage of the RESTful API should be logged in SecurityEvent resources.
-</p>
+<div class="col-9">
 
 
 <h2>Patient case 1</h2>
 
-The 69 years old Pieter van den Heuvel is charged with some serieus deseases in the last few years. In the spring and summer of 2011, Pieter had complains of fatique, dyspnea <br>
-and even fainting. After visiting his docter, Pieter was referred to the cariologist for further examination. At the hospital a malfunction of the heart valve was diagnosed<br>
-and replaced. Pieter recovered well in the next 2 moths but probably needs a life time prescription on blood pressure reducing medication.<br>
-In the summer of 2012, Pieter went again to the doktor for a chest injury after he fell from the stairs. By coincidence, the doctor noticed a suspicious stain on the photo <br>
-and performed some more tests on Pieter. After the results, Pieter was diagnosed with early stage non-small cell lung cancer. Fortunately, the tumor didn't spread to other<br>
-parts of the body. Tumor type and location made it possible to perform a partial lobectomy in the left lung. After his recovery, Pieter was submitted in a high risk control <br>
-group for yearly screening.<br>
-In 2013, Peiter was charged with an increasing neck swelling, a stiff neck and difficulty swallowing. Because of breathing problems, Pieter was urgently submitted <br>
-into the hospital. Surgery was needed to remove the abscess. An upper respiratory infection caused a retropharyngeal abscess in the back of the throat.The surgeons <br>
-recommanded a tracheotomy during the surgery, so there was less change of complication during the abcess removal. A tracheotomy was intubated before the surgery.<br>
+<p>
+The 69 years old Pieter van den Heuvel is charged with some serieus deseases in the last few years. In the spring and summer of 2011, Pieter had complains of fatique, dyspnea 
+and even fainting. After visiting his docter, Pieter was referred to the cariologist for further examination. At the hospital a malfunction of the heart valve was diagnosed
+and replaced. Pieter recovered well in the next 2 moths but probably needs a life time prescription on blood pressure reducing medication.
+In the summer of 2012, Pieter went again to the doktor for a chest injury after he fell from the stairs. By coincidence, the doctor noticed a suspicious stain on the photo 
+and performed some more tests on Pieter. After the results, Pieter was diagnosed with early stage non-small cell lung cancer. Fortunately, the tumor didn't spread to other
+parts of the body. Tumor type and location made it possible to perform a partial lobectomy in the left lung. After his recovery, Pieter was submitted in a high risk control 
+group for yearly screening.
+</p>
+<p>
+In 2013, Peiter was charged with an increasing neck swelling, a stiff neck and difficulty swallowing. Because of breathing problems, Pieter was urgently submitted 
+into the hospital. Surgery was needed to remove the abscess. An upper respiratory infection caused a retropharyngeal abscess in the back of the throat.The surgeons 
+recommanded a tracheotomy during the surgery, so there was less change of complication during the abcess removal. A tracheotomy was intubated before the surgery.
 After the removal of the retropharyngeal abscess, the trachetomy was extubated as the swelling was reduced and normal breathing was reinstated.
 
+</p>
 
 <h3>Patient contact information</h3>
 
@@ -98,7 +58,7 @@ email: p.heuvel@gmail.com
   <th>surgery date</th>
   <th>practitioner</th>
   <th>specialism</th>
-  <th>diagnose 
+  <th>diagnose</th>
   <th>procedure</th>
   <th>care plan</th>
   <th>surgery code</th>
@@ -177,18 +137,18 @@ email: p.heuvel@gmail.com
   <th>admission route</th>
   <th>start date</th>
   <th>presciber</th>
-  <th>SNOMED CT code 
-  <th>prescription nu
+  <th>SNOMED CT code</th> 
+  <th>prescription nu</th>
 </tr>
 <tr>
-  <td><a href="medication/medication-example-f001-combivent.xml">Salbutamol+ipratropium bromide</a>
+  <td><a href="medication/medication-example-f001-combivent.xml">Salbutamol+ipratropium bromide</a></td>
   <td>hopital</td>
   <td>3/4 times daily 1 flacon</td>
   <td>inhaler</td>
   <td>8-4-2013</td>
   <td>R.A. van den Berk</td>
-  <td>320442002 
-  <td><a href="medicationprescription/medicationprescription-example-f001-copd.xml">2983</a>
+  <td>320442002 </td>
+  <td><a href="medicationprescription/medicationprescription-example-f001-copd.xml">2983</a></td>
 </tr>
 <tr>
   <td><a href="medication/medication-example-F002.xml">rosuvastatine</a></td>
@@ -197,8 +157,8 @@ email: p.heuvel@gmail.com
   <td>oral</td>
   <td>7-7-2011</td>
   <td>R.A. van den Berk</td>
-  <td>408036003
-  <td><a href="medicationprescription/medicationprescription-example-F002.xml">1029</a>
+  <td>408036003</td>
+  <td><a href="medicationprescription/medicationprescription-example-F002.xml">1029</a></td>
 </tr>
 <tr>
   <td><a href="medication/medication-example-F003.xml">Tolbutamide</a></td>
@@ -207,8 +167,8 @@ email: p.heuvel@gmail.com
   <td>oral</td>
   <td>7-7-2011</td>
   <td>S.M. Heps</td>
-  <td>325267004
-  <td><a href="medicationprescription/medicationprescription-example-F003.xml">8473</a>
+  <td>325267004</td>
+  <td><a href="medicationprescription/medicationprescription-example-F003.xml">8473</a></td>
 </tr>
 <tr>
   <td><a href="medication/medication-example-F004.xml">metoprolol</a></td>
@@ -217,8 +177,8 @@ email: p.heuvel@gmail.com
   <td>oral</td>
   <td>1-5-2011</td>
   <td>S.M. Heps</td>
-  <td>318475005
-  <td><a href="medicationprescription/medicationprescription-example-F004.xml">9517</a>
+  <td>318475005</td>
+  <td><a href="medicationprescription/medicationprescription-example-F004.xml">9517</a></td>
 </tr>
 <tr>
   <td><a href="medication/medication-example-F005.xml">enalapril</a></td>
@@ -227,8 +187,8 @@ email: p.heuvel@gmail.com
   <td>oral</td>
   <td>1-5-2011</td>
   <td>S.M. Heps</td>
-  <td>318851002
-  <td><a href="medicationprescription/medicationprescription-example-F005.xml">7119</a>
+  <td>318851002</td>
+  <td><a href="medicationprescription/medicationprescription-example-F005.xml">7119</a></td>
 </tr>
 </table>
 
@@ -242,7 +202,7 @@ email: p.heuvel@gmail.com
   <th>admission route</th>
   <th>start date</th>
   <th>presciber</th>
-  <th>SNOMED CT code
+  <th>SNOMED CT code</th>
 </tr>
 <tr>
   <td><a href="device/device-example-f001-feedingtube.xml">Feeding tube</a></td>
@@ -251,7 +211,7 @@ email: p.heuvel@gmail.com
   <td>tube</td>
   <td>10-4-2013</td>
   <td>R.A. van den Berk</td>
-  <td>61420007
+  <td>61420007</td>
 </tr>
 </table>
 
@@ -297,45 +257,39 @@ email: p.heuvel@gmail.com
 </table>
 
 <h3>Anamnese</h3>
-
-date: 8-6-2012<br>
+<p>
+date: 8-6-2012
 Bronchoscopy; several biopts taken from pathological mucosa, right main bronchus biopt send for pathologic analysis.
 Bronchoscopy because of atelectasis right.
-<br>
+
 X-thorax; increase in atelectasis and pleural liquid.  
 
-<h3>Anamnese</h3>
 
-date: 10-7-2012<br>
-Bronchoscopy; several biopts taken from pathological mucosa, right main bronchus biopt send for pathologic analysis.
-Bronchoscopy because of atelectasis right.<br>
+Bronchoscopie;
+- fluids drained from right main bronchus
+- pathalogic mucous membrane right bronchus, easily bleeding
+- Left bronchial system open
 
-X-thorax; increase in atelectasis and pleural liquid is stated after lobectomy.<br>
-
-Bronchoscopie;<br>
-- fluids drained from right main bronchus<br>
-- pathalogic mucous membrane right bronchus, easily bleeding<br>
-- Left bronchial system open<br>
-
+</p>
 
 <h3>Physical investigation</h3>
-date: 18-3-2013<br>
-Neck; swelling and redness pretracheal extending to chest. No fluctation, however induration is present.<br>
-Swelling back pharynx, also present in postcricoid area. Light stridor sound when breathing. Overall<br>
-condition is good. scoop; little supraglottic swelling, vocal chords not judgable.<br>
+date: 18-3-2013
+Neck; swelling and redness pretracheal extending to chest. No fluctation, however induration is present.
+Swelling back pharynx, also present in postcricoid area. Light stridor sound when breathing. Overall
+condition is good. scoop; little supraglottic swelling, vocal chords not judgable.
 
 <h3>Anamnese</h3>
 
-date: 18-3-2013<br>
+date: 18-3-2013
 Antiobiotic policy with retropharyngeal abcess with prolapse to the mediatinum. No surgical possibility to fully drain the mediatinum.
 
 <h3>Additional research</h3>
-CT thorax: no mediastinal/retropharyngal collering of the fluid collections. Diffuse edema retro/parapharyngeal and mediastinitis.<br>
+CT thorax: no mediastinal/retropharyngal collering of the fluid collections. Diffuse edema retro/parapharyngeal and mediastinitis.
 Preoperative culture shows; S pyogenes, sensitivity for peneciline and E. cloacae, sensitivity for Salbutamol.
 
 
 <h3>Policy</h3>
-Stop Salbutamol prescription. Continue penicilin and start salbutamol supplementation. Total treatment time is approximatly 6 weeks.<br>
+Stop Salbutamol prescription. Continue penicilin and start salbutamol supplementation. Total treatment time is approximatly 6 weeks.
 In consultation with the IC/anesthesia; intubation. Analyse lower respiratory tract.
    	
 <h3>Conclusion</h3>
@@ -398,11 +352,12 @@ Phone: +31612345678
   <td></td>
   <td><a href="condition/condition-example-f202-malignancy.xml">malignant tumor</a></td>
   <td></td>
-  <td><a href="procedure/procedure-example-f201-tpf.xml">chemotherapy</td>
+  <td><a href="procedure/procedure-example-f201-tpf.xml">chemotherapy</a></td>
   <td><a href="encounter/encounter-example-f202-20130128.xml">20130128</a></td>
   <td>100028475</td>
   <td>363346000</td>
 </tr>
+</table>
 
 <tr>
   <td><a href="practitioner/practitioner-example-f201-ab.xml">A. Bronsig</a></td>
@@ -457,6 +412,7 @@ Phone: +31612345678
   <td></td>
   <td></td>
 </tr>
+<tr>
   <td><a href="practitioner/practitioner-example-f201-ab.xml">A. Bronsig</a></td>
   <td>11-3-2013</td>
   <td><a href="encounter/encounter-example-f203-20130311.xml">20130311</a></td>
@@ -479,7 +435,8 @@ Phone: +31612345678
   <td></td>
   <td><a href="diagnosticreport/diagnosticreport-example-f202-bloodculture.xml">blood culture</a></td>
   <td><a href="organization/organization-example-f201-aumc.xml">AUMC</a></td>
-
+</tr>
+</table>
 
 <table border="1">
 <caption>Observations</caption>
@@ -539,5 +496,14 @@ Phone: +31612345678
   <td>negative</td>
   <td>427038005</td>
 </tr>
+</table>
+
+</div>
+
+[%onthispage PHR#phr|XDS#xds|Decision Support#decision%]
+
+[%file newfooter%]
+
+
 </body>
 </html>

@@ -1,23 +1,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!--
-todo:
-  register media types for text/xml+fhir application/json+fhir
--->
+
+[%setwiki http://wiki.hl7.org/index.php?title=FHIR_Overview_Page%]       
+[%settitle RESTful API%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>HTTP/RESTful Framework - FHIR v<%version%></title>
-    <link rel="Stylesheet" href="fhir.css" type="text/css"/>
-    <link rel="Stylesheet" href="fhir-print.css" type="text/css" media="print" />
+[%file newheader%]
 </head>
-
 <body>
-<%header%>
-<%sidebar%>
+[%file newnavbar%]
 
-<%maindiv%>
+<div class="col-9">
+
 <%pageheader%>
-[%onthispage Interactions#interactions|Tag Operations#tags|Binary Support#binary|Paging#paging|hData Information#hdata|Summary#summary%]
 
 <h1>RESTful HTTP Details</h1>
 
@@ -799,10 +794,10 @@ Note: this table lists the status codes described here, but other status codes a
 Additional codes that are likely a server errors and various codes associated with authentication protocols.
 </p>
 
+</div>
 
-<%footer%>
+[%onthispage Interactions#interactions|Tag Operations#tags|Binary Support#binary|Paging#paging|hData Information#hdata|Summary#summary%]
 
-
-<%/maindiv%>    
+[%file newfooter%]
 </body>
 </html>

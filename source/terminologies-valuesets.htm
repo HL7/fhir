@@ -1,18 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+[%setwiki http://wiki.hl7.org/index.php?title=FHIR_Overview_Page%]       
+[%settitle Value Sets%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Valuesets defined in FHIR v<%version%></title>
-    <link rel="Stylesheet" href="fhir.css" type="text/css"/>
-    <link rel="Stylesheet" href="fhir-print.css" type="text/css" media="print" />
+[%file newheader%]
 </head>
-
-
 <body>
-<%sidebar%>
+[%file newnavbar%]
 
-<%maindiv%>
+<div class="col-9">
+
 <%txheader valuesets%>
 
 <h2>Valuesets defined in FHIR</h2>
@@ -24,10 +23,9 @@ value sets include codes defined elsewhere, some define their own codes, and som
 
 <%valuesetslist%> 
 
-<%footer%>
+</div>
 
-
-<%/maindiv%>
+[%file newfooter%]
     
 </body>
 </html>

@@ -40,6 +40,14 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s75" ss:Name="Normal 3">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
   <Style ss:ID="s63">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
@@ -98,6 +106,9 @@
   <Style ss:ID="s73">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
+  <Style ss:ID="s79" ss:Parent="s75">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="10" x:FullColumns="1"
@@ -146,6 +157,7 @@
     <Cell ss:Index="10"><Data ss:Type="String">Need to be able to record postal addresses, along with notes about their use</Data></Cell>
     <Cell><Data ss:Type="String">Note: address is for postal addresses, not physical locations</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">AD</Data></Cell>
+    <Cell><Data ss:Type="String">XAD</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Address.use</Data></Cell>
@@ -159,6 +171,7 @@
     <Cell><Data ss:Type="String">Allows an appropriate address to be chosen from a list of many</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">This is labelled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old address etc for a current/permanent one. Applications can assume that an address is not temporary or old unless it explicitly says that it is</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">unique(./use)</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">XAD.7</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">Is it outside the 80% for this to repeat?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -171,6 +184,7 @@
     <Cell><Data ss:Type="String">A renderable, unencoded form</Data></Cell>
     <Cell><Data ss:Type="String">Can provide both a text representation and parts</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">./formatted</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">XAD.1 + XAD.2 + XAD.3 + XAD.4 + XAD.5 + XAD.6</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Address.line</Data></Cell>
@@ -178,7 +192,8 @@
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Line of an address</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">A line of an address (typically used for street names &amp; numbers, unit details, delivery hints, etc.) .</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">street address</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s79"><Data ss:Type="String">XAD.1 + XAD.2 (note: XAD.1 and XAD.2 have different meanings for a company address than for a person address)&#10;</Data></Cell>
+    <Cell><Data ss:Type="String">street address</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Address.city</Data></Cell>
@@ -187,7 +202,8 @@
     <Cell ss:Index="7"><Data ss:Type="String">Name of city, town etc.</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">The name of the city, town, village or other community or delivery center.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Muncipality</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">locality</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s79"><Data ss:Type="String">XAD.3</Data></Cell>
+    <Cell><Data ss:Type="String">locality</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Address.state</Data></Cell>
@@ -196,7 +212,8 @@
     <Cell ss:Index="7"><Data ss:Type="String">Sub-unit of country (abreviations ok)</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Province, Territory</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">region</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s79"><Data ss:Type="String">XAD.4</Data></Cell>
+    <Cell><Data ss:Type="String">region</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Address.zip</Data></Cell>
@@ -205,7 +222,8 @@
     <Cell ss:Index="7"><Data ss:Type="String">Post code for area</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">A postal code designating a region defined by the postal service.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">PostCode</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">postal code</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s79"><Data ss:Type="String">XAD.5</Data></Cell>
+    <Cell><Data ss:Type="String">postal code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Address.country</Data></Cell>
@@ -213,7 +231,8 @@
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Country (can be ISO 3166 3 letter code)</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Country. ISO 3166 3 letter codes can be used in place of a full country name.</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">country name</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s79"><Data ss:Type="String">XAD.6</Data></Cell>
+    <Cell><Data ss:Type="String">country name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Address.period</Data></Cell>
@@ -224,6 +243,7 @@
     <Cell><Data ss:Type="String">23-Mar 2010 -&gt; 1-Jul 2010</Data></Cell>
     <Cell><Data ss:Type="String">Allows addresses to be placed in historical context</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">./usablePeriod[type=&quot;IVL&lt;TS&gt;&quot;]</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">XAD.12 / XAD.13 + XAD.14&#10;</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -244,7 +264,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>6</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

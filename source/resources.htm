@@ -1,21 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+[%setwiki http://wiki.hl7.org/index.php?title=FHIR_Overview_Page%]       
+[%settitle Resource Definitions%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Resource Definitions - FHIR v[%version%]</title>
-    <link rel="Stylesheet" href="fhir.css" type="text/css"/>
-    <link rel="Stylesheet" href="fhir-print.css" type="text/css" media="print" />
+[%file newheader%]
 </head>
-
 <body>
-[%header%]
-[%sidebar%]
+[%file newnavbar%]
 
-[%maindiv%]
-[%resourcesheader%]
+<div class="col-9">
 
-[%onthispage Resource Definitions#root|Resource Content#content|Bundles#bundles|Conformance#conformance|Resource References#references|Contained Resources#contained|Versioning#version%]
 
 <a name="root"> </a>
 <h1>Resource Definitions</h1>
@@ -349,183 +345,6 @@ the important elements to make use of the resource), nor is it automatically mus
 of these things are more likely to be true for IsModifier elements than for other elements.
 </p>
 
-
-<a name="ResourceReference"> </a>
-<a name="Resource"> </a>
-<a name="references"> </a>
-<a name="Identification"> </a>
-<h2>References between resources</h2>
-<p>
-The defined elements in a resource includes many references to other resources. 
-The resources combine to build a web of information about healthcare. 
-</p>
-<p>
-References are always defined in one particular direction - from one resource (source) to another (target).
-The corresponding reverse relationship from the target to the source exists in a logical sense, but is 
-not represented explicitly in the resource. Navigating these reverse relationships requires some 
-external infrastructure to track the relationship between resources.
-</p>
-<p>
-Because resources are processed independently, relationships are not considered to be transitive. 
-For example, if a <a href="condition.htm">Condition</a> resource references a particular 
-<a href="patient.htm">Patient</a> as its subject, and it links to a <a href="procedure.htm">Procedure</a>
-resource as its cause, there is no automatic rule or implication that the procedure 
-has the same patient as its subject. Instead, the subject of the procedure must be established 
-directly in the procedure itself. Another way to state this is that the context of the subject
-is not "inherited" and it does not "conduct" along the relationship to procedure. 
-The only exception to this in the case of contained resources (see below). Note that in
-practice, the relationships do need to describe a logical and coherent record.
-</p>
-
-<p>
-In a resource, 
-references are represented with a type, a reference, and a text description.
-The key property of the reference is the <i>reference</i> - resources are identified and addressed by their URL.
-The actual reference looks like this (see <a href="formats.htm#syntax">"XML Format"</a>
-for details of the way resource contents are described):
-</p>
-
-[%dt ResourceReference%]
-
-<p>&nbsp;</p>
-
-<p>Notes:</p>
-<ul>
- <li>The <i>type</i> must specify the resource type, whether or not the type of the resource reference is fixed for the element in the resource definition</li>
- <li>The <i>reference</i> element contains a url that is either an absolute URL, or a relative URL that is relative to the <a href="http.htm#root">Service Base URL</a>, or an internal fragment reference (see below)</li>
- <li>Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a 
-   flexible approach suitable for use when trading across closed ecosystem boundaries. (see <a href="implementation.htm#identity">implementation issues for further discussion</a>)</li>
- <li>Absolute URLs do not need to point to a <a href="http.htm">FHIR RESTful server</a>, though this is the preferred approach. If the tail of the url 
-   conforms to the structure "/[type]/@[id]" or "/[type]/@[id]/history/@[id]" then it should be assumed that the reference is to a <a href="http.htm">FHIR RESTful server</a>. 
-   Whether or not the reference is to a FHIR RESTful server, the reference must point to a Resource as defined by this specification</li>
- <li>URLs are always considered to be case-sensitive and lowercase is preferred</li>
- <li>The <i>display</i> is generally not the same content as the Resource.text of the referenced resource.  The purpose is to 
-   identify what's being referenced, not to more fully describe it</li>
-</ul>
-
-<div class="use">
-<p><b>Constraints</b></p>
-<p>
-[%dt.constraints ResourceReference%]
-</p>
-</div>
-
-<div class="example">
-<p>A relative reference to the <a href="patient.htm">patient</a> "034AB16" in an element named "context" on a FHIR RESTful server:</p>
-<pre class="xml" fragment="ResourceReference">
-  &lt;context&gt;
-    &lt;type value="Patient" /&gt;
-    &lt;reference value="patient/@034AB16" /&gt;
-  &lt;/context&gt;
-</pre>
-<p>An absolute reference to a <a href="profile.htm">resource profile</a> in an element named "profile":</p>
-<pre class="xml" fragment="ResourceReference">
-  &lt;profile&gt;
-    &lt;type value="Profile" /&gt;
-    &lt;reference value="http://fhir.hl7.org/svc/profile/@c8973a22-2b5b-4e76-9c66-00639c99e61b" /&gt;
-  &lt;/profile&gt;
-</pre>
-<p><i>Note that HL7 has not yet actually created a profile registry, nor decided on a URL for it</i>.</p>
-<p>
-A short display text that provides a human readable identification of the resource may be provided:
-</p>
-<pre class="xml" fragment="ResourceReference">
-  &lt;custodian&gt;
-    &lt;type value="Organization" /&gt;
-    &lt;reference value="organization/@123" /&gt;
-    &lt;display value="HL7, Inc" /&gt;
-  &lt;/custodian&gt;
-</pre>
-<p>
-This text can be used by a system that is unable to resolve the reference to an actual resource.
-</p>
-</div>
-
-<a name="contained"> </a>
-<h3>Contained Resources</h3>
-<p>
-In some circumstances, the content referred to in the resource reference does not have an independent 
-existence apart from the resource that contains it - it cannot be identified independently, and nor 
-can it have its own independent transaction scope. Typically, such circumstances arise where the resource
-is being assembled by a secondary user of the source data, such as a middleware engine. If the data available
-when the resource is constructed does not include record keys or absolute identification information, then
-a properly identified resource cannot be assembled, and even if an arbitrary identification was associated
-with it, the resource could never be the subject of a transaction outside the context of the resource that
-refers to it.
-</p>
-<p>
-In these circumstances, the resource is placed directly in line in the reference. <b>This should never be 
-done when the content can be identified properly, as once identification is lost, it is extremely difficult 
-(and context dependent) to restore it again.</b>
-</p>
-<div class="example">
-<p>
-An example of a contained resource:
-</p>
-<pre class="xml"> <!-- Can't fragment test this - too incomplete -->
- &lt;Document xmlns="http://hl7.org/fhir"&gt;
-  &lt;extension&gt;...&lt;/extension&gt;
-  &lt;text&gt;...&lt;/text&gt;
-  &lt;contained&gt;
-    &lt;Organization id=&quot;org1&quot;&gt;
-      &lt;!-- whatever information is available --&gt;
-    &lt;/Organization&gt;
-  &lt;/contained&gt;
-  &lt;information&gt;
-    &lt;!-- other attributes --&gt;
-    &lt;custodian&gt;
-      &lt;type value="Organization" /&gt;
-      &lt;reference value="#org1" /&gt;
-    &lt;/custodian&gt;
-    &lt;!-- other attributes --&gt;
-  &lt;information&gt;
- &lt;/Document&gt;
-</pre>
-<p>
-The same example in JSON:
-</p>
-<pre class="json"> 
-{ "Document" : {
-  "extension" : { ... },
-  "text" : { .. },
-  "contained: [
-    {"Organization" : {
-      "_id" : "org1",
-      .. whatever information is available ...
-	}}
-  ]
-  "information: {
-    ... other attributes ...
-    "custodian" : {
-      "type" : { "value" : "Organization" },
-      "url" : { "value" : "#org1" }
-	}
-    ... other attributes ...
-  }
-}}
-</pre>
-</div>
-
-<p>
-The type and url are always required, even though somewhat redundant in this case, to ensure that a
-single approach to resolving resource references can be used - simply by resolving the URL, and accessing
-accordingly.
-</p>
-<p>
-Some notes about use and interpretation of contained resources:
-</p>
-
-<ul>
-  <li>Contained resources share the same internal id resolution space as the parent resource</li>
-  <li>Contained resources do not contain additional contained resources</li>
-  <li>Resources that are contained inline also "inherit" context from their parent resource. For instance, if 
-    the parent resource contains a "subject", and the contained resource also has a subject element defined, 
-    but does not specify any subject, a processing application may infer that the subject is the same. Note,
-    however, that such inferences are specific to a particular circumstance. There is no rule, for instance, 
-	that the meaning of the "subject" element is the same in both parent and contained resources</li>
-  <li>Contained resources do not need to contain any narrative</li>
-</ul>
-
 <a name="version"> </a>
 <h2>Inter-version Compatibility</h2>
 <blockquote>
@@ -568,10 +387,22 @@ declare whether they will do so in their conformance statements using the <i>acc
 Additional discussion on interversioning issues can be found here: 
 <a href="http://wiki.hl7.org/index.php?title=FHIR_interversion_compatibility">http://wiki.hl7.org/index.php?title=FHIR_interversion_compatibility</a>.
 </p>
+<h3>Further Information</h3>
+<p>
+Additional documentation.
+</p>
+<ul>
+  <li><a href="resources.htm">Resource Definitions</a></li>
+  <li><a href="references.htm">References between Resources</a></li>
+  <li><a href="narratives.htm">Narratives</a></li>
+  <li><a href="formats.htm">Formats:</a> <a href="xml.htm">XML</a>, <a href="json.htm">JSON</a> </li>
+  <li><a href="extensibility.htm">Extensibility</a> (<a href="extensibility-examples.htm">Examples</a>)</li>
+  <li><a href="resource-definitions.htm">Formal Definitions</a></li>
+</ul>
 
-[%footer%]
+</div>
+[%onthispage Resource Definitions#root|Resource Content#content|Bundles#bundles|Conformance#conformance|Resource References#references|Contained Resources#contained|Versioning#version%]
 
-
-[%/maindiv%]    
+[%file newfooter%]
 </body>
 </html>

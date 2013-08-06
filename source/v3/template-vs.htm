@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
+[%setwiki http://wiki.hl7.org/index.php?title=FHIR_Overview_Page%]       
+[%settitle v3 Value Set http://hl7.org/fhir/v3/{id}%]
+[%setlevel 2%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>HL7 Version v3 Value Set <%id%></title>
-    <link rel="Stylesheet" href="../../fhir.css" type="text/css"/>
-    <link rel="Stylesheet" href="../../fhir-print.css" type="text/css" media="print" />
+[%file newheader%]
 </head>
-
 <body>
-<%sidebar ../../%>
+[%file newnavbar%]
 
-<div class="content">
+<div class="col-9">
 
-<h1>HL7 Version v3 Value Set http://hl7.org/fhir/v3/<%id%></h1>
+<h1>v3 Value Set http://hl7.org/fhir/v3/<%id%></h1>
 
 <p>
 Formal value Set definition: <a href="v3-<%id%>.xml.htm">XML</a> or <a href="v3-<%id%>.json.htm">JSON</a>
@@ -22,9 +21,9 @@ Formal value Set definition: <a href="v3-<%id%>.xml.htm">XML</a> or <a href="v3-
 
 <%v3ValueSet%>
 
-<%footer2%>
+</div>
 
-</div> 
+[%file newfooter%]
     
 </body>
 </html>

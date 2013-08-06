@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+[%setwiki http://wiki.hl7.org/index.php?title=FHIR_Overview_Page%]       
+[%settitle Documentation Index%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<h2>FHIR Documentation Index</h2>
+<p>
+This page provides and index to the FHIR Documentation. In addition 
+to this documentation, there's implementation assistance, and the 
+list of resources.
+</p>
+<table width="100%">
+ <tr>
+ <td>
+<p><b>Administration</b></p>
+<p>Documentation Guidance.</p>
+<ul>
+  <li><a href="toc.htm">Full Table of Contents</a></li>
+  <li><a href="licence.htm">License and Legal Terms</a></li>
+  <li><a href="credits.htm">Community &amp; Credits</a></li>
+  <li><a href="history.htm">Version History</a></li>
+  <li><a href="todo.htm">Outstanding Issues</a></li>
+</ul>
+<hr/>
+<p><b>Overview</b></p>
+<p>Background and Tutorial Information.</p>
+<ul>
+  <li><a href="summary.htm">1 page Summary (Glossy)</a></li>
+  <li><a href="overview.htm">Introduction</a></li>
+  <li><a href="change.htm">Coming Challenges Driving Change</a></li>
+  <li><a href="ehr-fm.htm">How FHIR fits into an EHR</a></li>
+</ul>
+<hr/>
+<p><b>Using FHIR</b></p>
+<p>Making use of FHIR.</p>
+<ul>
+  <li><a href="usecases.htm">Common Use Cases</a></li>
+  <li><a href="security.htm">Security</a></li>
+  <li><a href="integrated-examples.htm">Integrated Examples</a></li>
+</ul>
+</td><td style="border-left: 1px black">
+<p><b>Resources</b></p>
+<p>Underlying Definitions for Resources.</p>
+<ul>
+  <li><a href="resources.htm">Resource Definitions</a></li>
+  <li><a href="references.htm">References between Resources</a></li>
+  <li><a href="narrative.htm">Narratives</a></li>
+  <li><a href="formats.htm">Formats:</a> <a href="xml.htm">XML</a>, <a href="json.htm">JSON</a> </li>
+  <li><a href="extensibility.htm">Extensibility</a> (<a href="extensibility-examples.htm">Examples</a>)</li>
+  <li><a href="base-definitions.htm">Formal Definitions</a></li>
+</ul>
+<hr/>
+<p><b>Data Types</b></p>
+<p>Common types used throughout FHIR.</p>
+<ul>
+  <li><a href="datatypes.htm">Definitions</a></li>
+  <li><a href="datatypes-examples.htm">Examples</a></li>
+  <li><a href="datatypes-definitions.htm">Formal Definitions</a></li>
+  <li><a href="datatypes-mappings.htm">Mappings</a></li>
+</ul>
+<hr/>
+<p><b>Using Terminologies</b></p>
+<p>How codes, systems and value sets are used, and registries of known systems</p>
+<ul>
+  <li><a href="terminologies.htm">Introduction and Overview</a></li>
+  <li><a href="terminologies-systems.htm">Defined System List</a></li>
+  <li><a href="terminologies-bindings.htm">Binding List</a></li>
+  <li><a href="terminologies-codes.htm">Coding System List</a></li>
+  <li><a href="terminologies-valuesets.htm">Value Set List</a></li>
+  <li><a href="terminologies-v2.htm">V2 Table List</a></li>
+  <li><a href="terminologies-v3.htm">V3 Code System / Value set List</a></li>
+</ul>
+</td></tr></table>
+
+<a name="roadmap"> </a>
+<h2>Roadmap</h2>
+<p>
+This specification is structured into 3 parts: the introduction, the implementation section and the resource definitions. 
+</p>
+<h3>Introduction</h3>
+<p>
+The introduction provides foundational material that is required to understand and use resources:
+</p>
+<ul>
+  <li><b><a href="index.htm">Introduction</a></b>: Overall introduction, useful links and the FHIR license</li>
+  <li>This roadmap</li>
+  <li><b><a href="resources.htm">Resource Definitions</a></b>: An explanation of the general content and identification of resources</li>
+  <li><b><a href="formats.htm">Resource Formats</a></b>: An explanation of the general format and representation of resources</li>
+  <li><b><a href="datatypes.htm">Data Types</a></b>: Common re-usable patterns encountered throughout healthcare data and used in the resources</li>
+  <li><b><a href="terminologies.htm">Using Codes</a></b>: Explains how the use of codes (code systems, terminologies, classifications, ontologies) is managed in FHIR</li>
+  <li><b><a href="extensibility.htm">Extensibility</a></b>: Describes the extension section of the resource and specifies the rules that apply to its use</li>
+</ul>
+
+<h3>Implementation</h3>
+<p>
+The implementation section explains how resources are used in various contexts:
+</p>
+<ul>
+  <li><b><a href="implementation.htm">Implementation</a></b>: General requirements for using resources and various useful things including schema packs and reference implementations</li>
+  <li><b><a href="http.htm">REST (HTTP)</a></b>: Defines a lightweight HTTP based paradigm for using resources</li>
+  <li><b><a href="message.htm">Messaging</a></b>: A simple request/response message based transactional framework (equivalent to HL7 v2)</li>
+  <li><b><a href="document.htm">Documents</a></b>: Clinical documents contain attested content that are both human readable and computer processable and can be exchanged and signed as single bundles (equivalent to CDA)</li>
+  <li><b><a href="security.htm">Security</a></b>: A brief discussion of security considerations associated with using FHIR</li>
+</ul>
+
+<h3>Resources</h3>
+<p>
+The resources section enumerates the resources:
+</p>
+<ul>
+  <li><b><a href="resources.htm">Resources</a></b>: An index of the defined resources in categories</li>
+  <li>The resources in alphabetical order</li>
+</ul>
+<p>
+For each resource, the following pages are provided:
+</p>
+<ul>
+ <li><b>Content</b>: Provides context for the resource and defines its content with a simple XML format and some additional description. Formal definitions such as W3C schema and others are also provided.  Also describes events and search criteria associated with the resource</li>
+ <li><b>Examples</b>: Provides one or more examples that show how the resource is used</li>
+ <li><b>Formal Definitions</b>: A table of the full formal definitions for each element in the resource along with mappings to other standards and ontologies</li>
+ <li><b>Design Notes</b>: Explanations of some of the less obvious aspects of the resource and explanation of why the resource is structured in a particular way. Not all resources have design notes and implementers do not need to read them</li>
+ <li><b>Profiles</b>: A list of profiles of the resource that are provided as part of the standard. Profiles may be provided to illustrate some aspect of the use of a resource or because certain particular uses of a resource are sufficiently common to warrant a standard profile</li>
+</ul>
+
+
+</div>
+
+[%file newfooter%]
+    
+    
+</body>
+</html>

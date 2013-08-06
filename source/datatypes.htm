@@ -1,30 +1,30 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+[%setwiki http://wiki.hl7.org/index.php?title=FHIR_Overview_Page%]       
+[%settitle Data Types%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Data Types - FHIR v[%version%]</title>
-    <link rel="Stylesheet" href="fhir.css" type="text/css"/>
-    <link rel="Stylesheet" href="fhir-print.css" type="text/css" media="print" />
+[%file newheader%]
 </head>
-
 <body>
-[%header%]
-[%sidebar%]
+[%file newnavbar%]
 
-[%maindiv%]
-[%dtheader%]
+<div class="col-9">
+
+
 <!--
  no repeating primitives in datatypes? No id's on primitives in datatypes...No dar on primitives in datatypes. It would be worthwhile to document that and the reason for it.
 -->
 
-[%onthispage Primitive Types#primitive|Data Types#Types|Other Types#other%]
 
 <h1>Data Types</h1>
 
 <p>
 The FHIR specification defines a set of types that are used for the 
-resource elements. There are two categories of data type: simple / primitive types, imported from XML schema, and complex types, which are re-usable clusters of elements
+resource elements. There are two categories of data type: simple / primitive types, imported from XML schema, and complex types, which are re-usable clusters of elements.
+This page describes the data types. See also the <a href="datatypes-examples.htm">Examples</a>, <a href="datatypes-definitions.htm">Formal Definitions</a> and 
+<a href="datatypes-mappings.htm">Mappings</a>.
 </p>
 
 [%diagram datatypes\alltypes.diagram%]
@@ -39,7 +39,7 @@ The data types are available as a <a href="fhir-base.xsd">W3C Schema</a>.
 
 [%diagram datatypes\primitives.diagram%]
 
-<a name="imports"></a>
+<a name="imports"> </a>
 <p>
 The following table summarizes the primitive types and their simple restrictions that
 are used in throughout this specification. These types all have <a href="extensibility.htm">extensions</a>,
@@ -1145,9 +1145,10 @@ The following types are defined as part of the data types, but are documented el
  <li><b><a href="formats.htm#Narrative">Narrative</a></b> - Conveys a human readable representation of the content of a resource</li>
 </ul>
 
-[%footer%]
+</div>
+[%onthispage Primitive Types#primitive|Data Types#Types|Other Types#other%]
 
-
-[%/maindiv%]    
+[%file newfooter%]
+  
 </body>
 </html>

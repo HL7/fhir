@@ -1,34 +1,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+[%setwiki http://wiki.hl7.org/index.php?title=FHIR_Overview_Page%]       
+[%settitle Implementers Landing Page%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Implementers Landing Page - FHIR v<%version%></title>
-    <link rel="Stylesheet" href="fhir.css" type="text/css"/>
-    <link rel="Stylesheet" href="fhir-print.css" type="text/css" media="print" />
+[%file newheader%]
 </head>
 <body>
-<%header%>
-<%sidebar%>
+[%file newnavbar%]
 
-<%maindiv%>
-<%pageheader%>
+<div class="col-9">
 
-<%onthispage Welcome#root|Links/Search#links|Disclaimer#disclaimer|License#license|Credits#credits|Outstanding Work#todo|Version History#history%>
 
 <a name="root"> </a>
 <h1>Welcome to FHIR&reg;</h1>
 
-<table border="0" cellspacing="0" cellpadding="5">
-<tr>
-<td><img src="flame128.png"/></td>
-<td>
+<p>
 Fast Healthcare Interoperability Resources (FHIR&trade;) defines a set of 'resources' to represent health and 
 healthcare administration-related information, and a RESTful framework for exchanging these, in order to 
 quickly and effectively solve system interoperability problems in healthcare and related processes. <br/>
 The resources cover the basic elements of healthcare - including patients, admissions, diagnostic reports, medications 
 and problem lists - with their typical data elements and also support a range of richer and more complex clinical models. 
-</td></tr></table>
+</p>
 
 <a name="links"> </a>
 
@@ -51,212 +45,12 @@ and problem lists - with their typical data elements and also support a range of
 </ul>
 </div>
 
-
-
 <p id="srch">&nbsp;</p>
 
-<a name="disclaimer"></a>
-<h2>Disclaimer and Warning of Use</h2>
-<p>
-FHIR Resource definitions developed by HL7 are derived from the considerable collective 
-experience of the HL7 membership and wide community feedback from the development and 
-application of a spectrum of health care interoperability solutions.  However, Resource 
-definitions are generalized to support multiple contexts of use. It is the responsibility 
-of the persons or organizations using these Resources to ensure their use is fit for the 
-particular purpose in which they are used, including validation for clinical and operational use.
-</p>
 
-<a name="ballotstatus"></a>
-<h2>Notes on Draft Standard for Trial Use (DSTU) status</h2>
-<p>
-FHIR is being balloted as a Draft Standard for Trial Use.  A complete description of the rules
-for DSTU can be found in HL7's 
-<a href="http://www.hl7.org/documentcenter/public/membership/HL7_Governance_and_Operations_Manual.pdf">Governance and Operations Manual</a>. 
-However, the essential points for implementers are covered below:
-</p>
-<p>
-The purpose of this phase in the
-approval process is to gain real-world implementation experience based on a vetted, approved
-version of the specification prior to locking any particular aspect of the specification "in stone".
-This specification makes a number of statements about what HL7 will and will not do in future
-versions of this specification.  These statements generally concern expectations around forward
-and backward compatibility and how the specification will evolve.  However, these statements only 
-hold once the specification is approved as a "normative" standard - the approval process that will 
-occur subsequent to DSTU.  Between different DSTU versions and between the DSTU and final approved
-normative version of the specification and its resources, these rules around compatibility and other
-issues will not be enforced.  Elements may be renamed, moved, dropped or otherwise changed.
-Extensions may be promoted to core elements and core elements may be demoted to extensions.  Wire
-syntax and invocation sequences may be changed.  Other breaking changes may occur.
-</p>
-<p>
-Major changes are not expected, however the risk does exist.  If they occur, such changes will 
-not be undertaken without good supporting rationale.  However, long term implementability and 
-usefulness of the specification will receive greater weight when evaluating changes that impact on
-existing DSTU implementations.  DSTU implementers should therefore provide flexibility in their
-architecture that will allow them to more easily accommodate changes to the specification.  They should
-also consider how their implementations might peacefully coexist with implementations of future
-DSTU and normative versions that may not be fully compatible.
-</p>
+</div>
 
-<a name="license"></a>
-<h2>FHIR License</h2>
-<p>
-FHIR plain English license:
-</p>
-<ul>
- <li>FHIR is &copy; and &reg; HL7. The right to maintain FHIR remains vested in HL7</li>
- <li>You can redistribute FHIR</li>
- <li>You can create derivative specifications or implementation-related products and services</li>
- <li>Derivative Specifications cannot redefine what conformance to FHIR means</li>
- <li>You can't claim that HL7 or any of its members endorses your derived [thing] because it uses content from this specification</li>
- <li>Neither HL7 nor any of the contributors to this specification accept any liability for your use of FHIR</li>
-</ul>
-<p>
-Note: Why not use a standard open source license? We'd like to use <a href="http://creativecommons.org/">Creative Commons</a> or 
-<a href="http://opensource.org/licenses/alphabetical">a license listed here</a>, but none of them actually deliver on 
-the plain English intent above in important ways. We aspire to meet <a href="http://opensource.org/osr-intro">these requirements from the Open 
-Source Initiative</a>, though <a href="http://xml.coverpages.org/patents.html">patents are a problem</a>. 
-</p>
-<p>
-While we resolve the questions around the long term license, the following license,
-adapted from the <a href="http://www.omg.org">OMG</a> (thanks for allowing this), applies:
-</p>
-<blockquote>
-<p>
-Subject to all of the terms and conditions below, HL7 hereby grants you a fully-paid up, 
-non-exclusive, non-transferable, perpetual, worldwide license (without the right to 
-sublicense) to use this specification to create and distribute software and special 
-purpose specifications that are based upon this specification and to use, copy and 
-distribute this specification as provided under the United States Copyright Act; provided that: 
-</p>
-<ol>
- <li>both the copyright notice identified above and this permission notice appear on any copies of this specification; </li>
- <li>the use of the specifications is for informational purposes and will not be resold or transferred for commercial purposes; </li> 
- <li>no modifications are made to this specification. </li>
-</ol>
-<p> 
-This limited permission automatically terminates without notice if you breach any of 
-these terms or conditions. Upon termination, you will destroy immediately any copies 
-of the specifications in your possession or control. 
-</p>
-<h3>GENERAL USE RESTRICTIONS</h3>
-<p>
-Any unauthorized use of this specification may violate copyright laws, trademark laws, and communications 
-regulations and statutes. This document contains information which is protected by copyright. All Rights 
-Reserved. No part of this work covered by copyright herein may be reproduced or used in any form or by 
-any means--graphic, electronic, or mechanical, including photocopying, recording, taping, or information 
-storage and retrieval systems--without permission of the copyright owner.
-</p>
-<h3>DISCLAIMER OF WARRANTY</h3>
-<p>
-WHILE THIS PUBLICATION IS BELIEVED TO BE ACCURATE, IT IS PROVIDED "AS IS" AND MAY CONTAIN ERRORS OR 
-MISPRINTS. HL7 MAKES NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, WITH REGARD TO THIS PUBLICATION, 
-INCLUDING BUT NOT LIMITED TO ANY WARRANTY OF TITLE OR OWNERSHIP, IMPLIED WARRANTY OF MERCHANTABILITY OR 
-WARRANTY OF FITNESS FOR A PARTICULAR PURPOSE OR USE. IN NO EVENT SHALL HL7  BE LIABLE FOR ERRORS 
-CONTAINED HEREIN OR FOR DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, RELIANCE OR COVER 
-DAMAGES, INCLUDING LOSS OF PROFITS, REVENUE, DATA OR USE, INCURRED BY ANY USER OR ANY THIRD PARTY 
-IN CONNECTION WITH THE FURNISHING, PERFORMANCE, OR USE OF THIS MATERIAL, EVEN IF ADVISED OF THE 
-POSSIBILITY OF SUCH DAMAGES. 
-</p>
-<p>
-The entire risk as to the quality and performance of software developed using this specification is 
-borne by you. This disclaimer of warranty constitutes an essential part of the license granted to 
-you to use this specification.
-</p>
-<h3>CONFORMANCE</h3>
-<p>
-HL7 is and shall at all times be the sole entity that may authorize developers, suppliers and 
-sellers of computer software or specifications to use certification marks, trademarks or other 
-special designations to indicate compliance with FHIR. Software developed under the 
-terms of this license may claim compliance or conformance with FHIR if and only 
-if the software compliance is of a nature fully matching the applicable conformance points as 
-stated in the FHIR specification. Software developed only partially matching the applicable 
-compliance points may claim only that the software was based on FHIR, but may 
-not claim compliance or conformance with this specification. In the event that testing suites 
-or processes are implemented or approved by HL7, Inc., software developed using this 
-specification may claim compliance or conformance with the FHIR specification only if the 
-software satisfactorily completes the testing suites.
-</p>
-
-</blockquote>
-
-<a name="credits"> </a>
-<h2>Credits</h2>
-<p>
-FHIR is a specification produced by the HL7 Community. Many individuals contribute to the FHIR specification. Of particular note:
-</p>
-<ul>
-<li>The Editorial team is Grahame Grieve, Ewout Kramer, Lloyd McKenzie</li>
-<li>The <a href="http://wiki.hl7.org/index.php?title=FHIR_Governance_Board">Governance board</a> is Ron Parker, Woody Beeler, Ewout Kramer, John Quinn and Grahame Grieve</li>
-<li>The <a href="http://wiki.hl7.org/index.php?title=FHIR_Management_Group">Management board</a> is Lorraine Constable, Jean Duteau, Hugh Glover, David Hay, John Moehrke, Brian Pech, Lloyd McKenzie, Ron Parker and John Quinn</li>
-<li>The following organizations have helped by attending Connectathons: 
-<a href="http://www.healthintersections.com.au" class="external text" rel="nofollow">Health Intersections</a>, 
-<a href="http://furore.com" class="external text" rel="nofollow">Furore</a>, 
-<a href="http://www.orionhealth.com" class="external text" rel="nofollow">Orion Healthcare</a>, 
-<a href="http://ge.com" class="external text" rel="nofollow">GE Healthcare</a>, 
-<a href="http://www.mohawkcollege.ca/" class="external text" rel="nofollow">Mohawk College</a>, <a href="http://www.thrasys.com/" class="external text" rel="nofollow">Thrasys</a>, HealthFire, Interfaceware, Gordon Point Informatics, NProgram, and Blue Wave
-</li>
-</ul>
-
-<a name="todo"> </a>
-<h2>Outstanding Work Items</h2>
-<p>
-These are recognized outstanding tasks that are yet to be completed. There are many tasks still to be done that are not listed here.
-</p>
-<ul>
- <li>Improve summary material for non-technical users, particularly a clinically-orientated benefits summary</li>
- <li>Should a resource identify which profile(s) it conforms to? (why?) (related discussion: rules of handling and version dependency)</li>
- <li>What consistent life cycle patterns do we need for resources?</li>
- <li>How to do digital signatures in json? For servers that store json/bson?</li>
- <li>How do we define the Zed resource (or the resource with no name)</li>
- <li>Minor technical issues:
-   <ul>
-     <li>issue with json lists and datatype choices</li>
-	 <li>de-anonymize div element?</li>
-     <li>Fix problem with schematron paths capturing resources and datatypes used in extensions (by looking for valuexxx)?</li>
-	 <li>improve path display for schematrons</li>
-     <li>Decide what our policy is on including formatting in Excel columns (e.g. italics in formal constraints)</li>
-	 <li>remove profile bindings from bindings summary (i.e. EntityNamePartQualifier)</li>
-	 <li>Many presentation improvements for presenting profiles</li>
-   </ul>
- </li>
-</ul>
-<p>
-Additional open issues can be found throughout the text of the specification and on the 
-<a href="http://wiki.hl7.org/index.php?title=Category:Active_FHIR_Discussion">FHIR active discussions</a> 
-wiki page.
-</p>
-
-<a name="history"> </a>
-<h2>Version History</h2>
-<table class="grid">
- <tr>
-   <th>Version</th>
-   <th>Major Changes</th>
- </tr>
- <tr>
-   <td>0.07 <br/>(After 2nd Draft For Comment)</td>
-   <td>
-     <ul>
-	   <li>Change to <a href="resources.htm#references">resource references</a>: id -> url, true relative references, remove version link </li>
-	   <li>Introduce <a href="resources.htm#contained">contained resources</a></li>
-	   <li>Move primitive values into attributes instead of text. Remove <a href="extensibility.htm">extension.ref</a>, and put extensions in the place they apply</li>
-	   <li>Remove special case for data type properties: now they have @id, and the json representation is the same</li>
-	   <li>Changes to <a href="http.htm#search">search</a>: rename special parameters, introduce paging, clarify date searches</li>
-	   <li>Change to <a href="http.htm#history">updates</a>: /[resource]/ is now search, rename to history operation, introduce global updates operation</li>
-	   <li>Clarify server obligations on <a href="http.htm#transaction">batch</a> &amp; add search specifier</li>
-	   <li>Move Person into <a href="patient.htm">Patient</a>/<a href="practitioner.htm">Practitioner</a> (which used to be "agent")</li>
-	   <li>Rename LabReport to <a href="diagnosticreport.htm">DiagnosticReport</a> &amp; use <a href="observation.htm">Observation</a> for atomic data</li>
-	   <li>Many new resources, including <a href="order.htm">Order</a>/<a href="orderresponse.htm">OrderResponse</a>, <a href="picture.htm">Picture</a>, <a href="careplan.htm">CarePlan</a></li>
-	 </ul>
-   </td>
- </tr>
-</table>
-
-<!--archive-->
-
-<%footer%>
-<%/maindiv%> 
+[%file newfooter%]
     
     
 </body>

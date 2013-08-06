@@ -2,7 +2,7 @@
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 [%setwiki http://wiki.hl7.org/index.php?title=FHIR_Overview_Page%]       
-[%settitle Data Type Mappings%]
+[%settitle Resources - Formal Definitions%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -10,20 +10,25 @@
 <body>
 [%file newnavbar%]
 
-
 <div class="col-9">
 
-<h2>Data Type Formal Definitions</h2>
+<h2>Resource Definitions - Formal Definitions</h2>
 
-<p>This page provides the mappings for the data types</p>
+<h3>Resource</h3>
+<%dictionary Resource%>
 
-[%diagram datatypes\alltypes.diagram%]
+<h3>ResourceReference</h3>
+<%dictionary ResourceReference%>
 
-<%dtmappings%>
+<h3>Narrative</h3>
+<%dictionary Narrative%>
+
+
+<h3>Extension</h3>
+
+<%dictionary Extension%>
 
 </div>
-
-<%maponthispage%>
 
 [%file newfooter%]
 </body>
