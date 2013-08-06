@@ -56,7 +56,7 @@
     <page title="Documents" type="resource" resource="document"/>
     <page title="Messaging" type="resource" resource="message"/>
   </page>
-  <page title="Implementation Support" filename="implemnentation.htm">
+  <page title="Implementation Support" filename="implementation.htm">
     <page title="Downloads" filename="downloads.htm"/>
     <page title="Clients &amp; Servers" filename="software.htm"/>
     <page title="Support" filename="support.htm"/>

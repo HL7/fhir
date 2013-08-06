@@ -11,7 +11,7 @@
   </text>
 
   <identifier>
-    <system value="htp://www.acme.org/practitioners"/>
+    <system value="http://www.acme.org/practitioners"/>
     <key value="23"/>
   </identifier>
   <name>

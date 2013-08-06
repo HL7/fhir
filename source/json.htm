@@ -50,9 +50,10 @@ able to perform correctly. The <a href="implementation.htm#refimpl">reference pl
 
 <h2>JSON representation of primitive elements</h2>
 <p>
-FHIR elements with primitive values are represented as a JSON object of the same name with a the value attribute of the element in a "value" property. Except for integer and boolean, native JSON types are not used and values are rendered as strings, to guarantee equivalence of the serialized representation 
-between XML and JSON. 
-</p>
+FHIR elements with primitive values are represented as a JSON object of the same name with a the value attribute of the element in a "value" property and  
+(optionally) "_id" for the id attribute.  JSON native types are used for boolean, integer and decimal, all other primitives are rendered as strings, and the 
+whitespace is always significant (i.e. no leading and trailing spaces for non-strings). The JSON value "null" is never used.</p>
+
 <pre class="xml">
  &lt;<b>date</b> value="1972-11-30"/&gt;
  &lt;<b>deceased</b> value="false" /&gt;
