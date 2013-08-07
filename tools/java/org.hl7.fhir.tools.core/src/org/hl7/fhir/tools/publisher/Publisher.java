@@ -1435,7 +1435,7 @@ public class Publisher {
     Utilities.createDirectory(page.getFolders().dstDir + "v3");
     Utilities.clearDirectory(page.getFolders().dstDir + "v3");
     String src = TextFile.fileToString(page.getFolders().srcDir+ "v3"+File.separator+"template.htm");
-    TextFile.stringToFile(page.processPageIncludes("v3/template.htm", src, "page"), page.getFolders().dstDir+"terminologies-v3.htm");
+    TextFile.stringToFile(addSectionNumbers("terminologies-v3.htm", "terminologies-v3", page.processPageIncludes("v3/template.htm", src, "page")), page.getFolders().dstDir+"terminologies-v3.htm");
     src = TextFile.fileToString(page.getFolders().srcDir+ "v3"+File.separator+"template.htm");
     cachePage("terminologies-v3.htm", page.processPageIncludesForBook("v3/template.htm", src, "page"));
     IniFile ini = new IniFile(page.getFolders().srcDir + "v3"+File.separator+"valuesets.ini");
@@ -1666,7 +1666,7 @@ public class Publisher {
     Utilities.createDirectory(page.getFolders().dstDir + "v2");
     Utilities.clearDirectory(page.getFolders().dstDir + "v2");
     String src = TextFile.fileToString(page.getFolders().srcDir+ "v2"+File.separator+"template.htm");
-    TextFile.stringToFile(page.processPageIncludes("v2/template.htm", src, "v2Vocab"), page.getFolders().dstDir + "terminologies-v2.htm");
+    TextFile.stringToFile(addSectionNumbers("terminologies-v2.htm", "terminologies-v2", page.processPageIncludes("v2/template.htm", src, "v2Vocab")), page.getFolders().dstDir + "terminologies-v2.htm");
     src = TextFile.fileToString(page.getFolders().srcDir+ "v2"+File.separator+"template.htm");
     cachePage("terminologies-v2.htm", page.processPageIncludesForBook("v2/template.htm", src, "v2Vocab"));
     
@@ -1902,9 +1902,7 @@ public class Publisher {
 		  }
 	  }
 
-    String prefix = page.getNavigation().getIndexPrefixForFile(n+".htm");
-    if (Utilities.noString(prefix))
-      prefix = "3."+Integer.toString(page.getOrderedResources().indexOf(resource.getName())+1);
+    String prefix = page.getBreadCrumbManager().getIndexPrefixForResource(resource.getName());
     SectionTracker st = new SectionTracker(prefix);
     page.getSectionTrackerCache().put(n, st);
 
@@ -2303,23 +2301,31 @@ public class Publisher {
 		String src = TextFile.fileToString(page.getFolders().srcDir + file);
 		src = page.processPageIncludes(file, src, "page");
 		// before we save this page out, we're going to figure out what it's index is, and number the headers if we can
-		
-		if (!Utilities.noString(logicalName)) {
-		  if (!page.getSectionTrackerCache().containsKey(logicalName)) {
-		    String prefix = page.getNavigation().getIndexPrefixForFile(logicalName+".htm");
-		    if (Utilities.noString(prefix))
-		      throw new Exception("No indexing home for logical place "+logicalName);
-		    page.getSectionTrackerCache().put(logicalName, new SectionTracker(prefix));
-		  }
-	    TextFile.stringToFile(src, page.getFolders().dstDir + file);    
-		  src = insertSectionNumbers(src, page.getSectionTrackerCache().get(logicalName), file);
-		}
+
+		if (Utilities.noString(logicalName)) 
+		  logicalName = Utilities.fileTitle(file);
+
+    TextFile.stringToFile(src, page.getFolders().dstDir + file);    
+		src = addSectionNumbers(file, logicalName, src);
+
 		TextFile.stringToFile(src, page.getFolders().dstDir + file);		
 
 		src = TextFile.fileToString(page.getFolders().srcDir + file).replace("<body>", "<body style=\"margin: 10px\">");
 		src = page.processPageIncludesForBook(file, src, "page");
 		cachePage(file, src);
 	}
+
+  private String addSectionNumbers(String file, String logicalName, String src) throws Exception {
+    if (!page.getSectionTrackerCache().containsKey(logicalName)) {
+		  // String prefix = page.getNavigation().getIndexPrefixForFile(logicalName+".htm");
+		  String prefix = page.getBreadCrumbManager().getIndexPrefixForFile(logicalName+".htm");
+		  if (Utilities.noString(prefix))
+		    throw new Exception("No indexing home for logical place "+logicalName);
+		  page.getSectionTrackerCache().put(logicalName, new SectionTracker(prefix));
+		}
+		src = insertSectionNumbers(src, page.getSectionTrackerCache().get(logicalName), file);
+    return src;
+  }
 
   private void produceCompartment(Compartment c) throws Exception {
     

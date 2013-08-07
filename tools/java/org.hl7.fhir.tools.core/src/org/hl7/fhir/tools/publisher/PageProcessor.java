@@ -861,27 +861,28 @@ public class PageProcessor implements Logger  {
   }
   
   private String generateToc() {
-    List<String> entries = new ArrayList<String>();
-    entries.addAll(toc.keySet());
-    
-    Collections.sort(entries, new TocSort());
-    
-    StringBuilder b = new StringBuilder();
-    for (String s : entries) {
-      int i = 0;
-      for (char c : s.toCharArray()) {
-        if (c == '.')
-          i++;
-      }
-      TocEntry t = toc.get(s); 
-      if (i < 3) {
-        for (int j = 0; j < i; j++)
-          b.append("&nbsp;&nbsp;");
-        b.append("<a href=\""+t.getLink()+"#"+t.getValue()+"\">"+t.getValue()+"</a> "+Utilities.escapeXml(t.getText())+"<br/>\r\n");
-      }
-    }
-
-    return "<p>"+b.toString()+"</p>\r\n";
+//    List<String> entries = new ArrayList<String>();
+//    entries.addAll(toc.keySet());
+//    
+//    Collections.sort(entries, new TocSort());
+//    
+//    StringBuilder b = new StringBuilder();
+//    for (String s : entries) {
+//      int i = 0;
+//      for (char c : s.toCharArray()) {
+//        if (c == '.')
+//          i++;
+//      }
+//      TocEntry t = toc.get(s); 
+//      if (i < 3) {
+//        for (int j = 0; j < i; j++)
+//          b.append("&nbsp;&nbsp;");
+//        b.append("<a href=\""+t.getLink()+"#"+t.getValue()+"\">"+t.getValue()+"</a> "+Utilities.escapeXml(t.getText())+"<br/>\r\n");
+//      }
+//    }
+//
+//    return "<p>"+b.toString()+"</p>\r\n";
+    return breadCrumbManager.makeToc();
   }
 
   private String generateBSUsage(String name) throws Exception {
@@ -1962,7 +1963,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("diagram"))
         src = s1+new SvgGenerator(definitions).generate(folders.srcDir+ com[1])+s3;
       else if (com[0].equals("file"))
-        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".htm")+s3;
+        src = s1+/*TextFile.fileToString(folders.srcDir + com[1]+".htm")+*/s3;
       else if (com[0].equals("setwiki")) {
         wikilink = com[1];
         src = s1+s3;

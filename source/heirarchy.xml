@@ -6,16 +6,15 @@ todo: compartments
 <fhir>
 <page title="Home" note="(map + search) - focus on useful links" filename="index.htm">
   <page title="Documentation" filename="documentation.htm">
-    <page title="Summary" filename="summary.htm"/>
     <page title="Table of Contents" filename="toc.htm"/>
-    <page title="Introduction" filename="overview.htm"/>
-    <page title="Coming Challenges" filename="change.htm"/>
     <page title="License and Legal Terms" filename="license.htm"/>
     <page title="Community and Credits" filename="credits.htm"/>
-    <page title="EHR FM map" filename="ehr-fm.htm"/>
-    <page title="Narratives" filename="bundles.htm"/>
     <page title="Version History" filename="history.htm"/>
     <page title="Outstanding Issues" filename="todo.htm"/>
+    <page title="Summary" filename="summary.htm"/>
+    <page title="Introduction" filename="overview.htm"/>
+    <page title="Coming Challenges" filename="change.htm"/>
+    <page title="EHR FM map" filename="ehr-fm.htm"/>
     <page title="Resource Definitions" filename="resources.htm">
       <page title="Tags, Bundles, Compartments" filename="extras.htm"/>
       <page title="References" filename="references.htm"/>
@@ -27,7 +26,7 @@ todo: compartments
       <page title="Extensibility" filename="extensibility.htm">
         <page title="Examples" filename="extensibility-examples.htm"/>
       </page>
-      <page title="Definitions" filename="base-definitions.htm"/>
+      <page title="Formal Definitions" filename="base-definitions.htm"/>
     </page>
     <page title="Data Types" filename="datatypes.htm">
       <page title="Examples" filename="datatypes-examples.htm"/>
@@ -54,11 +53,11 @@ todo: compartments
   
   <page title="Implementation" filename="implementation.htm">
     <page title="RESTful API" filename="http.htm"/>
-    <page title="Using Resources" filename="use.htm"/>
     <page title="Downloads" filename="downloads.htm"/>
+    <page title="Using Resources" filename="use.htm"/>
     <page title="Support" filename="support.htm"/>
-    <page title="Common Usages" filename="usecases.htm"/>
     <page title="Integrated Examples" filename="integrated-examples.htm"/>
+    <page title="Common Usages" filename="usecases.htm"/>
     <page title="Security" filename="security.htm"/>
   </page>
 

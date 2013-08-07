@@ -2,7 +2,7 @@
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
       
-[%settitle Implementation Details%]
+[%settitle How to Use Resources%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -12,9 +12,11 @@
 
 <div class="col-9">
 
+<h2>How to Use Resources</h2>
+
 <a name="SOA"> </a>
 <a name="soa"> </a>
-<h2>Service Orientated use of Resources</h2>
+<h3>Service Orientated use of Resources</h3>
 <p>
 While the FHIR Resources are designed with a simple <a href="http.htm">RESTful HTTP-based implementation</a> 
 in mind, it is not necessary to use this implementation framework. This specification also defines a 
@@ -46,7 +48,7 @@ The resolution to these issues should be documented and published with the servi
 </p>
 
 <a name="identity"></a>
-<h2>Managing Resource Identity</h2>
+<h3>Managing Resource Identity</h3>
 <p>
 Each resource has a known identity. The identity is not stored inside the resource, but must be tracked by 
 systems handling resources. For RESTful systems, the resource identity is the same as the URL by which it is found. 

@@ -48,7 +48,7 @@ The JSON representation is described relative to the XML representation:
 <p>These differences - particularly the repeating element one, which cannot be avoided - mean that generic XML --&gt; JSON converters are not 
 able to perform correctly. The <a href="implementation.htm#refimpl">reference platforms</a> provide XML &lt;--&gt; JSON conversion functionality that accommodates these FHIR-specific characteristics.</p>
 
-<h2>JSON representation of primitive elements</h2>
+<h3>JSON representation of primitive elements</h3>
 <p>
 FHIR elements with primitive values are represented as a JSON object of the same name with a the value attribute of the element in a "value" property and  
 (optionally) "_id" for the id attribute.  JSON native types are used for boolean, integer and decimal, all other primitives are rendered as strings, and the 
@@ -79,7 +79,7 @@ whitespace is always significant (i.e. no leading and trailing spaces for non-st
  }
 </pre>
 
-<h2>Repeating elements</h2>
+<h3>Repeating elements</h3>
 
 <p>Repeating elements are rendered within a JSON array with the name of the element, 
 so a repeating &lt;dob&gt; element in XML</p>
@@ -95,7 +95,7 @@ so a repeating &lt;dob&gt; element in XML</p>
   ]
 </pre>
 
-<h2>JSON representation of Resources, Elements, and Data types</h2>
+<h3>JSON representation of Resources, Elements, and Data types</h3>
 
 <p>
 Resources, elements, and datatypes (types that contain named elements of other types) are represented using 

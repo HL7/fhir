@@ -98,6 +98,7 @@ public class BreadCrumbManager {
  
   private Page home;
   private Map<String, String> map = new HashMap<String, String>();
+  private Map<String, Page> pages = new HashMap<String, BreadCrumbManager.Page>();
   
   public void parse(String filename) throws Exception {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -109,6 +110,7 @@ public class BreadCrumbManager {
     } else 
       throw new Exception("File not recognised");
     // now we assign section numbers to everything, and index the source files
+    home.setId("0");
     numberChildren(home, null);
   }
 
@@ -119,6 +121,7 @@ public class BreadCrumbManager {
       String path = root == null? Integer.toString(i) : root +"."+Integer.toString(i);
       if (node instanceof Page) {
         Page p = (Page) node;
+        pages.put(p.getFilename(), p);
         map.put(p.getFilename(), path);
         if (p.getSource() != null)
           map.put(p.getSource(), path);
@@ -253,6 +256,54 @@ public class BreadCrumbManager {
       }
     }
     return b.toString();
+  }
+
+  public String makeToc() {
+    StringBuilder b = new StringBuilder();
+    writePage(b, home, 0, null);
+    return b.toString();
+  }
+
+  private void writePage(StringBuilder b, Page p, int level, String path) {
+    if (p.getType() == PageType.resource) {
+      addLink(b, p.getResource().toLowerCase()+".htm", p.getResource(), path, level);
+      addLink(b, p.getResource().toLowerCase()+"-examples.htm", p.getResource()+" Examples", path+".1", level+1);
+      addLink(b, p.getResource().toLowerCase()+"-definitions.htm", p.getResource()+" Definitions", path+".2", level+1);
+      addLink(b, p.getResource().toLowerCase()+"-mappings.htm", p.getResource()+" Mappings", path+".3", level+1);
+    } else {
+      addLink(b, p.getFilename(), p.getTitle(), path, level);
+      for (Node n : p.getChildren()) {
+        if (n instanceof Page) {
+          writePage(b, (Page) n, level+1, path == null ? ((Page) n).getId() : path+"."+((Page) n).getId());
+        }
+      }
+    }
+  }
+
+  private void addLink(StringBuilder b, String name, String title, String path, int level) {
+    for (int i = 0; i < level; i++)
+      b.append("&nbsp;&nbsp;");
+    if (path == null)
+      b.append("<a href=\""+name+"\">"+Utilities.escapeXml(title)+"</a><br/>\r\n");
+    else 
+      b.append("<a href=\""+name+"\">"+path+"</a> "+Utilities.escapeXml(title)+"<br/>\r\n");
+  }
+
+  public String getIndexPrefixForFile(String name) {
+    if (map.containsKey(name)) {
+      Page p = pages.get(name);
+      if (p.getChildren().size() > 0)
+        return map.get(name)+".0";
+      else
+        return map.get(name);
+    }
+    if (name.equals("index.htm"))
+      return "0";
+    return "?.?";
+  }
+
+  public String getIndexPrefixForResource(String name) {
+    return map.get(name.toLowerCase());
   }
   
 }
