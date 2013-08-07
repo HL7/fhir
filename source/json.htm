@@ -25,7 +25,7 @@ for this format is application/fhir+json.
 <p>
 Clients are free to choose whether to implement in XML or JSON. Servers must support XML, and can 
 choose to support JSON. Note that systems must declare which format(s) they 
-support. Also, the <a href="implementation.htm#refimpl">reference implementations</a>
+support. Also, the <a href="downloads.htm#refimpl">reference implementations</a>
 include bi-direction conversion functionality between the two formats.
 </p>
 <p>
@@ -46,7 +46,7 @@ The JSON representation is described relative to the XML representation:
  <li>The XHTML &lt;div&gt; element in the Narrative datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content etc. The XHTML most still conform to the rules described above</li>
 </ul>
 <p>These differences - particularly the repeating element one, which cannot be avoided - mean that generic XML --&gt; JSON converters are not 
-able to perform correctly. The <a href="implementation.htm#refimpl">reference platforms</a> provide XML &lt;--&gt; JSON conversion functionality that accommodates these FHIR-specific characteristics.</p>
+able to perform correctly. The <a href="downloads.htm#refimpl">reference platforms</a> provide XML &lt;--&gt; JSON conversion functionality that accommodates these FHIR-specific characteristics.</p>
 
 <h3>JSON representation of primitive elements</h3>
 <p>

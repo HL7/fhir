@@ -299,9 +299,12 @@ public class SourceParser {
     }
     sheet = xml.getSheets().get("resources");
     for (int row = 0; row < sheet.rows.size(); row++) {
-      ResourceDefn r = definitions.getResourceByName(sheet.getColumn(row, "Resource"));
-      for (Compartment c : definitions.getCompartments()) {
-        c.getResources().put(r,  sheet.getColumn(row, c.getName()));
+      String mn = sheet.getColumn(row, "Resource");
+      if (!mn.startsWith("!")) {
+        ResourceDefn r = definitions.getResourceByName(mn);
+        for (Compartment c : definitions.getCompartments()) {
+          c.getResources().put(r,  sheet.getColumn(row, c.getName()));
+        }
       }
     }    
   }

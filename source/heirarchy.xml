@@ -49,6 +49,7 @@ todo: compartments
         <pages type="v3-vocab" filename="template-v3.htm"/>
       </page>
     </page>
+    <page title="Ballot Intro" filename="ballot-intro.htm"/>
   </page>
   
   <page title="Implementation" filename="implementation.htm">

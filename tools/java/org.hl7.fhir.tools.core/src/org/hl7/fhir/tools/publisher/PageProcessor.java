@@ -916,8 +916,12 @@ public class PageProcessor implements Logger  {
         }
       }
       for (ElementDefn e : definitions.getTypes().values())
-        if (!definitions.dataTypeIsSharedInfo(e.getName()))
-          scanForUsage(b, cd, e, "datatypes.htm#"+e.getName());
+        if (!definitions.dataTypeIsSharedInfo(e.getName())) {
+          if (e.getName().equals("ResourceReference")) 
+            scanForUsage(b, cd, e, "references.htm#"+e.getName());
+          else
+            scanForUsage(b, cd, e, "datatypes.htm#"+e.getName());
+        }
       for (ElementDefn e : definitions.getStructures().values())
         if (!e.getName().equals("DocumentInformation"))
           if (!definitions.dataTypeIsSharedInfo(e.getName()))
@@ -1949,9 +1953,9 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("codelist"))
         src = s1+codelist(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("maponthispage"))
-          src = s1+mapOnThisPage(null)+s3;
+          src = s1+s3;
       else if (com[0].equals("onthispage"))
-          src = s1+onThisPage(s2.substring(com[0].length()+1))+s3;
+          src = s1+s3;
       else if (com[0].equals("res-category"))
         src = s1+resCategory(s2.substring(com[0].length()+1))+s3;
       else if (com[0].equals("res-item"))

@@ -73,14 +73,18 @@ public class GeneratorUtils {
   		return "datatypes";
   	if (name.equals("Money"))
   		return "datatypes";
-  	if (name.equals("narrative"))
-  		return "narrative";
+    if (name.equals("narrative"))
+      return "narrative";
+    if (name.equalsIgnoreCase("xhtml"))
+      return "narrative";
   	if (name.equals("Narrative"))
   		return "narrative";
   	if (name.equals("Extension"))
   		return "extensibility";
   	if (name.equals("Resource"))
   		return "references";
+    if (name.equals("Any"))
+      return "resourcelist";
   	if (name.equals("resourceType"))
   		return "terminologies";
   	return name.toLowerCase();

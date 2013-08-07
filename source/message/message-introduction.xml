@@ -61,7 +61,7 @@ in both directions.
 <h3>Message Identifiers</h3>
 <p>
 An incoming message contains two identifiers: the envelope id 
-(<a href="formats.htm#atom">feed</a>.id) and the <a href="message.htm">message</a>.identifier. 
+(<a href="extras.htm#bundles">feed</a>.id) and the <a href="message.htm">message</a>.identifier. 
 Each time a new message is created, it must be assigned an identifier that is 
 unique within that message stream. Note that since message streams are often 
 merged with other streams, it is recommended that the identifier should be globally 

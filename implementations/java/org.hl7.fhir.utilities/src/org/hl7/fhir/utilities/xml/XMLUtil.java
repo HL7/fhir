@@ -46,7 +46,9 @@ import org.w3c.dom.ls.LSSerializer;
 
 public class XMLUtil {
 
-	public static boolean isNMToken(String name) {
+	public static final String SPACE_CHAR = "\u00A0";
+
+  public static boolean isNMToken(String name) {
 		if (name == null)
 			return false;
 		for (int i = 0; i < name.length(); i++) 

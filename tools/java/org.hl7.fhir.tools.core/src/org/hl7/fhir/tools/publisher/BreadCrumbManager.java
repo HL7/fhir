@@ -12,6 +12,7 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -305,6 +306,44 @@ public class BreadCrumbManager {
   public String getIndexPrefixForResource(String name) {
     return map.get(name.toLowerCase());
   }
+
+  public void makeToc(XhtmlNode p) {
+    writePage(p, home, 0, null);    
+  }
+  
+  private void writePage(XhtmlNode node, Page p, int level, String path) {
+    if (p.getType() == PageType.resource) {
+      addLink(node, p.getResource().toLowerCase()+".htm", p.getResource(), path, level);
+      addLink(node, p.getResource().toLowerCase()+"-examples.htm", p.getResource()+" Examples", path+".1", level+1);
+      addLink(node, p.getResource().toLowerCase()+"-definitions.htm", p.getResource()+" Definitions", path+".2", level+1);
+      addLink(node, p.getResource().toLowerCase()+"-mappings.htm", p.getResource()+" Mappings", path+".3", level+1);
+    } else {
+      addLink(node, p.getFilename(), p.getTitle(), path, level);
+      for (Node n : p.getChildren()) {
+        if (n instanceof Page) {
+          writePage(node, (Page) n, level+1, path == null ? ((Page) n).getId() : path+"."+((Page) n).getId());
+        }
+      }
+    }
+  }
+
+  private void addLink(XhtmlNode p, String name, String title, String path, int level) {
+    for (int i = 0; i < level; i++)
+      p.addText(XMLUtil.SPACE_CHAR+XMLUtil.SPACE_CHAR);
+    if (path == null) {
+      XhtmlNode a = p.addTag("a");
+      a.setAttribute("href", name);
+      a.addText(title);
+    }
+    else {
+      XhtmlNode a = p.addTag("a");
+      a.setAttribute("href", name);
+      a.addText(path);
+      p.addText(" "+title);
+    }
+    p.addTag("br");
+  }
+
   
 }
 

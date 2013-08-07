@@ -22,7 +22,7 @@ There are 4 cases where elements inside a resource reference each other:
  <li>Inside a <a href="datatypes.htm#CodeableConcept">CodeableConcept data type to identify the primary encoding</a></li>
  <li>An &lt;img src=""/&gt; reference in the narrative, referring to an image found in the resource</li>
  <li>Between elements in the narrative and structured data elements</li>
- <li>Between a ResourceReference and an <a href="resources.htm#contained">contained resource</a></li>
+ <li>Between a ResourceReference and an <a href="references.htm#contained">contained resource</a></li>
 </ul>
 <p>
 These references are done using an id/idref based approach, where a source element indicates that it 
@@ -45,7 +45,7 @@ same datatype).
 <p>
 In a single resource, this works like xml:id/idref, but there is an important difference: the 
 uniqueness and resolution scope of these id references is within the resource that contains them. If multiple
-resources are combined into a single piece of XML, such as an <a href="#atom">atom feed</a>, duplicate 
+resources are combined into a single piece of XML, such as an <a href="xml.htm#atom">atom feed</a>, duplicate 
 values may occur between resources. This must be managed by applications reading the resources.
 </p>
 <p>
@@ -100,7 +100,7 @@ for details of the way resource contents are described):
  <li>The <i>type</i> must specify the resource type, whether or not the type of the resource reference is fixed for the element in the resource definition</li>
  <li>The <i>reference</i> element contains a url that is either an absolute URL, or a relative URL that is relative to the <a href="http.htm#root">Service Base URL</a>, or an internal fragment reference (see below)</li>
  <li>Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a 
-   flexible approach suitable for use when trading across closed ecosystem boundaries. (see <a href="implementation.htm#identity">implementation issues for further discussion</a>)</li>
+   flexible approach suitable for use when trading across closed ecosystem boundaries. (see <a href="use.htm#identity">implementation issues for further discussion</a>)</li>
  <li>Absolute URLs do not need to point to a <a href="http.htm">FHIR RESTful server</a>, though this is the preferred approach. If the tail of the url 
    conforms to the structure "/[type]/@[id]" or "/[type]/@[id]/history/@[id]" then it should be assumed that the reference is to a <a href="http.htm">FHIR RESTful server</a>. 
    Whether or not the reference is to a FHIR RESTful server, the reference must point to a Resource as defined by this specification</li>
@@ -236,7 +236,7 @@ Some notes about use and interpretation of contained resources:
 <h4>Resolving references to Resources</h4>
 <p>
 Readers of the resources bundles should always look through the resources in the 
-atom feed when a <a href="resources.htm#Resource">resource reference</a> is encountered. 
+atom feed when a <a href="#Resource">resource reference</a> is encountered. 
 The resource reference may have the resource type and a relative url, 
 which is the id of the target, like this:
 </p>

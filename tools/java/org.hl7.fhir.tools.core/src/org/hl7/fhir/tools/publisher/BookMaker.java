@@ -111,7 +111,7 @@ public class BookMaker {
 					  found = true;
 				  else if (pages.containsKey(href))
 					  found = true;
-				  else if (href.startsWith("http:") || href.startsWith("https:"))
+				  else if (href.startsWith("http:") || href.startsWith("https:") || href.startsWith("mailto:") || href.startsWith("ftp:"))
 					  found = true;
 				  else if (href.startsWith("v2/") || href.startsWith("v3/")) {
 				    found = true;
@@ -136,7 +136,7 @@ public class BookMaker {
 							}
 					  }
 				  }
-				  if (!found) {
+				  if (!found && !new File(page.getFolders().dstDir+href).exists()) {
 				    page.getQa().brokenlink("broken link in "+name+": <a href=\""+href+"\">"+node.allText()+"</a>");
 					  page.log("broken link in "+name+": <a href=\""+href+"\">"+node.allText()+"</a>");
 				  }
@@ -404,7 +404,7 @@ public class BookMaker {
         String lname = node.getAttributes().get("name");
         node.getAttributes().put("name", name+"."+lname);
         //System.out.println("found anchor "+name+"."+lname);
-      } else { 
+      } else if (node.getAttribute("href") != null || node.getAttributes().get("xlink:href") != null) { 
         String s = node.getAttributes().get("href");
         if (s == null || s.length() == 0)
           s = node.getAttributes().get("xlink:href");
@@ -412,7 +412,7 @@ public class BookMaker {
           throw new Error("empty \"href\" element in \"a\" tag around "+parent.allText());
         if (s.startsWith("#")) {
           s = "#"+name+"."+s.substring(1);
-        } else if (s.startsWith("http:") || s.startsWith("https:") || s.startsWith("ftp:")) {
+        } else if (s.startsWith("http:") || s.startsWith("https:") || s.startsWith("ftp:") || s.startsWith("mailto:")) {
           //s = s;
         } else {
           int i = s.indexOf('.');
@@ -447,7 +447,20 @@ public class BookMaker {
   }
 
   private void addTOC(XhtmlNode body) throws Exception {
+    XhtmlNode e = body.getElement("index");
+    XhtmlNode div = body.addTag(body.getChildNodes().indexOf(e), "div");
+    body.getChildNodes().remove(e);
+
+    div.attribute("class", "toc");
+    div.addText("\r\n  ");
+    XhtmlNode p = div.addTag("p");
+
+    page.getBreadCrumbManager().makeToc(p);
+  }
+  /*
+  private void addTOCOld(XhtmlNode body) throws Exception {
     List<String> list = new ArrayList<String>();
+    
     loadResources(list, page.getDefinitions().getResources().keySet());
 
     List<String> links = new ArrayList<String>();
@@ -528,7 +541,8 @@ public class BookMaker {
     }
     div.addText("\r\n  ");
   }
-
+*/
+  
   public void produce() throws FileNotFoundException, Exception {
     produceBookForm(); 
     

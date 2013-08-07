@@ -12,7 +12,7 @@ some significant ways:
 <ul>
  <li>As a RESTful interface, there is no concept of "Submission Set" - only document entry is represented explicitly, though a <a href="http.htm#transaction">transaction</a> may be used to group a set of documents together</li>
  <li>Patient, Author and Authenticator are represented using standard <a href="patient.htm">Patient</a> and <a href="practitioner.htm">Practitioner</a> resources.</li>
- <li>The functionality expressed through the XDSFolder resource is implemented using <a href="resources.htm#tags">tags</a></li>
+ <li>The functionality expressed through the XDSFolder resource is implemented using <a href="extras.htm#tags">tags</a></li>
  <li>Some XDS specific fields that are not generally applicable do not have matching elements in the DocumentReference resource, and are implemented as FHIR extensions</li>
 </ul>
 

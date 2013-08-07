@@ -885,15 +885,23 @@ public class SvgGenerator {
     for (TypeRef tr : types) {
       if (!first)
         xml.text("|");
-      xml.attribute("xlink:href", GeneratorUtils.getSrcFile(tr.getName()) + ".htm#" + tr.getName());
+      if (tr.getName().equals("*"))
+        xml.attribute("xlink:href", "datatypes.htm#open");
+      else if (tr.getName().startsWith("@")) 
+        xml.attribute("title", "@"+tr.getName().substring(1));
+      else
+        xml.attribute("xlink:href", GeneratorUtils.getSrcFile(tr.getName()) + ".htm#" + tr.getName());
       xml.element("a", tr.getName());
       if (tr.getParams().size() > 0) {
         xml.text("(");
         boolean firstP = true;
         for (String t : tr.getParams()) {
           if (!firstP)
-            xml.text("|");          
-          xml.attribute("xlink:href", GeneratorUtils.getSrcFile(t) + ".htm#" + t);
+            xml.text("|");    
+          if (definitions.getFutureResources().containsKey(t))
+            xml.attribute("title", "This resource is not been defined yet");
+          else
+            xml.attribute("xlink:href", GeneratorUtils.getSrcFile(t) + ".htm#" + t);
           xml.element("a", t);
           firstP = false;
         }

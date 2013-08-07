@@ -325,7 +325,7 @@ To search a single resource type:
   GET [service-url]/[resourcetype]/search(?parameters) (&amp;_format=mimeType)
 </pre>
 <p>
-To search a <a href="resources.htm#compartments">compartment</a>:
+To search a <a href="extras.htm#compartments">compartment</a>:
 </p>
 <pre>
   GET [service-url]/[compartment]/@[id]/*?parameters (&amp;_format=mimeType)
@@ -441,8 +441,8 @@ clarity, when the client intends a resource to have a transient identity that th
 must replace, it should use a cid: url on the resource. Note that the client must provide
 an identity in the bundle entry.id, but may also provide a version specific identity the
 atom "self" link, and may refer to this for version specific references. Deleted resources are those marked clearly
-using the method described for <a href="formats.htm#atom-deleted">XML</a> or 
-<a href="formats.htm#json-bundle-delete">JSON</a>.
+using the method described for <a href="xml.htm#atom-deleted">XML</a> or 
+<a href="json.htm#json-bundle-delete">JSON</a>.
 </p>
 <p>
 A transaction may include references from one resource to another in the bundle, which may 
@@ -543,7 +543,7 @@ are not reflected in the history list.
 <h3>Tag Operations</h3>
  
 <p>
-<a href="resources.htm#tags">Tags</a> are attached to resources to define operational behaviour. When resources are exchanged directly use HTTP on the read, vread, create and update interactions, the 
+<a href="extras.htm#tags">Tags</a> are attached to resources to define operational behaviour. When resources are exchanged directly use HTTP on the read, vread, create and update interactions, the 
 http header "Category" is used, following the method described for <a href="http://tools.ietf.org/html/draft-johnston-http-category-header-02">Web Categories</a>.
 </p>
 <pre>
@@ -715,7 +715,7 @@ This RESTful specification described here is based on the <a href="http://www.om
 In this regard, FHIR functions as a Record Format Profile as described in that specification. Note the following significant factors to be aware of:
 </p>
 <ul>
- <li>FHIR maps the hData sections to resource types, and hData documents to resource instances. There are no subsections, and client systems are not able to create new sections, though <a href="resources.htm#compartments">compartments</a> behave somewhat like sections</li>
+ <li>FHIR maps the hData sections to resource types, and hData documents to resource instances. There are no subsections, and client systems are not able to create new sections, though <a href="extras.htm#compartments">compartments</a> behave somewhat like sections</li>
  <li>The FHIR resource id maps to the hData document name by prepending "@"</li>
  <li>Because clients cannot submit new sections (POST to service URL), POST to the service URL has been re-used for <a href="#transaction">the transaction interaction</a> (difference under review)</li>
  <li>FHIR does not (yet) define a root document. When defined, it will contain information about what the FHIR server has done (as opposed to a conformance statement, which describes what it is capable of doing)</li>

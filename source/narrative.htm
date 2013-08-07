@@ -17,6 +17,7 @@
 <a name="root"> </a>
 <a name="Narrative"> </a>
 <a name="narrative"> </a>
+<a name="xhtml"> </a>
 <h2>Narrative</h2>
 <p>
 Each resource may include a human readable narrative that contains a summary of the resource, 
@@ -41,7 +42,7 @@ limited trading environment, and closed trading partner environments are very li
 to open up during the lifetime of the resources they define.
 </p>
 <p>
-Note that <a href="resources.htm#contained">Contained</a> Resources SHALL NOT have a narrative 
+Note that <a href="references.htm#contained">Contained</a> Resources SHALL NOT have a narrative 
 of their own.
 </p>
 <p>
@@ -83,7 +84,7 @@ like <i>&amp;nbsp;</i> or <i>&amp;copy;</i> etc. Unicode characters should be us
 <i>&amp;#160;</i> substitutes for <i>&amp;nbsp;</i>. 
 </p>
 <p>
-The narrative content should be in the <a href="resources-definitions.htm#Resource.language">language of the resource</a>, but 
+The narrative content should be in the <a href="base-definitions.htm#Resource.language">language of the resource</a>, but 
 there is no reason to expect that HTML type tooling would understand the resource <i>language</i> element. For this reason, 
 a lang attribute on the &lt;div&gt; should also be used (and see 
 <a href="http://www.w3.org/html/wg/drafts/html/master/dom.html#the-lang-and-xml:lang-attributes">the note in the HTML 5 specification about use of language</a>).
@@ -96,8 +97,8 @@ The image source references may be a local reference within the resource:
   &lt;img src="#a5"/&gt;
 </pre>
 <p>
-This is an <a href="#idref">internal reference</a> to an id attribute on an element in the same resource, 
-either an element of type "<a href="datatypes.htm#Attachment">Attachment</a>", or a contained <a href="formats.htm@binary">Binary</a> resource.
+This is an <a href="references.htm#idref">internal reference</a> to an id attribute on an element in the same resource, 
+either an element of type "<a href="datatypes.htm#Attachment">Attachment</a>", or a contained <a href="http.htm#binary">Binary</a> resource.
 </p>
 <div class="example">
 <pre class="xml">

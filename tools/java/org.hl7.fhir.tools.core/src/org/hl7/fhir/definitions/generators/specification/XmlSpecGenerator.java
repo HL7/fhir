@@ -372,6 +372,9 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			} else if (elem.getTypes().size() == 1
 					&& elem.getTypes().get(0).isWildcardType()) {
 				writeCardinality(elem);
+		    write(" <span style=\"color: darkgreen\">");
+        write("<a href=\"datatypes.htm#open\">*</a>");     
+		    write("</span>");
 				listed = true;
 			}
 
@@ -511,10 +514,10 @@ public class XmlSpecGenerator extends OutputStreamWriter {
                 + ".htm#" + p + "\">"
                 + elem.getAggregation()).replace("[", "_").replace("]", "_") + "</a>");
           } 
-          else if( definitions.getFutureResources().containsKey(p) ||
-              p.equals("Any"))
-          {
-            write("<a href=\"" + "resources.htm" + "\">" + p + "</a>");								
+          else if( definitions.getFutureResources().containsKey(p)) 
+              write("<a title=\"This resource has not been defined yet\">" + p + "</a>");                
+          else if (p.equals("Any")) {
+            write("<a href=\"" + "resourcelist.htm" + "\">" + p + "</a>");								
           }
           else if (t.getName().equals("Resource") && t.getParams().size() == 1 && !Utilities.noString(elem.getProfile()))
             write("<a href=\""+elem.getProfile()+"\"><span style=\"color: DarkViolet\">@"+elem.getProfile().substring(1)+"</span></a>");     

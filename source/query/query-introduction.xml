@@ -38,7 +38,7 @@ Search operations are executed in one of 3 defined contexts that control which s
 </p>
 <ul>
  <li>A specified resource type</li>
- <li>A specified <a href="resources.htm#compartments">compartment</a>, perhaps with a specified resource type in that compartment</li>
+ <li>A specified <a href="extras.htm#compartments">compartment</a>, perhaps with a specified resource type in that compartment</li>
  <li>All resources</li>
 </ul>
 <p>

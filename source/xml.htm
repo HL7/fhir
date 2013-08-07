@@ -38,8 +38,8 @@ Notes:
  <li>Specifying the character encoding in the XML is optional but recommended.</li>
  <li>FHIR elements are always in the namespace <a href="http://hl7.org/fhir">http://hl7.org/fhir</a>.  This is usually specified as the default namespace on the root element. 
    The only other namespaces that occur in FHIR resources are where some external content model is explicitly introduced into the resource content model. For example, XHTML is found in every resource - see below</li>
- <li>Any of the XML elements may have an id attribute to serve as <a href="#idref">the target of an internal reference</a>. The id attribute is not shown in this format</li>
- <li>FHIR elements are never empty. If an element is present in the resource, it must have either a value attribute, child elements as defined for its type, an id attribute that is the <a href="#idref">link target</a> of <a href="#narrative">narrative</a>, or 1 or more <a href="extensibility.htm">extensions</a></li>
+ <li>Any of the XML elements may have an id attribute to serve as <a href="references.htm#idref">the target of an internal reference</a>. The id attribute is not shown in this format</li>
+ <li>FHIR elements are never empty. If an element is present in the resource, it must have either a value attribute, child elements as defined for its type, an id attribute that is the <a href="references.htm#idref">link target</a> of <a href="narrative.htm#narrative">narrative</a>, or 1 or more <a href="extensibility.htm">extensions</a></li>
  <li>Attributes can never be empty. Either they are absent, or they are present with at least one character of non-whitespace content</li>
  <li>The formal MIME-type for FHIR resources represented in XML is application/fhir+xml</li>
 </ul>
@@ -145,11 +145,11 @@ A deleted resource returns a 410 error if it is accessed through the RESTful int
 <li>Atom Feeds may be signed following the rules described in the Atom specification. One consequence of 
 signing the document is that URLs, Identifiers and internal references are frozen and cannot be changed.
 This might be a desired feature, but it may also cripple interoperability between closed ecosystems where
-<a href="implementation.htm#identity">re-identification</a> frequently occurs. For this reason, it is recommended that only Document Bundles
+<a href="use.htm#identity">re-identification</a> frequently occurs. For this reason, it is recommended that only Document Bundles
 are signed and then only when all the related resources are found in the bundle.</li>
 <li>
 <a name="Ids"></a>
-FHIR resources make use of id attributes as targets for <a href="formats.htm#idref">internal references with resources</a>. 
+FHIR resources make use of id attributes as targets for <a href="references.htm#idref">internal references with resources</a>. 
 These id attributes are unique and resolved within the context of a single resource. When resources are 
 combined into a bundle, different resources may contain duplicate id attributes. Thus it is important to limit
 the scope of resolution of an id attribute to the resource in which the <i>id</i> attribute is declared.
@@ -177,9 +177,9 @@ with a content-type, which is the mime-type as it would be specified in HTTP:
  &lt;/Binary&gt;
 </pre>
 <p>
-Binary resources can also be embedded as <a href="resources.htm#contained">contained resources</a>.  
+Binary resources can also be embedded as <a href="references.htm#contained">contained resources</a>.  
 If there's a desire to capture metadata about a binary object, an appropriate resource type must be used such as
-<a href="documentreference.htm">DocumentReference</a> or <a href="picture.htm">Picture</a>.
+<a href="documentreference.htm">DocumentReference</a> or <a href="media.htm">Media</a>.
 </p>
 
 
@@ -212,7 +212,7 @@ the resource itself.
 
 
 </div>
-[%onthispage Resource Definition#root|Narrative#Narrative|Internal References#idref|JSON#json|Atom (Bundle)#atom|JSON (Bundle)#json-bundles|Schema#schema%]
+[%onthispage Resource Definition#root|Internal References#idref|JSON#json|Atom (Bundle)#atom|JSON (Bundle)#json-bundles|Schema#schema%]
 
 [%file newfooter%]
 </body>

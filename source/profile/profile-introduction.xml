@@ -227,6 +227,7 @@ when it is added to a profile. This is not recommended - the minimum cardinality
 of an extension should be 0. 
 </p>
 
+<a name="binding"> </a>
 <h2>Binding Definitions</h2>
 
 <p>

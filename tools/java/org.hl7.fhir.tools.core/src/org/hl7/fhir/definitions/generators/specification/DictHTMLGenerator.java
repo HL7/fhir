@@ -190,22 +190,32 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	private String describeType(ElementDefn e) throws Exception {
 		StringBuilder b = new StringBuilder();
 		boolean first = true;
-		for (TypeRef t : e.getTypes())
-		{
-		  if (!first)
-			  b.append("|");
-          b.append("<a href=\""+typeLink(t.getName())+"\">"+t.getName()+"</a>");
-          if (t.hasParams()) {
-              b.append("(");
-              boolean firstp = true;
-              for (String p : t.getParams()) {
-            	  if (!firstp)
-            		  b.append("|");
-            	  b.append("<a href=\""+typeLink(p)+"\">"+p+"</a>");
-            	  firstp = false;
-              }
-              b.append(")");
-          }		  first = false;
+		if (e.typeCode().startsWith("@")) {
+      b.append("<a href=\"#"+e.typeCode().substring(1)+"\">See "+e.typeCode().substring(1)+"</a>");		  
+		} else {
+		  for (TypeRef t : e.getTypes())
+		  {
+		    if (!first)
+		      b.append("|");
+		    if (t.getName().equals("*"))
+		      b.append("<a href=\"datatypes.htm#open\">*</a>");
+		    else
+		      b.append("<a href=\""+typeLink(t.getName())+"\">"+t.getName()+"</a>");
+		    if (t.hasParams()) {
+		      b.append("(");
+		      boolean firstp = true;
+		      for (String p : t.getParams()) {
+		        if (!firstp)
+		          b.append("|");
+		        if (definitions.getFutureResources().containsKey(p))
+		          b.append("<span title=\"This resource is not been defined yet\">"+p+"</span>");
+		        else
+		          b.append("<a href=\""+typeLink(p)+"\">"+p+"</a>");
+		        firstp = false;
+		      }
+		      b.append(")");
+		    }		  first = false;
+		  }
 		}
 		return b.toString();
 	}

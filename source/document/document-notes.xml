@@ -31,7 +31,7 @@ identification strategies. The following combinations are allowed:
 Any other combinations do not globally uniquely identity a document and are therefore not allowed.
 </p>
 <p>
-Note that there is an additional identifier - the bundle identifier itself (<a href="formats.htm#atom">atom</a> feed.id). This must be an absolute 
+Note that there is an additional identifier - the bundle identifier itself (<a href="extras.htm#bundles">atom</a> feed.id). This must be an absolute 
 URI - in effect globally unique - but has no other particular meaning anywhere else in the specification.
 For a document, it can be populated with some URI that is extracted from the <i>versionId</i> or <i>id</i>
 above, or it can be a new UUID that has no other associated use. Implementers should not rely on its 
@@ -56,7 +56,7 @@ right). To actually build the combined narrative, simply append all the narrativ
 <a name="css"></a>
 <h3>Styling Documents</h3>
 <p>
-In addition to the <a href="formats.htm#css">basic style rules</a>, which must be followed, a document can 
+In addition to the <a href="narrative.htm#css">basic style rules</a>, which must be followed, a document can 
 contain a style sheet that contains additional styles that apply to the collated narrative. Unless
 otherwise agreed in local trading partner agreements, applications displaying the collated narrative 
 should use the style sheet provided in the document. Parties entering into such a trading agreement

@@ -43,7 +43,7 @@ to other resources, or they can refer to other entities that are not FHIR resour
 The code in the <i>.type</i> element is used to differentiate between the two: if the 
 code is in the system "http://hl7.org/fhir/resource-types", then the reference is to 
 a resource, and the element <i>reference</i> functions exactly the same as in 
-a <a href="resources.htm#references">Resource Reference</a>. 
+a <a href="references.htm#references">Resource Reference</a>. 
 </p>
 
 
