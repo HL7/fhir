@@ -64,7 +64,7 @@ public class GeneratorUtils {
   	if (name.equals("id"))
   		return "datatypes";
   	if (name.equals("idref"))
-  		return "resources";
+  		return "references";
   	if (name.equals("Duration"))
   		return "datatypes";
   	if (name.equals("date"))
@@ -74,15 +74,13 @@ public class GeneratorUtils {
   	if (name.equals("Money"))
   		return "datatypes";
   	if (name.equals("narrative"))
-  		return "formats";
+  		return "narrative";
   	if (name.equals("Narrative"))
-  		return "formats";
+  		return "narrative";
   	if (name.equals("Extension"))
   		return "extensibility";
   	if (name.equals("Resource"))
-  		return "resources";
-  	if (name.equals("Constraint"))
-  		return "constraint";
+  		return "references";
   	if (name.equals("resourceType"))
   		return "terminologies";
   	return name.toLowerCase();
