@@ -12,6 +12,10 @@
    italian: origama
 
 -->
+  <item id="Other">
+    <translation lang="en">Other</translation>
+  </item>
+  
   <item id="AdverseReaction">
     <translation lang="en">AdverseReaction</translation>
   </item>

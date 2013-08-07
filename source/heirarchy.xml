@@ -1,5 +1,8 @@
 <!-- FHIR Heirarchy -->
+<!--
 
+todo: compartments
+-->
 <fhir>
 <page title="Home" note="(map + search) - focus on useful links" filename="index.htm">
   <page title="Documentation" filename="documentation.htm">
