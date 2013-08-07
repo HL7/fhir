@@ -148,6 +148,10 @@
     <translation lang="en">Organization</translation>
   </item>
 
+  <item id="Other">
+    <translation lang="en">Other</translation>
+  </item>
+
   <item id="Patient">
     <translation lang="en">Patient</translation>
   </item>
@@ -166,6 +170,10 @@
 
   <item id="Profile">
     <translation lang="en">Profile</translation>
+  </item>
+
+  <item id="Protocol">
+    <translation lang="en">Protocol</translation>
   </item>
 
   <item id="Provenance">
@@ -190,6 +198,10 @@
 
   <item id="Specimen">
     <translation lang="en">Specimen</translation>
+  </item>
+
+  <item id="Study">
+    <translation lang="en">Study</translation>
   </item>
 
   <item id="Substance">

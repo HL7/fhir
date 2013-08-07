@@ -105,7 +105,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="50" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="53" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="140.25"/>
@@ -258,6 +258,10 @@
     <Cell><Data ss:Type="String">Organization</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Patient</Data></Cell>
     <Cell><Data ss:Type="String">{def}</Data></Cell>
    </Row>
@@ -276,6 +280,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Profile</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Protocol</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Provenance</Data></Cell>
@@ -299,6 +306,10 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Study</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -329,11 +340,11 @@
     <VerticalResolution>0</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>15</TopRowVisible>
+   <TopRowVisible>33</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>46</ActiveRow>
+     <ActiveRow>41</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
