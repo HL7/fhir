@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-08-06T16:33:19Z</LastSaved>
+  <LastSaved>2013-08-07T03:42:27Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -32,7 +32,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s112" ss:Name="Normal 2">
+  <Style ss:ID="s62" ss:Name="Normal 2">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -40,17 +40,17 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s62">
+  <Style ss:ID="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s63">
+  <Style ss:ID="s64">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s64">
+  <Style ss:ID="s65">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -60,26 +60,20 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s65">
+  <Style ss:ID="s66">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s67">
-   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s68">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s69">
-   <Alignment ss:Vertical="Top"/>
-  </Style>
-  <Style ss:ID="s84" ss:Parent="s112">
-   <Alignment ss:Vertical="Top"/>
+   <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
+   <NumberFormat/>
+   <Protection/>
   </Style>
-  <Style ss:ID="s87">
+  <Style ss:ID="s68">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -88,7 +82,18 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s157">
+  <Style ss:ID="s69">
+   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s71">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s73" ss:Parent="s62">
+   <Alignment ss:Vertical="Top"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s74">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -96,7 +101,10 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s166">
+  <Style ss:ID="s75">
+   <Alignment ss:Vertical="Top"/>
+  </Style>
+  <Style ss:ID="s76">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -109,20 +117,20 @@
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="150.75"/>
-   <Column ss:StyleID="s62" ss:Width="29.25"/>
-   <Column ss:StyleID="s62" ss:Width="22.5"/>
-   <Column ss:StyleID="s62" ss:Width="60"/>
-   <Column ss:StyleID="s62" ss:Width="27"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="119.25"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="106.5"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="120.75"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.25"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="77.25"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Row ss:Height="30" ss:StyleID="s64">
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="150.75"/>
+   <Column ss:StyleID="s63" ss:Width="29.25"/>
+   <Column ss:StyleID="s63" ss:Width="22.5"/>
+   <Column ss:StyleID="s63" ss:Width="60"/>
+   <Column ss:StyleID="s63" ss:Width="27"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="119.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="106.5"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="120.75"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="77.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Inv.</Data></Cell>
@@ -140,79 +148,83 @@
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
-   <Row ss:Height="135">
+   <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">Other</Data></Cell>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Resource for non-supported content</Data></Cell>
     <Cell><Data ss:Type="String">Other is a conformant for handling resource concepts not yet defined for FHIR or outside HL7's scope of interest</Data></Cell>
     <Cell><Data ss:Type="String">Z-resource, Extension-resource, Custom-resource</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Need some way to safely (without breaking interoperability) allow implementers to exchange content not supported by the initial set of declared resources.</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="Default"><Data ss:Type="String">Act, Entity or Role</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Need some way to safely (without breaking interoperability) allow implementers to exchange content not supported by the initial set of declared resources.</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s67"><Data ss:Type="String">Act, Entity or Role</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
    </Row>
-   <Row ss:Height="165">
+   <Row ss:AutoFitHeight="0" ss:Height="165">
     <Cell><Data ss:Type="String">Other.code</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">OtherResourceType</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">OtherResourceType</Data></Cell>
     <Cell><Data ss:Type="String">Kind of Resource</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the 'type' of resource - equivalent to the resource name for other resources.</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s87"><Data ss:Type="String">Must be able to distinguish different types of &quot;other&quot; resources.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Must be able to distinguish different types of &quot;other&quot; resources.</Data></Cell>
     <Cell><Data ss:Type="String">Because resource references will only be able to indicate 'Other', the type of reference will need to be specified in a Profile identified as part of the resource.  Refer to the resource notes section for information on appropriate terminologies for this code.</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">./code</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">./code</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Other.subject</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Associated patient, if any</Data></Cell>
-    <Cell><Data ss:Type="String">For resources associated with a patient, this indicates the patient.</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s87"><Data ss:Type="String">Needed for partitioning the resource</Data></Cell>
-    <Cell><Data ss:Type="String">Optional as not all resources are associated with patients.  Resources associated with multiple patients can handle this via extension.</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">./participation[typeCode='AUT'] (possibly through a ControlAct and Role)</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell><Data ss:Type="String">Identifies the </Data></Cell>
+    <Cell><Data ss:Type="String">Identifies the patient, practitioner, device or any other resource that is the &quot;focus&quot; of this resoruce.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Needed for partitioning the resource by Patient.</Data></Cell>
+    <Cell><Data ss:Type="String">Optional as not all resources potential resources will have subjects.  Resources associated with multiple subjects can handle this via extension.</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">./participation[typeCode='SBJ'] (possibly through a ControlAct and Role)</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Other.author</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Resource(Practitioner|Patient|RelatedPerson)</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Who created</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates who was responsible for creating the resource instance</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Needed for partitioning the resource</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">./participation[typeCode='SUB'] (possibly through a ControlAct and Role)</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Indicates who was responsible for creating the resource instance</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Needed for partitioning the resource</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">./participation[typeCode='SUB'] (possibly through a ControlAct and Role)</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:Index="3" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="7" ss:StyleID="Default"/>
-    <Cell ss:Index="9" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell><Data ss:Type="String">Other.created</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell><Data ss:Type="String">When created</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Identifies when the resource was first created</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Allows ordering resource instances by time</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">./participation[typeCode='AUT']/time (possibly through a ControlAct and Role)</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -221,6 +233,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
@@ -249,13 +262,13 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s67" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="115.5"/>
-   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="153"/>
-   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="204.75"/>
-   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="188.25"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s64">
+   x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="115.5"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="153"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="188.25"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Context</Data></Cell>
@@ -266,7 +279,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -274,7 +287,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -282,7 +295,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -290,7 +303,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -298,7 +311,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -346,18 +359,18 @@
    <Column ss:AutoFitWidth="0" ss:Width="195.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="74.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="33">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Event Code</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Notes</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Request Resources</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Response Resources</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Follow Ups</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Event Code</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Notes</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Request Resources</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Response Resources</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -399,7 +412,7 @@
    <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
    <Column ss:Width="51"/>
    <Column ss:Width="69.75"/>
-   <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s64">
+   <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
@@ -407,117 +420,121 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">The patient that is the focus of the resource</Data></Cell>
-    <Cell><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Other.subject</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Other.subject</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">created</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">date</Data></Cell>
+    <Cell><Data ss:Type="String">Other.created</Data></Cell>
    </Row>
    <Row ss:Index="6" ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell ss:Index="9" ss:StyleID="s64"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -546,7 +563,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -564,36 +580,36 @@
    <Column ss:Width="244.5"/>
    <Column ss:Width="144.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Binding Name</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Example</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Reference</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s157"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Example</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Reference</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s62"><Data ss:Type="String">OtherResourceType</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Codes for identifying types of resources not yet defined by FHIR</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Value set</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">OtherResourceType</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Codes for identifying types of resources not yet defined by FHIR</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Value set</Data></Cell>
     <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell><Data ss:Type="String">valueset-other-resource-type</Data></Cell>
     <Cell><Data ss:Type="String">HL7-maintained set of codes for &quot;Other&quot; resources</Data></Cell>
     <Cell><Data ss:Type="String">Preferred for interoperability</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -637,41 +653,41 @@
    <Column ss:AutoFitWidth="0" ss:Width="215.25"/>
    <Column ss:Width="57"/>
    <Column ss:Width="102"/>
-   <Row>
-    <Cell ss:StyleID="s166"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s166"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s166"><Data ss:Type="String">Identity</Data></Cell>
-    <Cell ss:StyleID="s166"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s166"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s166"><Data ss:Type="String">In Book</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
-   <Row ss:Height="30">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Referral</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">How 'other' can be used for future resources - in this case referral</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">referral</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">other-example.xml</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Referral</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">How 'other' can be used for future resources - in this case referral</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">referral</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">other-example.xml</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s71"><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row ss:Height="30">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ClassModel</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">How 'Other' can be used for essoteric resources - in this case, a UML class model</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">classModel</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">other-example2.xml</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s71"><Data ss:Type="String">ClassModel</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">How 'Other' can be used for essoteric resources - in this case, a UML class model</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">classModel</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">other-example2.xml</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s71"><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:Index="6" ss:StyleID="s68"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="6" ss:StyleID="s71"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:Index="6" ss:StyleID="s68"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="6" ss:StyleID="s71"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -680,6 +696,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
