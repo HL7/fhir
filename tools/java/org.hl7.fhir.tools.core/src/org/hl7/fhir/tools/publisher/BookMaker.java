@@ -119,7 +119,9 @@ public class BookMaker {
 				  }
 				  if (!found && href.contains("#")) {
 					  String parts[] = href.split("#");
-					  if (parts[0].equals(""))
+					  if (parts == null || parts.length == 0) {
+					    parts = new String[] { name };
+					  } else if (parts[0].equals(""))
 						  parts[0] = name;
 					  found = pages.containsKey(parts[0]);
 					  if (found && parts[1] != null && !parts[1].equals(""))
@@ -415,7 +417,7 @@ public class BookMaker {
         } else {
           int i = s.indexOf('.');
           if (i == -1)
-            throw new Error("unable to understand ref: '"+s+"'");
+            throw new Error("unable to understand ref: '"+s+"' on '"+node.allText()+"'");
 
           if (s.contains("#")) {
             int j = s.indexOf('#');

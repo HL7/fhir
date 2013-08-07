@@ -249,7 +249,7 @@ public class BreadCrumbManager {
           b.append("        <li><b>"+type.substring(4)+"</b></li>");          
         }
       } else {
-        b.append("        <li>?? "+name+" / "+type+"</li>\r\n");
+        b.append("        <li>??? "+name+" / "+type+"</li>\r\n");
       }
     }
     return b.toString();
