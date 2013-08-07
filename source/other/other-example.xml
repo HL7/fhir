@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a bare-bones referral intended to show how the Other resource might be used.
+A real referral would likely include references to supporting information such as medication lists,
+problem lists, allergy lists, etc.
+Note: Referral is likely to be incorporated as an official resource in a future release of the FHIR DSTU.
+-->
+<Other xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/other.xsd">
+  <extension>
+    <url value="http://example.org/do-not-use/fhir-extensions/referral#referredForService"/>
+    <isModifier value="true"/>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/id"/>
+        <code value="11429006"/>
+        <display value="Consultation"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <extension>
+    <url value="http://example.org/do-not-use/fhir-extensions/referral#requestingPractitioner"/>
+    <valueResource>
+      <type value="Practitioner"/>
+      <reference value="practitioner/@f201"/>
+      <display value="Dokter Bronsig"/>
+    </valueResource>
+  </extension>
+  <extension>
+    <url value="http://example.org/do-not-use/fhir-extensions/referral#targetDate"/>
+    <isModifier value="true"/>
+    <valuePeriod>
+      <start value="20130401"/>
+      <end value="20130415"/>
+    </valuePeriod>
+  </extension>
+  <extension>
+    <url value="http://example.org/do-not-use/fhir-extensions/referral#status"/>
+    <isModifier value="true"/>
+    <valueCode value="complete"/>
+  </extension>
+  <extension>
+    <url value="http://example.org/do-not-use/fhir-extensions/referral#notes"/>
+    <valueString value="The patient had fever peaks over the last couple of days. He is worried about these peaks."/>
+  </extension>
+  <extension>
+    <url value="http://example.org/do-not-use/fhir-extensions/referral#fulfillingEncounter"/>
+    <valueResource>
+      <type value="Encounter"/>
+      <reference value="encounter/@f201"/>
+    </valueResource>
+  </extension>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p><b>Patient:</b>Roel</p>
+      <p><b>Requestor:</b>Dokter Bronsig</p>
+      <p><b>Type:</b>Consultation</p>
+      <p><b>Target Date:</b>April 1 - April 31</p>
+      <p>COMPLETED</p>
+      <b>The patient had fever peaks over the last couple of days. He is worried about these peaks.</b>
+    </div>
+  </text>
+  <code>
+    <coding>
+      <system value="http://hl7.org/fhir/other-resource-type"/>
+      <code value="REFERRAL"/>
+    </coding>
+  </code>
+  <subject>
+    <type value="Patient"/>
+    <reference value="patient/@f201"/>
+    <display value="Roel"/>
+  </subject>
+</Other>
