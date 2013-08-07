@@ -8,7 +8,7 @@ conformant to "FHIR messaging".
 <p>
 In FHIR messaging, a "request message" is sent from a source application to a destination
 application when an event happens. Events mostly correspond to things that happen in the 
-real world. The request message consists of a <a href="resources.htm#bundle">bundle</a>
+real world. The request message consists of a <a href="extras.htm#bundle">bundle</a>
 of resources, with the first resource in the bundle being this <i>Message</i> resource. The 
 Message resource has a code - the message event - that identifies the nature of the 
 request message and carries additional request metadata. The other resources in the 
@@ -19,7 +19,7 @@ The events supported in FHIR, along with the resources that are included in them
 </p>
 <p>
 The destination application processes the request and returns one or more response messages 
-which are also a <a href="resources.htm#bundle">bundle</a> of resources, with the first 
+which are also a <a href="extras.htm#bundle">bundle</a> of resources, with the first 
 resource in the bundle being a <a href="#resource">Message</a> resource with a response
 section that reports the outcome of processing the message and any additional response 
 resources required. 
@@ -159,7 +159,7 @@ to this end point does not represent the actual occurrence of any event, nor can
 any logic associated with the actual event.</b> It is just for managing message resources.
 </p>
 <p>
-The second end-point ([baseurl]/mailbox) is used for actually sending messages as <a href="resources.htm#bundle">bundles</a>, to indicate 
+The second end-point ([baseurl]/mailbox) is used for actually sending messages as <a href="extras.htm#bundle">bundles</a>, to indicate 
 that the event identified by the code has occurred. The end-point responds with a message
 response as defined for the particular event, or an error indicating that the attempt to 
 process the message was unsuccessful. The functionality of this end-point <a href="#mailbox">is described below</a>.

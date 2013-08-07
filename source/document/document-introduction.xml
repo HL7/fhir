@@ -2,7 +2,7 @@
 
 <p>
 FHIR resources can be used to build clinical documents that capture information about clinical observations and services. 
-A clinical document is a <a href="resources.htm#bundle">bundle</a> (a list of resources in an <a href="formats.htm#atom">atom feed</a>) that is 
+A clinical document is a <a href="extras.htm#bundle">bundle</a> (a list of resources in an <a href="formats.htm#atom">atom feed</a>) that is 
 fixed in scope, frozen in time and authored and/or attested as a set of logically contained resources by humans, organizations and devices. Documents built in 
 this fashion may be exchanged between systems and also persisted in document storage and management 
 systems, including systems such as IHE XDS. Applications claiming conformance to this framework claim 
@@ -16,7 +16,7 @@ that are authored and assembled in FHIR, while the document reference resource i
 
 <h2>Document Content</h2>
 <p>
-All documents have the same structure: a <a href="resources.htm#bundle">bundle</a> that has a <i>Document</i> resource (see below) 
+All documents have the same structure: a <a href="extras.htm#bundle">bundle</a> that has a <i>Document</i> resource (see below) 
 first, followed by a series of other resources referenced from the <i>Document</i> 
 header that provides guidance on how they fit together. The bundle gathers all the content
 of the document into a single XML document which may be signed and managed as required. The resources
@@ -44,7 +44,7 @@ statements</a> that identify particular documents they support.
 
 <ul>
  <li>[baseurl]/document/: a normal RESTful end point for document resources as standalone resources</li> 
- <li>[baseurl]/binary/: for documents as <a href="resources.htm#bundle">bundles</a></li> 
+ <li>[baseurl]/binary/: for documents as <a href="extras.htm#bundle">bundles</a></li> 
 </ul>
 <p>
 Note: While these end-points are defined for use with document resources and document bundles, 

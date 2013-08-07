@@ -50,8 +50,8 @@ The following rules apply to the mailbox:
 </p>
 <ul>
  <li>The mailbox only accepts POST transactions - any other HTTP method will result in an HTTP error</li>
- <li>The request content type submitted is always <a href="resources.htm#bundle">a bundle</a> containing a message or document resource as the first resource</li>
- <li>The response content type returned is always an HTTP error, <a href="resources.htm#bundle">a bundle</a> containing a message as the first resource, or empty (if a document was received)</li>
+ <li>The request content type submitted is always <a href="extras.htm#bundle">a bundle</a> containing a message or document resource as the first resource</li>
+ <li>The response content type returned is always an HTTP error, <a href="extras.htm#bundle">a bundle</a> containing a message as the first resource, or empty (if a document was received)</li>
  <li>If the response is an error, the body SHOULD be an <a href="operationoutcome.htm">Errors &amp; Warning</a> resource with full details</li> 
  <li>The URL never takes any parameters</li>
  <li>The mailbox may be authenticated using standard HTTP authentication methods, including OAuth</li>

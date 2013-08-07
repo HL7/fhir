@@ -52,7 +52,7 @@ with no matching responses (see below)</p>
 <p>Two message types are defined for sending orders: synchronous and asynchronous.</p>
 
 <p>
-In a synchronous message, an order message (i.e. a <a href="resources.htm#bundle">bundle</a> with a
+In a synchronous message, an order message (i.e. a <a href="extras.htm#bundle">bundle</a> with a
 <a href="message.htm">message</a> resource, an order resource and a details resource) 
 is sent to a system, and it responds with a message that includes the <a href="orderresponse.htm">response</a> 
 (a message resource, and Order Response resource, along with additional details as appropriate). This 

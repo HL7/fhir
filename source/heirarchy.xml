@@ -56,9 +56,9 @@ todo: compartments
     <page title="Downloads" filename="downloads.htm"/>
     <page title="Using Resources" filename="use.htm"/>
     <page title="Support" filename="support.htm"/>
-    <page title="Integrated Examples" filename="integrated-examples.htm"/>
     <page title="Common Usages" filename="usecases.htm"/>
     <page title="Security" filename="security.htm"/>
+    <page title="Integrated Examples" filename="integrated-examples.htm"/>
   </page>
 
   <page title="Resources" filename="resourcelist.htm"/>
