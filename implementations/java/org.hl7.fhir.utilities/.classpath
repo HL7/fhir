@@ -6,6 +6,6 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/xpp3_min-1.1.3.4.O.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/xpp3_xpath-1.1.3.4.O.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/xpp3-1.1.3.4.O.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/saxon9he.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/saxon9he.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
