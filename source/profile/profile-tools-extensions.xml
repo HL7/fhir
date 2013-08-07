@@ -110,6 +110,7 @@
       <type> 
         <code value="string"/>      
       </type>
+      <isModifier value="false"/>
     </definition> 
   </extensionDefn>
   
@@ -127,6 +128,7 @@
       <type> 
         <code value="string"/>      
       </type>
+      <isModifier value="false"/>
     </definition> 
   </extensionDefn>
 
@@ -144,6 +146,7 @@
       <type> 
         <code value="string"/>      
       </type>
+      <isModifier value="false"/>
     </definition> 
   </extensionDefn>
   
@@ -160,6 +163,7 @@
       <type> 
         <code value="code"/>      
       </type>
+      <isModifier value="false"/>
       <binding value="OperationOutcomeSource"/>
     </definition> 
   </extensionDefn>

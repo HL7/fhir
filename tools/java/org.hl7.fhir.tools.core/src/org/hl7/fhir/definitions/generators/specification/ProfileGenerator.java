@@ -390,8 +390,7 @@ public class ProfileGenerator {
     if (!Utilities.noString(src.getProfile()))
       ce.getDefinition().getType().get(0).setProfile(Factory.newUri(src.getProfile()));
     // todo? conditions, constraints, binding, mapping
-    if (src.isModifier())
-      ce.getDefinition().setIsModifier(Factory.newBoolean(true));
+    ce.getDefinition().setIsModifierSimple(src.isModifier());
     return ce;
   }
 

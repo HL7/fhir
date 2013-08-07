@@ -75,7 +75,7 @@ public class SchematronGenerator  extends TextStreamWriter {
 
 	public void generate(ElementDefn root, Definitions definitions) throws Exception	{
 		ln("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-		ln_i("<sch:schema xmlns:sch=\"http://purl.oclc.org/dsdl/schematron\">");
+		ln_i("<sch:schema xmlns:sch=\"http://purl.oclc.org/dsdl/schematron\" queryBinding=\"xslt2\">");
 		ln("<sch:ns prefix=\"f\" uri=\"http://hl7.org/fhir\"/>");
     ln("<sch:ns prefix=\"a\" uri=\"http://www.w3.org/2005/Atom\"/>");
     ln("<sch:ns prefix=\"h\" uri=\"http://www.w3.org/1999/xhtml\"/>");

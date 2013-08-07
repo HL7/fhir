@@ -2597,8 +2597,8 @@ public class Publisher {
 			sch = "fhir-atom";
 
 		try {
-		  Utilities.transform(page.getFolders().rootDir + "tools"+sc+"schematron"+sc,	page.getFolders().dstDir + sch + ".sch", page.getFolders().rootDir + "tools"+sc+"schematron"+sc+"iso_svrl_for_xslt2.xsl",	tmpTransform.getAbsolutePath());
-		  Utilities.transform(page.getFolders().rootDir + "tools"+sc+"schematron"+sc,	page.getFolders().dstDir + n + ".xml", tmpTransform.getAbsolutePath(), tmpOutput.getAbsolutePath());
+		  Utilities.saxonTransform(page.getFolders().rootDir + "tools"+sc+"schematron"+sc,	page.getFolders().dstDir + sch + ".sch", page.getFolders().rootDir + "tools"+sc+"schematron"+sc+"iso_svrl_for_xslt2.xsl",	tmpTransform.getAbsolutePath());
+		  Utilities.saxonTransform(page.getFolders().rootDir + "tools"+sc+"schematron"+sc,	page.getFolders().dstDir + n + ".xml", tmpTransform.getAbsolutePath(), tmpOutput.getAbsolutePath());
 		} catch (Throwable t) {
 		  throw new Exception("Error validating "+page.getFolders().dstDir + n + ".xml with schematrons", t);
 		}

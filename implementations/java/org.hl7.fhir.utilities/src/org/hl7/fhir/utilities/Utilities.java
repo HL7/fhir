@@ -43,6 +43,8 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
+import net.sf.saxon.TransformerFactoryImpl;
+
 public class Utilities {
 
 	 private static final String TOKEN_REGEX = "^a-z[A-Za-z0-9]*$";
@@ -267,6 +269,18 @@ public class Utilities {
   }
 
 
+  public static void saxonTransform(String xsltDir, String source, String xslt, String dest) throws Exception {
+    TransformerFactoryImpl f = new net.sf.saxon.TransformerFactoryImpl();
+    StreamSource xsrc = new StreamSource(new FileInputStream(xslt));
+    f.setURIResolver(new MyURIResolver(xsltDir));
+    Transformer t = f.newTransformer(xsrc);
+    
+    t.setURIResolver(new MyURIResolver(xsltDir));
+    StreamSource src = new StreamSource(new FileInputStream(source));
+    StreamResult res = new StreamResult(new FileOutputStream(dest));
+    t.transform(src, res);    
+  }
+  
   public static void transform(String xsltDir, String source, String xslt, String dest) throws Exception {
     /* default java approach, but this doesn't support xslt2
     TransformerFactory f = TransformerFactory.newInstance();

@@ -775,11 +775,11 @@ public class PageProcessor implements Logger  {
     if (definitions.hasResource(name)) {
       ResourceDefn r = definitions.getResourceByName(name);
       return
-          "<tr><td><a href=\""+name.toLowerCase()+".htm\">"+name+"</a></td><td>"+Utilities.escapeXml(r.getDefinition())+"</td><td>"+aliases(r.getRoot().getAliases())+"</td></tr>\r\n";
+          "<tr><td><a href=\""+name.toLowerCase()+".htm\">"+name+"</a></td><td>"+aliases(r.getRoot().getAliases())+"</td><td>"+Utilities.escapeXml(r.getDefinition())+"</td></tr>\r\n";
 
     } else 
       return 
-          "<tr><td>"+name+"</td><td>(Not defined yet)</td><td></td></tr>\r\n";
+          "<tr><td>"+name+"</td><td>(Not defined yet)</td><td></td><td></td></tr>\r\n";
 
   }
 

@@ -9,7 +9,7 @@
   <description value="Detailed information about the type of the image - it's kind, purpose, or the kind of equipment used to generate it"/>
   <status value="draft"/>
   <define>
-    <system value="http://hl7.org/fhir/vs/media-subtype"/>  
+    <system value="http://hl7.org/fhir/media-subtype"/>  
     <caseSensitive value="true"/>
     <concept>
       <code value="diagram"/>
