@@ -762,33 +762,44 @@ public class PageProcessor implements Logger  {
   }
 
   private String genDataTypeMappings() {
-	List<ElementDefn> list = new ArrayList<ElementDefn>();
-	list.addAll(definitions.getStructures().values());
-	list.addAll(definitions.getTypes().values());
-	list.addAll(definitions.getInfrastructure().values());
-	MappingsGenerator maps = new MappingsGenerator();
-	maps.generate(list);
-	return maps.getMappings();
-}
+    List<ElementDefn> list = new ArrayList<ElementDefn>();
+    list.addAll(definitions.getStructures().values());
+    list.addAll(definitions.getTypes().values());
+    list.addAll(definitions.getInfrastructure().values());
+    MappingsGenerator maps = new MappingsGenerator();
+    maps.generate(list);
+    return maps.getMappings();
+  }
 
-private String resItem(String name) throws Exception {
+  private String resItem(String name) throws Exception {
     if (definitions.hasResource(name)) {
       ResourceDefn r = definitions.getResourceByName(name);
       return
-          "<tr><td><a href=\""+name.toLowerCase()+".htm\">"+name+"</a></td><td>"+Utilities.escapeXml(r.getDefinition())+"</td></tr>\r\n";
-      
+          "<tr><td><a href=\""+name.toLowerCase()+".htm\">"+name+"</a></td><td>"+Utilities.escapeXml(r.getDefinition())+"</td><td>"+aliases(r.getRoot().getAliases())+"</td></tr>\r\n";
+
     } else 
       return 
-         "<tr><td>"+name+"</td><td>(Not defined yet)</td></tr>\r\n";
+          "<tr><td>"+name+"</td><td>(Not defined yet)</td><td></td></tr>\r\n";
 
+  }
+
+  private String aliases(List<String> aliases) {
+    if (aliases == null || aliases.size() == 0)
+      return "";
+    StringBuilder b = new StringBuilder();
+    b.append(aliases.get(0));
+    for (int i = 1; i < aliases.size() - 1; i++) {
+      b.append(", "+aliases.get(i));
+    }
+    return b.toString();
   }
 
   private String resCategory(String string) {
     String[] parts = string.split("\\|");
     return
-        "<tr><td colspan=\"2\"><hr/></td></tr>\r\n"+
-        "<tr><th colspan=\"2\"><a name=\""+parts[0].toLowerCase().replace(" ", "")+"\">"+parts[0]+"</a></th></tr>\r\n"+
-        "<tr><td colspan=\"2\">"+Utilities.escapeXml(parts[1])+"</td></tr>\r\n";
+        "<tr><td colspan=\"3\"><hr/></td></tr>\r\n"+
+        "<tr><th colspan=\"3\"><a name=\""+parts[0].toLowerCase().replace(" ", "")+"\">"+parts[0]+"</a></th></tr>\r\n"+
+        "<tr><td colspan=\"3\">"+Utilities.escapeXml(parts[1])+"</td></tr>\r\n";
   }
 
   private String onThisPage(String tail) {
@@ -1701,7 +1712,7 @@ private String resItem(String name) throws Exception {
   private String genReferenceImplList() {
     StringBuilder s = new StringBuilder();
     for (PlatformGenerator gen : referenceImplementations) {
-      s.append("<li><b><a href=\""+gen.getName()+".zip\">"+gen.getTitle()+"</a></b>: "+Utilities.escapeXml(gen.getDescription())+"</li>\r\n");
+      s.append("<tr><td><a href=\""+gen.getName()+".zip\">"+gen.getTitle()+"</a></td><td>"+Utilities.escapeXml(gen.getDescription())+"</td></tr>\r\n");
     }
     return s.toString();
   }
@@ -2204,6 +2215,8 @@ private String resItem(String name) throws Exception {
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
       else if (com[0].equals("revision"))
         src = s1 + svnRevision + s3;      
+      else if (com[0].equals("level"))
+        src = s1 + genlevel(0) + s3;  
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
@@ -2442,6 +2455,8 @@ private String resItem(String name) throws Exception {
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
       else if (com[0].equals("revision"))
         src = s1 + svnRevision + s3;      
+      else if (com[0].equals("level"))
+        src = s1 + genlevel(0) + s3;  
       else if (com[0].equals("resurl")) {
           src = s1+"The id of this profile is "+profile.getMetadata().get("id").get(0)+s3;
       } else 

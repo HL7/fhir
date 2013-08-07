@@ -39,7 +39,7 @@ examples of references are <a href="http://www.rfc-editor.org/bcp/bcp13.txt">Mim
 <a href="http://tools.ietf.org/html/bcp47">Language Codes</a>, <a href="http://unitsofmeasure.org">UCUM</a>, etc.).
 </p>
 <p>
-The value of an element of type <i>code</i> SHALL be one of the codes defined by the code list or reference. 
+The value of an element of type <i>code</i> SHALL be one of the codes included in the code list or defined by the reference. 
 Code comparison is always case sensitive for codes unless the codes are defined by a reference, and the 
 reference specifically states otherwise.
 </p>
@@ -55,7 +55,17 @@ may be used in particular contexts, but cannot define new or additional codes fo
 For elements with type <a href="datatypes.htm#CodeableConcept">CodeableConcept</a> or 
 <a href="datatypes.htm#Coding">Coding</a>, the binding refers to a <a href="valueset.htm">
 Value Set</a> that defines a list of concepts along with the code/system pairs that refer
-to them. System values are always case sensitive. Different code systems make their own
+to them. 
+</p>
+<p>
+If the binding is not marked as an example binding (see below):
+</p>
+<ul>
+ <li><b>Coding</b>:, the <i>system</i>/<i>code</i> SHOULD be one of the codes in the value set. </li>
+ <li><b>CodeableConcept</b>: one of the <i>coding</i> elements SHOULD contain a <i>system</i>/<i>code</i> that is in the value set. </li>
+</ul>
+<p>
+System values are always case sensitive. Different code systems make their own
 rules as to whether the codes they define are case sensitive or not. Note that all the 
 codes defined by FHIR itself are case sensitive and must be used in the provided case 
 (usually, but not always, lowercase).

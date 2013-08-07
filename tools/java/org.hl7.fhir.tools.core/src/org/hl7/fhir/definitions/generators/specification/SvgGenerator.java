@@ -476,7 +476,7 @@ public class SvgGenerator {
         xml.attribute("x", Double.toString(x));
         xml.attribute("y", Double.toString(y - GAP_HEIGHT));
         xml.attribute("fill", "black");
-        xml.attribute("style", "font-size: 10; text-anchor: middle; font-family: sans-serif; opacity: 1");
+        xml.attribute("class", "diagram-class-linkage");
         xml.open("text");
         xml.attribute("xlink:href", l.path);
         xml.open("a");
@@ -502,7 +502,7 @@ public class SvgGenerator {
         xml.attribute("x", Double.toString(x));
         xml.attribute("y", Double.toString(y));
         xml.attribute("fill", "black");
-        xml.attribute("style", "font-size: 10; text-anchor: middle; font-family: sans-serif; opacity: 1");
+        xml.attribute("class", "diagram-class-linkage");
         xml.element("text", l.cardinality);
       }
     }
@@ -623,7 +623,7 @@ public class SvgGenerator {
     xml.attribute("x", Double.toString(item.left + item.width / 2));
     xml.attribute("y", Double.toString(item.top+HEADER_HEIGHT));
     xml.attribute("fill", "black");
-    xml.attribute("style", "font-size: 14; text-anchor: middle; font-family: sans-serif; font-weight: bold");
+    xml.attribute("class", "diagram-class-title");
     xml.element("text", tn);
     
     if ("true".equals(ini.getStringProperty("diagram", "element-attributes"))) {
@@ -683,7 +683,10 @@ public class SvgGenerator {
     xml.attribute("x", Double.toString(item.left + item.width / 2));
     xml.attribute("y", Double.toString(item.top+HEADER_HEIGHT));
     xml.attribute("fill", "black");
-    xml.attribute("style", "font-size: 14; text-anchor: middle; font-family: sans-serif"+(isRoot ? "; font-weight: bold" : ""));
+    if (isRoot) 
+      xml.attribute("class", "diagram-class-title  diagram-class-resource");
+    else 
+      xml.attribute("class", "diagram-class-title");
     if (link) {
       xml.open("text");
       xml.attribute("xlink:href", "#"+tn.toLowerCase());
@@ -694,11 +697,11 @@ public class SvgGenerator {
     } else if (isRoot) {
       xml.open("text");
       xml.text(tn);
-      xml.attribute("style", "font-size: 10; text-anchor: middle; font-family: sans-serif; font-weight: normal");
+      xml.attribute("class", "diagram-class-title-link");
       xml.open("tspan");
       xml.text(" (");
       xml.attribute("xlink:href", "resources.htm");
-      xml.attribute("style", "fill:navy;font-size: 10; text-anchor: middle; font-family: sans-serif; font-weight: normal");
+      xml.attribute("class", "diagram-class-reference");
       xml.element("a", "Resource");
       xml.text(")");
       xml.close("tspan");
@@ -763,7 +766,7 @@ public class SvgGenerator {
   }
 
   private double textWidth(String text) {
-    return text.length() * 5;
+    return text.length() * 4;
   }
 
   private String textForAttribute(ElementDefn e) {
@@ -778,7 +781,7 @@ public class SvgGenerator {
     xml.attribute("x", Double.toString(left + LEFT_MARGIN));
     xml.attribute("y", Double.toString(top));
     xml.attribute("fill", "black");
-    xml.attribute("style", "font-size: 10; text-anchor: left; font-family: sans-serif");
+    xml.attribute("class", "diagram-class-detail");
     xml.open("text");
     xml.attribute("xlink:href", baseUrl(path)+path+"."+e.getName().replace("[", "_").replace("]", "_"));
     xml.open("a");
@@ -804,7 +807,7 @@ public class SvgGenerator {
     xml.attribute("x", Double.toString(left + LEFT_MARGIN));
     xml.attribute("y", Double.toString(top));
     xml.attribute("fill", "black");
-    xml.attribute("style", "font-size: 10; text-anchor: left; font-family: sans-serif");
+    xml.attribute("class", "diagram-class-detail");
     xml.open("text");
     xml.attribute("xlink:href", "extensibility.htm");
     xml.open("a");
@@ -822,7 +825,7 @@ public class SvgGenerator {
     xml.attribute("x", Double.toString(left + LEFT_MARGIN));
     xml.attribute("y", Double.toString(top));
     xml.attribute("fill", "black");
-    xml.attribute("style", "font-size: 10; text-anchor: left; font-family: sans-serif");
+    xml.attribute("class", "diagram-class-detail");
     xml.open("text");
     xml.open("tspan");
     xml.element("title", "Actual value attribute of the data type");

@@ -572,11 +572,11 @@ public class Publisher {
 	}
 
 	private void registerReferencePlatforms() {
-		page.getReferenceImplementations().add(new DelphiGenerator());
 		javaReferencePlatform = new JavaGenerator();
     page.getReferenceImplementations().add(javaReferencePlatform);
 		page.getReferenceImplementations().add(new CSharpGenerator());
-		page.getReferenceImplementations().add(new ECoreOclGenerator());
+    page.getReferenceImplementations().add(new DelphiGenerator());
+//		page.getReferenceImplementations().add(new ECoreOclGenerator());
 	}
 
   public boolean checkFile(String purpose, String dir, String file, List<String> errors, String category) {
@@ -621,8 +621,9 @@ public class Publisher {
 			checkFile("required", page.getFolders().srcDir, "template-book.htm", errors, "all");
 			//Utilities.checkFolder(page.getFolders().dstDir, errors);
 
-			for (String n : page.getIni().getPropertyNames("support"))
-				checkFile("support", page.getFolders().srcDir, n, errors, "all");
+			if (page.getIni().getPropertyNames("support") != null)
+			  for (String n : page.getIni().getPropertyNames("support"))
+				  checkFile("support", page.getFolders().srcDir, n, errors, "all");
 			for (String n : page.getIni().getPropertyNames("images"))
 				checkFile("image", page.getFolders().imgDir, n, errors, "all");
 			for (String n : page.getIni().getPropertyNames("schema"))
@@ -977,8 +978,9 @@ public class Publisher {
 	private void produceSpec() throws Exception {
 	  if (buildFlags.get("all")) {
 
-	    for (String n : page.getIni().getPropertyNames("support"))
-	      Utilities.copyFile(new CSFile(page.getFolders().srcDir + n),
+	    if (page.getIni().getPropertyNames("support") != null)
+	      for (String n : page.getIni().getPropertyNames("support"))
+	        Utilities.copyFile(new CSFile(page.getFolders().srcDir + n),
 	          new CSFile(page.getFolders().dstDir + n));
 	    for (String n : page.getIni().getPropertyNames("images"))
 	      Utilities.copyFile(new CSFile(page.getFolders().imgDir + n),
@@ -1918,24 +1920,24 @@ public class Publisher {
     }
 		
 		src = TextFile.fileToString(page.getFolders().srcDir+ "template-examples.htm");
-		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-examples"), st, n + "-examples.htm"), page.getFolders().dstDir + n + "-examples.htm");
+		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Examples"), st, n + "-examples.htm"), page.getFolders().dstDir + n + "-examples.htm");
 		src = TextFile.fileToString(page.getFolders().srcDir + "template-definitions.htm");
-		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-definitions"), st, n + "-definitions.htm"), page.getFolders().dstDir + n + "-definitions.htm");
+		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Formal Definitions"), st, n + "-definitions.htm"), page.getFolders().dstDir + n + "-definitions.htm");
 		src = TextFile.fileToString(page.getFolders().srcDir + "template-mappings.htm");
-		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-mappings"), st, n + "-mappings.htm"), page.getFolders().dstDir + n + "-mappings.htm");
+		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Mappings"), st, n + "-mappings.htm"), page.getFolders().dstDir + n + "-mappings.htm");
 		src = TextFile.fileToString(page.getFolders().srcDir + "template-explanations.htm");
-		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-explanations"), st, n + "-explanations.htm"), page.getFolders().dstDir + n + "-explanations.htm");
+		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Design Notes"), st, n + "-explanations.htm"), page.getFolders().dstDir + n + "-explanations.htm");
 		src = TextFile.fileToString(page.getFolders().srcDir + "template-profiles.htm");
-		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-profiles"), st, n + "-profiles.htm"), page.getFolders().dstDir + n + "-profiles.htm");
+		TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Profiles"), st, n + "-profiles.htm"), page.getFolders().dstDir + n + "-profiles.htm");
 
 		src = TextFile.fileToString(page.getFolders().srcDir + "template-book.htm").replace("<body>", "<body style=\"margin: 10px\">");
 		src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "resource");
 		cachePage(n + ".htm", src);
 		src = TextFile.fileToString(page.getFolders().srcDir + "template-book-ex.htm").replace("<body>", "<body style=\"margin: 10px\">");
-		src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-examples");
+		src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Examples");
 		cachePage(n + "Ex.htm", src);
 		src = TextFile.fileToString(page.getFolders().srcDir + "template-book-defn.htm").replace("<body>", "<body style=\"margin: 10px\">");
-		src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-definitions");
+		src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Formal Definitions");
 		cachePage(n + "-definitions.htm", src);
 		cachePage(n + "Defn.htm", src);
 

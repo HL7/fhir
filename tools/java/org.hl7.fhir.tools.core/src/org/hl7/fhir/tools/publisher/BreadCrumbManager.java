@@ -122,6 +122,8 @@ public class BreadCrumbManager {
         map.put(p.getFilename(), path);
         if (p.getSource() != null)
           map.put(p.getSource(), path);
+        if (p.getResource() != null)
+          map.put(p.getResource().toLowerCase(), path);
           
         p.setId(Integer.toString(i));
         numberChildren(p, path);
@@ -232,7 +234,20 @@ public class BreadCrumbManager {
           b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
         }
         b.append("        <li><b>"+Utilities.fileTitle(name)+"</b></li>");
-        
+      } else if (type.startsWith("res") && map.containsKey(Utilities.fileTitle(name))) {
+        String[] path = map.get(Utilities.fileTitle(name)).split("\\.");
+        Page focus = home;
+        for (int i = 0; i < path.length - 1; i++) {
+          focus = getChild(focus, path[i]);
+          b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+        }
+        focus = getChild(focus, path[path.length - 1]);
+        if (type.equals("resource")) {
+          b.append("        <li><b>"+focus.getResource()+"</b></li>");
+        } else {
+          b.append("        <li><a href=\""+focus.getResource().toLowerCase()+".htm\">"+focus.getResource()+"</a></li>");
+          b.append("        <li><b>"+type.substring(4)+"</b></li>");          
+        }
       } else {
         b.append("        <li>?? "+name+" / "+type+"</li>\r\n");
       }

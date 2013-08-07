@@ -7,7 +7,7 @@
     <page title="Table of Contents" filename="toc.htm"/>
     <page title="Introduction" filename="overview.htm"/>
     <page title="Coming Challenges" filename="change.htm"/>
-    <page title="License and Legal Terms" filename="licence.htm"/>
+    <page title="License and Legal Terms" filename="license.htm"/>
     <page title="Community and Credits" filename="credits.htm"/>
     <page title="EHR FM map" filename="ehr-fm.htm"/>
     <page title="Narratives" filename="bundles.htm"/>
@@ -17,6 +17,7 @@
     <page title="Integrated Examples" filename="integrated-examples.htm"/>
     <page title="Security" filename="security.htm"/>
     <page title="Resource Definitions" filename="resources.htm">
+      <page title="Tags, Bundles, Compartments" filename="extras.htm"/>
       <page title="References" filename="references.htm"/>
       <page title="Narrative" filename="narrative.htm"/>
       <page title="Formats" filename="formats.htm">
@@ -51,18 +52,14 @@
     </page>
   </page>
   
-  <page title="API (REST)" filename="http.htm">
-    <page title="Search &amp; Query" type="resource" resource="query"/>
-    <page title="Documents" type="resource" resource="document"/>
-    <page title="Messaging" type="resource" resource="message"/>
-  </page>
-  <page title="Implementation Support" filename="implementation.htm">
+  <page title="Implementation" filename="implementation.htm">
+    <page title="RESTful API" filename="http.htm"/>
+    <page title="Using Resources" filename="use.htm"/>
     <page title="Downloads" filename="downloads.htm"/>
-    <page title="Clients &amp; Servers" filename="software.htm"/>
     <page title="Support" filename="support.htm"/>
-    <page title="Links" filename="links.htm"/>
   </page>
-  <page title="Resources" filename="resources.htm"/>
+
+  <page title="Resources" filename="resourcelist.htm"/>
 <!--    Every Resource below has structure:
       resource
       definitions
@@ -71,7 +68,7 @@
        [- example]
       mappings
       -->
-  <page title="Clinical" filename="resources\clinical.htm">
+  <page title="Clinical" filename="clinical.htm">
     <page type="resource" resource="AdverseReaction"/>
     <page type="resource" resource="AllergyIntolerance"/>
     <page type="resource" resource="Alert"/>
@@ -95,7 +92,7 @@
     <page type="resource" resource="DeviceCapabilities"/>
     <page type="resource" resource="DeviceLog"/>
   </page>
-  <page title="Administrative" filename="resources\administration.htm">
+  <page title="Administrative" filename="administration.htm">
     <page type="resource" resource="Patient"/>
     <page type="resource" resource="RelatedPerson"/>
     <page type="resource" resource="Practitioner"/>
@@ -108,7 +105,7 @@
     <page type="resource" resource="Device"/>
     <page type="resource" resource="Coverage"/>
   </page>
-  <page title="Infrastructure" filename="resources\infrastructure.htm">
+  <page title="Infrastructure" filename="infrastructure.htm">
     <page type="resource" resource="List"/>
     <page type="resource" resource="Observation"/>
     <page type="resource" resource="Media"/>

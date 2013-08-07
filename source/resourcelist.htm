@@ -12,84 +12,122 @@
 
 <div class="col-9">
 
-<h1>Resources</h1>
+<h2>Resource Index</h2>
+ 
+<table width="100%">
+<tr><td colspan="4"><a href="clinical.htm"><b>Clinical</b></a></td></tr>
+<tr><td>
+<p>General:</p>
+<ul>
+  <li><a href="adversereaction.htm">AdverseReaction</a></li>
+  <li><a href="allergyintolerance.htm">AllergyIntolerance</a></li>
+  <li><a href="careplan.htm">CarePlan</a></li>
+  <li><a href="familyhistory.htm">FamilyHistory</a></li>
+  <li><a href="condition.htm">Condition</a></li>
+  <li><a href="procedure.htm">Procedure</a></li>
+  <li><a href="questionnaire.htm">Questionnaire</a></li>
+</ul>
+</td><td style="border-left: 1px solid #eeeeee">
+<p>Medications:</p>
+<ul>
+  <li><a href="medication.htm">Medication</a></li>
+  <li><a href="medicationprescription.htm">MedicationPrescription</a></li>
+  <li><a href="medicationadministration.htm">MedicationAdministration</a></li>
+  <li><a href="medicationdispense.htm">MedicationDispense</a></li>
+  <li><a href="medicationstatement.htm">MedicationStatement</a></li>
+  <li><a href="immunization.htm">Immunization</a></li>
+  <li><a href="immunizationprofile.htm">ImmunizationProfile</a></li>
+</ul>
+</td><td style="border-left: 1px solid #eeeeee">
+<p>Diagnostics:</p>
+<ul>
+  <li><a href="observation.htm">Observation</a></li>
+  <li><a href="diagnosticreport.htm">DiagnosticReport</a></li>
+  <li><a href="diagnosticorder.htm">DiagnosticOrder</a></li>
+  <li><a href="imagingstudy.htm">ImagingStudy</a></li>
+  <li><a href="specimen.htm">Specimen</a></li>
+</ul>
+</td><td style="border-left: 1px solid #eeeeee">
+<p>Device Interactions:</p>
+<ul>
+  <li><a href="deviceobservation.htm">DeviceObservation</a></li>
+  <li><a href="devicecapabilities.htm">DeviceCapabilities</a></li>
+  <li><a href="devicelog.htm">DeviceLog</a></li>
+</ul>
+</td></tr>
+<tr><td colspan="4"><a href="administration.htm"><b>Administrative</b></a></td></tr>
+<tr><td>
+<p>Attribution:</p>
+<ul>
+  <li><a href="patient.htm">Patient</a></li>
+  <li><a href="relatedperson.htm">RelatedPerson</a></li>
+  <li><a href="practitioner.htm">Practitioner</a></li>
+  <li><a href="organization.htm">Organization</a></li>
+</ul>
+</td><td style="border-left: 1px solid #eeeeee">
+<p>Resources:</p>
+<ul>  
+  <li><a href="device.htm">Device</a></li>
+  <li><a href="location.htm">Location</a></li>
+  <li><a href="substance.htm">Substance</a></li>
+  <li><a href="group.htm">Group</a></li>
+</ul>
+</td><td style="border-left: 1px solid #eeeeee">
+<p>Workflow Management:</p>
+<ul>
+  <li><a href="encounter.htm">Encounter</a></li>
+  <li><a href="alert.htm">Alert</a></li>
+  <li><a href="supply.htm">Supply</a></li>
+  <li><a href="order.htm">Order</a></li>
+  <li><a href="orderresponse.htm">OrderResponse</a></li>
+</ul>
+</td><td style="border-left: 1px solid #eeeeee">
+<p>Financial:</p>
+<ul>
+  <li><a href="coverage.htm">Coverage</a></li>
+</ul>
+
+</td></tr>
+<tr><td colspan="4"><a href="infrastructure.htm"><b>Infrastructure</b></a></td></tr>
+<tr><td>
+<p>Support:</p>
+<ul>
+  <li><a href="list.htm">List</a></li>
+  <li><a href="media.htm">Media</a></li>
+  <li><a href="documentreference.htm">DocumentReference</a></li>
+  <li><a href="binary.htm">Binary</a></li>
+</ul>
+</td><td style="border-left: 1px solid #eeeeee">
+<p>Audit:</p>
+<ul>
+  <li><a href="provenance.htm">Provenance</a></li>
+  <li><a href="securityevent.htm">SecurityEvent</a></li>
+
+</ul>
+</td><td style="border-left: 1px solid #eeeeee">
+<p>Exchange:</p>
+<ul>
+  <li><a href="document.htm">Document</a></li>
+  <li><a href="message.htm">Message</a></li>
+  <li><a href="operationoutcome.htm">OperationOutcome</a></li>
+  <li><a href="query.htm">Query</a></li>
+</ul>
+</td><td style="border-left: 1px solid #eeeeee">
+<p>Conformance:</p>
+<ul>
+  <li><a href="conformance.htm">Conformance</a></li>
+  <li><a href="valueset.htm">ValueSet</a></li>
+  <li><a href="profile.htm">Profile</a></li>
+
+</ul>
+</td></tr></table>
 
 <p>
-The FHIR specification presently defines the following resources:
-</p>
-<p>
-[%svg resources%]
-
-</p>
-<p>
-The list of resources is growing as FHIR is developed. Over the coming months, the number of resources and the number of
-those that have been vetted by HL7 committees will grow.  A list of hypothesized list of resources can be found on the 
+Additional Resources will be added in the future. A list of hypothesized list of resources can be found on the 
 <a href="http://wiki.hl7.org/index.php?title=FHIR_Resource_Types">HL7 wiki</a>.  Feel free to add any you feel are missing or engage with one 
 of the <a href="http://www.hl7.org/Special/committees/index.cfm">HL7 Work Groups</a> to submit a 
 <a href="http://wiki.hl7.org/index.php?title=Category:FHIR_Resource_Proposal">proposal</a> to define a resource of particular interest.
 </p>
-
-<table class="bare">
-[%res-category Administrative|Administrative resources tie clinical processes to the administrative process that support them - patient and provider management. These resources are also known as the attribution layer%]
-[%res-item Patient%]
-[%res-item Practitioner%]
-[%res-item Organization%]
-[%res-item Device%]
-[%res-item Group%]
-[%res-item Encounter%]
-[%res-item Location%]
-[%res-category Foundation|Resources that create infrastructure intended for wider reuse%]
-[%res-item List%]
-[%res-item Category%]
-[%res-item Observation%]
-[%res-item Supply%] 
-[%res-item Substance%]
-[%res-item Picture%]
-[%res-item Provenance%]
-[%res-item Questionnaire%]
-[%res-category Clinical|Focused on the content of the provider/patient encounter%]
-[%res-item AdverseReaction%]
-[%res-item AllergyIntolerance%]
-[%res-item CarePlan%]
-[%res-item FamilyHistory%]
-[%res-item Immunization%]
-[%res-item ImmunizationProfile%]
-[%res-item Condition%]
-[%res-item Procedure%]
-[%res-category Medications|Pharmacy related medications%]
-[%res-item Medication%]
-[%res-item MedicationPrescription%]
-[%res-item MedicationAdministration%]
-[%res-item MedicationDispense%]
-[%res-item MedicationStatement%]
-[%res-category Diagnostics|Resources used in diagnostic service provision%]
-[%res-item DiagnosticReport%]
-[%res-item Specimen%]
-[%res-item DiagnosticOrder%]
-[%res-item ImagingStudy%]
-[%res-category Financial|Resources concerned with payments etc.%]
-[%res-item Coverage%]
-[%res-category Device Communications|Resources concerned with the process of communications between devices and clinical systems%]
-[%res-item DeviceObservation%]
-[%res-item DeviceCapabilities%]
-[%res-item DeviceLog%]
-[%res-category Technical|Resources used to support exchange of other resources%]
-[%res-item Order%]
-[%res-item OrderResponse%]
-[%res-item SecurityEvent%]
-[%res-item Document%]
-[%res-item OperationOutcome%]
-[%res-item Message%]
-[%res-item DocumentReference%]
-<tr><td><a href="formats.htm#binary">Binary</a></td><td>Pure Binary Content (Special)</td></tr>
-
-[%res-category Conformance|Related to the process of specifying application behaviour and resource usage%]
-[%res-item Conformance%]
-[%res-item ValueSet%]
-[%res-item Profile%]
-
-
-</table>
 
 
 </div>
