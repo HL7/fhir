@@ -78,18 +78,10 @@
     <name>Examples</name>
     <mode>nosidebar</mode>
     <link>page</link>
-      <entry>
-        <link>formats-examples</link>
-        <name>Formats</name>
-      </entry>
     <entry>
       <link>datatypes-examples</link>
       <name>Data types</name>
     </entry>
-      <entry>
-        <link>extensibility-examples</link>
-        <name>Extensibility</name>
-      </entry>
   </category>
   <category>
     <name>Formal Definitions</name>
@@ -108,16 +100,8 @@
         <name>CodesList</name>
       </entry>
       <entry>
-        <link>formats-definitions</link>
-        <name>Formats</name>
-      </entry> 
-      <entry>
         <link>datatypes-definitions</link>
         <name>Data Types</name>
-      </entry>
-      <entry>
-        <link>extensibility-definitions</link>
-        <name>Extensibility</name>
       </entry>
   </category>
 </Navigation>
