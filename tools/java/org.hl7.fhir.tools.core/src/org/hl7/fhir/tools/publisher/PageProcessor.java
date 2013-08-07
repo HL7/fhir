@@ -905,7 +905,11 @@ public class PageProcessor implements Logger  {
       }
       for (ElementDefn e : definitions.getInfrastructure().values()) {
         if (e.getName().equals("ResourceReference")) {
-          scanForUsage(b, cd, e, "resources.htm#"+e.getName());
+          scanForUsage(b, cd, e, "references.htm#"+e.getName());
+        } else if (e.getName().equals("Extension")) {
+          scanForUsage(b, cd, e, "extensibility.htm#"+e.getName());
+        } else if (e.getName().equals("Narrative")) {
+          scanForUsage(b, cd, e, "narrative.htm#"+e.getName());
         } else {
           scanForUsage(b, cd, e, "formats.htm#"+e.getName());
         }
@@ -1683,12 +1687,10 @@ public class PageProcessor implements Logger  {
           c = definitions.getInfrastructure().get(n);
         if (c.getName().equals("Extension"))
           html.append("  <tr><td><a href=\"extensibility.htm\">"+c.getName()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
-        else if (c.getName().equals("DocumentInformation"))
-          html.append("  <tr><td><a href=\"documentinformation.htm\">"+c.getName()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
         else if (c.getName().equals("Narrative"))
-          html.append("  <tr><td><a href=\"formats.htm#"+c.getName()+"\">"+c.getName()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
+          html.append("  <tr><td><a href=\"narrative.htm#"+c.getName()+"\">"+c.getName()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
         else if (c.getName().equals("ResourceReference") )
-          html.append("  <tr><td><a href=\"resources.htm#"+c.getName()+"\">"+c.getName()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
+          html.append("  <tr><td><a href=\"references.htm#"+c.getName()+"\">"+c.getName()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
         else
           html.append("  <tr><td><a href=\"datatypes.htm#"+c.getName()+"\">"+c.getName()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
       }       

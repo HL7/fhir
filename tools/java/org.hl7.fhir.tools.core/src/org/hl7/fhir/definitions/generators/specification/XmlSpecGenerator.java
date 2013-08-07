@@ -100,7 +100,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		  write(" xml:lang?");
 		write(" xmlns=\"http://hl7.org/fhir\"&gt;\r\n");
     if (rn.equals(root.getName()) && resource) {
-      write(" &lt;!-- from <a href=\"resources.htm\">Resource</a>: <a href=\"extensibility.htm\">extension</a>, <a href=\"formats.htm#Narrative\">narrative</a>, and <a href=\"resources.htm#contained\">contained</a> -->\r\n");
+      write(" &lt;!-- from <a href=\"resources.htm\">Resource</a>: <a href=\"extensibility.htm\">extension</a>, <a href=\"narrative.htm#Narrative\">narrative</a>, and <a href=\"references.htm#contained\">contained</a> -->\r\n");
     } else {
       write(" &lt;!-- from Element: <a href=\"extensibility.htm\">extension</a> -->\r\n");
     }
@@ -153,7 +153,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		write(" -->\r\n");
 		write(" &lt;<b>url</b> value=\"<span style=\"color: maroon\">"+ root + "#"+ex.getCode() + "</span>\"/&gt;\r\n");
 //		write(" &lt;<b>definition</b>><span style=\" color: Gray\">&lt;!-- </span> <span style=\"color: brown;\"><b>1..1</b></span> <span style=\"color: darkgreen;\"><a href=\"datatypes.htm#uri\">uri</a></span> <span style=\"color: navy\">where registered</span> <span style=\" color: Gray\">--&gt;</span>&lt;/definition>\r\n");
-//		write(" &lt;<b>ref</b>&gt; <span style=\"color: navy\"><span style=\"color: darkgreen;\"><a href=\"formats.htm#idref\">Ref</a></span> to a "
+//		write(" &lt;<b>ref</b>&gt; <span style=\"color: navy\"><span style=\"color: darkgreen;\"><a href=\"references.htm#idref\">Ref</a></span> to a "
 //				+ ex.getContext()
 //				+ " ("
 //				+ ex.getType().toString()
@@ -325,7 +325,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			  doneType = true;
 			  TypeRef t = elem.getTypes().get(0);
 			  if (elem.typeCode().equals("idref"))
-          write(" value=\"[<span style=\"color: darkgreen\"><a href=\"formats.htm#idref\">" + t.getName()+ "</a></span>]\"/");
+          write(" value=\"[<span style=\"color: darkgreen\"><a href=\"references.htm#idref\">" + t.getName()+ "</a></span>]\"/");
 			  else
   			  write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t.getName())+ ".htm#" + t.getName()).replace("[", "_").replace("]", "_") + "\">" + t.getName()+ "</a></span>]\"/");
 			}
