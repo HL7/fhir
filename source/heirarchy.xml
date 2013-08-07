@@ -13,9 +13,6 @@
     <page title="Narratives" filename="bundles.htm"/>
     <page title="Version History" filename="history.htm"/>
     <page title="Outstanding Issues" filename="todo.htm"/>
-    <page title="Common Usages" filename="usecases.htm"/>
-    <page title="Integrated Examples" filename="integrated-examples.htm"/>
-    <page title="Security" filename="security.htm"/>
     <page title="Resource Definitions" filename="resources.htm">
       <page title="Tags, Bundles, Compartments" filename="extras.htm"/>
       <page title="References" filename="references.htm"/>
@@ -57,6 +54,9 @@
     <page title="Using Resources" filename="use.htm"/>
     <page title="Downloads" filename="downloads.htm"/>
     <page title="Support" filename="support.htm"/>
+    <page title="Common Usages" filename="usecases.htm"/>
+    <page title="Integrated Examples" filename="integrated-examples.htm"/>
+    <page title="Security" filename="security.htm"/>
   </page>
 
   <page title="Resources" filename="resourcelist.htm"/>
@@ -71,11 +71,8 @@
   <page title="Clinical" filename="clinical.htm">
     <page type="resource" resource="AdverseReaction"/>
     <page type="resource" resource="AllergyIntolerance"/>
-    <page type="resource" resource="Alert"/>
     <page type="resource" resource="CarePlan"/>
     <page type="resource" resource="FamilyHistory"/>
-    <page type="resource" resource="Immunization"/>
-    <page type="resource" resource="ImmunizationProfile"/>
     <page type="resource" resource="Condition"/>
     <page type="resource" resource="Procedure"/>
     <page type="resource" resource="Questionnaire"/>
@@ -84,41 +81,45 @@
     <page type="resource" resource="MedicationAdministration"/>
     <page type="resource" resource="MedicationDispense"/>
     <page type="resource" resource="MedicationStatement"/>
+    <page type="resource" resource="Immunization"/>
+    <page type="resource" resource="ImmunizationProfile"/>
+    <page type="resource" resource="Observation"/>
     <page type="resource" resource="DiagnosticReport"/>
-    <page type="resource" resource="Specimen"/>
     <page type="resource" resource="DiagnosticOrder"/>
     <page type="resource" resource="ImagingStudy"/>
-    <page type="resource" resource="DeviceObservation"/>
+    <page type="resource" resource="Specimen"/>
     <page type="resource" resource="DeviceCapabilities"/>
     <page type="resource" resource="DeviceLog"/>
+    <page type="resource" resource="DeviceObservation"/>
   </page>
   <page title="Administrative" filename="administration.htm">
     <page type="resource" resource="Patient"/>
     <page type="resource" resource="RelatedPerson"/>
     <page type="resource" resource="Practitioner"/>
     <page type="resource" resource="Organization"/>
-    <page type="resource" resource="Encounter"/>
-    <page type="resource" resource="Group"/>
-    <page type="resource" resource="Location"/>
-    <page type="resource" resource="Supply"/>
-    <page type="resource" resource="Substance"/>
     <page type="resource" resource="Device"/>
+    <page type="resource" resource="Location"/>
+    <page type="resource" resource="Substance"/>
+    <page type="resource" resource="Group"/>
+    <page type="resource" resource="Encounter"/>
+    <page type="resource" resource="Alert"/>
+    <page type="resource" resource="Supply"/>
+    <page type="resource" resource="Order"/>
+    <page type="resource" resource="OrderResponse"/>
     <page type="resource" resource="Coverage"/>
   </page>
   <page title="Infrastructure" filename="infrastructure.htm">
     <page type="resource" resource="List"/>
-    <page type="resource" resource="Observation"/>
     <page type="resource" resource="Media"/>
+    <page type="resource" resource="Other"/>
+    <page type="resource" resource="DocumentReference"/>
+    <page type="resource" resource="Binary"/>
     <page type="resource" resource="Provenance"/>
     <page type="resource" resource="SecurityEvent"/>
-    <page type="resource" resource="Order"/>
-    <page type="resource" resource="OrderResponse"/>
     <page type="resource" resource="Document"/>
-    <page type="resource" resource="DocumentReference"/>
     <page type="resource" resource="Message"/>
     <page type="resource" resource="OperationOutcome"/>
     <page type="resource" resource="Query"/>
-    <page type="resource" resource="Binary"/>
     <page type="resource" resource="Conformance"/>
     <page type="resource" resource="ValueSet"/>
     <page type="resource" resource="Profile"/>

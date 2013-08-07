@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-[%setwiki http://wiki.hl7.org/index.php?title=FHIR_Overview_Page%]       
+      
 [%settitle Introduction%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -13,7 +13,7 @@
 <div class="col-9">
 
 <a name="root"> </a>
-<h1>Overview</h1>
+<h2>Overview</h2>
 
 <p>
 Fast Healthcare Interoperability Resources (FHIR) defines a set of resources for use in exchanging information about the healthcare process. 
@@ -56,9 +56,56 @@ frees healthcare data so that it can easily flow to where it needs to be (across
 production systems, mobile clinical systems, cloud based data stores, national health repositories, 
 research databases, etc.) without having to pass through format and semantic inter-conversion hurdles along the way. 
 </p>
+
+<a name="roadmap"> </a>
+<h2>Roadmap to the Specification</h2>
 <p>
-Compared to the all the other approaches, FHIR... [-- Obligatory: insert your <span style="text-decoration: line-through">FHIR</span> FIRE related joke here --]. 
+This specification is structured into 3 parts: background documentation, implementation information and the resource definitions. 
 </p>
+<p>
+The <a href="documentation.htm">documentation</a> provides bacvground material that is required to understand and use resources:
+</p>
+<ul>
+  <li>License, Credits, Version History, and outstanding issue list</li>
+  <li>General Orientation Information (including this page)</li>
+  <li>Information about how resources are defined, and what information exists around them</li>
+  <li>Definitions of common data types used through all the resources</li>
+  <li>Information about how codes and terminologies are used, and a set of code registries</li>
+</ul>
+
+<h3>Implementation</h3>
+<p>
+The <a href="implementation.htm">implementation</a> section explains how resources are used in various contexts:
+</p>
+<ul>
+  <li>Exchange Frameworks: the REST API, Messaging, and Document based exchange</li>
+  <li>Search/Query infrastructure: The ever important search/query structure</li>
+  <li>Downloads to assist with implementation - schemas, code, examples + registry of clinical record examples</li>
+  <li>Implementation Support information - including common use cases</li>
+  <li>Security Notes</li>
+</ul>
+
+<h3>Resources</h3>
+<p>
+The <a href="resourcelist.htm">resources section</a> enumerates and describes the resources.
+The resources are categorised into 3 groups for ease of navigation:
+</p>
+<ul>
+  <li><a href="clinical.htm">Clinical resources</a>: Clinical Record keeping focused on patient related information</li>
+  <li><a href="administration.htm">Administrative resources</a>: Entities involved in healthcare: Patients, Providers, Devices, and workflow information including Visit and Order management </li>
+  <li><a href="infrastructure.htm">Infrastructural resources</a>: Support resources including to support exchange, audit, and conformance management</li>
+</ul>
+<p>
+For each resource, the following pages are provided:
+</p>
+<ul>
+ <li><b>Content</b>: Provides context for the resource and defines its content with a simple XML format and some additional description. Formal definitions such as W3C schema and others are also provided.  Also describes events and search criteria associated with the resource</li>
+ <li><b>Examples</b>: Provides one or more examples that show how the resource is used</li>
+ <li><b>Formal Definitions</b>: A table of the full formal definitions for each element in the resource along with mappings to other standards and ontologies</li>
+<!-- <li><b>Design Notes</b>: Explanations of some of the less obvious aspects of the resource and explanation of why the resource is structured in a particular way. Not all resources have design notes and implementers do not need to read them</li> -->
+ <li><b>Profiles</b>: A list of profiles of the resource that are provided as part of the standard. Profiles may be provided to illustrate some aspect of the use of a resource or because certain particular uses of a resource are sufficiently common to warrant a standard profile</li>
+</ul>
+
 
 </div>
 

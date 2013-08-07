@@ -272,7 +272,7 @@ public class PageProcessor implements Logger  {
 
 
   public String processPageIncludes(String file, String src, String type) throws Exception {
-    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_Index_Page";
+    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(file)+"_Page";
     String workingTitle = null;
     int level = 0;
     
@@ -1721,7 +1721,7 @@ public class PageProcessor implements Logger  {
 
 
   String processPageIncludesForPrinting(String file, String src) throws Exception {
-    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_Index_Page";
+    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(file)+"_Page";
 
     while (src.contains("<%") || src.contains("[%"))
 	  {
@@ -1914,7 +1914,7 @@ public class PageProcessor implements Logger  {
   }
 
   String processPageIncludesForBook(String file, String src, String type) throws Exception {
-    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_Index_Page";
+    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(file)+"_Page";
     String workingTitle = null;
     int level = 0;
     
@@ -2113,7 +2113,7 @@ public class PageProcessor implements Logger  {
 
 
   String processResourceIncludes(String name, ResourceDefn resource, String xml, String tx, String dict, String src, String mappings, String mappingsList, String type) throws Exception {
-    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_Index_Page";
+    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(name)+"_Page";
     String workingTitle = Utilities.escapeXml(resource.getName());
     
     while (src.contains("<%"))
@@ -2229,6 +2229,10 @@ public class PageProcessor implements Logger  {
 
     }
     return src;
+  }
+
+  private String prepWikiName(String name) {
+    return Utilities.noString(name) ? "Index" : Utilities.capitalize(Utilities.fileTitle(name));
   }
 
  
@@ -2362,7 +2366,7 @@ public class PageProcessor implements Logger  {
   }
 
   String processProfileIncludes(String filename, ProfileDefn profile, String xml, String tx, String src, String example, String intro, String notes) throws Exception {
-    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_Index_Page";
+    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(filename)+"_Page";
 
     while (src.contains("<%"))
     {

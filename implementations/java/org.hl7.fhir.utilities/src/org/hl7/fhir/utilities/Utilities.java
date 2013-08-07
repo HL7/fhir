@@ -299,7 +299,7 @@ public class Utilities {
 
   public static String fileTitle(String file) {
     String s = new File(file).getName();
-    return s.substring(0, s.indexOf("."));
+    return s.indexOf(".") == -1? s : s.substring(0, s.indexOf("."));
   }
 
 

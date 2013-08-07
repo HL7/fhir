@@ -337,14 +337,6 @@ public class Publisher {
 	      log("Partial Build (if you want a full build, just run the build again)");
 	    Utilities.createDirectory(page.getFolders().dstDir);
 			
-			if (isGenerate) {
-			  if (buildFlags.get("all"))
-			    Utilities.clearDirectory(page.getFolders().dstDir);
-				Utilities.createDirectory(page.getFolders().dstDir + "html");
-				Utilities.createDirectory(page.getFolders().dstDir + "examples");
-        Utilities.clearDirectory(page.getFolders().rootDir+"temp"+File.separator+"hl7"+File.separator+"web");
-        Utilities.clearDirectory(page.getFolders().rootDir+"temp"+File.separator+"hl7"+File.separator+"dload");
-			}
 			page.getBreadCrumbManager().parse(page.getFolders().srcDir+"heirarchy.xml");
 			
 			prsr.parse(page.getGenDate(), page.getVersion());
@@ -352,7 +344,15 @@ public class Publisher {
 
 			if (validate()) {
 				if (isGenerate) {
-					String eCorePath = page.getFolders().dstDir + "ECoreDefinitions.xml";
+	        log("Clear Directory");
+	        if (buildFlags.get("all"))
+	          Utilities.clearDirectory(page.getFolders().dstDir);
+	        Utilities.createDirectory(page.getFolders().dstDir + "html");
+	        Utilities.createDirectory(page.getFolders().dstDir + "examples");
+	        Utilities.clearDirectory(page.getFolders().rootDir+"temp"+File.separator+"hl7"+File.separator+"web");
+	        Utilities.clearDirectory(page.getFolders().rootDir+"temp"+File.separator+"hl7"+File.separator+"dload");
+
+	        String eCorePath = page.getFolders().dstDir + "ECoreDefinitions.xml";
 					generateECore(prsr.getECoreParseResults(), eCorePath);
 					produceSpecification(eCorePath);
 				} else
