@@ -115,6 +115,8 @@ public class WebMaker {
       }
     }
 
+    folderList.add("dist");
+    folderList.add("assets");
     folderList.add("vs");
     folderList.add("cs");
     for (String n : definitions.getBindings().keySet()) {
@@ -146,15 +148,15 @@ public class WebMaker {
       folderList.add(n); 
     }
     zip = new ZipGenerator(fw.getAbsolutePath());
-    zip.addFiles(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator, "", null);
+    zip.addFiles(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator, "", null, null);
     for (String v : past)
-      zip.addFiles(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"v"+v+File.separator, "v"+v+File.separator, null);
+      zip.addFiles(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"v"+v+File.separator, "v"+v+File.separator, null, null);
     for (String n : folderList) 
       zip.addFolder(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+n+File.separator, n+File.separator);
     zip.addFolder(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"v2"+File.separator, "v2"+File.separator); 
     zip.addFolder(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"v3"+File.separator, "v3"+File.separator); 
     ZipGenerator zipd = new ZipGenerator(fd.getAbsolutePath());
-    zipd.addFiles(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"dload"+File.separator, "", null);
+    zipd.addFiles(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"dload"+File.separator, "", null, null);
     zipd.close();    
   }
 
@@ -190,7 +192,7 @@ public class WebMaker {
 
   private String googleSearch() {
     return "<h2>Search FHIR</h2>\r\n"+
-        "<div id=\"cse\" style=\"width: 100%;\">Loading</div>\r\n"+
+        "<div id=\"cse\" style=\"width: 150px;\">Loading</div>\r\n"+
         "<script src=\"http://www.google.com/jsapi\" type=\"text/javascript\"> </script>\r\n"+
         "<script type=\"text/javascript\"> \r\n"+
         "  google.load('search', '1', {language : 'en', style : google.loader.themes.V2_DEFAULT});\r\n"+

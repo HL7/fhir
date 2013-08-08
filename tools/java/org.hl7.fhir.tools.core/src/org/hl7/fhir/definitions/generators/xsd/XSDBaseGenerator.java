@@ -228,18 +228,38 @@ public class XSDBaseGenerator {
     for (DefinedCode cd : definitions.getPrimitives().values()) {
       if (cd instanceof PrimitiveType) {
         PrimitiveType pt = (PrimitiveType) cd;
-        write("  <xs:simpleType name=\"" + pt.getCode() + "-primitive\">\r\n");
-        if (pt.getSchemaType().contains(",")) {
-          write("    <xs:union memberTypes=\""+pt.getSchemaType().replace(",", "")+"\"/>\r\n");
-        } else if (pt.getSchemaType().equals("string")) {
+        // two very special cases due to schema weirdness
+        if (cd.getCode().equals("date")) {
+          write("<xs:simpleType name=\"date-primitive\">\r\n");
+          write("  <xs:restriction>\r\n");
+          write("    <xs:simpleType>\r\n");
+          write("      <xs:union memberTypes=\"xs:gYear xs:gYearMonth xs:date\"/>\r\n");
+          write("    </xs:simpleType>\r\n");
+          write("    <xs:pattern value=\"\\d{4}(\\-\\d{2}(\\-\\d{2})?)?(Z|(\\+|\\-)\\d{2}:\\d{2})?\"/>\r\n");
+          write("  </xs:restriction>\r\n");
+          write("</xs:simpleType>\r\n");
+        } else if (cd.getCode().equals("dateTime")) {
+          write("<xs:simpleType name=\"dateTime-primitive\">\r\n");
+          write("  <xs:restriction>\r\n");
+          write("    <xs:simpleType>\r\n");
+          write("      <xs:union memberTypes=\"xs:gYear xs:gYearMonth xs:date xs:dateTime\"/>\r\n");
+          write("    </xs:simpleType>\r\n");
+          write("    <xs:pattern value=\"\\d{4}(\\-\\d{2}(\\-\\d{2}(T\\d{2}(:\\d{2}(:\\d{2}(\\.\\d+)?)?)?)?)?)?(Z|(\\+|\\-)\\d{2}:\\d{2})?\"/>\r\n");
+          write("  </xs:restriction>\r\n");
+          write("</xs:simpleType>\r\n");          
+        } else {
+          write("  <xs:simpleType name=\"" + pt.getCode() + "-primitive\">\r\n");
+          if (pt.getSchemaType().contains(",")) {
+            write("    <xs:union memberTypes=\""+pt.getSchemaType().replace(",", "")+"\"/>\r\n");
+          } else if (pt.getSchemaType().equals("string")) {
             write("    <xs:restriction base=\"xs:"+pt.getSchemaType()+"\">\r\n");
             write("      <xs:minLength value=\"1\"/>\r\n");
             write("    </xs:restriction>\r\n");
-        } else {
-          write("    <xs:restriction base=\"xs:"+pt.getSchemaType()+"\"/>\r\n");
+          } else {
+            write("    <xs:restriction base=\"xs:"+pt.getSchemaType()+"\"/>\r\n");
+          }
+          write("  </xs:simpleType>\r\n");
         }
-        write("  </xs:simpleType>\r\n");
-
         write("  <xs:complexType name=\"" + pt.getCode() + "\">\r\n");
         write("    <xs:annotation>\r\n");
         write("      <xs:documentation>"+Utilities.escapeXml(pt.getDefinition())+"</xs:documentation>\r\n");

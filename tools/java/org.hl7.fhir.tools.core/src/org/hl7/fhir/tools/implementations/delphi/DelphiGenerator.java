@@ -128,7 +128,7 @@ public void generate(Definitions definitions, String destDir, String implDir, St
     
     for (ElementDefn n : definitions.getInfrastructure().values()) {
       if (n.getName().equals("Extension"))
-        generate(n, "TFHIRObject", true, false, ClassCategory.Type);
+        generate(n, "TFHIRElement", true, false, ClassCategory.Type);
       else
         generate(n, "TFhirElement", true, false, ClassCategory.Type);
     }
@@ -174,7 +174,7 @@ public void generate(Definitions definitions, String destDir, String implDir, St
     prsrCode.finish();
     
     ZipGenerator zip = new ZipGenerator(destDir+"delphi.zip");
-    zip.addFiles(implDir, "", ".pas");
+    zip.addFiles(implDir, "", ".pas", null);
     zip.close();    
   }
 
@@ -592,7 +592,6 @@ public void generate(Definitions definitions, String destDir, String implDir, St
 
   private void generateSearchEnums(ResourceDefn r) throws Exception {
     StringBuilder def = new StringBuilder();
-    StringBuilder con = new StringBuilder();
     StringBuilder con2 = new StringBuilder();
     StringBuilder con3 = new StringBuilder();
     StringBuilder con4 = new StringBuilder();
@@ -611,14 +610,12 @@ public void generate(Definitions definitions, String destDir, String implDir, St
 
       con3.append("  CODES_"+tn+" : Array["+tn+"] of String = (");
       con4.append("  TYPES_"+tn+" : Array["+tn+"] of TFhirSearchParamType = (");
-      con.append("  DESC_"+tn+" : Array["+tn+"] of String = (");
       con2.append("//  CHECK_"+tn+" : Array["+tn+"] of "+tn+" = (");
       con6.append("  PATHS_"+tn+" : Array["+tn+"] of String = (");
       con7.append("  TARGETS_"+tn+" : Array["+tn+"] of TFhirResourceTypeSet = (");
 
       int l = r.getSearchParams().size();
       int i = 0;
-      int w = 0;
 
       List<String> names = new ArrayList<String>();
       names.addAll(r.getSearchParams().keySet());
@@ -632,7 +629,6 @@ public void generate(Definitions definitions, String destDir, String implDir, St
         String t = getTarget(p.getPathSummary(), r);
         if (i == l) {
           def.append("    "+prefix+getTitle(nf)+"); {@enum.value "+prefix+getTitle(nf)+" "+d+" }\r\n");
-          con.append("'"+defCodeType.escape(d)+"');");
           con2.append(" "+prefix+getTitle(nf)+");");
           con4.append(" SearchParamType"+getTitle(p.getType().toString())+");");
           con3.append("'"+defCodeType.escape(n)+"');");
@@ -641,12 +637,6 @@ public void generate(Definitions definitions, String destDir, String implDir, St
         }
         else {
           def.append("    "+prefix+getTitle(nf)+", {@enum.value "+prefix+getTitle(nf)+" "+d+" }\r\n");
-          con.append("'"+defCodeType.escape(d)+"', ");
-          if (w > 120) {
-            con.append("\r\n      ");
-            w = 0;
-          }
-          w = w + d.length();
           con2.append(" "+prefix+getTitle(nf)+", ");
           con4.append(" SearchParamType"+getTitle(p.getType().toString())+", ");
           con3.append("'"+defCodeType.escape(n)+"', ");
@@ -658,7 +648,6 @@ public void generate(Definitions definitions, String destDir, String implDir, St
       defCodeRes.enumDefs.add(def.toString());
       defCodeRes.enumConsts.add(con3.toString());
       defCodeRes.enumConsts.add(con4.toString());
-      defCodeRes.enumConsts.add(con.toString());
       defCodeRes.enumConsts.add(con2.toString());
       defCodeRes.enumConsts.add(con6.toString());
       defCodeRes.enumConsts.add(con7.toString());
@@ -1220,8 +1209,53 @@ private void generateEnum(ElementDefn e) throws Exception {
     		assign.append("  F"+getTitle(s)+".Assign("+cn+"(oSource).F"+getTitle(s)+");\r\n");
     		getkids.append("  if (child_name = '"+getElementName(e.getName())+"') Then\r\n     list.addAll(F"+getTitle(s)+");\r\n");
     		getprops.append("  oList.add(TFHIRProperty.create(self, '"+e.getName()+"', '"+e.typeCode()+"', F"+getTitle(s)+".Link)){3};\r\n");
-            impl.append("Function "+cn+".Get"+getTitle(s)+"ST : "+tn+"List;\r\n  var i : integer;\r\nbegin\r\n  result := [];\r\n  for i := 0 to "+s+".count - 1 do\r\n    result := result + ["+tn+"(StringArrayIndexOf(CODES_"+tn+", "+s+"[i].value))];\r\nend;\r\n\r\n");
-            impl.append("Procedure "+cn+".Set"+getTitle(s)+"ST(value : "+tn+"List);\r\nvar a : "+tn+";\r\nbegin\r\n  "+s+".clear;\r\n  for a := low("+tn+") to high("+tn+") do\r\n    if a in value then\r\n      "+s+".add(TFhirEnum.create(CODES_"+tn+"[a]));\r\nend;\r\n\r\n");
+    		impl.append("Function "+cn+".Get"+getTitle(s)+"ST : "+tn+"List;\r\n  var i : integer;\r\nbegin\r\n  result := [];\r\n  for i := 0 to "+s+".count - 1 do\r\n    result := result + ["+tn+"(StringArrayIndexOf(CODES_"+tn+", "+s+"[i].value))];\r\nend;\r\n\r\n");
+    		impl.append("Procedure "+cn+".Set"+getTitle(s)+"ST(value : "+tn+"List);\r\nvar a : "+tn+";\r\nbegin\r\n  "+s+".clear;\r\n  for a := low("+tn+") to high("+tn+") do\r\n    if a in value then\r\n      "+s+".add(TFhirEnum.create(CODES_"+tn+"[a]));\r\nend;\r\n\r\n");
+    		
+        workingParserX.append("      else if (child.baseName = '"+e.getName()+"') then\r\n"+
+            "        result."+s+".Add("+parse+")\r\n");
+        workingComposerX.append("  for i := 0 to elem."+s+".Count - 1 do\r\n"+
+            "    ComposeEnum(xml, '"+e.getName()+"', elem."+s+"[i], CODES_"+tn+");\r\n");
+        //     ComposeEnum(xml, 'flag', elem.flag[i], CODES_TFhirDeviceValueFlag);
+
+        workingParserJ.append("      else if (json.ItemName = '"+e.getName()+"') then\r\n"+
+            "      begin\r\n"+
+            "        json.checkState(jpitArray);\r\n"+
+            "        json.Next;\r\n"+
+            "        while (json.ItemType <> jpitEnd) do\r\n"+
+            "        begin\r\n"+
+            "          result."+s+".Add("+parseJ+");\r\n"+
+            "          json.Next;\r\n"+
+            "        end;\r\n"+
+            "      end\r\n");
+
+        workingComposerJ.append("  if elem."+s+".Count > 0 then\r\n"+
+            "  begin\r\n"+
+            "    json.valueArray('"+e.getName()+"');\r\n"+
+            "    for i := 0 to elem."+s+".Count - 1 do\r\n"+
+//            "      "+srlsdJ+"(json, '',"+srls.replace("#", "elem."+s+"[i]")+");\r\n"+
+            "      ComposeEnum(json, '"+e.getName()+"', elem."+s+"[i], CODES_"+tn+");\r\n"+
+            "    json.FinishArray;\r\n"+
+            "  end;\r\n");
+
+//    		workingParserX.append("      else if (child.baseName = '"+e.getName()+"') then\r\n        result."+s+" := "+parse+"\r\n");
+//        workingParserJ.append("      else if (json.ItemName = '"+e.getName()+"') then\r\n        result."+s+" := "+parseJ+"\r\n");
+////        if (tn.equals("TXmlIdReference")) {
+////          workingComposerX.append("  if (elem."+e.getName()+" <> '') then\r\n");
+////          workingComposerX.append("  begin\r\n");
+////          workingComposerX.append("    attribute(xml, 'idref', elem."+e.getName()+");\r\n");
+////          workingComposerX.append("    xml.Tag('"+e.getName()+"');\r\n");
+////          workingComposerX.append("  end;\r\n");
+////        } else
+//        destroy.append("  F"+getTitle(s)+".free;\r\n");
+//        if (enumNames.contains(tn)) {         
+//          workingComposerX.append("  ComposeEnum(xml, '"+e.getName()+"', elem."+getTitle(s)+", CODES_"+tn+");\r\n");
+//          workingComposerJ.append("  ComposeEnum(json, '"+e.getName()+"', elem."+getTitle(s)+", CODES_"+tn+");\r\n");
+//        } else {
+//          workingComposerX.append("  Compose"+tn+"(xml, '"+e.getName()+"', elem."+getTitle(s)+");\r\n");
+//          workingComposerJ.append("  Compose"+tn+"(json, '"+e.getName()+"', elem."+getTitle(s)+");\r\n");        
+//        }
+
     	} else {
     		String tnl;
     		if (tn.contains("{"))

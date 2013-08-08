@@ -200,30 +200,30 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 		String supportDir = "Support" + sl;
 		
 		ZipGenerator zip = new ZipGenerator(destDir + CSHARP_FILENAME);
-		zip.addFiles(implDir+modelDir, modelDir, ".cs");
-		zip.addFiles(implDir+parsersDir, parsersDir, ".cs");
-		zip.addFiles(implDir+serializersDir, serializersDir, ".cs");
-		zip.addFiles(implDir+modelSupportDir, modelSupportDir, ".cs");
-		zip.addFiles(implDir+parsersSupportDir, parsersSupportDir, ".cs");
-		zip.addFiles(implDir+serializersSupportDir, serializersSupportDir, ".cs");
-		zip.addFiles(implDir+supportDir, supportDir, ".cs");
-		zip.addFiles(implDir+"Client"+sl, "Client"+sl, ".cs");
-		zip.addFiles(implDir+"Properties" + sl, "Properties"+sl, ".cs");
-		zip.addFiles(implDir, "", ".csproj");
-		zip.addFiles(implDir, "", ".sln");
-		zip.addFiles(implDir, "", "Local.testsettings");
-		zip.addFiles(implDir, "", "Hl7.Fhir.vsmdi");
+		zip.addFiles(implDir+modelDir, modelDir, ".cs", null);
+		zip.addFiles(implDir+parsersDir, parsersDir, ".cs", null);
+		zip.addFiles(implDir+serializersDir, serializersDir, ".cs", null);
+		zip.addFiles(implDir+modelSupportDir, modelSupportDir, ".cs", null);
+		zip.addFiles(implDir+parsersSupportDir, parsersSupportDir, ".cs", null);
+		zip.addFiles(implDir+serializersSupportDir, serializersSupportDir, ".cs", null);
+		zip.addFiles(implDir+supportDir, supportDir, ".cs", null);
+		zip.addFiles(implDir+"Client"+sl, "Client"+sl, ".cs", null);
+		zip.addFiles(implDir+"Properties" + sl, "Properties"+sl, ".cs", null);
+		zip.addFiles(implDir, "", ".csproj", null);
+		zip.addFiles(implDir, "", ".sln", null);
+		zip.addFiles(implDir, "", "Local.testsettings", null);
+		zip.addFiles(implDir, "", "Hl7.Fhir.vsmdi", null);
 		// Include supporting libraries
 		String librariesDir = "Libraries" + sl;
 		String winRTLibrariesDir = librariesDir + "WinRT" + sl;
-		zip.addFiles(implDir+librariesDir, librariesDir, ".dll");
-		zip.addFiles(implDir+winRTLibrariesDir, winRTLibrariesDir , ".dll");
+		zip.addFiles(implDir+librariesDir, librariesDir, ".dll", null);
+		zip.addFiles(implDir+winRTLibrariesDir, winRTLibrariesDir , ".dll", null);
 		
 		// Include test project
 		String testProjectDir = "Hl7.Fhir.Tests" + sl;
-		zip.addFiles(implDir+testProjectDir, testProjectDir, ".cs");
-		zip.addFiles(implDir+testProjectDir + "Properties" + sl, testProjectDir+"Properties"+sl, ".cs");
-		zip.addFiles(implDir+testProjectDir, testProjectDir, ".csproj");
+		zip.addFiles(implDir+testProjectDir, testProjectDir, ".cs", null);
+		zip.addFiles(implDir+testProjectDir + "Properties" + sl, testProjectDir+"Properties"+sl, ".cs", null);
+		zip.addFiles(implDir+testProjectDir, testProjectDir, ".csproj", null);
 		
 		zip.close();		
 	}

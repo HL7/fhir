@@ -93,7 +93,7 @@ public class ZipGenerator {
 		}
 	}
 
-	public void addFiles(String actualDir, String statedDir, String ext)
+	public void addFiles(String actualDir, String statedDir, String ext, String noExt)
 			throws Exception {
 		byte data[] = new byte[BUFFER];
 		statedDir.replace("\\", "/");
@@ -101,8 +101,7 @@ public class ZipGenerator {
 
 		String files[] = f.list();
 		for (int i = 0; i < files.length; i++) {
-			if ((ext == null && new CSFile(actualDir + files[i]).isFile())
-					|| (ext != null && files[i].endsWith(ext))) {
+			if ( new CSFile(actualDir + files[i]).isFile() && ((ext == null || files[i].endsWith(ext)) && (noExt == null || !files[i].endsWith(noExt)))) {
 				FileInputStream fi = new FileInputStream(actualDir + files[i]);
 				BufferedInputStream origin = new BufferedInputStream(fi, BUFFER);
 				ZipEntry entry = new ZipEntry(statedDir + files[i]);

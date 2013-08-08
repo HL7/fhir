@@ -76,7 +76,7 @@ public void generate(Definitions definitions, String destDir, String implDir, St
 	  eofg.close();
 
     ZipGenerator zip = new ZipGenerator(destDir+"ecore.zip");
-    zip.addFiles(implDir, "", ".txt");
+    zip.addFiles(implDir, "", ".txt", null);
     zip.close();    
     
   }

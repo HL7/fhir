@@ -28,8 +28,8 @@ Note: Referral is likely to be incorporated as an official resource in a future 
     <url value="http://example.org/do-not-use/fhir-extensions/referral#targetDate"/>
     <isModifier value="true"/>
     <valuePeriod>
-      <start value="20130401"/>
-      <end value="20130415"/>
+      <start value="2013-04-01"/>
+      <end value="2013-04-15"/>
     </valuePeriod>
   </extension>
   <extension>

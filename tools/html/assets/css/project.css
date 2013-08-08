@@ -95,13 +95,13 @@ body {
 }
 */
 #sidebar > .inner-wrapper {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 14px;
+  margin-bottom: 20px;
 }
 #content > .inner-wrapper,
 .container > .row > .inner-wrapper {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 14px;
+  margin-bottom: 20px;
 }
 /* SCAFFOlDING OBJECTS
 ----------------------------------------------------------------------------------------*/
@@ -325,6 +325,15 @@ p > img {
 .table th.inverted h5,
 .table th.inverted h6 {
   color: inherit;
+}
+pre {
+  font-size: 12px;
+}
+.icon-warning-sign {
+  font-size: 30px;
+  margin-right: 10px;
+  display: block;
+  float: left;
 }
 /* BACK TO TOP
 ----------------------------------------------------------------------------------------*/

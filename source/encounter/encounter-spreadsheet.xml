@@ -21,7 +21,6 @@
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
   <TabRatio>654</TabRatio>
-  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -139,13 +138,13 @@
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s84">
-   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
-  </Style>
-  <Style ss:ID="s85">
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s86">
+  <Style ss:ID="s85">
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
+  </Style>
+  <Style ss:ID="s86">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -445,7 +444,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">AdmitSource</Data></Cell>
-    <Cell><Data ss:Type="String">Where the patient was admitted from (physician referral, transfer)</Data></Cell>
+    <Cell><Data ss:Type="String">Where patient was admitted from (physician referral, transfer)</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -538,7 +537,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">Courtesies</Data></Cell>
-    <Cell><Data ss:Type="String">Special courtesies (VIP, hospital board member)</Data></Cell>
+    <Cell><Data ss:Type="String">Special courtesies (VIP, board member)</Data></Cell>
     <Cell ss:Index="15" ss:StyleID="s71"><Data ss:Type="String">PV1-16-VIP indicator</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -546,7 +545,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">Arrangements</Data></Cell>
-    <Cell><Data ss:Type="String">Special arrangements (wheelchair, translator, stretcher)</Data></Cell>
+    <Cell><Data ss:Type="String">Wheelchair, translator, stretcher, etc</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">PV1-15-ambulatory status / OBR-30-transportation mode / OBR-43-planned patient transport comment</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -560,7 +559,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">DischargeDisp</Data></Cell>
-    <Cell><Data ss:Type="String">Disposition a patient was released into</Data></Cell>
+    <Cell><Data ss:Type="String">Disposition patient released to</Data></Cell>
     <Cell ss:Index="15" ss:StyleID="s71"><Data ss:Type="String">PV1-36-discharge disposition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -594,7 +593,7 @@
     <Cell><Data ss:Type="String">Encounter.serviceProvider</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Organization)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The department or team that is providing care</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Department or team providing care</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">PV1-10-hospital service / PL.6 Person Location Type &amp; PL.1 Point of Care (note: V2.x definition is &quot;the treatment or type of surgery that the patient is scheduled to receive&quot;; seems slightly out of alignment with the concept name 'hospital service'. Would not trust that implementations apply this semantic by default)&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -618,6 +617,7 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -639,7 +639,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
+     <ActiveRow>28</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
@@ -1080,12 +1080,12 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">outpatient</Data></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">An encounter during which the patient is not hospitalized overnight</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">An encounter during which the patient is not hospitalized overnight</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">ambulatory</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">An encounter where the patient visits the practitioner in his/her office, e.g. a G.P. visit</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">An encounter where the patient visits the practitioner in his/her office, e.g. a G.P. visit</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
@@ -1126,7 +1126,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1161,22 +1160,22 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">responsible</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">The practitioner responsible for overseeing a patient's care during a patient encounter</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">The practitioner responsible for overseeing a patient's care during a patient encounter</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">attending</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">The practitioner responsible for overseeing a patient's care during a patient encounter</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">The practitioner responsible for overseeing a patient's care during a patient encounter</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="String">consulting</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">An advisor participating in the service by performing evaluations and making recommendations</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">An advisor participating in the service by performing evaluations and making recommendations</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="String">referrer</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">The practitioner that referred the patient to another practitioner</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">The practitioner that referred the patient to another practitioner</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

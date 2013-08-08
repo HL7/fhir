@@ -449,7 +449,7 @@ public class Publisher {
     NarrativeGenerator gen = new NarrativeGenerator();
     gen.generate(conf);    
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir +"conformance-base.xml"), conf, true, true);
-    cloneToXhtml("conformance-base", "Basic Conformance Statement");
+    cloneToXhtml("conformance-base", "Basic Conformance Statement", true);
     new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir +"conformance-base.json"), conf, false);
     ByteArrayOutputStream b = new ByteArrayOutputStream();
     new JsonComposer().compose(b, conf, true);
@@ -1060,25 +1060,25 @@ public class Publisher {
       log(" ...collections ");
       new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.xml"), profileFeed, true, false);
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.json"), profileFeed, false);
-      cloneToXhtml("profiles-resources", "Base Resources defined as profiles (implementation assistance, for for validation, derivation and product development)");
+      cloneToXhtml("profiles-resources", "Base Resources defined as profiles (implementation assistance, for for validation, derivation and product development)", false);
       jsonToXhtml("profiles-resources", "Base Resources defined as profiles (implementation assistance, for for validation, derivation and product development)", resource2Json(profileFeed));
       new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-types.xml"), typeFeed, true, false);
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-types.json"), typeFeed, false);
-      cloneToXhtml("profiles-types", "Base Types defined as profiles (implementation assistance, for validation, derivation and product development)");
+      cloneToXhtml("profiles-types", "Base Types defined as profiles (implementation assistance, for validation, derivation and product development)", false);
       jsonToXhtml("profiles-types", "Base Types defined as profiles (implementation assistance, for validation, derivation and product development)", resource2Json(typeFeed));
       new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.xml"), valueSetsFeed, true, false);
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.json"), valueSetsFeed, false);
-      cloneToXhtml("valuesets", "Base Valuesets (implementation assistance, for validation, derivation and product development)");
+      cloneToXhtml("valuesets", "Base Valuesets (implementation assistance, for validation, derivation and product development)", false);
       jsonToXhtml("valuesets", "Base Valuesets (implementation assistance, for validation, derivation and product development)", resource2Json(valueSetsFeed));
       new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.xml"), v2Valuesets, true, false);
       Utilities.copyFile(page.getFolders().dstDir + "v2-tables.xml", page.getFolders().dstDir + "examples"+ File.separator+"v2-tables.xml");
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.json"), v2Valuesets, false);
-      cloneToXhtml("v2-tables", "V2 Tables defined as value sets (implementation assistance, for derivation and product development)");
+      cloneToXhtml("v2-tables", "V2 Tables defined as value sets (implementation assistance, for derivation and product development)", false);
       jsonToXhtml("v2-tables", "V2 Tables defined as value sets (implementation assistance, for derivation and product development)", resource2Json(v2Valuesets));
       new AtomComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.xml"), v3Valuesets, true, false);
       Utilities.copyFile(page.getFolders().dstDir + "v3-codesystems.xml", page.getFolders().dstDir + "examples"+ File.separator+"v3-codesystems.xml");
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.json"), v3Valuesets, false);
-      cloneToXhtml("v3-codesystems", "v3 Code Systems defined as value sets (implementation assistance, for derivation and product development)");
+      cloneToXhtml("v3-codesystems", "v3 Code Systems defined as value sets (implementation assistance, for derivation and product development)", false);
       jsonToXhtml("v3-codesystems", "v3 Code Systems defined as value sets (implementation assistance, for derivation and product development)", resource2Json(v3Valuesets));
 
       log("....validator");
@@ -1093,27 +1093,27 @@ public class Publisher {
       zip.addFileName("v2-tables.json", page.getFolders().dstDir + "v2-tables.json");
       zip.addFileName("v3-codesystems.xml", page.getFolders().dstDir + "v3-codesystems.xml");
       zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json");
-      zip.addFiles(page.getFolders().dstDir, "", ".xsd");
-      zip.addFiles(page.getFolders().dstDir, "", ".sch");
-      zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xsl");
-      zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xslt");
+      zip.addFiles(page.getFolders().dstDir, "", ".xsd", null);
+      zip.addFiles(page.getFolders().dstDir, "", ".sch", null);
+      zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xsl", null);
+      zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xslt", null);
       zip.close();
       
       zip = new ZipGenerator(page.getFolders().dstDir + "validator.zip");
       zip.addFileName("readme.txt", Utilities.path(page.getFolders().srcDir, "tools", "readme.txt"));
       zip.addFileName("org.hl7.fhir.validator.jar", Utilities.path(page.getFolders().rootDir, "tools", "bin", "org.hl7.fhir.validator.jar"));
       zip.addFileName("validation.zip", page.getFolders().dstDir + "validation.zip");
-      zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".zip"); // saxon too - always make this last
+      zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".zip", null); // saxon too - always make this last
       zip.close();
       
 
       log(" ...zips");
 	    zip = new ZipGenerator(page.getFolders().dstDir + "examples.zip");
-	    zip.addFiles(page.getFolders().dstDir + "examples" + File.separator, "", null);
+	    zip.addFiles(page.getFolders().dstDir + "examples" + File.separator, "", null, null);
 	    zip.close();
 
 	    zip = new ZipGenerator(page.getFolders().dstDir + "examples-json.zip");
-	    zip.addFiles(page.getFolders().dstDir, "", ".json");
+	    zip.addFiles(page.getFolders().dstDir, "", ".json", null);
 	    zip.close();
 
 	    log(" ...zip");
@@ -1742,7 +1742,7 @@ public class Publisher {
     
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
     addToResourceFeed(rp, c.getCode().toLowerCase(), typeFeed);
-    cloneToXhtml("type-"+c.getCode()+".profile", "Profile for "+c.getCode());
+    cloneToXhtml("type-"+c.getCode()+".profile", "Profile for "+c.getCode(), false);
     jsonToXhtml("type-"+c.getCode()+".profile", "Profile for "+c.getCode(), resource2Json(rp));
   }
 
@@ -1765,7 +1765,7 @@ public class Publisher {
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
     addToResourceFeed(rp, type.getName().toLowerCase(), typeFeed);
     // saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html" + File.separator + "datatypes.htm"));
-    cloneToXhtml("type-"+type.getName()+".profile", "Profile for "+type.getName());
+    cloneToXhtml("type-"+type.getName()+".profile", "Profile for "+type.getName(), false);
     jsonToXhtml("type-"+type.getName()+".profile", "Profile for "+type.getName(), resource2Json(rp));
   }
 
@@ -1831,7 +1831,7 @@ public class Publisher {
 			f.delete();
 		ZipGenerator zip = new ZipGenerator(page.getFolders().tmpResDir
 				+ "fhir-spec.zip");
-		zip.addFiles(page.getFolders().dstDir, "site\\", null);
+		zip.addFiles(page.getFolders().dstDir, "site\\", null, ".zip");
     zip.addFileName("index.htm", page.getFolders().srcDir+"redirect.htm");
 		zip.close();
 		Utilities.copyFile(new CSFile(page.getFolders().tmpResDir
@@ -1845,9 +1845,9 @@ public class Publisher {
 			f.delete();
 		ZipGenerator zip = new ZipGenerator(page.getFolders().tmpResDir
 				+ "fhir-all-xsd.zip");
-		zip.addFiles(page.getFolders().dstDir, "", ".xsd");
-		zip.addFiles(page.getFolders().dstDir, "", ".sch");
-		zip.addFiles(page.getFolders().rootDir + "tools" + sc + "schematron" + sc, "", ".xsl");
+		zip.addFiles(page.getFolders().dstDir, "", ".xsd", null);
+		zip.addFiles(page.getFolders().dstDir, "", ".sch", null);
+		zip.addFiles(page.getFolders().rootDir + "tools" + sc + "schematron" + sc, "", ".xsl", "");
 		zip.close();
 		Utilities.copyFile(new CSFile(page.getFolders().tmpResDir + "fhir-all-xsd.zip"), f);
 	}
@@ -1953,7 +1953,7 @@ public class Publisher {
     page.jsonToXhtml(n+".json", n+".json.htm", n, description, 0, json);
   }
   
-  private void cloneToXhtml(String n, String description) throws Exception {
+  private void cloneToXhtml(String n, String description, boolean adorn) throws Exception {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setNamespaceAware(true);
 		DocumentBuilder builder = factory.newDocumentBuilder();
@@ -1964,7 +1964,7 @@ public class Publisher {
 		xhtml.generate(xdoc,
 				new CSFile(page.getFolders().dstDir + n + ".xml.htm"), n
 						.toUpperCase().substring(0, 1) + n.substring(1),
-				description, 0);
+				description, 0, adorn);
 	}
 
 	private void processExample(Example e, ResourceDefn resource) throws Exception {
@@ -2031,7 +2031,7 @@ public class Publisher {
 		builder = factory.newDocumentBuilder();
 		xdoc = builder.parse(new CSFileInputStream(new CSFile(page.getFolders().dstDir + n + ".xml")));
 		XhtmlGenerator xhtml = new XhtmlGenerator(new ExampleAdorner(page.getDefinitions()));
-		xhtml.generate(xdoc, new CSFile(page.getFolders().dstDir + n + ".xml.htm"), n.toUpperCase().substring(0, 1) + n.substring(1), Utilities.noString(e.getId()) ? e.getDescription() : e.getDescription()+" (id = \""+e.getId()+"\")", 0);
+		xhtml.generate(xdoc, new CSFile(page.getFolders().dstDir + n + ".xml.htm"), n.toUpperCase().substring(0, 1) + n.substring(1), Utilities.noString(e.getId()) ? e.getDescription() : e.getDescription()+" (id = \""+e.getId()+"\")", 0, true);
 		if (e.isInBook()) {
 			XhtmlDocument d = new XhtmlParser().parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml.htm"), "html");
 			XhtmlNode pre = d.getElement("html").getElement("body").getElement("div");
@@ -2071,7 +2071,7 @@ public class Publisher {
 		if (buildFlags.get("all"))
 		  addToResourceFeed(rp, root.getName().toLowerCase(), profileFeed);
 		saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html" + File.separator + n + ".htm"));
-    cloneToXhtml(n+".profile", "Profile for "+n);
+    cloneToXhtml(n+".profile", "Profile for "+n, true);
     jsonToXhtml(n+".profile", "Profile for "+n, resource2Json(rp));
 	}
 
@@ -2190,7 +2190,7 @@ public class Publisher {
 	    xdoc = builder.parse(new CSFileInputStream(dst.getAbsolutePath()));
 	    XhtmlGenerator xhtml = new XhtmlGenerator(null);
 	    exXml = xhtml.generateInsert(xdoc, "Example for Profile "+profile.metadata("name"), null);
-      cloneToXhtml(n, "Example for Profile "+profile.metadata("name"));
+      cloneToXhtml(n, "Example for Profile "+profile.metadata("name"), true);
 
 	    
 	    String json;
@@ -2258,7 +2258,7 @@ public class Publisher {
 		xdoc = builder.parse(new CSFileInputStream(tmp.getAbsolutePath()));
 		XhtmlGenerator xhtml = new XhtmlGenerator(null);
 		xhtml.generate(xdoc, new CSFile(page.getFolders().dstDir + filename
-				+ ".profile.xml.htm"), "Profile", profile.metadata("name"), 0);
+				+ ".profile.xml.htm"), "Profile", profile.metadata("name"), 0, true);
 		// // xml to json
 		// JsonGenerator jsongen = new JsonGenerator();
 		// jsongen.generate(new CSFile(page.getFolders().dstDir+n+".xml"), new
@@ -2815,7 +2815,7 @@ public class Publisher {
       json.compose(new FileOutputStream(page.getFolders().dstDir+name+".json"), vs, false);
       XmlComposer xml = new XmlComposer();
       xml.compose(new FileOutputStream(page.getFolders().dstDir+name+".xml"), vs, true);
-      cloneToXhtml(name, "Definition for Value Set"+vs.getNameSimple());
+      cloneToXhtml(name, "Definition for Value Set"+vs.getNameSimple(), false);
       jsonToXhtml(name, "Definition for Value Set"+vs.getNameSimple(), resource2Json(vs));
     }
   }
@@ -2918,7 +2918,7 @@ public class Publisher {
       json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, ".json")), vs, false);
       XmlComposer xml = new XmlComposer();
       xml.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, ".xml")), vs, true);
-      cloneToXhtml(Utilities.fileTitle(filename), "Definition for Value Set"+vs.getNameSimple());
+      cloneToXhtml(Utilities.fileTitle(filename), "Definition for Value Set"+vs.getNameSimple(), false);
       jsonToXhtml(Utilities.fileTitle(filename), "Definition for Value Set"+vs.getNameSimple(), resource2Json(vs));
     }
   }
