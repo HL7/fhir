@@ -1386,7 +1386,7 @@ private void generateEnum(ElementDefn e) throws Exception {
         destroy.append("  F"+getTitle(s)+".free;\r\n");
         assign.append("  "+s+" := "+cn+"(oSource)."+s+".Clone;\r\n");
         getkids.append("  if (child_name = '"+getElementName(e.getName())+"') Then\r\n     list.add("+getTitle(s)+".Link);\r\n");
-        getprops.append("  oList.add(TFHIRProperty.create(self, '"+e.getName()+"', '"+e.typeCode()+"', "+propV+"));{2}\r\n");
+        getprops.append("  oList.add(TFHIRProperty.create(self, '"+e.getName()+"', '"+e.typeCode()+"', "+propV+".Link));{2}\r\n");
         if (e.getName().contains("[x]") && e.getTypes().size() > 1) {
           String pfx = e.getName().replace("[x]", "");
           int t = e.getTypes().size();

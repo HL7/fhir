@@ -17,10 +17,9 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>10560</WindowHeight>
-  <WindowWidth>26355</WindowWidth>
-  <WindowTopX>1920</WindowTopX>
-  <WindowTopY>1860</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <WindowWidth>30315</WindowWidth>
+  <WindowTopX>5865</WindowTopX>
+  <WindowTopY>6870</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -104,6 +103,7 @@
     <Cell ss:Index="10"><Data ss:Type="String">This is a common pattern in healthcare - a concept that may be defined by one or more codes from formal definitions including LOINC and SNOMED-CT, and/or defined by the provision of text that captures a human sense of the concept</Data></Cell>
     <Cell><Data ss:Type="String">Not all terminology uses fit this general pattern. In some cases, models should not use CodeableConcept and use Coding directly and provide their own structure for managing text, codings, translations and the relationship between elements and pre- and post-coordination</Data></Cell>
     <Cell><Data ss:Type="String">CD</Data></Cell>
+    <Cell><Data ss:Type="String">CE/CNE/CWE</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">CodeableConcept.coding</Data></Cell>
@@ -114,6 +114,7 @@
     <Cell ss:Index="10"><Data ss:Type="String">Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings.</Data></Cell>
     <Cell><Data ss:Type="String">Codes may defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED-CT - see the v3 core principles for more information.  Ordering of codings is undefined and must not be used to infer meaning.</Data></Cell>
     <Cell><Data ss:Type="String">union(., ./translation)</Data></Cell>
+    <Cell><Data ss:Type="String">C*E.1-8, C*E.10-22</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">CodeableConcept.text</Data></Cell>
@@ -124,6 +125,7 @@
     <Cell ss:Index="10"><Data ss:Type="String">The codes from the terminologies do not always capture the correct meaning with all the nuances of the human, or sometimes there is no appropriate code at all. In these cases, the text is used to capture the full meaning of the source</Data></Cell>
     <Cell><Data ss:Type="String">Very often the text is the same as a displayName of one of the codings</Data></Cell>
     <Cell><Data ss:Type="String">./originalText[mediaType/code=&quot;text/plain&quot;]/data</Data></Cell>
+    <Cell><Data ss:Type="String">C*E.9. But note many systems use C*E.2 for this</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">CodeableConcept.primary</Data></Cell>
@@ -133,6 +135,7 @@
     <Cell><Data ss:Type="String">Indicates which of the codes in the codings was chosen by a user, if one was chosen directly</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Where a user picks an actual code directly, it is useful to note that this is the primary input.  It's also the most appropriate starting point for new translations (unless re-coding directly from 'text').</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">special(&quot;The id assigned to the coding that corresponds to the root code of the CD&quot;)</Data></Cell>
+    <Cell><Data ss:Type="String">Sometimes implied by C*E.1</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -142,12 +145,14 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
+   <TopRowVisible>1</TopRowVisible>
+   <LeftColumnVisible>2</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>3</ActiveCol>
-     <RangeSelection>R3C4:R4C4</RangeSelection>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -186,7 +191,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

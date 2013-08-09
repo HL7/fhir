@@ -323,8 +323,8 @@ img {
   border-radius: 500px;
 }
 hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   border: 0;
   border-top: 1px solid #eeeeee;
 }
@@ -410,7 +410,7 @@ h6 small,
 h1,
 h2,
 h3 {
-  margin-top: 20px;
+  margin-top: 15px;
   margin-bottom: 10px;
 }
 h4,
@@ -550,7 +550,7 @@ blockquote {
   border-left: 5px solid #eeeeee;
 }
 blockquote p {
-  font-size: 17.5px;
+  font-size: 12.5px;
   font-weight: 300;
   line-height: 1.25;
 }
@@ -1009,7 +1009,7 @@ th {
 }
 .table {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .table thead > tr > th,
 .table tbody > tr > th,
@@ -5258,7 +5258,7 @@ h4 small {
   color: #da0c23;
 }
 p {
-  padding-bottom: 20px;
+  padding-bottom: 5px;
 }
 /*
 //@import "joyo-widgets.less";	

@@ -191,8 +191,8 @@ public class WebMaker {
   }
 
   private String googleSearch() {
-    return "<h2>Search FHIR</h2>\r\n"+
-        "<div id=\"cse\" style=\"width: 150px;\">Loading</div>\r\n"+
+    return "<h3>Search the FHIR Specification:</h3>\r\n"+
+        "<div id=\"cse\" style=\"width: 100%;\">Loading</div>\r\n"+
         "<script src=\"http://www.google.com/jsapi\" type=\"text/javascript\"> </script>\r\n"+
         "<script type=\"text/javascript\"> \r\n"+
         "  google.load('search', '1', {language : 'en', style : google.loader.themes.V2_DEFAULT});\r\n"+

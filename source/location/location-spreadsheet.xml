@@ -519,31 +519,37 @@
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
+    <Cell><Data ss:Type="String">Path</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">name</Data></Cell>
     <Cell><Data ss:Type="String">A (portion of the) name of the location</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="String">Location.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">type</Data></Cell>
     <Cell><Data ss:Type="String">A code for the type of location</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
+    <Cell><Data ss:Type="String">Location.type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">address</Data></Cell>
     <Cell><Data ss:Type="String">A (part of the) address of the location</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="String">Location.address</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">active</Data></Cell>
     <Cell><Data ss:Type="String">Whether to search for active or inactive locations</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
+    <Cell><Data ss:Type="String">Location.active</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">partof</Data></Cell>
     <Cell><Data ss:Type="String">The location of which this location is a part</Data></Cell>
-    <Cell><Data ss:Type="String">token</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
+    <Cell><Data ss:Type="String">Location.partOf</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -685,7 +691,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
