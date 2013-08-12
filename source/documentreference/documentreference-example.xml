@@ -101,8 +101,8 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
     <code>
       <coding>
         <system value="http://ihe.net/xds/connectathon/eventCodes"/>
-        <code value="todo"/>
-        <display value="to do"/>
+        <code value="T-D8200"/>
+        <display value="Arm"/>
       </coding>
     </code>
     <period>

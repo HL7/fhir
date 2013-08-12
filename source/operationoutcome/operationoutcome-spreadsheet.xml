@@ -201,7 +201,6 @@
     <Cell><Data ss:Type="String">Codes should only be defined at a level of granularity that reasonably allows distinct actions to be taken by the receiving system.  If the response behavior of all systems is the same for two codes, the codes might as well be merged.  The human-meaningful content of the issue is conveyed in .text.</Data></Cell>
     <Cell><Data ss:Type="String">./code</Data></Cell>
     <Cell><Data ss:Type="String">ERR-3, ERR-5</Data></Cell>
-    <Cell><Data ss:Type="String">Do we want to define an initial set of codes, or should we leave all of this to profiles?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell ss:StyleID="s68"><Data ss:Type="String">OperationOutcome.issue.details</Data></Cell>
@@ -246,7 +245,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -254,14 +253,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

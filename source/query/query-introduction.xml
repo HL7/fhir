@@ -112,7 +112,7 @@ separated from the parameter name by a dot. Modifiers are:</p>
   will return all the resources that have a value for the "gender" parameter. </li>
 <li>For dates: ":before" and ":after". E.g. birthdate:before=1972-11-30. See below for how date searches are interpreted.</li>
 <li>For string: ":exact" (the match needs to be exact, no partial matches, case sensitive and accent-sensitive) and  ":partial" (the search may function on partial matches). It is at the discretion of the server whether to do a left-partial search</li>
-<li>For token: ":text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), ":code" (a match on code and system of the coding/codeable concept).</li>
+<li>For token: ":text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), ":code" (a match on code and system of the coding/codeable concept), and :anyns matches all codes irrespective of the namespace.</li>
 </ul>
 
 <h4>integer</h4>
@@ -237,7 +237,7 @@ In order to save a client from doing a series of search operations,
 reference parameters may be "chained" by appending them with 
 a period (.) followed by the name of a search parameters defined for the target 
 resource. This can be done recursively, following a logical path 
-through a graph of related resources, separated by ":".
+through a graph of related resources, separated by ".".
 For instance, given that 
 the resource <a href="diagnosticreport.htm">DiagnosticReport</a> 
 has a search parameter named <i>subject</i>, which is usually a 
@@ -364,7 +364,7 @@ _include parameters.
 Each _include parameter specifies a path to a url (usually a resource reference):
 </p>
 <pre>
- GET .../medicationprescription/search?_include=MedicationDispense.prescription
+ GET .../medicationdispense/search?_include=MedicationDispense.prescription
     &amp;_include=MedicationPrescription.prescriber&amp;criteria...
 </pre>
 <p>

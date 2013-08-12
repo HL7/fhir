@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:25:39Z</Created>
-  <LastSaved>2013-08-05T23:41:44Z</LastSaved>
+  <LastSaved>2013-08-12T11:30:54Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -159,7 +159,6 @@
     <Cell><Data ss:Type="String">The base64-encoded data must be expressed in the same character set as the base resource XML</Data></Cell>
     <Cell><Data ss:Type="String">./data</Data></Cell>
     <Cell><Data ss:Type="String">ED.5</Data></Cell>
-    <Cell><Data ss:Type="String">Should this be handled by an extension? How common is it?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell><Data ss:Type="String">Attachment.url</Data></Cell>
@@ -231,11 +230,12 @@
     <VerticalResolution>0</VerticalResolution>
    </Print>
    <Selected/>
+   <LeftColumnVisible>2</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

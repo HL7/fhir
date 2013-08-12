@@ -2056,8 +2056,8 @@ public class Publisher {
 		ProfileDefn p = new ProfileDefn();
 		p.putMetadata("id", root.getName().toLowerCase());
 		p.putMetadata("name", n);
-		p.putMetadata("author.name", "todo (committee)");
-		p.putMetadata("author.ref", "todo");
+		p.putMetadata("author.name", "FHIR Project");
+		p.putMetadata("author.ref", "http://hl7.org/fhir");
 		p.putMetadata("description", "Basic Profile. "+ root.getRoot().getDefinition());
 		p.putMetadata("status", "draft");
 		p.putMetadata("date", new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "US")).format(new Date()));

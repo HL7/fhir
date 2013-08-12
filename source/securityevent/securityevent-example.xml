@@ -43,13 +43,13 @@
     </type>
   </source>
   <object>
-    <!-- todo: get a better code -->
     <identifier>
       <label value="Dell Serial Number"/>
       <key value="ABCDEF"/>
     </identifier>
+    <type value="4"/>
     <role value="4"/>
     <lifecycle value="6"/>
-    <name value="Grahame's Test HL7Connect"/>
+    <name value="Grahame's Laptop"/>
   </object>
 </SecurityEvent>
