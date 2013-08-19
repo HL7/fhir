@@ -310,9 +310,8 @@
     <eLiterals name="string" value="2"/>
     <eLiterals name="text" value="3"/>
     <eLiterals name="date" value="4"/>
-    <eLiterals name="quantity" value="5"/>
-    <eLiterals name="reference" value="6" literal="reference"/>
     <eLiterals name="token" value="7"/>
+    <eLiterals name="reference" value="6" literal="reference"/>
     <eLiterals name="composite"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeDefn" abstract="true">

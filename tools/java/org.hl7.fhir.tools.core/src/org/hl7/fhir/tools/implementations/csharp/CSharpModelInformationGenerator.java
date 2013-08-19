@@ -91,21 +91,21 @@ public class CSharpModelInformationGenerator extends GenBlock
 
 	private void generateSearchParams(Definitions definitions2) 
 	{
-    ln("public static List<SearchParam> SearchParameters = ");
+    ln("public static List<SearchParamInfo> SearchParameters = ");
     bs(); 
-      ln("new List<SearchParam>");
+      ln("new List<SearchParamInfo>");
       bs("{");  
       for( ResourceDefn resource : definitions.getResources() )
         if( resource.isAbstract() == false )
          for( SearchParameter param : resource.getSearch() )
             {
-              ln("new SearchParam() { ");
+              ln("new SearchParamInfo() { ");
               nl("Resource = \"" + resource.getName() + "\"" );
               nl(", Name = \"" + param.getName() + "\"" );
               nl(", Description = " + GeneratorUtils.makeCsStringLiteral(param.getDescription()) );
               
               String type = Utilities.capitalize(param.getType().toString());
-              nl(", Type = ParamType." + type );
+              nl(", Type = Conformance.SearchParamType." + type );
 
               if( param.getType() == SearchType.COMPOSITE)
               {

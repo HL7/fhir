@@ -59,22 +59,6 @@ public enum SearchType implements Enumerator {
 	 * @ordered
 	 */
 	DATE(4, "date", "date"), /**
-	 * The '<em><b>Quantity</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #QUANTITY_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	QUANTITY(5, "quantity", "quantity"), /**
-	 * The '<em><b>Reference</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #REFERENCE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	REFERENCE(6, "reference", "reference"), /**
 	 * The '<em><b>Token</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,7 +66,15 @@ public enum SearchType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TOKEN(7, "token", "token"),
+	TOKEN(7, "token", "token"), /**
+	 * The '<em><b>Reference</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #REFERENCE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	REFERENCE(6, "reference", "reference"),
 
 	/**
 	 * The '<em><b>Composite</b></em>' literal object.
@@ -155,19 +147,19 @@ public enum SearchType implements Enumerator {
 	public static final int DATE_VALUE = 4;
 
 	/**
-	 * The '<em><b>Quantity</b></em>' literal value.
+	 * The '<em><b>Token</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Quantity</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Token</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #QUANTITY
-	 * @model name="quantity"
+	 * @see #TOKEN
+	 * @model name="token"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int QUANTITY_VALUE = 5;
+	public static final int TOKEN_VALUE = 7;
 
 	/**
 	 * The '<em><b>Reference</b></em>' literal value.
@@ -183,21 +175,6 @@ public enum SearchType implements Enumerator {
 	 * @ordered
 	 */
 	public static final int REFERENCE_VALUE = 6;
-
-	/**
-	 * The '<em><b>Token</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Token</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #TOKEN
-	 * @model name="token"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TOKEN_VALUE = 7;
 
 	/**
 	 * The '<em><b>Composite</b></em>' literal value.
@@ -226,9 +203,8 @@ public enum SearchType implements Enumerator {
 			STRING,
 			TEXT,
 			DATE,
-			QUANTITY,
-			REFERENCE,
 			TOKEN,
+			REFERENCE,
 			COMPOSITE,
 		};
 
@@ -284,9 +260,8 @@ public enum SearchType implements Enumerator {
 			case STRING_VALUE: return STRING;
 			case TEXT_VALUE: return TEXT;
 			case DATE_VALUE: return DATE;
-			case QUANTITY_VALUE: return QUANTITY;
-			case REFERENCE_VALUE: return REFERENCE;
 			case TOKEN_VALUE: return TOKEN;
+			case REFERENCE_VALUE: return REFERENCE;
 			case COMPOSITE_VALUE: return COMPOSITE;
 		}
 		return null;

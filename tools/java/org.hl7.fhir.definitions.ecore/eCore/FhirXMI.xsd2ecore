@@ -21,10 +21,9 @@
       <nested inputs="FHIR.ecore#//SearchType/string" outputs="FhirXMI.xsd#//SearchType;XSDSimpleTypeDefinition=2/XSDEnumerationFacet=1"/>
       <nested inputs="FHIR.ecore#//SearchType/text" outputs="FhirXMI.xsd#//SearchType;XSDSimpleTypeDefinition=2/XSDEnumerationFacet=2"/>
       <nested inputs="FHIR.ecore#//SearchType/date" outputs="FhirXMI.xsd#//SearchType;XSDSimpleTypeDefinition=2/XSDEnumerationFacet=3"/>
-      <nested inputs="FHIR.ecore#//SearchType/quantity" outputs="FhirXMI.xsd#//SearchType;XSDSimpleTypeDefinition=2/XSDEnumerationFacet=4"/>
+      <nested inputs="FHIR.ecore#//SearchType/token" outputs="FhirXMI.xsd#//SearchType;XSDSimpleTypeDefinition=2/XSDEnumerationFacet=4"/>
       <nested inputs="FHIR.ecore#//SearchType/reference" outputs="FhirXMI.xsd#//SearchType;XSDSimpleTypeDefinition=2/XSDEnumerationFacet=5"/>
-      <nested inputs="FHIR.ecore#//SearchType/token" outputs="FhirXMI.xsd#//SearchType;XSDSimpleTypeDefinition=2/XSDEnumerationFacet=6"/>
-      <nested inputs="FHIR.ecore#//SearchType/composite" outputs="FhirXMI.xsd#//SearchType;XSDSimpleTypeDefinition=2/XSDEnumerationFacet=7"/>
+      <nested inputs="FHIR.ecore#//SearchType/composite" outputs="FhirXMI.xsd#//SearchType;XSDSimpleTypeDefinition=2/XSDEnumerationFacet=6"/>
     </nested>
     <nested inputs="FHIR.ecore#//BindingExtensibility" outputs="FhirXMI.xsd#//BindingExtensibility;XSDSimpleTypeDefinition=3">
       <nested inputs="FHIR.ecore#//BindingExtensibility/Complete" outputs="FhirXMI.xsd#//BindingExtensibility;XSDSimpleTypeDefinition=3/XSDEnumerationFacet"/>

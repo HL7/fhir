@@ -24,9 +24,8 @@
       <xsd:enumeration value="string"/>
       <xsd:enumeration value="text"/>
       <xsd:enumeration value="date"/>
-      <xsd:enumeration value="quantity"/>
-      <xsd:enumeration value="reference"/>
       <xsd:enumeration value="token"/>
+      <xsd:enumeration value="reference"/>
       <xsd:enumeration value="composite"/>
     </xsd:restriction>
   </xsd:simpleType>

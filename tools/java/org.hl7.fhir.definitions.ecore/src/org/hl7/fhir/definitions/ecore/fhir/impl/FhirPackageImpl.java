@@ -2121,9 +2121,8 @@ public class FhirPackageImpl extends EPackageImpl implements FhirPackage {
 		addEEnumLiteral(searchTypeEEnum, SearchType.STRING);
 		addEEnumLiteral(searchTypeEEnum, SearchType.TEXT);
 		addEEnumLiteral(searchTypeEEnum, SearchType.DATE);
-		addEEnumLiteral(searchTypeEEnum, SearchType.QUANTITY);
-		addEEnumLiteral(searchTypeEEnum, SearchType.REFERENCE);
 		addEEnumLiteral(searchTypeEEnum, SearchType.TOKEN);
+		addEEnumLiteral(searchTypeEEnum, SearchType.REFERENCE);
 		addEEnumLiteral(searchTypeEEnum, SearchType.COMPOSITE);
 
 		initEEnum(bindingExtensibilityEEnum, BindingExtensibility.class, "BindingExtensibility");
