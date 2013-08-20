@@ -10,6 +10,8 @@ using System.Net;
 using Hl7.Fhir.Support;
 using Hl7.Fhir.Serializers;
 using Hl7.Fhir.Support.Search;
+using System.IO;
+using Hl7.Fhir.Parsers;
 
 namespace Hl7.Fhir.Tests
 {
@@ -221,6 +223,60 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual(2, history.Entries.Where(entry => entry is ResourceEntry).Count());
             Assert.AreEqual(1, history.Entries.Where(entry => entry is DeletedEntry).Count());
         }
+
+
+        [TestMethod]
+        public void ParseForPPT()
+        {
+            ErrorList errors = new ErrorList();
+
+            // Create a file-based reader for Xml
+            XmlReader xr = XmlReader.Create(
+                new StreamReader(@"publish\observation-example.xml"));
+
+            // Create a file-based reader for Xml
+            var obs = (Observation)FhirParser.ParseResource(xr, errors);
+
+            // Modify some fields of the observation
+            obs.Status = ObservationStatus.Amended;
+            obs.Value = new Quantity() { Value = 40, Units = "g" };
+
+            // Serialize the in-memory observation to Json
+            var jsonText = FhirSerializer.SerializeResourceToJson(obs);
+
+        }
+
+
+        [TestMethod]
+        public void ClientForPPT()
+        {
+            var client = new FhirClient(new Uri("http://hl7connect.healthintersections.com.au/svc/fhir/patient/"));
+
+            // Note patient is a ResourceEntry<Patient>, not a Patient
+            var patEntry = client.Read<Patient>("1");
+            var pat = patEntry.Content;
+
+            pat.Name.Add(HumanName.ForFamily("Kramer").WithGiven("Ewout"));
+
+            client.Update<Patient>(patEntry);
+        }
+
+
+        [TestMethod]
+        public void ReadBundleForPPT()
+        {
+            Bundle result = new Bundle() { Title = "Demo bundle" };
+
+            result.Entries.Add(new ResourceEntry<Patient>() 
+                { LastUpdated=DateTimeOffset.Now, Content = new Patient() });
+            result.Entries.Add(new DeletedEntry() 
+                { Id = new Uri("http://nu.nl/fhir"), When = DateTime.Now });
+
+            var bundleXml = FhirSerializer.SerializeBundleToXml(result);
+        }
+
+
+
 
         [TestMethod]
         public void ReadTags()
