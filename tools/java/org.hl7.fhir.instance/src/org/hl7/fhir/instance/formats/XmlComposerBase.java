@@ -30,21 +30,19 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 
 
-import java.io.IOException;
 import java.io.OutputStream;
-import java.math.BigDecimal;
-import java.net.URI;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
-import org.apache.commons.codec.binary.Base64;
-import org.hl7.fhir.instance.model.*;
-import org.hl7.fhir.instance.model.Boolean;
-import org.hl7.fhir.instance.model.Integer;
-import org.hl7.fhir.instance.model.CarePlan.CarePlanStatusEnumFactory;
+import org.hl7.fhir.instance.model.AtomEntry;
+import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.instance.model.Binary;
+import org.hl7.fhir.instance.model.Element;
+import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.xhtml.*;
-import org.hl7.fhir.utilities.xml.*;
+import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
+import org.hl7.fhir.utilities.xhtml.XhtmlNode;
+import org.hl7.fhir.utilities.xml.IXMLWriter;
+import org.hl7.fhir.utilities.xml.XMLWriter;
 
 public abstract class XmlComposerBase extends XmlBase {
 
@@ -120,14 +118,16 @@ public abstract class XmlComposerBase extends XmlBase {
 	
 	private void composeEntry(AtomEntry entry) throws Exception {
 	  if (entry.isDeleted()) {
-	    xml.setDefaultNamespace("http://purl.org/atompub/tombstones/1.0");
+		String ns  = "http://purl.org/atompub/tombstones/1.0";
+		xml.namespace(ns,"ts");
+	    //xml.setDefaultNamespace("http://purl.org/atompub/tombstones/1.0");
 	    xml.attribute("ref", entry.getId());
 	    xml.attribute("when", dateToXml(entry.getUpdated()));
-	    xml.open("deleted-entry");
+	    xml.open(ns,"deleted-entry");
 	    for (String name : entry.getLinks().keySet()) {
 	      xml.attribute("href", entry.getLinks().get(name));
 	      xml.attribute("rel", name);
-	      xml.element("link", null);
+	      xml.element(ns,"link", null);
 	    }
 //	    if (entry.getoriginalId <> "") then
 //	    begin
@@ -136,15 +136,15 @@ public abstract class XmlComposerBase extends XmlBase {
 //	      xml.close("source");
 //	    end;
 	    if (entry.getAuthorUri() != null || entry.getAuthorName() != null) {
-	      xml.open("by");
+	      xml.open(ns,"by");
 	      if (entry.getAuthorName() != null)
-	        xml.element("name", entry.getAuthorName());
+	        xml.element(ns,"name", entry.getAuthorName());
 	      if (entry.getAuthorUri() != null)
-	        xml.element("uri", entry.getAuthorUri());
-	      xml.close("by");
+	        xml.element(ns,"uri", entry.getAuthorUri());
+	      xml.close(ns,"by");
 	    }
-	    xml.close("deleted-entry");
-	    xml.setDefaultNamespace(ATOM_NS);
+	    xml.close(ns,"deleted-entry");
+	    //xml.setDefaultNamespace(ATOM_NS);
 	  } else {
 	    xml.setDefaultNamespace(ATOM_NS);
 	    xml.open("entry");

@@ -37,7 +37,7 @@ namespace Hl7.Fhir.Model
 {
     public partial class ModelInfo
     {
-        public class SearchParamInfo
+        public class SearchParamDefinition
         {
             public string Resource { get; set; }
             public string Name { get; set; }
@@ -49,7 +49,7 @@ namespace Hl7.Fhir.Model
             public string[] CompositeParams { get; set; }
 
             // The list of elements the search parameter searches on
-            public string[] Elements { get; set; }
+            public string[] Path { get; set; }
         }
 
         public static Type GetTypeForResourceName(string name)

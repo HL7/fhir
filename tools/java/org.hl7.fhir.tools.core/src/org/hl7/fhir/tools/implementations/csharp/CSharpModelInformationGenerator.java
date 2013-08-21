@@ -91,15 +91,15 @@ public class CSharpModelInformationGenerator extends GenBlock
 
 	private void generateSearchParams(Definitions definitions2) 
 	{
-    ln("public static List<SearchParamInfo> SearchParameters = ");
+    ln("public static List<SearchParamDefinition> SearchParameters = ");
     bs(); 
-      ln("new List<SearchParamInfo>");
+      ln("new List<SearchParamDefinition>");
       bs("{");  
       for( ResourceDefn resource : definitions.getResources() )
         if( resource.isAbstract() == false )
          for( SearchParameter param : resource.getSearch() )
             {
-              ln("new SearchParamInfo() { ");
+              ln("new SearchParamDefinition() { ");
               nl("Resource = \"" + resource.getName() + "\"" );
               nl(", Name = \"" + param.getName() + "\"" );
               nl(", Description = " + GeneratorUtils.makeCsStringLiteral(param.getDescription()) );
@@ -117,7 +117,7 @@ public class CSharpModelInformationGenerator extends GenBlock
               
               if( param.getPath() != null && param.getPath().size() > 0)
               {
-                nl(", Elements = new string[] { ");
+                nl(", Path = new string[] { ");
                 for( String elem : param.getPath() )
                   nl("\"" + elem + "\", ");
                 nl("}");
