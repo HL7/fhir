@@ -56,7 +56,9 @@ namespace Hl7.Fhir.Support
         {
             if (contentLength == 0) return null;
 
-            byte[] byteBuffer = new byte[4096];
+            int bufferSize = contentLength < 4096 ? contentLength : 4096;
+
+            byte[] byteBuffer = new byte[bufferSize];
             MemoryStream buffer = new MemoryStream();
             int readLen;
 

@@ -400,7 +400,7 @@ namespace Hl7.Fhir.Tests
             e3.Links.SelfLink = new Uri("http://test.com/fhir/binary/@99/history/@1");
             e3.LastUpdated = new DateTimeOffset(2012, 10, 31, 13, 04, 14, TimeSpan.Zero);
             e3.Published = new DateTimeOffset(2012, 11, 2, 14, 17, 21, TimeSpan.Zero);
-            e3.Content = new Binary()
+            e3.Resource = new Binary()
             {
                 ContentType = "application/x-test",
                 Content = new byte[] { 0x00, 0x01, 0x02, 0x03 }
@@ -431,7 +431,7 @@ namespace Hl7.Fhir.Tests
             e1.Tags = new List<Tag>() { new Tag() { Uri = new Uri("http://test.com/tag/test"), Label = "YES" } };
 
 
-            e1.Content = new Model.Patient()
+            e1.Resource = new Model.Patient()
             {
                 Text =
                   new Model.Narrative()

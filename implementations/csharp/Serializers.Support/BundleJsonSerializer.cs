@@ -118,9 +118,9 @@ namespace Hl7.Fhir.Serializers
             if(entry is ResourceEntry)
             {
                 ResourceEntry re = (ResourceEntry)entry;
-                if (re.Content != null)
+                if (re.Resource != null)
                     result.Add(new JProperty(BundleXmlParser.XATOM_CONTENT, 
-                        getContentsAsJObject(re.Content, summary)));
+                        getContentsAsJObject(re.Resource, summary)));
 
                 // Note: this is a read-only property, so it is serialized but never parsed
                 if (entry.Summary != null)

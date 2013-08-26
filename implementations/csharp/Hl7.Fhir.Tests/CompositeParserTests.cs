@@ -282,8 +282,8 @@ namespace Hl7.Fhir.Tests
 
         private static void validateDiagReportAttributes(ErrorList errors, DiagnosticReport rep)
         {
-            Assert.IsNotNull(rep);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
+            Assert.IsNotNull(rep);
 
             Assert.AreEqual("2011-03-04T08:30:00+11:00", rep.DiagnosticTime.ToString());
             Assert.AreEqual(17, rep.Contained.Count);

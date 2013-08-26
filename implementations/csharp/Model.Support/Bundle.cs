@@ -277,17 +277,17 @@ namespace Hl7.Fhir.Model
 
     public class ResourceEntry<T> : ResourceEntry where T : Resource, new()
     {
-        public new T Content
+        public new T Resource
         { 
-            get { return (T)((ResourceEntry)this).Content; }
-            set { ((ResourceEntry)this).Content = value; }
+            get { return (T)((ResourceEntry)this).Resource; }
+            set { ((ResourceEntry)this).Resource = value; }
         }
 
         public static ResourceEntry<T> Create(T resource)
         {
             var result = new ResourceEntry<T>();
 
-            result.Content = resource;
+            result.Resource = resource;
 
             return result;
         }
@@ -295,7 +295,7 @@ namespace Hl7.Fhir.Model
 
     public abstract class ResourceEntry : BundleEntry
     {
-        public Resource Content { get; set; }
+        public Resource Resource { get; set; }
 
         public string Title { get; set; }
 
@@ -314,7 +314,7 @@ namespace Hl7.Fhir.Model
         {
             Type typedREType = typeof(ResourceEntry<>).MakeGenericType(resource.GetType());
             var result = (ResourceEntry)Activator.CreateInstance(typedREType);
-            result.Content = resource;
+            result.Resource = resource;
 
             return result;
         }
@@ -333,10 +333,10 @@ namespace Hl7.Fhir.Model
             if (LastUpdated == null)
                 errors.Add("Entry must have an updated date");
 
-            if (Content == null)
+            if (Resource == null)
                 errors.Add("Entry must contain Resource data, Content may not be null");
             else
-                errors.AddRange(Content.Validate());
+                errors.AddRange(Resource.Validate());
             
             return errors;
         } 
@@ -348,11 +348,11 @@ namespace Hl7.Fhir.Model
         {
             get
             {
-                if (Content is Binary)
+                if (Resource is Binary)
                     return string.Format("<div xmlns='http://www.w3.org/1999/xhtml'>" +
-                        "Binary content (mediatype {0})</div>", ((Binary)Content).ContentType);
-                else if (Content != null && Content.Text != null)
-                    return Content.Text.Div;
+                        "Binary content (mediatype {0})</div>", ((Binary)Resource).ContentType);
+                else if (Resource != null && Resource.Text != null)
+                    return Resource.Text.Div;
                 else
                     return null;
             }

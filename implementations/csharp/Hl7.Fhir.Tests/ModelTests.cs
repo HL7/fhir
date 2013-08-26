@@ -231,17 +231,17 @@ namespace Hl7.Fhir.Tests
         {
             var pe = new ResourceEntry<Patient>();
 
-            pe.Content = new Patient();
+            pe.Resource = new Patient();
 
             ResourceEntry e = pe;
 
-            Assert.AreEqual(pe.Content, e.Content);
+            Assert.AreEqual(pe.Resource, e.Resource);
 
-            e.Content = new CarePlan();
+            e.Resource = new CarePlan();
 
             try
             {
-                var c = pe.Content;
+                var c = pe.Resource;
                 Assert.Fail("Should have bombed");
             }
             catch (InvalidCastException)

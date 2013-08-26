@@ -21,13 +21,20 @@ namespace Hl7.Fhir.Tests
         //Uri testEndpoint = new Uri("http://fhir.furore.com/fhir");
         Uri testEndpoint = new Uri("http://hl7connect.healthintersections.com.au/svc/fhir");
 
+        //TODO: Test create BINARY (accept header for returned body should be type sent)
+        [TestMethod]
+        public void SendBinary()
+        {
+            throw new NotImplementedException();
+        }
+
 
         [TestMethod]
         public void FetchConformance()
         {
             FhirClient client = new FhirClient(testEndpoint);
 
-            Conformance c = client.Conformance().Content;
+            Conformance c = client.Conformance().Resource;
 
             Assert.IsNotNull(c);
             Assert.AreEqual("HL7Connect", c.Software.Name);
@@ -44,7 +51,7 @@ namespace Hl7.Fhir.Tests
 
             var loc = client.Read<Location>("1");
             Assert.IsNotNull(loc);
-            Assert.AreEqual("Utrecht", loc.Content.Address.City);
+            Assert.AreEqual("Den Burg", loc.Resource.Address.City);
 
             string version = new ResourceLocation(loc.SelfLink).VersionId;               
             Assert.AreEqual("1", version);
@@ -167,7 +174,7 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual(fe.Tags.First(), tags[0]);
             createdTestOrganization = fe.Id;
 
-            fe.Content.Identifier.Add(new Identifier("http://hl7.org/test/2", "3141592"));
+            fe.Resource.Identifier.Add(new Identifier("http://hl7.org/test/2", "3141592"));
 
             var fe2 = client.Update(fe);
 
@@ -225,26 +232,26 @@ namespace Hl7.Fhir.Tests
         }
 
 
-        [TestMethod]
-        public void ParseForPPT()
-        {
-            ErrorList errors = new ErrorList();
+        //[TestMethod]
+        //public void ParseForPPT()
+        //{
+        //    ErrorList errors = new ErrorList();
 
-            // Create a file-based reader for Xml
-            XmlReader xr = XmlReader.Create(
-                new StreamReader(@"publish\observation-example.xml"));
+        //    // Create a file-based reader for Xml
+        //    XmlReader xr = XmlReader.Create(
+        //        new StreamReader(@"publish\observation-example.xml"));
 
-            // Create a file-based reader for Xml
-            var obs = (Observation)FhirParser.ParseResource(xr, errors);
+        //    // Create a file-based reader for Xml
+        //    var obs = (Observation)FhirParser.ParseResource(xr, errors);
 
-            // Modify some fields of the observation
-            obs.Status = ObservationStatus.Amended;
-            obs.Value = new Quantity() { Value = 40, Units = "g" };
+        //    // Modify some fields of the observation
+        //    obs.Status = ObservationStatus.Amended;
+        //    obs.Value = new Quantity() { Value = 40, Units = "g" };
 
-            // Serialize the in-memory observation to Json
-            var jsonText = FhirSerializer.SerializeResourceToJson(obs);
+        //    // Serialize the in-memory observation to Json
+        //    var jsonText = FhirSerializer.SerializeResourceToJson(obs);
 
-        }
+        //}
 
 
         [TestMethod]
@@ -254,7 +261,7 @@ namespace Hl7.Fhir.Tests
 
             // Note patient is a ResourceEntry<Patient>, not a Patient
             var patEntry = client.Read<Patient>("1");
-            var pat = patEntry.Content;
+            var pat = patEntry.Resource;
 
             pat.Name.Add(HumanName.ForFamily("Kramer").WithGiven("Ewout"));
 
@@ -268,7 +275,7 @@ namespace Hl7.Fhir.Tests
             Bundle result = new Bundle() { Title = "Demo bundle" };
 
             result.Entries.Add(new ResourceEntry<Patient>() 
-                { LastUpdated=DateTimeOffset.Now, Content = new Patient() });
+                { LastUpdated=DateTimeOffset.Now, Resource = new Patient() });
             result.Entries.Add(new DeletedEntry() 
                 { Id = new Uri("http://nu.nl/fhir"), When = DateTime.Now });
 

@@ -172,7 +172,7 @@ namespace Hl7.Fhir.Client
                         where TResource : Resource, new()
         {
             if (entry == null) throw new ArgumentNullException("entry");
-            if (entry.Content == null) throw new ArgumentException("Entry does not contain a Resource to update", "entry");
+            if (entry.Resource == null) throw new ArgumentException("Entry does not contain a Resource to update", "entry");
             if (entry.Id == null) throw new ArgumentException("Entry needs a non-null entry.id to send the update to", "entry");
             if (versionAware && entry.SelfLink == null) throw new ArgumentException("When requesting version-aware updates, Entry.SelfLink may not be null.", "entry");
 
@@ -180,8 +180,8 @@ namespace Hl7.Fhir.Client
 
 
             byte[] data = PreferredFormat == ContentType.ResourceFormat.Xml ?
-                FhirSerializer.SerializeResourceToXmlBytes(entry.Content) :
-                FhirSerializer.SerializeResourceToJsonBytes(entry.Content);
+                FhirSerializer.SerializeResourceToXmlBytes(entry.Resource) :
+                FhirSerializer.SerializeResourceToJsonBytes(entry.Resource);
 
             var req = createRequest(entry.Id, false);
 
@@ -268,6 +268,22 @@ namespace Hl7.Fhir.Client
             var rl = new ResourceLocation(Endpoint,collection);
 
             return Create<TResource>(rl.ToUri(), resource, tags);
+        }
+
+        public ResourceEntry<TResource> Create<TResource>(TResource resource, string id, IEnumerable<Tag> tags = null) where TResource : Resource, new()
+        {
+            if (Endpoint == null) throw new InvalidOperationException("Endpoint must be provided using either the Endpoint property or the FhirClient constructor");
+            if (resource == null) throw new ArgumentNullException("resource");
+
+            var rl = new ResourceLocation(Endpoint);
+            rl.Collection = ResourceLocation.GetCollectionNameForResource(typeof(TResource));
+            rl.Id = id;
+
+            var re = new ResourceEntry<TResource>();
+            re.Id = rl.ToUri();
+            re.Resource = resource;
+
+            return Update<TResource>(re);
         }
 
 
@@ -363,14 +379,14 @@ namespace Hl7.Fhir.Client
         public OperationOutcome Validate<TResource>(ResourceEntry<TResource> entry) where TResource : Resource, new()
         {
             if (entry == null) throw new ArgumentNullException("entry");
-            if (entry.Content == null) throw new ArgumentException("Entry does not contain a Resource to validate", "entry");
+            if (entry.Resource == null) throw new ArgumentException("Entry does not contain a Resource to validate", "entry");
             if (entry.Id == null) throw new ArgumentException("Entry needs a non-null entry.id to use for validation", "entry");
 
             string contentType = ContentType.BuildContentType(PreferredFormat, false);
 
             byte[] data = PreferredFormat == ContentType.ResourceFormat.Xml ?
-                FhirSerializer.SerializeResourceToXmlBytes(entry.Content) :
-                FhirSerializer.SerializeResourceToJsonBytes(entry.Content);
+                FhirSerializer.SerializeResourceToXmlBytes(entry.Resource) :
+                FhirSerializer.SerializeResourceToJsonBytes(entry.Resource);
 
             var rl = new ResourceLocation(entry.Id);
             rl.Operation = ResourceLocation.RESTOPER_VALIDATE;
@@ -699,12 +715,12 @@ namespace Hl7.Fhir.Client
                     LastResponseDetails.Location ?? LastResponseDetails.ContentLocation, 
                     LastResponseDetails.Category, LastResponseDetails.LastModified);
 
-            if (result.Content is T)
+            if (result.Resource is T)
                 return (ResourceEntry<T>)result;
             else
                 throw new FhirOperationException(
                     String.Format("Received a resource of type {0}, expected a {1} resource",
-                                    result.Content.GetType().Name, typeof(T).Name));
+                                    result.Resource.GetType().Name, typeof(T).Name));
         }
 
 
@@ -746,7 +762,7 @@ namespace Hl7.Fhir.Client
                     }
 
                     if (outcome != null)
-                        throw new FhirOperationException("Operation failed with status code " + LastResponseDetails.Result, outcome.Content);                        
+                        throw new FhirOperationException("Operation failed with status code " + LastResponseDetails.Result, outcome.Resource);                        
                     else
                         throw new FhirOperationException("Operation failed with status code " + LastResponseDetails.Result);
                 }
