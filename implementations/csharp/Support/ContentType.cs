@@ -85,6 +85,7 @@ namespace Hl7.Fhir.Support
         }
 
 
+
         /// <summary>
         /// Converts a content type to a ResourceFormat
         /// </summary>
@@ -129,6 +130,16 @@ namespace Hl7.Fhir.Support
         }
 
 
+        public static string BuildFormatParam(ResourceFormat format)
+        {
+            if (format == ResourceFormat.Json)
+                return FORMAT_PARAM_JSON;
+            else if (format == ResourceFormat.Xml)
+                return FORMAT_PARAM_XML;
+            else
+                throw new ArgumentException("Cannot determine content type for data format " + format);
+        }
+
         /// <summary>
         /// Checks whether a given content type is valid as a content type for resource data
         /// </summary>
@@ -153,6 +164,17 @@ namespace Hl7.Fhir.Support
         {
             return (contentType == JSON_CONTENT_HEADER || contentType == JSON_CONTENT_HEADER2 ||
                 contentType == ATOM_CONTENT_HEADER);
+        }
+
+
+        /// <summary>
+        /// Checks whether a given format parameter is a valid as a content type for resource data
+        /// </summary>
+        /// <param name="paramValue">The content type, as it appears on the URL parameter</param>
+        /// <returns></returns>
+        public static bool IsValidFormatParam(string paramValue)
+        {
+            return GetResourceFormatFromFormatParam(paramValue) != ResourceFormat.Unknown;
         }
 
     }

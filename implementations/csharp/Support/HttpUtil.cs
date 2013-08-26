@@ -146,13 +146,20 @@ namespace Hl7.Fhir.Support
             return String.Join(", ", result);
         }
 
-        public static ResourceEntry SingleResourceResponse(string body, string contentType, 
+
+
+        public static ResourceEntry SingleResourceResponse(string body, byte[] data, string contentType, 
             string requestUri=null, string location=null,
             string category=null, string lastModified=null )
         {
-            var resource = parseBody<Resource>(body,contentType,
-                    (b,e) =>  FhirParser.ParseResourceFromXml(b, e),
-                    (b,e) =>  FhirParser.ParseResourceFromJson(b, e) );
+            Resource resource = null;
+
+            if (body != null)
+                resource = parseBody<Resource>(body, contentType,
+                    (b, e) => FhirParser.ParseResourceFromXml(b, e),
+                    (b, e) => FhirParser.ParseResourceFromJson(b, e));
+            else
+                resource = Util.MakeBinary(data, contentType);
 
             ResourceEntry result = ResourceEntry.Create(resource);
             string versionIdInRequestUri = null;
@@ -186,7 +193,7 @@ namespace Hl7.Fhir.Support
             if (!String.IsNullOrEmpty(category))
                 result.Tags = ParseCategoryHeader(category);
 
-            result.Title = "A " + resource.GetType().Name + " resource received by the FhirClient";
+            result.Title = "A " + resource.GetType().Name + " resource";
             
             return result;
         }

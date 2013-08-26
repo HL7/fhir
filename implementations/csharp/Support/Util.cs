@@ -174,6 +174,22 @@ namespace Hl7.Fhir.Support
         }
 
 
+        public static Binary MakeBinary(byte[] data, string contentType)
+        {
+            var binary = new Binary();
+
+            binary.Content = data;
+            binary.ContentType = contentType;
+            binary.Text = new Narrative()
+            {
+                Status = Narrative.NarrativeStatus.Generated,
+                Div = "Binary content of type " + contentType
+            };
+
+            return binary;
+        }
+
+
     }
 
 #if NETFX_CORE
