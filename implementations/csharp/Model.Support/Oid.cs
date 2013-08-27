@@ -42,6 +42,8 @@ namespace Hl7.Fhir.Model
     {
         public static bool TryParse(string value, out Oid result)
         {
+            //The PATTERN (generated from the source) is incorrect. So, temporarily, a corrected version
+            //until after the ballot has updated this regexp
             if (value==null || Regex.IsMatch(value, "^" + PATTERN + "$", RegexOptions.Singleline))
             {
                 result = new Oid(value);

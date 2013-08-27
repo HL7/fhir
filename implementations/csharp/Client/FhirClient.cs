@@ -737,11 +737,10 @@ namespace Hl7.Fhir.Client
 
         private ResourceEntry<T> resourceEntryFromResponse<T>() where T : Resource, new()
         {
-            var rl = new ResourceLocation(LastResponseDetails.ResponseUri);
             string resourceText = null;
             byte[] data = null;
 
-            if (rl.Collection == ResourceLocation.RESTOPER_BINARY)
+            if (typeof(T).IsAssignableFrom(typeof(Binary)))
                 data = LastResponseDetails.Body;
             else
                 resourceText = LastResponseDetails.BodyAsString();

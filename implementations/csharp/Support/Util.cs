@@ -183,7 +183,8 @@ namespace Hl7.Fhir.Support
             binary.Text = new Narrative()
             {
                 Status = Narrative.NarrativeStatus.Generated,
-                Div = "Binary content of type " + contentType
+                Div = new XElement(XNamespace.Get(XHTMLNS) + "div",
+                            "Binary content of type " + contentType).ToString()
             };
 
             return binary;

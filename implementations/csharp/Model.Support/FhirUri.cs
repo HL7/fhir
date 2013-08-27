@@ -72,12 +72,13 @@ namespace Hl7.Fhir.Model
             if (Value.IsAbsoluteUri)
             {
                 Oid dummy; Uuid dummy2;
+                var urnValue = Value.ToString();
 
-                if (Value.ToString().StartsWith("urn:oid:") && !Oid.TryParse(Value.ToString(), out dummy))
-                    result.Add("Uri is an urn:oid, but the oid is incorrect");
+                if (urnValue.StartsWith("urn:oid:") && !Oid.TryParse(urnValue, out dummy))
+                    result.Add(String.Format("Uri is an urn:oid, but the oid {0} is incorrect",urnValue));
 
-                else if (Value.ToString().StartsWith("urn:uuid:") && !Uuid.TryParse(Value.ToString(), out dummy2))
-                    result.Add("Uri is an urn:uuid, but the uuid is incorrect");
+                else if (urnValue.StartsWith("urn:uuid:") && !Uuid.TryParse(urnValue, out dummy2))
+                    result.Add(String.Format("Uri is an urn:uuid, but the uuid {0} is incorrect", urnValue));
             }
 
             return result; 

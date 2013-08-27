@@ -151,6 +151,7 @@ namespace Hl7.Fhir.Parsers
                 insideEmptyElement = false;
                 xr.ReadStartElement();
 
+                // TODO: dit werkt dus niet bij een binary met een <text> erin. Maar mag dat wel?
                 if( xr.NodeType == XmlNodeType.Text )
                 {
                     var txt = xr.Value; 
