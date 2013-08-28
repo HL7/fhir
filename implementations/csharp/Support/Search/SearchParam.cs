@@ -39,6 +39,8 @@ using System.Text;
 
 namespace Hl7.Fhir.Support.Search
 {
+    //TODO: does this support chained parameters with modifiers?
+    //e.g. subject:patient.organization:organization?
     public class SearchParam
     {
         /// <summary>

@@ -449,6 +449,11 @@ namespace Hl7.Fhir.Client
 
             var rl = new ResourceLocation(endpoint);
 
+            // Since there is confusion between using /resource/?param, /resource?param, use
+            // the /resource/search?param instead
+            if(rl.Collection != null)
+                rl.Operation = ResourceLocation.RESTOPER_SEARCH;
+
             if( count.HasValue )
                 rl.AddParam(Util.SEARCH_PARAM_COUNT, count.Value.ToString());
 

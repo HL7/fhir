@@ -21,14 +21,6 @@ namespace Hl7.Fhir.Tests
         //Uri testEndpoint = new Uri("http://fhir.furore.com/fhir");
         Uri testEndpoint = new Uri("http://hl7connect.healthintersections.com.au/svc/fhir");
 
-        //TODO: Test create BINARY (accept header for returned body should be type sent)
-        [TestMethod]
-        public void SendBinary()
-        {
-            throw new NotImplementedException();
-        }
-
-
         [TestMethod]
         public void FetchConformance()
         {
