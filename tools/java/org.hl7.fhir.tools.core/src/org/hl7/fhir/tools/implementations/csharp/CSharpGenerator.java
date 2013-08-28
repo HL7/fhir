@@ -198,16 +198,18 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 		String parsersSupportDir = "Parsers.Support" + sl;
 		String serializersSupportDir = "Serializers.Support" + sl;
 		String supportDir = "Support" + sl;
+	//	String supportSearchDir = supportDir + "Search" + sl;
 		
 		ZipGenerator zip = new ZipGenerator(destDir + CSHARP_FILENAME);
 		zip.addFiles(implDir+modelDir, modelDir, ".cs", null);
 		zip.addFiles(implDir+parsersDir, parsersDir, ".cs", null);
 		zip.addFiles(implDir+serializersDir, serializersDir, ".cs", null);
-		zip.addFiles(implDir+modelSupportDir, modelSupportDir, ".cs", null);
-		zip.addFiles(implDir+parsersSupportDir, parsersSupportDir, ".cs", null);
-		zip.addFiles(implDir+serializersSupportDir, serializersSupportDir, ".cs", null);
-		zip.addFiles(implDir+supportDir, supportDir, ".cs", null);
-		zip.addFiles(implDir+"Client"+sl, "Client"+sl, ".cs", null);
+		zip.addFolder(implDir+modelSupportDir, modelSupportDir);
+		zip.addFolder(implDir+parsersSupportDir, parsersSupportDir);
+		zip.addFolder(implDir+serializersSupportDir, serializersSupportDir);
+		zip.addFolder(implDir+supportDir, supportDir);
+		//zip.addFiles(implDir+supportSearchDir,supportSearchDir, ".cs", null);
+		zip.addFolder(implDir+"Client"+sl, "Client"+sl);
 		zip.addFiles(implDir+"Properties" + sl, "Properties"+sl, ".cs", null);
 		zip.addFiles(implDir, "", ".csproj", null);
 		zip.addFiles(implDir, "", ".sln", null);

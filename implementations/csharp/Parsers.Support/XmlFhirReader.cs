@@ -76,13 +76,18 @@ namespace Hl7.Fhir.Parsers
             {
                 // If we have batched up attributes to provide, 
                 // provide the current attribute first
-                if (currentElementContents != null )
+                if (currentElementContents != null)
                     return currentElementContents.Item1;
 
                 // If this is the infamous xhtml div, fake that
                 // the element is actually called 'div'
                 else if (isAtXhtmlElement())
                     return XHTMLDIV_VALUE_NAME;
+
+                // If we are at a text node, this must be the special 'content' element
+                // used in binaries
+                else if (xr.NodeType == XmlNodeType.Text)
+                    return BINARY_CONTENT_NAME;
 
                 // If we're done with the attributes, return
                 // the local name of the current normal xml element
@@ -91,7 +96,7 @@ namespace Hl7.Fhir.Parsers
                 // desired parse errors for unknown elements)
                 else if (xr.NodeType == XmlNodeType.Element)
                 {
-                    if( xr.NamespaceURI == Support.Util.FHIRNS )
+                    if (xr.NamespaceURI == Support.Util.FHIRNS)
                         return xr.LocalName;
                     else
                         return String.Format("{{0}}{1}", xr.NamespaceURI, xr.LocalName);
@@ -150,14 +155,6 @@ namespace Hl7.Fhir.Parsers
             {
                 insideEmptyElement = false;
                 xr.ReadStartElement();
-
-                // TODO: dit werkt dus niet bij een binary met een <text> erin. Maar mag dat wel?
-                if( xr.NodeType == XmlNodeType.Text )
-                {
-                    var txt = xr.Value; 
-                    xr.Read();
-                    contents.Elements.Push(new Tuple<string, string>(BINARY_CONTENT_NAME, txt));
-                }
             }
             else
                 insideEmptyElement = true;
@@ -203,11 +200,14 @@ namespace Hl7.Fhir.Parsers
             // and this was such an empty element, we are ready, there are no more elements
             if (insideEmptyElement) return false;
 
+            // If we are at a text node, this is a special kind of element for Binary type,
+            // simulated as an element with name 'content'
+            if (xr.NodeType == XmlNodeType.Text) return true;
+
             // Otherwise, just check whether we are at an acceptable element
             // Note: we're not forcing this to be a FHIR element, elements from other
             // namespaces are allowed, though the parser will probably report an error
-            if (xr.NodeType == XmlNodeType.Element)
-                return true;
+            if (xr.NodeType == XmlNodeType.Element) return true;
 
             return false;
         }
@@ -226,6 +226,12 @@ namespace Hl7.Fhir.Parsers
                 var result = currentElementContents.Item2;
                 nextElementContents();
                 return result;
+            }
+            else if(xr.NodeType == XmlNodeType.Text)
+            {                                                                
+                var txt = xr.Value;
+                xr.Read();
+                return txt;
             }
             else if (isAtXhtmlElement())
             {

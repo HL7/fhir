@@ -180,12 +180,13 @@ namespace Hl7.Fhir.Support
 
             binary.Content = data;
             binary.ContentType = contentType;
-            binary.Text = new Narrative()
-            {
-                Status = Narrative.NarrativeStatus.Generated,
-                Div = new XElement(XNamespace.Get(XHTMLNS) + "div",
-                            "Binary content of type " + contentType).ToString()
-            };
+            //Note: binaries don't have Text narrative
+            //binary.Text = new Narrative()
+            //{
+            //    Status = Narrative.NarrativeStatus.Generated,
+            //    Div = new XElement(XNamespace.Get(XHTMLNS) + "div",
+            //                "Binary content of type " + contentType).ToString()
+            //};
 
             return binary;
         }
