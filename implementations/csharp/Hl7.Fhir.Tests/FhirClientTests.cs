@@ -75,6 +75,15 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
+        public void SearchDavid()
+        {
+            //Uri te = new Uri("http://hl7connect.healthintersections.com.au/svc/fhir");
+            //FhirClient client = new FhirClient(te);
+            //Bundle data = client.Search(testEndpoint,"name","int");
+            //Console.Out.WriteLine(data.Entries.Count);
+        }
+
+        [TestMethod]
         public void Search()
         {
             FhirClient client = new FhirClient(testEndpoint);

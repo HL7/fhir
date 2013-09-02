@@ -252,7 +252,7 @@ namespace Hl7.Fhir.Support
                     result = xmlParser(body, parseErrors);
                     break;
                 default:
-                    throw new FhirParseException("Cannot decode body: unrecognized content type " + format);
+                    throw new FhirParseException("Cannot decode body: unrecognized content type " + contentType);
             }
 
             if (parseErrors.Count() > 0)
