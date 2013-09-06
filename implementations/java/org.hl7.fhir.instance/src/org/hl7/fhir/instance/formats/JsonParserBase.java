@@ -44,10 +44,11 @@ import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
 
-public abstract class JsonParserBase extends ParserBase {
+public abstract class JsonParserBase extends ParserBase implements Parser {
 
   abstract protected Resource parseResource(JSONObject json) throws Exception;
 
@@ -59,8 +60,8 @@ public abstract class JsonParserBase extends ParserBase {
     JSONObject json = loadJson(input);
     ResourceOrFeed r = new ResourceOrFeed();
     
-    if (json.has("entries"))
-      r.feed = new AtomParser().parse(json);
+    if (json.has("feed"))
+      r.feed = parseAtom(json.getJSONObject("feed"));
     else  
       r.resource = parseResource(json);
     return r;    
@@ -97,5 +98,79 @@ public abstract class JsonParserBase extends ParserBase {
     res.setContent(Base64.decodeBase64(json.getString("content").getBytes()));
     return res;
   }
+
+  private AtomFeed parseAtom(JSONObject json) throws Exception {
+    AtomFeed res = new AtomFeed();
+    if (json.has("title"))
+      res.setTitle(json.getString("title"));
+    if (json.has("id"))
+      res.setId(json.getString("id"));
+    if (json.has("updated"))
+      res.setUpdated(xmlToDate(json.getString("updated")));
+    if (json.has("author")) {
+      JSONObject author = json.getJSONArray("author").getJSONObject(0);
+      if (author.has("name"))
+        res.setAuthorName(author.getString("name"));
+      if (author.has("uri"))
+        res.setAuthorUri(author.getString("uri"));
+    }
+    if (json.has("link")) {
+      JSONArray array = json.getJSONArray("link");
+      for (int i = 0; i < array.length(); i++) {
+        parseLink(res.getLinks(), array.getJSONObject(i));
+      }
+    }
+    if (json.has("category")) {
+      JSONObject cat = json.getJSONArray("category").getJSONObject(0);
+      if (cat.has("term") && cat.has("scheme") && cat.getString("scheme").equals("http://hl7.org/fhir/tag"))
+        res.getTags().put(cat.getString("term"), cat.has("label") ? cat.getString("label") : null);
+    }
+    JSONArray array = json.getJSONArray("entry");
+    for (int i = 0; i < array.length(); i++) {
+      res.getEntryList().add(parseEntry(array.getJSONObject(i)));
+    }
+    return res;  
+  }
+
+  private void parseLink(Map<String, String> links, JSONObject json) throws Exception {
+    if (json.has("href") && json.has("rel"))
+    links.put(json.getString("rel"), json.getString("href"));    
+  }
+
+  private AtomEntry parseEntry(JSONObject json) throws Exception {
+    AtomEntry res = new AtomEntry();
+    if (json.has("title"))
+      res.setTitle(json.getString("title"));
+    if (json.has("id"))
+      res.setId(json.getString("id"));
+    if (json.has("updated"))
+      res.setUpdated(xmlToDate(json.getString("updated")));
+    if (json.has("published"))
+      res.setPublished(xmlToDate(json.getString("published")));
+    if (json.has("link")) {
+      JSONArray array = json.getJSONArray("links");
+      for (int i = 0; i < array.length(); i++) {
+        parseLink(res.getLinks(), array.getJSONObject(i));
+      }
+    }
+    if (json.has("author")) {
+      JSONObject author = json.getJSONArray("author").getJSONObject(0);
+      if (author.has("name"))
+        res.setAuthorName(author.getString("name"));
+      if (author.has("uri"))
+        res.setAuthorUri(author.getString("uri"));
+    }
+    if (json.has("category")) {
+      JSONObject cat = json.getJSONArray("category").getJSONObject(0);
+      if (cat.has("term") && cat.has("scheme") && cat.getString("scheme").equals("http://hl7.org/fhir/tag"))
+        res.getTags().put(cat.getString("term"), cat.has("label") ? cat.getString("label") : null);
+    }
+    if (json.has("summary"))
+      res.setSummary(new XhtmlParser().parse(json.getString("summary"), "div").getChildNodes().get(0));
+    if (json.has("content"))
+      res.setResource(new JsonParser().parse(json.getJSONObject("content")));
+    return res;
+  }
+  
   
 }

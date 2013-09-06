@@ -16,6 +16,10 @@
     <translation lang="en">Other</translation>
   </item>
   
+  <item id="User">
+    <translation lang="en">User</translation>
+  </item>
+  
   <item id="AdverseReaction">
     <translation lang="en">AdverseReaction</translation>
   </item>
@@ -793,5 +797,14 @@
     <translation lang="en">Resources with identity "example" cannot be deleted (for testing/training purposes)</translation>
   </item>
 
+  <item id="SEARCH_SUMMARY">
+    <translation lang="en">Summary: </translation>
+  </item>
+  
+  
+  <item id="SEARCH_SUMMARY_COMMENT">
+    <translation lang="en">Return just a summary for each resource (if applicable)</translation>
+  </item>
+  
   
 </translations>

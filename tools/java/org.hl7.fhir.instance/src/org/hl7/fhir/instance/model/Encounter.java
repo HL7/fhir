@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
+// Generated on Fri, Sep 6, 2013 16:26+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -39,11 +39,11 @@ import java.util.*;
 public class Encounter extends Resource {
 
     public enum EncounterState {
-        planned, // 
-        current, // 
-        onleave, // 
-        finished, // 
-        cancelled, // 
+        planned, // The Encounter has not yet started.
+        current, // The Encounter has begun and the patient is present / the practitioner and the patient are meeting.
+        onleave, // The Encounter has begun, but the patient is temporarily on leave.
+        finished, // The Encounter has ended.
+        cancelled, // The Encounter has ended before it has begun.
         Null; // added to help the parsers
         public static EncounterState fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -105,16 +105,14 @@ public class Encounter extends Resource {
     }
 
     public enum EncounterClass {
-        inpatient, // A patient that stays overnight.
-        outpatient, // 
-        ambulatory, // 
-        emergency, // 
-        home, // 
-        field, // 
-        acute, // 
-        nonacute, // 
-        daytime, // 
-        virtual, // 
+        inpatient, // An encounter during which the patient is hospitalized and stays overnight.
+        outpatient, // An encounter during which the patient is not hospitalized overnight.
+        ambulatory, // An encounter where the patient visits the practitioner in his/her office, e.g. a G.P. visit.
+        emergency, // An encounter where the patient needs urgent care.
+        home, // An encounter where the practitioner visits the patient at his/her home.
+        field, // An encounter taking place outside the regular environment for giving care.
+        daytime, // An encounter where the patient needs more prolonged treatment or investigations than outpatients, but who do not need to stay in the hospital overnight.
+        virtual, // An encounter that takes place where the patient and practitioner do not physically meet but use electronic means for contact.
         Null; // added to help the parsers
         public static EncounterClass fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -131,10 +129,6 @@ public class Encounter extends Resource {
           return home;
         if ("field".equals(codeString))
           return field;
-        if ("acute".equals(codeString))
-          return acute;
-        if ("non-acute".equals(codeString))
-          return nonacute;
         if ("daytime".equals(codeString))
           return daytime;
         if ("virtual".equals(codeString))
@@ -149,8 +143,6 @@ public class Encounter extends Resource {
             case emergency: return "emergency";
             case home: return "home";
             case field: return "field";
-            case acute: return "acute";
-            case nonacute: return "non-acute";
             case daytime: return "daytime";
             case virtual: return "virtual";
             default: return "?";
@@ -175,10 +167,6 @@ public class Encounter extends Resource {
           return EncounterClass.home;
         if ("field".equals(codeString))
           return EncounterClass.field;
-        if ("acute".equals(codeString))
-          return EncounterClass.acute;
-        if ("non-acute".equals(codeString))
-          return EncounterClass.nonacute;
         if ("daytime".equals(codeString))
           return EncounterClass.daytime;
         if ("virtual".equals(codeString))
@@ -198,10 +186,6 @@ public class Encounter extends Resource {
         return "home";
       if (code == EncounterClass.field)
         return "field";
-      if (code == EncounterClass.acute)
-        return "acute";
-      if (code == EncounterClass.nonacute)
-        return "non-acute";
       if (code == EncounterClass.daytime)
         return "daytime";
       if (code == EncounterClass.virtual)
@@ -211,13 +195,12 @@ public class Encounter extends Resource {
     }
 
     public enum ParticipantType {
-        admitter, // 
-        discharger, // 
-        responsible, // 
-        attending, // 
-        consulting, // 
-        emergencycontact, // 
-        dischargecontact, // 
+        admitter, // The practitioner responsible for admitting a patient to a hospital or other inpatient health facility.
+        discharger, // The practitioner responsible for discharging the patient from a hospital or other inpatient health facility.
+        responsible, // The practitioner responsible for overseeing a patient's care during a patient encounter.
+        attending, // The practitioner responsible for overseeing a patient's care during a patient encounter.
+        consulting, // An advisor participating in the service by performing evaluations and making recommendations.
+        referrer, // The practitioner that referred the patient to another practitioner.
         Null; // added to help the parsers
         public static ParticipantType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -232,10 +215,8 @@ public class Encounter extends Resource {
           return attending;
         if ("consulting".equals(codeString))
           return consulting;
-        if ("emergency-contact".equals(codeString))
-          return emergencycontact;
-        if ("discharge-contact".equals(codeString))
-          return dischargecontact;
+        if ("referrer".equals(codeString))
+          return referrer;
         throw new Exception("Unknown ParticipantType code '"+codeString+"'");
         }
         public String toCode() {
@@ -245,8 +226,7 @@ public class Encounter extends Resource {
             case responsible: return "responsible";
             case attending: return "attending";
             case consulting: return "consulting";
-            case emergencycontact: return "emergency-contact";
-            case dischargecontact: return "discharge-contact";
+            case referrer: return "referrer";
             default: return "?";
           }
         }
@@ -267,10 +247,8 @@ public class Encounter extends Resource {
           return ParticipantType.attending;
         if ("consulting".equals(codeString))
           return ParticipantType.consulting;
-        if ("emergency-contact".equals(codeString))
-          return ParticipantType.emergencycontact;
-        if ("discharge-contact".equals(codeString))
-          return ParticipantType.dischargecontact;
+        if ("referrer".equals(codeString))
+          return ParticipantType.referrer;
         throw new Exception("Unknown ParticipantType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -284,17 +262,15 @@ public class Encounter extends Resource {
         return "attending";
       if (code == ParticipantType.consulting)
         return "consulting";
-      if (code == ParticipantType.emergencycontact)
-        return "emergency-contact";
-      if (code == ParticipantType.dischargecontact)
-        return "discharge-contact";
+      if (code == ParticipantType.referrer)
+        return "referrer";
       return "?";
       }
     }
 
     public class EncounterParticipantComponent extends Element {
         /**
-         * Kind of involvement of the participant.
+         * Role of participant in encounter.
          */
         protected List<Enumeration<ParticipantType>> type = new ArrayList<Enumeration<ParticipantType>>();
 
@@ -338,7 +314,7 @@ public class Encounter extends Resource {
         protected ResourceReference origin;
 
         /**
-         * Where the patient was admitted from (physician referral, transfer).
+         * Where patient was admitted from (physician referral, transfer).
          */
         protected CodeableConcept admitSource;
 
@@ -358,12 +334,12 @@ public class Encounter extends Resource {
         protected CodeableConcept diet;
 
         /**
-         * Special courtesies (vip, hospital board member).
+         * Special courtesies (VIP, board member).
          */
         protected List<CodeableConcept> specialCourtesy = new ArrayList<CodeableConcept>();
 
         /**
-         * Special arrangements (wheelchair, translator, stretcher).
+         * Wheelchair, translator, stretcher, etc.
          */
         protected List<CodeableConcept> specialArrangement = new ArrayList<CodeableConcept>();
 
@@ -373,7 +349,7 @@ public class Encounter extends Resource {
         protected ResourceReference destination;
 
         /**
-         * Disposition a patient was released into.
+         * Disposition patient released to.
          */
         protected CodeableConcept dischargeDisposition;
 
@@ -639,7 +615,7 @@ public class Encounter extends Resource {
     protected List<EncounterLocationComponent> location = new ArrayList<EncounterLocationComponent>();
 
     /**
-     * The department or team that is providing care.
+     * Department or team providing care.
      */
     protected ResourceReference serviceProvider;
 

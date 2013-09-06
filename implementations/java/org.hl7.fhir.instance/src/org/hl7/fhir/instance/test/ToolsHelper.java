@@ -39,7 +39,6 @@ import java.io.InputStream;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.hl7.fhir.instance.formats.AtomComposer;
 import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
@@ -159,7 +158,7 @@ public class ToolsHelper {
     XmlParser p = new XmlParser();
     ResourceOrFeed rf = p.parseGeneral(in);
     if (rf.getFeed() != null)
-      new AtomComposer().compose(new FileOutputStream(dest), rf.getFeed(), true);
+      new XmlComposer().compose(new FileOutputStream(dest), rf.getFeed(), true);
     else
       new XmlComposer().compose(new FileOutputStream(dest), rf.getResource(), true);
   }

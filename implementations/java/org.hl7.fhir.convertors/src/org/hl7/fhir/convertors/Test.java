@@ -12,7 +12,7 @@ public class Test {
 
 	public static final String DEF_PATH = "c:\\work\\org.hl7.fhir\\implementations\\java\\org.hl7.fhir.convertors\\samples\\";
 	public static void main(String[] args) {
-		CcdaConverter c = new CcdaConverter();
+		CCDAConverter c = new CCDAConverter();
 		try {
 			AtomFeed a = c.convert(new FileInputStream(DEF_PATH + "ccda.xml"));
 			String fx = DEF_PATH + "output.xml";
@@ -20,7 +20,7 @@ public class Test {
 			x.compose(new FileOutputStream(fx),  a,  true);
 			String fj = DEF_PATH + "output.json";
 			JsonComposer j = new JsonComposer();
-			j.compose(new FileOutputStream(fj),  a);
+			j.compose(new FileOutputStream(fj),  a, true);
 			System.out.println("done. save as "+fx+" and "+fj);
 		} catch (Exception e) {
 			e.printStackTrace();

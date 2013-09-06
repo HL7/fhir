@@ -121,7 +121,7 @@ public class DelphiCodeGenerator extends OutputStreamWriter {
         write(s+"\r\n");
       }
     }
-    if (enumDefs.size() > 0) {
+    if (enumConsts.size() > 0 || enumProcs.size() > 0) {
       
       write("Const\r\n");
       for (String s : enumConsts) {

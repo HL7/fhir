@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
+// Generated on Fri, Sep 6, 2013 16:26+1000 for FHIR v0.11
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -2423,6 +2423,19 @@ public class XmlComposer extends XmlComposerBase {
     }
   }
 
+  private void composeOther(String name, Other element) throws Exception {
+    if (element != null) {
+      composeResourceAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeResourceElements(element);
+      composeCodeableConcept("code", element.getCode());
+      composeResourceReference("subject", element.getSubject());
+      composeResourceReference("author", element.getAuthor());
+      composeDate("created", element.getCreated());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
   private void composePatient(String name, Patient element) throws Exception {
     if (element != null) {
       composeResourceAttributes(element);
@@ -2481,34 +2494,6 @@ public class XmlComposer extends XmlComposerBase {
       composeCodeableConcept("species", element.getSpecies());
       composeCodeableConcept("breed", element.getBreed());
       composeCodeableConcept("genderStatus", element.getGenderStatus());
-      xml.close(FHIR_NS, name);
-    }
-  }
-
-  private void composePicture(String name, Picture element) throws Exception {
-    if (element != null) {
-      composeResourceAttributes(element);
-      xml.open(FHIR_NS, name);
-      composeResourceElements(element);
-      composeResourceReference("subject", element.getSubject());
-      composeDateTime("dateTime", element.getDateTime());
-      composeResourceReference("operator", element.getOperator());
-      composeIdentifier("identifier", element.getIdentifier());
-      composeIdentifier("accessionNo", element.getAccessionNo());
-      composeIdentifier("studyId", element.getStudyId());
-      composeIdentifier("seriesId", element.getSeriesId());
-      composeCodeableConcept("method", element.getMethod());
-      composeResourceReference("requester", element.getRequester());
-      if (element.getModality() != null)
-        composeEnumeration("modality", element.getModality(), new Picture().new PictureTypeEnumFactory());
-      composeString("deviceName", element.getDeviceName());
-      composeInteger("height", element.getHeight());
-      composeInteger("width", element.getWidth());
-      composeInteger("bits", element.getBits());
-      composeInteger("frames", element.getFrames());
-      composeDuration("frameDelay", element.getFrameDelay());
-      composeCodeableConcept("view", element.getView());
-      composeAttachment("content", element.getContent());
       xml.close(FHIR_NS, name);
     }
   }
@@ -3182,6 +3167,25 @@ public class XmlComposer extends XmlComposerBase {
     }
   }
 
+  private void composeUser(String name, User element) throws Exception {
+    if (element != null) {
+      composeResourceAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeResourceElements(element);
+      composeHumanName("name", element.getName());
+      composeUri("provider", element.getProvider());
+      composeString("login", element.getLogin());
+      composeString("password", element.getPassword());
+      if (element.getLevel() != null)
+        composeEnumeration("level", element.getLevel(), new User().new UserLevelEnumFactory());
+      for (Contact e : element.getContact()) 
+        composeContact("contact", e);
+      for (ResourceReference e : element.getPatient()) 
+        composeResourceReference("patient", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
   private void composeValueSet(String name, ValueSet element) throws Exception {
     if (element != null) {
       composeResourceAttributes(element);
@@ -3375,10 +3379,10 @@ public class XmlComposer extends XmlComposerBase {
       composeOrderResponse("OrderResponse", (OrderResponse)resource);
     else if (resource instanceof Organization)
       composeOrganization("Organization", (Organization)resource);
+    else if (resource instanceof Other)
+      composeOther("Other", (Other)resource);
     else if (resource instanceof Patient)
       composePatient("Patient", (Patient)resource);
-    else if (resource instanceof Picture)
-      composePicture("Picture", (Picture)resource);
     else if (resource instanceof Practitioner)
       composePractitioner("Practitioner", (Practitioner)resource);
     else if (resource instanceof Procedure)
@@ -3401,6 +3405,8 @@ public class XmlComposer extends XmlComposerBase {
       composeSubstance("Substance", (Substance)resource);
     else if (resource instanceof Supply)
       composeSupply("Supply", (Supply)resource);
+    else if (resource instanceof User)
+      composeUser("User", (User)resource);
     else if (resource instanceof ValueSet)
       composeValueSet("ValueSet", (ValueSet)resource);
     else if (resource instanceof Binary)

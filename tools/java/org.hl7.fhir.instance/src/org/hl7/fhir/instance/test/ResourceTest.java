@@ -32,7 +32,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import org.hl7.fhir.instance.formats.AtomComposer;
 import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlComposer;
@@ -70,7 +69,7 @@ public class ResourceTest {
     
     out = new FileOutputStream(source.getAbsoluteFile()+".out.xml");
     if (rf.getFeed() != null) {
-      AtomComposer atom = new AtomComposer(); 
+    	XmlComposer atom = new XmlComposer(); 
       atom.compose(out, rf.getFeed(), true);
     } else {
       XmlComposer xml1 = new XmlComposer();

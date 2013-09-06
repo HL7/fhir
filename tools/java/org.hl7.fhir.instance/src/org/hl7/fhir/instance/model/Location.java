@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
+// Generated on Fri, Sep 6, 2013 16:26+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -41,17 +41,17 @@ public class Location extends Resource {
 
     public class LocationPositionComponent extends Element {
         /**
-         * Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML.
+         * Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).
          */
         protected Decimal longitude;
 
         /**
-         * Lattitude. The value domain and the interpretation are the same as for the text of the lattitude element in KML.
+         * Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).
          */
         protected Decimal latitude;
 
         /**
-         * Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML.
+         * Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).
          */
         protected Decimal altitude;
 
@@ -149,7 +149,7 @@ public class Location extends Resource {
     protected Address address;
 
     /**
-     * The absolute geographic location of the Location, expressed in a KML compatible manner.
+     * The absolute geographic location of the Location, expressed in a KML compatible manner (see notes below for KML).
      */
     protected LocationPositionComponent position;
 

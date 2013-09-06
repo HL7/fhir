@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
+// Generated on Fri, Sep 6, 2013 16:26+1000 for FHIR v0.11
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -3112,6 +3112,20 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
+  private Other parseOther(JSONObject json) throws Exception {
+    Other res = new Other();
+    parseResourceProperties(json, res);
+    if (json.has("code"))
+      res.setCode(parseCodeableConcept(json.getJSONObject("code")));
+    if (json.has("subject"))
+      res.setSubject(parseResourceReference(json.getJSONObject("subject")));
+    if (json.has("author"))
+      res.setAuthor(parseResourceReference(json.getJSONObject("author")));
+    if (json.has("created"))
+      res.setCreated(parseDate(json.getJSONObject("created")));
+    return res;
+  }
+
   private Patient parsePatient(JSONObject json) throws Exception {
     Patient res = new Patient();
     parseResourceProperties(json, res);
@@ -3219,48 +3233,6 @@ public class JsonParser extends JsonParserBase {
       res.setBreed(parseCodeableConcept(json.getJSONObject("breed")));
     if (json.has("genderStatus"))
       res.setGenderStatus(parseCodeableConcept(json.getJSONObject("genderStatus")));
-    return res;
-  }
-
-  private Picture parsePicture(JSONObject json) throws Exception {
-    Picture res = new Picture();
-    parseResourceProperties(json, res);
-    if (json.has("subject"))
-      res.setSubject(parseResourceReference(json.getJSONObject("subject")));
-    if (json.has("dateTime"))
-      res.setDateTime(parseDateTime(json.getJSONObject("dateTime")));
-    if (json.has("operator"))
-      res.setOperator(parseResourceReference(json.getJSONObject("operator")));
-    if (json.has("identifier"))
-      res.setIdentifier(parseIdentifier(json.getJSONObject("identifier")));
-    if (json.has("accessionNo"))
-      res.setAccessionNo(parseIdentifier(json.getJSONObject("accessionNo")));
-    if (json.has("studyId"))
-      res.setStudyId(parseIdentifier(json.getJSONObject("studyId")));
-    if (json.has("seriesId"))
-      res.setSeriesId(parseIdentifier(json.getJSONObject("seriesId")));
-    if (json.has("method"))
-      res.setMethod(parseCodeableConcept(json.getJSONObject("method")));
-    if (json.has("requester"))
-      res.setRequester(parseResourceReference(json.getJSONObject("requester")));
-    if (json.has("modality"))
-      res.setModality(parseEnumeration(json.getJSONObject("modality"), Picture.PictureType.Null, new Picture().new PictureTypeEnumFactory()));
-    if (json.has("deviceName"))
-      res.setDeviceName(parseString(json.getJSONObject("deviceName")));
-    if (json.has("height"))
-      res.setHeight(parseInteger(json.getJSONObject("height")));
-    if (json.has("width"))
-      res.setWidth(parseInteger(json.getJSONObject("width")));
-    if (json.has("bits"))
-      res.setBits(parseInteger(json.getJSONObject("bits")));
-    if (json.has("frames"))
-      res.setFrames(parseInteger(json.getJSONObject("frames")));
-    if (json.has("frameDelay"))
-      res.setFrameDelay(parseDuration(json.getJSONObject("frameDelay")));
-    if (json.has("view"))
-      res.setView(parseCodeableConcept(json.getJSONObject("view")));
-    if (json.has("content"))
-      res.setContent(parseAttachment(json.getJSONObject("content")));
     return res;
   }
 
@@ -4226,6 +4198,34 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
+  private User parseUser(JSONObject json) throws Exception {
+    User res = new User();
+    parseResourceProperties(json, res);
+    if (json.has("name"))
+      res.setName(parseHumanName(json.getJSONObject("name")));
+    if (json.has("provider"))
+      res.setProvider(parseUri(json.getJSONObject("provider")));
+    if (json.has("login"))
+      res.setLogin(parseString(json.getJSONObject("login")));
+    if (json.has("password"))
+      res.setPassword(parseString(json.getJSONObject("password")));
+    if (json.has("level"))
+      res.setLevel(parseEnumeration(json.getJSONObject("level"), User.UserLevel.Null, new User().new UserLevelEnumFactory()));
+    if (json.has("contact")) {
+      JSONArray array = json.getJSONArray("contact");
+      for (int i = 0; i < array.length(); i++) {
+        res.getContact().add(parseContact(array.getJSONObject(i)));
+      }
+    };
+    if (json.has("patient")) {
+      JSONArray array = json.getJSONArray("patient");
+      for (int i = 0; i < array.length(); i++) {
+        res.getPatient().add(parseResourceReference(array.getJSONObject(i)));
+      }
+    };
+    return res;
+  }
+
   private ValueSet parseValueSet(JSONObject json) throws Exception {
     ValueSet res = new ValueSet();
     parseResourceProperties(json, res);
@@ -4460,10 +4460,10 @@ public class JsonParser extends JsonParserBase {
       return parseOrderResponse(json.getJSONObject("OrderResponse"));
     else if (json.has("Organization"))
       return parseOrganization(json.getJSONObject("Organization"));
+    else if (json.has("Other"))
+      return parseOther(json.getJSONObject("Other"));
     else if (json.has("Patient"))
       return parsePatient(json.getJSONObject("Patient"));
-    else if (json.has("Picture"))
-      return parsePicture(json.getJSONObject("Picture"));
     else if (json.has("Practitioner"))
       return parsePractitioner(json.getJSONObject("Practitioner"));
     else if (json.has("Procedure"))
@@ -4486,6 +4486,8 @@ public class JsonParser extends JsonParserBase {
       return parseSubstance(json.getJSONObject("Substance"));
     else if (json.has("Supply"))
       return parseSupply(json.getJSONObject("Supply"));
+    else if (json.has("User"))
+      return parseUser(json.getJSONObject("User"));
     else if (json.has("ValueSet"))
       return parseValueSet(json.getJSONObject("ValueSet"));
     else if (json.has("Binary"))
@@ -4674,9 +4676,9 @@ public class JsonParser extends JsonParserBase {
       return true;
     if (json.has(prefix+"Organization"))
       return true;
-    if (json.has(prefix+"Patient"))
+    if (json.has(prefix+"Other"))
       return true;
-    if (json.has(prefix+"Picture"))
+    if (json.has(prefix+"Patient"))
       return true;
     if (json.has(prefix+"Practitioner"))
       return true;
@@ -4699,6 +4701,8 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"Substance"))
       return true;
     if (json.has(prefix+"Supply"))
+      return true;
+    if (json.has(prefix+"User"))
       return true;
     if (json.has(prefix+"ValueSet"))
       return true;

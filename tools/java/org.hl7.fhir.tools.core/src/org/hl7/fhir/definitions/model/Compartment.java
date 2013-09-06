@@ -45,6 +45,13 @@ public class Compartment {
   public void setMembership(String membership) {
     this.membership = membership;
   }
+  public String getPathForName(String name) {
+    for (ResourceDefn r : resources.keySet()) {
+      if (r.getName().equals(name)) 
+        return resources.get(r);
+    }
+    return "";
+  }
   
   
 }

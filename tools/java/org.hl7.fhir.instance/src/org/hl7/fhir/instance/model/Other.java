@@ -31,42 +31,30 @@ package org.hl7.fhir.instance.model;
 
 // Generated on Fri, Sep 6, 2013 16:26+1000 for FHIR v0.11
 
-import java.util.*;
-
 /**
- * A set of observations produced by a device.
+ * Other is a conformant for handling resource concepts not yet defined for FHIR or outside HL7's scope of interest.
  */
-public class DeviceObservation extends Resource {
+public class Other extends Resource {
 
     /**
-     * A code that identifies what type of device observation this is.
+     * Identifies the 'type' of resource - equivalent to the resource name for other resources.
      */
     protected CodeableConcept code;
 
     /**
-     * Identifiers assigned to this observation.
-     */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
-
-    /**
-     * Date the measurements were made.
-     */
-    protected Instant issued;
-
-    /**
-     * The subject of the measurements. Usually, but not always, this is a patient. However devices are also used to make measurements on other things as well.
+     * Identifies the patient, practitioner, device or any other resource that is the "focus" of this resoruce.
      */
     protected ResourceReference subject;
 
     /**
-     * Device that produced the results.
+     * Indicates who was responsible for creating the resource instance.
      */
-    protected ResourceReference device;
+    protected ResourceReference author;
 
     /**
-     * The actual measurements that the device produced.
+     * Identifies when the resource was first created.
      */
-    protected List<ResourceReference> measurement = new ArrayList<ResourceReference>();
+    protected Date created;
 
     public CodeableConcept getCode() { 
       return this.code;
@@ -74,28 +62,6 @@ public class DeviceObservation extends Resource {
 
     public void setCode(CodeableConcept value) { 
       this.code = value;
-    }
-
-    public List<Identifier> getIdentifier() { 
-      return this.identifier;
-    }
-
-    public Instant getIssued() { 
-      return this.issued;
-    }
-
-    public void setIssued(Instant value) { 
-      this.issued = value;
-    }
-
-    public Calendar getIssuedSimple() { 
-      return this.issued == null ? null : this.issued.getValue();
-    }
-
-    public void setIssuedSimple(Calendar value) { 
-        if (this.issued == null)
-          this.issued = new Instant();
-        this.issued.setValue(value);
     }
 
     public ResourceReference getSubject() { 
@@ -106,40 +72,52 @@ public class DeviceObservation extends Resource {
       this.subject = value;
     }
 
-    public ResourceReference getDevice() { 
-      return this.device;
+    public ResourceReference getAuthor() { 
+      return this.author;
     }
 
-    public void setDevice(ResourceReference value) { 
-      this.device = value;
+    public void setAuthor(ResourceReference value) { 
+      this.author = value;
     }
 
-    public List<ResourceReference> getMeasurement() { 
-      return this.measurement;
+    public Date getCreated() { 
+      return this.created;
     }
 
-      public DeviceObservation copy() {
-        DeviceObservation dst = new DeviceObservation();
+    public void setCreated(Date value) { 
+      this.created = value;
+    }
+
+    public String getCreatedSimple() { 
+      return this.created == null ? null : this.created.getValue();
+    }
+
+    public void setCreatedSimple(String value) { 
+      if (value == null)
+        this.created = null;
+      else {
+        if (this.created == null)
+          this.created = new Date();
+        this.created.setValue(value);
+      }
+    }
+
+      public Other copy() {
+        Other dst = new Other();
         dst.code = code == null ? null : code.copy();
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
-        dst.issued = issued == null ? null : issued.copy();
         dst.subject = subject == null ? null : subject.copy();
-        dst.device = device == null ? null : device.copy();
-        dst.measurement = new ArrayList<ResourceReference>();
-        for (ResourceReference i : measurement)
-          dst.measurement.add(i.copy());
+        dst.author = author == null ? null : author.copy();
+        dst.created = created == null ? null : created.copy();
         return dst;
       }
 
-      protected DeviceObservation typedCopy() {
+      protected Other typedCopy() {
         return copy();
       }
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.DeviceObservation;
+    return ResourceType.Other;
    }
 
 

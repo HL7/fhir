@@ -1,6 +1,7 @@
 package org.hl7.fhir.instance.model;
 
 public enum ResourceType {
+    User,
     Condition,
     Supply,
     Organization,
@@ -16,6 +17,7 @@ public enum ResourceType {
     OperationOutcome,
     Conformance,
     Media,
+    Other,
     Profile,
     DocumentReference,
     Immunization,
@@ -35,7 +37,6 @@ public enum ResourceType {
     Encounter,
     SecurityEvent,
     List,
-    Picture,
     Document,
     Message,
     FamilyHistory,
@@ -56,6 +57,8 @@ public enum ResourceType {
 
     public String getPath() {;
       switch (this) {
+    case User:
+      return "user";
     case Condition:
       return "condition";
     case Supply:
@@ -86,6 +89,8 @@ public enum ResourceType {
       return "conformance";
     case Media:
       return "media";
+    case Other:
+      return "other";
     case Profile:
       return "profile";
     case DocumentReference:
@@ -124,8 +129,6 @@ public enum ResourceType {
       return "securityevent";
     case List:
       return "list";
-    case Picture:
-      return "picture";
     case Document:
       return "document";
     case Message:

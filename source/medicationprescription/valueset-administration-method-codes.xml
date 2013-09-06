@@ -26,7 +26,7 @@
   <status value="draft"/>
   <compose>
     <include>
-      <system value="http://snomed.info"/>
+      <system value="http://snomed.info/id"/>
       <filter>
         <!-- Snomed CT - Children of SCTID: 107733003 "introduction (procedure)" " -->
         <property value="concept"/>

@@ -33,7 +33,7 @@ import org.hl7.fhir.instance.model.Substance;
 import org.hl7.fhir.instance.model.Encounter;
 import org.w3c.dom.Element;
 
-public class CcdaConverter {
+public class CCDAConverter {
 
 	private CDAUtilities cda;
 	private Element doc; 

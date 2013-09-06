@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Aug 5, 2013 12:50+1000 for FHIR v0.10
+// Generated on Fri, Sep 6, 2013 16:26+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ public class Patient extends Resource {
 
     public class ContactComponent extends Element {
         /**
-         * The nature of the relationship between the patient and the contactperson.
+         * The nature of the relationship between the patient and the contact person.
          */
         protected List<CodeableConcept> relationship = new ArrayList<CodeableConcept>();
 
