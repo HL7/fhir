@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Sep 6, 2013 16:26+1000 for FHIR v0.11
+// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -4198,34 +4198,6 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private User parseUser(JSONObject json) throws Exception {
-    User res = new User();
-    parseResourceProperties(json, res);
-    if (json.has("name"))
-      res.setName(parseHumanName(json.getJSONObject("name")));
-    if (json.has("provider"))
-      res.setProvider(parseUri(json.getJSONObject("provider")));
-    if (json.has("login"))
-      res.setLogin(parseString(json.getJSONObject("login")));
-    if (json.has("password"))
-      res.setPassword(parseString(json.getJSONObject("password")));
-    if (json.has("level"))
-      res.setLevel(parseEnumeration(json.getJSONObject("level"), User.UserLevel.Null, new User().new UserLevelEnumFactory()));
-    if (json.has("contact")) {
-      JSONArray array = json.getJSONArray("contact");
-      for (int i = 0; i < array.length(); i++) {
-        res.getContact().add(parseContact(array.getJSONObject(i)));
-      }
-    };
-    if (json.has("patient")) {
-      JSONArray array = json.getJSONArray("patient");
-      for (int i = 0; i < array.length(); i++) {
-        res.getPatient().add(parseResourceReference(array.getJSONObject(i)));
-      }
-    };
-    return res;
-  }
-
   private ValueSet parseValueSet(JSONObject json) throws Exception {
     ValueSet res = new ValueSet();
     parseResourceProperties(json, res);
@@ -4486,8 +4458,6 @@ public class JsonParser extends JsonParserBase {
       return parseSubstance(json.getJSONObject("Substance"));
     else if (json.has("Supply"))
       return parseSupply(json.getJSONObject("Supply"));
-    else if (json.has("User"))
-      return parseUser(json.getJSONObject("User"));
     else if (json.has("ValueSet"))
       return parseValueSet(json.getJSONObject("ValueSet"));
     else if (json.has("Binary"))
@@ -4701,8 +4671,6 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"Substance"))
       return true;
     if (json.has(prefix+"Supply"))
-      return true;
-    if (json.has(prefix+"User"))
       return true;
     if (json.has(prefix+"ValueSet"))
       return true;

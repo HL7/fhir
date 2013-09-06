@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Sep 6, 2013 16:26+1000 for FHIR v0.11
+// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -3167,25 +3167,6 @@ public class XmlComposer extends XmlComposerBase {
     }
   }
 
-  private void composeUser(String name, User element) throws Exception {
-    if (element != null) {
-      composeResourceAttributes(element);
-      xml.open(FHIR_NS, name);
-      composeResourceElements(element);
-      composeHumanName("name", element.getName());
-      composeUri("provider", element.getProvider());
-      composeString("login", element.getLogin());
-      composeString("password", element.getPassword());
-      if (element.getLevel() != null)
-        composeEnumeration("level", element.getLevel(), new User().new UserLevelEnumFactory());
-      for (Contact e : element.getContact()) 
-        composeContact("contact", e);
-      for (ResourceReference e : element.getPatient()) 
-        composeResourceReference("patient", e);
-      xml.close(FHIR_NS, name);
-    }
-  }
-
   private void composeValueSet(String name, ValueSet element) throws Exception {
     if (element != null) {
       composeResourceAttributes(element);
@@ -3405,8 +3386,6 @@ public class XmlComposer extends XmlComposerBase {
       composeSubstance("Substance", (Substance)resource);
     else if (resource instanceof Supply)
       composeSupply("Supply", (Supply)resource);
-    else if (resource instanceof User)
-      composeUser("User", (User)resource);
     else if (resource instanceof ValueSet)
       composeValueSet("ValueSet", (ValueSet)resource);
     else if (resource instanceof Binary)

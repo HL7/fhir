@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Sep 6, 2013 16:26+1000 for FHIR v0.11
+// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -4887,34 +4887,6 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private User parseUser(XmlPullParser xpp) throws Exception {
-    User res = new User();
-    parseResourceAttributes(xpp, res);
-    xpp.next();
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
-        res.setName(parseHumanName(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("provider")) {
-        res.setProvider(parseUri(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("login")) {
-        res.setLogin(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("password")) {
-        res.setPassword(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("level")) {
-        res.setLevel(parseEnumeration(xpp, User.UserLevel.Null, new User().new UserLevelEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("contact")) {
-        res.getContact().add(parseContact(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("patient")) {
-        res.getPatient().add(parseResourceReference(xpp));
-      } else if (!parseResourceContent(eventType, xpp, res))
-        unknownContent(xpp);
-      eventType = nextNoWhitespace(xpp);
-    }
-    xpp.next();
-    return res;
-  }
-
   private ValueSet parseValueSet(XmlPullParser xpp) throws Exception {
     ValueSet res = new ValueSet();
     parseResourceAttributes(xpp, res);
@@ -5199,8 +5171,6 @@ public class XmlParser extends XmlParserBase {
       return parseSubstance(xpp);
     else if (xpp.getName().equals("Supply"))
       return parseSupply(xpp);
-    else if (xpp.getName().equals("User"))
-      return parseUser(xpp);
     else if (xpp.getName().equals("ValueSet"))
       return parseValueSet(xpp);
     else if (xpp.getName().equals("Binary"))
@@ -5419,8 +5389,6 @@ public class XmlParser extends XmlParserBase {
       return parseSubstance(xpp);
     else if (type.equals("Supply"))
       return parseSupply(xpp);
-    else if (type.equals("User"))
-      return parseUser(xpp);
     else if (type.equals("ValueSet"))
       return parseValueSet(xpp);
     else if (type.equals("integer"))
@@ -5588,8 +5556,6 @@ public class XmlParser extends XmlParserBase {
     if (xpp.getName().equals(prefix+"Substance"))
       return true;
     if (xpp.getName().equals(prefix+"Supply"))
-      return true;
-    if (xpp.getName().equals(prefix+"User"))
       return true;
     if (xpp.getName().equals(prefix+"ValueSet"))
       return true;

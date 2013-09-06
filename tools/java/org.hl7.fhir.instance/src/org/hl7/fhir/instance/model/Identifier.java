@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 16:26+1000 for FHIR v0.11
+// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
 
 /**
  * A technical identifier - identifies some entity uniquely and unambiguously.

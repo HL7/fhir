@@ -29,13 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 16:26+1000 for FHIR v0.11
+// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
 
 public class ResourceFactory {
 
     public static Resource createResource(String name) throws Exception {
-        if ("User".equals(name))
-            return new User();
         if ("Condition".equals(name))
             return new Condition();
         if ("Supply".equals(name))

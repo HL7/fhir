@@ -1,7 +1,6 @@
 package org.hl7.fhir.instance.model;
 
 public enum ResourceType {
-    User,
     Condition,
     Supply,
     Organization,
@@ -57,8 +56,6 @@ public enum ResourceType {
 
     public String getPath() {;
       switch (this) {
-    case User:
-      return "user";
     case Condition:
       return "condition";
     case Supply:
