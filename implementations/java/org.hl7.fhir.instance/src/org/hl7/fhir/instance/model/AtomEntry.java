@@ -28,16 +28,12 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
-public class AtomEntry extends AtomBase {
+public class AtomEntry<T extends Resource> extends AtomBase {
   private boolean deleted;
   private java.util.Calendar published;
-  private Resource resource;
+  private T resource;
   private XhtmlNode summary;
   
   
@@ -47,10 +43,10 @@ public class AtomEntry extends AtomBase {
   public void setPublished(java.util.Calendar published) {
     this.published = published;
   }
-  public Resource getResource() {
+  public T getResource() {
     return resource;
   }
-  public void setResource(Resource resource) {
+  public void setResource(T resource) {
     this.resource = resource;
   }
   public XhtmlNode getSummary() {

@@ -1,6 +1,5 @@
 package org.hl7.fhir.instance.utils;
 
-import java.net.URI;
 import java.util.Map;
 
 import org.hl7.fhir.instance.model.AtomEntry;
@@ -12,22 +11,21 @@ import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceOperationComponent;
 import org.hl7.fhir.instance.model.Conformance.RestfulOperation;
-import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Narrative;
+import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
+import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.String_;
 import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
-import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.instance.model.ValueSet.FilterOperator;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.tests.XhtmlParserTests;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
@@ -42,7 +40,7 @@ public class NarrativeGenerator {
    * @param codeSystems
    * @throws Exception
    */
-  public void generate(ValueSet vs, Map<String, AtomEntry> codeSystems, Map<String, AtomEntry> valueSets) throws Exception {
+  public <T extends Resource> void generate(ValueSet vs, Map<String, AtomEntry<T>> codeSystems, Map<String, AtomEntry<T>> valueSets) throws Exception {
     XhtmlNode x = new XhtmlNode();
     x.setNodeType(NodeType.Element);
     x.setName("div");
@@ -142,7 +140,7 @@ public class NarrativeGenerator {
   }
 
 
-  private void generateComposition(XhtmlNode x, ValueSet vs, Map<String, AtomEntry> codeSystems, Map<String, AtomEntry> valueSets) throws Exception {
+  private <T extends Resource> void generateComposition(XhtmlNode x, ValueSet vs, Map<String, AtomEntry<T>> codeSystems, Map<String, AtomEntry<T>> valueSets) throws Exception {
     if (vs.getDefine() == null) {
       XhtmlNode h = x.addTag("h2");
       h.addText(vs.getNameSimple());
@@ -172,8 +170,8 @@ public class NarrativeGenerator {
     }
   }
 
-  private void AddVsRef(String value, XhtmlNode li, Map<String, AtomEntry> codeSystems, Map<String, AtomEntry> valueSets) {
-    AtomEntry vs = valueSets.get(value);
+  private <T extends Resource> void AddVsRef(String value, XhtmlNode li, Map<String, AtomEntry<T>> codeSystems, Map<String, AtomEntry<T>> valueSets) {
+    AtomEntry<T> vs = valueSets.get(value);
     if (vs == null) 
       vs = codeSystems.get(value); 
     if (vs == null)
@@ -186,10 +184,10 @@ public class NarrativeGenerator {
     }    
   }
 
-  private void genInclude(XhtmlNode ul, ConceptSetComponent inc, String type, Map<String, AtomEntry> codeSystems) throws Exception {
+  private  <T extends Resource> void genInclude(XhtmlNode ul, ConceptSetComponent inc, String type, Map<String, AtomEntry<T>> codeSystems) throws Exception {
     XhtmlNode li;
     li = ul.addTag("li");
-    AtomEntry e = codeSystems.get(inc.getSystemSimple().toString());
+    AtomEntry<T> e = codeSystems.get(inc.getSystemSimple().toString());
     
     if (inc.getCode().size() == 0 && inc.getFilter().size() == 0) { 
       li.addText(type+" all codes defined in ");
@@ -252,7 +250,7 @@ public class NarrativeGenerator {
     return null;
   }
 
-  private ValueSetDefineConceptComponent getConceptForCode(AtomEntry e, String code) {
+  private <T extends Resource> ValueSetDefineConceptComponent getConceptForCode(AtomEntry<T> e, String code) {
     if (e == null)
       return null;
     ValueSet vs = (ValueSet) e.getResource();
@@ -279,7 +277,7 @@ public class NarrativeGenerator {
     return null;
   }
 
-  private void addCsRef(ConceptSetComponent inc, XhtmlNode li, AtomEntry cs) {
+  private  <T extends Resource> void addCsRef(ConceptSetComponent inc, XhtmlNode li, AtomEntry<T> cs) {
     String ref = null;
     if (cs != null) {
       cs.getLinks().get("path");
@@ -294,14 +292,14 @@ public class NarrativeGenerator {
       li.addText(inc.getSystemSimple().toString());
   }
 
-  private String getCsRef(AtomEntry cs) {
+  private  <T extends Resource> String getCsRef(AtomEntry<T> cs) {
     String ref = cs.getLinks().get("path");
     if (Utilities.noString(ref))
       ref = cs.getLinks().get("self");
     return ref.replace("\\", "/");
   }
 
-  private boolean codeExistsInValueSet(AtomEntry cs, String code) {
+  private  <T extends Resource> boolean codeExistsInValueSet(AtomEntry<T> cs, String code) {
     ValueSet vs = (ValueSet) cs.getResource();
     for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
       if (inConcept(code, c))

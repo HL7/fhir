@@ -29,15 +29,19 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
-public class EFhirClientException extends Exception {
+public class EFhirClientException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 
-	public EFhirClientException(String string) {
-		super(string);
+	public EFhirClientException(String message) {
+		super(message);
 	}
 
-	public EFhirClientException(Exception e) {
-		super(e);
+	public EFhirClientException(Exception cause) {
+		super(cause);
+	}
+	
+	public EFhirClientException(String message, Exception cause) {
+		super(message, cause);
 	}
 
 }

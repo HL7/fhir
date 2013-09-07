@@ -29,17 +29,14 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 public class AtomFeed extends AtomBase {
 	private java.lang.Integer totalResults;
 
-	private List<AtomEntry> entryList = new ArrayList<AtomEntry>();
+	private List<AtomEntry<? extends Resource>> entryList = new ArrayList<AtomEntry<? extends Resource>>();
 
-	public List<AtomEntry> getEntryList() {
+	public List<AtomEntry<? extends Resource>> getEntryList() {
 		return entryList;
 	}
 
