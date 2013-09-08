@@ -268,7 +268,6 @@ public class ClientUtils {
 	public  static <T extends Resource>  byte[] getResourceAsByteArray(T resource, boolean pretty, boolean isJson) {
 		ByteArrayOutputStream baos = null;
 		byte[] byteArray = null;
-		//TODO: JsonComposer and XmlComposer should really implement a common interface that specify the compose methods. 
 		try {
 			baos = new ByteArrayOutputStream();
 			Composer composer = null;
@@ -278,6 +277,31 @@ public class ClientUtils {
 				composer = new XmlComposer();
 			}
 			composer.compose(baos, resource, pretty);
+			byteArray =  baos.toByteArray();
+			baos.close();
+		} catch (Exception e) {
+			try{
+				baos.close();
+			}catch(Exception ex) {
+				throw new EFhirClientException("Error closing output stream", ex);
+			}
+			throw new EFhirClientException("Error converting output stream to byte array", e);
+		}
+		return byteArray;
+	}
+	
+	public  static byte[] getFeedAsByteArray(AtomFeed feed, boolean pretty, boolean isJson) {
+		ByteArrayOutputStream baos = null;
+		byte[] byteArray = null;
+		try {
+			baos = new ByteArrayOutputStream();
+			Composer composer = null;
+			if(isJson) {
+				composer = new JsonComposer();
+			} else {
+				composer = new XmlComposer();
+			}
+			composer.compose(baos, feed, pretty);
 			byteArray =  baos.toByteArray();
 			baos.close();
 		} catch (Exception e) {

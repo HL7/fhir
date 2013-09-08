@@ -11,10 +11,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.hl7.fhir.instance.client.ClientUtils;
-import org.hl7.fhir.instance.client.ResourceFormat;
 import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.client.ResourceAddress;
+import org.hl7.fhir.instance.client.ResourceFormat;
+import org.hl7.fhir.instance.model.AdverseReaction;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Code;
@@ -25,6 +26,7 @@ import org.hl7.fhir.instance.model.DateTime;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Patient;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.ResourceReference;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -277,16 +279,27 @@ public class FHIRSimpleClientTest {
 		System.out.println(feed.getEntryList().size());
 		assertTrue(feed.getEntryList().size() > 0);
 	}
-	
-/**
 
 	@Test
-	public void testBatch() {
-		AtomFeed feed = new AtomFeed();
-		AtomFeed responseFeed = testClient.batch(feed);
+	public void testTransaction() {
+		Patient patient = buildPatient();
+		AtomEntry<Patient> createdPatientEntry = testClient.create(Patient.class, patient);
+		createdPatientEntry.getResource().setBirthDateSimple("1966-01-10");
+		ResourceReference patientReference = new ResourceReference();
+		patientReference.setTypeSimple("Patient");
+		patientReference.setReferenceSimple(createdPatientEntry.getId());
+		AdverseReaction adverseReaction = new AdverseReaction();
+		adverseReaction.setSubject(patientReference);
+		adverseReaction.setReactionDateSimple("2013-01-10");
+		adverseReaction.setDidNotOccurFlagSimple(false);
+		AtomEntry<AdverseReaction> adverseReactionEntry = testClient.create(AdverseReaction.class, adverseReaction);
+		AtomFeed batchFeed = new AtomFeed();
+		batchFeed.getEntryList().add(createdPatientEntry);
+		batchFeed.getEntryList().add(adverseReactionEntry);
+		AtomFeed responseFeed = testClient.transaction(batchFeed);
 		assertNotNull(responseFeed);
 	}
-**/	
+
 	private Patient buildPatient() {
 		Patient patient = new Patient();
 		DateTime birthday = new DateTime();

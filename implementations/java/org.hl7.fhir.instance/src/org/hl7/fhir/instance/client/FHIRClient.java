@@ -95,6 +95,6 @@ public interface FHIRClient {
 	public <T extends Resource> AtomFeed search(Class<T> resourceClass, Map<String, String> params);
 	
 	// 	Update or create a set of resources
-	public AtomFeed batch(AtomFeed batch);
+	public AtomFeed transaction(AtomFeed batch);
 	
 }

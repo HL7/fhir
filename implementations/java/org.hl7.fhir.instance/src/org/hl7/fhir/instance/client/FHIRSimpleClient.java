@@ -149,7 +149,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	@Override
 	public <T extends Resource> AtomEntry<T> create(Class<T> resourceClass, T resource) {
 		try {
-			return ClientUtils.issuePostRequest(resourceAddress.resolveGetUriFromResourceClass(resourceClass),ClientUtils.getResourceAsByteArray(resource, false, false), getPreferredResourceFormat());
+			return ClientUtils.issuePostRequest(resourceAddress.resolveGetUriFromResourceClass(resourceClass),ClientUtils.getResourceAsByteArray(resource, false, false/*TODO fix*/), getPreferredResourceFormat());
 		} catch(Exception e) {
 			throw new EFhirClientException("An error has occurred while trying to create this resource", e);
 		}
@@ -202,12 +202,9 @@ public class FHIRSimpleClient implements FHIRClient {
 	}
 
 	@Override
-	public AtomFeed batch(AtomFeed batch) {
+	public AtomFeed transaction(AtomFeed batch) {
 		try {
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//			AtomComposer composer = new AtomComposer();
-//			composer.compose(baos, batch, false);
-			return ClientUtils.postBatchRequest(resourceAddress.getBaseServiceUri(), baos.toByteArray(), getPreferredFeedFormat());
+			return ClientUtils.postBatchRequest(resourceAddress.getBaseServiceUri(), ClientUtils.getFeedAsByteArray(batch, false, false/*TODO fix*/), getPreferredFeedFormat());
 		} catch (Exception e) {
 			throw new EFhirClientException(e);
 		}
@@ -216,7 +213,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	@Override
 	public <T extends Resource> AtomEntry<OperationOutcome> validate(Class<T> resourceClass, T resource, String id) {
 		try {
-			return ClientUtils.issuePostRequest(resourceAddress.resolveValidateUri(resourceClass, id), ClientUtils.getResourceAsByteArray(resource, false, false), getPreferredResourceFormat());
+			return ClientUtils.issuePostRequest(resourceAddress.resolveValidateUri(resourceClass, id), ClientUtils.getResourceAsByteArray(resource, false, false/*TODO fix*/), getPreferredResourceFormat());
 		} catch (Exception e) {
 			throw new EFhirClientException(e);
 		}
