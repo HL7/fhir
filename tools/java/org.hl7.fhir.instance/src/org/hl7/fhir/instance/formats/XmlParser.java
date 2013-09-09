@@ -49,6 +49,15 @@ import org.xmlpull.v1.*;
 
 public class XmlParser extends XmlParserBase {
 
+  public XmlParser() {
+    super();
+  }
+
+  public XmlParser(boolean allowUnknownContent) {
+    super();
+    setAllowUnknownContent(allowUnknownContent);
+  }
+
   private boolean parseElementContent(int eventType, XmlPullParser xpp, Element res) throws Exception {
     if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("extension")) 
       res.getExtensions().add(parseExtension(xpp));

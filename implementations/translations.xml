@@ -256,6 +256,12 @@
     <!-- <translation lang="it">Identificatore duplicato nel batch: %s</translation> -->
   </item>
 
+  <item id="MSG_TRANSACTION_MISSING_ID">
+    <!-- <translation lang="du">Dubbele id in bundel: %s</translation> -->
+    <translation lang="en">Missing Identifier in transaction - and entry.id must be provided</translation>
+    <!-- <translation lang="it">Identificatore duplicato nel batch: %s</translation> -->
+  </item>
+
   <item id="MSG_TRANSACTION_PROCESSED">
     <translation lang="du">%d resources verwerkt</translation>
     <translation lang="en">%d resources processed</translation>

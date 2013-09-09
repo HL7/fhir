@@ -38,6 +38,8 @@ public class SingleTest {
   public static void main(String[] args) {
     try {
       ResourceTest r = new ResourceTest();
+      r.setSource(new File("C:\\temp\\sampleJson\\ConformanceJson.json"));
+      r.setJson(true);
       r.setSource(new File("C:\\work\\org.hl7.fhir\\build\\publish\\deviceobservation-exampleglucose.xml"));
       //       r.setSource(new File("C:\\work\\org.hl7.fhir\\build\\publish\\adversereaction-example.xml"));
 //      
