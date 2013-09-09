@@ -37,14 +37,14 @@ import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceType;
 
 /**
- * 
+ * Helper class handling lower level HTTP transport concerns.
+ * TODO Document methods.
  * @author Claude Nanjo
- * TODO Add all headers for request. Handle content negotiation, implement vRead.
- *
  */
 public class ClientUtils {
 	
@@ -196,7 +196,11 @@ public class ClientUtils {
 				try{instream.close();}catch(IOException ioe){/* TODO log error */}
 			}
 		}
-		return resource;
+		if(resource instanceof OperationOutcome) {
+			throw new EFhirClientException((OperationOutcome)resource);
+		} else {
+			return resource;
+		}
 	}
 	
 	/**
@@ -209,11 +213,17 @@ public class ClientUtils {
 		AtomFeed feed = null;
 		InputStream instream = null;
 		HttpEntity entity = response.getEntity();
+		String contentType = response.getHeaders("Content-Type")[0].getValue();
+		OperationOutcome error = null;
 		try {
 			if (entity != null) {
 			    instream = entity.getContent();
 			    //String myString = IOUtils.toString(instream, "UTF-8");
-			    feed = getParser(format).parseGeneral(instream).getFeed();
+			    if(contentType.contains(ResourceFormat.RESOURCE_XML.getHeader())) {
+			    	error = (OperationOutcome)getParser(ResourceFormat.RESOURCE_XML.getHeader()).parseGeneral(instream).getResource();
+			    } else {
+			    	feed = getParser(format).parseGeneral(instream).getFeed();
+			    }
 			    instream.close();
 			}
 		} catch(IOException ioe) {
@@ -222,6 +232,9 @@ public class ClientUtils {
 			throw new EFhirClientException("Error parsing response message", e);
 		} finally {
 			try{instream.close();}catch(IOException ioe){/* TODO log error */}
+		}
+		if(error != null) {
+			throw new EFhirClientException("Error unmarshalling feed. Refer to e.getServerErrors() for additional details", error);
 		}
 		return feed;
 	}

@@ -16,6 +16,12 @@ import org.apache.http.client.utils.URIBuilder;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceType;
 
+/**
+ * Helper class to manage FHIR Resource URIs
+ * 
+ * @author Claude Nanjo
+ *
+ */
 public class ResourceAddress {
 	
 	public static final String REGEX_ID_WITH_HISTORY = "(.*)(/@)(\\d+)(/history/)(@)(\\d)+$";

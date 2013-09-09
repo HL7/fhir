@@ -1,5 +1,11 @@
 package org.hl7.fhir.instance.client;
 
+/**
+ * Enumeration for preferred AtomFeed resource formats.
+ * 
+ * @author Claude Nanjo
+ *
+ */
 public enum FeedFormat {
     FEED_XML("application/atom+xml"),
     FEED_JSON("application/fhir+json");

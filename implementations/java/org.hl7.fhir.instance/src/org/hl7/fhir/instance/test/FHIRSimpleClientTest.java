@@ -5,12 +5,15 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.instance.client.ClientUtils;
+import org.hl7.fhir.instance.client.EFhirClientException;
 import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.client.ResourceAddress;
@@ -215,6 +218,22 @@ public class FHIRSimpleClientTest {
 	}
 	
 	@Test
+	public void testCreateWithErrors() {
+		AdverseReaction adverseReaction = new AdverseReaction();
+		adverseReaction.setReactionDateSimple("2013-01-10");
+		//adverseReaction.setDidNotOccurFlagSimple(false);
+		AtomEntry<AdverseReaction> result = null;
+		try {
+			result = testClient.create(AdverseReaction.class, adverseReaction);
+		} catch (EFhirClientException e) {
+			assertEquals(1, e.getServerErrors().size());
+		}
+		if(result != null) {
+			fail();
+		}
+	}
+	
+	@Test
 	public void testDelete() {
 		Patient patientRequest = buildPatient();
 		AtomEntry<Patient> result = testClient.create(Patient.class, patientRequest);
@@ -281,13 +300,13 @@ public class FHIRSimpleClientTest {
 	}
 
 	@Test
-	public void testTransaction() {
+	public void testTransactionSuccess() {
 		Patient patient = buildPatient();
 		AtomEntry<Patient> createdPatientEntry = testClient.create(Patient.class, patient);
 		createdPatientEntry.getResource().setBirthDateSimple("1966-01-10");
 		ResourceReference patientReference = new ResourceReference();
 		patientReference.setTypeSimple("Patient");
-		patientReference.setReferenceSimple(createdPatientEntry.getId());
+		patientReference.setReferenceSimple(createdPatientEntry.getLinks().get("self"));
 		AdverseReaction adverseReaction = new AdverseReaction();
 		adverseReaction.setSubject(patientReference);
 		adverseReaction.setReactionDateSimple("2013-01-10");
@@ -295,9 +314,29 @@ public class FHIRSimpleClientTest {
 		AtomEntry<AdverseReaction> adverseReactionEntry = testClient.create(AdverseReaction.class, adverseReaction);
 		AtomFeed batchFeed = new AtomFeed();
 		batchFeed.getEntryList().add(createdPatientEntry);
-		batchFeed.getEntryList().add(adverseReactionEntry);
+		//batchFeed.getEntryList().add(adverseReactionEntry);
 		AtomFeed responseFeed = testClient.transaction(batchFeed);
 		assertNotNull(responseFeed);
+		assert(responseFeed.getEntryList().get(0).getResource() instanceof Patient);
+	}
+	
+	@Test
+	public void testTransactionError() {
+		Patient patient = buildPatient();
+		AtomEntry<Patient> createdPatientEntry = testClient.create(Patient.class, patient);
+		createdPatientEntry.getResource().setBirthDateSimple("1966-01-10");
+		AtomFeed batchFeed = new AtomFeed();
+		batchFeed.getEntryList().add(createdPatientEntry);
+		batchFeed.getEntryList().add(createdPatientEntry);
+		AtomFeed responseFeed = null;
+		try {
+			responseFeed = testClient.transaction(batchFeed);
+		} catch(EFhirClientException e) {
+			assertEquals(1, e.getServerErrors().size());
+		}
+		if(responseFeed != null) {
+			fail();
+		}
 	}
 
 	private Patient buildPatient() {

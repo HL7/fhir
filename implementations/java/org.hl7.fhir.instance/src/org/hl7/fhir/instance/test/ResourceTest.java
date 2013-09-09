@@ -32,10 +32,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import org.hl7.fhir.instance.formats.JsonComposer;
-import org.hl7.fhir.instance.formats.JsonParser;
-import org.hl7.fhir.instance.formats.XmlComposer;
-import org.hl7.fhir.instance.formats.XmlParser;
+//import org.hl7.fhir.instance.formats.JsonComposer;
+//import org.hl7.fhir.instance.formats.JsonParser;
+//import org.hl7.fhir.instance.formats.XmlComposer;
+//import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.formats.ParserBase.ResourceOrFeed;
 import org.hl7.fhir.instance.model.Resource;
 
@@ -53,28 +53,28 @@ public class ResourceTest {
   
   public void test() throws Exception {
     
-    XmlParser xml = new XmlParser();
-    xml.setAllowUnknownContent(false);
-    ResourceOrFeed rf = xml.parseGeneral(new FileInputStream(source));
-
-    FileOutputStream out = new FileOutputStream(source.getAbsoluteFile()+".out.json");
-    JsonComposer json1 = new JsonComposer();
-    if (rf.getFeed() != null) 
-      json1.compose(out, rf.getFeed(), true);
-    else
-      json1.compose(out, rf.getResource(), true);
-
-    JsonParser json = new JsonParser();
-    rf = json.parseGeneral(new FileInputStream(source.getAbsoluteFile()+".out.json"));
-    
-    out = new FileOutputStream(source.getAbsoluteFile()+".out.xml");
-    if (rf.getFeed() != null) {
-    	XmlComposer atom = new XmlComposer(); 
-      atom.compose(out, rf.getFeed(), true);
-    } else {
-      XmlComposer xml1 = new XmlComposer();
-      xml1.compose(out, rf.getResource(), true);
-    }
+//    XmlParser xml = new XmlParser();
+//    xml.setAllowUnknownContent(false);
+//    ResourceOrFeed rf = xml.parseGeneral(new FileInputStream(source));
+//
+//    FileOutputStream out = new FileOutputStream(source.getAbsoluteFile()+".out.json");
+//    JsonComposer json1 = new JsonComposer();
+//    if (rf.getFeed() != null) 
+//      json1.compose(out, rf.getFeed(), true);
+//    else
+//      json1.compose(out, rf.getResource(), true);
+//
+//    JsonParser json = new JsonParser();
+//    rf = json.parseGeneral(new FileInputStream(source.getAbsoluteFile()+".out.json"));
+//    
+//    out = new FileOutputStream(source.getAbsoluteFile()+".out.xml");
+//    if (rf.getFeed() != null) {
+//    	XmlComposer atom = new XmlComposer(); 
+//      atom.compose(out, rf.getFeed(), true);
+//    } else {
+//      XmlComposer xml1 = new XmlComposer();
+//      xml1.compose(out, rf.getResource(), true);
+//    }
     
     
   }
