@@ -73,9 +73,6 @@ namespace Hl7.Fhir.Model
             if (Uri == null)
                 result.Add("Tag Uri cannot be null");
 
-            if (Label == null)
-                result.Add("Tag Label cannot be null");
-
             return result;
         }
 

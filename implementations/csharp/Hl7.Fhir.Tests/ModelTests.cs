@@ -276,28 +276,27 @@ namespace Hl7.Fhir.Tests
         [TestMethod]
         public void TagHeaderParsing()
         {
-            string tag1 = @"http://furore.com/tags/test1; label = yes; scheme=""http://hl7.org/fhir/tag""";
-            string tag2 = @"http://furore.com/tags/test1; scheme=""http://hl7.org/fhir/tag""; label = ""confusion"";";
+            string tag1 = @"http://furore.com/tags/test1; label = ""yes""; scheme=""http://hl7.org/fhir/tag""";
+            string tag2 = @"http://furore.com/tags/test1; scheme=""http://hl7.org/fhir/tag""; label = ""confusion, abounds - beyond!"";";
             string tag3 = @"dog; label=""Canine""; scheme=""http://purl.org/net/animals""";
 
             string tags = tag1 + ", " + tag2 + " , " + tag3;
 
-            var parsedTags = HttpUtil.ParseCategoryHeader(tag1);
-            Assert.AreEqual(1, parsedTags.Count());
-
-            parsedTags = HttpUtil.ParseCategoryHeader(tags);
+            var parsedTags = HttpUtil.ParseCategoryHeader(tags);
             Assert.AreEqual(2, parsedTags.Count());
+            
             var t1 = parsedTags.First();
             Assert.AreEqual("yes", t1.Label);
             Assert.AreEqual("http://furore.com/tags/test1", t1.Uri.ToString());
+            
             var t2 = parsedTags.Skip(1).First();
-            Assert.AreEqual(@"""confusion""", t2.Label);
+            Assert.AreEqual(@"confusion, abounds - beyond!", t2.Label);
             Assert.AreEqual("http://furore.com/tags/test1", t2.Uri.ToString());
 
             string cat = HttpUtil.BuildCategoryHeader(parsedTags);
 
-            Assert.AreEqual(@"http://furore.com/tags/test1; label=yes; scheme=""http://hl7.org/fhir/tag"", http://furore.com/tags/test1; " +
-                        @"label=""confusion""; scheme=""http://hl7.org/fhir/tag""", cat);
+            Assert.AreEqual(@"http://furore.com/tags/test1; label=""yes""; scheme=""http://hl7.org/fhir/tag"", http://furore.com/tags/test1; " +
+                        @"label=""confusion, abounds - beyond!""; scheme=""http://hl7.org/fhir/tag""", cat);
         }
 
 
@@ -308,8 +307,10 @@ namespace Hl7.Fhir.Tests
             var t2 = new Tag("http://www.nu.nl", "labeltje");
             var t3 = new Tag("http://www.nu.nl", "labeltjes");
             var t4 = new Tag("http://www.nu.nl/x", "labeltje");
+            var t5 = new Tag("http://www.nu.nl/", "labeltje");
 
             Assert.AreEqual(t1, t2);
+            Assert.AreEqual(t1, t5);
             Assert.AreNotEqual(t1, t4);
             Assert.AreNotEqual(t1, t3);
         }

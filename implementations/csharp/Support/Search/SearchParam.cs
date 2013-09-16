@@ -126,6 +126,7 @@ namespace Hl7.Fhir.Support.Search
             string name = pair[0];
             string modifier = pair.Length == 2 ? pair[1] : null;
 
+            //TODO: Don't split on , within strings
             var qryValues = qryValue.Split(',');
 
             var values = qryValues.Select(s => new UntypedParamValue(s));
