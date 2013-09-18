@@ -74,8 +74,8 @@ namespace Hl7.Fhir.Serializers
                 new XElement(BundleXmlParser.XATOMNS + BundleXmlParser.XATOM_CATEGORY) :
                 new XElement(BundleXmlParser.XFHIRNS + BundleXmlParser.XATOM_CATEGORY);
 
-            if (Util.UriHasValue(tag.Uri))
-                result.Add(new XAttribute(BundleXmlParser.XATOM_CAT_TERM, tag.Uri.ToString()));
+            if (!String.IsNullOrEmpty(tag.Term))
+                result.Add(new XAttribute(BundleXmlParser.XATOM_CAT_TERM, tag.Term));
             if (!String.IsNullOrEmpty(tag.Label))
                 result.Add(new XAttribute(BundleXmlParser.XATOM_CAT_LABEL, tag.Label));
             result.Add(new XAttribute(BundleXmlParser.XATOM_CAT_SCHEME, Tag.FHIRTAGNS));
@@ -91,8 +91,8 @@ namespace Hl7.Fhir.Serializers
             foreach (Tag tag in tagList)
             {
                 JObject jTag = new JObject();
-                if(Util.UriHasValue(tag.Uri))
-                    jTag.Add(new JProperty(BundleXmlParser.XATOM_CAT_TERM, tag.Uri.ToString()) );
+                if(!String.IsNullOrEmpty(tag.Term))
+                    jTag.Add(new JProperty(BundleXmlParser.XATOM_CAT_TERM, tag.Term) );
                 if(!String.IsNullOrEmpty(tag.Label))
                     jTag.Add(new JProperty(BundleXmlParser.XATOM_CAT_LABEL, tag.Label));
                 jTag.Add(new JProperty(BundleXmlParser.XATOM_CAT_SCHEME, Tag.FHIRTAGNS));

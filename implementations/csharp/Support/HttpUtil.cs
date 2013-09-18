@@ -73,31 +73,21 @@ namespace Hl7.Fhir.Support
         }
 
 
-
-        private static IEnumerable<string> splitNotInQuotes(char c, string value)
-        {
-            var categories = Regex.Split(value, c + "(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)")
-                                .Select(s=>s.Trim())
-                                .Where(s=>!String.IsNullOrEmpty(s));
-            return categories;
-        }
-
-
         public static IEnumerable<Tag> ParseCategoryHeader(string value)
         {
             if (String.IsNullOrEmpty(value)) return new List<Tag>();
 
             var result = new List<Tag>();
 
-            var categories = splitNotInQuotes(',', value);
+            var categories = Util.SplitNotInQuotes(',', value);
 
             foreach (var category in categories)
             {
-                var values = splitNotInQuotes(';', category);
+                var values = Util.SplitNotInQuotes(';', category);
 
                 if (values.Count() >= 1)
                 {
-                    var tagUri = values.First();
+                    var term = values.First();
 
                     var pars = values.Skip(1).Select( v =>
                         { 
@@ -107,16 +97,10 @@ namespace Hl7.Fhir.Support
                             return new Tuple<string,string>(item1,item2);
                         });
 
-                    if (pars.Any(t => t.Item1 == "scheme" && t.Item2 == "\"" + Tag.FHIRTAGNS + "\"" ))
-                    {
-                        var newTag = new Tag()
-                        {
-                            Label = pars.Where(t => t.Item1 == "label").Select(t => t.Item2.Trim('\"')).FirstOrDefault(),
-                            Uri = new Uri(tagUri, UriKind.RelativeOrAbsolute)
-                        };
-                        
-                        result.Add(newTag);
-                    }
+                    var scheme = new Uri(pars.Where(t => t.Item1 == "scheme").Select(t => t.Item2.Trim('\"')).FirstOrDefault(), UriKind.RelativeOrAbsolute);
+                    var label = pars.Where(t => t.Item1 == "label").Select(t => t.Item2.Trim('\"')).FirstOrDefault();
+                       
+                    result.Add(new Tag(term,scheme,label));
                 }
             }
 
@@ -132,12 +116,11 @@ namespace Hl7.Fhir.Support
             {                
                 StringBuilder sb = new StringBuilder();
 
-                if (Util.UriHasValue(tag.Uri))
+                if (!String.IsNullOrEmpty(tag.Term))
                 {
-                    var uri = tag.Uri.ToString();
-                    if (uri.Contains(",") || uri.Contains(";"))
+                    if (tag.Term.Contains(",") || tag.Term.Contains(";"))
                         throw new ArgumentException("Found tag containing ',' or ';' - this will produce an inparsable Category header");
-                    sb.Append(tag.Uri.ToString());
+                    sb.Append(tag.Term);
                 }
 
                 if (!String.IsNullOrEmpty(tag.Label))

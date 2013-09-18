@@ -37,6 +37,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -111,6 +112,14 @@ namespace Hl7.Fhir.Support
             string value = StringValueOrNull(elem);
 
             return String.IsNullOrEmpty(value) ? (DateTimeOffset?)null : Util.ParseIsoDateTime(value);
+        }
+
+        public static IEnumerable<string> SplitNotInQuotes(char c, string value)
+        {
+            var categories = Regex.Split(value, c + "(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)")
+                                .Select(s => s.Trim())
+                                .Where(s => !String.IsNullOrEmpty(s));
+            return categories;
         }
 
         

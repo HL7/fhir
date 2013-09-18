@@ -143,37 +143,37 @@ namespace Hl7.Fhir.Tests
 
 
 
-        [TestMethod]
-        public void LetsDoJson()
-        {
-            string xmlString =
-               @"<Patient xmlns='http://hl7.org/fhir'>
-                    <name>
-                        <use value='official' />  
-                        <given value='Regina' />
-                        <prefix value='Dr.'>
-                        <extension>
-                            <url value='http://hl7.org/fhir/profile/@iso-20190' />
-                            <valueCoding>
-                                <system value='urn:oid:2.16.840.1.113883.5.1122' />       
-                                <code value='AC' />
-                            </valueCoding>
-                        </extension>
-                        </prefix>
-                    </name>
-                    <text>
-                        <status value='generated' />
-                        <div xmlns='http://www.w3.org/1999/xhtml'>Whatever</div>
-                    </text>
-                </Patient>";
+//        [TestMethod]
+//        public void LetsDoJson()
+//        {
+//            string xmlString =
+//               @"<Patient xmlns='http://hl7.org/fhir'>
+//                    <name>
+//                        <use value='official' />  
+//                        <given value='Regina' />
+//                        <prefix value='Dr.'>
+//                        <extension>
+//                            <url value='http://hl7.org/fhir/profile/@iso-20190' />
+//                            <valueCoding>
+//                                <system value='urn:oid:2.16.840.1.113883.5.1122' />       
+//                                <code value='AC' />
+//                            </valueCoding>
+//                        </extension>
+//                        </prefix>
+//                    </name>
+//                    <text>
+//                        <status value='generated' />
+//                        <div xmlns='http://www.w3.org/1999/xhtml'>Whatever</div>
+//                    </text>
+//                </Patient>";
 
-            ErrorList list = new ErrorList();
-            Patient p = (Patient)FhirParser.ParseResourceFromXml(xmlString, list);
-            p.Name[0].GivenElement[0].Value = "Rex";
-            string json = FhirSerializer.SerializeResourceToJson(p);
+//            ErrorList list = new ErrorList();
+//            Patient p = (Patient)FhirParser.ParseResourceFromXml(xmlString, list);
+//            p.Name[0].GivenElement[0].Value = "Rex";
+//            string json = FhirSerializer.SerializeResourceToJson(p);
 
-            Debug.WriteLine(json);
-        }
+//            Debug.WriteLine(json);
+//        }
 
         [TestMethod]
         public void SummaryResource()
@@ -245,81 +245,6 @@ namespace Hl7.Fhir.Tests
         }
 
 
-        [TestMethod]
-        public void SerializeAndDeserializeTagList()
-        {
-            IList<Tag> tl = new List<Tag>();
-
-            tl.Add(new Tag { Label = "No!", Uri = new Uri("http://www.nu.nl/tags") });
-            tl.Add(new Tag { Label = "Maybe", Uri = new Uri("http://www.furore.com/tags") });
-
-            string json = FhirSerializer.SerializeTagListToJson(tl);
-            Assert.AreEqual(jsonTagList, json);
-
-            string xml = FhirSerializer.SerializeTagListToXml(tl);
-            Assert.AreEqual(xmlTagList, xml);
-
-            ErrorList errors = new ErrorList();
-            tl = FhirParser.ParseTagListFromXml(xml,errors);
-            Assert.IsTrue(errors.Count == 0, errors.ToString());
-            verifyTagList(tl);
-
-            tl = FhirParser.ParseTagListFromJson(json, errors);
-            Assert.IsTrue(errors.Count == 0, errors.ToString());
-            verifyTagList(tl);
-        }
-
-        [TestMethod]
-        public void CatchTagListParseErrors()
-        {
-            ErrorList errors = new ErrorList();
-            var tl = FhirParser.ParseTagListFromXml(xmlTagListE1, errors);
-            Assert.IsTrue(errors.Count != 0, errors.ToString());
-            errors.Clear();
-            tl = FhirParser.ParseTagListFromXml(xmlTagListE2, errors);
-            Assert.IsTrue(errors.Count != 0, errors.ToString());
-            errors.Clear();
-
-            tl = FhirParser.ParseTagListFromJson(jsonTagListE1, errors);
-            Assert.IsTrue(errors.Count != 0, errors.ToString());
-            errors.Clear();
-            tl = FhirParser.ParseTagListFromJson(jsonTagListE2, errors);
-            Assert.IsTrue(errors.Count != 0, errors.ToString());
-            errors.Clear();
-
-        }
-
-
-        private static void verifyTagList(IList<Tag> tl)
-        {
-            Assert.AreEqual(2, tl.Count);
-            Assert.AreEqual("No!", tl[0].Label);
-            Assert.AreEqual("http://www.nu.nl/tags", tl[0].Uri.ToString());
-            Assert.AreEqual("Maybe", tl[1].Label);
-            Assert.AreEqual("http://www.furore.com/tags", tl[1].Uri.ToString());
-        }
-
-        private string jsonTagList = @"{""taglist"":{""category"":[" +
-            @"{""term"":""http://www.nu.nl/tags"",""label"":""No!"",""scheme"":""http://hl7.org/fhir/tag""}," +
-            @"{""term"":""http://www.furore.com/tags"",""label"":""Maybe"",""scheme"":""http://hl7.org/fhir/tag""}]}}";
-
-        private string jsonTagListE1 = @"{""Xtaglist"":{""category"":[" +
-            @"{""term"":""http://www.nu.nl/tags"",""label"":""No!"",""scheme"":""http://hl7.org/fhir/tag""}," +
-            @"{""term"":""http://www.furore.com/tags"",""label"":""Maybe"",""scheme"":""http://hl7.org/fhir/tag""}]}}";
-        private string jsonTagListE2 = @"{""taglist"":{""Xcategory"":[" +
-            @"{""term"":""http://www.nu.nl/tags"",""label"":""No!"",""scheme"":""http://hl7.org/fhir/tag""}," +
-            @"{""term"":""http://www.furore.com/tags"",""label"":""Maybe"",""scheme"":""http://hl7.org/fhir/tag""}]}}";
-
-
-        private string xmlTagList = @"<?xml version=""1.0"" encoding=""utf-16""?><taglist xmlns=""http://hl7.org/fhir"">" +
-            @"<category term=""http://www.nu.nl/tags"" label=""No!"" scheme=""http://hl7.org/fhir/tag"" />" +
-            @"<category term=""http://www.furore.com/tags"" label=""Maybe"" scheme=""http://hl7.org/fhir/tag"" /></taglist>";
-        private string xmlTagListE1 = @"<?xml version=""1.0"" encoding=""utf-16""?><Xtaglist xmlns=""http://hl7.org/fhir"">" +
-            @"<category term=""http://www.nu.nl/tags"" label=""No!"" scheme=""http://hl7.org/fhir/tag"" />" +
-            @"<category term=""http://www.furore.com/tags"" label=""Maybe"" scheme=""http://hl7.org/fhir/tag"" /></taglist>";
-        private string xmlTagListE2 = @"<?xml version=""1.0"" encoding=""utf-16""?><taglist xmlns=""http://hl7.org/fhir"">" +
-            @"<category term=""http://www.nu.nl/tags"" label=""No!"" scheme=""http://hl7.org/fhir/tag"" />" +
-            @"<categoryX term=""http://www.furore.com/tags"" label=""Maybe"" scheme=""http://hl7.org/fhir/tag"" /></taglist>";
-
+       
     }
 }

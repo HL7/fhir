@@ -177,9 +177,9 @@ namespace Hl7.Fhir.Model
         /// </summary>
         /// <param name="tag">Tag to filter Resources on</param>
         /// <returns>A list of BundleEntries having the given tag, or an empty list if none were found.</returns>
-        public static IEnumerable<BundleEntry> ByTag(this IEnumerable<BundleEntry> bes, Uri tag, string value=null )
+        public static IEnumerable<BundleEntry> ByTag(this IEnumerable<BundleEntry> bes, string term)
         {
-            return bes.Where(be => be.Tags.HasTag(tag,value));
+            return bes.Where(be => be.Tags.FilterFhirTags().HasTag(term));
         }
 
 
@@ -189,9 +189,9 @@ namespace Hl7.Fhir.Model
         /// <typeparam name="T">Type of Resource to filter</typeparam>
         /// <param name="tag">Tag to filter Resources on</param>
         /// <returns>A list of typed ResourceEntries having the given tag, or an empty list if none were found.</returns>
-        public static IEnumerable<ResourceEntry<T>> ByTag<T>(this IEnumerable<ResourceEntry<T>> res, Uri tag, string value=null) where T : Resource, new()
+        public static IEnumerable<ResourceEntry<T>> ByTag<T>(this IEnumerable<ResourceEntry<T>> res, string term) where T : Resource, new()
         {
-            return res.Where(re => re.Tags.HasTag(tag,value));
+            return res.Where(re => re.Tags.FilterFhirTags().HasTag(term));
         }
     }
 

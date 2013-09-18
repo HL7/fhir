@@ -664,8 +664,10 @@ namespace Hl7.Fhir.Client
             rl.VersionId = version;
 
             var data = HttpUtil.TagListBody(tags, PreferredFormat);
+            
             var req = createRequest(rl.ToUri(), true);
             req.Method = "POST";
+            req.ContentType = ContentType.BuildContentType(PreferredFormat, false);
             prepareRequest(req, data);
 
             return doRequest(req, HttpStatusCode.OK, () => tagListFromResponse());
@@ -687,6 +689,7 @@ namespace Hl7.Fhir.Client
             var data = HttpUtil.TagListBody(tags, PreferredFormat);
             var req = createRequest(rl.ToUri(), true);
             req.Method = "DELETE";
+            req.ContentType = ContentType.BuildContentType(PreferredFormat, false);
             prepareRequest(req, data);
 
             doRequest(req, HttpStatusCode.OK, () => true);

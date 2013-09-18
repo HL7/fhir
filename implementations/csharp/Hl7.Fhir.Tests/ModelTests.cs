@@ -207,26 +207,6 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
-        public void TagSearching()
-        {
-            IList<Tag> tl = new List<Tag>();
-
-            tl.Add( new Tag("http://nu.nl", "v1" ) );
-            tl.Add(new Tag("http://nu.nl", "v2"));
-            tl.Add(new Tag("http://dan.nl", "v3"));
-
-            Assert.IsFalse(tl.HasTag("http://straks.nl"));
-            Assert.IsFalse(tl.HasTag("http://nu.nl", "v3" ));
-            Assert.IsTrue(tl.HasTag("http://dan.nl"));
-            Assert.IsTrue(tl.HasTag("http://dan.nl", "v3"));
-
-            Assert.AreEqual(0, tl.FindByUri("http://dan.nl", "v2").Count());
-            Assert.AreEqual(1, tl.FindByUri("http://dan.nl", "v3").Count());
-            Assert.AreEqual(1, tl.FindByUri("http://nu.nl", "v1").Count());
-            Assert.AreEqual(2, tl.FindByUri("http://nu.nl").Count());
-        }
-
-        [TestMethod]
         public void TypedResourceEntry()
         {
             var pe = new ResourceEntry<Patient>();
@@ -272,50 +252,5 @@ namespace Hl7.Fhir.Tests
             Assert.IsNotNull(ur.BySelfLink(new Uri("http://x.com/@1/history/@1")));
             Assert.IsNotNull(rl.BySelfLink(new Uri("http://x.com/@2/history/@2")));
         }
-
-        [TestMethod]
-        public void TagHeaderParsing()
-        {
-            string tag1 = @"http://furore.com/tags/test1; label = ""yes""; scheme=""http://hl7.org/fhir/tag""";
-            string tag2 = @"http://furore.com/tags/test1; scheme=""http://hl7.org/fhir/tag""; label = ""confusion, abounds - beyond!"";";
-            string tag3 = @"dog; label=""Canine""; scheme=""http://purl.org/net/animals""";
-
-            string tags = tag1 + ", " + tag2 + " , " + tag3;
-
-            var parsedTags = HttpUtil.ParseCategoryHeader(tags);
-            Assert.AreEqual(2, parsedTags.Count());
-            
-            var t1 = parsedTags.First();
-            Assert.AreEqual("yes", t1.Label);
-            Assert.AreEqual("http://furore.com/tags/test1", t1.Uri.ToString());
-            
-            var t2 = parsedTags.Skip(1).First();
-            Assert.AreEqual(@"confusion, abounds - beyond!", t2.Label);
-            Assert.AreEqual("http://furore.com/tags/test1", t2.Uri.ToString());
-
-            string cat = HttpUtil.BuildCategoryHeader(parsedTags);
-
-            Assert.AreEqual(@"http://furore.com/tags/test1; label=""yes""; scheme=""http://hl7.org/fhir/tag"", http://furore.com/tags/test1; " +
-                        @"label=""confusion, abounds - beyond!""; scheme=""http://hl7.org/fhir/tag""", cat);
-        }
-
-
-        [TestMethod]
-        public void TagEquality()
-        {
-            var t1 = new Tag("http://www.nu.nl", "labeltje");
-            var t2 = new Tag("http://www.nu.nl", "labeltje");
-            var t3 = new Tag("http://www.nu.nl", "labeltjes");
-            var t4 = new Tag("http://www.nu.nl/x", "labeltje");
-            var t5 = new Tag("http://www.nu.nl/", "labeltje");
-
-            Assert.AreEqual(t1, t2);
-            Assert.AreEqual(t1, t5);
-            Assert.AreNotEqual(t1, t4);
-            Assert.AreNotEqual(t1, t3);
-        }
-
-
-
     }
 }

@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="BundleTests.cs" />
     <Compile Include="CompositeParserTests.cs" />
+    <Compile Include="TagTests.cs" />
     <Compile Include="SearchParamTests.cs" />
     <Compile Include="ResourceLocationTests.cs" />
     <Compile Include="FhirClientTests.cs" />

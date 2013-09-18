@@ -108,15 +108,10 @@ namespace Hl7.Fhir.Parsers
                 foreach (var tag in tags)
                 {
                     var scheme = Util.StringValueOrNull(tag.Attribute(BundleXmlParser.XATOM_CAT_SCHEME));
+                    var term = Util.StringValueOrNull(tag.Attribute(BundleXmlParser.XATOM_CAT_TERM));
+                    var label = Util.StringValueOrNull(tag.Attribute(BundleXmlParser.XATOM_CAT_LABEL));
 
-                    if (scheme == Tag.FHIRTAGNS)
-                    {
-                        result.Add(new Tag
-                        {
-                            Uri = Util.UriValueOrNull(tag.Attribute(BundleXmlParser.XATOM_CAT_TERM)),
-                            Label = Util.StringValueOrNull(tag.Attribute(BundleXmlParser.XATOM_CAT_LABEL))
-                        });
-                    }
+                    result.Add(new Tag(term,scheme,label));
                 }
             }
 
@@ -134,15 +129,10 @@ namespace Hl7.Fhir.Parsers
                 foreach (var tag in tags)
                 {
                     var scheme = tag.Value<string>(BundleXmlParser.XATOM_CAT_SCHEME);
-
-                    if (scheme == Tag.FHIRTAGNS)
-                    {
-                        result.Add(new Tag
-                        {
-                            Uri = Util.UriValueOrNull(tag[BundleXmlParser.XATOM_CAT_TERM]),
-                            Label = tag.Value<string>(BundleXmlParser.XATOM_CAT_LABEL)
-                        });
-                    }
+                    var term = tag.Value<string>(BundleXmlParser.XATOM_CAT_TERM);
+                    var label = tag.Value<string>(BundleXmlParser.XATOM_CAT_LABEL);
+                    
+                    result.Add(new Tag(term,scheme,label));
                 }
             }
 
