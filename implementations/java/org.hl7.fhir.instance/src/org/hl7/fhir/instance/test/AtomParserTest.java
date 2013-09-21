@@ -5,10 +5,12 @@ import static org.junit.Assert.fail;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 import org.hl7.fhir.instance.formats.ParserBase.ResourceOrFeed;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.MedicationPrescription;
+import org.hl7.fhir.instance.model.Resource;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -23,6 +25,7 @@ public class AtomParserTest {
 	private String filepathResourcePretty = "C:\\cnanjo\\repository\\fhirTestInstances\\containedResource_pretty.xml";
 	private String filepathFeedNotPretty = "C:\\cnanjo\\repository\\fhirTestInstances\\containedFeed_notpretty.xml";
 	private String filepathFeedPretty = "C:\\cnanjo\\repository\\fhirTestInstances\\containedFeed_pretty.xml";
+	private String itemPath = "C:/cnanjo/repository/fhir/trunk/build/publish/examples/diagnosticreport-examples-lab-text.xml";
 	private XmlParser parser = null;
 
 	@BeforeClass
@@ -41,7 +44,28 @@ public class AtomParserTest {
 	@After
 	public void tearDown() throws Exception {
 	}
+	
+	@Test
+	public void validateParserAgainstResourceSet() {
+		File dir = new File("C:/cnanjo/repository/fhir/trunk/build/publish/examples");
+		try {
+			for(File file : dir.listFiles()) {
+				parseFile(file);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
 
+	@Test
+	public void testItem() {
+		ResourceOrFeed r = parseFile(itemPath);
+		Resource p = r.getResource();
+		//System.out.println("|"+p.getStatusSimple()+"|");
+		//assertTrue(p.getStatusSimple().toString().equals("active"));
+	}
+	
 	@Test
 	public void testResourceNotPretty() {
 		ResourceOrFeed r = parseFile(filepathResourceNotPretty);
@@ -83,15 +107,25 @@ public class AtomParserTest {
 	private ResourceOrFeed parseFile(String fileName) {
 		try {
 			file = new File(fileName);
-			FileInputStream fis = new FileInputStream(file);
-			ResourceOrFeed resourceOrFeed = parser.parseGeneral(fis);
-			assertTrue(true);
-			return resourceOrFeed;
+			return parseFile(file);
 		} catch(Exception e) {
 			e.printStackTrace();
 			fail("Error Thrown");
 		}
 		return null;
+	}
+
+	/**
+	 * @return
+	 * @throws FileNotFoundException
+	 * @throws Exception
+	 */
+	private ResourceOrFeed parseFile(File file) throws FileNotFoundException, Exception {
+		System.out.println(file.getName());
+		FileInputStream fis = new FileInputStream(file);
+		ResourceOrFeed resourceOrFeed = parser.parseGeneral(fis);
+		assertTrue(true);
+		return resourceOrFeed;
 	}
 
 }
