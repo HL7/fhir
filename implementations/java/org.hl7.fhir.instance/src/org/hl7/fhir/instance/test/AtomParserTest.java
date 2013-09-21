@@ -21,11 +21,11 @@ import org.junit.Test;
 public class AtomParserTest {
 	
 	private File file = null;
-	private String filepathResourceNotPretty = "C:\\cnanjo\\repository\\fhirTestInstances\\containedResource_notpretty.xml";
-	private String filepathResourcePretty = "C:\\cnanjo\\repository\\fhirTestInstances\\containedResource_pretty.xml";
-	private String filepathFeedNotPretty = "C:\\cnanjo\\repository\\fhirTestInstances\\containedFeed_notpretty.xml";
-	private String filepathFeedPretty = "C:\\cnanjo\\repository\\fhirTestInstances\\containedFeed_pretty.xml";
-	private String itemPath = "C:/cnanjo/repository/fhir/trunk/build/publish/examples/diagnosticreport-examples-lab-text.xml";
+	private String filepathResourceNotPretty = "/home/jmandel/smart/fhir/build/fixtures/containedResource_notpretty.xml";
+	private String filepathResourcePretty = "/home/jmandel/smart/fhir/build/fixtures/containedResource_pretty.xml";
+	private String filepathFeedNotPretty = "/home/jmandel/smart/fhir/build/fixtures/containedFeed_notpretty.xml";
+	private String filepathFeedPretty = "/home/jmandel/smart/fhir/build/fixtures/containedFeed_pretty.xml";
+	private String itemPath = "/home/jmandel/smart/fhir/build/publish/examples/diagnosticreport-examples-lab-text.xml";
 	private XmlParser parser = null;
 
 	@BeforeClass
@@ -47,7 +47,7 @@ public class AtomParserTest {
 	
 	@Test
 	public void validateParserAgainstResourceSet() {
-		File dir = new File("C:/cnanjo/repository/fhir/trunk/build/publish/examples");
+		File dir = new File("/home/jmandel/smart/fhir/build/publish/examples");
 		try {
 			for(File file : dir.listFiles()) {
 				parseFile(file);

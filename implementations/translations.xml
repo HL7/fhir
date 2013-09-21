@@ -605,7 +605,7 @@
 
   <item id="MSG_WRONG_NS">
     <translation lang="du">Dit lijkt geen FHIR resource of een atomfeed te zijn (verkeerde namespace "%s")</translation>
-    <translation lang="en">This does not appear to be a FHIR resource or an atom feed (wrong namespace "%s")</translation>
+    <translation lang="en">This does not appear to be a FHIR element, resource or atom feed (wrong namespace "%s")</translation>
     <translation lang="it">Questa non sembra essere una risorsa FHIR o un atom feed (namespace errato: "%s")</translation>
   </item>
 

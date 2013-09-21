@@ -40,7 +40,7 @@ public class NarrativeGenerator {
    * @param codeSystems
    * @throws Exception
    */
-  public <T extends Resource> void generate(ValueSet vs, Map<String, AtomEntry<T>> codeSystems, Map<String, AtomEntry<T>> valueSets) throws Exception {
+  public void generate(ValueSet vs, Map<String, AtomEntry<? extends Resource>> codeSystems, Map<String, AtomEntry<? extends Resource>> valueSets) throws Exception {
     XhtmlNode x = new XhtmlNode();
     x.setNodeType(NodeType.Element);
     x.setName("div");
@@ -140,7 +140,7 @@ public class NarrativeGenerator {
   }
 
 
-  private <T extends Resource> void generateComposition(XhtmlNode x, ValueSet vs, Map<String, AtomEntry<T>> codeSystems, Map<String, AtomEntry<T>> valueSets) throws Exception {
+  private void generateComposition(XhtmlNode x, ValueSet vs, Map<String, AtomEntry<? extends Resource>> codeSystems, Map<String, AtomEntry<? extends Resource>> valueSets) throws Exception {
     if (vs.getDefine() == null) {
       XhtmlNode h = x.addTag("h2");
       h.addText(vs.getNameSimple());
@@ -170,8 +170,9 @@ public class NarrativeGenerator {
     }
   }
 
-  private <T extends Resource> void AddVsRef(String value, XhtmlNode li, Map<String, AtomEntry<T>> codeSystems, Map<String, AtomEntry<T>> valueSets) {
-    AtomEntry<T> vs = valueSets.get(value);
+  private void AddVsRef(String value, XhtmlNode li, Map<String, AtomEntry<? extends Resource>> codeSystems, Map<String, AtomEntry<? extends Resource>> valueSets) {
+
+    AtomEntry<? extends Resource> vs = valueSets.get(value);
     if (vs == null) 
       vs = codeSystems.get(value); 
     if (vs == null)
@@ -184,10 +185,10 @@ public class NarrativeGenerator {
     }    
   }
 
-  private  <T extends Resource> void genInclude(XhtmlNode ul, ConceptSetComponent inc, String type, Map<String, AtomEntry<T>> codeSystems) throws Exception {
+  private  void genInclude(XhtmlNode ul, ConceptSetComponent inc, String type, Map<String, AtomEntry<? extends Resource>> codeSystems) throws Exception {
     XhtmlNode li;
     li = ul.addTag("li");
-    AtomEntry<T> e = codeSystems.get(inc.getSystemSimple().toString());
+    AtomEntry<? extends Resource> e = codeSystems.get(inc.getSystemSimple().toString());
     
     if (inc.getCode().size() == 0 && inc.getFilter().size() == 0) { 
       li.addText(type+" all codes defined in ");
