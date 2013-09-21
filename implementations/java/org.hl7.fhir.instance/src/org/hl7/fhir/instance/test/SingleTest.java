@@ -39,12 +39,13 @@ public class SingleTest {
     try {
       ResourceTest r = new ResourceTest();
       r.setSource(new File("C:\\temp\\sampleJson\\ConformanceJson.json"));
-      r.setJson(true);
+//      r.setJson(true);
      // r.setSource(new File("C:\\work\\org.hl7.fhir\\build\\publish\\deviceobservation-exampleglucose.xml"));
       //       r.setSource(new File("C:\\work\\org.hl7.fhir\\build\\publish\\adversereaction-example.xml"));
 //      
 //      r.setSource(new File("C:\\work\\org.hl7.fhir\\publish\\diagnosticreport-examples-lab-text.xml"));
 //      r.setSource(new File("C:\\temp\\fhir\\xdsentry2-batch-example.xml"));
+      r.setSource(new File("C:\\temp\\richard-text.xml"));
       r.test();
       System.out.println("Completed OK");
     } catch (Exception e) {

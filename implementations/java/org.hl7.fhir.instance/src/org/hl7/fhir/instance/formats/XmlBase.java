@@ -90,10 +90,9 @@ public class XmlBase {
   protected void skipElementWithContent(XmlPullParser xpp)  throws Exception {
   	// when this is called, we are pointing an element that may have content
     while (xpp.getEventType() != XmlPullParser.END_TAG) {
+  		xpp.next();
     	if (xpp.getEventType() == XmlPullParser.START_TAG) 
     		skipElementWithContent(xpp);
-    	else 
-    		xpp.next();
     }
     xpp.next();
   }

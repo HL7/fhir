@@ -174,7 +174,7 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
         res.setTotalResults(parseInt(xpp));
       }
       else
-        throw new Exception("Bad Xml parsing Atom Feed");
+        skipElementWithContent(xpp);
       eventType = nextNoWhitespace(xpp);
     }
 

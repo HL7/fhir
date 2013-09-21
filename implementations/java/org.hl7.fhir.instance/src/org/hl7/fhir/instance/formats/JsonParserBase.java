@@ -144,7 +144,7 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
     if (json.has("published"))
       res.setPublished(xmlToDate(json.getString("published")));
     if (json.has("link")) {
-      JSONArray array = json.getJSONArray("links");
+      JSONArray array = json.getJSONArray("link");
       for (int i = 0; i < array.length(); i++) {
         parseLink(res.getLinks(), array.getJSONObject(i));
       }
