@@ -223,7 +223,9 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
         res.setResource((T)p.parse(xpp));//TODO Refactor architecture to eliminate this unsafe cast and better support generics
         xpp.next();
         nextNoWhitespace(xpp);
-        xpp.next();
+        if (xpp.getName() == null){
+        	xpp.next();
+        }
         
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("summary")) {
         xpp.next();
