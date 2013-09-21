@@ -11,9 +11,51 @@
    dutch: Ewout, Alexander
    italian: origama
 
+   MSG_UNKNOWN_COMPARTMENT
+   
 -->
   <item id="Other">
     <translation lang="en">Other</translation>
+  </item>
+  
+  <item id="GeneticAnalysis">
+    <translation lang="en">GeneticAnalysis</translation>
+  </item>
+
+  <item id="Microarray">
+    <translation lang="en">Microarray</translation>
+  </item>
+
+  <item id="Sequence">
+    <translation lang="en">Sequence</translation>
+  </item>
+
+  <item id="GeneExpression">
+    <translation lang="en">GeneExpression</translation>
+  </item>
+
+  <item id="GVFMeta">
+    <translation lang="en">GVFMeta</translation>
+  </item>
+
+  <item id="VCFVariant">
+    <translation lang="en">VCFVariant</translation>
+  </item>
+
+  <item id="VCFMeta">
+    <translation lang="en">VCFMeta</translation>
+  </item>
+
+  <item id="GVFVariant">
+    <translation lang="en">GVFVariant</translation>
+  </item>
+
+  <item id="SequencingLab">
+    <translation lang="en">SeuencingLab</translation>
+  </item>
+
+  <item id="SequencingAnalysis">
+    <translation lang="en">SeuencingAnalysis</translation>
   </item>
   
   <item id="User">
@@ -520,9 +562,9 @@
   </item>
 
   <item id="MSG_UNKNOWN_CONTENT">
-    <translation lang="du">Onbekende content (%s)</translation>
-    <translation lang="en">Unknown Content (%s)</translation>
-    <translation lang="it">Contenuto Sconosciuto (%s)</translation>
+    <translation lang="du">Onbekende content (%s) at %s</translation>
+    <translation lang="en">Unknown Content (%s) at %s</translation>
+    <translation lang="it">Contenuto Sconosciuto (%s) at %s</translation>
   </item>
 
   <item id="MSG_UNKNOWN_OPERATION">
@@ -585,10 +627,8 @@
     <translation lang="it">Primo</translation>
   </item>
 
-  <item id="NAME_GENERAL_UPLOAD">
-    <translation lang="du">Algemene upload</translation>
-    <translation lang="en">General Upload</translation>
-    <translation lang="it">Upload Generale</translation>
+  <item id="NAME_UPLOAD_SERVICES">
+    <translation lang="en">Upload Services</translation>
   </item>
 
   <item id="NAME_HISTORY">

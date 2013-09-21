@@ -25013,7 +25013,7 @@
       <item id="1" code="SUP" desc="Supernatant"/>
     </version>
   </table>
-  <table id="373" state="exclude">
+  <table id="373" state="include">
     <version version="2.4" desc="Treatment">
       <item id="4" code="ACID" desc="Acidification"/>
       <item id="6" code="ALK" desc="Alkalization"/>

@@ -647,6 +647,13 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 				write(indent+"public List<"+tn+"> get"+getTitle(getElementName(e.getName(), false))+"() { \r\n");
 			write(indent+"  return this."+getElementName(e.getName(), true)+";\r\n");
 			write(indent+"}\r\n");
+      write("\r\n");
+      write("    // syntactic sugar\r\n");
+			write(indent+"public "+tn+" add"+getTitle(getElementName(e.getName(), false))+"() { \r\n");
+      write(indent+"  "+tn+" t = new "+tn+"();\r\n");
+      write(indent+"  this."+getElementName(e.getName(), true)+".add(t);\r\n");
+      write(indent+"  return t;\r\n");
+			write(indent+"}\r\n");
 			write("\r\n");
 		} else {
 			write(indent+"public "+tn+" get"+getTitle(getElementName(e.getName(), false))+"() { \r\n");

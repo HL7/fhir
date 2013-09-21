@@ -228,6 +228,13 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("\r\n");
     write("public class XmlParser extends XmlParserBase {\r\n");
     write("\r\n");
+    write("  public XmlParser() {\r\n");
+    write("    super();\r\n");
+    write("  }\r\n\r\n");
+    write("  public XmlParser(boolean allowUnknownContent) {\r\n");
+    write("    super();\r\n");
+    write("    setAllowUnknownContent(allowUnknownContent);\r\n");
+    write("  }\r\n\r\n");
   }
 
 
