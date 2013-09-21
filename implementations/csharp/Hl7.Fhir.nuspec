@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Hl7.Fhir</id>
-    <version>0.9.2-rc</version>
+    <version>0.9.3</version>
     <authors>Ewout Kramer</authors>
     <owners>Hl7 International</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
