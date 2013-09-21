@@ -1,0 +1,5 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<p>This resource describes a single fragment (feature) within a GVF file. The resource is structured in a way similar with the format of the GVF format while grouping attributes whose scopes are individual together </p>
+
+</div>

@@ -104,7 +104,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="51" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="62" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="140.25"/>
@@ -318,6 +318,50 @@
     <Cell><Data ss:Type="String">Encounter</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">User</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">GVFVariant</Data></Cell>
+    <Cell><Data ss:Type="String">subject.patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">GVFMeta</Data></Cell>
+    <Cell><Data ss:Type="String">subject.patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SequencingAnalysis</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Microarray</Data></Cell>
+    <Cell><Data ss:Type="String">subject.patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Sequence</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">VCFVariant</Data></Cell>
+    <Cell><Data ss:Type="String">subject.patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">GeneticAnalysis</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell><Data ss:Type="String">author</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">GeneExpression</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">VCFMeta</Data></Cell>
+    <Cell><Data ss:Type="String">subject.patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SequencingLab</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -332,11 +376,11 @@
     <VerticalResolution>0</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>15</TopRowVisible>
+   <TopRowVisible>23</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>44</ActiveRow>
+     <ActiveRow>60</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

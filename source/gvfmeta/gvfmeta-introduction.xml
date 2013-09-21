@@ -1,0 +1,6 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<p>This resource encapsulates data from a GVF file's pragmas.</p>
+<p>To conform to FHIR's naming rules, pragmas' names that contain multitple words are re-fomatted with camel cases instead of linked by hyphens as done in GVF files.</p>
+
+</div>

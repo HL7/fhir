@@ -1,0 +1,61 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      This value set includes a smattering of ISO tooth surface codes.
+    </div>
+  </text>
+  <name value="Surface Codes"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set includes a smattering of FDI tooth surface codes."/>
+  <status value="draft"/>
+  <compose>
+    <define>
+	<system value="urn:ISO-3950"/>
+	<code value="0"/>
+	<code value="1"/>
+	<code value="2"/>
+	<code value="3"/>
+	<code value="4"/>
+	<code value="5"/>
+	<code value="11"/>
+	<code value="12"/>
+	<code value="13"/>
+	<code value="14"/>
+	<code value="15"/>
+	<code value="16"/>
+	<code value="17"/>
+	<code value="18"/>
+	<code value="21"/>
+	<code value="22"/>
+	<code value="23"/>
+	<code value="24"/>
+	<code value="25"/>
+	<code value="26"/>
+	<code value="27"/>
+	<code value="28"/>
+	<code value="31"/>
+	<code value="32"/>
+	<code value="33"/>
+	<code value="34"/>
+	<code value="35"/>
+	<code value="36"/>
+	<code value="37"/>
+	<code value="38"/>
+	<code value="41"/>
+	<code value="42"/>
+	<code value="43"/>
+	<code value="44"/>
+	<code value="45"/>
+	<code value="46"/>
+	<code value="47"/>
+	<code value="48"/>
+	</define>
+  </compose>
+</ValueSet>
+
