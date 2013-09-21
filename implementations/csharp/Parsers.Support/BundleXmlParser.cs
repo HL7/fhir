@@ -73,13 +73,12 @@ namespace Hl7.Fhir.Parsers
         public static string ATOM_CATEGORY_RESOURCETYPE_NS = "http://hl7.org/fhir/resource-types";
         public static string ATOMPUB_TOMBSTONES_NS = "http://purl.org/atompub/tombstones/1.0";
         public static string ATOMPUB_NS = "http://www.w3.org/2005/Atom";
-        public static string OPENSEARCH_NS = "http://a9.com/-/spec/opensearch/1.1";
+        public static string OPENSEARCH_NS = "http://a9.com/-/spec/opensearch/1.1/";
 
         public static readonly XNamespace XATOMNS = ATOMPUB_NS;
         public static readonly XNamespace XTOMBSTONE = ATOMPUB_TOMBSTONES_NS;
         public static readonly XNamespace XFHIRNS = Util.FHIRNS;
         public static readonly XNamespace XOPENSEARCHNS = OPENSEARCH_NS;
-
 
 
         internal static Bundle Load(XmlReader reader, ErrorList errors)

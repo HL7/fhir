@@ -10,6 +10,7 @@ using System.Xml.Linq;
 using System.IO;
 using Hl7.Fhir.Support;
 using Newtonsoft.Json;
+using Hl7.Fhir.Serializers;
 
 
 namespace Hl7.Fhir.Tests
@@ -65,6 +66,32 @@ namespace Hl7.Fhir.Tests
             Assert.IsTrue(result.Div != null);
         }
 
+
+        [TestMethod]
+        public void JsonDivZonderNamespace()
+        {
+            string jsonString = "{ \"testNarrative\" : {" +
+                "\"status\" : { \"value\" : \"generated\" }, " +
+                "\"div\" : " +
+                "\"<div>Whatever</div>\" } }";
+
+            var errors = new ErrorList();
+            var result = (Narrative)FhirParser.ParseElementFromJson(jsonString, errors);
+            var xml = FhirSerializer.SerializeElementAsXml(result, "testNarrative");
+            Assert.IsTrue(xml.Contains("w3.org/1999/xhtml"));
+
+            jsonString = "{ \"testNarrative\" : {" +
+             "\"status\" : { \"value\" : \"generated\" }, " +
+             "\"div\" : " +
+             "\"<div xmlns='http://www.w3.org/1999/xhtml'>Whatever</div>\" } }";
+
+            errors.Clear();
+            result = (Narrative)FhirParser.ParseElementFromJson(jsonString, errors);
+            xml = FhirSerializer.SerializeElementAsXml(result, "testNarrative");
+            Assert.IsTrue(xml.Contains("w3.org/1999/xhtml"));
+        }
+
+      
 
         [TestMethod]
         public void BinaryParsing()
@@ -301,6 +328,17 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
+        public void TestDavidMessage()
+        {
+            var xml = File.ReadAllText(@"c:\temp\forEwout.xml");
+
+            var errors = new ErrorList();
+            
+            var result = FhirParser.ParseBundleFromXml(xml, errors);
+        }
+
+
+        [TestMethod]
         public void ParsePerformance()
         {
             //string file = @"..\..\..\loinc.json";
@@ -352,6 +390,94 @@ namespace Hl7.Fhir.Tests
             errors.Clear();
             FhirParser.ParseResourceFromXml("<Crap><cra", errors);
             Assert.IsTrue(errors.Count > 0);
+
+        }
+
+
+        [TestMethod]
+        public void TestParseCrash()
+        {
+            var crashesXml = File.ReadAllText(@"c:\temp\crashtext.txt");
+
+//            var crashesXml = @"<SecurityEvent xmlns=""http://hl7.org/fhir"">
+//  <text>
+//    <status value=""generated""/>
+//    <div xmlns=""http://www.w3.org/1999/xhtml"">Disclosure by Who to Where of Whoms data What</div>
+//  </text>  <event>
+//    <type>
+//      <coding>
+//        <system value=""http://nema.org/dicom/dcid""/>
+//        <code value=""110106""/>
+//        <display value=""Export""/>
+//      </coding>
+//    </type>
+//    <subtype>
+//        <coding>
+//            <system value=""HIPAA""/>
+//            <code value=""Disclosure""/>
+//            <display value=""HIPAA disclosure""/>
+//        </coding>
+//    </subtype>
+//    <action value=""R""/>
+//    <dateTime value=""2013-09-21T14:07:42Z""/>
+//    <outcome value=""0""/>
+//  </event>
+//  <participant>
+//    <!-- Source Participant, the Releasing Agent -->
+//    <role>
+//      <coding>
+//        <system value=""http://nema.org/dicom/dcid""/>
+//        <code value=""110153""/>
+//        <display value=""The sender of the data""/>
+//      </coding>
+//    </role>
+//    <userId value=""Who""/>
+//    <requestor value=""true""/>
+//    <network>
+//      <identifier value=""127.0.0.1""/>
+//      <type value=""ip""/>
+//    </network>
+//    </participant>
+//  <participant>
+//    <!-- Destination Participant, the Receiving Agent -->
+//    <role>
+//      <coding>
+//        <system value=""http://nema.org/dicom/dcid""/>
+//        <code value=""110152""/>
+//        <display value=""The destination of the data""/>
+//      </coding>
+//    </role>
+//    <userId value=""Where""/>
+//    <requestor value=""false""/>
+//    <network>
+//      <identifier value=""127.0.0.1""/>
+//      <type value=""ip""/>
+//    </network>
+//    </participant>
+//  <source>
+//    <!-- Source of Audit event -->
+//    <identifier value=""Johns Accounting of Disclosures Application""/>
+//  </source>
+//  <object>
+//    <!-- ParticipantObject - Patient -->
+//    <identifier value=""Whoms""/>
+//    <name value=""Whoms""/>
+//    <type value=""2""/>
+//    <lifecycle value=""6""/>
+//  </object> 
+//
+//  <object>
+//    <!-- ParticipantObject - what was disclosed -->
+//    <lifecycle value=""11""/>
+//    <type value=""4""/>
+//    <identifier value=""What""/>
+//    <name value=""What""/>
+//  </object>
+//</SecurityEvent>";
+
+            var errors = new ErrorList();
+            var result = FhirParser.ParseResourceFromXml(crashesXml,errors);
+
 
         }
 

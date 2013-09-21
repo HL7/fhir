@@ -15,11 +15,12 @@ using Hl7.Fhir.Parsers;
 
 namespace Hl7.Fhir.Tests
 {
-    [TestClass]
+//    [TestClass]
     public class FhirClientTests
     {
         //Uri testEndpoint = new Uri("http://fhir.furore.com/fhir");
-        Uri testEndpoint = new Uri("http://hl7connect.healthintersections.com.au/svc/fhir");
+        //Uri testEndpoint = new Uri("http://hl7connect.healthintersections.com.au/svc/fhir");
+        Uri testEndpoint = new Uri("https://api.fhir.me");
 
         [TestMethod]
         public void FetchConformance()

@@ -320,7 +320,7 @@ namespace Hl7.Fhir.Tests
            @"<title type=""text"">Updates to resource 233</title>" +
            @"<id>urn:uuid:0d0dcca9-23b9-4149-8619-65002224c3</id><updated>2012-11-02T14:17:21Z</updated>" +
            @"<author><name>Ewout Kramer</name></author>" +
-           @"<totalResults xmlns=""http://a9.com/-/spec/opensearch/1.1"">20</totalResults>" +
+           @"<totalResults xmlns=""http://a9.com/-/spec/opensearch/1.1/"">20</totalResults>" +
            @"<link rel=""self"" href=""http://test.com/fhir/patient/@233/history?format=json"" />" +
            @"<link rel=""last"" href=""http://test.com/fhir/patient/@233"" />" +
            testResourceEntryAsXml +

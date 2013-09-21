@@ -187,6 +187,14 @@ namespace Hl7.Fhir.Parsers
             }
         }
 
+        private void clearElementContents()
+        {
+            if (elementStack.Count > 0)
+            {
+                elementStack.Peek().Elements.Clear();
+            }
+        }
+
         public bool HasMoreElements()
         {
             if (xr.EOF || xr.ReadState == ReadState.Error) return false;
@@ -260,11 +268,16 @@ namespace Hl7.Fhir.Parsers
 
         public void SkipSubElementsFor(string name)
         {
-            if(!insideEmptyElement)
+            if (!insideEmptyElement)
             {
                 while (!isEndElement(xr, name) && !xr.EOF && xr.ReadState != ReadState.Error)
                     xr.Skip();
             }
+            else
+                // If this element is empty, there are not subelements
+                // but there still might be 'simulated' subelements,
+                // erase them
+                clearElementContents();
         }
 
 

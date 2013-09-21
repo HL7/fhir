@@ -110,6 +110,17 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
+        public void ParseComplexWithNoValues()
+        {
+            string xmlString = "<someIdentifier xmlns='http://hl7.org/fhir' value='true' />";
+
+            ErrorList errors = new ErrorList();
+            var result = (Identifier)FhirParser.ParseElementFromXml(xmlString, errors);
+
+            Assert.AreNotEqual(0, errors.Count);
+        }
+
+        [TestMethod]
         public void ParsePrimitiveWithIllegalAttribute()
         {
             string xmlString = "<someBoolean xmlns='http://hl7.org/fhir' value='true' unknownattr='yes' />";

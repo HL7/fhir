@@ -35,6 +35,7 @@ using System.Text;
 using System.Xml;
 using Hl7.Fhir.Support;
 using Hl7.Fhir.Model;
+using System.Xml.Linq;
 
 namespace Hl7.Fhir.Serializers
 {
@@ -85,10 +86,14 @@ namespace Hl7.Fhir.Serializers
                 xw.WriteString(value.ToString());
             else if (xmlFormatHint == XmlSerializationHint.XhtmlElement)
             {
+                XNamespace xhtml = Support.Util.XHTMLNS;
+                XElement xe = XElement.Parse(value.ToString());
+                xe.Name = xhtml + xe.Name.LocalName;
+                    
                 // Write xhtml directly into the output stream,
                 // the xhtml <div> becomes part of the elements
                 // of the type, just like the other FHIR elements
-                xw.WriteRaw(value.ToString());
+                xw.WriteRaw(xe.ToString());
             }
             else
                 throw new ArgumentException("Unsupported xmlFormatHint " + xmlFormatHint);

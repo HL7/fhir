@@ -57,17 +57,25 @@ namespace Hl7.Fhir.Support
         {
             if (contentLength == 0) return null;
 
-            int bufferSize = contentLength < 4096 ? contentLength : 4096;
+            //int bufferSize = contentLength < 4096 ? contentLength : 4096;
+            int bufferSize = 4096;
 
             byte[] byteBuffer = new byte[bufferSize];
             MemoryStream buffer = new MemoryStream();
-            int readLen;
 
-            do
+            int readLen = s.Read(byteBuffer, 0, byteBuffer.Length);
+
+            while (readLen > 0)
             {
+                buffer.Write(byteBuffer, 0, readLen);
                 readLen = s.Read(byteBuffer, 0, byteBuffer.Length);
-                if (readLen > 0) buffer.Write(byteBuffer, 0, readLen);
-            } while (buffer.Length < contentLength);
+            }
+
+            //do
+            //{
+            //    readLen = s.Read(byteBuffer, 0, byteBuffer.Length);
+            //    if (readLen > 0) buffer.Write(byteBuffer, 0, readLen);
+            //} while (buffer.Length < contentLength);
 
             return buffer.ToArray();
         }

@@ -35,6 +35,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Xml;
 
 namespace Hl7.Fhir.Model
 {
@@ -82,12 +83,20 @@ namespace Hl7.Fhir.Model
 
         public static bool TryParse(string value, out FhirDateTime result)
         {
-            if (value==null || Regex.IsMatch(value, "^" + PATTERN + "$", RegexOptions.Singleline ) )
+            if (value == null)
             {
+                result = new FhirDateTime(null);
+                return true;
+            }
+
+            try
+            {
+                var dto = XmlConvert.ToDateTimeOffset(value);
+
                 result = new FhirDateTime(value);
                 return true;
             }
-            else
+            catch
             {
                 result = null;
                 return false;

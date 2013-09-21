@@ -19,6 +19,7 @@ namespace Hl7.Fhir.Tests
             var illOidUrl = "urn:oid:datmagdusniet";
             var uuidUrl = "urn:uuid:a5afddf4-e880-459b-876e-e4591b0acc11";
             var illUuidUrl = "urn:uuid:ooknietgoed";
+            var oidWithZero = "urn:oid:1.2.0.3.4";
 
             FhirUri uri = FhirUri.Parse(oidUrl);
             Assert.AreEqual(0,uri.Validate().Count);
@@ -33,6 +34,9 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual(1, uri.Validate().Count);
 
             Assert.IsTrue(Uri.Equals(new Uri("http://nu.nl"), new Uri("http://nu.nl")));
+
+            uri = FhirUri.Parse(oidWithZero);
+            Assert.AreEqual(0, uri.Validate().Count);
         }
 
 
@@ -147,7 +151,12 @@ namespace Hl7.Fhir.Tests
 
             FhirDateTime dt2 = new FhirDateTime(1972, 11, 30, 15, 10);
             Assert.IsTrue(dt2.ToString().StartsWith("1972-11-30T15:10"));
+
+            dt = FhirDateTime.Parse("2013-08-18T00:00:00.000+12:00");
         }
+
+
+
 
         [TestMethod]
         public void SimpleValueSupport()
