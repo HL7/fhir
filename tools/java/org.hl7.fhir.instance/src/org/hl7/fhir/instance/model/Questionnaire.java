@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -190,6 +190,13 @@ public class Questionnaire extends Resource {
           return this.choice;
         }
 
+    // syntactic sugar
+        public Coding addChoice() { 
+          Coding t = new Coding();
+          this.choice.add(t);
+          return t;
+        }
+
         public Type getOptions() { 
           return this.options;
         }
@@ -339,8 +346,22 @@ public class Questionnaire extends Resource {
           return this.question;
         }
 
+    // syntactic sugar
+        public QuestionComponent addQuestion() { 
+          QuestionComponent t = new QuestionComponent();
+          this.question.add(t);
+          return t;
+        }
+
         public List<GroupComponent> getGroup() { 
           return this.group;
+        }
+
+    // syntactic sugar
+        public GroupComponent addGroup() { 
+          GroupComponent t = new GroupComponent();
+          this.group.add(t);
+          return t;
         }
 
       public GroupComponent copy(Questionnaire e) {
@@ -498,8 +519,22 @@ public class Questionnaire extends Resource {
       return this.question;
     }
 
+    // syntactic sugar
+    public QuestionComponent addQuestion() { 
+      QuestionComponent t = new QuestionComponent();
+      this.question.add(t);
+      return t;
+    }
+
     public List<GroupComponent> getGroup() { 
       return this.group;
+    }
+
+    // syntactic sugar
+    public GroupComponent addGroup() { 
+      GroupComponent t = new GroupComponent();
+      this.group.add(t);
+      return t;
     }
 
       public Questionnaire copy() {

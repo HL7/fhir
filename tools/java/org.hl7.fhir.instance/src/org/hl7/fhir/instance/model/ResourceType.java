@@ -1,17 +1,22 @@
 package org.hl7.fhir.instance.model;
 
 public enum ResourceType {
+    User,
     Condition,
     Supply,
+    GVFVariant,
     Organization,
     Group,
     ValueSet,
     Coverage,
+    VCFMeta,
     MedicationDispense,
     DeviceLog,
     MedicationPrescription,
     DeviceCapabilities,
     MedicationStatement,
+    Sequence,
+    SequencingLab,
     Questionnaire,
     OperationOutcome,
     Conformance,
@@ -20,9 +25,12 @@ public enum ResourceType {
     Profile,
     DocumentReference,
     Immunization,
+    Microarray,
     OrderResponse,
     ImagingStudy,
     Practitioner,
+    GVFMeta,
+    VCFVariant,
     CarePlan,
     Provenance,
     Device,
@@ -34,12 +42,15 @@ public enum ResourceType {
     Medication,
     MedicationAdministration,
     Encounter,
+    GeneExpression,
+    SequencingAnalysis,
     SecurityEvent,
     List,
     Document,
     Message,
     FamilyHistory,
     Location,
+    GeneticAnalysis,
     AllergyIntolerance,
     Observation,
     ImmunizationProfile,
@@ -56,10 +67,14 @@ public enum ResourceType {
 
     public String getPath() {;
       switch (this) {
+    case User:
+      return "user";
     case Condition:
       return "condition";
     case Supply:
       return "supply";
+    case GVFVariant:
+      return "gvfvariant";
     case Organization:
       return "organization";
     case Group:
@@ -68,6 +83,8 @@ public enum ResourceType {
       return "valueset";
     case Coverage:
       return "coverage";
+    case VCFMeta:
+      return "vcfmeta";
     case MedicationDispense:
       return "medicationdispense";
     case DeviceLog:
@@ -78,6 +95,10 @@ public enum ResourceType {
       return "devicecapabilities";
     case MedicationStatement:
       return "medicationstatement";
+    case Sequence:
+      return "sequence";
+    case SequencingLab:
+      return "sequencinglab";
     case Questionnaire:
       return "questionnaire";
     case OperationOutcome:
@@ -94,12 +115,18 @@ public enum ResourceType {
       return "documentreference";
     case Immunization:
       return "immunization";
+    case Microarray:
+      return "microarray";
     case OrderResponse:
       return "orderresponse";
     case ImagingStudy:
       return "imagingstudy";
     case Practitioner:
       return "practitioner";
+    case GVFMeta:
+      return "gvfmeta";
+    case VCFVariant:
+      return "vcfvariant";
     case CarePlan:
       return "careplan";
     case Provenance:
@@ -122,6 +149,10 @@ public enum ResourceType {
       return "medicationadministration";
     case Encounter:
       return "encounter";
+    case GeneExpression:
+      return "geneexpression";
+    case SequencingAnalysis:
+      return "sequencinganalysis";
     case SecurityEvent:
       return "securityevent";
     case List:
@@ -134,6 +165,8 @@ public enum ResourceType {
       return "familyhistory";
     case Location:
       return "location";
+    case GeneticAnalysis:
+      return "geneticanalysis";
     case AllergyIntolerance:
       return "allergyintolerance";
     case Observation:

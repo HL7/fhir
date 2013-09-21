@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -345,6 +345,13 @@ public class Provenance extends Resource {
       return this.target;
     }
 
+    // syntactic sugar
+    public ResourceReference addTarget() { 
+      ResourceReference t = new ResourceReference();
+      this.target.add(t);
+      return t;
+    }
+
     public Period getPeriod() { 
       return this.period;
     }
@@ -391,12 +398,40 @@ public class Provenance extends Resource {
       return this.policy;
     }
 
+    // syntactic sugar
+    public Uri addPolicy() { 
+      Uri t = new Uri();
+      this.policy.add(t);
+      return t;
+    }
+
+    public Uri addPolicySimple(String value) { 
+      Uri t = new Uri();
+      t.setValue(value);
+      this.policy.add(t);
+      return t;
+    }
+
     public List<ProvenanceAgentComponent> getAgent() { 
       return this.agent;
     }
 
+    // syntactic sugar
+    public ProvenanceAgentComponent addAgent() { 
+      ProvenanceAgentComponent t = new ProvenanceAgentComponent();
+      this.agent.add(t);
+      return t;
+    }
+
     public List<ProvenanceEntityComponent> getEntity() { 
       return this.entity;
+    }
+
+    // syntactic sugar
+    public ProvenanceEntityComponent addEntity() { 
+      ProvenanceEntityComponent t = new ProvenanceEntityComponent();
+      this.entity.add(t);
+      return t;
     }
 
     public String_ getSignature() { 

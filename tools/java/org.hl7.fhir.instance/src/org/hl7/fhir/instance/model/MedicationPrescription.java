@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -453,6 +453,13 @@ In some situations, this attribute may be used instead of quantity to identify t
       return this.identifier;
     }
 
+    // syntactic sugar
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
+    }
+
     public DateTime getDateWritten() { 
       return this.dateWritten;
     }
@@ -539,6 +546,13 @@ In some situations, this attribute may be used instead of quantity to identify t
 
     public List<MedicationPrescriptionDosageInstructionComponent> getDosageInstruction() { 
       return this.dosageInstruction;
+    }
+
+    // syntactic sugar
+    public MedicationPrescriptionDosageInstructionComponent addDosageInstruction() { 
+      MedicationPrescriptionDosageInstructionComponent t = new MedicationPrescriptionDosageInstructionComponent();
+      this.dosageInstruction.add(t);
+      return t;
     }
 
     public MedicationPrescriptionDispenseComponent getDispense() { 

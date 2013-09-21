@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -203,16 +203,72 @@ public class HumanName extends Type {
       return this.family;
     }
 
+    // syntactic sugar
+    public String_ addFamily() { 
+      String_ t = new String_();
+      this.family.add(t);
+      return t;
+    }
+
+    public String_ addFamilySimple(String value) { 
+      String_ t = new String_();
+      t.setValue(value);
+      this.family.add(t);
+      return t;
+    }
+
     public List<String_> getGiven() { 
       return this.given;
+    }
+
+    // syntactic sugar
+    public String_ addGiven() { 
+      String_ t = new String_();
+      this.given.add(t);
+      return t;
+    }
+
+    public String_ addGivenSimple(String value) { 
+      String_ t = new String_();
+      t.setValue(value);
+      this.given.add(t);
+      return t;
     }
 
     public List<String_> getPrefix() { 
       return this.prefix;
     }
 
+    // syntactic sugar
+    public String_ addPrefix() { 
+      String_ t = new String_();
+      this.prefix.add(t);
+      return t;
+    }
+
+    public String_ addPrefixSimple(String value) { 
+      String_ t = new String_();
+      t.setValue(value);
+      this.prefix.add(t);
+      return t;
+    }
+
     public List<String_> getSuffix() { 
       return this.suffix;
+    }
+
+    // syntactic sugar
+    public String_ addSuffix() { 
+      String_ t = new String_();
+      this.suffix.add(t);
+      return t;
+    }
+
+    public String_ addSuffixSimple(String value) { 
+      String_ t = new String_();
+      t.setValue(value);
+      this.suffix.add(t);
+      return t;
     }
 
     public Period getPeriod() { 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -402,6 +402,13 @@ public class Profile extends Resource {
           return this.element;
         }
 
+    // syntactic sugar
+        public ElementComponent addElement() { 
+          ElementComponent t = new ElementComponent();
+          this.element.add(t);
+          return t;
+        }
+
       public ProfileStructureComponent copy(Profile e) {
         ProfileStructureComponent dst = e.new ProfileStructureComponent();
         dst.type = type == null ? null : type.copy();
@@ -759,6 +766,20 @@ public class Profile extends Resource {
           return this.synonym;
         }
 
+    // syntactic sugar
+        public String_ addSynonym() { 
+          String_ t = new String_();
+          this.synonym.add(t);
+          return t;
+        }
+
+        public String_ addSynonymSimple(String value) { 
+          String_ t = new String_();
+          t.setValue(value);
+          this.synonym.add(t);
+          return t;
+        }
+
         public Integer getMin() { 
           return this.min;
         }
@@ -797,6 +818,13 @@ public class Profile extends Resource {
 
         public List<TypeRefComponent> getType() { 
           return this.type;
+        }
+
+    // syntactic sugar
+        public TypeRefComponent addType() { 
+          TypeRefComponent t = new TypeRefComponent();
+          this.type.add(t);
+          return t;
         }
 
         public String_ getNameReference() { 
@@ -863,8 +891,29 @@ public class Profile extends Resource {
           return this.condition;
         }
 
+    // syntactic sugar
+        public Id addCondition() { 
+          Id t = new Id();
+          this.condition.add(t);
+          return t;
+        }
+
+        public Id addConditionSimple(String value) { 
+          Id t = new Id();
+          t.setValue(value);
+          this.condition.add(t);
+          return t;
+        }
+
         public List<ElementDefinitionConstraintComponent> getConstraint() { 
           return this.constraint;
+        }
+
+    // syntactic sugar
+        public ElementDefinitionConstraintComponent addConstraint() { 
+          ElementDefinitionConstraintComponent t = new ElementDefinitionConstraintComponent();
+          this.constraint.add(t);
+          return t;
         }
 
         public Boolean getMustSupport() { 
@@ -931,6 +980,13 @@ public class Profile extends Resource {
 
         public List<ElementDefinitionMappingComponent> getMapping() { 
           return this.mapping;
+        }
+
+    // syntactic sugar
+        public ElementDefinitionMappingComponent addMapping() { 
+          ElementDefinitionMappingComponent t = new ElementDefinitionMappingComponent();
+          this.mapping.add(t);
+          return t;
         }
 
       public ElementDefinitionComponent copy(Profile e) {
@@ -1337,6 +1393,20 @@ public class Profile extends Resource {
           return this.context;
         }
 
+    // syntactic sugar
+        public String_ addContext() { 
+          String_ t = new String_();
+          this.context.add(t);
+          return t;
+        }
+
+        public String_ addContextSimple(String value) { 
+          String_ t = new String_();
+          t.setValue(value);
+          this.context.add(t);
+          return t;
+        }
+
         public ElementDefinitionComponent getDefinition() { 
           return this.definition;
         }
@@ -1646,6 +1716,13 @@ public class Profile extends Resource {
       return this.telecom;
     }
 
+    // syntactic sugar
+    public Contact addTelecom() { 
+      Contact t = new Contact();
+      this.telecom.add(t);
+      return t;
+    }
+
     public String_ getDescription() { 
       return this.description;
     }
@@ -1670,6 +1747,13 @@ public class Profile extends Resource {
 
     public List<Coding> getCode() { 
       return this.code;
+    }
+
+    // syntactic sugar
+    public Coding addCode() { 
+      Coding t = new Coding();
+      this.code.add(t);
+      return t;
     }
 
     public Enumeration<ResourceProfileStatus> getStatus() { 
@@ -1760,12 +1844,33 @@ public class Profile extends Resource {
       return this.structure;
     }
 
+    // syntactic sugar
+    public ProfileStructureComponent addStructure() { 
+      ProfileStructureComponent t = new ProfileStructureComponent();
+      this.structure.add(t);
+      return t;
+    }
+
     public List<ProfileExtensionDefnComponent> getExtensionDefn() { 
       return this.extensionDefn;
     }
 
+    // syntactic sugar
+    public ProfileExtensionDefnComponent addExtensionDefn() { 
+      ProfileExtensionDefnComponent t = new ProfileExtensionDefnComponent();
+      this.extensionDefn.add(t);
+      return t;
+    }
+
     public List<ProfileBindingComponent> getBinding() { 
       return this.binding;
+    }
+
+    // syntactic sugar
+    public ProfileBindingComponent addBinding() { 
+      ProfileBindingComponent t = new ProfileBindingComponent();
+      this.binding.add(t);
+      return t;
     }
 
       public Profile copy() {

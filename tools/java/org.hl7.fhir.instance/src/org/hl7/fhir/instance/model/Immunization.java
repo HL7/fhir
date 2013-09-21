@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -53,8 +53,22 @@ public class Immunization extends Resource {
           return this.reason;
         }
 
+    // syntactic sugar
+        public CodeableConcept addReason() { 
+          CodeableConcept t = new CodeableConcept();
+          this.reason.add(t);
+          return t;
+        }
+
         public List<CodeableConcept> getRefusalReason() { 
           return this.refusalReason;
+        }
+
+    // syntactic sugar
+        public CodeableConcept addRefusalReason() { 
+          CodeableConcept t = new CodeableConcept();
+          this.refusalReason.add(t);
+          return t;
         }
 
       public ImmunizationExplanationComponent copy(Immunization e) {
@@ -585,6 +599,13 @@ public class Immunization extends Resource {
 
     public List<ImmunizationReactionComponent> getReaction() { 
       return this.reaction;
+    }
+
+    // syntactic sugar
+    public ImmunizationReactionComponent addReaction() { 
+      ImmunizationReactionComponent t = new ImmunizationReactionComponent();
+      this.reaction.add(t);
+      return t;
     }
 
     public ImmunizationVaccinationProtocolComponent getVaccinationProtocol() { 

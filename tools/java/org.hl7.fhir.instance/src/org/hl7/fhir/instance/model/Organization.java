@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -82,6 +82,13 @@ public class Organization extends Resource {
 
         public List<Contact> getTelecom() { 
           return this.telecom;
+        }
+
+    // syntactic sugar
+        public Contact addTelecom() { 
+          Contact t = new Contact();
+          this.telecom.add(t);
+          return t;
         }
 
         public Address getAddress() { 
@@ -158,6 +165,13 @@ public class Organization extends Resource {
       return this.identifier;
     }
 
+    // syntactic sugar
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
+    }
+
     public String_ getName() { 
       return this.name;
     }
@@ -192,8 +206,22 @@ public class Organization extends Resource {
       return this.telecom;
     }
 
+    // syntactic sugar
+    public Contact addTelecom() { 
+      Contact t = new Contact();
+      this.telecom.add(t);
+      return t;
+    }
+
     public List<Address> getAddress() { 
       return this.address;
+    }
+
+    // syntactic sugar
+    public Address addAddress() { 
+      Address t = new Address();
+      this.address.add(t);
+      return t;
     }
 
     public ResourceReference getPartOf() { 
@@ -206,6 +234,13 @@ public class Organization extends Resource {
 
     public List<OrganizationContactComponent> getContact() { 
       return this.contact;
+    }
+
+    // syntactic sugar
+    public OrganizationContactComponent addContact() { 
+      OrganizationContactComponent t = new OrganizationContactComponent();
+      this.contact.add(t);
+      return t;
     }
 
     public Boolean getActive() { 

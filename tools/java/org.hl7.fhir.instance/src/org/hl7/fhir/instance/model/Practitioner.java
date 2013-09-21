@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -157,6 +157,13 @@ public class Practitioner extends Resource {
       return this.identifier;
     }
 
+    // syntactic sugar
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
+    }
+
     public HumanName getName() { 
       return this.name;
     }
@@ -167,6 +174,13 @@ public class Practitioner extends Resource {
 
     public List<Contact> getTelecom() { 
       return this.telecom;
+    }
+
+    // syntactic sugar
+    public Contact addTelecom() { 
+      Contact t = new Contact();
+      this.telecom.add(t);
+      return t;
     }
 
     public Address getAddress() { 
@@ -211,6 +225,13 @@ public class Practitioner extends Resource {
       return this.photo;
     }
 
+    // syntactic sugar
+    public Attachment addPhoto() { 
+      Attachment t = new Attachment();
+      this.photo.add(t);
+      return t;
+    }
+
     public ResourceReference getOrganization() { 
       return this.organization;
     }
@@ -223,8 +244,22 @@ public class Practitioner extends Resource {
       return this.role;
     }
 
+    // syntactic sugar
+    public CodeableConcept addRole() { 
+      CodeableConcept t = new CodeableConcept();
+      this.role.add(t);
+      return t;
+    }
+
     public List<CodeableConcept> getSpecialty() { 
       return this.specialty;
+    }
+
+    // syntactic sugar
+    public CodeableConcept addSpecialty() { 
+      CodeableConcept t = new CodeableConcept();
+      this.specialty.add(t);
+      return t;
     }
 
     public Period getPeriod() { 
@@ -239,8 +274,22 @@ public class Practitioner extends Resource {
       return this.qualification;
     }
 
+    // syntactic sugar
+    public PractitionerQualificationComponent addQualification() { 
+      PractitionerQualificationComponent t = new PractitionerQualificationComponent();
+      this.qualification.add(t);
+      return t;
+    }
+
     public List<CodeableConcept> getCommunication() { 
       return this.communication;
+    }
+
+    // syntactic sugar
+    public CodeableConcept addCommunication() { 
+      CodeableConcept t = new CodeableConcept();
+      this.communication.add(t);
+      return t;
     }
 
       public Practitioner copy() {

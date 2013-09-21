@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -248,6 +248,13 @@ public class Document extends Resource {
           return this.code;
         }
 
+    // syntactic sugar
+        public CodeableConcept addCode() { 
+          CodeableConcept t = new CodeableConcept();
+          this.code.add(t);
+          return t;
+        }
+
         public Period getPeriod() { 
           return this.period;
         }
@@ -258,6 +265,13 @@ public class Document extends Resource {
 
         public List<ResourceReference> getDetail() { 
           return this.detail;
+        }
+
+    // syntactic sugar
+        public ResourceReference addDetail() { 
+          ResourceReference t = new ResourceReference();
+          this.detail.add(t);
+          return t;
         }
 
       public DocumentEventComponent copy(Document e) {
@@ -321,6 +335,13 @@ public class Document extends Resource {
 
         public List<SectionComponent> getSection() { 
           return this.section;
+        }
+
+    // syntactic sugar
+        public SectionComponent addSection() { 
+          SectionComponent t = new SectionComponent();
+          this.section.add(t);
+          return t;
         }
 
       public SectionComponent copy(Document e) {
@@ -541,8 +562,22 @@ public class Document extends Resource {
       return this.author;
     }
 
+    // syntactic sugar
+    public ResourceReference addAuthor() { 
+      ResourceReference t = new ResourceReference();
+      this.author.add(t);
+      return t;
+    }
+
     public List<DocumentAttesterComponent> getAttester() { 
       return this.attester;
+    }
+
+    // syntactic sugar
+    public DocumentAttesterComponent addAttester() { 
+      DocumentAttesterComponent t = new DocumentAttesterComponent();
+      this.attester.add(t);
+      return t;
     }
 
     public ResourceReference getCustodian() { 
@@ -595,6 +630,13 @@ public class Document extends Resource {
       return this.provenance;
     }
 
+    // syntactic sugar
+    public ResourceReference addProvenance() { 
+      ResourceReference t = new ResourceReference();
+      this.provenance.add(t);
+      return t;
+    }
+
     public Attachment getStylesheet() { 
       return this.stylesheet;
     }
@@ -613,6 +655,13 @@ public class Document extends Resource {
 
     public List<SectionComponent> getSection() { 
       return this.section;
+    }
+
+    // syntactic sugar
+    public SectionComponent addSection() { 
+      SectionComponent t = new SectionComponent();
+      this.section.add(t);
+      return t;
     }
 
       public Document copy() {

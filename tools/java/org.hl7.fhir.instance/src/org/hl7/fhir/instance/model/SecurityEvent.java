@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -693,6 +693,13 @@ public class SecurityEvent extends Resource {
           return this.subtype;
         }
 
+    // syntactic sugar
+        public CodeableConcept addSubtype() { 
+          CodeableConcept t = new CodeableConcept();
+          this.subtype.add(t);
+          return t;
+        }
+
         public Enumeration<SecurityEventAction> getAction() { 
           return this.action;
         }
@@ -835,6 +842,13 @@ public class SecurityEvent extends Resource {
 
         public List<CodeableConcept> getRole() { 
           return this.role;
+        }
+
+    // syntactic sugar
+        public CodeableConcept addRole() { 
+          CodeableConcept t = new CodeableConcept();
+          this.role.add(t);
+          return t;
         }
 
         public ResourceReference getReference() { 
@@ -1086,6 +1100,13 @@ public class SecurityEvent extends Resource {
           return this.type;
         }
 
+    // syntactic sugar
+        public Coding addType() { 
+          Coding t = new Coding();
+          this.type.add(t);
+          return t;
+        }
+
       public SecurityEventSourceComponent copy(SecurityEvent e) {
         SecurityEventSourceComponent dst = e.new SecurityEventSourceComponent();
         dst.site = site == null ? null : site.copy();
@@ -1282,6 +1303,13 @@ public class SecurityEvent extends Resource {
           return this.detail;
         }
 
+    // syntactic sugar
+        public SecurityEventObjectDetailComponent addDetail() { 
+          SecurityEventObjectDetailComponent t = new SecurityEventObjectDetailComponent();
+          this.detail.add(t);
+          return t;
+        }
+
       public SecurityEventObjectComponent copy(SecurityEvent e) {
         SecurityEventObjectComponent dst = e.new SecurityEventObjectComponent();
         dst.identifier = identifier == null ? null : identifier.copy();
@@ -1388,6 +1416,13 @@ public class SecurityEvent extends Resource {
       return this.participant;
     }
 
+    // syntactic sugar
+    public SecurityEventParticipantComponent addParticipant() { 
+      SecurityEventParticipantComponent t = new SecurityEventParticipantComponent();
+      this.participant.add(t);
+      return t;
+    }
+
     public SecurityEventSourceComponent getSource() { 
       return this.source;
     }
@@ -1398,6 +1433,13 @@ public class SecurityEvent extends Resource {
 
     public List<SecurityEventObjectComponent> getObject() { 
       return this.object;
+    }
+
+    // syntactic sugar
+    public SecurityEventObjectComponent addObject() { 
+      SecurityEventObjectComponent t = new SecurityEventObjectComponent();
+      this.object.add(t);
+      return t;
     }
 
       public SecurityEvent copy() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -128,6 +128,13 @@ public class DeviceCapabilities extends Resource {
           return this.channel;
         }
 
+    // syntactic sugar
+        public DeviceCapabilitiesVirtualDeviceChannelComponent addChannel() { 
+          DeviceCapabilitiesVirtualDeviceChannelComponent t = new DeviceCapabilitiesVirtualDeviceChannelComponent();
+          this.channel.add(t);
+          return t;
+        }
+
       public DeviceCapabilitiesVirtualDeviceComponent copy(DeviceCapabilities e) {
         DeviceCapabilitiesVirtualDeviceComponent dst = e.new DeviceCapabilitiesVirtualDeviceComponent();
         dst.code = code == null ? null : code.copy();
@@ -160,6 +167,13 @@ public class DeviceCapabilities extends Resource {
 
         public List<DeviceCapabilitiesVirtualDeviceChannelMetricComponent> getMetric() { 
           return this.metric;
+        }
+
+    // syntactic sugar
+        public DeviceCapabilitiesVirtualDeviceChannelMetricComponent addMetric() { 
+          DeviceCapabilitiesVirtualDeviceChannelMetricComponent t = new DeviceCapabilitiesVirtualDeviceChannelMetricComponent();
+          this.metric.add(t);
+          return t;
         }
 
       public DeviceCapabilitiesVirtualDeviceChannelComponent copy(DeviceCapabilities e) {
@@ -230,6 +244,13 @@ public class DeviceCapabilities extends Resource {
 
         public List<DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent> getFacet() { 
           return this.facet;
+        }
+
+    // syntactic sugar
+        public DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent addFacet() { 
+          DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent t = new DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent();
+          this.facet.add(t);
+          return t;
         }
 
       public DeviceCapabilitiesVirtualDeviceChannelMetricComponent copy(DeviceCapabilities e) {
@@ -550,6 +571,13 @@ public class DeviceCapabilities extends Resource {
 
     public List<DeviceCapabilitiesVirtualDeviceComponent> getVirtualDevice() { 
       return this.virtualDevice;
+    }
+
+    // syntactic sugar
+    public DeviceCapabilitiesVirtualDeviceComponent addVirtualDevice() { 
+      DeviceCapabilitiesVirtualDeviceComponent t = new DeviceCapabilitiesVirtualDeviceComponent();
+      this.virtualDevice.add(t);
+      return t;
     }
 
       public DeviceCapabilities copy() {

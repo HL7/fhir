@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -126,6 +126,13 @@ public class FamilyHistory extends Resource {
 
         public List<FamilyHistoryRelationConditionComponent> getCondition() { 
           return this.condition;
+        }
+
+    // syntactic sugar
+        public FamilyHistoryRelationConditionComponent addCondition() { 
+          FamilyHistoryRelationConditionComponent t = new FamilyHistoryRelationConditionComponent();
+          this.condition.add(t);
+          return t;
         }
 
       public FamilyHistoryRelationComponent copy(FamilyHistory e) {
@@ -267,6 +274,13 @@ public class FamilyHistory extends Resource {
 
     public List<FamilyHistoryRelationComponent> getRelation() { 
       return this.relation;
+    }
+
+    // syntactic sugar
+    public FamilyHistoryRelationComponent addRelation() { 
+      FamilyHistoryRelationComponent t = new FamilyHistoryRelationComponent();
+      this.relation.add(t);
+      return t;
     }
 
       public FamilyHistory copy() {

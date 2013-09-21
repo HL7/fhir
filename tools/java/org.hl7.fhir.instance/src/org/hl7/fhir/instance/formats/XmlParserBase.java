@@ -29,17 +29,15 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 
 import java.io.InputStream;
-import java.math.BigDecimal;
-import java.net.URI;
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
-import org.hl7.fhir.instance.model.*;
-import org.hl7.fhir.instance.model.Boolean;
-import org.hl7.fhir.instance.model.Integer;
+import org.hl7.fhir.instance.model.AtomEntry;
+import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.instance.model.Binary;
+import org.hl7.fhir.instance.model.Element;
+import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.xmlpull.v1.XmlPullParser;
@@ -176,15 +174,15 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
         res.setTotalResults(parseInt(xpp));
       }
       else
-        throw new Exception("Bad Xml parsing Atom Feed");
+        skipElementWithContent(xpp);
       eventType = nextNoWhitespace(xpp);
     }
 
     return res;  
   }
 
-  private AtomEntry parseEntry(XmlPullParser xpp) throws Exception {
-    AtomEntry res = new AtomEntry();
+  private <T extends Resource> AtomEntry<T> parseEntry(XmlPullParser xpp) throws Exception {
+    AtomEntry<T> res = new AtomEntry<T>();
     
     xpp.next();    
     int eventType = nextNoWhitespace(xpp);
@@ -222,10 +220,12 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
         xpp.next();
         nextNoWhitespace(xpp);
         XmlParser p = new XmlParser();
-        res.setResource(p.parse(xpp));
+        res.setResource((T)p.parse(xpp));//TODO Refactor architecture to eliminate this unsafe cast and better support generics
         xpp.next();
         nextNoWhitespace(xpp);
-        xpp.next();
+        if (xpp.getName() == null){
+        	xpp.next();
+        }
         
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("summary")) {
         xpp.next();

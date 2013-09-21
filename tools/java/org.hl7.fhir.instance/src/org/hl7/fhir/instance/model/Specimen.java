@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -113,6 +113,13 @@ public class Specimen extends Resource {
           return this.target;
         }
 
+    // syntactic sugar
+        public ResourceReference addTarget() { 
+          ResourceReference t = new ResourceReference();
+          this.target.add(t);
+          return t;
+        }
+
       public SpecimenSourceComponent copy(Specimen e) {
         SpecimenSourceComponent dst = e.new SpecimenSourceComponent();
         dst.relationship = relationship == null ? null : relationship.copy();
@@ -165,6 +172,20 @@ public class Specimen extends Resource {
 
         public List<String_> getComment() { 
           return this.comment;
+        }
+
+    // syntactic sugar
+        public String_ addComment() { 
+          String_ t = new String_();
+          this.comment.add(t);
+          return t;
+        }
+
+        public String_ addCommentSimple(String value) { 
+          String_ t = new String_();
+          t.setValue(value);
+          this.comment.add(t);
+          return t;
         }
 
         public DateTime getCollectedTime() { 
@@ -274,6 +295,13 @@ public class Specimen extends Resource {
           return this.additive;
         }
 
+    // syntactic sugar
+        public ResourceReference addAdditive() { 
+          ResourceReference t = new ResourceReference();
+          this.additive.add(t);
+          return t;
+        }
+
       public SpecimenTreatmentComponent copy(Specimen e) {
         SpecimenTreatmentComponent dst = e.new SpecimenTreatmentComponent();
         dst.description = description == null ? null : description.copy();
@@ -319,6 +347,13 @@ public class Specimen extends Resource {
 
         public List<Identifier> getIdentifier() { 
           return this.identifier;
+        }
+
+    // syntactic sugar
+        public Identifier addIdentifier() { 
+          Identifier t = new Identifier();
+          this.identifier.add(t);
+          return t;
         }
 
         public String_ getDescription() { 
@@ -455,6 +490,13 @@ public class Specimen extends Resource {
       return this.source;
     }
 
+    // syntactic sugar
+    public SpecimenSourceComponent addSource() { 
+      SpecimenSourceComponent t = new SpecimenSourceComponent();
+      this.source.add(t);
+      return t;
+    }
+
     public ResourceReference getSubject() { 
       return this.subject;
     }
@@ -465,6 +507,13 @@ public class Specimen extends Resource {
 
     public List<Identifier> getAccessionIdentifier() { 
       return this.accessionIdentifier;
+    }
+
+    // syntactic sugar
+    public Identifier addAccessionIdentifier() { 
+      Identifier t = new Identifier();
+      this.accessionIdentifier.add(t);
+      return t;
     }
 
     public DateTime getReceivedTime() { 
@@ -501,8 +550,22 @@ public class Specimen extends Resource {
       return this.treatment;
     }
 
+    // syntactic sugar
+    public SpecimenTreatmentComponent addTreatment() { 
+      SpecimenTreatmentComponent t = new SpecimenTreatmentComponent();
+      this.treatment.add(t);
+      return t;
+    }
+
     public List<SpecimenContainerComponent> getContainer() { 
       return this.container;
+    }
+
+    // syntactic sugar
+    public SpecimenContainerComponent addContainer() { 
+      SpecimenContainerComponent t = new SpecimenContainerComponent();
+      this.container.add(t);
+      return t;
     }
 
       public Specimen copy() {

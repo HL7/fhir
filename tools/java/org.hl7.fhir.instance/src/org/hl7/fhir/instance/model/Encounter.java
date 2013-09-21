@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -283,6 +283,20 @@ public class Encounter extends Resource {
           return this.type;
         }
 
+    // syntactic sugar
+        public Enumeration<ParticipantType> addType() { 
+          Enumeration<ParticipantType> t = new Enumeration<ParticipantType>();
+          this.type.add(t);
+          return t;
+        }
+
+        public Enumeration<ParticipantType> addTypeSimple(ParticipantType value) { 
+          Enumeration<ParticipantType> t = new Enumeration<ParticipantType>();
+          t.setValue(value);
+          this.type.add(t);
+          return t;
+        }
+
         public ResourceReference getPractitioner() { 
           return this.practitioner;
         }
@@ -394,6 +408,13 @@ public class Encounter extends Resource {
           return this.accomodation;
         }
 
+    // syntactic sugar
+        public EncounterHospitalizationAccomodationComponent addAccomodation() { 
+          EncounterHospitalizationAccomodationComponent t = new EncounterHospitalizationAccomodationComponent();
+          this.accomodation.add(t);
+          return t;
+        }
+
         public CodeableConcept getDiet() { 
           return this.diet;
         }
@@ -406,8 +427,22 @@ public class Encounter extends Resource {
           return this.specialCourtesy;
         }
 
+    // syntactic sugar
+        public CodeableConcept addSpecialCourtesy() { 
+          CodeableConcept t = new CodeableConcept();
+          this.specialCourtesy.add(t);
+          return t;
+        }
+
         public List<CodeableConcept> getSpecialArrangement() { 
           return this.specialArrangement;
+        }
+
+    // syntactic sugar
+        public CodeableConcept addSpecialArrangement() { 
+          CodeableConcept t = new CodeableConcept();
+          this.specialArrangement.add(t);
+          return t;
         }
 
         public ResourceReference getDestination() { 
@@ -628,6 +663,13 @@ public class Encounter extends Resource {
       return this.identifier;
     }
 
+    // syntactic sugar
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
+    }
+
     public Enumeration<EncounterState> getStatus() { 
       return this.status;
     }
@@ -668,6 +710,13 @@ public class Encounter extends Resource {
       return this.type;
     }
 
+    // syntactic sugar
+    public CodeableConcept addType() { 
+      CodeableConcept t = new CodeableConcept();
+      this.type.add(t);
+      return t;
+    }
+
     public ResourceReference getSubject() { 
       return this.subject;
     }
@@ -678,6 +727,13 @@ public class Encounter extends Resource {
 
     public List<EncounterParticipantComponent> getParticipant() { 
       return this.participant;
+    }
+
+    // syntactic sugar
+    public EncounterParticipantComponent addParticipant() { 
+      EncounterParticipantComponent t = new EncounterParticipantComponent();
+      this.participant.add(t);
+      return t;
     }
 
     public ResourceReference getFulfills() { 
@@ -752,6 +808,13 @@ public class Encounter extends Resource {
 
     public List<EncounterLocationComponent> getLocation() { 
       return this.location;
+    }
+
+    // syntactic sugar
+    public EncounterLocationComponent addLocation() { 
+      EncounterLocationComponent t = new EncounterLocationComponent();
+      this.location.add(t);
+      return t;
     }
 
     public ResourceReference getServiceProvider() { 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -251,6 +251,13 @@ public class Procedure extends Resource {
       return this.bodySite;
     }
 
+    // syntactic sugar
+    public CodeableConcept addBodySite() { 
+      CodeableConcept t = new CodeableConcept();
+      this.bodySite.add(t);
+      return t;
+    }
+
     public String_ getIndication() { 
       return this.indication;
     }
@@ -275,6 +282,13 @@ public class Procedure extends Resource {
 
     public List<ProcedurePerformerComponent> getPerformer() { 
       return this.performer;
+    }
+
+    // syntactic sugar
+    public ProcedurePerformerComponent addPerformer() { 
+      ProcedurePerformerComponent t = new ProcedurePerformerComponent();
+      this.performer.add(t);
+      return t;
     }
 
     public Period getDate() { 
@@ -317,6 +331,13 @@ public class Procedure extends Resource {
 
     public List<ResourceReference> getReport() { 
       return this.report;
+    }
+
+    // syntactic sugar
+    public ResourceReference addReport() { 
+      ResourceReference t = new ResourceReference();
+      this.report.add(t);
+      return t;
     }
 
     public String_ getComplication() { 
@@ -365,6 +386,13 @@ public class Procedure extends Resource {
 
     public List<ProcedureRelatedItemComponent> getRelatedItem() { 
       return this.relatedItem;
+    }
+
+    // syntactic sugar
+    public ProcedureRelatedItemComponent addRelatedItem() { 
+      ProcedureRelatedItemComponent t = new ProcedureRelatedItemComponent();
+      this.relatedItem.add(t);
+      return t;
     }
 
     public String_ getNotes() { 

@@ -29,24 +29,20 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 
 import java.io.InputStream;
-import java.math.BigDecimal;
-import java.net.URI;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
-import org.hl7.fhir.instance.model.*;
-import org.hl7.fhir.instance.model.Boolean;
-import org.hl7.fhir.instance.model.Integer;
+import org.hl7.fhir.instance.model.AtomEntry;
+import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.instance.model.Binary;
+import org.hl7.fhir.instance.model.Element;
+import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.xmlpull.v1.XmlPullParser;
 
 public abstract class JsonParserBase extends ParserBase implements Parser {
 
@@ -137,8 +133,8 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
     links.put(json.getString("rel"), json.getString("href"));    
   }
 
-  private AtomEntry parseEntry(JSONObject json) throws Exception {
-    AtomEntry res = new AtomEntry();
+  private <T extends Resource> AtomEntry<T> parseEntry(JSONObject json) throws Exception {
+    AtomEntry<T> res = new AtomEntry<T>();
     if (json.has("title"))
       res.setTitle(json.getString("title"));
     if (json.has("id"))
@@ -148,7 +144,7 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
     if (json.has("published"))
       res.setPublished(xmlToDate(json.getString("published")));
     if (json.has("link")) {
-      JSONArray array = json.getJSONArray("links");
+      JSONArray array = json.getJSONArray("link");
       for (int i = 0; i < array.length(); i++) {
         parseLink(res.getLinks(), array.getJSONObject(i));
       }
@@ -168,7 +164,7 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
     if (json.has("summary"))
       res.setSummary(new XhtmlParser().parse(json.getString("summary"), "div").getChildNodes().get(0));
     if (json.has("content"))
-      res.setResource(new JsonParser().parse(json.getJSONObject("content")));
+      res.setResource((T)new JsonParser().parse(json.getJSONObject("content")));//TODO Architecture needs to be refactor to prevent this unsafe cast and better support generics
     return res;
   }
   

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -407,6 +407,13 @@ public class Schedule extends Type {
 
     public List<Period> getEvent() { 
       return this.event;
+    }
+
+    // syntactic sugar
+    public Period addEvent() { 
+      Period t = new Period();
+      this.event.add(t);
+      return t;
     }
 
     public ScheduleRepeatComponent getRepeat() { 

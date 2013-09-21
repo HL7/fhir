@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -646,6 +646,13 @@ public class Conformance extends Resource {
           return this.resource;
         }
 
+    // syntactic sugar
+        public ConformanceRestResourceComponent addResource() { 
+          ConformanceRestResourceComponent t = new ConformanceRestResourceComponent();
+          this.resource.add(t);
+          return t;
+        }
+
         public Boolean getBatch() { 
           return this.batch;
         }
@@ -694,6 +701,13 @@ public class Conformance extends Resource {
           return this.query;
         }
 
+    // syntactic sugar
+        public ConformanceRestQueryComponent addQuery() { 
+          ConformanceRestQueryComponent t = new ConformanceRestQueryComponent();
+          this.query.add(t);
+          return t;
+        }
+
       public ConformanceRestComponent copy(Conformance e) {
         ConformanceRestComponent dst = e.new ConformanceRestComponent();
         dst.mode = mode == null ? null : mode.copy();
@@ -732,6 +746,13 @@ public class Conformance extends Resource {
           return this.service;
         }
 
+    // syntactic sugar
+        public CodeableConcept addService() { 
+          CodeableConcept t = new CodeableConcept();
+          this.service.add(t);
+          return t;
+        }
+
         public String_ getDescription() { 
           return this.description;
         }
@@ -756,6 +777,13 @@ public class Conformance extends Resource {
 
         public List<ConformanceRestSecurityCertificateComponent> getCertificate() { 
           return this.certificate;
+        }
+
+    // syntactic sugar
+        public ConformanceRestSecurityCertificateComponent addCertificate() { 
+          ConformanceRestSecurityCertificateComponent t = new ConformanceRestSecurityCertificateComponent();
+          this.certificate.add(t);
+          return t;
         }
 
       public ConformanceRestSecurityComponent copy(Conformance e) {
@@ -897,6 +925,13 @@ public class Conformance extends Resource {
           return this.operation;
         }
 
+    // syntactic sugar
+        public ConformanceRestResourceOperationComponent addOperation() { 
+          ConformanceRestResourceOperationComponent t = new ConformanceRestResourceOperationComponent();
+          this.operation.add(t);
+          return t;
+        }
+
         public Boolean getReadHistory() { 
           return this.readHistory;
         }
@@ -923,8 +958,29 @@ public class Conformance extends Resource {
           return this.searchInclude;
         }
 
+    // syntactic sugar
+        public String_ addSearchInclude() { 
+          String_ t = new String_();
+          this.searchInclude.add(t);
+          return t;
+        }
+
+        public String_ addSearchIncludeSimple(String value) { 
+          String_ t = new String_();
+          t.setValue(value);
+          this.searchInclude.add(t);
+          return t;
+        }
+
         public List<ConformanceRestResourceSearchParamComponent> getSearchParam() { 
           return this.searchParam;
+        }
+
+    // syntactic sugar
+        public ConformanceRestResourceSearchParamComponent addSearchParam() { 
+          ConformanceRestResourceSearchParamComponent t = new ConformanceRestResourceSearchParamComponent();
+          this.searchParam.add(t);
+          return t;
         }
 
       public ConformanceRestResourceComponent copy(Conformance e) {
@@ -1144,8 +1200,36 @@ public class Conformance extends Resource {
           return this.target;
         }
 
+    // syntactic sugar
+        public Code addTarget() { 
+          Code t = new Code();
+          this.target.add(t);
+          return t;
+        }
+
+        public Code addTargetSimple(String value) { 
+          Code t = new Code();
+          t.setValue(value);
+          this.target.add(t);
+          return t;
+        }
+
         public List<String_> getChain() { 
           return this.chain;
+        }
+
+    // syntactic sugar
+        public String_ addChain() { 
+          String_ t = new String_();
+          this.chain.add(t);
+          return t;
+        }
+
+        public String_ addChainSimple(String value) { 
+          String_ t = new String_();
+          t.setValue(value);
+          this.chain.add(t);
+          return t;
         }
 
       public ConformanceRestResourceSearchParamComponent copy(Conformance e) {
@@ -1220,6 +1304,13 @@ public class Conformance extends Resource {
 
         public List<ConformanceRestResourceSearchParamComponent> getParameter() { 
           return this.parameter;
+        }
+
+    // syntactic sugar
+        public ConformanceRestResourceSearchParamComponent addParameter() { 
+          ConformanceRestResourceSearchParamComponent t = new ConformanceRestResourceSearchParamComponent();
+          this.parameter.add(t);
+          return t;
         }
 
       public ConformanceRestQueryComponent copy(Conformance e) {
@@ -1325,6 +1416,13 @@ public class Conformance extends Resource {
           return this.event;
         }
 
+    // syntactic sugar
+        public ConformanceMessagingEventComponent addEvent() { 
+          ConformanceMessagingEventComponent t = new ConformanceMessagingEventComponent();
+          this.event.add(t);
+          return t;
+        }
+
       public ConformanceMessagingComponent copy(Conformance e) {
         ConformanceMessagingComponent dst = e.new ConformanceMessagingComponent();
         dst.endpoint = endpoint == null ? null : endpoint.copy();
@@ -1412,6 +1510,13 @@ public class Conformance extends Resource {
 
         public List<Coding> getProtocol() { 
           return this.protocol;
+        }
+
+    // syntactic sugar
+        public Coding addProtocol() { 
+          Coding t = new Coding();
+          this.protocol.add(t);
+          return t;
         }
 
         public Code getFocus() { 
@@ -1733,6 +1838,13 @@ public class Conformance extends Resource {
       return this.telecom;
     }
 
+    // syntactic sugar
+    public Contact addTelecom() { 
+      Contact t = new Contact();
+      this.telecom.add(t);
+      return t;
+    }
+
     public String_ getDescription() { 
       return this.description;
     }
@@ -1873,16 +1985,51 @@ public class Conformance extends Resource {
       return this.format;
     }
 
+    // syntactic sugar
+    public Code addFormat() { 
+      Code t = new Code();
+      this.format.add(t);
+      return t;
+    }
+
+    public Code addFormatSimple(String value) { 
+      Code t = new Code();
+      t.setValue(value);
+      this.format.add(t);
+      return t;
+    }
+
     public List<ConformanceRestComponent> getRest() { 
       return this.rest;
+    }
+
+    // syntactic sugar
+    public ConformanceRestComponent addRest() { 
+      ConformanceRestComponent t = new ConformanceRestComponent();
+      this.rest.add(t);
+      return t;
     }
 
     public List<ConformanceMessagingComponent> getMessaging() { 
       return this.messaging;
     }
 
+    // syntactic sugar
+    public ConformanceMessagingComponent addMessaging() { 
+      ConformanceMessagingComponent t = new ConformanceMessagingComponent();
+      this.messaging.add(t);
+      return t;
+    }
+
     public List<ConformanceDocumentComponent> getDocument() { 
       return this.document;
+    }
+
+    // syntactic sugar
+    public ConformanceDocumentComponent addDocument() { 
+      ConformanceDocumentComponent t = new ConformanceDocumentComponent();
+      this.document.add(t);
+      return t;
     }
 
       public Conformance copy() {

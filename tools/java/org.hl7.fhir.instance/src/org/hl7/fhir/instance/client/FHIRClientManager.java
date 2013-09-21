@@ -34,6 +34,11 @@ import java.util.HashMap;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceReference;
 
+/**
+ * TODO Modify FHIR client to incorporate this class
+ * @author Claude Nanjo
+ *
+ */
 public class FHIRClientManager {
 
 	HashMap<String, FHIRClient> servers = new HashMap<String, FHIRClient>();

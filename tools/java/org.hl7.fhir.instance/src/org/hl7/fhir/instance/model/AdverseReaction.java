@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -450,8 +450,22 @@ public class AdverseReaction extends Resource {
       return this.symptom;
     }
 
+    // syntactic sugar
+    public AdverseReactionSymptomComponent addSymptom() { 
+      AdverseReactionSymptomComponent t = new AdverseReactionSymptomComponent();
+      this.symptom.add(t);
+      return t;
+    }
+
     public List<AdverseReactionExposureComponent> getExposure() { 
       return this.exposure;
+    }
+
+    // syntactic sugar
+    public AdverseReactionExposureComponent addExposure() { 
+      AdverseReactionExposureComponent t = new AdverseReactionExposureComponent();
+      this.exposure.add(t);
+      return t;
     }
 
       public AdverseReaction copy() {

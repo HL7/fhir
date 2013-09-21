@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -206,6 +206,13 @@ public class ValueSet extends Resource {
           return this.concept;
         }
 
+    // syntactic sugar
+        public ValueSetDefineConceptComponent addConcept() { 
+          ValueSetDefineConceptComponent t = new ValueSetDefineConceptComponent();
+          this.concept.add(t);
+          return t;
+        }
+
       public ValueSetDefineComponent copy(ValueSet e) {
         ValueSetDefineComponent dst = e.new ValueSetDefineComponent();
         dst.system = system == null ? null : system.copy();
@@ -332,6 +339,13 @@ public class ValueSet extends Resource {
           return this.concept;
         }
 
+    // syntactic sugar
+        public ValueSetDefineConceptComponent addConcept() { 
+          ValueSetDefineConceptComponent t = new ValueSetDefineConceptComponent();
+          this.concept.add(t);
+          return t;
+        }
+
       public ValueSetDefineConceptComponent copy(ValueSet e) {
         ValueSetDefineConceptComponent dst = e.new ValueSetDefineConceptComponent();
         dst.code = code == null ? null : code.copy();
@@ -366,12 +380,40 @@ public class ValueSet extends Resource {
           return this.import_;
         }
 
+    // syntactic sugar
+        public Uri addImport() { 
+          Uri t = new Uri();
+          this.import_.add(t);
+          return t;
+        }
+
+        public Uri addImportSimple(String value) { 
+          Uri t = new Uri();
+          t.setValue(value);
+          this.import_.add(t);
+          return t;
+        }
+
         public List<ConceptSetComponent> getInclude() { 
           return this.include;
         }
 
+    // syntactic sugar
+        public ConceptSetComponent addInclude() { 
+          ConceptSetComponent t = new ConceptSetComponent();
+          this.include.add(t);
+          return t;
+        }
+
         public List<ConceptSetComponent> getExclude() { 
           return this.exclude;
+        }
+
+    // syntactic sugar
+        public ConceptSetComponent addExclude() { 
+          ConceptSetComponent t = new ConceptSetComponent();
+          this.exclude.add(t);
+          return t;
         }
 
       public ValueSetComposeComponent copy(ValueSet e) {
@@ -455,8 +497,29 @@ public class ValueSet extends Resource {
           return this.code;
         }
 
+    // syntactic sugar
+        public Code addCode() { 
+          Code t = new Code();
+          this.code.add(t);
+          return t;
+        }
+
+        public Code addCodeSimple(String value) { 
+          Code t = new Code();
+          t.setValue(value);
+          this.code.add(t);
+          return t;
+        }
+
         public List<ConceptSetFilterComponent> getFilter() { 
           return this.filter;
+        }
+
+    // syntactic sugar
+        public ConceptSetFilterComponent addFilter() { 
+          ConceptSetFilterComponent t = new ConceptSetFilterComponent();
+          this.filter.add(t);
+          return t;
         }
 
       public ConceptSetComponent copy(ValueSet e) {
@@ -587,6 +650,13 @@ public class ValueSet extends Resource {
           return this.contains;
         }
 
+    // syntactic sugar
+        public ValueSetExpansionContainsComponent addContains() { 
+          ValueSetExpansionContainsComponent t = new ValueSetExpansionContainsComponent();
+          this.contains.add(t);
+          return t;
+        }
+
       public ValueSetExpansionComponent copy(ValueSet e) {
         ValueSetExpansionComponent dst = e.new ValueSetExpansionComponent();
         dst.timestamp = timestamp == null ? null : timestamp.copy();
@@ -687,6 +757,13 @@ public class ValueSet extends Resource {
 
         public List<ValueSetExpansionContainsComponent> getContains() { 
           return this.contains;
+        }
+
+    // syntactic sugar
+        public ValueSetExpansionContainsComponent addContains() { 
+          ValueSetExpansionContainsComponent t = new ValueSetExpansionContainsComponent();
+          this.contains.add(t);
+          return t;
         }
 
       public ValueSetExpansionContainsComponent copy(ValueSet e) {
@@ -853,6 +930,13 @@ public class ValueSet extends Resource {
 
     public List<Contact> getTelecom() { 
       return this.telecom;
+    }
+
+    // syntactic sugar
+    public Contact addTelecom() { 
+      Contact t = new Contact();
+      this.telecom.add(t);
+      return t;
     }
 
     public String_ getDescription() { 

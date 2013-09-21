@@ -30,21 +30,19 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 
 
-import java.io.IOException;
 import java.io.OutputStream;
-import java.math.BigDecimal;
-import java.net.URI;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
-import org.apache.commons.codec.binary.Base64;
-import org.hl7.fhir.instance.model.*;
-import org.hl7.fhir.instance.model.Boolean;
-import org.hl7.fhir.instance.model.Integer;
-import org.hl7.fhir.instance.model.CarePlan.CarePlanStatusEnumFactory;
+import org.hl7.fhir.instance.model.AtomEntry;
+import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.instance.model.Binary;
+import org.hl7.fhir.instance.model.Element;
+import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.xhtml.*;
-import org.hl7.fhir.utilities.xml.*;
+import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
+import org.hl7.fhir.utilities.xhtml.XhtmlNode;
+import org.hl7.fhir.utilities.xml.IXMLWriter;
+import org.hl7.fhir.utilities.xml.XMLWriter;
 
 public abstract class XmlComposerBase extends XmlBase implements Composer {
 
@@ -114,15 +112,15 @@ public abstract class XmlComposerBase extends XmlBase implements Composer {
         xml.element(ATOM_NS, "uri", feed.getAuthorUri());
       xml.close(ATOM_NS, "author");
     }
-    for (AtomEntry e : feed.getEntryList())
+    for (AtomEntry<? extends Resource> e : feed.getEntryList())
       composeEntry(e);
     xml.close(ATOM_NS, "feed");
 
   
 	}
 	
-	private void composeEntry(AtomEntry entry) throws Exception {
-		AtomEntry e = entry;
+	private <T extends Resource>void composeEntry(AtomEntry<T> entry) throws Exception {
+		AtomEntry<T> e = entry;
 	  if (entry.isDeleted()) {
 	    xml.setDefaultNamespace("http://purl.org/atompub/tombstones/1.0");
 	    xml.attribute("ref", entry.getId());

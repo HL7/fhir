@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -210,6 +210,13 @@ public class Location extends Resource {
 
     public List<CodeableConcept> getType() { 
       return this.type;
+    }
+
+    // syntactic sugar
+    public CodeableConcept addType() { 
+      CodeableConcept t = new CodeableConcept();
+      this.type.add(t);
+      return t;
     }
 
     public Contact getTelecom() { 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -176,6 +176,13 @@ public class DiagnosticReport extends Resource {
           return this.requestTest;
         }
 
+    // syntactic sugar
+        public CodeableConcept addRequestTest() { 
+          CodeableConcept t = new CodeableConcept();
+          this.requestTest.add(t);
+          return t;
+        }
+
         public CodeableConcept getBodySite() { 
           return this.bodySite;
         }
@@ -271,8 +278,22 @@ public class DiagnosticReport extends Resource {
           return this.group;
         }
 
+    // syntactic sugar
+        public ResultGroupComponent addGroup() { 
+          ResultGroupComponent t = new ResultGroupComponent();
+          this.group.add(t);
+          return t;
+        }
+
         public List<ResourceReference> getResult() { 
           return this.result;
+        }
+
+    // syntactic sugar
+        public ResourceReference addResult() { 
+          ResourceReference t = new ResourceReference();
+          this.result.add(t);
+          return t;
         }
 
       public ResultGroupComponent copy(DiagnosticReport e) {
@@ -419,6 +440,13 @@ public class DiagnosticReport extends Resource {
       return this.requestDetail;
     }
 
+    // syntactic sugar
+    public DiagnosticReportRequestDetailComponent addRequestDetail() { 
+      DiagnosticReportRequestDetailComponent t = new DiagnosticReportRequestDetailComponent();
+      this.requestDetail.add(t);
+      return t;
+    }
+
     public CodeableConcept getServiceCategory() { 
       return this.serviceCategory;
     }
@@ -457,6 +485,13 @@ public class DiagnosticReport extends Resource {
       return this.image;
     }
 
+    // syntactic sugar
+    public ResourceReference addImage() { 
+      ResourceReference t = new ResourceReference();
+      this.image.add(t);
+      return t;
+    }
+
     public String_ getConclusion() { 
       return this.conclusion;
     }
@@ -483,8 +518,22 @@ public class DiagnosticReport extends Resource {
       return this.codedDiagnosis;
     }
 
+    // syntactic sugar
+    public CodeableConcept addCodedDiagnosis() { 
+      CodeableConcept t = new CodeableConcept();
+      this.codedDiagnosis.add(t);
+      return t;
+    }
+
     public List<Attachment> getRepresentation() { 
       return this.representation;
+    }
+
+    // syntactic sugar
+    public Attachment addRepresentation() { 
+      Attachment t = new Attachment();
+      this.representation.add(t);
+      return t;
     }
 
       public DiagnosticReport copy() {

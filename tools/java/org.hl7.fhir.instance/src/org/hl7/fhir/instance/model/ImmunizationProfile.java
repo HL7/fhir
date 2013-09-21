@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -188,6 +188,13 @@ public class ImmunizationProfile extends Resource {
           return this.dateCriterion;
         }
 
+    // syntactic sugar
+        public ImmunizationProfileRecommendationDateCriterionComponent addDateCriterion() { 
+          ImmunizationProfileRecommendationDateCriterionComponent t = new ImmunizationProfileRecommendationDateCriterionComponent();
+          this.dateCriterion.add(t);
+          return t;
+        }
+
         public ImmunizationProfileRecommendationProtocolComponent getProtocol() { 
           return this.protocol;
         }
@@ -200,12 +207,33 @@ public class ImmunizationProfile extends Resource {
           return this.supportingImmunization;
         }
 
+    // syntactic sugar
+        public ResourceReference addSupportingImmunization() { 
+          ResourceReference t = new ResourceReference();
+          this.supportingImmunization.add(t);
+          return t;
+        }
+
         public List<ImmunizationProfileRecommendationSupportingAdverseEventReportComponent> getSupportingAdverseEventReport() { 
           return this.supportingAdverseEventReport;
         }
 
+    // syntactic sugar
+        public ImmunizationProfileRecommendationSupportingAdverseEventReportComponent addSupportingAdverseEventReport() { 
+          ImmunizationProfileRecommendationSupportingAdverseEventReportComponent t = new ImmunizationProfileRecommendationSupportingAdverseEventReportComponent();
+          this.supportingAdverseEventReport.add(t);
+          return t;
+        }
+
         public List<ResourceReference> getSupportingPatientObservation() { 
           return this.supportingPatientObservation;
+        }
+
+    // syntactic sugar
+        public ResourceReference addSupportingPatientObservation() { 
+          ResourceReference t = new ResourceReference();
+          this.supportingPatientObservation.add(t);
+          return t;
         }
 
       public ImmunizationProfileRecommendationComponent copy(ImmunizationProfile e) {
@@ -414,6 +442,20 @@ public class ImmunizationProfile extends Resource {
           return this.identifier;
         }
 
+    // syntactic sugar
+        public Id addIdentifier() { 
+          Id t = new Id();
+          this.identifier.add(t);
+          return t;
+        }
+
+        public Id addIdentifierSimple(String value) { 
+          Id t = new Id();
+          t.setValue(value);
+          this.identifier.add(t);
+          return t;
+        }
+
         public CodeableConcept getReportType() { 
           return this.reportType;
         }
@@ -470,6 +512,13 @@ public class ImmunizationProfile extends Resource {
           return this.reaction;
         }
 
+    // syntactic sugar
+        public ResourceReference addReaction() { 
+          ResourceReference t = new ResourceReference();
+          this.reaction.add(t);
+          return t;
+        }
+
       public ImmunizationProfileRecommendationSupportingAdverseEventReportComponent copy(ImmunizationProfile e) {
         ImmunizationProfileRecommendationSupportingAdverseEventReportComponent dst = e.new ImmunizationProfileRecommendationSupportingAdverseEventReportComponent();
         dst.identifier = new ArrayList<Id>();
@@ -506,6 +555,13 @@ public class ImmunizationProfile extends Resource {
 
     public List<ImmunizationProfileRecommendationComponent> getRecommendation() { 
       return this.recommendation;
+    }
+
+    // syntactic sugar
+    public ImmunizationProfileRecommendationComponent addRecommendation() { 
+      ImmunizationProfileRecommendationComponent t = new ImmunizationProfileRecommendationComponent();
+      this.recommendation.add(t);
+      return t;
     }
 
       public ImmunizationProfile copy() {

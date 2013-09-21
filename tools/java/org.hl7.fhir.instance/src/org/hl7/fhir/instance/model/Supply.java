@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -179,6 +179,13 @@ public class Supply extends Resource {
           return this.receiver;
         }
 
+    // syntactic sugar
+        public ResourceReference addReceiver() { 
+          ResourceReference t = new ResourceReference();
+          this.receiver.add(t);
+          return t;
+        }
+
       public SupplyDispenseComponent copy(Supply e) {
         SupplyDispenseComponent dst = e.new SupplyDispenseComponent();
         dst.identifier = identifier == null ? null : identifier.copy();
@@ -284,6 +291,13 @@ public class Supply extends Resource {
 
     public List<SupplyDispenseComponent> getDispense() { 
       return this.dispense;
+    }
+
+    // syntactic sugar
+    public SupplyDispenseComponent addDispense() { 
+      SupplyDispenseComponent t = new SupplyDispenseComponent();
+      this.dispense.add(t);
+      return t;
     }
 
       public Supply copy() {

@@ -30,29 +30,23 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 
 
-import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.io.StringWriter;
-import java.io.Writer;
-import java.math.BigDecimal;
-import java.nio.file.OpenOption;
-import java.text.SimpleDateFormat;
 
-import org.apache.commons.codec.binary.Base64;
-import org.hl7.fhir.instance.model.*;
-import org.hl7.fhir.instance.model.Boolean;
-import org.hl7.fhir.instance.model.Integer;
+import org.hl7.fhir.instance.model.AtomEntry;
+import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.instance.model.Binary;
+import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.xhtml.*;
-import org.hl7.fhir.utilities.xml.*;
+import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
+import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 
 public abstract class JsonComposerBase extends XmlBase implements Composer {
 
 	protected JsonWriter json;
 	private boolean htmlPretty;
-	private boolean jsonPretty;
+	//private boolean jsonPretty;
 
 	public void compose(OutputStream stream, Resource resource, boolean pretty) throws Exception {
 		OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
@@ -132,7 +126,7 @@ public abstract class JsonComposerBase extends XmlBase implements Composer {
 
 		if (feed.getEntryList().size() > 0) {
 			openArray("entry");
-			for (AtomEntry e : feed.getEntryList())
+			for (AtomEntry<? extends Resource> e : feed.getEntryList())
 				composeEntry(e);
 			closeArray();
 		}
@@ -140,7 +134,7 @@ public abstract class JsonComposerBase extends XmlBase implements Composer {
 
   // standard order for round-tripping examples succesfully:
   // title, id, links, updated, published, authors 
-	private void composeEntry(AtomEntry e) throws Exception {
+	private <T extends Resource> void composeEntry(AtomEntry<T> e) throws Exception {
 		json.object();
 		prop("title", e.getTitle());
 		prop("id", e.getId());

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -73,6 +73,13 @@ public class Patient extends Resource {
           return this.relationship;
         }
 
+    // syntactic sugar
+        public CodeableConcept addRelationship() { 
+          CodeableConcept t = new CodeableConcept();
+          this.relationship.add(t);
+          return t;
+        }
+
         public HumanName getName() { 
           return this.name;
         }
@@ -83,6 +90,13 @@ public class Patient extends Resource {
 
         public List<Contact> getTelecom() { 
           return this.telecom;
+        }
+
+    // syntactic sugar
+        public Contact addTelecom() { 
+          Contact t = new Contact();
+          this.telecom.add(t);
+          return t;
         }
 
         public Address getAddress() { 
@@ -260,12 +274,33 @@ public class Patient extends Resource {
       return this.identifier;
     }
 
+    // syntactic sugar
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
+    }
+
     public List<HumanName> getName() { 
       return this.name;
     }
 
+    // syntactic sugar
+    public HumanName addName() { 
+      HumanName t = new HumanName();
+      this.name.add(t);
+      return t;
+    }
+
     public List<Contact> getTelecom() { 
       return this.telecom;
+    }
+
+    // syntactic sugar
+    public Contact addTelecom() { 
+      Contact t = new Contact();
+      this.telecom.add(t);
+      return t;
     }
 
     public CodeableConcept getGender() { 
@@ -310,6 +345,13 @@ public class Patient extends Resource {
       return this.address;
     }
 
+    // syntactic sugar
+    public Address addAddress() { 
+      Address t = new Address();
+      this.address.add(t);
+      return t;
+    }
+
     public CodeableConcept getMaritalStatus() { 
       return this.maritalStatus;
     }
@@ -330,8 +372,22 @@ public class Patient extends Resource {
       return this.photo;
     }
 
+    // syntactic sugar
+    public Attachment addPhoto() { 
+      Attachment t = new Attachment();
+      this.photo.add(t);
+      return t;
+    }
+
     public List<ContactComponent> getContact() { 
       return this.contact;
+    }
+
+    // syntactic sugar
+    public ContactComponent addContact() { 
+      ContactComponent t = new ContactComponent();
+      this.contact.add(t);
+      return t;
     }
 
     public AnimalComponent getAnimal() { 
@@ -346,6 +402,13 @@ public class Patient extends Resource {
       return this.communication;
     }
 
+    // syntactic sugar
+    public CodeableConcept addCommunication() { 
+      CodeableConcept t = new CodeableConcept();
+      this.communication.add(t);
+      return t;
+    }
+
     public ResourceReference getProvider() { 
       return this.provider;
     }
@@ -356,6 +419,13 @@ public class Patient extends Resource {
 
     public List<ResourceReference> getLink() { 
       return this.link;
+    }
+
+    // syntactic sugar
+    public ResourceReference addLink() { 
+      ResourceReference t = new ResourceReference();
+      this.link.add(t);
+      return t;
     }
 
     public Boolean getActive() { 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -497,8 +497,22 @@ public class Observation extends Resource {
       return this.referenceRange;
     }
 
+    // syntactic sugar
+    public ObservationReferenceRangeComponent addReferenceRange() { 
+      ObservationReferenceRangeComponent t = new ObservationReferenceRangeComponent();
+      this.referenceRange.add(t);
+      return t;
+    }
+
     public List<ObservationComponentComponent> getComponent() { 
       return this.component;
+    }
+
+    // syntactic sugar
+    public ObservationComponentComponent addComponent() { 
+      ObservationComponentComponent t = new ObservationComponentComponent();
+      this.component.add(t);
+      return t;
     }
 
       public Observation copy() {

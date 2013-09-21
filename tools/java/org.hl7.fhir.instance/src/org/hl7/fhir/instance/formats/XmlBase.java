@@ -34,7 +34,6 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import org.apache.commons.codec.binary.Base64;
@@ -88,6 +87,16 @@ public class XmlBase {
 
   }
 
+  protected void skipElementWithContent(XmlPullParser xpp)  throws Exception {
+  	// when this is called, we are pointing an element that may have content
+    while (xpp.getEventType() != XmlPullParser.END_TAG) {
+  		xpp.next();
+    	if (xpp.getEventType() == XmlPullParser.START_TAG) 
+    		skipElementWithContent(xpp);
+    }
+    xpp.next();
+  }
+  
   protected void skipEmptyElement(XmlPullParser xpp) throws Exception {
     while (xpp.getEventType() != XmlPullParser.END_TAG) 
       xpp.next();

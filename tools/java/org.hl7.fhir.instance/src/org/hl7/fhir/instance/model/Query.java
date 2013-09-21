@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -204,24 +204,66 @@ public class Query extends Resource {
           return this.parameter;
         }
 
+    // syntactic sugar
+        public Extension addParameter() { 
+          Extension t = new Extension();
+          this.parameter.add(t);
+          return t;
+        }
+
         public List<Extension> getFirst() { 
           return this.first;
+        }
+
+    // syntactic sugar
+        public Extension addFirst() { 
+          Extension t = new Extension();
+          this.first.add(t);
+          return t;
         }
 
         public List<Extension> getPrevious() { 
           return this.previous;
         }
 
+    // syntactic sugar
+        public Extension addPrevious() { 
+          Extension t = new Extension();
+          this.previous.add(t);
+          return t;
+        }
+
         public List<Extension> getNext() { 
           return this.next;
+        }
+
+    // syntactic sugar
+        public Extension addNext() { 
+          Extension t = new Extension();
+          this.next.add(t);
+          return t;
         }
 
         public List<Extension> getLast() { 
           return this.last;
         }
 
+    // syntactic sugar
+        public Extension addLast() { 
+          Extension t = new Extension();
+          this.last.add(t);
+          return t;
+        }
+
         public List<ResourceReference> getReference() { 
           return this.reference;
+        }
+
+    // syntactic sugar
+        public ResourceReference addReference() { 
+          ResourceReference t = new ResourceReference();
+          this.reference.add(t);
+          return t;
         }
 
       public QueryResponseComponent copy(Query e) {
@@ -287,6 +329,13 @@ public class Query extends Resource {
 
     public List<Extension> getParameter() { 
       return this.parameter;
+    }
+
+    // syntactic sugar
+    public Extension addParameter() { 
+      Extension t = new Extension();
+      this.parameter.add(t);
+      return t;
     }
 
     public QueryResponseComponent getResponse() { 

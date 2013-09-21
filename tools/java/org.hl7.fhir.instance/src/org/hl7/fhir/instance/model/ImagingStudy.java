@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -1087,6 +1087,13 @@ public class ImagingStudy extends Resource {
           return this.instance;
         }
 
+    // syntactic sugar
+        public ImagingStudySeriesInstanceComponent addInstance() { 
+          ImagingStudySeriesInstanceComponent t = new ImagingStudySeriesInstanceComponent();
+          this.instance.add(t);
+          return t;
+        }
+
       public ImagingStudySeriesComponent copy(ImagingStudy e) {
         ImagingStudySeriesComponent dst = e.new ImagingStudySeriesComponent();
         dst.number = number == null ? null : number.copy();
@@ -1428,8 +1435,29 @@ public class ImagingStudy extends Resource {
       return this.identifier;
     }
 
+    // syntactic sugar
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
+    }
+
     public List<Enumeration<ImagingModality>> getModality() { 
       return this.modality;
+    }
+
+    // syntactic sugar
+    public Enumeration<ImagingModality> addModality() { 
+      Enumeration<ImagingModality> t = new Enumeration<ImagingModality>();
+      this.modality.add(t);
+      return t;
+    }
+
+    public Enumeration<ImagingModality> addModalitySimple(ImagingModality value) { 
+      Enumeration<ImagingModality> t = new Enumeration<ImagingModality>();
+      t.setValue(value);
+      this.modality.add(t);
+      return t;
     }
 
     public ResourceReference getReferrer() { 
@@ -1546,6 +1574,13 @@ public class ImagingStudy extends Resource {
       return this.procedure;
     }
 
+    // syntactic sugar
+    public Coding addProcedure() { 
+      Coding t = new Coding();
+      this.procedure.add(t);
+      return t;
+    }
+
     public ResourceReference getInterpreter() { 
       return this.interpreter;
     }
@@ -1578,6 +1613,13 @@ public class ImagingStudy extends Resource {
 
     public List<ImagingStudySeriesComponent> getSeries() { 
       return this.series;
+    }
+
+    // syntactic sugar
+    public ImagingStudySeriesComponent addSeries() { 
+      ImagingStudySeriesComponent t = new ImagingStudySeriesComponent();
+      this.series.add(t);
+      return t;
     }
 
       public ImagingStudy copy() {

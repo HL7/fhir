@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Sep 6, 2013 22:32+1000 for FHIR v0.11
+// Generated on Sun, Sep 22, 2013 06:57+1000 for FHIR v0.11
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -1816,6 +1816,432 @@ public class JsonComposer extends JsonComposerBase {
     }
   }
 
+  private void composeGVFMeta(String name, GVFMeta element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeResourceElements(element);
+      if (element.getSubject().size() > 0) {
+        openArray("subject");
+        for (GVFMeta.GVFMetaSubjectComponent e : element.getSubject()) 
+          composeGVFMetaGVFMetaSubjectComponent(null, e);
+        closeArray();
+      };
+      composeAttachment("sourceFile", element.getSourceFile());
+      if (element.getGvfVersion() != null)
+        composeEnumeration("gvfVersion", element.getGvfVersion(), new GVFMeta().new GvfVersionEnumFactory());
+      composeUri("referenceFasta", element.getReferenceFasta());
+      composeUri("featureGFF3", element.getFeatureGFF3());
+      composeDate("fileDate", element.getFileDate());
+      if (element.getIndividual().size() > 0) {
+        openArray("individual");
+        for (String_ e : element.getIndividual()) 
+          composeString(null, e);
+        closeArray();
+      };
+      if (element.getPopulation() != null)
+        composeEnumeration("population", element.getPopulation(), new GVFMeta().new PopulationEnumFactory());
+      composeGVFMetaGVFMetaPlatformComponent("platform", element.getPlatform());
+      if (element.getSequencingScope() != null)
+        composeEnumeration("sequencingScope", element.getSequencingScope(), new GVFMeta().new SequencingScopeEnumFactory());
+      if (element.getCaptureMethod() != null)
+        composeEnumeration("captureMethod", element.getCaptureMethod(), new GVFMeta().new CaptureMethodEnumFactory());
+      composeUri("captureRegions", element.getCaptureRegions());
+      composeString("sequenceAlignment", element.getSequenceAlignment());
+      composeString("variantCalling", element.getVariantCalling());
+      composeString("sampleDescription", element.getSampleDescription());
+      if (element.getGenomicSource() != null)
+        composeEnumeration("genomicSource", element.getGenomicSource(), new GVFMeta().new SourceEnumFactory());
+      close();
+    }
+  }
+
+  private void composeGVFMetaGVFMetaSubjectComponent(String name, GVFMeta.GVFMetaSubjectComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeResourceReference("patient", element.getPatient());
+      composeString("fieldId", element.getFieldId());
+      close();
+    }
+  }
+
+  private void composeGVFMetaGVFMetaPlatformComponent(String name, GVFMeta.GVFMetaPlatformComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      if (element.getClass() != null)
+        composeEnumeration("class", element.getClass_(), new GVFMeta().new PlatformClassEnumFactory());
+      composeString("version", element.getVersion());
+      if (element.getName() != null)
+        composeEnumeration("name", element.getName(), new GVFMeta().new PlatformNameEnumFactory());
+      composeString("identity", element.getIdentity());
+      composeInteger("readLength", element.getReadLength());
+      if (element.getReadType() != null)
+        composeEnumeration("readType", element.getReadType(), new GVFMeta().new PlatformReadTypeEnumFactory());
+      composeInteger("readPairSpan", element.getReadPairSpan());
+      composeInteger("averageCoverage", element.getAverageCoverage());
+      close();
+    }
+  }
+
+  private void composeGVFVariant(String name, GVFVariant element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeResourceElements(element);
+      composeGVFVariantGVFVariantSubjectComponent("subject", element.getSubject());
+      composeResourceReference("meta", element.getMeta());
+      composeAttachment("sourceFile", element.getSourceFile());
+      composeString("seqid", element.getSeqid());
+      composeString("source", element.getSource());
+      if (element.getType() != null)
+        composeEnumeration("type", element.getType(), new GVFVariant().new FeatureTypeEnumFactory());
+      composeInteger("start", element.getStart());
+      composeInteger("end", element.getEnd());
+      composeInteger("score", element.getScore());
+      if (element.getStrand() != null)
+        composeEnumeration("strand", element.getStrand(), new GVFVariant().new StrandEnumFactory());
+      composeString("featureId", element.getFeatureId());
+      composeString("alias", element.getAlias());
+      composeGVFVariantGVFVariantDbxrefComponent("dbxref", element.getDbxref());
+      if (element.getVariantSeq().size() > 0) {
+        openArray("variantSeq");
+        for (String_ e : element.getVariantSeq()) 
+          composeString(null, e);
+        closeArray();
+      };
+      composeString("referenceSeq", element.getReferenceSeq());
+      if (element.getVariantFreq().size() > 0) {
+        openArray("variantFreq");
+        for (Decimal e : element.getVariantFreq()) 
+          composeDecimal(null, e);
+        closeArray();
+      };
+      if (element.getVariantEffect().size() > 0) {
+        openArray("variantEffect");
+        for (GVFVariant.GVFVariantVariantEffectComponent e : element.getVariantEffect()) 
+          composeGVFVariantGVFVariantVariantEffectComponent(null, e);
+        closeArray();
+      };
+      composeGVFVariantGVFVariantStartRangeComponent("startRange", element.getStartRange());
+      composeGVFVariantGVFVariantEndRangeComponent("endRange", element.getEndRange());
+      if (element.getVariantCodon().size() > 0) {
+        openArray("variantCodon");
+        for (String_ e : element.getVariantCodon()) 
+          composeString(null, e);
+        closeArray();
+      };
+      composeString("referenceCodon", element.getReferenceCodon());
+      if (element.getVariantAA().size() > 0) {
+        openArray("variantAA");
+        for (String_ e : element.getVariantAA()) 
+          composeString(null, e);
+        closeArray();
+      };
+      if (element.getReferenceAA().size() > 0) {
+        openArray("referenceAA");
+        for (String_ e : element.getReferenceAA()) 
+          composeString(null, e);
+        closeArray();
+      };
+      composeGVFVariantGVFVariantBreakpointDetailComponent("breakpointDetail", element.getBreakpointDetail());
+      composeGVFVariantGVFVariantSequenceContextComponent("sequenceContext", element.getSequenceContext());
+      if (element.getIndividual().size() > 0) {
+        openArray("individual");
+        for (String_ e : element.getIndividual()) 
+          composeString(null, e);
+        closeArray();
+      };
+      if (element.getSample().size() > 0) {
+        openArray("sample");
+        for (GVFVariant.GVFVariantSampleComponent e : element.getSample()) 
+          composeGVFVariantGVFVariantSampleComponent(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeGVFVariantGVFVariantSubjectComponent(String name, GVFVariant.GVFVariantSubjectComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeResourceReference("patient", element.getPatient());
+      composeString("fileId", element.getFileId());
+      close();
+    }
+  }
+
+  private void composeGVFVariantGVFVariantDbxrefComponent(String name, GVFVariant.GVFVariantDbxrefComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      if (element.getDatabase() != null)
+        composeEnumeration("database", element.getDatabase(), new GVFVariant().new DatabaseEnumFactory());
+      composeString("identity", element.getIdentity());
+      close();
+    }
+  }
+
+  private void composeGVFVariantGVFVariantVariantEffectComponent(String name, GVFVariant.GVFVariantVariantEffectComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      if (element.getSequenceVariant() != null)
+        composeEnumeration("sequenceVariant", element.getSequenceVariant(), new GVFVariant().new SequenceVariantEnumFactory());
+      composeInteger("index", element.getIndex());
+      if (element.getFeatureType() != null)
+        composeEnumeration("featureType", element.getFeatureType(), new GVFVariant().new FeatureTypeEnumFactory());
+      if (element.getFeatureId().size() > 0) {
+        openArray("featureId");
+        for (String_ e : element.getFeatureId()) 
+          composeString(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeGVFVariantGVFVariantStartRangeComponent(String name, GVFVariant.GVFVariantStartRangeComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeInteger("start", element.getStart());
+      composeInteger("end", element.getEnd());
+      close();
+    }
+  }
+
+  private void composeGVFVariantGVFVariantEndRangeComponent(String name, GVFVariant.GVFVariantEndRangeComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeInteger("start", element.getStart());
+      composeInteger("end", element.getEnd());
+      close();
+    }
+  }
+
+  private void composeGVFVariantGVFVariantBreakpointDetailComponent(String name, GVFVariant.GVFVariantBreakpointDetailComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("seqid", element.getSeqid());
+      composeInteger("start", element.getStart());
+      composeInteger("end", element.getEnd());
+      if (element.getStrand() != null)
+        composeEnumeration("strand", element.getStrand(), new GVFVariant().new StrandEnumFactory());
+      close();
+    }
+  }
+
+  private void composeGVFVariantGVFVariantSequenceContextComponent(String name, GVFVariant.GVFVariantSequenceContextComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("fivePrime", element.getFivePrime());
+      composeString("threePrime", element.getThreePrime());
+      close();
+    }
+  }
+
+  private void composeGVFVariantGVFVariantSampleComponent(String name, GVFVariant.GVFVariantSampleComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      if (element.getPhased().size() > 0) {
+        openArray("phased");
+        for (String_ e : element.getPhased()) 
+          composeString(null, e);
+        closeArray();
+      };
+      if (element.getGenotype().size() > 0) {
+        openArray("genotype");
+        for (String_ e : element.getGenotype()) 
+          composeString(null, e);
+        closeArray();
+      };
+      if (element.getVariantReads().size() > 0) {
+        openArray("variantReads");
+        for (Integer e : element.getVariantReads()) 
+          composeInteger(null, e);
+        closeArray();
+      };
+      composeInteger("totalReads", element.getTotalReads());
+      if (element.getZygosity() != null)
+        composeEnumeration("zygosity", element.getZygosity(), new GVFVariant().new ZygosityEnumFactory());
+      close();
+    }
+  }
+
+  private void composeGeneExpression(String name, GeneExpression element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeResourceElements(element);
+      composeResourceReference("subject", element.getSubject());
+      composeGeneExpressionGeneExpressionGeneComponent("gene", element.getGene());
+      if (element.getMicroarray().size() > 0) {
+        openArray("microarray");
+        for (ResourceReference e : element.getMicroarray()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
+      if (element.getRnaSeq().size() > 0) {
+        openArray("rnaSeq");
+        for (GeneExpression.GeneExpressionRnaSeqComponent e : element.getRnaSeq()) 
+          composeGeneExpressionGeneExpressionRnaSeqComponent(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeGeneExpressionGeneExpressionGeneComponent(String name, GeneExpression.GeneExpressionGeneComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("identifier", element.getIdentifier());
+      composeGeneExpressionGeneExpressionGeneCoordinateComponent("coordinate", element.getCoordinate());
+      close();
+    }
+  }
+
+  private void composeGeneExpressionGeneExpressionGeneCoordinateComponent(String name, GeneExpression.GeneExpressionGeneCoordinateComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("chromosome", element.getChromosome());
+      composeInteger("start", element.getStart());
+      composeInteger("end", element.getEnd());
+      close();
+    }
+  }
+
+  private void composeGeneExpressionGeneExpressionRnaSeqComponent(String name, GeneExpression.GeneExpressionRnaSeqComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeResourceReference("inputLab", element.getInputLab());
+      composeResourceReference("inputAnalysis", element.getInputAnalysis());
+      composeDecimal("expression", element.getExpression());
+      if (element.getIsoform().size() > 0) {
+        openArray("isoform");
+        for (GeneExpression.GeneExpressionRnaSeqIsoformComponent e : element.getIsoform()) 
+          composeGeneExpressionGeneExpressionRnaSeqIsoformComponent(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeGeneExpressionGeneExpressionRnaSeqIsoformComponent(String name, GeneExpression.GeneExpressionRnaSeqIsoformComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("identity", element.getIdentity());
+      composeDecimal("expression", element.getExpression());
+      close();
+    }
+  }
+
+  private void composeGeneticAnalysis(String name, GeneticAnalysis element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeResourceElements(element);
+      composeResourceReference("subject", element.getSubject());
+      composeResourceReference("author", element.getAuthor());
+      composeDate("date", element.getDate());
+      composeGeneticAnalysisGeneticAnalysisGeneticAnalysisSummaryComponent("geneticAnalysisSummary", element.getGeneticAnalysisSummary());
+      composeGeneticAnalysisGeneticAnalysisDnaRegionAnalysisTestCoverageComponent("dnaRegionAnalysisTestCoverage", element.getDnaRegionAnalysisTestCoverage());
+      composeGeneticAnalysisGeneticAnalysisGeneticAnalysisDiscreteResultComponent("geneticAnalysisDiscreteResult", element.getGeneticAnalysisDiscreteResult());
+      close();
+    }
+  }
+
+  private void composeGeneticAnalysisGeneticAnalysisGeneticAnalysisSummaryComponent(String name, GeneticAnalysis.GeneticAnalysisGeneticAnalysisSummaryComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeCoding("geneticDiseaseAssessed", element.getGeneticDiseaseAssessed());
+      composeCoding("medicationAssesed", element.getMedicationAssesed());
+      composeCoding("genomicSourceClass", element.getGenomicSourceClass());
+      composeCoding("geneticDiseaseAnalysisOverallInterpretation", element.getGeneticDiseaseAnalysisOverallInterpretation());
+      composeCoding("geneticDiseaseAnalysisOverallCarrierInterpertation", element.getGeneticDiseaseAnalysisOverallCarrierInterpertation());
+      composeCoding("drugEfficacyAnalysisOverallInterpretation", element.getDrugEfficacyAnalysisOverallInterpretation());
+      composeString("geneticAnalysisSummaryReport", element.getGeneticAnalysisSummaryReport());
+      composeString("reasonForStudyAdditionalNote", element.getReasonForStudyAdditionalNote());
+      close();
+    }
+  }
+
+  private void composeGeneticAnalysisGeneticAnalysisDnaRegionAnalysisTestCoverageComponent(String name, GeneticAnalysis.GeneticAnalysisDnaRegionAnalysisTestCoverageComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      if (element.getDnaRegionOfInterest().size() > 0) {
+        openArray("dnaRegionOfInterest");
+        for (GeneticAnalysis.GeneticAnalysisDnaRegionAnalysisTestCoverageDnaRegionOfInterestComponent e : element.getDnaRegionOfInterest()) 
+          composeGeneticAnalysisGeneticAnalysisDnaRegionAnalysisTestCoverageDnaRegionOfInterestComponent(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeGeneticAnalysisGeneticAnalysisDnaRegionAnalysisTestCoverageDnaRegionOfInterestComponent(String name, GeneticAnalysis.GeneticAnalysisDnaRegionAnalysisTestCoverageDnaRegionOfInterestComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("genomicReferenceSequenceIdentifier", element.getGenomicReferenceSequenceIdentifier());
+      composeInteger("regionOfInterestStart", element.getRegionOfInterestStart());
+      composeInteger("regionOfInterestStop", element.getRegionOfInterestStop());
+      composeString("referenceNucleotide", element.getReferenceNucleotide());
+      composeString("variableNucleotide", element.getVariableNucleotide());
+      composeString("genechipId", element.getGenechipId());
+      composeString("genechipManufacturerId", element.getGenechipManufacturerId());
+      composeString("genechipVersion", element.getGenechipVersion());
+      close();
+    }
+  }
+
+  private void composeGeneticAnalysisGeneticAnalysisGeneticAnalysisDiscreteResultComponent(String name, GeneticAnalysis.GeneticAnalysisGeneticAnalysisDiscreteResultComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      if (element.getDnaAnalysisDiscreteSequenceVariation().size() > 0) {
+        openArray("dnaAnalysisDiscreteSequenceVariation");
+        for (GeneticAnalysis.GeneticAnalysisGeneticAnalysisDiscreteResultDnaAnalysisDiscreteSequenceVariationComponent e : element.getDnaAnalysisDiscreteSequenceVariation()) 
+          composeGeneticAnalysisGeneticAnalysisGeneticAnalysisDiscreteResultDnaAnalysisDiscreteSequenceVariationComponent(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeGeneticAnalysisGeneticAnalysisGeneticAnalysisDiscreteResultDnaAnalysisDiscreteSequenceVariationComponent(String name, GeneticAnalysis.GeneticAnalysisGeneticAnalysisDiscreteResultDnaAnalysisDiscreteSequenceVariationComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("geneIdentifier", element.getGeneIdentifier());
+      composeString("genomicReferenceSequenceIdentifier", element.getGenomicReferenceSequenceIdentifier());
+      composeString("transcriptReferenceIdentifier", element.getTranscriptReferenceIdentifier());
+      composeString("alleleName", element.getAlleleName());
+      composeString("dnaSequenceVariationIdentifier", element.getDnaSequenceVariationIdentifier());
+      composeString("dnaSequenceVariation", element.getDnaSequenceVariation());
+      composeCoding("dnaSequenceVariationType", element.getDnaSequenceVariationType());
+      composeString("aminoAcidChange", element.getAminoAcidChange());
+      composeCoding("aminoAcidChangeType", element.getAminoAcidChangeType());
+      composeString("dnaRegionName", element.getDnaRegionName());
+      composeCoding("allellicState", element.getAllellicState());
+      composeCoding("genomicSourceClass", element.getGenomicSourceClass());
+      composeString("dnaSequenceVariationDisplayName", element.getDnaSequenceVariationDisplayName());
+      composeCoding("geneticDiseaseSequenceVariationInterpretation", element.getGeneticDiseaseSequenceVariationInterpretation());
+      composeCoding("drugMetabolismSequenceVariationInterpretatioin", element.getDrugMetabolismSequenceVariationInterpretatioin());
+      composeCoding("drugEfficacySequenceVariationInterpretation", element.getDrugEfficacySequenceVariationInterpretation());
+      composeCoding("geneticVariantAssessment", element.getGeneticVariantAssessment());
+      close();
+    }
+  }
+
   private void composeGroup(String name, Group element) throws Exception {
     if (element != null) {
       open(name);
@@ -2606,6 +3032,100 @@ public class JsonComposer extends JsonComposerBase {
       composeString("name", element.getName());
       composeResourceReference("target", element.getTarget());
       composeUri("endpoint", element.getEndpoint());
+      close();
+    }
+  }
+
+  private void composeMicroarray(String name, Microarray element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeResourceElements(element);
+      if (element.getSubject().size() > 0) {
+        openArray("subject");
+        for (Microarray.MicroarraySubjectComponent e : element.getSubject()) 
+          composeMicroarrayMicroarraySubjectComponent(null, e);
+        closeArray();
+      };
+      composeResourceReference("organization", element.getOrganization());
+      composeDate("date", element.getDate());
+      composeMicroarrayMicroarrayScannerComponent("scanner", element.getScanner());
+      if (element.getSample().size() > 0) {
+        openArray("sample");
+        for (Microarray.MicroarraySampleComponent e : element.getSample()) 
+          composeMicroarrayMicroarraySampleComponent(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeMicroarrayMicroarraySubjectComponent(String name, Microarray.MicroarraySubjectComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeResourceReference("patient", element.getPatient());
+      if (element.getSampleId().size() > 0) {
+        openArray("sampleId");
+        for (String_ e : element.getSampleId()) 
+          composeString(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeMicroarrayMicroarrayScannerComponent(String name, Microarray.MicroarrayScannerComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeResourceReference("manufacturer", element.getManufacturer());
+      composeString("name", element.getName());
+      composeString("version", element.getVersion());
+      close();
+    }
+  }
+
+  private void composeMicroarrayMicroarraySampleComponent(String name, Microarray.MicroarraySampleComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("identity", element.getIdentity());
+      composeCodeableConcept("organism", element.getOrganism());
+      composeMicroarrayMicroarraySampleSpecimenComponent("specimen", element.getSpecimen());
+      composeMicroarrayMicroarraySampleGeneComponent("gene", element.getGene());
+      composeDecimal("intensity", element.getIntensity());
+      composeBoolean("isControl", element.getIsControl());
+      close();
+    }
+  }
+
+  private void composeMicroarrayMicroarraySampleSpecimenComponent(String name, Microarray.MicroarraySampleSpecimenComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("type", element.getType());
+      composeCodeableConcept("source", element.getSource());
+      close();
+    }
+  }
+
+  private void composeMicroarrayMicroarraySampleGeneComponent(String name, Microarray.MicroarraySampleGeneComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("identity", element.getIdentity());
+      composeMicroarrayMicroarraySampleGeneCoordinateComponent("coordinate", element.getCoordinate());
+      close();
+    }
+  }
+
+  private void composeMicroarrayMicroarraySampleGeneCoordinateComponent(String name, Microarray.MicroarraySampleGeneCoordinateComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("chromosome", element.getChromosome());
+      composeInteger("start", element.getStart());
+      composeInteger("end", element.getEnd());
       close();
     }
   }
@@ -3610,6 +4130,147 @@ public class JsonComposer extends JsonComposerBase {
     }
   }
 
+  private void composeSequence(String name, Sequence element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeResourceElements(element);
+      composeResourceReference("patient", element.getPatient());
+      if (element.getType() != null)
+        composeEnumeration("type", element.getType(), new Sequence().new SequenceTypeEnumFactory());
+      composeCodeableConcept("species", element.getSpecies());
+      composeSequenceSequenceSampleComponent("sample", element.getSample());
+      composeSequenceSequenceCoordinateComponent("coordinate", element.getCoordinate());
+      composeResourceReference("inputLab", element.getInputLab());
+      composeResourceReference("inputAnalysis", element.getInputAnalysis());
+      composeSequenceSequenceInputVariantComponent("inputVariant", element.getInputVariant());
+      composeInteger("quality", element.getQuality());
+      composeDecimal("quantity", element.getQuantity());
+      composeString("read", element.getRead());
+      close();
+    }
+  }
+
+  private void composeSequenceSequenceSampleComponent(String name, Sequence.SequenceSampleComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      if (element.getClass() != null)
+        composeEnumeration("class", element.getClass_(), new Sequence().new SampleClassEnumFactory());
+      composeCodeableConcept("source", element.getSource());
+      close();
+    }
+  }
+
+  private void composeSequenceSequenceCoordinateComponent(String name, Sequence.SequenceCoordinateComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      if (element.getChromosome() != null)
+        composeEnumeration("chromosome", element.getChromosome(), new Sequence().new ChromosomeEnumFactory());
+      composeInteger("start", element.getStart());
+      composeInteger("end", element.getEnd());
+      close();
+    }
+  }
+
+  private void composeSequenceSequenceInputVariantComponent(String name, Sequence.SequenceInputVariantComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("sampleId", element.getSampleId());
+      composeResourceReference("variant", element.getVariant());
+      close();
+    }
+  }
+
+  private void composeSequencingAnalysis(String name, SequencingAnalysis element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeResourceElements(element);
+      composeResourceReference("subject", element.getSubject());
+      composeDate("date", element.getDate());
+      composeString("name", element.getName());
+      composeSequencingAnalysisSequencingAnalysisGenomeComponent("genome", element.getGenome());
+      if (element.getFile().size() > 0) {
+        openArray("file");
+        for (Attachment e : element.getFile()) 
+          composeAttachment(null, e);
+        closeArray();
+      };
+      if (element.getInputLab().size() > 0) {
+        openArray("inputLab");
+        for (ResourceReference e : element.getInputLab()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
+      if (element.getInputAnalysis().size() > 0) {
+        openArray("inputAnalysis");
+        for (ResourceReference e : element.getInputAnalysis()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeSequencingAnalysisSequencingAnalysisGenomeComponent(String name, SequencingAnalysis.SequencingAnalysisGenomeComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      if (element.getName() != null)
+        composeEnumeration("name", element.getName(), new SequencingAnalysis().new RefGenomeEnumFactory());
+      composeString("build", element.getBuild());
+      close();
+    }
+  }
+
+  private void composeSequencingLab(String name, SequencingLab element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeResourceElements(element);
+      composeResourceReference("subject", element.getSubject());
+      composeString("organization", element.getOrganization());
+      composeString("name", element.getName());
+      composeDate("date", element.getDate());
+      if (element.getType() != null)
+        composeEnumeration("type", element.getType(), new SequencingLab().new SequencingTypeEnumFactory());
+      composeSequencingLabSequencingLabSystemComponent("system", element.getSystem());
+      composeSequencingLabSequencingLabSpecimenComponent("specimen", element.getSpecimen());
+      if (element.getFile().size() > 0) {
+        openArray("file");
+        for (Attachment e : element.getFile()) 
+          composeAttachment(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeSequencingLabSequencingLabSystemComponent(String name, SequencingLab.SequencingLabSystemComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      if (element.getClass() != null)
+        composeEnumeration("class", element.getClass_(), new SequencingLab().new SequencingSystemClassEnumFactory());
+      composeString("version", element.getVersion());
+      if (element.getName() != null)
+        composeEnumeration("name", element.getName(), new SequencingLab().new SequencingSystemNameEnumFactory());
+      composeString("identity", element.getIdentity());
+      close();
+    }
+  }
+
+  private void composeSequencingLabSequencingLabSpecimenComponent(String name, SequencingLab.SequencingLabSpecimenComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      if (element.getType() != null)
+        composeEnumeration("type", element.getType(), new SequencingLab().new SequencingSpecimenTypeEnumFactory());
+      composeCodeableConcept("source", element.getSource());
+      close();
+    }
+  }
+
   private void composeSpecimen(String name, Specimen element) throws Exception {
     if (element != null) {
       open(name);
@@ -3775,6 +4436,213 @@ public class JsonComposer extends JsonComposerBase {
         openArray("receiver");
         for (ResourceReference e : element.getReceiver()) 
           composeResourceReference(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeUser(String name, User element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeResourceElements(element);
+      composeHumanName("name", element.getName());
+      composeUri("provider", element.getProvider());
+      composeString("login", element.getLogin());
+      composeString("password", element.getPassword());
+      if (element.getLevel() != null)
+        composeEnumeration("level", element.getLevel(), new User().new UserLevelEnumFactory());
+      composeInteger("sessionLength", element.getSessionLength());
+      if (element.getContact().size() > 0) {
+        openArray("contact");
+        for (Contact e : element.getContact()) 
+          composeContact(null, e);
+        closeArray();
+      };
+      if (element.getPatient().size() > 0) {
+        openArray("patient");
+        for (ResourceReference e : element.getPatient()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeVCFMeta(String name, VCFMeta element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeResourceElements(element);
+      if (element.getSubject().size() > 0) {
+        openArray("subject");
+        for (VCFMeta.VCFMetaSubjectComponent e : element.getSubject()) 
+          composeVCFMetaVCFMetaSubjectComponent(null, e);
+        closeArray();
+      };
+      composeAttachment("sourceFile", element.getSourceFile());
+      if (element.getFileFormat() != null)
+        composeEnumeration("fileFormat", element.getFileFormat(), new VCFMeta().new VersionEnumFactory());
+      composeDate("fileDate", element.getFileDate());
+      composeString("reference", element.getReference());
+      composeUri("assembly", element.getAssembly());
+      composeVCFMetaVCFMetaContigComponent("contig", element.getContig());
+      if (element.getInfo().size() > 0) {
+        openArray("info");
+        for (VCFMeta.VCFMetaInfoComponent e : element.getInfo()) 
+          composeVCFMetaVCFMetaInfoComponent(null, e);
+        closeArray();
+      };
+      if (element.getFilter().size() > 0) {
+        openArray("filter");
+        for (VCFMeta.VCFMetaFilterComponent e : element.getFilter()) 
+          composeVCFMetaVCFMetaFilterComponent(null, e);
+        closeArray();
+      };
+      if (element.getFormat().size() > 0) {
+        openArray("format");
+        for (VCFMeta.VCFMetaFormatComponent e : element.getFormat()) 
+          composeVCFMetaVCFMetaFormatComponent(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeVCFMetaVCFMetaSubjectComponent(String name, VCFMeta.VCFMetaSubjectComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeResourceReference("patient", element.getPatient());
+      composeString("fileId", element.getFileId());
+      close();
+    }
+  }
+
+  private void composeVCFMetaVCFMetaContigComponent(String name, VCFMeta.VCFMetaContigComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("identity", element.getIdentity());
+      composeUri("url", element.getUrl());
+      close();
+    }
+  }
+
+  private void composeVCFMetaVCFMetaInfoComponent(String name, VCFMeta.VCFMetaInfoComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("identity", element.getIdentity());
+      composeInteger("number", element.getNumber());
+      if (element.getType() != null)
+        composeEnumeration("type", element.getType(), new VCFMeta().new TypeEnumFactory());
+      composeString("description", element.getDescription());
+      close();
+    }
+  }
+
+  private void composeVCFMetaVCFMetaFilterComponent(String name, VCFMeta.VCFMetaFilterComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("identity", element.getIdentity());
+      composeString("description", element.getDescription());
+      close();
+    }
+  }
+
+  private void composeVCFMetaVCFMetaFormatComponent(String name, VCFMeta.VCFMetaFormatComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("identity", element.getIdentity());
+      composeInteger("number", element.getNumber());
+      if (element.getType() != null)
+        composeEnumeration("type", element.getType(), new VCFMeta().new TypeEnumFactory());
+      composeString("description", element.getDescription());
+      close();
+    }
+  }
+
+  private void composeVCFVariant(String name, VCFVariant element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeResourceElements(element);
+      if (element.getSubject().size() > 0) {
+        openArray("subject");
+        for (VCFVariant.VCFVariantSubjectComponent e : element.getSubject()) 
+          composeVCFVariantVCFVariantSubjectComponent(null, e);
+        closeArray();
+      };
+      composeAttachment("sourceFile", element.getSourceFile());
+      composeResourceReference("meta", element.getMeta());
+      composeString("chrom", element.getChrom());
+      composeInteger("pos", element.getPos());
+      composeString("identity", element.getIdentity());
+      composeString("ref", element.getRef());
+      if (element.getAlt().size() > 0) {
+        openArray("alt");
+        for (String_ e : element.getAlt()) 
+          composeString(null, e);
+        closeArray();
+      };
+      composeInteger("qual", element.getQual());
+      composeString("filter", element.getFilter());
+      composeVCFVariantVCFVariantInfoComponent("info", element.getInfo());
+      if (element.getSample().size() > 0) {
+        openArray("sample");
+        for (VCFVariant.VCFVariantSampleComponent e : element.getSample()) 
+          composeVCFVariantVCFVariantSampleComponent(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeVCFVariantVCFVariantSubjectComponent(String name, VCFVariant.VCFVariantSubjectComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeResourceReference("patient", element.getPatient());
+      composeString("fileId", element.getFileId());
+      close();
+    }
+  }
+
+  private void composeVCFVariantVCFVariantInfoComponent(String name, VCFVariant.VCFVariantInfoComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("identity", element.getIdentity());
+      composeString("value", element.getValue());
+      close();
+    }
+  }
+
+  private void composeVCFVariantVCFVariantSampleComponent(String name, VCFVariant.VCFVariantSampleComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("identity", element.getIdentity());
+      if (element.getField().size() > 0) {
+        openArray("field");
+        for (VCFVariant.VCFVariantSampleFieldComponent e : element.getField()) 
+          composeVCFVariantVCFVariantSampleFieldComponent(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeVCFVariantVCFVariantSampleFieldComponent(String name, VCFVariant.VCFVariantSampleFieldComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("identity", element.getIdentity());
+      if (element.getValue().size() > 0) {
+        openArray("value");
+        for (String_ e : element.getValue()) 
+          composeString(null, e);
         closeArray();
       };
       close();
@@ -3970,6 +4838,14 @@ public class JsonComposer extends JsonComposerBase {
       composeEncounter("Encounter", (Encounter)resource);
     else if (resource instanceof FamilyHistory)
       composeFamilyHistory("FamilyHistory", (FamilyHistory)resource);
+    else if (resource instanceof GVFMeta)
+      composeGVFMeta("GVFMeta", (GVFMeta)resource);
+    else if (resource instanceof GVFVariant)
+      composeGVFVariant("GVFVariant", (GVFVariant)resource);
+    else if (resource instanceof GeneExpression)
+      composeGeneExpression("GeneExpression", (GeneExpression)resource);
+    else if (resource instanceof GeneticAnalysis)
+      composeGeneticAnalysis("GeneticAnalysis", (GeneticAnalysis)resource);
     else if (resource instanceof Group)
       composeGroup("Group", (Group)resource);
     else if (resource instanceof ImagingStudy)
@@ -3996,6 +4872,8 @@ public class JsonComposer extends JsonComposerBase {
       composeMedicationStatement("MedicationStatement", (MedicationStatement)resource);
     else if (resource instanceof Message)
       composeMessage("Message", (Message)resource);
+    else if (resource instanceof Microarray)
+      composeMicroarray("Microarray", (Microarray)resource);
     else if (resource instanceof Observation)
       composeObservation("Observation", (Observation)resource);
     else if (resource instanceof OperationOutcome)
@@ -4026,12 +4904,24 @@ public class JsonComposer extends JsonComposerBase {
       composeRelatedPerson("RelatedPerson", (RelatedPerson)resource);
     else if (resource instanceof SecurityEvent)
       composeSecurityEvent("SecurityEvent", (SecurityEvent)resource);
+    else if (resource instanceof Sequence)
+      composeSequence("Sequence", (Sequence)resource);
+    else if (resource instanceof SequencingAnalysis)
+      composeSequencingAnalysis("SequencingAnalysis", (SequencingAnalysis)resource);
+    else if (resource instanceof SequencingLab)
+      composeSequencingLab("SequencingLab", (SequencingLab)resource);
     else if (resource instanceof Specimen)
       composeSpecimen("Specimen", (Specimen)resource);
     else if (resource instanceof Substance)
       composeSubstance("Substance", (Substance)resource);
     else if (resource instanceof Supply)
       composeSupply("Supply", (Supply)resource);
+    else if (resource instanceof User)
+      composeUser("User", (User)resource);
+    else if (resource instanceof VCFMeta)
+      composeVCFMeta("VCFMeta", (VCFMeta)resource);
+    else if (resource instanceof VCFVariant)
+      composeVCFVariant("VCFVariant", (VCFVariant)resource);
     else if (resource instanceof ValueSet)
       composeValueSet("ValueSet", (ValueSet)resource);
     else if (resource instanceof Binary)
@@ -4075,6 +4965,14 @@ public class JsonComposer extends JsonComposerBase {
       composeEncounter(name, (Encounter)resource);
     else if (resource instanceof FamilyHistory)
       composeFamilyHistory(name, (FamilyHistory)resource);
+    else if (resource instanceof GVFMeta)
+      composeGVFMeta(name, (GVFMeta)resource);
+    else if (resource instanceof GVFVariant)
+      composeGVFVariant(name, (GVFVariant)resource);
+    else if (resource instanceof GeneExpression)
+      composeGeneExpression(name, (GeneExpression)resource);
+    else if (resource instanceof GeneticAnalysis)
+      composeGeneticAnalysis(name, (GeneticAnalysis)resource);
     else if (resource instanceof Group)
       composeGroup(name, (Group)resource);
     else if (resource instanceof ImagingStudy)
@@ -4101,6 +4999,8 @@ public class JsonComposer extends JsonComposerBase {
       composeMedicationStatement(name, (MedicationStatement)resource);
     else if (resource instanceof Message)
       composeMessage(name, (Message)resource);
+    else if (resource instanceof Microarray)
+      composeMicroarray(name, (Microarray)resource);
     else if (resource instanceof Observation)
       composeObservation(name, (Observation)resource);
     else if (resource instanceof OperationOutcome)
@@ -4131,12 +5031,24 @@ public class JsonComposer extends JsonComposerBase {
       composeRelatedPerson(name, (RelatedPerson)resource);
     else if (resource instanceof SecurityEvent)
       composeSecurityEvent(name, (SecurityEvent)resource);
+    else if (resource instanceof Sequence)
+      composeSequence(name, (Sequence)resource);
+    else if (resource instanceof SequencingAnalysis)
+      composeSequencingAnalysis(name, (SequencingAnalysis)resource);
+    else if (resource instanceof SequencingLab)
+      composeSequencingLab(name, (SequencingLab)resource);
     else if (resource instanceof Specimen)
       composeSpecimen(name, (Specimen)resource);
     else if (resource instanceof Substance)
       composeSubstance(name, (Substance)resource);
     else if (resource instanceof Supply)
       composeSupply(name, (Supply)resource);
+    else if (resource instanceof User)
+      composeUser(name, (User)resource);
+    else if (resource instanceof VCFMeta)
+      composeVCFMeta(name, (VCFMeta)resource);
+    else if (resource instanceof VCFVariant)
+      composeVCFVariant(name, (VCFVariant)resource);
     else if (resource instanceof ValueSet)
       composeValueSet(name, (ValueSet)resource);
     else if (resource instanceof Binary)
