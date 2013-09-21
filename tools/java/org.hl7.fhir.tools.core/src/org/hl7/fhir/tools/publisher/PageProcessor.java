@@ -33,7 +33,6 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
-import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -70,23 +69,16 @@ import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameter;
-import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.parsers.TypeParser;
 import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
-import org.hl7.fhir.instance.model.Contact.ContactSystem;
-import org.hl7.fhir.instance.model.Factory;
-import org.hl7.fhir.instance.model.Narrative;
-import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
+import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValuesetStatus;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
@@ -94,13 +86,10 @@ import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
-import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XhtmlGenerator;
-import org.hl7.fhir.utilities.xml.XhtmlGeneratorAdorner.XhtmlGeneratorAdornerState;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 
 public class PageProcessor implements Logger  {
 
@@ -123,8 +112,8 @@ public class PageProcessor implements Logger  {
   private QaTracker qa = new QaTracker();
   private AtomFeed v3Valuesets;
   private AtomFeed v2Valuesets;
-  private Map<String, AtomEntry> codeSystems = new HashMap<String, AtomEntry>();
-  private Map<String, AtomEntry> valueSets = new HashMap<String, AtomEntry>();
+  private Map<String, AtomEntry<? extends Resource>> codeSystems = new HashMap<String, AtomEntry<? extends Resource>>();
+  private Map<String, AtomEntry<? extends Resource>> valueSets = new HashMap<String, AtomEntry<? extends Resource>>();
   private Map<String, String> svgs = new HashMap<String, String>();
   private BreadCrumbManager breadCrumbManager = new BreadCrumbManager();
   
@@ -2629,11 +2618,11 @@ public void log(String content) {
     atom.getEntryList().add(e);
   }
 
-  public Map<String, AtomEntry> getCodeSystems() {
+  public Map<String, AtomEntry<? extends Resource>> getCodeSystems() {
     return codeSystems;
   }
 
-  public Map<String, AtomEntry> getValueSets() {
+  public Map<String, AtomEntry<? extends Resource>> getValueSets() {
     return valueSets;
   }
 

@@ -48,6 +48,7 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameter;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.model.AtomEntry;
+import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.validation.BaseValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
@@ -73,16 +74,16 @@ public class ResourceValidator extends BaseValidator {
   private Definitions definitions;
 	private Map<String, Usage> usages = new HashMap<String, Usage>();
   private Element translations;
-  private Map<String, AtomEntry> codeSystems = new HashMap<String, AtomEntry>();
+  private Map<String, AtomEntry<? extends Resource>> codeSystems = new HashMap<String, AtomEntry<? extends Resource>>();
   
   
 
-	public ResourceValidator(Definitions definitions, Element translations, Map<String, AtomEntry> codeSystems) {
+	public ResourceValidator(Definitions definitions, Element translations, Map<String, AtomEntry<? extends Resource>> map) {
 		super();
     source = Source.ResourceValidator;
 		this.definitions = definitions;
 		this.translations = translations;
-		this.codeSystems = codeSystems;
+		this.codeSystems = map;
 	}
 
 	// public void setConceptDomains(List<ConceptDomain> conceptDomains) {
