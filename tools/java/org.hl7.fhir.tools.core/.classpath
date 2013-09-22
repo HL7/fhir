@@ -24,5 +24,6 @@
 	<classpathentry kind="lib" path="../imports/svnkit-1.7.9.jar"/>
 	<classpathentry kind="lib" path="../imports/svnkit-javahl16-1.7.9.jar"/>
 	<classpathentry kind="lib" path="../imports/antlr-runtime-3.4.jar"/>
+	<classpathentry kind="lib" path="../imports/gson-2.2.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

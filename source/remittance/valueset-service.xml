@@ -1,5 +1,4 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -8,35 +7,70 @@
   </text>
   <name value="USCLS Codes"/>
   <publisher value="FHIR Project team"/>
-  <telecom>  
+  <telecom>
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
   <description value="This value set includes a smattering of  USCLS codes"/>
   <status value="draft"/>
-  <compose>
-    <define>
-	<system value="urn:USCLS"/>
-	<code value="1101"/>
-	<code value="1102"/>
-	<code value="1103"/>
-	<code value="1201"/>
-	<code value="1205"/>
-	<code value="2101"/>
-	<code value="2102"/>
-	<code value="2141"/>
-	<code value="2601"/>
-	<code value="11101"/>
-	<code value="11102"/>
-	<code value="11103"/>
-	<code value="11104"/>
-	<code value="21211"/>
-	<code value="21212"/>
-	<code value="27211"/>
-	<code value="99111"/>
-	<code value="99333"/>
-	<code value="99555"/>
-	</define>
-  </compose>
+  <define>
+    <system value="urn:USCLS"/>
+    <concept>
+      <code value="1101"/>
+    </concept>
+    <concept>
+      <code value="1102"/>
+    </concept>
+    <concept>
+      <code value="1103"/>
+    </concept>
+    <concept>
+      <code value="1201"/>
+    </concept>
+    <concept>
+      <code value="1205"/>
+    </concept>
+    <concept>
+      <code value="2101"/>
+    </concept>
+    <concept>
+      <code value="2102"/>
+    </concept>
+    <concept>
+      <code value="2141"/>
+    </concept>
+    <concept>
+      <code value="2601"/>
+    </concept>
+    <concept>
+      <code value="11101"/>
+    </concept>
+    <concept>
+      <code value="11102"/>
+    </concept>
+    <concept>
+      <code value="11103"/>
+    </concept>
+    <concept>
+      <code value="11104"/>
+    </concept>
+    <concept>
+      <code value="21211"/>
+    </concept>
+    <concept>
+      <code value="21212"/>
+    </concept>
+    <concept>
+      <code value="27211"/>
+    </concept>
+    <concept>
+      <code value="99111"/>
+    </concept>
+    <concept>
+      <code value="99333"/>
+    </concept>
+    <concept>
+      <code value="99555"/>
+    </concept>
+  </define>
 </ValueSet>
-
