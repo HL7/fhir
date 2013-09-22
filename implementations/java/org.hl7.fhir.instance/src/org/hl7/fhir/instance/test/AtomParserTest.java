@@ -11,7 +11,10 @@ import java.util.regex.Pattern;
 
 import org.hl7.fhir.instance.formats.ParserBase.ResourceOrFeed;
 import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.model.AtomEntry;
+import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.MedicationPrescription;
+import org.hl7.fhir.instance.model.Patient;
 import org.hl7.fhir.instance.model.Resource;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -32,6 +35,8 @@ public class AtomParserTest {
 	private String filepathFeedNotPretty;
 	private String filepathFeedPretty;
 	private String itemPath;
+	private String filepathFurore1NotPretty;
+	private String filepathFurore1Pretty;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -51,6 +56,8 @@ public class AtomParserTest {
 	filepathFeedNotPretty = basePath + "containedFeed_notpretty.xml";
 	filepathFeedPretty = basePath  + "containedFeed_pretty.xml";
 	itemPath = basePath + "diagnosticreport-feed.xml";
+	filepathFurore1NotPretty = basePath  + "FuroreHistory15_noformat.xml";
+	filepathFurore1Pretty = basePath + "FuroreHistory15_pretty.xml";
 	parser = new XmlParser();
 	}
 
@@ -98,6 +105,39 @@ public class AtomParserTest {
 		MedicationPrescription p = (MedicationPrescription) r.getFeed().getEntryList().get(0).getResource();
 		System.out.println("|"+p.getStatusSimple()+"|");
 		assertTrue(p.getStatusSimple().toString().equals("active"));
+
+	}
+	
+	@Test
+	public void testFurorePretty() {
+		try {
+			ResourceOrFeed r = parseFile(filepathFurore1Pretty);
+			AtomFeed feed = r.getFeed();
+			assertTrue(feed.getEntryList().size() == 3);
+			for(AtomEntry<? extends Resource> entry : feed.getEntryList()) {
+				assertTrue(entry.getResource() instanceof Patient);
+			}
+			Patient patient1 = (Patient)feed.getEntryList().get(0).getResource();
+			assertTrue(patient1.getName().get(0).getFamily().get(0).getValue().equalsIgnoreCase("Fox"));
+			Patient patient2 = (Patient)feed.getEntryList().get(1).getResource();
+			assertTrue(patient2.getName().get(0).getFamily().get(0).getValue().equalsIgnoreCase("Fox"));
+			Patient patient3 = (Patient)feed.getEntryList().get(2).getResource();
+			assertTrue(patient3.getName().get(0).getFamily().get(0).getValue().equalsIgnoreCase("Garrett"));
+		} catch(Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+
+	}
+	
+	@Test
+	public void testFuroreNotPretty() {
+		try {
+			ResourceOrFeed r = parseFile(filepathFurore1NotPretty);
+		} catch(Exception e) {
+			e.printStackTrace();
+			fail();
+		}
 
 	}
 
