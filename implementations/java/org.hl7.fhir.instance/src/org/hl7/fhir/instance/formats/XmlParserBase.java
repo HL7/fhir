@@ -233,7 +233,9 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
         res.setSummary(new XhtmlParser().parseHtmlNode(xpp));
         xpp.next();
         nextNoWhitespace(xpp);
-        xpp.next();
+        if(xpp.getName().equals("summary")) {
+        	xpp.next();
+        }
       } else
         throw new Exception("Bad Xml parsing entry");
       eventType = nextNoWhitespace(xpp);
