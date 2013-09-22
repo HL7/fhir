@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>SMART patient bundle for transactional posting</title>
+  <id>urn:uuid:3380</id>
+  <updated>2013-09-21T07:41:22.653989</updated>
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <title>SMART Patient-level resource</title>
+  <id>cid:med-3381</id>
+  <updated>2013-09-21T07:41:22.653989</updated>
+  <published>2013-09-21T07:41:22.653989</published>
+  <author>
+    <name>https://github.com/chb/smart_sample_patients</name>
+  </author>
+  <content type="text/xml">
+    
+<MedicationPrescription xmlns="http://hl7.org/fhir">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      Nizatidine 15 MG/ML Oral Solution [Axid] (rxnorm: 582620)
+    </div>
+  </text>
+
+  <contained>
+    
+    <Medication id="med">
+      <name value="Nizatidine 15 MG/ML Oral Solution [Axid]"/>
+      <code>
+	<coding>
+	  <system value="http://rxnav.nlm.nih.gov/REST/rxcui"/>
+	  <code value="582620"/>
+	  <display value="Nizatidine 15 MG/ML Oral Solution [Axid]"/>
+	  </coding>
+	</code>
+	  </Medication>
+	</contained>
+	  <status value="active" />
+  <patient>
+    <type value="Patient"/>
+    <reference value="cid:patient-1032702"/>
+  </patient>
+
+  <medication>
+    <type value="Medication"/>
+    <reference value="#med"/>
+  </medication>
+
+  <dosageInstruction>
+    <timingSchedule>
+      <event>
+	<start value="2008-04-05"/>
+      </event>
+      <repeat>
+	<frequency value="2"/>
+	<duration value="1"/>
+	<units value="d"/>
+      </repeat>
+      
+    </timingSchedule>
+    <doseQuantity>
+      <value value="10"/>
+      <units value="mL"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="mL"/>
+	  </doseQuantity>
+	  </dosageInstruction>
+	  </MedicationPrescription>
+	  </content>
+	  </entry>
+</feed>

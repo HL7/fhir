@@ -6,6 +6,8 @@ import static org.junit.Assert.fail;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.hl7.fhir.instance.formats.ParserBase.ResourceOrFeed;
 import org.hl7.fhir.instance.formats.XmlParser;
@@ -21,13 +23,16 @@ import org.junit.Test;
 public class AtomParserTest {
 	
 	private File file = null;
-	private String filepathResourceNotPretty = "/home/jmandel/smart/fhir/build/fixtures/containedResource_notpretty.xml";
-	private String filepathResourcePretty = "/home/jmandel/smart/fhir/build/fixtures/containedResource_pretty.xml";
-	private String filepathFeedNotPretty = "/home/jmandel/smart/fhir/build/fixtures/containedFeed_notpretty.xml";
-	private String filepathFeedPretty = "/home/jmandel/smart/fhir/build/fixtures/containedFeed_pretty.xml";
-	private String itemPath = "/home/jmandel/smart/fhir/build/publish/examples/diagnosticreport-examples-lab-text.xml";
-	private XmlParser parser = null;
 
+	private XmlParser parser = null;
+	private String basePath = null;
+
+	private String filepathResourceNotPretty;
+	private String filepathResourcePretty;
+	private String filepathFeedNotPretty;
+	private String filepathFeedPretty;
+	private String itemPath;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -38,24 +43,19 @@ public class AtomParserTest {
 
 	@Before
 	public void setUp() throws Exception {
-		parser = new XmlParser();
+		System.out.println(new java.io.File( "." ).getCanonicalPath());
+	basePath = new java.io.File( "." ).getCanonicalPath().replaceAll(Pattern.quote("build"+File.separator)+".*",Matcher.quoteReplacement("build"+File.separator+"tests"+File.separator+"fixtures"+File.separator));
+
+	filepathResourceNotPretty = basePath + "containedResource_notpretty.xml";
+	filepathResourcePretty =  basePath + "containedResource_pretty.xml";
+	filepathFeedNotPretty = basePath + "containedFeed_notpretty.xml";
+	filepathFeedPretty = basePath  + "containedFeed_pretty.xml";
+	itemPath = basePath + "diagnosticreport-feed.xml";
+	parser = new XmlParser();
 	}
 
 	@After
 	public void tearDown() throws Exception {
-	}
-	
-	@Test
-	public void validateParserAgainstResourceSet() {
-		File dir = new File("/home/jmandel/smart/fhir/build/publish/examples");
-		try {
-			for(File file : dir.listFiles()) {
-				parseFile(file);
-			}
-		} catch(Exception e) {
-			e.printStackTrace();
-			fail();
-		}
 	}
 
 	@Test
