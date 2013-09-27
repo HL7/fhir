@@ -254,7 +254,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">Needed for identification of the individual, in combination with (at least) name and birth date. Gender of individual drives many clinical processes.</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The gender may not match the biological sex as determined by genetics, or the individual's preferred identification. Note that for both humans and particularly animals, there are other legitimate possibilities than M and F, though the vast majority of systems and contexts only support M and F</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">player[classCode=PSN]/administrativeGender</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">player[classCode=PSN|ANM and determinerCode=INSTANCE]/administrativeGender</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PID-8&#10;</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="s72"><Data ss:Type="String">'gender' is still the administrative gender, but this is reflected in its description rather than its name.</Data></Cell>
    </Row>
@@ -271,7 +271,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Age of the individual drives many clinical processes. Next to the common use case of capturing someone birth date, also in some common cases time is registered.</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">At least an estimated year should be provided as a guess if the real dob is unknown</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">player[classCode=PSN]/birthTime</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">player[classCode=PSN|ANM and determinerCode=INSTANCE]/birthTime</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PID-7&#10;</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="s72"><Data ss:Type="String">renamed from dob, because the abbreviation is not obvious to non-English speakers</Data></Cell>
    </Row>
@@ -288,7 +288,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">The fact that a patient is deceased influences the clinical process. Also, in human communication and relation management it is necessary to know whether the person is alive.</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">If there's no value in the instance it means there is no statement on whether or not the individual is deceased. Most systems will interpret the absence of a value as a sign of the person being alive.</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">player[classCode=PSN]/deceasedInd, player[classCode=PSN]/deceasedTime</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">player[classCode=PSN|ANM and determinerCode=INSTANCE]/deceasedInd, player[classCode=PSN|ANM and determinerCode=INSTANCE]/deceasedTime</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PID-30&#10;</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="s72"/>
    </Row>
@@ -341,7 +341,7 @@
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">player[classCode=PSN]/multipleBirthInd, player[classCode=PSN]/multipleBirthOrderNumber</Data></Cell>
+    <Cell><Data ss:Type="String">player[classCode=PSN|ANM and determinerCode=INSTANCE]/multipleBirthInd, player[classCode=PSN|ANM and determinerCode=INSTANCE]/multipleBirthOrderNumber</Data></Cell>
     <Cell ss:Index="16" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -359,7 +359,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Many EHR systems have the capability to capture an image of the patient. Fits with newer social media usage too.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">player[classCode=PSN]/desc</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">player[classCode=PSN|ANM and determinerCode=INSTANCE]/desc</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -375,7 +375,7 @@
     <Cell><Data ss:Type="String">Need to track people you can contact about the patient</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Contact covers all kinds of contact parties: family members, business contacts, guardians, caregivers. Not applicable to register pedigree and family ties beyond use of having contact.</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">player[classCode=PSN]/scopedRole[classCode=CON]</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">player[classCode=PSN|ANM and determinerCode=INSTANCE]/scopedRole[classCode=CON]</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -469,7 +469,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Needed to address the person correctly</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">player[classCode=PSN]/administrativeGender</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">player[classCode=PSN|ANM and determinerCode=INSTANCE]/administrativeGender</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PID-8</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -488,7 +488,7 @@
     <Cell><Data ss:Type="String">For guardians or business related contacts, the organization is relevant</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">player[classCode=PSN]/scopedRole</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">scoper</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -736,7 +736,7 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>27</TopRowVisible>
+   <TopRowVisible>28</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
@@ -748,7 +748,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>30</ActiveRow>
+     <ActiveRow>33</ActiveRow>
      <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
