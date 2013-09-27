@@ -14,48 +14,122 @@
   </telecom>
   <description value="This value set includes a smattering of FDI tooth surface codes."/>
   <status value="draft"/>
-  <compose>
     <define>
 	<system value="urn:ISO-3950"/>
-	<code value="0"/>
-	<code value="1"/>
-	<code value="2"/>
-	<code value="3"/>
-	<code value="4"/>
-	<code value="5"/>
-	<code value="11"/>
-	<code value="12"/>
-	<code value="13"/>
-	<code value="14"/>
-	<code value="15"/>
-	<code value="16"/>
-	<code value="17"/>
-	<code value="18"/>
-	<code value="21"/>
-	<code value="22"/>
-	<code value="23"/>
-	<code value="24"/>
-	<code value="25"/>
-	<code value="26"/>
-	<code value="27"/>
-	<code value="28"/>
-	<code value="31"/>
-	<code value="32"/>
-	<code value="33"/>
-	<code value="34"/>
-	<code value="35"/>
-	<code value="36"/>
-	<code value="37"/>
-	<code value="38"/>
-	<code value="41"/>
-	<code value="42"/>
-	<code value="43"/>
-	<code value="44"/>
-	<code value="45"/>
-	<code value="46"/>
-	<code value="47"/>
-	<code value="48"/>
+	<concept>
+    <code value="0"/>
+  </concept>
+	<concept>
+    <code value="1"/>
+  </concept>
+	<concept>
+    <code value="2"/>
+  </concept>
+	<concept>
+    <code value="3"/>
+  </concept>
+	<concept>
+    <code value="4"/>
+  </concept>
+	<concept>
+    <code value="5"/>
+  </concept>
+	<concept>
+    <code value="11"/>
+  </concept>
+	<concept>
+    <code value="12"/>
+  </concept>
+	<concept>
+    <code value="13"/>
+  </concept>
+	<concept>
+    <code value="14"/>
+  </concept>
+	<concept>
+    <code value="15"/>
+  </concept>
+	<concept>
+    <code value="16"/>
+  </concept>
+	<concept>
+    <code value="17"/>
+  </concept>
+	<concept>
+    <code value="18"/>
+  </concept>
+	<concept>
+    <code value="21"/>
+  </concept>
+	<concept>
+    <code value="22"/>
+  </concept>
+	<concept>
+    <code value="23"/>
+  </concept>
+	<concept>
+    <code value="24"/>
+  </concept>
+	<concept>
+    <code value="25"/>
+  </concept>
+	<concept>
+    <code value="26"/>
+  </concept>
+	<concept>
+    <code value="27"/>
+  </concept>
+	<concept>
+    <code value="28"/>
+  </concept>
+	<concept>
+    <code value="31"/>
+  </concept>
+	<concept>
+    <code value="32"/>
+  </concept>
+	<concept>
+    <code value="33"/>
+  </concept>
+	<concept>
+    <code value="34"/>
+  </concept>
+	<concept>
+    <code value="35"/>
+  </concept>
+	<concept>
+    <code value="36"/>
+  </concept>
+	<concept>
+    <code value="37"/>
+  </concept>
+	<concept>
+    <code value="38"/>
+  </concept>
+	<concept>
+    <code value="41"/>
+  </concept>
+	<concept>
+    <code value="42"/>
+  </concept>
+	<concept>
+    <code value="43"/>
+  </concept>
+	<concept>
+    <code value="44"/>
+  </concept>
+	<concept>
+    <code value="45"/>
+  </concept>
+	<concept>
+    <code value="46"/>
+  </concept>
+	<concept>
+    <code value="47"/>
+  </concept>
+	<concept>
+    <code value="48"/>
+  </concept>
 	</define>
-  </compose>
 </ValueSet>
 

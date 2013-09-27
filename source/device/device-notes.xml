@@ -1,11 +1,21 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!--<p>
-Notes:
-</p>
-<ul>
-<li>No Notes Yet</li>
-</ul>-->
+<h3>Device Identifiers</h3>
 
+<p>
+Nearly all devices are assigned one or more identifiers, which are usually printed or affixed to the device using either barcodes or rfids. 
+The identifiers can come from the manufacturer (often called the "serial number", various institution and registries. Any of 
+these identifiers assigned to the device can and should be recorded in the device resource. The different identifiers are 
+differentiated by their use, label, and system values.
+</p>
+<p>
+The most important of the identifiers is the 
+<a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm">Unique Device Identifier</a>
+(UDI), which most medical devices are required to carry and which can be used to access the 
+<a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/GlobalUDIDatabaseGUDID/ucm20038750.htm">Global 
+Unique Device Identification Database</a> (GUDID). The system URI for UDIs is <i>http://fda.gov/udi</i>. 
+Where the device has an assigned UDI, the other details carried in the resource (lot, expiry date etc) must be 
+consistent with the information found in the GUDID for the UDI.
+</p>
 
 </div>

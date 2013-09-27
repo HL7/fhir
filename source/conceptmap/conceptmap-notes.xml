@@ -1,0 +1,10 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h2>Notes</h2>
+<ul>
+ <li>The value of the <i>system</i> and <i>code</i> element are the same as used by the <a href="datatypes.htm#Coding">Coding</a> data type</li>
+ <li>When a mapping equivalence is characterised as "narrower", some explanation of the scope difference must be provided in the comments</li>
+ <li>The concept map is a statement of mapping in a single direction. The existence of a matching mapping in the reverse direction cannot be assumed to exist automatically, but only through human review</li>
+</ul>
+
+</div>

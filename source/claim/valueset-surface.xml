@@ -14,21 +14,41 @@
   </telecom>
   <description value="This value set includes a smattering of FDI tooth surface codes."/>
   <status value="draft"/>
-  <compose>
     <define>
 	<system value="urn:FDI:surface"/>
-	<code value="M"/>
-	<code value="O"/>
-	<code value="I"/>
-	<code value="D"/>
-	<code value="B"/>
-	<code value="V"/>
-	<code value="L"/>
-	<code value="MO"/>
-	<code value="DO"/>
-	<code value="DI"/>
-	<code value="MOD"/>
-	</define>
-  </compose>
+	<concept>
+    <code value="M"/>
+  </concept>  
+	<concept>
+    <code value="O"/>
+  </concept>
+	<concept>
+    <code value="I"/>
+  </concept>
+	<concept>
+    <code value="D"/>
+  </concept>
+	<concept>
+    <code value="B"/>
+  </concept>
+	<concept>
+    <code value="V"/>
+  </concept>
+	<concept>
+    <code value="L"/>
+  </concept>
+	<concept>
+    <code value="MO"/>
+  </concept>
+	<concept>
+    <code value="DO"/>
+  </concept>
+	<concept>
+    <code value="DI"/>
+  </concept>
+	<concept>
+    <code value="MOD"/>
+  </concept>
+  </define>
 </ValueSet>
 

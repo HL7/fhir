@@ -707,7 +707,7 @@ public class PageProcessor implements Logger  {
       ValueSet vs = (ValueSet)e.getResource();
       String id = tail(vs.getIdentifierSimple());
       String oid = e.getLinks().get("oid");
-      s.append(" <tr><td><a href=\"v3/"+id+"/index.htm\">"+n+"</a></td><td>"+vs.getDescriptionSimple()+"</td><td>"+oid+"</td></tr>\r\n");
+      s.append(" <tr><td><a href=\"v3/"+id+"/index.htm\">"+Utilities.escapeXml(n)+"</a></td><td>"+Utilities.escapeXml(vs.getDescriptionSimple())+"</td><td>"+oid+"</td></tr>\r\n");
     }
     
     s.append("</table>\r\n");

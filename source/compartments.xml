@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>11700</WindowHeight>
-  <WindowWidth>15600</WindowWidth>
+  <WindowHeight>7890</WindowHeight>
+  <WindowWidth>14880</WindowWidth>
   <WindowTopX>480</WindowTopX>
-  <WindowTopY>195</WindowTopY>
+  <WindowTopY>255</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -104,7 +104,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="63" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="66" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="140.25"/>
@@ -365,6 +365,16 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Remittance</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Claim</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DeviceData</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ConceptMap</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -383,8 +393,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>55</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>61</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

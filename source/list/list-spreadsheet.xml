@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-08-05T01:16:39Z</LastSaved>
+  <LastSaved>2013-09-27T10:44:56Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,6 @@
   <WindowWidth>19440</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -141,7 +140,7 @@
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
    <Column ss:Index="15" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="114.75"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="92.25"/>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s64">
+   <Row ss:Height="45" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Inv.</Data></Cell>
@@ -159,7 +158,7 @@
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="120">
+   <Row ss:Height="120">
     <Cell><Data ss:Type="String">List</Data></Cell>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
@@ -171,11 +170,11 @@
     <Cell><Data ss:Type="String">A set of information summarized from a list of other resources</Data></Cell>
     <Cell><Data ss:Type="String">Collection; WorkingList; Organizer</Data></Cell>
     <Cell ss:StyleID="s66"/>
-    <Cell ss:Index="13" ss:StyleID="s66"><Data ss:Type="String">Act[normalAct() and subsumes(ActClass#_ActClassRecordOrganizer, classCode) and moodCode=EVN]</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s66"><Data ss:Type="String">Act[classCode&lt;ORG,moodCode=EVN]</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"><Data ss:Type="String">RIM harmonization proposal to move LIST under GROUPER&#10;&#10;RIM harmonization proposal to allow organizers to group roles as well as acts.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105">
+   <Row ss:Height="105">
     <Cell><Data ss:Type="String">List.code</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s66"/>
@@ -191,7 +190,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="409.5">
+   <Row ss:Height="135">
     <Cell><Data ss:Type="String">List.source</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s66"/>
@@ -203,11 +202,11 @@
     <Cell><Data ss:Type="String">The entity responsible for deciding what the contents of the list were</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">Allows follow-up as well as context</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">The primary and important source is the entity that made the decisions what items are in the list. This may be software or user</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">unique(.participation[isNormalParticipation() and typeCode=ParticipationTypeCode#AUT]/role[isNormalRole() and classCode=REL]/player[isNormalEntity() and classCode=PSN and determinerCode=INST]&#10;&#10;or&#10;&#10;.participation[isNormalParticipation() and typeCode=ParticipationTypeCode#AUT]/role[isNormalRole() and classCode=ASSIGNED][player[classCode!=DEV and determinerCode=INST and isNormalEntity()]]&#10;&#10;or&#10;&#10;.participation[isNormalParticipation() and typeCode=ParticipationTypeCode#AUT]/role[isNormalRole() and classCode=ASSIGNED]/player[classCode=DEV and determinerCode=INST and isNormalEntity()])</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">.participation[typeCode&lt;AUT].role[classCode=REL].player[classCode=PSN,determinerCode=INST]&#10;or&#10;.participation[typeCode&lt;AUT].role[classCode=REL].player[classCode=DEV,determinerCode=INST]</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105">
+   <Row ss:Height="105">
     <Cell><Data ss:Type="String">List.date</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s66"/>
@@ -219,11 +218,11 @@
     <Cell><Data ss:Type="String">The date that the list was prepared</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">Identifies how current the list is which affects relevance</Data></Cell>
     <Cell><Data ss:Type="String">The actual important date is the date of currency of the resources that were summarized, but it is usually assumed that these are current when the preparation occurs</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">.participation[isNormalParticipation() and typeCode=ParticipationTypeCode#AUT]/time[type=TS]</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">.participation[typeCode&lt;AUT].time[type=TS]</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="150">
+   <Row ss:Height="165">
     <Cell><Data ss:Type="String">List.ordered</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s66"/>
@@ -235,11 +234,11 @@
     <Cell><Data ss:Type="String">Whether items in the list have a meaningful order</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">Important for presentation and rendering.  Lists may be sorted to place more important information first or to group related entries.</Data></Cell>
     <Cell><Data ss:Type="String">Applications SHOULD render ordered lists in the order provided, but MAY allow users to re-order based on their own preferences as well. This is marked as &quot;is modified&quot; because whether the list is ordered or not has may change how the results are processed or displayed</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">count(distinct-values(./outboundRelationship[typeCode=COMP and isNormalActRelationship()]/sequenceNumber))&gt;1 &#10;or &#10;count(./participation[isNormalParticipation() and typeCode=SBJ]/sequenceNumber))&gt;1</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].sequenceNumber &gt; 1 </Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="150">
+   <Row ss:Height="135">
     <Cell><Data ss:Type="String">List.mode</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s66"/>
@@ -250,11 +249,11 @@
     <Cell><Data ss:Type="String">working | snapshot | changes</Data></Cell>
     <Cell><Data ss:Type="String">How this list was prepared - whether it is a working list that is suitable for being maintained in an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">Lists are used in various ways, and it must be known in what way it is safe to use them</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s66"><Data ss:Type="String">??</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s66"><Data ss:Type="String">.outBoundRelationship[typeCode=COMP].target[classCode=OBS&quot;].value</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">List.entry</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="Number">1</Data></Cell>
@@ -265,11 +264,11 @@
     <Cell><Data ss:Type="String">Entries in this list</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">If there are no entries in the list, an emptyReason SHOULD be provided</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">./outboundRelationship[typeCode=COMP and isNormalActRelationship()]&#10;or &#10;./participation[isNormalParticipation() and typeCode=SBJ</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">.outboundRelationship[typeCode=COMP]&#10;or &#10;.participation[typeCode=SBJ]</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105">
+   <Row ss:Height="135">
     <Cell><Data ss:Type="String">List.entry.flag</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s66"/>
@@ -281,11 +280,11 @@
     <Cell><Data ss:Type="String">The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">This field is present to support various clinical uses of lists, such as a discharge summary medication list, where flags specify whether the medication was added, modified, or deleted from the list</Data></Cell>
     <Cell><Data ss:Type="String">The flag can only be understood in the context of the List.code. If the flag means that the entry has actually been deleted from the list, the deleted element must be true. Deleted can only be used if the List.mode is &quot;changes&quot;</Data></Cell>
-    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">.outBoundRelationship[typeCode=COMP].target[classCode=OBS&quot;].value</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="165">
+   <Row ss:Height="150">
     <Cell><Data ss:Type="String">List.entry.deleted</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="Number">2</Data></Cell>
@@ -299,14 +298,14 @@
     <Cell><Data ss:Type="String">If the flag means that the entry has actually been deleted from the list, the deleted element must be true. Both flag and deleted can only be used if the List.mode is &quot;changes&quot;. A deleted entry should be displayed in narrative as deleted</Data></Cell>
     <Cell ss:StyleID="s68"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">added: </Font></B><Font
-       html:Color="#000000">./updateMode=(&quot;A&quot;,&quot;AR&quot;)&#10;&#10;</Font><B><Font
-        html:Color="#000000">retained: </Font></B><Font html:Color="#000000">./updateMode=&quot;NC&quot;&#10;&#10;</Font><B><Font
-        html:Color="#000000">updated:</Font></B><Font html:Color="#000000"> ./updateMode=&quot;R&quot;&#10;&#10;</Font><B><Font
-        html:Color="#000000">deleted:</Font></B><Font html:Color="#000000"> ./updateMode=&quot;D&quot;</Font></ss:Data></Cell>
+       html:Color="#000000">.updateMode=(&quot;A&quot;,&quot;AR&quot;)&#10;&#10;</Font><B><Font
+        html:Color="#000000">retained: </Font></B><Font html:Color="#000000">.updateMode=&quot;NC&quot;&#10;&#10;</Font><B><Font
+        html:Color="#000000">updated:</Font></B><Font html:Color="#000000"> .updateMode=&quot;R&quot;&#10;&#10;</Font><B><Font
+        html:Color="#000000">deleted:</Font></B><Font html:Color="#000000"> .updateMode=&quot;D&quot;</Font></ss:Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="165">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">List.entry.date</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s66"/>
@@ -318,11 +317,11 @@
     <Cell><Data ss:Type="String">When this item was added to the list</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">The date may be significant for understanding the meaning of items in a working list</Data></Cell>
     <Cell><Data ss:Type="String">This is only useful and meaningful when the mode is &quot;working&quot;</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">.availabilityTime</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">List.entry.item</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s66"/>
@@ -333,11 +332,11 @@
     <Cell><Data ss:Type="String">Actual entry</Data></Cell>
     <Cell><Data ss:Type="String">A reference to the actual resource from which data was derived</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"/>
-    <Cell ss:Index="13" ss:StyleID="s66"><Data ss:Type="String">./target&#10;or&#10;./role&#10;or&#10;./role/entity</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s66"><Data ss:Type="String">.target&#10;or&#10;.role&#10;or&#10;.role.entity</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90">
+   <Row ss:Height="90">
     <Cell><Data ss:Type="String">List.emptyReason</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="Number">1</Data></Cell>
@@ -349,7 +348,7 @@
     <Cell><Data ss:Type="String">If the list is empty, why the list is empty</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">Allows capturing things like &quot;none exist&quot; or &quot;not asked&quot; which can be important for most lists</Data></Cell>
     <Cell><Data ss:Type="String">The various reasons for an empty list make a significant interpretation to its interpretation</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">./inboundRelationship[typeCode=SUBJ and isNormalActRelationship and subsumes(ListEmptyReason, code)]/value[type=CD]</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">.inboundRelationship[typeCode=SUBJ,code&lt;{ListEmptyReason}].value[type=CD]</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
    </Row>
@@ -360,17 +359,17 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>8</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -383,12 +382,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>0</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -770,7 +768,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

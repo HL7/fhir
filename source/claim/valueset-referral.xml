@@ -14,23 +14,47 @@
   </telecom>
   <description value="This value set includes the Referral Reason codes."/>
   <status value="draft"/>
-  <compose>
     <define>
 	<system value="urn:ISO-3950"/>
-	<code value="1"/>
-	<code value="2"/>
-	<code value="3"/>
-	<code value="4"/>
-	<code value="5"/>
-	<code value="6"/>
-	<code value="7"/>
-	<code value="8"/>
-	<code value="9"/>
-	<code value="10"/>
-	<code value="11"/>
-	<code value="12"/>
-	<code value="13"/>
+	<concept>
+    <code value="1"/>
+  </concept>
+	<concept>
+    <code value="2"/>
+  </concept>
+	<concept>
+    <code value="3"/>
+  </concept>
+	<concept>
+    <code value="4"/>
+  </concept>
+	<concept>
+    <code value="5"/>
+  </concept>
+	<concept>
+    <code value="6"/>
+  </concept>
+	<concept>
+    <code value="7"/>
+  </concept>
+	<concept>
+    <code value="8"/>
+  </concept>
+	<concept>
+    <code value="9"/>
+  </concept>
+	<concept>
+    <code value="10"/>
+  </concept>
+	<concept>
+    <code value="11"/>
+  </concept>
+	<concept>
+    <code value="12"/>
+  </concept>
+	<concept>
+    <code value="13"/>
+  </concept>
 	</define>
-  </compose>
 </ValueSet>
 

@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lorraine Constable</LastAuthor>
+  <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:15:30Z</Created>
-  <LastSaved>2013-07-15T21:39:40Z</LastSaved>
+  <LastSaved>2013-09-23T23:08:34Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -77,7 +77,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="17" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="15" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="197.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
@@ -118,6 +118,14 @@
     <Cell><Data ss:Type="String">This resource identifies an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a machine, an insert, a computer, an application, etc. This includes durable (reusable) medical equipment as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.</Data></Cell>
     <Cell><Data ss:Type="String">Allows institutions to track their devices. </Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell><Data ss:Type="String">Device.identifier</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Assigned by various organizations including manufacturer</Data></Cell>
+    <Cell><Data ss:Type="String">Identifiers assigned to this device by various organizations</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">Often fixed to the device as a barcode. May include names given to the device in local usage</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Device.type</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
@@ -155,22 +163,7 @@
     <Cell><Data ss:Type="String">Date of expiry of this device (if applicable)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Device.identity</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">right</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Universal Device Id fields</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">In order to carry UDI (US regulations, but being adopted across the world)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Device.identity.gtin</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Global Trade Identification Number</Data></Cell>
-    <Cell><Data ss:Type="String">The number assigned to this device by an authorised issuer of Device GTINs, based on the standards set by GS1</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">This is a 14 digit number that may include leading 0s</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Device.identity.lot</Data></Cell>
+    <Cell><Data ss:Type="String">Device.lotNumber</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Lot number of manufacture</Data></Cell>
@@ -178,8 +171,8 @@
     <Cell ss:Index="11"><Data ss:Type="String">Alphanumeric Maximum 20</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Device.identity.serialNumber</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell><Data ss:Type="String">!Device.serialNumber</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Serial number assigned by the manufacturer</Data></Cell>
     <Cell><Data ss:Type="String">The serial number assigned by the organization when the device was manufactured</Data></Cell>
@@ -191,14 +184,6 @@
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Organization responsible for device</Data></Cell>
     <Cell><Data ss:Type="String">The organization that is responsible for the provision and ongoing maintenance of the device</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">Device.assignedId</Data></Cell>
-    <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Identifier assigned by various organizations</Data></Cell>
-    <Cell><Data ss:Type="String">Identifiers assigned to this device by various organizations (unless other specific fields exist for them)</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">Often fixed to the device as a barcode. May include names given to the device in local usage</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Device.location</Data></Cell>
@@ -240,8 +225,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -320,7 +304,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="9" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
@@ -350,22 +334,15 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">Device.model</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">serial</Data></Cell>
-    <Cell><Data ss:Type="String">the serial number of the device</Data></Cell>
-    <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Device.identity.serialNumber</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">organization</Data></Cell>
     <Cell><Data ss:Type="String">the organization responsible for the device</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Device.owner</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">assigned-id</Data></Cell>
-    <Cell><Data ss:Type="String">identifier assigned by the organization</Data></Cell>
-    <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Device.assignedId</Data></Cell>
+    <Cell><Data ss:Type="String">identifier</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Device.identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">location</Data></Cell>
@@ -395,7 +372,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>3</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -415,9 +415,8 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s73"/>
     <Cell><Data ss:Type="String">The RMIM has priority code on the act relationship.  How do we handle this?</Data></Cell>
+    <Cell ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationAdministration.dosage.timing</Data></Cell>
@@ -560,7 +559,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -575,8 +574,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

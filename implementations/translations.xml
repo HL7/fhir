@@ -1,4 +1,4 @@
-<translations>
+﻿<translations>
 <!--
  This file is for the convenience of implementers, to enable sharing of language translations.
  There is no obligation for any implementer to use the messages contained in this file, but
@@ -17,9 +17,21 @@
   <item id="Other">
     <translation lang="en">Other</translation>
   </item>
+
+  <item id="ConceptMap">
+    <translation lang="en">ConceptMap</translation>
+  </item>  
+
+  <item id="DeviceData">
+    <translation lang="en">DeviceData</translation>
+  </item>
   
   <item id="Remittance">
     <translation lang="en">Remittance</translation>
+  </item>
+  
+  <item id="Claim">
+    <translation lang="en">Claim</translation>
   </item>
   
   <item id="GeneticAnalysis">

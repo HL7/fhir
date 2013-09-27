@@ -14,15 +14,23 @@
   </telecom>
   <description value="This value set includes the Patient to subscriber relationship codes."/>
   <status value="draft"/>
-  <compose>
     <define>
 	<system value="urn:ISO-3950"/>
-	<code value="1"/>
-	<code value="2"/>
-	<code value="3"/>
-	<code value="4"/>
-	<code value="5"/>
+	<concept>
+    <code value="1"/>
+  </concept>
+	<concept>
+    <code value="2"/>
+  </concept>
+	<concept>
+    <code value="3"/>
+  </concept>
+	<concept>
+    <code value="4"/>
+  </concept>
+	<concept>
+    <code value="5"/>
+  </concept>
 	</define>
-  </compose>
 </ValueSet>
 

@@ -167,7 +167,7 @@
     <Cell ss:Index="10"><Data ss:Type="String">A photo, video, or audio recording acquired or used in healthcare. The actual content maybe inline or provided by direct reference</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="15" ss:StyleID="Default"><Data ss:Type="String">DiagnosticImage</Data></Cell>
+    <Cell ss:Index="15" ss:StyleID="Default"><Data ss:Type="String">Act[classCode=&quot;DGIMG&quot;, moodCode=&quot;EVN&quot;]</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -183,7 +183,7 @@
     <Cell ss:Index="10"><Data ss:Type="String">Whether the media is a photo (still image), an audio recording, or a video recording</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:Index="15" ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"><Data ss:Type="String">.code</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -200,7 +200,7 @@
     <Cell><Data ss:Type="String">Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:Index="15" ss:StyleID="Default"/>
+    <Cell ss:Index="15"><Data ss:Type="String">.outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;EVN&quot;].code</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -338,7 +338,7 @@
     <Cell><Data ss:Type="String">Height of the image in pixels(photo/video)</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:Index="15" ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"><Data ss:Type="String">.outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;OBS&quot;, moodCode=&quot;EVN&quot;,code=&quot;&lt;CODE&gt;&quot;].value</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -355,7 +355,7 @@
     <Cell><Data ss:Type="String">Width of the image in pixels (photo/video)</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:Index="15" ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"><Data ss:Type="String">.outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;OBS&quot;, moodCode=&quot;EVN&quot;,code=&quot;&lt;CODE&gt;&quot;].value</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -371,7 +371,7 @@
     <Cell ss:Index="10"><Data ss:Type="String">The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single iamge, or an animated gif. If there is more than one frame, this must have a value in order to alert interface software that a multi-frame capable rendering widget is required </Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:Index="15" ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"><Data ss:Type="String">.outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;OBS&quot;, moodCode=&quot;EVN&quot;,code=&quot;&lt;CODE&gt;&quot;].value</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -388,7 +388,7 @@
     <Cell><Data ss:Type="String">The length of the recording in seconds - for audio and video</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:Index="15" ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"><Data ss:Type="String">.outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;OBS&quot;, moodCode=&quot;EVN&quot;,code=&quot;&lt;CODE&gt;&quot;].value</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -405,7 +405,7 @@
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Recommended content types: image/jpeg, image/png, image/tiff, video/mpeg, audio/mp4, application/dicom. Application/dicom can contain the transfer syntax as a parameter</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">.text</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -429,7 +429,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -437,14 +437,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

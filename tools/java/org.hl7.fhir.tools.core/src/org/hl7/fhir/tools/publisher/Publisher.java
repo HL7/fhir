@@ -1326,8 +1326,8 @@ public class Publisher {
       if (e.getNodeName().equals("codeSystem")) {
         Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "header"), "responsibleGroup");
         if (!ini.getBooleanProperty("Exclude", e.getAttribute("name"))) {
+          String id = e.getAttribute("name");
           if (r != null && "Health Level 7".equals(r.getAttribute("organizationName"))) {
-            String id = e.getAttribute("name");
             AtomEntry ae = new AtomEntry();
             ae.setId("http://hl7.org/fhir/v3/vs/"+id);
             ae.getLinks().put("self", "http://hl7.org/fhir/v3/"+id);
@@ -1345,7 +1345,8 @@ public class Publisher {
             page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
             page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
             codesystems.put(e.getAttribute("codeSystemId"), vs);
-          }
+          } // else if (r == null)
+            // page.log("unowned code system: "+id);
         }
       }
       
