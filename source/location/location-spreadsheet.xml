@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Ewout Kramer</LastAuthor>
+  <LastAuthor>George Beeler</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-06-27T13:23:19Z</LastSaved>
+  <LastSaved>2013-09-27T01:16:24Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -17,10 +17,9 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>6345</WindowHeight>
-  <WindowWidth>19440</WindowWidth>
+  <WindowWidth>9600</WindowWidth>
   <WindowTopX>5520</WindowTopX>
-  <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <WindowTopY>0</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -173,7 +172,7 @@
     <Cell><Data ss:Type="String">Contact details and position information for a physical place</Data></Cell>
     <Cell><Data ss:Type="String">Contact details and position information for a physical place that may be visited and where healthcare resources and participants may be found or contained, accommodated, or stored</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
-    <Cell ss:Index="13" ss:StyleID="Default"><Data ss:Type="String">ServiceDeliveryLocation</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="Default"><Data ss:Type="String">Role[classCode=SDLC].</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -188,7 +187,7 @@
     <Cell><Data ss:Type="String">Name of the location</Data></Cell>
     <Cell><Data ss:Type="String">Name of the location which identifies it to its users</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s67"><Data ss:Type="String">Organization label locations in registries, need to keep track of those</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="Default"><Data ss:Type="String">./location/name</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="Default"><Data ss:Type="String">name</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -199,7 +198,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Description of the Location</Data></Cell>
     <Cell><Data ss:Type="String">Description of the Location, which helps in finding or referencing the place</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Humans need additional information to verify a correct location has been identifier</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">./location/desc</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">playingEntity[classCode=PLC determinerCode=INSTANCE].desc</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Location.type</Data></Cell>
@@ -213,7 +212,7 @@
     <Cell><Data ss:Type="String">Classification of the location</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s67"><Data ss:Type="String">For purposes of showing relevant locations in queries, we need to categorize locations</Data></Cell>
     <Cell><Data ss:Type="String">There are many ways by which locations can be classified, so this element may be repeated.</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">./code</Data></Cell>
+    <Cell><Data ss:Type="String">playingEntity [classCode=PLC determinerCode=INSTANCE].code</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Multiple, because a location can serve multiple purposes and there can be multiple ways to classify the locations in an organization.</Data></Cell>
@@ -231,7 +230,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">./location/telecom</Data></Cell>
+    <Cell><Data ss:Type="String">telecom</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Location.address</Data></Cell>
@@ -246,7 +245,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">If locations can be visited, we need to keep track of their address</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">./location/addr</Data></Cell>
+    <Cell><Data ss:Type="String">addr</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Location.position</Data></Cell>
@@ -255,6 +254,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">The absolute geographic location </Data></Cell>
     <Cell><Data ss:Type="String">The absolute geographic location of the Location, expressed in a KML compatible manner (see notes below for KML)</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">For mobile applications and automated route-finding knowing the exact location of the Location is required</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">playingEntity [classCode=PLC determinerCode=INSTANCE].positionText</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Location.position.longitude</Data></Cell>
@@ -264,6 +264,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">decimal</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Longitude</Data></Cell>
     <Cell><Data ss:Type="String">Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below)</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">?? RIM Opted not to map the sub-elements of GPS location) is now an OBS</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Location.position.latitude</Data></Cell>
@@ -273,6 +274,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">decimal</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Latitude</Data></Cell>
     <Cell><Data ss:Type="String">Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below)</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">?? RIM Opted not to map the sub-elements of GPS location) is now an OBS</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Location.position.altitude</Data></Cell>
@@ -282,6 +284,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">decimal</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Altitude</Data></Cell>
     <Cell><Data ss:Type="String">Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below)</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">?? RIM Opted not to map the sub-elements of GPS location) is now an OBS</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Location.provider</Data></Cell>
@@ -296,7 +299,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Need to know who manages the location</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">./servicePractitionerOrganization</Data></Cell>
+    <Cell><Data ss:Type="String">scopingEntity[classCode=ORG determinerKind=INSTANCE]</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">EK: Shouldn't that be &quot;owns or manages&quot;? Why introduce the fact that an organization provides services here? If this is a home location, you wouldn't mention the organization(s) providing services there?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -312,7 +315,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">./statusCode</Data></Cell>
+    <Cell><Data ss:Type="String">statusCode</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Location.partOf</Data></Cell>
@@ -320,6 +323,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Location)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Another Location which this Location is physically inside of</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">For purposes of location, display and identification, knowing which locations are located within other locations is important</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">outboundLink[typeCode=PART].source[classCode=SDLC]</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -335,12 +339,13 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -356,8 +361,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -671,7 +676,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -767,7 +771,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
