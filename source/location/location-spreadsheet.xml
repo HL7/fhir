@@ -323,7 +323,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Location)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Another Location which this Location is physically inside of</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">For purposes of location, display and identification, knowing which locations are located within other locations is important</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">outboundLink[typeCode=PART].source[classCode=SDLC]</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">inboundLink[typeCode=PART].source[classCode=SDLC]</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -361,7 +361,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
+     <ActiveRow>10</ActiveRow>
      <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
