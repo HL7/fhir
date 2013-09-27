@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Jean-Henri Duteau</LastAuthor>
+  <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-04-24T22:23:13Z</LastSaved>
+  <LastSaved>2013-09-27T00:46:48Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -133,7 +133,8 @@
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="77.25"/>
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="135"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="173.25"/>
    <Column ss:Index="16" ss:StyleID="s65" ss:Width="89.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s67">
     <Cell><Data ss:Type="String">Element</Data></Cell>
@@ -154,7 +155,7 @@
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
     <Cell><Data ss:Type="String">Prov Mapping</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">AdverseReaction</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -164,7 +165,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Specific reactions to a substance</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s71"/>
+    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">Observation[classCode=OBS, moodCode=EVN]</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">IAM-11-Onset Date (Does not allow for IAM-12-Onset Date Text)</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
@@ -179,7 +180,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">When the reaction occurred</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s71"/>
+    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">effectiveTime</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
@@ -194,7 +195,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">The subject of the adverse reaction</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s71"/>
+    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">participation[typeCode=SBJ]</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">PID-3-Patient ID List</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
@@ -210,7 +211,7 @@
     <Cell><Data ss:Type="String">To say that a reaction to substance did not occur</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"/>
     <Cell><Data ss:Type="String">Note that the normal case is false, which is a double negative - it's not true that this reaction did not occur. The normal case is to assert that a reaction did happen</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">actionNegationInd</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
@@ -225,12 +226,12 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">Who recorded the reaction</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s71"/>
+    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">participation[typeCode=AUT]</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">IAM-14-Reported By (if patient) / IAM-18-Statused By Person (if practitioner)&#10;</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">AdverseReaction.symptom</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -240,7 +241,7 @@
     <Cell><Data ss:Type="String">The signs and symptoms that were observed as part of the reaction</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Signs, Symptoms, Manifestations</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s71"/>
+    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&lt;&lt;symptom&gt;&gt;]</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
@@ -255,12 +256,12 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">SymptomType</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the specific sign or symptom that was observed</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s71"/>
+    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">value</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">IAR-1</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="105">
     <Cell><Data ss:Type="String">AdverseReaction.symptom.severity</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -269,7 +270,7 @@
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">ReactionSeverity</Data></Cell>
     <Cell><Data ss:Type="String">The severity of the sign or symptom</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s71"/>
+    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&lt;&lt;severity&gt;&gt;].value</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">AL1-4-Allergy Severity Code / IAM-4-Allergy Severity Code</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
@@ -283,7 +284,7 @@
     <Cell ss:Index="7" ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">An exposure to a substance that preceded a reaction occurrence</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s71"/>
+    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">outboundRelationship[typeCode=SAS].target[classCode=EXPOS, moodCode=EVN]</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
@@ -296,7 +297,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When the exposure occurred</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s71"/>
+    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">effectiveTime</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">(V2 does not define distinct concepts of exposure date and reaction date)</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
@@ -311,12 +312,12 @@
     <Cell><Data ss:Type="String">ExposureType</Data></Cell>
     <Cell><Data ss:Type="String">The type of exposure</Data></Cell>
     <Cell><Data ss:Type="String">Drug Administration, Immunization, Coincidental</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s71"/>
+    <Cell ss:Index="13"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="165">
     <Cell><Data ss:Type="String">AdverseReaction.exposure.causalityExpectation</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -325,7 +326,7 @@
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">CausalityExpectation</Data></Cell>
     <Cell><Data ss:Type="String">A statement of how confident that the recorder was that this exposure caused the reaction</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s71"/>
+    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&lt;&lt;ReactionRelatedness&gt;, ].value&#10;&#10;Note: Observation also needs to have a subject of the Adverse Reaction itself (i.e. it's expressing relatedness of exposure &amp; reaction)</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">IAM-17-Allergy Clinical Status Code</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
@@ -340,7 +341,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">Substance(s) that is presumed to have caused the adverse reaction</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s71"/>
+    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">participation[typeCode=EXPAGNT]</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">AL1-3 / IAM-3 Allergen Code/Mnemonic/Description</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
@@ -395,9 +396,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>9</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -405,14 +406,16 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
