@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Ewout Kramer</LastAuthor>
   <Created>2012-03-19T11:15:11Z</Created>
-  <LastSaved>2013-07-04T21:25:21Z</LastSaved>
+  <LastSaved>2013-09-27T00:43:29Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -26,7 +26,6 @@
   <WindowWidth>13680</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -137,6 +136,15 @@
   <Style ss:ID="s84">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
+  <Style ss:ID="s85">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="32" x:FullColumns="1"
@@ -152,8 +160,8 @@
    <Column ss:Index="10" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="51.75"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="161.25" ss:Span="1"/>
-   <Column ss:Index="14" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="135"
-    ss:Span="1"/>
+   <Column ss:Index="14" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="205.5"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="135"/>
    <Column ss:Index="17" ss:StyleID="s64" ss:Width="88.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="29.25" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Element</Data></Cell>
@@ -195,7 +203,7 @@
     <Cell><Data ss:Type="String">An identifier that applies to this person as a patient</Data></Cell>
     <Cell><Data ss:Type="String">Patients are almost always assigned specific numerical identifiers</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">./id</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">id</Data></Cell>
     <Cell><Data ss:Type="String">PID-3&#10;</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
@@ -212,7 +220,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">Need to be able to track the person by multiple names. Examples are your official name and a partner name.</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Person may have multiple names with different uses or applicable periods.For animals, the name is a &quot;HumanName&quot; in the sense that is assigned and used by humans and has the same patterns</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">./name</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">name</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PID-5, PID-9</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="s72"/>
    </Row>
@@ -229,7 +237,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">People have (primary) ways to contact them in some way such as phone, email.</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Person may have multiple ways to be contacted with different uses or applicable periods. &#13;May need to have options for contacting the person urgently and also to help with identification. The address may not go directly to the individual, but may reach another party that is able to proxy for the patient (i.e. home phone, or pet owner's phone)</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">./telecom</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">telecom</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PID-13, PID-14, PID-40</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="s72"/>
    </Row>
@@ -246,7 +254,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">Needed for identification of the individual, in combination with (at least) name and birth date. Gender of individual drives many clinical processes.</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The gender may not match the biological sex as determined by genetics, or the individual's preferred identification. Note that for both humans and particularly animals, there are other legitimate possibilities than M and F, though the vast majority of systems and contexts only support M and F</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">./administrativeGender</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">player[classCode=PSN]/administrativeGender</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PID-8&#10;</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="s72"><Data ss:Type="String">'gender' is still the administrative gender, but this is reflected in its description rather than its name.</Data></Cell>
    </Row>
@@ -263,7 +271,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Age of the individual drives many clinical processes. Next to the common use case of capturing someone birth date, also in some common cases time is registered.</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">At least an estimated year should be provided as a guess if the real dob is unknown</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">./birthTime</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">player[classCode=PSN]/birthTime</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PID-7&#10;</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="s72"><Data ss:Type="String">renamed from dob, because the abbreviation is not obvious to non-English speakers</Data></Cell>
    </Row>
@@ -280,7 +288,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">The fact that a patient is deceased influences the clinical process. Also, in human communication and relation management it is necessary to know whether the person is alive.</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">If there's no value in the instance it means there is no statement on whether or not the individual is deceased. Most systems will interpret the absence of a value as a sign of the person being alive.</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">./deceasedInd</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">player[classCode=PSN]/deceasedInd, player[classCode=PSN]/deceasedTime</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PID-30&#10;</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="s72"/>
    </Row>
@@ -297,7 +305,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">May need to keep track of persons addresses for contacting, billing or reporting requirements and also to help with identification</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Person may have multiple addresses with different uses or applicable periods</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">./addr</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">addr</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PID-11 &#10;</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="s72"/>
    </Row>
@@ -314,7 +322,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Most, if not all systems capture it.</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:Index="14" ss:StyleID="s73"><Data ss:Type="String">./maritalStatus</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s73"><Data ss:Type="String">player[classCode=PSN]/maritalStatusCode</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">PID-16</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s73"/>
@@ -333,7 +341,7 @@
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">.multipleBirthInd</Data></Cell>
+    <Cell><Data ss:Type="String">player[classCode=PSN]/multipleBirthInd, player[classCode=PSN]/multipleBirthOrderNumber</Data></Cell>
     <Cell ss:Index="16" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -351,7 +359,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Many EHR systems have the capability to capture an image of the patient. Fits with newer social media usage too.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:Index="14" ss:StyleID="s72"/>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">player[classCode=PSN]/desc</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -367,7 +375,7 @@
     <Cell><Data ss:Type="String">Need to track people you can contact about the patient</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Contact covers all kinds of contact parties: family members, business contacts, guardians, caregivers. Not applicable to register pedigree and family ties beyond use of having contact.</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">player[classCode=PSN]/scopedRole[classCode=CON]</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -386,7 +394,7 @@
     <Cell><Data ss:Type="String">Used to determine which contact person is the most relevant to approach, depending on circumstances</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">NK1-3-relationship</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -404,7 +412,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">Contact persons need to be identified by name, but it is uncommon to need details about multiple other names for that person</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">./name</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">name</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PID-5, PID-9</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="Default"/>
@@ -423,7 +431,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">People have (primary) ways to contact them in some way such as phone, email.</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Person may have multiple ways to be contacted with different uses or applicable periods. &#13;May need to have options for contacting the person urgently, and also to help with identification</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">./telecom</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">telecom</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PID-13, PID-14</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="Default"/>
@@ -442,7 +450,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Need to keep track where the contact person can be contacted per postal mail or visited</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">./addr</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">addr</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PID-11</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="Default"/>
@@ -461,7 +469,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Needed to address the person correctly</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">./administrativeGender</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">player[classCode=PSN]/administrativeGender</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PID-8</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -480,7 +488,7 @@
     <Cell><Data ss:Type="String">For guardians or business related contacts, the organization is relevant</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">player[classCode=PSN]/scopedRole</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -500,7 +508,7 @@
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">The animal element is labelled &quot;Is Modifier&quot; since patients may be non-human. Systems must either handle patient details appropriately (e.g. inform users patient is not human) or reject non-human patient records</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">player[classCode=ANM]</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -520,7 +528,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">If the patient is non-human, at least a species must be specified</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">.playedRole[classCode=GEN].scoper[classCode=ANM, determinerCode=KIND].code</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">PID.35</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -539,7 +547,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">.code</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">playedRole[classCode=GEN]/scoper[classCode=ANM, determinerCode=KIND]/code</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">PID.37</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="s77"/>
     <Cell ss:StyleID="Default"/>
@@ -558,7 +566,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">.genderStatusCode</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">genderStatusCode</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">N/A</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -576,7 +584,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">If a patient does not speak the local language, interpreters may be required, so languages spoken is an important things to keep track of both for patient and other persons of interest</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">If no language is specified, this *implies* that the default local language is spoken.&#10;For animals, language is not a relevant field, and should be absent from the instance</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">.LanguageCommunication</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">player[classCode=PSN]/languageCommunication.code</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">LAN</Data></Cell>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Define proficiency and mode as extensions</Data></Cell>
@@ -682,7 +690,7 @@
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">scoper</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -698,7 +706,8 @@
     <Cell><Data ss:Type="String">Due to the clerical errors associated with the difficulties of identifying humans consistently, duplicate patient records are frequently created in error</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">More then two patient resources may be linked. Note that there is a special transaction for linking patient resources in the RESTful context, as resource linking consistency must be maintained</Data></Cell>
-    <Cell ss:Index="15" ss:StyleID="s69"><Data ss:Type="String">PID-3-patient ID list</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">outboundLink</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">PID-3-patient ID list</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Patient.active</Data></Cell>
@@ -710,7 +719,7 @@
     <Cell><Data ss:Type="String">Need to be able to mark a patient record as not to be used because it was created in error</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">Default is true. If a record is inactive, and linked to an active record, then future patient/person/record updates should occur on the other patient</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">./status</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">statusCode</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -726,11 +735,12 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <TopRowVisible>28</TopRowVisible>
+   <Selected/>
+   <TopRowVisible>27</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>12</LeftColumnRightPane>
+   <LeftColumnRightPane>10</LeftColumnRightPane>
    <ActivePane>1</ActivePane>
    <Panes>
     <Pane>
@@ -738,7 +748,8 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>34</ActiveRow>
+     <ActiveRow>30</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -932,7 +943,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
