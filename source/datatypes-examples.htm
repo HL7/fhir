@@ -191,20 +191,20 @@ CodeableConcept
 
 <div class="example">
 <p><b>Examples</b></p>
-<p>A simple code for headache initially coded in SNOMED-CT and translated to ICD-10:</p>
+<p>A simple code for headache initially coded in SNOMED CT (by picking the SNOMED CT code from a picklist), and then translated to ICD-10:</p>
 <pre class="xml" fragment="CodeableConcept">
   &lt;concept&gt;
     &lt;coding&gt;
       &lt;system value="http://hl7.org/fhir/sid/icd-10" /&gt;
       &lt;code value="R51" /&gt;
     &lt;/coding&gt;
-    &lt;coding id="a1"&gt;
+    &lt;coding&gt;
       &lt;system value="http://snomed.info/id" /&gt;
       &lt;code value="25064002" /&gt;
       &lt;display value="Headache" /&gt;
+      &lt;primary value="true" /&gt;
     &lt;/coding&gt;
     &lt;text value="general headache" /&gt;
-    &lt;primary value="a1" /&gt;
   &lt;/concept&gt;
 </pre>
 <p>A concept represented in an institution's local coding systems for unit for which no UCUM equivalent exists:</p>

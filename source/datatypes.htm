@@ -249,6 +249,13 @@ The correct value to use in the <i>system</i> for a given code-system can be det
  <li>consulting the owner of the code system</li>
  <li>asking on the HL7 vocabulary mailing list</li>
 </ul>
+<p>
+A coding may be marked as a "primary" if a user picked the particular coded value 
+explicitly in a user interface (e.g., the user picks an item in a picklist). A primary
+would the preferred choice for performing translations etc. 
+</p>
+
+
 <!--<h3>Version Management</h3>
 <p>
 Some code systems have periodic releases where the meanings of the codes are changed between
@@ -321,8 +328,8 @@ representation of the concept as entered or chosen by the user which most closel
 represents the intended meaning of the user or concept. Very often the <i>text</i> 
 is the same as a <i>display</i> of one of the codings. One of the codings 
 may be flagged as the primary - the code that the user actually chose directly. 
-If present, the value of the primary element is an <a href="references.htm#id">xml:id</a> that must match 
-an <i>id</i> attribute on one of the codings. 
+When none of the <i>coding</i> elements is marked as primary, the text (if present)
+is the preferred source of meaning. 
 </p>
 
 <div class="use">

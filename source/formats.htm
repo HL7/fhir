@@ -17,7 +17,7 @@
 <p>
 This page documents how the content of the resources are described. 
 In actual exchange, resources can be represented in the following
-formats: <a href="xml.htm">XML</a>and <a href="json.htm">JSON</a>. 
+formats: <a href="xml.htm">XML</a> and <a href="json.htm">JSON</a>. 
 </p>
 
 <h2>Resource Definition</h2>
@@ -51,8 +51,19 @@ Notes:
     <font color="deeppink">Pink</font> then there is an additional condition that impacts on the allowed cardinality. This is available as a mouse-over text, or in the formal definitions</li>
  <li>The elements are assigned one or more types. All of the types are defined in <a href="datatypes.htm">the data types</a> except for "Resource" and "Narrative" that are documented below. The type names are hyperlinked</li>
  <li>When a logical element can have more than one type, its name takes the form nnn[x]. The "nnn" part of the name is constant, and 
-   the [x] is replaced with the title-cased name of the type that is actually used. The types that are allowed are listed with a "|" used to separate them. 
-   When one of the types is Resource([X]), the type name in the element name is simply "Resource"</li>
+   the [x] is replaced with the title-cased name of the type that is actually used. In XML, for example this would like:
+   
+   <div class="example">
+<pre class="xml">
+  &lt;name&gt;
+    &lt;nameBType1&gt;
+     ... contents for type1 ...
+    &lt;/nameBType1&gt;
+  &lt;/name&gt;
+</pre>
+   </div>
+   The types that are allowed on this element are listed with a "|" used to separate them. When one of the types is Resource([X]), the type name in the element name is simply "Resource". 
+   </li>
  <li>Each element name in the pseudo-syntax is also a hyperlink to the formal definition of the element in the data dictionary that underlies the exchange formats. </li>
  <li>If the element name is underlined, then applications are required to <a href="resources.htm#mustSupport">support</a> and/or <a href="resources.htm#isModifier">understand</a> it</li>
  <li>The character set for a resource is always Unicode, encoded in UTF-8.</li>

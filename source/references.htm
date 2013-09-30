@@ -16,20 +16,18 @@
 <a name="id"></a>
 <h2>Internal References</h2>
 <p>
-There are 4 cases where elements inside a resource reference each other:
+There are 3 cases where elements inside a resource reference each other:
 </p>
 <ul>
- <li>Inside a <a href="datatypes.htm#CodeableConcept">CodeableConcept data type to identify the primary encoding</a></li>
- <li>An &lt;img src=""/&gt; reference in the narrative, referring to an image found in the resource</li>
- <li>Between elements in the narrative and structured data elements</li>
  <li>Between a ResourceReference and an <a href="references.htm#contained">contained resource</a></li>
+ <li>Between elements in the narrative and structured data elements</li>
+ <li>An &lt;img src=""/&gt; reference in the narrative, referring to an image found in the resource (as a contained <a href="media.htm">Media</a> or <a href="binary.htm">Binary</a> resource)</li>
 </ul>
 <p>
 These references are done using an id/idref based approach, where a source element indicates that it 
 has the same content as the target element. The target element has an attribute "id" which must 
 have a unique value within the resource with regard to any other id attributes. The "id" attribute is not in any namespace.
-The source element reference must refer to an attribute in the same resource (or, for a CodeableConcept, inside the
-same datatype). 
+The source element reference must refer to an attribute in the same resource. 
 </p>
 <div class="example">
 <pre class="xml">

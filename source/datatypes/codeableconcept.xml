@@ -20,6 +20,7 @@
   <WindowWidth>30315</WindowWidth>
   <WindowTopX>5865</WindowTopX>
   <WindowTopY>6870</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -127,16 +128,7 @@
     <Cell><Data ss:Type="String">./originalText[mediaType/code=&quot;text/plain&quot;]/data</Data></Cell>
     <Cell><Data ss:Type="String">C*E.9. But note many systems use C*E.2 for this</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell><Data ss:Type="String">CodeableConcept.primary</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">idref</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">Which code was chosen directly by the user</Data></Cell>
-    <Cell><Data ss:Type="String">Indicates which of the codes in the codings was chosen by a user, if one was chosen directly</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Where a user picks an actual code directly, it is useful to note that this is the primary input.  It's also the most appropriate starting point for new translations (unless re-coding directly from 'text').</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">special(&quot;The id assigned to the coding that corresponds to the root code of the CD&quot;)</Data></Cell>
-    <Cell><Data ss:Type="String">Sometimes implied by C*E.1</Data></Cell>
-   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="90"/>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -145,14 +137,13 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
-   <TopRowVisible>1</TopRowVisible>
-   <LeftColumnVisible>2</LeftColumnVisible>
+   <LeftColumnVisible>8</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>1</ActiveRow>
      <ActiveCol>12</ActiveCol>
+     <RangeSelection>R2C13:R4C13</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -177,11 +168,11 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">Primary Reference must resolve</Data></Cell>
+    <Cell><Data ss:Type="String">Coding.primary rule</Data></Cell>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell><Data ss:Type="String">If a primary reference is present, it must point to one of the codings</Data></Cell>
-    <Cell><Data ss:Type="String">primary.oclIsDefined implies codings.collect(id = primary)-&gt;size() = 1</Data></Cell>
-    <Cell><Data ss:Type="String">not(exists(f:primary)) or count(f:coding[@id=current()/f:primary/@value])=1</Data></Cell>
+    <Cell><Data ss:Type="String">Only one coding in a set can be chosen directly by the user</Data></Cell>
+    <Cell><Data ss:Type="String">codings.collect(primary = true)-&gt;size() &lt; 1</Data></Cell>
+    <Cell><Data ss:Type="String">count(f:coding[f:primary/@value=&quot;true&quot;])&lt;1</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -191,11 +182,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

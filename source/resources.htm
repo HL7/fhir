@@ -133,17 +133,21 @@ The contents of the resource and the formats used to represent it must conform t
 Because of its general nature and wide applicability, the rules made in this specification are generally loose compared 
 to the rules suitable for particular use cases. This specification provides a conformance layer that implementers and 
 national/regional programs can use to provide a computable statement about how the resources and their exchange 
-paradigms are used to solve particular use cases. This conformance layer is delivered through use of the 
-<a href="conformance.htm">Conformance</a>, <a href="valueset.htm">Value Set</a> and <a href="profile.htm">Profile</a> resources.
+paradigms are used to solve particular use cases. The conformance layer itself is implemented using resources:
 </p>
+<table class="grid">
+ <tr> <td><a href="valueset.htm">Value Set</a></td> <td>Defines a set of coded values (see "<a href="terminologes.htm">Using Codes</a>" for more details)</td>  </tr>
+ <tr> <td><a href="profile.htm">Profile</a></td> <td>Makes rules about how a resource and it's data elements are used in a particular context. A profile references value sets for the coded elements in a resource</td>  </tr>
+ <tr> <td><a href="conformance.htm">Conformance</a></td> <td>A statement of the kinds of resources and operations provided and/or consumed by an application. The conformance resource references profiles to describe specific use of resources by the application</td>  </tr>
+</table>
 <p>
-The specification also provides a number of technical resources that can assist with enforcing conformance 
+The specification also provides a number of tools that can assist with enforcing technical conformance 
 to this base specification:
 </p>
 <ul>
  <li><a href="fhir-all-xsd.zip">Schema &amp; Schematron</a></li>
  <li><a href="validation.zip">Validator Package - use to check resources against profiles</a></li>
- <li><a href="downloads.htm#refimpl">Reference Platforms</a></li>
+ <li><a href="downloads.htm#refimpl">Reference Platforms (conformant code in various languages)</a></li>
 </ul> 
 <p>
 Note that none of these are able to check complete conformance to this specification.
@@ -212,19 +216,20 @@ elements are provided. Is-Modifier elements SHALL be represented in the narrativ
 of the resource.
 </p>
 <p>
-Implementations processing resources SHALL understand the impact of the element when they process 
-the resource. Implementations are not required to "support" the element in any meaningful way - they 
+Implementations processing the data in resources SHALL understand the impact of the element when using the data. 
+Implementations are not required to "support" the element in any meaningful way - they 
 may achieve this by rejecting instances that contain values outside those they support (for instance,
 an application may refuse to accept observations with a reliability != "ok"). Alternatively,
 implementations may be able to be sure, due to their implementation environment, that such values 
 will never occur. However applications SHOULD always check the value irrespective of this.
 </p>
 <p>
-Servers and background processes that move resources around are not "processing the data
-of the resource", and these applications are not required to check for unknown extensions. Any
-process that copies data out of a resource for use in another context (display to a human,
-decision support, exchange in another format that doesn't support extensions) is processing
-the data.
+Note that processing the data of a resource typically means extracting the data out
+of the resource and making use of it in a different context (display to humans, or 
+rendering in a different exchange format, or storing the data for other usage), 
+or using it for decision support. Servers and background processes that simply 
+move whole resources around are not "processing the data of the resource", and 
+therefore these applications are not required to check for unknown extensions. 
 </p>
 
 <a name="mustSupport"> </a>
