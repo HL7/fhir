@@ -166,7 +166,7 @@
     <Cell><Data ss:Type="String">The use of this name</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the purpose for this name</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Allows the appropriate name for a particular context of use to be selected from among a set of names</Data></Cell>
-    <Cell><Data ss:Type="String">This is labelled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old name etc for a current/permanent one. Applications can assume that a name is not temporary or old unless it explicitly says that it is</Data></Cell>
+    <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old name etc for a current/permanent one. Applications can assume that a name is not temporary or old unless it explicitly says that it is</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">unique(./use)</Data></Cell>
    </Row>

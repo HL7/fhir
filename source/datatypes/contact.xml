@@ -163,7 +163,7 @@
     <Cell><Data ss:Type="String">How to use this address</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the context for the address</Data></Cell>
     <Cell><Data ss:Type="String">Need to track the way a person uses this contact, so a user can choose which is appropriate for their purpose</Data></Cell>
-    <Cell><Data ss:Type="String">This is labelled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old contact etc for a current/permanent one. Applications can assume that a contact is not temporary or old unless it explicitly says that it is</Data></Cell>
+    <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old contact etc for a current/permanent one. Applications can assume that a contact is not temporary or old unless it explicitly says that it is</Data></Cell>
     <Cell><Data ss:Type="String">unique(./use)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">

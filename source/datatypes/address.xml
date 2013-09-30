@@ -170,7 +170,7 @@
     <Cell><Data ss:Type="String">Identifies the intended purpose of this address</Data></Cell>
     <Cell><Data ss:Type="String">Home, Work</Data></Cell>
     <Cell><Data ss:Type="String">Allows an appropriate address to be chosen from a list of many</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">This is labelled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old address etc for a current/permanent one. Applications can assume that an address is not temporary or old unless it explicitly says that it is</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old address etc for a current/permanent one. Applications can assume that an address is not temporary or old unless it explicitly says that it is</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">unique(./use)</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.7</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">Is it outside the 80% for this to repeat?</Data></Cell>

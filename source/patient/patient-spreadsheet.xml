@@ -508,7 +508,7 @@
     <Cell><Data ss:Type="String">This element has a value if the patient is an animal</Data></Cell>
     <Cell><Data ss:Type="String">Many clinical systems are extended to care for animal patients as well as human</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">The animal element is labelled &quot;Is Modifier&quot; since patients may be non-human. Systems must either handle patient details appropriately (e.g. inform users patient is not human) or reject non-human patient records</Data></Cell>
+    <Cell><Data ss:Type="String">The animal element is labeled &quot;Is Modifier&quot; since patients may be non-human. Systems must either handle patient details appropriately (e.g. inform users patient is not human) or reject non-human patient records</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s75"><Data ss:Type="String">player[classCode=ANM]</Data></Cell>
     <Cell ss:StyleID="s75"/>

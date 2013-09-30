@@ -124,6 +124,12 @@ body {
 #hl7-nav a {
   color: inherit;
 }
+#hl7-status {
+  line-height: 50px;
+  float: left;
+  margin-top: 16px;
+  color: maroon;
+}
 #hl7-logo {
   float: right;
   margin-left: 6px;

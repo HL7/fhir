@@ -309,7 +309,7 @@
     <Cell><Data ss:Type="String">The workflow/clinical status of this document. The status is a rough guide to the clinical standing of the document</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">Identifies who is responsible for the entry of the data.</Data></Cell>
-    <Cell><Data ss:Type="String">A document marked as an amendment SHOULD replace another document. However the amended flag is not the same as a replacement statement - the amendment flag is looser, and indicates that other related documents about the same thing have been released in *some* context prior to the release of this document. &#10;&#10;If a document is marked as withdrawn, the document, or data from the document, should never be displayed to a user without being clearly marked as untrustworthy. The flag &quot;withdrawn&quot; is why this element is labelled as a modifier of other elements</Data></Cell>
+    <Cell><Data ss:Type="String">A document marked as an amendment SHOULD replace another document. However the amended flag is not the same as a replacement statement - the amendment flag is looser, and indicates that other related documents about the same thing have been released in *some* context prior to the release of this document. &#10;&#10;If a document is marked as withdrawn, the document, or data from the document, should never be displayed to a user without being clearly marked as untrustworthy. The flag &quot;withdrawn&quot; is why this element is labeled as a modifier of other elements</Data></Cell>
     <Cell><Data ss:Type="String">interim: .completionCode=&quot;IN&quot; &amp; ./statusCode[isNormalDatatype()]=&quot;active&quot;;&#10;&#10;final: .completionCode=&quot;AU&quot; &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;complete&quot; and not(./inboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#CACT&quot;) and moodCode=&quot;EVN&quot; and domainMember(&quot;ReviseDocument&quot;, code) and isNormalAct()]);&#10;&#10;amended: .completionCode=&quot;AU&quot; &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;complete&quot; and ./inboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#CACT&quot;) and moodCode=&quot;EVN&quot; and domainMember(&quot;ReviseDocument&quot;, code) and isNormalAct() and statusCode=&quot;completed&quot;];&#10;&#10;withdrawn : .completionCode=NI &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;obsolete&quot; &#10;</Data></Cell>
     <Cell><Data ss:Type="String">n/a</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -628,7 +628,7 @@
     <Cell><Data ss:Type="String">Identifies the document this document supersedes, if any.</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">Identifies who is responsible for the entry of the data.</Data></Cell>
-    <Cell><Data ss:Type="String">This is labelled as &quot;Is Modifier&quot; because applications must be aware of document replacement semantics and behave appropriately</Data></Cell>
+    <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications must be aware of document replacement semantics and behave appropriately</Data></Cell>
     <Cell><Data ss:Type="String">.outboundRelationship[typeCode=&quot;RPLC&quot;].target[classCode=&quot;DOC&quot;, moodCode=&quot;EVN&quot;].id</Data></Cell>
     <Cell><Data ss:Type="String">.relatedDocument[typeCode=&quot;RPLC&quot;].parentDocument</Data></Cell>
    </Row>
@@ -737,7 +737,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">If section different to document</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the primary subject of the section.  </Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Provides context as to the potential accuracy of the information</Data></Cell>
-    <Cell><Data ss:Type="String">This is labelled as &quot;Is Modifier&quot; because applications must be aware if the subject changes for a particular section</Data></Cell>
+    <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications must be aware if the subject changes for a particular section</Data></Cell>
     <Cell><Data ss:Type="String">unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[typeCode=&quot;PAT&quot;])&#10;or&#10;unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[typeCode=&quot;IDENT&quot;]/player[determinerCode=&quot;INST&quot; and classCode=(&quot;DEV&quot;, &quot;ORG&quot;) and isNormalEntity()])</Data></Cell>
     <Cell><Data ss:Type="String">.subject.relatedSubject</Data></Cell>
    </Row>

@@ -117,6 +117,14 @@ public class PageProcessor implements Logger  {
   private Map<String, AtomEntry<? extends Resource>> valueSets = new HashMap<String, AtomEntry<? extends Resource>>();
   private Map<String, String> svgs = new HashMap<String, String>();
   private BreadCrumbManager breadCrumbManager = new BreadCrumbManager();
+  private String publicationType = "Local Build ("+System.getenv("COMPUTERNAME")+")";
+  private String publicationNotice = "";
+  
+  public final static String PUB_NOTICE =
+      "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+
+          "This is the ballot reconciliation version, and will change frequently as ballot reconciliation is performed.\r\n"+ 
+          "There's also a <a href=\"http://www.healthintersections.com.au/fhir/index.htm\">stable version</a> for the <a href=\"http://www.ihic2013.org.au/\">IHIC Connectathon</a>, and a <a href=\"http://latest.fhir.me/\">Nightly Build</a> is also available.\r\n"+
+          "</p>\r\n";
   
 //  private boolean notime;
   
@@ -475,6 +483,10 @@ public class PageProcessor implements Logger  {
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
       else if (com[0].equals("revision"))
         src = s1 + svnRevision + s3;  
+      else if (com[0].equals("pub-type"))
+        src = s1 + publicationType + s3;      
+      else if (com[0].equals("pub-notice"))
+        src = s1 + publicationNotice + s3;      
       else if (com[0].equals("level"))
         src = s1 + genlevel(level) + s3;  
         
@@ -2078,6 +2090,10 @@ public class PageProcessor implements Logger  {
         src = s1 + svnRevision + s3;      
       else if (com[0].equals("level"))
         src = s1 + genlevel(level) + s3;  
+      else if (com[0].equals("pub-type"))
+        src = s1 + publicationType + s3;      
+      else if (com[0].equals("pub-notice"))
+        src = s1 + publicationNotice + s3;      
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -2193,6 +2209,10 @@ public class PageProcessor implements Logger  {
         src = s1 + svnRevision + s3;      
       else if (com[0].equals("level"))
         src = s1 + genlevel(0) + s3;  
+      else if (com[0].equals("pub-type"))
+        src = s1 + publicationType + s3;      
+      else if (com[0].equals("pub-notice"))
+        src = s1 + publicationNotice + s3;      
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
@@ -2437,6 +2457,10 @@ public class PageProcessor implements Logger  {
         src = s1 + svnRevision + s3;      
       else if (com[0].equals("level"))
         src = s1 + genlevel(0) + s3;  
+      else if (com[0].equals("pub-type"))
+        src = s1 + publicationType + s3;      
+      else if (com[0].equals("pub-notice"))
+        src = s1 + publicationNotice + s3;      
       else if (com[0].equals("resurl")) {
           src = s1+"The id of this profile is "+profile.getMetadata().get("id").get(0)+s3;
       } else 
@@ -2620,6 +2644,22 @@ public void log(String content) {
 
   public BreadCrumbManager getBreadCrumbManager() {
     return breadCrumbManager;
+  }
+
+  public String getPublicationNotice() {
+    return publicationNotice;
+  }
+
+  public void setPublicationNotice(String publicationNotice) {
+    this.publicationNotice = publicationNotice;
+  }
+
+  public String getPublicationType() {
+    return publicationType;
+  }
+
+  public void setPublicationType(String publicationType) {
+    this.publicationType = publicationType;
   }
 
 

@@ -17,42 +17,51 @@
 <h1>Resource Definitions</h1>
 
 <p>
-A resource is an entity that:
-</p>
-<ul>
- <li>has a known identity by which it can be addressed</li>
- <li>identifies itself as one of the resource types defined in this specification</li>
- <li>contains a set of structured data items as described by the resource definition</li>
- <li>contains a human-readable XHTML representation of the content of the resource</li>
- <li>may change over time</li>
-</ul>
-<p>
-Resources have multiple representations. A resource is valid if it meets the above rules, and is represented in 
-either XML or JSON according to the rules defined in this specification. Other representations are allowed, but 
-are not described by this specification.
-</p>
-
-<p>
-This specification defines a series of different resource types that can be used to exchange and/or store data 
+This specification defines a series of different types of resource that can be used to exchange and/or store data 
 in order to solve a wide range of healthcare related problems, both clinical and administrative. In addition,
 this specification defines several different ways of exchanging the resources.
 </p>
+<p>
+A resource is an entity that:
+</p>
+<ul>
+ <li>has a known identity (a url) by which it can be addressed</li>
+ <li>identifies itself as one of the types of resource defined in this specification</li>
+ <li>contains a set of structured data items as described by the definition of the resource type</li>
+ <li>contains a human-readable XHTML representation of the content of the resource</li>
+ <li>has an identified version that changes if the contents of the resource change</li>
+</ul>
+<p>
+Resources have multiple representations. A resource is valid if it meets the above rules, and is represented in 
+either <a href="xml.htm">XML</a> or <a href="json.htm">JSON</a> according to the rules defined in this specification. 
+Other representations are allowed, but are not described by this specification.
+</p>
+
+<h3>Definitions</h3>
+<p>
+Basic definitions for this page:
+</p>
+<table class="grid">
+ <tr> <td>Resource</td> <td>An instance of data that is stored or exchanged</td> </tr>
+ <tr> <td>Resource Definition</td> <td>Defines the data elements that are part of the resource</td> </tr>
+ <tr> <td>Profile</td> <td>Additional rules about the data elements for a particular context of use. There's a specific type of resource - the <a href="profile.htm">Profile Resource</a> that is used to represent a profile</td> </tr>
+</table>
 
 <a name="content"> </a>
 <h2>Contents of a Resource</h2>
 <p>
-All resources have the following aspects:
+All types of resources have the following aspects:
 </p>
 <ul>
- <li>A base set of defined data elements</li>
- <li>Extensions (optional) - additional data elements added by implementations (see <a href="extensibility.htm">"Extensibility"</a>)</li>
- <li>A human-readable narrative description of the contents of the resource (see <a href="narrative.htm#Narrative">"Narrative"</a>)</li>
+ <li>A base set of defined data elements specific to the type</li>
+ <li><a href="extensibility.htm">Extensions</a> - additional data elements added by implementations</li>
+ <li>A <a href="narrative.htm#Narrative">human-readable narrative</a> description of the contents of the resource</li>
  <li><a href="references.htm#contained">Contained resources</a> - additional resources that are part of the identification and transaction space of this resource</li>
- <li>Metadata - important information about the resource that is not part of the content model of the resource</li>
- <li>Tags - labels affixed to the resources that may be used to define additional operational behaviour such as security, workflow, etc.</li>
+ <li><a href="#metadata">Metadata</a> - important information about the resource that is not part of the content model of the resource</li>
+ <li><a href="extras.htm#tags">Tags</a> - labels affixed to the resources that may be used to define additional operational behaviour such as security, workflow, etc.</li>
 </ul>
 <p>
-The contents of the base resource from which all other resources derive are:
+Every resource starts with a common set of elements (for documentation of this format, see <a href="formats.htm">Resource Definition Format</a>):
 </p>
 <pre class="spec">
 &lt;<a href="#content" title="A Resource Definition for FHIR" class="dict"><b>[Name]</b></a> xmlns="http://hl7.org/fhir"&gt;
@@ -70,7 +79,8 @@ in order to support consistent definitions for schema and UML derived code.
 <p>
 The optional language element specifies the base language of the resource using the <a href="http://tools.ietf.org/html/bcp47">codes defined in BCP 47</a>.
 Note that not all the content of the resource has to be in the language. 
-If a language is specified, it should also be specified on the <a href="narrative.htm#Narrative">Narrative Text</a>.
+If a language is specified, it should also be specified on the <a href="narrative.htm#Narrative">Narrative Text</a>. 
+There is no default language, though one may be inferred from the context of use.
 </p>
 <p>
 The language element is provided to support indexing and accessibility (e.g. text-to-speech use the language tag). 
@@ -81,18 +91,18 @@ for use to specify the language of alternate presentations generated from the da
 <a name="metadata"> </a>
 <h2>Resource Metadata</h2>
 <p>
-The metadata properties are key aspects of the resource and how it behaves. For implementation reasons, these are represented outside the resource:
+The metadata properties are key aspects of a resource and how it behaves. For implementation reasons, these are represented outside the resource:
 </p>
 
 <table class="grid">
   <tr><th>Metadata Item</th><th>Type</th><th>Usage</th></tr>
   
   <tr><td>Logical Id</td> <td><a href="datatypes.htm#id">id</a></td> <td>The identity of the resource. 
-    Resources always have a known identity and it is constant for the entire lifetime of the resource. Resource identification is <a href="references.htm#Identification">discussed elsewhere</a></td></tr>
+    Resources always have a known identity and it is constant for the entire lifetime of the resource. See <a href="references.htm#Identification">Resource identification</a> for further discussion</td></tr>
 	
   <tr><td>Version Id</td><td><a href="datatypes.htm#id">id</a></td><td>Changes each time the content of the resource changes. 
     Can be referenced in a <a href="references.htm#Resource">resource reference</a>. Can be used to ensure that updates are based on the latest version of the resource. 
-  <br/>The version can be globally unique, or scoped by the Logical Id. Since version ids must be unique within the scope of a single resource, they are generally either a serially incrementing id 
+  <br/>The version can be globally unique, or scoped by the Logical Id. Version identifiers are generally either a serially incrementing id 
      scoped by the logical id, or a uuid, though neither of these approaches is required</td></tr>
 	 
   <tr><td>Last Modified Date</td><td><a href="datatypes.htm#instant">instant</a></td><td>Changes each time the content of the resource 
@@ -100,17 +110,17 @@ The metadata properties are key aspects of the resource and how it behaves. For 
 	
 </table>
 <p>
-Note that the version id changes any time the resource changes, and so does the last modified date. The Version Id is more useful for managing
-concurrency issues and version specific references because of the inherent uncertainties and precision limits associated with date times. The Last Modified Date 
-is useful for a human to ascertain the logical currency of the information in the resource.
+Note that both the version id and the last modified date change any time the resource changes. The Version Id is more useful for managing
+concurrency issues and version specific references because of the inherent uncertainties and precision limits associated with date/times. 
+The Last Modified Date is useful for a human to ascertain the logical currency of the information in the resource.
 </p>
 <p>
 In any environment where the resources are used, the technical details of how these metadata elements 
-are represented will need to be resolved. For further details, see <a href="implementation.htm">Implementation 
+are represented during exchange will need to be resolved. For further details, see <a href="implementation.htm">Implementation 
 Details</a>, which also contains a discussion of how resource identity is maintained.
 </p>
 <p>
-Resource ids are case sensitive. Ids are always opaque, and systems need not and should not attempt to determine their internal structure. 
+Resource and version ids are case sensitive. Ids are always opaque, and systems need not and should not attempt to determine their internal structure. 
 However the id is represented, it must always be represented in the same way in resource references and URLs. Ids can be up to 36 characters 
 long, and contain any combination of ASCII letters, numerals, "-" and ".".
 </p>
@@ -124,7 +134,7 @@ Because of its general nature and wide applicability, the rules made in this spe
 to the rules suitable for particular use cases. This specification provides a conformance layer that implementers and 
 national/regional programs can use to provide a computable statement about how the resources and their exchange 
 paradigms are used to solve particular use cases. This conformance layer is delivered through use of the 
-<a href="conformance.htm">Conformance</a> and <a href="profile.htm">Profile</a> resources.
+<a href="conformance.htm">Conformance</a>, <a href="valueset.htm">Value Set</a> and <a href="profile.htm">Profile</a> resources.
 </p>
 <p>
 The specification also provides a number of technical resources that can assist with enforcing conformance 
@@ -132,7 +142,7 @@ to this base specification:
 </p>
 <ul>
  <li><a href="fhir-all-xsd.zip">Schema &amp; Schematron</a></li>
- <li><a href="validation.zip">Validator Package</a></li>
+ <li><a href="validation.zip">Validator Package - use to check resources against profiles</a></li>
  <li><a href="downloads.htm#refimpl">Reference Platforms</a></li>
 </ul> 
 <p>
@@ -185,16 +195,16 @@ rules about this selection process.
 <p>
 Is-Modifier is a boolean property that is assigned when an element is defined, either as part of 
 the base resource contents in this specification, or when profiles declare extensions. 
-An element is labelled "Is-Modifier = true" if the value it contains may change the 
+An element is labeled "Is-Modifier = true" if the value it contains may change the 
 interpretation of the element that contains it (including if the element is the resource as a whole). Typical examples of 
-elements that are labelled "Is-Modifier" are elements such as "status", "active", "refuted", or "certainty". 
+elements that are labeled "Is-Modifier" are elements such as "status", "active", "refuted", or "certainty". 
 Whether and element is a Modifier cannot be changed when element usage is described in a 
 <a href="profile.htm">Resource Profile</a>.
-When an element is labelled as Is-Modifier, the documentation  must be clear about why 
+When an element is labeled as Is-Modifier, the documentation  must be clear about why 
 it is a modifier.
 </p>
 <p>
-Generally, elements labelled "Is-Modifier = true" also have a minimum cardinality of 1, to introduce
+Generally, elements labeled "Is-Modifier = true" also have a minimum cardinality of 1, to introduce
 certainty in their handling. If the value of such an element is not explicit in the instance, or known 
 by the context, the resource cannot be safely understood. Irrespective of the minimum cardinality, 
 implementations producing resources SHALL ensure that appropriate values for isModifier 

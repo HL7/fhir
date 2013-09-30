@@ -255,9 +255,16 @@ public class Publisher {
 			return;
 		}
     pub.isGenerate = !(args.length > 1 && hasParam(args, "-nogen"));
-    pub.noArchive = !(args.length > 1 && hasParam(args, "-noarchive"));
+    pub.noArchive = (args.length > 1 && hasParam(args, "-noarchive"));
 		pub.web = (args.length > 1 && hasParam(args, "-web"));
 		pub.diffProgram = getNamedParam(args, "-diff");
+		if (hasParam(args, "-name"))
+		  pub.page.setPublicationType(getNamedParam(args, "-name"));
+		if (pub.web) {
+      pub.page.setPublicationType("Ballot Reconciliation Master");
+      pub.page.setPublicationNotice(PageProcessor.PUB_NOTICE);
+      
+		}
 		try {
       pub.execute(args[0]);
     } catch (Exception e) {
@@ -696,6 +703,12 @@ public class Publisher {
     return  (buildFlags.containsKey("all") && buildFlags.get("all")) || (buildFlags.containsKey(n) && buildFlags.get(n)); 
   }
 
+  private boolean wantBuild(String rname) {
+    rname = rname.toLowerCase();
+    return buildFlags.get("all") || (!buildFlags.containsKey(rname) || buildFlags.get(rname));
+  }
+
+	
   private void checkExampleLinks(List<ValidationMessage> errors, ResourceDefn r) throws Exception {
 	  for (Example e : r.getExamples()) {
 	    try {
@@ -945,7 +958,7 @@ public class Publisher {
 					String src = TextFile.fileToString(fn.getAbsolutePath());
 					String srcn = src
 							.replace(
-									"Warning: FHIR is a draft specification that is still undergoing development prior to balloting as a full HL7 standard",
+									"Warning: This version of FHIR is the DSTU Reconciliation version (see the <a href=\"changelist.htm\">Change List</a>)",
 									"This is an old version of FHIR retained for archive purposes. Do not use for anything else");
 					if (!srcn.equals(src))
 						c++;
@@ -965,8 +978,8 @@ public class Publisher {
 			} else if (!fn.getAbsolutePath().endsWith("v2") && !fn.getAbsolutePath().endsWith("v3") ) {
 				// used to put stuff in sub-directories. clean them out if they
 				// still exist
-				Utilities.clearDirectory(fn.getAbsolutePath());
-				fn.delete();
+				//Utilities.clearDirectory(fn.getAbsolutePath());
+        //fn.delete();
 			}
 		}
 		if (c < 3)
@@ -1703,11 +1716,6 @@ public class Publisher {
       e = XMLUtil.getNextSibling(e);
     }
         
-  }
-
-  private boolean wantBuild(String rname) {
-    rname = rname.toLowerCase();
-    return buildFlags.get("all") || (!buildFlags.containsKey(rname) || buildFlags.get(rname));
   }
 
   private void produceBaseProfile() throws Exception {

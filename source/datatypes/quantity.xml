@@ -136,7 +136,7 @@
     <Cell><Data ss:Type="String">Relationship of stated value to actual value</Data></Cell>
     <Cell><Data ss:Type="String">How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is &quot;&lt;&quot; , then the real value is &lt; stated value</Data></Cell>
     <Cell><Data ss:Type="String">Need a framework for handling measures where the value is &lt;5ug/L or &gt;400mg/L due to the limitations of measuring methodology.  </Data></Cell>
-    <Cell><Data ss:Type="String">This is labelled as &quot;Is Modifier&quot; because the comparator modifies the interpretation of the value significantly. If there is no comparator, then there is no impact</Data></Cell>
+    <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because the comparator modifies the interpretation of the value significantly. If there is no comparator, then there is no impact</Data></Cell>
     <Cell><Data ss:Type="String">IVL properties</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">

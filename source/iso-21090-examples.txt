@@ -731,7 +731,7 @@ dates provided.
 <part type="DEL"/>
 <part value="Indianapolis, IN 46240"/>
 </example>
-This work address consists of 3 unknown parts with 2 line delimiters. None of the parts is labelled with regard 
+This work address consists of 3 unknown parts with 2 line delimiters. None of the parts is labeled with regard 
 to their semantic significance. 
 7.7.4.7.2  Address with types 
 <example xsi:type="AD" use="WP">
@@ -1055,9 +1055,9 @@ This name should no longer be used when interacting with the
 person (i.e. in addition to no longer being used, the name 
 should not even  be  mentioned when interacting with the 
 person).
-NOTE  applications are not required to compare names labelled 
+NOTE  applications are not required to compare names labeled 
 ?Do  not use? and other names in order to eliminate name parts that 
-are common between the other name and a name labelled ?Do  not 
+are common between the other name and a name labeled ?Do  not 
 use?.
 1   M  Maiden name
 A name used prior to marriage.
@@ -2537,7 +2537,7 @@ proper set. Information  processing entities providing alternative definitions f
 make it clear in the conformance statement how such definitions are provided so that there is no ambiguity.
 While proper (non-nullFlavored) sets will not contain values that do not meet the definition of uniqueness, 
 discrete sets with a nullFlavor may contain elements duplicate values or values that have a nullFlavor. 
-Discrete  sets  that are labelled as mandatory cannot have a nullFlavor and therefore cannot contain such 
+Discrete  sets  that are labeled as mandatory cannot have a nullFlavor and therefore cannot contain such 
 values..
 7.9.3.2  ISO/IEC 11404 syntax
 type DSET (T : ANY) = class (

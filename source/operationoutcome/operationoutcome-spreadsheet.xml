@@ -186,7 +186,7 @@
     <Cell><Data ss:Type="String">error | warning | information&#10;</Data></Cell>
     <Cell><Data ss:Type="String">Indicates whether the issue indicates a variation from successful processing</Data></Cell>
     <Cell><Data ss:Type="String">Indicates how relevant the issue is to the overall success of the action.</Data></Cell>
-    <Cell><Data ss:Type="String">This is labelled as &quot;Is Modifier&quot; because applications should not confuse hints and warnings with errors</Data></Cell>
+    <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not confuse hints and warnings with errors</Data></Cell>
     <Cell><Data ss:Type="String">./typeCode[parent::AcknowledgmentDetail] or unique(./inboundRelationship[parent::Observation and typeCode='SUBJ' and isNormalActRelationship()]/source[classCode=&quot;OBS&quot; and moodCode=&quot;EVN&quot; and implies(code, ActCode#SEV and isNormalAct())/value[xsi:type=&quot;CD&quot;]</Data></Cell>
     <Cell><Data ss:Type="String">ERR-4</Data></Cell>
    </Row>
