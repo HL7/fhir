@@ -144,7 +144,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Unit representation</Data></Cell>
-    <Cell><Data ss:Type="String">A human readable form of the units</Data></Cell>
+    <Cell><Data ss:Type="String">A human-readable form of the units</Data></Cell>
     <Cell><Data ss:Type="String">There are lots of representations for the units and in many contexts, particular representations are fixed and required. i.e. mcg for micrograms and not ug</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">N/A</Data></Cell>
    </Row>

@@ -109,7 +109,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">identifies the meaning of the extension</Data></Cell>
     <Cell><Data ss:Type="String">Source of the definition for the extension code - a logical name or a URL</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">The definition may point directly to a computable or human readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition should be version specific.  This will ideally be the URI for the Resource Profile defining the extension, with the code for the extension after a #</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition should be version specific.  This will ideally be the URI for the Resource Profile defining the extension, with the code for the extension after a #</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">

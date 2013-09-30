@@ -125,8 +125,8 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">A human readable formatted text, including images</Data></Cell>
-    <Cell><Data ss:Type="String">A human readable formatted text, including images</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">A human-readable formatted text, including images</Data></Cell>
+    <Cell><Data ss:Type="String">A human-readable formatted text, including images</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
@@ -283,7 +283,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">empty</Data></Cell>
-    <Cell><Data ss:Type="String">the contents of the narrative are some equivalent of &quot;No human readable text provided for this resource&quot;</Data></Cell>
+    <Cell><Data ss:Type="String">the contents of the narrative are some equivalent of &quot;No human-readable text provided for this resource&quot;</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

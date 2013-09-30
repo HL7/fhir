@@ -172,7 +172,7 @@
     <Cell><Data ss:Type="String">A representation of the meaning of the code in the system, following the rules laid out by the system. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Need to be able to carry a human readable meaning of the code for readers that do not recognise the system</Data><NamedCell
+    <Cell><Data ss:Type="String">Need to be able to carry a human-readable meaning of the code for readers that do not recognize the system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">CV.displayName</Data><NamedCell

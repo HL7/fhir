@@ -1205,7 +1205,7 @@ public class Publisher {
       for (int i = 1; i < lvl; i++) 
         s.append("&nbsp;&nbsp;");
       if (select) {
-        s.append(Utilities.escapeXml(code)+"</td><td><a name=\""+Utilities.escapeXml(Utilities.nmtokenize(code))+"\">"+Utilities.escapeXml(display)+"</a></td><td>");
+        s.append(Utilities.escapeXml(code)+"<a name=\""+Utilities.escapeXml(Utilities.nmtokenize(code))+"\"> </a></td><td>"+Utilities.escapeXml(display)+"</td><td>");
       } else
         s.append("<span style=\"color: grey\"><i>("+Utilities.escapeXml(code)+")</i></span></td><td><a name=\""+Utilities.escapeXml(Utilities.nmtokenize(code))+"\">&nbsp;</a></td><td>");
       if (definition != null)
@@ -1529,7 +1529,7 @@ public class Publisher {
       concept.setDisplaySimple(codes.get(cd)); // we deem the v2 description to be display name, not definition. Open for consideration
       def.getConcept().add(concept);
       String nm = Utilities.nmtokenize(cd);
-      s.append(" <tr><td><a name=\""+Utilities.escapeXml(nm)+"\">"+Utilities.escapeXml(cd)+"</a></td><td>"+Utilities.escapeXml(codes.get(cd))+"</td><td>"+ver+"</td></tr>\r\n");
+      s.append(" <tr><td>"+Utilities.escapeXml(cd)+"<a name=\""+Utilities.escapeXml(nm)+"\"> </a></td><td>"+Utilities.escapeXml(codes.get(cd))+"</td><td>"+ver+"</td></tr>\r\n");
     }
     s.append("</table>\r\n");
     vs.setText(new Narrative());
@@ -1609,7 +1609,7 @@ public class Publisher {
           concept.setCodeSimple(cd);
           concept.setDisplaySimple(codes.get(cd)); // we deem the v2 description to be display name, not definition. Open for consideration
           def.getConcept().add(concept);
-          s.append(" <tr><td><a name=\""+Utilities.escapeXml(Utilities.nmtokenize(cd))+"\">"+Utilities.escapeXml(cd)+"</a></td><td>"+Utilities.escapeXml(codes.get(cd))+"</td><td>"+ver+"</td></tr>\r\n");
+          s.append(" <tr><td>"+Utilities.escapeXml(cd)+"<a name=\""+Utilities.escapeXml(Utilities.nmtokenize(cd))+"\"> </a></td><td>"+Utilities.escapeXml(codes.get(cd))+"</td><td>"+ver+"</td></tr>\r\n");
         }
         s.append("</table>\r\n");
     vs.setText(new Narrative());

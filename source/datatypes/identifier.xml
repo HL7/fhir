@@ -159,7 +159,7 @@
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Description of identifier</Data></Cell>
-    <Cell><Data ss:Type="String">A label for the identifier that can be displayed to a human so they can recognise the identifier</Data></Cell>
+    <Cell><Data ss:Type="String">A label for the identifier that can be displayed to a human so they can recognize the identifier</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Allows humans to make use of identifiers when the identifier system is not known</Data></Cell>
     <Cell ss:StyleID="Default"/>

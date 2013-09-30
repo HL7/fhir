@@ -3,17 +3,17 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      This value set includes all the "Clinical finding" Snomed-CT codes (i.e. codes with an is-a relationship with 91723000: Anatomical structure)
+      This value set includes all the "Clinical finding" SNOMED CT codes (i.e. codes with an is-a relationship with 91723000: Anatomical structure)
     </div>
   </text>
   <identifier value="http://hl7.org/fhir/valuesets/clinical-findings"/>
-  <name value="Snomed-CT Body Structures"/>
+  <name value="SNOMED CT Body Structures"/>
   <publisher value="FHIR Project team"/>
   <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <description value="This value set includes all the &quot;Clinical finding&quot; Snomed-CT codes (i.e. codes with an is-a relationship with 91723000: Anatomical structure)"/>
+  <description value="This value set includes all the &quot;Clinical finding&quot; SNOMED CT codes (i.e. codes with an is-a relationship with 91723000: Anatomical structure)"/>
   <status value="draft"/>
   <compose>
     <include>

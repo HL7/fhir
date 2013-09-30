@@ -33,19 +33,16 @@ todo: compartments
       <page title="Formal Definitions" filename="datatypes-definitions.htm"/>
       <page title="Mappings" filename="datatypes-mappings.htm"/>
     </page>
-    <page title="Terminologies" filename="terminologies.htm">
-      <page title="Named System List" filename="terminologies-systems.htm"/>
-      <page title="Binding List" filename="terminologies-bindings.htm"/>
-      <page title="Coding System List" filename="terminologies-codes.htm">
+    <page title="Using Codes" filename="terminologies.htm">
+      <page title="Systems" filename="terminologies-systems.htm"/>
+      <page title="Value Sets" filename="terminologies-valuesets.htm">
+        <pages type="valueset" filename="template-valueset.htm"/>
         <pages type="codesystem" filename="template-codesystem.htm"/>
       </page>
-      <page title="Value Set List" filename="terminologies-valuesets.htm">
-        <pages type="valueset" filename="template-valueset.htm"/>
-      </page>
-      <page title="V2 Table List" filename="terminologies-v2.htm" source="v2/template.htm">
+      <page title="V2 Tables" filename="terminologies-v2.htm" source="v2/template.htm">
         <pages type="v2-table" filename="template-v2.htm"/>
       </page>
-      <page title="V3 Code System / Value set List" filename="terminologies-v3.htm" source="v3/template.htm">
+      <page title="V3 Namespaces" filename="terminologies-v3.htm" source="v3/template.htm">
         <pages type="v3-vocab" filename="template-v3.htm"/>
       </page>
     </page>

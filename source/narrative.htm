@@ -20,7 +20,7 @@
 <a name="xhtml"> </a>
 <h2>Narrative</h2>
 <p>
-Each resource may include a human readable narrative that contains a summary of the resource, 
+Each resource may include a human-readable narrative that contains a summary of the resource, 
 and may be used to represent the content of the resource to a human. The narrative need 
 not encode all the structured data, but SHOULD contain sufficient detail to make 
 it "clinically safe" for a human to just read the narrative. Resource definitions may define 
@@ -34,7 +34,7 @@ include additional descriptional information extracted from other referenced res
 </p>
 <p>
 While resources SHOULD always contain narrative, so that to support human-consumption
-as a fall back, in a strictly managed trading systems where all systems share a common 
+as a fallback, in a strictly managed trading systems where all systems share a common 
 data model, and additional text is unnecessary or even a clinical safety risk, the 
 narrative may be omitted. However implementers should consider carefully before 
 doing this, as it will mean that these resources can only be understood in the 
@@ -80,12 +80,12 @@ between the first "&gt;" and the last "&lt;" characters is the content of the &l
 </p>
 <p>
 Note that the XHTML is contained in general XML, and so there is no support for HTML entities
-like <i>&amp;nbsp;</i> or <i>&amp;copy;</i> etc. Unicode characters should be used instead. Note that 
-<i>&amp;#160;</i> substitutes for <i>&amp;nbsp;</i>. 
+like &amp;nbsp; or &amp;copy; etc. Unicode characters should be used instead. Note that 
+&amp;#160; substitutes for &amp;nbsp;. 
 </p>
 <p>
 The narrative content should be in the <a href="base-definitions.htm#Resource.language">language of the resource</a>, but 
-there is no reason to expect that HTML type tooling would understand the resource <i>language</i> element. For this reason, 
+there is no reason to expect that HTML type tooling would understand the resource <a href="resources.htm#content">language</a> element. For this reason, 
 a lang attribute on the &lt;div&gt; should also be used (and see 
 <a href="http://www.w3.org/html/wg/drafts/html/master/dom.html#the-lang-and-xml:lang-attributes">the note in the HTML 5 specification about use of language</a>).
 </p>

@@ -170,7 +170,7 @@ ensuring consistent behavior.
  <li>The date parameter format is yyyy-mm-ddThh:nn:ss(TZ) (the standard XML format). 
    <ul>
      <li>Technically, this is any of the <a href="datatypes.htm#date">date</a>, <a href="datatypes.htm#dateTime">dateTime</a>, and <a href="datatypes.htm#instant">instant</a> data types</li>
-     <li>e.g. Any degree of precision can be provided, but it must be populated from the left (e.g. can't specify a month without a year), except that the minutes SHALL be present if an hour is present, and you SHOULD provide a timezone if the time part is present</li>
+     <li>e.g. Any degree of precision can be provided, but it must be populated from the left (e.g. can't specify a month without a year), except that the minutes SHALL be present if an hour is present, and you SHOULD provide a time zone if the time part is present</li>
      <li>Some user agents may escape the ":" characters in the URL, and servers SHALL handle this correctly</li>
    </ul>
  </li>
@@ -203,8 +203,8 @@ ensuring consistent behavior.
 		<li>Dates with the year and month are equivalent to an interval that starts at the first instant of the first day of the month and ends on the last instant of the last day of the month, e.g. 2000-04 is equivalent to an interval of [2000-04-01T00:00, 2000-04-30T23:59]</li>
 	</ul>
  </li>
- <li>Where possible, the system should correct for timezones when performing queries. Dates do not have timezones, and timezones 
-   should not be considered. Where both search parameters and resource element date times do not have timezones, the servers local
+ <li>Where possible, the system should correct for timezones when performing queries. Dates do not have time zones, and time zones 
+   should not be considered. Where both search parameters and resource element date times do not have time zones, the servers local
    time zone should be assumed.
  </li>
  <li>
@@ -423,7 +423,7 @@ may repeat many times.
 <p>
 Servers are not obliged to return just a summary, and summaries are not defined for 
 resources where there is no need for summarization. There is only one summary form
-defined for each resource in order to allow servers to store the summarised form in
+defined for each resource in order to allow servers to store the summarized form in
 advance. 
 </p>
 
@@ -496,7 +496,7 @@ queries to meet their own uses.
 <p>
 There can only ever be one _query parameter in a set of search
 parameters. Servers processing search requests must 
-refuse to process a search request if they do not recognise 
+refuse to process a search request if they do not recognize 
 the _query parameter value.
 </p>
 <p>

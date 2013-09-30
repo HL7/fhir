@@ -244,7 +244,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Name of system</Data></Cell>
-    <Cell><Data ss:Type="String">Human readable name for the target system</Data></Cell>
+    <Cell><Data ss:Type="String">Human-readable name for the target system</Data></Cell>
     <Cell><Data ss:Type="String">May be used to support audit</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">unique(./entity[determinerCode=&quot;INST&quot; and classCode=&quot;DEV&quot;]/name[type='ST' and isNormalDatatype()])</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">MSH-3-sending application</Data></Cell>
@@ -307,7 +307,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Name of system</Data></Cell>
-    <Cell><Data ss:Type="String">Human readable name for the source system</Data></Cell>
+    <Cell><Data ss:Type="String">Human-readable name for the source system</Data></Cell>
     <Cell><Data ss:Type="String">May be used for routing of response and/or to support audit</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">unique(./entity[determinerCode=&quot;INST&quot; and (classCode=(&quot;DEV&quot;, &quot;PSN&quot;, &quot;ORG&quot;]/name[type='ST' and isNormalDatatype()])</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">MSH-5-receiving application</Data></Cell>

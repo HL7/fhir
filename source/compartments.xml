@@ -319,7 +319,7 @@
     <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">User</Data></Cell>
+    <Cell><Data ss:Type="String">!User</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">GVFVariant</Data></Cell>
@@ -363,10 +363,10 @@
     <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Remittance</Data></Cell>
+    <Cell><Data ss:Type="String">!Remittance</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Claim</Data></Cell>
+    <Cell><Data ss:Type="String">!Claim</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceData</Data></Cell>
@@ -393,7 +393,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>61</ActiveRow>
+     <ActiveRow>62</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

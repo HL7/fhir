@@ -160,7 +160,7 @@
     <Cell><Data ss:Type="String">Narrative</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Text summary of the resource, for human interpretation</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">A human readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">narrative, html, xhtml, display</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative</Data></Cell>

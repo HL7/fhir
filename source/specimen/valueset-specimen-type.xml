@@ -6,7 +6,7 @@
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <description value="Specimen type : HL7 v2 table 0847. For ballot: should this rather extracted from LOINC System? but this covers a much wider scope. Or it could be all Snomed descendents of 123038009 (Specimen)"/>
+  <description value="Specimen type : HL7 v2 table 0487. For ballot: should this rather extracted from LOINC System? but this covers a much wider scope. Or it could be all Snomed descendents of 123038009 (Specimen)"/>
   <status value="draft"/>
   <compose>
     <include>

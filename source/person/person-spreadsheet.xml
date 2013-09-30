@@ -377,7 +377,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Language preference indicator</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Indicates whether or not the Person prefers this language (over other languages he masters up a certain level)</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">People that master multiple languages up to certain level may prefer one or more, i.e. feel more confident in communicating in a particular language making other languages sort of a fall back method</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">People that master multiple languages up to certain level may prefer one or more, i.e. feel more confident in communicating in a particular language making other languages sort of a fallback method</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">./preferenceInd</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">PID-15, NK1-20</Data></Cell>

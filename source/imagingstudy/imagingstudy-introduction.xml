@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <p>
-This resource summarises a series of images or other instances generated as part of an 
+This resource summarizes a series of images or other instances generated as part of an 
 imaging study, and provides references to where the images are available
 using <a href="ftp://medical.nema.org/medical/dicom/supps/LB/sup161_lb.pdf">WADO-RS</a>. 
 This resource is used to make information concerning images etc. that are available 

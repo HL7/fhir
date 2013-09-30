@@ -445,11 +445,11 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">string</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Human Readable description (title)</Data><NamedCell
+    <Cell><Data ss:Type="String">Human-readable description (title)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">ExtrinsicObject/Name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Human Readable description of the source document. This is sometimes known as the &quot;title&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">Human-readable description of the source document. This is sometimes known as the &quot;title&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Helps humans to assess whether the document is of interest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

@@ -3,7 +3,7 @@
 A document reference resource is used to describe a document that is made available to a healthcare system. 
 A document is some sequence of bytes that is identifiable, establishes it's own context (e.g. what subject, 
 author etc), can be displayed to the user, and has defined update management. The document resource can be 
-used with any document format that has a recognised mime type, and that conforms to this definition.
+used with any document format that has a recognized mime type, and that conforms to this definition.
 </p>
 <p>
 Typically, Document Reference Resources are used in document indexing systems, such as IHE XDS (see the <a href="xds-profile.xml.htm">XDS specific profile</a>),

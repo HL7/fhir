@@ -870,7 +870,7 @@
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">changes</Data></Cell>
     <Cell><Data ss:Type="String">The list is prepared as a statement of changes that have been made or recommended</Data></Cell>
-    <Cell><Data ss:Type="String">This is typically used in clinical summaries (e.g. Discharge Summary, Transfers of care). These lists should be understood as human readable statements, and applications should be extremely careful if automated processing is attempted</Data></Cell>
+    <Cell><Data ss:Type="String">This is typically used in clinical summaries (e.g. Discharge Summary, Transfers of care). These lists should be understood as human-readable statements, and applications should be extremely careful if automated processing is attempted</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

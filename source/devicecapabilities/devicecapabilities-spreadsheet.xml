@@ -241,7 +241,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Human Readable units of data value</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Human-readable units of data value</Data></Cell>
     <Cell><Data ss:Type="String">Units for this data item (if a quantity or a range)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">

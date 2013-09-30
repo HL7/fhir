@@ -347,7 +347,7 @@
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">What's the desired outcome?</Data></Cell>
-    <Cell><Data ss:Type="String">Human readable description of a specific desired objective of the care plan.</Data></Cell>
+    <Cell><Data ss:Type="String">Human-readable description of a specific desired objective of the care plan.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Without a description of what's trying to be achieved, element has no purpose</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s68"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">GOL-3.2-goal ID.text</Data></Cell>

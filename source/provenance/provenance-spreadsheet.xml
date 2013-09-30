@@ -334,7 +334,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Human description of participant</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Human readable description of the participant</Data><NamedCell
+    <Cell><Data ss:Type="String">Human-readable description of the participant</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">Agent.label</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -409,7 +409,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Human description of participant</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Human readable description of the entity</Data><NamedCell
+    <Cell><Data ss:Type="String">Human-readable description of the entity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">

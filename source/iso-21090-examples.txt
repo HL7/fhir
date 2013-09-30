@@ -184,7 +184,7 @@ Security Number (SSN) is normally written with dashes that group the digits into
 However, the dashes are not meaningful and an  SSN can also be represented as "123121234" without the 
 dashes. In the case where identifier schemes provide for multiple representations, HL7 or ISO may make a 
 ruling about which is the preferred form and document that ruling where that respective external identifier 
-scheme is recognised.
+scheme is recognized.
 If no extension attribute is provided in a non-null II, then the root is the complete unique identifier. If the root is 
 not a complete unique identifier, and the extension is not known, then the  II shall have a nullFlavor even if the 
 root is populated.
@@ -192,7 +192,7 @@ root is populated.
 root.
 NOTE  It is a descriptive name for the actual namespace. e.g. "California, U.S. Driver's License Number, 1970 -".
 IdentifierName does  not  refer to the organization which  issued the identifier (e.g. California Dept. of Motor 
-Vehicles). It is intended for use as a human readable label when an identifier  is to  be displayed to a human 
+Vehicles). It is intended for use as a human-readable label when an identifier  is to  be displayed to a human 
 user where an OID would not be meaningful.
 The  identifier name has no computational value. IdentifierName can never modify the meaning of the root 
 attribute. The purpose of the identifer name is to assist an unaided human interpreter of an II value to interpret 
@@ -540,7 +540,7 @@ appear after the numeric portion of a building number.
 4    STB
 Street name 
 base
-The base name of a roadway or artery recognised by a 
+The base name of a roadway or artery recognized by a 
 municipality (excluding street type and direction).
 4    STTYP  Street type
 The designation given to the street. (e.g. Street, Avenue, 
@@ -1664,7 +1664,7 @@ However, interpretation should be along the lines of the normal distribution, e.
 mean  1 standard deviation should be at the level of about two thirds confidence.
 The three distribution-types  unknown (null), uniform and normal  shall  be supported by every system that 
 claims to support uncertainty. All other distribution types are optional. W hen a system interpreting a 
-uncertainty  representation encounters a distribution type that it does not recognise, it maps this type to the 
+uncertainty  representation encounters a distribution type that it does not recognize, it maps this type to the 
 unknown (null) distribution-type.
 11404 syntax for the distributionType attribute
 type UncertaintyType = enumeration (U, N, LN, G, E, X2, T, F, B)
@@ -2388,7 +2388,7 @@ ISO/FDIS 21090:2009(E)
 appropriate.
 7.8.13.4  Equality
 Two nonNull TS values are only equal if their time and precision are equal, or if their uncertainRanges are not 
-null and not nullFlavored  and equal. If both TS value have timezones, the values should be be corrected for 
+null and not nullFlavored  and equal. If both TS value have time zones, the values should be be corrected for 
 timezone before comparison. If neither TS value has a timezone, then they may be compared for equality 
 without correction. If only one TS value has a timezone, then the equality is nullFlavor NI.
 7.8.13.5  Invariants
@@ -4950,7 +4950,7 @@ B.2.7  Decimal
 A floating point number with known precision. Operations on the floating point number  shall  be precision 
 aware. This type does not map to the simple real type defined in the UML kernel or  ISO/IEC 11404, as these 
 are not precision aware.
-NOTE 1  One use of the  decimal  type in this  International Standard  is to store monetary amounts, which have well -recognised special requirements for precision.
+NOTE 1  One use of the  decimal  type in this  International Standard  is to store monetary amounts, which have well -recognized special requirements for precision.
 NOTE 2  The precision is only the precision of a decimal digit representation, not the accuracy of the real number value. 
 The purpose of the precision is to faithfully capture the whole information presented to humans , in a number. The amount 
 of decimal digits shown conveys information about the uncertainty (i.e., precision and accuracy) of a measured value.
@@ -5039,7 +5039,7 @@ NOTE 1  Combined, the Abstract Data Types and  this International Standard  intr
 compatible changes from R1 of the HL7 V3 datatypes. This issue is further discussed in the ISO 21090 Conformance 
 Statement in the HL7 V3 Specification.
 This International Standard  is an implementation of the HL7 V3 Abstract Data Types (R2). This UML diagram 
-(Figure D.1) summarises the types defined in the HL7 V3 Abstract Data Types Specification
+(Figure D.1) summarizes the types defined in the HL7 V3 Abstract Data Types Specification
 Figure D.1 — Abstract data types summary
 NOTE 2  In this diagram, the HL7 Abstract Data Types are defined as interfaces. There is a custom stereotype used 
 called ?mixin?. A mixin interface acts like a parameterized interface, but rather than expressing properties of the type of the 

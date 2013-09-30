@@ -208,7 +208,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Additional description of the issue</Data></Cell>
     <Cell><Data ss:Type="String">Additional description of the issue</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">typically this field is used to provide details human readable information about the error</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">typically this field is used to provide details human-readable information about the error</Data></Cell>
     <Cell><Data ss:Type="String">./text[parent::AcknowledgmentDetail]</Data></Cell>
     <Cell><Data ss:Type="String">ERR-8</Data></Cell>
    </Row>
@@ -656,7 +656,7 @@
     <Cell><Data ss:Type="Number">17</Data></Cell>
     <Cell><Data ss:Type="String">extension</Data></Cell>
     <Cell><Data ss:Type="String">#11</Data></Cell>
-    <Cell><Data ss:Type="String">extension not recognised</Data></Cell>
+    <Cell><Data ss:Type="String">extension not recognized</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">18</Data></Cell>

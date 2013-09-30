@@ -68,7 +68,7 @@ Notes:
  <li>The actual content of the extension consists of either a single value in the <i>value[x]</i> element, or it can be extended itself with other extensions, each with their own defining url and content</li>
  <li>The <i>url</i> and <i>isModifier</i> elements cannot have extensions themselves</li>
  <li>An extension must have either a value (i.e. a value[x] element) or child extensions. The value element must have content, and/or an id attribute that is the target of a reference from the Narrative</li>
- <li>When an extension is the target of an internal reference, the reference is always to the value of the extension. An extension is only allowed to be the target of an reference when it has no value[x]</li>
+ <li>When an extension is the target of an internal reference, the reference is always to the value of the extension. An extension is only allowed to be the target of a reference when it has no value[x]</li>
 </ul>
 <p>
 The <i>value[x]</i> element has the [x] replaced with the title-cased name of one of the defined types, and the contents as defined for that type, or another extension. The value type may be one of the following:
@@ -270,7 +270,7 @@ As well as defining the base element structure for resources, HL7 also publishes
 as extensions rather than as part of the base resource structure in order to keep the base
 resource structure simple and concise, and to allow implementers not to engage with an entire world's
 worth of functionality up front. Note that HL7 extensions are never flagged as must-understand - if
-HL7 publishes resource content that <i>must</i> be understood, it will be part of the resource
+HL7 publishes resource content that where is-modifier=true, it will be part of the resource
 content itself, since everyone has to understand the extension anyway.
 </p>
 <p>

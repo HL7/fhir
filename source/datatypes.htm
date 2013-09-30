@@ -82,7 +82,7 @@ with additional constraints marked in bold.
    <td>base64Binary</td><td>xs:base64Binary</td><td>A stream of bytes, base64 encoded (<a href="http://tools.ietf.org/html/rfc4648">RFC 4648</a>)</td>
  </tr>
  <tr>
-   <td>instant</td><td>xs:dateTime</td><td>An instant in time - <b>known at least to the second and always includes a timezone</b>. 
+   <td>instant</td><td>xs:dateTime</td><td>An instant in time - <b>known at least to the second and always includes a time zone</b>. 
    Note: This type is for system times, not human times (see date and dateTime below).</td>
  </tr>
  <tr>
@@ -176,7 +176,7 @@ URIs such as cid: meet this requirement.
 The <i>hash</i> is included so that applications can verify that the content returned by the url has not changed. 
 </p>
 <p>
-In many cases where Attachment is used, the cardinality is &gt;1;. A valid use of repeats is to convey the same content in different mime types and languages.
+In many cases where Attachment is used, the cardinality is &gt;1. A valid use of repeats is to convey the same content in different mime types and languages.
 Guidance on the meaning of repeating elements MUST be provided in the definition of the repeating resource element or extension that references this type.
 The language element describes the language of the attachment using the <a href="http://tools.ietf.org/html/bcp47">codes defined in BCP 47</a>.
 </p>
@@ -186,7 +186,7 @@ The language element describes the language of the attachment using the <a href=
 <p>
 If neither <i>data</i> nor a <i>url</i> 
 is provided, the value should be understood as an assertion that no content for 
-the specified <i>mimeType</i> and/or <i>xml:lang</i> is available for the reason stated.
+the specified <i>mimeType</i> and/or <i>language</i> is available for the reason stated.
 </p>
 <p>
 The context of use may frequently make rules about the kind of attachment
@@ -194,17 +194,17 @@ The context of use may frequently make rules about the kind of attachment
 </p>
 </div>
 
-<a name="Coding"></a>
-<a name="coding"></a>
+<a name="Coding"> </a>
+<a name="coding"> </a>
+<a name="codesystem"> </a>
 <h2>Coding</h2>
 <p>
-A "<i>coding</i>" is a representation of a defined concept using a symbol from a defined "code system" - 
+A Coding is a representation of a defined concept using a symbol from a defined "code system" - 
 which may be an enumeration, a list of codes, a full terminology such as SNOMED-CT or LOINC 
 or a formal ontology. 
 </p>
 [%dt Coding%]
 
-<a name="codesystem"></a>
 <p>
 The <i>system</i> is a URI that references the enumeration, terminology 
 or ontology that defines the <i>code</i>. The URI may be an OID (urn:oid:) or 
@@ -303,13 +303,12 @@ case means that the profile can define a better structure than the general case 
 CodeableConcept
 </h2>
 <p>
-A CodeableConcept represents a field that is usually defined by formal 
-reference to one or more terminologies or ontologies, but may also be defined by the 
+A CodeableConcept represents a value that is usually supplied by providing a reference to one or more terminologies or ontologies, but may also be defined by the 
 provision of text. This is a common pattern in healthcare data.
 </p>
 [%dt CodeableConcept%]
 <p>
-Each "<i>coding</i>" is a representation of the concept using a symbol from a defined "code system" - 
+Each <i>coding</i> is a representation of the concept using a symbol from a defined "code system" - 
 which may be an enumeration, a list of codes, a full terminology such as SNOMED-CT or LOINC, 
 or a formal ontology. The concept may be coded multiple times in different code systems (or even 
 multiple times in the same code systems, where multiple forms are possible, such as 
@@ -735,7 +734,7 @@ The following types are defined as part of the data types, but are documented el
  <li><b><a href="resources.htm#metadata">Resource</a></b> - The conceptual base class for all resources</li>
  <li><b><a href="references.htm#Resource">ResourceReference</a></b> - for references from one resource to another</li>
  <li><b><a href="extensibility.htm">Extension</a></b> - used to convey additional data in a resource</li>
- <li><b><a href="narrative.htm#Narrative">Narrative</a></b> - Conveys a human readable representation of the content of a resource</li>
+ <li><b><a href="narrative.htm#Narrative">Narrative</a></b> - Conveys a human-readable representation of the content of a resource</li>
 </ul>
 
 </div>

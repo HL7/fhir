@@ -23,7 +23,7 @@ A resource is an entity that:
  <li>has a known identity by which it can be addressed</li>
  <li>identifies itself as one of the resource types defined in this specification</li>
  <li>contains a set of structured data items as described by the resource definition</li>
- <li>contains a human readable XHTML representation of the content of the resource</li>
+ <li>contains a human-readable XHTML representation of the content of the resource</li>
  <li>may change over time</li>
 </ul>
 <p>
@@ -46,7 +46,7 @@ All resources have the following aspects:
 <ul>
  <li>A base set of defined data elements</li>
  <li>Extensions (optional) - additional data elements added by implementations (see <a href="extensibility.htm">"Extensibility"</a>)</li>
- <li>A human readable narrative description of the contents of the resource (see <a href="narrative.htm#Narrative">"Narrative"</a>)</li>
+ <li>A human-readable narrative description of the contents of the resource (see <a href="narrative.htm#Narrative">"Narrative"</a>)</li>
  <li><a href="references.htm#contained">Contained resources</a> - additional resources that are part of the identification and transaction space of this resource</li>
  <li>Metadata - important information about the resource that is not part of the content model of the resource</li>
  <li>Tags - labels affixed to the resources that may be used to define additional operational behaviour such as security, workflow, etc.</li>
@@ -139,8 +139,8 @@ to this base specification:
 Note that none of these are able to check complete conformance to this specification.
 </p>
 <p>
-The data elements defined resources and data types have 4 properties that are 
-directly related to conformance: Cardinality, Is-Modifier, Must-Support, and Cardinality.
+The data elements defined in resources and data types have 3 properties that are 
+directly related to conformance: Cardinality, Is-Modifier, and Must-Support.
 These interact to place conformance requirements on implementations. 
 </p>
 
@@ -164,7 +164,7 @@ use case, and sometimes even basic information is sometimes very incomplete. For
 the only elements that have a minimum cardinality of 1 are those where they
 are necessary to any understanding of the element that contains them. 
 The minimum cardinalities should not be taken as a guide to which elements
-are expected to be present in any particular use of the resource.
+are expected to be present in any particular use of the resource, including their normal/primary usage purpose.
 </p>
 <p>
 For elements that have cardinality &gt; 1, the order in which they appear may have meaning.
@@ -186,12 +186,12 @@ rules about this selection process.
 Is-Modifier is a boolean property that is assigned when an element is defined, either as part of 
 the base resource contents in this specification, or when profiles declare extensions. 
 An element is labelled "Is-Modifier = true" if the value it contains may change the 
-interpretation of other elements or the resource as a whole. Typical examples of 
-elements that are labelled "Is-Modifier" are elements such as "status", "active", or "certainty". 
-The value of Is-Modifier cannot be changed when element usage is described in a 
+interpretation of the element that contains it (including if the element is the resource as a whole). Typical examples of 
+elements that are labelled "Is-Modifier" are elements such as "status", "active", "refuted", or "certainty". 
+Whether and element is a Modifier cannot be changed when element usage is described in a 
 <a href="profile.htm">Resource Profile</a>.
 When an element is labelled as Is-Modifier, the documentation  must be clear about why 
-it is a modifier, and/or which elements the element may modify.
+it is a modifier.
 </p>
 <p>
 Generally, elements labelled "Is-Modifier = true" also have a minimum cardinality of 1, to introduce
@@ -254,7 +254,7 @@ manage this during the period of trial use.
 There is no explicit version marker in the resource content. Once normative, subsequent versions of 
 this specification may introduce new elements and/or content at any point in the 
 resource contents, but the path and meaning of existing data elements will not be changed. Any value
-set or code list may be revised to include additional cods
+set or code list may be revised to include additional codes.
 </p>
 <p>
 Each binding to a value set or code system indicates whether the value list automatically 
@@ -263,20 +263,20 @@ in future versions of the specification, or whether the list cannot be changed a
 </p>
 <p>
 The conformance layer (<a href="conformance.htm">Conformance</a> and <a href="profile.htm">Profile</a>)
-have mandatory properties declaring the FHIR specification version, and these may be used to determine
+has mandatory properties declaring the FHIR specification version, and these may be used to determine
 which version of FHIR an implementation is using. 
 </p>
 <p>
 In a typical scenario, mixed versions may need to exist, so applications SHOULD ignore elements 
-that they do not recognize unless they are extensions with a isModifier element with value="true". 
+that they do not recognize unless they are extensions with an isModifier element with value="true". 
 However, in a healthcare context, many application vendors are unwilling to 
 consider this approach because of concerns about clinical risk or 
 technical limitations in their software (i.e. schema based processing). 
 Applications are not required to ignore unknown elements, but must
-declare whether they will do so in their conformance statements using the <i>acceptUnknown</i> element.
+declare whether they will do so in their <a href="conformance.htm">conformance statements</a>.
 </p>
 <p>
-Additional discussion on interversioning issues can be found here: 
+Additional discussion on inter-versioning issues can be found here: 
 <a href="http://wiki.hl7.org/index.php?title=FHIR_interversion_compatibility">http://wiki.hl7.org/index.php?title=FHIR_interversion_compatibility</a>.
 </p>
 <h3>Further Information</h3>

@@ -103,18 +103,18 @@ In XML <a href="extras.htm#bundle">bundles</a> are represented using an Atom for
 <ul>
  <li>Logically, a bundle is a set of resources that are prepared to send somewhere for consumption - a "feed". There is no implication that the feed is a standing arrangement (though this is not precluded)</li>
  <li>The order of elements does not matter in an atom feed (but not entries: the order of the entries is important). The order of elements in the atom namespace as documented above does not need to be followed, though it is followed by the FHIR reference platforms</li>
- <li>The title for the feed and the entry are arbitrary human readable content and not to be used for any automated processing. Applications may populate these in any useful way</li> 
+ <li>The title for the feed and the entry are arbitrary human-readable content and not to be used for any automated processing. Applications may populate these in any useful way</li> 
  <li>Every bundle must have a unique id and that id must be a valid absolute <a href="datatypes.htm#uri">uri</a>. UUIDs are recommended (urn:uuid:...)</li>
  <li>The entry element carries the <a href="resources.htm#metadata">three pieces of resource metadata</a>: Id (.id), Version Id (.link), Last Updated (.updated)</li>
  <li>Each entry also carries all the Tags affixed to the resource in the category element. The category element can be used in other ways too</li>
  <li>The entry.id must be an absolute url, the tail element of which is the logical id of the resource. The id is a version independent reference</li>
  <li>The entry.link to self is a version specific reference to the resource.</li>
  <li>When used in a <a href="http.htm">RESTful implementation</a>, the entry.link and entry.id are the URLs of the resource on the system; the version specific link can be used as the basis synchronizing pub/sub systems using the atom bundle with the <a href="http.htm#history">updates operation</a>. In other contexts, the values should be literal references to a server if one is available</li>
- <li>Note that the atom specification requires an author for each entry, but if an author is provided in the base feed element, an author is not needed on each entry</li>
+ <li>Note that the atom specification requires a known author for every entry. If an author is provided in the base feed element, a specific author is not needed on each entry</li>
  <li>The author of a resource is not explicit in the FHIR resource model; instead it is delegated to the infrastructure. The name is the name of a human author or a device. The uri is a link to the author (possibly a Practitioner resource)</li> 
  <li>xml:base elements SHOULD NOT be used and implementations do not need to support it</li>
  <li>The entire bundle can be signed with a single Enveloped Digital Signature as described in the Atom specification (section 5.1)</li>
- <li>The mime type for an bundle when represented in XML is application/atom+xml</li>
+ <li>The mime type for a bundle when represented in XML is application/atom+xml</li>
  <li>The feed.link element with relationship "self" is assigned no particular meaning the FHIR specification, except in the case of a search operation, but may be used to provide a reference to the source of the feed</li>
  <li>The feed.link elements with relationship "first", "last", "previous" and "next" are used to implement paging in the RESTful interface and allow a client to browse through a multi-page result. See <a href="query.htm">search/query</a></li>
 </ul>
@@ -168,7 +168,7 @@ but can also be represented in XML or JSON, such as when including these resourc
 (used when it is convenient to include these in the feed directly rather than leaving them by reference).
 </p>
 <p>
-When binary resources is represented as XML, it is represented as base64 encoded content along 
+When a binary resource is represented as XML in an atom feed, it is represented as base64 encoded content along 
 with a content-type, which is the mime-type as it would be specified in HTTP:
 </p>
 <pre class="spec">
@@ -201,9 +201,9 @@ as files for each resource as well as a combined fhir-atom.sch file
 that incorporates the rules for all resources.
 </p>
 <p>
-XML that is exchanged must be valid against the w3c schema and Schematron, nor is being 
-valid against the schema and Schematron sufficient to be a conformant instance. 
-(This specification makes several rules that cannot be checked by either mechanism.) 
+XML that is exchanged must be valid against the w3c schema and Schematron, though being 
+valid against the schema and Schematron is not sufficient to be a conformant instance: 
+rhis specification makes several rules that cannot be checked by either mechanism. 
 Exchanged content must not specify the schema or even the schema instance namespace in 
 the resource itself. 
 </p>

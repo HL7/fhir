@@ -436,8 +436,8 @@
     <Cell><Data ss:Type="String">GeneticAnalysis.geneticAnalysisDiscreteResult.dnaAnalysisDiscreteSequenceVariation.dnaRegionName</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Human readable name of the DNA region</Data></Cell>
-    <Cell><Data ss:Type="String">Human readable name of the DNA region</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Human-readable name of the DNA region</Data></Cell>
+    <Cell><Data ss:Type="String">Human-readable name of the DNA region</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">47999-8</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

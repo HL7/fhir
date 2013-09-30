@@ -33,7 +33,7 @@ flags were used to implement version tracking history within the resource.
 
 <p>
 The narrative portion of the List resource should contain a summary 
-of key properties of the items in the list, along with a human readable 
+of key properties of the items in the list, along with a human-readable 
 summary of their flags (if present).
 </p>
 <p>

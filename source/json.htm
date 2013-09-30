@@ -66,7 +66,7 @@ whitespace is always significant (i.e. no leading and trailing spaces for non-st
  "count" : { value: 23 }
 </pre>
 <p>
- All XML elements <i>can</i> have an 'id' attribute, which is represented in JSON as a property of name "_id":
+ All XML elements can have an 'id' attribute, which is represented in JSON as a property of name "_id":
 </p>
 <pre class="xml">
  &lt;<b>dob</b> id="314159" value="1972-11-30" /&gt;
@@ -137,7 +137,6 @@ converted to JSON members values, in the same manner as described for primitives
 <p>Things to note here are:</p>
 <ul>
 <li>Both given and family are repeating XML elements, so they are serialised as an Array whether or not they repeat in this instance</li>
-<li>Because the primitive element 'id' is in a resource, it is serialized as a JSON object</li>
 <li>In the family part of 'name', the '_id' is added as the first member</li>
 <li>The XHTML content in the 'div' element which is in the Narrative element 'text' is represented 
 as an escaped string in the value property in JSON. The xhtml's root element needs to be a &lt;div&gt; in the xhtml namespace</li>
@@ -205,7 +204,7 @@ Note that property names for elements that can repeat are not pluralized for con
 <a name="json-bundle-delete"> </a>
 <h4>Bundling versions - deletion</h4>
 <p>
-When returning a set of versions for a resource, a version might indicate a <i>deletion</i>. 
+When returning a set of versions for a resource, a version might indicate a deletion. 
 While the XML format follows <a href="http://www.rfc-editor.org/rfc/rfc6721.txt">RFC 6721</a>,
 the JSON format needs to use an entry item to retain the logical order of entries:</p>
 <pre class="json">

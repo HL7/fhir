@@ -79,6 +79,7 @@ import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
@@ -1142,7 +1143,7 @@ public class PageProcessor implements Logger  {
   }
 
   private String pageHeader(String n) {
-    return "<div class=\"navtop\"><ul class=\"navtop\"><li class=\"spacerright\" style=\"width: 500px\"><span>&nbsp;</span></li><li class=\"wiki\"><span><a href=\"http://wiki.hl7.org/index.php?title=FHIR_"+Utilities.escapeXml(n)+"_Page\">Community Input (wiki)</a></span></li></ul></div>\r\n";
+    return "<div class=\"navtop\"><ul class=\"navtop\"><li class=\"spacerright\" style=\"width: 500px\"><span>&nbsp;</span></li></ul></div>\r\n";
   }
   
   private String dtHeader(String n, String mode) {
@@ -1168,7 +1169,6 @@ public class PageProcessor implements Logger  {
       else
         b.append("<li class=\"nselected\"><span><a href=\""+n+"-mappings.htm\">Mappings</a></span></li>");
     b.append("<li class=\"spacerright\" style=\"width: 270px\"><span>&nbsp;</span></li>");
-    b.append("<li class=\"wiki\"><span><a href=\"http://wiki.hl7.org/index.php?title=FHIR_"+n.toUpperCase().substring(0, 1)+n.substring(1)+"_Page\">Community Input (wiki)</a></span></li>");
     b.append("</ul></div>\r\n");
     return b.toString();
   }
@@ -1188,7 +1188,6 @@ public class PageProcessor implements Logger  {
     else
       b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.htm\">Formal Definitions</a></span></li>");
     b.append("<li class=\"spacerright\" style=\"width: 270px\"><span>&nbsp;</span></li>");
-    b.append("<li class=\"wiki\"><span><a href=\"http://wiki.hl7.org/index.php?title=FHIR_"+n.toUpperCase().substring(0, 1)+n.substring(1)+"_Page\">Community Input (wiki)</a></span></li>");
     b.append("</ul></div>\r\n");
     return b.toString();
   }
@@ -1212,7 +1211,6 @@ public class PageProcessor implements Logger  {
     else
       b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.htm\">Formal Definitions</a></span></li>");
     b.append("<li class=\"spacerright\" style=\"width: 270px\"><span>&nbsp;</span></li>");
-    b.append("<li class=\"wiki\"><span><a href=\"http://wiki.hl7.org/index.php?title=FHIR_"+n.toUpperCase().substring(0, 1)+n.substring(1)+"_Page\">Community Input (wiki)</a></span></li>");
     b.append("</ul></div>\r\n");
     return b.toString();
   }
@@ -1236,7 +1234,6 @@ public class PageProcessor implements Logger  {
     else
       b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.htm\">Formal Definitions</a></span></li>");
     b.append("<li class=\"spacerright\" style=\"width: 270px\"><span>&nbsp;</span></li>");
-    b.append("<li class=\"wiki\"><span><a href=\"http://wiki.hl7.org/index.php?title=FHIR_"+n.toUpperCase().substring(0, 1)+n.substring(1)+"_Page\">Community Input (wiki)</a></span></li>");
     b.append("</ul></div>\r\n");
     return b.toString();
   }
@@ -1245,38 +1242,37 @@ public class PageProcessor implements Logger  {
     if (n.contains("-"))
       n = n.substring(0, n.indexOf('-'));
     StringBuilder b = new StringBuilder();
+    String pfx = "";
+    if ("l1".equals(mode))
+      pfx = "../";
+    if ("l2".equals(mode))
+      pfx = "../../";
+    if ("l3".equals(mode))
+      pfx = "../../../";
+    
     b.append("<div class=\"navtop\">");
     b.append("<ul class=\"navtop\"><li class=\"spacerleft\"><span>&nbsp;</span></li>");
     if (mode == null || mode.equals("content"))
-      b.append("<li class=\"selected\"><span>Content</span></li>");
+      b.append("<li class=\"selected\"><span>Using Codes</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\"terminologies.htm\">Content</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies.htm\">Using Codes</a></span></li>");
     if ("systems".equals(mode))
       b.append("<li class=\"selected\"><span>Systems</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\"terminologies-systems.htm\">Systems</a></span></li>");
-    if ("bindings".equals(mode))
-      b.append("<li class=\"selected\"><span>Bindings</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\"terminologies-bindings.htm\">Bindings</a></span></li>");
-    if ("codes".equals(mode))
-      b.append("<li class=\"selected\"><span>Defined Code Lists</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\"terminologies-codes.htm\">Defined Code Lists</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies-systems.htm\">Systems</a></span></li>");
     if ("valuesets".equals(mode))
-      b.append("<li class=\"selected\"><span>Defined Value Sets</span></li>");
+      b.append("<li class=\"selected\"><span>Value Sets</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\"terminologies-valuesets.htm\">Defined Value Sets</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies-valuesets.htm\">Value Sets</a></span></li>");
     if ("v2".equals(mode))
-      b.append("<li class=\"selected\"><span>v2 Namespaces</span></li>");
+      b.append("<li class=\"selected\"><span>v2 Tables</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\"terminologies-v2.htm\">v2 Namespaces</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies-v2.htm\">v2 Tables</a></span></li>");
     if ("v3".equals(mode))
       b.append("<li class=\"selected\"><span>v3 Namespaces</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\"terminologies-v3.htm\">v3 Namespaces</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies-v3.htm\">v3 Namespaces</a></span></li>");
     b.append("<li class=\"spacerright\" style=\"width: 370px\"><span>&nbsp;</span></li>");
-    b.append("<li class=\"wiki\"><span><a href=\"http://wiki.hl7.org/index.php?title=FHIR_"+n.toUpperCase().substring(0, 1)+n.substring(1)+"_Page\">Community Input (wiki)</a></span></li>");
     b.append("</ul></div>\r\n");
     return b.toString();
   }
@@ -1296,7 +1292,6 @@ public class PageProcessor implements Logger  {
     else
       b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.htm\">Examples</a></span></li>");
     b.append("<li class=\"spacerright\" style=\"width: 370px\"><span>&nbsp;</span></li>");
-    b.append("<li class=\"wiki\"><span><a href=\"http://wiki.hl7.org/index.php?title=FHIR_"+n.toUpperCase().substring(0, 1)+n.substring(1)+"_Page\">Community Input (wiki)</a></span></li>");
     b.append("</ul></div>\r\n");
     return b.toString();
   }
@@ -1371,7 +1366,6 @@ public class PageProcessor implements Logger  {
       b.append("<li class=\"nselected\"><span><a href=\""+n+"-profiles.htm\">Profiles</a></span></li>");
     
     b.append("<li class=\"spacerright\"><span>&nbsp;</span></li>");
-    b.append("<li class=\"wiki\"><span><a href=\"http://wiki.hl7.org/index.php?title=FHIR_"+n+"_Page\">Community Input (wiki)</a></span></li>");
     b.append("</ul></div>\r\n");
     return b.toString();
   }
@@ -1412,63 +1406,49 @@ public class PageProcessor implements Logger  {
   private String genValueSetsTable() throws Exception {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"codes\">\r\n");
-    s.append(" <tr><td><b>Namespace</b></td><td><b>Definition</b></td><td><b>Binding</b></td></tr>\r\n");
+    s.append(" <tr><td><b>Name</b> (in http://hl7.org/fhir/vs/)</td><td><b>Definition</b></td><td><b>Source</b></td></tr>\r\n");
     List<String> sorts = new ArrayList<String>();
     sorts.addAll(valueSets.keySet());
-    
-//    for (String n : definitions.getBindings().keySet()) {
-//      if ((definitions.getBindingByName(n).getBinding() == Binding.ValueSet) || (definitions.getBindingByName(n).getBinding() == Binding.CodeList && definitions.getBindingByName(n).hasExternalCodes())) {
-//        BindingSpecification cd = definitions.getBindingByName(n);
-//        String sn = "";
-//        if (Utilities.noString(cd.getReference()))
-//          sn = cd.getDescription();
-//        else {
-//          String ref = cd.getReference().startsWith("#") ? cd.getReference().substring(1) : cd.getReference();
-//          if (ref.startsWith("valueset-"))        
-//            sn = "http://hl7.org/fhir/vs/"+ref.substring(9);
-//          else 
-//            sn = ref;
-//        }
-//        names.put(sn,  cd.getName());
-//        sorts.add(sn);
-//      }
-//    }
-//    for (String n : definitions.getExtraValuesets().keySet()) {
-//      names.put(n, n);
-//      sorts.add(n);
-//    }
-    
     Collections.sort(sorts);
     
     for (String sn : sorts) {
       if (!sn.startsWith("http://hl7.org/fhir/v3") && !sn.startsWith("http://hl7.org/fhir/v2")) {
           AtomEntry ae = valueSets.get(sn);
+          String n = sn.substring(23);
           ValueSet vs = (ValueSet) ae.getResource();
-          BindingSpecification cd = definitions.getBindingByReference(sn);
-          s.append(" <tr><td><a href=\""+ae.getLinks().get("path")+"\">"+sn+"</a></td><td>"+Utilities.escapeXml(vs.getDescriptionSimple())+"</td><td>"+(cd == null ? "" : cd.getName())+"</td></tr>\r\n");
-    }
-//      BindingSpecification cd = definitions.getBindingByName(n);
-//      if (cd == null)
-//        s.append(" <tr><td><a href=\""+n+".htm\">http://hl7.org/fhir/vs/"+n+"</a></td><td>"+Utilities.escapeXml(definitions.getExtraValuesets().get(n).getDescriptionSimple())+"</td><td></td></tr>\r\n");
-//      else if (Utilities.noString(cd.getReference()))
-//        s.append(" <tr><td>"+Utilities.escapeXml(cd.getDescription())+"</td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>"+cd.getName()+"</td></tr>\r\n");
-//      else {
-//        String ref = cd.getReference().startsWith("#") ? cd.getReference().substring(1) : cd.getReference();
-//        if (ref.startsWith("valueset-"))        
-//          s.append(" <tr><td><a href=\""+ref+".htm\">http://hl7.org/fhir/vs/"+ref.substring(9)+"</a></td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>"+cd.getName()+"</td></tr>\r\n");
-//        else {
-//          AtomEntry ae = getv3ValueSetByRef(ref);
-//          if (ae != null && ae.getLinks().containsKey("path"))
-//            s.append(" <tr><td><a href=\""+ae.getLinks().get("path")+"\">"+ref+"</a></td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>"+cd.getName()+"</td></tr>\r\n");
-//          else
-//            s.append(" <tr><td><a href=\""+ref+".htm\">"+ref+"</a></td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>"+cd.getName()+"</td></tr>\r\n");
-//        }
-//      }
+          s.append(" <tr><td><a href=\""+ae.getLinks().get("path")+"\">"+n+"</a></td><td>"+Utilities.escapeXml(vs.getDescriptionSimple())+"</td><td>"+sourceSummary(vs)+"</td></tr>\r\n");
+      }
     }
     s.append("</table>\r\n");
     return s.toString();
   }
 
+
+  private String sourceSummary(ValueSet vs) {
+    StringBuilder b = new StringBuilder();
+    List<String> done = new ArrayList<String>();
+    if (vs.getDefine() != null)
+      b.append(", Internal");
+    if (vs.getCompose() != null)
+      for (ConceptSetComponent c : vs.getCompose().getInclude()) {
+        String uri = c.getSystemSimple();
+        String n = "Other";
+        if (uri != null) {
+          if ("http://snomed.info/id".equals(uri)) n = "SNOMED CT"; 
+          if ("http://loinc.org".equals(uri)) n = "LOINC";
+          if ("http://nema.org/dicom/dcid".equals(uri)) n = "DICOM";
+          if ("http://hl7.org/fhir/resource-types".equals(uri)) n = "FHIR";
+          if ("http://hl7.org/fhir/restful-operation".equals(uri)) n = "FHIR";
+          if ("http://unitsofmeasure.org".equals(uri)) n = "FHIR";
+          if (uri.startsWith("http://hl7.org/fhir/v3/"))  n = "V3";
+          if (uri.startsWith("http://hl7.org/fhir/v2/"))  n = "V2";
+        }
+        if (!done.contains(n))
+          b.append(", "+n);
+        done.add(n);
+      }
+    return b.length() == 0 ? "" : b.substring(2);
+  }
 
   private AtomEntry getv3ValueSetByRef(String ref) {
     String vsRef = ref.replace("/vs", "");
@@ -2238,9 +2218,9 @@ public class PageProcessor implements Logger  {
       StringBuilder b = new StringBuilder();
       b.append("<h2>Search Parameters</h2>\r\n");
       if (resource.getName().equals("Query"))
-        b.append("<p>Search Parameters for RESTful searches. The standard parameters also apply as described above.</p>\r\n");
+        b.append("<p>Search Parameters for this resource. The standard parameters also apply as described above.</p>\r\n");
       else
-        b.append("<p>Search Parameters for RESTful searches. The standard parameters also apply. See <a href=\"query.htm#base\">Searching</a> for more information.</p>\r\n");
+        b.append("<p>Search Parameters for this resource. The standard parameters also apply. See <a href=\"query.htm#base\">Searching</a> for more information about searching in REST, Messaging, and services.</p>\r\n");
       b.append("<table class=\"list\">\r\n");
       b.append("<tr><td><b>Name / Type</b></td><td><b>Description</b></td><td><b>Paths</b></td></tr>\r\n");
       List<String> names = new ArrayList<String>();

@@ -37,12 +37,12 @@ In this scenario, the PHR provider:
 </ul>
 
 <p>
-The EMR exposes a FHIR server that supports the <i>search</i> and <i>read</i> operations on the following resources: 
+The EMR exposes a FHIR server that supports the <a href="http.htm#search">search</a> and <a href="http.htm#read">read</a> operations on the following resources: 
 </p>
 <ol>
  <li>the <a href="patient.htm">patient</a> resource in order to provide demographics to the client. When a client searches patients with no search criteria, they get a list of all patients they have access too</li>
- <li><i>search</i> and <i>read</i> on the <a href="documentreference.htm">Document Reference</a> resource to provide access to general patient documents in the form of PDFs etc. (PDFs are preferred)</li>
- <li><i>search</i> and <i>read</i> on a set of clinical resources potentially including Observation, DiagnosticReport, various Medication resources, AdverseReaction/AllergyIntolerance, 
+ <li><a href="http.htm#search">search</a> and <a href="http.htm#read">read</a> on the <a href="documentreference.htm">Document Reference</a> resource to provide access to general patient documents in the form of PDFs etc. (PDFs are preferred)</li>
+ <li><a href="http.htm#search">search</a> and <a href="http.htm#read">read</a> on a set of clinical resources potentially including Observation, DiagnosticReport, various Medication resources, AdverseReaction/AllergyIntolerance, 
 CarePlan, and Condition</li> 
 </ol>
 <p>
@@ -56,7 +56,7 @@ The EMR may also choose to provide additional functionality, such as shared acce
 records by relatives/carers, to allow the patient to upload their own documents, medication statements, observations
 (e.g. from patient monitoring devices) and/or to allow the patient to make appointments. This 
 additional functionality will involve additional API capabilities to be implemented and 
-exposed. The EMR server may also choose to expose the <i>read</i>, <i>search</i> and <i>updates</i> operation on 
+exposed. The EMR server may also choose to expose the <a href="http.htm#search">search</a>, <a href="http.htm#read">read</a> and <a href="http.htm#history">history</a> operation on 
 the Security Event resource for the patient-specific records to allow patient review of record access. Note that all 
 usage of the RESTful API should be logged in SecurityEvent resources.
 </p>
