@@ -3,7 +3,7 @@
     <identifier>
         <use value="official"/>
         <system value="http://www.bmc/portal/prescriptions"/>
-        <key value="order9837293"/>
+        <value value="order9837293"/>
     </identifier>
     <dateWritten value="2013-05-25T19:32:52+01:00"/>
     <status value="active" />

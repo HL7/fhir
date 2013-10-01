@@ -58,7 +58,7 @@ All types of resources have the following aspects:
  <li>A <a href="narrative.htm#Narrative">human-readable narrative</a> description of the contents of the resource</li>
  <li><a href="references.htm#contained">Contained resources</a> - additional resources that are part of the identification and transaction space of this resource</li>
  <li><a href="#metadata">Metadata</a> - important information about the resource that is not part of the content model of the resource</li>
- <li><a href="extras.htm#tags">Tags</a> - labels affixed to the resources that may be used to define additional operational behaviour such as security, workflow, etc.</li>
+ <li><a href="extras.htm#tags">Tags</a> - labels affixed to the resources that may be used to define additional operational behavior such as security, workflow, etc.</li>
 </ul>
 <p>
 Every resource starts with a common set of elements (for documentation of this format, see <a href="formats.htm">Resource Definition Format</a>):
@@ -224,12 +224,13 @@ implementations may be able to be sure, due to their implementation environment,
 will never occur. However applications SHOULD always check the value irrespective of this.
 </p>
 <p>
-Note that processing the data of a resource typically means extracting the data out
-of the resource and making use of it in a different context (display to humans, or 
-rendering in a different exchange format, or storing the data for other usage), 
-or using it for decision support. Servers and background processes that simply 
-move whole resources around are not "processing the data of the resource", and 
-therefore these applications are not required to check for unknown extensions. 
+Note that processing the data of a resource typically means
+copying or filtering data out of a resource for use in another 
+context (display to a human, decision support, exchange in another 
+format where not all information is included, or storing it for this kind of use).
+Servers and background processes that simply move whole resources around unchanged 
+are not "processing the data of the resource", and therefore these applications 
+are not required to check for unknown extensions. 
 </p>
 
 <a name="mustSupport"> </a>

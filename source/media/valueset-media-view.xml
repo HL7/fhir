@@ -6,7 +6,7 @@
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <description value="Codes defined in Snomed-CT that can be used to record Media Recording views"/>
+  <description value="Codes defined in SNOMED CT that can be used to record Media Recording views"/>
   <status value="draft"/>
   <compose>
     <include>

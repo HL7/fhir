@@ -36,218 +36,218 @@ import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
  */
 public class TypeRefImpl extends EObjectImpl implements TypeRef {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFullName()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getFullName()
+   * @generated
+   * @ordered
+   */
 	protected static final String FULL_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFullName()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getFullName()
+   * @generated
+   * @ordered
+   */
 	protected String fullName = FULL_NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getResourceParams() <em>Resource Params</em>}' attribute list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getResourceParams() <em>Resource Params</em>}' attribute list.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getResourceParams()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getResourceParams()
+   * @generated
+   * @ordered
+   */
 	protected EList<String> resourceParams;
 
 	/**
-	 * The default value of the '{@link #getBindingRef() <em>Binding Ref</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getBindingRef() <em>Binding Ref</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBindingRef()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getBindingRef()
+   * @generated
+   * @ordered
+   */
 	protected static final String BINDING_REF_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getBindingRef() <em>Binding Ref</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getBindingRef() <em>Binding Ref</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBindingRef()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getBindingRef()
+   * @generated
+   * @ordered
+   */
 	protected String bindingRef = BINDING_REF_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getFullBindingRef() <em>Full Binding Ref</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getFullBindingRef() <em>Full Binding Ref</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFullBindingRef()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getFullBindingRef()
+   * @generated
+   * @ordered
+   */
 	protected static final String FULL_BINDING_REF_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getFullBindingRef() <em>Full Binding Ref</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getFullBindingRef() <em>Full Binding Ref</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFullBindingRef()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getFullBindingRef()
+   * @generated
+   * @ordered
+   */
 	protected String fullBindingRef = FULL_BINDING_REF_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected TypeRefImpl() {
-		super();
-	}
+    super();
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	protected EClass eStaticClass() {
-		return FhirPackage.Literals.TYPE_REF;
-	}
+    return FhirPackage.Literals.TYPE_REF;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public String getName() {
-		return name;
-	}
+    return name;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TYPE_REF__NAME, oldName, name));
-	}
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TYPE_REF__NAME, oldName, name));
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public String getFullName() {
-		return fullName;
-	}
+    return fullName;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void setFullName(String newFullName) {
-		String oldFullName = fullName;
-		fullName = newFullName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TYPE_REF__FULL_NAME, oldFullName, fullName));
-	}
+    String oldFullName = fullName;
+    fullName = newFullName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TYPE_REF__FULL_NAME, oldFullName, fullName));
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public EList<String> getResourceParams() {
-		if (resourceParams == null) {
-			resourceParams = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.TYPE_REF__RESOURCE_PARAMS);
-		}
-		return resourceParams;
-	}
+    if (resourceParams == null) {
+      resourceParams = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.TYPE_REF__RESOURCE_PARAMS);
+    }
+    return resourceParams;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public String getBindingRef() {
-		return bindingRef;
-	}
+    return bindingRef;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void setBindingRef(String newBindingRef) {
-		String oldBindingRef = bindingRef;
-		bindingRef = newBindingRef;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TYPE_REF__BINDING_REF, oldBindingRef, bindingRef));
-	}
+    String oldBindingRef = bindingRef;
+    bindingRef = newBindingRef;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TYPE_REF__BINDING_REF, oldBindingRef, bindingRef));
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public String getFullBindingRef() {
-		return fullBindingRef;
-	}
+    return fullBindingRef;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void setFullBindingRef(String newFullBindingRef) {
-		String oldFullBindingRef = fullBindingRef;
-		fullBindingRef = newFullBindingRef;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TYPE_REF__FULL_BINDING_REF, oldFullBindingRef, fullBindingRef));
-	}
+    String oldFullBindingRef = fullBindingRef;
+    fullBindingRef = newFullBindingRef;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TYPE_REF__FULL_BINDING_REF, oldFullBindingRef, fullBindingRef));
+  }
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -270,128 +270,128 @@ public class TypeRefImpl extends EObjectImpl implements TypeRef {
 //	}
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case FhirPackage.TYPE_REF__NAME:
-				return getName();
-			case FhirPackage.TYPE_REF__FULL_NAME:
-				return getFullName();
-			case FhirPackage.TYPE_REF__RESOURCE_PARAMS:
-				return getResourceParams();
-			case FhirPackage.TYPE_REF__BINDING_REF:
-				return getBindingRef();
-			case FhirPackage.TYPE_REF__FULL_BINDING_REF:
-				return getFullBindingRef();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    switch (featureID) {
+      case FhirPackage.TYPE_REF__NAME:
+        return getName();
+      case FhirPackage.TYPE_REF__FULL_NAME:
+        return getFullName();
+      case FhirPackage.TYPE_REF__RESOURCE_PARAMS:
+        return getResourceParams();
+      case FhirPackage.TYPE_REF__BINDING_REF:
+        return getBindingRef();
+      case FhirPackage.TYPE_REF__FULL_BINDING_REF:
+        return getFullBindingRef();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case FhirPackage.TYPE_REF__NAME:
-				setName((String)newValue);
-				return;
-			case FhirPackage.TYPE_REF__FULL_NAME:
-				setFullName((String)newValue);
-				return;
-			case FhirPackage.TYPE_REF__RESOURCE_PARAMS:
-				getResourceParams().clear();
-				getResourceParams().addAll((Collection<? extends String>)newValue);
-				return;
-			case FhirPackage.TYPE_REF__BINDING_REF:
-				setBindingRef((String)newValue);
-				return;
-			case FhirPackage.TYPE_REF__FULL_BINDING_REF:
-				setFullBindingRef((String)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    switch (featureID) {
+      case FhirPackage.TYPE_REF__NAME:
+        setName((String)newValue);
+        return;
+      case FhirPackage.TYPE_REF__FULL_NAME:
+        setFullName((String)newValue);
+        return;
+      case FhirPackage.TYPE_REF__RESOURCE_PARAMS:
+        getResourceParams().clear();
+        getResourceParams().addAll((Collection<? extends String>)newValue);
+        return;
+      case FhirPackage.TYPE_REF__BINDING_REF:
+        setBindingRef((String)newValue);
+        return;
+      case FhirPackage.TYPE_REF__FULL_BINDING_REF:
+        setFullBindingRef((String)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case FhirPackage.TYPE_REF__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case FhirPackage.TYPE_REF__FULL_NAME:
-				setFullName(FULL_NAME_EDEFAULT);
-				return;
-			case FhirPackage.TYPE_REF__RESOURCE_PARAMS:
-				getResourceParams().clear();
-				return;
-			case FhirPackage.TYPE_REF__BINDING_REF:
-				setBindingRef(BINDING_REF_EDEFAULT);
-				return;
-			case FhirPackage.TYPE_REF__FULL_BINDING_REF:
-				setFullBindingRef(FULL_BINDING_REF_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    switch (featureID) {
+      case FhirPackage.TYPE_REF__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case FhirPackage.TYPE_REF__FULL_NAME:
+        setFullName(FULL_NAME_EDEFAULT);
+        return;
+      case FhirPackage.TYPE_REF__RESOURCE_PARAMS:
+        getResourceParams().clear();
+        return;
+      case FhirPackage.TYPE_REF__BINDING_REF:
+        setBindingRef(BINDING_REF_EDEFAULT);
+        return;
+      case FhirPackage.TYPE_REF__FULL_BINDING_REF:
+        setFullBindingRef(FULL_BINDING_REF_EDEFAULT);
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case FhirPackage.TYPE_REF__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case FhirPackage.TYPE_REF__FULL_NAME:
-				return FULL_NAME_EDEFAULT == null ? fullName != null : !FULL_NAME_EDEFAULT.equals(fullName);
-			case FhirPackage.TYPE_REF__RESOURCE_PARAMS:
-				return resourceParams != null && !resourceParams.isEmpty();
-			case FhirPackage.TYPE_REF__BINDING_REF:
-				return BINDING_REF_EDEFAULT == null ? bindingRef != null : !BINDING_REF_EDEFAULT.equals(bindingRef);
-			case FhirPackage.TYPE_REF__FULL_BINDING_REF:
-				return FULL_BINDING_REF_EDEFAULT == null ? fullBindingRef != null : !FULL_BINDING_REF_EDEFAULT.equals(fullBindingRef);
-		}
-		return super.eIsSet(featureID);
-	}
+    switch (featureID) {
+      case FhirPackage.TYPE_REF__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case FhirPackage.TYPE_REF__FULL_NAME:
+        return FULL_NAME_EDEFAULT == null ? fullName != null : !FULL_NAME_EDEFAULT.equals(fullName);
+      case FhirPackage.TYPE_REF__RESOURCE_PARAMS:
+        return resourceParams != null && !resourceParams.isEmpty();
+      case FhirPackage.TYPE_REF__BINDING_REF:
+        return BINDING_REF_EDEFAULT == null ? bindingRef != null : !BINDING_REF_EDEFAULT.equals(bindingRef);
+      case FhirPackage.TYPE_REF__FULL_BINDING_REF:
+        return FULL_BINDING_REF_EDEFAULT == null ? fullBindingRef != null : !FULL_BINDING_REF_EDEFAULT.equals(fullBindingRef);
+    }
+    return super.eIsSet(featureID);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+    if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", fullName: ");
-		result.append(fullName);
-		result.append(", resourceParams: ");
-		result.append(resourceParams);
-		result.append(", bindingRef: ");
-		result.append(bindingRef);
-		result.append(", fullBindingRef: ");
-		result.append(fullBindingRef);
-		result.append(')');
-		return result.toString();
-	}
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", fullName: ");
+    result.append(fullName);
+    result.append(", resourceParams: ");
+    result.append(resourceParams);
+    result.append(", bindingRef: ");
+    result.append(bindingRef);
+    result.append(", fullBindingRef: ");
+    result.append(fullBindingRef);
+    result.append(')');
+    return result.toString();
+  }
 
 	
 

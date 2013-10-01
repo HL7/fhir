@@ -11,7 +11,7 @@
     <use value="usual"/>
     <label value="MRN"/>
     <system value="urn:oid:1.2.3.4.5"/>
-    <key value="89765a87b"/>
+    <value value="89765a87b"/>
   </identifier>
   <name>
     <family value="Doe"/>

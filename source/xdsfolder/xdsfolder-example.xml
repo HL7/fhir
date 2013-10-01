@@ -11,6 +11,6 @@
  <title value="Referrals"/>
  <patientId>
    <system value="oid:1.3.6.1.4.1.21367.2005.3.7"/>
-   <key value="6578946"/>
+   <value value="6578946"/>
  </patientId>
 </XdsFolder>

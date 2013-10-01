@@ -1022,7 +1022,7 @@ public class InstanceValidator extends BaseValidator {
 	  checkFixedValue(errors, path+".use", XMLUtil.getNamedChild(focus, "use"), fixed.getUse(), "use");
 	  checkFixedValue(errors, path+".label", XMLUtil.getNamedChild(focus, "label"), fixed.getLabel(), "label");
 	  checkFixedValue(errors, path+".system", XMLUtil.getNamedChild(focus, "system"), fixed.getSystem(), "system");
-	  checkFixedValue(errors, path+".key", XMLUtil.getNamedChild(focus, "key"), fixed.getKey(), "key");
+	  checkFixedValue(errors, path+".value", XMLUtil.getNamedChild(focus, "value"), fixed.getValue(), "value");
 	  checkFixedValue(errors, path+".period", XMLUtil.getNamedChild(focus, "period"), fixed.getPeriod(), "period");
 	  checkFixedValue(errors, path+".assigner", XMLUtil.getNamedChild(focus, "assigner"), fixed.getAssigner(), "assigner");
   }

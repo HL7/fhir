@@ -236,20 +236,20 @@ contained ones (even though this is easier for the sender)
     <Device id="d1">
       <identifier>
         <system value="http://goodcare.org/devices/id"/>
-        <key value="A23-352"/>
+        <value value="A23-352"/>
       </identifier>
       <identifier>
         <system value="http://gs1.org/gtin"/>
-        <key value="04012313012313"/>
+        <value value="04012313012313"/>
       </identifier>
       <identifier>
         <label value="serial number"/>
         <system value="http://acme.org/au"/>
-        <key value="080019FFFF4F6AFE20081211144657"/>
+        <value value="080019FFFF4F6AFE20081211144657"/>
       </identifier>
       <identifier>
         <system value="http://standards.ieee.org/develop/regauth/tut/eui64.pdf"/>
-        <key value="080019FFFF4F6AFE20081211144657"/>
+        <value value="080019FFFF4F6AFE20081211144657"/>
       </identifier>
       <type>
         <coding>

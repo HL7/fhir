@@ -36,6 +36,9 @@
                     <system value="http://unitsofmeasure.org"/> <!-- UnitsOfMeasure.org clasification system -->
                     <code value="ml"/>
                 </numerator>
+                <denominator>
+                  <value value="1"/>
+                </denominator>
             </amount>
         </ingredient>
     </product>

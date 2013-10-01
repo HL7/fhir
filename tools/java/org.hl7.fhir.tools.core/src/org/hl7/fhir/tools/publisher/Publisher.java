@@ -44,9 +44,11 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 import javax.print.attribute.standard.MediaSize.NA;
 import javax.xml.XMLConstants;
@@ -96,7 +98,11 @@ import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Code;
+import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.ConceptMap.ConceptEquivalence;
+import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptMapComponent;
 import org.hl7.fhir.instance.model.Conformance;
+import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceOperationComponent;
@@ -1340,8 +1346,8 @@ public class Publisher {
         Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "header"), "responsibleGroup");
         if (!ini.getBooleanProperty("Exclude", e.getAttribute("name"))) {
           String id = e.getAttribute("name");
-          if (r != null && "Health Level 7".equals(r.getAttribute("organizationName"))) {
-            AtomEntry ae = new AtomEntry();
+          if (r != null && "Health Level 7".equals(r.getAttribute("organizationName")) || ini.getBooleanProperty("CodeSystems", id)) {
+            AtomEntry<ValueSet> ae = new AtomEntry<ValueSet>();
             ae.setId("http://hl7.org/fhir/v3/vs/"+id);
             ae.getLinks().put("self", "http://hl7.org/fhir/v3/"+id);
             ae.getLinks().put("path", "v3"+File.separator+id+File.separator+"index.htm");
@@ -1356,9 +1362,10 @@ public class Publisher {
             ae.setAuthorName(vs.getPublisherSimple());
             page.getV3Valuesets().getEntryList().add(ae);
             page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
+            page.getValueSets().put(vs.getIdentifierSimple(), ae);
             page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
             codesystems.put(e.getAttribute("codeSystemId"), vs);
-          } // else if (r == null)
+          } //else if (r == null)
             // page.log("unowned code system: "+id);
         }
       }
@@ -1366,7 +1373,7 @@ public class Publisher {
       if (e.getNodeName().equals("valueSet")) {
         if (ini.getBooleanProperty("ValueSets", e.getAttribute("name"))) {
           String id = e.getAttribute("name");
-          AtomEntry ae = new AtomEntry();
+          AtomEntry<ValueSet> ae = new AtomEntry<ValueSet>();
           ae.setId("http://hl7.org/fhir/v3/vs/"+id);
           ae.getLinks().put("self", "http://hl7.org/fhir/v3/vs/"+id);
           ae.getLinks().put("path", "v3"+File.separator+id+File.separator+"index.htm");
@@ -1380,7 +1387,7 @@ public class Publisher {
           ae.setTitle(vs.getDescriptionSimple());
           ae.setAuthorName(vs.getPublisherSimple());
           page.getV3Valuesets().getEntryList().add(ae);
-          page.getValueSets().put(vs.getIdentifierSimple().toString(), ae);
+          page.getValueSets().put(vs.getIdentifierSimple(), ae);
           page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);         
         }
       }
@@ -1435,7 +1442,7 @@ public class Publisher {
       }
     }
     NarrativeGenerator gen = new NarrativeGenerator();
-    gen.generate(vs, page.getCodeSystems(), page.getValueSets());
+    gen.generate(vs, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
     new ValueSetValidator(page.getDefinitions(), "v3: "+id).validate(vs, false);
     return vs;
 
@@ -1458,7 +1465,7 @@ public class Publisher {
       if (e.getNodeName().equals("codeSystem")) {
         if (!ini.getBooleanProperty("Exclude", e.getAttribute("name"))) {
           Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "header"), "responsibleGroup");
-          if (r != null && "Health Level 7".equals(r.getAttribute("organizationName"))) {
+          if (r != null && "Health Level 7".equals(r.getAttribute("organizationName")) || ini.getBooleanProperty("CodeSystems", e.getAttribute("name"))) {
             String id = e.getAttribute("name");
             Utilities.createDirectory(page.getFolders().dstDir + "v3"+File.separator+id);
             Utilities.clearDirectory(page.getFolders().dstDir + "v3"+File.separator+id);
@@ -1648,6 +1655,7 @@ public class Publisher {
         ValueSet vs = buildV2Valueset(id, e);
         ae.setResource(vs);
         page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
+        page.getValueSets().put(vs.getIdentifierSimple(), ae);
         page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
       } else if ("versioned".equals(st)) {
         String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
@@ -1666,6 +1674,7 @@ public class Publisher {
           ValueSet vs = buildV2ValuesetVersioned(id, ver, e);
           ae.setResource(vs);
           page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
+          page.getValueSets().put(vs.getIdentifierSimple(), ae);
           page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
         }        
       }
@@ -2807,7 +2816,7 @@ public class Publisher {
     ValueSet vs = (ValueSet) ae.getResource();
     
     if (vs.getText().getDiv().allChildrenAreText() && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
-      new NarrativeGenerator().generate(vs, page.getCodeSystems(), page.getValueSets());
+      new NarrativeGenerator().generate(vs, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
     new ValueSetValidator(page.getDefinitions(), name).validate(vs, true);
     
     if (isGenerate) {
@@ -2890,10 +2899,14 @@ public class Publisher {
         }        
       }
     }
+    if (!Utilities.noString(cd.getV2Map()))
+      generateConceptMapV2(cd, filename, vs.getIdentifierSimple(), "http://hl7.org/fhir/"+Utilities.fileTitle(filename));
+    if (!Utilities.noString(cd.getV3Map()))
+      generateConceptMapV3(cd, filename, vs.getIdentifierSimple(), "http://hl7.org/fhir/"+Utilities.fileTitle(filename));
     
     new ValueSetValidator(page.getDefinitions(), filename).validate(vs, true);
     cd.setReferredValueSet(vs);
-    AtomEntry e = new AtomEntry();
+    AtomEntry<ValueSet> e = new AtomEntry<ValueSet>();
     e.setResource(vs);
     e.getLinks().put("self", Utilities.changeFileExt(filename, ".htm"));
     e.getLinks().put("path", Utilities.changeFileExt(filename, ".htm"));
@@ -2903,6 +2916,132 @@ public class Publisher {
     page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
   }
   
+  private void generateConceptMapV2(BindingSpecification cd, String filename, String src, String srcCS) throws Exception {
+    ConceptMap cm = new ConceptMap();
+    cm.setIdentifierSimple("http://hl7.org/fhir/cm/v2/"+Utilities.fileTitle(filename));
+    // no version?? vs.setVersion(...
+    cm.setNameSimple("v2 map for "+cd.getName());
+    cm.setPublisherSimple("HL7 (FHIR Project)");
+    cm.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.url, Utilities.noString(cd.getWebSite())? "http://hl7.org/fhir" : cd.getWebSite()));
+    cm.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.email, Utilities.noString(cd.getEmail())? "fhir@lists.hl7.org" : cd.getEmail()));
+    if (!Utilities.noString(cd.getCopyright()))
+      cm.setCopyrightSimple(cd.getCopyright());
+
+    Set<String> tbls = new HashSet<String>();
+    cm.setStatusSimple(ConceptMap.ValuesetStatus.draft); // until we publish DSTU, then .review
+    cm.setDate(org.hl7.fhir.instance.model.Factory.nowDateTime());
+    cm.setSource(Factory.makeResourceReference("ValueSet", src));
+    cm.setTarget(Factory.makeResourceReference("ValueSet", cd.getV2Map()));
+    for (DefinedCode c : cd.getCodes()) {
+      if (!Utilities.noString(c.getV2Map())) {
+        for (String m : c.getV2Map().split(",")) {
+          ConceptMapConceptComponent cc = cm.new ConceptMapConceptComponent();
+          cc.setSystemSimple(srcCS);
+          cc.setCodeSimple(c.getCode());
+          ConceptMapConceptMapComponent map = cm.new ConceptMapConceptMapComponent();
+          cc.getMap().add(map);
+          cm.getConcept().add(cc);
+          String[] n = m.split("\\(");
+          if (n.length > 1)
+            map.setCommentsSimple(n[1].substring(0, n[1].length()-1));
+          n = n[0].split("\\.");
+          tbls.add(n[0].substring(1));
+          map.setSystemSimple("http://hl7.org/fhir/v2/"+n[0].substring(1));
+          map.setCodeSimple(n[1]);
+          if (n[0].charAt(0) == '=') 
+            map.setEquivalenceSimple(ConceptEquivalence.equal);
+          if (n[0].charAt(0) == '~') 
+            map.setEquivalenceSimple(ConceptEquivalence.equivalent);
+          if (n[0].charAt(0) == '>') 
+            map.setEquivalenceSimple(ConceptEquivalence.narrower);
+          if (n[0].charAt(0) == '<') 
+            map.setEquivalenceSimple(ConceptEquivalence.wider);
+        }
+      }
+    }
+    StringBuilder b = new StringBuilder();
+    boolean first = false;
+    for (String s : tbls) {
+      if (first)
+          b.append(", ");
+      first = false;
+      b.append(s);
+    }
+    cm.setDescriptionSimple("v2 Map ("+b.toString()+")");
+    JsonComposer json = new JsonComposer();
+    json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v2.json")), cm, false);
+    XmlComposer xml = new XmlComposer();
+    xml.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v2.xml")), cm, true);
+    AtomEntry<ConceptMap> e = new AtomEntry<ConceptMap>();
+    e.setResource(cm);
+    e.getLinks().put("self", Utilities.changeFileExt(filename, "-map-v2.htm"));
+    e.getLinks().put("path", Utilities.changeFileExt(filename, "-map-v2.htm"));
+    page.getConceptMaps().put(cm.getIdentifierSimple(), e);
+  }
+
+  private void generateConceptMapV3(BindingSpecification cd, String filename, String src, String srcCS) throws Exception {
+    ConceptMap cm = new ConceptMap();
+    cm.setIdentifierSimple("http://hl7.org/fhir/cm/v3/"+Utilities.fileTitle(filename));
+    // no version?? vs.setVersion(...
+    cm.setNameSimple("v3 map for "+cd.getName());
+    cm.setPublisherSimple("HL7 (FHIR Project)");
+    cm.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.url, Utilities.noString(cd.getWebSite())? "http://hl7.org/fhir" : cd.getWebSite()));
+    cm.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.email, Utilities.noString(cd.getEmail())? "fhir@lists.hl7.org" : cd.getEmail()));
+    if (!Utilities.noString(cd.getCopyright()))
+      cm.setCopyrightSimple(cd.getCopyright());
+
+    Set<String> tbls = new HashSet<String>();
+    cm.setStatusSimple(ConceptMap.ValuesetStatus.draft); // until we publish DSTU, then .review
+    cm.setDate(org.hl7.fhir.instance.model.Factory.nowDateTime());
+    cm.setSource(Factory.makeResourceReference("ValueSet", src));
+    cm.setTarget(Factory.makeResourceReference("ValueSet", cd.getV3Map()));
+    for (DefinedCode c : cd.getCodes()) {
+      if (!Utilities.noString(c.getV3Map())) {
+        for (String m : c.getV3Map().split(",")) {
+          ConceptMapConceptComponent cc = cm.new ConceptMapConceptComponent();
+          cc.setSystemSimple(srcCS);
+          cc.setCodeSimple(c.getCode());
+          ConceptMapConceptMapComponent map = cm.new ConceptMapConceptMapComponent();
+          cc.getMap().add(map);
+          cm.getConcept().add(cc);
+          String[] n = m.split("\\(");
+          if (n.length > 1)
+            map.setCommentsSimple(n[1].substring(0, n[1].length()-1));
+          n = n[0].split("\\.");
+          tbls.add(n[0].substring(1));
+          map.setSystemSimple("http://hl7.org/fhir/v3/"+n[0].substring(1));
+          map.setCodeSimple(n[1]);
+          if (n[0].charAt(0) == '=') 
+            map.setEquivalenceSimple(ConceptEquivalence.equal);
+          if (n[0].charAt(0) == '~') 
+            map.setEquivalenceSimple(ConceptEquivalence.equivalent);
+          if (n[0].charAt(0) == '>') 
+            map.setEquivalenceSimple(ConceptEquivalence.narrower);
+          if (n[0].charAt(0) == '<') 
+            map.setEquivalenceSimple(ConceptEquivalence.wider);
+        }
+      }
+    }
+    StringBuilder b = new StringBuilder();
+    boolean first = false;
+    for (String s : tbls) {
+      if (first)
+          b.append(", ");
+      first = false;
+      b.append(s);
+    }
+    cm.setDescriptionSimple("v3 Map ("+b.toString()+")");
+    JsonComposer json = new JsonComposer();
+    json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v3.json")), cm, false);
+    XmlComposer xml = new XmlComposer();
+    xml.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v3.xml")), cm, true);
+    AtomEntry<ConceptMap> e = new AtomEntry<ConceptMap>();
+    e.setResource(cm);
+    e.getLinks().put("self", Utilities.changeFileExt(filename, "-map-v3.htm"));
+    e.getLinks().put("path", Utilities.changeFileExt(filename, "-map-v3.htm"));
+    page.getConceptMaps().put(cm.getIdentifierSimple(), e);
+  }
+
   private void generateCodeSystemPart2(String filename, BindingSpecification cd) throws Exception {
     AtomEntry e = null;
     if (Utilities.noString(cd.getUri()))
@@ -2911,7 +3050,7 @@ public class Publisher {
       e = page.getValueSets().get(cd.getUri());
     ValueSet vs = (ValueSet) e.getResource();
 
-    new NarrativeGenerator().generate(vs, page.getCodeSystems(), page.getValueSets());
+    new NarrativeGenerator().generate(vs, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
     
 
     if (isGenerate) {

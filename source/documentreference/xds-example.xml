@@ -33,7 +33,7 @@
         </text>
         <masterIdentifier>
           <system value="urn:ietf:rfc:3986"/>
-          <key value="urn:oid:129.6.58.92.88336"/>
+          <value value="urn:oid:129.6.58.92.88336"/>
         </masterIdentifier>
         <subject>
           <type value="Patient"/>
@@ -94,7 +94,7 @@
         </text>
         <identifier>
           <system value="usual"/>
-          <key value="MRN"/>
+          <value value="MRN"/>
         </identifier>
         <name>
             <use value="usual"/>

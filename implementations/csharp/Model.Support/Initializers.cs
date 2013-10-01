@@ -113,14 +113,14 @@ namespace Hl7.Fhir.Model
         {
         }
 
-        public Identifier(Uri system, string key)
+        public Identifier(Uri system, string value)
         {
             this.System = system;
-            this.Key = key;
+            this.Value = value;
         }
 
-        public Identifier(string system, string key)
-            : this(new Uri(system, UriKind.Absolute), key)
+        public Identifier(string system, string value)
+            : this(new Uri(system, UriKind.Absolute), value)
         {
         }
     }

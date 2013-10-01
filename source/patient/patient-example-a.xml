@@ -27,7 +27,7 @@
     <use value="usual"/>
     <label value="MRN"/>
     <system value="urn:oid:0.1.2.3.4.5.6.7"/>
-    <key value="654321"/>
+    <value value="654321"/>
   </identifier>
 
   <name>

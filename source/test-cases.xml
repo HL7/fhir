@@ -66,7 +66,7 @@ for servers to handle as part of a batch post
 			  </text>
 			  <target>
 				<type value="Patient"/>
-				<key value="http://www.healthintersections.com.au/fhir/trash/person/@1"/>
+				<value value="http://www.healthintersections.com.au/fhir/trash/person/@1"/>
 			  </target>
 			  <!-- nominal activity: editing the standard -->
 			  <activity>
@@ -78,7 +78,7 @@ for servers to handle as part of a batch post
 				  <system value="http://hl7.org/fhir/provenance-participant-type"/>
 				  <code value="person"/>
 				</type>
-				<key value="mailto:grahame@healthintersections.com.au"/>
+				<value value="mailto:grahame@healthintersections.com.au"/>
 				<role>
 				  <system value="http://hl7.org/fhir/provenance-participant-role"/>
 				  <code value="author"/>

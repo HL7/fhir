@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 22, 2013 08:29+1000 for FHIR v0.11
+// Generated on Tue, Oct 1, 2013 21:45+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -107,7 +107,8 @@ public class Address extends Type {
     protected String_ text;
 
     /**
-     * A line of an address (typically used for street names & numbers, unit details, delivery hints, etc.) .
+     * This component contains the house number, apartment number, street name, street direction, 
+P.O. Box number, delivery hints, and similar address information.
      */
     protected List<String_> line = new ArrayList<String_>();
 

@@ -6,7 +6,7 @@
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <description value="The method of collection for the specimen. This is a set of codes defined here. An alternative is to use all SNOMED-CT Codes derived from 17636008"/>
+  <description value="The method of collection for the specimen. This is a set of codes defined here. An alternative is to use all SNOMED CT Codes derived from 17636008"/>
   <status value="draft"/>
   <compose>
     <include>

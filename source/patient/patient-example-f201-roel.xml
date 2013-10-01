@@ -6,7 +6,7 @@
         <use value="official"/>
         <label value="BSN"/>
         <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
-        <key value="123456789"/>
+        <value value="123456789"/>
     </identifier>
     <!--Demographics-->
     <identifier>
@@ -14,7 +14,7 @@
         <use value="official"/>
         <label value="BSN"/>
         <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
-        <key value="123456789"/>
+        <value value="123456789"/>
     </identifier>
     <name>
         <!--The name associated with the individual (fictive)-->

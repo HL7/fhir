@@ -20,7 +20,7 @@
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <description value="Codes from the following code systems: FHIR Special Values, FHIR Data Absent Reason, and Snomed-CT Clinical findings"/>
+  <description value="Codes from the following code systems: FHIR Special Values, FHIR Data Absent Reason, and SNOMED CT Clinical findings"/>
   <status value="draft"/>
   <compose>
     <include>

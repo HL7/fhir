@@ -164,8 +164,8 @@
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Coded form of the unit</Data></Cell>
     <Cell><Data ss:Type="String">A computer processable form of the units in some unit representation system</Data></Cell>
-    <Cell><Data ss:Type="String">Need a computable form of the units that is fixed across all forms. UCUM provides this for quantities, but SNOMED-CT provides many arbitrary units of interest</Data></Cell>
-    <Cell><Data ss:Type="String">The preferred system is UCUM, but SNOMED-CT can also be used (for customary units) or ISO 4217 for currency.&#10;&#10;The context of use may additionally require a code from a particular system (Unless the Quantity element has a dataAbsentReason flag)</Data></Cell>
+    <Cell><Data ss:Type="String">Need a computable form of the units that is fixed across all forms. UCUM provides this for quantities, but SNOMED CT provides many arbitrary units of interest</Data></Cell>
+    <Cell><Data ss:Type="String">The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.&#10;&#10;The context of use may additionally require a code from a particular system (Unless the Quantity element has a dataAbsentReason flag)</Data></Cell>
     <Cell><Data ss:Type="String">PQ.code, MO.currency, PQ.translation.code</Data></Cell>
    </Row>
   </Table>

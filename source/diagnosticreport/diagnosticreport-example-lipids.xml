@@ -155,7 +155,7 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
   </performer>
   <reportId>
     <system value="http://acme.com/lab/reports"/>
-    <key value="5234342"/>
+    <value value="5234342"/>
   </reportId>
   <serviceCategory>
     <coding>

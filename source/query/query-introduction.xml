@@ -97,7 +97,7 @@ behaves. These are the defined parameter types:
 <%codelist SearchParamType%>
 <p>
 The search parameters can also have "modifiers" appended to them that control
-their behaviour. The kind of modifiers that can be used depend on the type
+their behavior. The kind of modifiers that can be used depend on the type
 of parameter.
 </p>
 

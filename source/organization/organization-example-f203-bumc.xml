@@ -6,7 +6,7 @@
       <use value="official"/>
       <label value="Zorginstelling naam"/>
       <system value="http://www.zorgkaartnederland.nl/"/>
-      <key value="Blijdorp MC"/>
+      <value value="Blijdorp MC"/>
    </identifier>
    <name value="Blijdorp Medisch Centrum (BUMC)"/>
    <type>
@@ -40,7 +40,7 @@
          <!-\-Identifier for the accreditation -\->
          <label value="BMC's NIAZ accreditation"/>
          <system value="http://www.niaz.nl/"/>
-         <key value="NIAZ accreditation"/>
+         <value value="NIAZ accreditation"/>
       </identifier>
       <period>
          <start value="2008-11-07"/>

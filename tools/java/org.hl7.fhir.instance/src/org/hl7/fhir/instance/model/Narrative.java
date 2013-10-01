@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 22, 2013 08:29+1000 for FHIR v0.11
+// Generated on Tue, Oct 1, 2013 21:45+1000 for FHIR v0.11
 
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 /**
- * A human readable formatted text, including images.
+ * A human-readable formatted text, including images.
  */
 public class Narrative extends Element {
 
@@ -42,7 +42,7 @@ public class Narrative extends Element {
         generated, // The contents of the narrative are entirely generated from the structured data in the resource.
         extensions, // The contents of the narrative are entirely generated from the structured data in the resource and some of the content is generated from extensions.
         additional, // The contents of the narrative contain additional information not found in the structured data.
-        empty, // the contents of the narrative are some equivalent of "No human readable text provided for this resource".
+        empty, // the contents of the narrative are some equivalent of "No human-readable text provided for this resource".
         Null; // added to help the parsers
         public static NarrativeStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))

@@ -101,7 +101,7 @@
     <Cell><Data ss:Type="String">Type</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Concept - reference to a terminology or just  text</Data></Cell>
     <Cell><Data ss:Type="String">A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">This is a common pattern in healthcare - a concept that may be defined by one or more codes from formal definitions including LOINC and SNOMED-CT, and/or defined by the provision of text that captures a human sense of the concept</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">This is a common pattern in healthcare - a concept that may be defined by one or more codes from formal definitions including LOINC and SNOMED CT, and/or defined by the provision of text that captures a human sense of the concept</Data></Cell>
     <Cell><Data ss:Type="String">Not all terminology uses fit this general pattern. In some cases, models should not use CodeableConcept and use Coding directly and provide their own structure for managing text, codings, translations and the relationship between elements and pre- and post-coordination</Data></Cell>
     <Cell><Data ss:Type="String">CD</Data></Cell>
     <Cell><Data ss:Type="String">CE/CNE/CWE</Data></Cell>
@@ -113,7 +113,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">Code defined by a terminology system </Data></Cell>
     <Cell><Data ss:Type="String">A reference to a code defined by a terminology system </Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings.</Data></Cell>
-    <Cell><Data ss:Type="String">Codes may defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED-CT - see the v3 core principles for more information.  Ordering of codings is undefined and must not be used to infer meaning.</Data></Cell>
+    <Cell><Data ss:Type="String">Codes may defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the v3 core principles for more information.  Ordering of codings is undefined and must not be used to infer meaning.</Data></Cell>
     <Cell><Data ss:Type="String">union(., ./translation)</Data></Cell>
     <Cell><Data ss:Type="String">C*E.1-8, C*E.10-22</Data></Cell>
    </Row>
@@ -172,7 +172,7 @@
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">Only one coding in a set can be chosen directly by the user</Data></Cell>
     <Cell><Data ss:Type="String">codings.collect(primary = true)-&gt;size() &lt; 1</Data></Cell>
-    <Cell><Data ss:Type="String">count(f:coding[f:primary/@value=&quot;true&quot;])&lt;1</Data></Cell>
+    <Cell><Data ss:Type="String">count(f:coding[f:primary/@value='true'])&lt;1</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -187,7 +187,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

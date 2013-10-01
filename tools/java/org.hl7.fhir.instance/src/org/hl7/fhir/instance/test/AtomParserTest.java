@@ -6,10 +6,15 @@ import static org.junit.Assert.fail;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.hl7.fhir.instance.formats.ParserBase.ResourceOrFeed;
 import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.model.AtomEntry;
+import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.MedicationPrescription;
+import org.hl7.fhir.instance.model.Patient;
 import org.hl7.fhir.instance.model.Resource;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -21,13 +26,18 @@ import org.junit.Test;
 public class AtomParserTest {
 	
 	private File file = null;
-	private String filepathResourceNotPretty = "/home/jmandel/smart/fhir/build/fixtures/containedResource_notpretty.xml";
-	private String filepathResourcePretty = "/home/jmandel/smart/fhir/build/fixtures/containedResource_pretty.xml";
-	private String filepathFeedNotPretty = "/home/jmandel/smart/fhir/build/fixtures/containedFeed_notpretty.xml";
-	private String filepathFeedPretty = "/home/jmandel/smart/fhir/build/fixtures/containedFeed_pretty.xml";
-	private String itemPath = "/home/jmandel/smart/fhir/build/publish/examples/diagnosticreport-examples-lab-text.xml";
-	private XmlParser parser = null;
 
+	private XmlParser parser = null;
+	private String basePath = null;
+
+	private String filepathResourceNotPretty;
+	private String filepathResourcePretty;
+	private String filepathFeedNotPretty;
+	private String filepathFeedPretty;
+	private String itemPath;
+	private String filepathFurore1NotPretty;
+	private String filepathFurore1Pretty;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -38,24 +48,21 @@ public class AtomParserTest {
 
 	@Before
 	public void setUp() throws Exception {
-		parser = new XmlParser();
+		System.out.println(new java.io.File( "." ).getCanonicalPath());
+	basePath = new java.io.File( "." ).getCanonicalPath().replaceAll(Pattern.quote("build"+File.separator)+".*",Matcher.quoteReplacement("build"+File.separator+"tests"+File.separator+"fixtures"+File.separator));
+
+	filepathResourceNotPretty = basePath + "containedResource_notpretty.xml";
+	filepathResourcePretty =  basePath + "containedResource_pretty.xml";
+	filepathFeedNotPretty = basePath + "containedFeed_notpretty.xml";
+	filepathFeedPretty = basePath  + "containedFeed_pretty.xml";
+	itemPath = basePath + "diagnosticreport-feed.xml";
+	filepathFurore1NotPretty = basePath  + "FuroreHistory15_noformat.xml";
+	filepathFurore1Pretty = basePath + "FuroreHistory15_pretty.xml";
+	parser = new XmlParser();
 	}
 
 	@After
 	public void tearDown() throws Exception {
-	}
-	
-	@Test
-	public void validateParserAgainstResourceSet() {
-		File dir = new File("/home/jmandel/smart/fhir/build/publish/examples");
-		try {
-			for(File file : dir.listFiles()) {
-				parseFile(file);
-			}
-		} catch(Exception e) {
-			e.printStackTrace();
-			fail();
-		}
 	}
 
 	@Test
@@ -98,6 +105,39 @@ public class AtomParserTest {
 		MedicationPrescription p = (MedicationPrescription) r.getFeed().getEntryList().get(0).getResource();
 		System.out.println("|"+p.getStatusSimple()+"|");
 		assertTrue(p.getStatusSimple().toString().equals("active"));
+
+	}
+	
+	@Test
+	public void testFurorePretty() {
+		try {
+			ResourceOrFeed r = parseFile(filepathFurore1Pretty);
+			AtomFeed feed = r.getFeed();
+			assertTrue(feed.getEntryList().size() == 3);
+			for(AtomEntry<? extends Resource> entry : feed.getEntryList()) {
+				assertTrue(entry.getResource() instanceof Patient);
+			}
+			Patient patient1 = (Patient)feed.getEntryList().get(0).getResource();
+			assertTrue(patient1.getName().get(0).getFamily().get(0).getValue().equalsIgnoreCase("Fox"));
+			Patient patient2 = (Patient)feed.getEntryList().get(1).getResource();
+			assertTrue(patient2.getName().get(0).getFamily().get(0).getValue().equalsIgnoreCase("Fox"));
+			Patient patient3 = (Patient)feed.getEntryList().get(2).getResource();
+			assertTrue(patient3.getName().get(0).getFamily().get(0).getValue().equalsIgnoreCase("Garrett"));
+		} catch(Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+
+	}
+	
+	@Test
+	public void testFuroreNotPretty() {
+		try {
+			ResourceOrFeed r = parseFile(filepathFurore1NotPretty);
+		} catch(Exception e) {
+			e.printStackTrace();
+			fail();
+		}
 
 	}
 

@@ -8,11 +8,11 @@
   </text>
 	<identifier>
 	  <system value="http://healthintersections.com.au/test"/>
-	  <key value="1"/>
+	  <value value="1"/>
 	</identifier>
 	<versionIdentifier>
 	  <system value="urn:ietf:rfc:3986"/>
-	  <key value="urn:uuid:72391709-b9ae-4053-b888-4bee268bf5da"/> 
+	  <value value="urn:uuid:72391709-b9ae-4053-b888-4bee268bf5da"/> 
 	</versionIdentifier>
 	<created value="2012-01-04T09:10:14Z"/>
 	<type>

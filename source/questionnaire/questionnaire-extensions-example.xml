@@ -22,12 +22,12 @@
     <Patient id="patsub">
       <identifier>
         <system value="http://cancer.questionnaire.org/systems/id/patientnr"/>
-        <key value="A34442332"/>
+        <value value="A34442332"/>
       </identifier>
       <identifier>
         <label value="Dutch BSN"/>
         <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
-        <key value="188912345"/>
+        <value value="188912345"/>
       </identifier>
       <gender>
         <coding>
@@ -44,7 +44,7 @@
       <identifier>
         <label value="AUMC, Den Helder"/>
         <system value="http://cancer.questionnaire.org/systems/id/org"/>
-        <key value="AUMC"/>
+        <value value="AUMC"/>
       </identifier>
     </Practitioner>
   </contained>
@@ -119,7 +119,7 @@
         </choice>
       </question>
       <question>
-        <!-- This answer carries both the questionnaire-specific name and an equivalent SNOMED-CT code -->
+        <!-- This answer carries both the questionnaire-specific name and an equivalent SNOMED CT code -->
         <name>
           <coding>
             <system value="http://cancer.questionnaire.org/system/code/questions"/>

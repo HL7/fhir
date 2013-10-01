@@ -36,155 +36,155 @@ import org.hl7.fhir.definitions.ecore.fhir.ResourceDefn;
  */
 public class ProfileDefnImpl extends EObjectImpl implements ProfileDefn {
 	/**
-	 * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference list.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getResources()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getResources()
+   * @generated
+   * @ordered
+   */
 	protected EList<ResourceDefn> resources;
 
 	/**
-	 * The cached value of the '{@link #getMetadata() <em>Metadata</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getMetadata() <em>Metadata</em>}' containment reference list.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMetadata()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getMetadata()
+   * @generated
+   * @ordered
+   */
 	protected EList<MetaDataItem> metadata;
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected ProfileDefnImpl() {
-		super();
-	}
+    super();
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	protected EClass eStaticClass() {
-		return FhirPackage.Literals.PROFILE_DEFN;
-	}
+    return FhirPackage.Literals.PROFILE_DEFN;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public EList<ResourceDefn> getResources() {
-		if (resources == null) {
-			resources = new EObjectContainmentEList<ResourceDefn>(ResourceDefn.class, this, FhirPackage.PROFILE_DEFN__RESOURCES);
-		}
-		return resources;
-	}
+    if (resources == null) {
+      resources = new EObjectContainmentEList<ResourceDefn>(ResourceDefn.class, this, FhirPackage.PROFILE_DEFN__RESOURCES);
+    }
+    return resources;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public EList<MetaDataItem> getMetadata() {
-		if (metadata == null) {
-			metadata = new EObjectContainmentEList<MetaDataItem>(MetaDataItem.class, this, FhirPackage.PROFILE_DEFN__METADATA);
-		}
-		return metadata;
-	}
+    if (metadata == null) {
+      metadata = new EObjectContainmentEList<MetaDataItem>(MetaDataItem.class, this, FhirPackage.PROFILE_DEFN__METADATA);
+    }
+    return metadata;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case FhirPackage.PROFILE_DEFN__RESOURCES:
-				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
-			case FhirPackage.PROFILE_DEFN__METADATA:
-				return ((InternalEList<?>)getMetadata()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    switch (featureID) {
+      case FhirPackage.PROFILE_DEFN__RESOURCES:
+        return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
+      case FhirPackage.PROFILE_DEFN__METADATA:
+        return ((InternalEList<?>)getMetadata()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case FhirPackage.PROFILE_DEFN__RESOURCES:
-				return getResources();
-			case FhirPackage.PROFILE_DEFN__METADATA:
-				return getMetadata();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    switch (featureID) {
+      case FhirPackage.PROFILE_DEFN__RESOURCES:
+        return getResources();
+      case FhirPackage.PROFILE_DEFN__METADATA:
+        return getMetadata();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case FhirPackage.PROFILE_DEFN__RESOURCES:
-				getResources().clear();
-				getResources().addAll((Collection<? extends ResourceDefn>)newValue);
-				return;
-			case FhirPackage.PROFILE_DEFN__METADATA:
-				getMetadata().clear();
-				getMetadata().addAll((Collection<? extends MetaDataItem>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    switch (featureID) {
+      case FhirPackage.PROFILE_DEFN__RESOURCES:
+        getResources().clear();
+        getResources().addAll((Collection<? extends ResourceDefn>)newValue);
+        return;
+      case FhirPackage.PROFILE_DEFN__METADATA:
+        getMetadata().clear();
+        getMetadata().addAll((Collection<? extends MetaDataItem>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case FhirPackage.PROFILE_DEFN__RESOURCES:
-				getResources().clear();
-				return;
-			case FhirPackage.PROFILE_DEFN__METADATA:
-				getMetadata().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    switch (featureID) {
+      case FhirPackage.PROFILE_DEFN__RESOURCES:
+        getResources().clear();
+        return;
+      case FhirPackage.PROFILE_DEFN__METADATA:
+        getMetadata().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case FhirPackage.PROFILE_DEFN__RESOURCES:
-				return resources != null && !resources.isEmpty();
-			case FhirPackage.PROFILE_DEFN__METADATA:
-				return metadata != null && !metadata.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+    switch (featureID) {
+      case FhirPackage.PROFILE_DEFN__RESOURCES:
+        return resources != null && !resources.isEmpty();
+      case FhirPackage.PROFILE_DEFN__METADATA:
+        return metadata != null && !metadata.isEmpty();
+    }
+    return super.eIsSet(featureID);
+  }
 
 } //ProfileDefnImpl

@@ -40,11 +40,11 @@ public class Convert {
 		if (Utilities.noString(e.getAttribute("extension"))) {
 			id.setSystemSimple("urn:ietf:rfc:3986");
 			if (isGuid(r)) 
-				id.setKeySimple("urn:uuid:"+r);
+				id.setValueSimple("urn:uuid:"+r);
 			else if (UriForOid(r) != null)
-				id.setKeySimple(UriForOid(r));
+				id.setValueSimple(UriForOid(r));
 			else 
-				id.setKeySimple(UriForOid(r));
+				id.setValueSimple(UriForOid(r));
 		} else {
 			if (isGuid(r)) 
 				id.setSystemSimple("urn:uuid:"+r);
@@ -52,7 +52,7 @@ public class Convert {
 				id.setSystemSimple(UriForOid(r));
 			else 
 				id.setSystemSimple("urn:oid:"+r);
-			id.setKeySimple(e.getAttribute("extension"));
+			id.setValueSimple(e.getAttribute("extension"));
 		}
 		return id;
 	}

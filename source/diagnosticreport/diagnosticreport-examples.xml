@@ -1183,7 +1183,7 @@
         </performer>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <diagnosticTime value="2005-01-27T06:40:17"/>
         <results>
@@ -2466,7 +2466,7 @@
         </performer>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <diagnosticTime value="2004-12-08T07:45:17"/>
         <results>
@@ -3564,7 +3564,7 @@
         </performer>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <diagnosticTime value="2004-12-15T07:20:17"/>
         <results>
@@ -4657,7 +4657,7 @@
         </performer>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <diagnosticTime value="2004-12-22T07:45:17"/>
         <results>
@@ -5731,7 +5731,7 @@
         </performer>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <diagnosticTime value="2004-12-03T09:45:17"/>
         <results>
@@ -6806,7 +6806,7 @@
         </performer>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <diagnosticTime value="2004-12-03T20:30:17"/>
         <results>
@@ -7881,7 +7881,7 @@
         </performer>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <diagnosticTime value="2004-12-05T07:15:17"/>
         <results>
@@ -8962,7 +8962,7 @@
         </performer>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <diagnosticTime value="2005-01-27T06:40:17"/>
         <results>
@@ -10072,7 +10072,7 @@
         </performer>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <diagnosticTime value="2004-12-08T07:45:17"/>
         <results>
@@ -11170,7 +11170,7 @@
         </performer>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <diagnosticTime value="2004-12-15T07:20:17"/>
         <results>
@@ -12263,7 +12263,7 @@
         </performer>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <diagnosticTime value="2004-12-22T07:45:17"/>
         <results>
@@ -13337,7 +13337,7 @@
         </performer>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <diagnosticTime value="2004-12-03T09:45:17"/>
         <results>
@@ -14412,7 +14412,7 @@
         </performer>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <diagnosticTime value="2004-12-03T20:30:17"/>
         <results>
@@ -15487,7 +15487,7 @@
         </performer>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <diagnosticTime value="2004-12-05T07:15:17"/>
         <results>
@@ -16112,7 +16112,7 @@
         </performer>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <diagnosticTime value="2005-11-07T21:44:17"/>
         <results>
@@ -16234,15 +16234,7 @@
                 <display value="Reagin Ab [Presence] in Serum by RPR"/>
               </coding>
             </name>
-            <valueChoice>
-              <code value="Non-reactive"/>
-              <option>
-                <code value="Non-reactive"/>
-              </option>
-              <option>
-                <code value="Reactive"/>
-              </option>
-            </valueChoice>
+            <valueString value="Non-reactive"/>
             <status value="final"/>
             <reliability value="ok"/>
           </Observation>
@@ -16260,7 +16252,7 @@
         </performer>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <diagnosticTime value="2005-03-07T14:02:17"/>
         <results>
@@ -16358,7 +16350,7 @@
         </performer>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="23412355"/>
+          <value value="23412355"/>
         </reportId>
         <diagnosticTime value="2012-05-21T10:45:00"/>
         <results>

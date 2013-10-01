@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 22, 2013 08:29+1000 for FHIR v0.11
+// Generated on Tue, Oct 1, 2013 21:45+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -1339,6 +1339,11 @@ public class Profile extends Resource {
         protected Code code;
 
         /**
+         * Defined so that applications can use this name when displaying the value of the extension to the user.
+         */
+        protected String_ display;
+
+        /**
          * Identifies the type of context to which the extension applies.
          */
         protected Enumeration<ExtensionContext> contextType;
@@ -1369,6 +1374,24 @@ public class Profile extends Resource {
             if (this.code == null)
               this.code = new Code();
             this.code.setValue(value);
+        }
+
+        public String_ getDisplay() { 
+          return this.display;
+        }
+
+        public void setDisplay(String_ value) { 
+          this.display = value;
+        }
+
+        public String getDisplaySimple() { 
+          return this.display == null ? null : this.display.getValue();
+        }
+
+        public void setDisplaySimple(String value) { 
+            if (this.display == null)
+              this.display = new String_();
+            this.display.setValue(value);
         }
 
         public Enumeration<ExtensionContext> getContextType() { 
@@ -1418,6 +1441,7 @@ public class Profile extends Resource {
       public ProfileExtensionDefnComponent copy(Profile e) {
         ProfileExtensionDefnComponent dst = e.new ProfileExtensionDefnComponent();
         dst.code = code == null ? null : code.copy();
+        dst.display = display == null ? null : display.copy();
         dst.contextType = contextType == null ? null : contextType.copy();
         dst.context = new ArrayList<String_>();
         for (String_ i : context)

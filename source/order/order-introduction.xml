@@ -73,7 +73,7 @@ an acknowledgement message.
 
 <p>
 There are a wide variety of ways to implement Order/Order Response. The Order and Order Response 
-resources are special resources created to manage behaviour in a RESTful or messaging context. 
+resources are special resources created to manage behavior in a RESTful or messaging context. 
 In other contexts, such as a Service based environment, there may be alternate methods for 
 managing this behavior that are more appropriate, and there is no need to use Order/Order Response
 in these contexts.

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 22, 2013 08:29+1000 for FHIR v0.11
+// Generated on Tue, Oct 1, 2013 21:45+1000 for FHIR v0.11
 
 
 import java.math.*;
@@ -107,7 +107,7 @@ public class Quantity extends Type {
     protected Enumeration<QuantityComparator> comparator;
 
     /**
-     * A human readable form of the units.
+     * A human-readable form of the units.
      */
     protected String_ units;
 

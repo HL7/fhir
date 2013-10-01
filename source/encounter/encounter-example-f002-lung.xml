@@ -4,7 +4,7 @@
     <identifier>
         <use value="official"/>
         <system value="http://www.bmc.nl/zorgportal/identifiers/encounters"/>
-        <key value="v3251"/>
+        <value value="v3251"/>
     </identifier>
     <status value="finished"/>
     <class value="outpatient"/>
@@ -52,7 +52,7 @@
         <preAdmissionIdentifier>
             <use value="official"/>
             <system value="http://www.bmc.nl/zorgportal/identifiers/pre-admissions"/>
-            <key value="98682"/>
+            <value value="98682"/>
         </preAdmissionIdentifier>
     <!--    <preAdmissionTest>
             <coding>

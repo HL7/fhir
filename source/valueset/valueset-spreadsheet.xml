@@ -493,7 +493,7 @@
     <Cell><Data ss:Type="String">Code from the system, or regex criteria</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value</Data></Cell>
     <Cell ss:StyleID="s75"/>
-    <Cell ss:Index="13" ss:StyleID="s75"><Data ss:Type="String">Use regex matching with care - full regex matching on every SNOMED-CT term is prohibitive, for example</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s75"><Data ss:Type="String">Use regex matching with care - full regex matching on every SNOMED CT term is prohibitive, for example</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">

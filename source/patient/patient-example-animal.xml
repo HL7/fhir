@@ -31,7 +31,7 @@
   <identifier>
     <label value="Dog Tag"/>
     <system value="http://www.maroondah.vic.gov.au/AnimalRegFees.aspx"/>
-    <key value="1234123"/>
+    <value value="1234123"/>
     <period>
       <start value="2010-05-31"/>
     </period>

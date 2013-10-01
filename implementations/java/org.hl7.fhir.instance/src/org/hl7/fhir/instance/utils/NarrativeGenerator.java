@@ -1,11 +1,17 @@
 package org.hl7.fhir.instance.utils;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.Boolean;
 import org.hl7.fhir.instance.model.Code;
 import org.hl7.fhir.instance.model.Coding;
+import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptComponent;
+import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptMapComponent;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceComponent;
@@ -40,14 +46,14 @@ public class NarrativeGenerator {
    * @param codeSystems
    * @throws Exception
    */
-  public void generate(ValueSet vs, Map<String, AtomEntry<? extends Resource>> codeSystems, Map<String, AtomEntry<? extends Resource>> valueSets) throws Exception {
+  public void generate(ValueSet vs, Map<String, AtomEntry<ValueSet>> codeSystems, Map<String, AtomEntry<ValueSet>> valueSets, Map<String, AtomEntry<ConceptMap>> maps) throws Exception {
     XhtmlNode x = new XhtmlNode();
     x.setNodeType(NodeType.Element);
     x.setName("div");
     if (vs.getExpansion() != null)
       throw new Exception("Error: should not encounter value set expansion at this point");
     if (vs.getDefine() != null)
-      generateDefinition(x, vs);
+      generateDefinition(x, vs, maps, valueSets);
     if (vs.getCompose() != null) 
       generateComposition(x, vs, codeSystems, valueSets);
     if (vs.getText() == null)
@@ -56,7 +62,17 @@ public class NarrativeGenerator {
     vs.getText().setStatusSimple(NarrativeStatus.generated);
   }
 
-  private void generateDefinition(XhtmlNode x, ValueSet vs) {
+  private void generateDefinition(XhtmlNode x, ValueSet vs, Map<String, AtomEntry<ConceptMap>> maps, Map<String, AtomEntry<ValueSet>> valueSets) {
+    Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
+    for (AtomEntry<ConceptMap> a : maps.values()) {
+      if (a.getResource().getSource().getReferenceSimple().equals(vs.getIdentifierSimple())) {
+        String url = "";
+        if (valueSets.containsKey(a.getResource().getTarget().getReferenceSimple()))
+            url = valueSets.get(a.getResource().getTarget().getReferenceSimple()).getLinks().get("path");
+        mymaps.put(a.getResource(), url);
+      }
+    }
+
     XhtmlNode h = x.addTag("h2");
     h.addText(vs.getNameSimple());
     XhtmlNode p = x.addTag("p");
@@ -70,13 +86,23 @@ public class NarrativeGenerator {
     for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
       commentS = commentS || conceptsHaveComments(c);
     }
-    addTableHeaderRowStandard(t, commentS);
+    addMapHeaders(addTableHeaderRowStandard(t, commentS), mymaps);
     for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
-      addDefineRowToTable(t, c, 0, commentS);
+      addDefineRowToTable(t, c, 0, commentS, mymaps);
     }    
   }
 
-  private void smartAddText(XhtmlNode p, String text) {
+  private void addMapHeaders(XhtmlNode tr, Map<ConceptMap, String> mymaps) {
+	  for (ConceptMap m : mymaps.keySet()) {
+	  	XhtmlNode td = tr.addTag("td");
+	  	XhtmlNode b = td.addTag("b");
+	  	XhtmlNode a = b.addTag("a");
+	  	a.setAttribute("href", mymaps.get(m));
+	  	a.addText(m.getDescriptionSimple());	  	
+	  }	  
+  }
+
+	private void smartAddText(XhtmlNode p, String text) {
     String[] lines = text.split("\\r\\n");
     for (int i = 0; i < lines.length; i++) {
       if (i > 0)
@@ -101,7 +127,7 @@ public class NarrativeGenerator {
   }
 
 
-  private void addTableHeaderRowStandard(XhtmlNode t, boolean comments) {
+  private XhtmlNode addTableHeaderRowStandard(XhtmlNode t, boolean comments) {
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
     XhtmlNode b = td.addTag("b");
@@ -115,9 +141,10 @@ public class NarrativeGenerator {
     if (comments) {
       tr.addTag("td").addTag("b").addText("Comments");
     }
+    return tr;
   }
 
-  private void addDefineRowToTable(XhtmlNode t, ValueSetDefineConceptComponent c, int i, boolean comment) {
+  private void addDefineRowToTable(XhtmlNode t, ValueSetDefineConceptComponent c, int i, boolean comment, Map<ConceptMap, String> maps) {
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
     String s = Utilities.padLeft("", '.', i*2);
@@ -134,13 +161,54 @@ public class NarrativeGenerator {
       if (s != null)
         smartAddText(td, s);      
     }
+    for (ConceptMap m : maps.keySet()) {
+      td = tr.addTag("td");
+      List<ConceptMapConceptMapComponent> mappings = findMappingsForCode(c.getCodeSimple(), m);
+      boolean first = true;
+      for (ConceptMapConceptMapComponent mapping : mappings) {
+      	if (!first)
+      		  td.addTag("br");
+      	first = false;
+      	XhtmlNode span = td.addTag("span");
+      	span.setAttribute("title", mapping.getEquivalenceSimple().toString());
+      	span.addText(getCharForEquivalence(mapping));
+      	XhtmlNode a = td.addTag("a");
+      	a.setAttribute("href", maps.get(m)+"#"+mapping.getCodeSimple());
+      	a.addText(mapping.getCodeSimple());
+        if (!Utilities.noString(mapping.getCommentsSimple()))
+          td.addTag("i").addText("("+mapping.getCommentsSimple()+")");
+      }
+    }
     for (ValueSetDefineConceptComponent cc : c.getConcept()) {
-      addDefineRowToTable(t, cc, i+1, comment);
+      addDefineRowToTable(t, cc, i+1, comment, maps);
     }    
   }
 
 
-  private void generateComposition(XhtmlNode x, ValueSet vs, Map<String, AtomEntry<? extends Resource>> codeSystems, Map<String, AtomEntry<? extends Resource>> valueSets) throws Exception {
+  private String getCharForEquivalence(ConceptMapConceptMapComponent mapping) {
+	  switch (mapping.getEquivalenceSimple()) {
+	  case equal : return "=";
+	  case equivalent : return "~";
+	  case wider : return ">";
+	  case narrower : return "<";
+	  case inexact : return "><";
+	  case unmatched : return "-";
+	  case disjoint : return "!=";
+    default: return "?";
+	  }
+  }
+
+	private List<ConceptMapConceptMapComponent> findMappingsForCode(String code, ConceptMap map) {
+	  List<ConceptMapConceptMapComponent> mappings = new ArrayList<ConceptMapConceptMapComponent>();
+	  
+  	for (ConceptMapConceptComponent c : map.getConcept()) {
+	  	if (c.getCodeSimple().equals(code)) 
+	  		mappings.addAll(c.getMap());
+	  }
+	  return mappings;
+  }
+
+	private void generateComposition(XhtmlNode x, ValueSet vs, Map<String, AtomEntry<ValueSet>> codeSystems, Map<String, AtomEntry<ValueSet>> valueSets) throws Exception {
     if (vs.getDefine() == null) {
       XhtmlNode h = x.addTag("h2");
       h.addText(vs.getNameSimple());
@@ -170,7 +238,7 @@ public class NarrativeGenerator {
     }
   }
 
-  private void AddVsRef(String value, XhtmlNode li, Map<String, AtomEntry<? extends Resource>> codeSystems, Map<String, AtomEntry<? extends Resource>> valueSets) {
+  private void AddVsRef(String value, XhtmlNode li, Map<String, AtomEntry<ValueSet>> codeSystems, Map<String, AtomEntry<ValueSet>> valueSets) {
 
     AtomEntry<? extends Resource> vs = valueSets.get(value);
     if (vs == null) 
@@ -185,7 +253,7 @@ public class NarrativeGenerator {
     }    
   }
 
-  private  void genInclude(XhtmlNode ul, ConceptSetComponent inc, String type, Map<String, AtomEntry<? extends Resource>> codeSystems) throws Exception {
+  private  void genInclude(XhtmlNode ul, ConceptSetComponent inc, String type, Map<String, AtomEntry<ValueSet>> codeSystems) throws Exception {
     XhtmlNode li;
     li = ul.addTag("li");
     AtomEntry<? extends Resource> e = codeSystems.get(inc.getSystemSimple().toString());

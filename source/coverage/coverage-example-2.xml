@@ -24,17 +24,17 @@
  
  <identifier>
     <system value="http://xyz.com/codes/identifier"/>
-    <key value="AB9876"/>
+    <value value="AB9876"/>
  </identifier>
  
  <plan>
     <system value="http://xyz.com/codes/plan"/>
-    <key value="11024"/>
+    <value value="11024"/>
  </plan>
  
  <subplan>
     <system value="http://xyz.com/codes/subplan"/>
-    <key value="D15C9"/>
+    <value value="D15C9"/>
  </subplan>
  
  <dependent value="1"/>

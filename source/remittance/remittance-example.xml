@@ -1,7 +1,7 @@
 <Remittance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\remittance.xsd">
   <identifier>
     <system value="http://localhost:81/fhir/remittance"/>
-    <key value="R_3500"/>
+    <value value="R_3500"/>
   </identifier>
   <service>
     <instance value="1"/>

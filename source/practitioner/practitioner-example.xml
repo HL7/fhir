@@ -12,7 +12,7 @@
 
   <identifier>
     <system value="http://www.acme.org/practitioners"/>
-    <key value="23"/>
+    <value value="23"/>
   </identifier>
   <name>
     <family value="Careful"/>

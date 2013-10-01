@@ -28,36 +28,36 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ProfileDefn extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.definitions.ecore.fhir.ResourceDefn}.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
+   * The list contents are of type {@link org.hl7.fhir.definitions.ecore.fhir.ResourceDefn}.
+   * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Resources</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Resources</em>' containment reference list.
-	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getProfileDefn_Resources()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="name='resource'"
-	 * @generated
-	 */
+   * @return the value of the '<em>Resources</em>' containment reference list.
+   * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getProfileDefn_Resources()
+   * @model containment="true" required="true"
+   *        extendedMetaData="name='resource'"
+   * @generated
+   */
 	EList<ResourceDefn> getResources();
 
 	/**
-	 * Returns the value of the '<em><b>Metadata</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.definitions.ecore.fhir.MetaDataItem}.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Metadata</b></em>' containment reference list.
+   * The list contents are of type {@link org.hl7.fhir.definitions.ecore.fhir.MetaDataItem}.
+   * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Metadata</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Metadata</em>' containment reference list.
-	 * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getProfileDefn_Metadata()
-	 * @model containment="true"
-	 * @generated
-	 */
+   * @return the value of the '<em>Metadata</em>' containment reference list.
+   * @see org.hl7.fhir.definitions.ecore.fhir.FhirPackage#getProfileDefn_Metadata()
+   * @model containment="true"
+   * @generated
+   */
 	EList<MetaDataItem> getMetadata();
 
 } // ProfileDefn

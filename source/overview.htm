@@ -49,7 +49,7 @@ the <a href="patient.htm">Patient resource</a> definition to see what resource d
 <p>
 These header tabs found through-out the specification are important, and many readers miss them: 
 </p>
-<p align="center">
+<p>
 <img src="header-tabs.png"/>
 </p>
 <p>
@@ -60,42 +60,14 @@ many more) and, where appropriate, with profiles that describe their use in spec
 notes that helps implementers understand the design rationale underlying them. 
 </p>
 
-<h3>What are resources?</h3>
-
+<h3>The FHIR Wiki</h3>
 <p>
-Resources are:
-</p>
-<ul class="dense">
- <li>Atomic - they are the smallest defined unit of operation and have a transaction scope of their own</li>
- <li>Connected - resources refer to other resources to allow for clean modular reuse of information</li>
- <li>Independent - the content of a resource can be processed without having to retrieve referenced resources</li>
- <li>Simple - each resource definition is easy to understand, and to implement without needing specialized tooling or infrastructure (though that can be used if desired)</li>
- <li>RESTful - resources are able to be used in a RESTful exchange context</li>
- <li>Flexible - resources can also be used in non-RESTful contexts, such as messaging or SOA architectures and can be moved in and out of RESTful paradigms as convenient</li>
- <li>Extensible - resources can be extended to allow for local requirements without impacting interoperability</li>
- <li>Webcentric - where possible and appropriate, open internet standards are used for data representation</li>
- <li>Free for use - the FHIR specification itself is open - anyone can implement FHIR or derive related specifications without any IP restrictions</li>
-</ul>
-<p>
-Though the resources are simple and easy to understand, they are backed by a thorough, global 
-requirements gathering and formal modeling process that ensures that the content of the resources 
-is stable and reliable. The resource contents are mapped to solid underlying ontologies and 
-models using computable languages (including RDF) so that the definitions and contents of the 
-resources can be leveraged by computational analysis and conversion processes.
+The FHIR project team also maintains a <a href="http://wiki.hl7.org/index.php?title=FHIR">wiki</a> where 
+development processes, methodology and design decisions are documented. [todo: LLOYD FILL IN MORE].
 </p>
 <p>
-FHIR also provides an underlying conformance framework and tooling that allows different implementation
-contexts and enterprises to describe their context and use of resources in formal computable ways and
-to empower computed interoperability that leverages both the conformance and definitional frameworks. 
+LLOYD: reference to comparison with other specifications.
 </p>
-<p>
-The combination of the resources and the 3 supporting layers (implementation frameworks, definitional
-thoroughness, and conformance tooling), along with the completely free license of FHIR itself 
-frees healthcare data so that it can easily flow to where it needs to be (across hospital 
-production systems, mobile clinical systems, cloud based data stores, national health repositories, 
-research databases, etc.) without having to pass through format and semantic inter-conversion hurdles along the way. 
-</p>
-
 
 </div>
 

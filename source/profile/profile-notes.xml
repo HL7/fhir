@@ -42,7 +42,7 @@ though the maximum one still does.
 <h3>Common Mapping Targets</h3>
 <table class="lines">
   <tr><td>http://loinc.org</td><td>LOINC code for the element</td></tr>
-  <tr><td>http://snomed.info</td><td>SNOMED-CT code for the element</td></tr>
+  <tr><td>http://snomed.info</td><td>SNOMED CT code for the element</td></tr>
   <tr><td>http://hl7.org/v3</td><td>RIM mappin  g</td></tr>
   <tr><td>http://hl7.org/v2</td><td>v2 mapping</td></tr>
   <tr><td>http://nema.org/dicom</td><td>DICOM tag mapping</td></tr>

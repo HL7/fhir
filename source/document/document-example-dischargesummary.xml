@@ -214,7 +214,7 @@
                         Middlemore Hospital between Jan 20 and Feb ist 2013 </div>
                 </text>
                 <identifier>
-                    <key value="S100"/>
+                    <value value="S100"/>
                 </identifier>
                 <status value="finished" />
                 <class value="inpatient"/>

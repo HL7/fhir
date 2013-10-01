@@ -164,7 +164,7 @@ for servers to handle as part of a batch post
         </text>
         <target>
           <type value="Patient"/>
-          <key value="http://www.someexternalsite/fhir/person/@1"/>
+          <value value="http://www.someexternalsite/fhir/person/@1"/>
           <version value="http://www.someexternalsite/fhir/person/@1/history/@1"/>
         </target>
         <!-- nominal activity: editing the standard -->
@@ -223,7 +223,7 @@ for servers to handle as part of a batch post
         </text>
         <target>
           <type value="Patient"/>
-          <key value="urn:uuid:8f13879b-8f5c-4ed4-a1f5-bc8d8a0efe"/>
+          <value value="urn:uuid:8f13879b-8f5c-4ed4-a1f5-bc8d8a0efe"/>
         </target>
         <!-- nominal activity: editing the standard -->
         <activity>

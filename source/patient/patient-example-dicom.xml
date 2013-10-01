@@ -30,7 +30,7 @@
 
   <identifier>
     <system value="http://nema.org/examples/patients"/>
-    <key value="MINT1234"/>
+    <value value="MINT1234"/>
   </identifier>
   <name>
     <family value="MINT_TEST"/>

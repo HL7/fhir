@@ -13,7 +13,7 @@
     <concept>
       <extension>
         <url value="http://hl7.org/fhir/tools/extensions#comment"/>
-        <valueString value="Other language is sometimes used for this concept, such as 'no significant [x] known'.&#13;&#10;SNOMED-CT includes many codes for this general concept, but no single generalisation. If using SNOMED-CT, use this code and the appropriate specific SNOMED-CT code"/>
+        <valueString value="Other language is sometimes used for this concept, such as 'no significant [x] known'.&#13;&#10;SNOMED CT includes many codes for this general concept, but no single generalisation. If using SNOMED CT, use this code and the appropriate specific SNOMED CT code"/>
       </extension>
       <code value="nilknown"/>
       <display value="Nil Known"/>

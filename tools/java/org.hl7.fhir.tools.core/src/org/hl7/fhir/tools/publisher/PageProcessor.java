@@ -75,6 +75,7 @@ import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -113,8 +114,10 @@ public class PageProcessor implements Logger  {
   private QaTracker qa = new QaTracker();
   private AtomFeed v3Valuesets;
   private AtomFeed v2Valuesets;
-  private Map<String, AtomEntry<? extends Resource>> codeSystems = new HashMap<String, AtomEntry<? extends Resource>>();
-  private Map<String, AtomEntry<? extends Resource>> valueSets = new HashMap<String, AtomEntry<? extends Resource>>();
+  private Map<String, AtomEntry<ValueSet>> codeSystems = new HashMap<String, AtomEntry<ValueSet>>();
+  private Map<String, AtomEntry<ValueSet>> valueSets = new HashMap<String, AtomEntry<ValueSet>>();
+  private Map<String, AtomEntry<ConceptMap>> conceptMaps = new HashMap<String, AtomEntry<ConceptMap>>();
+  
   private Map<String, String> svgs = new HashMap<String, String>();
   private BreadCrumbManager breadCrumbManager = new BreadCrumbManager();
   private String publicationType = "Local Build ("+System.getenv("COMPUTERNAME")+")";
@@ -700,7 +703,7 @@ public class PageProcessor implements Logger  {
   private String genV3CSIndex() {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"grid\">\r\n");
-    s.append(" <tr><td><b>Uri</b></td><td><b>Description</b></td><td><b>OID</b></td></tr>\r\n");
+    s.append(" <tr><td><b>Name (URI = http://hl7.org/fhir/v3/...)</b></td><td><b>Description</b></td><td><b>OID</b></td></tr>\r\n");
     
     List<String> names = new ArrayList<String>();
     Map<String, AtomEntry> map = new HashMap<String, AtomEntry>();
@@ -720,7 +723,7 @@ public class PageProcessor implements Logger  {
       ValueSet vs = (ValueSet)e.getResource();
       String id = tail(vs.getIdentifierSimple());
       String oid = e.getLinks().get("oid");
-      s.append(" <tr><td><a href=\"v3/"+id+"/index.htm\">"+Utilities.escapeXml(n)+"</a></td><td>"+Utilities.escapeXml(vs.getDescriptionSimple())+"</td><td>"+oid+"</td></tr>\r\n");
+      s.append(" <tr><td><a href=\"v3/"+id+"/index.htm\">"+Utilities.escapeXml(id)+"</a></td><td>"+Utilities.escapeXml(vs.getDescriptionSimple())+"</td><td>"+oid+"</td></tr>\r\n");
     }
     
     s.append("</table>\r\n");
@@ -2622,12 +2625,16 @@ public void log(String content) {
     atom.getEntryList().add(e);
   }
 
-  public Map<String, AtomEntry<? extends Resource>> getCodeSystems() {
+  public Map<String, AtomEntry<ValueSet>> getCodeSystems() {
     return codeSystems;
   }
 
-  public Map<String, AtomEntry<? extends Resource>> getValueSets() {
+  public Map<String, AtomEntry<ValueSet>> getValueSets() {
     return valueSets;
+  }
+
+  public Map<String, AtomEntry<ConceptMap>> getConceptMaps() {
+    return conceptMaps;
   }
 
   public AtomFeed getV3Valuesets() {

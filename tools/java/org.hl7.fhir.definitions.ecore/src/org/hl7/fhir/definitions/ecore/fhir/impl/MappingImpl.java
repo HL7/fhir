@@ -29,194 +29,194 @@ import org.hl7.fhir.definitions.ecore.fhir.Mapping;
  */
 public class MappingImpl extends EObjectImpl implements Mapping {
 	/**
-	 * The default value of the '{@link #getSource() <em>Source</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getSource() <em>Source</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSource()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getSource()
+   * @generated
+   * @ordered
+   */
 	protected static final String SOURCE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSource() <em>Source</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getSource() <em>Source</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSource()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getSource()
+   * @generated
+   * @ordered
+   */
 	protected String source = SOURCE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDetails() <em>Details</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getDetails() <em>Details</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDetails()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getDetails()
+   * @generated
+   * @ordered
+   */
 	protected static final String DETAILS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDetails() <em>Details</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getDetails() <em>Details</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDetails()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getDetails()
+   * @generated
+   * @ordered
+   */
 	protected String details = DETAILS_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected MappingImpl() {
-		super();
-	}
+    super();
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	protected EClass eStaticClass() {
-		return FhirPackage.Literals.MAPPING;
-	}
+    return FhirPackage.Literals.MAPPING;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public String getSource() {
-		return source;
-	}
+    return source;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void setSource(String newSource) {
-		String oldSource = source;
-		source = newSource;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MAPPING__SOURCE, oldSource, source));
-	}
+    String oldSource = source;
+    source = newSource;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MAPPING__SOURCE, oldSource, source));
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public String getDetails() {
-		return details;
-	}
+    return details;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void setDetails(String newDetails) {
-		String oldDetails = details;
-		details = newDetails;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MAPPING__DETAILS, oldDetails, details));
-	}
+    String oldDetails = details;
+    details = newDetails;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MAPPING__DETAILS, oldDetails, details));
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case FhirPackage.MAPPING__SOURCE:
-				return getSource();
-			case FhirPackage.MAPPING__DETAILS:
-				return getDetails();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    switch (featureID) {
+      case FhirPackage.MAPPING__SOURCE:
+        return getSource();
+      case FhirPackage.MAPPING__DETAILS:
+        return getDetails();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case FhirPackage.MAPPING__SOURCE:
-				setSource((String)newValue);
-				return;
-			case FhirPackage.MAPPING__DETAILS:
-				setDetails((String)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    switch (featureID) {
+      case FhirPackage.MAPPING__SOURCE:
+        setSource((String)newValue);
+        return;
+      case FhirPackage.MAPPING__DETAILS:
+        setDetails((String)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case FhirPackage.MAPPING__SOURCE:
-				setSource(SOURCE_EDEFAULT);
-				return;
-			case FhirPackage.MAPPING__DETAILS:
-				setDetails(DETAILS_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    switch (featureID) {
+      case FhirPackage.MAPPING__SOURCE:
+        setSource(SOURCE_EDEFAULT);
+        return;
+      case FhirPackage.MAPPING__DETAILS:
+        setDetails(DETAILS_EDEFAULT);
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case FhirPackage.MAPPING__SOURCE:
-				return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals(source);
-			case FhirPackage.MAPPING__DETAILS:
-				return DETAILS_EDEFAULT == null ? details != null : !DETAILS_EDEFAULT.equals(details);
-		}
-		return super.eIsSet(featureID);
-	}
+    switch (featureID) {
+      case FhirPackage.MAPPING__SOURCE:
+        return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals(source);
+      case FhirPackage.MAPPING__DETAILS:
+        return DETAILS_EDEFAULT == null ? details != null : !DETAILS_EDEFAULT.equals(details);
+    }
+    return super.eIsSet(featureID);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+    if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (source: ");
-		result.append(source);
-		result.append(", details: ");
-		result.append(details);
-		result.append(')');
-		return result.toString();
-	}
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (source: ");
+    result.append(source);
+    result.append(", details: ");
+    result.append(details);
+    result.append(')');
+    return result.toString();
+  }
 
 } //MappingImpl

@@ -44,242 +44,242 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum XmlFormatHint implements Enumerator {
 	/**
-	 * The '<em><b>Element</b></em>' literal object.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Element</b></em>' literal object.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ELEMENT_VALUE
-	 * @generated
-	 * @ordered
-	 */
+   * @see #ELEMENT_VALUE
+   * @generated
+   * @ordered
+   */
 	ELEMENT(0, "Element", "Element"), /**
-	 * The '<em><b>Attribute</b></em>' literal object.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Attribute</b></em>' literal object.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ATTRIBUTE_VALUE
-	 * @generated
-	 * @ordered
-	 */
+   * @see #ATTRIBUTE_VALUE
+   * @generated
+   * @ordered
+   */
 	ATTRIBUTE(1, "Attribute", "Attribute"),
 
 	/**
-	 * The '<em><b>Text Node</b></em>' literal object.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Text Node</b></em>' literal object.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #TEXT_NODE_VALUE
-	 * @generated
-	 * @ordered
-	 */
+   * @see #TEXT_NODE_VALUE
+   * @generated
+   * @ordered
+   */
 	TEXT_NODE(2, "TextNode", "TextNode"),
 
 	/**
-	 * The '<em><b>Xhtml Element</b></em>' literal object.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Xhtml Element</b></em>' literal object.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #XHTML_ELEMENT_VALUE
-	 * @generated
-	 * @ordered
-	 */
+   * @see #XHTML_ELEMENT_VALUE
+   * @generated
+   * @ordered
+   */
 	XHTML_ELEMENT(3, "XhtmlElement", "XhtmlElement");
 
 	/**
-	 * The '<em><b>Element</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Element</b></em>' literal value.
+   * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Element</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ELEMENT
-	 * @model name="Element"
-	 * @generated
-	 * @ordered
-	 */
+   * @see #ELEMENT
+   * @model name="Element"
+   * @generated
+   * @ordered
+   */
 	public static final int ELEMENT_VALUE = 0;
 
 	/**
-	 * The '<em><b>Attribute</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Attribute</b></em>' literal value.
+   * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Attribute</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ATTRIBUTE
-	 * @model name="Attribute"
-	 * @generated
-	 * @ordered
-	 */
+   * @see #ATTRIBUTE
+   * @model name="Attribute"
+   * @generated
+   * @ordered
+   */
 	public static final int ATTRIBUTE_VALUE = 1;
 
 	/**
-	 * The '<em><b>Text Node</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Text Node</b></em>' literal value.
+   * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Text Node</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #TEXT_NODE
-	 * @model name="TextNode"
-	 * @generated
-	 * @ordered
-	 */
+   * @see #TEXT_NODE
+   * @model name="TextNode"
+   * @generated
+   * @ordered
+   */
 	public static final int TEXT_NODE_VALUE = 2;
 
 	/**
-	 * The '<em><b>Xhtml Element</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Xhtml Element</b></em>' literal value.
+   * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Xhtml Element</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #XHTML_ELEMENT
-	 * @model name="XhtmlElement"
-	 * @generated
-	 * @ordered
-	 */
+   * @see #XHTML_ELEMENT
+   * @model name="XhtmlElement"
+   * @generated
+   * @ordered
+   */
 	public static final int XHTML_ELEMENT_VALUE = 3;
 
 	/**
-	 * An array of all the '<em><b>Xml Format Hint</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
+   * An array of all the '<em><b>Xml Format Hint</b></em>' enumerators.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private static final XmlFormatHint[] VALUES_ARRAY =
 		new XmlFormatHint[] {
-			ELEMENT,
-			ATTRIBUTE,
-			TEXT_NODE,
-			XHTML_ELEMENT,
-		};
+      ELEMENT,
+      ATTRIBUTE,
+      TEXT_NODE,
+      XHTML_ELEMENT,
+    };
 
 	/**
-	 * A public read-only list of all the '<em><b>Xml Format Hint</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
+   * A public read-only list of all the '<em><b>Xml Format Hint</b></em>' enumerators.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public static final List<XmlFormatHint> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Xml Format Hint</b></em>' literal with the specified literal value.
-	 * <!-- begin-user-doc -->
+   * Returns the '<em><b>Xml Format Hint</b></em>' literal with the specified literal value.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public static XmlFormatHint get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			XmlFormatHint result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
-				return result;
-			}
-		}
-		return null;
-	}
+    for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+      XmlFormatHint result = VALUES_ARRAY[i];
+      if (result.toString().equals(literal)) {
+        return result;
+      }
+    }
+    return null;
+  }
 
 	/**
-	 * Returns the '<em><b>Xml Format Hint</b></em>' literal with the specified name.
-	 * <!-- begin-user-doc -->
+   * Returns the '<em><b>Xml Format Hint</b></em>' literal with the specified name.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public static XmlFormatHint getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			XmlFormatHint result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
-				return result;
-			}
-		}
-		return null;
-	}
+    for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+      XmlFormatHint result = VALUES_ARRAY[i];
+      if (result.getName().equals(name)) {
+        return result;
+      }
+    }
+    return null;
+  }
 
 	/**
-	 * Returns the '<em><b>Xml Format Hint</b></em>' literal with the specified integer value.
-	 * <!-- begin-user-doc -->
+   * Returns the '<em><b>Xml Format Hint</b></em>' literal with the specified integer value.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public static XmlFormatHint get(int value) {
-		switch (value) {
-			case ELEMENT_VALUE: return ELEMENT;
-			case ATTRIBUTE_VALUE: return ATTRIBUTE;
-			case TEXT_NODE_VALUE: return TEXT_NODE;
-			case XHTML_ELEMENT_VALUE: return XHTML_ELEMENT;
-		}
-		return null;
-	}
+    switch (value) {
+      case ELEMENT_VALUE: return ELEMENT;
+      case ATTRIBUTE_VALUE: return ATTRIBUTE;
+      case TEXT_NODE_VALUE: return TEXT_NODE;
+      case XHTML_ELEMENT_VALUE: return XHTML_ELEMENT;
+    }
+    return null;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private final int value;
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private final String name;
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private final String literal;
 
 	/**
-	 * Only this class can construct instances.
-	 * <!-- begin-user-doc -->
+   * Only this class can construct instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private XmlFormatHint(int value, String name, String literal) {
-		this.value = value;
-		this.name = name;
-		this.literal = literal;
-	}
+    this.value = value;
+    this.name = name;
+    this.literal = literal;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public int getValue() {
-	  return value;
-	}
+    return value;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public String getName() {
-	  return name;
-	}
+    return name;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public String getLiteral() {
-	  return literal;
-	}
+    return literal;
+  }
 
 	/**
-	 * Returns the literal value of the enumerator, which is its string representation.
-	 * <!-- begin-user-doc -->
+   * Returns the literal value of the enumerator, which is its string representation.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public String toString() {
-		return literal;
-	}
+    return literal;
+  }
 	
 } //XmlFormatHint

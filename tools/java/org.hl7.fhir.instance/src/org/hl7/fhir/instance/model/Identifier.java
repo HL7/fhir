@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 22, 2013 08:29+1000 for FHIR v0.11
+// Generated on Tue, Oct 1, 2013 21:45+1000 for FHIR v0.11
 
 /**
  * A technical identifier - identifies some entity uniquely and unambiguously.
@@ -92,7 +92,7 @@ public class Identifier extends Type {
     protected Enumeration<IdentifierUse> use;
 
     /**
-     * A label for the identifier that can be displayed to a human so they can recognise the identifier.
+     * A label for the identifier that can be displayed to a human so they can recognize the identifier.
      */
     protected String_ label;
 
@@ -104,7 +104,7 @@ public class Identifier extends Type {
     /**
      * The portion of the identifier typically displayed to the user and which is unique within the context of the system.
      */
-    protected String_ key;
+    protected String_ value;
 
     /**
      * Time period during which identifier was valid for use.
@@ -182,25 +182,25 @@ public class Identifier extends Type {
       }
     }
 
-    public String_ getKey() { 
-      return this.key;
+    public String_ getValue() { 
+      return this.value;
     }
 
-    public void setKey(String_ value) { 
-      this.key = value;
+    public void setValue(String_ value) { 
+      this.value = value;
     }
 
-    public String getKeySimple() { 
-      return this.key == null ? null : this.key.getValue();
+    public String getValueSimple() { 
+      return this.value == null ? null : this.value.getValue();
     }
 
-    public void setKeySimple(String value) { 
+    public void setValueSimple(String value) { 
       if (value == null)
-        this.key = null;
+        this.value = null;
       else {
-        if (this.key == null)
-          this.key = new String_();
-        this.key.setValue(value);
+        if (this.value == null)
+          this.value = new String_();
+        this.value.setValue(value);
       }
     }
 
@@ -225,7 +225,7 @@ public class Identifier extends Type {
         dst.use = use == null ? null : use.copy();
         dst.label = label == null ? null : label.copy();
         dst.system = system == null ? null : system.copy();
-        dst.key = key == null ? null : key.copy();
+        dst.value = value == null ? null : value.copy();
         dst.period = period == null ? null : period.copy();
         dst.assigner = assigner == null ? null : assigner.copy();
         return dst;

@@ -7,7 +7,7 @@
             <use value="official"/>
             <label value="UZI-nummer"/>
             <system value="urn:oid:2.16.528.1.1007.3.1"/>
-            <key value="12345678904"/>
+            <value value="12345678904"/>
         </identifier>
         <name>
             <use value="usual"/>

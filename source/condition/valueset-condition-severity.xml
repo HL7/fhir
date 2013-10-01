@@ -3,7 +3,7 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>This value set includes the following Snomed-CT "Severity" concepts:</p>
+      <p>This value set includes the following SNOMED CT "Severity" concepts:</p>
       <ul>
         <li>399166001: Fatal</li>
         <li>24484000: Severe</li>

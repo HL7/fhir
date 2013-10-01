@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 22, 2013 08:29+1000 for FHIR v0.11
+// Generated on Tue, Oct 1, 2013 21:45+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -619,6 +619,11 @@ public class ValueSet extends Resource {
 
     public class ValueSetExpansionComponent extends Element {
         /**
+         * An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.
+         */
+        protected Identifier identifier;
+
+        /**
          * Time valueset expansion happened.
          */
         protected Instant timestamp;
@@ -627,6 +632,14 @@ public class ValueSet extends Resource {
          * Codes in the value set.
          */
         protected List<ValueSetExpansionContainsComponent> contains = new ArrayList<ValueSetExpansionContainsComponent>();
+
+        public Identifier getIdentifier() { 
+          return this.identifier;
+        }
+
+        public void setIdentifier(Identifier value) { 
+          this.identifier = value;
+        }
 
         public Instant getTimestamp() { 
           return this.timestamp;
@@ -659,6 +672,7 @@ public class ValueSet extends Resource {
 
       public ValueSetExpansionComponent copy(ValueSet e) {
         ValueSetExpansionComponent dst = e.new ValueSetExpansionComponent();
+        dst.identifier = identifier == null ? null : identifier.copy();
         dst.timestamp = timestamp == null ? null : timestamp.copy();
         dst.contains = new ArrayList<ValueSetExpansionContainsComponent>();
         for (ValueSetExpansionContainsComponent i : contains)
@@ -823,6 +837,11 @@ public class ValueSet extends Resource {
      * This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
     protected Boolean experimental;
+
+    /**
+     * Whether this is intended to be used with an extensible binding or not.
+     */
+    protected Boolean extensible;
 
     /**
      * The date that the value set status was last changed.
@@ -1019,6 +1038,28 @@ public class ValueSet extends Resource {
       }
     }
 
+    public Boolean getExtensible() { 
+      return this.extensible;
+    }
+
+    public void setExtensible(Boolean value) { 
+      this.extensible = value;
+    }
+
+    public boolean getExtensibleSimple() { 
+      return this.extensible == null ? null : this.extensible.getValue();
+    }
+
+    public void setExtensibleSimple(boolean value) { 
+      if (value == false)
+        this.extensible = null;
+      else {
+        if (this.extensible == null)
+          this.extensible = new Boolean();
+        this.extensible.setValue(value);
+      }
+    }
+
     public DateTime getDate() { 
       return this.date;
     }
@@ -1078,6 +1119,7 @@ public class ValueSet extends Resource {
         dst.copyright = copyright == null ? null : copyright.copy();
         dst.status = status == null ? null : status.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
+        dst.extensible = extensible == null ? null : extensible.copy();
         dst.date = date == null ? null : date.copy();
         dst.define = define == null ? null : define.copy(dst);
         dst.compose = compose == null ? null : compose.copy(dst);

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 22, 2013 08:29+1000 for FHIR v0.11
+// Generated on Tue, Oct 1, 2013 21:45+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -519,7 +519,7 @@ public class GeneticAnalysis extends Resource {
         protected Coding aminoAcidChangeType;
 
         /**
-         * Human readable name of the DNA region.
+         * Human-readable name of the DNA region.
          */
         protected String_ dnaRegionName;
 

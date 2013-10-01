@@ -20,6 +20,7 @@
   <WindowWidth>27795</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>150</WindowTopY>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -110,6 +111,18 @@
   <Style ss:ID="s76">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
+  <Style ss:ID="s78">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"
+    ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s82">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="10" x:FullColumns="1"
@@ -191,8 +204,8 @@
     <Cell><Data ss:Type="String">Address.line</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">Line of an address</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">A line of an address (typically used for street names &amp; numbers, unit details, delivery hints, etc.) .</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">Street name, number, direction &amp; P.O. Box etc </Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">This component contains the house number, apartment number, street name, street direction, &#10;P.O. Box number, delivery hints, and similar address information</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s70"><Data ss:Type="String">XAD.1 + XAD.2 (note: XAD.1 and XAD.2 have different meanings for a company address than for a person address)&#10;</Data></Cell>
     <Cell><Data ss:Type="String">street address</Data></Cell>
    </Row>
@@ -260,12 +273,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>5</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -322,7 +333,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="2" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="83.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="117"/>
@@ -335,12 +346,17 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">Binding</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">v3</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">v2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">AddressUse</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">The use of an address</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">#address-use</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v2/vs/0190</Data></Cell>
+    <Cell ss:StyleID="s75"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -353,8 +369,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -365,12 +381,13 @@
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="429"/>
+   <Column ss:AutoFitWidth="0" ss:Width="167.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Code</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">v3</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">v2</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
    </Row>
@@ -378,21 +395,29 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">home</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">A communication address at a home</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">=AddressUse.H</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">~0190.H</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">work</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">An office address. First choice for business related contacts during business hours</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">=AddressUse.WP</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">~0190.O</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">temp</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">A temporary address. The period can provide more detailed information</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">=AddressUse.TMP</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">~0190.C</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">old</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">This address is no longer in use (or was never correct, but retained for records)</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">&gt;AddressUse.OLD,&gt;AddressUse.BAD</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String" x:Ticked="1">&gt;0190.BA (unclear about old addresses)</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -402,10 +427,17 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>300</HorizontalResolution>
+    <VerticalResolution>300</VerticalResolution>
+   </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>

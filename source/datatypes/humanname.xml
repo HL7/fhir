@@ -100,7 +100,10 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s77" ss:Parent="s62">
+  <Style ss:ID="s75">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s76" ss:Parent="s62">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -108,8 +111,16 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s77">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
   <Style ss:ID="s79">
-   <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -298,7 +309,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="2" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:AutoFitWidth="0" ss:Width="211.5"/>
@@ -311,12 +322,16 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">Binding</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">v2</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">v3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s70"><Data ss:Type="String">NameUse</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">The use of a human name</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">#name-use</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s79"><Data ss:Type="String">http://hl7.org/fhir/v2/vs/0200</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/EntityNameUseR2</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -329,8 +344,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -343,12 +358,14 @@
    ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:StyleID="s71" ss:AutoFitWidth="0"/>
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="804.75"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="112.5"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="177.75"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Code</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">v2</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">v3</Data></Cell>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
    </Row>
@@ -356,36 +373,50 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">usual</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Known as/conventional/the one you normally use</Data></Cell>
+    <Cell><Data ss:Type="String">~0200.D</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">=EntityNameUseR2.N</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">official</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">The formal name as registered in an official (government) registry, but which name might not be commonly used. May be called &quot;legal name&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">~0200.L</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">=EntityNameUseR2.OR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">temp</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">A temporary name. Name.period can provide more detailed information. This may also be used for temporary names assigned at birth or in emergency situations.</Data></Cell>
+    <Cell><Data ss:Type="String">~0200.TEMP</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">=EntityNameUseR2.T</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">nickname</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">A name that is used to address the person in an informal manner, but is not part of their formal or usual name</Data></Cell>
+    <Cell><Data ss:Type="String">~0200.N</Data></Cell>
+    <Cell><Data ss:Type="String">~EntityNameUseR2.P</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">anonymous</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Anonymous assigned name, alias, or pseudonym (used to protect a person's identity for privacy reasons)</Data></Cell>
+    <Cell><Data ss:Type="String">~0200.S</Data></Cell>
+    <Cell><Data ss:Type="String">~EntityNameUseR2.ANON</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">old</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">This name is no longer in use (or was never correct, but retained for records)</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">&gt;0200.NOUSE,&gt;0200.BAD</Data></Cell>
+    <Cell><Data ss:Type="String">~EntityNameUseR2.OLD</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s79"><Data ss:Type="Number">7</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">maiden</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">A name used prior to marriage. Marriage naming customs vary greatly around the world. This name use is for use by applications that collect and store &quot;maiden&quot; names. Though the concept of maiden name is often gender specific, the use of this term is not gender specific. The use of this term does not imply any particular history for a person's name, nor should the maiden name be determined algorithmically.</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">maiden</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">A name used prior to marriage. Marriage naming customs vary greatly around the world. This name use is for use by applications that collect and store &quot;maiden&quot; names. Though the concept of maiden name is often gender specific, the use of this term is not gender specific. The use of this term does not imply any particular history for a person's name, nor should the maiden name be determined algorithmically.</Data></Cell>
+    <Cell><Data ss:Type="String">~0200.M</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">=EntityNameUseR2.M</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -399,8 +430,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

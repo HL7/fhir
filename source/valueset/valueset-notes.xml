@@ -32,7 +32,7 @@ be different.
 
 <p>
 Value sets that include codes defined in some other code system are most useful when 
-dealing with large general code systems such as Snomed-CT, LOINC, RxNorm or various IETF code sets 
+dealing with large general code systems such as SNOMED CT, LOINC, RxNorm or various IETF code sets 
 including human language. The value set can be a simple list of included codes or it can be some 
 kind of general selection criteria using the facilities provided by the code system. 
 </p>
@@ -66,7 +66,7 @@ How filters are used with various code systems:
 </p>
 <table class="grid">
  <tr><th>System</th>    <th>Property</th> <th>Expression</th> <th>Value</th>        <th>Definition</th></tr>
- <tr><td>SNOMED-CT</td> <td>"concept"</td><td>is-a</td>       <td>[concept]</td>    <td>Includes all codes that have a transitive is-a relationship with the concept Id provided as the value</td> </tr>
+ <tr><td>SNOMED CT</td> <td>"concept"</td><td>is-a</td>       <td>[concept]</td>    <td>Includes all codes that have a transitive is-a relationship with the concept Id provided as the value</td> </tr>
  <tr><td></td>          <td>"expression"</td><td>=</td>       <td>[expression]</td> <td>The result of the filter is the result of executing the given snomed expression 
  (see <a href="http://www.ihtsdo.org/fileadmin/user_upload/Docs_01/News/SNOMED_CT_Query_Specification_-__v0.08_-_20121213.doc"> SNOMED CT Query Language</a>)</td> </tr>
  <tr><td colspan="4"><hr/></td></tr>

@@ -10,7 +10,7 @@ A simple CD representing a code:
 
 --
 
-In a codeableConcept with no translation to Snomed-CT:
+In a codeableConcept with no translation to SNOMED CT:
 
 <CodeableConcept>
   <coding>
@@ -2562,7 +2562,7 @@ The items are held in a bag because the context of use specifies exactly how uni
 DSET. The OCL kernel  set  applies a fixed definition of equality  –  the equality specified for the type  –  which 
 may be less granular that the context of use. Though the internal structure allows duplicates, all the items in 
 the set  shall  be unique according the definition provided by the context of use. If the context of use does not 
-make this clear, the default behaviour is the equality definitions provided in this International Standard. 
+make this clear, the default behavior is the equality definitions provided in this International Standard. 
 NOTE  There is no support for the formal definition of the uniqueness constraints because of the cost of providing 
 such a framework, and the lack of apparent use for one.
 7.9.3.4  Equality

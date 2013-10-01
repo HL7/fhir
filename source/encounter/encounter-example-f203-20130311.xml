@@ -3,7 +3,7 @@
  <identifier>
     <use value="temp"/>
     <label value="Roel's encounter on March eleventh 2013"/>
-    <key value="Encounter_Roel_20130311"/>
+    <value value="Encounter_Roel_20130311"/>
  </identifier>
  <status value="finished"/><!--Encounter has finished-->
  <class value="inpatient"/><!--Inpatient encounter for straphylococcus infection-->

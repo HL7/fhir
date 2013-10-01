@@ -45,7 +45,7 @@
   <object>
     <identifier>
       <label value="Dell Serial Number"/>
-      <key value="ABCDEF"/>
+      <value value="ABCDEF"/>
     </identifier>
     <type value="4"/>
     <role value="4"/>

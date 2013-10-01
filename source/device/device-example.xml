@@ -8,11 +8,11 @@
   </text>
   <identifier>
     <system value="http://goodcare.org/devices/id"/>
-    <key value="345675"/>
+    <value value="345675"/>
   </identifier>
   <identifier>
     <label value="Serial Number"/>
-    <key value="AMID-342135-8464"/>
+    <value value="AMID-342135-8464"/>
   </identifier>
   <type>
     <coding>

@@ -20,7 +20,6 @@
   <WindowWidth>27120</WindowWidth>
   <WindowTopX>960</WindowTopX>
   <WindowTopY>2835</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -103,9 +102,13 @@
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s75">
-   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
   <Style ss:ID="s76">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s77">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -114,10 +117,6 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s77">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -292,10 +291,10 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">ConceptMap.target</Data></Cell>
-    <Cell><Data ss:Type="String">1..*</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(ValueSet)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Provides context to the mappings</Data></Cell>
-    <Cell><Data ss:Type="String">The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value sets provide important context about how the concept mapping choices are made</Data></Cell>
+    <Cell><Data ss:Type="String">The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ConceptMap.concept</Data></Cell>
@@ -331,7 +330,8 @@
     <Cell><Data ss:Type="String">ConceptMap.concept.map</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s70"><Data ss:Type="String">200;140</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Code that identifies concept</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Targets mapped to this concept</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Ideally there would only be one map, with equal or equivalent mapping. But multiple maps are allowed for several narrower options, or to assert that other concepts are unmatched</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">ConceptMap.concept.map.system</Data></Cell>
@@ -383,10 +383,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -399,11 +400,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>16</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -525,7 +526,7 @@
     <Cell><Data ss:Type="String">description</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Human language description of the concept map</Data></Cell>
     <Cell><Data ss:Type="String">text</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">ConceptMap.description</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">ConceptMap.description</Data></Cell>
    </Row>
    <Row ss:Index="22" ss:AutoFitHeight="0">
     <Cell ss:Index="4" ss:StyleID="s64"/>
@@ -601,7 +602,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -617,13 +617,13 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="3" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s75" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s76" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="113.25"/>
-   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="209.25"/>
-   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="78.75"/>
-   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="140.25"/>
-   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="113.25"/>
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="209.25"/>
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="78.75"/>
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="140.25"/>
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
@@ -743,12 +743,12 @@
    <Column ss:Width="166.5"/>
    <Column ss:Width="183"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Identity</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">In Book</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"/>

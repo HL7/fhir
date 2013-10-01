@@ -5,7 +5,7 @@
         <use value="official"/>
         <!-- urn:oid:2.16.840.1.113883.4.642.1.36 -->
         <system value="http://www.bmc.nl/zorgportal/identifiers/careplans"/>
-        <key value="CP2903"/>
+        <value value="CP2903"/>
     </identifier>
     <patient>
         <type value="Patient"/>

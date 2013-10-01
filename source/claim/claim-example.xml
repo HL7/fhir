@@ -2,7 +2,7 @@
   <number>
     <label value="number"/>
     <system value="http://happyvalley.org/claim"/>
-    <key value="1500"/>
+    <value value="1500"/>
   </number>
   <servicedate value="2013-09-22"/>
   <provider>
@@ -53,13 +53,13 @@
     <identifier>
       <label value="Certificate"/>
       <system value="http://happyvalley.org/claim"/>
-      <key value="A7G345"/>
+      <value value="A7G345"/>
     </identifier>
     <plan>
-      <key value="123YHT56"/>
+      <value value="123YHT56"/>
     </plan> 
     <subplan>
-      <key value="35"/>
+      <value value="35"/>
     </subplan>
     <dependent value="01"/>
     <subscriber>

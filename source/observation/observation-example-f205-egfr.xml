@@ -38,7 +38,7 @@
  <identifier>
     <label value="eGFR value of Roel on April 2013 - 03720"/>
     <system value="https://intranet.aumc.nl/labvalues"/><!--Does not exist-->
-    <key value="1304-03720-eGFR"/>
+    <value value="1304-03720-eGFR"/>
  </identifier> 
  <subject><!--It entails Roel's Creatinine level-->
      <type value="Patient"/>

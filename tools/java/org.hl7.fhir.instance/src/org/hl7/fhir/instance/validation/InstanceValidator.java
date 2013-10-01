@@ -1022,7 +1022,7 @@ public class InstanceValidator extends BaseValidator {
 	  checkFixedValue(errors, path+".use", XMLUtil.getNamedChild(focus, "use"), fixed.getUse(), "use");
 	  checkFixedValue(errors, path+".label", XMLUtil.getNamedChild(focus, "label"), fixed.getLabel(), "label");
 	  checkFixedValue(errors, path+".system", XMLUtil.getNamedChild(focus, "system"), fixed.getSystem(), "system");
-	  checkFixedValue(errors, path+".key", XMLUtil.getNamedChild(focus, "key"), fixed.getKey(), "key");
+	  checkFixedValue(errors, path+".value", XMLUtil.getNamedChild(focus, "value"), fixed.getValue(), "value");
 	  checkFixedValue(errors, path+".period", XMLUtil.getNamedChild(focus, "period"), fixed.getPeriod(), "period");
 	  checkFixedValue(errors, path+".assigner", XMLUtil.getNamedChild(focus, "assigner"), fixed.getAssigner(), "assigner");
   }
@@ -1043,6 +1043,7 @@ public class InstanceValidator extends BaseValidator {
 	  checkFixedValue(errors, path+".system", XMLUtil.getNamedChild(focus, "system"), fixed.getSystem(), "system");
 	  checkFixedValue(errors, path+".code", XMLUtil.getNamedChild(focus, "code"), fixed.getCode(), "code");
 	  checkFixedValue(errors, path+".display", XMLUtil.getNamedChild(focus, "display"), fixed.getDisplay(), "display");	  
+	  checkFixedValue(errors, path+".primary", XMLUtil.getNamedChild(focus, "primary"), fixed.getPrimary(), "primary");	  
   }
 
 	private void checkHumanName(List<ValidationMessage> errors, String path, Element focus, HumanName fixed) {
@@ -1075,7 +1076,6 @@ public class InstanceValidator extends BaseValidator {
 
 	private void checkCodeableConcept(List<ValidationMessage> errors, String path, Element focus, CodeableConcept fixed) {
 		checkFixedValue(errors, path+".text", XMLUtil.getNamedChild(focus, "text"), fixed.getText(), "text");
-		checkFixedValue(errors, path+".primary", XMLUtil.getNamedChild(focus, "primary"), fixed.getPrimary(), "primary");
 		List<Element> codings = new ArrayList<Element>();
 		XMLUtil.getNamedChildren(focus,  "coding", codings);
 		if (rule(errors, "value", path, codings.size() == fixed.getCoding().size(), "Expected "+Integer.toString(fixed.getCoding().size())+" but found "+Integer.toString(codings.size())+" coding elements")) {

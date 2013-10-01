@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 22, 2013 08:29+1000 for FHIR v0.11
+// Generated on Tue, Oct 1, 2013 21:45+1000 for FHIR v0.11
 
 /**
  * A reference to a code defined by a terminology system.
@@ -37,12 +37,12 @@ package org.hl7.fhir.instance.model;
 public class Coding extends Type {
 
     /**
-     * The identification of the system that defines the meaning of the symbol in the code. Can be a simple list of enumerations, a list of codes with meanings or all the way to a complex semantic web such as SNOMED-CT, whether classification, terminology, or ontology.
+     * The identification of the system that defines the meaning of the symbol in the code. Can be a simple list of enumerations, a list of codes with meanings or all the way to a complex semantic web such as SNOMED CT, whether classification, terminology, or ontology.
      */
     protected Uri system;
 
     /**
-     * A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system.
+     * A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).
      */
     protected Code code;
 
@@ -50,6 +50,16 @@ public class Coding extends Type {
      * A representation of the meaning of the code in the system, following the rules laid out by the system.
      */
     protected String_ display;
+
+    /**
+     * Indicates that this code was chosen by a user directly - i.e. off a pick list of available codes.
+     */
+    protected Boolean primary;
+
+    /**
+     * The set of possible coded values this coding was chosen from or constrained by.
+     */
+    protected ResourceReference valueSet;
 
     public Uri getSystem() { 
       return this.system;
@@ -117,11 +127,43 @@ public class Coding extends Type {
       }
     }
 
+    public Boolean getPrimary() { 
+      return this.primary;
+    }
+
+    public void setPrimary(Boolean value) { 
+      this.primary = value;
+    }
+
+    public boolean getPrimarySimple() { 
+      return this.primary == null ? null : this.primary.getValue();
+    }
+
+    public void setPrimarySimple(boolean value) { 
+      if (value == false)
+        this.primary = null;
+      else {
+        if (this.primary == null)
+          this.primary = new Boolean();
+        this.primary.setValue(value);
+      }
+    }
+
+    public ResourceReference getValueSet() { 
+      return this.valueSet;
+    }
+
+    public void setValueSet(ResourceReference value) { 
+      this.valueSet = value;
+    }
+
       public Coding copy() {
         Coding dst = new Coding();
         dst.system = system == null ? null : system.copy();
         dst.code = code == null ? null : code.copy();
         dst.display = display == null ? null : display.copy();
+        dst.primary = primary == null ? null : primary.copy();
+        dst.valueSet = valueSet == null ? null : valueSet.copy();
         return dst;
       }
 

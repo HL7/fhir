@@ -24,17 +24,17 @@
  
  <identifier>
     <system value="http://xyz.com/codes/identifier"/>
-    <key value="12345"/>
+    <value value="12345"/>
  </identifier>
  
  <plan>
     <system value="http://xyz.com/codes/plan"/>
-    <key value="CBI35"/>
+    <value value="CBI35"/>
  </plan>
  
  <subplan>
     <system value="http://xyz.com/codes/subplan"/>
-    <key value="123"/>
+    <value value="123"/>
  </subplan>
  
  <dependent value="0"/>

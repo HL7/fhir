@@ -663,7 +663,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </performer>
     <reportId>
       <system value="http://acme.com/lab/reports"/>
-      <key value="5234342"/>
+      <value value="5234342"/>
     </reportId>
     <serviceCategory>
       <coding>

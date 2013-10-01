@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 22, 2013 08:29+1000 for FHIR v0.11
+// Generated on Tue, Oct 1, 2013 21:45+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -47,11 +47,6 @@ public class CodeableConcept extends Type {
      * A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user or concept.
      */
     protected String_ text;
-
-    /**
-     * Indicates which of the codes in the codings was chosen by a user, if one was chosen directly.
-     */
-    protected String_ primary;
 
     public List<Coding> getCoding() { 
       return this.coding;
@@ -86,35 +81,12 @@ public class CodeableConcept extends Type {
       }
     }
 
-    public String_ getPrimary() { 
-      return this.primary;
-    }
-
-    public void setPrimary(String_ value) { 
-      this.primary = value;
-    }
-
-    public String getPrimarySimple() { 
-      return this.primary == null ? null : this.primary.getValue();
-    }
-
-    public void setPrimarySimple(String value) { 
-      if (value == null)
-        this.primary = null;
-      else {
-        if (this.primary == null)
-          this.primary = new String_();
-        this.primary.setValue(value);
-      }
-    }
-
       public CodeableConcept copy() {
         CodeableConcept dst = new CodeableConcept();
         dst.coding = new ArrayList<Coding>();
         for (Coding i : coding)
           dst.coding.add(i.copy());
         dst.text = text == null ? null : text.copy();
-        dst.primary = primary == null ? null : primary.copy();
         return dst;
       }
 

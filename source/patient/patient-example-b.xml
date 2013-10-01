@@ -12,7 +12,7 @@
     <use value="usual"/>
     <label value="MRN"/>
     <system value="urn:oid:0.1.2.3.4.5.6.7"/>
-    <key value="123456"/>
+    <value value="123456"/>
   </identifier>
 
   <name>

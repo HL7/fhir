@@ -172,7 +172,7 @@ to some organization to further sub-allocate):</p>
     &lt;code value="G44.1" /&gt;
   &lt;/code&gt;
 </pre>
-<p>A SNOMED-CT expression:</p>
+<p>A SNOMED CT expression:</p>
 <pre class="xml" fragment="Coding">
   &lt;problem&gt;
     &lt;system value="http://snomed.info/id" /&gt;
@@ -220,7 +220,7 @@ CodeableConcept
     &lt;/coding&gt;
   &lt;/unit&gt;
 </pre>
-<p>A SNOMED-CT expression:</p>
+<p>A SNOMED CT expression:</p>
 <pre class="xml" fragment="CodeableConcept">
   &lt;diagnosis&gt;
     &lt;coding&gt;
@@ -231,38 +231,65 @@ CodeableConcept
   &lt;/diagnosis&gt;
 </pre>
 <p>
-In this case, there is no display element, because no display is defined for Snomed-CT expressions.
+In this case, there is no display element, because no display is defined for SNOMED CT expressions.
 </p>
-</div>
 
-
-<a name="Choice"></a>
-<h3>
-Choice
-</h3>
-<div class="example">
-<p><b>Example</b></p>
+<p>Using the valueset:</p>
 <p>The results on a urinalysis strip:</p>
-<pre class="xml" fragment="Choice">
-  &lt;value&gt;
+<pre class="xml" fragment="CodeableConcept">
+  &lt;valueCoding&gt;
+    &lt;system value="http://example.org/codes/simple-grades" /&gt;
     &lt;code value="+" /&gt;
-    &lt;option&gt;
-      &lt;code value="neg" /&gt;
-    &lt;/option&gt;
-    &lt;option&gt;
-      &lt;code value="trace" /&gt;
-    &lt;/option&gt;
-    &lt;option&gt;
-      &lt;code value="+" /&gt;
-    &lt;/option&gt;
-    &lt;option&gt;
-      &lt;code value="++" /&gt;
-    &lt;/option&gt;
-    &lt;option&gt;
-      &lt;code value="+++" /&gt;
-    &lt;/option&gt;
-    &lt;isOrdered value="true" /&gt;
-  &lt;/value&gt;
+    &lt;valueset&gt;
+      &lt;reference url="ValueSet/simple-grades" /&gt;
+    &lt;/valueset&gt;
+  &lt;/valueCoding&gt;
+</pre>
+<p>
+And where the value set would be something like this:
+</p>
+<pre>
+  &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+    &lt;text&gt;
+      &lt;status value=&quot;generated&quot;/&gt;
+      &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        &lt;p&gt;Possible Clinistix codes: neg, trace, +, ++, and +++&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/text&gt;
+    &lt;identifier value=&quot;http://hl7.org/fhir/vs/clinistix&quot;/&gt;
+    &lt;name value=&quot;Codes for Clinistix&quot;/&gt;
+    &lt;publisher value=&quot;HL7&quot;/&gt;
+    &lt;telecom&gt;
+      &lt;system value=&quot;url&quot;/&gt;
+      &lt;value value=&quot;http://hl7.org/fhir&quot;/&gt;
+    &lt;/telecom&gt;
+    &lt;description value=&quot;Clinistix Codes&quot;/&gt;
+    &lt;status value=&quot;draft&quot;/&gt;
+    &lt;experimental value=&quot;true&quot;/&gt;
+    &lt;date value=&quot;2013-10-01&quot;/&gt;
+    &lt;define&gt;
+      &lt;system value=&quot;http://hl7.org/fhir/clinistix&quot;/&gt;
+      &lt;caseSensitive value=&quot;false&quot;/&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;neg&quot;/&gt;     
+      &lt;/concept&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;trace&quot;/&gt;     
+      &lt;/concept&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;+&quot;/&gt;     
+      &lt;/concept&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;+&quot;/&gt;     
+      &lt;/concept&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;++&quot;/&gt;     
+      &lt;/concept&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;+++&quot;/&gt;     
+      &lt;/concept&gt;
+    &lt;/define&gt;
+  &lt;/ValueSet&gt;
 </pre>
 </div>
 <a name="Quantity"></a>

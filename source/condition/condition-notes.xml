@@ -5,7 +5,7 @@
 <p>
 Many of the code systems used for coding conditions will provide codes that define not only the condition itself, but may 
 also specify a particular stage, location, or causality as part of the code. This is particularly true if 
-SNOMED-CT is used for the condition, and especially if expressions are allowed. 
+SNOMED CT is used for the condition, and especially if expressions are allowed. 
 </p>
 <p>
 When the Condition.code specifies additional properties of the condition, the other properties are not given 

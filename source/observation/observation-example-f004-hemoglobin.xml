@@ -44,7 +44,7 @@
     <identifier>
         <use value="official"/>
         <system value="http://www.bmc.nl/zorgportal/identifiers/observations"/> 
-        <key value="6326"/>
+        <value value="6326"/>
     </identifier>
     <subject>
         <type value="Patient"/> 

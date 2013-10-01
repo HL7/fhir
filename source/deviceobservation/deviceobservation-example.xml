@@ -245,7 +245,7 @@ contained ones (even though this is easier for the sender)
   <identifier>
     <!-- this is probably the right way to interpret OBR-2? -->
     <system value="http://acme.org/examples/AwareGateway/080019FFFF4F6AC0"/>
-    <key value="080019FFFF4F6AFE20081211144657"/>
+    <value value="080019FFFF4F6AFE20081211144657"/>
   </identifier>
   <issued value="2008-12-11T14:45:00"/>
   <subject>

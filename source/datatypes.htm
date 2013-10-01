@@ -42,9 +42,9 @@ The data types are available as a <a href="fhir-base.xsd">W3C Schema</a>.
 <a name="imports"> </a>
 <p>
 The following table summarizes the primitive types and their simple restrictions that
-are used in throughout this specification. These types all have <a href="extensibility.htm">extensions</a>,
-and a value attribute which has the same value domain as defined in the <a href="http://www.w3.org/TR/xmlschema-2/">W3C Schema (1.0) specification part 2</a>, 
-with additional constraints marked in bold. 
+are used in throughout this specification. Primitive types are those without sub-properties, though primitives, like all types, have <a href="extensibility.htm">extensions</a>.
+Primitive types have a value which has the same value domain as defined in the <a href="http://www.w3.org/TR/xmlschema-2/">W3C Schema (1.0) specification part 2</a>, 
+though in a few cases, this specification makes additional constraints marked in bold. 
 </p>
 
 <a name="boolean"> </a>
@@ -170,7 +170,8 @@ or a <i>url</i> reference can be provided. If both are provided, the reference m
 point to the same content as found in the data. The reference can never be reused to point to
 some different data (i.e. the reference is version specific). The
 <i>url</i> reference must point to a location that resolves to actual data; some
-URIs such as cid: meet this requirement.
+URIs such as cid: meet this requirement. If the url is a relative reference, it is interpreted
+in the same way as a <a href="references.htm#references">resource reference</a>.
 </p>
 <p>
 The <i>hash</i> is included so that applications can verify that the content returned by the url has not changed. 
@@ -200,7 +201,7 @@ The context of use may frequently make rules about the kind of attachment
 <h2>Coding</h2>
 <p>
 A Coding is a representation of a defined concept using a symbol from a defined "code system" - 
-which may be an enumeration, a list of codes, a full terminology such as SNOMED-CT or LOINC 
+which may be an enumeration, a list of codes, a full terminology such as SNOMED CT or LOINC 
 or a formal ontology. 
 </p>
 [%dt Coding%]
@@ -215,7 +216,7 @@ registry</a> and should be if the content is shared or exchanged across institut
 </p>
 <p>
 If present, the <i>code</i> must be a syntactically correct symbol as defined by the <i>system</i>.
-In some code systems such as SNOMED-CT, the code may be an expression composed of other codes. 
+In some code systems such as SNOMED CT, the code may be an expression composed of other codes (e.g. post-coordination). 
 Note that codes are case sensitive unless specified otherwise by the code system. The <i>display</i> 
 is a text representation of the code defined by the <i>system</i> and can be used to display 
 the meaning of the code by an application that is not aware of the <i>system</i>. 
@@ -266,8 +267,8 @@ definitional space. For the second two types of code system, it may help with im
 and interpretation tasks to track which minor release (version) of the code system is in use. 
 </p>
 <p>
-For SNOMED-CT, the minor release (and optionally module/release) are indicated as part of the 
-<i>system</i> element using the http://snomed.info/id identifier as defined by SNOMED-CT. For
+For SNOMED CT, the minor release (and optionally module/release) are indicated as part of the 
+<i>system</i> element using the http://snomed.info/id identifier as defined by SNOMED CT. For
 all other code systems, the <i>version</i> element is used to indicate the minor release. 
 In the absence of a specified version release format by the code system (such as 2.36 for 
 LOINC), the release date is to be used.
@@ -316,10 +317,10 @@ provision of text. This is a common pattern in healthcare data.
 [%dt CodeableConcept%]
 <p>
 Each <i>coding</i> is a representation of the concept using a symbol from a defined "code system" - 
-which may be an enumeration, a list of codes, a full terminology such as SNOMED-CT or LOINC, 
+which may be an enumeration, a list of codes, a full terminology such as SNOMED CT or LOINC, 
 or a formal ontology. The concept may be coded multiple times in different code systems (or even 
 multiple times in the same code systems, where multiple forms are possible, such as 
-with SNOMED-CT). The different codings may have slightly different granularity due to the differences 
+with SNOMED CT). The different codings may have slightly different granularity due to the differences 
 in the definitions of the underlying codes. The ordering of Codings within a CodeableConcept is undefined.  
 </p>
 <p>
@@ -341,30 +342,6 @@ particular context by <a href="terminologies.htm">binding</a> the element to a v
 </p>
 </div>
 
-<a name="Choice"></a>
-<a name="choice"></a>
-<h2>
-Choice
-</h2>
-<p>
-A code taken from a short list of codes that are not defined in a formal code system. Choice is generally used 
-for things like pain scales, questionnaires or formally defined assessment indexes. The possible codes may be 
-ordered with some arbitrarily defined scale. Note: Choice is not an appropriate data type to use when the possible
-codes are defined as a value set from a formal code system or otherwise stored on a terminology server.
-</p>
-[%dt Choice%]
-<p>
-The <i>code</i> is the selected value. A list of possible options for code must be provided; at least a code must be provided for each <i>value</i>. 
-The selected code must be found in the list of possible codes. 
-</p>
-<p>
-If isOrdered is true, then the values have an inherent meaningful order and the list of values must be provided in the correct order in the instance.
-</p>
-<!--<div class="use">
-<p><b>Constraints</b></p>
-[%dt.constraints Choice%]
-</div>
--->
 <a name="Quantity"></a>
 <a name="quantity"></a>
 <h2>
@@ -456,6 +433,11 @@ truly represent ratios. Ratios are not simply "structured numerics" - for exampl
 and denominator do not cancel out. The most common example of this is where the ratio represents a 
 unit cost, and the numerator is a currency (e.g. 50/$10).
 </p>
+<p>
+A proper ratio has both a numerator and a denominator; however these are not mandatory in order
+to allow an invalid ratio with an extension with further information. 
+</p>
+
 <div class="use">
 <p><b>Constraints</b></p>
 [%dt.constraints Ratio%]
@@ -537,24 +519,24 @@ errors.
 [%dt Identifier%]
 
 <p>
-The <i>system</i> referred to by means of a URI defines how the identifier is defined (i.e. how the key value is made unique). 
+The <i>system</i> referred to by means of a URI defines how the identifier is defined (i.e. how the value is made unique). 
 It might be a specific application or a recognized standard/specification for a set or identifiers
-or a way of making identifiers unique. The <i>key</i> must be unique within the defined <i>system</i>
-and have a consistent meaning wherever it appears. Both <i>system</i> and <i>key</i> values are always case sensitive.
+or a way of making identifiers unique. The <i>value</i> must be unique within the defined <i>system</i>
+and have a consistent meaning wherever it appears. Both <i>system</i> and <i>value</i> are always case sensitive.
 </p>
 <p>
 FHIR defines <a href="terminologies-systems.htm">some useful URIs directly</a>. OIDs (urn:oid:) and UUIDs (urn:uuid:) 
 may be registered in the <a href="http://hl7.org/oid">HL7 OID registry</a> and should be if the 
 content is shared or exchanged across institutional boundaries. If the identifier itself 
 is naturally globally unique (i.e. an OID, a UUID, or a URI with no trailing local part), 
-then the <i>system</i> must be "urn:ietf:rfc:3986", and the URI would be in the <i>key</i>.
+then the <i>system</i> must be "urn:ietf:rfc:3986", and the URI would be in the <i>value</i>.
 </p>
 <p>
-In some cases, the system may not be known - only the key is known (e.g. a simple device that scans a barcode), 
+In some cases, the system may not be known - only the value is known (e.g. a simple device that scans a barcode), 
 or the system is known implicitly (simple exchange in a limited context, often driven by barcode readers). 
-In this case, no useful matching may be performed using the key unless the system can be safely inferred by the 
+In this case, no useful matching may be performed using the value unless the system can be safely inferred by the 
 context. This practice should be avoided where possible, as 
-information sharing in a wider context is very likely to arise eventually, and key values without a system are inherently limited in value.
+information sharing in a wider context is very likely to arise eventually, and values without a system are inherently limited in use.
 </p>
 <p>
 The <i>assigner</i> is used to indicate what registry/state/facility/etc. assigned the identifier. 
@@ -716,7 +698,6 @@ Some elements have no specified type. The type is represented by the wildcard sy
  <li><a href="datatypes.htm#Attachment">Attachment</a></li>
  <li><a href="datatypes.htm#Identifier">Identifier</a></li>
  <li><a href="datatypes.htm#Quantity">Quantity</a></li>
- <li><a href="datatypes.htm#Choice">Choice</a></li>
  <li><a href="datatypes.htm#Range">Range</a></li>
  <li><a href="datatypes.htm#Period">Period</a></li>
  <li><a href="datatypes.htm#Ratio">Ratio</a></li>

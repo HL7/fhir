@@ -12,7 +12,7 @@
   <!-- Clinical Lab at Acme Hospital -->
   <identifier>
     <system value="http://www.acme.org.au/units"/>
-    <key value="ClinLab"/>
+    <value value="ClinLab"/>
   </identifier>
   <name value="Clinical Lab"/>
   <telecom>

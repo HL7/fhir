@@ -6,7 +6,7 @@
         <use value="official"/>
         <label value="Zorginstelling naam"/>
         <system value="http://www.zorgkaartnederland.nl/"/>
-        <key value="Artis University Medical Center"/>
+        <value value="Artis University Medical Center"/>
     </identifier>
     <name value="Artis University Medical Center (AUMC)"/>
     <type>
@@ -47,7 +47,7 @@
         <identifier>
             <label value="AUMC's HIMMS Stage 6 accreditation"/>
             <system value="http://www.himss.org/"/>
-            <key value="HIMSS Stage 6 accreditation"/>
+            <value value="HIMSS Stage 6 accreditation"/>
         </identifier>
     </accreditation>
     <accreditation>
@@ -56,7 +56,7 @@
             <!-\-Identifier for the accreditation -\->
             <label value="AUMC's NIAZ accreditation"/>
             <system value="http://www.niaz.nl/"/>
-            <key value="NIAZ accreditation"/>
+            <value value="NIAZ accreditation"/>
         </identifier>
         <period>
             <start value="2000-01-01"/>

@@ -3,7 +3,7 @@
     <identifier>
         <use value="official"/>
         <system value="http://www.amc.nl/zorgportal/identifiers/visits"/>
-        <key value="v1451"/>
+        <value value="v1451"/>
     </identifier>
     <status value="finished"/>
     <class value="outpatient"/>
@@ -51,7 +51,7 @@
         <preAdmissionIdentifier>
             <use value="official"/>
             <system value="http://www.amc.nl/zorgportal/identifiers/pre-admissions"/>
-            <key value="93042"/>
+            <value value="93042"/>
         </preAdmissionIdentifier>
   <!--      <preAdmissionTest>
             <coding>

@@ -87,6 +87,9 @@ public class BindingConverter
 		result.setReference( artifact );
 		result.setSource( spec.getSource() );
 	
+		result.setV2Map(spec.getV2Map());
+		result.setV3Map(spec.getV3Map());
+		
 		for( org.hl7.fhir.definitions.model.DefinedCode code : spec.getCodes() )
 		{
 			DefinedCode convertedCode = convertFromFhirDefinedCode( code );
@@ -107,7 +110,9 @@ public class BindingConverter
 		result.setDisplay( Utilities.cleanupTextString(code.getDisplay()));
 		result.setSystem( Utilities.cleanupTextString(code.getSystem()));
 		result.setComment( Utilities.cleanupTextString(code.getComment()));
-		
+    result.setV2Map(code.getV2Map());
+    result.setV3Map(code.getV3Map());
+    
 		if( !Utilities.noString(code.getParent()) )
 		  result.setParent(code.getParent());
 		

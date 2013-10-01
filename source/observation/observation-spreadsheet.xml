@@ -280,7 +280,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Quantity|CodeableConcept|Attachment|Ratio|Choice|Period|SampledData|string</Data></Cell>
+    <Cell><Data ss:Type="String">Quantity|CodeableConcept|Attachment|Ratio|Period|SampledData|string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Actual result</Data></Cell>
     <Cell><Data ss:Type="String">The information determined as a result of making the observation</Data></Cell>
@@ -859,7 +859,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Quantity|CodeableConcept|Attachment|Ratio|Choice|Period|SampledData|string</Data></Cell>
+    <Cell><Data ss:Type="String">Quantity|CodeableConcept|Attachment|Ratio|Period|SampledData|string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Actual component result</Data></Cell>
     <Cell><Data ss:Type="String">The information determined as a result of making the sub-observation</Data></Cell>

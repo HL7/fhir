@@ -12,7 +12,7 @@
   <!-- Clinical Team "Gastroenterology" at Acme Hospital -->
   <identifier>
     <system value="http://www.acme.org.au/units"/>
-    <key value="Gastro"/>
+    <value value="Gastro"/>
   </identifier>
   <name value="Gastroenterology"/>
   <telecom>

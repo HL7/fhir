@@ -6,7 +6,7 @@
       <p>This value sets refers to 3 different sources of observation method codes, each with issues:</p>
       <ul>
         <li>v3 Code System "ObservationMethod": this is very incomplete and not currently maintained</li>      
-        <li>Snomed-CT Techniques (descendents of 272394005): this is very incomplete, more than just observation methods, and has SNOMED-CT licensing issues</li>      
+        <li>SNOMED CT Techniques (descendents of 272394005): this is very incomplete, more than just observation methods, and has SNOMED CT licensing issues</li>      
         <li>LOINC Method List: this is less incomplete, but not designed to be used as a formal code system</li>      
       </ul>
     </div>

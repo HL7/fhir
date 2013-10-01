@@ -168,10 +168,9 @@
     <Cell><Data ss:Type="String">An alternative location where the data can be accessed</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">http://www.acme.com/logo-small.png</Data></Cell>
     <Cell><Data ss:Type="String">The data needs to be transmitted by reference</Data></Cell>
-    <Cell><Data ss:Type="String">If both data and url are provided, the url must point to the same content as the data contains. Urls may be relative references or may be made to transient locations such as a wrapping envelope using cid: though this has ramifications for using signatures. If a URL is provided, it must resolve to actual data. </Data></Cell>
+    <Cell><Data ss:Type="String">If both data and url are provided, the url must point to the same content as the data contains. Urls may be relative references or may be made to transient locations such as a wrapping envelope using cid: though this has ramifications for using signatures. Relative URLs are interpreted relative to the service url, like a resource reference, rather than relative to the resource itself. If a URL is provided, it must resolve to actual data. </Data></Cell>
     <Cell><Data ss:Type="String">./reference/literal</Data></Cell>
     <Cell><Data ss:Type="String">RP.1+RP.2 - if they refer to a URL (see v2.6)</Data></Cell>
-    <Cell><Data ss:Type="String">Sort out relative URL references</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell><Data ss:Type="String">Attachment.size</Data></Cell>
@@ -230,12 +229,11 @@
     <VerticalResolution>0</VerticalResolution>
    </Print>
    <Selected/>
-   <LeftColumnVisible>2</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

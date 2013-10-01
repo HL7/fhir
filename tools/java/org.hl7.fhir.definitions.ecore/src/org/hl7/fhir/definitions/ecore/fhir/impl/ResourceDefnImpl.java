@@ -39,281 +39,281 @@ import org.hl7.fhir.definitions.ecore.fhir.SearchParameter;
  */
 public class ResourceDefnImpl extends CompositeTypeDefnImpl implements ResourceDefn {
 	/**
-	 * The default value of the '{@link #isSandbox() <em>Sandbox</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #isSandbox() <em>Sandbox</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isSandbox()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #isSandbox()
+   * @generated
+   * @ordered
+   */
 	protected static final boolean SANDBOX_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isSandbox() <em>Sandbox</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #isSandbox() <em>Sandbox</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isSandbox()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #isSandbox()
+   * @generated
+   * @ordered
+   */
 	protected boolean sandbox = SANDBOX_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getExample() <em>Example</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getExample() <em>Example</em>}' containment reference list.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExample()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getExample()
+   * @generated
+   * @ordered
+   */
 	protected EList<Example> example;
 
 	/**
-	 * The cached value of the '{@link #getSearch() <em>Search</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getSearch() <em>Search</em>}' containment reference list.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSearch()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getSearch()
+   * @generated
+   * @ordered
+   */
 	protected EList<SearchParameter> search;
 
 	/**
-	 * The default value of the '{@link #isFuture() <em>Future</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #isFuture() <em>Future</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isFuture()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #isFuture()
+   * @generated
+   * @ordered
+   */
 	protected static final boolean FUTURE_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isFuture() <em>Future</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #isFuture() <em>Future</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isFuture()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #isFuture()
+   * @generated
+   * @ordered
+   */
 	protected boolean future = FUTURE_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected ResourceDefnImpl() {
-		super();
-	}
+    super();
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	protected EClass eStaticClass() {
-		return FhirPackage.Literals.RESOURCE_DEFN;
-	}
+    return FhirPackage.Literals.RESOURCE_DEFN;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public EList<Example> getExample() {
-		if (example == null) {
-			example = new EObjectContainmentEList<Example>(Example.class, this, FhirPackage.RESOURCE_DEFN__EXAMPLE);
-		}
-		return example;
-	}
+    if (example == null) {
+      example = new EObjectContainmentEList<Example>(Example.class, this, FhirPackage.RESOURCE_DEFN__EXAMPLE);
+    }
+    return example;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public EList<SearchParameter> getSearch() {
-		if (search == null) {
-			search = new EObjectContainmentEList<SearchParameter>(SearchParameter.class, this, FhirPackage.RESOURCE_DEFN__SEARCH);
-		}
-		return search;
-	}
+    if (search == null) {
+      search = new EObjectContainmentEList<SearchParameter>(SearchParameter.class, this, FhirPackage.RESOURCE_DEFN__SEARCH);
+    }
+    return search;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public boolean isSandbox() {
-		return sandbox;
-	}
+    return sandbox;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void setSandbox(boolean newSandbox) {
-		boolean oldSandbox = sandbox;
-		sandbox = newSandbox;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_DEFN__SANDBOX, oldSandbox, sandbox));
-	}
+    boolean oldSandbox = sandbox;
+    sandbox = newSandbox;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_DEFN__SANDBOX, oldSandbox, sandbox));
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public boolean isFuture() {
-		return future;
-	}
+    return future;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void setFuture(boolean newFuture) {
-		boolean oldFuture = future;
-		future = newFuture;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_DEFN__FUTURE, oldFuture, future));
-	}
+    boolean oldFuture = future;
+    future = newFuture;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESOURCE_DEFN__FUTURE, oldFuture, future));
+  }
 
 	
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case FhirPackage.RESOURCE_DEFN__EXAMPLE:
-				return ((InternalEList<?>)getExample()).basicRemove(otherEnd, msgs);
-			case FhirPackage.RESOURCE_DEFN__SEARCH:
-				return ((InternalEList<?>)getSearch()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    switch (featureID) {
+      case FhirPackage.RESOURCE_DEFN__EXAMPLE:
+        return ((InternalEList<?>)getExample()).basicRemove(otherEnd, msgs);
+      case FhirPackage.RESOURCE_DEFN__SEARCH:
+        return ((InternalEList<?>)getSearch()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case FhirPackage.RESOURCE_DEFN__SANDBOX:
-				return isSandbox();
-			case FhirPackage.RESOURCE_DEFN__EXAMPLE:
-				return getExample();
-			case FhirPackage.RESOURCE_DEFN__SEARCH:
-				return getSearch();
-			case FhirPackage.RESOURCE_DEFN__FUTURE:
-				return isFuture();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    switch (featureID) {
+      case FhirPackage.RESOURCE_DEFN__SANDBOX:
+        return isSandbox();
+      case FhirPackage.RESOURCE_DEFN__EXAMPLE:
+        return getExample();
+      case FhirPackage.RESOURCE_DEFN__SEARCH:
+        return getSearch();
+      case FhirPackage.RESOURCE_DEFN__FUTURE:
+        return isFuture();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case FhirPackage.RESOURCE_DEFN__SANDBOX:
-				setSandbox((Boolean)newValue);
-				return;
-			case FhirPackage.RESOURCE_DEFN__EXAMPLE:
-				getExample().clear();
-				getExample().addAll((Collection<? extends Example>)newValue);
-				return;
-			case FhirPackage.RESOURCE_DEFN__SEARCH:
-				getSearch().clear();
-				getSearch().addAll((Collection<? extends SearchParameter>)newValue);
-				return;
-			case FhirPackage.RESOURCE_DEFN__FUTURE:
-				setFuture((Boolean)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    switch (featureID) {
+      case FhirPackage.RESOURCE_DEFN__SANDBOX:
+        setSandbox((Boolean)newValue);
+        return;
+      case FhirPackage.RESOURCE_DEFN__EXAMPLE:
+        getExample().clear();
+        getExample().addAll((Collection<? extends Example>)newValue);
+        return;
+      case FhirPackage.RESOURCE_DEFN__SEARCH:
+        getSearch().clear();
+        getSearch().addAll((Collection<? extends SearchParameter>)newValue);
+        return;
+      case FhirPackage.RESOURCE_DEFN__FUTURE:
+        setFuture((Boolean)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case FhirPackage.RESOURCE_DEFN__SANDBOX:
-				setSandbox(SANDBOX_EDEFAULT);
-				return;
-			case FhirPackage.RESOURCE_DEFN__EXAMPLE:
-				getExample().clear();
-				return;
-			case FhirPackage.RESOURCE_DEFN__SEARCH:
-				getSearch().clear();
-				return;
-			case FhirPackage.RESOURCE_DEFN__FUTURE:
-				setFuture(FUTURE_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    switch (featureID) {
+      case FhirPackage.RESOURCE_DEFN__SANDBOX:
+        setSandbox(SANDBOX_EDEFAULT);
+        return;
+      case FhirPackage.RESOURCE_DEFN__EXAMPLE:
+        getExample().clear();
+        return;
+      case FhirPackage.RESOURCE_DEFN__SEARCH:
+        getSearch().clear();
+        return;
+      case FhirPackage.RESOURCE_DEFN__FUTURE:
+        setFuture(FUTURE_EDEFAULT);
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case FhirPackage.RESOURCE_DEFN__SANDBOX:
-				return sandbox != SANDBOX_EDEFAULT;
-			case FhirPackage.RESOURCE_DEFN__EXAMPLE:
-				return example != null && !example.isEmpty();
-			case FhirPackage.RESOURCE_DEFN__SEARCH:
-				return search != null && !search.isEmpty();
-			case FhirPackage.RESOURCE_DEFN__FUTURE:
-				return future != FUTURE_EDEFAULT;
-		}
-		return super.eIsSet(featureID);
-	}
+    switch (featureID) {
+      case FhirPackage.RESOURCE_DEFN__SANDBOX:
+        return sandbox != SANDBOX_EDEFAULT;
+      case FhirPackage.RESOURCE_DEFN__EXAMPLE:
+        return example != null && !example.isEmpty();
+      case FhirPackage.RESOURCE_DEFN__SEARCH:
+        return search != null && !search.isEmpty();
+      case FhirPackage.RESOURCE_DEFN__FUTURE:
+        return future != FUTURE_EDEFAULT;
+    }
+    return super.eIsSet(featureID);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+    if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (sandbox: ");
-		result.append(sandbox);
-		result.append(", future: ");
-		result.append(future);
-		result.append(')');
-		return result.toString();
-	}
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (sandbox: ");
+    result.append(sandbox);
+    result.append(", future: ");
+    result.append(future);
+    result.append(')');
+    return result.toString();
+  }
 
 	
 

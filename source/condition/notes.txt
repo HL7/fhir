@@ -112,7 +112,7 @@ PROBLEM LIST - NO KNOWN PROBLEMS
 
 					   <code nullFlavor="NA" />  (if problem type code unknown use this line, see comment E)
                              <code code="64572001"  displayName="Condition" (if problem tyep code known, use this line)
-                                       codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>  (see comment E)
+                                       codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>  (see comment E)
 
                              <text> <reference value="#PROBSUMMARY_1"/> </text>
                              <statusCode code="active"/>  (if problem resolved, >> completed)

@@ -5,13 +5,13 @@
         <use value="official"/>
         <system value="urn:oid:2.16.528.1.1007.3.1"/>
         <!-- Identificatiesysteem Zorgverlener UZI -->
-        <key value="118265112"/>
+        <value value="118265112"/>
     </identifier>
         <identifier>
             <use value="usual"/>
             <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
             <!-- BSN identification system -->
-            <key value="191REW8WE916"/>
+            <value value="191REW8WE916"/>
         </identifier>
         <name>
             <use value="official"/>

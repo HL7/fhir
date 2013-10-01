@@ -24,7 +24,7 @@
         <identifier>
           <label value="SSN"/>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
-          <key value="444222222"/>
+          <value value="444222222"/>
         </identifier>
 
         <name>
@@ -79,7 +79,7 @@
         <identifier>
           <label value="SSN"/>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
-          <key value="444333333"/>
+          <value value="444333333"/>
         </identifier>
 
         <name>
@@ -133,7 +133,7 @@
         <identifier>
           <label value="SSN"/>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
-          <key value="444555555"/>
+          <value value="444555555"/>
         </identifier>
 
         <name>
@@ -186,7 +186,7 @@
         <identifier>
           <label value="SSN"/>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
-          <key value="444114567"/>
+          <value value="444114567"/>
         </identifier>
 
         <name>
@@ -240,7 +240,7 @@
         <identifier>
           <label value="SSN"/>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
-          <key value="444111234"/>
+          <value value="444111234"/>
         </identifier>
 
         <name>
@@ -294,7 +294,7 @@
         <identifier>
           <label value="SSN"/>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
-          <key value="444113456"/>
+          <value value="444113456"/>
         </identifier>
 
         <name>
@@ -347,7 +347,7 @@
         <identifier>
           <label value="SSN"/>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
-          <key value="444112345"/>
+          <value value="444112345"/>
         </identifier>
 
         <name>
@@ -401,7 +401,7 @@
         <identifier>
           <label value="SSN"/>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
-          <key value="444666666"/>
+          <value value="444666666"/>
         </identifier>
 
         <name>
@@ -454,7 +454,7 @@
         <identifier>
           <label value="SSN"/>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
-          <key value="444777777"/>
+          <value value="444777777"/>
         </identifier>
 
         <name>
@@ -509,7 +509,7 @@
         <identifier>
           <label value="SSN"/>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
-          <key value="444888888"/>
+          <value value="444888888"/>
         </identifier>
 
         <name>
@@ -563,7 +563,7 @@
         <identifier>
           <label value="SSN"/>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
-          <key value="444999999"/>
+          <value value="444999999"/>
         </identifier>
 
         <name>
@@ -617,7 +617,7 @@
         <identifier>
           <label value="SSN"/>
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
-          <key value="555222222"/>
+          <value value="555222222"/>
         </identifier>
 
         <name>

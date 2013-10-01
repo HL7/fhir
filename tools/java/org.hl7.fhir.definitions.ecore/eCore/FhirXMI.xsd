@@ -145,6 +145,8 @@
     <xsd:attribute name="description" type="xsd:string"/>
     <xsd:attribute name="definition" type="xsd:string"/>
     <xsd:attribute name="example" type="xsd:boolean"/>
+    <xsd:attribute name="v2Map" type="xsd:string"/>
+    <xsd:attribute name="v3Map" type="xsd:string"/>
     <xsd:attribute name="parent" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="BindingDefn" type="fhir:BindingDefn"/>
@@ -198,6 +200,8 @@
     <xsd:attribute name="system" type="xsd:string"/>
     <xsd:attribute name="id" type="xsd:string" use="required"/>
     <xsd:attribute name="parent" type="xsd:string"/>
+    <xsd:attribute name="v2Map" type="xsd:string"/>
+    <xsd:attribute name="v3Map" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="DefinedCode" type="fhir:DefinedCode"/>
   <xsd:complexType name="PrimitiveDefn">

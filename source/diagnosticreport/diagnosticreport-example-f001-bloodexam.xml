@@ -19,7 +19,7 @@
     <reportId>
         <use value="official"/>
         <system value="http://www.bmc.nl/zorgportal/identifiers/reports"/>
-        <key value="nr1239044"/>
+        <value value="nr1239044"/>
     </reportId>
     <requestDetail>
         <encounter>
@@ -29,12 +29,12 @@
         <requestOrderId>
             <use value="official"/>
             <system value="http://www.bmc.nl/zorgportal/identifiers/labresults"/>
-            <key value="L2381"/>
+            <value value="L2381"/>
         </requestOrderId>
         <receiverOrderId>
             <use value="official"/>
             <system value="http://www.bmc.nl/zorgportal/identifiers/diagnostics"/>
-            <key value="D2838"/>
+            <value value="D2838"/>
         </receiverOrderId>
         <requestTest>
             <coding>

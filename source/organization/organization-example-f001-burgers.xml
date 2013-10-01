@@ -3,13 +3,13 @@
     <identifier>
         <use value="official"/>
         <system value="urn:oid:2.16.528.1"/>
-        <key value="91654"/>
+        <value value="91654"/>
     </identifier>
     <identifier>
         <use value="usual"/>
         <system value="urn:oid:2.16.840.1.113883.2.4.6.1"/>
         <!-- Dutch VEKTIS AGB-Z -->
-        <key value="17-0112278"/>
+        <value value="17-0112278"/>
     </identifier>
     <name value="Burgers University Medical Center"/>
     <type>

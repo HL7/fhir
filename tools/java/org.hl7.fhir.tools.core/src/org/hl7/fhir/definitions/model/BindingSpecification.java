@@ -99,6 +99,9 @@ public class BindingSpecification {
 	private ValueSet referredValueSet;
   private List<DefinedCode> childCodes;
 
+  private String v2Map;
+  private String v3Map;
+  
   public String getId() {
     return id;
   }
@@ -329,6 +332,22 @@ public class BindingSpecification {
 
   public void setCopyright(String copyright) {
     this.copyright = copyright;
+  }
+
+  public String getV2Map() {
+    return v2Map;
+  }
+
+  public void setV2Map(String v2Map) {
+    this.v2Map = v2Map;
+  }
+
+  public String getV3Map() {
+    return v3Map;
+  }
+
+  public void setV3Map(String v3Map) {
+    this.v3Map = v3Map;
   }
 
   

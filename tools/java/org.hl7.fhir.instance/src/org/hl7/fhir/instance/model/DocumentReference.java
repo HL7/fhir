@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 22, 2013 08:29+1000 for FHIR v0.11
+// Generated on Tue, Oct 1, 2013 21:45+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -338,7 +338,7 @@ public class DocumentReference extends Resource {
     protected ResourceReference supercedes;
 
     /**
-     * Human Readable description of the source document. This is sometimes known as the "title".
+     * Human-readable description of the source document. This is sometimes known as the "title".
      */
     protected String_ description;
 

@@ -4,13 +4,13 @@
     <use value="official"/>
         <label value="UZI-nummer"/>
         <system value="urn:oid:2.16.528.1.1007.3.1"/>
-    <key value="12345678902"/>
+    <value value="12345678902"/>
  </identifier>
     <identifier><!--The identifier for this individual-->
         <use value="official"/>
         <label value="BIG-nummer"/>
         <system value="https://www.bigregister.nl/"/>
-        <key value="12345678902"/>
+        <value value="12345678902"/>
     </identifier> 
     <name><!--The name of the practitioner-->
         <use value="official"/>

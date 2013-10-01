@@ -50,499 +50,499 @@ import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
  */
 public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
+   * Creates the default factory implementation.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public static FhirFactory init() {
-		try {
-			FhirFactory theFhirFactory = (FhirFactory)EPackage.Registry.INSTANCE.getEFactory("http://hl7.org/fhir/definitions"); 
-			if (theFhirFactory != null) {
-				return theFhirFactory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
-		return new FhirFactoryImpl();
-	}
+    try {
+      FhirFactory theFhirFactory = (FhirFactory)EPackage.Registry.INSTANCE.getEFactory("http://hl7.org/fhir/definitions"); 
+      if (theFhirFactory != null) {
+        return theFhirFactory;
+      }
+    }
+    catch (Exception exception) {
+      EcorePlugin.INSTANCE.log(exception);
+    }
+    return new FhirFactoryImpl();
+  }
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
+   * Creates an instance of the factory.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public FhirFactoryImpl() {
-		super();
-	}
+    super();
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			case FhirPackage.DEFINITIONS: return createDefinitions();
-			case FhirPackage.ELEMENT_DEFN: return createElementDefn();
-			case FhirPackage.INVARIANT: return createInvariant();
-			case FhirPackage.TYPE_REF: return createTypeRef();
-			case FhirPackage.BINDING_DEFN: return createBindingDefn();
-			case FhirPackage.MAPPING: return createMapping();
-			case FhirPackage.RESOURCE_DEFN: return createResourceDefn();
-			case FhirPackage.EXAMPLE: return createExample();
-			case FhirPackage.DEFINED_CODE: return createDefinedCode();
-			case FhirPackage.PRIMITIVE_DEFN: return createPrimitiveDefn();
-			case FhirPackage.CONSTRAINED_TYPE_DEFN: return createConstrainedTypeDefn();
-			case FhirPackage.EVENT_DEFN: return createEventDefn();
-			case FhirPackage.EVENT_USAGE: return createEventUsage();
-			case FhirPackage.PROFILE_DEFN: return createProfileDefn();
-			case FhirPackage.META_DATA_ITEM: return createMetaDataItem();
-			case FhirPackage.SEARCH_PARAMETER: return createSearchParameter();
-			case FhirPackage.COMPOSITE_TYPE_DEFN: return createCompositeTypeDefn();
-			case FhirPackage.ANNOTATIONS: return createAnnotations();
-			case FhirPackage.PROFILED_ELEMENT_DEFN: return createProfiledElementDefn();
-			case FhirPackage.INVARIANT_REF: return createInvariantRef();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
+    switch (eClass.getClassifierID()) {
+      case FhirPackage.DEFINITIONS: return createDefinitions();
+      case FhirPackage.ELEMENT_DEFN: return createElementDefn();
+      case FhirPackage.INVARIANT: return createInvariant();
+      case FhirPackage.TYPE_REF: return createTypeRef();
+      case FhirPackage.BINDING_DEFN: return createBindingDefn();
+      case FhirPackage.MAPPING: return createMapping();
+      case FhirPackage.RESOURCE_DEFN: return createResourceDefn();
+      case FhirPackage.EXAMPLE: return createExample();
+      case FhirPackage.DEFINED_CODE: return createDefinedCode();
+      case FhirPackage.PRIMITIVE_DEFN: return createPrimitiveDefn();
+      case FhirPackage.CONSTRAINED_TYPE_DEFN: return createConstrainedTypeDefn();
+      case FhirPackage.EVENT_DEFN: return createEventDefn();
+      case FhirPackage.EVENT_USAGE: return createEventUsage();
+      case FhirPackage.PROFILE_DEFN: return createProfileDefn();
+      case FhirPackage.META_DATA_ITEM: return createMetaDataItem();
+      case FhirPackage.SEARCH_PARAMETER: return createSearchParameter();
+      case FhirPackage.COMPOSITE_TYPE_DEFN: return createCompositeTypeDefn();
+      case FhirPackage.ANNOTATIONS: return createAnnotations();
+      case FhirPackage.PROFILED_ELEMENT_DEFN: return createProfiledElementDefn();
+      case FhirPackage.INVARIANT_REF: return createInvariantRef();
+      default:
+        throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+    }
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case FhirPackage.BINDING_TYPE:
-				return createBindingTypeFromString(eDataType, initialValue);
-			case FhirPackage.BINDING_STRENGTH:
-				return createBindingStrengthFromString(eDataType, initialValue);
-			case FhirPackage.SEARCH_TYPE:
-				return createSearchTypeFromString(eDataType, initialValue);
-			case FhirPackage.BINDING_EXTENSIBILITY:
-				return createBindingExtensibilityFromString(eDataType, initialValue);
-			case FhirPackage.SEARCH_REPEAT_MODE:
-				return createSearchRepeatModeFromString(eDataType, initialValue);
-			case FhirPackage.EXAMPLE_TYPE:
-				return createExampleTypeFromString(eDataType, initialValue);
-			case FhirPackage.XML_FORMAT_HINT:
-				return createXmlFormatHintFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
+    switch (eDataType.getClassifierID()) {
+      case FhirPackage.BINDING_TYPE:
+        return createBindingTypeFromString(eDataType, initialValue);
+      case FhirPackage.BINDING_STRENGTH:
+        return createBindingStrengthFromString(eDataType, initialValue);
+      case FhirPackage.SEARCH_TYPE:
+        return createSearchTypeFromString(eDataType, initialValue);
+      case FhirPackage.BINDING_EXTENSIBILITY:
+        return createBindingExtensibilityFromString(eDataType, initialValue);
+      case FhirPackage.SEARCH_REPEAT_MODE:
+        return createSearchRepeatModeFromString(eDataType, initialValue);
+      case FhirPackage.EXAMPLE_TYPE:
+        return createExampleTypeFromString(eDataType, initialValue);
+      case FhirPackage.XML_FORMAT_HINT:
+        return createXmlFormatHintFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case FhirPackage.BINDING_TYPE:
-				return convertBindingTypeToString(eDataType, instanceValue);
-			case FhirPackage.BINDING_STRENGTH:
-				return convertBindingStrengthToString(eDataType, instanceValue);
-			case FhirPackage.SEARCH_TYPE:
-				return convertSearchTypeToString(eDataType, instanceValue);
-			case FhirPackage.BINDING_EXTENSIBILITY:
-				return convertBindingExtensibilityToString(eDataType, instanceValue);
-			case FhirPackage.SEARCH_REPEAT_MODE:
-				return convertSearchRepeatModeToString(eDataType, instanceValue);
-			case FhirPackage.EXAMPLE_TYPE:
-				return convertExampleTypeToString(eDataType, instanceValue);
-			case FhirPackage.XML_FORMAT_HINT:
-				return convertXmlFormatHintToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
+    switch (eDataType.getClassifierID()) {
+      case FhirPackage.BINDING_TYPE:
+        return convertBindingTypeToString(eDataType, instanceValue);
+      case FhirPackage.BINDING_STRENGTH:
+        return convertBindingStrengthToString(eDataType, instanceValue);
+      case FhirPackage.SEARCH_TYPE:
+        return convertSearchTypeToString(eDataType, instanceValue);
+      case FhirPackage.BINDING_EXTENSIBILITY:
+        return convertBindingExtensibilityToString(eDataType, instanceValue);
+      case FhirPackage.SEARCH_REPEAT_MODE:
+        return convertSearchRepeatModeToString(eDataType, instanceValue);
+      case FhirPackage.EXAMPLE_TYPE:
+        return convertExampleTypeToString(eDataType, instanceValue);
+      case FhirPackage.XML_FORMAT_HINT:
+        return convertXmlFormatHintToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Definitions createDefinitions() {
-		DefinitionsImpl definitions = new DefinitionsImpl();
-		return definitions;
-	}
+    DefinitionsImpl definitions = new DefinitionsImpl();
+    return definitions;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public ElementDefn createElementDefn() {
-		ElementDefnImpl elementDefn = new ElementDefnImpl();
-		return elementDefn;
-	}
+    ElementDefnImpl elementDefn = new ElementDefnImpl();
+    return elementDefn;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Invariant createInvariant() {
-		InvariantImpl invariant = new InvariantImpl();
-		return invariant;
-	}
+    InvariantImpl invariant = new InvariantImpl();
+    return invariant;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public TypeRef createTypeRef() {
-		TypeRefImpl typeRef = new TypeRefImpl();
-		return typeRef;
-	}
+    TypeRefImpl typeRef = new TypeRefImpl();
+    return typeRef;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public BindingDefn createBindingDefn() {
-		BindingDefnImpl bindingDefn = new BindingDefnImpl();
-		return bindingDefn;
-	}
+    BindingDefnImpl bindingDefn = new BindingDefnImpl();
+    return bindingDefn;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Mapping createMapping() {
-		MappingImpl mapping = new MappingImpl();
-		return mapping;
-	}
+    MappingImpl mapping = new MappingImpl();
+    return mapping;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public ResourceDefn createResourceDefn() {
-		ResourceDefnImpl resourceDefn = new ResourceDefnImpl();
-		return resourceDefn;
-	}
+    ResourceDefnImpl resourceDefn = new ResourceDefnImpl();
+    return resourceDefn;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Example createExample() {
-		ExampleImpl example = new ExampleImpl();
-		return example;
-	}
+    ExampleImpl example = new ExampleImpl();
+    return example;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public DefinedCode createDefinedCode() {
-		DefinedCodeImpl definedCode = new DefinedCodeImpl();
-		return definedCode;
-	}
+    DefinedCodeImpl definedCode = new DefinedCodeImpl();
+    return definedCode;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public PrimitiveDefn createPrimitiveDefn() {
-		PrimitiveDefnImpl primitiveDefn = new PrimitiveDefnImpl();
-		return primitiveDefn;
-	}
+    PrimitiveDefnImpl primitiveDefn = new PrimitiveDefnImpl();
+    return primitiveDefn;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public ConstrainedTypeDefn createConstrainedTypeDefn() {
-		ConstrainedTypeDefnImpl constrainedTypeDefn = new ConstrainedTypeDefnImpl();
-		return constrainedTypeDefn;
-	}
+    ConstrainedTypeDefnImpl constrainedTypeDefn = new ConstrainedTypeDefnImpl();
+    return constrainedTypeDefn;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public EventDefn createEventDefn() {
-		EventDefnImpl eventDefn = new EventDefnImpl();
-		return eventDefn;
-	}
+    EventDefnImpl eventDefn = new EventDefnImpl();
+    return eventDefn;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public EventUsage createEventUsage() {
-		EventUsageImpl eventUsage = new EventUsageImpl();
-		return eventUsage;
-	}
+    EventUsageImpl eventUsage = new EventUsageImpl();
+    return eventUsage;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public ProfileDefn createProfileDefn() {
-		ProfileDefnImpl profileDefn = new ProfileDefnImpl();
-		return profileDefn;
-	}
+    ProfileDefnImpl profileDefn = new ProfileDefnImpl();
+    return profileDefn;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public MetaDataItem createMetaDataItem() {
-		MetaDataItemImpl metaDataItem = new MetaDataItemImpl();
-		return metaDataItem;
-	}
+    MetaDataItemImpl metaDataItem = new MetaDataItemImpl();
+    return metaDataItem;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public SearchParameter createSearchParameter() {
-		SearchParameterImpl searchParameter = new SearchParameterImpl();
-		return searchParameter;
-	}
+    SearchParameterImpl searchParameter = new SearchParameterImpl();
+    return searchParameter;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public CompositeTypeDefn createCompositeTypeDefn() {
-		CompositeTypeDefnImpl compositeTypeDefn = new CompositeTypeDefnImpl();
-		return compositeTypeDefn;
-	}
+    CompositeTypeDefnImpl compositeTypeDefn = new CompositeTypeDefnImpl();
+    return compositeTypeDefn;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Annotations createAnnotations() {
-		AnnotationsImpl annotations = new AnnotationsImpl();
-		return annotations;
-	}
+    AnnotationsImpl annotations = new AnnotationsImpl();
+    return annotations;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public ProfiledElementDefn createProfiledElementDefn() {
-		ProfiledElementDefnImpl profiledElementDefn = new ProfiledElementDefnImpl();
-		return profiledElementDefn;
-	}
+    ProfiledElementDefnImpl profiledElementDefn = new ProfiledElementDefnImpl();
+    return profiledElementDefn;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public InvariantRef createInvariantRef() {
-		InvariantRefImpl invariantRef = new InvariantRefImpl();
-		return invariantRef;
-	}
+    InvariantRefImpl invariantRef = new InvariantRefImpl();
+    return invariantRef;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public BindingType createBindingTypeFromString(EDataType eDataType, String initialValue) {
-		BindingType result = BindingType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+    BindingType result = BindingType.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public String convertBindingTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+    return instanceValue == null ? null : instanceValue.toString();
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public BindingStrength createBindingStrengthFromString(EDataType eDataType, String initialValue) {
-		BindingStrength result = BindingStrength.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+    BindingStrength result = BindingStrength.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public String convertBindingStrengthToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+    return instanceValue == null ? null : instanceValue.toString();
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public SearchType createSearchTypeFromString(EDataType eDataType, String initialValue) {
-		SearchType result = SearchType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+    SearchType result = SearchType.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public String convertSearchTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+    return instanceValue == null ? null : instanceValue.toString();
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public BindingExtensibility createBindingExtensibilityFromString(EDataType eDataType, String initialValue) {
-		BindingExtensibility result = BindingExtensibility.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+    BindingExtensibility result = BindingExtensibility.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public String convertBindingExtensibilityToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+    return instanceValue == null ? null : instanceValue.toString();
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public SearchRepeatMode createSearchRepeatModeFromString(EDataType eDataType, String initialValue) {
-		SearchRepeatMode result = SearchRepeatMode.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+    SearchRepeatMode result = SearchRepeatMode.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public String convertSearchRepeatModeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+    return instanceValue == null ? null : instanceValue.toString();
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public ExampleType createExampleTypeFromString(EDataType eDataType, String initialValue) {
-		ExampleType result = ExampleType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+    ExampleType result = ExampleType.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public String convertExampleTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+    return instanceValue == null ? null : instanceValue.toString();
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public XmlFormatHint createXmlFormatHintFromString(EDataType eDataType, String initialValue) {
-		XmlFormatHint result = XmlFormatHint.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+    XmlFormatHint result = XmlFormatHint.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public String convertXmlFormatHintToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+    return instanceValue == null ? null : instanceValue.toString();
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public FhirPackage getFhirPackage() {
-		return (FhirPackage)getEPackage();
-	}
+    return (FhirPackage)getEPackage();
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
+   * @deprecated
+   * @generated
+   */
 	@Deprecated
 	public static FhirPackage getPackage() {
-		return FhirPackage.eINSTANCE;
-	}
+    return FhirPackage.eINSTANCE;
+  }
 
 } //FhirFactoryImpl

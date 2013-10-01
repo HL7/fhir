@@ -84,7 +84,7 @@
 					<use value="usual"/>
 					<label value="MRN"/>
 					<system value="http://healthintersections.com.au/xds/patients"/>
-					<key value="89765a87b"/>
+					<value value="89765a87b"/>
   			</identifier>
   			<details>
   			  <!-- These details are extracted from a standard Xds example -->
@@ -167,7 +167,7 @@
         <!-- Version specific document identifier -->
         <id>
           <system value="urn:ietf:rfc:3986"/>
-          <key value="urn:oid:129.6.58.92.88336"/>
+          <value value="urn:oid:129.6.58.92.88336"/>
         </id>
         <information>
           <created value="2005-12-24T12:03:24+10:00"/>

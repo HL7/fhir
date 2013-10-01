@@ -415,6 +415,8 @@ public class SpreadsheetParser {
       cd.setWebSite(sheet.getColumn(row, "Website"));
       cd.setEmail(sheet.getColumn(row, "Email"));
       cd.setCopyright(sheet.getColumn(row, "Copyright"));
+      cd.setV2Map(sheet.getColumn(row, "v2"));
+      cd.setV3Map(sheet.getColumn(row, "v3"));
 
 			if (cd.getBinding() == BindingSpecification.Binding.CodeList) {
 				Sheet codes = xls.getSheets().get(
@@ -484,6 +486,8 @@ public class SpreadsheetParser {
 			c.setDefinition(Utilities.appendPeriod(sheet.getColumn(row, "Definition")));
       c.setComment(sheet.getColumn(row, "Comment"));
       c.setParent(sheet.getColumn(row, "Parent"));
+      c.setV2Map(sheet.getColumn(row, "v2"));
+      c.setV3Map(sheet.getColumn(row, "v3"));
       if (Utilities.noString(c.getId()) && Utilities.noString(c.getSystem()))
         throw new Exception("code has no id or system ("+sheet.title+") "+getLocation(row));
 			codes.add(c);

@@ -8,7 +8,7 @@
   </text>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <key value="2.16.840.1.113883.19.5"/>
+    <value value="2.16.840.1.113883.19.5"/>
   </identifier>
   <name value="Good Health Clinic"/>
 </Organization>

@@ -28,7 +28,7 @@
     <use value="usual"/>
     <label value="INSEE"/>
     <system value="urn:oid:1.2.250.1.61"/>
-    <key value="272117510400399"/>
+    <value value="272117510400399"/>
   </identifier>
 
   <patient>

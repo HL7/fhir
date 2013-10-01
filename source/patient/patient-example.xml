@@ -32,7 +32,7 @@
     <use value="usual"/>
     <label value="MRN"/>
     <system value="urn:oid:1.2.36.146.595.217.0.1"/>
-    <key value="12345"/>
+    <value value="12345"/>
     <period>
       <start value="2001-05-06"/>
     </period>

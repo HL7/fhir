@@ -10,7 +10,7 @@
   <!-- MRN assigned by ACME healthcare on 6-May 2001 -->
   <identifier>
     <label value="Internal Identifier"/>
-    <key value="AB60001"/>
+    <value value="AB60001"/>
   </identifier>
 
   <!-- Peter James Chalmers, but called "Jim" -->

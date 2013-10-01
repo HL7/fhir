@@ -29,13 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 22, 2013 08:29+1000 for FHIR v0.11
+// Generated on Tue, Oct 1, 2013 21:45+1000 for FHIR v0.11
 
 public class ResourceFactory {
 
     public static Resource createResource(String name) throws Exception {
-        if ("User".equals(name))
-            return new User();
         if ("Condition".equals(name))
             return new Condition();
         if ("Supply".equals(name))
@@ -90,6 +88,8 @@ public class ResourceFactory {
             return new Microarray();
         if ("OrderResponse".equals(name))
             return new OrderResponse();
+        if ("ConceptMap".equals(name))
+            return new ConceptMap();
         if ("ImagingStudy".equals(name))
             return new ImagingStudy();
         if ("Practitioner".equals(name))
@@ -102,6 +102,8 @@ public class ResourceFactory {
             return new CarePlan();
         if ("Provenance".equals(name))
             return new Provenance();
+        if ("DeviceData".equals(name))
+            return new DeviceData();
         if ("Device".equals(name))
             return new Device();
         if ("Query".equals(name))
@@ -130,6 +132,8 @@ public class ResourceFactory {
             return new List_();
         if ("Document".equals(name))
             return new Document();
+        if ("AssessmentDefinition".equals(name))
+            return new AssessmentDefinition();
         if ("Message".equals(name))
             return new Message();
         if ("FamilyHistory".equals(name))
@@ -167,10 +171,10 @@ public class ResourceFactory {
             return new Period();
         if ("Coding".equals(name))
             return new Coding();
-        if ("Age".equals(name))
-            return new Age();
         if ("Range".equals(name))
             return new Range();
+        if ("Age".equals(name))
+            return new Age();
         if ("Count".equals(name))
             return new Count();
         if ("Quantity".equals(name))
@@ -187,8 +191,6 @@ public class ResourceFactory {
             return new Extension();
         if ("Schedule".equals(name))
             return new Schedule();
-        if ("Choice".equals(name))
-            return new Choice();
         if ("HumanName".equals(name))
             return new HumanName();
         if ("Address".equals(name))

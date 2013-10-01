@@ -44,213 +44,213 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum ExampleType implements Enumerator {
 	/**
-	 * The '<em><b>Xml</b></em>' literal object.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Xml</b></em>' literal object.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #XML_VALUE
-	 * @generated
-	 * @ordered
-	 */
+   * @see #XML_VALUE
+   * @generated
+   * @ordered
+   */
 	XML(0, "Xml", "Xml"), /**
-	 * The '<em><b>Csv</b></em>' literal object.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Csv</b></em>' literal object.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #CSV_VALUE
-	 * @generated
-	 * @ordered
-	 */
+   * @see #CSV_VALUE
+   * @generated
+   * @ordered
+   */
 	CSV(1, "Csv", "Csv"), /**
-	 * The '<em><b>Tool</b></em>' literal object.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Tool</b></em>' literal object.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #TOOL_VALUE
-	 * @generated
-	 * @ordered
-	 */
+   * @see #TOOL_VALUE
+   * @generated
+   * @ordered
+   */
 	TOOL(2, "Tool", "Tool");
 
 	/**
-	 * The '<em><b>Xml</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Xml</b></em>' literal value.
+   * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Xml</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #XML
-	 * @model name="Xml"
-	 * @generated
-	 * @ordered
-	 */
+   * @see #XML
+   * @model name="Xml"
+   * @generated
+   * @ordered
+   */
 	public static final int XML_VALUE = 0;
 
 	/**
-	 * The '<em><b>Csv</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Csv</b></em>' literal value.
+   * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Csv</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #CSV
-	 * @model name="Csv"
-	 * @generated
-	 * @ordered
-	 */
+   * @see #CSV
+   * @model name="Csv"
+   * @generated
+   * @ordered
+   */
 	public static final int CSV_VALUE = 1;
 
 	/**
-	 * The '<em><b>Tool</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Tool</b></em>' literal value.
+   * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Tool</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #TOOL
-	 * @model name="Tool"
-	 * @generated
-	 * @ordered
-	 */
+   * @see #TOOL
+   * @model name="Tool"
+   * @generated
+   * @ordered
+   */
 	public static final int TOOL_VALUE = 2;
 
 	/**
-	 * An array of all the '<em><b>Example Type</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
+   * An array of all the '<em><b>Example Type</b></em>' enumerators.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private static final ExampleType[] VALUES_ARRAY =
 		new ExampleType[] {
-			XML,
-			CSV,
-			TOOL,
-		};
+      XML,
+      CSV,
+      TOOL,
+    };
 
 	/**
-	 * A public read-only list of all the '<em><b>Example Type</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
+   * A public read-only list of all the '<em><b>Example Type</b></em>' enumerators.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public static final List<ExampleType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Example Type</b></em>' literal with the specified literal value.
-	 * <!-- begin-user-doc -->
+   * Returns the '<em><b>Example Type</b></em>' literal with the specified literal value.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public static ExampleType get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			ExampleType result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
-				return result;
-			}
-		}
-		return null;
-	}
+    for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+      ExampleType result = VALUES_ARRAY[i];
+      if (result.toString().equals(literal)) {
+        return result;
+      }
+    }
+    return null;
+  }
 
 	/**
-	 * Returns the '<em><b>Example Type</b></em>' literal with the specified name.
-	 * <!-- begin-user-doc -->
+   * Returns the '<em><b>Example Type</b></em>' literal with the specified name.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public static ExampleType getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			ExampleType result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
-				return result;
-			}
-		}
-		return null;
-	}
+    for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+      ExampleType result = VALUES_ARRAY[i];
+      if (result.getName().equals(name)) {
+        return result;
+      }
+    }
+    return null;
+  }
 
 	/**
-	 * Returns the '<em><b>Example Type</b></em>' literal with the specified integer value.
-	 * <!-- begin-user-doc -->
+   * Returns the '<em><b>Example Type</b></em>' literal with the specified integer value.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public static ExampleType get(int value) {
-		switch (value) {
-			case XML_VALUE: return XML;
-			case CSV_VALUE: return CSV;
-			case TOOL_VALUE: return TOOL;
-		}
-		return null;
-	}
+    switch (value) {
+      case XML_VALUE: return XML;
+      case CSV_VALUE: return CSV;
+      case TOOL_VALUE: return TOOL;
+    }
+    return null;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private final int value;
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private final String name;
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private final String literal;
 
 	/**
-	 * Only this class can construct instances.
-	 * <!-- begin-user-doc -->
+   * Only this class can construct instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private ExampleType(int value, String name, String literal) {
-		this.value = value;
-		this.name = name;
-		this.literal = literal;
-	}
+    this.value = value;
+    this.name = name;
+    this.literal = literal;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public int getValue() {
-	  return value;
-	}
+    return value;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public String getName() {
-	  return name;
-	}
+    return name;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public String getLiteral() {
-	  return literal;
-	}
+    return literal;
+  }
 
 	/**
-	 * Returns the literal value of the enumerator, which is its string representation.
-	 * <!-- begin-user-doc -->
+   * Returns the literal value of the enumerator, which is its string representation.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public String toString() {
-		return literal;
-	}
+    return literal;
+  }
 	
 } //ExampleType

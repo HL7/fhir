@@ -43,6 +43,8 @@ public class DefinedCode {
 	private String system;
 	private String parent;
 	private List<DefinedCode> childCodes;
+  private String v2Map;
+  private String v3Map;
 	
 	public DefinedCode(String code, String definition, String comment) {
 		super();
@@ -124,6 +126,22 @@ public class DefinedCode {
     if (childCodes == null)
       childCodes = new ArrayList<DefinedCode>();
     return childCodes;
+  }
+
+  public String getV2Map() {
+    return v2Map;
+  }
+
+  public void setV2Map(String v2Map) {
+    this.v2Map = v2Map;
+  }
+
+  public String getV3Map() {
+    return v3Map;
+  }
+
+  public void setV3Map(String v3Map) {
+    this.v3Map = v3Map;
   }
 
 

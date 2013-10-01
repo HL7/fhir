@@ -49,6 +49,7 @@ import org.hl7.fhir.definitions.model.SearchParameter;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.validation.BaseValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
@@ -74,11 +75,11 @@ public class ResourceValidator extends BaseValidator {
   private Definitions definitions;
 	private Map<String, Usage> usages = new HashMap<String, Usage>();
   private Element translations;
-  private Map<String, AtomEntry<? extends Resource>> codeSystems = new HashMap<String, AtomEntry<? extends Resource>>();
+  private Map<String, AtomEntry<ValueSet>> codeSystems = new HashMap<String, AtomEntry<ValueSet>>();
   
   
 
-	public ResourceValidator(Definitions definitions, Element translations, Map<String, AtomEntry<? extends Resource>> map) {
+	public ResourceValidator(Definitions definitions, Element translations, Map<String, AtomEntry<ValueSet>> map) {
 		super();
     source = Source.ResourceValidator;
 		this.definitions = definitions;
@@ -103,7 +104,7 @@ public class ResourceValidator extends BaseValidator {
 
   public void checkStucture(List<ValidationMessage> errors, String name, ElementDefn structure) {
     rule(errors, "structure", structure.getName(), name.toLowerCase().substring(0, 1) != name.substring(0, 1), "Resource Name must start with an uppercase alpha character");
-    checkElement(errors, structure.getName(), structure, null, null);
+    checkElement(errors, structure.getName(), structure, null, null, true);
     
   }
   public List<ValidationMessage> checkStucture(String name, ElementDefn structure) {
@@ -116,7 +117,7 @@ public class ResourceValidator extends BaseValidator {
   public void check(List<ValidationMessage> errors, String name, ResourceDefn parent) {
     rule(errors, "structure", parent.getName(), !name.equals("Metadata"), "The name 'Metadata' is not a legal name for a resource");
     rule(errors, "structure", parent.getName(), !name.equals("History"), "The name 'History' is not a legal name for a resource");
-    rule(errors, "structure", parent.getName(), !name.equals("Tag"), "The name 'Tag  ' is not a legal name for a resource");
+    rule(errors, "structure", parent.getName(), !name.equals("Tag"), "The name 'Tag' is not a legal name for a resource");
     rule(errors, "structure", parent.getName(), !name.equals("Tags"), "The name 'Tags' is not a legal name for a resource");
     rule(errors, "structure", parent.getName(), !name.equals("MailBox"), "The name 'MailBox' is not a legal name for a resource");
     rule(errors, "structure", parent.getName(), !name.equals("Validation"), "The name 'Validation' is not a legal name for a resource");
@@ -125,7 +126,11 @@ public class ResourceValidator extends BaseValidator {
 
     rule(errors, "required",  parent.getName(), parent.getRoot().getElements().size() > 0, "A resource must have at least one element in it before the build can proceed"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
     
-    checkElement(errors, parent.getName(), parent.getRoot(), parent, null);
+    String s = parent.getRoot().getMapping(ElementDefn.RIM_MAPPING);
+    warning(errors, "required", parent.getName(), !Utilities.noString(s), "RIM Mapping is required");
+
+    checkElement(errors, parent.getName(), parent.getRoot(), parent, null, s == null || !s.equals("n/a"));
+    
     rule(errors, "structure", parent.getName(), parent.getRoot().getElementByName("text") == null, "Element named \"text\" not allowed");
     rule(errors, "structure", parent.getName(), parent.getRoot().getElementByName("contained") == null, "Element named \"contaned\" not allowed");
     if (parent.getRoot().getElementByName("subject") != null && parent.getRoot().getElementByName("subject").typeCode().startsWith("Resource"))
@@ -164,7 +169,7 @@ public class ResourceValidator extends BaseValidator {
   
 	//todo: check that primitives *in datatypes* don't repeat
 	
-	private void checkElement(List<ValidationMessage> errors, String path, ElementDefn e, ResourceDefn parent, String parentName) {
+	private void checkElement(List<ValidationMessage> errors, String path, ElementDefn e, ResourceDefn parent, String parentName, boolean needsRimMapping) {
 		rule(errors, "structure", path, e.unbounded() || e.getMaxCardinality() == 1,	"Max Cardinality must be 1 or unbounded");
 		rule(errors, "structure", path, e.getMinCardinality() == 0 || e.getMinCardinality() == 1, "Min Cardinality must be 0 or 1");
 		hint(errors, "structure", path, !nameOverlaps(e.getName(), parentName), "Name of child ("+e.getName()+") overlaps with name of parent ("+parentName+")");
@@ -179,6 +184,9 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, "structure", path, !e.getDefinition().toLowerCase().startsWith("this is"), "Definition should not start with 'this is'");
     rule(errors, "structure", path, e.getDefinition().endsWith("."), "Definition should end with '.', but is '"+e.getDefinition()+"'");
     
+//    if (needsRimMapping)
+//      warning(errors, "required", path, !Utilities.noString(e.getMapping(ElementDefn.RIM_MAPPING)), "RIM Mapping is required");
+
     if( e.getShortDefn().length() > 0)
 		{
 			rule(errors, "structure", path, e.getShortDefn().contains("|") || Character.isUpperCase(e.getShortDefn().charAt(0)) || !Character.isLetter(e.getShortDefn().charAt(0)), "Short Description must start with an uppercase character ('"+e.getShortDefn()+"')");
@@ -225,7 +233,7 @@ public class ResourceValidator extends BaseValidator {
 			}
 		}
 		for (ElementDefn c : e.getElements()) {
-			checkElement(errors, path + "." + c.getName(), c, parent, e.getName());
+			checkElement(errors, path + "." + c.getName(), c, parent, e.getName(), needsRimMapping);
 		}
 
 	}

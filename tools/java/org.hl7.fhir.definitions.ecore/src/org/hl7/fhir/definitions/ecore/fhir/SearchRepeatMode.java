@@ -44,217 +44,217 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum SearchRepeatMode implements Enumerator {
 	/**
-	 * The '<em><b>Single</b></em>' literal object.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Single</b></em>' literal object.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #SINGLE_VALUE
-	 * @generated
-	 * @ordered
-	 */
+   * @see #SINGLE_VALUE
+   * @generated
+   * @ordered
+   */
 	SINGLE(0, "Single", "Single"),
 
 	/**
-	 * The '<em><b>Union</b></em>' literal object.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Union</b></em>' literal object.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #UNION_VALUE
-	 * @generated
-	 * @ordered
-	 */
+   * @see #UNION_VALUE
+   * @generated
+   * @ordered
+   */
 	UNION(1, "Union", "Union"),
 
 	/**
-	 * The '<em><b>Intersection</b></em>' literal object.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Intersection</b></em>' literal object.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #INTERSECTION_VALUE
-	 * @generated
-	 * @ordered
-	 */
+   * @see #INTERSECTION_VALUE
+   * @generated
+   * @ordered
+   */
 	INTERSECTION(2, "Intersection", "Intersection");
 
 	/**
-	 * The '<em><b>Single</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Single</b></em>' literal value.
+   * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Single</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #SINGLE
-	 * @model name="Single"
-	 * @generated
-	 * @ordered
-	 */
+   * @see #SINGLE
+   * @model name="Single"
+   * @generated
+   * @ordered
+   */
 	public static final int SINGLE_VALUE = 0;
 
 	/**
-	 * The '<em><b>Union</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Union</b></em>' literal value.
+   * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Union</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #UNION
-	 * @model name="Union"
-	 * @generated
-	 * @ordered
-	 */
+   * @see #UNION
+   * @model name="Union"
+   * @generated
+   * @ordered
+   */
 	public static final int UNION_VALUE = 1;
 
 	/**
-	 * The '<em><b>Intersection</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Intersection</b></em>' literal value.
+   * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Intersection</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #INTERSECTION
-	 * @model name="Intersection"
-	 * @generated
-	 * @ordered
-	 */
+   * @see #INTERSECTION
+   * @model name="Intersection"
+   * @generated
+   * @ordered
+   */
 	public static final int INTERSECTION_VALUE = 2;
 
 	/**
-	 * An array of all the '<em><b>Search Repeat Mode</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
+   * An array of all the '<em><b>Search Repeat Mode</b></em>' enumerators.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private static final SearchRepeatMode[] VALUES_ARRAY =
 		new SearchRepeatMode[] {
-			SINGLE,
-			UNION,
-			INTERSECTION,
-		};
+      SINGLE,
+      UNION,
+      INTERSECTION,
+    };
 
 	/**
-	 * A public read-only list of all the '<em><b>Search Repeat Mode</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
+   * A public read-only list of all the '<em><b>Search Repeat Mode</b></em>' enumerators.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public static final List<SearchRepeatMode> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Search Repeat Mode</b></em>' literal with the specified literal value.
-	 * <!-- begin-user-doc -->
+   * Returns the '<em><b>Search Repeat Mode</b></em>' literal with the specified literal value.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public static SearchRepeatMode get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			SearchRepeatMode result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
-				return result;
-			}
-		}
-		return null;
-	}
+    for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+      SearchRepeatMode result = VALUES_ARRAY[i];
+      if (result.toString().equals(literal)) {
+        return result;
+      }
+    }
+    return null;
+  }
 
 	/**
-	 * Returns the '<em><b>Search Repeat Mode</b></em>' literal with the specified name.
-	 * <!-- begin-user-doc -->
+   * Returns the '<em><b>Search Repeat Mode</b></em>' literal with the specified name.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public static SearchRepeatMode getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			SearchRepeatMode result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
-				return result;
-			}
-		}
-		return null;
-	}
+    for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+      SearchRepeatMode result = VALUES_ARRAY[i];
+      if (result.getName().equals(name)) {
+        return result;
+      }
+    }
+    return null;
+  }
 
 	/**
-	 * Returns the '<em><b>Search Repeat Mode</b></em>' literal with the specified integer value.
-	 * <!-- begin-user-doc -->
+   * Returns the '<em><b>Search Repeat Mode</b></em>' literal with the specified integer value.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public static SearchRepeatMode get(int value) {
-		switch (value) {
-			case SINGLE_VALUE: return SINGLE;
-			case UNION_VALUE: return UNION;
-			case INTERSECTION_VALUE: return INTERSECTION;
-		}
-		return null;
-	}
+    switch (value) {
+      case SINGLE_VALUE: return SINGLE;
+      case UNION_VALUE: return UNION;
+      case INTERSECTION_VALUE: return INTERSECTION;
+    }
+    return null;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private final int value;
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private final String name;
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private final String literal;
 
 	/**
-	 * Only this class can construct instances.
-	 * <!-- begin-user-doc -->
+   * Only this class can construct instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private SearchRepeatMode(int value, String name, String literal) {
-		this.value = value;
-		this.name = name;
-		this.literal = literal;
-	}
+    this.value = value;
+    this.name = name;
+    this.literal = literal;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public int getValue() {
-	  return value;
-	}
+    return value;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public String getName() {
-	  return name;
-	}
+    return name;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public String getLiteral() {
-	  return literal;
-	}
+    return literal;
+  }
 
 	/**
-	 * Returns the literal value of the enumerator, which is its string representation.
-	 * <!-- begin-user-doc -->
+   * Returns the literal value of the enumerator, which is its string representation.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public String toString() {
-		return literal;
-	}
+    return literal;
+  }
 	
 } //SearchRepeatMode

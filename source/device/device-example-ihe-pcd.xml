@@ -8,7 +8,7 @@
   </text>
   <identifier>
     <label value="serialNumber"/>
-    <key value="AMID-123-456"/>
+    <value value="AMID-123-456"/>
   </identifier>
   <type>
     <text value="Vital Signs Monitor"/>

@@ -1,7 +1,6 @@
 package org.hl7.fhir.instance.model;
 
 public enum ResourceType {
-    User,
     Condition,
     Supply,
     GVFVariant,
@@ -27,12 +26,14 @@ public enum ResourceType {
     Immunization,
     Microarray,
     OrderResponse,
+    ConceptMap,
     ImagingStudy,
     Practitioner,
     GVFMeta,
     VCFVariant,
     CarePlan,
     Provenance,
+    DeviceData,
     Device,
     Query,
     Order,
@@ -62,13 +63,12 @@ public enum ResourceType {
     AdverseReaction,
     DiagnosticOrder,
     Appointment,
+    AssessmentDefinition,
     InterestOfCare,
     Binary;
 
     public String getPath() {;
       switch (this) {
-    case User:
-      return "user";
     case Condition:
       return "condition";
     case Supply:
@@ -119,6 +119,8 @@ public enum ResourceType {
       return "microarray";
     case OrderResponse:
       return "orderresponse";
+    case ConceptMap:
+      return "conceptmap";
     case ImagingStudy:
       return "imagingstudy";
     case Practitioner:
@@ -131,6 +133,8 @@ public enum ResourceType {
       return "careplan";
     case Provenance:
       return "provenance";
+    case DeviceData:
+      return "devicedata";
     case Device:
       return "device";
     case Query:
@@ -189,6 +193,8 @@ public enum ResourceType {
       return "diagnosticorder";
     case Appointment:
       return "appointment";
+    case AssessmentDefinition:
+      return "assessmentdefinition";
     case InterestOfCare:
       return "interestofcare";
     case Binary:

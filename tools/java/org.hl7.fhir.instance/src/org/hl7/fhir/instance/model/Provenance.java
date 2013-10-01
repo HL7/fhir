@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 22, 2013 08:29+1000 for FHIR v0.11
+// Generated on Tue, Oct 1, 2013 21:45+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -113,7 +113,7 @@ public class Provenance extends Resource {
         protected Uri reference;
 
         /**
-         * Human readable description of the participant.
+         * Human-readable description of the participant.
          */
         protected String_ display;
 
@@ -201,7 +201,7 @@ public class Provenance extends Resource {
         protected Uri reference;
 
         /**
-         * Human readable description of the entity.
+         * Human-readable description of the entity.
          */
         protected String_ display;
 

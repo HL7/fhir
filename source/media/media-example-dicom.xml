@@ -31,23 +31,23 @@
     <use value="official"/>
     <label value="InstanceUID"/>
     <system value="urn:ietf:rfc:3986"/>
-    <key value="urn:oid:1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
+    <value value="urn:oid:1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
   </identifier> 
   <identifier>
     <label value="accessionNo"/>
     <!-- the imaging department accession number. (they recycle numbers each year) -->    
     <system value="http://acme-imaging.com/accession/2012"/>
-    <key value="1234567"/>
+    <value value="1234567"/>
  </identifier>
   <identifier>
     <label value="studyId"/>
     <system value="urn:ietf:rfc:3986"/>
-    <key value="urn:oid:1.2.840.113619.2.21.848.34082.0.538976288.3"/>
+    <value value="urn:oid:1.2.840.113619.2.21.848.34082.0.538976288.3"/>
   </identifier>
   <identifier>
     <label value="seriesId"/>
     <system value="urn:ietf:rfc:3986"/>
-    <key value="urn:oid:1.2.840.113619.2.21.3408.700.0.757923840.3.0"/>
+    <value value="urn:oid:1.2.840.113619.2.21.3408.700.0.757923840.3.0"/>
   </identifier>  
 
   <subject>

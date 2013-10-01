@@ -3,7 +3,7 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>This value set includes all Snomed-CT codes relating to the qualifier "Known" (concepts with an is-a relationship with 36692007)</p>
+      <p>This value set includes all SNOMED CT codes relating to the qualifier "Known" (concepts with an is-a relationship with 36692007)</p>
     </div>
   </text>
   <identifier value="http://hl7.org/fhir/vs/condition-certainty"/>

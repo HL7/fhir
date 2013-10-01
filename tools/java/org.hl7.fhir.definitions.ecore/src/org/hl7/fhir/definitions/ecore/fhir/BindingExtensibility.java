@@ -44,190 +44,190 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum BindingExtensibility implements Enumerator {
 	/**
-	 * The '<em><b>Complete</b></em>' literal object.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Complete</b></em>' literal object.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #COMPLETE_VALUE
-	 * @generated
-	 * @ordered
-	 */
+   * @see #COMPLETE_VALUE
+   * @generated
+   * @ordered
+   */
 	COMPLETE(0, "Complete", "Complete"),
 
 	/**
-	 * The '<em><b>Extensible</b></em>' literal object.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Extensible</b></em>' literal object.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #EXTENSIBLE_VALUE
-	 * @generated
-	 * @ordered
-	 */
+   * @see #EXTENSIBLE_VALUE
+   * @generated
+   * @ordered
+   */
 	EXTENSIBLE(1, "Extensible", "Extensible");
 
 	/**
-	 * The '<em><b>Complete</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Complete</b></em>' literal value.
+   * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Complete</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #COMPLETE
-	 * @model name="Complete"
-	 * @generated
-	 * @ordered
-	 */
+   * @see #COMPLETE
+   * @model name="Complete"
+   * @generated
+   * @ordered
+   */
 	public static final int COMPLETE_VALUE = 0;
 
 	/**
-	 * The '<em><b>Extensible</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+   * The '<em><b>Extensible</b></em>' literal value.
+   * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Extensible</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #EXTENSIBLE
-	 * @model name="Extensible"
-	 * @generated
-	 * @ordered
-	 */
+   * @see #EXTENSIBLE
+   * @model name="Extensible"
+   * @generated
+   * @ordered
+   */
 	public static final int EXTENSIBLE_VALUE = 1;
 
 	/**
-	 * An array of all the '<em><b>Binding Extensibility</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
+   * An array of all the '<em><b>Binding Extensibility</b></em>' enumerators.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private static final BindingExtensibility[] VALUES_ARRAY =
 		new BindingExtensibility[] {
-			COMPLETE,
-			EXTENSIBLE,
-		};
+      COMPLETE,
+      EXTENSIBLE,
+    };
 
 	/**
-	 * A public read-only list of all the '<em><b>Binding Extensibility</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
+   * A public read-only list of all the '<em><b>Binding Extensibility</b></em>' enumerators.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public static final List<BindingExtensibility> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Binding Extensibility</b></em>' literal with the specified literal value.
-	 * <!-- begin-user-doc -->
+   * Returns the '<em><b>Binding Extensibility</b></em>' literal with the specified literal value.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public static BindingExtensibility get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			BindingExtensibility result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
-				return result;
-			}
-		}
-		return null;
-	}
+    for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+      BindingExtensibility result = VALUES_ARRAY[i];
+      if (result.toString().equals(literal)) {
+        return result;
+      }
+    }
+    return null;
+  }
 
 	/**
-	 * Returns the '<em><b>Binding Extensibility</b></em>' literal with the specified name.
-	 * <!-- begin-user-doc -->
+   * Returns the '<em><b>Binding Extensibility</b></em>' literal with the specified name.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public static BindingExtensibility getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			BindingExtensibility result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
-				return result;
-			}
-		}
-		return null;
-	}
+    for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+      BindingExtensibility result = VALUES_ARRAY[i];
+      if (result.getName().equals(name)) {
+        return result;
+      }
+    }
+    return null;
+  }
 
 	/**
-	 * Returns the '<em><b>Binding Extensibility</b></em>' literal with the specified integer value.
-	 * <!-- begin-user-doc -->
+   * Returns the '<em><b>Binding Extensibility</b></em>' literal with the specified integer value.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public static BindingExtensibility get(int value) {
-		switch (value) {
-			case COMPLETE_VALUE: return COMPLETE;
-			case EXTENSIBLE_VALUE: return EXTENSIBLE;
-		}
-		return null;
-	}
+    switch (value) {
+      case COMPLETE_VALUE: return COMPLETE;
+      case EXTENSIBLE_VALUE: return EXTENSIBLE;
+    }
+    return null;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private final int value;
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private final String name;
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private final String literal;
 
 	/**
-	 * Only this class can construct instances.
-	 * <!-- begin-user-doc -->
+   * Only this class can construct instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	private BindingExtensibility(int value, String name, String literal) {
-		this.value = value;
-		this.name = name;
-		this.literal = literal;
-	}
+    this.value = value;
+    this.name = name;
+    this.literal = literal;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public int getValue() {
-	  return value;
-	}
+    return value;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public String getName() {
-	  return name;
-	}
+    return name;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public String getLiteral() {
-	  return literal;
-	}
+    return literal;
+  }
 
 	/**
-	 * Returns the literal value of the enumerator, which is its string representation.
-	 * <!-- begin-user-doc -->
+   * Returns the literal value of the enumerator, which is its string representation.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public String toString() {
-		return literal;
-	}
+    return literal;
+  }
 	
 } //BindingExtensibility

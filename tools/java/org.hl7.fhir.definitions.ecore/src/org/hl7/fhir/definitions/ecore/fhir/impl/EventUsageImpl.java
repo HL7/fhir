@@ -36,284 +36,284 @@ import org.hl7.fhir.definitions.ecore.fhir.FhirPackage;
  */
 public class EventUsageImpl extends EObjectImpl implements EventUsage {
 	/**
-	 * The default value of the '{@link #getNotes() <em>Notes</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getNotes() <em>Notes</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNotes()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getNotes()
+   * @generated
+   * @ordered
+   */
 	protected static final String NOTES_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getNotes() <em>Notes</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getNotes() <em>Notes</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNotes()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getNotes()
+   * @generated
+   * @ordered
+   */
 	protected String notes = NOTES_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRequestResources() <em>Request Resources</em>}' attribute list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getRequestResources() <em>Request Resources</em>}' attribute list.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequestResources()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getRequestResources()
+   * @generated
+   * @ordered
+   */
 	protected EList<String> requestResources;
 
 	/**
-	 * The cached value of the '{@link #getRequestAggregations() <em>Request Aggregations</em>}' attribute list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getRequestAggregations() <em>Request Aggregations</em>}' attribute list.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequestAggregations()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getRequestAggregations()
+   * @generated
+   * @ordered
+   */
 	protected EList<String> requestAggregations;
 
 	/**
-	 * The cached value of the '{@link #getResponseResources() <em>Response Resources</em>}' attribute list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getResponseResources() <em>Response Resources</em>}' attribute list.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getResponseResources()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getResponseResources()
+   * @generated
+   * @ordered
+   */
 	protected EList<String> responseResources;
 
 	/**
-	 * The cached value of the '{@link #getResponseAggregations() <em>Response Aggregations</em>}' attribute list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getResponseAggregations() <em>Response Aggregations</em>}' attribute list.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getResponseAggregations()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getResponseAggregations()
+   * @generated
+   * @ordered
+   */
 	protected EList<String> responseAggregations;
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected EventUsageImpl() {
-		super();
-	}
+    super();
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	protected EClass eStaticClass() {
-		return FhirPackage.Literals.EVENT_USAGE;
-	}
+    return FhirPackage.Literals.EVENT_USAGE;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public String getNotes() {
-		return notes;
-	}
+    return notes;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void setNotes(String newNotes) {
-		String oldNotes = notes;
-		notes = newNotes;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EVENT_USAGE__NOTES, oldNotes, notes));
-	}
+    String oldNotes = notes;
+    notes = newNotes;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EVENT_USAGE__NOTES, oldNotes, notes));
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public EList<String> getRequestResources() {
-		if (requestResources == null) {
-			requestResources = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.EVENT_USAGE__REQUEST_RESOURCES);
-		}
-		return requestResources;
-	}
+    if (requestResources == null) {
+      requestResources = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.EVENT_USAGE__REQUEST_RESOURCES);
+    }
+    return requestResources;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public EList<String> getRequestAggregations() {
-		if (requestAggregations == null) {
-			requestAggregations = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.EVENT_USAGE__REQUEST_AGGREGATIONS);
-		}
-		return requestAggregations;
-	}
+    if (requestAggregations == null) {
+      requestAggregations = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.EVENT_USAGE__REQUEST_AGGREGATIONS);
+    }
+    return requestAggregations;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public EList<String> getResponseResources() {
-		if (responseResources == null) {
-			responseResources = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.EVENT_USAGE__RESPONSE_RESOURCES);
-		}
-		return responseResources;
-	}
+    if (responseResources == null) {
+      responseResources = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.EVENT_USAGE__RESPONSE_RESOURCES);
+    }
+    return responseResources;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public EList<String> getResponseAggregations() {
-		if (responseAggregations == null) {
-			responseAggregations = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.EVENT_USAGE__RESPONSE_AGGREGATIONS);
-		}
-		return responseAggregations;
-	}
+    if (responseAggregations == null) {
+      responseAggregations = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.EVENT_USAGE__RESPONSE_AGGREGATIONS);
+    }
+    return responseAggregations;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case FhirPackage.EVENT_USAGE__NOTES:
-				return getNotes();
-			case FhirPackage.EVENT_USAGE__REQUEST_RESOURCES:
-				return getRequestResources();
-			case FhirPackage.EVENT_USAGE__REQUEST_AGGREGATIONS:
-				return getRequestAggregations();
-			case FhirPackage.EVENT_USAGE__RESPONSE_RESOURCES:
-				return getResponseResources();
-			case FhirPackage.EVENT_USAGE__RESPONSE_AGGREGATIONS:
-				return getResponseAggregations();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    switch (featureID) {
+      case FhirPackage.EVENT_USAGE__NOTES:
+        return getNotes();
+      case FhirPackage.EVENT_USAGE__REQUEST_RESOURCES:
+        return getRequestResources();
+      case FhirPackage.EVENT_USAGE__REQUEST_AGGREGATIONS:
+        return getRequestAggregations();
+      case FhirPackage.EVENT_USAGE__RESPONSE_RESOURCES:
+        return getResponseResources();
+      case FhirPackage.EVENT_USAGE__RESPONSE_AGGREGATIONS:
+        return getResponseAggregations();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case FhirPackage.EVENT_USAGE__NOTES:
-				setNotes((String)newValue);
-				return;
-			case FhirPackage.EVENT_USAGE__REQUEST_RESOURCES:
-				getRequestResources().clear();
-				getRequestResources().addAll((Collection<? extends String>)newValue);
-				return;
-			case FhirPackage.EVENT_USAGE__REQUEST_AGGREGATIONS:
-				getRequestAggregations().clear();
-				getRequestAggregations().addAll((Collection<? extends String>)newValue);
-				return;
-			case FhirPackage.EVENT_USAGE__RESPONSE_RESOURCES:
-				getResponseResources().clear();
-				getResponseResources().addAll((Collection<? extends String>)newValue);
-				return;
-			case FhirPackage.EVENT_USAGE__RESPONSE_AGGREGATIONS:
-				getResponseAggregations().clear();
-				getResponseAggregations().addAll((Collection<? extends String>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    switch (featureID) {
+      case FhirPackage.EVENT_USAGE__NOTES:
+        setNotes((String)newValue);
+        return;
+      case FhirPackage.EVENT_USAGE__REQUEST_RESOURCES:
+        getRequestResources().clear();
+        getRequestResources().addAll((Collection<? extends String>)newValue);
+        return;
+      case FhirPackage.EVENT_USAGE__REQUEST_AGGREGATIONS:
+        getRequestAggregations().clear();
+        getRequestAggregations().addAll((Collection<? extends String>)newValue);
+        return;
+      case FhirPackage.EVENT_USAGE__RESPONSE_RESOURCES:
+        getResponseResources().clear();
+        getResponseResources().addAll((Collection<? extends String>)newValue);
+        return;
+      case FhirPackage.EVENT_USAGE__RESPONSE_AGGREGATIONS:
+        getResponseAggregations().clear();
+        getResponseAggregations().addAll((Collection<? extends String>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case FhirPackage.EVENT_USAGE__NOTES:
-				setNotes(NOTES_EDEFAULT);
-				return;
-			case FhirPackage.EVENT_USAGE__REQUEST_RESOURCES:
-				getRequestResources().clear();
-				return;
-			case FhirPackage.EVENT_USAGE__REQUEST_AGGREGATIONS:
-				getRequestAggregations().clear();
-				return;
-			case FhirPackage.EVENT_USAGE__RESPONSE_RESOURCES:
-				getResponseResources().clear();
-				return;
-			case FhirPackage.EVENT_USAGE__RESPONSE_AGGREGATIONS:
-				getResponseAggregations().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    switch (featureID) {
+      case FhirPackage.EVENT_USAGE__NOTES:
+        setNotes(NOTES_EDEFAULT);
+        return;
+      case FhirPackage.EVENT_USAGE__REQUEST_RESOURCES:
+        getRequestResources().clear();
+        return;
+      case FhirPackage.EVENT_USAGE__REQUEST_AGGREGATIONS:
+        getRequestAggregations().clear();
+        return;
+      case FhirPackage.EVENT_USAGE__RESPONSE_RESOURCES:
+        getResponseResources().clear();
+        return;
+      case FhirPackage.EVENT_USAGE__RESPONSE_AGGREGATIONS:
+        getResponseAggregations().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case FhirPackage.EVENT_USAGE__NOTES:
-				return NOTES_EDEFAULT == null ? notes != null : !NOTES_EDEFAULT.equals(notes);
-			case FhirPackage.EVENT_USAGE__REQUEST_RESOURCES:
-				return requestResources != null && !requestResources.isEmpty();
-			case FhirPackage.EVENT_USAGE__REQUEST_AGGREGATIONS:
-				return requestAggregations != null && !requestAggregations.isEmpty();
-			case FhirPackage.EVENT_USAGE__RESPONSE_RESOURCES:
-				return responseResources != null && !responseResources.isEmpty();
-			case FhirPackage.EVENT_USAGE__RESPONSE_AGGREGATIONS:
-				return responseAggregations != null && !responseAggregations.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+    switch (featureID) {
+      case FhirPackage.EVENT_USAGE__NOTES:
+        return NOTES_EDEFAULT == null ? notes != null : !NOTES_EDEFAULT.equals(notes);
+      case FhirPackage.EVENT_USAGE__REQUEST_RESOURCES:
+        return requestResources != null && !requestResources.isEmpty();
+      case FhirPackage.EVENT_USAGE__REQUEST_AGGREGATIONS:
+        return requestAggregations != null && !requestAggregations.isEmpty();
+      case FhirPackage.EVENT_USAGE__RESPONSE_RESOURCES:
+        return responseResources != null && !responseResources.isEmpty();
+      case FhirPackage.EVENT_USAGE__RESPONSE_AGGREGATIONS:
+        return responseAggregations != null && !responseAggregations.isEmpty();
+    }
+    return super.eIsSet(featureID);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+    if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (notes: ");
-		result.append(notes);
-		result.append(", requestResources: ");
-		result.append(requestResources);
-		result.append(", requestAggregations: ");
-		result.append(requestAggregations);
-		result.append(", responseResources: ");
-		result.append(responseResources);
-		result.append(", responseAggregations: ");
-		result.append(responseAggregations);
-		result.append(')');
-		return result.toString();
-	}
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (notes: ");
+    result.append(notes);
+    result.append(", requestResources: ");
+    result.append(requestResources);
+    result.append(", requestAggregations: ");
+    result.append(requestAggregations);
+    result.append(", responseResources: ");
+    result.append(responseResources);
+    result.append(", responseAggregations: ");
+    result.append(responseAggregations);
+    result.append(')');
+    return result.toString();
+  }
 
 } //EventUsageImpl

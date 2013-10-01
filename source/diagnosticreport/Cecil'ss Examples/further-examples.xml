@@ -28,7 +28,7 @@
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -192,7 +192,7 @@ Is a result with multiple organisms and sensitivities without separate OBX�s  
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -289,7 +289,7 @@ OBX5- SNOMED result
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -375,7 +375,7 @@ OBX3- test to be LOINC�d
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -538,7 +538,7 @@ OBX3 does not have the antibiotic to be LOINC�d but OBX5 has antibiotic and se
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <text value="MYCOLOGY"/>
@@ -617,7 +617,7 @@ Comments-   OBR 24 populated
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -694,7 +694,7 @@ OBX|16|ST|TOB^TOBRAMYCIN^^|1|<=1|||SS|||F||1|200511091026|M3^CEN     MICROBIOL|3
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -778,7 +778,7 @@ OBX|8|ST|TOB^TOBRAMYCIN^^|3|2|||SS|||F||3|200511091000|M3^CEN     MICROBIOL|2605
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -835,7 +835,7 @@ NTE|2|L|Giardia antigen detected.
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -896,7 +896,7 @@ NTE|7|L|is suspected.
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -954,7 +954,7 @@ NTE|3|L|**Verified by repeat analysis**
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -1016,7 +1016,7 @@ OBX|2|NM|21612-7^REPORTED PATIENT AGE^2.16.840.1.113883.6.1||20|d^Days^2.16.840.
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -1071,7 +1071,7 @@ NTE|1|L|POSITIVE
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -1126,7 +1126,7 @@ NTE|1|L|POSITIVE
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -1182,7 +1182,7 @@ NTE|1|L|POSITIVE
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -1244,7 +1244,7 @@ NTE|4|L|      endocervical specimens only.
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -1301,7 +1301,7 @@ OBX|2|SN|11084-1^REAGIN AB^2.16.840.1.113883.6.1^006464^RPR, Quant.^L|1|^1^:^80|
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -1362,7 +1362,7 @@ NTE|1|L|Negative
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -1420,7 +1420,7 @@ NTE|3|L|THIS IS A CORRECTED RESULT.
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -1476,7 +1476,7 @@ NTE|1|L|NEGATIVE UPON RETEST:
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -1533,7 +1533,7 @@ NTE|2|L|Giardia antigen detected.
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -1596,7 +1596,7 @@ NTE|4|L|                endocervical specimens only.
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -1658,7 +1658,7 @@ NTE|1|L|POSITIVE
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -1720,7 +1720,7 @@ NTE|1|L|Negative
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -1778,7 +1778,7 @@ NTE|3|L|THIS IS A CORRECTED RESULT.
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -1834,7 +1834,7 @@ NTE|1|L|NEGATIVE UPON RETEST:
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -1890,7 +1890,7 @@ NTE|1|L|NEGATIVE UPON RETEST:
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -1947,7 +1947,7 @@ NTE|2|L|Giardia antigen detected.
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -2010,7 +2010,7 @@ NTE|4|L|                endocervical specimens only.
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -2072,7 +2072,7 @@ NTE|1|L|POSITIVE
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -2134,7 +2134,7 @@ NTE|1|L|Negative
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -2194,7 +2194,7 @@ NTE|1|L|NEISSERIA MENINGITIDIS
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -2252,7 +2252,7 @@ NTE|3|L|                                           Positive          >11
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>
@@ -2310,7 +2310,7 @@ NTE|3|L|    .
         </laboratory>
         <reportId>
           <system value="http://acme.com/lab/reports"/>
-          <key value="5234342"/>
+          <value value="5234342"/>
         </reportId>
         <reportName>
           <coding>

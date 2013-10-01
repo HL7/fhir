@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 22, 2013 08:29+1000 for FHIR v0.11
+// Generated on Tue, Oct 1, 2013 21:45+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -38,93 +38,10 @@ import java.util.*;
  */
 public class Device extends Resource {
 
-    public class DeviceIdentityComponent extends Element {
-        /**
-         * The number assigned to this device by an authorised issuer of Device GTINs, based on the standards set by GS1.
-         */
-        protected String_ gtin;
-
-        /**
-         * Lot number of manufacture.
-         */
-        protected String_ lot;
-
-        /**
-         * The serial number assigned by the organization when the device was manufactured.
-         */
-        protected String_ serialNumber;
-
-        public String_ getGtin() { 
-          return this.gtin;
-        }
-
-        public void setGtin(String_ value) { 
-          this.gtin = value;
-        }
-
-        public String getGtinSimple() { 
-          return this.gtin == null ? null : this.gtin.getValue();
-        }
-
-        public void setGtinSimple(String value) { 
-          if (value == null)
-            this.gtin = null;
-          else {
-            if (this.gtin == null)
-              this.gtin = new String_();
-            this.gtin.setValue(value);
-          }
-        }
-
-        public String_ getLot() { 
-          return this.lot;
-        }
-
-        public void setLot(String_ value) { 
-          this.lot = value;
-        }
-
-        public String getLotSimple() { 
-          return this.lot == null ? null : this.lot.getValue();
-        }
-
-        public void setLotSimple(String value) { 
-          if (value == null)
-            this.lot = null;
-          else {
-            if (this.lot == null)
-              this.lot = new String_();
-            this.lot.setValue(value);
-          }
-        }
-
-        public String_ getSerialNumber() { 
-          return this.serialNumber;
-        }
-
-        public void setSerialNumber(String_ value) { 
-          this.serialNumber = value;
-        }
-
-        public String getSerialNumberSimple() { 
-          return this.serialNumber == null ? null : this.serialNumber.getValue();
-        }
-
-        public void setSerialNumberSimple(String value) { 
-            if (this.serialNumber == null)
-              this.serialNumber = new String_();
-            this.serialNumber.setValue(value);
-        }
-
-      public DeviceIdentityComponent copy(Device e) {
-        DeviceIdentityComponent dst = e.new DeviceIdentityComponent();
-        dst.gtin = gtin == null ? null : gtin.copy();
-        dst.lot = lot == null ? null : lot.copy();
-        dst.serialNumber = serialNumber == null ? null : serialNumber.copy();
-        return dst;
-      }
-
-  }
+    /**
+     * Identifiers assigned to this device by various organizations.
+     */
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * Describes what kind of device that this.
@@ -152,19 +69,14 @@ public class Device extends Resource {
     protected Date expiry;
 
     /**
-     * Universal Device Id fields.
+     * Lot number of manufacture.
      */
-    protected DeviceIdentityComponent identity;
+    protected String_ lotNumber;
 
     /**
      * The organization that is responsible for the provision and ongoing maintenance of the device.
      */
     protected ResourceReference owner;
-
-    /**
-     * Identifiers assigned to this device by various organizations (unless other specific fields exist for them).
-     */
-    protected List<Identifier> assignedId = new ArrayList<Identifier>();
 
     /**
      * The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. "in/with the patient"), or a coded location.
@@ -185,6 +97,17 @@ public class Device extends Resource {
      * A network address on which the device may be contacted directly.
      */
     protected Uri url;
+
+    public List<Identifier> getIdentifier() { 
+      return this.identifier;
+    }
+
+    // syntactic sugar
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
+    }
 
     public CodeableConcept getType() { 
       return this.type;
@@ -282,12 +205,26 @@ public class Device extends Resource {
       }
     }
 
-    public DeviceIdentityComponent getIdentity() { 
-      return this.identity;
+    public String_ getLotNumber() { 
+      return this.lotNumber;
     }
 
-    public void setIdentity(DeviceIdentityComponent value) { 
-      this.identity = value;
+    public void setLotNumber(String_ value) { 
+      this.lotNumber = value;
+    }
+
+    public String getLotNumberSimple() { 
+      return this.lotNumber == null ? null : this.lotNumber.getValue();
+    }
+
+    public void setLotNumberSimple(String value) { 
+      if (value == null)
+        this.lotNumber = null;
+      else {
+        if (this.lotNumber == null)
+          this.lotNumber = new String_();
+        this.lotNumber.setValue(value);
+      }
     }
 
     public ResourceReference getOwner() { 
@@ -296,17 +233,6 @@ public class Device extends Resource {
 
     public void setOwner(ResourceReference value) { 
       this.owner = value;
-    }
-
-    public List<Identifier> getAssignedId() { 
-      return this.assignedId;
-    }
-
-    // syntactic sugar
-    public Identifier addAssignedId() { 
-      Identifier t = new Identifier();
-      this.assignedId.add(t);
-      return t;
     }
 
     public ResourceReference getLocation() { 
@@ -360,16 +286,16 @@ public class Device extends Resource {
 
       public Device copy() {
         Device dst = new Device();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.type = type == null ? null : type.copy();
         dst.manufacturer = manufacturer == null ? null : manufacturer.copy();
         dst.model = model == null ? null : model.copy();
         dst.version = version == null ? null : version.copy();
         dst.expiry = expiry == null ? null : expiry.copy();
-        dst.identity = identity == null ? null : identity.copy(dst);
+        dst.lotNumber = lotNumber == null ? null : lotNumber.copy();
         dst.owner = owner == null ? null : owner.copy();
-        dst.assignedId = new ArrayList<Identifier>();
-        for (Identifier i : assignedId)
-          dst.assignedId.add(i.copy());
         dst.location = location == null ? null : location.copy();
         dst.patient = patient == null ? null : patient.copy();
         dst.contact = new ArrayList<Contact>();

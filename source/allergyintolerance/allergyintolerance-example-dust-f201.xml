@@ -3,7 +3,7 @@
  <identifier>
     <label value="House dust allergy"/>
     <system value="http://snomed.info/id"/>
-    <key value="232349006"/>    
+    <value value="232349006"/>    
  </identifier>
  <criticality value="medium"/><!--House dust is likely to result in reactions that will inconvenience the subject-->
  <sensitivityType value="allergy"/><!--Allergic reaction-->
