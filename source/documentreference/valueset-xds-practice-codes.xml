@@ -51,10 +51,6 @@
       <display value="Dialysis"/>
     </concept>
     <concept>
-      <code value="Dialysis"/>
-      <display value="Dialysis"/>
-    </concept>
-    <concept>
       <code value="Emergency"/>
       <display value="Emergency"/>
     </concept>

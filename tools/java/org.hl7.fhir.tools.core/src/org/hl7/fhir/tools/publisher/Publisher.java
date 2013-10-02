@@ -458,7 +458,7 @@ public class Publisher {
         res.getSearchParam().add(makeSearchParam(conf, rn, i));
       }
     }
-    NarrativeGenerator gen = new NarrativeGenerator();
+    NarrativeGenerator gen = new NarrativeGenerator("");
     gen.generate(conf);    
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir +"conformance-base.xml"), conf, true, true);
     cloneToXhtml("conformance-base", "Basic Conformance Statement", true);
@@ -1207,31 +1207,50 @@ public class Publisher {
     String display;
     String definition;
     String textDefinition;
+    boolean deprecated;
+    
     List<String> parents = new ArrayList<String>();
     List<CodeInfo> children = new ArrayList<CodeInfo>();
-    public void write(int lvl, StringBuilder s, ValueSet vs, List<ValueSetDefineConceptComponent> list) throws Exception {
+    public void write(int lvl, StringBuilder s, ValueSet vs, List<ValueSetDefineConceptComponent> list, ValueSetDefineConceptComponent owner, Set<String> handled) throws Exception {
       if (!select && children.size() == 0) 
         return;
 
-      ValueSetDefineConceptComponent concept = vs.new ValueSetDefineConceptComponent();
-      concept.setCodeSimple(code);
-      concept.setDisplaySimple(display); 
-      concept.setDefinitionSimple(textDefinition);
-      concept.setAbstractSimple(!select);
-      list.add(concept);
-      
-      s.append(" <tr><td>"+Integer.toString(lvl)+"</td><td>");
-      for (int i = 1; i < lvl; i++) 
-        s.append("&nbsp;&nbsp;");
-      if (select) {
-        s.append(Utilities.escapeXml(code)+"<a name=\""+Utilities.escapeXml(Utilities.nmtokenize(code))+"\"> </a></td><td>"+Utilities.escapeXml(display)+"</td><td>");
-      } else
-        s.append("<span style=\"color: grey\"><i>("+Utilities.escapeXml(code)+")</i></span></td><td><a name=\""+Utilities.escapeXml(Utilities.nmtokenize(code))+"\">&nbsp;</a></td><td>");
-      if (definition != null)
-        s.append(definition);
-      s.append("</td></tr>\r\n");
-      for (CodeInfo child : children) {
-        child.write(lvl+1, s, vs, concept.getConcept());
+      if (handled.contains(code)) {
+        if (owner == null)
+          throw new Exception("Error handling poly-heirarchy - subsequent mention is on the root");
+        ToolingExtensions.addSubsumes(owner, code);
+        s.append(" <tr><td>"+Integer.toString(lvl)+"</td><td>");
+        for (int i = 1; i < lvl; i++) 
+          s.append("&nbsp;&nbsp;");
+        s.append("<a href=\"#"+Utilities.escapeXml(Utilities.nmtokenize(code))+"\">"+Utilities.escapeXml(code)+"</a></td><td></td><td></td></tr>\r\n");
+      } else {
+        handled.add(code);
+        ValueSetDefineConceptComponent concept = vs.new ValueSetDefineConceptComponent();
+        concept.setCodeSimple(code);
+        concept.setDisplaySimple(display); 
+        concept.setDefinitionSimple(textDefinition);
+        concept.setAbstractSimple(!select);
+        String d = "";
+        if (deprecated) {
+          ToolingExtensions.markDeprecated(concept);
+          d = " <b><i>Deprecated</i></b>";
+        }
+
+        list.add(concept);
+
+        s.append(" <tr><td>"+Integer.toString(lvl)+"</td><td>");
+        for (int i = 1; i < lvl; i++) 
+          s.append("&nbsp;&nbsp;");
+        if (select) {
+          s.append(Utilities.escapeXml(code)+"<a name=\""+Utilities.escapeXml(Utilities.nmtokenize(code))+"\"> </a>"+d+"</td><td>"+Utilities.escapeXml(display)+"</td><td>");
+        } else
+          s.append("<span style=\"color: grey\"><i>("+Utilities.escapeXml(code)+")</i></span>"+d+"</td><td><a name=\""+Utilities.escapeXml(Utilities.nmtokenize(code))+"\">&nbsp;</a></td><td>");
+        if (definition != null)
+          s.append(definition);
+        s.append("</td></tr>\r\n");
+        for (CodeInfo child : children) {
+          child.write(lvl+1, s, vs, concept.getConcept(), concept, handled);
+        }
       }
     }
   }
@@ -1281,6 +1300,7 @@ public class Publisher {
         r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(c, "annotations"), "documentation"), "definition"), "text");
         ci.definition = r == null ? null : nodeToString(r);
         ci.textDefinition = r == null ? null : nodeToText(r).trim();
+        ci.deprecated = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(c, "annotations"), "appInfo"), "deprecationInfo") != null;
         List<Element> pl = new ArrayList<Element>();
         XMLUtil.getNamedChildren(c, "conceptRelationship", pl);
         for (Element p : pl) {
@@ -1308,9 +1328,10 @@ public class Publisher {
     
     s.append("<table class=\"grid\">\r\n");
     s.append(" <tr><td><b>Level</b></td><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr>\r\n");
+    Set<String> handled = new HashSet<String>();
     for (CodeInfo ci : codes) {
       if (ci.parents.size() == 0) {
-        ci.write(1, s, vs, def.getConcept());
+        ci.write(1, s, vs, def.getConcept(), null, handled);
       }
     }
     s.append("</table>\r\n");
@@ -1362,6 +1383,7 @@ public class Publisher {
             ae.setAuthorName(vs.getPublisherSimple());
             page.getV3Valuesets().getEntryList().add(ae);
             page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
+            page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystemSimple(), vs);
             page.getValueSets().put(vs.getIdentifierSimple(), ae);
             page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
             codesystems.put(e.getAttribute("codeSystemId"), vs);
@@ -1441,7 +1463,7 @@ public class Publisher {
         cnt = XMLUtil.getNextSibling(cnt);
       }
     }
-    NarrativeGenerator gen = new NarrativeGenerator();
+    NarrativeGenerator gen = new NarrativeGenerator("");
     gen.generate(vs, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
     new ValueSetValidator(page.getDefinitions(), "v3: "+id).validate(vs, false);
     return vs;
@@ -1513,6 +1535,7 @@ public class Publisher {
     while (c != null) {
       desc = c.getAttribute("desc");
       vs.setDescriptionSimple("FHIR Value set/code system definition for HL7 v2 table "+id+" ( "+desc+")");
+      vs.setNameSimple(desc);
 
       Element g = XMLUtil.getFirstChild(c);
       while (g != null) {
@@ -1547,6 +1570,8 @@ public class Publisher {
       ValueSetDefineConceptComponent concept = vs.new ValueSetDefineConceptComponent();
       concept.setCodeSimple(cd);
       concept.setDisplaySimple(codes.get(cd)); // we deem the v2 description to be display name, not definition. Open for consideration
+      if (!("2.7".equals(max)))
+        ToolingExtensions.markDeprecated(concept);
       def.getConcept().add(concept);
       String nm = Utilities.nmtokenize(cd);
       s.append(" <tr><td>"+Utilities.escapeXml(cd)+"<a name=\""+Utilities.escapeXml(nm)+"\"> </a></td><td>"+Utilities.escapeXml(codes.get(cd))+"</td><td>"+ver+"</td></tr>\r\n");
@@ -1655,6 +1680,7 @@ public class Publisher {
         ValueSet vs = buildV2Valueset(id, e);
         ae.setResource(vs);
         page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
+        page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystemSimple(), vs);
         page.getValueSets().put(vs.getIdentifierSimple(), ae);
         page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
       } else if ("versioned".equals(st)) {
@@ -1674,6 +1700,7 @@ public class Publisher {
           ValueSet vs = buildV2ValuesetVersioned(id, ver, e);
           ae.setResource(vs);
           page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
+          page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystemSimple(), vs);
           page.getValueSets().put(vs.getIdentifierSimple(), ae);
           page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
         }        
@@ -2020,6 +2047,9 @@ public class Publisher {
 		    page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
 		  }
 		  addToResourceFeed(vs, vs.getIdentifierSimple(), valueSetsFeed);
+		  page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
+		  if (vs.getDefine() != null) 
+	      page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystemSimple(), vs);
 		}
     Element el = xdoc.getDocumentElement();
     el = XMLUtil.getNamedChild(el, "text");
@@ -2801,8 +2831,10 @@ public class Publisher {
     ae.getLinks().put("path", path+".htm");
     ae.setResource(vs);
     page.getValueSets().put(vs.getIdentifierSimple(), ae);
+    page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
     if (vs.getDefine() != null) {
       page.getCodeSystems().put(vs.getDefine().getSystemSimple(), ae);
+      page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystemSimple(), vs);
     }
   }
   
@@ -2816,7 +2848,7 @@ public class Publisher {
     ValueSet vs = (ValueSet) ae.getResource();
     
     if (vs.getText().getDiv().allChildrenAreText() && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
-      new NarrativeGenerator().generate(vs, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
+      new NarrativeGenerator("").generate(vs, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
     new ValueSetValidator(page.getDefinitions(), name).validate(vs, true);
     
     if (isGenerate) {
@@ -2914,6 +2946,8 @@ public class Publisher {
       page.getCodeSystems().put(vs.getDefine().getSystemSimple(), e);
     page.getValueSets().put(vs.getIdentifierSimple(), e);
     page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
+    if (vs.getDefine() != null)
+      page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystemSimple(), vs);
   }
   
   private void generateConceptMapV2(BindingSpecification cd, String filename, String src, String srcCS) throws Exception {
@@ -3050,7 +3084,7 @@ public class Publisher {
       e = page.getValueSets().get(cd.getUri());
     ValueSet vs = (ValueSet) e.getResource();
 
-    new NarrativeGenerator().generate(vs, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
+    new NarrativeGenerator("").generate(vs, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
     
 
     if (isGenerate) {

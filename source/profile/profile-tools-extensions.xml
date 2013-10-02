@@ -34,6 +34,13 @@
         <td>This is provided for when the source code system doesn't actually provide a definition (there are many such). Providing an definition for a code should not be done where the underlying code system provides a definition</td>
       </tr>
       <tr>
+        <td>deprecated</td>
+        <td>ValueSet.define.concept</td>
+        <td>boolean</td>
+        <td>0..1</td>
+        <td>So the concept can be marked as deprecated</td>
+      </tr>
+      <tr>
         <td>issue-source</td>
         <td>OperationOutcome</td>
         <td>string</td>
@@ -150,6 +157,42 @@
         <code value="string"/>      
       </type>
       <isModifier value="false"/>
+    </definition> 
+  </extensionDefn>
+  
+  <extensionDefn> 
+    <code value="deprecated"/>
+    <display value="Dreprecated"/>
+    <contextType value="resource"/>
+    <context value="ValueSet.define.concept"/>
+    <definition>
+      <short value="Whether the concept has been deprecated"/>
+      <formal value="Set to true of the concept has been deprecated (still can be used, but soon to be withdrawn)"/>
+      <requirements value="Some code systems deprecate codes"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type> 
+        <code value="boolean"/>      
+      </type>
+      <isModifier value="false"/> <!-- no, cause you can still use the code -->
+    </definition> 
+  </extensionDefn>
+  
+  <extensionDefn> 
+    <code value="subsumes"/>
+    <display value="Subsumes"/>
+    <contextType value="resource"/>
+    <context value="ValueSet.define.concept"/>
+    <definition>
+      <short value="This concept subsumes the concept identified by the given code"/>
+      <formal value="This concept subsumes the concept identified by the given code"/>
+      <requirements value="For when the code system being defined is poly-heirarchical"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type> 
+        <code value="code"/>      
+      </type>
+      <isModifier value="false"/> <!-- borderline. can't ignore it if you're doing subsumption testing -->
     </definition> 
   </extensionDefn>
   

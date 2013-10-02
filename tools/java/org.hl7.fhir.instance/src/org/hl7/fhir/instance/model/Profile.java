@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Oct 1, 2013 21:45+1000 for FHIR v0.11
+// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -1389,9 +1389,13 @@ public class Profile extends Resource {
         }
 
         public void setDisplaySimple(String value) { 
+          if (value == null)
+            this.display = null;
+          else {
             if (this.display == null)
               this.display = new String_();
             this.display.setValue(value);
+          }
         }
 
         public Enumeration<ExtensionContext> getContextType() { 

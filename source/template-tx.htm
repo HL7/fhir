@@ -14,7 +14,10 @@
 
 <%txheader vs%>
 
-<h1>Codes defined in <%txurl%></h1>
+<h1>Value Set for codes in <%txurl%></h1>
+<p>
+This is a value set defined by the FHIR project<%vsxref%>
+</p>
 
 <p>
 <%txdef%>
@@ -33,11 +36,11 @@ Formal value Set definition (identifier <b><%vstxurl%></b>):  <a href="<%txname%
 <%txusage%>
 
 <p>
-See <a href="terminologies-codes.htm">the full registry of codes</a> defined as part of FHIR.
+The OID for the value set is <%vsoid%> <%txoid%> (OIDs are not used in FHIR, but may be used in v3, or OID based terminology systems).<br/>
 </p>
 
 <p>
-The OID for the value set is <%vsoid%> <%txoid%> (OIDs are not used in FHIR, but may be used in v3, or OID based terminology systems).<br/>
+See <a href="terminologies-valuesets.htm">the full registry of v</a> defined as part of FHIR.
 </p>
 
 <hr/>
@@ -46,7 +49,6 @@ The OID for the value set is <%vsoid%> <%txoid%> (OIDs are not used in FHIR, but
 Explanation of the columns that may appear on this page:
 </p>
 <table class="grid">
- <tr><td>Id</td><td>The internal identifier for the concept (when the value set defines its own codes)</td></tr>
  <tr><td>Level</td><td>A few code lists that FHIR defines are hierarchical - each code is assigned a level. 
  In this scheme, some codes are under other codes, and imply that the code they are under also applies</td></tr> 
  <tr><td>Source</td><td>The source of the definition of the code (when the value set draws in codes defined elsewhere)</td></tr>
@@ -55,6 +57,11 @@ Explanation of the columns that may appear on this page:
  <tr><td>Definition</td><td>An explanation of the meaning of the concept</td></tr>
  <tr><td>Comments</td><td>Additional notes about how to use the code</td></tr>
 </table>
+
+<p>
+In addition, this page will include mappings to HL7 v2 or HL7 v3 code where these have been defined.
+</p>
+
 
 </div>
 

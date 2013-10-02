@@ -1,6 +1,8 @@
 package org.hl7.fhir.instance.utils;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,11 +33,19 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.instance.model.ValueSet.FilterOperator;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 public class NarrativeGenerator {
+
+  private String prefix;
+  
+  public NarrativeGenerator(String prefix) {
+    super();
+    this.prefix = prefix;
+  }
 
   /**
    * This generate is optimised for the FHIR build process itself in as much as it 
@@ -50,8 +60,12 @@ public class NarrativeGenerator {
     XhtmlNode x = new XhtmlNode();
     x.setNodeType(NodeType.Element);
     x.setName("div");
-    if (vs.getExpansion() != null)
-      throw new Exception("Error: should not encounter value set expansion at this point");
+    if (vs.getExpansion() != null) {
+      if (vs.getDefine() == null && vs.getCompose() == null)
+        generateExpansion(x, vs, maps, valueSets, codeSystems);
+      else
+        throw new Exception("Error: should not encounter value set expansion at this point");
+    }
     if (vs.getDefine() != null)
       generateDefinition(x, vs, maps, valueSets);
     if (vs.getCompose() != null) 
@@ -60,6 +74,34 @@ public class NarrativeGenerator {
       vs.setText(new Narrative());
     vs.getText().setDiv(x);
     vs.getText().setStatusSimple(NarrativeStatus.generated);
+  }
+
+  private void generateExpansion(XhtmlNode x, ValueSet vs, Map<String, AtomEntry<ConceptMap>> maps, Map<String, AtomEntry<ValueSet>> valueSets, Map<String, AtomEntry<ValueSet>> codeSystems) {
+    Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
+    for (AtomEntry<ConceptMap> a : maps.values()) {
+      if (a.getResource().getSource().getReferenceSimple().equals(vs.getIdentifierSimple())) {
+        String url = "";
+        if (valueSets.containsKey(a.getResource().getTarget().getReferenceSimple()))
+            url = valueSets.get(a.getResource().getTarget().getReferenceSimple()).getLinks().get("path");
+        mymaps.put(a.getResource(), url);
+      }
+    }
+
+    XhtmlNode h = x.addTag("h3");
+    h.addText(vs.getDescriptionSimple());
+    if (vs.getCopyright() != null)
+      generateCopyright(x, vs);
+
+    XhtmlNode t = x.addTag("table");
+    XhtmlNode tr = t.addTag("tr");
+    tr.addTag("td").addTag("b").addText("Code");
+    tr.addTag("td").addTag("b").addText("System");
+    tr.addTag("td").addTag("b").addText("Display");
+
+    addMapHeaders(tr, mymaps);
+    for (ValueSetExpansionContainsComponent c : vs.getExpansion().getContains()) {
+      addExpansionRowToTable(t, c, 0, mymaps, codeSystems);
+    }    
   }
 
   private void generateDefinition(XhtmlNode x, ValueSet vs, Map<String, AtomEntry<ConceptMap>> maps, Map<String, AtomEntry<ValueSet>> valueSets) {
@@ -83,12 +125,14 @@ public class NarrativeGenerator {
     p.addText("This value set defines it's own terms in the system "+vs.getDefine().getSystemSimple());
     XhtmlNode t = x.addTag("table");
     boolean commentS = false;
+    boolean deprecated = false;
     for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
       commentS = commentS || conceptsHaveComments(c);
+      deprecated = deprecated || conceptsHaveDeprecated(c);
     }
-    addMapHeaders(addTableHeaderRowStandard(t, commentS), mymaps);
+    addMapHeaders(addTableHeaderRowStandard(t, commentS, deprecated), mymaps);
     for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
-      addDefineRowToTable(t, c, 0, commentS, mymaps);
+      addDefineRowToTable(t, c, 0, commentS, deprecated, mymaps);
     }    
   }
 
@@ -97,7 +141,7 @@ public class NarrativeGenerator {
 	  	XhtmlNode td = tr.addTag("td");
 	  	XhtmlNode b = td.addTag("b");
 	  	XhtmlNode a = b.addTag("a");
-	  	a.setAttribute("href", mymaps.get(m));
+	  	a.setAttribute("href", prefix+mymaps.get(m));
 	  	a.addText(m.getDescriptionSimple());	  	
 	  }	  
   }
@@ -120,6 +164,15 @@ public class NarrativeGenerator {
     return false;
   }
 
+  private boolean conceptsHaveDeprecated(ValueSetDefineConceptComponent c) {
+    if (ToolingExtensions.hasDeprecated(c)) 
+      return true;
+    for (ValueSetDefineConceptComponent g : c.getConcept()) 
+      if (conceptsHaveDeprecated(g))
+        return true;
+    return false;
+  }
+
   private void generateCopyright(XhtmlNode x, ValueSet vs) {
     XhtmlNode p = x.addTag("p");
     p.addTag("b").addText("Copyright Statement:");
@@ -127,7 +180,7 @@ public class NarrativeGenerator {
   }
 
 
-  private XhtmlNode addTableHeaderRowStandard(XhtmlNode t, boolean comments) {
+  private XhtmlNode addTableHeaderRowStandard(XhtmlNode t, boolean comments, boolean deprecated) {
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
     XhtmlNode b = td.addTag("b");
@@ -138,23 +191,81 @@ public class NarrativeGenerator {
     td = tr.addTag("td");
     b = td.addTag("b");
     b.addText("Definition");
+    if (deprecated) {
+      tr.addTag("td").addTag("b").addText("Deprecated");
+    }
     if (comments) {
       tr.addTag("td").addTag("b").addText("Comments");
     }
     return tr;
   }
 
-  private void addDefineRowToTable(XhtmlNode t, ValueSetDefineConceptComponent c, int i, boolean comment, Map<ConceptMap, String> maps) {
+  private void addExpansionRowToTable(XhtmlNode t, ValueSetExpansionContainsComponent c, int i, Map<ConceptMap, String> mymaps, Map<String, AtomEntry<ValueSet>> codeSystems) {
+    XhtmlNode tr = t.addTag("tr");
+    XhtmlNode td = tr.addTag("td");
+    
+    
+    String s = Utilities.padLeft("", '.', i*2);
+    td.addText(s);
+    AtomEntry<? extends Resource> e = codeSystems.get(c.getSystemSimple());
+    if (e == null)
+      td.addText(c.getCodeSimple());
+    else {
+      XhtmlNode a = td.addTag("a");
+      a.addText(c.getCodeSimple());
+      a.setAttribute("href", prefix+getCsRef(e)+"#"+Utilities.nmtokenize(c.getCodeSimple()));
+      
+    }
+    td = tr.addTag("td");
+    td.addText(c.getSystemSimple());
+    td = tr.addTag("td");
+    if (c.getDisplaySimple() != null)
+      td.addText(c.getDisplaySimple());
+
+    for (ConceptMap m : mymaps.keySet()) {
+      td = tr.addTag("td");
+      List<ConceptMapConceptMapComponent> mappings = findMappingsForCode(c.getCodeSimple(), m);
+      boolean first = true;
+      for (ConceptMapConceptMapComponent mapping : mappings) {
+        if (!first)
+            td.addTag("br");
+        first = false;
+        XhtmlNode span = td.addTag("span");
+        span.setAttribute("title", mapping.getEquivalenceSimple().toString());
+        span.addText(getCharForEquivalence(mapping));
+        XhtmlNode a = td.addTag("a");
+        a.setAttribute("href", prefix+mymaps.get(m)+"#"+mapping.getCodeSimple());
+        a.addText(mapping.getCodeSimple());
+        if (!Utilities.noString(mapping.getCommentsSimple()))
+          td.addTag("i").addText("("+mapping.getCommentsSimple()+")");
+      }
+    }
+    for (ValueSetExpansionContainsComponent cc : c.getContains()) {
+      addExpansionRowToTable(t, cc, i+1, mymaps, codeSystems);
+    }    
+  }
+
+  private void addDefineRowToTable(XhtmlNode t, ValueSetDefineConceptComponent c, int i, boolean comment, boolean deprecated, Map<ConceptMap, String> maps) {
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
     String s = Utilities.padLeft("", '.', i*2);
-    td.addText(s+c.getCodeSimple());
+    td.addText(s);
+    XhtmlNode a = td.addTag("a");
+    a.setAttribute("name", Utilities.nmtokenize(c.getCodeSimple()));
+    a.addText(c.getCodeSimple());
+    
     td = tr.addTag("td");
     if (c.getDisplaySimple() != null)
       td.addText(c.getDisplaySimple());
     td = tr.addTag("td");
     if (c.getDefinitionSimple() != null)
       smartAddText(td, c.getDefinitionSimple());
+    if (deprecated) {
+      td = tr.addTag("td");
+      s = ToolingExtensions.getDeprecated(c);
+      if (s != null)
+        smartAddText(td, s);      
+    }
     if (comment) {
       td = tr.addTag("td");
       s = ToolingExtensions.getComment(c);
@@ -172,15 +283,24 @@ public class NarrativeGenerator {
       	XhtmlNode span = td.addTag("span");
       	span.setAttribute("title", mapping.getEquivalenceSimple().toString());
       	span.addText(getCharForEquivalence(mapping));
-      	XhtmlNode a = td.addTag("a");
-      	a.setAttribute("href", maps.get(m)+"#"+mapping.getCodeSimple());
+      	a = td.addTag("a");
+      	a.setAttribute("href", prefix+maps.get(m)+"#"+mapping.getCodeSimple());
       	a.addText(mapping.getCodeSimple());
         if (!Utilities.noString(mapping.getCommentsSimple()))
           td.addTag("i").addText("("+mapping.getCommentsSimple()+")");
       }
     }
+    for (Code e : ToolingExtensions.getSubsumes(c)) {
+      tr = t.addTag("tr");
+      td = tr.addTag("td");
+      s = Utilities.padLeft("", '.', i*2);
+      td.addText(s);
+      a = td.addTag("a");
+      a.setAttribute("href", "#"+Utilities.nmtokenize(e.getValue()));
+      a.addText(c.getCodeSimple());
+    }
     for (ValueSetDefineConceptComponent cc : c.getConcept()) {
-      addDefineRowToTable(t, cc, i+1, comment, maps);
+      addDefineRowToTable(t, cc, i+1, comment, deprecated, maps);
     }    
   }
 
@@ -189,8 +309,8 @@ public class NarrativeGenerator {
 	  switch (mapping.getEquivalenceSimple()) {
 	  case equal : return "=";
 	  case equivalent : return "~";
-	  case wider : return ">";
-	  case narrower : return "<";
+	  case wider : return "<";
+	  case narrower : return ">";
 	  case inexact : return "><";
 	  case unmatched : return "-";
 	  case disjoint : return "!=";
@@ -248,7 +368,7 @@ public class NarrativeGenerator {
     else {
       String ref= vs.getLinks().get("path");
       XhtmlNode a = li.addTag("a");
-      a.setAttribute("href", ref.replace("\\", "/"));
+      a.setAttribute("href", prefix+ref.replace("\\", "/"));
       a.addText(value);
     }    
   }
@@ -271,7 +391,7 @@ public class NarrativeGenerator {
         for (Code c : inc.getCode()) {
           hasComments = hasComments || c.hasExtension(ToolingExtensions.EXT_COMMENT);
         }
-        addTableHeaderRowStandard(t, hasComments);
+        addTableHeaderRowStandard(t, hasComments, false);
         for (Code c : inc.getCode()) {
           XhtmlNode tr = t.addTag("tr");
           tr.addTag("td").addText(c.getValue());
@@ -301,7 +421,7 @@ public class NarrativeGenerator {
         if (e != null && codeExistsInValueSet(e, f.getValueSimple())) {
           XhtmlNode a = li.addTag("a");
           a.addText(f.getValueSimple());
-          a.setAttribute("href", getCsRef(e)+"#"+Utilities.nmtokenize(f.getValueSimple()));
+          a.setAttribute("href", prefix+getCsRef(e)+"#"+Utilities.nmtokenize(f.getValueSimple()));
         } else
           li.addText(f.getValueSimple());
       }
@@ -355,7 +475,7 @@ public class NarrativeGenerator {
     }
     if (cs != null && ref != null) {
       XhtmlNode a = li.addTag("a");
-      a.setAttribute("href", ref.replace("\\", "/"));
+      a.setAttribute("href", prefix+ref.replace("\\", "/"));
       a.addText(inc.getSystemSimple().toString());
     } else 
       li.addText(inc.getSystemSimple().toString());
@@ -497,7 +617,7 @@ public class NarrativeGenerator {
       tr.addTag("td").addText(r.getTypeSimple());
       XhtmlNode a = tr.addTag("td").addTag("a");
       a.addText(r.getProfile().getReferenceSimple());
-      a.setAttribute("href", r.getProfile().getReferenceSimple());
+      a.setAttribute("href", prefix+r.getProfile().getReferenceSimple());
       tr.addTag("td").addText(showOp(r, RestfulOperation.read));
       tr.addTag("td").addText(showOp(r, RestfulOperation.vread));
       tr.addTag("td").addText(showOp(r, RestfulOperation.search));

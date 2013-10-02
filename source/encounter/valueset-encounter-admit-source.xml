@@ -16,10 +16,6 @@
       <display value="Transferred from other hospital" />
     </concept>
     <concept>
-      <code value="hosp-trans"/>
-      <display value="Transferred from other hospital" />
-    </concept>
-    <concept>
       <code value="emd"/>
       <display value="From accident/emergency department" />
     </concept>

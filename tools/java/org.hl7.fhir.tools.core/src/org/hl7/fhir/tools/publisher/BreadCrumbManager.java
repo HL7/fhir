@@ -205,11 +205,11 @@ public class BreadCrumbManager {
     return (Page) focus.getChildren().get(i);
   }
 
-  public String navlist(String name) {
+  public String navlist(String name, String prefix) {
     StringBuilder b = new StringBuilder();
-    b.append("              <li><a href=\"index.htm\">Home</a></li>\r\n");
+    b.append("              <li><a href=\""+prefix+"index.htm\">Home</a></li>\r\n");
     for (Node n : home.getChildren()) {
-      b.append("              <li><a href=\""+((Page) n).getFilename()+"\">"+((Page) n).getTitle()+"</a></li>\r\n");
+      b.append("              <li><a href=\""+prefix+((Page) n).getFilename()+"\">"+((Page) n).getTitle()+"</a></li>\r\n");
     }
     return b.toString();
   }

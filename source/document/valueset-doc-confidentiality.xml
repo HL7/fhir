@@ -79,10 +79,6 @@
       <code value="1.3.6.1.4.1.21367.2006.7.108"/>
       <display value="Normal Sharing Plus  Research Use"/>
     </concept>
-    <concept>
-      <code value="1.3.6.1.4.1.21367.2006.7.109"/>
-      <display value="Restricted VIP Sharing"/>
-    </concept>
   </define>
   <compose>
     <include>

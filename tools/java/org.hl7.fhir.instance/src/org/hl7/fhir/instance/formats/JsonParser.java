@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Oct 1, 2013 21:45+1000 for FHIR v0.11
+// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -215,6 +215,8 @@ public class JsonParser extends JsonParserBase {
     parseTypeProperties(json, res);
     if (json.has("system"))
       res.setSystem(parseUri(json.getJSONObject("system")));
+    if (json.has("version"))
+      res.setVersion(parseString(json.getJSONObject("version")));
     if (json.has("code"))
       res.setCode(parseCode(json.getJSONObject("code")));
     if (json.has("display"))
@@ -5261,6 +5263,8 @@ public class JsonParser extends JsonParserBase {
     parseElementProperties(json, res);
     if (json.has("system"))
       res.setSystem(parseUri(json.getJSONObject("system")));
+    if (json.has("version"))
+      res.setVersion(parseString(json.getJSONObject("version")));
     if (json.has("caseSensitive"))
       res.setCaseSensitive(parseBoolean(json.getJSONObject("caseSensitive")));
     if (json.has("concept")) {

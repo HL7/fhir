@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Oct 1, 2013 21:45+1000 for FHIR v0.11
+// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -226,6 +226,7 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeElement(element);
       composeUri("system", element.getSystem());
+      composeString("version", element.getVersion());
       composeCode("code", element.getCode());
       composeString("display", element.getDisplay());
       composeBoolean("primary", element.getPrimary());
@@ -4745,6 +4746,7 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeElement(element);
       composeUri("system", element.getSystem());
+      composeString("version", element.getVersion());
       composeBoolean("caseSensitive", element.getCaseSensitive());
       if (element.getConcept().size() > 0) {
         openArray("concept");

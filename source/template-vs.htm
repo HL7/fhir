@@ -15,6 +15,9 @@
 <%txheader vs%>
 
 <h1>Value Set <%vsurl%></h1>
+<p>
+This is a value set defined by the FHIR project<%vsxref%>
+</p>
 
 <p>
 <%vsdef%>
@@ -28,13 +31,18 @@ Formal definitions: <a href="<%vsref%>.xml.htm">XML</a> or <a href="<%vsref%>.js
 <%vsdesc%>
 </p>
 
+<%vsexpansion%>
+
 
 <%vsusage%>
 
 <p>
-See <a href="terminologies-valuesets.htm">the full registry of value sets</a> defined as part of FHIR.
+The OID for the value set is <%vsoid%> (OIDs are not used in FHIR, but may be used in v3, or OID based terminology systems).<br/>
 </p>
 
+<p>
+See <a href="terminologies-valuesets.htm">the full registry of value sets</a> defined as part of FHIR.
+</p>
 
 </div>
 

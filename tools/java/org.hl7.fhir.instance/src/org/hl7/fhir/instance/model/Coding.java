@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Oct 1, 2013 21:45+1000 for FHIR v0.11
+// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
 
 /**
  * A reference to a code defined by a terminology system.
@@ -37,9 +37,14 @@ package org.hl7.fhir.instance.model;
 public class Coding extends Type {
 
     /**
-     * The identification of the system that defines the meaning of the symbol in the code. Can be a simple list of enumerations, a list of codes with meanings or all the way to a complex semantic web such as SNOMED CT, whether classification, terminology, or ontology.
+     * The identification of the code system that defines the meaning of the symbol in the code.
      */
     protected Uri system;
+
+    /**
+     * The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when it is not, the version SHOULD be exchanged.
+     */
+    protected String_ version;
 
     /**
      * A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).
@@ -80,6 +85,28 @@ public class Coding extends Type {
         if (this.system == null)
           this.system = new Uri();
         this.system.setValue(value);
+      }
+    }
+
+    public String_ getVersion() { 
+      return this.version;
+    }
+
+    public void setVersion(String_ value) { 
+      this.version = value;
+    }
+
+    public String getVersionSimple() { 
+      return this.version == null ? null : this.version.getValue();
+    }
+
+    public void setVersionSimple(String value) { 
+      if (value == null)
+        this.version = null;
+      else {
+        if (this.version == null)
+          this.version = new String_();
+        this.version.setValue(value);
       }
     }
 
@@ -160,6 +187,7 @@ public class Coding extends Type {
       public Coding copy() {
         Coding dst = new Coding();
         dst.system = system == null ? null : system.copy();
+        dst.version = version == null ? null : version.copy();
         dst.code = code == null ? null : code.copy();
         dst.display = display == null ? null : display.copy();
         dst.primary = primary == null ? null : primary.copy();

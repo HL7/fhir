@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Oct 1, 2013 21:45+1000 for FHIR v0.11
+// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
 
 /**
  * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.

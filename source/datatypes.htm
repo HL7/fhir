@@ -200,20 +200,47 @@ The context of use may frequently make rules about the kind of attachment
 <a name="codesystem"> </a>
 <h2>Coding</h2>
 <p>
-A Coding is a representation of a defined concept using a symbol from a defined "code system" - 
-which may be an enumeration, a list of codes, a full terminology such as SNOMED CT or LOINC 
-or a formal ontology. 
+A Coding is a representation of a defined concept using a symbol from a defined "code system"
+- see <a href="terminologies.htm">Using Codes in resources</a> for more details.
 </p>
+
 [%dt Coding%]
 
 <p>
-The <i>system</i> is a URI that references the enumeration, terminology 
-or ontology that defines the <i>code</i>. The URI may be an OID (urn:oid:) or 
-a UUID (urn:uuid:), a specially defined URI from <a href="terminologies-systems.htm">the 
-named systems list</a>, a url that references a definition of the system or any other URI 
-that uniquely identifies the definitions.  This could include a reference to a <a href="valueset.htm">ValueSet</a> stored in a FHIR server that defines the code system. OIDs and UUIDs may be registered in the <a href="http://hl7.org/oid">HL7 OID 
-registry</a> and should be if the content is shared or exchanged across institutional boundaries.
+The <i>system</i> is a URI that references the code system defines the <i>code</i>. 
+The URI may be: 
 </p>
+<ul>
+ <li>a URI defined in the <a href="terminologies-systems.htm">the named systems list</a></li>
+ <li>an OID (urn:oid:) or a UUID (urn:uuid:). OIDs and UUIDs may be registered in the <a href="http://hl7.org/oid">HL7 OID registry</a></li>
+ <li>a url that references a definition of the system directly, which may be a reference to a code system defined as part of <a href="valueset.htm">ValueSet</a> resource</li>
+ <li>or any other URI that uniquely identifies the code system definition</li>
+</ul>
+<p>
+The correct value to use in the <i>system</i> for a given code system can be determined by:
+</p>
+<ul>
+ <li>the <a href="terminologies-systems.htm">Named Systems List</a> section</li>
+ <li>the <a href="http://www.hl7.org/oid/index.cfm?ref=common">HL7 OID Registry</a></li>
+ <li>the documentation associated with the code system</li>
+ <li>consulting the owner of the code system</li>
+ <li>asking on the HL7 vocabulary mailing list</li>
+</ul>
+<p>
+A code system version may also be supplied. If the meaning of codes within the code system is consistent across releases, this is not required. 
+The version SHOULD be exchanged when this the system does not maintain consistent definitions across releases.
+If a value set is referenced, and the value set defines the code system, and the code system definition specifies a version, the version SHALL be the same as in the value set. 
+Note that the following systems SHOULD always have a version specified:
+</p>
+<ul>
+ <li><a href="http://loinc.org">LOINC</a></li>
+ <li>Various versions of ICD</li>
+ <li>National releases of SNOMED CT (consistency of definitions varies amongst jurisdications, and some jurisdictions may make their own rules on this)</li>
+</ul>
+<p>
+See the <a href="valueset.htm#versioning">discussion of code system versions in the Value Set resource</a> for further discussion on versioning.
+</p>
+
 <p>
 If present, the <i>code</i> must be a syntactically correct symbol as defined by the <i>system</i>.
 In some code systems such as SNOMED CT, the code may be an expression composed of other codes (e.g. post-coordination). 
@@ -221,6 +248,13 @@ Note that codes are case sensitive unless specified otherwise by the code system
 is a text representation of the code defined by the <i>system</i> and can be used to display 
 the meaning of the code by an application that is not aware of the <i>system</i>. 
 </p>
+<p>
+Where the code system defines multiple possible display strings, one of these SHALL be used in <i>display</i>. 
+If one is labelled as preferred, it SHOULD be used. If the code system does not define a text representation 
+(e.g. SNOMED CT Expressions) then <i>display</i> cannot be populated, and the meaning of the code won't be 
+accessible to systems that don't understand the code expression.
+</p>
+
 <p>
 In some cases, the <i>system</i> may not be known - only the code is known. 
 In this case, no useful processing of the code may be performed unless
@@ -234,22 +268,10 @@ If the system is present, and there is no code, then this is understood to mean 
 is no suitable code in the system in which to represent the code. 
 </p>
 <p>
-If two codings have the same <i>system</i> and <i>code</i> then they have the same meaning.
-Note that if a code system redefines the meaning of codes across different releases, then 
-the different releases must have different values for <i>system</i>.
-If either the <i>system</i> or the <i>code</i> differs, then how they are related can only be 
-determined by consulting the definitions of the system(s) and any mappings available.
+If two codings have the same <i>system</i>, <i>version</i> and <i>code</i> then they have the same meaning.
+If the version information is missing, or the <i>system</i>, <i>version</i> or the <i>code</i> elements differ, then 
+how they codes are related can only be determined by consulting the definitions of the system(s) and any <a href="conceptmap.htm">mappings</a> available.
 </p>
-<p>
-The correct value to use in the <i>system</i> for a given code-system can be determined by:
-</p>
-<ul>
- <li>the <a href="terminologies-systems.htm">Named Systems List</a> section</li>
- <li>the <a href="http://www.hl7.org/oid/index.cfm?ref=common">HL7 OID Registry</a></li>
- <li>the documentation associated with the code system</li>
- <li>consulting the owner of the code system</li>
- <li>asking on the HL7 vocabulary mailing list</li>
-</ul>
 <p>
 A coding may be marked as a "primary" if a user picked the particular coded value 
 explicitly in a user interface (e.g., the user picks an item in a picklist). A primary

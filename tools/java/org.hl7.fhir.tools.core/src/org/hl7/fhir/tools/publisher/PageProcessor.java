@@ -81,6 +81,10 @@ import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
+import org.hl7.fhir.instance.utils.NarrativeGenerator;
+import org.hl7.fhir.instance.utils.ValueSetExpander;
+import org.hl7.fhir.instance.utils.ValueSetExpanderSimple;
+import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
@@ -331,6 +335,8 @@ public class PageProcessor implements Logger  {
         src = s1+new SvgGenerator(definitions).generate(folders.srcDir+ com[1])+s3;
       else if (com[0].equals("file"))
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".htm")+s3;
+      else if (com[0].equals("v2xref"))
+        src = s1 + xreferencesForV2(name, com[1]) + s3;      
       else if (com[0].equals("setwiki")) {
         wikilink = com[1];
         src = s1+s3;
@@ -479,7 +485,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("breadcrumb"))
         src = s1 + breadCrumbManager.make(name) + s3;
       else if (com[0].equals("navlist"))
-        src = s1 + breadCrumbManager.navlist(name) + s3;
+        src = s1 + breadCrumbManager.navlist(name, genlevel(level)) + s3;
       else if (com[0].equals("breadcrumblist"))
         src = s1 + breadCrumbManager.makelist(name, type, genlevel(level)) + s3;      
       else if (com[0].equals("year"))
@@ -490,6 +496,14 @@ public class PageProcessor implements Logger  {
         src = s1 + publicationType + s3;      
       else if (com[0].equals("pub-notice"))
         src = s1 + publicationNotice + s3;      
+      else if (com[0].equals("vsxref"))
+        src = s1 + xreferencesForFhir(name) + s3;      
+      else if (com[0].equals("v3xref"))
+        src = s1 + xreferencesForV3(name) + s3;      
+      else if (com[0].equals("vsexpansion"))
+        src = s1 + expandValueSet(Utilities.fileTitle(file)) + s3;
+      else if (com[0].equals("v3expansion"))
+        src = s1 + expandV3ValueSet(name) + s3;
       else if (com[0].equals("level"))
         src = s1 + genlevel(level) + s3;  
         
@@ -497,6 +511,63 @@ public class PageProcessor implements Logger  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String xreferencesForV2(String name, String level) {
+    if (!valueSets.containsKey("http://hl7.org/fhir/v2/vs/"+name))
+      return ". ";
+    String n = valueSets.get("http://hl7.org/fhir/v2/vs/"+name).getResource().getNameSimple().replace("-", "").replace(" ", "").replace("_", "").toLowerCase();
+    StringBuilder b = new StringBuilder();
+    String pfx = "../../";
+    if (level.equals("l3"))
+      pfx = "../../../";
+    AtomEntry<ValueSet> ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/vs/");
+    if (ae != null)
+      b.append(". Related FHIR content: <a href=\""+pfx+ae.getLinks().get("path")+"\">"+ae.getResource().getNameSimple()+"</a>");
+    ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/v3/vs/");
+    if (ae != null)
+      b.append(". Related v3 content: <a href=\""+pfx+ae.getLinks().get("path")+"\">"+ae.getResource().getNameSimple()+"</a>");
+    return b.toString()+". ";
+  }
+
+  private String xreferencesForFhir(String name) {
+    String n = name.replace("-", "").toLowerCase();
+    StringBuilder b = new StringBuilder();
+    AtomEntry<ValueSet> ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/v2/vs/");
+    if (ae != null)
+      b.append(". Related v2 content: <a href=\""+ae.getLinks().get("path")+"\">"+ae.getResource().getNameSimple()+"</a>");
+    ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/v3/vs/");
+    if (ae != null)
+      b.append(". Related v3 content: <a href=\""+ae.getLinks().get("path")+"\">"+ae.getResource().getNameSimple()+"</a>");
+    return b.toString()+". ";
+  }
+
+  private String xreferencesForV3(String name) {
+    String n = name.replace("-", "").replace(" ", "").replace("_", "").toLowerCase();
+    StringBuilder b = new StringBuilder();
+    AtomEntry<ValueSet> ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/v2/vs/");
+    if (ae != null)
+      b.append(". Related v2 content: <a href=\"../../"+ae.getLinks().get("path")+"\">"+ae.getResource().getNameSimple()+"</a>");
+    ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/vs/");
+    if (ae != null)
+      b.append(". Related FHIR content: <a href=\"../../"+ae.getLinks().get("path")+"\">"+ae.getResource().getNameSimple()+"</a>");
+    return b.toString()+". ";
+  }
+
+  private AtomEntry<ValueSet> findRelatedValueset(String n, Map<String, AtomEntry<ValueSet>> vslist, String prefix) {
+    for (String s : vslist.keySet()) {
+      AtomEntry<ValueSet> ae = vslist.get(s); 
+      String url = ae.getResource().getIdentifierSimple();
+      if (url.startsWith(prefix)) {
+        String name = url.substring(prefix.length()).replace("-", "").replace(" ", "").replace("_", "").toLowerCase();
+        if (n.equals(name))
+          return (AtomEntry<ValueSet>) ae;
+        name = ae.getResource().getNameSimple().replace("-", "").replace(" ", "").replace("_", "").toLowerCase();
+        if (n.equals(name))
+          return (AtomEntry<ValueSet>) ae;
+      }
+    }
+    return null;
   }
 
   private String genlevel(int level) {
@@ -970,7 +1041,7 @@ public class PageProcessor implements Logger  {
     for (RegisteredProfile p : r.getProfiles()) {
       for (ExtensionDefn ex : p.getProfile().getExtensions()) {
         if (ex.getDefinition().hasBinding() && ex.getDefinition().getBindingName() != null && ex.getDefinition().getBindingName().equals(cd.getName())) {
-          b.append(" <li><a href=\""+p.getFilename()+".htm#"+ex.getCode()+"\">Extension "+ex.getCode()+"</a></li>\r\n");
+          b.append(" <li><a href=\""+p.getFilename()+".htm#"+ex.getCode()+"\">Extension "+ex.getCode()+"</a> "+getBSTypeDesc(cd)+"</li>\r\n");
         }
       }
     }
@@ -984,10 +1055,20 @@ public class PageProcessor implements Logger  {
   private void scanForUsage(StringBuilder b, BindingSpecification cd, ElementDefn e, String path, String ref) {
     path = path.equals("") ? e.getName() : path+"."+e.getName();
     if (e.hasBinding() && e.getBindingName() != null && e.getBindingName().equals(cd.getName())) {
-      b.append(" <li><a href=\""+ref+"\">"+path+"</a></li>\r\n");
+      b.append(" <li><a href=\""+ref+"\">"+path+"</a> "+getBSTypeDesc(cd)+"</li>\r\n");
     }
     for (ElementDefn c : e.getElements()) {
       scanForUsage(b, cd, c, path, ref);
+    }
+  }
+
+  private String getBSTypeDesc(BindingSpecification cd) {
+    switch (cd.getBindingStrength()) {
+    case Required: return "(<a href=\"terminologies.htm#code\">Fixed</a>)";
+    case Preferred: return "(<a href=\"terminologies.htm#incomplete\">Incomplete</a>)";
+    case Example: return "(<a href=\"terminologies.htm#example\">Example</a>)";
+    default:
+      return "Unknown";
     }
   }
 
@@ -1442,8 +1523,15 @@ public class PageProcessor implements Logger  {
   private String sourceSummary(ValueSet vs) {
     StringBuilder b = new StringBuilder();
     List<String> done = new ArrayList<String>();
-    if (vs.getDefine() != null)
-      b.append(", Internal");
+    if (vs.getDefine() != null) {
+      String n = "Internal";
+      if (vs.getDescriptionSimple().contains("Connectathon")) n = "IHE";
+      if (vs.getDescriptionSimple().contains("IHE")) n = "IHE";
+      if (vs.getDefine().getSystemSimple().startsWith("http://") && !(vs.getDefine().getSystemSimple().startsWith("http://hl7.org"))) n = "External";
+      if (vs.getDefine().getSystemSimple().equals("http://nema.org/dicom/dcid")) n = "DICOM";
+      
+      b.append(", "+n);
+    }
     if (vs.getCompose() != null)
       for (ConceptSetComponent c : vs.getCompose().getInclude()) {
         String uri = c.getSystemSimple();
@@ -1846,9 +1934,12 @@ public class PageProcessor implements Logger  {
   
   private String generateOID(String fileTitle, boolean vs) {
     BindingSpecification cd = definitions.getBindingByReference("#"+fileTitle);
-    if (vs)
-      return OID_VS + cd.getId();
-    else if (!Utilities.noString(cd.getOid()))    
+    if (vs) {
+      if (cd == null)
+        return OID_VS + "??";
+      else
+        return OID_VS + cd.getId();
+    } else if (!Utilities.noString(cd.getOid()))    
       return cd.getOid();
     else if (cd.hasInternalCodes())
       return "(and the OID for the implicit code system is "+OID_TX + cd.getId()+")";
@@ -1890,6 +1981,58 @@ public class PageProcessor implements Logger  {
     if (codeSystems.containsKey(n))
       return codeSystems.get(n).getLinks().get("self");
     return n;
+  }
+
+  private String expandValueSet(String fileTitle) throws Exception {
+    ValueSet vs = null;
+    BindingSpecification cd = definitions.getBindingByName(fileTitle);
+    if (cd == null)
+      vs = definitions.getExtraValuesets().get(fileTitle);
+    else 
+      vs = cd.getReferredValueSet();
+    return expandVS(vs, "");
+  }
+  
+  private String expandV3ValueSet(String name) throws Exception {
+    ValueSet vs = (ValueSet) valueSets.get("http://hl7.org/fhir/v3/vs/"+name).getResource();
+    return expandVS(vs, "../../");
+  }
+  
+  private String expandVS(ValueSet vs, String prefix) {
+    if (!hasDynamicContent(vs))
+      return "";
+    try {
+      ValueSetExpansionCache cache = new ValueSetExpansionCache(definitions.getValuesets(), definitions.getCodeSystems());
+      ValueSet exp = cache.getExpander().expand(vs);
+      exp.setCompose(null);
+      exp.setDefine(null);
+      exp.setText(null);
+      exp.setDescriptionSimple("Value Set Contents (Expansion) for "+vs.getNameSimple()+" at "+Config.DATE_FORMAT().format(new Date()));
+      new NarrativeGenerator(prefix).generate(exp, codeSystems, valueSets, conceptMaps);
+      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(exp.getText().getDiv())+"</div>";
+    } catch (Exception e) {
+      return "<!-- This value set could not be expanded by the publication tooling: "+e.getMessage()+" -->";
+    }
+  }
+
+  private boolean hasDynamicContent(ValueSet vs) {
+    if (vs.getCompose() != null) {
+      if (vs.getCompose().getImport().size() > 0)
+        return true;
+      for (ConceptSetComponent t : vs.getCompose().getInclude()) {
+        if (t.getFilter().size() > 0)
+          return true;
+        if (t.getCode().size() == 0)
+          return true;
+      }
+      for (ConceptSetComponent t : vs.getCompose().getExclude()) {
+        if (t.getFilter().size() > 0)
+          return true;
+        if (t.getCode().size() == 0)
+          return true;
+      }
+    }
+    return false;
   }
 
   private String generateVSDesc(String fileTitle) throws Exception {
@@ -2084,7 +2227,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("breadcrumb"))
         src = s1 + breadCrumbManager.make(name) + s3;
       else if (com[0].equals("navlist"))
-        src = s1 + breadCrumbManager.navlist(name) + s3;
+        src = s1 + breadCrumbManager.navlist(name, genlevel(level)) + s3;
       else if (com[0].equals("breadcrumblist"))
         src = s1 + breadCrumbManager.makelist(name, type, genlevel(level)) + s3;      
       else if (com[0].equals("year"))
@@ -2203,7 +2346,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("breadcrumb"))
         src = s1 + breadCrumbManager.make(name) + s3;
       else if (com[0].equals("navlist"))
-        src = s1 + breadCrumbManager.navlist(name) + s3;
+        src = s1 + breadCrumbManager.navlist(name, genlevel(0)) + s3;
       else if (com[0].equals("breadcrumblist"))
         src = s1 + breadCrumbManager.makelist(name, type, genlevel(0)) + s3;      
       else if (com[0].equals("year"))
@@ -2451,7 +2594,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("breadcrumb"))
         src = s1 + breadCrumbManager.make(filename) + s3;
       else if (com[0].equals("navlist"))
-        src = s1 + breadCrumbManager.navlist(filename) + s3;
+        src = s1 + breadCrumbManager.navlist(filename, genlevel(0)) + s3;
       else if (com[0].equals("breadcrumblist"))
         src = s1 + breadCrumbManager.makelist(filename, "profile", genlevel(0)) + s3;      
       else if (com[0].equals("year"))

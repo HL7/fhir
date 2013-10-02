@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Oct 1, 2013 21:45+1000 for FHIR v0.11
+// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
 
 import java.util.*;
 
@@ -153,6 +153,11 @@ public class ValueSet extends Resource {
         protected Uri system;
 
         /**
+         * The version of this code system that the defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need t obe maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.
+         */
+        protected String_ version;
+
+        /**
          * If code comparison is case sensitive when codes within this systemare compared to each other.
          */
         protected Boolean caseSensitive;
@@ -178,6 +183,28 @@ public class ValueSet extends Resource {
             if (this.system == null)
               this.system = new Uri();
             this.system.setValue(value);
+        }
+
+        public String_ getVersion() { 
+          return this.version;
+        }
+
+        public void setVersion(String_ value) { 
+          this.version = value;
+        }
+
+        public String getVersionSimple() { 
+          return this.version == null ? null : this.version.getValue();
+        }
+
+        public void setVersionSimple(String value) { 
+          if (value == null)
+            this.version = null;
+          else {
+            if (this.version == null)
+              this.version = new String_();
+            this.version.setValue(value);
+          }
         }
 
         public Boolean getCaseSensitive() { 
@@ -216,6 +243,7 @@ public class ValueSet extends Resource {
       public ValueSetDefineComponent copy(ValueSet e) {
         ValueSetDefineComponent dst = e.new ValueSetDefineComponent();
         dst.system = system == null ? null : system.copy();
+        dst.version = version == null ? null : version.copy();
         dst.caseSensitive = caseSensitive == null ? null : caseSensitive.copy();
         dst.concept = new ArrayList<ValueSetDefineConceptComponent>();
         for (ValueSetDefineConceptComponent i : concept)

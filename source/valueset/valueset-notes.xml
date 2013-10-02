@@ -22,11 +22,34 @@ be different.
  <li><i>ValueSet.define.system</i> is the URI that identifies these codes 
    when used in a <a href="datatypes.htm#Coding">Coding</a></li>
  <li>The usability of the codes is closely linked to the quality of the definitions. 
-   Although a definition is not required for each concept, a good definition SHOULD be provided</li>
+   Although a definition is not required for each concept, a good definition SHOULD be provided. In the absence of any definition, there is no formal meaning associated with the concept</li>
  <li>If concepts contain other concepts, then the contained concepts are "subsumed" by 
    the containing concept (there is an "is-a" relationship between the codes).</li>
   <li>An abstract concept must have contained concepts</li>
 </ul>
+
+<a name="versioning"> </a>
+<h3>Versioning Code Systems</h3>
+<p>
+Most code systems evolve over time, due to corrections, clarifications, and changes to approach or underlying knowledge or reality.
+If these changes lead to the meanings of existing codes changing significantly, then the interpretation of the code system becomes
+version dependent. This signficantly complicates implementation based on the code system, to the point where it is not clear that
+safety can be assured, so SHOULD be avoided when ever possible. It is preferable to assign a new identifier to a code system 
+when any concepts in it have a significant change in meaning (for example, the German diagnostic classification code system 
+ICD10GM2009 has a different <i>system</i> to ICD10GM2008), but this also can have substantial impact on implementation, so 
+is often not practical - for instance, <a href="http://loinc.org">LOINC</a> has re-defined the meaning of codes in the past,
+but there is only one identifier for LOINC. 
+</p>
+<p>
+For this reason, a code system MAY provide a version idenntifer in <i>ValueSet.define.version</i>. The version specific identifier SHOULD be 
+provided whenever there is potentially significant changes in meaning across multiple releases of a code system.
+There is no particular format requirement for the version identifier, though HL7 recommends a date based approach. 
+</p>
+<p>
+When the value set definition of a code system includes a version identifier, the version identifier SHOULD be 
+used in <a href="datatypes.htm#coding">Coding</a> instances that refer to the code system. 
+</p>
+
 
 <h2>Value Sets that include codes defined elsewhere</h2>
 
@@ -94,9 +117,10 @@ The standard way to produce a value set expansion is to perform a
 <p>
 This is a request to produce a value set expansion for the value set
 with the provided id. The value set can be identified by other means,
-such as identifier and version. There is an additional parameter 
-flat=true|false, which the client can use to specify whether a 
-hierarchical value set expansion is acceptable or not.
+such as identifier and version. Servers can define their own additional
+parameters that influence the expansion process, such as to what 
+degree heirarchy from the source code system is reflected in the 
+expanded value sets.
 </p>
 <p>
 The value set expansion returned by this query should be treated 
