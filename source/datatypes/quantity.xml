@@ -20,7 +20,7 @@
   <WindowWidth>23955</WindowWidth>
   <WindowTopX>4320</WindowTopX>
   <WindowTopY>4650</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -233,45 +233,45 @@
  </Worksheet>
  <Worksheet ss:Name="Restrictions">
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="7" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="91.5"/>
-   <Column ss:AutoFitWidth="0" ss:Width="493.5"/>
-   <Column ss:AutoFitWidth="0" ss:Width="528.75"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s65">
+   x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="91.5"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="493.5"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="528.75"/>
+   <Row ss:StyleID="s65">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Rules</Data></Cell>
-    <Cell><Data ss:Type="String">OCL</Data></Cell>
     <Cell><Data ss:Type="String">XPath</Data></Cell>
+    <Cell><Data ss:Type="String">OCL</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell><Data ss:Type="String">Duration</Data></Cell>
-    <Cell><Data ss:Type="String">The unit must be an amount of time and a UCUM unit must be provided.</Data></Cell>
-    <Cell><Data ss:Type="String">exists(f:code) and f:system='http://unitsofmeasure.org'</Data></Cell>
+    <Cell><Data ss:Type="String">The code must be an amount of time and the system must be UCUM.</Data></Cell>
+    <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell><Data ss:Type="String">Distance</Data></Cell>
-    <Cell><Data ss:Type="String">The unit must be an amount of length and a UCUM unit must be provided.</Data></Cell>
-    <Cell><Data ss:Type="String">exists(f:code) and f:system='http://unitsofmeasure.org'</Data></Cell>
+    <Cell><Data ss:Type="String">The code must be an amount of length and the system must be UCUM.</Data></Cell>
+    <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Count</Data></Cell>
-    <Cell><Data ss:Type="String">The value must a whole number and the UCUM unit must be &quot;1&quot;</Data></Cell>
-    <Cell><Data ss:Type="String">f:code='1' and f:system='http://unitsofmeasure.org'</Data></Cell>
+    <Cell><Data ss:Type="String">The value must a whole number, the code must be &quot;1&quot; and the system must be UCUM</Data></Cell>
+    <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or (f:system/@value='http://unitsofmeasure.org' and f:code/@value='1' )) and not(contains(f:value/@value, '.')) </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell><Data ss:Type="String">Money</Data></Cell>
-    <Cell><Data ss:Type="String">The unit must be a currency and the code must from ISO 4217 (system = &quot;urn:std:iso:4217&quot;)</Data></Cell>
-    <Cell><Data ss:Type="String">exists(f:code) and f:system='urn:std:iso:4217'</Data></Cell>
+    <Cell><Data ss:Type="String">Code must be present and system must be ISO 4217 (system = &quot;urn:std:iso:4217&quot; - currency)</Data></Cell>
+    <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='urn:std:iso:4217')</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell><Data ss:Type="String">CodedQuantity</Data></Cell>
     <Cell><Data ss:Type="String">The unit must coded with UCUM</Data></Cell>
-    <Cell><Data ss:Type="String">exists(f:code) and f:system='http://unitsofmeasure.org'</Data></Cell>
+    <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Age</Data></Cell>
     <Cell><Data ss:Type="String">The unit must be an amount of time and a UCUM unit must be provided, and the value must be positive</Data></Cell>
-    <Cell><Data ss:Type="String">exists(f:code) and f:system='http://unitsofmeasure.org'</Data></Cell>
+    <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org') and not(contains(f:value/@value, '-'))</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -280,12 +280,26 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   <Selected/>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
+   <SplitVertical>1</SplitVertical>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -322,7 +336,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
