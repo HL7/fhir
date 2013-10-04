@@ -70,10 +70,10 @@
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s68">
-   <Alignment ss:Vertical="Top"/>
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s69">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Alignment ss:Vertical="Top"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -233,44 +233,44 @@
  </Worksheet>
  <Worksheet ss:Name="Restrictions">
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="7" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="91.5"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="493.5"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="528.75"/>
-   <Row ss:StyleID="s65">
+   x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="91.5"/>
+   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="493.5"/>
+   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="528.75"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Rules</Data></Cell>
     <Cell><Data ss:Type="String">XPath</Data></Cell>
     <Cell><Data ss:Type="String">OCL</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Duration</Data></Cell>
-    <Cell><Data ss:Type="String">The code must be an amount of time and the system must be UCUM.</Data></Cell>
-    <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">Distance</Data></Cell>
-    <Cell><Data ss:Type="String">The code must be an amount of length and the system must be UCUM.</Data></Cell>
+    <Cell><Data ss:Type="String">There must be a code if there is a value and it must be an expression of time.  If system is present, it must be UCUM.</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data></Cell>
    </Row>
    <Row ss:Height="30">
+    <Cell><Data ss:Type="String">Distance</Data></Cell>
+    <Cell><Data ss:Type="String">There must be a code if there is a value and it must be an expression of length.  If system is present, it must be UCUM.</Data></Cell>
+    <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Count</Data></Cell>
-    <Cell><Data ss:Type="String">The value must a whole number, the code must be &quot;1&quot; and the system must be UCUM</Data></Cell>
+    <Cell><Data ss:Type="String">There must be a code with a value of &quot;1&quot; if there is a value and it must be an expression of length.  If system is present, it must be UCUM.  If present, the value must a whole number.</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or (f:system/@value='http://unitsofmeasure.org' and f:code/@value='1' )) and not(contains(f:value/@value, '.')) </Data></Cell>
    </Row>
-   <Row>
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Money</Data></Cell>
-    <Cell><Data ss:Type="String">Code must be present and system must be ISO 4217 (system = &quot;urn:std:iso:4217&quot; - currency)</Data></Cell>
+    <Cell><Data ss:Type="String">There must be a code if there is a value and it must be an expression of currency.  If system is present, it must be ISO 4217 (system = &quot;urn:std:iso:4217&quot; - currency).</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='urn:std:iso:4217')</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">CodedQuantity</Data></Cell>
-    <Cell><Data ss:Type="String">The unit must coded with UCUM</Data></Cell>
+    <Cell><Data ss:Type="String">There must be a code if there is a value.  If system is present, it must be UCUM.</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Age</Data></Cell>
-    <Cell><Data ss:Type="String">The unit must be an amount of time and a UCUM unit must be provided, and the value must be positive</Data></Cell>
+    <Cell><Data ss:Type="String">There must be a code if there is a value and it must be an expression of time.  If system is present, it must be UCUM.  If value is present, it must be positive.</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org') and not(contains(f:value/@value, '-'))</Data></Cell>
    </Row>
   </Table>
@@ -280,6 +280,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
@@ -300,6 +301,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>5</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -308,13 +310,13 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="2" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s68" ss:DefaultColumnWidth="120"
+   x:FullRows="1" ss:StyleID="s69" ss:DefaultColumnWidth="120"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s68" ss:Width="75"/>
-   <Column ss:StyleID="s68" ss:Width="108.75"/>
-   <Column ss:StyleID="s68" ss:Width="44.25"/>
-   <Column ss:StyleID="s68" ss:Width="81.75"/>
-   <Column ss:StyleID="s68" ss:Width="58.5"/>
+   <Column ss:StyleID="s69" ss:Width="75"/>
+   <Column ss:StyleID="s69" ss:Width="108.75"/>
+   <Column ss:StyleID="s69" ss:Width="44.25"/>
+   <Column ss:StyleID="s69" ss:Width="81.75"/>
+   <Column ss:StyleID="s69" ss:Width="58.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
@@ -324,9 +326,9 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s63"><Data ss:Type="String">QuantityCompararator</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">How the Quantity should be understood and represented</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">#quantity-comparator</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">How the Quantity should be understood and represented</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">#quantity-comparator</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
