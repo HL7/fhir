@@ -20,18 +20,30 @@
 <p>
 In addition to the basic contents of resources and their metadata, each resource can be labeled
 with one or more "Tags". These tags can be used to associate additional operational information 
-with the Resources, including defining security labels used in access control policies, workflow
-management, and other uses. Tags are attached to resources and exchanged with their resource.
-Tags are never used to keep information that needs to be understood when interpreting the content
-of a resource; their function is limited to finding and controlling access to the resource.
+with the Resources, including defining security labels used to support access control policies, workflow
+management, associating resources with profiles, and other uses. Tags are attached to resources 
+and exchanged with the resource. Tags are never used to keep information that needs to be 
+understood when interpreting the content of a resource; their function is limited to finding 
+and controlling access to the resource, and connecting resources to technical or clinical workflow.
 </p>
 <p>
-Each tag has two properties:
+Each tag has three properties:
 </p>
 <table class="grid">
- <tr><td>URI : uri</td><td>A term that defines the meaning of the tag</td></tr>
+ http://hl7.org/fhir/tag
+ <tr><td>Type : uri</td><td>A uri that identifies the type of the tag</td></tr>
+ <tr><td>URI : uri</td><td>An absolute URI which is a term that defines the meaning of the tag</td></tr>
  <tr><td>Label : string</td><td>(Optional) A human-readable label for the tag for use when displaying in end-user applications</td></tr>
 </table>
+<p>
+The following types of tags are defined:
+</p>
+<table class="grid">
+ <tr><td>http://hl7.org/fhir/tag</td><td>A standard tag</td></tr>
+ <tr><td>http://hl7.org/fhir/profile</td><td>A profile tag</td></tr>
+</table>
+
+<h4>Standard Tags</h4>
 <p>
 The URI may be a reference to a healthcare vocabulary, including ones defined in this specification,
 such as the basic <a href="security.htm#labels">security label set</a>, or vocabularies such as 
@@ -44,9 +56,56 @@ but this is not required.
 If the end user application provides functionality to the user that allows the user to 
 affix arbitrary text tags to the resource for their own purpose, the application can 
 automatically construct a URI by appending the mime encoding of the Label to the base
-URL "http://hl7.org/fhir/tags/text/". When applications processing resources see this
+URL "http://hl7.org/fhir/tag/text/". When applications processing resources see this
 base URL, they can automatically know that this is a pure text label with no formal
 meaning.
+</p>
+<b>Known Tags</b>
+<p>
+This table summarises the tags that are defined as part of this specification:
+</p>
+<table class="gric">
+ <tr> <td>http://hl7.org/fhir/tag/document</td> <td>A bundle (feed.category)</td> <td>Identifies that this bundle represents <a href="document.htm">a document</a></td></tr>
+ <tr> <td>http://hl7.org/fhir/tag/message</td> <td>A bundle (feed.category)</td> <td>Identifies that this bundle represents <a href="message.htm">a message</a></td></tr>
+ <tr> <td></td> <td></td></tr>
+</table>
+
+<h4>Profile Tags</h4>
+<p>
+A profile tag is an assertion that the resource conforms to a particular 
+<a href="profile.htm">Profile</a>, which are sets of rules about what 
+content is allowed to be in a resource. In a profile tag, the URI 
+is a URL that identifies a profile resource.
+</p>
+<p>
+It's always possible to determine whether a resource conforms to a 
+profile simply by testing it against the profile (the <a href="downloads.htm">validation tools</a>
+provide the functionality to perform this test in a variety of contexts). 
+However there are several circumstances where simply examining whether 
+a resource conforms to a particular profile as needed is impractical:
+</p>
+<ul>
+ <li>A server searching a set of resources for ones that conform to a particular profile</li>
+ <li>A receiver that has many profiles to choose when validating resource</li>
+</ul>
+<p>
+In addition, a validation application (see <a href="http.htm#validation">RESTful validation</a>) needs
+a way for the client to inform it if it wants the resource tested against as a particular profile. 
+</p>
+<p>
+Profile Tags serve these use cases - a client/creator of a resource can tag the 
+resource with an assertion that the resource conforms to a profile. The server/receiver
+of the resource can choose to take this assertion at face value, or to assist in locating
+the profile against which to validate the resource. 
+</p>
+<p>
+Note: resources can conform to multiple profiles at once. A resource can conform to 
+a profile without ever being labelled that it does, or a resource may falsely claim to conform 
+to a profile. For this reason, applications resources SHOULD always 
+depend on the contents of the resource when processing them, and/or check resources
+against profiles directly rather than relying on profile tags.
+Profile Tags are provided as computational short cuts, not statements of meaning
+about the resource.
 </p>
 
 <a name="compartments"> </a>
@@ -74,12 +133,18 @@ As an example of compartment usage, to retrieve a list of a patient's conditions
 </pre>
 <p>
 The details of this usage are <a href="http.htm#search">described under the search operation</a>.
+As a search related operation, the assignment of resources to compartments is only based on 
+the current version of any of the resources involved. Note that <a href="references.htm#contained">contained</a>
+patient resources cannot create a patient compartment of their own. 
 </p>
 <p>
 Compartments may be used explicitly, like this, but can also be used implicitly. For instance,
 if a FHIR server is providing a patient view of a record, the authorised user associated
 with use of the FHIR RESTful api may be limited to accessing records from the
-compartment instance(s) logically associated with their identity.
+compartment instance(s) logically associated with their identity. Irrespective of whether
+compartments are being used explicitly or implicitly, servers will need to make arrangements
+to make some resources with no direct link to a patient available to the client (medications, 
+substances, etc).
 </p>
 <p>
 Note that resources may cross between compartments, or interlink them. Examples of 
@@ -110,11 +175,11 @@ references to resources, but includes their whole content. These resource bundle
 different reasons, including:
 </p>
 <ul>
-  <li>Returning a set of resources that meet some criteria as part of a server operation</li>
-  <li>Returning a set of versions of resources as part of the history operation on a server</li>
+  <li>Returning a set of resources that meet some criteria as part of a server operation (see <a href="http.htm#search">RESTful Search</a>)</li>
+  <li>Returning a set of versions of resources as part of the history operation on a server  (see <a href="http.htm#history">History</a>)</li>
+  <li>Exchanging a set of resources as part of a message transaction (see <a href="message.htm">Messaging</a>)</li>
+  <li>Grouping a self-contained set of resources to act as an exchangeable and persistable group with clinical integrity - a clinical document (see <a href="document.htm">Documents</a>)</li>
   <li>Storing a collection of resources</li>
-  <li>Exchanging a set of resources as part of a message transaction</li>
-  <li>Grouping a self-contained set of resources to act as an exchangeable and persistable group with clinical integrity (i.e. a clinical document)</li>
 </ul>
 <p>
 Conceptually, a bundle has an identifier (url) and a date updated, and a list of resources. 

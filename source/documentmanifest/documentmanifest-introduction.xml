@@ -1,0 +1,12 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<p>
+A document manifest gathers a set of <a href="documentreference.htm">Document Reference</a> resources 
+into a single package that may be the subject of workflow such as access control, auditing, and 
+targeted delivery. 
+</p>
+<p>
+Typically, Document Manifest Resources are used in document indexing systems, such as IHE XDS (see the <a href="xds-profile.xml.htm">XDS specific profile</a>).
+</p>
+
+<a name="resource"></a>
+</div>

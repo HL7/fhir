@@ -16,29 +16,14 @@
 
 <h1>Using Codes in Resources</h1>
 
-<!--
-<p>
-The following reference tables are provided to help implementers:
-</p>
-<ul>
- <li><a href="terminologies-systems.htm">Systems List</a>: Some known system identifiers suitable for use in 
-     the <i>system</i> element of CodeableConcept, Coding, and Identifier elements</li>
- <li><a href="terminologies-bindings.htm">Bindings List</a>: a full list of the binding names defined for all FHIR resources</li>
- <li><a href="terminologies-codes.htm">Code systems</a>: Code systems defined as part of this specification</li>
- <li><a href="terminologies-valuesets.htm">Value Sets</a>: Value sets defined as part of this specification</li>
- <li><a href="terminologies-v2.htm">v2 Namespaces list</a>: A list of v2 tables that can be used in resources</li>
- <li><a href="terminologies-v3.htm">v3 Namespaces list</a>: A list of v3 code systems and value sets used in FHIR</li>
-</ul>
--->
-
 <a name="bindings"> </a>
 <p>
 Many elements in the FHIR resources have a <b>coded value</b>: some fixed string 
-(a sequence of characters) that identifies some "concept" assigned elsewhere. The 
+(a sequence of characters) assigned elsewhere that identifies some defined "concept". The 
 sequence of characters and it's meaning may be defined in one of several places:
 </p>
 <ul>
- <li>As one a set of fixed values defined in this specification</li>
+ <li>As one of a set of fixed values defined in this specification</li>
  <li>In an internet RFC (e.g. mime type, language)</li>
  <li>An HL7 defined source (v3 code system, or v2 table)</li>
  <li>Some external terminology or ontology such as <a href="http://loinc.org">LOINC</a>, <a href="http://www.ihtsdo.org">SNOMED CT</a></li>

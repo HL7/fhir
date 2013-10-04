@@ -60,17 +60,23 @@ resource for a given id). Functionally, this is equivalent to a <a href="http.ht
 read operation</a>:
 </p>
 <pre>
- GET .../patient/@23
+ GET .../patient/23
 </pre>
 <p>
 except that it returns a bundle with the requested resource, rather than the 
 resource itself. However additional parameters can be added which may provide
 additional functionality on top of this base read equivalence.
 </p>
+<h3>Parameters for each resource</h3>
 <p>
-In addition to this resource, each FHIR resource type defines a 
-set of applicable search parameters with their names, types, and 
-meanings. Mostly, the defined search parameters correspond to a 
+In addition to the _id parameter which exists for all resources, each 
+FHIR resource type defines it's own set of search parameters with 
+their names, types, and meanings. These search parameters are on the 
+same page as the resource definitions, and are also published as part
+of the standard conformance profile (<a href="conformance-base.xml.htm">XML</a> or <a href="conformance-base.json.htm">JSON</a>).
+</p>
+<p>
+Mostly, the defined search parameters correspond to a 
 single element in the resource, but this is not required, and some 
 search parameters refer to the same type of element in multiple 
 places, or refer to derived values.
@@ -114,6 +120,16 @@ separated from the parameter name by a dot. Modifiers are:</p>
 <li>For string: ":exact" (the match needs to be exact, no partial matches, case sensitive and accent-sensitive) and  ":partial" (the search may function on partial matches). It is at the discretion of the server whether to do a left-partial search</li>
 <li>For token: ":text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), ":code" (a match on code and system of the coding/codeable concept), and :anyns matches all codes irrespective of the namespace.</li>
 </ul>
+
+<h4>text</h4>
+<p>
+The type "text" is used for general text type content where non-determinstic search 
+functionality of the type offered by typical text indexing services is appropriate. 
+The value of the search parameter is a text based query, which may involve searching
+more multiple words with thesaurus and proximity considerations, and logical operations such as AND, OR etc. 
+This specification does not proscribe any particular functionality with respect to 
+the exact functionality of these search parameters.
+</p>
 
 <h4>integer</h4>
 <p>
@@ -217,7 +233,7 @@ ensuring consistent behavior.
 As an example, the following search searches for all the procedures in a patient compartment that occurred over a 2 year period:
 </p>
 <pre>
- GET [baseurl]/patient/@23/procedure?date:after=2010-01-01&amp;date:before=2011-12-31
+ GET [baseurl]/patient/23/procedure?date:after=2010-01-01&amp;date:before=2011-12-31
 </pre>
 
 
@@ -229,7 +245,7 @@ Conditions where the subject reference is a particular patient by the patient id
 The interpretation of a <i>reference</i> parameter is either:
 </p>
 <ul>
- <li><b>name=id</b> the id of a resource (not including the @ that goes in the URL)</li>
+ <li><b>name=id</b> the id of a resource</li>
  <li><b>name=type/id</b> matches an id of a resource with a specific target type. This is useful if the resource reference can refer to multiple different resource types.</li>
 </ul>
 <p>
@@ -294,7 +310,7 @@ state-on-date=new$2013-05-04,active$2013-05-05.
 <h3>Selecting resources by Tag</h3>
 
 <p>
-Resources may have tags affixed to them. the _tag resource searches for a resource by URI.
+Resources may have <a href="extras.htm#tag">tags</a> affixed to them. the _tag resource searches for a resource by URI.
 For example:
 </p>
 <pre>
@@ -304,21 +320,79 @@ For example:
 This searches for all Condition resources with the tag "http://acme.org/fhir/tags/needs-review". 
 The _tag search parameter may have the modifiers :partial and :text, which mean 
 to only match on the left side of the target tags, or to search the label part of the tag respectively.
+Searching by tag only includes tags with a scheme of "http://hl7.org/fhir/tag".
 </p>
+
+<h3>Selecting resources by Profile</h3>
+
+<p>
+To restrict the search to only resource that meet a particular profile, use the _profile tag.
+For example:
+</p>
+<pre>
+ diagnosticreport/search?_profile=http://hl7.org/fhir/profile/lipid
+ diagnosticreport/search?_profile=profile/lipid
+</pre>
+<p>
+This searches for all Diagnostic Report resources that conform to the profile found at the given location. 
+Either relative or absolute references are allowed. Note that determining which resources conform to a 
+given profile can be done by only considering the <a href="extras.htm#tags">profile tags</a> on a resource
+or by actually determining conformance to the profile.
+</p>
+<p>
+Note that determining conformance is a computationally intensive operation, and servers have no 
+obligation to perform this during the resolution of the search operation. For this reason, clients
+should not assume that servers can filter based on conformance to any profile. 
+</p>
+
 
 <a name="return"> </a>
 <h2>Managing Returned Resources</h2>
+
+<h3>Relevance</h3>
+<p>
+Where a search specifies a non-deterministic sort, the search alogrithm
+may generate some kind of ranking score to indicate which resources meet
+the specified criteria better than others. The server can return this 
+score using the OpenSearch Relevence extension:
+</p>
+<pre class="spec">
+  &lt;entry&gt;<span style="color:Gray;">&lt;!-- Zero+ --&gt;</span>
+    &lt;os:score xmlns:os="http://a9.com/-/opensearch/extensions/relevance/1.0/"&gt;[score]&lt;/os:score&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>0..1</b></span><span style="color: Gray"> --&gt;</span>
+    &lt;content type="text/xml"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span><span style="color: Gray"> --&gt;</span>
+  &lt;/entry&gt;
+</pre>
+<p>
+[score] is a decimal number with a value between (and including) 0 and 1. 
+</p>
 
 <a name="sort" />
 <h3>Sorting</h3>
 <p>
 The client can indicate which order to return the results in 
-using the parameter "_sort". This can be set to one of the 
-search parameters. Where the search parameter returns multiple 
-values, the lowest value will be used when ordering the 
-returned records. Note that the actual sort value used is 
-not returned explicitly by the server.
+using the parameter "_sort", which can have a value of one of the search parameters. 
+The _sort parameter can repeat to indicate sort order, with the repeats indicating
+a lower sort priority sequentially.
 </p>
+<p>
+The _sort parameter takes one of two qualifiers, :asc and :desc, which specify 
+ascending and descending sort order respectively. The default value is :asc. 
+</p>
+<p>
+Notes:
+</p>
+<ul>
+ <li>When sorting, the actual sort value used is not returned explicitly 
+by the server for each resource, just the resource contents</li>
+ <li>To sort by relevance, use _sort:asc=_score</li>
+ <li>The server returns the sort it performs as part of the returned search parameters (see <a href="#conformance">below</a>)</li>
+ <li>A search parameter can refer to an element that repeat, and therefore
+there can be multiple values for a given search parameter for a single
+resource. In this case, the sort is based on the item in the set of
+multiple parameters that comes earliest in the specified sort order 
+when ordering the returned resources. </li>
+</ul>
+
 
 <h3>Page Count</h3>
 
@@ -516,7 +590,7 @@ resources can be initiated:
 <ul>
  <li>Perform <a href="http.htm#search">search</a> operation on a RESTful interface (as described above)</li>
  <li>Send a query message, and receive a query response</li>
- <li>On a RESTful interface, create a query resource with an order, and wait for the order response (this allows asynchronous queries across a RESTful interface)</li>
+ <li>Use the query resource on a RESTful interface<!--, create a query resource with an order, and wait for the order response (this allows asynchronous queries across a RESTful interface)--></li>
 </ul>
 <p>
 In all 3 cases, the basic operation is simple: given a set of parameters

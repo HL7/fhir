@@ -25,7 +25,7 @@
     <concept>
       <code value="notasked"/>
       <display value="Not Asked"/>
-      <definition value="Clinical judgement that there are no known items for this list after reasonable investigation"/>
+      <definition value="THe investigation to find out whether there are items for this list has not occurred"/>
     </concept>
     <concept>
       <extension>

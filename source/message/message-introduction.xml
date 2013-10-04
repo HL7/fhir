@@ -9,7 +9,8 @@ conformant to "FHIR messaging".
 In FHIR messaging, a "request message" is sent from a source application to a destination
 application when an event happens. Events mostly correspond to things that happen in the 
 real world. The request message consists of a <a href="extras.htm#bundle">bundle</a>
-of resources, with the first resource in the bundle being this <i>Message</i> resource. The 
+<a href="extras.htm#tags">identified by the tag</a> "http://hl7.org/fhir/tag/message", 
+with the first resource in the bundle being this <i>Message</i> resource. The 
 Message resource has a code - the message event - that identifies the nature of the 
 request message and carries additional request metadata. The other resources in the 
 bundle depend on the type of the request.
@@ -19,7 +20,8 @@ The events supported in FHIR, along with the resources that are included in them
 </p>
 <p>
 The destination application processes the request and returns one or more response messages 
-which are also a <a href="extras.htm#bundle">bundle</a> of resources, with the first 
+which are also a <a href="extras.htm#bundle">bundle</a> of resources
+<a href="extras.htm#tags">identified by the tag</a> "http://hl7.org/fhir/tag/message", with the first 
 resource in the bundle being a <a href="#resource">Message</a> resource with a response
 section that reports the outcome of processing the message and any additional response 
 resources required. 

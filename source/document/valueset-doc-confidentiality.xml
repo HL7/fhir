@@ -8,84 +8,9 @@
   </telecom>
   <description value="Example Connectathon Codes from http://ihexds.nist.gov:12080/xdsref/codes/codes.xml"/>
   <status value="draft"/>
-  <define>
-    <system value="urn:uuid:f4f85eac-e6cb-4883-b524-f2705394840f"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="C"/>
-      <display value="Celebrity"/>
-    </concept>
-    <concept>
-      <code value="D"/>
-      <display value="Clinician"/>
-    </concept>
-    <concept>
-      <code value="I"/>
-      <display value="Individual"/>
-    </concept>
-    <concept>
-      <code value="N"/>
-      <display value="Normal"/>
-    </concept>
-    <concept>
-      <code value="R"/>
-      <display value="Restricted"/>
-    </concept>
-    <concept>
-      <code value="S"/>
-      <display value="Sensitive"/>
-    </concept>
-    <concept>
-      <code value="T"/>
-      <display value="Taboo"/>
-    </concept>
-    <concept>
-      <code value="1.3.6.1.4.1.21367.2006.7.101"/>
-      <display value="Clinical-Staff"/>
-    </concept>
-    <concept>
-      <code value="1.3.6.1.4.1.21367.2006.7.102"/>
-      <display value="Clinical-Spouse"/>
-    </concept>
-    <concept>
-      <code value="1.3.6.1.4.1.21367.2006.7.103"/>
-      <display value="Clinical-Attorney"/>
-    </concept>
-    <concept>
-      <code value="1.3.6.1.4.1.21367.2006.7.104"/>
-      <display value="Solar Drug Trial"/>
-    </concept>
-    <concept>
-      <code value="1.3.6.1.4.1.21367.2006.7.105"/>
-      <display value="Sun Spot Drug Trial"/>
-    </concept>
-    <concept>
-      <code value="1.3.6.1.4.1.21367.2006.7.109"/>
-      <display value="Restricted Sharing"/>
-    </concept>
-    <concept>
-      <code value="1.3.6.1.4.1.21367.2006.7.110"/>
-      <display value="Emergency Responder Accessible"/>
-    </concept>
-    <concept>
-      <code value="1.3.6.1.4.1.21367.2006.7.106"/>
-      <display value="No Sharing"/>
-    </concept>
-    <concept>
-      <code value="1.3.6.1.4.1.21367.2006.7.107"/>
-      <display value="Normal Sharing"/>
-    </concept>
-    <concept>
-      <code value="1.3.6.1.4.1.21367.2006.7.108"/>
-      <display value="Normal Sharing Plus  Research Use"/>
-    </concept>
-  </define>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/Confidentiality"/>
-      <code value="N"/>
-      <code value="R"/>
-      <code value="V"/>
     </include>
   </compose>  
 </ValueSet>

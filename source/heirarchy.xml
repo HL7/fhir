@@ -88,9 +88,7 @@ todo: compartments
     <page type="resource" resource="DiagnosticOrder"/>
     <page type="resource" resource="ImagingStudy"/>
     <page type="resource" resource="Specimen"/>
-    <page type="resource" resource="DeviceCapabilities"/>
-    <page type="resource" resource="DeviceLog"/>
-    <page type="resource" resource="DeviceObservation"/>
+    <page type="resource" resource="DeviceData"/>
   </page>
   <page title="Administrative" filename="administration.htm">
     <page type="resource" resource="Patient"/>
@@ -106,13 +104,13 @@ todo: compartments
     <page type="resource" resource="Supply"/>
     <page type="resource" resource="Order"/>
     <page type="resource" resource="OrderResponse"/>
-    <page type="resource" resource="Coverage"/>
   </page>
   <page title="Infrastructure" filename="infrastructure.htm">
     <page type="resource" resource="List"/>
     <page type="resource" resource="Media"/>
     <page type="resource" resource="Other"/>
     <page type="resource" resource="DocumentReference"/>
+    <page type="resource" resource="DocumentManifest"/>
     <page type="resource" resource="Binary"/>
     <page type="resource" resource="Provenance"/>
     <page type="resource" resource="SecurityEvent"/>
@@ -123,6 +121,7 @@ todo: compartments
     <page type="resource" resource="Conformance"/>
     <page type="resource" resource="ValueSet"/>
     <page type="resource" resource="Profile"/>
+    <page type="resource" resource="ConceptMap"/>
   </page>
 </page>
 </fhir>

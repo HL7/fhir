@@ -121,8 +121,8 @@ Each resource has an associated set of <a href="resources.htm#metadata">resource
 </p>
 <table class="grid">
   <tr><th>Metadata Item</th><th>Where found in HTTP</th></tr>
-  <tr><td>Id</td><td>The Id is represented explicitly in the URL</td></tr>
-  <tr><td>Version Id</td><td>The Version Id is represented by the full canonical URL in the content-location header (see <a href="#vread">vread</a> below). 
+  <tr><td><a href="resources.htm#metadata">Logical Id</a></td><td>The Id is represented explicitly in the URL</td></tr>
+  <tr><td><a href="resources.htm#metadata">Version Id</a></td><td>The Version Id is represented by the full canonical URL in the content-location header (see <a href="#vread">vread</a> below). 
      The Version Id may also be represented in the http ETag, but the use of ETag is not needed by this specification</td></tr>
   <tr><td>Last Modified Date</td><td>HTTP Last-Modified header</td></tr>
 </table>
@@ -131,6 +131,9 @@ Each resource has an associated set of <a href="resources.htm#metadata">resource
 <h3>Security</h3>
 <p>
 Using HTTPS is optional, but all production exchange of healthcare data SHOULD use SSL and additional security as appropriate. See <a href="security.htm#http">HTTP Security</a> for further information.
+</p>
+<p>
+Note: to support browser-based client applications, recommend that servers SHOULD implement <a href="http://enable-cors.org/">cross-origin resource sharing</a> for the operations documented here.  
 </p>
 
 <h3>HTTP Status Codes</h3>
@@ -192,8 +195,8 @@ is performed by an HTTP GET command as shown:
 </pre>
 <p>
 This returns a single instance with the content specified for the resource type.
-This url may be accessed by a browser. The logical id is preceded by a "@" to make parsing the url easier.
-The possible values for the id itself are described in the <a href="datatypes.htm#id">id type</a>.
+This url may be accessed by a browser. The possible values for the 
+<a href="resources.htm#metadata">Logical Id</a> (id) itself are described in the <a href="datatypes.htm#id">id type</a>.
 Servers are required to return a content-location header with the response which is the full version 
 specific url (see vread below) and a Last-Modified header.
 <p>
@@ -221,8 +224,8 @@ requested and a Last-Modified header.
 -->
 </p>
 <p>
-The version id is an opaque identifier that conforms to the same format requirements as 
-a resource id. The id may have been found by performing a history interaction (see below), by recording the 
+The <a href="resources.htm#metadata">Version Id</a> (vid) is an opaque identifier that conforms to the same <a href="datatypes.htm#id">format requirements</a> as 
+a <a href="resources.htm#metadata">Logical Id</a>. The id may have been found by performing a history interaction (see below), by recording the 
 version id from a content location returned from a read or from a version specific reference in a 
 content model. If the version referred to is actually one where the resource was deleted, the 
 server should return a 410 status code.
@@ -245,14 +248,17 @@ The update interaction is performed by an HTTP PUT command as shown:
   PUT [base]/[type]/[id] {?_format=[mime-type]}
 </pre>
 <p>
-If the interaction is successful, the server must return either a 200 OK if the resource was updated, or a 201 Created if the resource was created, along with a copy of the 
-newly updated resource (which might not be the same as that submitted) with the response, along 
+If the interaction is successful, the server must return either a 200 OK if the resource was updated, or a 201 Created if the resource was created,
 with a Last-Modified header, and a Location and Content-Location header that refers to the specific version created by the 
 update interaction.
 </p>
 <p>
 Servers are permitted to reject update interactions because of integrity concerns or business 
 rules implemented on the server, and return HTTP status codes accordingly (usually 422). 
+A server SHOULD accept the resource as submitted when accepts the update, and return the same
+content when it is subsequently read. However systems may not be able to do this. 
+Systems should clearly document how the resource will be changed. Clients SHOULD not 
+expect the resource to be unchanged if it does not conform to the server's profile.
 </p>
 <p>
 In particular, servers may choose to implement version-aware updates, where the only updates that are 
@@ -289,7 +295,8 @@ that type on principle, then it should return the status code
 to that resource, such as referential integrity, it should return the status code 409 Conflict.
 If the resource cannot be deleted because it does not exist on the server, the server must return 404 (Not found).
 Performing this interaction on a resource that is already deleted has no effect, and should return 204.
-Resources may be undeleted by PUTting an update to them subsequent to the deletion. 
+Resources that have been deleted may subsequently be brought back to life by PUTting an update to them 
+subsequent to the deletion. 
 </p>
 <p>
 Many resources have a status element that overlaps with the idea of deletion. Each resource type
@@ -309,9 +316,8 @@ interaction instead. The create interaction is performed by an HTTP POST command
   POST [base]/[type] {?_format=[mime-type]}
 </pre>
 <p>
-The server returns a 201 Created, along with a copy of the newly created resource 
-(which might not be the same as that submitted) with the acknowledgement, along with 
-a version-aware Location header which contains the new location and id of the created resource:
+The server returns a 201 Created, along with 
+a Location header which contains the new <a href="resources.htm#metadata">Logical Id</a> and <a href="resources.htm#metadata">Version Id</a> of the created resource:
 </p>
 <pre>
   Location: [base]/[type]/[id]/_history/[vid]
@@ -320,7 +326,12 @@ a version-aware Location header which contains the new location and id of the cr
 Where [id] and [vid] are the newly created id and version id for the resource.
 When the payload data is incorrect and cannot be used to create a new resource, the server returns a 400 Bad Request.
 </p>
-
+<p>
+A server SHOULD accept the resource as submitted when accepts the create, and return the same
+content when it is subsequently read. However systems may not be able to do this. 
+Systems should clearly document how the resource will be changed. Clients SHOULD not 
+expect the resource to be unchanged if it does not conform to the server's profile.
+</p>
 <p>
 Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
 </p>
@@ -370,23 +381,37 @@ list into pages if appropriate.
 </p>
 
 <a name="validate"> </a>
+<a name="validation"> </a>
 <h3>validate</h3>
 <p>
 The validate interaction checks whether the attached content would be acceptable as an 
-update to an existing resource. The validation interaction may be the first part of a light two-
-phase commit process. The interaction is performed by an HTTP POST command as shown:
+update to an existing resource. The interaction is performed by an HTTP POST command as shown:
 </p>
 <pre>
   POST [base]/[type]/_validate{/[id]}
 </pre>
 <p>
 The content is first checked against the general specification and against the conformance 
-profile that applies to the application. How much additional checking over the normal create and update
-interactions is performed is at the discretion of the server. Then, if the optional [id] section is 
+profile that applies to the application. Then, if the optional [id] section is 
 also provided, the resource is considered as a proposed update to the specific resource, 
 and additional instance specific rules such as referential integrity 
-and update logic (including version control) are applied as well. The return content has 
-one of the following values:
+and update logic (including version control) are applied as well. 
+</p>
+<p>
+The client can ask the server to validate against a particular resource by attaching
+a <a href="extras.htm#tags">profile tag</a> to the resource. This is an assertion that 
+the resource conforms to the specified profile(s), and the server can cehck this. 
+</p>
+<p>
+How much checking to perform as part of the validation operation is at the 
+discretion of the server. The server SHALL check all the things it requires
+of the resource as part of it's normal operations, and MAY choose to validate
+the resource against the schema and schematron provided as part of this
+specification, and/or other profiles, including the one specified by the 
+client.
+</p>
+<p>
+The return content has one of the following values:
 </p>
 <ul>
  <li><b>400 Bad Request</b> - resource could not be parsed or had some basic FHIR validation error</li>
@@ -395,9 +420,6 @@ one of the following values:
 </ul>
 <p>
 Unless the result is 200 OK, the response must include an <a href="operationoutcome.htm">OperationOutcome</a> resource that lists the issues found on validation.
-</p>
-<p>
-The validation interaction has complex semantics and rules; see the full discussion of the interaction in the <a href="#hdata">OMG hData REST specification</a> for further details. 
 </p>
 
 
@@ -464,7 +486,8 @@ on the server, the server should treat this entry as an <a href="#update">update
 server should treat the interaction as a <a href="#create">create interaction</a> (i.e. POST to 
 the given resource type URL), and create a new identity for the submitted resource. For 
 clarity, when the client intends a resource to have a transient identity that the server
-must replace, it should use a cid: url on the resource. Note that the client must provide
+must replace, it should use a cid: url on the resource - that is, a url with the scheme 
+"cid:"<a href="http://tools.ietf.org/html/rfc2392">per RFC 2392</a>. Note that the client must provide
 an identity in the bundle entry.id, but may also provide a version specific identity the
 atom "self" link, and may refer to this for version specific references. Deleted resources are those marked clearly
 using the method described for <a href="xml.htm#atom-deleted">XML</a> or 
@@ -490,8 +513,8 @@ accompanying document.
 </p>
 <p>
 In order to allow the client to know how newly created resources are now identified for future 
-reference, the server must return a bundle containing the results of processing the resources in the same 
-order that they were submitted. 
+reference, the server must return a bundle with the version-specific identities of the created 
+and updated resources, though without the content elements that would contain the resource contents.
 </p>
 <p>
 The application constructing a bundle may not be sure whether a particular resource will already exist

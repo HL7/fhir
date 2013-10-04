@@ -2,7 +2,7 @@
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
       
-[%settitle Roadmap%]
+[%settitle XML Format%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -72,6 +72,7 @@ In XML <a href="extras.htm#bundle">bundles</a> are represented using an Atom for
       &lt;name&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.htm#string">string</a></span> <span style="color:navy;">Name of Human or Device that authored the resource</span><span style="color: Gray"> --&gt;</span>&lt;/name&gt;
       &lt;uri&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span> <span style="color:darkgreen;"><a href="datatypes.htm#uri">uri</a></span> <span style="color:navy;">Link to the resource for the author</span><span style="color: Gray"> --&gt;</span>&lt;/uri&gt;
   &lt;/author>
+  &lt;category term="<span style="color:navy;">[Tag URI]</span>" label="<span style="color:navy;">[Tag Label]</span>" scheme="[Tag Type]"/&gt; 
   &lt;entry&gt;<span style="color:Gray;">&lt;!-- Zero+ --&gt;</span>
     &lt;title&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.htm#string">string</a></span> <span style="color:navy;">Text summary of resource content</span><span style="color: Gray"> --&gt;</span>&lt;/title&gt;
     &lt;id&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.htm#uri">uri</a></span> <span style="color:navy;">Logical Id (URI) for this resource</span><span style="color: Gray"> --&gt;</span>&lt;/id&gt;
@@ -83,8 +84,8 @@ In XML <a href="extras.htm#bundle">bundles</a> are represented using an Atom for
       &lt;uri&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span> <span style="color:darkgreen;"><a href="datatypes.htm#uri">uri</a></span> <span style="color:navy;">Link to the resource for the author</span><span style="color: Gray"> --&gt;</span>&lt;/uri&gt;
     &lt;/author>  <!--    &lt;category term="<span style="color:navy;">[Resource Type]</span>" scheme="http://hl7.org/fhir/resource-types"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span><span style="color: Gray"> --&gt;</span>&lt;/category&gt;   -->
     <span style="color:Gray;">&lt;!-- </span><span style="color:navy;">Tags affixed to the resource (<span style="color: brown;"><b>0..*</b></span>): </span> <span style="color: Gray"> --&gt; </span>
-    &lt;category term="<span style="color:navy;">[Tag URI]</span>" label="<span style="color:navy;">[Tag Label]</span>" scheme="http://hl7.org/fhir/tag"/&gt; 
-    &lt;content type="text/xml"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span><span style="color: Gray"> --&gt;</span>
+    &lt;category term="<span style="color:navy;">[Tag URI]</span>" label="<span style="color:navy;">[Tag Label]</span>" scheme="[Tag Type]"/&gt; 
+    &lt;content type="text/xml"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>0..1</b></span><span style="color: Gray"> --&gt;</span>
       &lt;<span style="color:navy;">[ResourceName]</span> xmlns="http://hl7.org/fhir">
         <span style="color: Gray">&lt;!-- </span><span style="color: navy">Content for the resource</span><span style="color: Gray"> --&gt;</span>
       &lt;/<span style="color:navy;">[ResourceName]</span>>
@@ -113,6 +114,7 @@ In XML <a href="extras.htm#bundle">bundles</a> are represented using an Atom for
  <li>Note that the atom specification requires a known author for every entry. If an author is provided in the base feed element, a specific author is not needed on each entry</li>
  <li>The author of a resource is not explicit in the FHIR resource model; instead it is delegated to the infrastructure. The name is the name of a human author or a device. The uri is a link to the author (possibly a Practitioner resource)</li> 
  <li>xml:base elements SHOULD NOT be used and implementations do not need to support it</li>
+ <li>The entry.content is optional, but SHALL always be present except in the special case of a transaction response</li>
  <li>The entire bundle can be signed with a single Enveloped Digital Signature as described in the Atom specification (section 5.1)</li>
  <li>The mime type for a bundle when represented in XML is application/atom+xml</li>
  <li>The feed.link element with relationship "self" is assigned no particular meaning the FHIR specification, except in the case of a search operation, but may be used to provide a reference to the source of the feed</li>

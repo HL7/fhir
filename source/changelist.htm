@@ -18,12 +18,22 @@
 Changes from the DSTU ballot (v0.11) to the DSTU final copy (0.20?):
 </p>
 <ul>
- <li>The syntax of the REST URLs has changed (remove @ from the ids)</li>
+ <li>Documents &amp; Messages: document that these are marked with tags to identify them</li>
+ <li>Extensions: make rules around obligations for exchange</li>
+ <li>REST API: The syntax of the URLs has changed (remove @ from the ids). resources are no longer returned on create/update/transaction. <a href="http://enable-cors.org/">CORS</a> is now recommended (and in the conformance resource).</li>
+ <li>Searching: clarify that searching is not just for rest. Extend _sort parameter. Add relevance score, and sorting by that. Add _profile parameter</li>
  <li>CodeableConcept: move primary to Coding.primary</li>
- <li>Coding: add primary and valueset</li>
+ <li>Coding: add primary, valueset and version &amp; align code system version rules with core principles</li>
  <li>Choice: remove choice and add Coding.valueset</li>
- <li>The "Resource Definitions" and "Using codes" pages have been re-written (Editorial changes only)</li>
- <li>The overview page has been rewritten</li>
+ <li>ValueSet: add define.version, and a new constraint that codes must be unique in the definition space, and tighten up publication (maps and cross links, expansions, deal with poly-heirarchies &amp; deprecated codes, publish all v3 code systems, map the data types)</li>
+ <li>The following pages have been rewritten (Editorial changes only): "Resource Definitions", "Using codes" and the overview page</li>
+ <li>FamilyHistory: change the value set to use the v3 value set directly</li>
+ <li>Remove Coverage resource</li>
+ <li>ImagingStudy: add link to DiagnosticOrder. Trim mappings to DICOM. Limit URL to WADO-RS only (not WADO)</li>
+ <li>DocumentReference: aligned definitions more closely with XDS. Worked over the XDS Profile</li>
+ <li>DocumentManifest: added this from scratch to round out XDS support</li>
+ <li>Document: revised status list per o-o analysis of reporting cycles</li>
+ <li>Validation: added Profile tags, and explained how they are used for validation</li>
 </ul>
 
 </div>

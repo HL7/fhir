@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:15:30Z</Created>
-  <LastSaved>2013-09-27T01:40:30Z</LastSaved>
+  <LastSaved>2013-10-03T22:09:11Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -21,6 +21,7 @@
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6315</WindowTopY>
   <TabRatio>1000</TabRatio>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -95,7 +96,13 @@
    <Protection/>
   </Style>
   <Style ss:ID="s73">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
   </Style>
   <Style ss:ID="s74">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
@@ -106,22 +113,13 @@
   <Style ss:ID="s76">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s79">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R32C16"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R33C15"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="33" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="34" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="207.75"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
@@ -130,7 +128,6 @@
    <Column ss:Index="6" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="93"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="82.5"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="213.75"/>
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="181.5"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="133.5"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="258"/>
@@ -146,8 +143,6 @@
     <Cell><Data ss:Type="String">Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Binding</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Short Name</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">XDS Mapping</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -174,11 +169,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A reference to a document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">XDS Metadata</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A reference to a document </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Usually, this is used for documents other than those defined by FHIR</Data><NamedCell
+    <Cell ss:Index="11"><Data ss:Type="String">Usually, this is used for documents other than those defined by FHIR</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Document[classCode=&quot;DOC&quot; and moodCode=&quot;EVN&quot;]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -191,11 +184,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Master Version Specific Identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">External ID: 2e82c1f6-a085-4c72-9da3-8640a32e42ab</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">.id</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">.id</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">TXA-12-Unique Document Number</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -208,9 +199,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Other identifiers for the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Other identifiers associated with the record</Data><NamedCell
+    <Cell><Data ss:Type="String">Other identifiers associated with the document, including version independent identifiers and source record identifiers</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">.id / .setId</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">.id / .setId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">TXA-16-Unique Document File Name?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -223,11 +214,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The subject of the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Slot : sourcePatientId + Slot : sourcePatientInfo</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=&quot;SBJ&quot;].role[typeCode=&quot;PAT&quot;]</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">.participation[typeCode=&quot;SBJ&quot;].role[typeCode=&quot;PAT&quot;]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">PID-3-Patient ID List (No standard way to define a Practitioner or Group subject in V2 MDM message)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -245,11 +234,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">What kind of document this is (LOINC if possible)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Classification: 41a5887f-8865-4c09-adf7-e362475b143a (classCode)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Specifies the particular kind of document (e.g. Patient Summary, Discharge Summary, Prescription, etc.)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Key metadata element describing the document, used in searching/filtering.</Data><NamedCell
+    <Cell ss:Index="11"><Data ss:Type="String">Key metadata element describing the document, used in searching/filtering.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">.outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;EVN&quot;].code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -269,11 +256,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">More detail about the document type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Classification: aa543740-bdda-424e-8c96-df4873be8500 (typeCode)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">More detailed information about the document type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">./code</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">./code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -289,11 +274,9 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Who/what authored the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Classification: 93606bcf-9494-43ec-9b4e-a7748d1a838d (author)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Identifies who is responsible for adding the information to the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12" ss:StyleID="s71"><Data ss:Type="String">Not necessarily who did the actual data entry (i.e. typist) it in or who was the source (informant)</Data><NamedCell
+    <Cell ss:Index="11" ss:StyleID="s71"><Data ss:Type="String">Not necessarily who did the actual data entry (i.e. typist) it in or who was the source (informant)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">.participation[typeCode=&quot;AUT&quot;].role[classCode=&quot;ASSIGNED&quot;]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -312,12 +295,25 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Org which maintains the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Identifies the organization or group who is responsible for ongoing maintenance of and access to the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Identifies where to go to find the current version, where to report issues, etc.</Data><NamedCell
+    <Cell ss:Index="11"><Data ss:Type="String">Identifies the logical organisation to go to find the current version, where to report issues, etc. This is different to the physical location of the document, which is the technical location of the document, which host may be delegated to the management of some other organization</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">.participation[typeCode=&quot;RCV&quot;].role[classCode=&quot;CUST&quot;].scoper[classCode=&quot;ORG&quot; and determinerCode=&quot;INST&quot;]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">DocumentReference.policyManager</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">uri</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Manages access policies for the document</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">A reference to a domain or server that manages policies under which the document is accessed and/or made available</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -328,10 +324,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who authenticated the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">?</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Which person or organization authenticates that this document is valid</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=&quot;AUTHEN&quot;].role[classCode=&quot;ASSIGNED&quot;]</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">.participation[typeCode=&quot;AUTHEN&quot;].role[classCode=&quot;ASSIGNED&quot;]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">TXA-10-Assigned Document Authenticator</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -348,11 +343,9 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Document creation time</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Slot : creationTime</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">When the document was created </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Creation time is used for tracking, organizing versions and searching. This is the creation time of the document, not the source material on which it is based</Data><NamedCell
+    <Cell ss:Index="11"><Data ss:Type="String">Creation time is used for tracking, organizing versions and searching. This is the creation time of the document, not the source material on which it is based</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">.effectiveTime[type=&quot;TS&quot;]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -370,11 +363,9 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">When this document reference created</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Slot : creationTime</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">When the document reference was created</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Referencing/indexing time is used for tracking, organizing versions and searching.</Data><NamedCell
+    <Cell ss:Index="11"><Data ss:Type="String">Referencing/indexing time is used for tracking, organizing versions and searching.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">.availabilityTime[type=&quot;TS&quot;]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -392,11 +383,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">current | superseded | error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">implied by XDS workflow</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The status of this document reference </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">interim: .completionCode=&quot;IN&quot; &amp; ./statusCode[isNormalDatatype()]=&quot;active&quot;;&#10;&#10;final: .completionCode=&quot;AU&quot; &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;complete&quot; and not(./inboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#CACT&quot;) and moodCode=&quot;EVN&quot; and domainMember(&quot;ReviseDocument&quot;, code) and isNormalAct()]);&#10;&#10;amended: .completionCode=&quot;AU&quot; &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;complete&quot; and ./inboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#CACT&quot;) and moodCode=&quot;EVN&quot; and domainMember(&quot;ReviseDocument&quot;, code) and isNormalAct() and statusCode=&quot;completed&quot;];&#10;&#10;withdrawn : .completionCode=NI &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;obsolete&quot; &#10;</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">interim: .completionCode=&quot;IN&quot; &amp; ./statusCode[isNormalDatatype()]=&quot;active&quot;;&#10;&#10;final: .completionCode=&quot;AU&quot; &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;complete&quot; and not(./inboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#CACT&quot;) and moodCode=&quot;EVN&quot; and domainMember(&quot;ReviseDocument&quot;, code) and isNormalAct()]);&#10;&#10;amended: .completionCode=&quot;AU&quot; &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;complete&quot; and ./inboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#CACT&quot;) and moodCode=&quot;EVN&quot; and domainMember(&quot;ReviseDocument&quot;, code) and isNormalAct() and statusCode=&quot;completed&quot;];&#10;&#10;withdrawn : .completionCode=NI &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;obsolete&quot; &#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">TXA-19-Document Availability Status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -414,10 +403,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Status of the underlying document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">n/a ?</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The status of the underlying document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">.statusCode</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">.statusCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">TXA-17-Document Completion Status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -432,8 +420,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">If this document replaces another</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">todo</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">.outboundRelationship[typeCode=&quot;RPLC&quot;].target[classCode=&quot;DOC&quot;, moodCode=&quot;EVN&quot;].id</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">.outboundRelationship[typeCode=&quot;RPLC&quot;].target[classCode=&quot;DOC&quot;, moodCode=&quot;EVN&quot;].id</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -446,8 +433,6 @@
     <Cell><Data ss:Type="String">string</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Human-readable description (title)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ExtrinsicObject/Name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Human-readable description of the source document. This is sometimes known as the &quot;title&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -463,7 +448,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">DocumentReference.confidentiality</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -474,14 +459,12 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Sensitivity of source document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Classification: f4f85eac-e6cb-4883-b524-f2705394840f (confidentialityCode)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A code specifying the level of confidentiality of the XDS Document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The interpretation of this field, and more generally enforcement and issues related to highly sensitive documents are beyond the scope of this resource. confidentialityCode can only be understood in the context of the policies, procedures, and value set specified by the context in which the document reference is being used</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">.confidentialityCode</Data><NamedCell
+    <Cell ss:StyleID="s73"><Data ss:Type="String">.confidentialityCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">TXA-18-Document Confidentiality Status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -498,12 +481,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Primary language of the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Slot : languageCode</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The primary language in which the source document is written</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s79"><Data ss:Type="String">.languageCode</Data><NamedCell
+    <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">.languageCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -516,11 +497,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Mime type of the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ExtrinsicObject/@mimeType</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The mime type of the source document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Note: application/hl7-v3+xml for CDA. application/binary for proprietary record formats</Data><NamedCell
+    <Cell ss:Index="11"><Data ss:Type="String">Note: application/hl7-v3+xml for CDA. application/binary for proprietary record formats</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">.text.mediaType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -537,11 +516,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Format of the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Classification: a09d5840-386c-46f2-b5ad-9c3699a4309d (formatCode)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The format of the document. This is used when the mimeType of the document does not provide enough differentiating information (typically, when the mime type of the document is text/xml)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">.text.mediaType</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">.text.mediaType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -552,11 +529,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Size of the document in bytes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Slot : size</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The size of the source document this reference refers to in bytes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">.text.length</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">.text.length</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -567,11 +542,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">HexBinary representation of SHA1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Slot : hash</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A hash of the source document to ensure that changes have not occurred</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Whether the hash must be present and/or correct depends on the document handling rules defined in the context of use</Data><NamedCell
+    <Cell ss:Index="11"><Data ss:Type="String">Whether the hash must be present and/or correct depends on the document handling rules defined in the context of use</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">.text.integrityCheck</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -585,11 +558,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Where to access the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">repository location (by implication &amp; configuration)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A url at which the document can be accessed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">.text.reference</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">.text.reference</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">(Might include V2 TXA-16-Unique Document File Name or TXA-24-Folder Assignment)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -603,11 +574,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">If access is not fully described by location</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">determined from repository location + parameters</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A description of a service call that can be used to retrieve the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">If a document can be accessed by either a service or directly by a URL (i.e. an XDS repository with an MHD access point, or a DICOM network with a WADO portal) just provide the URL</Data><NamedCell
+    <Cell ss:Index="11"><Data ss:Type="String">If a document can be accessed by either a service or directly by a URL (i.e. an XDS repository with an MHD access point, or a DICOM network with a WADO portal) just provide the URL</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">.text.reference</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -622,9 +591,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Type of service (i.e. XDS.b)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">The type of the service that can be used to access the documents</Data><NamedCell
+    <Cell><Data ss:Type="String">The type of the service that can be used to access the documents</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">The meaning and interpretation of the parameters depends on the service type</Data><NamedCell
+    <Cell ss:Index="11"><Data ss:Type="String">The meaning and interpretation of the parameters depends on the service type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -636,9 +605,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Where service is located (usually a URL)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Where the service end-point is located </Data><NamedCell
+    <Cell><Data ss:Type="String">Where the service end-point is located </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Usually this is a URL, but for some services, the end-point is a simple network name or address that is not a valid URL</Data><NamedCell
+    <Cell ss:Index="11"><Data ss:Type="String">Usually this is a URL, but for some services, the end-point is a simple network name or address that is not a valid URL</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -650,9 +619,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Service call parameters</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">A list of named parameters that is used in the service call</Data><NamedCell
+    <Cell><Data ss:Type="String">A list of named parameters that is used in the service call</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">The interpretation of the parameters, and how to convert them into a proper service call, is dependent on the type of the service, and needs to be specified in an implementation guide somewhere</Data><NamedCell
+    <Cell ss:Index="11"><Data ss:Type="String">The interpretation of the parameters, and how to convert them into a proper service call, is dependent on the type of the service, and needs to be specified in an implementation guide somewhere</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -664,9 +633,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Name of parameter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">The name of a parameter</Data><NamedCell
+    <Cell><Data ss:Type="String">The name of a parameter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">n/a</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">n/a</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -677,9 +646,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Parameter value</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">The value of the named parameter</Data><NamedCell
+    <Cell><Data ss:Type="String">The value of the named parameter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">n/a</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">n/a</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -690,11 +659,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Clinical context of document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">(if needed)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The clinical context in which the document was prepared</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">These values are primarily added to help with searching for interesting/relevant documents</Data><NamedCell
+    <Cell ss:Index="11"><Data ss:Type="String">These values are primarily added to help with searching for interesting/relevant documents</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">outboundRelationship[typeCode=&quot;SUBJ&quot;].target[classCode&lt;'ACT']</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -709,11 +676,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Type of context (i.e. type of event)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Classification : cccf5598-8b07-4b77-a05e-ae952c785ead (practice setting)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The type of clinical context, such as a kind of surgery, or a kind of speciality, or a clinical type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s79"><Data ss:Type="String">.code</Data><NamedCell
+    <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -722,13 +687,11 @@
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Period</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Time described by the document</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">Time of service that is being documented</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Slot : serviceStartTime &amp; Slot : serviceStopTime</Data><NamedCell
+    <Cell><Data ss:Type="String">The time period over which the service that is described by the document was provided</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The time period of the patient's care that is described by the document</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s79"><Data ss:Type="String">.effectiveTime</Data><NamedCell
+    <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">.effectiveTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -737,9 +700,8 @@
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">DocumentFacilityType</Data></Cell>
     <Cell><Data ss:Type="String">Kind of facility where patient was seen</Data></Cell>
-    <Cell><Data ss:Type="String">Classification : f33fb8ac-18af-42cc-ae0e-ed0b0bdb91e1 (healthcare Facility Type)</Data></Cell>
     <Cell><Data ss:Type="String">The kind of facility where the patient was seen</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=&quot;LOC&quot;].role[classCode=&quot;DSDLOC&quot;].code</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">.participation[typeCode=&quot;LOC&quot;].role[classCode=&quot;DSDLOC&quot;].code</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -755,25 +717,17 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
-   <SplitVertical>4545</SplitVertical>
-   <LeftColumnRightPane>10</LeftColumnRightPane>
-   <ActivePane>1</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R32C16"
+  <AutoFilter x:Range="R1C1:R33C15"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -991,7 +945,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="42" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="42" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s76" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="130.5"/>
    <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="294.75"/>
@@ -1005,6 +959,7 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
+    <Cell><Data ss:Type="String">v3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s64"><Data ss:Type="String">DocumentReferenceStatus</Data></Cell>
@@ -1013,6 +968,7 @@
     <Cell ss:StyleID="s75"/>
     <Cell><Data ss:Type="String">#document-reference-status</Data></Cell>
     <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/ActStatus</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">DocumentFormat</Data></Cell>
@@ -1135,11 +1091,17 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>300</HorizontalResolution>
+    <VerticalResolution>300</VerticalResolution>
+   </Print>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1147,7 +1109,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="document-reference-status">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="69"/>
    <Column ss:AutoFitWidth="0" ss:Width="431.25"/>
@@ -1155,21 +1117,25 @@
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Code</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell><Data ss:Type="String">V3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">current</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">This is the current reference for this document</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">~ActStatus.active</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">superseded</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">superceded</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">This reference has been superseded by another reference</Data></Cell>
+    <Cell><Data ss:Type="String">~ActStatus.obselete</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">This reference was created in error</Data></Cell>
+    <Cell><Data ss:Type="String">~ActStatus.nullified</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s62"/>
@@ -1183,12 +1149,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>1</ActiveCol>
-     <RangeSelection>R2C2:R4C2</RangeSelection>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

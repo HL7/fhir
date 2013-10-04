@@ -237,6 +237,12 @@ public class ProfileGenerator {
       m.setTarget(Factory.newUri(dSrc.getMapping(ElementDefn.RIM_MAPPING)));
       dDst.getMapping().add(m);
     }
+    if (dSrc.hasMapping(ElementDefn.CDA_MAPPING)) {
+      ElementDefinitionMappingComponent m = p.new ElementDefinitionMappingComponent();
+      m.setMap(Factory.newString_("CDA"));
+      m.setTarget(Factory.newUri(dSrc.getMapping(ElementDefn.CDA_MAPPING)));
+      dDst.getMapping().add(m);
+    }
     if (!Utilities.noString(dSrc.getBindingName()))
       dDst.setBindingSimple(dSrc.getBindingName());
     return dst;
@@ -301,6 +307,7 @@ public class ProfileGenerator {
     addMapping(p, ce.getDefinition(), "http://loinc.org", e.getMapping(ElementDefn.LOINC_MAPPING));
     addMapping(p, ce.getDefinition(), "http://snomed.info", e.getMapping(ElementDefn.SNOMED_MAPPING));
     addMapping(p, ce.getDefinition(), "http://hl7.org/v3", e.getMapping(ElementDefn.RIM_MAPPING));
+    addMapping(p, ce.getDefinition(), "http://hl7.org/v3/cda", e.getMapping(ElementDefn.CDA_MAPPING));
     addMapping(p, ce.getDefinition(), "http://hl7.org/v2", e.getMapping(ElementDefn.v2_MAPPING));
     addMapping(p, ce.getDefinition(), "http://nema.org/dicom", e.getMapping(ElementDefn.DICOM_MAPPING));
     addMapping(p, ce.getDefinition(), "http://w3.org/vcard", e.getMapping(ElementDefn.vCard_MAPPING));

@@ -682,27 +682,32 @@ public class Publisher {
    }
 		
    // val.dumpParams();
-   
+   int hintCount = 0;
+   int warningCount = 0;
    for (ValidationMessage e : errors) {
      if (e.getLevel() == IssueSeverity.information) {
        System.out.println(e.summary());
        page.getQa().hint(e.summary());
+       hintCount++;
      }
     }
    for (ValidationMessage e : errors) {
      if (e.getLevel() == IssueSeverity.warning) {
        System.out.println(e.summary());
        page.getQa().warning(e.summary());
+       warningCount++;
      }
     }
-   int t = 0;
+   int errorCount = 0;
    for (ValidationMessage e : errors) {
      if (e.getLevel() == IssueSeverity.error || e.getLevel() == IssueSeverity.fatal) {
        System.out.println(e.summary());
-       t++;
+       errorCount++;
      }
 		}
-		return t == 0;
+   System.out.println("Errors: "+Integer.toString(errorCount)+". Warnings: "+Integer.toString(warningCount)+". Hints: "+Integer.toString(hintCount));
+
+   return errorCount == 0;
 	}	
 	
 	private boolean hasBuildFlag(String n) {

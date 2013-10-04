@@ -185,7 +185,7 @@ public class CompositeTypeConverter {
 		ann.setComment(Utilities.cleanupTextString(type.getComments()));
 		ann.setRequirements(Utilities.cleanupTextString(type.getRequirements()));
 		ann.setV2Mapping(Utilities.cleanupTextString(type.getMapping(org.hl7.fhir.definitions.model.ElementDefn.v2_MAPPING)));
-		ann.setRimMapping(Utilities.cleanupTextString(type.getMapping(org.hl7.fhir.definitions.model.ElementDefn.RIM_MAPPING)));
+    ann.setRimMapping(Utilities.cleanupTextString(type.getMapping(org.hl7.fhir.definitions.model.ElementDefn.RIM_MAPPING)));
 		ann.setTodo(Utilities.cleanupTextString(type.getTodo()));
 		ann.setCommitteeNotes(Utilities.cleanupTextString(type
 				.getCommitteeNotes()));

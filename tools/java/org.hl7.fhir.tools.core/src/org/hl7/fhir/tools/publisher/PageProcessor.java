@@ -343,6 +343,8 @@ public class PageProcessor implements Logger  {
       } else if (com[0].equals("settitle")) {
         workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
         src = s1+s3;
+      } else if (com[0].equals("dtmappings")) {
+        src = s1 + genDataTypeMappings(com[1]) + s3;
       } else if (com[0].equals("setlevel")) {
         level = Integer.parseInt(com[1]);
         src = s1+s3;
@@ -418,8 +420,6 @@ public class PageProcessor implements Logger  {
         src = s1 + genBindingTable(false) + s3;
       else if (com[0].equals("resimplall"))
           src = s1 + genResImplList() + s3;
-      else if (com[0].equals("dtmappings"))
-          src = s1 + genDataTypeMappings() + s3;
       else if (com[0].equals("impllist"))
         src = s1 + genReferenceImplList() + s3;
       else if (com[0].equals("txurl"))
@@ -837,11 +837,12 @@ public class PageProcessor implements Logger  {
     return id.substring(i+1);
   }
 
-  private String genDataTypeMappings() {
+  private String genDataTypeMappings(String name) throws Exception {
     List<ElementDefn> list = new ArrayList<ElementDefn>();
-    list.addAll(definitions.getStructures().values());
-    list.addAll(definitions.getTypes().values());
-    list.addAll(definitions.getInfrastructure().values());
+//    list.addAll(definitions.getStructures().values());
+//    list.addAll(definitions.getTypes().values());
+//    list.addAll(definitions.getInfrastructure().values());
+    list.add(definitions.getElementDefn(name));
     MappingsGenerator maps = new MappingsGenerator();
     maps.generate(list);
     return maps.getMappings();
@@ -1841,6 +1842,8 @@ public class PageProcessor implements Logger  {
           wikilink = com[1];
           src = s1+s3;
         }
+      else if (com[0].equals("dtmappings"))
+        src = s1 + genDataTypeMappings(com[1]) + s3;
       else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("wiki"))
@@ -1891,8 +1894,6 @@ public class PageProcessor implements Logger  {
         src = s1 + genValueSetsTable() + s3;
       else if (com[0].equals("resimplall"))
         src = s1 + genResImplList() + s3;
-      else if (com[0].equals("dtmappings"))
-          src = s1 + genDataTypeMappings() + s3;
       else if (com[0].equals("impllist"))
         src = s1 + genReferenceImplList() + s3;
       else if (com[0].equals("txurl"))
@@ -1923,6 +1924,10 @@ public class PageProcessor implements Logger  {
         src = s1 + "todo" + s3;
       else if (com[0].equals("toc"))
         src = s1 + generateToc() + s3;
+      else if (com[0].equals("pub-type"))
+        src = s1 + publicationType + s3;      
+      else if (com[0].equals("pub-notice"))
+        src = s1 + publicationNotice + s3;      
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -2077,6 +2082,8 @@ public class PageProcessor implements Logger  {
         src = s1+s3;
       else if (com[0].equals("resheader"))
         src = s1+s3;
+      else if (com[0].equals("dtmappings"))
+        src = s1 + genDataTypeMappings(com[1]) + s3;
       else if (com[0].equals("codelist"))
         src = s1+codelist(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("maponthispage"))
@@ -2156,8 +2163,6 @@ public class PageProcessor implements Logger  {
         src = s1 + genBindingTable(false) + s3;
       else if (com[0].equals("resimplall"))
         src = s1 + genResImplList() + s3;
-      else if (com[0].equals("dtmappings"))
-          src = s1 + genDataTypeMappings() + s3;
       else if (com[0].equals("impllist"))
         src = s1 + genReferenceImplList() + s3;
       else if (com[0].equals("txurl"))
@@ -2252,10 +2257,14 @@ public class PageProcessor implements Logger  {
     String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(name)+"_Page";
     String workingTitle = Utilities.escapeXml(resource.getName());
     
-    while (src.contains("<%"))
+    while (src.contains("<%") || src.contains("[%"))
     {
       int i1 = src.indexOf("<%");
       int i2 = src.indexOf("%>");
+      if (i1 == -1) {
+        i1 = src.indexOf("[%");
+        i2 = src.indexOf("%]");
+      }
       String s1 = src.substring(0, i1);
       String s2 = src.substring(i1 + 2, i2).trim();
       String s3 = src.substring(i2+2);
@@ -2508,10 +2517,14 @@ public class PageProcessor implements Logger  {
   String processProfileIncludes(String filename, ProfileDefn profile, String xml, String tx, String src, String example, String intro, String notes) throws Exception {
     String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(filename)+"_Page";
 
-    while (src.contains("<%"))
+    while (src.contains("<%") || src.contains("[%"))
     {
       int i1 = src.indexOf("<%");
       int i2 = src.indexOf("%>");
+      if (i1 == -1) {
+        i1 = src.indexOf("[%");
+        i2 = src.indexOf("%]");
+      }
       String s1 = src.substring(0, i1);
       String s2 = src.substring(i1 + 2, i2).trim();
       String s3 = src.substring(i2+2);

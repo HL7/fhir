@@ -15,15 +15,153 @@
 
 <h2>Data Type Formal Definitions</h2>
 
-<p>This page provides the mappings for the data types</p>
+<p>This page provides mappings for the data types. There are mappings to HL7 v2, v3, and (where appropraite) vCard.</p>
 
 [%diagram datatypes/alltypes.diagram%]
 
-<%dtmappings%>
+<a name="Attachment"></a>
+<a name="attachment"></a>
+<h3 style="margin-bottom: 1px">Attachment</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.htm#Attachment">Base Definition</a>, <a href="datatypes-examples.htm#Attachment">Examples</a> and <a href="datatypes-definitions.htm#Attachment">Formal Definitions</a>.
+</p>
 
+<%dtmappings Attachment%>
+
+<a name="Identifier"></a>
+<a name="identifier"></a>
+<h3 style="margin-bottom: 1px">Identifier</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.htm#identifier">Base Definition</a>, <a href="datatypes-examples.htm#identifier">Examples</a> and <a href="datatypes-definitions.htm#identifier">Formal Definitions</a>.
+</p>
+
+<%dtmappings Identifier%>
+
+<a name="Coding"></a>
+<a name="coding"></a>
+<h3 style="margin-bottom: 1px">Coding</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.htm#Coding">Base Definition</a>, <a href="datatypes-examples.htm#Coding">Examples</a> and <a href="datatypes-definitions.htm#Coding">Formal Definitions</a>.
+</p>
+
+<%dtmappings Coding%>
+
+<a name="CodeableConcept"></a>
+<a name="codeableconcept"></a>
+<h3 style="margin-bottom: 1px">CodeableConcept</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.htm#CodeableConcept">Base Definition</a>, <a href="datatypes-examples.htm#CodeableConcept">Examples</a> and <a href="datatypes-definitions.htm#CodeableConcept">Formal Definitions</a>.
+</p>
+
+<%dtmappings CodeableConcept%>
+
+<a name="Quantity"></a>
+<a name="quantity"></a>
+<h3 style="margin-bottom: 1px">Quantity</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.htm#Quantity">Base Definition</a>, <a href="datatypes-examples.htm#Quantity">Examples</a> and <a href="datatypes-definitions.htm#Quantity">Formal Definitions</a>.
+</p>
+
+<%dtmappings Quantity%>
+
+<a name="Range"></a>
+<a name="range"></a>
+<h3 style="margin-bottom: 1px">Range</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.htm#Range">Base Definition</a>, <a href="datatypes-examples.htm#Range">Examples</a> and <a href="datatypes-definitions.htm#Range">Formal Definitions</a>.
+</p>
+
+<%dtmappings Range%>
+
+<a name="Ratio"></a>
+<a name="ratio"></a>
+<h3 style="margin-bottom: 1px">Ratio</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.htm#Ratio">Base Definition</a>, <a href="datatypes-examples.htm#Ratio">Examples</a> and <a href="datatypes-definitions.htm#Ratio">Formal Definitions</a>.
+</p>
+
+<%dtmappings Ratio%>
+
+<a name="Period"></a>
+<a name="period"></a>
+<h3 style="margin-bottom: 1px">Period</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.htm#Period">Base Definition</a>, <a href="datatypes-examples.htm#Period">Examples</a> and <a href="datatypes-definitions.htm#Period">Formal Definitions</a>.
+</p>
+
+<%dtmappings Period%>
+
+<a name="SampledData"></a>
+<a name="sampleddata"></a>
+<h3 style="margin-bottom: 1px">SampledData</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.htm#SampledData">Base Definition</a>, <a href="datatypes-examples.htm#SampledData">Examples</a> and <a href="datatypes-definitions.htm#SampledData">Formal Definitions</a>.
+</p>
+
+<%dtmappings SampledData%>
+
+<a name="HumanName"></a>
+<a name="humanname"></a>
+<h3 style="margin-bottom: 1px">HumanName</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.htm#HumanName">Base Definition</a>, <a href="datatypes-examples.htm#HumanName">Examples</a> and <a href="datatypes-definitions.htm#HumanName">Formal Definitions</a>.
+</p>
+
+<%dtmappings HumanName%>
+
+<div class="mapping">
+<p><b><a href="http://tools.ietf.org/html/rfc6350">vCard</a> Mappings</b></p>
+<ul>
+ <li>HumanName.text = vCard "FN" field</li>
+ <li>HumanName.use = use of the vCard "TYPE" parameter</li>
+ <li>HumanName.family, .given, .prefix, .suffix = parts of vCard "N" field. Note that there is no FHIR equivalent for the poorly defined "additional" name field. In FHIR, given names go in "middle" names</li>
+ <li>The vCard nickname corresponds to a name with the use "nickname"</li>
+</ul>
 </div>
 
-<%maponthispage%>
+
+
+<a name="Address"></a>
+<a name="address"></a>
+<h3 style="margin-bottom: 1px">Address</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.htm#Address">Base Definition</a>, <a href="datatypes-examples.htm#Address">Examples</a> and <a href="datatypes-definitions.htm#Address">Formal Definitions</a>.
+</p>
+
+<%dtmappings Address%>
+
+<div class="mapping">
+<p><b><a href="http://tools.ietf.org/html/rfc6350">vCard</a> Mappings</b></p>
+<ul>
+ <li>Address.text = vCard "ADDRESS" "LABEL" parameter</li>
+ <li>Address.use = vCard "TYPE" parameter</li>
+ <li>Address.line = vCard "street" list component</li>
+ <li>Address.city = vCard "locality" list component</li>
+ <li>Address.state = vCard "region" list component</li>
+ <li>Address.zip = vCard "code" list component</li>
+ <li>Address.country = vCard "country" list component</li>
+</ul>
+</div>
+
+<a name="Contact"></a>
+<a name="contact"></a>
+<h3 style="margin-bottom: 1px">Contact</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.htm#Contact">Base Definition</a>, <a href="datatypes-examples.htm#Contact">Examples</a> and <a href="datatypes-definitions.htm#Contact">Formal Definitions</a>.
+</p>
+
+<%dtmappings Contact%>
+
+<a name="Schedule"></a>
+<a name="schedule"></a>
+<h3 style="margin-bottom: 1px">Schedule</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.htm#Schedule">Base Definition</a>, <a href="datatypes-examples.htm#Schedule">Examples</a> and <a href="datatypes-definitions.htm#Schedule">Formal Definitions</a>.
+</p>
+
+<%dtmappings Schedule%>
+
+</div>
 
 [%file newfooter%]
 </body>

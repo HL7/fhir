@@ -13,9 +13,16 @@ The most important of the identifiers is the
 <a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm">Unique Device Identifier</a>
 (UDI), which most medical devices are required to carry and which can be used to access the 
 <a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/GlobalUDIDatabaseGUDID/ucm20038750.htm">Global 
-Unique Device Identification Database</a> (GUDID). The system URI for UDIs is <i>http://fda.gov/udi</i>. 
+Unique Device Identification Database</a> (GUDID). The UDI has it's own element (<i>udi</i>). The UDI may identify an instance of a device uniquely, or it may just identify the type of the device. 
+A portion of the UDI - the DI part - can be extracted from the UDI when required, and used 
+to look up information about the device through the GUDID.
 Where the device has an assigned UDI, the other details carried in the resource (lot, expiry date etc) must be 
-consistent with the information found in the GUDID for the UDI.
+consistent with the information encoded  in the UDI or reigstered in the GUDID.
 </p>
+
+
+
+
+
 
 </div>

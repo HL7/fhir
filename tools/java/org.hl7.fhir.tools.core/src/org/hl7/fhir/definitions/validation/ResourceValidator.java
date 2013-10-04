@@ -131,8 +131,15 @@ public class ResourceValidator extends BaseValidator {
 
     checkElement(errors, parent.getName(), parent.getRoot(), parent, null, s == null || !s.equals("n/a"));
     
+    if (!resourceIsTechnical(name)) { // these are exempt because identification is tightly managed
+      ElementDefn id = parent.getRoot().getElementByName("identifier");
+      if (id == null)
+        warning(errors, "structure", parent.getName(), false, "All resources should have an identifier");
+      else 
+        rule(errors, "structure", parent.getName(), id.typeCode().equals("Identifier"), "If a resource has an element named identifier, it must have a type 'Identifier'");
+    }
     rule(errors, "structure", parent.getName(), parent.getRoot().getElementByName("text") == null, "Element named \"text\" not allowed");
-    rule(errors, "structure", parent.getName(), parent.getRoot().getElementByName("contained") == null, "Element named \"contaned\" not allowed");
+    rule(errors, "structure", parent.getName(), parent.getRoot().getElementByName("contained") == null, "Element named \"contained\" not allowed");
     if (parent.getRoot().getElementByName("subject") != null && parent.getRoot().getElementByName("subject").typeCode().startsWith("Resource"))
       rule(errors, "structure", parent.getName(), parent.getSearchParams().containsKey("subject"), "A resource that contains a subject reference must have a search parameter 'subject'");
     if (parent.getRoot().getElementByName("patient") != null && parent.getRoot().getElementByName("patient").typeCode().startsWith("Resource"))
@@ -149,6 +156,17 @@ public class ResourceValidator extends BaseValidator {
     for (Compartment c : definitions.getCompartments()) 
       rule(errors, "structure", parent.getName(), c.getResources().containsKey(parent), "Resource not entered in resource map for compartment '"+c.getTitle()+"' (compartments.xml)");
 	}
+
+  private boolean resourceIsTechnical(String name) {
+    return 
+        name.equals("ConceptMap") || 
+        name.equals("Conformance") || 
+        name.equals("Message") || 
+        name.equals("Profile") || 
+        name.equals("Query") || 
+        name.equals("ValueSet") ||         
+        name.equals("OperationOutcome");         
+  }
 
   private boolean hasTranslationsEntry(String name) {
     Element child = XMLUtil.getFirstChild(translations);
@@ -173,7 +191,7 @@ public class ResourceValidator extends BaseValidator {
 		rule(errors, "structure", path, e.unbounded() || e.getMaxCardinality() == 1,	"Max Cardinality must be 1 or unbounded");
 		rule(errors, "structure", path, e.getMinCardinality() == 0 || e.getMinCardinality() == 1, "Min Cardinality must be 0 or 1");
 		hint(errors, "structure", path, !nameOverlaps(e.getName(), parentName), "Name of child ("+e.getName()+") overlaps with name of parent ("+parentName+")");
-		rule(errors, "structure", path, e.hasShortDefn(), "Must have a short defn");
+    checkDefinitions(errors, path, e);
     warning(errors, "structure", path, !Utilities.isPlural(e.getName()) || !e.unbounded(), "Element names should be singular");
     rule(errors, "structure", path, !e.getName().equals("id"), "Element named \"id\" not allowed");
     rule(errors, "structure", path, !e.getName().equals("extension"), "Element named \"extension\" not allowed");
@@ -237,6 +255,55 @@ public class ResourceValidator extends BaseValidator {
 		}
 
 	}
+
+  private void checkDefinitions(List<ValidationMessage> errors, String path, ElementDefn e) {
+    rule(errors, "structure", path, e.hasDefinition(), "A Definition is required");
+    
+    if (!e.hasShortDefn()) 
+      return;
+    
+    warning(errors, "structure", path, !e.getShortDefn().equals(e.getDefinition()), "Element needs a definition of it's own");
+    warning(errors, "structure", path, !e.getShortDefn().equals(e.getName()), "Short description can't be the same as the name");
+    Set<String> defn = new HashSet<String>();
+    for (String w : splitByCamelCase(e.getName()).toLowerCase().split(" ")) 
+      defn.add(Utilities.pluralizeMe(w));
+    for (String w : path.split("\\.")) 
+      for (String n : splitByCamelCase(w).split(" ")) 
+        defn.add(Utilities.pluralizeMe(n.toLowerCase()));
+    
+    Set<String> provided = new HashSet<String>();
+    for (String w : stripPunctuation(splitByCamelCase(e.getShortDefn())).split(" "))
+      if (!Utilities.noString(w) && !grammarWord(w.toLowerCase()))
+        provided.add(Utilities.pluralizeMe(w.toLowerCase()));
+    boolean ok = false;
+    for (String s : provided)
+      if (!defn.contains(s))
+        ok = true;
+    warning(errors, "structure", path, ok, "Short description doesn't add any new content: '"+e.getShortDefn()+"'");
+  }
+
+  private String splitByCamelCase(String s) {
+    StringBuilder b = new StringBuilder();
+    for (char c : s.toCharArray()) {
+      if (Character.isUpperCase(c))
+        b.append(' ');
+      b.append(c);
+    }
+    return b.toString();
+  }
+
+  private boolean grammarWord(String w) {
+    return w.equals("and") || w.equals("or") || w.equals("a") || w.equals("the") || w.equals("for") || w.equals("this") || w.equals("of") || w.equals("and") || w.equals("and");
+  }
+
+  private String stripPunctuation(String s) {
+    StringBuilder b = new StringBuilder();
+    for (char c : s.toCharArray()) {
+      if (Character.isAlphabetic(c) || c == ' ')
+        b.append(c);
+    }
+    return b.toString();
+  }
 
   private boolean nameOverlaps(String name, String parentName) {
 	  if (Utilities.noString(parentName))

@@ -16,9 +16,11 @@ that are authored and assembled in FHIR, while the document reference resource i
 
 <h2>Document Content</h2>
 <p>
-All documents have the same structure: a <a href="extras.htm#bundle">bundle</a> that has a <i>Document</i> resource (see below) 
-first, followed by a series of other resources referenced from the <i>Document</i> 
-header that provides guidance on how they fit together. The bundle gathers all the content
+All documents have the same structure: a <a href="extras.htm#bundle">bundle</a> 
+<a href="extras.htm#tags">identified by the tag</a> "http://hl7.org/fhir/tag/document", 
+and that has a <i>Document</i> resource (see below) as the first resource in the bundle, 
+followed by a series of other resources referenced from the <i>Document</i> 
+resource that provides guidance on how they fit together. The bundle gathers all the content
 of the document into a single XML document which may be signed and managed as required. The resources
 include both human and computer readable portions.
 </p>

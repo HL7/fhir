@@ -9,17 +9,17 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:22:02Z</Created>
-  <LastSaved>2012-03-19T21:36:18Z</LastSaved>
+  <LastSaved>2013-10-03T22:33:09Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8505</WindowHeight>
+  <WindowHeight>8445</WindowHeight>
   <WindowWidth>24675</WindowWidth>
   <WindowTopX>3600</WindowTopX>
-  <WindowTopY>3915</WindowTopY>
+  <WindowTopY>3975</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -140,7 +140,7 @@
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">IdentifierUse</Data></Cell>
     <Cell><Data ss:Type="String">The use of this identifier</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies the use for this identifier, if known&#10;</Data></Cell>
+    <Cell><Data ss:Type="String">usual | official | temp | secondary (If known)&#10;</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers</Data></Cell>
     <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is not temporary unless it explicitly says that it is</Data></Cell>
@@ -234,8 +234,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -323,7 +323,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="identifier-use">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="64.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="485.25"/>
@@ -331,7 +331,7 @@
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Code</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Comments</Data></Cell>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
@@ -351,6 +351,12 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">temp</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">A temporary identifier</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">secondary</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">An identifier that was assigned in secondary use - it serves to identify the object in a relative context, but cannot be consistently assigned to the same object again in a different context</Data></Cell>
+    <Cell><Data ss:Type="String">Unfortunately, this is a common problem that arises in data exchange, where information is not identified in some formats, but some identification must be assigned in other formats</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -362,7 +368,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R5C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

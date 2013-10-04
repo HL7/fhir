@@ -16,12 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8715</WindowHeight>
+  <WindowHeight>8655</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>1500</WindowTopX>
-  <WindowTopY>3615</WindowTopY>
+  <WindowTopY>3675</WindowTopY>
   <TabRatio>705</TabRatio>
-  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -109,9 +108,6 @@
   </Style>
   <Style ss:ID="s78">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
-  </Style>
-  <Style ss:ID="s79">
-   <Font ss:FontName="Arial" x:Family="Swiss"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -213,7 +209,7 @@
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">FamilialRelationship</Data></Cell>
     <Cell><Data ss:Type="String">Relationship to the subject</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">The type of relationship this person has to the patient (father, mother, brother etc.) At the moment this is a code linking to a fixed set of values. I'm not sure if there is an international standard for this. A fixed (possibly extensible) set of codes feels better than a codeable concept for something like this...</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">The type of relationship this person has to the patient (father, mother, brother etc.) </Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">y</Data></Cell>
@@ -295,7 +291,7 @@
     <Cell><Data ss:Type="String">FamilyHistory.relation.condition.onset[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Age | Range | string</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">How old the person was when the condition manifested</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">How old the person was when condition manifested</Data></Cell>
     <Cell><Data ss:Type="String">Either the age of onset, range of approximate age or descriptive string can be recorded.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
@@ -319,6 +315,7 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -338,8 +335,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -674,9 +671,9 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="44.0625" ss:StyleID="s75">
     <Cell><Data ss:Type="String">FamilialRelationship</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">The nature of the relationship between the patient and the person with the condition. Based on the HL7v3 RoleCode: OID: 2.16.840.1.113883.5.111 with some inappropriate items removed</Data></Cell>
-    <Cell><Data ss:Type="String">code list</Data></Cell>
-    <Cell><Data ss:Type="String">#familial-relationship</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">The nature of the relationship between the patient and the person with the condition.</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/vs/FamilyMember</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s63"><Data ss:Type="String">ConditionOutcome</Data></Cell>
@@ -698,6 +695,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>300</HorizontalResolution>
+    <VerticalResolution>300</VerticalResolution>
+   </Print>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -717,8 +720,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>56</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -775,397 +778,6 @@
      <Number>3</Number>
      <ActiveRow>3</ActiveRow>
      <ActiveCol>2</ActiveCol>
-    </Pane>
-   </Panes>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-   <x:PageLayoutZoom>0</x:PageLayoutZoom>
-  </WorksheetOptions>
- </Worksheet>
- <Worksheet ss:Name="familial-relationship">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="72" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="14.0625">
-   <Column ss:AutoFitWidth="0" ss:Width="207.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="123.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="338.25"/>
-   <Row ss:AutoFitHeight="0" ss:Height="15" ss:StyleID="s75">
-    <Cell><Data ss:Type="String">System</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">AUNT</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a sister of the scoping person's mother or father.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">BRO</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a male sharing one or both parents in common with the scoping entity.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">BROINLAW</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is: (1) a brother of the scoping person's spouse, or (2) the husband of the scoping person's sister, or (3) the husband of a sister of the scoping person's spouse.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">CHLDADOPT</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a child taken into a family through legal means and raised by the scoping person (parent) as his or her own child.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">CHLDFOST</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a child receiving parental care and nurture from the scoping person (parent) but not related to him or her through legal or blood ties.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">CHLDINLAW</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is the spouse of scoping person's child.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">COUSN</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a relative of the scoping person descended from a common ancestor, such as a grandparent, by two or more steps in a diverging line.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">DAU</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a female offspring of the scoping entity (parent).</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">DAUADOPT</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a female child taken into a family through legal means and raised by the scoping person (parent) as his or her own child.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">DAUC</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">&lt;New Concept&gt; The player of the role is a female child (of any type) of scoping entity (parent).</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">DAUFOST</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a female child receiving parental care and nurture from the scoping person (parent) but not related to him or her through legal or blood ties.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">DAUINLAW</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is the wife of scoping person's son.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">CHILD</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a child of the scoping entity.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">EXT</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">A family member outside the immediate family unit, not having a direct genetic or legal relationship e.g. Aunt, cousin, great grandparent, grandchild, grandparent, neiceNephew, and uncle</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">IMED</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">A member of the immediate family unit by direct genetic or legal relationship</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">PRN</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">one that begets or brings forth offspring or a person who brings up and cares for another (Webster's Collegiate Dictionary)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">SIB</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">One person who shares a parent or parents with another.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">SIGOTHR</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">A person who is important to one's well being; especially a spouse or one in a similar relationship. (The player is the one who is important)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">DOMPART</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role cohabits with the scoping person but is not the scoping person's spouse.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">SPS</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a marriage partner of the scoping person.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">FTH</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a male who begets or raises or nurtures the scoping entity (child).</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">FTHINLAW</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is the father of the scoping person's husband or wife.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">GGRFTH</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is the father of the scoping person's grandparent.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">GGRMTH</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is the mother of the scoping person's grandparent.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">GGRPRN</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a parent of the scoping person's grandparent.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">GRFTH</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is the father of the scoping person's mother or father.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">GRMTH</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is the mother of the scoping person's mother or father.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">GRNDCHILD</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a child of the scoping person's son or daughter.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">GRNDDAU</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a daughter of the scoping person's son or daughter.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">GRNDSON</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a son of the scoping person's son or daughter.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">GRPRN</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">parent of a parent of the subject</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">HBRO</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a male related to the scoping entity by sharing only one biological parent.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">HSIB</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is related to the scoping entity by sharing only one biological parent.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">HSIS</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a female related to the scoping entity by sharing only one biological parent.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">HUSB</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a man joined to a woman (scoping person) in marriage.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">MTH</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a female who conceives, gives birth to, or raises and nurtures the scoping entity (child).</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">MTHINLAW</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is the mother of the scoping person's husband or wife.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">NBOR</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role lives near or next to the scoping person.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">NBRO</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a male having the same biological parents as the scoping entity.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">NCHILD</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">A child as determined by birth.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">NEPHEW</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a son of the scoping person's brother or sister or of the brother or sister of the scoping person's spouse.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">NFTH</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a male who begets the scoping entity (child).</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">NFTHF</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Indicates the biologic male parent of a fetus.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">NIECE</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a daughter of the scoping person's brother or sister or of the brother or sister of the scoping person's spouse.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">NIENEPH</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a child of scoping person's brother or sister or of the brother or sister of the scoping person's spouse.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">NMTH</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a female who conceives or gives birth to the scoping entity (child).</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">NOK</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Played by an individual who is designated as the next of kin for another individual which scopes the role.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">NPRN</Data></Cell>
-    <Cell ss:StyleID="s79"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">NSIB</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role has both biological parents in common with the scoping entity.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">NSIS</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a female having the same biological parents as the scoping entity.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">PRNINLAW</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is the parent of scoping person's husband or wife.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">ROOM</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">One who shares living quarters with the subject.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">SIBINLAW</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is: (1) a sibling of the scoping person's spouse, or (2) the spouse of the scoping person's sibling, or (3) the spouse of a sibling of the scoping person's spouse.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">SIS</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a female sharing one or both parents in common with the scoping entity.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">SISINLAW</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is: (1) a sister of the scoping person's spouse, or (2) the wife of the scoping person's brother, or (3) the wife of a brother of the scoping person's spouse.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">SON</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a male offspring of the scoping entity (parent).</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">SONADOPT</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a male child taken into a family through legal means and raised by the scoping person (parent) as his or her own child.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">SONC</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">&lt;New Concept&gt; The player of the role is a male child (of any type) of scoping entity (parent).</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">SONFOST</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a male child receiving parental care and nurture from the scoping person (parent) but not related to him or her through legal or blood ties.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">SONINLAW</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is the husband of scoping person's daughter.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">STPBRO</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a son of the scoping person's stepparent.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">STPCHLD</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a child of the scoping person's spouse by a previous union.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">STPDAU</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a daughter of the scoping person's spouse by a previous union.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">STPFTH</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is the husband of scoping person's mother and not the scoping person's natural father.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">STPMTH</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is the wife of scoping person's father and not the scoping person's natural mother.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">STPPRN</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is the spouse of the scoping person's parent and not the scoping person's natural parent.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">STPSIB</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a child of the scoping person's stepparent.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">STPSIS</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a daughter of the scoping person's stepparent.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">STPSON</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a son of the scoping person's spouse by a previous union.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">UNCLE</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a brother of the scoping person's mother or father.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/RoleCode</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">WIFE</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The player of the role is a woman joined to a man (scoping person) in marriage.</Data></Cell>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <Unsynced/>
-   <Print>
-    <ValidPrinterInfo/>
-    <PaperSizeIndex>9</PaperSizeIndex>
-    <HorizontalResolution>-4</HorizontalResolution>
-    <VerticalResolution>-4</VerticalResolution>
-   </Print>
-   <Selected/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

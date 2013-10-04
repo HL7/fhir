@@ -76,7 +76,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="15" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="16" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="197.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
@@ -162,6 +162,14 @@
     <Cell><Data ss:Type="String">Date of expiry of this device (if applicable)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">Device.udi</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">FDA Mandated Unique Device Identifier</Data></Cell>
+    <Cell><Data ss:Type="String">FDA Mandated Unique Device Identifier - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">The unique identifier may identify an instance of a device uniquely, or it may just identify the type of the device. A portion of the UDI - the DI part - can be extracted from the UDI when required, and used to look up information about the device through the GUDID</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Device.lotNumber</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
@@ -225,8 +233,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -50,14 +50,16 @@ public class MappingsGenerator {
         return 3;
       if (ElementDefn.vCard_MAPPING.equals(s))
         return 4;
-	    if (ElementDefn.RIM_MAPPING.equals(s))
-	      return 5;
+      if (ElementDefn.RIM_MAPPING.equals(s))
+        return 5;
 	    if (ElementDefn.v2_MAPPING.equals(s))
 	      return 6;
 	    if (ElementDefn.LOINC_MAPPING.equals(s))
 	      return 7;
 	    if (ElementDefn.SNOMED_MAPPING.equals(s))
 	      return 8;
+      if (ElementDefn.CDA_MAPPING.equals(s))
+        return 9;
 	    return 0;
 	  }
 
@@ -129,8 +131,10 @@ public class MappingsGenerator {
 	
 
 	private String titleFor(String m) {
-		if (m.equals(ElementDefn.RIM_MAPPING))
-			return "RIM";
+    if (m.equals(ElementDefn.RIM_MAPPING))
+      return "RIM";
+    if (m.equals(ElementDefn.CDA_MAPPING))
+      return "CDA (R2)";
 		if (m.equals(ElementDefn.v2_MAPPING))
 			return "HL7 v2";
 		if (m.equals(ElementDefn.DICOM_MAPPING))

@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T09:39:52Z</Created>
-  <LastSaved>2013-07-01T23:09:16Z</LastSaved>
+  <LastSaved>2013-10-03T22:32:55Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,6 +20,7 @@
   <WindowWidth>14880</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>210</WindowTopY>
+  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -177,9 +178,34 @@
   <Style ss:ID="s93">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
+  <Style ss:ID="s95">
+   <Font ss:FontName="Times New Roman" x:Family="Roman" ss:Size="12"
+    ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s124">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s137">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s198">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s201">
+   <Alignment ss:Vertical="Top"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
-  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="22" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="23" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="108"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="789.75"/>
@@ -263,6 +289,10 @@
     <Cell><Data ss:Type="String">profile</Data></Cell>
     <Cell><Data ss:Type="String">DocumentReference</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">profile</Data></Cell>
+    <Cell><Data ss:Type="String">DocumentManifest</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -271,12 +301,10 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>16</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -533,7 +561,7 @@
   <Names>
    <NamedRange ss:Name="_Ref287361564" ss:RefersTo="=crap!R15C1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="34" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="35" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s70" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="126"/>
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="198.75"/>
@@ -625,6 +653,14 @@
     <Cell><Data ss:Type="String">Org which maintains the document</Data></Cell>
     <Cell><Data ss:Type="String">n/a</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s78">
+    <Cell ss:Index="2" ss:StyleID="s80"><Data ss:Type="String">DocumentReference.policyManager</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">uri</Data></Cell>
+    <Cell><Data ss:Type="String">A globally unique identifier for a community with which this document is associated</Data></Cell>
+    <Cell><Data ss:Type="String">XDSDocumentEntry.homeCommunityId</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
     <Cell ss:Index="2" ss:StyleID="s80"><Data ss:Type="String">DocumentReference.authenticator</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
@@ -683,7 +719,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">Represents the title of the document</Data></Cell>
-    <Cell><Data ss:Type="String">ExtrinsicObject/Name</Data></Cell>
+    <Cell><Data ss:Type="String">XDSDocumentEntry.title</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s83"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s78">
@@ -758,8 +794,8 @@
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
     <Cell ss:Index="2" ss:StyleID="s80"><Data ss:Type="String">DocumentReference.context</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Clinical context of document</Data></Cell>
-    <Cell><Data ss:Type="String">(if needed)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Clinical context of document - eventCodeList, serviceStart &amp; Stop time, and facility type</Data></Cell>
+    <Cell><Data ss:Type="String">event codes, service Start &amp; Stop time, and facility type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
     <Cell ss:Index="2" ss:StyleID="s80"><Data ss:Type="String">DocumentReference.context.code</Data></Cell>
@@ -773,7 +809,7 @@
     <Cell ss:Index="2" ss:StyleID="s80"><Data ss:Type="String">DocumentReference.context.period</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Period</Data></Cell>
-    <Cell><Data ss:Type="String">Time described by the document</Data></Cell>
+    <Cell><Data ss:Type="String">The start and stop time of the service being documented took place</Data></Cell>
     <Cell><Data ss:Type="String">XDSDocumentEntry.serviceStartTime &amp; XDSDocumentEntry.serviceStopTime</Data></Cell>
     <Cell><Data ss:Type="String">At least a start date must be provided</Data></Cell>
    </Row>
@@ -785,7 +821,7 @@
     <Cell><Data ss:Type="String">XDSDocumentEntry.healthCareFacilityTypeCode</Data></Cell>
     <Cell><Data ss:Type="String">In some cases, the setting of the encounter is inherent in the typeCode, such as &quot;Diabetes Clinic Progress Note&quot;. healthcareFacilityTypeCode shall be equivalent to or further specialize the value inherent in the typeCode; for example, where the typeCode is simply &quot;Clinic Progress Note&quot; and the value of healthcareFacilityTypeCode is &quot;private clinic&quot;. The value shall not conflict with the value inherent in the typeCode, as such a conflict would create an ambiguous situation</Data></Cell>
    </Row>
-   <Row ss:Index="34" ss:AutoFitHeight="0">
+   <Row ss:Index="35" ss:AutoFitHeight="0">
     <Cell ss:Index="7" ss:StyleID="s86"/>
    </Row>
   </Table>
@@ -799,14 +835,148 @@
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
-    <VerticalResolution>0</VerticalResolution>
+    <HorizontalResolution>300</HorizontalResolution>
+    <VerticalResolution>300</VerticalResolution>
    </Print>
-   <TopRowVisible>21</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>29</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>6</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="DocumentManifest">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="14" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="84"/>
+   <Column ss:StyleID="s137" ss:AutoFitWidth="0" ss:Width="291.75"/>
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="64.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="101.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="200.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="313.5"/>
+   <Row ss:Height="30">
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Profile Name</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Element</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Card.</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Short Name</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Definition</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">SubmissionSet</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">DocumentManifest</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s85"><Data ss:Type="String">SubmissionSet</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">A manifest that defines a set of documents</Data></Cell>
+   </Row>
+   <Row ss:Height="15.75">
+    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.identifier</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s85"><Data ss:Type="String">SubmissionSet.uniqueId</Data></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">A globally unique identifier for the SubmissionSet assigned by the creating entity</Data></Cell>
+   </Row>
+   <Row ss:Height="30">
+    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.subject</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">1..*</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s85"><Data ss:Type="String">SubmissionSet.patientId</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">the subject of care whose longitudinal record is being reflected in this SubmissionSet</Data></Cell>
+   </Row>
+   <Row ss:Height="60">
+    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.recipient</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource(Patient|Practitioner|Organization)</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s85"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">SubmissionSet.intendedRecipient</Font><Font
+       html:Face="Times New Roman" x:Family="Roman" html:Size="8"
+       html:Color="#000000">&#160;</Font></ss:Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">The organization(s) or person(s) for whom the SubmissionSet is intended. </Data></Cell>
+   </Row>
+   <Row ss:Height="30">
+    <Cell ss:Index="2" ss:StyleID="s198"><Data ss:Type="String">DocumentManifest.type</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">DocumentSetType</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">SubmissionSet.contentTypeCode</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">The code specifying the type of clinical activity that resulted in placing the documents in this SubmissionSet</Data></Cell>
+   </Row>
+   <Row ss:Height="45">
+    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.author</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">1..*</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource(Practitioner|Device)</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s85"><Data ss:Type="String">SubmissionSet.author</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">The humans and/or machines that authored the document  in the SubmissionSet. This attribute contains the sub-attributes: authorInstitution, authorPerson, authorRole, authorSpecialty</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.created</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s85"><Data ss:Type="String">SubmissionSet.submissionTime</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Point in time at the creating entity when the SubmissionSet was created.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.source</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">uri</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s85"><Data ss:Type="String">SubmissionSet.sourceId</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">OID identifying the instance of the creating entity that contributed the SubmissionSet</Data></Cell>
+   </Row>
+   <Row ss:Height="30">
+    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.status</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">DocumentReferenceStatus</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">SubmissionSet.availabilityStatus</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">The lifecycle status of the SubmissionSet</Data></Cell>
+   </Row>
+   <Row ss:Height="45">
+    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.supercedes</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource(DocumentManifest)</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s78"><Data ss:Type="String">todo</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">If this document manifest replaces another</Data></Cell>
+   </Row>
+   <Row ss:Height="30">
+    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.description</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s78"><Data ss:Type="String">SubmissionSet.title</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Human-readable description of the source document. This is sometimes known as the &quot;title&quot;</Data></Cell>
+   </Row>
+   <Row ss:Height="30">
+    <Cell ss:Index="2" ss:StyleID="s198"><Data ss:Type="String">DocumentManifest.confidentiality</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s201"><Data ss:Type="String">DocumentConfidentiality</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">SubmissionSet.confidentialityCode</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">A code specifying the level of confidentiality of this set of Documents</Data></Cell>
+   </Row>
+   <Row ss:Height="60">
+    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.content</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">1..*</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource(DocumentReference)</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s78"><Data ss:Type="String">SubmissionSet.documentEntry</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1057,7 +1227,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Extensions">
-  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="19" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="17" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s78" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="105"/>
    <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="69"/>
@@ -1085,7 +1255,7 @@
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">homeCommunityId</Data></Cell>
+    <Cell><Data ss:Type="String">!homeCommunityId</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">DocumentReference</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
@@ -1095,7 +1265,7 @@
     <Cell><Data ss:Type="String">Existing XDS usage is poorly understood</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
-    <Cell><Data ss:Type="String">repositoryUniqueId</Data></Cell>
+    <Cell><Data ss:Type="String">!repositoryUniqueId</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">DocumentReference</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
@@ -1103,27 +1273,6 @@
     <Cell ss:Index="7"><Data ss:Type="String">XDSDocumentEntry.repositoryUniqueId</Data></Cell>
     <Cell><Data ss:Type="String">The globally unique, immutable, identifier of the repository where the document is stored, assigned by the Document Repository.  This unique identifier for the Document Repository may be used to identify and connect to the specific Document Repository where the document is stored once its metadata has been retrieved from a Document Registry. &#10;The repository unique Id is used by various profiles to facilitate the location of services and documents&#10;</Data></Cell>
     <Cell><Data ss:Type="String">In FHIR, the repository is explicit in the location and/or service URL</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="135">
-    <Cell><Data ss:Type="String">practiceSettingCode</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">DocumentReference</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell><Data ss:Type="String">Coding</Data></Cell>
-    <Cell><Data ss:Type="String">XDSPracticeSettingCodes</Data></Cell>
-    <Cell><Data ss:Type="String">XDSDocumentEntry.practiceSettingCode</Data></Cell>
-    <Cell><Data ss:Type="String">The code specifying the clinical specialty where the act that resulted in the document was performed (e.g., Family Practice, Laboratory, Radiology).</Data></Cell>
-    <Cell><Data ss:Type="String">Existing XDS usage is poorly understood</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">comments</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">DocumentReference </Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">XDSDocumentEntry.comments</Data></Cell>
-    <Cell><Data ss:Type="String">Comments associated with the document</Data></Cell>
-    <Cell><Data ss:Type="String">FHIR generally does not have comments fields - these are usually extensions with more metadata</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">relationship</Data></Cell>
@@ -1201,11 +1350,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

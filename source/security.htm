@@ -103,7 +103,13 @@ Communications
 For the <a href="http.htm">RESTful API</a>, normal HTTP security rules apply. 
 The <a href="http.htm#root">Service Root URL</a> will specify whether SSL is required. 
 Client authentication may be required by the server, possibly including the requirement for 
-client certificates. 
+client certificates.
+</p>
+<p>
+SSL SHOULD be used for all production data exchange.
+</p>
+<p>
+To support browser-based client applications, recommend that servers SHOULD implement <a href="http://enable-cors.org/">cross-origin resource sharing</a> for the <a href="http.htm">REST operations</a>.  
 </p>
 
 <h2>Authentication</h2>

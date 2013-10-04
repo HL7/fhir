@@ -173,7 +173,39 @@ warning concerning the data along with any action or output that results
 from processing the data.
 </p>
 
+<p>
+Note that it must always be safe to show the narrative to humans; any extension that is
+labeled as "IsModifier" must be represented in the narrative. Applications SHOULD
+ignore extensions that they do not recognize if their "isModifier" element is
+missing or set to false.
+</p>
+
 <div class="example">
+<p>
+Example: Because of a lack of clinical consensus, there's no element on <a href="allergyintolerance.htm">AllergyIntolerance</a> 
+for any expression of certaintly around the expression of the Allergy/Intolerance. Some systems mark their entries 
+as "unlikely" or "refuted". Applications are allowed to extend a resource with data like this: 
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;AllergyIntolerance&gt;
+  &lt;extension&gt;
+    &lt;url value=&quot;http://example.org/fhir/extensions#certainty&quot; /&gt;
+    &lt;isModifier value=&quot;true&quot; /&gt;
+    &lt;valueCoding&gt;
+      &lt;system value="http://example.org/codes/certainty"/&gt;
+      &lt;code value="2"/&gt;
+      &lt;display value="Unlikely"/&gt;
+    &lt;/valueCoding&gt;
+  &lt;/extension&gt;
+&lt;/AllergyIntolerance&gt;
+</pre>
+<p>
+Applications processing the data of this resource must check to see this value.
+If they do not recognise the extension, they must warn the user about the fact 
+that the system does not fully understand the resource. Note that the narrative
+of the resource must contain this qualifying information, so it is safe to 
+show this to the user as an expression of the resource's content.
+</p>
 <p>
 Here is an Australian example where for cultural reasons, certain names that have been used previously must never be mentioned again:
 </p>
@@ -194,22 +226,71 @@ to use this name unless you understand the extension.
 </p>
 </div>
 
-
 <p>
-Servers and background processes that move resources around are not "processing the data
-of the resource", and these applications are not required to check for unknown extensions. Any
-process that copies data out of a resource for use in another context (display to a human,
-decision support, exchange in another format that doesn't support extensions) is processing
-the data.
+Implementations processing the data in resources SHALL understand the impact of the extension when using the data. 
+Implementations are not required to "support" the extension in any meaningful way - they 
+may achieve this understanding by rejecting instances that contain this extension. Alternatively,
+implementations may be able to be sure, due to their implementation environment, that such extensions
+will never occur. However applications SHOULD always check for extensions irrespective of this.
+</p>
+<p>
+Note that processing the data of a resource typically means
+copying or filtering data out of a resource for use in another 
+context (display to a human, decision support, exchange in another 
+format where not all information is included, or storing it for this kind of use).
+Servers and background processes that simply move whole resources around unchanged 
+are not "processing the data of the resource", and therefore these applications 
+are not required to check for unknown extensions. 
 </p>
 
+<h2>Exchanging Extensions</h2>
+
 <p>
-Note that it must always be safe to show the narrative to humans; any extension that is
-labeled as "IsModifier" must be represented in the narrative. Applications are required
-to ignore extensions that they do not recognize if their "isModifier" element is
-missing or set to false.
+Extensions are a way of allowing local requirements to be reflected in a resource using
+a common information based approach so that all systems can confidently process them 
+using the same tools. However, when it comes to processing the information, applications
+will be constrained in their ability to handle resources by the degree to which they 
+are informed about them. 
+</p>
+<p>
+While the structured definition of an extension should always be available (see below for 
+details), the mere availability of a definition does not automatically mean that applications
+know how to handle them correctly - generally, human decisions are required to made around
+how the data extensions contain should be handled, along with the implicit obligations 
+that around the information. 
+</p>
+<p>
+For this reason, local requirements that manifest as extensions are an obstacle to 
+integration. The more the requirements are shared (i.e. regional or national scale),
+the less impact they will have. The consistent representation, definition and registration of 
+extensions that this specifiation defines cannot resolve that problem - it only provides a framework 
+within which such extensions can be handled. 
+</p>
+<p>
+When it comes to deploying applications that support local requirements, situations
+will very likely arise where different applications
+exchanging information with each other are supporting different sets of extensions.
+This specification makes some basic rules that are intended to make management
+of these situations easier, but they cannot resolve it.
+</p>
+<ul>
+ <li>When exchanging resources, systems SHOULD retain unknown extensions when they are capable of doing so (just as they SHOULD retain core elements when they are capable of doing so). </li>
+ <li>Systems that do not accept unknown extensions SHALL declare so in their Conformance resource instances.  </li>
+ <li>If a system modifies a resource it SHALL remove any extensions that it does not understand from the 
+modified element and its descendants, because it cannot know whether the modifications it has made 
+might invalidate the value of the unknown extension.</li>
+ <li>A system SHALL not modify a resource that contains must-understand resource it doesn't understand</li>
+</ul>
+<p>
+The degree to which an system can retain unknown extensions is a function of the type of system
+it is: a general purpose FHIR server, or a middleware engine would be expected to retain 
+all extensions, while an application that manage patient registration through a user 
+interface can only retain extensions to the degree that their information is part of the
+set managed by the user. Other applications will fall somewhere between these two extremes.
 </p>
 
+ 
+ 
 <a name="define"></a>
 <h2>Defining Extensions</h2>
 

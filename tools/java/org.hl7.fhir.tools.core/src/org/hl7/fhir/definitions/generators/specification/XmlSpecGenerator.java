@@ -394,11 +394,18 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 				  BindingSpecification bs = definitions.getBindingByName(elem.getBindingName());
 				  if (bs != null && bs.getBinding() != Binding.Unbound && !Utilities.noString(bs.getReference())) { 
 				    if (bs.getBinding() == Binding.CodeList || bs.getBinding() == Binding.Special)
-		          write("<span style=\"color: navy\"><a href=\""+bs.getReference().substring(1)+".htm\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a></span>");
-            else 
-              write("<span style=\"color: navy\"><a href=\""+bs.getReference()+".htm\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a></span>");				  
+				      write("<span style=\"color: navy\"><a href=\""+bs.getReference().substring(1)+".htm\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a></span>");
+				    else if (bs.getReference().startsWith("http://hl7.org/fhir")) {
+				      if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/"))
+				        write("<a href=\"v3/"+bs.getReference().substring(26)+"/index.htm\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
+				      else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/"))
+				        write("<a href=\""+bs.getReference().substring(23)+".htm\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
+				      else
+				        throw new Exception("Internal reference "+bs.getReference()+" not handled yet");
+				    } else
+				      write("<span style=\"color: navy\"><a href=\""+bs.getReference()+".htm\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a></span>");				  
 				  } else
-					write("<span style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</span>");
+					  write("<span style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</span>");
           if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
             write("</span>");
 				}

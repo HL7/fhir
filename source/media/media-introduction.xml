@@ -8,8 +8,16 @@
  <li>Images on diagnostic reports</li> 
 </ul>
 <p>
+The Media resource may contain medical images in a DICOM format.  While such images may also be accessible through an <a href="imagingstudy.htm">ImagingStudy</a> resource, the Media 
+resource enables "ready for presentation" access to a specific image. 
+
+Such images would preferentially be made available in a FHIR ecosystem by the 
+Media.content.url providing a reference to a WADO-RS service to access the image. 
+That WADO-RS service may include rendering the image with annotations and display parameters 
+from an associated DICOM presentation state.
+
 Although the Media resource is allowed to contain images collected by a DICOM based system, DICOM images would preferentially be made available in a FHIR ecosystem
-by provision of an <a href="imagingstudy.htm">ImagingStudy</a> resource with references to a <a href="ftp://medical.nema.org/medical/dicom/supps/LB/sup161_lb.pdf">WADO-RS server</a>.
+by provision of an  resource with references to a <a href="ftp://medical.nema.org/medical/dicom/supps/LB/sup161_lb.pdf">WADO-RS server</a>.
 </p>
 
 

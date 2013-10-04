@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:20:02Z</Created>
-  <LastSaved>2013-09-27T01:40:30Z</LastSaved>
+  <LastSaved>2013-10-04T05:09:49Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -21,6 +21,7 @@
   <WindowTopX>7605</WindowTopX>
   <WindowTopY>-19635</WindowTopY>
   <TabRatio>666</TabRatio>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -783,7 +784,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -963,7 +963,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="51" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s75" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="18.75">
    <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="153.75"/>
@@ -978,6 +978,7 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
+    <Cell><Data ss:Type="String">v3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="18">
     <Cell ss:StyleID="s72"><Data ss:Type="String">DocumentSectionCode</Data></Cell>
@@ -1016,6 +1017,7 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">The workflow/clinical status of this document</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#document-status</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s72"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/ActStatus</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">DocumentEventCode</Data></Cell>
@@ -1125,11 +1127,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>6</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1223,38 +1226,51 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="document-status">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="6" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s81" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s81" ss:Width="14.25"/>
    <Column ss:StyleID="s81" ss:Width="55.5"/>
    <Column ss:StyleID="s81" ss:Width="346.5"/>
    <Column ss:StyleID="s81" ss:Width="526.5"/>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s82"><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">Code</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">Definition</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell><Data ss:Type="String">v3</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="30">
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">preliminary</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">This is an preliminary document (also known as initial or interim). The content may be incomplete or unverified</Data></Cell>
+    <Cell><Data ss:Type="String">Documents are sometimes shared prior to being finalised</Data></Cell>
+    <Cell><Data ss:Type="String">~ActStatus.active</Data></Cell>
+   </Row>
+   <Row ss:Height="30">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">interim</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">This is an initial or interim document. The content may be incomplete or unverified</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">final</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">The document is complete and verified by an appropriate person</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">The document is complete and verified by an appropriate person, and no further work is planned</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">&lt;ActStatus.complete</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="Number">4</Data></Cell>
+   <Row ss:Height="30">
+    <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">amended</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">The document has been modified subsequent to being released as &quot;final&quot;, and is complete and verified by an authorised person</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">&lt;ActStatus.complete</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">withdrawn</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">The document has been withdrawn following prior release</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Usually this is because some error has been detected in the document, or the document was associated with the wrong patient/author etc.</Data></Cell>
+   <Row ss:Height="60">
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">appended</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">The document has been modified subsequent to being released as &quot;final&quot;, and is complete and verified by an authorised person. The modifications added new information to the document, but did not revise existing content</Data></Cell>
+    <Cell><Data ss:Type="String">If systems are not able to be sure whether existing information has changed or not, they should use the status &quot;amended&quot;</Data></Cell>
+    <Cell><Data ss:Type="String">&lt;ActStatus.complete</Data></Cell>
+   </Row>
+   <Row ss:Height="30">
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">retracted</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">The document has been withdrawn on the basis that it was original issued in error</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Usually this is because some major error has been detected in the workflow that created the document, or the document was associated with the wrong patient/author etc.</Data></Cell>
+    <Cell><Data ss:Type="String">~ActStatus.nullified</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1263,11 +1279,10 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>

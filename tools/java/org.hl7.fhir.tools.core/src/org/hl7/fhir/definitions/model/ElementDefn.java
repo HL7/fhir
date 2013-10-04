@@ -38,7 +38,8 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class ElementDefn {
 	
-	public static final String RIM_MAPPING = "http://hl7.org/v3";
+  public static final String RIM_MAPPING = "http://hl7.org/v3";
+  public static final String CDA_MAPPING = "http://hl7.org/v3/cda";
 	public static final String v2_MAPPING = "http://hl7.org/v2";
 	public static final String DICOM_MAPPING = "http://nema.org/dicom";
   public static final String vCard_MAPPING = "http://w3.org/vcard";

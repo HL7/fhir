@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-08-02T05:52:07Z</LastSaved>
+  <LastSaved>2013-10-03T20:35:55Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,6 @@
   <WindowWidth>28815</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>45</WindowTopY>
-  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -154,7 +153,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="48" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="49" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="337.5"/>
@@ -277,6 +276,19 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ImagingStudy.order</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(DiagnosticOrder)</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Order(s) that caused this study to be performed</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">A list of the diagnostic orders that resulted in this imaging study being performed</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">To support grouped procedures (one imaging study supporting multiple ordered procedures, e.g., chest/abdomen/pelvis CT)</Data></Cell>
+    <Cell><Data ss:Type="String">The order(s) can be inferred from information such as accession numbers, but the details of this depend on local workflow management. &#10;Note that there is a many-many relationship between orders and studies</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ImagingStudy.modality</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
@@ -367,8 +379,8 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Diagnoses etc with request (0008,1080)</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">0040,1002</Data></Cell>
+    <Cell><Data ss:Type="String">Diagnoses etc with request (0040,1002)</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">0040,1002, 0008,1080</Data></Cell>
     <Cell><Data ss:Type="String">Admitting Diagnoses Description</Data></Cell>
     <Cell><Data ss:Type="String">n/a</Data></Cell>
     <Cell><Data ss:Type="String">Diagnoses etc provided with request</Data></Cell>
@@ -456,11 +468,11 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Modality</Data></Cell>
-    <Cell><Data ss:Type="String">The modality of this sequence (0008,0060)</Data></Cell>
+    <Cell><Data ss:Type="String">The modality of this series (0008,0060)</Data></Cell>
     <Cell><Data ss:Type="String">0008,0060</Data></Cell>
     <Cell><Data ss:Type="String">Modality</Data></Cell>
     <Cell><Data ss:Type="String">CT</Data></Cell>
-    <Cell><Data ss:Type="String">The modality of this sequence</Data></Cell>
+    <Cell><Data ss:Type="String">The modality of this series sequence</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="15" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -596,8 +608,7 @@
     <Cell><Data ss:Type="String">Retrieve AE Title (0008,0054)</Data></Cell>
     <Cell><Data ss:Type="String">0008,0054</Data></Cell>
     <Cell><Data ss:Type="String">RetrieveAETitle</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">WADO-RS URI where Series is available</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell ss:Index="15" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -610,8 +621,7 @@
     <Cell><Data ss:Type="String">Retrieve Location UID (0040,E011)</Data></Cell>
     <Cell><Data ss:Type="String">0040,E011</Data></Cell>
     <Cell><Data ss:Type="String">RetrieveLocationUID</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">WADO-RS URI where Series is available</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell ss:Index="15" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -733,7 +743,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Description to be provided</Data></Cell>
+    <Cell><Data ss:Type="String">Description (0070,0080 | 0040,A043 &gt; 0008,0104 | 0042,0010 | 0008,0008)</Data></Cell>
     <Cell><Data ss:Type="String">0070,0080 | 0040,A043 &gt; 0008,0104 | 0042,0010 | 0008,0008</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell ss:Index="15" ss:StyleID="Default"/>
@@ -851,13 +861,14 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">WADO / WADO-RS service where instance is available</Data></Cell>
+    <Cell><Data ss:Type="String">WADO-RS service where instance is available</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell><Data ss:Type="String">WADO url where image is available</Data></Cell>
+    <Cell><Data ss:Type="String">WADO-RS url where image is available</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="15" ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Each instance may have a url and an attachment. Both represent the same information, but using different approaches. The URL is a reference to a WADO-RS service that makes the instance available</Data></Cell>
+    <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -866,6 +877,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Any)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A FHIR resource with content for this instance</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Each instance may have a url and an attachment. Both represent the same information, but using different approaches. The attachment is a reference to a FHIR resource (Media, Document, etc).</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -882,6 +894,7 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Zoom>110</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -901,7 +914,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>27</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
@@ -1631,7 +1644,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

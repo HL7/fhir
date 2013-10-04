@@ -26,6 +26,10 @@
     <translation lang="en">DeviceData</translation>
   </item>
   
+  <item id="DocumentManifest">
+    <translation lang="en">DocumentManifest</translation>
+  </item>
+  
   <item id="Remittance">
     <translation lang="en">Remittance</translation>
   </item>

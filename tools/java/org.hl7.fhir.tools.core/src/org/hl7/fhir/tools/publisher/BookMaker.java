@@ -136,7 +136,7 @@ public class BookMaker {
 							}
 					  }
 				  }
-				  if (!found && !new File(page.getFolders().dstDir+href).exists()) {
+				  if (!found && !new File(page.getFolders().dstDir+href).exists() && !href.equals("qa.htm")) {
 				    page.getQa().brokenlink("broken link in "+name+": <a href=\""+href+"\">"+node.allText()+"</a>");
 					  page.log("broken link in "+name+": <a href=\""+href+"\">"+node.allText()+"</a>");
 				  }

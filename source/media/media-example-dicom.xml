@@ -54,11 +54,6 @@
     <type value="Patient"/>
     <reference value="patient/@example"/>
   </subject>
-
-  <requester>
-    <type value="Practitioner"/>
-    <reference value="practitioner/@example"/>
-  </requester>
  
   <deviceName value="G.E. Medical Systems"/>
   <height value="480"/>

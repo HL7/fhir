@@ -208,6 +208,21 @@ When an element is labeled as Is-Modifier, the documentation  must be clear abou
 it is a modifier.
 </p>
 <p>
+A typical example of an modifier element is one that negates the element that contains it. For 
+instance, in the following element definition:
+</p>
+<pre class="spec">&lt;<a title="Specific reactions to a substance." class="dict" ><b>AdverseReaction</b></a> xmlns="http://hl7.org/fhir"&gt;
+ &lt;!-- Other information --&gt;
+ &lt;<a title="When the exposure occurred." class="dict" ><b>exposureDate</b></a> value="[<span style="color: darkgreen"><a >dateTime</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy">When the exposure occurred</span><span style="color: Gray"> --&gt;</span>
+ &lt;<a title="Substance(s) that is presumed to have caused the adverse reaction." class="dict" ><b>substance</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a >Resource</a>(<a >Substance</a>)</span> <span style="color: navy">Presumed to have caused the reaction</span><span style="color: Gray"> --&gt;</span>&lt;/substance&gt;
+ &lt;<a title="To say that a reaction to substance did not occur (this element modifies the meaning of other elements)" class="dict" ><span style="text-decoration: underline"><b>didNotOccurFlag</b></span></a> value="[<span style="color: darkgreen"><a >boolean</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>1..1</b></span> <span style="color: navy">To say that a reaction to substance did not occur</span><span style="color: Gray"> --&gt;</span>
+ &lt;!-- Other information --&gt;
+&lt;/AdverseReaction&gt;
+</pre>
+<p>
+the element "didNotOccurFlag" affects the entire meaning of the resource - if it is set to true, the whole resource must be understood differently, and so it is not safe for implementations to ignore it. 
+</p>
+<p>
 Generally, elements labeled "Is-Modifier = true" also have a minimum cardinality of 1, to introduce
 certainty in their handling. If the value of such an element is not explicit in the instance, or known 
 by the context, the resource cannot be safely understood. Irrespective of the minimum cardinality, 
@@ -218,7 +233,7 @@ of the resource.
 <p>
 Implementations processing the data in resources SHALL understand the impact of the element when using the data. 
 Implementations are not required to "support" the element in any meaningful way - they 
-may achieve this by rejecting instances that contain values outside those they support (for instance,
+may achieve this understanding by rejecting instances that contain values outside those they support (for instance,
 an application may refuse to accept observations with a reliability != "ok"). Alternatively,
 implementations may be able to be sure, due to their implementation environment, that such values 
 will never occur. However applications SHOULD always check the value irrespective of this.
@@ -230,7 +245,7 @@ context (display to a human, decision support, exchange in another
 format where not all information is included, or storing it for this kind of use).
 Servers and background processes that simply move whole resources around unchanged 
 are not "processing the data of the resource", and therefore these applications 
-are not required to check for unknown extensions. 
+are not required to check Is-Modifier elements. 
 </p>
 
 <a name="mustSupport"> </a>

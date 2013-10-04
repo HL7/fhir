@@ -1,0 +1,22 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="FHIR Document Codes"/>
+  <publisher value="HL7"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org"/>
+  </telecom>
+  <description value="FHIR Document Codes - all LOINC codes where scale_type = 'DOC'"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <filter>
+        <property value="SCALE_TYP"/>
+        <op value="="/>
+        <value value="DOC"/>
+      </filter>
+    </include>
+  </compose>  
+</ValueSet>
+
