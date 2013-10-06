@@ -55,7 +55,7 @@ for servers to handle as part of a batch post
   <entry>
     <title>test person 1, version 1</title>
     <id>http://www.someexternalsite/fhir/person/@1</id>
-    <link rel="self" href="http://www.someexternalsite/fhir/person/@1/history/@1"/>
+    <link rel="self" href="http://www.someexternalsite/fhir/person/@1/history/1"/>
     <updated>2012-11-12T18:05:00Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -149,8 +149,8 @@ for servers to handle as part of a batch post
   </entry>
   <entry>
     <title>test person 1 provenance for version 1</title>
-    <id>http://hl7.org/fhir/provenance/@101</id>
-    <link rel="self" href="http://hl7.org/fhir/provenance/@101/history/@1"/>
+    <id>http://hl7.org/fhir/Provenance/101</id>
+    <link rel="self" href="http://hl7.org/fhir/Provenance/101/history/1"/>
     <updated>2012-11-12T18:05:01Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -165,7 +165,7 @@ for servers to handle as part of a batch post
         <target>
           <type value="Patient"/>
           <value value="http://www.someexternalsite/fhir/person/@1"/>
-          <version value="http://www.someexternalsite/fhir/person/@1/history/@1"/>
+          <version value="http://www.someexternalsite/fhir/person/@1/history/1"/>
         </target>
         <!-- nominal activity: editing the standard -->
         <activity>
@@ -179,8 +179,8 @@ for servers to handle as part of a batch post
   </entry>
   <entry>
     <title>test person 1 provenance for version 5 (deletion)</title>
-    <id>http://hl7.org/fhir/provenance/@103</id>
-    <link rel="self" href="http://hl7.org/fhir/provenance/@103/history/@1"/>
+    <id>http://hl7.org/fhir/Provenance/103</id>
+    <link rel="self" href="http://hl7.org/fhir/Provenance/103/history/1"/>
     <updated>2012-11-12T18:15:01Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -194,7 +194,7 @@ for servers to handle as part of a batch post
         </text>
         <target>
           <type value="Patient"/>
-          <version value="http://www.someexternalsite/fhir/person/@1/history/@5"/>
+          <version value="http://www.someexternalsite/fhir/person/@1/history/5"/>
         </target>
         <!-- nominal activity: editing the standard -->
         <activity>
@@ -208,8 +208,8 @@ for servers to handle as part of a batch post
   </entry>
   <entry>
     <title>test person urn:uuid:8f13879b-8f5c-4ed4-a1f5-bc8d8a0efe provenance</title>
-    <link rel="self" href="http://hl7.org/fhir/provenance/@104/history/@1"/>
-    <id>http://hl7.org/fhir/provenance/@104</id>
+    <link rel="self" href="http://hl7.org/fhir/Provenance/104/history/1"/>
+    <id>http://hl7.org/fhir/Provenance/104</id>
     <updated>2012-11-12T18:20:01Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -237,6 +237,6 @@ for servers to handle as part of a batch post
   </entry>
  <!-- <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0"
 		ref="http://www.someexternalsite/fhir/person/@1" when="2012-11-12T18:15:00Z">
-    <link rel="self" href="http://www.someexternalsite/fhir/person/@1/history/@5"/>
+    <link rel="self" href="http://www.someexternalsite/fhir/person/@1/history/5"/>
   </at:deleted-entry> -->
 </feed>

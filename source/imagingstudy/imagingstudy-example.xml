@@ -7,7 +7,7 @@
   <dateTime value="2011-01-01T11:01:20"/>
   <subject>
     <type value="Patient"/>
-    <reference value="patient/@dicom"/>
+    <reference value="Patient/dicom"/>
   </subject>
   <uid value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045"/>
   <numberOfSeries value="1"/>

@@ -34,7 +34,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
     </confidentiality>
     <subject>
       <type value="Patient"/>
-      <reference value="patient/@xcda"/>
+      <reference value="Patient/xcda"/>
     </subject>
   <!--
   <author>
@@ -100,7 +100,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
     </attester>-->
     <author>
       <type value="Practitioner"/>
-      <reference value="practitioner/@example"/>
+      <reference value="Practitioner/example"/>
     </author>
     <event>
       <code>
@@ -142,7 +142,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
   </folder>
   <subject>
     <type value="Patient"/>
-    <reference value="patient/@xcda"/>
+    <reference value="Patient/xcda"/>
   </subject>
   <content xml:lang="en-us">
     <contentType value="text/plain"/>

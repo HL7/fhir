@@ -20,7 +20,7 @@
     </patient>
     <prescriber> <!-- Linked to the practitioner who treats patient -->
         <type value="Practitioner"/> 
-        <reference value="practitioner/@F007"/>
+        <reference value="Practitioner/F007"/>
         <display value="S.M. Heps"/>
     </prescriber>
     <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
@@ -37,7 +37,7 @@
     </reasonForPrescribing>
     <medication> <!-- Linked to a RESOURCE Medication -->
         <type value="Medication"/>
-        <reference value="medication/@F003"/>
+        <reference value="Medication/F003"/>
         <display value="prescribed medication"/>
     </medication> 
     <dosageInstruction>

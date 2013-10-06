@@ -50,7 +50,7 @@
 
   <provider>
     <type value="Organization"/>
-    <reference value="organization/@1"/>
+    <reference value="Organization/1"/>
   </provider>
 
   <active value="true"/>

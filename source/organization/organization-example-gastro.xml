@@ -28,7 +28,7 @@
   
   <partOf>
     <type value="Organization"/>
-    <reference value="organization/@1"/>
+    <reference value="Organization/1"/>
     <display value="ACME Healthcare, Inc"/>
   </partOf>
 </Organization>

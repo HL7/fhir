@@ -9,18 +9,18 @@
     <status value="active" />
     <patient> <!-- Linked to the resource patient who needs the medication -->
         <type value="Patient"/> 
-        <reference value="patient/@f001"/>
+        <reference value="Patient/f001"/>
         <display value="P. van den Heuvel"/>         
     </patient>
     <prescriber> <!-- Linked to the practitioner who treats patient -->
         <type value="Practitioner"/> 
-        <reference value="practitioner/@f006"/>
+        <reference value="Practitioner/f006"/>
         <display value="R.A. van den Berk"/>
     </prescriber>
     <encounter> <!-- Linked to a resource Visit between patient and practitioner-->
         <!-- TODO: Camiel nog correcte verwijzing (@f001 bestond nog niet) -->
         <type value="Encounter"/>
-        <reference value="encounter/@f001"/>
+        <reference value="Encounter/f001"/>
         <display value="visit who leads to this priscription"/>
     </encounter>
     <reasonForPrescribingCodeableConcept>
@@ -32,7 +32,7 @@
     </reasonForPrescribingCodeableConcept>
     <medication> <!-- Linked to a RESOURCE Medication -->
         <type value="Medication"/>
-        <reference value="medication/@f001"/>
+        <reference value="Medication/f001"/>
         <display value="prescribed medication"/>
     </medication> 
     <dosageInstruction>

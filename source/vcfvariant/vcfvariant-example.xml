@@ -7,7 +7,7 @@
 	<subject>
 		<patient>
 			<type value="Patient"/>
-			<reference value="patient/@example"/>
+			<reference value="Patient/example"/>
 		</patient>
 		<fileId value="X12345"/>
 	</subject>

@@ -39,7 +39,7 @@
     and find out -->
   <source>
     <type value="Patient"/>
-    <reference value="patient/@example"/>
+    <reference value="Patient/example"/>
   </source>
   <date value="2012-11-25T22:17:00+11:00"/>
   <ordered value="false"/>
@@ -51,7 +51,7 @@
     <deleted value="true"/>
     <item>
       <type value="Condition"/>
-      <reference value="condition/@example"/>
+      <reference value="Condition/example"/>
     </item>
   </entry>
   <entry>
@@ -60,7 +60,7 @@
     </flag>
     <item>
       <type value="Condition"/>
-      <reference value="condition/@example2"/>
+      <reference value="Condition/example2"/>
     </item>
   </entry>
 </List>

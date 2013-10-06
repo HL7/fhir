@@ -20,7 +20,7 @@ Note: Referral is likely to be incorporated as an official resource in a future 
     <url value="http://example.org/do-not-use/fhir-extensions/referral#requestingPractitioner"/>
     <valueResource>
       <type value="Practitioner"/>
-      <reference value="practitioner/@f201"/>
+      <reference value="Practitioner/f201"/>
       <display value="Dokter Bronsig"/>
     </valueResource>
   </extension>
@@ -45,7 +45,7 @@ Note: Referral is likely to be incorporated as an official resource in a future 
     <url value="http://example.org/do-not-use/fhir-extensions/referral#fulfillingEncounter"/>
     <valueResource>
       <type value="Encounter"/>
-      <reference value="encounter/@f201"/>
+      <reference value="Encounter/f201"/>
     </valueResource>
   </extension>
   <text>
@@ -67,7 +67,7 @@ Note: Referral is likely to be incorporated as an official resource in a future 
   </code>
   <subject>
     <type value="Patient"/>
-    <reference value="patient/@f201"/>
+    <reference value="Patient/f201"/>
     <display value="Roel"/>
   </subject>
 </Other>

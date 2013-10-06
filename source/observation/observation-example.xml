@@ -30,11 +30,11 @@
   
   <subject>
     <type value="Patient"/>
-    <reference value="patient/@example"/>
+    <reference value="Patient/example"/>
   </subject>
   <performer>
     <type value="Practitioner"/>
-    <reference value="practitioner/@example"/>
+    <reference value="Practitioner/example"/>
   </performer>
   <component>
     <name>

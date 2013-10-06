@@ -20,7 +20,7 @@
         <Condition id="p1">
             <subject>
                 <type value="Patient"/>
-                <reference value="patient/@100"/>
+                <reference value="Patient/100"/>
                 <display value="Peter James Chalmers"/>
             </subject>
             <code>
@@ -32,7 +32,7 @@
     </contained>
     <patient>
         <type value="Patient"></type>
-        <reference value="patient/@100"/>
+        <reference value="Patient/100"/>
         <display value="Peter James Chalmers"/>
     </patient>
     <status value="active"/>
@@ -56,7 +56,7 @@
         </role>
         <member>
             <type value="Practitioner"></type>
-            <reference value="practitioner/@13"/>
+            <reference value="Practitioner/13"/>
             <display value="Nurse Nancy"/>
         </member>
     </participant>
@@ -70,7 +70,7 @@
         </role>
         <member>
             <type value="Practitioner"></type>
-            <reference value="practitioner/@14"/>
+            <reference value="Practitioner/14"/>
             <display value="Doctor Dave"/>
         </member>
     </participant>
@@ -98,7 +98,7 @@
         <performer>
             <!-- refer to the participant (the nurse) in this resource-->
           <type value="Practitioner"></type>
-            <reference value="practitioner/@13"/>
+            <reference value="Practitioner/13"/>
           <display value="Nurse Nancy"/>
         </performer>
         <actionTaken>
@@ -106,7 +106,7 @@
             are modelled as separate encounters. Ideally, there will be  a 'master/parent' encounter that ties them together.
             If there is a single encounter, then all participants will be linked to that encounter.-->
             <type value="Encounter"/>
-            <reference value="encounter/@example"/>
+            <reference value="Encounter/example"/>
         </actionTaken>
     </activity>
     <activity>
@@ -129,7 +129,7 @@
         <performer>
             <!-- refer to the participant (the nurse) in this resource-->
             <type value="Practitioner"></type>
-            <reference value="practitioner/@14"/>
+            <reference value="Practitioner/14"/>
             <display value="Doctor Dave"/>
         </performer>
     </activity>

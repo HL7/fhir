@@ -250,11 +250,11 @@ contained ones (even though this is easier for the sender)
   <issued value="2008-12-11T14:45:00"/>
   <subject>
     <type value="Patient"/>
-    <reference value="patient/@ihe-pcd"/> 
+    <reference value="Patient/ihe-pcd"/> 
   </subject>
   <device>
     <type value="Device"/>
-    <reference value="device/@ihe-pcd"/> 
+    <reference value="Device/ihe-pcd"/> 
   </device>  
   <measurement>
     <type value="Observation"/>

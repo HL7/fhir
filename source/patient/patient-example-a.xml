@@ -53,20 +53,20 @@
     <organization>
       <!-- Which organization to contact to reach this patient -->
       <type value="Organization"/>
-      <reference value="organization/@1"/>
+      <reference value="Organization/1"/>
       <display value="Walt Disney Corporation"/>
     </organization>
   </contact>
 
   <provider>
     <type value="Organization"/>
-    <reference value="organization/@1"/>
+    <reference value="Organization/1"/>
     <display value="ACME Healthcare, Inc"/>
   </provider>
 
   <link>
     <type value="Patient"/>
-    <reference value="patient/@pat2"/>
+    <reference value="Patient/pat2"/>
   </link>
 
   <active value="true"/>

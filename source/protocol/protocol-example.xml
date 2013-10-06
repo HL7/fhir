@@ -2,68 +2,68 @@
 <Protocol xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/protocol.xsd">
   <extension id="arm-dose1">
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#arm.name"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm.name"/>
       <valueString value="0.5 mg Dose"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#arm.description"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm.description"/>
       <valueString value="Administering 0.5mg of [Drug A]"/>
     </extension>
-    <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#arm"/>
+    <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm"/>
   </extension>
   <extension id="arm-dose2">
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#arm.name"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm.name"/>
       <valueString value="dose2"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#arm.description"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm.description"/>
       <valueString value="Administering 1.0mg of [Drug A]"/>
     </extension>
-    <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#arm"/>
+    <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm"/>
   </extension>
   <extension id="epoch-screening">
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#epoch.name"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch.name"/>
       <valueString value="Screening"/>
     </extension>
-    <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#epoch"/>
+    <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch"/>
   </extension>
   <extension id="epoch-single-blind-run-in">
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#epoch.name"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch.name"/>
       <valueString value="Single blind run-in"/>
     </extension>
-    <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#epoch"/>
+    <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch"/>
   </extension>
   <extension id="epoch-treatment-phase">
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#epoch.name"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch.name"/>
       <valueString value="Treatment"/>
     </extension>
-    <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#epoch"/>
+    <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch"/>
   </extension>
   <extension id="epoch-follow-up">
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#epoch.name"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch.name"/>
       <valueString value="Follow up"/>
     </extension>
-    <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#epoch"/>
+    <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch"/>
   </extension>
   <type value="study"/>
   <status value="production"/>
   <purpose value="Defines the execution of study AD-4833PNFP-341"/>
   <step>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.arm"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm"/>
       <valueUri value="#arm-dose1"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.epoch"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch"/>
       <valueUri value="#epoch-screening"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armSequence"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence"/>
       <valueInteger value="1"/>
     </extension>
     <name value="SCRN"/>
@@ -77,19 +77,19 @@
   </step>
   <step>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.arm"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm"/>
       <valueUri value="#arm-dose1"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.epoch"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch"/>
       <valueUri value="#epoch-single-blind-run-in"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armSequence"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence"/>
       <valueInteger value="2"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armAssignment"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armAssignment"/>
       <valueString value="Randomized to Dose 1"/>
     </extension>
     <name value="SBRI"/>
@@ -108,15 +108,15 @@
   </step>
   <step>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.arm"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm"/>
       <valueUri value="#arm-dose1"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.epoch"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch"/>
       <valueUri value="#epoch-treatment-phase"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armSequence"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence"/>
       <valueInteger value="3"/>
     </extension>
     <name value="DOSE 1"/>
@@ -135,15 +135,15 @@
   </step>
   <step>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.arm"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm"/>
       <valueUri value="#arm-dose1"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.epoch"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch"/>
       <valueUri value="#epoch-follow-up"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armSequence"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence"/>
       <valueInteger value="4"/>
     </extension>
     <name value="FLWUP"/>
@@ -157,15 +157,15 @@
   </step>
   <step>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.arm"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm"/>
       <valueUri value="#arm-dose2"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.epoch"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch"/>
       <valueUri value="#epoch-screening"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armSequence"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence"/>
       <valueInteger value="1"/>
     </extension>
     <name value="SCRN"/>
@@ -179,19 +179,19 @@
   </step>
   <step>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.arm"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm"/>
       <valueUri value="#arm-dose2"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.epoch"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch"/>
       <valueUri value="#epoch-single-blind-run-in"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armSequence"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence"/>
       <valueInteger value="2"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armAssignment"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armAssignment"/>
       <valueString value="Randomized to 1.0 mg"/>
     </extension>
     <name value="SBRI"/>
@@ -210,15 +210,15 @@
   </step>
   <step>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.arm"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm"/>
       <valueUri value="#arm-dose2"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.epoch"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch"/>
       <valueUri value="#epoch-treatment-phase"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armSequence"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence"/>
       <valueInteger value="3"/>
     </extension>
     <name value="1.0 mg Dose"/>
@@ -237,15 +237,15 @@
   </step>
   <step>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.arm"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm"/>
       <valueUri value="#arm-pio45mgs"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.epoch"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch"/>
       <valueUri value="#epoch-follow-up"/>
     </extension>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armSequence"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence"/>
       <valueInteger value="4"/>
     </extension>
     <name value="FLWUP"/>
@@ -259,7 +259,7 @@
   </step>
   <step>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armSequence"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence"/>
       <valueInteger value="1"/>
     </extension>
     <name value="VISIT 1"/>
@@ -274,7 +274,7 @@
   </step>
   <step>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armSequence"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence"/>
       <valueInteger value="2"/>
     </extension>
     <name value="VISIT 2"/>
@@ -289,7 +289,7 @@
   </step>
   <step>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armSequence"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence"/>
       <valueInteger value="3"/>
     </extension>
     <name value="VISIT 3"/>
@@ -304,7 +304,7 @@
   </step>
   <step>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armSequence"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence"/>
       <valueInteger value="4"/>
     </extension>
     <name value="VISIT 4"/>
@@ -319,7 +319,7 @@
   </step>
   <step>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armSequence"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence"/>
       <valueInteger value="5"/>
     </extension>
     <name value="VISIT 5"/>
@@ -334,7 +334,7 @@
   </step>
   <step>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armSequence"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence"/>
       <valueInteger value="6"/>
     </extension>
     <name value="VISIT 6"/>
@@ -349,7 +349,7 @@
   </step>
   <step>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armSequence"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence"/>
       <valueInteger value="7"/>
     </extension>
     <name value="VISIT 7"/>
@@ -364,7 +364,7 @@
   </step>
   <step>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armSequence"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence"/>
       <valueInteger value="8"/>
     </extension>
     <name value="VISIT 8"/>
@@ -379,7 +379,7 @@
   </step>
   <step>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armSequence"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence"/>
       <valueInteger value="9"/>
     </extension>
     <name value="VISIT 9"/>
@@ -394,7 +394,7 @@
   </step>
   <step>
     <extension>
-      <url value="http://hl7.org/fhir/example-do-not-use/profile/@studyprotocol#step.armSequence"/>
+      <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence"/>
       <valueInteger value="10"/>
     </extension>
     <name value="VISIT 10"/>

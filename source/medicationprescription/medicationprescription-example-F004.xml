@@ -9,12 +9,12 @@
     <status value="active"/>
     <patient> <!-- Linked to the resource patient who needs the medication -->
         <type value="Patient"/> 
-        <reference value="patient/@f007"/>
+        <reference value="Patient/f007"/>
         <display value="P. van den Heuvel"/>         
     </patient>
     <prescriber> <!-- Linked to the practitioner who treats patient -->
         <type value="Practitioner"/> 
-        <reference value="practitioner/@f001"/>
+        <reference value="Practitioner/f001"/>
         <display value="S.M. Heps"/>
     </prescriber>
     <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
@@ -31,7 +31,7 @@
     </reasonForPrescribingCodeableConcept>
     <medication> <!-- Linked to a RESOURCE Medication -->
         <type value="Medication"/>
-        <reference value="medication/@f004"/>
+        <reference value="Medication/f004"/>
         <display value="prescribed medication"/>
     </medication> 
     <dosageInstruction>

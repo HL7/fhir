@@ -56,7 +56,7 @@ object is represented like this:
 	  &lt;system&gt;http://hl7.org/fhir/resource-types&lt;/system&gt;
 	  &lt;code&gt;Person&lt;/code&gt;
 	&lt;/idType&gt;
-	&lt;id&gt;http://acme.org/fhir/person/@34/history/@3&lt;/id&gt;
+	&lt;id&gt;http://acme.org/fhir/person/@34/history/3&lt;/id&gt;
   &lt;/x&gt;
 </pre>
 </div>

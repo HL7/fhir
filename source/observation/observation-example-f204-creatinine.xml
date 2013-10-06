@@ -41,12 +41,12 @@
  </identifier> 
  <subject><!--It entails Roel's Creatinine level-->
      <type value="Patient"/>
-     <reference value="patient/@f201"/>
+     <reference value="Patient/f201"/>
      <display value="Roel"/>
  </subject>
  <performer><!--The creatinine level was measured by Luigi Maas-->     
      <type value="Practitioner"/>
-     <reference value="practitioner/@f202"/>
+     <reference value="Practitioner/f202"/>
      <display value="Luigi Maas"/>
  </performer>
  <referenceRange><!--Healthy creatinine level ranges from 64umol/L to 104umol/L--> 

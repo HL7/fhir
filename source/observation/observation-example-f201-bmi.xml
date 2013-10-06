@@ -41,12 +41,12 @@
  <!--No identifier could be provided to this observation-->
  <subject><!--It entails Roel's BMI-->
      <type value="Patient"/>
-     <reference value="patient/@f201"/>
+     <reference value="Patient/f201"/>
      <display value="Roel"/>
  </subject>
  <performer>
      <type value="Practitioner"/>
-     <reference value="practitioner/@f201"/>
+     <reference value="Practitioner/f201"/>
  </performer>
  <referenceRange><!--BMI<20 indicates low BMI-->
     <meaning>

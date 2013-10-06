@@ -6,7 +6,7 @@
 	</text>
 	<subject>
 		<type value="Patient"/>
-		<reference value="patient/@example"/>
+		<reference value="Patient/example"/>
 		<display value="John Doe"/>
 	</subject>
 	<date value="2013-07-09"/>

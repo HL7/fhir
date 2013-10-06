@@ -122,7 +122,7 @@ to some organization to further sub-allocate):</p>
 <pre class="xml" fragment="Identifier">
   &lt;identifier&gt;
    &lt;system value="urn:ietf:rfc:3986" /&gt;
-   &lt;key value="http://pas-server/xxx/patient/@443556" /&gt;
+   &lt;key value="http://pas-server/xxx/Patient/443556" /&gt;
   &lt;/identifier&gt;
 </pre>
 <p>This is not a resource reference - it's a logical reference by the patient identifier.</p>
@@ -532,7 +532,7 @@ Karen van Hentenryck is of Dutch origin, and the "van" is a voorvoegsel.
   &lt;use value=&quot;official&quot; /&gt;  
   &lt;family value=&quot;van&quot;&gt;
     &lt;extension&gt;
-	   &lt;url value=&quot;http://hl7.org/fhir/profile/@iso-21090#qualifier&quot; /&gt;
+	   &lt;url value=&quot;http://hl7.org/fhir/Profileiso-21090#qualifier&quot; /&gt;
 	   &lt;valueCode value=&quot;VV&quot; /&gt;
     &lt;/extension&gt;
   &lt;/family&gt;
@@ -557,7 +557,7 @@ multiple given names, prefixes, suffixes, for academic degrees, nobility titles,
   &lt;given value=&quot;Maria&quot; /&gt;
   &lt;prefix value=&quot;Gräfin&quot;&gt;
     &lt;extension&gt;
-      &lt;url value=&quot;http://hl7.org/fhir/profile/@iso-21090#qualifier&quot; /&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/Profileiso-21090#qualifier&quot; /&gt;
       &lt;valueCoding&gt;
          &lt;code value=&quot;NB&quot; /&gt;
          &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
@@ -566,7 +566,7 @@ multiple given names, prefixes, suffixes, for academic degrees, nobility titles,
   &lt;/prefix&gt;
   &lt;prefix value=&quot;Dr. phil.&quot;&gt;
     &lt;extension&gt;
-      &lt;url value=&quot;http://hl7.org/fhir/profile/@iso-21090#qualifier&quot; /&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/Profileiso-21090#qualifier&quot; /&gt;
       &lt;valueCoding&gt;
          &lt;code value=&quot;AC&quot; /&gt;
          &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
@@ -638,7 +638,7 @@ Scandinavian example: Erikson is the family name. Jan Erik are the given names, 
   &lt;given value=&quot;Erik&quot; /&gt;
   &lt;given value=&quot;Östlund&quot;&gt;
     &lt;extension&gt;
-      &lt;url value=&quot;http://hl7.org/fhir/profile/@iso-20190#name-qualifier&quot; /&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/Profileiso-20190#name-qualifier&quot; /&gt;
       &lt;valueCoding&gt;
          &lt;code value=&quot;MID&quot; /&gt;
          &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
@@ -675,7 +675,7 @@ mellomnamn.
   &lt;given value=&quot;Karin&quot; /&gt;
   &lt;given value=&quot;Hansen&quot;&gt;
     &lt;extension&gt;
-      &lt;url value=&quot;http://hl7.org/fhir/profile/@iso-20190#name-qualifier&quot; /&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/Profileiso-20190#name-qualifier&quot; /&gt;
       &lt;valueCoding&gt;
          &lt;code value=&quot;MID&quot; /&gt;
          &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
@@ -696,7 +696,7 @@ her mother, her father or other family names as specified by naming laws of the 
   &lt;given value=&quot;Karin&quot; /&gt;
   &lt;given value=&quot;Hansen&quot;&gt;
     &lt;extension&gt;
-      &lt;url value=&quot;http://hl7.org/fhir/profile/@iso-20190#name-qualifier&quot; /&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/Profileiso-20190#name-qualifier&quot; /&gt;
       &lt;valueCoding&gt;
         &lt;code value=&quot;MID&quot; /&gt;
         &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
@@ -710,7 +710,7 @@ her mother, her father or other family names as specified by naming laws of the 
   &lt;given value=&quot;Karin&quot; /&gt;
   &lt;given value=&quot;Erikson&quot;&gt;
     &lt;extension&gt;
-      &lt;url value=&quot;http://hl7.org/fhir/profile/@iso-20190#name-qualifier&quot; /&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/Profileiso-20190#name-qualifier&quot; /&gt;
       &lt;valueCoding&gt;
         &lt;code value=&quot;MID&quot; /&gt;
         &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
@@ -753,7 +753,7 @@ See also <a href="datatypes.htm#Address">Base Definition</a>, <a href="datatypes
 <pre class="xml" fragment="Address">
   &lt;address&gt;
     &lt;extension&gt;
-      &lt;url value=&quot;http://hl7.org/fhir/profile/@iso-21090/address-parts/county&quot; /&gt; &lt;!-- todo: review this --&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/Profileiso-21090/address-parts/county&quot; /&gt; &lt;!-- todo: review this --&gt;
       &lt;valueString value=&quot;HUDDERSFIELD&quot;/&gt;
     &lt;/extension&gt;
     &lt;text value=&quot;1 Back Lane&amp;#13;&amp;#10;Holmfirth&amp;#13;&amp;#10;HUDDERSFIELD&amp;#13;&amp;#10;HD7 1HQ&quot;/&gt;

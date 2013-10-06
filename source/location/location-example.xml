@@ -32,7 +32,7 @@
   </position>
   <provider>
     <type value="Organization"/>
-    <reference value="organization/@f001"/>
+    <reference value="Organization/f001"/>
   </provider>
   <active value="true"/>
 </Location>

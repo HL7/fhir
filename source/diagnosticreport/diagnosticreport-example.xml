@@ -654,11 +654,11 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     <issued value="2011-03-04T11:45:33+11:00"/>
     <subject>
       <type value="Patient"/>
-      <reference value="patient/@pat2"/>
+      <reference value="Patient/pat2"/>
     </subject>
     <performer>
       <type value="Organization"/>
-      <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+      <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
       <display value="Acme Laboratory, Inc"/>
     </performer>
     <reportId>

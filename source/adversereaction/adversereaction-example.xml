@@ -7,12 +7,12 @@
   <reactionDate value="2012-09-17"/>
   <subject>
     <type value="Patient"/>
-    <reference value="patient/@example"/>
+    <reference value="Patient/example"/>
   </subject>
   <didNotOccurFlag value="false"/>
   <recorder>
     <type value="Practitioner"/>
-    <reference value="practitioner/@example"/>
+    <reference value="Practitioner/example"/>
   </recorder>
   <symptom>
     <code>
@@ -30,7 +30,7 @@
     <exposureType value="coincidental"/>
     <substance>
       <type value="Substance"/>
-      <reference value="substance/@example"/>
+      <reference value="Substance/example"/>
     </substance>
   </exposure>
 </AdverseReaction>

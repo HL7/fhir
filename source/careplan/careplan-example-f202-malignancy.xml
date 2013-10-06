@@ -62,13 +62,13 @@
    <patient>
       <!--It entails Roel's careplan-->
       <type value="Patient"/>
-      <reference value="patient/@f201"/>
+      <reference value="Patient/f201"/>
       <display value="Roel"/>
    </patient>
    <status value="active"/>
    <concern>
       <type value="Condition"/>
-      <reference value="condition/@f202"/>
+      <reference value="Condition/f202"/>
       <display value="Roel's head-neck tumor"/>
    </concern>
    <participant>
@@ -81,7 +81,7 @@
       </role>
       <member>
          <type value="Practitioner"/>
-         <reference value="practitioner/@f201"/>
+         <reference value="Practitioner/f201"/>
          <display value="Dokter Bronsig"/>
       </member>
    </participant>
@@ -106,7 +106,7 @@
       </product>
       <actionTaken>
          <type value="Procedure"/>
-         <reference value="procedure/@f201"/>
+         <reference value="Procedure/f201"/>
          <display value="Roel's Chemotherapy"/>
       </actionTaken>
    </activity>

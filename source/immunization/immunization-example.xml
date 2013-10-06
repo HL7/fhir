@@ -12,13 +12,13 @@
   </vaccineType> 
   <subject>
     <type value="Patient"/>
-    <reference value="patient/@example"/>
+    <reference value="Patient/example"/>
   </subject>
   <refusedIndicator value="false"/>
   <reported value="false"/>
   <performer>
     <type value="Practitioner"/>
-    <reference value="practitioner/@example"/>
+    <reference value="Practitioner/example"/>
   </performer>  
   <lotNumber value="AAJN11K"/>
   <expirationDate value="2015-02-15"/>  

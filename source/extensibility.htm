@@ -111,7 +111,7 @@ Here is an example of a name with a simple extension for a tribal name:
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
   &lt;extension&gt;
-    &lt;url value=&quot;http://hl7.org/fhir/profile/@iso-21090#name-use&quot; /&gt;
+    &lt;url value=&quot;http://hl7.org/fhir/Profileiso-21090#name-use&quot; /&gt;
     &lt;valueCode value=&quot;I&quot; /&gt;
   &lt;/extension&gt;
   &lt;text value=&quot;Chief Red Cloud&quot;/&gt;
@@ -139,7 +139,7 @@ Extending a patient with an opt-in status for a clinical trial, with
       &lt;url value=&quot;http://acme.org/fhir/profiles/@main#trial-status-who&quot; /&gt;	  
       &lt;valueResource&gt;	  
         &lt;type value=&quot;Practitioner&quot; /&gt;	  
-        &lt;reference value=&quot;practitioner/@example&quot; /&gt;	  	    
+        &lt;reference value=&quot;Practitioner/example&quot; /&gt;	  	    
       &lt;/valueResource&gt;	  
     &lt;/extension&gt;
     &lt;url value=&quot;http://acme.org/fhir/profiles/@main#trial-status&quot; /&gt;
@@ -212,7 +212,7 @@ Here is an Australian example where for cultural reasons, certain names that hav
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
   &lt;extension&gt;
-    &lt;url value=&quot;http://hl7.org/fhir/profile/@iso-21090#name-use&quot; /&gt;
+    &lt;url value=&quot;http://hl7.org/fhir/Profileiso-21090#name-use&quot; /&gt;
     &lt;isModifier value=&quot;true&quot; /&gt;
     &lt;valueCode value=&quot;DN&quot; /&gt;
   &lt;/extension&gt;

@@ -83,25 +83,27 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
     String[] parts = id.split("/");
     if (parts.length < 2)
       return null;
-    if (type != null && !parts[0].equals(type.toLowerCase()))
+    if (type != null && !parts[0].equals(type))
       return null;
-    if (!parts[1].startsWith("@"))
-      return null;
-    if (parts[1].length() < 2 || parts[1].length() > 37)
-      return null;
-    if (!parts[1].substring(1).matches("[a-z0-9\\-\\.]{1,36}"))
+    if (!definitions.hasResource(parts[0]))
+      throw new Exception("Type unknown: "+parts[0]);
+    if (parts[1].startsWith("@"))
+      throw new Exception("Invalid syntax: "+parts[1]);
+    if (parts[1].length() < 1 || parts[1].length() > 36)
+      throw new Exception("Invalid syntax: "+parts[1]);
+    if (!parts[1].matches("[a-z0-9\\-\\.]{1,36}"))
       return null;
     if (parts.length > 3) {
       if (!parts[2].equals("history"))
         return null;
-      if (parts.length != 4 || !parts[3].startsWith("@")) 
-        return null;
-      if (parts[3].length() < 2 || parts[3].length() > 37)
-        return null;
-      if (!parts[3].substring(1).matches("[a-z0-9\\-\\.]{1,36}"))
-        return null;
+      if (parts.length != 4 || parts[3].startsWith("@")) 
+        throw new Exception("Invalid syntax: "+parts[3]);
+      if (parts[3].length() < 1 || parts[3].length() > 36)
+        throw new Exception("Invalid syntax: "+parts[3]);
+      if (!parts[3].matches("[a-z0-9\\-\\.]{1,36}"))
+        throw new Exception("Invalid syntax: "+parts[3]);
     }
-    return parts[1].substring(1);
+    return parts[1];
   }
 
   @Override
@@ -154,7 +156,7 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
             if (e.getXml() != null && e.getXml().getDocumentElement().getLocalName().equals("feed")) {
               List<Element> entries = new ArrayList<Element>();
               XMLUtil.getNamedChildren(e.getXml().getDocumentElement(), "entry", entries);
-              String url = "http://hl7.org/fhir/"+type.toLowerCase()+"/@"+id;
+              String url = "http://hl7.org/fhir/"+type+"/"+id;
               for (Element c : entries) {
                 String t = XMLUtil.getNamedChild(c, "id").getAttribute("value");
                 if (url.equals(t))

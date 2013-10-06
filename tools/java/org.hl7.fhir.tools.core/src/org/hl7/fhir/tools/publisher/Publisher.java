@@ -782,7 +782,7 @@ public class Publisher {
             XMLUtil.getNamedChildren(e.getXml().getDocumentElement(), "entry", entries);
             for (Element c : entries) {
               String _id = XMLUtil.getNamedChild(c, "id").getTextContent();
-              if (id.equals(_id) || _id.equals("http://hl7.org/fhir/"+ref.getType().toLowerCase()+"/@"+id))
+              if (id.equals(_id) || _id.equals("http://hl7.org/fhir/"+ref.getType()+"/"+id))
                 return true;
             }
           }
@@ -796,25 +796,25 @@ public class Publisher {
     String[] parts = id.split("/");
     if (parts.length < 2)
       throw new Exception("The example reference '"+id+"' is not valid (not enough path parts");
-    if (!parts[0].equals(type.toLowerCase()))
+    if (!parts[0].equals(type))
       throw new Exception("The example reference '"+id+"' is not valid (the type portion doesn't match the specified type '"+type+"')");
-    if (!parts[1].startsWith("@"))
-      throw new Exception("The example reference '"+id+"' is not valid (the id doesn't start with @)");
-    if (parts[1].length() < 2 || parts[1].length() > 37)
+    if (parts[1].startsWith("@"))
+      throw new Exception("The example reference '"+id+"' is not valid (the id shouldn't start with @)");
+    if (parts[1].length() < 1 || parts[1].length() > 36)
       throw new Exception("The example reference '"+id+"' is not valid (id length 1 - 36)");
-    if (!parts[1].substring(1).matches("[a-z0-9\\-\\.]{1,36}"))
+    if (!parts[1].matches("[a-z0-9\\-\\.]{1,36}"))
       throw new Exception("The example reference '"+id+"' is not valid (id doesn't match regular expression for id)");
     if (parts.length > 2) {
       if (!parts[2].equals("history"))
         throw new Exception("The example reference '"+id+"' is not valid");
-      if (parts.length != 4 || !parts[3].startsWith("@")) 
+      if (parts.length != 4 || parts[3].startsWith("@")) 
         throw new Exception("The example reference '"+id+"' is not valid");
-      if (parts[3].length() < 2 || parts[3].length() > 37)
+      if (parts[3].length() < 1 || parts[3].length() > 36)
         throw new Exception("The example reference '"+id+"' is not valid (version id length 1 - 36)");
-      if (!parts[3].substring(1).matches("[a-z0-9\\-\\.]{1,36}"))
+      if (!parts[3].matches("[a-z0-9\\-\\.]{1,36}"))
         throw new Exception("The example reference '"+id+"' is not valid (version id doesn't match regular expression for id)");
     } 
-    return parts[1].substring(1);
+    return parts[1];
   }
 
   private void listLinks(Element xml, List<ExampleReference> refs) throws Exception {

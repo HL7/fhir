@@ -12,15 +12,15 @@
   <status value="completed"/>
   <patient>
     <type value="Patient"/>
-    <reference value="patient/@example"/>
+    <reference value="Patient/example"/>
   </patient>
   <practitioner>
     <type value="Practitioner"/>
-    <reference value="practitioner/@example"/>
+    <reference value="Practitioner/example"/>
   </practitioner>
   <prescription>
     <type value="MedicationPrescription"/>
-    <reference value="medicationprescription/@example"/>
+    <reference value="MedicationPrescription/example"/>
   </prescription>
   <whenGiven>
   <start value="2012-06-01T14:30:00"/>
@@ -28,7 +28,7 @@
 </whenGiven>
   <medication>
     <type value="Medication"/>
-    <reference value="medication/@example"/> 
+    <reference value="Medication/example"/> 
   </medication>
   <dosage>
     <route>

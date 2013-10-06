@@ -16,13 +16,13 @@
   <status value="active"/>
   <subject>
     <type value="Patient"/>
-    <reference value="patient/@example"/>
+    <reference value="Patient/example"/>
     <display value="Peter Patient"/>
   </subject>
   
   <author>
     <type value="Practitioner"/>
-    <reference value="practitioner/@example"/>
+    <reference value="Practitioner/example"/>
     <display value="Nancy Nurse"/>
   </author>
   

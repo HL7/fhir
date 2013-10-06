@@ -158,7 +158,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">http://hl7.org/fhir/profile/@picture</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">http://hl7.org/fhir/Profilepicture</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

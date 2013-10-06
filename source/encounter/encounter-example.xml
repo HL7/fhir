@@ -9,6 +9,6 @@
   <class value="inpatient" />
   <subject>
     <type value="Patient"/>
-    <reference value="patient/@example"/>
+    <reference value="Patient/example"/>
   </subject>
 </Encounter>

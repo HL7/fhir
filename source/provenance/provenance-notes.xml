@@ -58,7 +58,7 @@ A version specific reference to a FHIR resource on the same server:
       &lt;system value="http://hl7.org/fhir/resource-types"/&gt;
       &lt;code value="Person"/&gt;
     &lt;/type&gt;
-    &lt;reference value="person/@34/history/@3"/&gt;
+    &lt;reference value="person/@34/history/3"/&gt;
   &lt;/agent&gt;
 </pre>
 </div>

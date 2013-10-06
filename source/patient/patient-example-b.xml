@@ -45,13 +45,13 @@
 
   <provider>
     <type value="Organization"/>
-    <reference value="organization/@1"/>
+    <reference value="Organization/1"/>
     <display value="ACME Healthcare, Inc"/>
   </provider>
 
   <link>
     <type value="Patient"/>
-    <reference value="patient/@pat1"/>
+    <reference value="Patient/pat1"/>
   </link>
 
   <active value="true"/>

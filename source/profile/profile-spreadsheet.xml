@@ -1633,7 +1633,7 @@
     <Cell><Data ss:Type="Number">14</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.binding</Data></Cell>
     <Cell><Data ss:Type="String">Example value sets are always extensible</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">not(f:conformance/@value='example' and f:isExtensible.value='false')</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">not(f:Conformance/value='example' and f:isExtensible.value='false')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3" ss:StyleID="s73"/>

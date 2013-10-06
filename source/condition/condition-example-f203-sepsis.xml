@@ -3,17 +3,17 @@
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
  <subject><!--It entails Roel's problem-->
      <type value="Patient"/>
-     <reference value="patient/@f201"/>
+     <reference value="Patient/f201"/>
      <display value="Roel"/>
  </subject>
  <encounter>
      <type value="Encounter"/>
-     <reference value="encounter/@f203"/>
+     <reference value="Encounter/f203"/>
      <display value="Roel's encounter on March eleventh"/>
  </encounter>
  <asserter>
      <type value="Practitioner"/>
-     <reference value="practitioner/@f201"/>
+     <reference value="Practitioner/f201"/>
  </asserter>
  <dateAsserted value="2013-03-11"/>
  <code><!--The problem is bacterial sepsis-->
@@ -53,7 +53,7 @@
  <evidence>
   <detail>
      <type value="DiagnosticReport"/>
-     <reference value="diagnosticreport/@f202"/>
+     <reference value="DiagnosticReport/f202"/>
      <display value="Diagnostic report for Roel's sepsis"/>
   </detail>
  </evidence>
@@ -70,7 +70,7 @@
   <type value="due-to"/>
   <target>
      <type value="Substance"/>
-     <reference value="substance/@f202"/>
+     <reference value="Substance/f202"/>
      <display value="Staphylococcus Aureus"/>
   </target>
  </relatedItem>

@@ -6,8 +6,8 @@
   <updated>2012-04-14T10:35:23Z</updated>
   <entry>
     <title>Example Lab Report</title>
-    <id>http://hl7.org/fhir/diagnosticreport/@3</id>
-    <link rel="self" href="http://hl7.org/fhir/diagnosticreport/@3/history/@1"/>
+    <id>http://hl7.org/fhir/DiagnosticReport/3</id>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/3/history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1174,11 +1174,11 @@
         <issued value="2005-01-27T06:40:01Z"/>
         <subject>
           <type value="Patient"/>
-          <reference value="patient/@1"/>
+          <reference value="Patient/1"/>
         </subject>
         <performer>
           <type value="Organization"/>
-          <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+          <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
         <reportId>
@@ -1473,8 +1473,8 @@
   </entry>
   <entry>
     <title>Example Lab Report</title>
-    <id>http://hl7.org/fhir/diagnosticreport/@4</id>
-    <link rel="self" href="http://hl7.org/fhir/diagnosticreport/@4/history/@1"/>
+    <id>http://hl7.org/fhir/DiagnosticReport/4</id>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/4/history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -2457,11 +2457,11 @@
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
           <type value="Patient"/>
-          <reference value="patient/@2"/>
+          <reference value="Patient/2"/>
         </subject>
         <performer>
           <type value="Organization"/>
-          <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+          <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
         <reportId>
@@ -2583,8 +2583,8 @@
   </entry>
   <entry>
     <title>Example Lab Report</title>
-    <id>http://hl7.org/fhir/diagnosticreport/@5</id>
-    <link rel="self" href="http://hl7.org/fhir/diagnosticreport/@5/history/@1"/>
+    <id>http://hl7.org/fhir/DiagnosticReport/5</id>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/5/history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -3555,11 +3555,11 @@
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
           <type value="Patient"/>
-          <reference value="patient/@3"/>
+          <reference value="Patient/3"/>
         </subject>
         <performer>
           <type value="Organization"/>
-          <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+          <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
         <reportId>
@@ -3682,8 +3682,8 @@
   </entry>
   <entry>
     <title>Example Lab Report</title>
-    <id>http://hl7.org/fhir/diagnosticreport/@6</id>
-    <link rel="self" href="http://hl7.org/fhir/diagnosticreport/@6/history/@1"/>
+    <id>http://hl7.org/fhir/DiagnosticReport/6</id>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/6/history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -4648,11 +4648,11 @@
         <issued value="2004-12-21T00:00:01Z"/>
         <subject>
           <type value="Patient"/>
-          <reference value="patient/@4"/>
+          <reference value="Patient/4"/>
         </subject>
         <performer>
           <type value="Organization"/>
-          <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+          <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
         <reportId>
@@ -4775,8 +4775,8 @@
   </entry>
   <entry>
     <title>Example Lab Report</title>
-    <id>http://hl7.org/fhir/diagnosticreport/@7</id>
-    <link rel="self" href="http://hl7.org/fhir/diagnosticreport/@7/history/@1"/>
+    <id>http://hl7.org/fhir/DiagnosticReport/7</id>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/7/history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -5722,11 +5722,11 @@
         <issued value="2004-12-03T00:00:01Z"/>
         <subject>
           <type value="Patient"/>
-          <reference value="patient/@5"/>
+          <reference value="Patient/5"/>
         </subject>
         <performer>
           <type value="Organization"/>
-          <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+          <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
         <reportId>
@@ -5844,8 +5844,8 @@
   </entry>
   <entry>
     <title>Example Lab Report</title>
-    <id>http://hl7.org/fhir/diagnosticreport/@8</id>
-    <link rel="self" href="http://hl7.org/fhir/diagnosticreport/@8/history/@1"/>
+    <id>http://hl7.org/fhir/DiagnosticReport/8</id>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/8/history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -6797,11 +6797,11 @@
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
           <type value="Patient"/>
-          <reference value="patient/@6"/>
+          <reference value="Patient/6"/>
         </subject>
         <performer>
           <type value="Organization"/>
-          <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+          <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
         <reportId>
@@ -6919,8 +6919,8 @@
   </entry>
   <entry>
     <title>Example Lab Report</title>
-    <id>http://hl7.org/fhir/diagnosticreport/@9</id>
-    <link rel="self" href="http://hl7.org/fhir/diagnosticreport/@9/history/@1"/>
+    <id>http://hl7.org/fhir/DiagnosticReport/9</id>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/9/history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -7872,11 +7872,11 @@
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
           <type value="Patient"/>
-          <reference value="patient/@7"/>
+          <reference value="Patient/7"/>
         </subject>
         <performer>
           <type value="Organization"/>
-          <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+          <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
         <reportId>
@@ -7994,8 +7994,8 @@
   </entry>
   <entry>
     <title>Example Lab Report</title>
-    <id>http://hl7.org/fhir/diagnosticreport/@15</id>
-    <link rel="self" href="http://hl7.org/fhir/diagnosticreport/@15/history/@1"/>
+    <id>http://hl7.org/fhir/DiagnosticReport/15</id>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/15/history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -8953,11 +8953,11 @@
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
           <type value="Patient"/>
-          <reference value="patient/@8"/>
+          <reference value="Patient/8"/>
         </subject>
         <performer>
           <type value="Organization"/>
-          <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+          <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
         <reportId>
@@ -9079,8 +9079,8 @@
   </entry>
   <entry>
     <title>Example Lab Report</title>
-    <id>http://hl7.org/fhir/diagnosticreport/@16</id>
-    <link rel="self" href="http://hl7.org/fhir/diagnosticreport/@16/history/@1"/>
+    <id>http://hl7.org/fhir/DiagnosticReport/16</id>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/16/history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -10063,11 +10063,11 @@
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
           <type value="Patient"/>
-          <reference value="patient/@9"/>
+          <reference value="Patient/9"/>
         </subject>
         <performer>
           <type value="Organization"/>
-          <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+          <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
         <reportId>
@@ -10189,8 +10189,8 @@
   </entry>
   <entry>
     <title>Example Lab Report</title>
-    <id>http://hl7.org/fhir/diagnosticreport/@17</id>
-    <link rel="self" href="http://hl7.org/fhir/diagnosticreport/@17/history/@1"/>
+    <id>http://hl7.org/fhir/DiagnosticReport/17</id>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/17/history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -11161,11 +11161,11 @@
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
           <type value="Patient"/>
-          <reference value="patient/@10"/>
+          <reference value="Patient/10"/>
         </subject>
         <performer>
           <type value="Organization"/>
-          <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+          <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
         <reportId>
@@ -11288,8 +11288,8 @@
   </entry>
   <entry>
     <title>Example Lab Report</title>
-    <id>http://hl7.org/fhir/diagnosticreport/@18</id>
-    <link rel="self" href="http://hl7.org/fhir/diagnosticreport/@18/history/@1"/>
+    <id>http://hl7.org/fhir/DiagnosticReport/18</id>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/18/history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -12254,11 +12254,11 @@
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
           <type value="Patient"/>
-          <reference value="patient/@1"/>
+          <reference value="Patient/1"/>
         </subject>
         <performer>
           <type value="Organization"/>
-          <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+          <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
         <reportId>
@@ -12381,8 +12381,8 @@
   </entry>
   <entry>
     <title>Example Lab Report</title>
-    <id>http://hl7.org/fhir/diagnosticreport/@19</id>
-    <link rel="self" href="http://hl7.org/fhir/diagnosticreport/@19/history/@1"/>
+    <id>http://hl7.org/fhir/DiagnosticReport/19</id>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/19/history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -13328,11 +13328,11 @@
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
           <type value="Patient"/>
-          <reference value="patient/@2"/>
+          <reference value="Patient/2"/>
         </subject>
         <performer>
           <type value="Organization"/>
-          <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+          <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
         <reportId>
@@ -13450,8 +13450,8 @@
   </entry>
   <entry>
     <title>Example Lab Report</title>
-    <id>http://hl7.org/fhir/diagnosticreport/@20</id>
-    <link rel="self" href="http://hl7.org/fhir/diagnosticreport/@20/history/@1"/>
+    <id>http://hl7.org/fhir/DiagnosticReport/20</id>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/20/history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -14403,11 +14403,11 @@
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
           <type value="Patient"/>
-          <reference value="patient/@3"/>
+          <reference value="Patient/3"/>
         </subject>
         <performer>
           <type value="Organization"/>
-          <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+          <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
         <reportId>
@@ -14525,8 +14525,8 @@
   </entry>
   <entry>
     <title>Example Lab Report</title>
-    <id>http://hl7.org/fhir/diagnosticreport/@21</id>
-    <link rel="self" href="http://hl7.org/fhir/diagnosticreport/@21/history/@1"/>
+    <id>http://hl7.org/fhir/DiagnosticReport/21</id>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/21/history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -15478,11 +15478,11 @@
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
           <type value="Patient"/>
-          <reference value="patient/@4"/>
+          <reference value="Patient/4"/>
         </subject>
         <performer>
           <type value="Organization"/>
-          <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+          <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
         <reportId>
@@ -15600,8 +15600,8 @@
   </entry>
   <entry>
     <title>Example Lab Report</title>
-    <id>http://hl7.org/fhir/diagnosticreport/@25</id>
-    <link rel="self" href="http://hl7.org/fhir/diagnosticreport/@25/history/@1"/>
+    <id>http://hl7.org/fhir/DiagnosticReport/25</id>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/25/history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -16103,11 +16103,11 @@
         <issued value="2005-11-07T23:38:01Z"/>
         <subject>
           <type value="Patient"/>
-          <reference value="patient/@5"/>
+          <reference value="Patient/5"/>
         </subject>
         <performer>
           <type value="Organization"/>
-          <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+          <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
         <reportId>
@@ -16208,8 +16208,8 @@
   </entry>
   <entry>
     <title>Example Lab Report</title>
-    <id>http://hl7.org/fhir/diagnosticreport/@26</id>
-    <link rel="self" href="http://hl7.org/fhir/diagnosticreport/@26/history/@1"/>
+    <id>http://hl7.org/fhir/DiagnosticReport/26</id>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/26/history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -16243,11 +16243,11 @@
         <issued value="2005-03-07T14:02:01Z"/>
         <subject>
           <type value="Patient"/>
-          <reference value="patient/@6"/>
+          <reference value="Patient/6"/>
         </subject>
         <performer>
           <type value="Organization"/>
-          <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+          <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
         <reportId>
@@ -16278,8 +16278,8 @@
   </entry>
   <entry>
     <title>Example Lab Report</title>
-    <id>http://hl7.org/fhir/diagnosticreport/@27</id>
-    <link rel="self" href="http://hl7.org/fhir/diagnosticreport/@27/history/@1"/>
+    <id>http://hl7.org/fhir/DiagnosticReport/27</id>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/27/history/1"/>
     <updated>2012-05-23T14:27:01Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -16341,11 +16341,11 @@
         <issued value="2012-05-23T14:27:01Z"/>
         <subject>
           <type value="Patient"/>
-          <reference value="patient/@1"/>
+          <reference value="Patient/1"/>
         </subject>
         <performer>
           <type value="Organization"/>
-          <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+          <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
         <reportId>

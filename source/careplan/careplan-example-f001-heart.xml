@@ -9,7 +9,7 @@
     </identifier>
     <patient>
         <type value="Patient"/>
-        <reference value="patient/@f001"/>
+        <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
     </patient>
     <status value="ended"/>
@@ -21,14 +21,14 @@
     <modified value="2011-06-27T09:30:10+01:00"/>
     <concern>
         <type value="Condition"/>
-        <reference value="condition/@f201"/>
+        <reference value="Condition/f201"/>
         <!--TODO Correcte referentie-->
         <display value="?????"/>
     </concern>
     <participant>
         <member>
             <type value="Practitioner"/>
-            <reference value="practitioner/@f002"/>
+            <reference value="Practitioner/f002"/>
             <display value="P. Voigt"/>
         </member>
     </participant>
@@ -53,7 +53,7 @@
         <timingString value="2011-06-27T09:30:10+01:00"/>
         <performer>
             <type value="Practitioner"/>
-            <reference value="practitioner/@f002"/>
+            <reference value="Practitioner/f002"/>
             <display value="P. Voigt"/>
         </performer>
     </activity>

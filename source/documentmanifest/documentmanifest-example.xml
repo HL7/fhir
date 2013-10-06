@@ -40,7 +40,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
   </identifier>
   <subject>
     <type value="Patient"/>
-    <reference value="patient/@xcda"/>
+    <reference value="Patient/xcda"/>
   </subject>
   <type>
     <text value="History and Physical"/>
@@ -55,6 +55,6 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
   <description value="Physical"/>
   <content>
     <type value="DocumentReference"/>
-    <reference value="documentreference/@example"/>
+    <reference value="DocumentReference/example"/>
   </content>
 </DocumentManifest>

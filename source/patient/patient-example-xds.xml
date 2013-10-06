@@ -33,7 +33,7 @@
   </address>
   <provider>
     <type value="Organization"/>
-    <reference value="organization/@2"/>
+    <reference value="Organization/2"/>
   </provider>
   <active value="true"/>
 </Patient>

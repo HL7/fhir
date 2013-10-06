@@ -113,7 +113,7 @@
     </communication>
     <provider>
         <type value="Organization"/>
-        <reference value="organization/@f201"/>
+        <reference value="Organization/f201"/>
         <display value="AUMC"/>
     </provider>
 

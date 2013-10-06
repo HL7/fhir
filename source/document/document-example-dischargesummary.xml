@@ -35,13 +35,13 @@
                 <subject>
                     <type value="Patient"/>
                     <reference
-                        value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@d1"/>
+                        value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/d1"/>
                     <display value="Eve Everywoman"/>
                 </subject>
                 <author>
                     <type value="Practitioner"/>
                     <reference
-                        value="http://hl7connect.healthintersections.com.au/svc/fhir/practitioner/@example"/>
+                        value="http://hl7connect.healthintersections.com.au/svc/fhir/Practitioner/example"/>
                     <display value="Doctor Dave"/>
                 </author>
                 <!-- The Encounter resource. Points directly to an Encounter resource. Contains the dates of admission, specialtyu etc. -->
@@ -53,7 +53,7 @@
                     <content>
                         <type value="Encounter"/>
                         <reference
-                            value="http://hl7connect.healthintersections.com.au/svc/fhir/encounter/@example"
+                            value="http://hl7connect.healthintersections.com.au/svc/fhir/Encounter/example"
                         />
                     </content>
                 </section>
@@ -114,9 +114,9 @@
     recipient knows where to go and get it if they need it - assuming it is available on-line of course.-->
     <entry>
         <title>Written by Doctor Dave</title>
-        <id>http://hl7connect.healthintersections.com.au/svc/fhir/practitioner/@example</id>
+        <id>http://hl7connect.healthintersections.com.au/svc/fhir/Practitioner/example</id>
         <link rel="self"
-            href="http://hl7connect.healthintersections.com.au/svc/fhir/practitioner/@example/history/@1"/>
+            href="http://hl7connect.healthintersections.com.au/svc/fhir/Practitioner/example/history/1"/>
 
         <updated>2013-05-05T16:13:03Z</updated>
         <published>2013-05-28T22:12:21Z</published>
@@ -141,9 +141,9 @@
     <!-- The Patient who is the subject of the document. Same coments as practitioner. -->
     <entry>
         <title>About Eve Everywoman</title>
-        <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@d1</id>
+        <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/d1</id>
         <link rel="self"
-            href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@d1/history/@10"/>
+            href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/d1/history/10"/>
 
 
         <updated>2013-05-05T16:13:03Z</updated>
@@ -198,9 +198,9 @@
     <!-- The encounter that is being documented.-->
     <entry>
         <title>Admission to Middlemore </title>
-        <id>http://hl7connect.healthintersections.com.au/svc/fhir/encounter/@example</id>
+        <id>http://hl7connect.healthintersections.com.au/svc/fhir/Encounter/example</id>
         <link rel="self"
-            href="http://hl7connect.healthintersections.com.au/svc/fhir/encounter/@example/history/@1"/>
+            href="http://hl7connect.healthintersections.com.au/svc/fhir/Encounter/example/history/1"/>
 
         <updated>2013-05-05T16:13:03Z</updated>
         <author>
@@ -224,7 +224,7 @@
                 <subject>
                     <type value="Patient"/>
                     <reference
-                        value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@d1"/>
+                        value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/d1"/>
                 </subject>
                 <hospitalization>
                     <period>
@@ -324,7 +324,7 @@
                             to medication status that occurred during this encounter. Possible values are started,
                             continued, stopped, changed-->
                             <system
-                                value="http://www.ithealthboard.health.nz/fhir/valueset/@medicationStatus"/>
+                                value="http://www.ithealthboard.health.nz/fhir/ValueSet/medicationStatus"/>
                             <code value="started"/>
                         </coding>
                     </flag>
@@ -343,7 +343,7 @@
                     <flag>
                         <coding>
                             <system
-                                value="http://www.ithealthboard.health.nz/fhir/valueset/@medicationStatus"/>
+                                value="http://www.ithealthboard.health.nz/fhir/ValueSet/medicationStatus"/>
                             <code value="stopped"/>
                         </coding>
                     </flag>
@@ -351,7 +351,7 @@
                     <item>
                         <type value="MedicationPrescription"/>
                         <reference
-                            value="http://hl7connect.healthintersections.com.au/svc/fhir/medicationprescription/@1"/>
+                            value="http://hl7connect.healthintersections.com.au/svc/fhir/MedicationPrescription/1"/>
                         <display value="use of Ventolin Inhaler was discontinued"/>
                     </item>
                 </entry>
@@ -400,14 +400,14 @@
                 <patient>
                     <type value="Patient"/>
                     <reference
-                        value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@d1"/>
+                        value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/d1"/>
                     <display value="Peter Patient"/>
                 </patient>
 
                 <!-- The prescriber details could also be within the bundle, but has the same options as patient-->
                 <prescriber>
                     <type value="Practitioner"/>
-                    <reference value="practitioner/@example"/>
+                    <reference value="Practitioner/example"/>
                     <display value="Peter Practitioner"/>
                 </prescriber>
 
@@ -417,7 +417,7 @@
         within the document bundle or simply a reference to a remote server. See comment in the contained resource-->
                 <medication>
                     <type value="Medication"/>
-                    <reference value="medication/@example"/>
+                    <reference value="Medication/example"/>
                     <display value="Theophylline 200mg BD"/>
                 </medication>
 
@@ -532,7 +532,7 @@
                 <subject>
                     <type value="Patient"/>
                     <reference
-                        value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@d1"/>
+                        value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/d1"/>
                     <display value="Eve Everywoman"/>
                 </subject>
                 <substance>
@@ -563,7 +563,7 @@
                 <subject>
                     <type value="Patient"/>
                     <reference
-                        value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@d1"/>
+                        value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/d1"/>
                     <display value="Eve Everywoman"/>
                 </subject>
                 <didNotOccurFlag value="false"/>

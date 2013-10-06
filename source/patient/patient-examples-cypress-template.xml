@@ -6,8 +6,8 @@
   <link href="http://hl7.org/fhir/patient" rel="self"/>
   <updated>2012-05-29T23:45:32Z</updated> [%loop count=70%] <entry>
     <title>test patient</title>
-    <id>http://hl7.org/fhir/patient/@[%count%]</id>
-    <link href="http://hl7.org/fhir/patient/@[%count%]/history/@1" rel="self"/>
+    <id>http://hl7.org/fhir/Patient/[%count%]</id>
+    <link href="http://hl7.org/fhir/Patient/[%count%]/history/1" rel="self"/>
     <updated>2012-06-03T23:45:32Z</updated>
     <author>
       <name>Cypress Project</name>
@@ -40,7 +40,7 @@
         <birthDate value="[%birthdate%]"/>
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@[%organization%]"/>
+          <reference value="Organization/[%organization%]"/>
         </provider>
         <active value="true"/>
       </Patient>

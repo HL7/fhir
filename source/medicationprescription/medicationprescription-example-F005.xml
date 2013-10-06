@@ -14,12 +14,12 @@
     </patient>
     <prescriber> <!-- Linked to the practitioner who treats patient -->
         <type value="Practitioner"/> 
-        <reference value="practitioner/@F007.xml"/>
+        <reference value="Practitioner/F007.xml"/>
         <display value="S.M. Heps"/>
     </prescriber>
     <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
         <type value="Encounter"/>
-        <reference value="encounter/@F004"/>
+        <reference value="Encounter/F004"/>
         <display value="encounter who leads to this priscription"/>
     </encounter>
     <reasonForPrescribing>
@@ -31,7 +31,7 @@
     </reasonForPrescribing>
     <medication> <!-- Linked to a RESOURCE Medication -->
         <type value="Medication"/>
-        <reference value="medication/@F005"/>
+        <reference value="Medication/F005"/>
         <display value="prescribed medication"/>
     </medication> 
     <dosageInstruction>

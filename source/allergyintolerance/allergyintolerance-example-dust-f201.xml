@@ -11,16 +11,16 @@
  <status value="confirmed"/><!--House dust allergy is confirmed and active-->
  <subject>
      <type value="Patient"/>
-     <reference value="patient/@f201"/>
+     <reference value="Patient/f201"/>
      <display value="Roel"/>
  </subject>
  <recorder>
      <type value="Practitioner"/>
-     <reference value="practitioner/@f201"/>
+     <reference value="Practitioner/f201"/>
  </recorder>
  <substance>
      <type value="Substance"/>
-     <reference value="substance/@f201"/>
+     <reference value="Substance/f201"/>
      <display value="House dust allergen"/>
  </substance>
  <!--No reactions or sensitivityTests avaialable-->

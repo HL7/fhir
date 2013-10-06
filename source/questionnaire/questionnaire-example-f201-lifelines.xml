@@ -6,16 +6,16 @@
     <!--Fictive, only the below answers are non-fictive-->
     <subject>
         <type value="Patient"/>
-        <reference value="patient/@f201"/>
+        <reference value="Patient/f201"/>
         <display value="Roel"/>
     </subject>
     <author>
         <type value="Practitioner"/>
-        <reference value="practitioner/@f201"/>
+        <reference value="Practitioner/f201"/>
     </author>
     <source>
         <type value="Practitioner"/>
-        <reference value="practitioner/@f201"/>
+        <reference value="Practitioner/f201"/>
     </source>
     <name>
         <coding>

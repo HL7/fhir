@@ -10,22 +10,22 @@
   <status value="confirmed"/>
   <subject>
     <type value="Patient"/>
-    <reference value="patient/@example"/>
+    <reference value="Patient/example"/>
   </subject>
   <recorder>
     <type value="Practitioner"/>
-    <reference value="practitioner/@example"/>
+    <reference value="Practitioner/example"/>
   </recorder>
   <substance>
     <type value="Substance"/>
-    <reference value="substance/@example"/>
+    <reference value="Substance/example"/>
   </substance>
   <reaction>
     <type value="AdverseReaction"/>
-    <reference value="adversereaction/@example"/>
+    <reference value="AdverseReaction/example"/>
   </reaction>
   <sensitivityTest>
     <type value="Observation"/>
-    <reference value="observation/@example"/>
+    <reference value="Observation/example"/>
   </sensitivityTest>
 </AllergyIntolerance>

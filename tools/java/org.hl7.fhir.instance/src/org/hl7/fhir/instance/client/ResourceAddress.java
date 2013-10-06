@@ -45,7 +45,7 @@ public class ResourceAddress {
 	}
 	
 	public <T extends Resource> URI resolveValidateUri(Class<T> resourceClass, String id) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/validate/@"+id);
+		return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/_validate/"+id);
 	}
 	
 	public <T extends Resource> URI resolveGetUriFromResourceClass(Class<T> resourceClass) {
@@ -53,15 +53,15 @@ public class ResourceAddress {
 	}
 	
 	public <T extends Resource> URI resolveGetUriFromResourceClassAndId(Class<T> resourceClass, String id) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/@"+id);
+		return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/"+id);
 	}
 	
 	public <T extends Resource> URI resolveGetUriFromResourceClassAndIdAndVersion(Class<T> resourceClass, String id, String version) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/@"+id+"/history/@"+version);
+		return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/"+id+"/history/"+version);
 	}
 	
 	public <T extends Resource> URI resolveGetHistoryForResourceId(Class<T> resourceClass, String id) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() + "/@" + id + "/history");
+		return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() + "/" + id + "/history");
 	}
 	
 	public <T extends Resource> URI resolveGetHistoryForAllResources(Calendar since) {//TODO Only add _since parameters if it is non-null
@@ -86,7 +86,7 @@ public class ResourceAddress {
 	
 	/**
 	 * For now, assume this type of location header structure.
-	 * Generalize later: http://hl7connect.healthintersections.com.au/svc/fhir/@318/history/@1
+	 * Generalize later: http://hl7connect.healthintersections.com.au/svc/fhir/318/history/1
 	 * 
 	 * @param serviceBase
 	 * @param locationHeader
@@ -157,7 +157,7 @@ public class ResourceAddress {
 	}
 	
 	public static String buildRelativePathFromResourceType(ResourceType resourceType, String id) {
-		return buildRelativePathFromResourceType(resourceType)+ "@" + id;
+		return buildRelativePathFromResourceType(resourceType) + id;
 	}
 	
 	public static String buildRelativePathFromResource(Resource resource) {

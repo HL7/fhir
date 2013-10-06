@@ -100,7 +100,7 @@ for details of the way resource contents are described):
  <li>Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a 
    flexible approach suitable for use when trading across closed ecosystem boundaries. (see <a href="use.htm#identity">implementation issues for further discussion</a>)</li>
  <li>Absolute URLs do not need to point to a <a href="http.htm">FHIR RESTful server</a>, though this is the preferred approach. If the tail of the url 
-   conforms to the structure "/[type]/@[id]" or "/[type]/@[id]/history/@[id]" then it should be assumed that the reference is to a <a href="http.htm">FHIR RESTful server</a>. 
+   conforms to the structure "/[type]/@[id]" or "/[type]/@[id]/history/[id]" then it should be assumed that the reference is to a <a href="http.htm">FHIR RESTful server</a>. 
    Whether or not the reference is to a FHIR RESTful server, the reference must point to a Resource as defined by this specification</li>
  <li>URLs are always considered to be case-sensitive and lowercase is preferred</li>
  <li>The <i>display</i> is generally not the same content as the Resource.text of the referenced resource.  The purpose is to 
@@ -119,14 +119,14 @@ for details of the way resource contents are described):
 <pre class="xml" fragment="ResourceReference">
   &lt;context&gt;
     &lt;type value="Patient" /&gt;
-    &lt;reference value="patient/@034AB16" /&gt;
+    &lt;reference value="Patient/034AB16" /&gt;
   &lt;/context&gt;
 </pre>
 <p>An absolute reference to a <a href="profile.htm">resource profile</a> in an element named "profile":</p>
 <pre class="xml" fragment="ResourceReference">
   &lt;profile&gt;
     &lt;type value="Profile" /&gt;
-    &lt;reference value="http://fhir.hl7.org/svc/profile/@c8973a22-2b5b-4e76-9c66-00639c99e61b" /&gt;
+    &lt;reference value="http://fhir.hl7.org/svc/Profilec8973a22-2b5b-4e76-9c66-00639c99e61b" /&gt;
   &lt;/profile&gt;
 </pre>
 <p><i>Note that HL7 has not yet actually created a profile registry, nor decided on a URL for it</i>.</p>
@@ -136,7 +136,7 @@ A short display text that provides a human-readable identification of the resour
 <pre class="xml" fragment="ResourceReference">
   &lt;custodian&gt;
     &lt;type value="Organization" /&gt;
-    &lt;reference value="organization/@123" /&gt;
+    &lt;reference value="Organization/123" /&gt;
     &lt;display value="HL7, Inc" /&gt;
   &lt;/custodian&gt;
 </pre>
@@ -242,7 +242,7 @@ which is the id of the target, like this:
 <pre class="xml" fragment="ResourceReference">
   &lt;institution&gt;
     &lt;type value="Organization" /&gt;
-    &lt;reference value="organization/@23" /&gt;
+    &lt;reference value="Organization/23" /&gt;
   &lt;/institution&gt;
 </pre>
 </div>
@@ -251,7 +251,7 @@ A reader trying to find the resource this <i>institution</i> element identifies
 should always look through the entries in the atom feed prior to looking 
 anywhere else for the institution. If the feed.id for the resource that contains
 the link above is http://example.org/, then the absolute 
-URL is http://example.org/organization/@23. If that organization is in the feed, 
+URL is http://example.org/Organization/23. If that organization is in the feed, 
 it would look like this:
 </p>
 <div class="example">
@@ -259,7 +259,7 @@ it would look like this:
    .. feed ..
   &lt;entry>
     .. 
-    &lt;id>http://example.org/organization/@23&lt;id>
+    &lt;id>http://example.org/Organization/23&lt;id>
     .. 
 
     &lt;content type="text/xml">
@@ -278,7 +278,7 @@ the <i>id</i> element contains a direct reference to the location of the resourc
 <pre class="xml" fragment="ResourceReference">
   &lt;institution&gt;
     &lt;type value="Organization" /&gt;
-    &lt;reference value="http://example.org/organization/@23" /&gt;
+    &lt;reference value="http://example.org/Organization/23" /&gt;
   &lt;/institution&gt;
 </pre>
 </div>

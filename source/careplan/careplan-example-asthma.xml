@@ -47,7 +47,7 @@
           <system value="http://hl7.org/fhir/provenance-participant-type"/>
           <code value="person"/>
         </type>
-        <identifier value="patient/@1"/>
+        <identifier value="Patient/1"/>
         <description value="Eve Everywoman"/>
       </party>
     </Provenance>
@@ -58,7 +58,7 @@
     <Condition id="p1">
       <subject>
         <type value="Patient"/>
-        <reference value="patient/@1"/>
+        <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
       <code>
@@ -98,7 +98,7 @@
       </text>
       <patient>
         <type value="Patient"/>
-        <reference value="patient/@1"/>
+        <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </patient>
       <medication>
@@ -191,7 +191,7 @@
   </contained>
   <patient>
     <type value="Patient"/>
-    <reference value="patient/@1"/>
+    <reference value="Patient/1"/>
     <display value="Eve Everywoman"/>
   </patient>
   <status value="active"/>
@@ -239,7 +239,7 @@
    </timingSchedule>
    <performer>
      <type value="Patient"/>
-     <reference value="patient/@1"/>
+     <reference value="Patient/1"/>
      <display value="Eve Everywoman"/>
    </performer>
    <details value="Daily Peak Flow Measurement"/>

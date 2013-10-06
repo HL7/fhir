@@ -52,7 +52,7 @@
 
   <subject>
     <type value="Patient"/>
-    <reference value="patient/@example"/>
+    <reference value="Patient/example"/>
   </subject>
  
   <deviceName value="G.E. Medical Systems"/>

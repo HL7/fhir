@@ -27,7 +27,7 @@
 
   <provider>
     <type value="Organization"/>
-    <reference value="organization/@2.16.840.1.113883.19.5"/>
+    <reference value="Organization/2.16.840.1.113883.19.5"/>
     <display value="Good Health Clinic"/>
   </provider>
   <active value="true"/>

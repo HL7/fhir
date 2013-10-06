@@ -94,7 +94,7 @@
       <family value="du">
         <!-- the "du" part is a family name prefix (VV in iso 21090) -->
         <extension>
-          <url value="http://hl7.org/fhir/profile/@iso-21090#qualifier"/>
+          <url value="http://hl7.org/fhir/Profileiso-21090#qualifier"/>
           <valueCode value="VV"/>
         </extension>
       </family>
@@ -110,7 +110,7 @@
 
   <provider>
     <type value="Organization"/>
-    <reference value="organization/@1"/>
+    <reference value="Organization/1"/>
   </provider>
 
   <active value="true"/>

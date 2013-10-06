@@ -6,7 +6,7 @@
 	</text>
 	<subject>
 		<type value="Patient"/>
-		<reference value="patient/@example"/>
+		<reference value="Patient/example"/>
 		<display value="John Doe"/>
 	</subject>
 	<organization value="SMART Genomics"/>

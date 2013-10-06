@@ -6,7 +6,7 @@
   </text>
   <target>
     <type value="Patient"/>
-    <reference value="patient/@example/history/@1"/>
+    <reference value="Patient/example/history/1"/>
   </target>
   <!-- nominal activity: editing the standard -->
   <period>
@@ -18,7 +18,7 @@
   </reason>
   <location>
     <type value="Location"/>
-    <reference value="location/@2"/>
+    <reference value="Location/2"/>
   </location>
   <!-- author -->
   <agent>

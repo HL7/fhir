@@ -8,7 +8,7 @@
   <!-- insert contents here -->
   <subject>
     <type value="Patient"/>
-    <reference value="patient/@example"/>
+    <reference value="Patient/example"/>
     <display value="Peter Patient"/>
   </subject>
   <collection>

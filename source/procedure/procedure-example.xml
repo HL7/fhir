@@ -6,7 +6,7 @@
   </text>
   <subject>
     <type value="Patient"/>
-    <reference value="patient/@example"/>
+    <reference value="Patient/example"/>
   </subject>
   <type>
     <coding>
@@ -20,7 +20,7 @@
   <performer>
     <person>
       <type value="Practitioner"/>
-      <reference value="practitioner/@example"/>
+      <reference value="Practitioner/example"/>
       <display value="Dr Cyril Surgeon"/>
     </person>
   </performer>

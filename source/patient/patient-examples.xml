@@ -8,8 +8,8 @@
   <updated>2012-05-29T23:45:32Z</updated>
   <entry>
     <title>patient, female</title>
-    <id>http://hl7.org/fhir/patient/@1</id>
-    <link rel="self" href="http://hl7.org/fhir/patient/@1/history/@1"/>
+    <id>http://hl7.org/fhir/Patient/1</id>
+    <link rel="self" href="http://hl7.org/fhir/Patient/1/history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve / HL7 publishing committee</name>
@@ -51,7 +51,7 @@
 
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@hl7"/>
+          <reference value="Organization/hl7"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -63,8 +63,8 @@
   </entry>
   <entry>
     <title>patient, male</title>
-    <id>http://hl7.org/fhir/patient/@2</id>
-    <link rel="self" href="http://hl7.org/fhir/patient/@2/history/@1"/>
+    <id>http://hl7.org/fhir/Patient/2</id>
+    <link rel="self" href="http://hl7.org/fhir/Patient/2/history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -105,7 +105,7 @@
 
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@hl7"/>
+          <reference value="Organization/hl7"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -117,8 +117,8 @@
   </entry>
   <entry>
     <title>patient, child</title>
-    <id>http://hl7.org/fhir/patient/@3</id>
-    <link rel="self" href="http://hl7.org/fhir/patient/@3/history/@1"/>
+    <id>http://hl7.org/fhir/Patient/3</id>
+    <link rel="self" href="http://hl7.org/fhir/Patient/3/history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -159,7 +159,7 @@
 
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@hl7"/>
+          <reference value="Organization/hl7"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -170,8 +170,8 @@
   </entry>
   <entry>
     <title>family, daughter</title>
-    <id>http://hl7.org/fhir/patient/@4</id>
-    <link rel="self" href="http://hl7.org/fhir/patient/@4/history/@1"/>
+    <id>http://hl7.org/fhir/Patient/4</id>
+    <link rel="self" href="http://hl7.org/fhir/Patient/4/history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -212,7 +212,7 @@
 
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@hl7"/>
+          <reference value="Organization/hl7"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -224,8 +224,8 @@
   </entry>
   <entry>
     <title>family, husband</title>
-    <id>http://hl7.org/fhir/patient/@5</id>
-    <link rel="self" href="http://hl7.org/fhir/patient/@5/history/@1"/>
+    <id>http://hl7.org/fhir/Patient/5</id>
+    <link rel="self" href="http://hl7.org/fhir/Patient/5/history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -266,7 +266,7 @@
 
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@hl7"/>
+          <reference value="Organization/hl7"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -278,8 +278,8 @@
   </entry>
   <entry>
     <title>family, son</title>
-    <id>http://hl7.org/fhir/patient/@6</id>
-    <link rel="self" href="http://hl7.org/fhir/patient/@6/history/@1"/>
+    <id>http://hl7.org/fhir/Patient/6</id>
+    <link rel="self" href="http://hl7.org/fhir/Patient/6/history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -320,7 +320,7 @@
 
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@hl7"/>
+          <reference value="Organization/hl7"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -331,8 +331,8 @@
   </entry>
   <entry>
     <title>family, wife</title>
-    <id>http://hl7.org/fhir/patient/@7</id>
-    <link rel="self" href="http://hl7.org/fhir/patient/@7/history/@1"/>
+    <id>http://hl7.org/fhir/Patient/7</id>
+    <link rel="self" href="http://hl7.org/fhir/Patient/7/history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -373,7 +373,7 @@
 
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@hl7"/>
+          <reference value="Organization/hl7"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -385,8 +385,8 @@
   </entry>
   <entry>
     <title>next of kin (parent)</title>
-    <id>http://hl7.org/fhir/patient/@8</id>
-    <link rel="self" href="http://hl7.org/fhir/patient/@8/history/@1"/>
+    <id>http://hl7.org/fhir/Patient/8</id>
+    <link rel="self" href="http://hl7.org/fhir/Patient/8/history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -427,7 +427,7 @@
 
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@hl7"/>
+          <reference value="Organization/hl7"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -438,8 +438,8 @@
   </entry>
   <entry>
     <title>next of kin (child)</title>
-    <id>http://hl7.org/fhir/patient/@9</id>
-    <link rel="self" href="http://hl7.org/fhir/patient/@9/history/@1"/>
+    <id>http://hl7.org/fhir/Patient/9</id>
+    <link rel="self" href="http://hl7.org/fhir/Patient/9/history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -481,7 +481,7 @@
 
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@hl7"/>
+          <reference value="Organization/hl7"/>
         </provider>
 
         <active value="true"/>
@@ -493,8 +493,8 @@
   </entry>
   <entry>
     <title>next of kin (spouse)</title>
-    <id>http://hl7.org/fhir/patient/@10</id>
-    <link rel="self" href="http://hl7.org/fhir/patient/@10/history/@1"/>
+    <id>http://hl7.org/fhir/Patient/10</id>
+    <link rel="self" href="http://hl7.org/fhir/Patient/10/history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -535,7 +535,7 @@
 
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@hl7"/>
+          <reference value="Organization/hl7"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -547,8 +547,8 @@
   </entry>
   <entry>
     <title>next of kin (other)</title>
-    <id>http://hl7.org/fhir/patient/@11</id>
-    <link rel="self" href="http://hl7.org/fhir/patient/@11/history/@1"/>
+    <id>http://hl7.org/fhir/Patient/11</id>
+    <link rel="self" href="http://hl7.org/fhir/Patient/11/history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -589,7 +589,7 @@
 
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@hl7"/>
+          <reference value="Organization/hl7"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -601,8 +601,8 @@
   </entry>
   <entry>
     <title>contact person</title>
-    <id>http://hl7.org/fhir/patient/@12</id>
-    <link rel="self" href="http://hl7.org/fhir/patient/@12/history/@1"/>
+    <id>http://hl7.org/fhir/Patient/12</id>
+    <link rel="self" href="http://hl7.org/fhir/Patient/12/history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -643,7 +643,7 @@
 
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@hl7"/>
+          <reference value="Organization/hl7"/>
         </provider>
         <active value="true"/>
       </Patient>

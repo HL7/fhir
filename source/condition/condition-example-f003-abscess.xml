@@ -2,16 +2,16 @@
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
     <subject>
         <type value="Patient"/>
-        <reference value="patient/@f001"/>
+        <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
     </subject>
     <encounter>
         <type value="Encounter"/>
-        <reference value="encounter/@f003"/>
+        <reference value="Encounter/f003"/>
     </encounter>
     <asserter>
         <type value="Patient"/>
-        <reference value="patient/@f001"/>
+        <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
     </asserter>
     <dateAsserted value="2012-02-20"/> <!-- first suspected by physician visit -->

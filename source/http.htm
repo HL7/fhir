@@ -784,7 +784,7 @@ These tables present a summary of the interactions described here.
 <tr><th>Interaction</th><th>Path</th><th colspan="5">Request</th></tr>
 <tr><th colspan="2"></th>                                     <th>Verb</th>         <th>Content-Type</th> <th>Body</th>     <th>Accept</th> <th>Content-Location</th></tr>
 <tr><td>read</td>       <td>/[type]/@[id]</td>                <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
-<tr><td>vread</td>      <td>/[type]/@[id]/history/@[vid]</td> <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
+<tr><td>vread</td>      <td>/[type]/@[id]/history/[vid]</td> <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
 <tr><td>conformance</td><td>/ or /metadata</td>               <td>OPTIONS / GET</td><td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
 <tr><td>update</td>     <td>/[type]/@[id]</td>                <td>PUT</td>          <td>R</td>            <td>Resource</td> <td>O</td>      <td>O or R</td></tr>
 <tr><td>create</td>     <td>/[type]</td>           		      <td>POST</td>         <td>R</td>            <td>Resource</td> <td>O</td>      <td>N/A</td></tr>
@@ -801,7 +801,7 @@ These tables present a summary of the interactions described here.
 <tr><td rowspan="3">tags</td><td rowspan="3">/[type]/@[id]/tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
 <tr><td>POST</td><td>R</td><td>TagList</td><td>N/A</td><td>N/A</td></tr>
 <tr><td>DELETE</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
-<tr><td rowspan="3">tags-version</td><td rowspan="3">/[type]/@[id]/history/@[vid]/tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
+<tr><td rowspan="3">tags-version</td><td rowspan="3">/[type]/@[id]/history/[vid]/tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
 <tr><td>POST</td><td>R</td><td>TagList</td><td>N/A</td><td>N/A</td></tr>
 <tr><td>DELETE</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
 </table>

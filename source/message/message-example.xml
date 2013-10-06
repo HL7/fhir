@@ -30,18 +30,18 @@
        is intended for Practitioner "xcda" -->
     <target>
       <type value="Practitioner"/>
-      <reference value="practitioner/@xcda-author"/>
+      <reference value="Practitioner/xcda-author"/>
     </target>
     <endpoint value="llp:10.11.12.14:5432"/>
   </destination>
   <author>
     <type value="Practitioner"/>
-    <reference value="practitioner/@example"/>
+    <reference value="Practitioner/example"/>
   </author>
   
   <!-- Here's the payload, the resource that this admin-update concerns -->
   <data>
     <type value="Patient"/>
-    <reference value="patient/@example"/>
+    <reference value="Patient/example"/>
   </data>
 </Message>

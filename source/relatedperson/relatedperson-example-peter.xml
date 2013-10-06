@@ -26,7 +26,7 @@
 
   <patient>
     <type value="Patient" />
-    <reference value="patient/@animal" />
+    <reference value="Patient/animal" />
   </patient>
   
   <relationship>

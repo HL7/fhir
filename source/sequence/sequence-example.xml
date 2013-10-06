@@ -6,7 +6,7 @@
 	</text>
 	<patient>
 		<type value="Patient"/>
-		<reference value="patient/@example"/>
+		<reference value="Patient/example"/>
 	</patient>
 	<type value="dna"/>
 	<species>

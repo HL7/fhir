@@ -3,7 +3,7 @@
   <subject>
     <!--It entails Roel's TPF treatment-->
     <type value="Patient"/>
-    <reference value="patient/@f201"/>
+    <reference value="Patient/f201"/>
     <display value="Roel"/>
   </subject>
   <type>
@@ -21,12 +21,12 @@
       <display value="Sphenoid bone"/>
     </coding>
   </bodySite>
-  <indication value="diagnosticreport/@f201"/>
+  <indication value="DiagnosticReport/f201"/>
   <!--TODO Why can't this be Resource (any) AND String?-->
   <performer>
     <person>
       <type value="Practitioner"/>
-      <reference value="practitioner/@f201"/>
+      <reference value="Practitioner/f201"/>
       <display value="Dokter Bronsig"/>
     </person>
     <role>
@@ -43,7 +43,7 @@
   </date>
   <encounter>
     <type value="Encounter"/>
-    <reference value="encounter/@f202"/>
+    <reference value="Encounter/f202"/>
     <display value="Roel's encounter on January 28th, 2013"/>
   </encounter>
   <!--No outcomes, reports, complications or follow-ups were available-->

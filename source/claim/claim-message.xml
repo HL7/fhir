@@ -62,15 +62,15 @@
         <servicedate value="2013-09-22"/>
         <provider>
           <type value="Practitioner"/>
-          <reference value="practitioner/@15"/>
+          <reference value="Practitioner/15"/>
         </provider>
         <billingProvider>
           <type value="Organization"/>
-          <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+          <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
         </billingProvider>
         <referrer>
           <type value="Practitioner"/>
-          <reference value="practitioner/@31"/>
+          <reference value="Practitioner/31"/>
         </referrer>
         <reason>
           <coding>
@@ -99,7 +99,7 @@
         <coverage>
           <issuer>
             <type value="Organization"/>
-            <reference value="organization/@1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+            <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           </issuer>
           <type>
             <system value="http://hl7.org/fhir/v3/ActCode"/>

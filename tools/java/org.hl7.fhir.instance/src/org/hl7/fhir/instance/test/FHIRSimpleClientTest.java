@@ -201,7 +201,7 @@ public class FHIRSimpleClientTest {
 		patient.setBirthDate(modifiedBirthday);
 		AtomEntry<OperationOutcome> validate = testClient.validate(Patient.class, patient, testPatientId);
 		String issue = validate.getResource().getIssue().get(0).getDetailsSimple();
-		assertTrue(issue.equals("Bad Syntax in /fhir/patient/validate/@" + testPatientId));//TODO not sure why bad syntax
+		assertTrue(issue.equals("Bad Syntax in /fhir/patient/validate/" + testPatientId));//TODO not sure why bad syntax
 		unloadPatientResource();
 	}
 	

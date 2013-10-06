@@ -16,13 +16,13 @@
  </type>
  <subject>
      <type value="Patient"/>
-     <reference value="patient/@f201"/>
+     <reference value="Patient/f201"/>
      <display value="Roel"/>
  </subject>
  <participant>
      <practitioner>
          <type value="Practitioner"/>
-         <reference value="practitioner/@f201"/>
+         <reference value="Practitioner/f201"/>
     </practitioner>
  </participant>
  <length>
@@ -34,7 +34,7 @@
  <reasonString value="The patient is treated for a tumor."/>
  <indication>
      <type value="Procedure"/>
-     <reference value="procedure/@f201"/>
+     <reference value="Procedure/f201"/>
      <display value="Roel's TPF chemotherapy on January 28th, 2013"/>
  </indication>
  <priority><!--Urgent priority, because of complications-->
@@ -47,6 +47,6 @@
  <!--No hospitalization was deemed necessary-->
  <serviceProvider>
      <type value="Organization"/>
-     <reference value="organization/@f201"/>
+     <reference value="Organization/f201"/>
  </serviceProvider>
 </Encounter>

@@ -309,7 +309,7 @@ and their associated bindings. In this case, the profile looks like this:
     &lt;type value="codelist" /&gt;
     &lt;isExtensible value="codelist" /&gt;
     &lt;conformance value="required" /&gt;
-    &lt;reference value="http://hl7.org/fhir/valueset/@name-part-qualifier" /&gt;
+    &lt;reference value="http://hl7.org/fhir/ValueSet/name-part-qualifier" /&gt;
     &lt;concept>
       &lt;code value="LS" /&gt;
       &lt;system value="http://hl7.org/fhir/v3/EntityNamePartQualifier" /&gt;
@@ -327,7 +327,7 @@ Note that usually you would build the actual profile using some tool. This examp
 </p>
 <h4>Register the Extension</h4>
 <p>
-For this example, it is registered at <a href="http://hl7.org/fhir/profile/@iso-21090?format=text/html">http://hl7.org/fhir/profile/@iso-21090</a>.
+For this example, it is registered at <a href="http://hl7.org/fhir/Profileiso-21090?format=text/html">http://hl7.org/fhir/Profileiso-21090</a>.
 This is the url that will appear in the definition element when the extension is used.
 </p>
 <h4>Use it in the instance</h4>
@@ -342,7 +342,7 @@ fragment identifier.
   &lt;use value=&quot;official&quot; /&gt;
   &lt;given value=&quot;Östlund&quot;&gt;
      &lt;extension&gt;
-        &lt;url value=&quot;http://hl7.org/fhir/profile/@iso-21090#name-qualifier&quot; /&gt;
+        &lt;url value=&quot;http://hl7.org/fhir/Profileiso-21090#name-qualifier&quot; /&gt;
         &lt;valueCode value=&quot;MID&quot; /&gt;
      &lt;/extension&gt;
   &lt;/given&gt;

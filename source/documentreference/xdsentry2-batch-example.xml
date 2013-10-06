@@ -104,7 +104,7 @@
 				<provider>
 				  <!-- a standard example organization -->
 					<type value="Organization"/>
-					<reference value="organization/@1"/>
+					<reference value="Organization/1"/>
 				</provider>
 			</Patient>
 		</content>

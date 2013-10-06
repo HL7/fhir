@@ -41,12 +41,12 @@
  </identifier>
  <subject><!--It entails Roel's Bicarbonate level-->
      <type value="Patient"/>
-     <reference value="patient/@f201"/>
+     <reference value="Patient/f201"/>
      <display value="Roel"/>
  </subject>
  <performer><!--The bicarbonate level was measured by Luigi Maas-->     
      <type value="Practitioner"/>
-     <reference value="practitioner/@f202"/>
+     <reference value="Practitioner/f202"/>
      <display value="Luigi Maas"/>
  </performer>
  <referenceRange><!--Healthy bicarbonate level ranges from 22mmol/L to 29mmol/L--> 

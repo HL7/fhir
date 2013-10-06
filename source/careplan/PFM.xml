@@ -104,7 +104,7 @@
             are modelled as separate encounters. Ideally, there will be  a 'master/parent' encounter that ties them together.
             If there is a single encounter, then all participants will be linked to that encounter.-->
             <type value="Encounter"/>
-            <url value="./encounter/@1000"/>
+            <url value="./Encounter/1000"/>
         </actionTaken>
     </activity>
     <activity>

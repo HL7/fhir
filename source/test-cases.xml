@@ -51,7 +51,7 @@ for servers to handle as part of a batch post
 	</entry>
 	<entry>
 		<title>test person provenance</title>
-		<id>http://www.healthintersections.com.au/fhir/trash/provenance/@1</id>
+		<id>http://www.healthintersections.com.au/fhir/trash/Provenance/1</id>
 		<link rel="self" href="http://www.hl7.org/fhir/test-cases.xml#2"/>
 		<updated>2012-11-12T18:12:00Z</updated>
 		<author>
@@ -100,7 +100,7 @@ for servers to handle as part of a batch post
 		  <link rel="self" href=""/>
 		  <entry>
 			<title>Resource "1"</title>
-			<link rel="self" href="http://localhost:9556/svc/fhir/@1/history/@1"/>
+			<link rel="self" href="http://localhost:9556/svc/fhir/@1/history/1"/>
 			<source>
 			  <id>http://www.healthintersections.com.au/fhir/trash/person/@1</id>
 			</source>
@@ -140,9 +140,9 @@ for servers to handle as part of a batch post
 		  </entry>
 		  <entry>
 			<title>Resource "1"</title>
-			<link rel="self" href="http://localhost:9556/svc/fhir/@1/history/@1"/>
+			<link rel="self" href="http://localhost:9556/svc/fhir/@1/history/1"/>
 			<source>
-			  <id>http://www.healthintersections.com.au/fhir/trash/provenance/@1</id>
+			  <id>http://www.healthintersections.com.au/fhir/trash/Provenance/1</id>
 			</source>
 			<id>http://localhost:9556/svc/fhir/@1</id>
 			<updated>2012-11-12T10:29:55+11:00</updated>

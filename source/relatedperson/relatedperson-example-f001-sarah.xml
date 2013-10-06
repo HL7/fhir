@@ -18,7 +18,7 @@
   
   <patient>
     <type value="Patient" />
-    <reference value="patient/@f001" />
+    <reference value="Patient/f001" />
   </patient>
   
   <relationship>

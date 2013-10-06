@@ -21,11 +21,11 @@
   </telecom>
   <provider>
     <type value="Organization" />
-    <reference value="organization/@f001" />
+    <reference value="Organization/f001" />
   </provider>
   <active value="true" />
   <partOf>
     <type value="Location" />
-    <reference value="location/@1"></reference>
+    <reference value="Location/1"></reference>
   </partOf>
 </Location>

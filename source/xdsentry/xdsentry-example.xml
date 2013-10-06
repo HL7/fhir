@@ -55,7 +55,7 @@ SourceId: 1.3.6.1.4.1.21367.2009.1.2.1
   </sourcePatientId>
   <patientInfo>
     <type value="Patient"/>
-    <reference value="patient/@xcda"/>
+    <reference value="Patient/xcda"/>
   </patientInfo>
   <author>
     <name>

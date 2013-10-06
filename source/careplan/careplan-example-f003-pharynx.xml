@@ -7,7 +7,7 @@
     </identifier>
     <patient>
         <type value="Patient"/>
-        <reference value="patient/@f001"/>
+        <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
     </patient>
     <status value="ended"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.36 -->
@@ -18,13 +18,13 @@
     <modified value="2013-06-27T09:30:10+01:00"/>
     <concern>
         <type value="Condition"/>
-        <reference value="condition/@f201"/><!--TODO Correcte referentie-->
+        <reference value="Condition/f201"/><!--TODO Correcte referentie-->
         <display value="?????"/>
     </concern>
     <participant>
         <member>    
             <type value="Practitioner"/>
-            <reference value="practitioner/@f001"/>
+            <reference value="Practitioner/f001"/>
             <display value="E.M. van den broek"/>
         </member>
     </participant>
@@ -47,7 +47,7 @@
         <timingString value="2011-06-27T09:30:10+01:00"/>
         <performer>
             <type value="Practitioner"/>
-            <reference value="practitioner/@f001"/>
+            <reference value="Practitioner/f001"/>
             <display value="E.M. van den broek"/>
         </performer>
     </activity>

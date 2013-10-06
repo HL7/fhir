@@ -8,7 +8,7 @@
 
  <issuer>
   <type value="Organization"/>
-  <reference value="organization/@2"/>
+  <reference value="Organization/2"/>
 </issuer>
  
  <period> 

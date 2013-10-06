@@ -426,8 +426,8 @@
     <Cell><Data ss:Type="String">The code system from which the selected codes come from</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">See [[Coding.system]] for further documentation</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
-    <Cell ss:Index="16" ss:StyleID="s74" ss:HRef="mailto:ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/@Href"><Data
-      ss:Type="String">ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/@Href</Data></Cell>
+    <Cell ss:Index="16" ss:StyleID="s74" ss:HRef="mailto:ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/Href"><Data
+      ss:Type="String">ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/Href</Data></Cell>
    </Row>
    <Row ss:Height="120">
     <Cell><Data ss:Type="String">ValueSet.compose.include.version</Data></Cell>
@@ -437,8 +437,8 @@
     <Cell><Data ss:Type="String">The version of the code system that the codes are selected from</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">This is used when selecting the descendents of a concept - they may change between versions. If no version is specified, then the exact contents of the value set may not be known until a context of use binds it to a particular version</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
-    <Cell ss:Index="16" ss:StyleID="s74" ss:HRef="mailto:ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/@Version"><Data
-      ss:Type="String">ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/@Version</Data></Cell>
+    <Cell ss:Index="16" ss:StyleID="s74" ss:HRef="mailto:ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/Version"><Data
+      ss:Type="String">ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/Version</Data></Cell>
    </Row>
    <Row ss:Height="105">
     <Cell><Data ss:Type="String">!ValueSet.compose.include.mode</Data></Cell>

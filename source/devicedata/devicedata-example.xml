@@ -274,7 +274,7 @@ contained ones (even though this is easier for the sender)
   </source>
   <subject>
     <type value="Patient"/>
-    <reference value="patient/@ihe-pcd"/> 
+    <reference value="Patient/ihe-pcd"/> 
   </subject>
   
   <!-- todo: it doesn't make sense to break the data up into channels unless 

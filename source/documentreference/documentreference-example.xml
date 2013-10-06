@@ -63,7 +63,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
   </masterIdentifier>
   <subject>
     <type value="Patient"/>
-    <reference value="patient/@xcda"/>
+    <reference value="Patient/xcda"/>
   </subject>
 	<type>
 	  <coding>
@@ -135,7 +135,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 
   <currentSubject>
     <type value="Patient"/>
-    <reference value="patient/@xcda"/>
+    <reference value="Patient/xcda"/>
   </currentSubject>
 -->
 

@@ -16,13 +16,13 @@
  </type>
  <subject>
      <type value="Patient"/>
-     <reference value="patient/@f201"/>
+     <reference value="Patient/f201"/>
      <display value="Roel"/>
  </subject>
  <participant>
      <practitioner>
          <type value="Practitioner"/>
-         <reference value="practitioner/@f201"/>
+         <reference value="Practitioner/f201"/>
     </practitioner>
  </participant>
  <reasonString value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>
@@ -37,7 +37,7 @@
  <hospitalization> 
 <!--  <origin>
      <type value="Location"/>
-     <reference value="location/@2"/>     
+     <reference value="Location/2"/>     
   </origin>--> 
   <admitSource>
     <coding>
@@ -61,12 +61,12 @@
   <!--no special courtesy or arrangements-->
 <!--  <destination><!-\-Fictive-\->
      <type value="Location"/>
-     <reference value="location/@f202"/>  
+     <reference value="Location/f202"/>  
   </destination>-->
   <reAdmission value="false"/>
  </hospitalization>
  <serviceProvider>
      <type value="Organization"/>
-     <reference value="organization/@f201"/>
+     <reference value="Organization/f201"/>
  </serviceProvider>
 </Encounter>

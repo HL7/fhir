@@ -138,249 +138,249 @@
             As well as linking forwards, responder is required to put them in the message -->
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-1"/>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-1"/>
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-10"/>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-10"/>
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-100"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-100"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-101"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-101"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-102"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-102"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-103"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-103"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-104"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-104"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-105"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-105"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-106"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-106"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-107"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-107"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-108"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-108"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-109"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-109"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-11"/>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-11"/>
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-110"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-110"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-111"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-111"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-112"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-112"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-113"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-113"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-114"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-114"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-115"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-115"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-116"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-116"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-117"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-117"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-118"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-118"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-119"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-119"
             />
           </reference>
           <reference>
             <type value="Patient"/>
             <reference
-              value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-11edef91-601c-461c-bbf2-3b99b9a48ae0"
+              value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-11edef91-601c-461c-bbf2-3b99b9a48ae0"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-12"/>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-12"/>
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-120"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-120"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-121"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-121"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-122"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-122"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-123"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-123"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-124"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-124"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-125"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-125"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-126"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-126"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-127"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-127"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-128"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-128"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-129"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-129"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-130"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-130"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-131"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-131"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-132"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-132"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-133"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-133"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-134"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-134"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-135"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-135"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-136"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-136"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-137"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-137"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-138"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-138"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-139"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-139"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-140"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-140"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-141"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-141"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-142"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-142"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-143"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-143"
             />
           </reference>
           <reference>
             <type value="Patient"/>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-144"
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-144"
             />
           </reference>
         </response>
@@ -392,8 +392,8 @@
 
   <entry>
     <title>Resource 1 Version 10</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-1</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-1/history/@10"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-1</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-1/history/10"
       rel="self"/>
     <updated>2013-05-05T16:13:03Z</updated>
     <published>2013-05-17T22:09:20Z</published>
@@ -436,7 +436,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@hl7"/>
+          <reference value="Organization/hl7"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -449,8 +449,8 @@
   </entry>
   <entry>
     <title>Resource 10 Version 4</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-10</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-10/history/@4"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-10</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-10/history/4"
       rel="self"/>
     <updated>2013-05-05T13:04:31Z</updated>
     <published>2013-05-17T22:09:20Z</published>
@@ -494,7 +494,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@hl7"/>
+          <reference value="Organization/hl7"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -505,8 +505,8 @@
   </entry>
   <entry>
     <title>Resource 100 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-100</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-100/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-100</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-100/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:20Z</published>
@@ -541,7 +541,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -552,8 +552,8 @@
   </entry>
   <entry>
     <title>Resource 101 Version 10</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-101</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-101/history/@10"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-101</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-101/history/10"
       rel="self"/>
     <updated>2013-05-03T22:27:30Z</updated>
     <published>2013-05-17T22:09:20Z</published>
@@ -588,7 +588,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -599,8 +599,8 @@
   </entry>
   <entry>
     <title>Resource 102 Version 2</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-102</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-102/history/@2"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-102</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-102/history/2"
       rel="self"/>
     <updated>2013-05-03T22:34:47Z</updated>
     <published>2013-05-17T22:09:20Z</published>
@@ -635,7 +635,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -646,8 +646,8 @@
   </entry>
   <entry>
     <title>Resource 103 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-103</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-103/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-103</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-103/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:20Z</published>
@@ -682,7 +682,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -693,8 +693,8 @@
   </entry>
   <entry>
     <title>Resource 104 Version 6</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-104</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-104/history/@6"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-104</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-104/history/6"
       rel="self"/>
     <updated>2013-05-05T03:36:43Z</updated>
     <published>2013-05-17T22:09:20Z</published>
@@ -729,7 +729,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -740,8 +740,8 @@
   </entry>
   <entry>
     <title>Resource 105 Version 5</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-105</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-105/history/@5"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-105</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-105/history/5"
       rel="self"/>
     <updated>2013-05-07T14:19:15Z</updated>
     <published>2013-05-17T22:09:20Z</published>
@@ -776,7 +776,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -787,8 +787,8 @@
   </entry>
   <entry>
     <title>Resource 106 Version 10</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-106</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-106/history/@10"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-106</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-106/history/10"
       rel="self"/>
     <updated>2013-05-05T04:05:09Z</updated>
     <published>2013-05-17T22:09:20Z</published>
@@ -828,7 +828,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -839,8 +839,8 @@
   </entry>
   <entry>
     <title>Resource 107 Version 2</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-107</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-107/history/@2"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-107</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-107/history/2"
       rel="self"/>
     <updated>2013-05-05T03:40:59Z</updated>
     <published>2013-05-17T22:09:20Z</published>
@@ -875,7 +875,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -886,8 +886,8 @@
   </entry>
   <entry>
     <title>Resource 108 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-108</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-108/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-108</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-108/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:20Z</published>
@@ -922,7 +922,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -933,8 +933,8 @@
   </entry>
   <entry>
     <title>Resource 109 Version 2</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-109</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-109/history/@2"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-109</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-109/history/2"
       rel="self"/>
     <updated>2013-05-05T03:44:25Z</updated>
     <published>2013-05-17T22:09:20Z</published>
@@ -969,7 +969,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -980,8 +980,8 @@
   </entry>
   <entry>
     <title>Resource 11 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-11</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-11/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-11</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-11/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:38Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1023,7 +1023,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@hl7"/>
+          <reference value="Organization/hl7"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1034,8 +1034,8 @@
   </entry>
   <entry>
     <title>Resource 110 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-110</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-110/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-110</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-110/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1070,7 +1070,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1081,8 +1081,8 @@
   </entry>
   <entry>
     <title>Resource 111 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-111</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-111/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-111</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-111/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1117,7 +1117,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1128,8 +1128,8 @@
   </entry>
   <entry>
     <title>Resource 112 Version 2</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-112</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-112/history/@2"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-112</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-112/history/2"
       rel="self"/>
     <updated>2013-05-05T03:53:20Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1164,7 +1164,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1175,8 +1175,8 @@
   </entry>
   <entry>
     <title>Resource 113 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-113</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-113/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-113</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-113/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1211,7 +1211,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1222,8 +1222,8 @@
   </entry>
   <entry>
     <title>Resource 114 Version 10</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-114</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-114/history/@10"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-114</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-114/history/10"
       rel="self"/>
     <updated>2013-05-05T04:34:50Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1258,7 +1258,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1269,8 +1269,8 @@
   </entry>
   <entry>
     <title>Resource 115 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-115</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-115/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-115</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-115/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1305,7 +1305,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1316,8 +1316,8 @@
   </entry>
   <entry>
     <title>Resource 116 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-116</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-116/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-116</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-116/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1352,7 +1352,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1363,8 +1363,8 @@
   </entry>
   <entry>
     <title>Resource 117 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-117</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-117/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-117</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-117/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1399,7 +1399,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1410,8 +1410,8 @@
   </entry>
   <entry>
     <title>Resource 118 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-118</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-118/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-118</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-118/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1446,7 +1446,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1457,8 +1457,8 @@
   </entry>
   <entry>
     <title>Resource 119 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-119</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-119/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-119</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-119/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1493,7 +1493,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1504,9 +1504,9 @@
   </entry>
   <entry>
     <title>Resource 11edef91-601c-461c-bbf2-3b99b9a48ae0 Version 3</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-11edef91-601c-461c-bbf2-3b99b9a48ae0</id>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-11edef91-601c-461c-bbf2-3b99b9a48ae0</id>
     <link
-      href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-11edef91-601c-461c-bbf2-3b99b9a48ae0/history/@3"
+      href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-11edef91-601c-461c-bbf2-3b99b9a48ae0/history/3"
       rel="self"/>
     <updated>2013-05-07T20:44:39Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1550,8 +1550,8 @@
   </entry>
   <entry>
     <title>Resource 12 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-12</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-12/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-12</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-12/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:38Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1593,7 +1593,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@hl7"/>
+          <reference value="Organization/hl7"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1604,8 +1604,8 @@
   </entry>
   <entry>
     <title>Resource 120 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-120</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-120/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-120</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-120/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1640,7 +1640,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1651,8 +1651,8 @@
   </entry>
   <entry>
     <title>Resource 121 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-121</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-121/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-121</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-121/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1687,7 +1687,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1698,8 +1698,8 @@
   </entry>
   <entry>
     <title>Resource 122 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-122</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-122/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-122</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-122/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1734,7 +1734,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1745,8 +1745,8 @@
   </entry>
   <entry>
     <title>Resource 123 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-123</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-123/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-123</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-123/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1781,7 +1781,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1792,8 +1792,8 @@
   </entry>
   <entry>
     <title>Resource 124 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-124</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-124/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-124</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-124/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1828,7 +1828,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1839,8 +1839,8 @@
   </entry>
   <entry>
     <title>Resource 125 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-125</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-125/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-125</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-125/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1875,7 +1875,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1886,8 +1886,8 @@
   </entry>
   <entry>
     <title>Resource 126 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-126</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-126/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-126</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-126/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1922,7 +1922,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1933,8 +1933,8 @@
   </entry>
   <entry>
     <title>Resource 127 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-127</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-127/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-127</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-127/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -1969,7 +1969,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -1980,8 +1980,8 @@
   </entry>
   <entry>
     <title>Resource 128 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-128</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-128/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-128</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-128/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -2016,7 +2016,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -2027,8 +2027,8 @@
   </entry>
   <entry>
     <title>Resource 129 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-129</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-129/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-129</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-129/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -2063,7 +2063,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -2074,8 +2074,8 @@
   </entry>
   <entry>
     <title>Resource 130 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-130</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-130/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-130</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-130/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -2110,7 +2110,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -2121,8 +2121,8 @@
   </entry>
   <entry>
     <title>Resource 131 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-131</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-131/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-131</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-131/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -2157,7 +2157,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -2168,8 +2168,8 @@
   </entry>
   <entry>
     <title>Resource 132 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-132</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-132/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-132</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-132/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -2204,7 +2204,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -2215,8 +2215,8 @@
   </entry>
   <entry>
     <title>Resource 133 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-133</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-133/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-133</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-133/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -2251,7 +2251,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -2262,8 +2262,8 @@
   </entry>
   <entry>
     <title>Resource 134 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-134</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-134/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-134</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-134/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -2298,7 +2298,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -2309,8 +2309,8 @@
   </entry>
   <entry>
     <title>Resource 135 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-135</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-135/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-135</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-135/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -2345,7 +2345,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -2356,8 +2356,8 @@
   </entry>
   <entry>
     <title>Resource 136 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-136</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-136/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-136</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-136/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -2392,7 +2392,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -2403,8 +2403,8 @@
   </entry>
   <entry>
     <title>Resource 137 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-137</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-137/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-137</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-137/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -2439,7 +2439,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -2450,8 +2450,8 @@
   </entry>
   <entry>
     <title>Resource 138 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-138</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-138/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-138</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-138/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -2486,7 +2486,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -2497,8 +2497,8 @@
   </entry>
   <entry>
     <title>Resource 139 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-139</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-139/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-139</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-139/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -2533,7 +2533,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -2544,8 +2544,8 @@
   </entry>
   <entry>
     <title>Resource 140 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-140</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-140/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-140</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-140/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -2580,7 +2580,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -2591,8 +2591,8 @@
   </entry>
   <entry>
     <title>Resource 141 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-141</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-141/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-141</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-141/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -2627,7 +2627,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -2638,8 +2638,8 @@
   </entry>
   <entry>
     <title>Resource 142 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-142</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-142/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-142</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-142/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -2674,7 +2674,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -2685,8 +2685,8 @@
   </entry>
   <entry>
     <title>Resource 143 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-143</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-143/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-143</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-143/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -2721,7 +2721,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>
@@ -2732,8 +2732,8 @@
   </entry>
   <entry>
     <title>Resource 144 Version 1</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-144</id>
-    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/patient/@q-144/history/@1"
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-144</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-144/history/1"
       rel="self"/>
     <updated>2013-05-03T10:25:34Z</updated>
     <published>2013-05-17T22:09:21Z</published>
@@ -2768,7 +2768,7 @@
         
         <provider>
           <type value="Organization"/>
-          <reference value="organization/@1"/>
+          <reference value="Organization/1"/>
         </provider>
         <active value="true"/>
       </Patient>

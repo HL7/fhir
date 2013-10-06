@@ -17,14 +17,14 @@
     </type>
     <subject>
         <type value="Patient"/>
-        <reference value="patient/@f001"/>
+        <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
     </subject>
     <participant>
         <type value="consulting"/>
         <practitioner>
             <type value="Practitioner"/>
-            <reference value="practitioner/@f003"/>
+            <reference value="Practitioner/f003"/>
             <display value="M.I.M Versteegh"/>
         </practitioner>
     </participant>
@@ -94,7 +94,7 @@
     </hospitalization>
     <serviceProvider>
         <type value="Organization"/>
-        <reference value="organization/@f001"/>
+        <reference value="Organization/f001"/>
         <display value="BMC"/>
     </serviceProvider>
 </Encounter>

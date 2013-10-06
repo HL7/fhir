@@ -124,7 +124,7 @@
     <Condition id="p1">
       <subject>
         <type value="Patient"/>
-        <reference value="patient/@1"/>
+        <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
       <code>
@@ -137,7 +137,7 @@
     <Condition id="p2">
       <subject>
         <type value="Patient"/>
-        <reference value="patient/@1"/>
+        <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
       <code>
@@ -150,7 +150,7 @@
     <Condition id="p3">
       <subject>
         <type value="Patient"/>
-        <reference value="patient/@1"/>
+        <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
       <code>
@@ -161,7 +161,7 @@
   </contained>
   <patient>
     <type value="Patient"/>
-    <reference value="patient/@1"/>
+    <reference value="Patient/1"/>
     <display value="Eve Everywoman"/>
   </patient>
   <status value="active"/>

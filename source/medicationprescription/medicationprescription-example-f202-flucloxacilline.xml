@@ -5,22 +5,22 @@
   <status value="completed"/> 
  <patient>
     <type value="Patient"/>
-    <reference value="patient/@f201"/>
+    <reference value="Patient/f201"/>
     <display value="Roel"/>
  </patient>
  <prescriber>
     <type value="Practitioner"/>
-    <reference value="practitioner/@f201"/>
+    <reference value="Practitioner/f201"/>
  </prescriber>
  <encounter><!--TODO <encounter> is not expected...-->
     <type value="Encounter"/>
-    <reference value="encounter/@f203"/>
+    <reference value="Encounter/f203"/>
     <display value="Roel's encounter on March eleventh 2013"/>
  </encounter>
  <reasonForPrescribingString value="condtition/@f203"/>
  <medication>
     <type value="Medication"/>
-    <reference value="medication/@f202"/>
+    <reference value="Medication/f202"/>
     <display value="Flucloxacilline"/>
  </medication>
  <dosageInstruction>  

@@ -8,7 +8,7 @@
         Developed by: FHIR project team (example)</p>
       <p>Published for testing on 13-June 2012</p>
       <p>This is a restriction on
-<a href="http://hl7.org/svc/fhir/valueset/@03acace4-5206-4c8f-a8b4-df27a4c18b09?format=text/html">
+<a href="http://hl7.org/svc/fhir/ValueSet/03acace4-5206-4c8f-a8b4-df27a4c18b09?format=text/html">
         the value set "all serum test codes"</a>, and contains the following LOINC codes:</p>
       <ul>
         <li>14647-2</li>
@@ -45,11 +45,11 @@
     tests, and that this value set is therefor a constraint on that one 
 
      Currently this is not included in the resource pending further investigation
-    <restricts value="http://hl7.org/svc/fhir/valueset/@03acace4-5206-4c8f-a8b4-df27a4c18b09"/> -->
+    <restricts value="http://hl7.org/svc/fhir/ValueSet/03acace4-5206-4c8f-a8b4-df27a4c18b09"/> -->
     <!-- given that this value set is small, it doesn't make 
    sense to import another one - what would it say? But if that made sense, 
    we'd do it like this: 
-  <import>http://hl7.org/svc/fhir/valueset/@f0f65621-ae8c-4c57-9f96-5326c2acefe3</import> -->
+  <import>http://hl7.org/svc/fhir/ValueSet/f0f65621-ae8c-4c57-9f96-5326c2acefe3</import> -->
     <!-- you could have multiple includes, if you wanted to include codes from more than
      one code system, or include codes with different modes. we don't, in this case -->
     <include>

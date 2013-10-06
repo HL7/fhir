@@ -54,7 +54,7 @@
     
     <organization>
         <type value="Organization"/>
-        <reference value="organization/@f001"/>
+        <reference value="Organization/f001"/>
         <display value="BMC"/>
     </organization>
     <role>

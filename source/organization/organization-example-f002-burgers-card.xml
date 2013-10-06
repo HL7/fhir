@@ -17,7 +17,7 @@
     </address>
     <partOf>
         <type value="Organization"/>
-        <reference value="organization/@f001"/>
+        <reference value="Organization/f001"/>
     </partOf>
     <contact>
         <purpose>
