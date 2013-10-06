@@ -34,21 +34,23 @@
         <notes value="goal accomplished with minor complications"/>
     </goal>
     <activity>
-        <category value="procedure"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.39 -->
-        <code>
-            <coding>
-                <system value="http://snomed.info/id"/>
-                <code value="359615001"/>
-                <display value="Partial lobectomy of lung"/>
-            </coding>
-        </code>
         <status value="completed"/>
         <prohibited value="true"/>
-        <timingString value="2011-07-07T09:30:10+01:00"/>
-        <performer>
-            <type value="Practitioner"/>
-            <reference value="Practitioner/f003"/>
-            <display value="M.I.M. Versteegh"/>
-        </performer>
+        <simple>
+          <category value="procedure"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.39 -->
+          <code>
+              <coding>
+                  <system value="http://snomed.info/id"/>
+                  <code value="359615001"/>
+                  <display value="Partial lobectomy of lung"/>
+              </coding>
+          </code>
+          <timingString value="2011-07-07T09:30:10+01:00"/>
+          <performer>
+              <type value="Practitioner"/>
+              <reference value="Practitioner/f003"/>
+              <display value="M.I.M. Versteegh"/>
+          </performer>
+        </simple>
     </activity>
 </CarePlan>

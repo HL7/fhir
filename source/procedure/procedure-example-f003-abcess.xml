@@ -19,7 +19,9 @@
                 <display value="Retropharyngeal area"/>
             </coding>
         </bodySite>
-    <indication value="abcess in retropharyngeal area"/>
+    <indication>
+      <text value="abcess in retropharyngeal area"/>
+    </indication>
     <performer>
         <person>
             <type value="Practitioner"/>

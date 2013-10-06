@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T09:39:52Z</Created>
-  <LastSaved>2013-10-03T22:32:55Z</LastSaved>
+  <LastSaved>2013-10-04T04:43:29Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -144,6 +144,9 @@
    <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#000000"/>
   </Style>
   <Style ss:ID="s87">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s88">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -153,7 +156,24 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s88">
+  <Style ss:ID="s89">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s90">
+   <Font ss:FontName="Times New Roman" x:Family="Roman" ss:Size="12"
+    ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s91">
+   <Alignment ss:Vertical="Top"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s92">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -161,47 +181,22 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s89">
+  <Style ss:ID="s93">
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s90">
+  <Style ss:ID="s94">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s91">
+  <Style ss:ID="s95">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
    <Interior ss:Color="#FFB7B7" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s92">
+  <Style ss:ID="s96">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s93">
+  <Style ss:ID="s97">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s95">
-   <Font ss:FontName="Times New Roman" x:Family="Roman" ss:Size="12"
-    ss:Color="#000000"/>
-  </Style>
-  <Style ss:ID="s124">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-  </Style>
-  <Style ss:ID="s137">
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-  </Style>
-  <Style ss:ID="s198">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-  </Style>
-  <Style ss:ID="s201">
-   <Alignment ss:Vertical="Top"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
@@ -842,7 +837,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>17</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -853,113 +848,113 @@
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="14" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="84"/>
-   <Column ss:StyleID="s137" ss:AutoFitWidth="0" ss:Width="291.75"/>
+   <Column ss:StyleID="s87" ss:AutoFitWidth="0" ss:Width="291.75"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="64.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="101.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="200.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="313.5"/>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s79"><Data ss:Type="String">Profile Name</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Element</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Card.</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Short Name</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Element</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Card.</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Short Name</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Definition</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s85"><Data ss:Type="String">SubmissionSet</Data></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">DocumentManifest</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">DocumentManifest</Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s85"><Data ss:Type="String">SubmissionSet</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">A manifest that defines a set of documents</Data></Cell>
    </Row>
-   <Row ss:Height="15.75">
-    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.identifier</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:Index="2" ss:StyleID="s89"><Data ss:Type="String">DocumentManifest.identifier</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s85"><Data ss:Type="String">SubmissionSet.uniqueId</Data></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">A globally unique identifier for the SubmissionSet assigned by the creating entity</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">A globally unique identifier for the SubmissionSet assigned by the creating entity</Data></Cell>
    </Row>
-   <Row ss:Height="30">
-    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.subject</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:Index="2" ss:StyleID="s89"><Data ss:Type="String">DocumentManifest.subject</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Resource(Patient)</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s85"><Data ss:Type="String">SubmissionSet.patientId</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">the subject of care whose longitudinal record is being reflected in this SubmissionSet</Data></Cell>
    </Row>
-   <Row ss:Height="60">
-    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.recipient</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell ss:Index="2" ss:StyleID="s89"><Data ss:Type="String">DocumentManifest.recipient</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Resource(Patient|Practitioner|Organization)</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s85"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">SubmissionSet.intendedRecipient</Font><Font
-       html:Face="Times New Roman" x:Family="Roman" html:Size="8"
+       html:Face="Times New Roman" x:Family="Swiss" html:Size="8"
        html:Color="#000000">&#160;</Font></ss:Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">The organization(s) or person(s) for whom the SubmissionSet is intended. </Data></Cell>
    </Row>
-   <Row ss:Height="30">
-    <Cell ss:Index="2" ss:StyleID="s198"><Data ss:Type="String">DocumentManifest.type</Data></Cell>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">DocumentSetType</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:Index="2" ss:StyleID="s89"><Data ss:Type="String">DocumentManifest.type</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">DocumentSetType</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">SubmissionSet.contentTypeCode</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">The code specifying the type of clinical activity that resulted in placing the documents in this SubmissionSet</Data></Cell>
    </Row>
-   <Row ss:Height="45">
-    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.author</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:Index="2" ss:StyleID="s89"><Data ss:Type="String">DocumentManifest.author</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Resource(Practitioner|Device)</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s85"><Data ss:Type="String">SubmissionSet.author</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">The humans and/or machines that authored the document  in the SubmissionSet. This attribute contains the sub-attributes: authorInstitution, authorPerson, authorRole, authorSpecialty</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.created</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="s89"><Data ss:Type="String">DocumentManifest.created</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s85"><Data ss:Type="String">SubmissionSet.submissionTime</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Point in time at the creating entity when the SubmissionSet was created.</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.source</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="s89"><Data ss:Type="String">DocumentManifest.source</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s85"><Data ss:Type="String">SubmissionSet.sourceId</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">OID identifying the instance of the creating entity that contributed the SubmissionSet</Data></Cell>
    </Row>
-   <Row ss:Height="30">
-    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.status</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:Index="2" ss:StyleID="s89"><Data ss:Type="String">DocumentManifest.status</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">DocumentReferenceStatus</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">SubmissionSet.availabilityStatus</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">The lifecycle status of the SubmissionSet</Data></Cell>
    </Row>
-   <Row ss:Height="45">
-    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.supercedes</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:Index="2" ss:StyleID="s89"><Data ss:Type="String">DocumentManifest.supercedes</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Resource(DocumentManifest)</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s78"><Data ss:Type="String">todo</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">If this document manifest replaces another</Data></Cell>
    </Row>
-   <Row ss:Height="30">
-    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.description</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:Index="2" ss:StyleID="s89"><Data ss:Type="String">DocumentManifest.description</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s78"><Data ss:Type="String">SubmissionSet.title</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Human-readable description of the source document. This is sometimes known as the &quot;title&quot;</Data></Cell>
    </Row>
-   <Row ss:Height="30">
-    <Cell ss:Index="2" ss:StyleID="s198"><Data ss:Type="String">DocumentManifest.confidentiality</Data></Cell>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">0..0</Data></Cell>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s201"><Data ss:Type="String">DocumentConfidentiality</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:Index="2" ss:StyleID="s89"><Data ss:Type="String">DocumentManifest.confidentiality</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">DocumentConfidentiality</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">SubmissionSet.confidentialityCode</Data></Cell>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">A code specifying the level of confidentiality of this set of Documents</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A code specifying the level of confidentiality of this set of Documents</Data></Cell>
    </Row>
-   <Row ss:Height="60">
-    <Cell ss:Index="2" ss:StyleID="s124"><Data ss:Type="String">DocumentManifest.content</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell ss:Index="2" ss:StyleID="s89"><Data ss:Type="String">DocumentManifest.content</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Resource(DocumentReference)</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s78"><Data ss:Type="String">SubmissionSet.documentEntry</Data></Cell>
@@ -972,6 +967,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -991,18 +987,18 @@
    <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="94.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="186.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Profile Name</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Element</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Card.</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Short Name</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Profile Name</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Element</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Card.</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Short Name</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">sourcePatient</Data></Cell>
     <Cell><Data ss:Type="String">Patient</Data></Cell>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s93"/>
     <Cell ss:Index="6"><Data ss:Type="String">Demographics information at the time of submission of the patient to whose medical record this document belongs</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1062,7 +1058,7 @@
    <Column ss:Index="4" ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="121.5"/>
    <Column ss:Index="6" ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="332.25"/>
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="306.75"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s87">
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s88">
     <Cell><Data ss:Type="String">Profile Name</Data></Cell>
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -1074,7 +1070,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="14.25">
     <Cell><Data ss:Type="String">Author</Data></Cell>
     <Cell><Data ss:Type="String">Practitioner</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s94"/>
     <Cell ss:Index="5"><Data ss:Type="String">Author</Data></Cell>
     <Cell><Data ss:Type="String">Represents the humans and/or machines that authored the document</Data></Cell>
    </Row>
@@ -1107,7 +1103,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">authorInstitution </Data></Cell>
     <Cell><Data ss:Type="String">Practitioner.organization</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">0..*</Data></Cell>
     <Cell><Data ss:Type="String">Resource(Organization)</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Represents a specific healthcare facility under which the human and/or machines authored the document</Data></Cell>
     <Cell><Data ss:Type="String">Organization will have name and maybe id</Data></Cell>
@@ -1151,7 +1147,7 @@
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="102.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="234"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s87">
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s88">
     <Cell><Data ss:Type="String">Profile Name</Data></Cell>
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -1163,10 +1159,10 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Folder</Data></Cell>
     <Cell><Data ss:Type="String">Category</Data></Cell>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s93"/>
+    <Cell ss:StyleID="s93"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s89">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s93">
     <Cell><Data ss:Type="String">!availabilityStatus</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">fixed in XDS</Data></Cell>
    </Row>
@@ -1188,7 +1184,7 @@
     <Cell><Data ss:Type="String">!comments</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">extension</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s89">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s93">
     <Cell><Data ss:Type="String">!entryUUID</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">FHIR metadata</Data></Cell>
    </Row>
@@ -1196,7 +1192,7 @@
     <Cell><Data ss:Type="String">!homeCommunityId</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">extension</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s89">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s93">
     <Cell><Data ss:Type="String">!lastUpdateTime</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">FHIR metadata</Data></Cell>
    </Row>
@@ -1239,7 +1235,7 @@
    <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="281.25"/>
    <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s87">
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s88">
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Context Type</Data></Cell>
     <Cell><Data ss:Type="String">Context</Data></Cell>
@@ -1370,19 +1366,19 @@
    <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="168"/>
    <Column ss:AutoFitWidth="0" ss:Width="158.25"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Binding Name</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Example</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Binding Name</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Example</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Reference</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s78"><Data ss:Type="String">XDSPracticeSettingCodes</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">A  code specifying the clinical specialty where the act that resulted in the document was performed</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">valueset-xds-practice-codes</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">valueset-xds-practice-codes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s78"><Data ss:Type="String">XDSRelationshipType</Data></Cell>
@@ -1420,7 +1416,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">APND</Data></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">A separate XDS Document that references a prior document, and may extend or &#10;alter the observations in the prior document</Data></Cell>
+    <Cell ss:StyleID="s97"><Data ss:Type="String">A separate XDS Document that references a prior document, and may extend or &#10;alter the observations in the prior document</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>

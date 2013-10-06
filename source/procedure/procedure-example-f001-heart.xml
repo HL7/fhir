@@ -19,7 +19,9 @@
                 <display value="Heart valve structure"/>
             </coding>
         </bodySite>
-    <indication value="Heart valve disorder"/>
+    <indication>
+      <text value="Heart valve disorder"/>
+    </indication> 
     <performer>
         <person>
             <type value="Practitioner"/>

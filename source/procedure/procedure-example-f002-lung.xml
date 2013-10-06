@@ -19,7 +19,9 @@
                 <display value="Lung structure"/>
             </coding>
         </bodySite>
-    <indication value="Malignant tumor of lung"/>
+    <indication>
+      <text value="Malignant tumor of lung"/>
+    </indication>
     <performer>
         <person>
             <type value="Practitioner"/>

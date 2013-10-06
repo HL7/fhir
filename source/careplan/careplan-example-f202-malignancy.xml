@@ -90,24 +90,26 @@
       <status value="in progress"/>
    </goal>
    <activity>
-      <category value="procedure"/>
-      <code>
-         <coding>
-            <system value="http://snomed.info/id"/>
-            <code value="367336001"/>
-            <display value="Chemotherapy"/>
-         </coding>
-      </code>
       <status value="ongoing"/>
       <prohibited value="false"/>
-      <product>
-         <type value="Medication"/>
-         <reference value="#tpf"/>
-      </product>
-      <actionTaken>
+      <actionResulting>
          <type value="Procedure"/>
          <reference value="Procedure/f201"/>
          <display value="Roel's Chemotherapy"/>
-      </actionTaken>
+      </actionResulting>
+      <simple>
+        <category value="procedure"/>
+        <code>
+           <coding>
+              <system value="http://snomed.info/id"/>
+              <code value="367336001"/>
+              <display value="Chemotherapy"/>
+           </coding>
+        </code>
+        <product>
+           <type value="Medication"/>
+           <reference value="#tpf"/>
+        </product>
+      </simple>
    </activity>
 </CarePlan>

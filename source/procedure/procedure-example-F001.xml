@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:/C:/SVN/schema/procedure.xsd">
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
     <subject>
         <type value="Patient"/>
         <reference value="Patient/F001"/>
         <display value="P. van de Heuvel"/>
     </subject>
-    <description>
-        <type>
-            <coding>
-                <system value="http://snomed.info/id"/>
-                <code value="34068001"/>
-                <display value="Heart valve replacement"/>
-            </coding>
-        </type>
-        <bodySite>
-            <coding>
-                <system value="http://snomed.info/id"/>
-                <code value="17401000"/>
-                <display value="Heart valve structure"/>
-            </coding>
-        </bodySite>
-    </description>
-    <indication value="Heart valve disorder"/>
+    <type>
+        <coding>
+            <system value="http://snomed.info/id"/>
+            <code value="34068001"/>
+            <display value="Heart valve replacement"/>
+        </coding>
+    </type>
+    <bodySite>
+        <coding>
+            <system value="http://snomed.info/id"/>
+            <code value="17401000"/>
+            <display value="Heart valve structure"/>
+        </coding>
+    </bodySite>
+    <indication>
+      <text value="Heart valve disorder"/>
+    </indication>
     <performer>
         <person>
             <type value="Practitioner"/>

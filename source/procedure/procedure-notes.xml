@@ -1,14 +1,5 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 
-<b>Questions</b>
-
-<ul>
-    <li>Should there be a separate entry for duration? Currently this is inferred from date if represented as a Period</li>
-    <li>Indication is currently a string. What to do if you want to indicate that the procedure is because of a Condition?
-    You could use relatedItem, but is it confusing to have indication in multiple places.</li>
-    <li>Should we support a careplan as followup?</li>
-</ul>
-<!-- insert xhtml content here -->
 
 </div>

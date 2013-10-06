@@ -22,10 +22,8 @@
         <reference value="#cp1"/>
         <display value="This Careplan"/>
       </target>
-      <activity> 
-        <recorded value="2013-05-09T15:20:00-07:00"/>
-      </activity>
-      <party>
+      <recorded value="2013-05-09T15:20:00-07:00"/>
+      <agent>
         <role>
           <system value="http://hl7.org/fhir/provenance-participant-role"/>
           <code value="author"/>
@@ -34,11 +32,11 @@
           <system value="http://hl7.org/fhir/provenance-participant-type"/>
           <code value="practitioner"/>
         </type>
-        <identifier value="mailto:david.hay25@gmail.com"/>
-        <description value="David Hay"/>
-      </party>
+        <reference value="mailto:david.hay25@gmail.com"/>
+        <display value="David Hay"/>
+      </agent>
       <!-- Indicate that the patient (Eve) was also an author of this plan -->
-      <party>
+      <agent>
         <role>
           <system value="http://hl7.org/fhir/provenance-participant-role"/>
           <code value="author"/>
@@ -47,9 +45,9 @@
           <system value="http://hl7.org/fhir/provenance-participant-type"/>
           <code value="person"/>
         </type>
-        <identifier value="Patient/1"/>
-        <description value="Eve Everywoman"/>
-      </party>
+        <reference value="Patient/1"/>
+        <display value="Eve Everywoman"/>
+      </agent>
     </Provenance>
   </contained>
   
@@ -108,81 +106,81 @@
       </medication>
       <dosageInstruction>
         <dosageInstructionsText value="Take 6 tablets once a day for 2 days"/>
-        <timing>
+        <timingSchedule>
           <repeat>
             <frequency value="1" />
             <duration value="1" />
             <units value="d" />
             <count value="2"/>
           </repeat>
-        </timing>
+        </timingSchedule>
       </dosageInstruction>
       <dosageInstruction>
         <dosageInstructionsText value="Take 5 tablets once a day for 2 days"/>
-        <timing>
+        <timingSchedule>
           <repeat>
             <frequency value="1" />
             <duration value="1" />
             <units value="d" />
             <count value="2"/>
           </repeat>
-        </timing>
+        </timingSchedule>
         <doseQuantity>
           <value value="5"/>          
         </doseQuantity>
       </dosageInstruction>
       <dosageInstruction>
         <dosageInstructionsText value="Take 4 tablets once a day for 2 days"/>
-        <timing>
+        <timingSchedule>
           <repeat>
             <frequency value="1" />
             <duration value="1" />
             <units value="d" />
             <count value="2"/>
           </repeat>
-        </timing>
+        </timingSchedule>
         <doseQuantity>
           <value value="4"/>          
         </doseQuantity>
       </dosageInstruction>
       <dosageInstruction>
         <dosageInstructionsText value="Take 3 tablets once a day for 2 days"/>
-        <timing>
+        <timingSchedule>
           <repeat>
             <frequency value="1" />
             <duration value="1" />
             <units value="d" />
             <count value="2"/>
           </repeat>
-        </timing>
+        </timingSchedule>
         <doseQuantity>
           <value value="3"/>          
         </doseQuantity>
       </dosageInstruction>
       <dosageInstruction>
         <dosageInstructionsText value="Take 2 tablets once a day for 2 days"/>
-        <timing>
+        <timingSchedule>
           <repeat>
             <frequency value="1" />
             <duration value="1" />
             <units value="d" />
             <count value="2"/>
           </repeat>
-        </timing>
+        </timingSchedule>
         <doseQuantity>
           <value value="2"/>          
         </doseQuantity>
       </dosageInstruction>
       <dosageInstruction>
         <dosageInstructionsText value="Take 1 tablet once a day for 2 days"/>
-        <timing>
+        <timingSchedule>
           <repeat>
             <frequency value="1" />
             <duration value="1" />
             <units value="d" />
             <count value="2"/>
           </repeat>
-        </timing>
+        </timingSchedule>
         <doseQuantity>
           <value value="1"/>          
         </doseQuantity>
@@ -220,90 +218,96 @@
   
  <!-- This activity specifies that the patient take a peak flow daily --> 
  <activity>
-   <category value="observation"/>
-   <code>
-     <coding>
-       <system value="http://snomed.info/id"/>
-       <code value="313193502"/>
-       <display value="Respiratory flow rate (observable entity)"></display>
-     </coding>
-    <text value="Peak Flow"></text>
-   </code>
    <prohibited value="false"/>
-   <timingSchedule>
-     <repeat>
-       <frequency value="1" />
-       <duration value="1" />
-       <units value="d" />
-     </repeat>
-   </timingSchedule>
-   <performer>
-     <type value="Patient"/>
-     <reference value="Patient/1"/>
-     <display value="Eve Everywoman"/>
-   </performer>
-   <details value="Daily Peak Flow Measurement"/>
+   <simple>
+     <category value="observation"/>
+     <code>
+       <coding>
+         <system value="http://snomed.info/id"/>
+         <code value="313193502"/>
+         <display value="Respiratory flow rate (observable entity)"></display>
+       </coding>
+      <text value="Peak Flow"></text>
+     </code>
+     <timingSchedule>
+       <repeat>
+         <frequency value="1" />
+         <duration value="1" />
+         <units value="d" />
+       </repeat>
+     </timingSchedule>
+     <performer>
+       <type value="Patient"/>
+       <reference value="Patient/1"/>
+       <display value="Eve Everywoman"/>
+     </performer>
+     <details value="Daily Peak Flow Measurement"/>
+  </simple>
  </activity>
   
   <activity>
     <!-- Specifies that this activity (start a reducing dose of steriods) is only triggered when the peak flow drops below 350-->
-    <extension>
-      <url value="www.moh.govt.nz/fhir/trigger"/>
-      <isModifier value="true"/>
-      <extension>
-        <url value="www.moh.govt.nz/fhir/trigger#code"/>
-        <valueCoding>
-          <system value="http://snomed.info/id"/>
-          <code value="313193502"/>
-          <display value="Respiratory flow rate (observable entity)"></display>
-        </valueCoding>
-      </extension>
-      <extension>
-        <url value="www.moh.govt.nz/fhir/trigger#value"/>
-        <valueQuantity>
-          <value value="350"/>
-          <comparator value="&lt;"/>
-        </valueQuantity>
-      </extension>
-    </extension>
-    <category value="drug"/>
     <status value="not started"/>
     <prohibited value="false"/>
-    <details value="Eve will start oral steroids if the peakflow drops below 350"/>
-    <actionTaken>
-        <type value="MedicationPrescription"/>
-        <reference value="#rx1"/>
-        <display value="Reducing dose of prednisone, start with 30mg, reduce by 5mg every 2 days"/>
-    </actionTaken>
-    <notes value="In response to a peakflow below 350, a reducing dose of prednisone starting at 30mg, and reducing by 5mg every 2 days"/>
+      <actionResulting>
+          <type value="MedicationPrescription"/>
+          <reference value="#rx1"/>
+          <display value="Reducing dose of prednisone, start with 30mg, reduce by 5mg every 2 days"/>
+      </actionResulting>
+      <notes value="In response to a peakflow below 350, a reducing dose of prednisone starting at 30mg, and reducing by 5mg every 2 days"/>
+    <simple>
+      <extension>
+        <extension>
+          <url value="www.moh.govt.nz/fhir/trigger#code"/>
+          <valueCoding>
+            <system value="http://snomed.info/id"/>
+            <code value="313193502"/>
+            <display value="Respiratory flow rate (observable entity)"></display>
+          </valueCoding>
+        </extension>
+        <extension>
+          <url value="www.moh.govt.nz/fhir/trigger#value"/>
+          <valueQuantity>
+            <value value="350"/>
+            <comparator value="&lt;"/>
+          </valueQuantity>
+        </extension>
+        <url value="www.moh.govt.nz/fhir/trigger"/>
+        <isModifier value="true"/>
+      </extension>
+      <category value="drug"/>
+      <details value="Eve will start oral steroids if the peakflow drops below 350"/>
+    </simple>
   </activity>
   
   <activity>
-    <!-- Specifies that this activity (get medical help) is only triggered when the peak flow drops below 250-->
-    <extension>
-      <url value="www.moh.govt.nz/fhir/trigger"/>
-      <isModifier value="true"/>
-      <extension>
-        <url value="www.moh.govt.nz/fhir/trigger#code"/>
-        <valueCoding>
-          <system value="http://snomed.info/id"/>
-          <code value="313193502"/>
-          <display value="Respiratory flow rate (observable entity)"></display>
-        </valueCoding>
-      </extension>
-      <extension>
-        <url value="www.moh.govt.nz/fhir/trigger#value"/>
-        <valueQuantity>
-          <value value="250"/>
-          <comparator value="&lt;"/>
-        </valueQuantity>
-      </extension>
-    </extension>
-    <category value="encounter"/>
     <status value="not started"/>
     <prohibited value="false"/>
-    <details value="Get Medical assistance immediately"/>
     <notes value="In response to a peakflow below 250, seek urgent Medical Assistance. This can be life threatening."/>
+    <!-- Specifies that this activity (get medical help) is only triggered when the peak flow drops below 250-->
+    <simple>
+      <extension>
+        <extension>
+          <url value="www.moh.govt.nz/fhir/trigger#code"/>
+          <valueCoding>
+            <system value="http://snomed.info/id"/>
+            <code value="313193502"/>
+            <display value="Respiratory flow rate (observable entity)"></display>
+          </valueCoding>
+        </extension>
+        <extension>
+          <url value="www.moh.govt.nz/fhir/trigger#value"/>
+          <valueQuantity>
+            <value value="250"/>
+            <comparator value="&lt;"/>
+          </valueQuantity>
+        </extension>
+        <url value="www.moh.govt.nz/fhir/trigger"/>
+        <isModifier value="true"/>
+      </extension>
+      <category value="encounter"/>
+      <details value="Get Medical assistance immediately"/>
+    </simple>
   </activity>
   
 </CarePlan>

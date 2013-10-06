@@ -39,22 +39,24 @@
         <notes value="goal accomplished without complications"/>
     </goal>
     <activity>
-        <category value="procedure"/>
-        <!-- urn:oid:2.16.840.1.113883.4.642.1.39 -->
-        <code>
-            <coding>
-                <system value="http://snomed.info/id"/>
-                <code value="64915003"/>
-                <display value=" Operative procedure on heart"/>
-            </coding>
-        </code>
         <status value="completed"/>
         <prohibited value="true"/>
-        <timingString value="2011-06-27T09:30:10+01:00"/>
-        <performer>
-            <type value="Practitioner"/>
-            <reference value="Practitioner/f002"/>
-            <display value="P. Voigt"/>
-        </performer>
+        <simple>
+          <category value="procedure"/>
+          <!-- urn:oid:2.16.840.1.113883.4.642.1.39 -->
+          <code>
+              <coding>
+                  <system value="http://snomed.info/id"/>
+                  <code value="64915003"/>
+                  <display value=" Operative procedure on heart"/>
+              </coding>
+          </code>
+          <timingString value="2011-06-27T09:30:10+01:00"/>
+          <performer>
+              <type value="Practitioner"/>
+              <reference value="Practitioner/f002"/>
+              <display value="P. Voigt"/>
+          </performer>
+        </simple>
     </activity>
 </CarePlan>

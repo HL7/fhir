@@ -19,7 +19,9 @@
                 <display value="Retropharyngeal area"/>
             </coding>
         </bodySite>
-    <indication value="ensure breathing during surgery"/>
+    <indication>
+      <text value="ensure breathing during surgery"/>
+    </indication>
     <performer>
         <person>
             <type value="Practitioner"/>

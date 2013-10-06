@@ -73,5 +73,12 @@
      <display value="TPF chemokuur"/>
   </target>
  </relatedItem>
-</Condition><!--TODO The physician states (in the EHR) that fever could be caused by another (bacterial) infection.
-How do you express such an (important!) fact with FHIR?-->
+ <relatedItem>  <!-- 0..* Causes or precedents for this problem -->
+  <type value="due-to"/>
+  <target>
+     <type value="Condition"/>
+     <reference value="Condition/f205"/>
+     <display value="bacterial infection"/>
+  </target>
+ </relatedItem>
+</Condition>

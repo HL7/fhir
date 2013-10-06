@@ -21,7 +21,9 @@
       <display value="Sphenoid bone"/>
     </coding>
   </bodySite>
-  <indication value="DiagnosticReport/f201"/>
+  <indication>
+    <text value="DiagnosticReport/f201"/>
+  </indication> 
   <!--TODO Why can't this be Resource (any) AND String?-->
   <performer>
     <person>

@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>4740</WindowHeight>
-  <WindowWidth>22755</WindowWidth>
-  <WindowTopX>4560</WindowTopX>
-  <WindowTopY>4155</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
+  <WindowHeight>2430</WindowHeight>
+  <WindowWidth>10005</WindowWidth>
+  <WindowTopX>75</WindowTopX>
+  <WindowTopY>13695</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -82,11 +82,22 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s70" ss:Parent="s63">
+  <Style ss:ID="s69">
+   <Alignment ss:Vertical="Top"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s70">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s73" ss:Parent="s63">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s71">
+  <Style ss:ID="s74">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -95,22 +106,22 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s72">
+  <Style ss:ID="s75">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s74">
+  <Style ss:ID="s77">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s78">
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s79">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
-  <Style ss:ID="s77">
+  <Style ss:ID="s80">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s80" ss:Parent="s62">
+  <Style ss:ID="s83" ss:Parent="s62">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -120,7 +131,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="30" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="34" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="150.75"/>
@@ -173,25 +184,25 @@
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">At present, this resource combines the concepts of CarePlan and CareTeam.  Should they be split?</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="120">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">CarePlan.identifier</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">External Ids for this plan</Data></Cell>
+    <Cell><Data ss:Type="String">This records identifiers associated with this care plan that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Need to allow connection to a wider workflow</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">.id</Data></Cell>
+    <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">ID for plan</Data></Cell>
-    <Cell><Data ss:Type="String">Unique identifier by which the care plan is known in different business contexts.</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s68"/>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">PTH-3-pathway instance ID</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">CarePlan.patient</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -199,9 +210,9 @@
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Who care plan is for</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the patient/subject whose intended care is described by the plan.</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Care plans must be associated with the patient the plan is for.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Care plans are associated with the patient the plan is for.</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s68"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">PID-3-patient ID list</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">PID-3-patient ID list</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -217,11 +228,11 @@
     <Cell><Data ss:Type="String">Indicates whether the plan is currently being acted upon, represents future intentions or is now just historical record.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Allows clinicians to determine whether the plan is actionable or not</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s68"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">PTH-5-pathway life cycle status</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">PTH-5-pathway life cycle status</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">CarePlan.period</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -250,7 +261,7 @@
     <Cell><Data ss:Type="String">Identifies the most recent date on which the plan has been revised.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Indicates how current the plan is.</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s68"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">PTH-6-change pathway life cycle status date/time</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">PTH-6-change pathway life cycle status date/time</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Do we need this in addition to the resource metadata which tracks last changed?</Data></Cell>
@@ -263,11 +274,11 @@
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Resource(Condition)</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Health issues plan addresses</Data></Cell>
+    <Cell><Data ss:Type="String">Health issues this plan addresses</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Links plan to the conditions it manages.  Also scopes plans - multiple plans may exist addressing different concerns.</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s68"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">PRB-4-Problem instance ID</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">PRB-4-Problem instance ID</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -281,7 +292,7 @@
     <Cell><Data ss:Type="String">Who's involved in plan?</Data></Cell>
     <Cell><Data ss:Type="String">Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.</Data></Cell>
     <Cell><Data ss:Type="String">Care Team</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Allows representation of care teams, helps scope care plan.  In some cases may be a determiner of access permissions.</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Allows representation of care teams, helps scope care plan.  In some cases may be a determiner of access permissions.</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">REL (REL.4 is always the Patient) ( or PRT?)</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -304,7 +315,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="375">
     <Cell><Data ss:Type="String">CarePlan.participant.member</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -338,7 +349,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Should this be expanded into code + value + timeframe?</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">CarePlan.goal.description</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -350,11 +361,11 @@
     <Cell><Data ss:Type="String">Human-readable description of a specific desired objective of the care plan.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Without a description of what's trying to be achieved, element has no purpose</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s68"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">GOL-3.2-goal ID.text</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">GOL-3.2-goal ID.text</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">CarePlan.goal.status</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -366,7 +377,7 @@
     <Cell><Data ss:Type="String">Indicates whether the goal has been reached and is still considered relevant</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Allows measuring outcome and also indicates relevance of goal to plan.</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s68"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">GOL-18-goal life cycle status</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">GOL-18-goal life cycle status</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -383,7 +394,24 @@
     <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">There's a need to capture information about the goal that doesn't actually describe the goal.</Data></Cell>
     <Cell><Data ss:Type="String">May be used for progress notes, concerns or other related information that doesn't actually describe the goal itself.</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">GOL-16-goal evaluation + NTE?</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">GOL-16-goal evaluation + NTE?</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell><Data ss:Type="String">CarePlan.goal.concern</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">Resource(Concern)</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">Health issues this goal addresses</Data></Cell>
+    <Cell><Data ss:Type="String">The identified conditions that this goal relates to - the condition that caused it to be created, or that it is intended to address</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Allows specific goals to explicitly linked to conditions - makes the plan more understandable</Data></Cell>
+    <Cell><Data ss:Type="String">The concerns do not also need to be listed under CarePlan.concern, but may be</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -402,37 +430,19 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">CarePlan.activity.category</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell><Data ss:Type="String">CarePlan.activity.goal</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">CarePlanActivityCategory</Data></Cell>
-    <Cell><Data ss:Type="String">encounter | procedure | observation | +</Data></Cell>
-    <Cell><Data ss:Type="String">High-level categorization of the type of activity in a care plan.</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">May determine what types of extensions are permitted</Data></Cell>
+    <Cell><Data ss:Type="String">idref</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">Goals this activity relates to</Data></Cell>
+    <Cell><Data ss:Type="String">Internal reference that identifies the goals that this activity is intended to contribute towards meeting</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">So that participants know the link explicitly</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Should this be an HL7-defined code?  Do we need more (e.g. accommodation)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell><Data ss:Type="String">CarePlan.activity.code</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">CarePlanActivityCode</Data></Cell>
-    <Cell><Data ss:Type="String">Detail type of activity</Data></Cell>
-    <Cell><Data ss:Type="String">Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of encounter.</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Allows matching performed to planned as well as validation against protocols</Data></Cell>
-    <Cell><Data ss:Type="String">Tends to be less relevant for activities involving particular products.  Codes should not convey negation - use &quot;prohibited&quot; instead.</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">OBR-4-universal service ID / RXE-2-Give Code / RXO-1-Requested Give Code / RXD-2-Dispense/Give Code&#10;</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -449,7 +459,7 @@
     <Cell ss:Index="11"><Data ss:Type="String">Indicates progress against the plan, whether the activity is still relevant for the plan</Data></Cell>
     <Cell><Data ss:Type="String">Some aspects of Status can be inferred based on the resources linked in actionTaken.  Note that &quot;status&quot; is only as current as the plan was most recently updated.</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">ORC-5-order status?</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ORC-5-order status?</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -469,122 +479,8 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">CarePlan.activity.timing[x]</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Schedule|Period | string</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">When activity is to occur</Data></Cell>
-    <Cell><Data ss:Type="String">The period, timing or frequency upon which the described activity is to occur.</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Allows prompting for activities and detection of missed planned activities.</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">TQ1</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">CarePlan.activity.location</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Location)</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Where it should happen</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Helps in planning of activity</Data></Cell>
-    <Cell><Data ss:Type="String">May reference a specific clinical location or may just identify a type of location.</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">OBR-24-diagnostic service section ID (???!!)</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">CarePlan.activity.performer</Data></Cell>
-    <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Organization|RelatedPerson|Patient)</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Who's responsible?</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies who's expected to be involved in the activity.</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Helps in planning of activity</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">PRT-5-participation person : ( PRV-4 e {provider participations} ) / PRT-5-participation person : ( PRV-4 e {non-provider person participations} ) / PRT-5-participation person : ( PRV-4 = (patient non-subject of care) ) / PRT-8-participation organization&#10;</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">CarePlan.activity.product</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Medication|Substance)</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">What's administered/supplied</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies the food, drug or other product being consumed or supplied in the activity.</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s68"/>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">RXE-2-Give Code / RXO-1-Requested Give Code / RXD-2-Dispense/Give Code</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">CarePlan.activity.dailyAmount</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">How much consumed/day?</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies the quantity expected to be consumed in a given day.</Data></Cell>
-    <Cell><Data ss:Type="String">daily dose</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Allows rough dose checking</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">RXO-23-total daily dose / RXE-19-total daily dose / RXD-12-total daily dose&#10;</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">CarePlan.activity.quantity</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">How much is administered/supplied/consumed</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies the quantity expected to be supplied.</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s68"/>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">RXO-11-requested dispense amount / RXE-10-dispense amount / RXD-4-actual dispense amount / RXG-5-give amount-minumum / RXA-6-administered amount /  TQ1-2.1-quantity.quantity  *and*  RXO-12-requested dispense units /  RXE-11-dispense units / RXD-5-actual dispense units / RXG-7-give units / RXA-7-administered units / TQ1-2.2-quantity.units </Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="135">
-    <Cell><Data ss:Type="String">CarePlan.activity.details</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Extra info on activity occurrence</Data></Cell>
-    <Cell><Data ss:Type="String">This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s68"/>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">NTE?</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">CarePlan.activity.actionTaken</Data></Cell>
+    <Cell><Data ss:Type="String">CarePlan.activity.actionResulting</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -607,7 +503,175 @@
     <Cell><Data ss:Type="String">Notes about the execution of the activity</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Can be used to capture information about adherence, progress, concerns, etc.</Data></Cell>
     <Cell><Data ss:Type="String">Doesn't describe the activity - that goes in details.</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s70"><Data ss:Type="String">NTE?</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s73"><Data ss:Type="String">NTE?</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell><Data ss:Type="String">CarePlan.activity.detail</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Procedure|MedicationPrescription|DiagnosticOrder|Encounter)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Activity details defined in specific resource</Data></Cell>
+    <Cell><Data ss:Type="String">The details of the proposed activity represented in a specific resource</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">Details in a form consistent with other applications and contexts of use</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s73"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell><Data ss:Type="String">CarePlan.activity.simple</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Activity details summarised here</Data></Cell>
+    <Cell><Data ss:Type="String">A simple summary of details suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">Details in a simple form for generic care plan systems</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s73"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="90">
+    <Cell><Data ss:Type="String">CarePlan.activity.simple.category</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">CarePlanActivityCategory</Data></Cell>
+    <Cell><Data ss:Type="String">encounter | procedure | observation | +</Data></Cell>
+    <Cell><Data ss:Type="String">High-level categorization of the type of activity in a care plan.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">May determine what types of extensions are permitted</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">Should this be an HL7-defined code?  Do we need more (e.g. accommodation)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="165">
+    <Cell><Data ss:Type="String">CarePlan.activity.simple.code</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">CarePlanActivityCode</Data></Cell>
+    <Cell><Data ss:Type="String">Detail type of activity</Data></Cell>
+    <Cell><Data ss:Type="String">Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of encounter.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Allows matching performed to planned as well as validation against protocols</Data></Cell>
+    <Cell><Data ss:Type="String">Tends to be less relevant for activities involving particular products.  Codes should not convey negation - use &quot;prohibited&quot; instead.</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">OBR-4-universal service ID / RXE-2-Give Code / RXO-1-Requested Give Code / RXD-2-Dispense/Give Code&#10;</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell><Data ss:Type="String">CarePlan.activity.simple.timing[x]</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">Schedule|Period | string</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">When activity is to occur</Data></Cell>
+    <Cell><Data ss:Type="String">The period, timing or frequency upon which the described activity is to occur.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Allows prompting for activities and detection of missed planned activities.</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">TQ1</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell><Data ss:Type="String">CarePlan.activity.simple.location</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">Where it should happen</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Helps in planning of activity</Data></Cell>
+    <Cell><Data ss:Type="String">May reference a specific clinical location or may just identify a type of location.</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">OBR-24-diagnostic service section ID (???!!)</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="360">
+    <Cell><Data ss:Type="String">CarePlan.activity.simple.performer</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">Resource(Practitioner|Organization|RelatedPerson|Patient)</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">Who's responsible?</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies who's expected to be involved in the activity.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Helps in planning of activity</Data></Cell>
+    <Cell><Data ss:Type="String">A performer MAY also be a participant in the care plan</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">PRT-5-participation person : ( PRV-4 e {provider participations} ) / PRT-5-participation person : ( PRV-4 e {non-provider person participations} ) / PRT-5-participation person : ( PRV-4 = (patient non-subject of care) ) / PRT-8-participation organization&#10;</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="105">
+    <Cell><Data ss:Type="String">CarePlan.activity.simple.product</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">Resource(Medication|Substance)</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">What's administered/supplied</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies the food, drug or other product being consumed or supplied in the activity.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s68"/>
+    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">RXE-2-Give Code / RXO-1-Requested Give Code / RXD-2-Dispense/Give Code</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="105">
+    <Cell><Data ss:Type="String">CarePlan.activity.simple.dailyAmount</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">How much consumed/day?</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies the quantity expected to be consumed in a given day.</Data></Cell>
+    <Cell><Data ss:Type="String">daily dose</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Allows rough dose checking</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">RXO-23-total daily dose / RXE-19-total daily dose / RXD-12-total daily dose&#10;</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="409.5">
+    <Cell><Data ss:Type="String">CarePlan.activity.simple.quantity</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">How much is administered/supplied/consumed</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies the quantity expected to be supplied.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s68"/>
+    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">RXO-11-requested dispense amount / RXE-10-dispense amount / RXD-4-actual dispense amount / RXG-5-give amount-minumum / RXA-6-administered amount /  TQ1-2.1-quantity.quantity  *and*  RXO-12-requested dispense units /  RXE-11-dispense units / RXD-5-actual dispense units / RXG-7-give units / RXA-7-administered units / TQ1-2.2-quantity.units </Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="135">
+    <Cell><Data ss:Type="String">CarePlan.activity.simple.details</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">Extra info on activity occurrence</Data></Cell>
+    <Cell><Data ss:Type="String">This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s68"/>
+    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">NTE?</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">CarePlan.notes</Data></Cell>
@@ -616,7 +680,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Comments about the plan</Data></Cell>
     <Cell><Data ss:Type="String">General notes about the care plan not covered elsewhere</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Used to capture information that applies to the plan as a whole that doesn't fit into discrete elements.</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s70"><Data ss:Type="String">NTE?</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s73"><Data ss:Type="String">NTE?</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -634,7 +698,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>6</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -651,8 +715,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -662,14 +725,14 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s72" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s75" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s72" ss:Width="14.25"/>
-   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="116.25"/>
-   <Column ss:StyleID="s72" ss:Width="84"/>
-   <Column ss:StyleID="s72" ss:Width="317.25"/>
-   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s72" ss:Width="278.25"/>
+   <Column ss:StyleID="s75" ss:Width="14.25"/>
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="116.25"/>
+   <Column ss:StyleID="s75" ss:Width="84"/>
+   <Column ss:StyleID="s75" ss:Width="317.25"/>
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s75" ss:Width="278.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -681,25 +744,25 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">dose for food or drug</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">CarePlan.activity</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">CarePlan.activity.simple</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">DailyDose can only be specified if activity category is drug or food</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="Default"><Data ss:Type="String">(f:category/@value=('drug','diet')) = exists(f:dailyAmount)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">quantity for supply</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">CarePlan.activity</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">CarePlan.activity.simple</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Quantity can only be specified if activity category is supply</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">(f:category/@value=('supply')) = exists(f:quantity)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="Default"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">details by reference, or simple details</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">CarePlan.activity.simple</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Only provide a detail reference, or a simple detail summary</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">not(exists(f:detail)) or not(exists(f:simple))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
@@ -730,12 +793,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -743,14 +807,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>2</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -776,10 +840,10 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -861,7 +925,7 @@
     <Cell><Data ss:Type="String">[CarePlan.activity.code]</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
-    <Cell><Data ss:Type="String">CarePlan.activity.code</Data></Cell>
+    <Cell><Data ss:Type="String">CarePlan.activity.simple.code</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1000,7 +1064,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1026,20 +1090,20 @@
     <Cell><Data ss:Type="String">Weight Loss</Data></Cell>
     <Cell><Data ss:Type="String">General Person Example</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">careplan-example.xml</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">careplan-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Pregnancy</Data></Cell>
     <Cell><Data ss:Type="String">Patient 1 for linking</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">preg</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">preg</Data></Cell>
     <Cell><Data ss:Type="String">careplan-example-pregnancy.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Integrated</Data></Cell>
     <Cell><Data ss:Type="String">Simple integrated care plan with multiple goals &amp; conditions (from Mayo)</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">integrate</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">integrate</Data></Cell>
     <Cell><Data ss:Type="String">careplan-example-integrated.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
@@ -1114,13 +1178,13 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="15" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s77" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s80" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s77" ss:Width="125.25"/>
-   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="221.25"/>
-   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="81.75"/>
-   <Column ss:StyleID="s77" ss:Width="138"/>
-   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="275.25"/>
+   <Column ss:StyleID="s80" ss:Width="125.25"/>
+   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="221.25"/>
+   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="81.75"/>
+   <Column ss:StyleID="s80" ss:Width="138"/>
+   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="275.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s66"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
@@ -1131,34 +1195,34 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s68"><Data ss:Type="String">CarePlanStatus</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Indicates whether the plan is currently being acted upon, represents future intentions or is now just historical record.</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#care-plan-status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s68"><Data ss:Type="String">CarePlanParticipantRole</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Indicates specific responsibility of an individual within the care plan.  E.g. &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc.</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">unbound</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s68"><Data ss:Type="String">CarePlanGoalStatus</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Indicates whether the goal has been met and is still being targeted</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#care-plan-goal-status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s68"><Data ss:Type="String">CarePlanActivityCategory</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">High-level categorization of the type of activity in a care plan.</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#care-plan-activity-category</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s68"><Data ss:Type="String">CarePlanActivityCode</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of encounter.</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">unbound</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s68"><Data ss:Type="String">CarePlanActivityStatus</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Indicates where the activity is at in its overall life cycle</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Indicates where the activity is at in its overall life cycle</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#care-plan-activity-status</Data></Cell>
    </Row>
@@ -1289,10 +1353,10 @@
  </Worksheet>
  <Worksheet ss:Name="care-plan-goal-status">
   <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="8" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s74" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s77" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s74" ss:Width="57.75"/>
-   <Column ss:StyleID="s74" ss:Width="453"/>
+   <Column ss:Index="2" ss:StyleID="s77" ss:Width="57.75"/>
+   <Column ss:StyleID="s77" ss:Width="453"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Code</Data></Cell>
@@ -1310,22 +1374,22 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">sustaining</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">The goal has been met, but ongoing activity is needed to sustain the goal objective</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">sustaining</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">The goal has been met, but ongoing activity is needed to sustain the goal objective</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">abandoned</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">The goal is no longer being sought</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">abandoned</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">The goal is no longer being sought</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s80"/>
+    <Cell ss:Index="3" ss:StyleID="s83"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s80"/>
+    <Cell ss:Index="3" ss:StyleID="s83"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s80"/>
+    <Cell ss:Index="3" ss:StyleID="s83"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1399,7 +1463,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1420,7 +1483,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>44</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

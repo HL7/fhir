@@ -74,11 +74,12 @@
       <description value="Target weight is 80 kg. Note: be nice if this could be coded"/>
     </goal>
     <activity>
+        <prohibited value="false"></prohibited>
+      <simple>
         <category value="observation"></category>
         <code>
             <text value="a code for weight measurement"></text>
         </code>
-        <prohibited value="false"></prohibited>
         <timingSchedule>
             <repeat>
                 <frequency value="1" />
@@ -91,6 +92,7 @@
           <reference value="Patient/example"/>
           <display value="Peter James Chalmers"/>
         </performer>
+      </simple>
     </activity>
 </CarePlan>
 

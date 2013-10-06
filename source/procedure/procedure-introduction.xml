@@ -1,11 +1,15 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-An Act whose immediate and primary outcome (post-condition) is the alteration of the physical condition of the subject.
-
-Used to record the details of procedures performed on a patient. This includes surgical procedures, 
-diagnostic procedures, endoscopic procedures, biopsies.
-
-It excludes things for which there are specific resources, such as immunizations, drug administrations
-
+<p>
+This resource is used to record the details of procedures performed on a patient. A procedure is an activity 
+that is performed with or on a patient as part of the provision of care. Examples include  surgical 
+procedures, diagnostic procedures, endoscopic procedures, biopsies, and exclude things for which 
+there are specific resources, such as immunizations, drug administrations. 
+</p>
+<p>
+Note that many diagnostic processes are procedures that generate observations and reports. In many cases, 
+the existence of the procedure is assumed, but where there are details of interest about how the 
+diagnostic procedure was performed, the procedure resource is used to describe the activity.
+</p>
 
 </div>

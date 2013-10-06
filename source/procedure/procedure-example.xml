@@ -16,7 +16,9 @@
     </coding>
     <text value="Appendicectomy"/>
   </type>
-  <indication value="Generalized abdominal pain 24 hours. Localized in RIF with rebound and guarding"/>
+  <indication>
+    <text value="Generalized abdominal pain 24 hours. Localized in RIF with rebound and guarding"/>
+  </indication> 
   <performer>
     <person>
       <type value="Practitioner"/>

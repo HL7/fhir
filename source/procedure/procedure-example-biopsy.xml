@@ -24,7 +24,9 @@
     </coding>
     <text value="Left forearm"/>
   </bodySite>
-  <indication value="Dark lesion l) forearm. getting darker last 3 months."/>
+  <indication>
+    <text value="Dark lesion l) forearm. getting darker last 3 months."/>
+  </indication>
   <performer>
     <person>
       <type value="Practitioner"/>

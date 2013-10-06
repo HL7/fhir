@@ -49,15 +49,17 @@
   <status value="abandoned"/>
  </goal>
  <activity> 
-  <category value="observation"/>
-  <code>
-     <coding>
-       <system value="http://snomed.info/id"/>
-       <code value="241541005"/>
-       <display value="HRCT of lungs"/>
-     </coding>      
-  </code>
   <status value="not started"/>
   <prohibited value="false"/>
+  <simple>
+    <category value="observation"/>
+    <code>
+       <coding>
+         <system value="http://snomed.info/id"/>
+         <code value="241541005"/>
+         <display value="HRCT of lungs"/>
+       </coding>      
+    </code>
+  </simple>
  </activity>
 </CarePlan>

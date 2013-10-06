@@ -3,7 +3,7 @@
 <h2>Open Issues</h2>
 <ul>
   <li>This resource combines the concepts of "Care Plan" and "Care Team" into a single resource.  Is this appropriate?</li>
-  <li>This specification leaves the specific relationship between activities in the care plan to textual description.  Is more rigor required within the 80%?</li>
+  <li>DSTU: At present, the patient element is optional to allow experimentation with care plan templates, though the resource was not designed for this use. Feedback on this subject is requested during the trial use period.</li>
 </ul>
 <!-- insert xhtml content here -->
 

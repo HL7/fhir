@@ -49,40 +49,44 @@
   <status value="achieved"/>
  </goal>
  <activity><!--Potassium supplement-->
-  <category value="diet"/>
-  <code>
-     <coding>
-       <system value="http://snomed.info/id"/>
-       <code value="284093001"/>
-       <display value="Potassium supplement"/>
-     </coding>
-  </code>
   <status value="completed"/>
   <prohibited value="false"/>
-  <timingString value="daily"/>
-  <!--TODO Isn't <performer> redundant when considering <participant> that was defined before?-->
-  <product>
-     <type value="Substance"/>
-     <reference value="Substance/f203"/>
-     <display value="Potassium"/>
-  </product>
-  <dailyAmount>
-    <value value="80"/>
-    <units value="mmol"/>
-    <system value="http://snomed.info/id"/>
-    <code value="258718000"/>
-  </dailyAmount>
+  <simple>
+    <category value="diet"/>
+    <code>
+       <coding>
+         <system value="http://snomed.info/id"/>
+         <code value="284093001"/>
+         <display value="Potassium supplement"/>
+       </coding>
+    </code>
+    <timingString value="daily"/>
+    <!--TODO Isn't <performer> redundant when considering <participant> that was defined before?-->
+    <product>
+       <type value="Substance"/>
+       <reference value="Substance/f203"/>
+       <display value="Potassium"/>
+    </product>
+    <dailyAmount>
+      <value value="80"/>
+      <units value="mmol"/>
+      <system value="http://snomed.info/id"/>
+      <code value="258718000"/>
+    </dailyAmount>
+  </simple>
  </activity>
  <activity><!--Echo of the kidney-->
-  <category value="observation"/>
-  <code>
-     <coding>
-       <system value="http://snomed.info/id"/>
-       <code value="306005"/>
-       <display value="Echography of the kidney"/>
-     </coding>
-  </code>
   <status value="completed"/>
   <prohibited value="false"/>
+  <simple>
+    <category value="observation"/>
+    <code>
+       <coding>
+         <system value="http://snomed.info/id"/>
+         <code value="306005"/>
+         <display value="Echography of the kidney"/>
+       </coding>
+    </code>
+  </simple>
  </activity>
 </CarePlan>

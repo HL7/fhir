@@ -111,6 +111,9 @@
             <valueUri value="http://orionhealth.com/fhir/careplan/1andetails" />
         </extension>
         
+        <status value="scheduled"/>
+        <prohibited value="false"></prohibited>
+        <simple>
         <category value="encounter"></category>
         <code>
             <coding>
@@ -119,8 +122,6 @@
             </coding>
             <text value='First Antenatal encounter'></text>
         </code>
-        <status value="scheduled"/>
-        <prohibited value="false"></prohibited>
         <timingSchedule>
             <!-- The encounter should occur between 14 feb and 28 feb -->
             <event>
@@ -143,9 +144,13 @@
             <url value="xxx"/>
             <display value="Appointment with Mavis midwife @12.30pm, 112 St albans Ave"/>
         </actionTaken>-->
+        </simple>
     </activity>
     
     <activity>
+        <status value="not started"/>
+        <prohibited value="false"></prohibited>
+        <simple>
         <!-- This will be the second antenatal encounter - 3 months after LMP. It is not yet scheduled. -->
         <category value="encounter"></category>
         <code>
@@ -156,8 +161,6 @@
             </coding>
             <text value='Follow-up Antenatal encounter'></text>           
         </code>
-        <status value="not started"/>
-        <prohibited value="false"></prohibited>
         <timingSchedule>
             <!-- The encounter should occur between 1 march and 14 march -->
             <event>
@@ -172,6 +175,7 @@
             <display value="Mavis Midwife"/>
         </performer>
         <details value="The second antenatal encounter. Discuss any issues that arose from the first antenatal encounter"></details>
+        </simple>
     </activity>
     <!-- 
         There would be a number of other encounters to be scheduled here... 
@@ -181,6 +185,9 @@
     -->
     
     <activity>
+        <status value="not started"/>
+        <prohibited value="false"></prohibited>
+        <simple>
         <!-- This will be the delivery. It is not yet scheduled. -->
         <category value="encounter"></category>
         <code>
@@ -191,8 +198,6 @@
             <text value='Delivery'></text>
             
         </code>
-        <status value="not started"/>
-        <prohibited value="false"></prohibited>
         <timingSchedule>
             <!-- The delivery should occur between 1 september and 14 september -->
             <event>
@@ -214,6 +219,7 @@
             <display value="Mavis Midwife"/>
         </performer>
         <details value="The delivery."></details>
+        </simple>
     </activity>
     
     
