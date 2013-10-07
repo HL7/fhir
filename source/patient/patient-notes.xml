@@ -39,7 +39,7 @@ and all the content is moved to the active record by updating it directly.
 </p>
 <p>
 The <i>link</i> element is used to assert that patient resources refer to the same person.  
-If any patient resources is linked to another, then that other resource must also link back to 
+If any patient resources is linked to another, then that other resource SHALL also link back to 
 the source resource in order to maintain record consistency. <font color="Maroon"><b>Systems should not update patient links across two or more patient resources
 using separate transactions (i.e. update operations), where later operations may fail and leave the 
 patient resources in disagreement with each other</b></font>. Instead, systems should either:

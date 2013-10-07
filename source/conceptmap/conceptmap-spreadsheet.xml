@@ -430,13 +430,13 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">ConceptMap.concept</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">A concept mapping must have either a name or a code</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">A concept mapping SHALL have either a name or a code</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:name) or exists(f:code)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">ConceptMap.concept.map</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">If the map is narrower, there must be some comments</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">If the map is narrower, there SHALL be some comments</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:comments) or ((f:equivalence/@value != 'narrower') and (f:equivalence/@value != 'inexact'))</Data></Cell>
    </Row>
    <Row ss:Index="5" ss:AutoFitHeight="0">
@@ -697,12 +697,12 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">narrower</Data></Cell>
-    <Cell><Data ss:Type="String">The target mapping is narrower in meaning that the source concept. The sense in which the mapping is narrower must be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally</Data></Cell>
+    <Cell><Data ss:Type="String">The target mapping is narrower in meaning that the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">inexact</Data></Cell>
-    <Cell><Data ss:Type="String">The target mapping overlaps with the source concept, but both source and target cover additional meaning. The sense in which the mapping is narrower must be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally</Data></Cell>
+    <Cell><Data ss:Type="String">The target mapping overlaps with the source concept, but both source and target cover additional meaning. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>

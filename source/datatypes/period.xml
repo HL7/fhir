@@ -170,7 +170,7 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Start &lt;= End</Data></Cell>
     <Cell><Data ss:Type="String">Period</Data></Cell>
-    <Cell><Data ss:Type="String">If present, start must have a lower value than end</Data></Cell>
+    <Cell><Data ss:Type="String">If present, start SHALL have a lower value than end</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:start)) or not(exists(f:end)) or (f:start/@value &lt;= f:end/@value)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

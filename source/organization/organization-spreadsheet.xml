@@ -309,7 +309,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Period</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When the accreditation is valid (date only)</Data></Cell>
     <Cell><Data ss:Type="String">The period for which the accreditation is held</Data></Cell>
-    <Cell><Data ss:Type="String">Most accreditations are only conferred for a limited time period and must be re-acquired or forfeited</Data></Cell>
+    <Cell><Data ss:Type="String">Most accreditations are only conferred for a limited time period and SHALL be re-acquired or forfeited</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.effectiveTime[IVL&lt;TS&gt;]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
@@ -468,7 +468,7 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">AtLeastANameOrId</Data></Cell>
     <Cell><Data ss:Type="String">Organization</Data></Cell>
-    <Cell><Data ss:Type="String">The organization must at least have a name or an id, and possibly more</Data></Cell>
+    <Cell><Data ss:Type="String">The organization SHALL at least have a name or an id, and possibly more</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s80"><Data ss:Type="String">count(f:identifier | f:name) &gt; 0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

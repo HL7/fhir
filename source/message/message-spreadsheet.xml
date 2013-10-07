@@ -158,7 +158,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">id</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Id of this message</Data></Cell>
     <Cell><Data ss:Type="String">The identifier of this message</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">This must be unique within the scope of this stream of messages</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">This SHALL be unique within the scope of this stream of messages</Data></Cell>
     <Cell><Data ss:Type="String">Message.id</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">MSH-10-message control ID</Data></Cell>
    </Row>
@@ -225,7 +225,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Specific list of hints/warnings/errors</Data></Cell>
     <Cell><Data ss:Type="String">Full details of any issues found in the message</Data></Cell>
     <Cell><Data ss:Type="String">Allows the sender of the message to determine what the specific issues are</Data></Cell>
-    <Cell><Data ss:Type="String">This must be contained in the bundle. If any of the issues are errors, the response code must be an error</Data></Cell>
+    <Cell><Data ss:Type="String">This SHALL be contained in the bundle. If any of the issues are errors, the response code SHALL be an error</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">AcknowledgementDetail or Observation[classCode=&quot;ALRT&quot; and moodCode=&quot;EVN&quot;]</Data></Cell>
     <Cell><Data ss:Type="String">ERR</Data></Cell>
    </Row>
@@ -548,12 +548,12 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">rejection</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The message was rejected because of some content in it. There is no point in re-sending without change. The response narrative must describe what the issue is.</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The message was rejected because of some content in it. There is no point in re-sending without change. The response narrative SHALL describe what the issue is.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">rules</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The message was rejected because of some event-specific business rules, and it may be possible to modify the request and re-submit (as a different request). The response must include an Issue report that describes what problem is</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The message was rejected because of some event-specific business rules, and it may be possible to modify the request and re-submit (as a different request). The response SHALL include an Issue report that describes what problem is</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>

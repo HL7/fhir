@@ -6,9 +6,9 @@
 <ul>
 <li>The name of a resource constraint (Profile.structure.name) is only used as a logical target for .element.type.profile. A reference may reference another resource 
   constraint in the same Resource Profile by Profile.resource.name as #[name] or a different resource constraint in another profile by an absolute uri. In the case of an absolute uri, it 
-  must resolve literally or logically to a <a href="profile.htm">Resource Profile</a> and specify a #[name] portion in the URI that references a particular constraint in the target profile by name.</li>
+  SHALL resolve literally or logically to a <a href="profile.htm">Resource Profile</a> and specify a #[name] portion in the URI that references a particular constraint in the target profile by name.</li>
   
-<li>The constraint statement has a flat list of elements. The path element provides the overall structure and it must match the structure and names in the resource structure exactly.</li>
+<li>The constraint statement has a flat list of elements. The path element provides the overall structure and it SHALL match the structure and names in the resource structure exactly.</li>
 
 <li>The condition element is used to assert that a constraint defined on another element affects the allowed cardinality of this element.</li>
 
@@ -25,16 +25,16 @@ When the type of the element is fixed in the underlying resource definitions, it
 
 <li>There can be more than one entry for each element path. The constraint specification can define multiple different constraints for any element and 
   then use them in different places. In practice, this is useful when slicing a list and the differently named constraint profiles are invoked using the 
-  <i>values</i> element. The name of the element constraint must be unique within the constraint specification for that resource. If a constraint does not 
-  have a name, it applies to the base resource and must be found in the correct place in the structure.</li>
+  <i>values</i> element. The name of the element constraint SHALL be unique within the constraint specification for that resource. If a constraint does not 
+  have a name, it applies to the base resource and SHALL be found in the correct place in the structure.</li>
 <li>Closed is only relevant if the underlying element has a max cardinality > 1. </li> 
 <li>For an extension definition, the cardinality constraints are limits on the constraints of any reference to the extension in a profile. 
 For example, if the minimum cardinality of an extension is 1 when it is defined, then any profile that includes that extension in the instance
-must include it with a minimum cardinality of 1 and therefore any instance that conforms to the profile must include the extension. Note, however,
+SHALL include it with a minimum cardinality of 1 and therefore any instance that conforms to the profile SHALL include the extension. Note, however,
 that if the extension is simply directly referenced in an instance rather than applied through a profile, the minimum cardinality doesn't apply, 
 though the maximum one still does.
 </li>  
-<li>For xpath constraints, the prefix "f" should be used for "http://hl7.org/fhir", and "h" for "http://www.w3.org/1999/xhtml". XPath constraints are written against the XML representation, but must be true in any other representation as well</li>
+<li>For xpath constraints, the prefix "f" should be used for "http://hl7.org/fhir", and "h" for "http://www.w3.org/1999/xhtml". XPath constraints are written against the XML representation, but SHALL be true in any other representation as well</li>
 <li>When using xpath to make constraints about the relationship between the contents of the narrative and the contents of the data elements, 
   the element against which the rule is expressed is the one against which the error will be reported.</li>
 </ul>

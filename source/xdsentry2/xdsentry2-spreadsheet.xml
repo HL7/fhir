@@ -281,7 +281,7 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Content not inline</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">XdsEntry2.content</Data></Cell>
-    <Cell><Data ss:Type="String">Content must always be by reference, not inline</Data></Cell>
+    <Cell><Data ss:Type="String">Content SHALL always be by reference, not inline</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:data))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

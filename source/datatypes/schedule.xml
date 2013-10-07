@@ -243,7 +243,7 @@
     <Cell ss:StyleID="s63"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">Either </Font><I><Font
         html:Color="#000000">frequency</Font></I><Font html:Color="#000000"> or </Font><I><Font
-        html:Color="#000000">when</Font></I><Font html:Color="#000000"> must be present, but not both</Font></ss:Data></Cell>
+        html:Color="#000000">when</Font></I><Font html:Color="#000000"> SHALL be present, but not both</Font></ss:Data></Cell>
     <Cell><Data ss:Type="String">frequency.oclIsDefined xor when.oclIsDefined</Data></Cell>
     <Cell><Data ss:Type="String">exists(f:frequency) != exists(f:when)</Data></Cell>
    </Row>
@@ -262,7 +262,7 @@
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">Duration Positive</Data></Cell>
     <Cell><Data ss:Type="String">Schedule.repeat.duration</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">duration must be a positive value</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">duration SHALL be a positive value</Data></Cell>
     <Cell><Data ss:Type="String">duration &gt; 0</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">@value &gt; 0 or not(@value)</Data></Cell>
    </Row>

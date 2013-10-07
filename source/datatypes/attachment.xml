@@ -156,7 +156,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">Data inline, base64ed</Data></Cell>
     <Cell><Data ss:Type="String">The actual data of the attachment - a sequence of bytes. In XML, represented using base64</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">The data needs to able to be transmitted inline</Data></Cell>
-    <Cell><Data ss:Type="String">The base64-encoded data must be expressed in the same character set as the base resource XML</Data></Cell>
+    <Cell><Data ss:Type="String">The base64-encoded data SHALL be expressed in the same character set as the base resource XML or JSON</Data></Cell>
     <Cell><Data ss:Type="String">./data</Data></Cell>
     <Cell><Data ss:Type="String">ED.5</Data></Cell>
    </Row>
@@ -168,7 +168,7 @@
     <Cell><Data ss:Type="String">An alternative location where the data can be accessed</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">http://www.acme.com/logo-small.png</Data></Cell>
     <Cell><Data ss:Type="String">The data needs to be transmitted by reference</Data></Cell>
-    <Cell><Data ss:Type="String">If both data and url are provided, the url must point to the same content as the data contains. Urls may be relative references or may be made to transient locations such as a wrapping envelope using cid: though this has ramifications for using signatures. Relative URLs are interpreted relative to the service url, like a resource reference, rather than relative to the resource itself. If a URL is provided, it must resolve to actual data. </Data></Cell>
+    <Cell><Data ss:Type="String">If both data and url are provided, the url SHALL point to the same content as the data contains. Urls may be relative references or may be made to transient locations such as a wrapping envelope using cid: though this has ramifications for using signatures. Relative URLs are interpreted relative to the service url, like a resource reference, rather than relative to the resource itself. If a URL is provided, it SHALL resolve to actual data. </Data></Cell>
     <Cell><Data ss:Type="String">./reference/literal</Data></Cell>
     <Cell><Data ss:Type="String">RP.1+RP.2 - if they refer to a URL (see v2.6)</Data></Cell>
    </Row>
@@ -261,7 +261,7 @@
     <Cell><Data ss:Type="String">Must Have Data</Data></Cell>
     <Cell><Data ss:Type="String">Attachment</Data></Cell>
     <Cell ss:StyleID="s68"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">Unless the Attachment element has a dataAbsentReason flag, it must contain a </Font><I><Font
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">Unless the Attachment element has a dataAbsentReason flag, it SHALL contain a </Font><I><Font
         html:Color="#000000">data</Font></I><Font html:Color="#000000"> or a </Font><I><Font
         html:Color="#000000">url</Font></I><Font html:Color="#000000"> (or both)</Font></ss:Data></Cell>
     <Cell><Data ss:Type="String">dataAbsentReason.oclIsDefined or data.size &gt; 0 or url.size &gt; 0</Data></Cell>

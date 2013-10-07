@@ -869,7 +869,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">ResourceType</Data></Cell>
     <Cell><Data ss:Type="String">Resource that's focus of message</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the resource associated with the event.  This is the resource that defines the event.</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">This must be provided if the event type supports multiple different resource types</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">This SHALL be provided if the event type supports multiple different resource types</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Conformance.messaging.event.request</Data></Cell>
@@ -1002,14 +1002,14 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Content Required</Data></Cell>
     <Cell><Data ss:Type="String">Conformance</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">A Conformance statement must have at least one of rest, messaging or document</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">A Conformance statement SHALL have at least one of rest, messaging or document</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:rest) or exists(f:messaging) or exists(f:document)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">Details</Data></Cell>
     <Cell><Data ss:Type="String">Conformance</Data></Cell>
-    <Cell><Data ss:Type="String">Must have at least one of description, software, or implementation</Data></Cell>
+    <Cell><Data ss:Type="String">SHALL have at least one of description, software, or implementation</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">count(f:software | f:implementation | f:description) &gt; 0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -1686,7 +1686,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">integer</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">Search parameter must be a simple whole number</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Search parameter SHALL be a simple whole number</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="33.75">
     <Cell><Data ss:Type="Number">2</Data></Cell>

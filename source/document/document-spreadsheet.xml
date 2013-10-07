@@ -556,7 +556,7 @@
     <Cell><Data ss:Type="String">This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a &quot;History and Physical Report&quot; in which the procedure being documented is necessarily a &quot;History and Physical&quot; act.</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">An event can further specialize the act inherent in the typeCode, such as where it is simply &quot;Procedure Report&quot; and the procedure was a &quot;colonoscopy&quot;. If one or more eventCodes are included, they shall not conflict with the values inherent in the classCode, practiceSettingCode or typeCode, as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as “key words” for certain types of queries.</Data></Cell>
+    <Cell><Data ss:Type="String">An event can further specialize the act inherent in the typeCode, such as where it is simply &quot;Procedure Report&quot; and the procedure was a &quot;colonoscopy&quot;. If one or more eventCodes are included, they SHALL NOT conflict with the values inherent in the classCode, practiceSettingCode or typeCode, as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as “key words” for certain types of queries.</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">.code</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">.code</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -629,7 +629,7 @@
     <Cell><Data ss:Type="String">Identifies the document this document supersedes, if any.</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">Identifies who is responsible for the entry of the data.</Data></Cell>
-    <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications must be aware of document replacement semantics and behave appropriately</Data></Cell>
+    <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications SHALL be aware of document replacement semantics and behave appropriately</Data></Cell>
     <Cell><Data ss:Type="String">.outboundRelationship[typeCode=&quot;RPLC&quot;].target[classCode=&quot;DOC&quot;, moodCode=&quot;EVN&quot;].id</Data></Cell>
     <Cell><Data ss:Type="String">.relatedDocument[typeCode=&quot;RPLC&quot;].parentDocument</Data></Cell>
    </Row>
@@ -738,7 +738,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">If section different to document</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the primary subject of the section.  </Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Provides context as to the potential accuracy of the information</Data></Cell>
-    <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications must be aware if the subject changes for a particular section</Data></Cell>
+    <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications SHALL be aware if the subject changes for a particular section</Data></Cell>
     <Cell><Data ss:Type="String">unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[typeCode=&quot;PAT&quot;])&#10;or&#10;unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[typeCode=&quot;IDENT&quot;]/player[determinerCode=&quot;INST&quot; and classCode=(&quot;DEV&quot;, &quot;ORG&quot;) and isNormalEntity()])</Data></Cell>
     <Cell><Data ss:Type="String">.subject.relatedSubject</Data></Cell>
    </Row>
@@ -836,21 +836,21 @@
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">Section Rule</Data></Cell>
     <Cell><Data ss:Type="String">Document.section</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">A section must have content or one or more sections, but not both.</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">A section SHALL have content or one or more sections, but not both.</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:content) != exists(f:section)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">Document Rule</Data></Cell>
     <Cell><Data ss:Type="String">Document</Data></Cell>
-    <Cell><Data ss:Type="String">A document must have a representation, one or more sections or both</Data></Cell>
+    <Cell><Data ss:Type="String">A document SHALL have a representation, one or more sections or both</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:representation) or exists(f:section)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">Stylesheet Rule</Data></Cell>
     <Cell><Data ss:Type="String">Document.stylesheet</Data></Cell>
-    <Cell><Data ss:Type="String">A document stylesheet must have a mime type of text/css</Data></Cell>
+    <Cell><Data ss:Type="String">A document stylesheet SHALL have a mime type of text/css</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">f:mimeType/@value = 'text/css'</Data></Cell>
    </Row>
   </Table>

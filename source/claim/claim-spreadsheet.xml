@@ -640,7 +640,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">decimal</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Lab fee</Data></Cell>
     <Cell><Data ss:Type="String">The amount to reimbuse for a laboratory service.</Data></Cell>
-    <Cell><Data ss:Type="String">If a fee is present the associated lab service code must be present</Data></Cell>
+    <Cell><Data ss:Type="String">If a fee is present the associated lab service code SHALL be present</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

@@ -73,7 +73,7 @@ Every resource starts with a common set of elements (for documentation of this f
 &lt;/[Name]&gt;
 </pre>
 <p>
-These elements must always appear in this order. These basic elements shared by all resources come first
+These elements SHALL always appear in this order. These basic elements shared by all resources come first
 in order to support consistent definitions for schema and UML derived code. 
 </p>
 <p>
@@ -121,7 +121,7 @@ Details</a>, which also contains a discussion of how resource identity is mainta
 </p>
 <p>
 Resource and version ids are case sensitive. Ids are always opaque, and systems need not and should not attempt to determine their internal structure. 
-However the id is represented, it must always be represented in the same way in resource references and URLs. Ids can be up to 36 characters 
+However the id is represented, it SHALL always be represented in the same way in resource references and URLs. Ids can be up to 36 characters 
 long, and contain any combination of ASCII letters, numerals, "-" and ".".
 </p>
 
@@ -129,7 +129,7 @@ long, and contain any combination of ASCII letters, numerals, "-" and ".".
 <a name="conformance"> </a>
 <h2>Conformance</h2>
 <p>
-The contents of the resource and the formats used to represent it must conform to the rules described in this specification.
+The contents of the resource and the formats used to represent it SHALL conform to the rules described in this specification.
 Because of its general nature and wide applicability, the rules made in this specification are generally loose compared 
 to the rules suitable for particular use cases. This specification provides a conformance layer that implementers and 
 national/regional programs can use to provide a computable statement about how the resources and their exchange 
@@ -169,7 +169,7 @@ that describe specific use cases may use other values for cardinality within the
 of the cardinality defined by the resource. 
 </p>
 <p>
-Note that when present, elements cannot be empty - they must have either a value attribute, child elements, or extensions. 
+Note that when present, elements cannot be empty - they SHALL have either a value attribute, child elements, or extensions. 
 </p>
 <p>
 In this specification, very few elements have a minimum cardinality of 1. 
@@ -186,7 +186,7 @@ Unless the element definition (either in this specification or the extension) de
 to the order explicitly, the meaning of the order is not defined, and implementations are allowed 
 to reorder the elements. Note that you cannot define a meaning for the order of the elements in 
 a profile. When there is no definition of the meaning of the order, implementations that need 
-to choose a single element from a list of elements for some use must do so based on the semantics 
+to choose a single element from a list of elements for some use SHALL do so based on the semantics 
 of the content of the elements that repeats. Profiles and Implementation guides may often make 
 rules about this selection process.
 </p>
@@ -204,7 +204,7 @@ interpretation of the element that contains it (including if the element is the 
 elements that are labeled "Is-Modifier" are elements such as "status", "active", "refuted", or "certainty". 
 Whether and element is a Modifier cannot be changed when element usage is described in a 
 <a href="profile.htm">Resource Profile</a>.
-When an element is labeled as Is-Modifier, the documentation  must be clear about why 
+When an element is labeled as Is-Modifier, the documentation must be clear about why 
 it is a modifier.
 </p>
 <p>
@@ -251,14 +251,14 @@ are not required to check Is-Modifier elements.
 <a name="mustSupport"> </a>
 <h3>Must-Support</h3>
 <p>
-Labelling an element Must-Support means that implementations that produce or consume resources must 
+Labelling an element Must-Support means that implementations that produce or consume resources SHALL 
 provide "support" for the element in some meaningful way. Exactly what this means is impossible
 to describe or clarify as part of the FHIR specification.
 </p>
 <p>
 For this reason, the specification itself never labels any elements as must-support. 
 This is done in <a href="profile.htm">Resource Profiles</a>, where the profile 
-labels an element as mustSupport=true. When a profile does this, it must also make clear
+labels an element as mustSupport=true. When a profile does this, it SHALL also make clear
 exactly what kind of "support" is required, as this can mean many things.
 </p>
 
@@ -303,7 +303,7 @@ that they do not recognize unless they are extensions with an isModifier element
 However, in a healthcare context, many application vendors are unwilling to 
 consider this approach because of concerns about clinical risk or 
 technical limitations in their software (i.e. schema based processing). 
-Applications are not required to ignore unknown elements, but must
+Applications are not required to ignore unknown elements, but SHALL
 declare whether they will do so in their <a href="conformance.htm">conformance statements</a>.
 </p>
 <p>

@@ -28,13 +28,13 @@ include both human and computer readable portions.
 The document resource identifies the document and its purpose, sets the context of the document and 
 carries key information such as the subject and author. It also divides the document up into a 
 series of sections that contain other resources identified in this specification that 
-carry the content. Any resource referenced directly in the Document resource must be included
+carry the content. Any resource referenced directly in the Document resource SHALL be included
 in the bundle when the document is assembled. Other resources that these referenced resources refer to
 may also be included in the bundle if the document originator chooses to. 
 </p>
 <p>
 <a href="profile.htm">Document profiles</a> can make additional rules about which resources
-must be included in the bundle along with the resources that are directly referenced in the Document resource. 
+SHALL be included in the bundle along with the resources that are directly referenced in the Document resource. 
 In addition, Document Profiles can specify what sections a document contains and what the 
 constraints on those contents are. Applications should consider publishing <a href="conformance.htm">conformance 
 statements</a> that identify particular documents they support.

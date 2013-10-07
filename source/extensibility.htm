@@ -67,7 +67,7 @@ Notes:
  <li><i>isModifier</i> is used to indicate that this value influences the interpretation, meaning or understanding of other elements. Its use is further discussed below</li>
  <li>The actual content of the extension consists of either a single value in the <i>value[x]</i> element, or it can be extended itself with other extensions, each with their own defining url and content</li>
  <li>The <i>url</i> and <i>isModifier</i> elements cannot have extensions themselves</li>
- <li>An extension must have either a value (i.e. a value[x] element) or child extensions. The value element must have content, and/or an id attribute that is the target of a reference from the Narrative</li>
+ <li>An extension SHALL have either a value (i.e. a value[x] element) or child extensions. The value element SHALL have content, and/or an id attribute that is the target of a reference from the Narrative</li>
  <li>When an extension is the target of an internal reference, the reference is always to the value of the extension. An extension is only allowed to be the target of a reference when it has no value[x]</li>
 </ul>
 <p>
@@ -163,7 +163,7 @@ may wish to add a "certainty" extension to the AllergyIntolerance to indicate th
 are only suspected. If the extension had a value of "highly doubtful", then it would change
 the understanding of the allergy/intolerance, and implementations should not ignore this.
 Modifying the meaning of other elements makes these particular extensions unsafe to ignore, 
-and so this must be explicitly labeled in the instance.
+and so this SHALL be explicitly labeled in the instance.
 </p>
 <p>
 If the application processing the content of a resource does not recognize an  
@@ -174,8 +174,8 @@ from processing the data.
 </p>
 
 <p>
-Note that it must always be safe to show the narrative to humans; any extension that is
-labeled as "IsModifier" must be represented in the narrative. Applications SHOULD
+Note that it SHALL always be safe to show the narrative to humans; any extension that is
+labeled as "IsModifier" SHALL be represented in the narrative. Applications SHOULD
 ignore extensions that they do not recognize if their "isModifier" element is
 missing or set to false.
 </p>
@@ -200,10 +200,10 @@ as "unlikely" or "refuted". Applications are allowed to extend a resource with d
 &lt;/AllergyIntolerance&gt;
 </pre>
 <p>
-Applications processing the data of this resource must check to see this value.
-If they do not recognise the extension, they must warn the user about the fact 
+Applications processing the data of this resource SHALL check to see this value.
+If they do not recognise the extension, they SHALL warn the user about the fact 
 that the system does not fully understand the resource. Note that the narrative
-of the resource must contain this qualifying information, so it is safe to 
+of the resource SHALL contain this qualifying information, so it is safe to 
 show this to the user as an expression of the resource's content.
 </p>
 <p>
@@ -323,9 +323,9 @@ Each extension is defined using the following fields:
  <tr><td>Requirements</td><td>Optional</td><td>Identifies the reason the extension is needed</td></tr>
  <tr><td>Comments</td><td>Optional</td><td>Additional other information about the extension, including information such as use notes</td></tr>
  <tr><td>Cardinality</td><td>Required</td><td>The cardinality of this extension.<br/> Specifying a minimum cardinality of 1 means that if the source system declares that it conforms to an extension that declares a type including this extension, this extension must be included in the resource.  Cardinality can be constrained but not loosened in profiles that reference this extension</td></tr>
- <tr><td>Type</td><td>Required</td><td>The type(s) of the extension. This must be a valid FHIR data type as described above, or "Extension: x,y,z" which indicates that the extension codes x,y, and z will be contained in the extension</td></tr>
- <tr><td>XPaths</td><td>Optional</td><td>One or more XPath statements that must evaluate to true when the extension is used</td></tr>
- <tr><td>Must Understand</td><td>Required</td><td>Whether the extension must be understood by any system reading the resource. There are 3 possible values: "true" - the extension must be understood, "false" - the extension does not need to be understood, and "sender" - the sender can decide whether the extension needs to be understood</td></tr>
+ <tr><td>Type</td><td>Required</td><td>The type(s) of the extension. This SHALL be a valid FHIR data type as described above, or "Extension: x,y,z" which indicates that the extension codes x,y, and z will be contained in the extension</td></tr>
+ <tr><td>XPaths</td><td>Optional</td><td>One or more XPath statements that SHALL evaluate to true when the extension is used</td></tr>
+ <tr><td>Must Understand</td><td>Required</td><td>Whether the extension SHALL be understood by any system reading the resource. There are 3 possible values: "true" - the extension SHALL be understood, "false" - the extension does not need to be understood, and "sender" - the sender can decide whether the extension needs to be understood</td></tr>
  <tr><td>RIM Mapping</td><td>Conditional</td><td>The formal mapping from this extension to the RIM. Required for HL7-defined extensions that apply to resources with RIM mappings, but may be optional in other contexts</td></tr>
  <tr><td>v2 Mapping</td><td>Optional</td><td>Mapping to a v2 segment/field/etc., if desired and appropriate. </td></tr>
  <tr><td>Binding</td><td>Conditional</td><td>For the types CodeableConcept and Coding. See <a href="terminologies.htm">Terminologies</a></td></tr>
@@ -337,7 +337,7 @@ Notes:
  <li>Mappings are not required to be computable (i.e. executable logic). Mappings to other specifications can also be provided.</li>
 </ul>
 <p>
-Whenever resources containing extensions are exchanged, the definitions of the extensions must be available to all the parties that share the resources.
+Whenever resources containing extensions are exchanged, the definitions of the extensions SHALL be available to all the parties that share the resources.
 Each extension contains a URI that references the source of the definitions as a Resource Profile. The source SHOULD be a literal reference, such as an
 http: url that refers to an end-point that responds with the contents of the definitions - preferably a <a href="http.htm">FHIR RESTful server</a>
 supporting the Resources Profile, or a logical reference (e.g. using a urn:) - for instance, to a national published
@@ -354,7 +354,7 @@ HL7 publishes resource content that where is-modifier=true, it will be part of t
 content itself, since everyone has to understand the extension anyway.
 </p>
 <p>
-Before extensions can be used in instances, they must be published. HL7 maintains two
+Before extensions can be used in instances, they SHALL be published. HL7 maintains two
 extension registries, and users are encouraged to register their extensions there. But
 this is not required; all that is required is that the extension is published in a
 context that is available for users of the extension. So, for example, if a particular

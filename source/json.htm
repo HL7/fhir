@@ -23,8 +23,8 @@ XPath queries can easily be mapped to query the JSON structures. The formal mime
 for this format is application/fhir+json.
 </p>
 <p>
-Clients are free to choose whether to implement in XML or JSON. Servers must support XML, and can 
-choose to support JSON. Note that systems must declare which format(s) they 
+Clients are free to choose whether to implement in XML or JSON. Servers SHALL support XML, and can 
+choose to support JSON. Note that systems SHALL declare which format(s) they 
 support. Also, the <a href="downloads.htm#refimpl">reference implementations</a>
 include bi-direction conversion functionality between the two formats.
 </p>
@@ -40,7 +40,7 @@ The JSON representation is described relative to the XML representation:
 <p>There are differences too:</p>
 <ul>
  <li>There are no namespaces in the JSON representation</li>
- <li>The order of properties of an object not significant in the JSON representation, though order within an array must be maintained</li>
+ <li>The order of properties of an object not significant in the JSON representation, though order within an array SHALL be maintained</li>
  <li>JSON does not have a notion of attributes versus elements, so attributes (xml:id, value) are treated as JSON object members (see below for more details)</li>
  <li>JSON has a notation for arrays, which are used to represent repeating elements. Note that this is the case, even if they do not repeat in the actual instance</li>
  <li>The XHTML &lt;div&gt; element in the Narrative datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content etc. The XHTML most still conform to the rules described above</li>
@@ -223,7 +223,7 @@ the JSON format needs to use an entry item to retain the logical order of entrie
   ... feed ...
 </pre>
 <p>
-The entry is known to be deleted because a date of deletion is given. An id must be provided, and a link may be provided.
+The entry is known to be deleted because a date of deletion is given. An id SHALL be provided, and a link may be provided.
 </p>
 
 <a name="binary"> </a>

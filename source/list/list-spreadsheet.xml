@@ -279,7 +279,7 @@
     <Cell><Data ss:Type="String">Workflow information about this item</Data></Cell>
     <Cell><Data ss:Type="String">The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">This field is present to support various clinical uses of lists, such as a discharge summary medication list, where flags specify whether the medication was added, modified, or deleted from the list</Data></Cell>
-    <Cell><Data ss:Type="String">The flag can only be understood in the context of the List.code. If the flag means that the entry has actually been deleted from the list, the deleted element must be true. Deleted can only be used if the List.mode is &quot;changes&quot;</Data></Cell>
+    <Cell><Data ss:Type="String">The flag can only be understood in the context of the List.code. If the flag means that the entry has actually been deleted from the list, the deleted element SHALL be true. Deleted can only be used if the List.mode is &quot;changes&quot;</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">.outBoundRelationship[typeCode=COMP].target[classCode=OBS&quot;].value</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
@@ -295,7 +295,7 @@
     <Cell><Data ss:Type="String">If this item is actually marked as deleted</Data></Cell>
     <Cell><Data ss:Type="String">True if this item is marked as deleted in the list.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">The flag element may contain codes that an application processing the list does not understand. However there can be no ambiguity if a list item is actually marked as &quot;deleted&quot;</Data></Cell>
-    <Cell><Data ss:Type="String">If the flag means that the entry has actually been deleted from the list, the deleted element must be true. Both flag and deleted can only be used if the List.mode is &quot;changes&quot;. A deleted entry should be displayed in narrative as deleted</Data></Cell>
+    <Cell><Data ss:Type="String">If the flag means that the entry has actually been deleted from the list, the deleted element SHALL be true. Both flag and deleted can only be used if the List.mode is &quot;changes&quot;. A deleted entry should be displayed in narrative as deleted</Data></Cell>
     <Cell ss:StyleID="s68"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">added: </Font></B><Font
        html:Color="#000000">.updateMode=(&quot;A&quot;,&quot;AR&quot;)&#10;&#10;</Font><B><Font

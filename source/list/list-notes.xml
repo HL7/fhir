@@ -13,7 +13,7 @@ There are several different kinds of use for a List resource:
 The final mode - a change list, may include deleted items. A typical case is a medication
 list in a discharge summary, where the list includes items that have been both added and deleted.
 In order to ensure that the list is safe to process, any item where the flag implies that the 
-item has actually been deleted must have the deleted element set to true. 
+item has actually been deleted SHALL have the deleted element set to true. 
 </p>
 <p>
 Note that there is no implication about the status of a resource that has been deleted.

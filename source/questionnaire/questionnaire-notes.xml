@@ -31,7 +31,7 @@ encounter gives context to the answers and can be used to relate information in 
 <p>There is considerable overlap between the information covered by Questionnaires and other Resources (especially FamilyHistory, MedicationStatement, Observation, Procedure, etc.): 
 Questionnaire's flexible structure can easily be misused to capture any data, even data that should be captured as separate Resources. The choice between using Questionnaires or separate 
 Resources may be dictated by the procedure of collection and recording. E.g. if the data is captured as a physician-agreed (electronic) form, it might be impossible or undesirable to 
-distill separate resources from it, and the Questionnaire must be stored and communicated as a whole.</p> 
+distill separate resources from it, and the Questionnaire SHALL be stored and communicated as a whole.</p> 
 
 <p>However, data captured only in Questionnaires can be difficult to query after-the-fact: queries against other Resources will not return data captured only in Questionnaires, 
 and querying against Questionnaires directly may not find all desired data, depending on how the questions may have been phrased or encoded over time or by different clinicians. 

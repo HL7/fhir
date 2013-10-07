@@ -206,9 +206,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="String">Must have a system </Data></Cell>
+    <Cell><Data ss:Type="String">SHALL have a system </Data></Cell>
     <Cell><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell><Data ss:Type="String">If a code for the units is present, the system must also be present</Data></Cell>
+    <Cell><Data ss:Type="String">If a code for the units is present, the system SHALL also be present</Data></Cell>
     <Cell><Data ss:Type="String">code.oclIsDefined implies system.oclIsDefined</Data></Cell>
     <Cell><Data ss:Type="String">not(exists(f:code)) or exists(f:system)</Data></Cell>
    </Row>
@@ -245,32 +245,32 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Duration</Data></Cell>
-    <Cell><Data ss:Type="String">There must be a code if there is a value and it must be an expression of time.  If system is present, it must be UCUM.</Data></Cell>
+    <Cell><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of time.  If system is present, it SHALL be UCUM.</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Distance</Data></Cell>
-    <Cell><Data ss:Type="String">There must be a code if there is a value and it must be an expression of length.  If system is present, it must be UCUM.</Data></Cell>
+    <Cell><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of length.  If system is present, it SHALL be UCUM.</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Count</Data></Cell>
-    <Cell><Data ss:Type="String">There must be a code with a value of &quot;1&quot; if there is a value and it must be an expression of length.  If system is present, it must be UCUM.  If present, the value must a whole number.</Data></Cell>
+    <Cell><Data ss:Type="String">There SHALL be a code with a value of &quot;1&quot; if there is a value and it SHALL be an expression of length.  If system is present, it SHALL be UCUM.  If present, the value SHALL a whole number.</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or (f:system/@value='http://unitsofmeasure.org' and f:code/@value='1' )) and not(contains(f:value/@value, '.')) </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Money</Data></Cell>
-    <Cell><Data ss:Type="String">There must be a code if there is a value and it must be an expression of currency.  If system is present, it must be ISO 4217 (system = &quot;urn:std:iso:4217&quot; - currency).</Data></Cell>
+    <Cell><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of currency.  If system is present, it SHALL be ISO 4217 (system = &quot;urn:std:iso:4217&quot; - currency).</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='urn:std:iso:4217')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CodedQuantity</Data></Cell>
-    <Cell><Data ss:Type="String">There must be a code if there is a value.  If system is present, it must be UCUM.</Data></Cell>
+    <Cell><Data ss:Type="String">There SHALL be a code if there is a value.  If system is present, it SHALL be UCUM.</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Age</Data></Cell>
-    <Cell><Data ss:Type="String">There must be a code if there is a value and it must be an expression of time.  If system is present, it must be UCUM.  If value is present, it must be positive.</Data></Cell>
+    <Cell><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of time.  If system is present, it SHALL be UCUM.  If value is present, it SHALL be positive.</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org') and not(contains(f:value/@value, '-'))</Data></Cell>
    </Row>
   </Table>

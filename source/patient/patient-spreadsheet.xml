@@ -508,7 +508,7 @@
     <Cell><Data ss:Type="String">This element has a value if the patient is an animal</Data></Cell>
     <Cell><Data ss:Type="String">Many clinical systems are extended to care for animal patients as well as human</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">The animal element is labeled &quot;Is Modifier&quot; since patients may be non-human. Systems must either handle patient details appropriately (e.g. inform users patient is not human) or reject non-human patient records</Data></Cell>
+    <Cell><Data ss:Type="String">The animal element is labeled &quot;Is Modifier&quot; since patients may be non-human. Systems SHALL either handle patient details appropriately (e.g. inform users patient is not human) or reject non-human patient records</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s75"><Data ss:Type="String">player[classCode=ANM]</Data></Cell>
     <Cell ss:StyleID="s75"/>
@@ -528,7 +528,7 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">Identifies the high level categorization of the kind of animal</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Need to know what kind of animal</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">If the patient is non-human, at least a species must be specified</Data></Cell>
+    <Cell><Data ss:Type="String">If the patient is non-human, at least a species SHALL be specified</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">PID-35</Data></Cell>
@@ -707,7 +707,7 @@
     <Cell><Data ss:Type="String">A linked patient resource is a resource that concerns the same patient. Resources are linked after it is realized that at least one was created in error.</Data></Cell>
     <Cell><Data ss:Type="String">Due to the clerical errors associated with the difficulties of identifying humans consistently, duplicate patient records are frequently created in error</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">More then two patient resources may be linked. Note that there is a special transaction for linking patient resources in the RESTful context, as resource linking consistency must be maintained</Data></Cell>
+    <Cell><Data ss:Type="String">More then two patient resources may be linked. Note that there is a special transaction for linking patient resources in the RESTful context, as resource linking consistency SHALL be maintained</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">outboundLink</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">PID-3, MRG-1</Data></Cell>
    </Row>
@@ -778,7 +778,7 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">ContactNeedsDetails</Data></Cell>
     <Cell><Data ss:Type="String">Patient.contact</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Must at least contain a contact's details or a reference to an organization</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">SHALL at least contain a contact's details or a reference to an organization</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">f:name or f:telecom or f:address or f:organization</Data></Cell>
    </Row>
   </Table>

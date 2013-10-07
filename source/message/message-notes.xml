@@ -34,7 +34,7 @@ The mailbox is the standard name for a service hosted on a RESTful server that a
 them as transactions and returns a message response appropriate for the message received. The server is under
 no obligation to do anything particular with the resources except as required by the semantics of the event code in the 
 message resource. A server may choose to retain the resources and make them available on a RESTful interface, but 
-is not required to do so. If the server returns 200 Ok, it must return a valid message that indicates what the outcome
+is not required to do so. If the server returns 200 Ok, it SHALL return a valid message that indicates what the outcome
 of the event processing is. An HTTP error indicates that the message was not processed successfully and that it should
 be resubmitted (and doing so should not result in a duplicate message response).  Repeated failures indicate either a
 fatal problem with the message or a problem with the receiving application.

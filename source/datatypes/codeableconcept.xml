@@ -113,7 +113,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">Code defined by a terminology system </Data></Cell>
     <Cell><Data ss:Type="String">A reference to a code defined by a terminology system </Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings.</Data></Cell>
-    <Cell><Data ss:Type="String">Codes may defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the v3 core principles for more information.  Ordering of codings is undefined and must not be used to infer meaning.</Data></Cell>
+    <Cell><Data ss:Type="String">Codes may defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the v3 core principles for more information.  Ordering of codings is undefined and SHALL not be used to infer meaning.</Data></Cell>
     <Cell><Data ss:Type="String">union(., ./translation)</Data></Cell>
     <Cell><Data ss:Type="String">C*E.1-8, C*E.10-22</Data></Cell>
    </Row>

@@ -139,7 +139,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">All documents belong to this patient</Data></Cell>
     <Cell><Data ss:Type="String">The subject of care medical record Identifier as defined by the Document Source.</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String"> All the documents in this folder must belong to the same patient.  This identifier shall be from the Assigning Authority Domain supporting the XDS Affinity Domain in which the Document Registry operates</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String"> All the documents in this folder SHALL belong to the same patient.  This identifier shall be from the Assigning Authority Domain supporting the XDS Affinity Domain in which the Document Registry operates</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">XdsFolder.homeCommunity</Data></Cell>

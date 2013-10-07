@@ -636,14 +636,14 @@
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">Authenticator</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">XdsEntry.authenticator</Data></Cell>
-    <Cell><Data ss:Type="String">A name or id must be provided</Data></Cell>
+    <Cell><Data ss:Type="String">A name or id SHALL be provided</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:name) or exists(f:id) or exists(f:contact) or exists(f:institution)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">Source</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">XdsEntry</Data></Cell>
-    <Cell><Data ss:Type="String">A url or a repositoryId must be provided</Data></Cell>
+    <Cell><Data ss:Type="String">A url or a repositoryId SHALL be provided</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:url) or exists(f:repositoryId) </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

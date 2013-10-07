@@ -185,7 +185,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">The value that is unique</Data></Cell>
     <Cell><Data ss:Type="String">The portion of the identifier typically displayed to the user and which is unique within the context of the system.</Data></Cell>
     <Cell><Data ss:Type="Number">123456</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">if the value is actually a full uri, then the system must be urn:ietf:rfc:3986</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">if the value is actually a full uri, then the system SHALL be urn:ietf:rfc:3986</Data></Cell>
     <Cell><Data ss:Type="String">II.extension or II.root if system indicates OID or GUID</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

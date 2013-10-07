@@ -426,7 +426,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Group member type agreement</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Group.member</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Member resource types must agree with group type</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Member resource types SHALL agree with group type</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">lower-case(f:type/@value)=parent::f:Group/f:type/@value or (f:type/@value='Patient' and parent::f:Group/f:type/@value=('animal','person'))</Data></Cell>
    </Row>

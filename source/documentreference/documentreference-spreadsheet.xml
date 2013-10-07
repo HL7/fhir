@@ -749,7 +749,7 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Location</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">DocumentReference</Data></Cell>
-    <Cell><Data ss:Type="String">A location or a service (or both) must be provided</Data></Cell>
+    <Cell><Data ss:Type="String">A location or a service (or both) SHALL be provided</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:location) or exists(f:service)</Data></Cell>
    </Row>
   </Table>

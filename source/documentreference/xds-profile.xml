@@ -806,7 +806,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">Period</Data></Cell>
     <Cell><Data ss:Type="String">The start and stop time of the service being documented took place</Data></Cell>
     <Cell><Data ss:Type="String">XDSDocumentEntry.serviceStartTime &amp; XDSDocumentEntry.serviceStopTime</Data></Cell>
-    <Cell><Data ss:Type="String">At least a start date must be provided</Data></Cell>
+    <Cell><Data ss:Type="String">At least a start date SHALL be provided</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s78">
     <Cell ss:Index="2" ss:StyleID="s80"><Data ss:Type="String">DocumentReference.context.facilityType</Data></Cell>

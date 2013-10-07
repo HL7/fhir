@@ -352,28 +352,28 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Quantity rule</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">DeviceCapabilities.virtualDevice.channel.metric.info</Data></Cell>
-    <Cell><Data ss:Type="String">If the type is &quot;Quantity&quot;, units must be provided</Data></Cell>
+    <Cell><Data ss:Type="String">If the type is &quot;Quantity&quot;, units SHALL be provided</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">((f:type/@value = 'Quantity') and (f:units)) or (not (f:type/@value != 'Quantity') and not (f:units))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">Coding Rule</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">DeviceCapabilities.virtualDevice.channel.metric.info</Data></Cell>
-    <Cell><Data ss:Type="String">If the type is &quot;Coding', system must be provided</Data></Cell>
+    <Cell><Data ss:Type="String">If the type is &quot;Coding', system SHALL be provided</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">(f:type/@value != 'Coding') or f:system</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">UCUM rule</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">DeviceCapabilities.virtualDevice.channel.metric.info</Data></Cell>
-    <Cell><Data ss:Type="String">If the type is &quot;Quantity&quot;, ucum must be provided</Data></Cell>
+    <Cell><Data ss:Type="String">If the type is &quot;Quantity&quot;, ucum SHALL be provided</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">((f:type/@value = 'Quantity') and (f:ucum)) or ((f:type/@value != 'Quantity') and not (f:ucum))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">SampleData Rule</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">DeviceCapabilities.virtualDevice.channel.metric.info</Data></Cell>
-    <Cell><Data ss:Type="String">If the type is &quot;SampledData&quot;, an sampling template must be provided</Data></Cell>
+    <Cell><Data ss:Type="String">If the type is &quot;SampledData&quot;, an sampling template SHALL be provided</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">((f:type/@value = 'SampledData') and (f:template)) or ((f:type/@value != 'SampledData') and not (f:template))</Data></Cell>
    </Row>
   </Table>

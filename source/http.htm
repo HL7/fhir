@@ -139,7 +139,7 @@ Note: to support browser-based client applications, recommend that servers SHOUL
 <h3>HTTP Status Codes</h3>
 <p>
 This specification makes rules about the use of specific HTTP status codes 
-in particular circumstances where the status codes must map to particular 
+in particular circumstances where the status codes SHALL map to particular 
 states correctly, and only where the correct status code is not obvious. 
 Other HTTP status codes may be used for other states as appropriate, and this particularly
 includes various authentication related status codes and redirects. 
@@ -166,20 +166,20 @@ The correct mime type SHALL be used by clients and servers:
 <tr><td>Bundle</td><td>application/atom+xml</td><td>application/json+fhir</td></tr>
 </table>
 <p>
-Servers must support server-driven content negotiation
+Servers SHALL support server-driven content negotiation
 as described in <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec12.html#sec12">section 12</a> 
 of the HTTP specification.
 </p>
 <p>
 However in order to support various implementation limitations, servers SHOULD support 
 support the optional "_format" parameter to specify alternative response formats by their MIME-types.
-For the _format parameter, the values "xml", "text/xml", "application/xml", and "application/xml+fhir" must be interpreted to mean
-the normative XML format defined by FHIR and "json", "application/json" and "application/json+fhir" must be interpreted to mean the
+For the _format parameter, the values "xml", "text/xml", "application/xml", and "application/xml+fhir" SHALL be interpreted to mean
+the normative XML format defined by FHIR and "json", "application/json" and "application/json+fhir" SHALL be interpreted to mean the
 informative JSON format.
 </p>
 <p>
 FHIR uses UTF-8 for all request and response bodies. Since the HTTP specification (section 3.7.1)
-defines a default character encoding of ISO-8859-1, requests and responses MUST explicitly set
+defines a default character encoding of ISO-8859-1, requests and responses SHALL explicitly set
 the character encoding to UTF-8 using the 'charset' parameter of the MIME-type in the Content-Type header. 
 Requests MAY also specify this charset parameter in the Accept header and/or use the Accept-Charset header.
 </p>
@@ -248,7 +248,7 @@ The update interaction is performed by an HTTP PUT command as shown:
   PUT [base]/[type]/[id] {?_format=[mime-type]}
 </pre>
 <p>
-If the interaction is successful, the server must return either a 200 OK if the resource was updated, or a 201 Created if the resource was created,
+If the interaction is successful, the server SHALL return either a 200 OK if the resource was updated, or a 201 Created if the resource was created,
 with a Last-Modified header, and a Location and Content-Location header that refers to the specific version created by the 
 update interaction.
 </p>
@@ -293,7 +293,7 @@ deletion the server should return 204 (No Content). If the server refuses to del
 that type on principle, then it should return the status code 
 405 method not allowed. If the server refuses to delete a resource because of reasons specific 
 to that resource, such as referential integrity, it should return the status code 409 Conflict.
-If the resource cannot be deleted because it does not exist on the server, the server must return 404 (Not found).
+If the resource cannot be deleted because it does not exist on the server, the server SHALL return 404 (Not found).
 Performing this interaction on a resource that is already deleted has no effect, and should return 204.
 Resources that have been deleted may subsequently be brought back to life by PUTting an update to them 
 subsequent to the deletion. 
@@ -419,7 +419,7 @@ The return content has one of the following values:
  <li><b>422 Unprocessable Entity</b> - the resource was valid, but as a proposed update, it violates applicable FHIR profiles or server business rules</li>
 </ul>
 <p>
-Unless the result is 200 OK, the response must include an <a href="operationoutcome.htm">OperationOutcome</a> resource that lists the issues found on validation.
+Unless the result is 200 OK, the response SHALL include an <a href="operationoutcome.htm">OperationOutcome</a> resource that lists the issues found on validation.
 </p>
 
 
@@ -486,8 +486,8 @@ on the server, the server should treat this entry as an <a href="#update">update
 server should treat the interaction as a <a href="#create">create interaction</a> (i.e. POST to 
 the given resource type URL), and create a new identity for the submitted resource. For 
 clarity, when the client intends a resource to have a transient identity that the server
-must replace, it should use a cid: url on the resource - that is, a url with the scheme 
-"cid:"<a href="http://tools.ietf.org/html/rfc2392">per RFC 2392</a>. Note that the client must provide
+SHALL replace, it should use a cid: url on the resource - that is, a url with the scheme 
+"cid:"<a href="http://tools.ietf.org/html/rfc2392">per RFC 2392</a>. Note that the client SHALL provide
 an identity in the bundle entry.id, but may also provide a version specific identity the
 atom "self" link, and may refer to this for version specific references. Deleted resources are those marked clearly
 using the method described for <a href="xml.htm#atom-deleted">XML</a> or 
@@ -499,7 +499,7 @@ include circular references where resources refer to each other. If the server a
 a new identity to any resource in the bundle, it SHALL also update any references to that 
 resource in the same bundle as they are processed. References to resources that are not 
 part of the bundle are left untouched. If a resource in the bundle carries a version-specific 
-id (using its self-link), any version-specific references to it must also be updated.
+id (using its self-link), any version-specific references to it SHALL also be updated.
 Servers SHALL be replace all matching links in the bundle, whether they are found in the resource ids, 
 resource references, url elements, or &lt;a href="" &amp; &lt;img src="" in the narrative.
 </p>
@@ -513,7 +513,7 @@ accompanying document.
 </p>
 <p>
 In order to allow the client to know how newly created resources are now identified for future 
-reference, the server must return a bundle with the version-specific identities of the created 
+reference, the server SHALL return a bundle with the version-specific identities of the created 
 and updated resources, though without the content elements that would contain the resource contents.
 </p>
 <p>
@@ -531,7 +531,7 @@ a match as specified in the parameters (which must conform to the servers capabi
 searching as specified in its conformance statement). If the search returns no matches, 
 the server process the resource normally. If the search returns one match, the server
 uses this matching resource instead, and ignores the submitted resource. If more than
-one resource is found, the transaction must be rejected.
+one resource is found, the transaction SHALL be rejected.
 </p>
 <p>
 If the server that is processing the transaction requires version aware updates, 
@@ -571,7 +571,7 @@ parameter, the parameters may also include:
 </table>
 <p>
 The history list can be restricted to a limited period by specifying a _since parameter which contains a full date time with time zone. 
-Servers must ensure that if a client uses the feed.updated date from the last response they received as 
+Servers SHALL ensure that if a client uses the feed.updated date from the last response they received as 
 the value of the _since parameter, no versions will be missed. Clients should be aware that due to timing imprecision, 
 they may receive notifications of a resource update on the boundary instant more than once. Servers are 
 not required to support a precision finer than by second. 
@@ -740,11 +740,11 @@ Interface engines may also be placed between the consumer and
 the provider. These differ from proxies because they actively
 alter the content and/or destination of the HTTP exchange and are
 not bound the rules that apply to HTTP proxies. Such agents are allowed, 
-but must mark the http header to assist with troubleshooting.
+but SHALL mark the http header to assist with troubleshooting.
 </p>
 <p>
 Any agent that modifies an HTTP request or Response content other
-than under the rules for HTTP proxies must add a stamp to the HTTP 
+than under the rules for HTTP proxies SHALL add a stamp to the HTTP 
 headers like this:
 </p>
 <pre>
@@ -752,9 +752,9 @@ headers like this:
   response-modified-[identity]: [purpose]
 </pre>
 <p>
-The identity must be a single token defined by the administrator of the agent
+The identity SHALL be a single token defined by the administrator of the agent
 that will sufficiently identify the agent in the context of use. The header
-must specify the agent's purpose in modifying the content. End point systems must
+SHALL specify the agent's purpose in modifying the content. End point systems SHALL
 not use this header for any purpose. Its aim is to assist with 
 system troubleshooting.
 </p>

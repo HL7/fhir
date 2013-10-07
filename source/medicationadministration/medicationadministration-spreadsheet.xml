@@ -600,7 +600,7 @@
     <Cell ss:StyleID="s74"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Dose</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">MedicationAdministration.dosage</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Must have at least one of dosage.quantity and dosage.rate</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">SHALL have at least one of dosage.quantity and dosage.rate</Data></Cell>
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">exists(f:quantity) or exists(f:rate)</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">Need to be sure this works</Data></Cell>

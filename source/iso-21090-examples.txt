@@ -92,12 +92,12 @@ example is:
 7.6.3  TEL.URL
 7.6.3.1  Description
 A flavour that constrains TEL
-TEL.URL constrains TEL so that it must point to a locatable resource that returns binary content. 
+TEL.URL constrains TEL so that it SHALL point to a locatable resource that returns binary content. 
 ISO/FDIS 21090:2009(E)
 © ISO 2009 – All rights reserved  45
 7.6.3.2  Invariants
 no use codes;
-the URL scheme must be file, nfs, ftp, cid (for SOAP attachments), http, or https.
+the URL scheme SHALL be file, nfs, ftp, cid (for SOAP attachments), http, or https.
 OCL for Invariants:
 inv "no use": use->isEmpty
 inv "schemes": (scheme("file") or scheme("ftp") or 
@@ -106,9 +106,9 @@ or scheme("nfs"))
 7.6.4  TEL.PERSON
 7.6.4.1  Description
 A flavour that constrains TEL.
-TEL.PERSON constrains TEL so that it must refer to a method of communication with a person.
+TEL.PERSON constrains TEL so that it SHALL refer to a method of communication with a person.
 7.6.4.2  Invariants
-the URL scheme must be tel, x-text-fax, x-text-tel or mailto.
+the URL scheme SHALL be tel, x-text-fax, x-text-tel or mailto.
 OCL for Invariants:
 inv "Personal Address": scheme("tel") or 
 scheme("x-text-fax")or scheme("x-text-tel") or 
@@ -116,10 +116,10 @@ scheme("mailto")
 7.6.5  TEL.PHONE
 7.6.5.1  Description
 A flavour that constrains TEL.PERSON
-TEL.PHONE  constrains TEL.PERSON so it must refer to some telephone based communication system with 
+TEL.PHONE  constrains TEL.PERSON so it SHALL refer to some telephone based communication system with 
 a person.
 7.6.5.2  Invariants
-the URL scheme must be tel, x-text-fax, or x-text-tel.
+the URL scheme SHALL be tel, x-text-fax, or x-text-tel.
 OCL for Invariants:
 inv "Phone": scheme("tel") or scheme("x-text-fax") or 
 scheme("x-text-tel")
@@ -130,7 +130,7 @@ TEL.EMAIL constrains the TEL.PERSON type to be an email address.
 ISO/FDIS 21090:2009(E)
 46  © ISO 2009 – All rights reserved
 7.6.6.2  Invariants
-the URL scheme must be mailto.
+the URL scheme SHALL be mailto.
 OCL for Invariants:
 inv "email only": scheme("mailto")
 7.6.7  II (Instance Identifier)
@@ -396,7 +396,7 @@ language : characterstring,
 7.7.2.3  Attributes
 7.7.2.3.1  nullFlavor : NullFlavor: If the part is not a proper value, indicates the reason.
 For further information concerning nullFlavor, see 7.3.3.3.1.
-7.7.2.3.2  value : String: The actual string value of the part. If no nullFlavor is provided, some content must 
+7.7.2.3.2  value : String: The actual string value of the part. If no nullFlavor is provided, some content SHALL 
 be present in this attribute.
 7.7.2.3.3  code : String: A code assigned to the part by some coding system, if appropriate.
 7.7.2.3.4  codeSystem : String: The code system from which the code is taken.
@@ -815,7 +815,7 @@ ISO/FDIS 21090:2009(E)
 7.7.5.3  Attributes
 7.7.5.3.1  type : EntityNamePartType: Indicates whether the name part is a given name, family name, 
 prefix, suffix, etc.
-Not every name part must  have a type code, if the type code is unknown, not applicable, or simply undefined 
+Not every name part SHALL  have a type code, if the type code is unknown, not applicable, or simply undefined 
 this is expressed by a null value (type.isNull). For example, a name may be "Rogan Sulma" and   it might  not 
 be clear which one is a given name or which is a last name, or whether Rogan is a title.
 If populated, the value of this attribute  shall  be taken from the HL7 EntityNamePartType2 code system. The 
@@ -1718,14 +1718,14 @@ other. For uncertain values, this may not be known (result = NullFlavor.UNK).
 value of other. For uncertain values, this may not be known (result = NullFlavor.UNK).
 7.8.2.6.4  greaterThan[>](other : QTY):BL:  True if the value of this is greater than the value of other. For 
 uncertain values, this may not be known (result = NullFlavor.UNK).
-7.8.2.6.5  plus[+](other : QTY):QTY: The result of addition of this and other. Other must be of the right type 
-of value (same type as this, except for TS, where the value must be a PQ with units of time, or for PQ, where 
-the value of other must have compatible units), else the result is nullFlavor NI. Uncertainties should be carried 
+7.8.2.6.5  plus[+](other : QTY):QTY: The result of addition of this and other. Other SHALL be of the right type 
+of value (same type as this, except for TS, where the value SHALL be a PQ with units of time, or for PQ, where 
+the value of other SHALL have compatible units), else the result is nullFlavor NI. Uncertainties should be carried 
 through the operation. If the values have mixed uncertainties, the result may be unknown (result = 
 NullFlavor.UNK).
-7.8.2.6.6  minus[-](other : QTY):QTY:  The result of subtraction of other from this. Other must be of the 
-type of value (same type as this, except for TS, where the value must be a TS or  a PQ with units of time, or for 
-PQ, where the value of other must have compatible units), else the result is nullFlavor NI. Uncertainties should 
+7.8.2.6.6  minus[-](other : QTY):QTY:  The result of subtraction of other from this. Other SHALL be of the 
+type of value (same type as this, except for TS, where the value SHALL be a TS or  a PQ with units of time, or for 
+PQ, where the value of other SHALL have compatible units), else the result is nullFlavor NI. Uncertainties should 
 be carried through the operation. If the values have mixed uncertainties, the result may be unknown (result = 
 NullFlavor.UNK).
 7.8.2.6.7  comparable(other : QTY) : Boolean: whether this and other can be compared using equality.
@@ -1734,7 +1734,7 @@ QTY.
 7.8.2.6.8  isDifference(other : QTY):BL True if other is an instance that expresses the difference between 
 two instances of this type.
 NOTE  Usually this is true if other is  the same as the type, except for TS, where the difference is expressed as a PQ 
-with a unit that is a kind of time, and for PQ, where the units must be compatible.
+with a unit that is a kind of time, and for PQ, where the units SHALL be compatible.
 7.8.3  INT (integer)
 7.8.3.1  Description
 Specializes QTY. 
@@ -1767,7 +1767,7 @@ This is an example of the primitive type wrapping pattern. See 6.3 for more deta
 Two nonNull INT are equal if they are not nullFlavored and have the same value, or their uncertainRanges not 
 null or nullFlavored and equal.
 7.8.3.5  Invariants
-a value or an uncertain range must be provided if not nullFlavored;
+a value or an uncertain range SHALL be provided if not nullFlavored;
 cannot provide both a value and an uncertain range;
 uncertainRange shall be an IVL(INT);
 uncertainty shall not be populated.
@@ -1812,7 +1812,7 @@ was not asked how many children she has.
 A flavour that constrains INT.
 NT.NONNEG constrains INT so that it has a value of 0 or greater.
 7.8.4.2  Invariants
-the value must be zero or greater if not nullFlavored, with no uncertainty. 
+the value SHALL be zero or greater if not nullFlavored, with no uncertainty. 
 ISO/FDIS 21090:2009(E)
 84  © ISO 2009 – All rights reserved
 OCL for Invariants:
@@ -1822,7 +1822,7 @@ inv "not negative": isNotNull implies value >= 0
 A flavour that constrains INT.NONNEG.
 INT.POS constrains INT.NONNEG so that it has a value greater than 0.
 7.8.5.2  Invariants
-the value must be greater than zero if not nullFlavored, with no uncertainty.
+the value SHALL be greater than zero if not nullFlavored, with no uncertainty.
 OCL for Invariants:
 inv "positive": isNotNull implies value > 0
 7.8.6  CO (coded ordinal)
@@ -1873,10 +1873,10 @@ NOTE 1  CO values that have value alone with no code are never equal, as it is n
 ordinals.
 NOTE 2  Since the determination of CO equality is based upon the code, CO values  can be equal to CD values.
 7.8.6.5  Invariants
-there must be a code or a value if not nullFlavored;
+there SHALL be a code or a value if not nullFlavored;
 no uncertainty.
 OCL for invariants:
-inv "must have a code or a value": isNotNull implies
+inv "SHALL have a code or a value": isNotNull implies
 (code.isNotNull or value.oclIsDefined)
 inv "uncertainty Type": uncertainty.oclIsUndefined and 
 uncertainRange.oclIsUndefined
@@ -1934,9 +1934,9 @@ are not null and not nullFlavored and equal.
 ISO/FDIS 21090:2009(E)
 © ISO 2009 – All rights reserved  87
 7.8.7.6  Invariants
-a value or an uncertain range must be provided if not nullFlavored;
+a value or an uncertain range SHALL be provided if not nullFlavored;
 cannot provide both a value and an uncertain range;
-uncertainty types must be a REAL.
+uncertainty types SHALL be a REAL.
 OCL for Invariants:
 inv "value xor uncertainRange": not 
 (value.oclIsDefined and uncertainRange.isNotNull)
@@ -2118,8 +2118,8 @@ not participate in the determination of equality.
 7.8.9.5  Invariants
 a value or an uncertain range shall be provided if not nullFlavored;
 cannot provide both a value and an uncertain range;
-uncertainty types must be a PQ;
-if uncertainties are provided, their canonical units must match.
+uncertainty types SHALL be a PQ;
+if uncertainties are provided, their canonical units SHALL match.
 OCL for Invariants:
 def: let unitsMatch (other : PQ) : Boolean = 
 (canonical.unit = other.canonical.unit)
@@ -2149,7 +2149,7 @@ canonical.unit.equals(other.oclAsTypeOf(PQ).canonical.unit)
 information about canonical units.
 7.8.9.6.2  comparable(other : QTY):BL: This and other can be compared if the units of the canonical forms 
 are the same.
-7.8.9.6.3  inverted():PQ: The inverted value of the PQ. Both value and unit must be inverted.
+7.8.9.6.3  inverted():PQ: The inverted value of the PQ. Both value and unit SHALL be inverted.
 7.8.9.6.4  negated[ ] : PQ: The negative value of this.
 7.8.9.6.5  plus[ ] (other : PQ) : PQ: The value of the addition of this and other; if the units do not match, 
 NullFlavor NI.
@@ -2214,7 +2214,7 @@ This example uses an HL7 specific language to illustrate how the expression attr
 The dose quantity of the substance that is being administered depends on the patient‘s body mass, 30 mg per 
 kilogram  of body mass. Rather than providing an actual value for the patient=s body mass, since it may be 
 unknown or may change, the maximum   dose quantity is given in terms of an expression. Since no value 
-attribute is provided, a nullFlavor must be provided; DER is the appropriate choice  when an expression is 
+attribute is provided, a nullFlavor SHALL be provided; DER is the appropriate choice  when an expression is 
 provided.
 The body mass may be found by checking for any observations matching the LOINC code 29463-7; if no 
 matching observations can be found, the outcome of the expression will  be null or a nullFlavor, as the value 
@@ -2230,7 +2230,7 @@ ISO/FDIS 21090:2009(E)
 the  units  shall  be a measure of time  ["such as, "s" (second), "min"  (minute), "h" (hour), "d" (day), 
 "wk" (week), "a" (year)].
 OCL for Invariants:
-inv "must be a unit of time": canonical.unit = "s"
+inv "SHALL be a unit of time": canonical.unit = "s"
 7.8.11  PQR (physical quantity representation)
 7.8.11.1  Description
 Specializes CD.CV.
@@ -2314,11 +2314,11 @@ for most currencies.
 Two MO  values are equal if their value and currency attributes are equal, or if their uncertainRanges are not 
 null and not nullFlavored and equal.
 7.8.12.5  Invariants
-if not nullFlavored, a value or an uncertain range must be present;
-if not nullFlavored, a currency must be defined;
+if not nullFlavored, a value or an uncertain range SHALL be present;
+if not nullFlavored, a currency SHALL be defined;
 cannot provide both a value and an uncertain range;
-uncertainty types must be a PQ;
-if uncertainties are provided, their canonical units must match.
+uncertainty types SHALL be a PQ;
+if uncertainties are provided, their canonical units SHALL match.
 OCL for Invariants:
 def: let currencyMatches (other : MO) : Boolean = 
 currency = other.currency
@@ -2392,9 +2392,9 @@ null and not nullFlavored  and equal. If both TS value have time zones, the valu
 timezone before comparison. If neither TS value has a timezone, then they may be compared for equality 
 without correction. If only one TS value has a timezone, then the equality is nullFlavor NI.
 7.8.13.5  Invariants
-if the TS is not nullFlavored, a value or an uncertain range must be present;
-if a value is present, at least a full year must be specified;
-uncertainty types must be a PQ with a unit of TIME;
+if the TS is not nullFlavored, a value or an uncertain range SHALL be present;
+if a value is present, at least a full year SHALL be specified;
+uncertainty types SHALL be a PQ with a unit of TIME;
 cannot provide both a value and an uncertain range.
 OCL for Invariants:
 def: let hasTimezone : Boolean = value.pos("+") > 0 
@@ -2458,7 +2458,7 @@ inv "Date": not hasTimezone and value.size <= 8
 7.8.15  TS.DATE.FULL
 7.8.15.1  Description
 A flavour that constrains TS.DATE
-TS.DATE.FULL constrains TS.DATE so that it must contain reference to a particular day.
+TS.DATE.FULL constrains TS.DATE so that it SHALL contain reference to a particular day.
 7.8.15.2  Invariants
 a full day shall be specified.
 OCL for Invariants
@@ -2487,7 +2487,7 @@ inv "Full DateTime": value.size = 19 and hasTimezone
 7.8.18  TS.INSTANT
 7.8.18.1  Description
 A flavour that constrains TS.
-TS.INSTANT  constrains TS so that it must contain reference to a particular instant of time, accurate to  four
+TS.INSTANT  constrains TS so that it SHALL contain reference to a particular instant of time, accurate to  four
 decimal places on the second, with a timezone.
 7.8.18.2  Invariants
 a timezone is required;
@@ -2705,7 +2705,7 @@ nullFlavor as appropriate.
 <item value="6"/>
 <item value="9"/>
 </example>
-A list of integers. The order is significant and must always be maintained.
+A list of integers. The order is significant and SHALL always be maintained.
 7.9.5  GLIST (generated sequence)
 7.9.5.1  Description
 Specializes ANY.
@@ -2731,7 +2731,7 @@ period : integer
 7.9.5.3.2  increment : QTY: The difference between one value and its previous different value.
 EXAMPLE:  To generate the sequence (1; 4; 7; 10; 13; ...) the increment is 3; likewise to generate the sequence (1; 1; 
 4; 4; 7; 7; 10; 10; 13; 13; ...) the increment is also 3. The actual type QTY will be dictated by the type of T. The value of
-increment must be positive. 
+increment SHALL be positive. 
 ISO/FDIS 21090:2009(E)
 © ISO 2009 – All rights reserved  109
 7.9.5.3.3  denominator : Integer: The integer by which the index for the sequence is divided, effectively the 
@@ -2753,14 +2753,14 @@ GLIST is a list generator. Two GLISTs are equal if they specify the same sequenc
 Since GLISTs are infinite, and LISTs cannot be infinite, they can never been equal.
 7.9.5.5  Invariants
 if the GLIST is not nullFlavored, all attributes but the period are required ;
-denominator must be positive;
-the period must be positive.
+denominator SHALL be positive;
+the period SHALL be positive.
 OCL for Invariants:
 inv "required attributes": isNull xor (head.isNotNull and
 increment.isNotNull and denominator.oclIsDefined)
-inv "denominator must be positive": denominator.oclIsDefined
+inv "denominator SHALL be positive": denominator.oclIsDefined
 implies denominator > 0
-inv "period must be positive": period.oclIsDefined implies
+inv "period SHALL be positive": period.oclIsDefined implies
 period > 0
 inv "no updateMode or History on GLIST attributes": 
 noUpdateOrHistory(head) and noUpdateOrHistory(increment)
@@ -3168,7 +3168,7 @@ Abstract; specializes ANY.
 Parameter: T : QTY.
 An unordered set of distinct values that are quantities.
 Any ordered type can be the basis of a QSET; it does not matter whether the base type is discrete or 
-continuous. If the base datatype is only partially ordered, all elements of the QSET must be elements of a 
+continuous. If the base datatype is only partially ordered, all elements of the QSET SHALL be elements of a 
 totally ordered subset of the partially ordered datatype (for example, PQ is only ordered when the units are 
 consistent. Every value in a QSET(PQ) shall have the same canonical unit).
 QSET is an abstract type. A working QSET is specified as an expression tree built using a combination of 
@@ -3342,7 +3342,7 @@ terms : Set(QSET(T))
 7.10.4.3.1  terms : Set(QSET(T)): A list of other QSETs that are involved in the intersection.
 7.10.4.4  Invariants
 a nonNull QSI may only contain nonNull QSETs;
-at least 2 sets must be specified.
+at least 2 sets SHALL be specified.
 OCL for invariants:
 inv "not null": isNotNull implies terms->forAll(t | 
 t.isNotNull)
@@ -3382,7 +3382,7 @@ Specifies a QSET as the periodic hull between two sets as shown in Figure 11.
 Figure 11 — Periodic hull
 A periodic hull may be generated by comparing two sets that interleave. For QSET values  A  and  B  to 
 interleave, the occurrence intervals of both groups can be arranged in pairs of corresponding occurrence 
-intervals. It must further hold that for all corresponding occurrence intervals a   A and b   B, a starts before b 
+intervals. It SHALL further hold that for all corresponding occurrence intervals a   A and b   B, a starts before b 
 starts (or at the same time) and b ends after a ends (or at the same time).
 The interleaves-relation holds when two schedules have the same av erage frequency, and when the second 
 schedule never "outpaces" the first schedule. That is, no occurrence interval in the second schedule may start 
@@ -3434,7 +3434,7 @@ the intervals implied by the precision implicit in the definition of T. For some
 particular.
 7.10.7.4  Invariants
 a nonNull QSS may only contain nonNull values;
-at least 1 value must be specified. 
+at least 1 value SHALL be specified. 
 ISO/FDIS 21090:2009(E)
 126  © ISO 2009 – All rights reserved
 OCL for invariants:
@@ -3534,7 +3534,7 @@ expressed in a QSET other than by using QSC.
 NOTE 3  Information processing entities might define their own set of codes to be supported by creating an appropriate 
 value set. The value set can be referenced in the QSC code if required.
 7.10.8.4  Invariants
-a code must be provided.
+a code SHALL be provided.
 OCL for invariants:
 inv "not null": isNotNull implies code.isNotNull
 7.10.8.5  Examples
@@ -3601,7 +3601,7 @@ example, the DSET(INT) 2,3,4 is equal to the IVL(INT) 2..4.
 either  the IVL is nullFlavored, has a width,  ANY, or has (low and/or high). ( ANY  and/or width) and 
 (low and/or high) cannot be mixed;
 lowClosed and highClosed can only be used if low or high are used ;
-low and high must be comparable.
+low and high SHALL be comparable.
 OCL for Invariants:
 def: let hasBounds : Boolean = low.isNotNull or high.isNotNull
 def: let noSemantics : Boolean = (low.oclIsUndefined or 
@@ -3656,8 +3656,8 @@ IVL.LOW constrains IVL so that low is provided and lowClosed is true. All other 
 ISO/FDIS 21090:2009(E)
 © ISO 2009 – All rights reserved  131
 7.10.10.2  Invariants
-low and lowClosed must be populated;
-high and highClosed must be null.
+low and lowClosed SHALL be populated;
+high and highClosed SHALL be null.
 OCL for Invariants:
 inv "low": isNotNull implies low.isNotNull and lowClosed
 inv "high": high.oclIsUndefined and highClosed.oclIsUndefined
@@ -3666,8 +3666,8 @@ inv "high": high.oclIsUndefined and highClosed.oclIsUndefined
 A flavour that constrains IVL.
 IVL.HIGH constrains IVL so that high is provided and highClosed is true. All other properties are prohibited.
 7.10.11.2  Invariants
-low and lowClosed must be null;
-high and highClosed must be populated.
+low and lowClosed SHALL be null;
+high and highClosed SHALL be populated.
 OCL for Invariants:
 inv "high": isNotNull implies high.isNotNull and highClosed
 inv "low": low.oclIsUndefined and lowClosed.oclIsUndefined
@@ -3676,9 +3676,9 @@ inv "low": low.oclIsUndefined and lowClosed.oclIsUndefined
 A flavour that constrains IVL.
 IVL.WIDTH constrains IVL so that width is mandatory and low, lowClosed, high and highClosed are prohibited .
 7.10.12.2  Invariants
-width must be populated;
-low and lowClosed must be null;
-high and highClosed must be null.
+width SHALL be populated;
+low and lowClosed SHALL be null;
+high and highClosed SHALL be null.
 OCL for Invariants:
 inv "width": isNotNull implies width.isNotNull
 inv "low": low.oclIsUndefined and lowClosed.oclIsUndefined
@@ -3850,11 +3850,11 @@ offset : IVL(PQ)
 7.10.14.3  Attributes
 7.10.14.3.1  event : TimingEvent: A code for a common (periodic) activity of daily living based on which the 
 event-related periodic interval is specified. Events that qualify for being adopted in the domain of this attribute 
-must satisfy the following requirements:
+SHALL satisfy the following requirements:
 the event commonly occurs on a regular basis;
 the event is being used for timing activities;
 the event is not entirely determined by time.
-If these criteria are not met, the relationship of the event and its time must be communicated using structur es 
+If these criteria are not met, the relationship of the event and its time SHALL be communicated using structur es 
 outside the datatypes defined in this International Standard. 
 ISO/FDIS 21090:2009(E)
 136  © ISO 2009 – All rights reserved
@@ -3891,7 +3891,7 @@ The offset  shall  be null if the event code specifies "before", "after" or "bet
 nonNull if the EIVL is nonNull and the event code is C, CM, CD or CV. The offset may or may not be nu ll or 
 nullFlavored for the event codes HS and WAKE.
 7.10.14.4  Invariants
-if EIVL is not nullFlavored, event must be specified.
+if EIVL is not nullFlavored, event SHALL be specified.
 OCL for invariants:
 inv "required attributes": isNotNull implies 
 (event.oclIsDefined)
@@ -3923,7 +3923,7 @@ GTS.BOUNDEDPIVL constrains QSI(TS) so that it only allows an intersection of IVL
 there shall be two terms;
 one term shall be an IVL(TS);
 the other term shall be a PIVL(TS);
-the IVL width shall be null (i.e. either a low or high or both must be provided).
+the IVL width shall be null (i.e. either a low or high or both SHALL be provided).
 OCL for Invariants:
 inv "GTS.BOUNDEDPIVL 1": terms->size = 2
 inv "GTS.BoundedPIVL 2": terms.item->exists(t | 
@@ -3973,7 +3973,7 @@ a probability shall be provided;
 probability shall be between 0 and 1.
 OCL for Invariants:
 Inv "value not null": isNotNull implies value.isNotNull
-inv "must have probability": isNotNull implies 
+inv "SHALL have probability": isNotNull implies 
 (probability.oclIsDefined and probability >= 0 
 and probability <= 1)
 inv "No History or Update Mode": noUpdateOrHistory(probability)
@@ -4007,9 +4007,9 @@ Standard, so it is possible that a NPPD(CD) can be equal to NPPD(CS), for instan
 ISO/FDIS 21090:2009(E)
 140  © ISO 2009 – All rights reserved
 7.11.2.5  Invariants
-at least one value must be provided.
+at least one value SHALL be provided.
 OCL for Invariants:
-inv "must have at least one item": isNull xor item->notEmpty
+inv "SHALL have at least one item": isNull xor item->notEmpty
 7.11.2.6  Examples
 <example xsi:type='NPPD_ST'>
 <item probability="0.1">
@@ -4131,7 +4131,7 @@ NOTE 2   The styleCode xHead1 is an example of a valid local extension to the st
 NOTE 3  The content element is used to introduce an ID attribute. This is suitable for use in an originalText.reference 
 element on a CD or PQ type in other content that refers into the structured text.
 NOTE 4  The final use of the content element shows a revision to the document.
-NOTE 5  There must be some other item with the ID "i1" in the scope of the document context. This should  be  some 
+NOTE 5  There SHALL be some other item with the ID "i1" in the scope of the document context. This should  be  some 
 kind of class that unambiguously provides some multimedia content.
 NOTE 6  While the actual presentation process is outside  the Scope  of  this International Standard, one possible 
 presentation of the document would take the form shown in Figure 14.
@@ -4171,7 +4171,7 @@ StyleCode Enumeration
 2  Disc  List bullets are simple solid discs.
 2  Circle  List bullets are hollow discs.
 2  Square  List bullets are solid squares.
-Local extensions to the styleType enumeration must follow the following convention: [x][A-Za-z][A-Za-z0-9]* 
+Local extensions to the styleType enumeration SHALL follow the following convention: [x][A-Za-z][A-Za-z0-9]* 
 (first character is "x", second character is an upper or lower case A -Z, remaining characters are any 
 combination of upper and lower case letters or numbers).
 7.12.4  StrucDoc.Br
@@ -4191,7 +4191,7 @@ Refer to Clause A.2 for the meaning of the XMLText stereotype.
 7.12.5.3  Invariants
 text shall not be empty.
 OCL for Invariants:
-inv "text must not be empty": text.length > 0
+inv "text SHALL not be empty": text.length > 0
 7.12.6  StrucDoc.Sub
 7.12.6.1  Description
 Indicates that the value text should be rendered as subscript when presented. i.e. H
@@ -4203,7 +4203,7 @@ Refer to Clause A.2 for the meaning of the XMLText stereotype.
 7.12.6.3  Invariants
 text shall not be empty.
 OCL for Invariants:
-inv "text must not be empty": text.length > 0
+inv "text SHALL not be empty": text.length > 0
 7.12.7  StrucDoc.LinkHtml
 7.12.7.1  Description
 Specializes StrucDoc.Base.
@@ -4219,7 +4219,7 @@ ISO/FDIS 21090:2009(E)
 146  © ISO 2009 – All rights reserved
 7.12.7.2  Attributes
 7.12.7.2.1  href : String:  The URL that identifiers the target documen/object of the link. The target is an XML 
-identifier either internal or external to the documen t.The context of use must clearly define the scope of 
+identifier either internal or external to the documen t.The context of use SHALL clearly define the scope of 
 resolution of the link. Following the conventions of HTML, an internal link  –  usually a link within the scope of 
 the context of the document – is prefaced with the pound sign.
 7.12.7.2.2  rel : Set(StrucDoc.LinkType):  This attribute describes the relationship from the current 
@@ -4290,7 +4290,7 @@ Refer to Clause A.2 for the meaning of the Anonymous stereotype.
 7.12.7.4  Invariants
 some text shall be associated with the link.
 OCL for Invariants:
-inv "must have at least one item": parts->notEmpty
+inv "SHALL have at least one item": parts->notEmpty
 7.12.7.5  Example
 <text>History of coronary artery disease, as noted 
 <linkHtml href="#SECT001">above</linkHtml>.
@@ -4305,7 +4305,7 @@ codeSystemName="LOINC"/>
 7.12.8.1  Description
 Specializes StrucDoc.Base.
 References multimedia content that is integral to the document, and serves to show where the referenced 
-multimedia are to be rendered. The multimedia content must be contained within the context  of the document.
+multimedia are to be rendered. The multimedia content SHALL be contained within the context  of the document.
 There is an optional caption and  it  contains  a required referencedObject attribute (of type XML IDREFS), the 
 values of which shall  equal the XML ID value(s) of ObservationMedia or RegionOfInterest CDA entries within 
 the document context. 
@@ -4319,12 +4319,12 @@ Refer to Clause A.2 for the meaning of the XMLIDREF stereotype.
 7.12.8.3  Invariants
 at least one reference shall be provided.
 OCL for Invariants:
-inv "must have at least one ref": referencedObject->size() > 0
+inv "SHALL have at least one ref": referencedObject->size() > 0
 7.12.9  StrucDoc.FootnoteRef
 7.12.9.1  Description
 Specializes StrucDoc.Base.
 A reference to an existing footnote within the document context. This may be used when the same footnote is 
-being used multiple times. The value of the footnoteRef.IDREF must be an footnote.ID value in the same 
+being used multiple times. The value of the footnoteRef.IDREF SHALL be an footnote.ID value in the same 
 document.
 7.12.9.2  Attributes
 7.12.9.2.1  IDREF: String «XMLIDREF»: The identity of the referenced footnote.
@@ -4332,7 +4332,7 @@ Refer to Clause A.2 for the meaning of the XMLIDREF stereotype.
 7.12.9.3  Invariants
 a reference shall be provided.
 OCL for Invariants:
-inv "must have a reference": IDREF.oclIsDefined
+inv "SHALL have a reference": IDREF.oclIsDefined
 7.12.10 StrucDoc.Footnote
 7.12.10.1  Description
 Specializes StrucDoc.Base.
@@ -4348,7 +4348,7 @@ ISO/FDIS 21090:2009(E)
 7.12.10.2.1  parts : StrucDoc.CMGeneral[0..* ordered] «Anonymous»: The contents of the footnote.
 Refer to Clause A.2 for the meaning of the Anonymous stereotype.
 7.12.10.3  Invariants
-the footnote must contain some content;
+the footnote SHALL contain some content;
 footnotes cannot contain nested footnotes.
 OCL for Invariants:
 inv "Some content required": parts->notEmpty
@@ -4373,7 +4373,7 @@ Used to wrap a string of text so that it can be explicitly referenced, or so tha
 characteristics. Content can be nested recursively, which enables wrapping a string of plain text down  to as 
 small a chunk as desired.
 Content has an optional identifier that can serve as the target of a reference. This identifier, represented as an 
-XML ID attribute, must be unique within the document context. The originalText attribute of a datatype defined 
+XML ID attribute, SHALL be unique within the document context. The originalText attribute of a datatype defined 
 in this International Standard may make explicit reference to the content using the identifier, thereby indicating 
 the original text associated with the datatype. 
 ISO/FDIS 21090:2009(E)
@@ -4451,7 +4451,7 @@ ISO/FDIS 21090:2009(E)
 Specializes StrucDoc.CMFootnotes.
 Stereotype: «Choice».
 Content model that allows text, footnotes, links, and superscript and subscript text. The choice stereotype 
-denotes that exactly one of the attributes (including inherited attributes) shall have a value. All the others must 
+denotes that exactly one of the attributes (including inherited attributes) shall have a value. All the others SHALL 
 be null.
 7.12.17.2  Attributes
 7.12.17.2.1  linkHtml : StrucDoc.LinkHtml: A HTML-type link.
@@ -4514,9 +4514,9 @@ although this is not a requirement.
 7.12.21.3  Associations
 7.12.21.3.1  item : StrucDoc.Item[0..* ordered]: Actual list items.
 7.12.21.4  Invariants
-at least one item must be provided.
+at least one item SHALL be provided.
 OCL for Invariants:
-inv "must have at least one item": item->notEmpty
+inv "SHALL have at least one item": item->notEmpty
 7.12.22 StrucDoc.Item
 7.12.22.1  Description
 Specializes StrucDoc.Captioned.
@@ -4599,7 +4599,7 @@ present a table in the form of a table of contents, etc.). Please consult the HT
 information. The value of this attribute is a comma-separated list of category names
 7.12.24.2.3  headers : Set(String)  «XMLIDREF»:  This attribute specifies the list of header cells that provide 
 header information for the current data cell. The value  of this attribute is a space-separated list of ID 
-references to header cells; those cells must be named by setting their id attribute. Authors generally use the 
+references to header cells; those cells SHALL be named by setting their id attribute. Authors generally use the 
 headers attribute to help non-visual user agents render header information about data cells (e.g., header 
 information is spoken prior to the cell data), but the attribute may also be used in conjunction with style sheets. 
 See also the scope attribute.
@@ -4644,7 +4644,7 @@ Refer to Clause A.2 for the meaning of the Anonymous stereotype.
 7.12.25.3  Invariants
 at least one row part shall be provided.
 OCL for Invariants:
-inv "must have at least one item": parts->notEmpty
+inv "SHALL have at least one item": parts->notEmpty
 7.12.26 StrucDoc.TRowPart
 7.12.26.1  Description
 Stereotype: «Choice».
@@ -4663,9 +4663,9 @@ A grop of rows – may be used to associate consistent styling across a group of r
 7.12.27.2  Attributes
 7.12.27.2.1  tr : Sequence(StrucDoc.Trow): The rows in the group.
 7.12.27.3  Invariants
-at least one row must be provided.
+at least one row SHALL be provided.
 OCL for Invariants:
-inv "must have at least one item": tr->notEmpty
+inv "SHALL have at least one item": tr->notEmpty
 7.12.28 StrucDoc.ColItem
 7.12.28.1  Description
 Abstract. Specializes StrucDoc.TableItem.
@@ -4686,9 +4686,9 @@ Applies a consistent style to every cell in a group of columns.
 7.12.30.2  Associations
 7.12.30.2.1  col : StrucDoc.Col[0..* ordered]: The columns in this group.
 7.12.30.3  Invariants
-at least one column must be provided.
+at least one column SHALL be provided.
 OCL for Invariants:
-inv "must have at least one item": col->notEmpty
+inv "SHALL have at least one item": col->notEmpty
 7.12.31 StrucDoc.Table
 7.12.31.1  Description
 Specializes StrucDoc.Captioned.
@@ -4698,7 +4698,7 @@ columns.
 7.12.31.2  Attributes
 7.12.31.2.1  summary : String : This attribute provides a summary of the table‘s purpose and structure for 
 user agents rendering to non-visual media such as speech and Braille. This is different from the caption in that 
-it must be plain text, and it is usually longer.
+it SHALL be plain text, and it is usually longer.
 7.12.31.2.2  width  : StrucDoc.Length : This attribute specifies the desired width of the entire table and is 
 intended for visual user agents.
 The rules described in the html specification for table width calculations apply to the tables described here.
@@ -4751,7 +4751,7 @@ ISO/FDIS 21090:2009(E)
 7.12.31.4  Invariants
 at least one row shall be provided.
 OCL for Invariants:
-inv "must have at least one row": thead.tr->count + tfoot.tr->count
+inv "SHALL have at least one row": thead.tr->count + tfoot.tr->count
 + tbody.tr->count > 0
 7.12.32 SD.TEXT
 7.12.32.1  Description
@@ -4866,7 +4866,7 @@ UML  attributes  with a type derived from a  collection  of UML primitives are r
 attribute;
 the name of the XML attribute is the name of the UML attribute;
 the attribute has no namespace;
-the content of the attribute must be a space separated list of tokens that conform to the schema type 
+the content of the attribute SHALL be a space separated list of tokens that conform to the schema type 
 that matches the UML type as specified in the table  in Clause A.4.
 UML associations with a stereotype of "Anonymous" are not represented by any element at all.
 The  xsi:nil attribute  shall  not  be used in the XML representation of a value. If a UML attribute is not 
@@ -4879,7 +4879,7 @@ bound to the class are added to the type using _ as a separator. i.e. DSET(AD) b
 ISO/FDIS 21090:2009(E)
 © ISO 2009 – All rights reserved  165
 If an attribute is contained by reference, then this is represented using XML ID/IDREF attributes. The 
-reference must be contained within same document. The attribute itself may make other constraints about 
+reference SHALL be contained within same document. The attribute itself may make other constraints about 
 where the target of the reference might be found. The reference may be a forward reference.
 A.3  Data type flavours in XML
 Data type flavours are used to signal the imposition of one or more sets of constrain ts. The flavours may be 

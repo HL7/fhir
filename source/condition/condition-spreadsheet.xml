@@ -430,28 +430,28 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Stage rule</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Condition.stage</Data></Cell>
-    <Cell><Data ss:Type="String">Stage must have summary or assessment</Data></Cell>
+    <Cell><Data ss:Type="String">Stage SHALL have summary or assessment</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:summary) or exists(f:assessment)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">Evidence</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Condition.evidence</Data></Cell>
-    <Cell><Data ss:Type="String">evidence must have code or details</Data></Cell>
+    <Cell><Data ss:Type="String">evidence SHALL have code or details</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:code) or exists(f:detail)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">Location</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Condition.location</Data></Cell>
-    <Cell><Data ss:Type="String">location must have code or details</Data></Cell>
+    <Cell><Data ss:Type="String">location SHALL have code or details</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:code) or exists(f:detail)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">Relationship</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Condition.relatedItem</Data></Cell>
-    <Cell><Data ss:Type="String">Relationship must have either a code or a target</Data></Cell>
+    <Cell><Data ss:Type="String">Relationship SHALL have either a code or a target</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:code) != exists(f:target)</Data></Cell>
    </Row>
   </Table>

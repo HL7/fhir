@@ -31,7 +31,7 @@ identification strategies. The following combinations are allowed:
 Any other combinations do not globally uniquely identity a document and are therefore not allowed.
 </p>
 <p>
-Note that there is an additional identifier - the bundle identifier itself (<a href="extras.htm#bundles">atom</a> feed.id). This must be an absolute 
+Note that there is an additional identifier - the bundle identifier itself (<a href="extras.htm#bundles">atom</a> feed.id). This SHALL be an absolute 
 URI - in effect globally unique - but has no other particular meaning anywhere else in the specification.
 For a document, it can be populated with some URI that is extracted from the <i>versionId</i> or <i>id</i>
 above, or it can be a new UUID that has no other associated use. Implementers should not rely on its 
@@ -93,7 +93,7 @@ to this specification. A document recipient has the following obligations:
 </p>
 <ul>
  <li>When storing/transmitting a document, any method may be used as long as the bundled document can be (re-)assembled with sufficient integrity to validate a digital signature (i.e. it is legitimate to unbundle the resources and store them on a FHIR RESTful server, but this is not required)</li>
- <li>When presenting the narrative of the document, the rules described above must be followed</li>
+ <li>When presenting the narrative of the document, the rules described above SHALL be followed</li>
  <li>A user is allowed to extract resources or data from the document for other use, but such data is no longer considered to be attested by the document author</li>
  <li>Wherever the data (or information derived from it) is displayed to a user, there should always be a way for the user to access a presentation of the original document</li>
  <li>It must correctly determine when a document has been superseded (according the statements made in the 

@@ -145,7 +145,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Need to be unambiguous about the source of the definition of the symbol</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The identity is a uri. It may be an OID or a UUID, which must be references to the HL7 OID registry, or a URI which either comes from HL7's list of FHIR defined special URIs or from some system defined elsewhere, in which case the URI should de-reference to establish the system unambiguously</Data><NamedCell
+    <Cell><Data ss:Type="String">The identity is a uri. It may be an OID or a UUID, which SHALL be references to the HL7 OID registry, or a URI which either comes from HL7's list of FHIR defined special URIs or from some system defined elsewhere, in which case the URI should de-reference to establish the system unambiguously</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">./codeSystem</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

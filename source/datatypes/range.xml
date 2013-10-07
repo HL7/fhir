@@ -172,7 +172,7 @@
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">Low &lt; high</Data></Cell>
     <Cell><Data ss:Type="String">Range</Data></Cell>
-    <Cell><Data ss:Type="String">If present, low must have a lower value than high</Data></Cell>
+    <Cell><Data ss:Type="String">If present, low SHALL have a lower value than high</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:low/f:value/@value)) or not(exists(f:high/f:value/@value)) or (number(f:low/f:value/@value) &lt;= number(f:high/f:value/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

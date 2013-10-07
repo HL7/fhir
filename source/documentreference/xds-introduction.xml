@@ -97,7 +97,7 @@ The <a href="http.htm">RESTful API</a> allows updates to the DocumentReference/D
 </p>
 <p>
 In the context of XDS, servers SHALL ensure that the masterIdentifier element of a DocumentReference is never changed after
-the resource is created. When a new document is created, a new DocumentReference must be created. The server SHOULD ensure
+the resource is created. When a new document is created, a new DocumentReference SHALL be created. The server SHOULD ensure
 that the supercedes element is correctly populated, along with the status of any existing documents that are being
 superceded. It MAY choose to do this by requiring the clients to perform this operation, or simply performing the 
 operation itself.

@@ -455,7 +455,7 @@
     <Cell><Data ss:Type="String">If quality issues exist (mostly devices)</Data></Cell>
     <Cell><Data ss:Type="String">An estimate of the degree to which quality issues have impacted on the value reported</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Not all results are completely reliable, and some are still reported anyway.</Data></Cell>
-    <Cell><Data ss:Type="String">Note that in most contexts, unreliable results are not recorded, deleted, or otherwise excluded, but it's not always possible to exclude them from the record. Interpreters of a result, whether human or machine, must always either be aware of the status, or prevented from using the observation without being unaware that the reliability is not &quot;ok&quot;</Data></Cell>
+    <Cell><Data ss:Type="String">Note that in most contexts, unreliable results are not recorded, deleted, or otherwise excluded, but it's not always possible to exclude them from the record. Interpreters of a result, whether human or machine, SHALL always either be aware of the status, or prevented from using the observation without being unaware that the reliability is not &quot;ok&quot;</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">uncertaintyCode</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Maybe OBX.8/OBX.9</Data></Cell>
@@ -572,7 +572,7 @@
     <Cell><Data ss:Type="String">Who/what this is about</Data></Cell>
     <Cell><Data ss:Type="String">The thing the observation is being made about</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s69"><Data ss:Type="String">Observations have no value if you don't know who or what they're about.</Data></Cell>
-    <Cell><Data ss:Type="String">The only circumstance in which the subject can be missing is when the observation is made by a device that does not know the patient. In this case, the observation must be matched to a patient through some context/channel matching technique, and at this point, the observation should be updated</Data></Cell>
+    <Cell><Data ss:Type="String">The only circumstance in which the subject can be missing is when the observation is made by a device that does not know the patient. In this case, the observation SHALL be matched to a patient through some context/channel matching technique, and at this point, the observation should be updated</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">participation[typeCode=SBJ]</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">unique(./participation[isHighest(priorityCode) and typeCode=&quot;SBJ&quot; and isNormalParticipation()]/role&#10;or ./participation[isHighest(priorityCode) and typeCode=&quot;SBJ&quot; and isNormalParticipation()]/role/entity)</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">PID-3-patient ID list</Data></Cell>
@@ -949,7 +949,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">value or components</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Observation</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Must have at least one of value or components</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">SHALL have at least one of value or components</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">exists(*[starts-with(local-name(.), 'value')]) or exists(f:component)</Data></Cell>
    </Row>

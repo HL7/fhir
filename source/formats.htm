@@ -34,7 +34,7 @@ The XML syntax uses the following notation:
 </p>
 <pre class="spec">
  &lt;<b>name</b> xmlns="http://hl7.org/fhir" (attrA="value")&gt; 
-   &lt;<u><b title="Formal Definition (must be supported or understood)">nameA</b></u>&gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="Darkgreen">type</font> <font color="Navy">description of content</font> <font color="Gray"> --&gt;</font>&lt;nameA&gt;
+   &lt;<u><b title="Formal Definition (SHALL be supported or understood)">nameA</b></u>&gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="Darkgreen">type</font> <font color="Navy">description of content</font> <font color="Gray"> --&gt;</font>&lt;nameA&gt;
    &lt;<b title="Formal Definition">nameB[x]</b>&gt;<font color="Gray">&lt;!-- </font><font color="deeppink" title="Condition">0..1</font> <font color="darkgreen">type1</font>|<font color="darkgreen">type1</font> <font color="Navy">description</font> <font color="Gray"> --&gt;</font>&lt;/nameB&gt;
    &lt;<b>nameC</b>&gt; <font color="Brown"><font color="Gray">&lt;!-- </font> <b>1..*</b> --&gt;</font>
      &lt;<b>nameD</b> &gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="darkgreen">type</font>&gt;<font color="navy">Relevant records</font> <font color="Gray"> --&gt;</font>&lt;/nameD&gt;
@@ -68,7 +68,7 @@ Notes:
  <li>If the element name is underlined, then applications are required to <a href="resources.htm#mustSupport">support</a> and/or <a href="resources.htm#isModifier">understand</a> it</li>
  <li>The character set for a resource is always Unicode, encoded in UTF-8.</li>
  <li>Any of the elements may have an id attribute to serve as <a href="references.htm#idref">the target of an internal reference</a>. The id attribute is not shown in this format</li>
- <li>FHIR elements are never empty. If an element is present in the resource, it must have either a value attribute, child elements as defined for its type, an id attribute that is the <a href="references.htm#idref">link target</a> of <a href="narrative.htm#narrative">narrative</a>, or 1 or more <a href="extensibility.htm">extensions</a></li>
+ <li>FHIR elements are never empty. If an element is present in the resource, it SHALL have either a value attribute, child elements as defined for its type, an id attribute that is the <a href="references.htm#idref">link target</a> of <a href="narrative.htm#narrative">narrative</a>, or 1 or more <a href="extensibility.htm">extensions</a></li>
  <li>Attributes can never be empty. Either they are absent, or they are present with at least one character of non-whitespace content</li>
  <li>In addition to this descriptive syntax, other definitional forms are available, including W3C schema and Schematron</li>
 </ul>

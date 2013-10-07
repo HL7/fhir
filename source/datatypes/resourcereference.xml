@@ -179,14 +179,14 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
     <Cell><Data ss:Type="String">ResourceReference</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Must have a type if a reference is provided</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">SHALL have a type if a reference is provided</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:type) or not(exists(f:reference))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">Inline</Data></Cell>
     <Cell><Data ss:Type="String">ResourceReference</Data></Cell>
-    <Cell><Data ss:Type="String">Must have a local reference if the resource is provided inline</Data></Cell>
+    <Cell><Data ss:Type="String">SHALL have a local reference if the resource is provided inline</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not(starts-with(f:reference/@value, '#')) or exists(ancestor::a:content/f:*/f:contained/f:*[local-name(.)=current()/f:type/@value and @id=substring-after(current()/f:reference/@value, '#')]|/f:*/f:contained/f:*[local-name(.)=current()/f:type/@value and @id=substring-after(current()/f:reference/@value, '#')])</Data></Cell>
    </Row>
   </Table>

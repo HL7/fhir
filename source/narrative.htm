@@ -28,7 +28,7 @@ Resource definitions may define what content should be represented in the narrat
 </p>
 <p>
 The narrative for a resource is allowed to contain additional information that is not in 
-the structured data, including human-edited content. Such additional information must be 
+the structured data, including human-edited content. Such additional information SHALL be 
 in the scope of the definition of the resource, though it is common for the narrative to
 include additional descriptional information extracted from other referenced resources.
 </p>
@@ -52,9 +52,9 @@ The narrative is an xhtml fragment that also includes images if appropriate:
 <p>
 The contents of the <i>div</i> element are an XHTML fragment containing only the basic html formatting elements described in 
 chapters 7-11 (except section 4 of chapter 9) and 15 of the HTML 4.0 standard, &lt;a&gt; elements (either name or href),
-images and internally contained style attributes. The XHTML content must not contain
+images and internally contained style attributes. The XHTML content SHALL not contain
 a head, a body element, external stylesheet references, scripts, forms, base/link/xlink, frames, iframes,
-and objects. The div element must have some non-whitespace content.
+and objects. The div element SHALL have some non-whitespace content.
 <!-- Todo: Formally encode these constraints in schematron -->
 </p>
 <div class="example">
@@ -138,7 +138,7 @@ may fix the following styling aspects of the content:
 <p>
 These style properties are specified in-line using the style attribute. If an equivalent 
 html element exists, such as "i", or "pre", it may be used instead, but note that some of these 
-elements are deprecated in HTML 4 and must not be used in Narrative XHTML (including "u", and "font").
+elements are deprecated in HTML 4 and SHALL not be used in Narrative XHTML (including "u", and "font").
 </p>
 <p>
 Rendering systems are required to respect any of these rendering styles when they are specified in 

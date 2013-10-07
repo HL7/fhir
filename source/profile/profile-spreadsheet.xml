@@ -529,7 +529,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">The name must be unique within the profile and all imported profiles within the context of the constrained resource element.  (Though to avoid confusion, uniqueness across all elements is recommended.)</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">The name SHALL be unique within the profile and all imported profiles within the context of the constrained resource element.  (Though to avoid confusion, uniqueness across all elements is recommended.)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -570,7 +570,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Element that used to distinguish the slices</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance must completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance SHALL completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -630,7 +630,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Definition of the content of the element to provide a more specific definition than that contained for the element in the base resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">The definition must be a proper constraint on the definition of the base resource</Data><NamedCell
+    <Cell ss:Index="14"><Data ss:Type="String">The definition SHALL be a proper constraint on the definition of the base resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -665,7 +665,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Formal definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String"> The definition must be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource</Data><NamedCell
+    <Cell><Data ss:Type="String"> The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">To allow a user to clarify the usage of an element in a particular context</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -749,7 +749,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Minimum Cardinality</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">The minimum number of times this element must appear in the instance</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">The minimum number of times this element SHALL appear in the instance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -835,7 +835,7 @@
     <Cell><Data ss:Type="String">uri</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Profile.structure to apply</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Identifies a profile that must hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Identifies a profile that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -898,7 +898,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Fixed value: [as defined for type]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Specifies a value that must hold for this element in the instance</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Specifies a value that SHALL hold for this element in the instance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -937,7 +937,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Length for strings</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Indicates the shortest length that must be supported by conformant instances without truncation</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Indicates the shortest length that SHALL be supported by conformant instances without truncation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1070,7 +1070,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13" ss:StyleID="s69"><Data ss:Type="String">Used in Schematron tests of the validity of the resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Elements must use &quot;f&quot; as the namespace prefix and must not use any other prefixes</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Elements SHALL use &quot;f&quot; as the namespace prefix for the FHIR namespace, and &quot;x&quot; for the xhtml namespace, and SHALL not use any other prefixes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1098,15 +1098,15 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">If the element must be usable</Data><NamedCell
+    <Cell><Data ss:Type="String">If the element must supported</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">If true, conformant resource authors must be capable of providing a value for the element and resource consumers must be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">If true, conformant resource authors SHALL be capable of providing a value for the element and resource consumers SHALL be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Allows a profile to set expectations for system capabilities beyond merely respecting cardinality constraints</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">&quot;Something useful&quot; is context dependent. This flag is never set to true by the FHIR specification itself - it is only set to true in profiles, and when the profile sets it true, it must describe what it means for applications to support the element. In general, the question is what would a reasonable observer expect of a system that explicitly claims to &quot;support&quot; this element?</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">&quot;Something useful&quot; is context dependent. This flag is never set to true by the FHIR specification itself - it is only set to true in profiles, and when the profile sets it true, it SHALL describe what it means for applications to support the element. In general, the question is what would a reasonable observer expect of a system that explicitly claims to &quot;support&quot; this element?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -1120,7 +1120,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">If this modifies the meaning of other elements</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they must either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1440,7 +1440,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The name to be associated with this set of codes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Must be unique within the profile.  If the same name as an imported profile, will override the imported binding (and must be a proper constraint on the imported binding)</Data><NamedCell
+    <Cell ss:Index="14"><Data ss:Type="String">SHALL be unique within the profile.  If the same name as an imported profile, will override the imported binding (and SHALL be a proper constraint on the imported binding)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
@@ -1578,13 +1578,13 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.extensionDefn.code</Data></Cell>
-    <Cell><Data ss:Type="String">Codes must be unique in the context of a profile</Data></Cell>
+    <Cell><Data ss:Type="String">Codes SHALL be unique in the context of a profile</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">count(ancestor::f:Profile/f:extensionDefn/f:code[@value=current()/@value])=1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.element.definition.max</Data></Cell>
-    <Cell><Data ss:Type="String">Max must be a number or &quot;*&quot;</Data></Cell>
+    <Cell><Data ss:Type="String">Max SHALL be a number or &quot;*&quot;</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">@value='*' or (normalize-space(@value)!='' and normalize-space(translate(@value, '0123456789',''))='')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -1596,7 +1596,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile</Data></Cell>
-    <Cell><Data ss:Type="String">Must define at least one resource constraint, extension definition or binding</Data></Cell>
+    <Cell><Data ss:Type="String">SHALL define at least one resource constraint, extension definition or binding</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:structure) or exists(f:extensionDefn) or exists(f:binding)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -1614,7 +1614,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">11</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.binding.name</Data></Cell>
-    <Cell><Data ss:Type="String">Binding name must be unique in the context of a profile</Data></Cell>
+    <Cell><Data ss:Type="String">Binding name SHALL be unique in the context of a profile</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">count(ancestor::f:Profile/f:binding/f:name[@value=current()/@value])=1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -1626,7 +1626,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">13</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile.binding.referenceUri</Data></Cell>
-    <Cell><Data ss:Type="String">uri must start with http:// or https://</Data></Cell>
+    <Cell><Data ss:Type="String">uri SHALL start with http:// or https://</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">starts-with(@value, 'http:') or starts-with(@value, 'https:')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1792,7 +1792,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s69"><Data ss:Type="String">ConstraintSeverity</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Must applications comply with this constraint?</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">SHALL applications comply with this constraint?</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#constraint-severity</Data></Cell>
    </Row>

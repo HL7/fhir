@@ -86,14 +86,14 @@ though in a few cases, this specification makes additional constraints marked in
    Note: This type is for system times, not human times (see date and dateTime below).</td>
  </tr>
  <tr>
-   <td>string</td><td>xs:string</td><td>A sequence of Unicode characters. <b>Note that strings SHALL not exceed 1MB in size</b></td>
+   <td>string</td><td>xs:string</td><td>A sequence of Unicode characters. <b>Note that strings SHALL NOT exceed 1MB in size</b></td>
  </tr>
  <tr>
    <td>uri</td><td>xs:anyURI</td><td>A Uniform Resource Identifier Reference. It can be absolute or relative, 
     and may have an optional fragment identifier (<a href="http://tools.ietf.org/html/rfc3986">RFC 3986</a>)</td>
  </tr>
- <tr><td>date</td><td>union of xs:date, xs:gYearMonth, xs:gYear</td><td>A date, or partial date (e.g. just year or year + month) as used in human communication. There is no time zone. Dates must be valid dates. <br/>date is a union of the w3c schema types date, gYearMonth, and gYear<br/>regex: -?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?</td></tr>
- <tr><td>dateTime</td><td>union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td><td>A date, date-time or partial date (e.g. just year or year + month) as used in human communication. If hours and minutes are specified, a time zone must be populated. Seconds may be provided but may also be ignored. Dates must be valid dates. <br/>dateTime is a union of the w3c schema types dateTime, date, gYearMonth, gYear<br/>
+ <tr><td>date</td><td>union of xs:date, xs:gYearMonth, xs:gYear</td><td>A date, or partial date (e.g. just year or year + month) as used in human communication. There is no time zone. Dates SHALL be valid dates. <br/>date is a union of the w3c schema types date, gYearMonth, and gYear<br/>regex: -?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?</td></tr>
+ <tr><td>dateTime</td><td>union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td><td>A date, date-time or partial date (e.g. just year or year + month) as used in human communication. If hours and minutes are specified, a time zone SHALL be populated. Seconds may be provided but may also be ignored. Dates SHALL be valid dates. <br/>dateTime is a union of the w3c schema types dateTime, date, gYearMonth, gYear<br/>
  regex:-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?|(24:00:00(\.0+)?))(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?
  
  </td></tr>
@@ -128,7 +128,7 @@ String values should only have leading and trailing spaces if they are part of t
 <p>
 In JSON, these types are represented as simple properties of the object that contains them. The name of the property is defined where the type is used.
 The types still have an id property, and extensions. How these are represented is described in the <a href="json.htm">JSON format</a>. Whitespace
-is always significant in JSON. Primitive types other than string SHALL not have leading or trailing whitespace.
+is always significant in JSON. Primitive types other than string SHALL NOT have leading or trailing whitespace.
 </p>
 
 
@@ -143,7 +143,7 @@ XML elements. The JSON representation is almost exactly the same, so only the fi
 </p>
 <p>
 Complex data types may be "profiled". A <a href="profile.htm">profile</a> makes 
-a set of rules about which elements must have values, and what the possible 
+a set of rules about which elements SHALL have values, and what the possible 
 values are.
 </p>
 
@@ -169,17 +169,17 @@ data that has a mime type.
 </p>
 [%dt Attachment%]
 <p>
-The <i>contentType</i> element must always be populated. It can include charset information 
+The <i>contentType</i> element SHALL always be populated. It can include charset information 
 and other mime type extensions as appropriate. If there is no character set in the <i>contentType</i>
 then the correct course of action is undefined, though some media types may define a default
 character set and/or the correct character set may be able to be determined by inspection of the content.
 </p>
 <p>The actual content of the 
 Attachment can be conveyed directly using the <i>data</i> element
-or a <i>url</i> reference can be provided. If both are provided, the reference must 
+or a <i>url</i> reference can be provided. If both are provided, the reference SHALL 
 point to the same content as found in the data. The reference can never be reused to point to
 some different data (i.e. the reference is version specific). The
-<i>url</i> reference must point to a location that resolves to actual data; some
+<i>url</i> reference SHALL point to a location that resolves to actual data; some
 URIs such as cid: meet this requirement. If the url is a relative reference, it is interpreted
 in the same way as a <a href="references.htm#references">resource reference</a>.
 </p>
@@ -188,7 +188,7 @@ The <i>hash</i> is included so that applications can verify that the content ret
 </p>
 <p>
 In many cases where Attachment is used, the cardinality is &gt;1. A valid use of repeats is to convey the same content in different mime types and languages.
-Guidance on the meaning of repeating elements MUST be provided in the definition of the repeating resource element or extension that references this type.
+Guidance on the meaning of repeating elements SHALL be provided in the definition of the repeating resource element or extension that references this type.
 The language element describes the language of the attachment using the <a href="http://tools.ietf.org/html/bcp47">codes defined in BCP 47</a>.
 </p>
 <div class="use">
@@ -255,7 +255,7 @@ See the <a href="valueset.htm#versioning">discussion of code system versions in 
 </p>
 
 <p>
-If present, the <i>code</i> must be a syntactically correct symbol as defined by the <i>system</i>.
+If present, the <i>code</i> SHALL be a syntactically correct symbol as defined by the <i>system</i>.
 In some code systems such as SNOMED CT, the symbol may be an expression composed of other predefined symbol (e.g. post-coordination). 
 Note that codes are case sensitive unless specified otherwise by the code system. The <i>display</i> 
 is a text representation of the code defined by the <i>system</i> and can be used to display 
@@ -309,14 +309,14 @@ In the absence of a specified version release format by the code system (such as
 LOINC), the release date is to be used.
 </p>
 <p>
-The <i>version</i> element must always be ignored when comparing <i>Coding</i> values
+The <i>version</i> element SHALL always be ignored when comparing <i>Coding</i> values
 </p>-->
 <div class="use">
 <p><b>Constraints</b></p>
 <!--
 [%dt.constraints Coding%]
 <p>
-Unless the Coding element has a dataAbsentReason flag, it must contain a <i>system</i> element 
+Unless the Coding element has a dataAbsentReason flag, it SHALL contain a <i>system</i> element 
 and it should contain a <i>display</i> if it contains a <i>code</i>.
 <!-!- It can only contain a
 <i>version</i> element if it contains a <i>system</i> element.-!->
@@ -444,7 +444,7 @@ Ranges are typically used in instructions.
 </p>
 [%dt Range%]
 <p>
-The <i>units</i> and <i>code</i>/<i>system</i> elements of the <i>low</i> or <i>high</i> elements must match. 
+The <i>units</i> and <i>code</i>/<i>system</i> elements of the <i>low</i> or <i>high</i> elements SHALL match. 
 If the <i>low</i> or <i>high</i> elements are missing, the meaning
 is that the low or high boundaries are not known and therefore neither is the range.
 </p>
@@ -552,9 +552,9 @@ represented together.
 None of the elements in a SampledData are mandatory because the SampledData type is frequently used with
 devices where one usage carries just the <i>data</i> element, and the values of the other 
 elements are represented elsewhere (see <a href="devicelog.htm">Device Log</a> and <a href="devicecapabilities.htm">Device Capabilities</a>). 
-At least one element must always be populated. The data is not interpretable without at least <i>origin</i>, 
+At least one element SHALL always be populated. The data is not interpretable without at least <i>origin</i>, 
 <i>period</i>, and <i>dimensions</i>. When carried in an <a href="observation.htm">Observation</a>,
-these 3 elements and <i>data</i> must be populated for the SampledData to be properly populated.
+these 3 elements and <i>data</i> SHALL be populated for the SampledData to be properly populated.
 The default value for <i>factor</i> is 1. 
 </p>
 
@@ -577,7 +577,7 @@ errors.
 <p>
 The <i>system</i> referred to by means of a URI defines how the identifier is defined (i.e. how the value is made unique). 
 It might be a specific application or a recognized standard/specification for a set or identifiers
-or a way of making identifiers unique. The <i>value</i> must be unique within the defined <i>system</i>
+or a way of making identifiers unique. The <i>value</i> SHALL be unique within the defined <i>system</i>
 and have a consistent meaning wherever it appears. Both <i>system</i> and <i>value</i> are always case sensitive.
 </p>
 <p>
@@ -585,7 +585,7 @@ FHIR defines <a href="terminologies-systems.htm">some useful URIs directly</a>. 
 may be registered in the <a href="http://hl7.org/oid">HL7 OID registry</a> and should be if the 
 content is shared or exchanged across institutional boundaries. If the identifier itself 
 is naturally globally unique (i.e. an OID, a UUID, or a URI with no trailing local part), 
-then the <i>system</i> must be "urn:ietf:rfc:3986", and the URI would be in the <i>value</i>.
+then the <i>system</i> SHALL be "urn:ietf:rfc:3986", and the URI would be in the <i>value</i>.
 </p>
 <p>
 In some cases, the system may not be known - only the value is known (e.g. a simple device that scans a barcode), 
@@ -615,19 +615,19 @@ contexts. Names may be divided into parts of different type that have variable
 significance depending on context, though the division into parts does not always 
 matter. With personal names, the different parts may or may not be imbued with
 some implicit meaning; various cultures associate different importance with the 
-name parts and the degree to which systems must care about name parts around the 
+name parts and the degree to which systems SHALL care about name parts around the 
 world varies widely.
 </p>
 [%dt HumanName%]
 <p>
 The <i>text</i> element specifies the entire name as it should be represented. This
 may be provided instead of or as well as specific parts. Applications updating a name
-must ensure either that the text and the parts are in agreement, or that only one
+SHALL ensure either that the text and the parts are in agreement, or that only one
 of the two is present.
 </p>
 <p>
 Note that the order of the  parts within a given part type has 
-significance and must be observed. The appropriate order between 
+significance and SHALL be observed. The appropriate order between 
 family name and given names depends on culture and context of use. 
 </p>
 <!--<div class="use">
@@ -654,7 +654,7 @@ visited to find a patient or person.
 <p>
 The <i>text</i> element specifies the entire address as it should be represented. This
 may be provided instead of or as well as the specific parts. Applications updating an address
-must ensure either that the text and the parts are in agreement, or that only one
+SHALL ensure either that the text and the parts are in agreement, or that only one
 of the two is present.
 </p>
 
@@ -706,7 +706,7 @@ Note: a possible enhancement to this is to have the repeat content repeat with e
 -->
 [%dt Schedule%]
 <p>
-If events are specified, at least <i>event.start</i> must be specified for each event. If no <i>event.end</i> is 
+If events are specified, at least <i>event.start</i> SHALL be specified for each event. If no <i>event.end</i> is 
 specified, the event is assumed to last a limited but unknown time as clinically relevant.
 </p>
 <p>

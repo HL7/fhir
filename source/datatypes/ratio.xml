@@ -158,7 +158,7 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">both numerator and denominator</Data></Cell>
     <Cell><Data ss:Type="String">Ratio</Data></Cell>
-    <Cell><Data ss:Type="String">numerator and denominator must both be present, or both be absent</Data></Cell>
+    <Cell><Data ss:Type="String">numerator and denominator SHALL both be present, or both be absent</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">count(f:numerator) = count(f:denominator)</Data></Cell>
    </Row>
   </Table>

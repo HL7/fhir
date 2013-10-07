@@ -15,7 +15,7 @@ A value set that defines codes automatically includes all the codes it defines.
 This kind of value set is useful for simple sets of codes that are highly 
 specific and context-dependent. The value set and the code system are both 
 given URI identifiers by which they may be identified from elsewhere 
-(ValueSet.identifier and ValueSet.define.system). These identifiers must 
+(ValueSet.identifier and ValueSet.define.system). These identifiers SHALL 
 be different.
 </p>
 <ul>
@@ -25,7 +25,7 @@ be different.
    Although a definition is not required for each concept, a good definition SHOULD be provided. In the absence of any definition, there is no formal meaning associated with the concept</li>
  <li>If concepts contain other concepts, then the contained concepts are "subsumed" by 
    the containing concept (there is an "is-a" relationship between the codes).</li>
-  <li>An abstract concept must have contained concepts</li>
+  <li>An abstract concept SHALL have contained concepts</li>
 </ul>
 
 <a name="versioning"> </a>
@@ -61,7 +61,7 @@ kind of general selection criteria using the facilities provided by the code sys
 </p>
 <ul>
  <li>Within an include or exclude criterion, multiple filters and concept selections are intersected. All the 
-   conditions specified must be true.</li>
+   conditions specified SHALL be true.</li>
  <li>The value set always includes any codes it defines itself. A typical use for this
     is when including a set of codes from elsewhere, and adding a few additional codes to cover
     cases not catered to by the included codes</li>

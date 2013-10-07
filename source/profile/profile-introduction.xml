@@ -77,7 +77,7 @@ The following kinds of statements can be made about how a resource or data type 
  <li>Providing more specific or additional mappings (e.g. to v2 or v3) for the resource when used in a particular context</li> 
 </ul>
 <p>
-All of these changed definitions must be restrictions that are consistent with the 
+All of these changed definitions SHALL be restrictions that are consistent with the 
 rules defined in the base resource in the FHIR Specification. Note that some of 
 these restrictions can be enforced by tooling (and are by the FHIR tooling), but 
 others cannot be automatically enforced.
@@ -105,8 +105,8 @@ defines the following structure:
  &lt;/Root&gt;
 </pre>
 <p>
-or its JSON equivalent. The structure must be coherent - children are never 
-implied, and the path statements must always be in order. The element list is 
+or its JSON equivalent. The structure SHALL be coherent - children are never 
+implied, and the path statements SHALL always be in order. The element list is 
 a linear list rather than being explicitly nested because profile structures
 are frequently used in multiple places within a single profile, and this re-use
 is easier in a flat structure.
@@ -166,10 +166,10 @@ are never exchanged. A resource instance looks like this:
 The only way to determine that the first component corresponds to "Systolic" in the profile is 
 to check the values of the elements - in this case, the code element. In order to make this 
 easy to use, particularly in the context of code generation tools that work with profiles, 
-any time slicing is performed in a profile, the profile must nominate a "discriminator" - a child
-element that is used to discriminate between the different slices. The child element must be 
+any time slicing is performed in a profile, the profile SHALL nominate a "discriminator" - a child
+element that is used to discriminate between the different slices. The child element SHALL be 
 associated with a fixed value in each of the definitions, or if the child element has a terminology
-binding, it must be associated with a complete binding with a version specific <a href="valueset.htm">Value Set</a> reference 
+binding, it SHALL be associated with a complete binding with a version specific <a href="valueset.htm">Value Set</a> reference 
 that enumerates the possible codes in the value set, and where there is no overlap between the codes in the value sets.
 </p>
 <p>
@@ -178,8 +178,8 @@ TODO: how does the discriminator work with resource references? - This is a open
 <p>
 Within a profile, a slice will mean that there are multiple entries in the element list with the 
 same path, each with a different name. All slices that are grouped together (no short path 
-in the elements between them) must have the same discriminator element in the profile, and 
-each slice must specify a distinct set of possible values for the element so that the different
+in the elements between them) SHALL have the same discriminator element in the profile, and 
+each slice SHALL specify a distinct set of possible values for the element so that the different
 slice can be differentiated. The value of the discriminator is either a simple 
 name - the name of a child element, or an URI, which is identifies an extension that serves
 as the discriminator.
@@ -220,7 +220,7 @@ use a resource, the extension list on the resource needs to be sliced. To do thi
 ... (todo: fill out the details)
 </p>
 <p>
-Note that the minimum cardinality of an extension must be a valid restriction
+Note that the minimum cardinality of an extension SHALL be a valid restriction
 on the minimum cardinality in the definition of the extension. if the minimum
 cardinality of the extension is 1 when it is defined, it can only be mandatory
 when it is added to a profile. This is not recommended - the minimum cardinality

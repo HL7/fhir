@@ -64,7 +64,7 @@ in both directions.
 <p>
 An incoming message contains two identifiers: the envelope id 
 (<a href="extras.htm#bundles">feed</a>.id) and the <a href="message.htm">message</a>.identifier. 
-Each time a new message is created, it must be assigned an identifier that is 
+Each time a new message is created, it SHALL be assigned an identifier that is 
 unique within that message stream. Note that since message streams are often 
 merged with other streams, it is recommended that the identifier should be globally 
 unique. This can be achieved by using a UUID or an OID or appropriately 
@@ -117,7 +117,7 @@ The correct action to take depends on what is received:
 </p>
 <table class="grid">
  <tr><td>Both the envelope id and message identifier have not been received</td><td>This is the normal case, and the message should be processed</td></tr>
- <tr><td>Both envelope and message already received</td><td>The original response has been lost (failed to return to the request issuer), and the original response must be resent</td></tr>
+ <tr><td>Both envelope and message already received</td><td>The original response has been lost (failed to return to the request issuer), and the original response SHALL be resent</td></tr>
  <tr><td>The message identifier has already been received, but the envelope id is new</td><td>A previously seen message has been resubmitted for processing again. The server may either reprocess the message, or reject the message</td></tr>
  <tr><td>The envelope id has already been received, but the message identifier is new</td><td>This is an error - envelope ids should never be reused</td></tr>
 </table>
