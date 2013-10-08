@@ -47,12 +47,10 @@
         <value value="6326"/>
     </identifier>
     <subject>
-        <type value="Patient"/> 
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
     </subject>
     <performer>
-        <type value="Practitioner"/>
         <reference value="Practitioner/f005"/>
         <display value="A. Langeveld"/>
     </performer>

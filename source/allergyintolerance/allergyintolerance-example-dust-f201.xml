@@ -10,16 +10,13 @@
  <recordedDate value="2013-01-28"/>
  <status value="confirmed"/><!--House dust allergy is confirmed and active-->
  <subject>
-     <type value="Patient"/>
      <reference value="Patient/f201"/>
      <display value="Roel"/>
  </subject>
  <recorder>
-     <type value="Practitioner"/>
      <reference value="Practitioner/f201"/>
  </recorder>
  <substance>
-     <type value="Substance"/>
      <reference value="Substance/f201"/>
      <display value="House dust allergen"/>
  </substance>

@@ -220,7 +220,6 @@
     <isExtensible value="true"/>
     <conformance value="preferred"/>
     <referenceResource>
-      <type value="ValueSet"/>
       <reference value="#v1"/>
     </referenceResource>
   </binding>

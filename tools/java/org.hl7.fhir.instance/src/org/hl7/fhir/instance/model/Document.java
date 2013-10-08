@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -39,30 +39,34 @@ import java.util.*;
 public class Document extends Resource {
 
     public enum DocumentStatus {
-        interim, // This is an initial or interim document. The content may be incomplete or unverified.
-        final_, // The document is complete and verified by an appropriate person.
+        preliminary, // This is an preliminary document (also known as initial or interim). The content may be incomplete or unverified.
+        final_, // The document is complete and verified by an appropriate person, and no further work is planned.
         amended, // The document has been modified subsequent to being released as "final", and is complete and verified by an authorised person.
-        withdrawn, // The document has been withdrawn following prior release.
+        appended, // The document has been modified subsequent to being released as "final", and is complete and verified by an authorised person. The modifications added new information to the document, but did not revise existing content.
+        retracted, // The document has been withdrawn on the basis that it was original issued in error.
         Null; // added to help the parsers
         public static DocumentStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("interim".equals(codeString))
-          return interim;
+        if ("preliminary".equals(codeString))
+          return preliminary;
         if ("final".equals(codeString))
           return final_;
         if ("amended".equals(codeString))
           return amended;
-        if ("withdrawn".equals(codeString))
-          return withdrawn;
+        if ("appended".equals(codeString))
+          return appended;
+        if ("retracted".equals(codeString))
+          return retracted;
         throw new Exception("Unknown DocumentStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case interim: return "interim";
+            case preliminary: return "preliminary";
             case final_: return "final";
             case amended: return "amended";
-            case withdrawn: return "withdrawn";
+            case appended: return "appended";
+            case retracted: return "retracted";
             default: return "?";
           }
         }
@@ -73,25 +77,29 @@ public class Document extends Resource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("interim".equals(codeString))
-          return DocumentStatus.interim;
+        if ("preliminary".equals(codeString))
+          return DocumentStatus.preliminary;
         if ("final".equals(codeString))
           return DocumentStatus.final_;
         if ("amended".equals(codeString))
           return DocumentStatus.amended;
-        if ("withdrawn".equals(codeString))
-          return DocumentStatus.withdrawn;
+        if ("appended".equals(codeString))
+          return DocumentStatus.appended;
+        if ("retracted".equals(codeString))
+          return DocumentStatus.retracted;
         throw new Exception("Unknown DocumentStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == DocumentStatus.interim)
-        return "interim";
+      if (code == DocumentStatus.preliminary)
+        return "preliminary";
       if (code == DocumentStatus.final_)
         return "final";
       if (code == DocumentStatus.amended)
         return "amended";
-      if (code == DocumentStatus.withdrawn)
-        return "withdrawn";
+      if (code == DocumentStatus.appended)
+        return "appended";
+      if (code == DocumentStatus.retracted)
+        return "retracted";
       return "?";
       }
     }

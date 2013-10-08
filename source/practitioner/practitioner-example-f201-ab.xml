@@ -43,13 +43,11 @@
         <birthDate value="1956-12-24"/>
         <!--Fortunately, the doctor is still alive!-->
 <!--        <photo>
-            <type value="Picture"/>
             <reference value="picture/@AB-201.bmp"/>
             <display value="Picture_Dokter_Bronsig"/>
         </photo> -->
     
     <organization>
-        <type value="Organization"/>
         <reference value="Organization/f201"/>
         <display value="AUMC"/>
     </organization>

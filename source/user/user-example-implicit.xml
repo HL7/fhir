@@ -12,7 +12,6 @@
   <login value="127.0.0.1"/>
   <level value="patient"/>
   <patient>
-    <type value="Patient"/>
     <reference value="Patient/example"/>
   </patient>
 </User>

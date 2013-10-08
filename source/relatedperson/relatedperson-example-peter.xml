@@ -25,7 +25,6 @@
   </text>
 
   <patient>
-    <type value="Patient" />
     <reference value="Patient/animal" />
   </patient>
   

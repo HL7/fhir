@@ -16,12 +16,9 @@ The Diagnostic Report Resource is suitable for the following kinds of Diagnostic
  <li>Other diagnostics - Cardiology, Gastroenterology etc.</li>
 </ul>
 <p>
-The Diagnostic Report is not intended to support:
+The Diagnostic Report resource is not intended to support cumulative result presentation (tabular presentation of past and present results in the resource). 
+The Diagnostic Report resource does not yet provide full support for detailed structured reports of sequencing; this is planned for a future release.
 </p>
-<ul>
- <li>Cumulative Result presentation</li>
- <li>Genetic Sequencing and related reports</li>
-</ul>
 <p>
 Comments on the suitability of this resource and/or requirements analysis for that would be welcome 
 through the community input above.

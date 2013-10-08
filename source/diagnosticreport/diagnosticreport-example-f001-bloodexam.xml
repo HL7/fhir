@@ -6,13 +6,11 @@
     <!-- ISO 8601 -->
     <subject>
         <!-- Linked to a RESOURCE Patient -->
-        <type value="Patient"/>
         <!-- OID: 2.16.840.1.113883.4.642.1.4 -->
         <reference value="Patient/f001"/>
         <display value="P. van den Heuvel"/>
     </subject>
     <performer>
-        <type value="Organization"/>
         <reference value="Organization/f001"/>
         <display value="Burgers University Medical Centre"/>
     </performer>
@@ -23,7 +21,6 @@
     </reportId>
     <requestDetail>
         <encounter>
-            <type value="Encounter"/>
             <reference value="Encounter/f001"/><!--TODO Correcte verwijzing-->
         </encounter>
         <requestOrderId>
@@ -52,7 +49,6 @@
             </coding>
         </bodySite>
         <requester>
-            <type value="Practitioner"/>
             <reference value="Practitioner/f001"/>
             <display value="E.van den Broek"/>
         </requester>
@@ -80,28 +76,22 @@
             </coding>
         </name>
 <!--        <specimen>
-            <type value="Specimen"/>
             <reference value="Specimen/f001"/>
             <display value="Blood sample"/>
         </specimen>-->
         <result>
-            <type value="Observation"/>
             <reference value="Observation/f001"/>
         </result>
         <result>
-            <type value="Observation"/>
             <reference value="Observation/f002"/>
         </result>
         <result>
-            <type value="Observation"/>
             <reference value="Observation/f003"/>
         </result>
         <result>
-            <type value="Observation"/>
             <reference value="Observation/f004"/>
         </result>
         <result>
-            <type value="Observation"/>
             <reference value="Observation/f005"/>
         </result>
     </results>

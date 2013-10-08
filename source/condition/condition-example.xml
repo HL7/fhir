@@ -5,7 +5,6 @@
    <div xmlns="http://www.w3.org/1999/xhtml">Severe burn of left ear (Date: 24-May 2012)</div>   
  </text>
   <subject>
-    <type value="Patient"/>
     <reference value="Patient/example"/>
   </subject>
   <code> 

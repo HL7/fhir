@@ -33,7 +33,6 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
       <display value="Clinical-Staff"/>
     </confidentiality>
     <subject>
-      <type value="Patient"/>
       <reference value="Patient/xcda"/>
     </subject>
   <!--
@@ -99,7 +98,6 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
       </party>      
     </attester>-->
     <author>
-      <type value="Practitioner"/>
       <reference value="Practitioner/example"/>
     </author>
     <event>
@@ -137,11 +135,9 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
   </format>
   <availability value="Approved"/>
   <folder>
-    <type value="XdsFolder"/>
     <reference value="xdsfolder/@1.2.36.90146595217.4.2.1"/>
   </folder>
   <subject>
-    <type value="Patient"/>
     <reference value="Patient/xcda"/>
   </subject>
   <content xml:lang="en-us">

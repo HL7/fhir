@@ -62,7 +62,6 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
     <value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7"/>
   </masterIdentifier>
   <subject>
-    <type value="Patient"/>
     <reference value="Patient/xcda"/>
   </subject>
 	<type>
@@ -73,11 +72,9 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 	  </coding>
 	</type>
   <author>
-    <type value="Practitioner"/>
     <reference value="#a1"/>
   </author>
   <author>
-    <type value="Practitioner"/>
     <reference value="#a2"/>
   </author>
   <created value="2005-12-24T09:35:00+11:00"/>
@@ -134,7 +131,6 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
     </practiceSetting>
 
   <currentSubject>
-    <type value="Patient"/>
     <reference value="Patient/xcda"/>
   </currentSubject>
 -->

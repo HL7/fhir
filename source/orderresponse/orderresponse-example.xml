@@ -16,14 +16,12 @@
 	response contains lab reports
   -->
   <request>
-    <type value="Order"/>
     <reference value="Order/example"/>
   </request>
   <date value="2012-12-28T13:10:56+11:00"/>
   
   <!-- made by the lab -->
   <who>
-    <type value="Organization"/>
     <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
   </who>
   
@@ -49,7 +47,6 @@
     resource is only a token of the fulfillment of the order
   -->
   <fulfillment>
-    <type value="DiagnosticReport"/>
     <reference value="DiagnosticReport/101"/>
   </fulfillment>
 </OrderResponse>

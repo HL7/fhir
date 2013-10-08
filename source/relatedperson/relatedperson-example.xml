@@ -32,7 +32,6 @@
   </identifier>
 
   <patient>
-    <type value="Patient" />
     <reference value="Patient/example" />
   </patient>
   

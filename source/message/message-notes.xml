@@ -4,27 +4,34 @@
 Notes:
 </h2>
 <ul>
-<li>The resources referenced by the enterer, author and responsible elements may 
+ <li>The resources referenced by the enterer, author and responsible elements may 
   all be included in the bundle or left out on the basis that the recipient (and any intermediaries) are able to locate/resolve the resources
   independently. The former would be suitable for loosely coupled systems, and the latter for tightly coupled systems. The messaging conformance 
   statement for an application may reference <a href="profile.htm">a profile</a> that describes how the bundling occurs</li>
-<li>The actual content of the data resource is specified for each message event. The data resource is always included in the bundle</li>
+ <li>The actual content of the data resource is specified for each message event. The data resource is always included in the bundle</li>
+ <li>If <i>Message.source.endpoint</i> and <i>Message.destination.endpoint</i>, are literal URLs, then they SHOULD identify
+  the addresses to which messages can be be delivered. If they are logicail URIs (i.e. non-dereferenceable), 
+  message delivery intermediaries must know how to deliver the message to the destination application. </li>
+ <li>The author and the receiver are not the actual technical systems</li>
+ <li>A receiver is not obligated to reject messages which do not explicitly identify it as receiver (e.g. a tracker will get messages that are destined for some other system)</li>
 </ul>  
+
+
 
 <a name="Events"></a>
 <a name="events"></a>
 <h2>Event List</h2>
 
 <p>
-The <i>message.code</i> element carries a simple code that identifies the even that the message conveys. 
-This table lists the codes that are allowed to be used in a message event:
+The <i>message.code</i> element carries a <a href="datatypes.htm#Coding">Coding</a> that identifies the event that the message conveys. 
+This table lists the message event codes defined in this specification (the system value for these is "http://hl7.org/fhir/message-type"):
 </p>
 
 [%events%]
 
 <p>
 In this table, the request and response columns list the focus resource for the event, along with other resources that should also be carried in the message directly (if they exist).
-Open Issue for ballot: Does this list need to be extensible? 
+Additional events may be defined elsewhere, though this specification does not yet define how. DSTU: Input on this is sought during the trial use period.
 </p>
 
 <a name="mailbox"></a>

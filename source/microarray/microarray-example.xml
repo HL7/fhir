@@ -6,7 +6,6 @@
 	</text>
 	<subject>
 		<patient>
-			<type value="Patient"/>
 			<reference value="Patient/example"/>
 			<display value="Jane Doe"/>
 		</patient>
@@ -16,7 +15,6 @@
 	<date value="2013-07-09"/>
 	<scanner>
 		<manufacturer>
-			<type value="Organization"/>
 			<reference value="Organization/1"/>
 			<display value="Affymetrix"/>
 		</manufacturer>

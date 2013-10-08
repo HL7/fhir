@@ -38,12 +38,10 @@
     </gender>
     <birthDate value="1983-04-20"/>
 <!--    <photo>    
-        <type value="Picture"/>
         <reference value="picture/@JvG-203.bmp"/>
         <display value="Picture_Juri_van_Gelder"/>
     </photo>-->
   <organization>
-     <type value="Organization"/>
      <reference value="Organization/f201"/>
      <display value="AUMC"/>
  </organization>

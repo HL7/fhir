@@ -123,7 +123,6 @@
       For purposes of example, will represent this way. -->
     <Condition id="p1">
       <subject>
-        <type value="Patient"/>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
@@ -136,7 +135,6 @@
   <contained>
     <Condition id="p2">
       <subject>
-        <type value="Patient"/>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
@@ -149,7 +147,6 @@
   <contained>
     <Condition id="p3">
       <subject>
-        <type value="Patient"/>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
@@ -160,24 +157,20 @@
     </Condition>
   </contained>
   <patient>
-    <type value="Patient"/>
     <reference value="Patient/1"/>
     <display value="Eve Everywoman"/>
   </patient>
   <status value="active"/>
   <modified value="2012-09-10"/>
   <concern>
-    <type value="Condition"/>
     <reference value="#p1"/> <!-- Local reference -->
     <display value="GERDS"/>
   </concern>
   <concern>
-    <type value="Condition"/>
     <reference value="#p2"/> <!-- Local reference -->
     <display value="Obesity"/>
   </concern>
   <concern>
-    <type value="Condition"/>
     <reference value="#p3"/> <!-- Local reference -->
     <display value="Psoriasis"/>
   </concern>

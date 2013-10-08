@@ -2,7 +2,7 @@
 
 <p>
 This page describes how FHIR Resources can be used in a traditional messaging context, 
-much like HL7 v2. Applications claiming conformance to this framework claim to be 
+much like HL7 v2. Applications asserting conformance to this framework claim to be 
 conformant to "FHIR messaging". 
 </p>
 <p>
@@ -51,11 +51,20 @@ delivery of messages.
 </p>
 
 <p>
+This specification assumes that content will be delivered from one application to 
+another by some delivery mechanism, and then one or more responses will be returned 
+to the source application. The agreements around the content of the messages and
+the behavior of the two applications the "contract" that describes the exchange.
+The contract will add regional and local agreements to the rules defined in this 
+specification.
+</p>
+<p>
 This specification ignores the existence of interface engines and message 
 transfer agents that exist between the <i>source</i> and <i>destination</i>. 
 Either they are transparent to the message/transaction content and irrelevant 
 to this specification, or they are actively involved in manipulating the message 
-content. If these middleware agents are modifying the message content, then they become
+content (in particular, the source and destination headers are often changed). 
+If these middleware agents are modifying the message content, then they become
 responsible for honoring the contract that applies (including applicable profiles) 
 in both directions.
 </p>
@@ -85,9 +94,9 @@ Some of the message delivery mechanisms mentioned above are reliable delivery
 systems - the message is always delivered, or an appropriate error is returned
 to the source. However most implementations use methods which do not provide
 reliable messaging, and either the request or the response can get lost in transit.
-FHIR messaging describes a simple approach to handle this that receivers
-should conform to in order to maintain predictable functionality even when 
-messaging is not reliable.
+FHIR messaging describes a simple approach that receivers should conform to in 
+order to handle the absence of reliable messaging that maintains predictable 
+functionality.
 </p>
 <p>
 When considering the issue of reliable messaging, the source application 
@@ -134,10 +143,10 @@ TODO: describe some use cases
 
 <h2>Conformance Statement</h2>
 <p>
-Applications may only claim to be conformant to "FHIR messaging" if they
-publish a conformance statement so the claim may be verified. A conformance
-statement lists all the message events 
-they support (either as sender or receiver) and for each event, a 
+Applications may only assert conformance to "FHIR messaging" if they 
+publish a conformance statement so the claim may be verified. A 
+conformance statement lists all the message events supported (either 
+as sender or receiver) and for each event, a 
 profile that states which resources are bundled (sender), or 
 are required to be bundled (receiver), and any rules about the 
 information content of the individual resources. The conformance 
@@ -146,31 +155,60 @@ statement is a <a href="conformance.htm">resource with the name
 </p>
 
 <a name="endpoints"></a>
-<h2>Messaging End-points</h2>
+<h2>Relationship between Messaging and REST</h2>
 
-<p>There are two end-points defined for a RESTful server that supports Messages:</p>
+<p>
+As well as this messaging framework documented here, FHIR also defines a 
+<a href="http.htm">RESTful API</a>. The messaging and RESTful frameworks
+are related in that both share the same set of resources on which the operate.
+In fact, the basic <i>Message</i> resource (defined below) on which the 
+messaging framework is implemented is, itself, a resource that can treated 
+in a RESTful approach. 
+</p>
+<p>
+The kinds of functionality that the RESTful API and the messaging framework
+offer are very similar; their primary difference is architectural in nature. 
+</p>
+<p>
+For instance, the messaging framework defines an event for notifying that
+a administration resource has been created or updated, as does the REST API.
+On the other hand, there are differences in the capabilities offered - while
+a patient merge can be implemented as a series of RESTful operations performed
+by the client that update all resources linked to the patient, when a message 
+command to merge patient records are all is processed, the server will do all
+the work, and is able to merge in areas not exposed on the RESTful API.
+The REST API, however, provides a set of basic operations on all resources
+that would need special definitions in the messaging framework - ones that
+are not provided.
+</p>
+<p>
+There is no expectation that RESTful systems will need to offer messaging
+support, or vice versa, though systems may find it useful to support both 
+sets of functionality in order to satisfy a wider range of implementers. 
+</p>
+<p>
+As a resource that can be used with the RESTful framework, the messaging
+resource has the normal resource end-point ([base-url]/Message), which is
+used to manage a set of static messages resources. This could be used to 
+make an archive of past messages available. <b>Creating or updating Message resources
+in this fashion does not represent the actual occurrence of any event, nor can it trigger
+any logic associated with the actual event.</b> It is just for managing a set of message resources.
+</p>
+<p>
+In, addition, this specification defines the a mailbox ([base-url]/mailbox). This
+is a standard named end-point to which messages as <a href="extras.htm#bundle">bundles</a>, 
+can be sent to a server to indicate that the event identified by the code has occurred - if
+that server is also running a REST API. In this case, the end-point returns an HTTP
+response with a message response as defined for the particular event, or an error 
+indicating that the attempt to process the message was unsuccessful. 
+The functionality of this end-point <a href="#mailbox">is described below</a>.
+</p>
+<p>
+Alternatively, messages can be transported between systems using any other method by which 
+a stream of bytes (the message bundle) can be moved from one place to 
+another. There is no requirement to use HTTP.
+</p>
 
-<ul>
- <li>[baseurl]/message/: a normal RESTful end point for message resources</li> 
- <li>[baseurl]/mailbox: an address at which messages can be delivered</li> 
-</ul>
-<p>
-The first end-point ([baseurl]/message/) is used for working within the message contents, for instance, for building 
-messages piecemeal or for auditing received messages. <b>Creating or updating Message resources
-to this end point does not represent the actual occurrence of any event, nor can it trigger
-any logic associated with the actual event.</b> It is just for managing message resources.
-</p>
-<p>
-The second end-point ([baseurl]/mailbox) is used for actually sending messages as <a href="extras.htm#bundle">bundles</a>, to indicate 
-that the event identified by the code has occurred. The end-point responds with a message
-response as defined for the particular event, or an error indicating that the attempt to 
-process the message was unsuccessful. The functionality of this end-point <a href="#mailbox">is described below</a>.
-</p>
-<p>
-Note: While the end-points above are defined for use with message resources and for delivering
-messages to a RESTful server, it is not necessary to use them; messages may be transported 
-between systems using any method desired.
-</p>
 
 <a name="resource"></a>
 </div>

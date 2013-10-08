@@ -145,11 +145,9 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
   <status value="final"/> <!-- all this report is final -->
   <issued value="2013-01-27T11:45:33+11:00"/>
   <subject>
-    <type value="Patient"/>
     <reference value="Patient/pat2"/>
   </subject>
   <performer>
-    <type value="Organization"/>
     <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
     <display value="Acme Laboratory, Inc"/>
   </performer>
@@ -175,19 +173,15 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
     </name>
     <!-- now the atomic results -->
     <result>
-      <type value="Observation"/>
       <reference value="#cholesterol"/>
     </result>  
     <result>
-      <type value="Observation"/>
       <reference value="#triglyceride"/>
     </result>
     <result>
-      <type value="Observation"/>
       <reference value="#hdlcholesterol"/>
     </result>
     <result>
-      <type value="Observation"/>
       <reference value="#ldlcholesterol"/>
     </result>
   </results>

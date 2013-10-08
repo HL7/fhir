@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
  <subject><!--It entails Roel's problem-->
-     <type value="Patient"/>
      <reference value="Patient/f201"/>
      <display value="Roel"/>
  </subject>
  <encounter>
-     <type value="Encounter"/>
      <reference value="Encounter/f201"/>
  </encounter>
  <asserter>
-     <type value="Practitioner"/>
      <reference value="Practitioner/f201"/>
  </asserter>
  <dateAsserted value="2013-04-04"/><!--The problem was entered at April fourth-->
@@ -51,7 +48,6 @@
     </coding>        
   </code>
   <detail>
-     <type value="Observation"/>
      <reference value="Observation/f202"/>
      <display value="Temperature"/>
   </detail>
@@ -68,7 +64,6 @@
  <relatedItem>  <!-- 0..* Causes or precedents for this problem -->
   <type value="due-to"/>
   <target>
-     <type value="Procedure"/>
      <reference value="Procedure/f201"/>
      <display value="TPF chemokuur"/>
   </target>
@@ -76,7 +71,6 @@
  <relatedItem>  <!-- 0..* Causes or precedents for this problem -->
   <type value="due-to"/>
   <target>
-     <type value="Condition"/>
      <reference value="Condition/f205"/>
      <display value="bacterial infection"/>
   </target>

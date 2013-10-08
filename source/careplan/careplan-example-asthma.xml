@@ -18,7 +18,6 @@
   <contained>
     <Provenance id='prov1'>
       <target>
-        <type value="CarePlan"/>
         <reference value="#cp1"/>
         <display value="This Careplan"/>
       </target>
@@ -55,7 +54,6 @@
   <contained>
     <Condition id="p1">
       <subject>
-        <type value="Patient"/>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </subject>
@@ -95,12 +93,10 @@
         </div>
       </text>
       <patient>
-        <type value="Patient"/>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
       </patient>
       <medication>
-        <type value="Medication"/>
         <reference value="#med1"/>
         <display value="Prednisone 5mg tablet"/>
       </medication>
@@ -188,7 +184,6 @@
     </MedicationPrescription>
   </contained>
   <patient>
-    <type value="Patient"/>
     <reference value="Patient/1"/>
     <display value="Eve Everywoman"/>
   </patient>
@@ -197,7 +192,6 @@
   
   <concern>
     <!-- The concern points to the contained Condition. Other options are to point to a 'real' Condition resource-->
-    <type value="Condition"/>
     <reference value="#p1"/> <!-- Local reference -->
     <display value="Asthma"/>
   </concern>
@@ -237,7 +231,6 @@
        </repeat>
      </timingSchedule>
      <performer>
-       <type value="Patient"/>
        <reference value="Patient/1"/>
        <display value="Eve Everywoman"/>
      </performer>
@@ -250,7 +243,6 @@
     <status value="not started"/>
     <prohibited value="false"/>
       <actionResulting>
-          <type value="MedicationPrescription"/>
           <reference value="#rx1"/>
           <display value="Reducing dose of prednisone, start with 30mg, reduce by 5mg every 2 days"/>
       </actionResulting>

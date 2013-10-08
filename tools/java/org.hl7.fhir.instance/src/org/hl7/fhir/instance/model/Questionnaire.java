@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -412,9 +412,9 @@ public class Questionnaire extends Resource {
     protected CodeableConcept name;
 
     /**
-     * An identifier that identifier this specific set of answers.
+     * This records identifiers associated with this question/answer set that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
-    protected Identifier identifier;
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * Encounter during which this questionnaireanswers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.
@@ -499,12 +499,15 @@ public class Questionnaire extends Resource {
       this.name = value;
     }
 
-    public Identifier getIdentifier() { 
+    public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
-    public void setIdentifier(Identifier value) { 
-      this.identifier = value;
+    // syntactic sugar
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
     }
 
     public ResourceReference getEncounter() { 
@@ -545,7 +548,9 @@ public class Questionnaire extends Resource {
         dst.author = author == null ? null : author.copy();
         dst.source = source == null ? null : source.copy();
         dst.name = name == null ? null : name.copy();
-        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.question = new ArrayList<QuestionComponent>();
         for (QuestionComponent i : question)

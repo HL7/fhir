@@ -163,7 +163,6 @@ for servers to handle as part of a batch post
           <div xmlns="http://www.w3.org/1999/xhtml">Authored on 12-Nov 2011 by Grahame Grieve</div>
         </text>
         <target>
-          <type value="Patient"/>
           <value value="http://www.someexternalsite/fhir/person/@1"/>
           <version value="http://www.someexternalsite/fhir/person/@1/history/1"/>
         </target>
@@ -193,7 +192,6 @@ for servers to handle as part of a batch post
           <div xmlns="http://www.w3.org/1999/xhtml">Authored on 12-Nov 2011 by Grahame Grieve</div>
         </text>
         <target>
-          <type value="Patient"/>
           <version value="http://www.someexternalsite/fhir/person/@1/history/5"/>
         </target>
         <!-- nominal activity: editing the standard -->
@@ -222,7 +220,6 @@ for servers to handle as part of a batch post
           <div xmlns="http://www.w3.org/1999/xhtml">Authored on 12-Nov 2011 by Grahame Grieve</div>
         </text>
         <target>
-          <type value="Patient"/>
           <value value="urn:uuid:8f13879b-8f5c-4ed4-a1f5-bc8d8a0efe"/>
         </target>
         <!-- nominal activity: editing the standard -->

@@ -15,13 +15,11 @@
     </coding>
  </type>
  <subject>
-     <type value="Patient"/>
      <reference value="Patient/f201"/>
      <display value="Roel"/>
  </subject>
  <participant>
      <practitioner>
-         <type value="Practitioner"/>
          <reference value="Practitioner/f201"/>
     </practitioner>
  </participant>
@@ -36,7 +34,6 @@
  </priority>
  <hospitalization> 
 <!--  <origin>
-     <type value="Location"/>
      <reference value="Location/2"/>     
   </origin>--> 
   <admitSource>
@@ -60,13 +57,11 @@
   </diet>
   <!--no special courtesy or arrangements-->
 <!--  <destination><!-\-Fictive-\->
-     <type value="Location"/>
      <reference value="Location/f202"/>  
   </destination>-->
   <reAdmission value="false"/>
  </hospitalization>
  <serviceProvider>
-     <type value="Organization"/>
      <reference value="Organization/f201"/>
  </serviceProvider>
 </Encounter>

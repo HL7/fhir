@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -40,33 +40,25 @@ public class Message extends Resource {
 
     public enum ResponseCode {
         ok, // The message was accepted and processed without error.
-        error, // Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required.
-        rejection, // The message was rejected because of some content in it. There is no point in re-sending without change. The response narrative must describe what the issue is.
-        rules, // The message was rejected because of some event-specific business rules, and it may be possible to modify the request and re-submit (as a different request). The response must include an Issue report that describes what problem is.
-        undeliverable, // A middleware agent was unable to deliver the message to its intended destination.
+        transienterror, // Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required.
+        fatalerror, // The message was rejected because of some content in it. There is no point in re-sending without change. The response narrative SHALL describe what the issue is.
         Null; // added to help the parsers
         public static ResponseCode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("ok".equals(codeString))
           return ok;
-        if ("error".equals(codeString))
-          return error;
-        if ("rejection".equals(codeString))
-          return rejection;
-        if ("rules".equals(codeString))
-          return rules;
-        if ("undeliverable".equals(codeString))
-          return undeliverable;
+        if ("transient-error".equals(codeString))
+          return transienterror;
+        if ("fatal-error".equals(codeString))
+          return fatalerror;
         throw new Exception("Unknown ResponseCode code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case ok: return "ok";
-            case error: return "error";
-            case rejection: return "rejection";
-            case rules: return "rules";
-            case undeliverable: return "undeliverable";
+            case transienterror: return "transient-error";
+            case fatalerror: return "fatal-error";
             default: return "?";
           }
         }
@@ -79,27 +71,19 @@ public class Message extends Resource {
                 return null;
         if ("ok".equals(codeString))
           return ResponseCode.ok;
-        if ("error".equals(codeString))
-          return ResponseCode.error;
-        if ("rejection".equals(codeString))
-          return ResponseCode.rejection;
-        if ("rules".equals(codeString))
-          return ResponseCode.rules;
-        if ("undeliverable".equals(codeString))
-          return ResponseCode.undeliverable;
+        if ("transient-error".equals(codeString))
+          return ResponseCode.transienterror;
+        if ("fatal-error".equals(codeString))
+          return ResponseCode.fatalerror;
         throw new Exception("Unknown ResponseCode code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
       if (code == ResponseCode.ok)
         return "ok";
-      if (code == ResponseCode.error)
-        return "error";
-      if (code == ResponseCode.rejection)
-        return "rejection";
-      if (code == ResponseCode.rules)
-        return "rules";
-      if (code == ResponseCode.undeliverable)
-        return "undeliverable";
+      if (code == ResponseCode.transienterror)
+        return "transient-error";
+      if (code == ResponseCode.fatalerror)
+        return "fatal-error";
       return "?";
       }
     }
@@ -385,9 +369,9 @@ public class Message extends Resource {
     protected Instant timestamp;
 
     /**
-     * Code that identifies the event this message represents and connects it with the event definition in the FHIR specification.
+     * Code that identifies the event this message represents and connects it with it's definition. Events defined as part of the FHIR specification have the system value "http://hl7.org/fhir/message-type".
      */
-    protected Code event;
+    protected Coding event;
 
     /**
      * Information about the message that this message is a response to.  Only present if this message is a response.
@@ -402,7 +386,7 @@ public class Message extends Resource {
     /**
      * The destination application which the message is intended for.
      */
-    protected MessageDestinationComponent destination;
+    protected List<MessageDestinationComponent> destination = new ArrayList<MessageDestinationComponent>();
 
     /**
      * The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.
@@ -423,11 +407,6 @@ public class Message extends Resource {
      * The person or organization that accepts overall responsibility for the contents of the Message. The implication is that the message event happened under the policies of the responsible party.
      */
     protected ResourceReference responsible;
-
-    /**
-     * The effective time - the real world time of the event that the message represents. Usually this is just a starting time, but some message events also have an end time (do x for period y).
-     */
-    protected Period effective;
 
     /**
      * Coded indication of the cause for the event - indicates  a reason for the occurance of the event that is a focus of this message.
@@ -475,22 +454,12 @@ public class Message extends Resource {
         this.timestamp.setValue(value);
     }
 
-    public Code getEvent() { 
+    public Coding getEvent() { 
       return this.event;
     }
 
-    public void setEvent(Code value) { 
+    public void setEvent(Coding value) { 
       this.event = value;
-    }
-
-    public String getEventSimple() { 
-      return this.event == null ? null : this.event.getValue();
-    }
-
-    public void setEventSimple(String value) { 
-        if (this.event == null)
-          this.event = new Code();
-        this.event.setValue(value);
     }
 
     public MessageResponseComponent getResponse() { 
@@ -509,12 +478,15 @@ public class Message extends Resource {
       this.source = value;
     }
 
-    public MessageDestinationComponent getDestination() { 
+    public List<MessageDestinationComponent> getDestination() { 
       return this.destination;
     }
 
-    public void setDestination(MessageDestinationComponent value) { 
-      this.destination = value;
+    // syntactic sugar
+    public MessageDestinationComponent addDestination() { 
+      MessageDestinationComponent t = new MessageDestinationComponent();
+      this.destination.add(t);
+      return t;
     }
 
     public ResourceReference getEnterer() { 
@@ -549,14 +521,6 @@ public class Message extends Resource {
       this.responsible = value;
     }
 
-    public Period getEffective() { 
-      return this.effective;
-    }
-
-    public void setEffective(Period value) { 
-      this.effective = value;
-    }
-
     public CodeableConcept getReason() { 
       return this.reason;
     }
@@ -583,12 +547,13 @@ public class Message extends Resource {
         dst.event = event == null ? null : event.copy();
         dst.response = response == null ? null : response.copy(dst);
         dst.source = source == null ? null : source.copy(dst);
-        dst.destination = destination == null ? null : destination.copy(dst);
+        dst.destination = new ArrayList<MessageDestinationComponent>();
+        for (MessageDestinationComponent i : destination)
+          dst.destination.add(i.copy(dst));
         dst.enterer = enterer == null ? null : enterer.copy();
         dst.author = author == null ? null : author.copy();
         dst.receiver = receiver == null ? null : receiver.copy();
         dst.responsible = responsible == null ? null : responsible.copy();
-        dst.effective = effective == null ? null : effective.copy();
         dst.reason = reason == null ? null : reason.copy();
         dst.data = new ArrayList<ResourceReference>();
         for (ResourceReference i : data)

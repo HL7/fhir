@@ -4,23 +4,19 @@
  <dateWritten value="2013-03-11"/>
  <status value="active"/> 
  <patient>
-    <type value="Patient"/>
     <reference value="Patient/f201"/>
     <display value="Roel"/>
  </patient>
  <prescriber>
-    <type value="Practitioner"/>
     <reference value="Practitioner/f201"/>
     <display value="Dokter Bonsig"/>
  </prescriber>
  <encounter><!--TODO <encounter> is not expected-->
-    <type value="Encounter"/>
     <reference value="Encounter/f203"/>
     <display value="Roel's encounter on March eleventh 2013"/>
  </encounter>
  <reasonForPrescribingString value="Condition/f203"/><!--TODO Why isn't this Resource (any)?-->
  <medication>
-    <type value="Medication"/>
     <reference value="Medication/f201"/>
     <display value="Flutacisone + Salmeterol"/>
  </medication>

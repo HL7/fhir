@@ -16,7 +16,6 @@
         <line value="West Wing, floor 5"/>
     </address>
     <partOf>
-        <type value="Organization"/>
         <reference value="Organization/f001"/>
     </partOf>
     <contact>

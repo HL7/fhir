@@ -6,15 +6,12 @@
   </number>
   <servicedate value="2013-09-22"/>
   <provider>
-    <type value="Practitioner"/>
     <reference value="Practitioner/15"/>
   </provider>
   <billingProvider>
-    <type value="Organization"/>
     <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
   </billingProvider>
   <referrer>
-    <type value="Practitioner"/>
     <reference value="Practitioner/31"/>
   </referrer>
   <reason>
@@ -43,7 +40,6 @@
   </patient>
   <coverage>
     <issuer>
-      <type value="Organization"/>
       <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
     </issuer>
     <type>

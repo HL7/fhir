@@ -16,7 +16,6 @@
         <line value="South Wing, floor 2"/>
     </address>
     <partOf>
-        <type value="Organization"/>
         <reference value="Organization/f001"/>
     </partOf>
     <contact>

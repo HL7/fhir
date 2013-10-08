@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd McKenzie</LastAuthor>
+  <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-09-27T01:37:14Z</LastSaved>
+  <LastSaved>2013-10-08T06:36:17Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,6 +20,7 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>30</WindowTopY>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -243,8 +244,8 @@
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">ObservationType</Data></Cell>
-    <Cell><Data ss:Type="String">Kind of observation</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies what type of observation was performed</Data></Cell>
+    <Cell><Data ss:Type="String">Type of observation (code / type)</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies what type of observation was performed. Sometimes called code. </Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s69"><Data ss:Type="String">Knowing what kind of observation is being made is essential to understanding the observation.</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s69"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">./code</Data></Cell>
@@ -530,7 +531,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Observation id</Data></Cell>
+    <Cell><Data ss:Type="String">Unique Id for this particular observation</Data></Cell>
     <Cell><Data ss:Type="String">A unique identifier for the simple observation</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s69"><Data ss:Type="String">Allows observations to be distinguished and referenced</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s69"><Data ss:Type="String">id</Data></Cell>
@@ -902,11 +903,10 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -919,9 +919,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1297,7 +1300,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ObservationReliability</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Codes that provide reliability information about an observation</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Codes that provide an estimate of the degree to which quality issues have impacted on the value of an observation</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s80"/>
     <Cell><Data ss:Type="String">#observation-reliability</Data></Cell>
@@ -1317,6 +1320,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1336,8 +1340,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>5</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

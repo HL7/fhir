@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -92,8 +92,8 @@ public class ConceptMap extends Resource {
         equal, // The definitions of the concepts are exactly the same (i.e. only grammatical differences) and structural implications of meaning are identifical or irrelevant (i.e. intensionally identical).
         equivalent, // The definitions of the concepts mean the same thing (including when structural implications of meaning are considered) (i.e. extensionally identical).
         wider, // The target mapping is wider in meaning than the source concept.
-        narrower, // The target mapping is narrower in meaning that the source concept. The sense in which the mapping is narrower must be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally.
-        inexact, // The target mapping overlaps with the source concept, but both source and target cover additional meaning. The sense in which the mapping is narrower must be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally.
+        narrower, // The target mapping is narrower in meaning that the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally.
+        inexact, // The target mapping overlaps with the source concept, but both source and target cover additional meaning. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally.
         unmatched, // There is no match for this concept in the destination concept system.
         disjoint, // This is an explicit assertion that there is no mapping between the source and target concept.
         Null; // added to help the parsers

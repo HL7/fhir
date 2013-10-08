@@ -5,7 +5,6 @@
 		<div xmlns="http://www.w3.org/1999/xhtml">Demo analysis on John Doe</div>
 	</text>
 	<subject>
-		<type value="Patient"/>
 		<reference value="Patient/example"/>
 		<display value="John Doe"/>
 	</subject>
@@ -22,7 +21,6 @@
 		<title value="demo_2.bam"/>
 	</file>
 	<inputLab>
-		<type value="SequencingLab"/>
 		<reference value="sequencinglab/@example"/>
 	</inputLab>
 </SequencingAnalysis>

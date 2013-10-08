@@ -20,12 +20,10 @@
     <value value="2329" />
   </telecom>
   <provider>
-    <type value="Organization" />
     <reference value="Organization/f001" />
   </provider>
   <active value="true" />
   <partOf>
-    <type value="Location" />
     <reference value="Location/1"></reference>
   </partOf>
 </Location>

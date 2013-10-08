@@ -8,18 +8,15 @@
     <dateWritten value="2013-04-08"/>
     <status value="active"/>
     <patient> <!-- Linked to the resource patient who needs the medication -->
-        <type value="Patient"/> 
         <reference value="Patient/F001"/>
         <display value="P. van den Heuvel"/>         
     </patient>
     <prescriber> <!-- Linked to the practitioner who treats patient -->
-        <type value="Practitioner"/> 
         <reference value="Practitioner/F006"/>
         <display value="R.A. van den Berk"/>
     </prescriber>
     <visit> <!-- Linked to a resource Visit between patient and practitioner-->
-        <type value="Visit"/>
-        <reference value="visit/@F001"/>
+        <reference value="Encounter/@F001"/>
         <display value="visit who leads to this priscription"/>
     </visit>
     <reasonForPrescribingCodeableConcept>
@@ -30,7 +27,6 @@
         </coding>
     </reasonForPrescribingCodeableConcept>
     <medication> <!-- Linked to a RESOURCE Medication -->
-        <type value="Medication"/>
         <reference value="Medication/F002"/>
         <display value="prescribed medication"/>
     </medication> 

@@ -13,7 +13,6 @@
   <password value="c669ebcc10ad2fdc08b5f688d0638f07905040d49e3fbfdc498775b3a2ea67f4"/> <!-- hash for TestPassword1 -->
   <level value="patient"/>
   <patient>
-    <type value="Patient"/>
     <reference value="Patient/example"/>
   </patient>
 </User>

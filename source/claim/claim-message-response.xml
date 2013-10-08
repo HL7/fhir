@@ -32,7 +32,6 @@
           <endpoint value="http://localhost"/>
         </destination>
         <data>
-          <type value="Remittance"/>
           <reference value="http://localhost:9556/svc/fhir//remittance/@"/>
         </data>
       </Message>

@@ -42,12 +42,10 @@
     </gender>
     <birthDate value="1960-06-12"/>
 <!--    <photo>    
-        <type value="Picture"/>
         <reference value="picture/@LM-203.bmp"/>
         <display value="Picture_Luigi_Maas"/>
     </photo>-->
   <organization>
-     <type value="Organization"/>
      <reference value="Organization/f201"/>
      <display value="AUMC"/>
  </organization>

@@ -18,8 +18,7 @@
         <!-- This is the reason for the encounter. It is referenced by the concern -->
         <Condition id="p1">
             <subject>
-                <type value="Patient"/>
-                <url value="100"/>
+                <reference value="Patient/100"/>
                 <display value="Peter James Chalmers"/>
             </subject>
             <code>
@@ -29,8 +28,7 @@
     </Condition>
     </contained>
     <patient>
-        <type value="Patient"></type>
-        <url value="100"/>
+        <url value="Patient/100"/>
         <display value="Peter James Chalmers"/>
     </patient>
     <status value="active"/>
@@ -40,7 +38,6 @@
         <!-- No end yet as the encounter is still in progress.-->
     </period>
     <concern>
-        <type value="Condition"></type>
         <reference value="#p1"/>
         <display value="obesity"/>
     </concern>
@@ -53,8 +50,7 @@
             <text value='nurse'></text>
         </role>
         <member>
-            <type value="Practitioner"></type>
-            <url value="101"/>
+            <url value="Practitioner/101"/>
             <display value="Nurse Nancy"/>
         </member>
     </participant>
@@ -67,8 +63,7 @@
             <text value='doctor'></text>
         </role>
         <member>
-            <type value="Practitioner"></type>
-            <url value="100"/>
+            <url value="Practitioner/100"/>
             <display value="Doctor Dave"/>
         </member>
     </participant>
@@ -95,7 +90,6 @@
         </timingPeriod>
         <performer>
             <!-- refer to the participant (the nurse) in this resource-->
-          <type value="Practitioner"></type>
           <reference value="#part1"/>
           <display value="Nurse Nancy"/>
         </performer>
@@ -103,8 +97,7 @@
             <!-- This is a link to the nurse encounter. The assumption is that all contacts with practitioners
             are modelled as separate encounters. Ideally, there will be  a 'master/parent' encounter that ties them together.
             If there is a single encounter, then all participants will be linked to that encounter.-->
-            <type value="Encounter"/>
-            <url value="./Encounter/1000"/>
+            <url value="Encounter/1000"/>
         </actionTaken>
     </activity>
     <activity>
@@ -126,7 +119,6 @@
 
         <performer>
             <!-- refer to the participant (the nurse) in this resource-->
-            <type value="Practitioner"></type>
             <reference value="#part2"/>
             <display value="Doctor Dave"/>
         </performer>

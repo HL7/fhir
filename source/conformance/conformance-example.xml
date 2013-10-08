@@ -59,7 +59,6 @@
         case of a FHIR REST Server, just delete this profile reference. Profile references do 
         not need to be a UUID, though a profile registry could insist that they are -->
       <profile>
-        <type value="Profile"/>
         <reference value="http://fhir.hl7.org/base/Profile7896271d-57f6-4231-89dc-dcc91eab2416"/>
       </profile> 
       <operation>
@@ -90,17 +89,18 @@
   <messaging>
     <!-- how to tell whether this llp is a server or a client? -->
     <event>
-      <code value="admin-notify"/>
+      <code>
+        <system value="http://hl7.org/fhir/message-type"/>
+        <code value="admin-notify"/>
+      </code> 
       <mode value="receiver"/> <!-- this a receiver - i.e. answers. Not neccessariy a serve" -->
       <focus value="Patient"/>
       <!-- specify a profile for the request person. Very often there's no point profiling 
         the response, it's not interesting -->
       <request>
-        <type value="Profile"/>
         <reference value="Profile/101"/>
       </request> 
       <response>
-        <type value="Profile"/>
         <reference value="Profile/101"/>
       </response> 
     </event>
@@ -113,7 +113,6 @@
     <!-- this is the important element: a reference to a published document profile 
        note that this is a version specific reference.-->
     <profile>
-      <type value="Profile"/>
       <reference value="http://fhir.hl7.org/base/Profilebc054d23-75e1-4dc6-aca5-838b6b1ac81d/history/b5fdd9fc-b021-4ea1-911a-721a60663796"/>
     </profile>
   </document>  

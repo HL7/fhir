@@ -103,7 +103,6 @@
   			</details>
 				<provider>
 				  <!-- a standard example organization -->
-					<type value="Organization"/>
 					<reference value="Organization/1"/>
 				</provider>
 			</Patient>
@@ -190,14 +189,12 @@
             <display value="Clinical-Staff"/>
           </confidentiality>
           <subject>
-            <type value="Patient"/>
             <!-- a reference to the patient record - the
              server will have to replace this with the 
              correct reference -->
             <url value="cid:20130107011536-2@fhir.hl7.org"/>
           </subject>
           <author>
-            <type value="Provider"/>
             <reference value="#a1"/> <!-- internal reference -->
           </author>
         </information>

@@ -10,11 +10,9 @@
         </div>
   </text>
   <subject>
-   <type value="Patient"/>
     <reference value="Patient/1"/>
   </subject>
   <orderer>
-    <type value="Practitioner"/>
     <reference value="Practitioner/example"/>
   </orderer>
   <identifier>

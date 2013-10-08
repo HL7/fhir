@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
  <subject><!--It entails Roel's problem-->
-     <type value="Patient"/>
      <reference value="Patient/f201"/>
      <display value="Roel"/>
  </subject>
  <encounter>
-     <type value="Encounter"/>
      <reference value="Encounter/f203"/>
      <display value="Roel's encounter on March eleventh"/>
  </encounter>
  <asserter>
-     <type value="Practitioner"/>
      <reference value="Practitioner/f201"/>
  </asserter>
  <dateAsserted value="2013-03-11"/>
@@ -64,7 +61,6 @@
  <relatedItem>  
   <type value="due-to"/><!--TODO the difference between "due-to" and "follows" is very unclear in the current documentation-->
   <target>    
-     <type value="Procedure"/>
      <reference value="Procedure/f201"/>
      <display value="TPF chemotherapy for the sphenoid bone"/>
   </target>

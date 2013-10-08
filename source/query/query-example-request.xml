@@ -23,7 +23,10 @@
         <identifier value="bd5a062a-9d5c-4cb2-bcc8-1836618c5226"/>
         <timestamp value="2013-05-18T08:14:00+10:00"/>
        
-        <event value="query"/><!-- this is query message -->
+        <event>
+          <system value="http://hl7.org/fhir/message-type"/>
+          <code value="query"/><!-- this is query message -->
+        </event> 
        
         <!-- message routing details -->
         <source>
@@ -38,7 +41,6 @@
     
         <!-- refer to the query resource that comes next -->
         <data>
-          <type value="Query"/>
           <reference value="urn:uuid:7cb73a48-090d-469a-a2b2-04f1e6b11ea2"/>
         </data> 
       </Message>

@@ -65,7 +65,6 @@ for servers to handle as part of a batch post
 				<div xmlns="http://www.w3.org/1999/xhtml">Authored on 12-Nov 2011 by Grahame Grieve</div>
 			  </text>
 			  <target>
-				<type value="Patient"/>
 				<value value="http://www.healthintersections.com.au/fhir/trash/person/@1"/>
 			  </target>
 			  <!-- nominal activity: editing the standard -->

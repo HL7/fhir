@@ -16,14 +16,11 @@
         </coding>
     </type>
     <subject>
-        <type value="Patient"/>
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
     </subject>
     <participant>
-        <type value="consulting"/>
         <practitioner>
-            <type value="Practitioner"/>
             <reference value="Practitioner/f003"/>
             <display value="M.I.M Versteegh"/>
         </practitioner>
@@ -93,7 +90,6 @@
         <reAdmission value="false"/>
     </hospitalization>
     <serviceProvider>
-        <type value="Organization"/>
         <reference value="Organization/f001"/>
         <display value="BMC"/>
     </serviceProvider>

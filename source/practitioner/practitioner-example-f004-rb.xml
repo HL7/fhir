@@ -53,7 +53,6 @@
     <birthDate value="1980-02-04"/>
 
     <organization>
-        <type value="Organization"/>
         <reference value="Organization/f001"/>
         <display value="BMC"/>
     </organization>

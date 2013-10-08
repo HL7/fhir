@@ -5,7 +5,6 @@
     <div xmlns="http://www.w3.org/1999/xhtml">Mother died of a stroke aged 56. Brother has diabetes</div>
   </text>
   <subject>
-    <type value="Patient"/>
     <reference value="Patient/100"/>
     <display value="Peter Patient"/>
   </subject>

@@ -6,7 +6,6 @@
 	</text>
   	<subject>
 		<patient>
-			<type value="Patient"/>
 			<reference value="Patient/example"/>
 		</patient>
 	</subject>

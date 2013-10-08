@@ -15,13 +15,11 @@
   </category>
   <status value="active"/>
   <subject>
-    <type value="Patient"/>
     <reference value="Patient/example"/>
     <display value="Peter Patient"/>
   </subject>
   
   <author>
-    <type value="Practitioner"/>
     <reference value="Practitioner/example"/>
     <display value="Nancy Nurse"/>
   </author>

@@ -7,7 +7,6 @@
   </text>
 
   <subject>
-    <type value="Patient"/>
     <reference value="Patient/xcda"/>
   </subject>
 

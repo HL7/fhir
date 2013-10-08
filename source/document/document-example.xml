@@ -29,25 +29,21 @@
 	  <display value="Clinical-Staff"/>
 	</confidentiality>
 	<subject>
-	  <type value="Patient"/>
 	  <reference value="Patient/xcda"/>
 	  <display value="Henry Levin the 7th"/>
 	</subject>
 	<author>
-	  <type value="Practitioner"/>
 	  <reference value="Practitioner/xcda-author"/>
 	  <display value="Robert Dolin MD"/>
 	</author>
 	<attester>
 	  <mode value="legal"/>
 	  <party>
-		<type value="Practitioner"/>
 		<reference value="Practitioner/xcda-author"/>
 		<display value="Robert Dolin MD"/>
 	  </party>
 	</attester>
 	<custodian>
-	  <type value="Organization"/>
 	  <reference value="Organization/2.16.840.1.113883.19.5"/>
 	  <display value="Good Health Clinic"/>
 	</custodian>
@@ -59,7 +55,6 @@
       </coding>
     </code>
     <content>
-      <type value="MedicationAdministration"/> 
       <reference value="MedicationAdministration/example"/>
     </content>
   </section>

@@ -39,14 +39,12 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
     <value value="23425234234-2346"/>
   </identifier>
   <subject>
-    <type value="Patient"/>
     <reference value="Patient/xcda"/>
   </subject>
   <type>
     <text value="History and Physical"/>
   </type>
   <author>
-    <type value="Practitioner"/>
     <reference value="#a1"/>
   </author>
   <created value="2004-12-25T23:50:50"/>
@@ -54,7 +52,6 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
   <status value="current"/>
   <description value="Physical"/>
   <content>
-    <type value="DocumentReference"/>
     <reference value="DocumentReference/example"/>
   </content>
 </DocumentManifest>

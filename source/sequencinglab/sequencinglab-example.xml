@@ -5,7 +5,6 @@
 		<div xmlns="http://www.w3.org/1999/xhtml">Lab for whole genome sequencing John Doe</div>
 	</text>
 	<subject>
-		<type value="Patient"/>
 		<reference value="Patient/example"/>
 		<display value="John Doe"/>
 	</subject>

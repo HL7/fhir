@@ -169,22 +169,22 @@ public class ProfileGenerator {
     case Unbound: return null;
     case CodeList:
       if (src.getReference().startsWith("#"))
-        return Factory.makeResourceReference("ValueSet", "http://hl7.org/fhir/vs/"+src.getReference().substring(1));
+        return Factory.makeResourceReference("http://hl7.org/fhir/vs/"+src.getReference().substring(1));
       else
         throw new Exception("not done yet");
     case ValueSet: 
       if (!Utilities.noString(src.getReference()))
         if (src.getReference().startsWith("http"))
-          return Factory.makeResourceReference("ValueSet", src.getReference());
+          return Factory.makeResourceReference(src.getReference());
         else if (src.getReference().startsWith("valueset-"))
-          return Factory.makeResourceReference("ValueSet", "http://hl7.org/fhir/vs/"+src.getReference().substring(9));
+          return Factory.makeResourceReference("http://hl7.org/fhir/vs/"+src.getReference().substring(9));
         else
-          return Factory.makeResourceReference("ValueSet", "http://hl7.org/fhir/vs/"+src.getReference());
+          return Factory.makeResourceReference("http://hl7.org/fhir/vs/"+src.getReference());
       else
         return null; // throw new Exception("not done yet");
     case Reference: return Factory.newUri(src.getReference());
     case Special: 
-      return Factory.makeResourceReference("ValueSet", "http://hl7.org/fhir/"+src.getReference().substring(1));
+      return Factory.makeResourceReference("http://hl7.org/fhir/"+src.getReference().substring(1));
     default: 
       throw new Exception("not done yet");
     }

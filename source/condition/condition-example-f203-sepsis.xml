@@ -2,17 +2,14 @@
 <!--@version June 2013 @author Melchior Ferdinand Pot-->
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
  <subject><!--It entails Roel's problem-->
-     <type value="Patient"/>
      <reference value="Patient/f201"/>
      <display value="Roel"/>
  </subject>
  <encounter>
-     <type value="Encounter"/>
      <reference value="Encounter/f203"/>
      <display value="Roel's encounter on March eleventh"/>
  </encounter>
  <asserter>
-     <type value="Practitioner"/>
      <reference value="Practitioner/f201"/>
  </asserter>
  <dateAsserted value="2013-03-11"/>
@@ -52,7 +49,6 @@
  <onsetDate value="2013-03-08"/>
  <evidence>
   <detail>
-     <type value="DiagnosticReport"/>
      <reference value="DiagnosticReport/f202"/>
      <display value="Diagnostic report for Roel's sepsis"/>
   </detail>
@@ -69,7 +65,6 @@
  <relatedItem><!--Bacterial sepsis is due to Staphylococcus Aureus-->
   <type value="due-to"/>
   <target>
-     <type value="Substance"/>
      <reference value="Substance/f202"/>
      <display value="Staphylococcus Aureus"/>
   </target>

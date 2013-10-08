@@ -6,18 +6,15 @@
 	</text>
 	<subject>
 		<patient>
-			<type value="Patient"/>
 			<reference value="Patient/example"/>
 			<display value="John Doe"/>
 		</patient>
 	</subject>
 	<meta>
-		<type value="GVFMeta"/>
 		<reference value="gvfmeta/@example"/>
 	</meta>
 	<seqid value="chr1"/>
 	<source value="samtools"/>
-	<type value="SNV"/>
 	<start value="155205042"/>
 	<end value="155205043"/>
 	<score value="30"/>

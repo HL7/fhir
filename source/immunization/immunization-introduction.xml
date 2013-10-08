@@ -20,7 +20,7 @@ This resource references the following resources:
     <li>Observation</li>
 </ul>
 <p>
-    This resource is referenced by the ImmunizationProfile resource.    
+    This resource is referenced by the ImmunizationRecommendation resource.    
 </p>
 
 </div>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
  <patient><!--It entails Roel's careplan-->
-     <type value="Patient"/>
      <reference value="Patient/f201"/>
      <display value="Roel"/>
  </patient>
@@ -12,7 +11,6 @@
  </period>
  <modified value="2013-03-11"/>
  <concern>
-     <type value="Condition"/>
      <reference value="Condition/f204"/>
      <display value="Roel's renal insufficiency"/>
  </concern>
@@ -25,7 +23,6 @@
      </coding>
   </role>
   <member>  
-     <type value="Practitioner"/>
      <reference value="Practitioner/f201"/>
      <display value="Dokter Bronsig"/>
   </member>
@@ -39,7 +36,6 @@
      </coding>
   </role>
   <member>
-     <type value="Practitioner"/>
      <reference value="Practitioner/f204"/>
      <display value="Nurse Carla Espinosa"/>
   </member>
@@ -63,7 +59,6 @@
     <timingString value="daily"/>
     <!--TODO Isn't <performer> redundant when considering <participant> that was defined before?-->
     <product>
-       <type value="Substance"/>
        <reference value="Substance/f203"/>
        <display value="Potassium"/>
     </product>

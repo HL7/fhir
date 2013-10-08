@@ -36,7 +36,6 @@
           <value value="urn:oid:129.6.58.92.88336"/>
         </masterIdentifier>
         <subject>
-          <type value="Patient"/>
           <reference
             value="http://localhost/patient/search?identifier=http://acme.org/xds/patients!89765a87b"
           />
@@ -49,11 +48,9 @@
           </coding>
         </type>
         <author>
-          <type value="Practitioner"/>
           <reference value="cid:af500afb-d680-4fa0-bcf2-ba1f5c5b096d@healthintersections.com.au"/>
         </author>
         <author>
-          <type value="Practitioner"/>
           <reference value="cid:51b578b4-3ccb-4e67-b0dc-ef519d82ef2d@healthintersections.com.au"/>
         </author>
         <created value="2005-12-24"/>

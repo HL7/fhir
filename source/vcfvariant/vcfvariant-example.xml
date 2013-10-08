@@ -6,7 +6,6 @@
 	</text>
 	<subject>
 		<patient>
-			<type value="Patient"/>
 			<reference value="Patient/example"/>
 		</patient>
 		<fileId value="X12345"/>
@@ -18,7 +17,6 @@
 		<title value="example.vCf"/>
 	</sourceFile>
 	<meta>
-		<type value="VCFMeta"/>
 		<reference value="vcfmeta/@example"/>
 	</meta>
 	<chrom value="chr1"/>

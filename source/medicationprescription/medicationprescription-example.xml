@@ -16,16 +16,13 @@
   </text>
   <status value="active" />
   <patient>
-    <type value="Patient"/>
     <reference value="Patient/example"/>
   </patient>
   <prescriber>
-    <type value="Practitioner"/>
     <reference value="Practitioner/example"/>
   </prescriber>
 
   <medication>
-    <type value="Medication"/>
     <reference value="Medication/example"/>
   </medication>
 

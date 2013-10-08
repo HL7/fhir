@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
     <subject>
-        <type value="Patient"/>
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
     </subject>
     <encounter>
-        <type value="Encounter"/>
         <reference value="Encounter/f001"/>
     </encounter>
     <asserter>
-        <type value="Patient"/>
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
     </asserter>

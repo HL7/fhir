@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -361,6 +361,11 @@ public class AdverseReaction extends Resource {
   }
 
     /**
+     * This records identifiers associated with this reaction that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
+     */
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
+
+    /**
      * When the reaction occurred.
      */
     protected DateTime reactionDate;
@@ -389,6 +394,17 @@ public class AdverseReaction extends Resource {
      * An exposure to a substance that preceded a reaction occurrence.
      */
     protected List<AdverseReactionExposureComponent> exposure = new ArrayList<AdverseReactionExposureComponent>();
+
+    public List<Identifier> getIdentifier() { 
+      return this.identifier;
+    }
+
+    // syntactic sugar
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
+    }
 
     public DateTime getReactionDate() { 
       return this.reactionDate;
@@ -470,6 +486,9 @@ public class AdverseReaction extends Resource {
 
       public AdverseReaction copy() {
         AdverseReaction dst = new AdverseReaction();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.reactionDate = reactionDate == null ? null : reactionDate.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.didNotOccurFlag = didNotOccurFlag == null ? null : didNotOccurFlag.copy();

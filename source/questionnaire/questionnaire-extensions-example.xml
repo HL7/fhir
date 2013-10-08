@@ -64,11 +64,9 @@
   <status value="final"/>
   <authored value="2013-02-19T14:15:00"/>
   <subject>
-    <type value="Patient"/>
     <reference value="#patsub"/>
   </subject>
   <author>
-    <type value="Practitioner"/>
     <reference value="#questauth"/>
   </author>
   <name>
@@ -188,7 +186,6 @@
           </coding>
         </name>
         <dataResource>
-          <type value="Observation"/>
           <reference value="#obs.pt-category"/>
         </dataResource>
       </question>

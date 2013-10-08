@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir  ../../schema/procedure.xsd">
     <subject>
-        <type value="Patient"/>
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
     </subject>
@@ -24,7 +23,6 @@
     </indication>
     <performer>
         <person>
-            <type value="Practitioner"/>
             <reference value="Practitioner/f003"/>
             <display value="M.I.M. Versteegh"/>
         </person>
@@ -42,12 +40,10 @@
         <end value="2013-03-08T09:30:10+01:00"/>
     </date>
     <encounter>
-        <type value="Encounter"/>
         <reference value="Encounter/f002"/>
     </encounter>
     <outcome value="improved blood circulation"/>
     <report>
-        <type value="DiagnosticReport"/>
         <reference value="DiagnosticReport/f001"/>
         <display value="Lab results blood test"/>
     </report>

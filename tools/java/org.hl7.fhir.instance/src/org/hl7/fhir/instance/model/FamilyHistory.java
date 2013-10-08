@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ public class FamilyHistory extends Resource {
         protected String_ name;
 
         /**
-         * The type of relationship this person has to the patient (father, mother, brother etc.) At the moment this is a code linking to a fixed set of values. I'm not sure if there is an international standard for this. A fixed (possibly extensible) set of codes feels better than a codeable concept for something like this...
+         * The type of relationship this person has to the patient (father, mother, brother etc.).
          */
         protected CodeableConcept relationship;
 
@@ -228,6 +228,11 @@ public class FamilyHistory extends Resource {
   }
 
     /**
+     * This records identifiers associated with this family history record that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
+     */
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
+
+    /**
      * The person who this history concerns.
      */
     protected ResourceReference subject;
@@ -241,6 +246,17 @@ public class FamilyHistory extends Resource {
      * The related person. Each FamilyHistory resource contains the entire family history for a single person.
      */
     protected List<FamilyHistoryRelationComponent> relation = new ArrayList<FamilyHistoryRelationComponent>();
+
+    public List<Identifier> getIdentifier() { 
+      return this.identifier;
+    }
+
+    // syntactic sugar
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
+    }
 
     public ResourceReference getSubject() { 
       return this.subject;
@@ -285,6 +301,9 @@ public class FamilyHistory extends Resource {
 
       public FamilyHistory copy() {
         FamilyHistory dst = new FamilyHistory();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.subject = subject == null ? null : subject.copy();
         dst.note = note == null ? null : note.copy();
         dst.relation = new ArrayList<FamilyHistoryRelationComponent>();

@@ -6,12 +6,10 @@
   </text>
   <reactionDate value="2012-09-17"/>
   <subject>
-    <type value="Patient"/>
     <reference value="Patient/example"/>
   </subject>
   <didNotOccurFlag value="false"/>
   <recorder>
-    <type value="Practitioner"/>
     <reference value="Practitioner/example"/>
   </recorder>
   <symptom>
@@ -29,7 +27,6 @@
     <exposureDate value="2012-09-17"/>
     <exposureType value="coincidental"/>
     <substance>
-      <type value="Substance"/>
       <reference value="Substance/example"/>
     </substance>
   </exposure>

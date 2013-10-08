@@ -1,5 +1,11 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<!-- to add:
+
+at present, FHIR does not offer any solution designed for real-time analytics of data from machines. This resource may be used for that purpose during the trial use period, and implementers wishing to work on real time analytics are invited to participate in further developemnt of the standard
+
+-->
+
 <p>
 There are 2 device related resources
 </p>

@@ -5,7 +5,6 @@
 		<div xmlns="http://www.w3.org/1999/xhtml">Paitent John Doe's expression of SDF4 gene.</div>
 	</text>
 	<subject>
-		<type value="Patient"/>
 		<reference value="Patient/example"/>
 		<display value="John Doe"/>
 	</subject>
@@ -18,7 +17,6 @@
 		</coordinate>
 	</gene>
 	<microarray>
-		<type value="Microarray"/>
 		<reference value="microarray/@example"/>
 	</microarray>
 	<rnaSeq>

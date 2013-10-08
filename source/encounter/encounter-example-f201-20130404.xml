@@ -15,13 +15,11 @@
     </coding>
  </type>
  <subject>
-     <type value="Patient"/>
      <reference value="Patient/f201"/>
      <display value="Roel"/>
  </subject>
  <participant>
      <practitioner>
-         <type value="Practitioner"/>
          <reference value="Practitioner/f201"/>
     </practitioner>
  </participant>
@@ -36,7 +34,6 @@
  </priority>
  <!--No hospitalization was deemed necessary-->
  <serviceProvider>
-     <type value="Organization"/>
      <reference value="Organization/f201"/>
  </serviceProvider>
 </Encounter>

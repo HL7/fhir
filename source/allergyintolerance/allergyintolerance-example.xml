@@ -9,23 +9,18 @@
   <recordedDate value="2012-09-17"/>
   <status value="confirmed"/>
   <subject>
-    <type value="Patient"/>
     <reference value="Patient/example"/>
   </subject>
   <recorder>
-    <type value="Practitioner"/>
     <reference value="Practitioner/example"/>
   </recorder>
   <substance>
-    <type value="Substance"/>
     <reference value="Substance/example"/>
   </substance>
   <reaction>
-    <type value="AdverseReaction"/>
     <reference value="AdverseReaction/example"/>
   </reaction>
   <sensitivityTest>
-    <type value="Observation"/>
     <reference value="Observation/example"/>
   </sensitivityTest>
 </AllergyIntolerance>

@@ -51,7 +51,6 @@
   </identifier>  
 
   <subject>
-    <type value="Patient"/>
     <reference value="Patient/example"/>
   </subject>
  

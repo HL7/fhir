@@ -653,11 +653,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     <status value="final"/> <!-- all this report is final -->
     <issued value="2011-03-04T11:45:33+11:00"/>
     <subject>
-      <type value="Patient"/>
       <reference value="Patient/pat2"/>
     </subject>
     <performer>
-      <type value="Organization"/>
       <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
       <display value="Acme Laboratory, Inc"/>
     </performer>
@@ -688,71 +686,54 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     <!-- now the atomic results -->
 
     <result>
-      <type value="Observation"/>
       <reference value="#r1"/>
     </result>  
     <result>
-      <type value="Observation"/>
       <reference value="#r2"/>
     </result>
     <result>
-      <type value="Observation"/>
       <reference value="#r3"/>
     </result>
     <result>
-      <type value="Observation"/>
       <reference value="#r4"/>
     </result>
     <result>
-      <type value="Observation"/>
       <reference value="#r5"/>
     </result>
     <result>
-      <type value="Observation"/>
       <reference value="#r6"/>
     </result>
     <result>
-      <type value="Observation"/>
       <reference value="#r7"/>
     </result>
     <result>
-      <type value="Observation"/>
       <reference value="#r8"/>
     </result>
     <result>
-      <type value="Observation"/>
       <reference value="#r9"/>
     </result>
     <result>
-      <type value="Observation"/>
       <reference value="#r10"/>
     </result>
     <result>
-      <type value="Observation"/>
       <reference value="#r11"/>
     </result>
     <result>
-      <type value="Observation"/>
       <reference value="#r12"/>
     </result>
     <result>
-      <type value="Observation"/>
       <reference value="#r13"/>
     </result>
     <result>
-      <type value="Observation"/>
       <reference value="#r14"/>
     </result>
     <result>
-      <type value="Observation"/>
       <reference value="#r15"/>
     </result>
     <result>
-      <type value="Observation"/>
       <reference value="#r16"/>
     </result>
     <result>
-      <type value="Observation"/>
       <reference value="#r17"/>
     </result>
   </results>

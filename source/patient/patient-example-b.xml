@@ -44,13 +44,11 @@
   </photo>
 
   <provider>
-    <type value="Organization"/>
     <reference value="Organization/1"/>
     <display value="ACME Healthcare, Inc"/>
   </provider>
 
   <link>
-    <type value="Patient"/>
     <reference value="Patient/pat1"/>
   </link>
 

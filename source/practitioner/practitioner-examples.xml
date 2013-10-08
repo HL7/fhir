@@ -50,7 +50,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -103,7 +102,6 @@
           </coding>
         </gender>
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -157,7 +155,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -211,7 +208,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -265,7 +261,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -318,7 +313,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -372,7 +366,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -425,7 +418,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -479,7 +471,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -533,7 +524,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -587,7 +577,6 @@
         </gender>
         
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -641,7 +630,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -695,7 +683,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -749,7 +736,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -803,7 +789,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -857,7 +842,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -910,7 +894,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -964,7 +947,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -1018,7 +1000,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -1072,7 +1053,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -1125,7 +1105,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -1178,7 +1157,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -1232,7 +1210,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -1286,7 +1263,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -1340,7 +1316,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -1393,7 +1368,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -1446,7 +1420,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -1499,7 +1472,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -1553,7 +1525,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -1606,7 +1577,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -1659,7 +1629,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -1713,7 +1682,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -1767,7 +1735,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -1820,7 +1787,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -1873,7 +1839,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -1927,7 +1892,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -1981,7 +1945,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -2035,7 +1998,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -2089,7 +2051,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -2143,7 +2104,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -2197,7 +2157,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -2250,7 +2209,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -2304,7 +2262,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -2358,7 +2315,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -2412,7 +2368,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -2466,7 +2421,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -2519,7 +2473,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -2573,7 +2526,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -2626,7 +2578,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -2678,7 +2629,6 @@
           </coding>
         </gender>
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -2732,7 +2682,6 @@
           </coding>
         </gender>
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -2785,7 +2734,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -2839,7 +2787,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -2891,7 +2838,6 @@
           </coding>
         </gender>
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -2942,7 +2888,6 @@
           </coding>
         </gender>
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -2995,7 +2940,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -3049,7 +2993,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
@@ -3103,7 +3046,6 @@
         </gender>
 
         <organization>
-          <type value="Organization"/>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>

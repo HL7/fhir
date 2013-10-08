@@ -3,24 +3,20 @@
  <status value="final"/>
  <issued value="2013-03-11T10:28:00+01:00"/>
  <subject><!--It entails Roel's diagnostic report-->
-     <type value="Patient"/>
      <reference value="Patient/f201"/>
      <display value="Roel"/>
  </subject>
  <performer><!--The diagnostic report was issued by AUMC-->
-     <type value="Organization"/><!--TODO Why can't this be a practitioner (OR organization)?-->
      <reference value="Organization/f201"/>
      <display value="AUMC"/>
  </performer>
  <!--No identifier was available-->
  <requestDetail>
      <encounter>         
-        <type value="Encounter"/>
         <reference value="Encounter/f203"/>
         <display value="Roel's encounter on March eleventh 2013"/>
      </encounter>
      <requester>
-         <type value="Practitioner"/>
          <reference value="Practitioner/f201"/>
          <display value="Dokter Bronsig"/>
      </requester>
@@ -46,7 +42,6 @@
     </coding>
   </name>
   <result>
-        <type value="Observation"/>
         <reference value="Observation/f206"/>
         <display value="Results for staphylococcus analysis on Roel's blood culture"/>  
   </result>

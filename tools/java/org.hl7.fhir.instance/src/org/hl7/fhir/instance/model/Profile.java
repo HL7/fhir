@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -513,7 +513,7 @@ public class Profile extends Resource {
 
     public class ElementSlicingComponent extends Element {
         /**
-         * Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance must completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices.
+         * Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance SHALL completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices.
          */
         protected Id discriminator;
 
@@ -598,7 +598,7 @@ public class Profile extends Resource {
         protected String_ short_;
 
         /**
-         * The definition must be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.
+         * The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.
          */
         protected String_ formal;
 
@@ -618,7 +618,7 @@ public class Profile extends Resource {
         protected List<String_> synonym = new ArrayList<String_>();
 
         /**
-         * The minimum number of times this element must appear in the instance.
+         * The minimum number of times this element SHALL appear in the instance.
          */
         protected Integer min;
 
@@ -638,7 +638,7 @@ public class Profile extends Resource {
         protected String_ nameReference;
 
         /**
-         * Specifies a value that must hold for this element in the instance.
+         * Specifies a value that SHALL hold for this element in the instance.
          */
         protected org.hl7.fhir.instance.model.Type value;
 
@@ -648,7 +648,7 @@ public class Profile extends Resource {
         protected org.hl7.fhir.instance.model.Type example;
 
         /**
-         * Indicates the shortest length that must be supported by conformant instances without truncation.
+         * Indicates the shortest length that SHALL be supported by conformant instances without truncation.
          */
         protected Integer maxLength;
 
@@ -663,12 +663,12 @@ public class Profile extends Resource {
         protected List<ElementDefinitionConstraintComponent> constraint = new ArrayList<ElementDefinitionConstraintComponent>();
 
         /**
-         * If true, conformant resource authors must be capable of providing a value for the element and resource consumers must be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported.
+         * If true, conformant resource authors SHALL be capable of providing a value for the element and resource consumers SHALL be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported.
          */
         protected Boolean mustSupport;
 
         /**
-         * If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they must either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.
+         * If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.
          */
         protected Boolean isModifier;
 
@@ -1031,7 +1031,7 @@ public class Profile extends Resource {
         protected Code code;
 
         /**
-         * Identifies a profile that must hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.
+         * Identifies a profile that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.
          */
         protected Uri profile;
 

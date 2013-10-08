@@ -2,7 +2,6 @@
 <Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
   <subject>
     <!--It entails Roel's TPF treatment-->
-    <type value="Patient"/>
     <reference value="Patient/f201"/>
     <display value="Roel"/>
   </subject>
@@ -27,7 +26,6 @@
   <!--TODO Why can't this be Resource (any) AND String?-->
   <performer>
     <person>
-      <type value="Practitioner"/>
       <reference value="Practitioner/f201"/>
       <display value="Dokter Bronsig"/>
     </person>
@@ -44,7 +42,6 @@
     <end value="2013-01-28T14:27:00+01:00"/>
   </date>
   <encounter>
-    <type value="Encounter"/>
     <reference value="Encounter/f202"/>
     <display value="Roel's encounter on January 28th, 2013"/>
   </encounter>

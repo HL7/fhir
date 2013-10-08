@@ -5,7 +5,6 @@
     <div xmlns="http://www.w3.org/1999/xhtml">Biopsy of suspected melanoma L) arm</div>
   </text>
   <subject>
-    <type value="Patient"/>
     <reference value="Patient/example"/>
   </subject>
   <type>
@@ -29,7 +28,6 @@
   </indication>
   <performer>
     <person>
-      <type value="Practitioner"/>
       <reference value="Practitioner/example"/>
       <display value="Dr Bert Biopser"/>
     </person>

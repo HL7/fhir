@@ -1,18 +1,34 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-  <p>Observations are a central element in healthcare, used to support diagnosis, monitor progress, determine baselines and patterns 
+<p>
+Observations are a central element in healthcare, used to support diagnosis, monitor progress, determine baselines and patterns 
 and even capture demographic characteristics.  Fundamentally, observations are simple name/value pair assertions with little structure, 
 though there are several resources such as <a href="diagnosticreport.htm">DiagnosticReport</a> to manage and represent rich aggregation
-patterns for observations. Expected uses for this resource include:</p>
-  <ul>
-    <li>Vital signs: temperature, blood pressure, respiration rate</li>
+patterns for observations. Expected uses for this resource include:
+</p>
+<ul>
+  <li>Vital signs: temperature, blood pressure, respiration rate</li>
 	<li>Laboratory Data and other Diagnostic Measures</li>
 	<li>Measurements emitted by Devices</li>
-    <li>Clinical assessments such as APGAR</li>
-    <li>Personal characteristics: height, weight, eye-color</li>
-    <li>Diagnoses (Note: trackable conditions, allergies, adverse reactions and more complex structures are handled elsewhere)</li>
-    <li>Social history: tobacco use, family supports, cognitive status</li>
-    <li>Core characteristics: pregnancy status, death assertion</li>
-  </ul>
+  <li>Clinical assessments such as APGAR</li>
+  <li>Personal characteristics: height, weight, eye-color</li>
+  <li>Diagnoses (Note: trackable conditions, allergies, adverse reactions and more complex structures are handled elsewhere)</li>
+  <li>Social history: tobacco use, family supports, cognitive status</li>
+  <li>Core characteristics: pregnancy status, death assertion</li>
+</ul>
+
+<p>
+The observation resource has the following kinds of elements:
+</p>
+<ul>
+ <li>status and reliability (mandatory): all users of observations SHALL be sure of the status of the observation</li>
+ <li>name (mandatory) - what was observed (often called "code")</li>
+ <li>value - the actual value that was observed</li>
+ <li>subject, bodysite - the patient, or group of patients, or device, that this observation was made on. Note that group of patients is most often used in veterinary care. For individual patients, the location on the body may also be specified</li>
+ <li>applies - the time or period that this observation was made on the subject</li>
+ <li>interpretation, comments, and reference range: information to help understand the observed value</li>
+ <li>method, issued, performer - additional information about how the test was performed that may help understand the observation</li>
+</ul>  
+  
 </div>
 

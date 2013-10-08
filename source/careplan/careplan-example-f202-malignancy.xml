@@ -40,19 +40,16 @@
          <product>
             <ingredient>
                <item>
-                  <type value="Medication" />
                   <reference value="#doce" />
                </item>
             </ingredient>
             <ingredient>
                <item>
-                  <type value="Medication" />
                   <reference value="#cisp" />
                </item>               
             </ingredient>
             <ingredient>
                <item>
-                  <type value="Medication" />
                   <reference value="#fluo" />
                </item>
             </ingredient>
@@ -61,13 +58,11 @@
    </contained>
    <patient>
       <!--It entails Roel's careplan-->
-      <type value="Patient"/>
       <reference value="Patient/f201"/>
       <display value="Roel"/>
    </patient>
    <status value="active"/>
    <concern>
-      <type value="Condition"/>
       <reference value="Condition/f202"/>
       <display value="Roel's head-neck tumor"/>
    </concern>
@@ -80,7 +75,6 @@
          </coding>
       </role>
       <member>
-         <type value="Practitioner"/>
          <reference value="Practitioner/f201"/>
          <display value="Dokter Bronsig"/>
       </member>
@@ -93,7 +87,6 @@
       <status value="ongoing"/>
       <prohibited value="false"/>
       <actionResulting>
-         <type value="Procedure"/>
          <reference value="Procedure/f201"/>
          <display value="Roel's Chemotherapy"/>
       </actionResulting>
@@ -107,7 +100,6 @@
            </coding>
         </code>
         <product>
-           <type value="Medication"/>
            <reference value="#tpf"/>
         </product>
       </simple>

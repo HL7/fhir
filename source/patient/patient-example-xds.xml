@@ -32,7 +32,6 @@
       <country value="USA"/>
   </address>
   <provider>
-    <type value="Organization"/>
     <reference value="Organization/2"/>
   </provider>
   <active value="true"/>

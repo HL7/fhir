@@ -34,12 +34,10 @@
  </method>
  <!--No identifier could be provided to this observation-->
  <subject><!--It entails Roel's Staphylococcus-->
-     <type value="Patient"/>
      <reference value="Patient/f201"/>
      <display value="Roel"/>
  </subject>
  <performer><!--Roel's blood culture was tested by Luigi Maas-->     
-     <type value="Practitioner"/>
      <reference value="Practitioner/f202"/>
      <display value="Luigi Maas"/>
  </performer>

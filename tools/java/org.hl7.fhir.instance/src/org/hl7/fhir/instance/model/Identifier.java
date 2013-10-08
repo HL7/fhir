@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 /**
  * A technical identifier - identifies some entity uniquely and unambiguously.
@@ -40,6 +40,7 @@ public class Identifier extends Type {
         usual, // the identifier recommended for display and use in real-world interactions.
         official, // the identifier considered to be most trusted for the identification of this item.
         temp, // A temporary identifier.
+        secondary, // An identifier that was assigned in secondary use - it serves to identify the object in a relative context, but cannot be consistently assigned to the same object again in a different context.
         Null; // added to help the parsers
         public static IdentifierUse fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -50,6 +51,8 @@ public class Identifier extends Type {
           return official;
         if ("temp".equals(codeString))
           return temp;
+        if ("secondary".equals(codeString))
+          return secondary;
         throw new Exception("Unknown IdentifierUse code '"+codeString+"'");
         }
         public String toCode() {
@@ -57,6 +60,7 @@ public class Identifier extends Type {
             case usual: return "usual";
             case official: return "official";
             case temp: return "temp";
+            case secondary: return "secondary";
             default: return "?";
           }
         }
@@ -73,6 +77,8 @@ public class Identifier extends Type {
           return IdentifierUse.official;
         if ("temp".equals(codeString))
           return IdentifierUse.temp;
+        if ("secondary".equals(codeString))
+          return IdentifierUse.secondary;
         throw new Exception("Unknown IdentifierUse code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -82,12 +88,14 @@ public class Identifier extends Type {
         return "official";
       if (code == IdentifierUse.temp)
         return "temp";
+      if (code == IdentifierUse.secondary)
+        return "secondary";
       return "?";
       }
     }
 
     /**
-     * Identifies the use for this identifier, if known.
+     * usual | official | temp | secondary (If known).
      */
     protected Enumeration<IdentifierUse> use;
 

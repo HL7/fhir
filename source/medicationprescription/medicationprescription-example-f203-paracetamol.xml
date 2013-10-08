@@ -4,22 +4,18 @@
  <dateWritten value="2013-04-04"/>
   <status value="active"/> 
  <patient>
-    <type value="Patient"/>
     <reference value="Patient/f201"/>
     <display value="Roel"/>
  </patient>
  <prescriber>
-    <type value="Practitioner"/>
     <reference value="Practitioner/f201"/>
  </prescriber>
  <encounter><!--TODO <encounter> is not expected...-->
-    <type value="Encounter"/>
     <reference value="Encounter/f201"/>
     <display value="Roel's encounter on April fourth 2013"/>
  </encounter>
  <reasonForPrescribingString value="problem/@f201"/>
  <medication>
-    <type value="Medication"/>
     <reference value="Medication/f203"/>
     <display value="Paracetamol"/>
  </medication>

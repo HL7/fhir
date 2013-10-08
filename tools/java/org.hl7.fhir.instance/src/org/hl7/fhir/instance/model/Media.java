@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -39,7 +39,7 @@ import java.util.*;
 public class Media extends Resource {
 
     public enum MediaType {
-        photo, // The media consists of one or more unmoving images.
+        photo, // The media consists of one or more unmoving images, including photographs, computer-generated graphs and charts, and scanned documents.
         video, // The media consists of a series of frames that capture a moving image.
         audio, // The media consists of a sound recording.
         Null; // added to help the parsers
@@ -114,11 +114,6 @@ public class Media extends Resource {
     protected ResourceReference subject;
 
     /**
-     * Who requested that this image be collected.
-     */
-    protected ResourceReference requester;
-
-    /**
      * The person who administered the collection of the image.
      */
     protected ResourceReference operator;
@@ -144,7 +139,7 @@ public class Media extends Resource {
     protected Integer width;
 
     /**
-     * The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single iamge, or an animated gif. If there is more than one frame, this must have a value in order to alert interface software that a multi-frame capable rendering widget is required.
+     * The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single iamge, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.
      */
     protected Integer frames;
 
@@ -223,14 +218,6 @@ public class Media extends Resource {
 
     public void setSubject(ResourceReference value) { 
       this.subject = value;
-    }
-
-    public ResourceReference getRequester() { 
-      return this.requester;
-    }
-
-    public void setRequester(ResourceReference value) { 
-      this.requester = value;
     }
 
     public ResourceReference getOperator() { 
@@ -376,7 +363,6 @@ public class Media extends Resource {
           dst.identifier.add(i.copy());
         dst.dateTime = dateTime == null ? null : dateTime.copy();
         dst.subject = subject == null ? null : subject.copy();
-        dst.requester = requester == null ? null : requester.copy();
         dst.operator = operator == null ? null : operator.copy();
         dst.view = view == null ? null : view.copy();
         dst.deviceName = deviceName == null ? null : deviceName.copy();

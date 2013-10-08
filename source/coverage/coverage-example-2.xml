@@ -7,7 +7,6 @@
   </text>
 
  <issuer>
-  <type value="Organization"/>
   <reference value="Organization/2"/>
 </issuer>
  

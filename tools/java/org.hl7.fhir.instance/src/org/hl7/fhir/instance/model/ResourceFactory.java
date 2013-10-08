@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 public class ResourceFactory {
 
@@ -38,20 +38,16 @@ public class ResourceFactory {
             return new Condition();
         if ("Supply".equals(name))
             return new Supply();
-        if ("GVFVariant".equals(name))
-            return new GVFVariant();
         if ("Organization".equals(name))
             return new Organization();
         if ("Group".equals(name))
             return new Group();
         if ("ValueSet".equals(name))
             return new ValueSet();
-        if ("Coverage".equals(name))
-            return new Coverage();
+        if ("ImmunizationRecommendation".equals(name))
+            return new ImmunizationRecommendation();
         if ("Appointment".equals(name))
             return new Appointment();
-        if ("VCFMeta".equals(name))
-            return new VCFMeta();
         if ("MedicationDispense".equals(name))
             return new MedicationDispense();
         if ("DeviceLog".equals(name))
@@ -62,10 +58,6 @@ public class ResourceFactory {
             return new DeviceCapabilities();
         if ("MedicationStatement".equals(name))
             return new MedicationStatement();
-        if ("SequencingLab".equals(name))
-            return new SequencingLab();
-        if ("Sequence".equals(name))
-            return new Sequence();
         if ("Questionnaire".equals(name))
             return new Questionnaire();
         if ("OperationOutcome".equals(name))
@@ -84,24 +76,18 @@ public class ResourceFactory {
             return new InterestOfCare();
         if ("Immunization".equals(name))
             return new Immunization();
-        if ("Microarray".equals(name))
-            return new Microarray();
         if ("OrderResponse".equals(name))
             return new OrderResponse();
         if ("ConceptMap".equals(name))
             return new ConceptMap();
-        if ("ImagingStudy".equals(name))
-            return new ImagingStudy();
         if ("Practitioner".equals(name))
             return new Practitioner();
-        if ("GVFMeta".equals(name))
-            return new GVFMeta();
-        if ("VCFVariant".equals(name))
-            return new VCFVariant();
-        if ("CarePlan".equals(name))
-            return new CarePlan();
+        if ("ImagingStudy".equals(name))
+            return new ImagingStudy();
         if ("Provenance".equals(name))
             return new Provenance();
+        if ("CarePlan".equals(name))
+            return new CarePlan();
         if ("DeviceData".equals(name))
             return new DeviceData();
         if ("Device".equals(name))
@@ -118,14 +104,12 @@ public class ResourceFactory {
             return new DiagnosticReport();
         if ("Medication".equals(name))
             return new Medication();
+        if ("DocumentManifest".equals(name))
+            return new DocumentManifest();
         if ("MedicationAdministration".equals(name))
             return new MedicationAdministration();
         if ("Encounter".equals(name))
             return new Encounter();
-        if ("GeneExpression".equals(name))
-            return new GeneExpression();
-        if ("SequencingAnalysis".equals(name))
-            return new SequencingAnalysis();
         if ("SecurityEvent".equals(name))
             return new SecurityEvent();
         if ("List".equals(name))
@@ -140,14 +124,10 @@ public class ResourceFactory {
             return new FamilyHistory();
         if ("Location".equals(name))
             return new Location();
-        if ("Observation".equals(name))
-            return new Observation();
         if ("AllergyIntolerance".equals(name))
             return new AllergyIntolerance();
-        if ("GeneticAnalysis".equals(name))
-            return new GeneticAnalysis();
-        if ("ImmunizationProfile".equals(name))
-            return new ImmunizationProfile();
+        if ("Observation".equals(name))
+            return new Observation();
         if ("RelatedPerson".equals(name))
             return new RelatedPerson();
         if ("Specimen".equals(name))

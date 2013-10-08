@@ -31,7 +31,6 @@
     <altitude value="0" />
   </position>
   <provider>
-    <type value="Organization"/>
     <reference value="Organization/f001"/>
   </provider>
   <active value="true"/>

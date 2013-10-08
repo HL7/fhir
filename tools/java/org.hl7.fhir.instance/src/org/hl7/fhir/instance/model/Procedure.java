@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -40,21 +40,21 @@ public class Procedure extends Resource {
 
     public enum ProcedureRelationshipType {
         causedby, // This procedure had to be performed because of the related one.
-        caused, // This procedure caused the related one to be performed.
+        becauseof, // This procedure caused the related one to be performed.
         Null; // added to help the parsers
         public static ProcedureRelationshipType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("caused-by".equals(codeString))
           return causedby;
-        if ("caused".equals(codeString))
-          return caused;
+        if ("because-of".equals(codeString))
+          return becauseof;
         throw new Exception("Unknown ProcedureRelationshipType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case causedby: return "caused-by";
-            case caused: return "caused";
+            case becauseof: return "because-of";
             default: return "?";
           }
         }
@@ -67,15 +67,15 @@ public class Procedure extends Resource {
                 return null;
         if ("caused-by".equals(codeString))
           return ProcedureRelationshipType.causedby;
-        if ("caused".equals(codeString))
-          return ProcedureRelationshipType.caused;
+        if ("because-of".equals(codeString))
+          return ProcedureRelationshipType.becauseof;
         throw new Exception("Unknown ProcedureRelationshipType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
       if (code == ProcedureRelationshipType.causedby)
         return "caused-by";
-      if (code == ProcedureRelationshipType.caused)
-        return "caused";
+      if (code == ProcedureRelationshipType.becauseof)
+        return "because-of";
       return "?";
       }
     }
@@ -167,12 +167,17 @@ public class Procedure extends Resource {
   }
 
     /**
+     * This records identifiers associated with this procedure that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
+     */
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
+
+    /**
      * The person on whom the procedure was performed.
      */
     protected ResourceReference subject;
 
     /**
-     * The specific procedure that is performed.
+     * The specific procedure that is performed. Use text if the exact nature of the procedure can't be coded.
      */
     protected CodeableConcept type;
 
@@ -184,7 +189,7 @@ public class Procedure extends Resource {
     /**
      * The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text.
      */
-    protected String_ indication;
+    protected List<CodeableConcept> indication = new ArrayList<CodeableConcept>();
 
     /**
      * Limited to 'real' people rather than equipment.
@@ -214,7 +219,7 @@ public class Procedure extends Resource {
     /**
      * Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, which typically will describe the procedure itself rather than any 'post procedure' issues.
      */
-    protected String_ complication;
+    protected List<CodeableConcept> complication = new ArrayList<CodeableConcept>();
 
     /**
      * If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.
@@ -230,6 +235,17 @@ public class Procedure extends Resource {
      * Any other notes about the procedure - e.g. the operative notes.
      */
     protected String_ notes;
+
+    public List<Identifier> getIdentifier() { 
+      return this.identifier;
+    }
+
+    // syntactic sugar
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
+    }
 
     public ResourceReference getSubject() { 
       return this.subject;
@@ -258,26 +274,15 @@ public class Procedure extends Resource {
       return t;
     }
 
-    public String_ getIndication() { 
+    public List<CodeableConcept> getIndication() { 
       return this.indication;
     }
 
-    public void setIndication(String_ value) { 
-      this.indication = value;
-    }
-
-    public String getIndicationSimple() { 
-      return this.indication == null ? null : this.indication.getValue();
-    }
-
-    public void setIndicationSimple(String value) { 
-      if (value == null)
-        this.indication = null;
-      else {
-        if (this.indication == null)
-          this.indication = new String_();
-        this.indication.setValue(value);
-      }
+    // syntactic sugar
+    public CodeableConcept addIndication() { 
+      CodeableConcept t = new CodeableConcept();
+      this.indication.add(t);
+      return t;
     }
 
     public List<ProcedurePerformerComponent> getPerformer() { 
@@ -340,26 +345,15 @@ public class Procedure extends Resource {
       return t;
     }
 
-    public String_ getComplication() { 
+    public List<CodeableConcept> getComplication() { 
       return this.complication;
     }
 
-    public void setComplication(String_ value) { 
-      this.complication = value;
-    }
-
-    public String getComplicationSimple() { 
-      return this.complication == null ? null : this.complication.getValue();
-    }
-
-    public void setComplicationSimple(String value) { 
-      if (value == null)
-        this.complication = null;
-      else {
-        if (this.complication == null)
-          this.complication = new String_();
-        this.complication.setValue(value);
-      }
+    // syntactic sugar
+    public CodeableConcept addComplication() { 
+      CodeableConcept t = new CodeableConcept();
+      this.complication.add(t);
+      return t;
     }
 
     public String_ getFollowUp() { 
@@ -419,12 +413,17 @@ public class Procedure extends Resource {
 
       public Procedure copy() {
         Procedure dst = new Procedure();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.subject = subject == null ? null : subject.copy();
         dst.type = type == null ? null : type.copy();
         dst.bodySite = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : bodySite)
           dst.bodySite.add(i.copy());
-        dst.indication = indication == null ? null : indication.copy();
+        dst.indication = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : indication)
+          dst.indication.add(i.copy());
         dst.performer = new ArrayList<ProcedurePerformerComponent>();
         for (ProcedurePerformerComponent i : performer)
           dst.performer.add(i.copy(dst));
@@ -434,7 +433,9 @@ public class Procedure extends Resource {
         dst.report = new ArrayList<ResourceReference>();
         for (ResourceReference i : report)
           dst.report.add(i.copy());
-        dst.complication = complication == null ? null : complication.copy();
+        dst.complication = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : complication)
+          dst.complication.add(i.copy());
         dst.followUp = followUp == null ? null : followUp.copy();
         dst.relatedItem = new ArrayList<ProcedureRelatedItemComponent>();
         for (ProcedureRelatedItemComponent i : relatedItem)

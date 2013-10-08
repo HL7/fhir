@@ -9,17 +9,17 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:16:02Z</Created>
-  <LastSaved>2013-08-04T02:27:30Z</LastSaved>
+  <LastSaved>2013-10-08T09:16:31Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6225</WindowHeight>
+  <WindowHeight>6165</WindowHeight>
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
-  <WindowTopY>6195</WindowTopY>
+  <WindowTopY>6255</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -108,7 +108,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="26" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="25" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="150.75"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="42" ss:Span="2"/>
@@ -176,14 +176,13 @@
     <Cell><Data ss:Type="String">Message.event</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">MessageEvent</Data></Cell>
     <Cell><Data ss:Type="String">Code for the event this message represents</Data></Cell>
-    <Cell><Data ss:Type="String">Code that identifies the event this message represents and connects it with the event definition in the FHIR specification</Data></Cell>
+    <Cell><Data ss:Type="String">Code that identifies the event this message represents and connects it with it's definition. Events defined as part of the FHIR specification have the system value &quot;http://hl7.org/fhir/message-type&quot;</Data></Cell>
     <Cell><Data ss:Type="String">Drives the behavior associated with this message</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">./payload[classCode=&quot;CACT&quot; and moodCode=&quot;EVN&quot; and isNormalAct()]/code[isNormalDatatype()]/code</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">MSH-9.2-message type.trigger event</Data></Cell>
-    <Cell><Data ss:Type="String">Consider changing to Coding to support profile-defined events</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Message.response</Data></Cell>
@@ -294,13 +293,14 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Message.destination</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">down</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=MessageDestination</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Message Destination Application</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Message Destination Application(s)</Data></Cell>
     <Cell><Data ss:Type="String">The destination application which the message is intended for</Data></Cell>
     <Cell><Data ss:Type="String">Indicates where message is to be sent to for routing purposes.  Allows verification of &quot;am I the intended recipient&quot;</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">./communicationFunction[typeCode=&quot;RCV&quot;]</Data></Cell>
+    <Cell><Data ss:Type="String">there SHOULD be at least one destination, but in some circumstances, the source system is unaware of any particular destination system</Data></Cell>
+    <Cell><Data ss:Type="String">./communicationFunction[typeCode=&quot;RCV&quot;]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Message.destination.name</Data></Cell>
@@ -375,18 +375,6 @@
     <Cell><Data ss:Type="String">unique(./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=&quot;RESP&quot; and isNormalParticipation]/role[classCode=&quot;ASSIGNED&quot; and isNormalRole()]/player[isNormalEntity() and classCode=&quot;PSN&quot; and determinerCode=&quot;INST&quot;] or ./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=&quot;RESP&quot; and isNormalParticipation]/role[classCode=&quot;ASSIGNED&quot; and isNormalRole()]/scoper[isNormalEntity() and classCode=&quot;ORG&quot; and determinerCode=&quot;INST&quot;])</Data></Cell>
     <Cell><Data ss:Type="String">ORC-12-ordering provider / &#10;PRT-5-Participation Person:PRT-4-Participation='OP' / &#10;PRT-8-Participation Organization:PRT-4-Participation='OP'&#10;/ ROL where ROL.3 is RO or ORC.11</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell><Data ss:Type="String">Message.effective</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Period</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Time of effect</Data></Cell>
-    <Cell><Data ss:Type="String">The effective time - the real world time of the event that the message represents. Usually this is just a starting time, but some message events also have an end time (do x for period y)</Data></Cell>
-    <Cell><Data ss:Type="String">Need to know for understanding the content of the message, may govern receiver's behavior.</Data></Cell>
-    <Cell><Data ss:Type="String">Usually only for the request, but can be used in a response</Data></Cell>
-    <Cell><Data ss:Type="String">unique(./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/effectiveTime[isNormalDatatype() and type=&quot;IVL_TS&quot;])</Data></Cell>
-    <Cell><Data ss:Type="String">EVN.3 or EVN.6 or ORC.15 / TQ1-7-start date/time + TQ1-8-end date/time&#10;</Data></Cell>
-    <Cell><Data ss:Type="String">Grahame thinks this is not 80/20. Also, that it really should be domain modeled, not tucked away here</Data></Cell>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Message.reason</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
@@ -420,9 +408,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>23</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -430,16 +418,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>26</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -526,7 +512,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="response-code">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="6" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s76" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:StyleID="s76" ss:Width="71.25"/>
    <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="719.25"/>
@@ -542,23 +528,13 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">transient-error</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">rejection</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">fatal-error</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">The message was rejected because of some content in it. There is no point in re-sending without change. The response narrative SHALL describe what the issue is.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">rules</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The message was rejected because of some event-specific business rules, and it may be possible to modify the request and re-submit (as a different request). The response SHALL include an Issue report that describes what problem is</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">undeliverable</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">A middleware agent was unable to deliver the message to its intended destination</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -571,7 +547,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -3,7 +3,6 @@
    xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
    <subject>
       <!--It entails Roel's problem-->
-      <type value="Patient"/>
       <reference value="Patient/f201"/>
       <display value="Roel"/>
    </subject>
@@ -49,7 +48,6 @@
    <evidence>
       <!--Problem is confirmed in diagnostic report-->
       <detail>
-         <type value="DiagnosticReport"/>
          <reference value="DiagnosticReport/f201"/>
          <display value="Erasmus' diagnostic report of Roel's tumor"/>
       </detail>

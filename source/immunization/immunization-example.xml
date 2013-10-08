@@ -11,13 +11,11 @@
     </coding>
   </vaccineType> 
   <subject>
-    <type value="Patient"/>
     <reference value="Patient/example"/>
   </subject>
   <refusedIndicator value="false"/>
   <reported value="false"/>
   <performer>
-    <type value="Practitioner"/>
     <reference value="Practitioner/example"/>
   </performer>  
   <lotNumber value="AAJN11K"/>

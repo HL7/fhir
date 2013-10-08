@@ -10,7 +10,6 @@
   </text>
 
   <patient>
-    <type value="Patient" />
     <reference value="Patient/f201" />
   </patient>
   

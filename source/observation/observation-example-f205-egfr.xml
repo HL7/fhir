@@ -41,12 +41,10 @@
     <value value="1304-03720-eGFR"/>
  </identifier> 
  <subject><!--It entails Roel's Creatinine level-->
-     <type value="Patient"/>
      <reference value="Patient/f201"/>
      <display value="Roel"/>
  </subject>
  <performer><!--by Luigi Maas-->     
-     <type value="Practitioner"/>
      <reference value="Practitioner/f202"/>
      <display value="Luigi Maas"/>
  </performer>

@@ -441,7 +441,7 @@ public class Publisher {
       ConformanceRestResourceComponent res = conf.new ConformanceRestResourceComponent();
       rest.getResource().add(res);
       res.setTypeSimple(rn);
-      res.setProfile(Factory.makeResourceReference("Profile", "http://hl7.org/fhir/"+rn));
+      res.setProfile(Factory.makeResourceReference("http://hl7.org/fhir/"+rn));
       genConfOp(conf, res, RestfulOperation.read);
       genConfOp(conf, res, RestfulOperation.vread);
       genConfOp(conf, res, RestfulOperation.update);
@@ -2969,8 +2969,8 @@ public class Publisher {
     Set<String> tbls = new HashSet<String>();
     cm.setStatusSimple(ConceptMap.ValuesetStatus.draft); // until we publish DSTU, then .review
     cm.setDate(org.hl7.fhir.instance.model.Factory.nowDateTime());
-    cm.setSource(Factory.makeResourceReference("ValueSet", src));
-    cm.setTarget(Factory.makeResourceReference("ValueSet", cd.getV2Map()));
+    cm.setSource(Factory.makeResourceReference(src));
+    cm.setTarget(Factory.makeResourceReference(cd.getV2Map()));
     for (DefinedCode c : cd.getCodes()) {
       if (!Utilities.noString(c.getV2Map())) {
         for (String m : c.getV2Map().split(",")) {
@@ -3032,8 +3032,8 @@ public class Publisher {
     Set<String> tbls = new HashSet<String>();
     cm.setStatusSimple(ConceptMap.ValuesetStatus.draft); // until we publish DSTU, then .review
     cm.setDate(org.hl7.fhir.instance.model.Factory.nowDateTime());
-    cm.setSource(Factory.makeResourceReference("ValueSet", src));
-    cm.setTarget(Factory.makeResourceReference("ValueSet", cd.getV3Map()));
+    cm.setSource(Factory.makeResourceReference(src));
+    cm.setTarget(Factory.makeResourceReference(cd.getV3Map()));
     for (DefinedCode c : cd.getCodes()) {
       if (!Utilities.noString(c.getV3Map())) {
         for (String m : c.getV3Map().split(",")) {

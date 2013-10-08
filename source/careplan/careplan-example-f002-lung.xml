@@ -6,7 +6,6 @@
         <value value="CP2934"/>
     </identifier>
     <patient>        
-        <type value="Patient"/>
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
     </patient>
@@ -17,13 +16,11 @@
     </period>
     <modified value="2011-07-07T09:30:10+01:00"/>
     <concern>
-        <type value="Condition"/>
         <reference value="Condition/f201"/><!--TODO Correcte referentie-->
         <display value="?????"/>
     </concern>
     <participant>
         <member>    
-            <type value="Practitioner"/>
             <reference value="Practitioner/f003"/>
             <display value="M.I.M. Versteegh"/>
         </member>
@@ -47,7 +44,6 @@
           </code>
           <timingString value="2011-07-07T09:30:10+01:00"/>
           <performer>
-              <type value="Practitioner"/>
               <reference value="Practitioner/f003"/>
               <display value="M.I.M. Versteegh"/>
           </performer>

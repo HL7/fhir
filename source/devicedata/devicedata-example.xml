@@ -269,11 +269,9 @@ contained ones (even though this is easier for the sender)
 
   <instant value="2008-12-11T14:45:00"/>
   <source>
-    <type value="Device"/>
     <reference value="#d1"/>
   </source>
   <subject>
-    <type value="Patient"/>
     <reference value="Patient/ihe-pcd"/> 
   </subject>
   
@@ -285,63 +283,54 @@ contained ones (even though this is easier for the sender)
     
       <metric>
         <observation>
-          <type value="Observation"/>
           <reference value="#o1"/>
         </observation>
       </metric>
    
       <metric>
         <observation>
-          <type value="Observation"/>
           <reference value="#o2"/>
         </observation>
       </metric>
 
       <metric>
         <observation>
-          <type value="Observation"/>
           <reference value="#o3"/>
         </observation>
       </metric>
 
       <metric>
         <observation>
-          <type value="Observation"/>
           <reference value="#o4"/>
         </observation>
       </metric>
 
       <metric>
         <observation>
-          <type value="Observation"/>
           <reference value="#o5"/>
         </observation>
       </metric>
 
       <metric>
         <observation>
-          <type value="Observation"/>
           <reference value="#o6"/>
         </observation>
       </metric>
 
       <metric>
         <observation>
-          <type value="Observation"/>
           <reference value="#o7"/>
         </observation>
       </metric>
 
       <metric>
         <observation>
-          <type value="Observation"/>
           <reference value="#o8"/>
         </observation>
       </metric>
 
       <metric>
         <observation>
-          <type value="Observation"/>
           <reference value="#o9"/>
         </observation>
       </metric>

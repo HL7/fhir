@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -39,7 +39,7 @@ import java.util.*;
 public class Device extends Resource {
 
     /**
-     * Identifiers assigned to this device by various organizations.
+     * Identifiers assigned to this device by various organizations. The most likely organizations to assign identifiers are the manufacturer and the owner, though regulatory agencies may also assign an identifier. The identifiers identify the particular device, not the kind of device.
      */
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
@@ -67,6 +67,11 @@ public class Device extends Resource {
      * Date of expiry of this device (if applicable).
      */
     protected Date expiry;
+
+    /**
+     * FDA Mandated Unique Device Identifier - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.
+     */
+    protected String_ udi;
 
     /**
      * Lot number of manufacture.
@@ -205,6 +210,28 @@ public class Device extends Resource {
       }
     }
 
+    public String_ getUdi() { 
+      return this.udi;
+    }
+
+    public void setUdi(String_ value) { 
+      this.udi = value;
+    }
+
+    public String getUdiSimple() { 
+      return this.udi == null ? null : this.udi.getValue();
+    }
+
+    public void setUdiSimple(String value) { 
+      if (value == null)
+        this.udi = null;
+      else {
+        if (this.udi == null)
+          this.udi = new String_();
+        this.udi.setValue(value);
+      }
+    }
+
     public String_ getLotNumber() { 
       return this.lotNumber;
     }
@@ -294,6 +321,7 @@ public class Device extends Resource {
         dst.model = model == null ? null : model.copy();
         dst.version = version == null ? null : version.copy();
         dst.expiry = expiry == null ? null : expiry.copy();
+        dst.udi = udi == null ? null : udi.copy();
         dst.lotNumber = lotNumber == null ? null : lotNumber.copy();
         dst.owner = owner == null ? null : owner.copy();
         dst.location = location == null ? null : location.copy();

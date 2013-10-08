@@ -14,7 +14,6 @@
     <contained>
       <Condition id="p1">
         <subject>
-          <type value="Patient"></type>
           <reference value="Patient/example"/>
           <display value="Peter James Chalmers"/>
         </subject>
@@ -37,7 +36,6 @@
       </Practitioner>
     </contained>
     <patient>
-        <type value="Patient"></type>
         <reference value="Patient/example"/>
         <display value="Peter James Chalmers"/>
     </patient>
@@ -46,7 +44,6 @@
       <end value ="2013-01-01"/>
     </period>
     <concern>
-        <type value="Condition"></type>
         <reference value="#p1"/>
         <display value="obesity"/>
     </concern>
@@ -55,7 +52,6 @@
             <text value='responsiblePerson'></text>
         </role>
         <member>
-          <type value="Patient"></type>
           <reference value="Patient/example"/>
           <display value="Peter James Chalmers"/>
         </member>
@@ -65,7 +61,6 @@
             <text value='adviser'></text>
         </role>
         <member>
-            <type value="Practitioner"></type>
             <reference value="#pr1"/>
             <display value="Dorothy Dietition"/>
         </member>
@@ -88,7 +83,6 @@
             </repeat>
         </timingSchedule>
         <performer>
-          <type value="Patient"></type>
           <reference value="Patient/example"/>
           <display value="Peter James Chalmers"/>
         </performer>

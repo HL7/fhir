@@ -112,7 +112,6 @@
             </coding>
     </communication>
     <provider>
-        <type value="Organization"/>
         <reference value="Organization/f201"/>
         <display value="AUMC"/>
     </provider>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -146,6 +146,80 @@ public class CarePlan extends Resource {
       }
     }
 
+    public enum CarePlanActivityStatus {
+        notStarted, // Activity is planned but no action has yet been taken.
+        scheduled, // Appointment or other booking has occurred but activity has not yet begun.
+        ongoing, // Activity has been started but is not yet complete.
+        onHold, // Activity was started but has temporarily ceased with an expectation of resumption at a future time.
+        completed, // The activities have been completed (more or less) as planned.
+        discontinued, // The activities have been ended prior to completion (perhaps even before they were started).
+        Null; // added to help the parsers
+        public static CarePlanActivityStatus fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("not started".equals(codeString))
+          return notStarted;
+        if ("scheduled".equals(codeString))
+          return scheduled;
+        if ("ongoing".equals(codeString))
+          return ongoing;
+        if ("on hold".equals(codeString))
+          return onHold;
+        if ("completed".equals(codeString))
+          return completed;
+        if ("discontinued".equals(codeString))
+          return discontinued;
+        throw new Exception("Unknown CarePlanActivityStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case notStarted: return "not started";
+            case scheduled: return "scheduled";
+            case ongoing: return "ongoing";
+            case onHold: return "on hold";
+            case completed: return "completed";
+            case discontinued: return "discontinued";
+            default: return "?";
+          }
+        }
+    }
+
+  public class CarePlanActivityStatusEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("not started".equals(codeString))
+          return CarePlanActivityStatus.notStarted;
+        if ("scheduled".equals(codeString))
+          return CarePlanActivityStatus.scheduled;
+        if ("ongoing".equals(codeString))
+          return CarePlanActivityStatus.ongoing;
+        if ("on hold".equals(codeString))
+          return CarePlanActivityStatus.onHold;
+        if ("completed".equals(codeString))
+          return CarePlanActivityStatus.completed;
+        if ("discontinued".equals(codeString))
+          return CarePlanActivityStatus.discontinued;
+        throw new Exception("Unknown CarePlanActivityStatus code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == CarePlanActivityStatus.notStarted)
+        return "not started";
+      if (code == CarePlanActivityStatus.scheduled)
+        return "scheduled";
+      if (code == CarePlanActivityStatus.ongoing)
+        return "ongoing";
+      if (code == CarePlanActivityStatus.onHold)
+        return "on hold";
+      if (code == CarePlanActivityStatus.completed)
+        return "completed";
+      if (code == CarePlanActivityStatus.discontinued)
+        return "discontinued";
+      return "?";
+      }
+    }
+
     public enum CarePlanActivityCategory {
         diet, // Plan for the patient to consume food of a specified nature.
         drug, // Plan for the patient to consume/receive a drug, vaccine or other product.
@@ -228,80 +302,6 @@ public class CarePlan extends Resource {
       }
     }
 
-    public enum CarePlanActivityStatus {
-        notStarted, // Activity is planned but no action has yet been taken.
-        scheduled, // Appointment or other booking has occurred but activity has not yet begun.
-        ongoing, // Activity has been started but is not yet complete.
-        onHold, // Activity was started but has temporarily ceased with an expectation of resumption at a future time.
-        completed, // The activities have been completed (more or less) as planned.
-        discontinued, // The activities have been ended prior to completion (perhaps even before they were started).
-        Null; // added to help the parsers
-        public static CarePlanActivityStatus fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("not started".equals(codeString))
-          return notStarted;
-        if ("scheduled".equals(codeString))
-          return scheduled;
-        if ("ongoing".equals(codeString))
-          return ongoing;
-        if ("on hold".equals(codeString))
-          return onHold;
-        if ("completed".equals(codeString))
-          return completed;
-        if ("discontinued".equals(codeString))
-          return discontinued;
-        throw new Exception("Unknown CarePlanActivityStatus code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case notStarted: return "not started";
-            case scheduled: return "scheduled";
-            case ongoing: return "ongoing";
-            case onHold: return "on hold";
-            case completed: return "completed";
-            case discontinued: return "discontinued";
-            default: return "?";
-          }
-        }
-    }
-
-  public class CarePlanActivityStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("not started".equals(codeString))
-          return CarePlanActivityStatus.notStarted;
-        if ("scheduled".equals(codeString))
-          return CarePlanActivityStatus.scheduled;
-        if ("ongoing".equals(codeString))
-          return CarePlanActivityStatus.ongoing;
-        if ("on hold".equals(codeString))
-          return CarePlanActivityStatus.onHold;
-        if ("completed".equals(codeString))
-          return CarePlanActivityStatus.completed;
-        if ("discontinued".equals(codeString))
-          return CarePlanActivityStatus.discontinued;
-        throw new Exception("Unknown CarePlanActivityStatus code '"+codeString+"'");
-        }
-    public String toCode(Enum<?> code) throws Exception {
-      if (code == CarePlanActivityStatus.notStarted)
-        return "not started";
-      if (code == CarePlanActivityStatus.scheduled)
-        return "scheduled";
-      if (code == CarePlanActivityStatus.ongoing)
-        return "ongoing";
-      if (code == CarePlanActivityStatus.onHold)
-        return "on hold";
-      if (code == CarePlanActivityStatus.completed)
-        return "completed";
-      if (code == CarePlanActivityStatus.discontinued)
-        return "discontinued";
-      return "?";
-      }
-    }
-
     public class CarePlanParticipantComponent extends Element {
         /**
          * Indicates specific responsibility of an individual within the care plan.  E.g. "Primary physician", "Team coordinator", "Caregiver", etc.
@@ -353,6 +353,11 @@ public class CarePlan extends Resource {
          * Any comments related to the goal.
          */
         protected String_ notes;
+
+        /**
+         * The identified conditions that this goal relates to - the condition that caused it to be created, or that it is intended to address.
+         */
+        protected List<ResourceReference> concern = new ArrayList<ResourceReference>();
 
         public String_ getDescription() { 
           return this.description;
@@ -416,11 +421,25 @@ public class CarePlan extends Resource {
           }
         }
 
+        public List<ResourceReference> getConcern() { 
+          return this.concern;
+        }
+
+    // syntactic sugar
+        public ResourceReference addConcern() { 
+          ResourceReference t = new ResourceReference();
+          this.concern.add(t);
+          return t;
+        }
+
       public CarePlanGoalComponent copy(CarePlan e) {
         CarePlanGoalComponent dst = e.new CarePlanGoalComponent();
         dst.description = description == null ? null : description.copy();
         dst.status = status == null ? null : status.copy();
         dst.notes = notes == null ? null : notes.copy();
+        dst.concern = new ArrayList<ResourceReference>();
+        for (ResourceReference i : concern)
+          dst.concern.add(i.copy());
         return dst;
       }
 
@@ -428,14 +447,9 @@ public class CarePlan extends Resource {
 
     public class CarePlanActivityComponent extends Element {
         /**
-         * High-level categorization of the type of activity in a care plan.
+         * Internal reference that identifies the goals that this activity is intended to contribute towards meeting.
          */
-        protected Enumeration<CarePlanActivityCategory> category;
-
-        /**
-         * Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of encounter.
-         */
-        protected CodeableConcept code;
+        protected List<String_> goal = new ArrayList<String_>();
 
         /**
          * Identifies what progress is being made for the specific activity.
@@ -448,74 +462,41 @@ public class CarePlan extends Resource {
         protected Boolean prohibited;
 
         /**
-         * The period, timing or frequency upon which the described activity is to occur.
-         */
-        protected Type timing;
-
-        /**
-         * Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.
-         */
-        protected ResourceReference location;
-
-        /**
-         * Identifies who's expected to be involved in the activity.
-         */
-        protected List<ResourceReference> performer = new ArrayList<ResourceReference>();
-
-        /**
-         * Identifies the food, drug or other product being consumed or supplied in the activity.
-         */
-        protected ResourceReference product;
-
-        /**
-         * Identifies the quantity expected to be consumed in a given day.
-         */
-        protected Quantity dailyAmount;
-
-        /**
-         * Identifies the quantity expected to be supplied.
-         */
-        protected Quantity quantity;
-
-        /**
-         * This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.
-         */
-        protected String_ details;
-
-        /**
          * Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.
          */
-        protected List<ResourceReference> actionTaken = new ArrayList<ResourceReference>();
+        protected List<ResourceReference> actionResulting = new ArrayList<ResourceReference>();
 
         /**
          * Notes about the execution of the activity.
          */
         protected String_ notes;
 
-        public Enumeration<CarePlanActivityCategory> getCategory() { 
-          return this.category;
+        /**
+         * The details of the proposed activity represented in a specific resource.
+         */
+        protected ResourceReference detail;
+
+        /**
+         * A simple summary of details suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc.
+         */
+        protected CarePlanActivitySimpleComponent simple;
+
+        public List<String_> getGoal() { 
+          return this.goal;
         }
 
-        public void setCategory(Enumeration<CarePlanActivityCategory> value) { 
-          this.category = value;
+    // syntactic sugar
+        public String_ addGoal() { 
+          String_ t = new String_();
+          this.goal.add(t);
+          return t;
         }
 
-        public CarePlanActivityCategory getCategorySimple() { 
-          return this.category == null ? null : this.category.getValue();
-        }
-
-        public void setCategorySimple(CarePlanActivityCategory value) { 
-            if (this.category == null)
-              this.category = new Enumeration<CarePlanActivityCategory>();
-            this.category.setValue(value);
-        }
-
-        public CodeableConcept getCode() { 
-          return this.code;
-        }
-
-        public void setCode(CodeableConcept value) { 
-          this.code = value;
+        public String_ addGoalSimple(String value) { 
+          String_ t = new String_();
+          t.setValue(value);
+          this.goal.add(t);
+          return t;
         }
 
         public Enumeration<CarePlanActivityStatus> getStatus() { 
@@ -556,6 +537,145 @@ public class CarePlan extends Resource {
             if (this.prohibited == null)
               this.prohibited = new Boolean();
             this.prohibited.setValue(value);
+        }
+
+        public List<ResourceReference> getActionResulting() { 
+          return this.actionResulting;
+        }
+
+    // syntactic sugar
+        public ResourceReference addActionResulting() { 
+          ResourceReference t = new ResourceReference();
+          this.actionResulting.add(t);
+          return t;
+        }
+
+        public String_ getNotes() { 
+          return this.notes;
+        }
+
+        public void setNotes(String_ value) { 
+          this.notes = value;
+        }
+
+        public String getNotesSimple() { 
+          return this.notes == null ? null : this.notes.getValue();
+        }
+
+        public void setNotesSimple(String value) { 
+          if (value == null)
+            this.notes = null;
+          else {
+            if (this.notes == null)
+              this.notes = new String_();
+            this.notes.setValue(value);
+          }
+        }
+
+        public ResourceReference getDetail() { 
+          return this.detail;
+        }
+
+        public void setDetail(ResourceReference value) { 
+          this.detail = value;
+        }
+
+        public CarePlanActivitySimpleComponent getSimple() { 
+          return this.simple;
+        }
+
+        public void setSimple(CarePlanActivitySimpleComponent value) { 
+          this.simple = value;
+        }
+
+      public CarePlanActivityComponent copy(CarePlan e) {
+        CarePlanActivityComponent dst = e.new CarePlanActivityComponent();
+        dst.goal = new ArrayList<String_>();
+        for (String_ i : goal)
+          dst.goal.add(i.copy());
+        dst.status = status == null ? null : status.copy();
+        dst.prohibited = prohibited == null ? null : prohibited.copy();
+        dst.actionResulting = new ArrayList<ResourceReference>();
+        for (ResourceReference i : actionResulting)
+          dst.actionResulting.add(i.copy());
+        dst.notes = notes == null ? null : notes.copy();
+        dst.detail = detail == null ? null : detail.copy();
+        dst.simple = simple == null ? null : simple.copy(e);
+        return dst;
+      }
+
+  }
+
+    public class CarePlanActivitySimpleComponent extends Element {
+        /**
+         * High-level categorization of the type of activity in a care plan.
+         */
+        protected Enumeration<CarePlanActivityCategory> category;
+
+        /**
+         * Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of encounter.
+         */
+        protected CodeableConcept code;
+
+        /**
+         * The period, timing or frequency upon which the described activity is to occur.
+         */
+        protected Type timing;
+
+        /**
+         * Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.
+         */
+        protected ResourceReference location;
+
+        /**
+         * Identifies who's expected to be involved in the activity.
+         */
+        protected List<ResourceReference> performer = new ArrayList<ResourceReference>();
+
+        /**
+         * Identifies the food, drug or other product being consumed or supplied in the activity.
+         */
+        protected ResourceReference product;
+
+        /**
+         * Identifies the quantity expected to be consumed in a given day.
+         */
+        protected Quantity dailyAmount;
+
+        /**
+         * Identifies the quantity expected to be supplied.
+         */
+        protected Quantity quantity;
+
+        /**
+         * This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.
+         */
+        protected String_ details;
+
+        public Enumeration<CarePlanActivityCategory> getCategory() { 
+          return this.category;
+        }
+
+        public void setCategory(Enumeration<CarePlanActivityCategory> value) { 
+          this.category = value;
+        }
+
+        public CarePlanActivityCategory getCategorySimple() { 
+          return this.category == null ? null : this.category.getValue();
+        }
+
+        public void setCategorySimple(CarePlanActivityCategory value) { 
+            if (this.category == null)
+              this.category = new Enumeration<CarePlanActivityCategory>();
+            this.category.setValue(value);
+        }
+
+        public CodeableConcept getCode() { 
+          return this.code;
+        }
+
+        public void setCode(CodeableConcept value) { 
+          this.code = value;
         }
 
         public Type getTiming() { 
@@ -631,45 +751,10 @@ public class CarePlan extends Resource {
           }
         }
 
-        public List<ResourceReference> getActionTaken() { 
-          return this.actionTaken;
-        }
-
-    // syntactic sugar
-        public ResourceReference addActionTaken() { 
-          ResourceReference t = new ResourceReference();
-          this.actionTaken.add(t);
-          return t;
-        }
-
-        public String_ getNotes() { 
-          return this.notes;
-        }
-
-        public void setNotes(String_ value) { 
-          this.notes = value;
-        }
-
-        public String getNotesSimple() { 
-          return this.notes == null ? null : this.notes.getValue();
-        }
-
-        public void setNotesSimple(String value) { 
-          if (value == null)
-            this.notes = null;
-          else {
-            if (this.notes == null)
-              this.notes = new String_();
-            this.notes.setValue(value);
-          }
-        }
-
-      public CarePlanActivityComponent copy(CarePlan e) {
-        CarePlanActivityComponent dst = e.new CarePlanActivityComponent();
+      public CarePlanActivitySimpleComponent copy(CarePlan e) {
+        CarePlanActivitySimpleComponent dst = e.new CarePlanActivitySimpleComponent();
         dst.category = category == null ? null : category.copy();
         dst.code = code == null ? null : code.copy();
-        dst.status = status == null ? null : status.copy();
-        dst.prohibited = prohibited == null ? null : prohibited.copy();
         dst.timing = timing == null ? null : timing.copy();
         dst.location = location == null ? null : location.copy();
         dst.performer = new ArrayList<ResourceReference>();
@@ -679,19 +764,15 @@ public class CarePlan extends Resource {
         dst.dailyAmount = dailyAmount == null ? null : dailyAmount.copy();
         dst.quantity = quantity == null ? null : quantity.copy();
         dst.details = details == null ? null : details.copy();
-        dst.actionTaken = new ArrayList<ResourceReference>();
-        for (ResourceReference i : actionTaken)
-          dst.actionTaken.add(i.copy());
-        dst.notes = notes == null ? null : notes.copy();
         return dst;
       }
 
   }
 
     /**
-     * Unique identifier by which the care plan is known in different business contexts.
+     * This records identifiers associated with this care plan that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
-    protected Identifier identifier;
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * Identifies the patient/subject whose intended care is described by the plan.
@@ -738,12 +819,15 @@ public class CarePlan extends Resource {
      */
     protected String_ notes;
 
-    public Identifier getIdentifier() { 
+    public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
-    public void setIdentifier(Identifier value) { 
-      this.identifier = value;
+    // syntactic sugar
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
     }
 
     public ResourceReference getPatient() { 
@@ -870,7 +954,9 @@ public class CarePlan extends Resource {
 
       public CarePlan copy() {
         CarePlan dst = new CarePlan();
-        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.patient = patient == null ? null : patient.copy();
         dst.status = status == null ? null : status.copy();
         dst.period = period == null ? null : period.copy();

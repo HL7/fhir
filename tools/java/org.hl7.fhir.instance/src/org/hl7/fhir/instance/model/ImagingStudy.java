@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -867,7 +867,7 @@ public class ImagingStudy extends Resource {
         protected Integer number;
 
         /**
-         * The modality of this sequence.
+         * The modality of this series sequence.
          */
         protected Enumeration<Modality> modality;
 
@@ -1135,12 +1135,12 @@ public class ImagingStudy extends Resource {
         protected String_ type;
 
         /**
-         * Description to be provided.
+         * Description (0070,0080 | 0040,A043 > 0008,0104 | 0042,0010 | 0008,0008).
          */
         protected String_ title;
 
         /**
-         * WADO url where image is available.
+         * WADO-RS url where image is available.
          */
         protected Uri url;
 
@@ -1321,6 +1321,11 @@ public class ImagingStudy extends Resource {
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
+     * A list of the diagnostic orders that resulted in this imaging study being performed.
+     */
+    protected List<ResourceReference> order = new ArrayList<ResourceReference>();
+
+    /**
      * A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).
      */
     protected List<Enumeration<ImagingModality>> modality = new ArrayList<Enumeration<ImagingModality>>();
@@ -1439,6 +1444,17 @@ public class ImagingStudy extends Resource {
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
+      return t;
+    }
+
+    public List<ResourceReference> getOrder() { 
+      return this.order;
+    }
+
+    // syntactic sugar
+    public ResourceReference addOrder() { 
+      ResourceReference t = new ResourceReference();
+      this.order.add(t);
       return t;
     }
 
@@ -1631,6 +1647,9 @@ public class ImagingStudy extends Resource {
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());
+        dst.order = new ArrayList<ResourceReference>();
+        for (ResourceReference i : order)
+          dst.order.add(i.copy());
         dst.modality = new ArrayList<Enumeration<ImagingModality>>();
         for (Enumeration<ImagingModality> i : modality)
           dst.modality.add(i.copy());

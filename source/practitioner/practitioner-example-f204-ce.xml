@@ -34,13 +34,11 @@
         </gender>
         <birthDate value="1967-11-05"/>
         <!--    <photo>    
-        <type value="Picture"/>
         <reference value="picture/@CE-204.bmp"/>
         <display value="Picture_Carla_Espinosa"/>
     </photo>-->
    
     <organization>
-        <type value="Organization"/>
         <reference value="Organization/f201"/>
         <display value="AUMC"/>
     </organization>

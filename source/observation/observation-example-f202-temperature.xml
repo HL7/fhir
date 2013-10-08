@@ -38,12 +38,10 @@
  </method>
  <!--No identifier could be provided to this observation-->
  <subject><!--It entails Roel's temperature-->
-     <type value="Patient"/>
      <reference value="Patient/f201"/>
      <display value="Roel"/>
  </subject>
  <performer>
-     <type value="Practitioner"/>
      <reference value="Practitioner/f201"/>
  </performer>
  <referenceRange>  <!-- 0..* Provides guide for interpretation -->

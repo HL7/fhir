@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -97,7 +97,7 @@ public class Condition extends Resource {
     }
 
     public enum ConditionRelationshipType {
-        dueto, // this condition is a consequence of the identified condition/procedure/substance.
+        dueto, // this condition follows the identified condition/procedure/substance and is a consequence of it.
         following, // this condition follows the identified condition/procedure/substance, but it is not known whether they are causually linked.
         Null; // added to help the parsers
         public static ConditionRelationshipType fromCode(String codeString) throws Exception {
@@ -331,6 +331,11 @@ public class Condition extends Resource {
   }
 
     /**
+     * This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
+     */
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
+
+    /**
      * Subject of this condition.
      */
     protected ResourceReference subject;
@@ -409,6 +414,17 @@ public class Condition extends Resource {
      * Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.
      */
     protected String_ notes;
+
+    public List<Identifier> getIdentifier() { 
+      return this.identifier;
+    }
+
+    // syntactic sugar
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
+    }
 
     public ResourceReference getSubject() { 
       return this.subject;
@@ -587,6 +603,9 @@ public class Condition extends Resource {
 
       public Condition copy() {
         Condition dst = new Condition();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.subject = subject == null ? null : subject.copy();
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.asserter = asserter == null ? null : asserter.copy();

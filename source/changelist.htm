@@ -18,6 +18,7 @@
 Changes from the DSTU ballot (v0.11) to the DSTU final copy (0.20?):
 </p>
 <ul>
+ <li>ResourceReference: remove "type" element - it had no actual function</li>
  <li>Documents &amp; Messages: document that these are marked with tags to identify them</li>
  <li>Extensions: make rules around obligations for exchange</li>
  <li>REST API: The syntax of the URLs has changed (remove @ from the ids). resources are no longer returned on create/update/transaction. <a href="http://enable-cors.org/">CORS</a> is now recommended (and in the conformance resource).</li>
@@ -39,7 +40,7 @@ Changes from the DSTU ballot (v0.11) to the DSTU final copy (0.20?):
  <li>Procedure: made type a required element, changed type and cardinality for indications and complications, and updated definition of procedure</li>
  <li>CarePlan: made patient optional, and reworked to link activites to goals and goals to concerns, and allow other resource kinds for activities</li>
  <li>Alert: improved the definitional documentation</li>
- 
+ <li>Message: make the event code a Coding (also in the conformance statement too)</li>
 </ul>
 
 </div>

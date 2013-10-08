@@ -19,7 +19,6 @@
   </text>
 
   <subject>
-    <type value="Patient"/>
     <reference value="Patient/example"/>
   </subject>
 
@@ -46,7 +45,6 @@
   </seriesId>  
 
   <requester>
-    <type value="Practitioner"/>
     <reference value="Practitioner/example"/>
   </requester>
 

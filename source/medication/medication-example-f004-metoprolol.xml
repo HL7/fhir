@@ -10,7 +10,7 @@
     </code>
     <isBrand value="true"/>
     <!-- <manufacturer> Linked to non excisting RESOURCE(Organization) 
-        <type value="Organization"/>  OID: 2.16.840.1.113883.4.642.1.4 
+        OID: 2.16.840.1.113883.4.642.1.4 
         <reference value="organization/F000"/>
         <display value="Magistra"/> 
         </manufacturer> -->

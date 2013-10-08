@@ -9,7 +9,6 @@
   </text> 
   <!--  -->
   <patient>
-    <type value="Patient"/>
     <reference value="Patient/example"/>
   </patient>
   <whenGiven>
@@ -17,7 +16,6 @@
     <end value="2012-06-01T14:30:00"/>
   </whenGiven>
   <medication>
-    <type value="Medication"/>
     <reference value="Medication/example"/> 
   </medication>
   <dosage>

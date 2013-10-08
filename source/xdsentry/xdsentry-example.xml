@@ -42,7 +42,6 @@ SourceId: 1.3.6.1.4.1.21367.2009.1.2.1
   <size value="3654"/>
   <lang value="en-us"/>
   <folder>
-    <type value="XdsFolder"/>
     <reference value="xdsfolder/@1.2.36.90146595217.4.2.1"/>
   </folder>
   <patientId>
@@ -54,7 +53,6 @@ SourceId: 1.3.6.1.4.1.21367.2009.1.2.1
     <value value="89765a87b"/>
   </sourcePatientId>
   <patientInfo>
-    <type value="Patient"/>
     <reference value="Patient/xcda"/>
   </patientInfo>
   <author>

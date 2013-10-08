@@ -25,11 +25,9 @@
   <experimental value="true"/>
   <date value="2012-06-13"/>
   <source>
-    <type value="ValueSet"/>
     <reference value="http://hl7.org/fhir/address-use"/>
   </source>
   <target>
-    <type value="ValueSet"/>
     <reference value="http://hl7.org/fhir/v3/AddressUse"/>
   </target>
   <concept>

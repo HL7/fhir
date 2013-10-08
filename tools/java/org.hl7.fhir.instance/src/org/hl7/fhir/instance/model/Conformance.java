@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -245,7 +245,7 @@ public class Conformance extends Resource {
     }
 
     public enum SearchParamType {
-        integer, // Search parameter must be a simple whole number.
+        integer, // Search parameter SHALL be a simple whole number.
         string, // Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces and are delineated by double quotes, e.g. "van Zanten".
         text, // Search parameter is on a long string. Used for text filter type search: it functions on searches within a body of text and may contain spaces to separate words. May match even if the separate words are found out of order. Text parameters are delineated by double quotes.
         date, // Search parameter is on a date (and should support :before and :after modifiers). The date format is the standard XML format, though other formats may be supported.
@@ -728,6 +728,11 @@ public class Conformance extends Resource {
 
     public class ConformanceRestSecurityComponent extends Element {
         /**
+         * Server adds CORS headers when responding to reuqests - this enables javascript applications to yuse the server.
+         */
+        protected Boolean cors;
+
+        /**
          * What type of security services are supported/required.
          */
         protected List<CodeableConcept> service = new ArrayList<CodeableConcept>();
@@ -741,6 +746,28 @@ public class Conformance extends Resource {
          * Certificates associated with security profiles.
          */
         protected List<ConformanceRestSecurityCertificateComponent> certificate = new ArrayList<ConformanceRestSecurityCertificateComponent>();
+
+        public Boolean getCors() { 
+          return this.cors;
+        }
+
+        public void setCors(Boolean value) { 
+          this.cors = value;
+        }
+
+        public boolean getCorsSimple() { 
+          return this.cors == null ? null : this.cors.getValue();
+        }
+
+        public void setCorsSimple(boolean value) { 
+          if (value == false)
+            this.cors = null;
+          else {
+            if (this.cors == null)
+              this.cors = new Boolean();
+            this.cors.setValue(value);
+          }
+        }
 
         public List<CodeableConcept> getService() { 
           return this.service;
@@ -788,6 +815,7 @@ public class Conformance extends Resource {
 
       public ConformanceRestSecurityComponent copy(Conformance e) {
         ConformanceRestSecurityComponent dst = e.new ConformanceRestSecurityComponent();
+        dst.cors = cors == null ? null : cors.copy();
         dst.service = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : service)
           dst.service.add(i.copy());
@@ -1440,7 +1468,7 @@ public class Conformance extends Resource {
         /**
          * Identifies the supported messaging event.
          */
-        protected Code code;
+        protected Coding code;
 
         /**
          * The mode of this event declaration - whether application is sender or receiver.
@@ -1472,22 +1500,12 @@ public class Conformance extends Resource {
          */
         protected String_ documentation;
 
-        public Code getCode() { 
+        public Coding getCode() { 
           return this.code;
         }
 
-        public void setCode(Code value) { 
+        public void setCode(Coding value) { 
           this.code = value;
-        }
-
-        public String getCodeSimple() { 
-          return this.code == null ? null : this.code.getValue();
-        }
-
-        public void setCodeSimple(String value) { 
-            if (this.code == null)
-              this.code = new Code();
-            this.code.setValue(value);
         }
 
         public Enumeration<MessageConformanceEventMode> getMode() { 

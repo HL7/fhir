@@ -249,39 +249,30 @@ contained ones (even though this is easier for the sender)
   </identifier>
   <issued value="2008-12-11T14:45:00"/>
   <subject>
-    <type value="Patient"/>
     <reference value="Patient/ihe-pcd"/> 
   </subject>
   <device>
-    <type value="Device"/>
     <reference value="Device/ihe-pcd"/> 
   </device>  
   <measurement>
-    <type value="Observation"/>
     <reference value="#o1"/>
   </measurement>
   <measurement>
-    <type value="Observation"/>
     <reference value="#o2"/>
   </measurement>
   <measurement>
-    <type value="Observation"/>
     <reference value="#o3"/>
   </measurement>
   <measurement>
-    <type value="Observation"/>
     <reference value="#o4"/>
   </measurement>
   <measurement>
-    <type value="Observation"/>
     <reference value="#o5"/>
   </measurement>
   <measurement>
-    <type value="Observation"/>
     <reference value="#o6"/>
   </measurement>
   <measurement>
-    <type value="Observation"/>
     <reference value="#o7"/>
   </measurement>
 </DeviceObservation>

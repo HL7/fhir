@@ -26,7 +26,6 @@
   <birthDate value="1932-09-24"/>
 
   <provider>
-    <type value="Organization"/>
     <reference value="Organization/2.16.840.1.113883.19.5"/>
     <display value="Good Health Clinic"/>
   </provider>

@@ -5,7 +5,6 @@
   <extension>
     <url value="http://hl7.org/fhir/example-do-not-use#Patient.picture"/>
     <valueResource>
-      <type value="Binary"/>
       <reference value="#pic1"/>
       <display value="Duck image"/>
     </valueResource>
@@ -52,20 +51,17 @@
     </relationship>
     <organization>
       <!-- Which organization to contact to reach this patient -->
-      <type value="Organization"/>
       <reference value="Organization/1"/>
       <display value="Walt Disney Corporation"/>
     </organization>
   </contact>
 
   <provider>
-    <type value="Organization"/>
     <reference value="Organization/1"/>
     <display value="ACME Healthcare, Inc"/>
   </provider>
 
   <link>
-    <type value="Patient"/>
     <reference value="Patient/pat2"/>
   </link>
 

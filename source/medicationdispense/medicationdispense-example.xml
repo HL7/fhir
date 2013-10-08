@@ -14,15 +14,12 @@
   </text>  
   
   <patient>
-    <type value="Patient"/>
     <reference value="Patient/example"/>
   </patient>
   <dispenser>
-    <type value="Practitioner"/>
     <reference value="Practitioner/example"/>
   </dispenser>
   <authorizingPrescription>
-    <type value="MedicationPrescription"/>
     <reference value="MedicationPrescription/example" />
   </authorizingPrescription>
   <dispense>
@@ -34,7 +31,6 @@
       <code value="ml"/>
     </quantity>
     <medication>
-      <type value="Medication"/>
       <reference value="Medication/example"/>
     </medication>
     <whenPrepared>

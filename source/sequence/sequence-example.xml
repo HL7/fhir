@@ -5,7 +5,6 @@
 		<div xmlns="http://www.w3.org/1999/xhtml">Example Sequece Resource describing patient John Doe's genotype of SNP rs421016</div>
 	</text>
 	<patient>
-		<type value="Patient"/>
 		<reference value="Patient/example"/>
 	</patient>
 	<type value="dna"/>
@@ -32,7 +31,6 @@
 		<end value="155205043"/>
 	</coordinate>
 	<inputLab>
-		<type value="SequencingLab"/>
 		<reference value="sequencinglab/@example"/>
 	</inputLab>
 	<quality value="39"/>

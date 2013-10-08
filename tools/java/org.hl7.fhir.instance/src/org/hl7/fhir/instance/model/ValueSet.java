@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -270,7 +270,7 @@ public class ValueSet extends Resource {
         protected String_ display;
 
         /**
-         * Formal Definition.
+         * The formal definition of the concept. Formal definitions are not required, because of the prevalence of legacy systems without them, but they are highly recommended, as without them there is no formal meaning associated with the concept.
          */
         protected String_ definition;
 
@@ -477,7 +477,7 @@ public class ValueSet extends Resource {
         protected List<Code> code = new ArrayList<Code>();
 
         /**
-         * Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they must all be true.
+         * Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.
          */
         protected List<ConceptSetFilterComponent> filter = new ArrayList<ConceptSetFilterComponent>();
 

@@ -18,11 +18,9 @@
         <status value="final"/>
         <issued value="2005-03-04T12:28:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/7"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -182,11 +180,9 @@ Is a result with multiple organisms and sensitivities without separate OBX�s  
         <status value="final"/>
         <issued value="2005-10-24T10:48:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -279,11 +275,9 @@ OBX5- SNOMED result
         <status value="final"/>
         <issued value="2006-01-23T08:36:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -365,11 +359,9 @@ OBX3- test to be LOINC�d
         <status value="final"/>
         <issued value="2006-02-03T03:20:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -528,11 +520,9 @@ OBX3 does not have the antibiotic to be LOINC�d but OBX5 has antibiotic and se
         <status value="final"/>
         <issued value="2005-06-30T13:42:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -607,11 +597,9 @@ Comments-   OBR 24 populated
         <status value="final"/>
         <issued value="2005-11-07T23:38:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -684,11 +672,9 @@ OBX|16|ST|TOB^TOBRAMYCIN^^|1|<=1|||SS|||F||1|200511091026|M3^CEN     MICROBIOL|3
         <status value="final"/>
         <issued value="2005-11-03T00:00:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -768,11 +754,9 @@ OBX|8|ST|TOB^TOBRAMYCIN^^|3|2|||SS|||F||3|200511091000|M3^CEN     MICROBIOL|2605
         <status value="final"/>
         <issued value="2005-11-22T11:31:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -825,11 +809,9 @@ NTE|2|L|Giardia antigen detected.
         <status value="final"/>
         <issued value="2005-11-22T07:55:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -886,11 +868,9 @@ NTE|7|L|is suspected.
         <status value="final"/>
         <issued value="2005-11-22T17:19:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -944,11 +924,9 @@ NTE|3|L|**Verified by repeat analysis**
         <status value="final"/>
         <issued value="2005-11-22T10:57:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -1006,11 +984,9 @@ OBX|2|NM|21612-7^REPORTED PATIENT AGE^2.16.840.1.113883.6.1||20|d^Days^2.16.840.
         <status value="final"/>
         <issued value="2005-11-22T23:23:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -1061,11 +1037,9 @@ NTE|1|L|POSITIVE
         <status value="final"/>
         <issued value="2005-11-22T23:27:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -1116,11 +1090,9 @@ NTE|1|L|POSITIVE
         <status value="final"/>
         <issued value="2005-11-22T23:23:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -1172,11 +1144,9 @@ NTE|1|L|POSITIVE
         <status value="final"/>
         <issued value="2005-11-23T09:01:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -1234,11 +1204,9 @@ NTE|4|L|      endocervical specimens only.
         <status value="final"/>
         <issued value="2005-11-23T09:29:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -1291,11 +1259,9 @@ OBX|2|SN|11084-1^REAGIN AB^2.16.840.1.113883.6.1^006464^RPR, Quant.^L|1|^1^:^80|
         <status value="final"/>
         <issued value="2005-11-23T09:38:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -1352,11 +1318,9 @@ NTE|1|L|Negative
         <status value="amended"/>
         <issued value="2005-11-22T01:33:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -1410,11 +1374,9 @@ NTE|3|L|THIS IS A CORRECTED RESULT.
         <status value="final"/>
         <issued value="2005-11-22T01:33:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -1466,11 +1428,9 @@ NTE|1|L|NEGATIVE UPON RETEST:
         <status value="final"/>
         <issued value="2005-11-20T11:33:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -1523,11 +1483,9 @@ NTE|2|L|Giardia antigen detected.
         <status value="final"/>
         <issued value="2005-11-23T09:01:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -1586,11 +1544,9 @@ NTE|4|L|                endocervical specimens only.
         <status value="final"/>
         <issued value="2005-11-23T09:06:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -1648,11 +1604,9 @@ NTE|1|L|POSITIVE
         <status value="final"/>
         <issued value="2005-11-23T09:38:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -1710,11 +1664,9 @@ NTE|1|L|Negative
         <status value="final"/>
         <issued value="2005-11-22T01:33:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -1768,11 +1720,9 @@ NTE|3|L|THIS IS A CORRECTED RESULT.
         <status value="final"/>
         <issued value="2005-11-22T01:33:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -1824,11 +1774,9 @@ NTE|1|L|NEGATIVE UPON RETEST:
         <status value="final"/>
         <issued value="2005-11-22T01:33:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -1880,11 +1828,9 @@ NTE|1|L|NEGATIVE UPON RETEST:
         <status value="final"/>
         <issued value="2005-11-22T03:00:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -1937,11 +1883,9 @@ NTE|2|L|Giardia antigen detected.
         <status value="final"/>
         <issued value="2005-11-23T09:01:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -2000,11 +1944,9 @@ NTE|4|L|                endocervical specimens only.
         <status value="final"/>
         <issued value="2005-11-23T09:06:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -2062,11 +2004,9 @@ NTE|1|L|POSITIVE
         <status value="final"/>
         <issued value="2005-11-23T09:38:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -2124,11 +2064,9 @@ NTE|1|L|Negative
         <status value="final"/>
         <issued value="2001-12-30T04:36:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -2184,11 +2122,9 @@ NTE|1|L|NEISSERIA MENINGITIDIS
         <status value="final"/>
         <issued value="2005-11-22T20:50:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -2242,11 +2178,9 @@ NTE|3|L|                                           Positive          >11
         <status value="final"/>
         <issued value="2005-11-22T08:00:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>
@@ -2300,11 +2234,9 @@ NTE|3|L|    .
         <status value="amended"/>
         <issued value="2005-11-22T23:10:01"/>
         <patient>
-          <type value="Patient"/>
           <reference value="Patient/example"/>
         </patient>
         <laboratory>
-          <type value="Organization"/>
           <reference value="Organization/1.2.36.90146595217.4.1.1"/>
           <display value="Acme Laboratory, Inc"/>
         </laboratory>

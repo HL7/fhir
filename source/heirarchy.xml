@@ -82,7 +82,7 @@ todo: compartments
     <page type="resource" resource="MedicationDispense"/>
     <page type="resource" resource="MedicationStatement"/>
     <page type="resource" resource="Immunization"/>
-    <page type="resource" resource="ImmunizationProfile"/>
+    <page type="resource" resource="ImmunizationRecommendation"/>
     <page type="resource" resource="Observation"/>
     <page type="resource" resource="DiagnosticReport"/>
     <page type="resource" resource="DiagnosticOrder"/>

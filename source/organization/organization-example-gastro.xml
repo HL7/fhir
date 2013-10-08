@@ -27,7 +27,6 @@
   </telecom>
   
   <partOf>
-    <type value="Organization"/>
     <reference value="Organization/1"/>
     <display value="ACME Healthcare, Inc"/>
   </partOf>

@@ -39,7 +39,6 @@
   </source>
   <object>
     <reference>
-      <type value="Patient"/>
       <reference value="Patient/example/history/1"/>
     </reference>
     <type value="2"/>

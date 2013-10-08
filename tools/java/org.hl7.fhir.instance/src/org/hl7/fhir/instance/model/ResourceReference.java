@@ -29,17 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 /**
  * A reference from one resource to another.
  */
 public class ResourceReference extends Type {
-
-    /**
-     * The name of one of the resource types defined in this specification to identify the type of the resource being referenced.
-     */
-    protected Code type;
 
     /**
      * A reference to a location at which the other resource is found. The reference may a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.
@@ -50,28 +45,6 @@ public class ResourceReference extends Type {
      * Plain text narrative that identifies the resource in addition to the resource reference.
      */
     protected String_ display;
-
-    public Code getType() { 
-      return this.type;
-    }
-
-    public void setType(Code value) { 
-      this.type = value;
-    }
-
-    public String getTypeSimple() { 
-      return this.type == null ? null : this.type.getValue();
-    }
-
-    public void setTypeSimple(String value) { 
-      if (value == null)
-        this.type = null;
-      else {
-        if (this.type == null)
-          this.type = new Code();
-        this.type.setValue(value);
-      }
-    }
 
     public String_ getReference() { 
       return this.reference;
@@ -119,7 +92,6 @@ public class ResourceReference extends Type {
 
       public ResourceReference copy() {
         ResourceReference dst = new ResourceReference();
-        dst.type = type == null ? null : type.copy();
         dst.reference = reference == null ? null : reference.copy();
         dst.display = display == null ? null : display.copy();
         return dst;

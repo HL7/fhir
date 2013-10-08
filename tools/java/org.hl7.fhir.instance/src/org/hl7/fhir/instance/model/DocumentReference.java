@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ public class DocumentReference extends Resource {
 
     public enum DocumentReferenceStatus {
         current, // This is the current reference for this document.
-        superseded, // This reference has been superseded by another reference.
+        superceded, // This reference has been superseded by another reference.
         error, // This reference was created in error.
         Null; // added to help the parsers
         public static DocumentReferenceStatus fromCode(String codeString) throws Exception {
@@ -48,8 +48,8 @@ public class DocumentReference extends Resource {
                 return null;
         if ("current".equals(codeString))
           return current;
-        if ("superseded".equals(codeString))
-          return superseded;
+        if ("superceded".equals(codeString))
+          return superceded;
         if ("error".equals(codeString))
           return error;
         throw new Exception("Unknown DocumentReferenceStatus code '"+codeString+"'");
@@ -57,7 +57,7 @@ public class DocumentReference extends Resource {
         public String toCode() {
           switch (this) {
             case current: return "current";
-            case superseded: return "superseded";
+            case superceded: return "superceded";
             case error: return "error";
             default: return "?";
           }
@@ -71,8 +71,8 @@ public class DocumentReference extends Resource {
                 return null;
         if ("current".equals(codeString))
           return DocumentReferenceStatus.current;
-        if ("superseded".equals(codeString))
-          return DocumentReferenceStatus.superseded;
+        if ("superceded".equals(codeString))
+          return DocumentReferenceStatus.superceded;
         if ("error".equals(codeString))
           return DocumentReferenceStatus.error;
         throw new Exception("Unknown DocumentReferenceStatus code '"+codeString+"'");
@@ -80,8 +80,8 @@ public class DocumentReference extends Resource {
     public String toCode(Enum<?> code) throws Exception {
       if (code == DocumentReferenceStatus.current)
         return "current";
-      if (code == DocumentReferenceStatus.superseded)
-        return "superseded";
+      if (code == DocumentReferenceStatus.superceded)
+        return "superceded";
       if (code == DocumentReferenceStatus.error)
         return "error";
       return "?";
@@ -224,7 +224,7 @@ public class DocumentReference extends Resource {
         protected List<CodeableConcept> code = new ArrayList<CodeableConcept>();
 
         /**
-         * The time period of the patient's care that is described by the document.
+         * The time period over which the service that is described by the document was provided.
          */
         protected Period period;
 
@@ -278,7 +278,7 @@ public class DocumentReference extends Resource {
     protected Identifier masterIdentifier;
 
     /**
-     * Other identifiers associated with the record.
+     * Other identifiers associated with the document, including version independent identifiers and source record identifiers.
      */
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
@@ -306,6 +306,11 @@ public class DocumentReference extends Resource {
      * Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.
      */
     protected ResourceReference custodian;
+
+    /**
+     * A reference to a domain or server that manages policies under which the document is accessed and/or made available.
+     */
+    protected Uri policyManager;
 
     /**
      * Which person or organization authenticates that this document is valid.
@@ -345,7 +350,7 @@ public class DocumentReference extends Resource {
     /**
      * A code specifying the level of confidentiality of the XDS Document.
      */
-    protected CodeableConcept confidentiality;
+    protected List<CodeableConcept> confidentiality = new ArrayList<CodeableConcept>();
 
     /**
      * The primary language in which the source document is written.
@@ -447,6 +452,28 @@ public class DocumentReference extends Resource {
 
     public void setCustodian(ResourceReference value) { 
       this.custodian = value;
+    }
+
+    public Uri getPolicyManager() { 
+      return this.policyManager;
+    }
+
+    public void setPolicyManager(Uri value) { 
+      this.policyManager = value;
+    }
+
+    public String getPolicyManagerSimple() { 
+      return this.policyManager == null ? null : this.policyManager.getValue();
+    }
+
+    public void setPolicyManagerSimple(String value) { 
+      if (value == null)
+        this.policyManager = null;
+      else {
+        if (this.policyManager == null)
+          this.policyManager = new Uri();
+        this.policyManager.setValue(value);
+      }
     }
 
     public ResourceReference getAuthenticator() { 
@@ -553,12 +580,15 @@ public class DocumentReference extends Resource {
       }
     }
 
-    public CodeableConcept getConfidentiality() { 
+    public List<CodeableConcept> getConfidentiality() { 
       return this.confidentiality;
     }
 
-    public void setConfidentiality(CodeableConcept value) { 
-      this.confidentiality = value;
+    // syntactic sugar
+    public CodeableConcept addConfidentiality() { 
+      CodeableConcept t = new CodeableConcept();
+      this.confidentiality.add(t);
+      return t;
     }
 
     public Code getPrimaryLanguage() { 
@@ -704,6 +734,7 @@ public class DocumentReference extends Resource {
         for (ResourceReference i : author)
           dst.author.add(i.copy());
         dst.custodian = custodian == null ? null : custodian.copy();
+        dst.policyManager = policyManager == null ? null : policyManager.copy();
         dst.authenticator = authenticator == null ? null : authenticator.copy();
         dst.created = created == null ? null : created.copy();
         dst.indexed = indexed == null ? null : indexed.copy();
@@ -711,7 +742,9 @@ public class DocumentReference extends Resource {
         dst.docStatus = docStatus == null ? null : docStatus.copy();
         dst.supercedes = supercedes == null ? null : supercedes.copy();
         dst.description = description == null ? null : description.copy();
-        dst.confidentiality = confidentiality == null ? null : confidentiality.copy();
+        dst.confidentiality = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : confidentiality)
+          dst.confidentiality.add(i.copy());
         dst.primaryLanguage = primaryLanguage == null ? null : primaryLanguage.copy();
         dst.mimeType = mimeType == null ? null : mimeType.copy();
         dst.format = format == null ? null : format.copy();

@@ -15,14 +15,11 @@
         </coding>
     </type>
     <subject>
-        <type value="Patient"/>
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
     </subject>
     <participant>
-        <type value="consulting"/>
         <practitioner>
-            <type value="Practitioner"/>
             <reference value="Practitioner/f002"/>
             <display value="P. Voigt"/>
         </practitioner>
@@ -92,7 +89,6 @@
         <reAdmission value="false"/>
     </hospitalization>
     <serviceProvider>
-        <type value="Organization"/>
         <reference value="Organization/f001"/>
         <display value="Burgers University Medical Center"/>
     </serviceProvider>

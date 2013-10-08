@@ -8,7 +8,6 @@
   <status value="current" />
   <class value="inpatient" />
   <subject>
-    <type value="Patient"/>
     <reference value="Patient/example"/>
   </subject>
 </Encounter>

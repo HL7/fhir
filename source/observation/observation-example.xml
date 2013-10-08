@@ -29,11 +29,9 @@
   </identifier>
   
   <subject>
-    <type value="Patient"/>
     <reference value="Patient/example"/>
   </subject>
   <performer>
-    <type value="Practitioner"/>
     <reference value="Practitioner/example"/>
   </performer>
   <component>

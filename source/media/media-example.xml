@@ -19,7 +19,6 @@
   <dateTime value="2009-09-03"/>
 
   <subject>
-    <type value="Patient"/>
     <reference value="Patient/xcda"/>
   </subject>
  

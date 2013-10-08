@@ -22,7 +22,6 @@
 
 
   <organization>
-    <type value="Organization"/>
     <reference value="Organization/1"/>
   </organization>
 

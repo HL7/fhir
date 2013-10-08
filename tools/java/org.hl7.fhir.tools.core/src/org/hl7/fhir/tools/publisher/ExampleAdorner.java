@@ -85,6 +85,8 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
       return null;
     if (type != null && !parts[0].equals(type))
       return null;
+    if (parts[0].equals("http:") || parts[0].equals("https:"))
+      return null;
     if (!definitions.hasResource(parts[0]))
       throw new Exception("Type unknown: "+parts[0]);
     if (parts[1].startsWith("@"))
@@ -104,6 +106,17 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
         throw new Exception("Invalid syntax: "+parts[3]);
     }
     return parts[1];
+  }
+
+  private String extractType(String id) throws Exception {
+    String[] parts = id.split("/");
+    if (parts.length < 2)
+      return null;
+    if (parts[0].equals("http:") || parts[0].equals("https:"))
+      return null;
+    if (!definitions.hasResource(parts[0]))
+      throw new Exception("Type unknown: "+parts[0]);
+    return parts[0];
   }
 
   @Override
@@ -143,7 +156,7 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
           return new ExampleAdornerState(State.Reference, s.getDefinition(), "<a href=\""+node.getAttribute("value").toLowerCase()+".htm\">", "</a>");
         if (node.getLocalName().equals("reference"))
         {
-          String type = XMLUtil.getNamedChild((Element) node.getParentNode(), "type").getAttribute("value");
+          String type = extractType(node.getAttribute("value"));
           String id = extractId(node.getAttribute("value"), type);
           if (id == null)
             return new ExampleAdornerState(State.Element, null, "", "");
