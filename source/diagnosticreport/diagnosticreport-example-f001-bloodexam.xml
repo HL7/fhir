@@ -66,7 +66,7 @@
         </coding>
     </serviceCategory>
 
-    <diagnosticTime value="2013-04-02"/>
+    <diagnosticDateTime value="2013-04-02"/>
     <results>
         <name>
             <coding>

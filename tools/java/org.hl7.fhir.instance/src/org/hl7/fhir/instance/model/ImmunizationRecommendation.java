@@ -29,14 +29,14 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 2, 2013 10:45+1000 for FHIR v0.11
+// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
 
 import java.util.*;
 
 /**
  * A patient's point-of-time immunization status and recommendation with optional supporting justification.
  */
-public class ImmunizationProfile extends Resource {
+public class ImmunizationRecommendation extends Resource {
 
     public enum ImmunizationForecastStatus {
         dUE, // This immunization is due to be given now.
@@ -72,7 +72,7 @@ public class ImmunizationProfile extends Resource {
       }
     }
 
-    public class ImmunizationProfileRecommendationComponent extends Element {
+    public class ImmunizationRecommendationRecommendationComponent extends Element {
         /**
          * The date of the immunization recommendation.
          */
@@ -96,12 +96,12 @@ public class ImmunizationProfile extends Resource {
         /**
          * Vaccine date recommentations - e.g. earliest date to administer, latest date to administer, etc.
          */
-        protected List<ImmunizationProfileRecommendationDateCriterionComponent> dateCriterion = new ArrayList<ImmunizationProfileRecommendationDateCriterionComponent>();
+        protected List<ImmunizationRecommendationRecommendationDateCriterionComponent> dateCriterion = new ArrayList<ImmunizationRecommendationRecommendationDateCriterionComponent>();
 
         /**
          * Contains information about the protocol under which the vaccine was administered.
          */
-        protected ImmunizationProfileRecommendationProtocolComponent protocol;
+        protected ImmunizationRecommendationRecommendationProtocolComponent protocol;
 
         /**
          * Immunization event history that supports the status and recommendation.
@@ -111,7 +111,7 @@ public class ImmunizationProfile extends Resource {
         /**
          * Adverse event report information that supports the status and recommendation.
          */
-        protected List<ImmunizationProfileRecommendationSupportingAdverseEventReportComponent> supportingAdverseEventReport = new ArrayList<ImmunizationProfileRecommendationSupportingAdverseEventReportComponent>();
+        protected List<ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent> supportingAdverseEventReport = new ArrayList<ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent>();
 
         /**
          * Patient observation that supports the status and recommendation.
@@ -184,22 +184,22 @@ public class ImmunizationProfile extends Resource {
             this.forecastStatus.setValue(value);
         }
 
-        public List<ImmunizationProfileRecommendationDateCriterionComponent> getDateCriterion() { 
+        public List<ImmunizationRecommendationRecommendationDateCriterionComponent> getDateCriterion() { 
           return this.dateCriterion;
         }
 
     // syntactic sugar
-        public ImmunizationProfileRecommendationDateCriterionComponent addDateCriterion() { 
-          ImmunizationProfileRecommendationDateCriterionComponent t = new ImmunizationProfileRecommendationDateCriterionComponent();
+        public ImmunizationRecommendationRecommendationDateCriterionComponent addDateCriterion() { 
+          ImmunizationRecommendationRecommendationDateCriterionComponent t = new ImmunizationRecommendationRecommendationDateCriterionComponent();
           this.dateCriterion.add(t);
           return t;
         }
 
-        public ImmunizationProfileRecommendationProtocolComponent getProtocol() { 
+        public ImmunizationRecommendationRecommendationProtocolComponent getProtocol() { 
           return this.protocol;
         }
 
-        public void setProtocol(ImmunizationProfileRecommendationProtocolComponent value) { 
+        public void setProtocol(ImmunizationRecommendationRecommendationProtocolComponent value) { 
           this.protocol = value;
         }
 
@@ -214,13 +214,13 @@ public class ImmunizationProfile extends Resource {
           return t;
         }
 
-        public List<ImmunizationProfileRecommendationSupportingAdverseEventReportComponent> getSupportingAdverseEventReport() { 
+        public List<ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent> getSupportingAdverseEventReport() { 
           return this.supportingAdverseEventReport;
         }
 
     // syntactic sugar
-        public ImmunizationProfileRecommendationSupportingAdverseEventReportComponent addSupportingAdverseEventReport() { 
-          ImmunizationProfileRecommendationSupportingAdverseEventReportComponent t = new ImmunizationProfileRecommendationSupportingAdverseEventReportComponent();
+        public ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent addSupportingAdverseEventReport() { 
+          ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent t = new ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent();
           this.supportingAdverseEventReport.add(t);
           return t;
         }
@@ -236,21 +236,21 @@ public class ImmunizationProfile extends Resource {
           return t;
         }
 
-      public ImmunizationProfileRecommendationComponent copy(ImmunizationProfile e) {
-        ImmunizationProfileRecommendationComponent dst = e.new ImmunizationProfileRecommendationComponent();
+      public ImmunizationRecommendationRecommendationComponent copy(ImmunizationRecommendation e) {
+        ImmunizationRecommendationRecommendationComponent dst = e.new ImmunizationRecommendationRecommendationComponent();
         dst.recommendationDate = recommendationDate == null ? null : recommendationDate.copy();
         dst.vaccineType = vaccineType == null ? null : vaccineType.copy();
         dst.doseNumber = doseNumber == null ? null : doseNumber.copy();
         dst.forecastStatus = forecastStatus == null ? null : forecastStatus.copy();
-        dst.dateCriterion = new ArrayList<ImmunizationProfileRecommendationDateCriterionComponent>();
-        for (ImmunizationProfileRecommendationDateCriterionComponent i : dateCriterion)
+        dst.dateCriterion = new ArrayList<ImmunizationRecommendationRecommendationDateCriterionComponent>();
+        for (ImmunizationRecommendationRecommendationDateCriterionComponent i : dateCriterion)
           dst.dateCriterion.add(i.copy(e));
         dst.protocol = protocol == null ? null : protocol.copy(e);
         dst.supportingImmunization = new ArrayList<ResourceReference>();
         for (ResourceReference i : supportingImmunization)
           dst.supportingImmunization.add(i.copy());
-        dst.supportingAdverseEventReport = new ArrayList<ImmunizationProfileRecommendationSupportingAdverseEventReportComponent>();
-        for (ImmunizationProfileRecommendationSupportingAdverseEventReportComponent i : supportingAdverseEventReport)
+        dst.supportingAdverseEventReport = new ArrayList<ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent>();
+        for (ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent i : supportingAdverseEventReport)
           dst.supportingAdverseEventReport.add(i.copy(e));
         dst.supportingPatientObservation = new ArrayList<ResourceReference>();
         for (ResourceReference i : supportingPatientObservation)
@@ -260,7 +260,7 @@ public class ImmunizationProfile extends Resource {
 
   }
 
-    public class ImmunizationProfileRecommendationDateCriterionComponent extends Element {
+    public class ImmunizationRecommendationRecommendationDateCriterionComponent extends Element {
         /**
          * Date classification of recommendation - e.g. earliest date to give, latest date to give, etc.
          */
@@ -297,8 +297,8 @@ public class ImmunizationProfile extends Resource {
             this.value.setValue(value);
         }
 
-      public ImmunizationProfileRecommendationDateCriterionComponent copy(ImmunizationProfile e) {
-        ImmunizationProfileRecommendationDateCriterionComponent dst = e.new ImmunizationProfileRecommendationDateCriterionComponent();
+      public ImmunizationRecommendationRecommendationDateCriterionComponent copy(ImmunizationRecommendation e) {
+        ImmunizationRecommendationRecommendationDateCriterionComponent dst = e.new ImmunizationRecommendationRecommendationDateCriterionComponent();
         dst.code = code == null ? null : code.copy();
         dst.value = value == null ? null : value.copy();
         return dst;
@@ -306,7 +306,7 @@ public class ImmunizationProfile extends Resource {
 
   }
 
-    public class ImmunizationProfileRecommendationProtocolComponent extends Element {
+    public class ImmunizationRecommendationRecommendationProtocolComponent extends Element {
         /**
          * Nominal position in a series.
          */
@@ -401,8 +401,8 @@ public class ImmunizationProfile extends Resource {
           }
         }
 
-      public ImmunizationProfileRecommendationProtocolComponent copy(ImmunizationProfile e) {
-        ImmunizationProfileRecommendationProtocolComponent dst = e.new ImmunizationProfileRecommendationProtocolComponent();
+      public ImmunizationRecommendationRecommendationProtocolComponent copy(ImmunizationRecommendation e) {
+        ImmunizationRecommendationRecommendationProtocolComponent dst = e.new ImmunizationRecommendationRecommendationProtocolComponent();
         dst.doseSequence = doseSequence == null ? null : doseSequence.copy();
         dst.description = description == null ? null : description.copy();
         dst.authority = authority == null ? null : authority.copy();
@@ -412,7 +412,7 @@ public class ImmunizationProfile extends Resource {
 
   }
 
-    public class ImmunizationProfileRecommendationSupportingAdverseEventReportComponent extends Element {
+    public class ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent extends Element {
         /**
          * Unique identifier of the adverse event report.
          */
@@ -519,8 +519,8 @@ public class ImmunizationProfile extends Resource {
           return t;
         }
 
-      public ImmunizationProfileRecommendationSupportingAdverseEventReportComponent copy(ImmunizationProfile e) {
-        ImmunizationProfileRecommendationSupportingAdverseEventReportComponent dst = e.new ImmunizationProfileRecommendationSupportingAdverseEventReportComponent();
+      public ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent copy(ImmunizationRecommendation e) {
+        ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent dst = e.new ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent();
         dst.identifier = new ArrayList<Id>();
         for (Id i : identifier)
           dst.identifier.add(i.copy());
@@ -543,7 +543,7 @@ public class ImmunizationProfile extends Resource {
     /**
      * Vaccine administration recommendations.
      */
-    protected List<ImmunizationProfileRecommendationComponent> recommendation = new ArrayList<ImmunizationProfileRecommendationComponent>();
+    protected List<ImmunizationRecommendationRecommendationComponent> recommendation = new ArrayList<ImmunizationRecommendationRecommendationComponent>();
 
     public ResourceReference getSubject() { 
       return this.subject;
@@ -553,33 +553,33 @@ public class ImmunizationProfile extends Resource {
       this.subject = value;
     }
 
-    public List<ImmunizationProfileRecommendationComponent> getRecommendation() { 
+    public List<ImmunizationRecommendationRecommendationComponent> getRecommendation() { 
       return this.recommendation;
     }
 
     // syntactic sugar
-    public ImmunizationProfileRecommendationComponent addRecommendation() { 
-      ImmunizationProfileRecommendationComponent t = new ImmunizationProfileRecommendationComponent();
+    public ImmunizationRecommendationRecommendationComponent addRecommendation() { 
+      ImmunizationRecommendationRecommendationComponent t = new ImmunizationRecommendationRecommendationComponent();
       this.recommendation.add(t);
       return t;
     }
 
-      public ImmunizationProfile copy() {
-        ImmunizationProfile dst = new ImmunizationProfile();
+      public ImmunizationRecommendation copy() {
+        ImmunizationRecommendation dst = new ImmunizationRecommendation();
         dst.subject = subject == null ? null : subject.copy();
-        dst.recommendation = new ArrayList<ImmunizationProfileRecommendationComponent>();
-        for (ImmunizationProfileRecommendationComponent i : recommendation)
+        dst.recommendation = new ArrayList<ImmunizationRecommendationRecommendationComponent>();
+        for (ImmunizationRecommendationRecommendationComponent i : recommendation)
           dst.recommendation.add(i.copy(dst));
         return dst;
       }
 
-      protected ImmunizationProfile typedCopy() {
+      protected ImmunizationRecommendation typedCopy() {
         return copy();
       }
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.ImmunizationProfile;
+    return ResourceType.ImmunizationRecommendation;
    }
 
 

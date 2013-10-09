@@ -33,6 +33,7 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 
+import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Binary;
@@ -103,13 +104,12 @@ public abstract class JsonComposerBase extends XmlBase implements Composer {
 			prop("updated", dateToXml(feed.getUpdated()));
 		if (feed.getTags().size() > 0) {
 			openArray("category");
-			for (String uri : feed.getTags().keySet()) {
+			for (AtomCategory cat : feed.getTags()) {
 				json.beginObject();
-				prop("scheme", "http://hl7.org/fhir/tag");
-				prop("term", uri);
-				String label = feed.getTags().get(uri);
-				if (!Utilities.noString(label))
-					prop("label", label);
+				prop("scheme", cat.getScheme());
+				prop("term", cat.getTerm());
+				if (!Utilities.noString(cat.getLabel()))
+					prop("label", cat.getLabel());
 				json.endObject();
 			}
 			closeArray();
@@ -171,13 +171,12 @@ public abstract class JsonComposerBase extends XmlBase implements Composer {
 
 		if (e.getTags().size() > 0) {
 			openArray("category");
-			for (String uri : e.getTags().keySet()) {
+			for (AtomCategory cat : e.getTags()) {
 				json.beginObject();
-				prop("scheme", "http://hl7.org/fhir/tag");
-				prop("term", uri);
-				String label = e.getTags().get(uri);
-				if (!Utilities.noString(label))
-					prop("label", label);
+				prop("scheme", cat.getScheme());
+				prop("term", cat.getTerm());
+				if (!Utilities.noString(cat.getLabel()))
+					prop("label", cat.getLabel());
 				json.endObject();
 			}
 			closeArray();

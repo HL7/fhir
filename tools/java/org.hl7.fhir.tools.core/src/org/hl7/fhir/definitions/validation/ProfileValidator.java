@@ -144,7 +144,7 @@ public class ProfileValidator extends BaseValidator {
         String mn = m.getName();
 //        if (mn.contains("[x]") || tn.contains("[x]"))
 //          System.out.println("Unsure how to compare mn and tn: '"+mn+"' / '"+tn+"'");
-        if (!mn.equals(tn) && !(tn.contains("[x]") && mn.substring(0, tn.indexOf("[x]")).equals(tn.substring(0, tn.indexOf("[x]"))))) {
+        if (!mn.equals(tn) && !(tn.contains("[x]") && mn.substring(0, Math.min(mn.length(), tn.indexOf("[x]"))).equals(tn.substring(0, tn.indexOf("[x]"))))) {
           m = null;
         }
       }

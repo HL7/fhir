@@ -669,7 +669,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       <code value="HM"/>
     </coding>
     </serviceCategory>
-    <diagnosticTime value="2011-03-04T08:30:00+11:00"/>
+    <diagnosticDateTime value="2011-03-04T08:30:00+11:00"/>
     <results>
     <name>
       <coding>

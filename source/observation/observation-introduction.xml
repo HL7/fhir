@@ -18,14 +18,14 @@ patterns for observations. Expected uses for this resource include:
 </ul>
 
 <p>
-The observation resource has the following kinds of elements:
+The observation resource has the following aspects:
 </p>
 <ul>
  <li>status and reliability (mandatory): all users of observations SHALL be sure of the status of the observation</li>
  <li>name (mandatory) - what was observed (often called "code")</li>
  <li>value - the actual value that was observed</li>
- <li>subject, bodysite - the patient, or group of patients, or device, that this observation was made on. Note that group of patients is most often used in veterinary care. For individual patients, the location on the body may also be specified</li>
- <li>applies - the time or period that this observation was made on the subject</li>
+ <li>subject, bodysite - the patient, or group of patients, location, or device, that this observation was made on. Note that group of patients is most often used in veterinary care. For individual patients, the location on the body may also be specified</li>
+ <li>applies[x] - the time or period that this observation was made on the subject. Each observation has multiple times - prepared, made, reported etc - but the important time is when the data relates to the patient condition</li>
  <li>interpretation, comments, and reference range: information to help understand the observed value</li>
  <li>method, issued, performer - additional information about how the test was performed that may help understand the observation</li>
 </ul>  

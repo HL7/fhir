@@ -161,7 +161,7 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
       <code value="HM"/>
     </coding>
   </serviceCategory>
-  <diagnosticTime value="2011-03-04T08:30:00+11:00"/>
+  <diagnosticDateTime value="2011-03-04T08:30:00+11:00"/>
   <results>
     <name>
       <coding>

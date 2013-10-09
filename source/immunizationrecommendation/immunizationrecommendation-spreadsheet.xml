@@ -145,7 +145,7 @@
     <Cell><Data ss:Type="String">C154 Mapping</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -160,7 +160,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.subject</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.subject</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -176,7 +176,7 @@
     <Cell><Data ss:Type="String">PID, PD1, NK1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.recommendation</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -190,7 +190,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.recommendation.recommendationDate</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.recommendationDate</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -205,7 +205,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.recommendation.vaccineType</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.vaccineType</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -225,7 +225,7 @@
     <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.recommendation.doseNumber</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.doseNumber</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -243,7 +243,7 @@
     <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.recommendation.forecastStatus</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.forecastStatus</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -258,7 +258,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.recommendation.dateCriterion</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.dateCriterion</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -272,7 +272,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.recommendation.dateCriterion.code</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.dateCriterion.code</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -287,7 +287,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.recommendation.dateCriterion.value</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.dateCriterion.value</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -302,7 +302,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.recommendation.protocol</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.protocol</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -317,7 +317,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ImmunizationProfile.recommendation.protocol.doseSequence</Data></Cell>
+    <Cell><Data ss:Type="String">ImmunizationRecommendation.recommendation.protocol.doseSequence</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -327,7 +327,7 @@
     <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">OBX-5-observation value : OBX-3-observation identifier = 30973-2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ImmunizationProfile.recommendation.protocol.description</Data></Cell>
+    <Cell><Data ss:Type="String">ImmunizationRecommendation.recommendation.protocol.description</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -337,7 +337,7 @@
     <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">OBX-5-observation value : OBX-3-observation identifier = 30956-7</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ImmunizationProfile.recommendation.protocol.authority</Data></Cell>
+    <Cell><Data ss:Type="String">ImmunizationRecommendation.recommendation.protocol.authority</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -347,7 +347,7 @@
     <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">OBX-5-observation value : OBX-3-observation identifier = 59779-9</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">ImmunizationProfile.recommendation.protocol.series</Data></Cell>
+    <Cell><Data ss:Type="String">ImmunizationRecommendation.recommendation.protocol.series</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -357,7 +357,7 @@
     <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">RXA-5-administered code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.recommendation.supportingImmunization</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingImmunization</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -367,7 +367,7 @@
     <Cell ss:Index="14"><Data ss:Type="String">? No clear way to associate in V2.x or IG</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.recommendation.supportingAdverseEventReport</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingAdverseEventReport</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -376,7 +376,7 @@
     <Cell><Data ss:Type="String">Adverse event report information that supports the status and recommendation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.recommendation.supportingAdverseEventReport.identifier</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingAdverseEventReport.identifier</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -385,7 +385,7 @@
     <Cell><Data ss:Type="String">Unique identifier of the adverse event report</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.recommendation.supportingAdverseEventReport.reportType</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingAdverseEventReport.reportType</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -396,7 +396,7 @@
     <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">[tbd] : OBX-3-observation identifier = 31044-1 (seems to be only one LOINC code for 'reaction' -&gt; only one AdverseEventReportType?)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.recommendation.supportingAdverseEventReport.reportDate</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingAdverseEventReport.reportDate</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -406,7 +406,7 @@
     <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">OBX-15-date/time of the observation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.recommendation.supportingAdverseEventReport.text</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingAdverseEventReport.text</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -416,7 +416,7 @@
     <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">OBX-5-observation value : OBX-3-observation identifier = 31044-1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.recommendation.supportingAdverseEventReport.reaction</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingAdverseEventReport.reaction</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -426,7 +426,7 @@
     <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">IAM/IAR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.recommendation.supportingPatientObservation</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingPatientObservation</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -655,14 +655,14 @@
     <Cell ss:StyleID="s64"/>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationProfile.subject</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">vaccine-type</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
-    <Cell><Data ss:Type="String">ImmunizationProfile.recommendation.vaccineType</Data></Cell>
+    <Cell><Data ss:Type="String">ImmunizationRecommendation.recommendation.vaccineType</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s64"/>

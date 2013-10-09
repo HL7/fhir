@@ -32,6 +32,7 @@ import java.io.InputStream;
 import java.util.Calendar;
 
 import org.apache.commons.codec.binary.Base64;
+import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Binary;
@@ -155,7 +156,10 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
         skipEmptyElement(xpp);
       } else if(eventType == XmlPullParser.START_TAG && xpp.getName().equals("updated"))
         res.setUpdated(parseDate(xpp));
-      else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("entry"))
+      else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
+        res.getTags().add(new AtomCategory(xpp.getAttributeValue(null, "scheme"), xpp.getAttributeValue(null, "term"), xpp.getAttributeValue(null, "label")));
+        skipEmptyElement(xpp);
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("entry"))
         res.getEntryList().add(parseEntry(xpp));
       else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("author")) {
         xpp.next();
@@ -199,8 +203,7 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
       else if(eventType == XmlPullParser.START_TAG && xpp.getName().equals("published"))
         res.setPublished(parseDate(xpp));
       else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
-        if ("http://hl7.org/fhir/tag".equals(xpp.getAttributeValue(null, "scheme"))) 
-          res.getTags().put(xpp.getAttributeValue(null, "term"), xpp.getAttributeValue(null, "label"));
+        res.getTags().add(new AtomCategory(xpp.getAttributeValue(null, "scheme"), xpp.getAttributeValue(null, "term"), xpp.getAttributeValue(null, "label")));
         skipEmptyElement(xpp);
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("author")) {
         xpp.next();

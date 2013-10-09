@@ -10,10 +10,10 @@ included to the degree that it is useful for the final report to refer back to t
 of the ordering cycle, see the Order, OrderResponse, and DiagnosticOrder resources.
 </li>
 <li>
-If the diagnostic procedure was performed on the patient directly, <i>diagnosticTime</i> is the time it was peformed. 
+If the diagnostic procedure was performed on the patient directly, <i>diagnostic[x]</i> is a dateTime, the time it was performed. 
 If specimens were taken, the diagnostically relevant time can be derived from the specimen collection times, but 
 since the specimen information is not always available, and nor is the diagnostically relevant time always exactly the specimen collection time (e.g. complex timed tests), the
-reports SHALL always include a <i>diagnosticTime</i> element. Note that v2 messages often carry a diagnostically relevant time without carrying any specimen information.
+reports SHALL always include a <i>diagnostic[x]</i> element. Note that v2 messages often carry a diagnostically relevant time without carrying any specimen information.
 </li>
 <li>
 A report always contains a base group for individual results. As a minimum, this contains the name of the report 

@@ -32,7 +32,7 @@
          <code value="LAB" />
      </coding>
  </serviceCategory>
- <diagnosticTime value="2013-03-11T03:45:00+01:00"/>
+ <diagnosticDateTime value="2013-03-11T03:45:00+01:00"/>
  <results> 
   <name>
     <coding>

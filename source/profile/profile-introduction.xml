@@ -8,8 +8,8 @@ able to describe restrictions on how one or more resource(s) are used, including
 defining extensions, and controlling how terminology is used. These descriptions 
 need to be able to be shared through repositories of profile definitions, and need
 to allow for these usage statements to be published, compared, and used as the basis
-for code, report and UI generation. All these things are done using a Resource 
-Profile, which itself is a resource. 
+for code, report and UI generation. All these things are done using a "Profile", 
+which itself is represented as a resource. 
 </p>
 
 <p>
@@ -30,6 +30,29 @@ set of profiles</a> for all resources and data types is published.
 A FHIR RESTful server serving the profile resource is also a profile repository. 
 HL7 hosts one for public registration of FHIR profiles at (yet to be done).
 </p>
+<h2>Scope of a Profile</h2>
+<p>
+A profile specifies a set of rules that the content of a resource must adhere to. 
+In addition, a resource is allowed to describe required behaviour for applications
+that conform to the profile. However the ability of the profile to define this behavior
+is limited in some respects:
+</p>
+<ul>
+ <li>The profile cannot specify default values for elements</li>
+ <li>It must be safe to process a resource without knowing of the profile</li>
+</ul>
+<p>
+The consequence of this is that if a profile mandates behaviour that cannot 
+be ignored, it must also mandate an extension with isModifier=true in the
+instance. Another way of saying this is that knowledge must be explicit in
+the instance, not implicit in the profile. 
+</p>
+<p>
+As an example, if a profile wished to describe that any <a href="allergyintolerance.htm">Allergy/Intolerance</a>
+resource was deemed extremely unlikely, it could not simply say that this is so; instead, it must 
+say that the resource must have an extension that represents this knowledge. 
+</p>
+
 
 <h2>Metadata</h2>
 <p>

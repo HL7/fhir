@@ -34,7 +34,7 @@
       <system>http://hl7.org/fhir/v2/0074</system>
     </coding>
 	</service>
-	<diagnosticTime>2011-03-04T08:30:00+11:00</diagnosticTime>
+	<diagnosticDateTime>2011-03-04T08:30:00+11:00</diagnosticDateTime>
 	
 	<!-- now the atomic results -->
   <resultGroup>

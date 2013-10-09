@@ -147,7 +147,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A message that contains resources</Data></Cell>
-    <Cell><Data ss:Type="String">The root for a transmission either requesting or responding to an action.  The resource(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle of which the Message resource instance is the first resource in the bundle</Data></Cell>
+    <Cell><Data ss:Type="String">The root for a transmission that is either requesting or responding to an action.  The resource(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle of which the Message resource instance is the first resource in the bundle</Data></Cell>
     <Cell><Data ss:Type="String">Many implementations are not prepared to use REST and need a message based infrastructure</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Message</Data></Cell>
     <Cell><Data ss:Type="String">MSH / MSA / ERR</Data></Cell>

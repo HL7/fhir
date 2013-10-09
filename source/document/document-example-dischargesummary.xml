@@ -6,10 +6,10 @@
     <id>urn:uuid:500bee81-d973-4afe-b592-d39fe71e38</id>
     <link rel="self" href="urn:guid:180f219f-97a8-486d-99d9-ed631fe4fc52"/>
     <updated>2013-05-28T22:12:21Z</updated>
-    <category term="http://hl7.org/fhir/tag/document" scheme="http://hl7.org/fhir/tag"/>  
     <author>
         <name>Dr Dave</name>
     </author>
+    <category term="http://hl7.org/fhir/tag/document" scheme="http://hl7.org/fhir/tag"/>  
     <!-- The document resource -->
     <entry>
         <title>Document</title>

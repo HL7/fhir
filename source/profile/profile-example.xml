@@ -161,8 +161,8 @@
           </span>
           <span style="color: navy">Biochemistry, Hematology, etc.</span>
           <span style="color: Gray"> --&gt;</span>&lt;/service&gt;</i>
-        <i class="inherited">&lt;<a title="The diagnostically relevant time for this report" class="dict" href="#DiagnosticReport.diagnosticTime">
-            <b>diagnosticTime</b>
+        <i class="inherited">&lt;<a title="The diagnostically relevant time for this report" class="dict" href="#DiagnosticReport.diagnostic[x]">
+            <b>diagnostic[x]</b>
           </a>&gt;<span style="color: Gray">&lt;!--</span>
           <span style="color: brown">
             <b>1..1</b>
@@ -171,7 +171,7 @@
             <a href="datatypes.htm#dateTime">dateTime</a>
           </span>
           <span style="color: navy">Effective time of diagnostic report</span>
-          <span style="color: Gray"> --&gt;</span>&lt;/diagnosticTime&gt;</i>
+          <span style="color: Gray"> --&gt;</span>&lt;/diagnostic[x]&gt;</i>
         <i class="inherited">&lt;<a title="Details about the specimen if all individual test results are derived from the same specimen" class="dict" href="#DiagnosticReport.specimen">
             <b>specimen</b>
           </a>&gt;<span style="color: Gray">&lt;!--</span>
@@ -856,7 +856,7 @@
       </definition>
     </element>
     <element>
-      <path value="DiagnosticReport.diagnosticTime"/>
+      <path value="DiagnosticReport.diagnostic[x]"/>
       <definition>
         <short value="Effective time of diagnostic report"/>
         <formal value="The diagnostically relevant time for this report"/>
