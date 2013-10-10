@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame</LastAuthor>
+  <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T11:19:17Z</Created>
-  <LastSaved>2013-07-18T05:17:41Z</LastSaved>
+  <LastSaved>2013-10-09T21:10:30Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -21,6 +21,7 @@
   <WindowTopX>15360</WindowTopX>
   <WindowTopY>4365</WindowTopY>
   <TabRatio>651</TabRatio>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -952,7 +953,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -983,14 +983,14 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="14" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s72" ss:DefaultColumnWidth="64.5"
    ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="94.5"/>
    <Column ss:StyleID="s72" ss:Width="67.5"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="144"/>
    <Column ss:Index="6" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="147"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s73">
+   <Row ss:StyleID="s73">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Context</Data></Cell>
@@ -998,26 +998,96 @@
     <Cell><Data ss:Type="String">OCL</Data></Cell>
     <Cell><Data ss:Type="String">XPath</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Content Required</Data></Cell>
     <Cell><Data ss:Type="String">Conformance</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">A Conformance statement SHALL have at least one of rest, messaging or document</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:rest) or exists(f:messaging) or exists(f:document)</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">Details</Data></Cell>
     <Cell><Data ss:Type="String">Conformance</Data></Cell>
     <Cell><Data ss:Type="String">SHALL have at least one of description, software, or implementation</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">count(f:software | f:implementation | f:description) &gt; 0</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">End points for Implementations</Data></Cell>
     <Cell><Data ss:Type="String">Conformance.messaging</Data></Cell>
     <Cell><Data ss:Type="String">Messaging end point is required (and is only permitted) when statement is for an implementation</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:endpoint) = exists(parent::f:Conformance/f:implementation)</Data></Cell>
+   </Row>
+   <Row ss:Height="60">
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">End point populated when multiple</Data></Cell>
+    <Cell><Data ss:Type="String">Conformance</Data></Cell>
+    <Cell><Data ss:Type="String">If there is more than one messaging element, endpoint must be specified for all</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:messaging)&lt;=1 or not(f:messaging[not(f:endpoint)])</Data></Cell>
+   </Row>
+   <Row ss:Height="60">
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">Messaging endpoints unique</Data></Cell>
+    <Cell><Data ss:Type="String">Conformance</Data></Cell>
+    <Cell><Data ss:Type="String">The set of end points listed for messaging must be unique</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:messaging)=count(distinct-values(f:messaging/f:endpoint/@value))</Data></Cell>
+   </Row>
+   <Row ss:Height="120">
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="String">Event unique</Data></Cell>
+    <Cell><Data ss:Type="String">Conformance.messaging</Data></Cell>
+    <Cell><Data ss:Type="String">The set of events per messaging endpoint must be unique by the combination of code &amp; mode</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:event[f:mode='sender'])=count(distinct-values(f:event[f:mode='sender']/f:code/@value)) and count(f:event[f:mode='receiver'])=count(distinct-values(f:event[f:mode='receiver']/f:code/@value))</Data></Cell>
+   </Row>
+   <Row ss:Height="135">
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="String">Document unique</Data></Cell>
+    <Cell><Data ss:Type="String">Conformance</Data></Cell>
+    <Cell><Data ss:Type="String">The set of documents must be unique by the combination of profile &amp; mode</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:document[f:mode='producer'])=count(distinct-values(f:document[f:mode='producer']/f:profile/@value)) and count(f:document[f:mode='consumer'])=count(distinct-values(f:document[f:mode='consumer']/f:profile/@value))</Data></Cell>
+   </Row>
+   <Row ss:Height="45">
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell><Data ss:Type="String">Rest unique by mode</Data></Cell>
+    <Cell><Data ss:Type="String">Conformance</Data></Cell>
+    <Cell><Data ss:Type="String">There can only be one REST declaration per mode</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:rest)=count(distinct-values(f:rest/f:mode/@value))</Data></Cell>
+   </Row>
+   <Row ss:Height="60">
+    <Cell><Data ss:Type="Number">9</Data></Cell>
+    <Cell><Data ss:Type="String">Resource unique in rest mode</Data></Cell>
+    <Cell><Data ss:Type="String">Conformance.rest</Data></Cell>
+    <Cell><Data ss:Type="String">A given resource can only be described once per RESTful mode</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:resource)=count(distinct-values(f:resource/f:type/@value))</Data></Cell>
+   </Row>
+   <Row ss:Height="45">
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="String">Query unique in rest mode</Data></Cell>
+    <Cell><Data ss:Type="String">Conformance.rest</Data></Cell>
+    <Cell><Data ss:Type="String">A given query can only be described once per RESTful mode</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:query)=count(distinct-values(f:query/f:name/@value))</Data></Cell>
+   </Row>
+   <Row ss:Height="60">
+    <Cell><Data ss:Type="Number">11</Data></Cell>
+    <Cell><Data ss:Type="String">Operation unique in resource</Data></Cell>
+    <Cell><Data ss:Type="String">Conformance.rest.resource</Data></Cell>
+    <Cell><Data ss:Type="String">Operation codes must be unique in the context of a resouce</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:operation)=count(distinct-values(f:operation/f:code/@value))</Data></Cell>
+   </Row>
+   <Row ss:Height="60">
+    <Cell><Data ss:Type="Number">12</Data></Cell>
+    <Cell><Data ss:Type="String">SearchParam unique in resource</Data></Cell>
+    <Cell><Data ss:Type="String">Conformance.rest.resource</Data></Cell>
+    <Cell><Data ss:Type="String">Search parameter names must be unique in the context of a resource</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:searchParam)=count(distinct-values(f:searchParam/f:name/@value))</Data></Cell>
+   </Row>
+   <Row ss:Height="60">
+    <Cell><Data ss:Type="Number">13</Data></Cell>
+    <Cell><Data ss:Type="String">SearchParam unique in query</Data></Cell>
+    <Cell><Data ss:Type="String">Conformance.rest.query</Data></Cell>
+    <Cell><Data ss:Type="String">Search parameter names must be unique in the context of a query</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:parameter)=count(distinct-values(f:parameter/f:name/@value))</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1026,12 +1096,26 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   <Selected/>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
+   <SplitVertical>2</SplitVertical>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

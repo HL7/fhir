@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame</LastAuthor>
+  <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T11:19:17Z</Created>
-  <LastSaved>2013-07-15T00:51:46Z</LastSaved>
+  <LastSaved>2013-10-09T22:10:31Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,6 +20,7 @@
   <WindowWidth>27780</WindowWidth>
   <WindowTopX>-120</WindowTopX>
   <WindowTopY>75</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -543,7 +544,7 @@
     <Cell ss:Index="4" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">right</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">left</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">This element is sliced - slices follow</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1511,11 +1512,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>55</TopRowBottomPane>
+   <TopRowBottomPane>60</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1532,7 +1532,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>63</ActiveRow>
+     <ActiveRow>65</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1543,7 +1543,7 @@
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="15" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="25" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s75" ss:DefaultRowHeight="15">
    <Column ss:Index="3" ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="118.5"/>
    <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="309.75"/>
@@ -1635,8 +1635,71 @@
     <Cell><Data ss:Type="String">Example value sets are always extensible</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not(f:Conformance/value='example' and f:isExtensible.value='false')</Data></Cell>
    </Row>
+   <Row ss:Height="30">
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile</Data></Cell>
+    <Cell><Data ss:Type="String">Structure names where multiple structures exist with the same type</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:structure[not(@name)]) = count(distinct-values(f:structure[not(@name)]/f:type/@value)</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s73"/>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile</Data></Cell>
+    <Cell><Data ss:Type="String">Extension definition codes must be unique</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:extensionDefn) = count(distinct-values(f:extensionDefn/f:code/@value))</Data></Cell>
+   </Row>
+   <Row ss:Height="45">
+    <Cell><Data ss:Type="Number">17</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile</Data></Cell>
+    <Cell><Data ss:Type="String">There can't be multiple structures with the same type and name</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">not(exists(for $structure in f:structure return $structure/preceding-sibling::f:structure[f:type/@value=$structure/f:type/@value and f:name/@value = $structure/f:name/@value]))</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">18</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Profile.structure</Data></Cell>
+    <Cell><Data ss:Type="String">Element paths must be unique</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:element) = count(distinct-values(f:element/f:path/@value))</Data></Cell>
+   </Row>
+   <Row ss:Height="30">
+    <Cell><Data ss:Type="Number">19</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.element.definition</Data></Cell>
+    <Cell><Data ss:Type="String">Element names must be unique</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:element[f:name]) = count(distinct-values(f:element/f:name/@value))</Data></Cell>
+   </Row>
+   <Row ss:Height="30">
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.element</Data></Cell>
+    <Cell><Data ss:Type="String">An element must either be a definition or a slicing descriptor, never both.</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">exists(f:slicing)!=exists(f:definition)</Data></Cell>
+   </Row>
+   <Row ss:Height="45">
+    <Cell><Data ss:Type="Number">21</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.element</Data></Cell>
+    <Cell><Data ss:Type="String">An element that's a slicing descriptor must not be preceded by an element that starts with the same path and must be followed by an element with exactly the same path.</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">not(f:slicing) or (not(starts-with(preceding-sibling::f:element[1]/f:path/@value, current()/f:path/@value)) and following-sibling::f:element[1]/f:path/@value=current()/f:path/@value)</Data></Cell>
+   </Row>
+   <Row ss:Height="30">
+    <Cell><Data ss:Type="Number">22</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.element.definition</Data></Cell>
+    <Cell><Data ss:Type="String">If a definition has multiple types with the same code, each must specify a profile</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:type[not(f:profile)]) = count(distinct-value(f:type[not(f:profile)]/f:code/@value))</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">23</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.element.definition</Data></Cell>
+    <Cell><Data ss:Type="String">Types must be unique by the combination of code and profile</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">not(exists(for $type in f:type return $type/preceding-sibling::f:type[f:code/@value=$type/f:code/@value and f:profile/@value = $type/f:profile/@value]))</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">24</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.element.definition</Data></Cell>
+    <Cell><Data ss:Type="String">Constraints must be unique by key</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:constraint) = count(distinct-values(f:constraint/f:id/@value))</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.element.definition</Data></Cell>
+    <Cell><Data ss:Type="String">Constraint names must be unique.</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:constraint[f:name]) = count(distinct-values(f:constraint/f:name/@value))</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1652,11 +1715,29 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>15</TopRowBottomPane>
+   <SplitVertical>3</SplitVertical>
+   <LeftColumnRightPane>3</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
+     <ActiveRow>22</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2107,13 +2188,28 @@
     <Cell><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">CDISC1</Data></Cell>
+    <Cell><Data ss:Type="String">CDISC example1</Data></Cell>
+    <Cell><Data ss:Type="String">ad-4833pnfp-341</Data></Cell>
+    <Cell><Data ss:Type="String">profile-cdisc-example1.xml</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">CDISC2</Data></Cell>
+    <Cell><Data ss:Type="String">CDISC example2</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">048</Data></Cell>
+    <Cell><Data ss:Type="String">profile-cdisc-example2.xml</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">CDISC3</Data></Cell>
+    <Cell><Data ss:Type="String">CDISC example3</Data></Cell>
+    <Cell><Data ss:Type="String">efc10262</Data></Cell>
+    <Cell><Data ss:Type="String">profile-cdisc-example3.xml</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">y</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -2135,7 +2231,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Profiles">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="1" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="108"/>
    <Column ss:AutoFitWidth="0" ss:Width="237"/>
@@ -2148,6 +2244,13 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">Filename</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Type</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Example</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Study Profile</Data></Cell>
+    <Cell><Data ss:Type="String">General Profile for a picture as an observation</Data></Cell>
+    <Cell><Data ss:Type="String">profile-study-profile-spreadsheet.xml</Data></Cell>
+    <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
+    <Cell><Data ss:Type="String">profile-study-profile-example.xml</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
