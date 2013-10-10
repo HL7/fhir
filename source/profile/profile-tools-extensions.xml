@@ -192,7 +192,7 @@
     <context value="ValueSet.define.concept"/>
     <definition>
       <short value="Additional parent for this concept"/>
-      <formal value="Refers to another code defined within the code system that is also a parent of this code.  I.e. The referenced code subsumes the extended concept.  Because meaning is inferred from hierarchy as well as definition, the presence of this extension modifies the meaning of the extended concept."/>
+      <formal value="Refers to another code defined within the code system that identifies a concept that is also a parent of this code.  I.e. The referenced concept subsumes the extended concept.  Because meaning is inferred from hierarchy as well as definition, the presence of this extension modifies the meaning of the extended concept."/>
       <requirements value="For when the code system being defined is poly-heirarchical"/>
       <min value="0"/>
       <max value="*"/>
