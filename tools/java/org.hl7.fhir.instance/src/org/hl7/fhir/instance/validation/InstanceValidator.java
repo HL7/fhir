@@ -23,7 +23,6 @@ import org.hl7.fhir.instance.model.Address;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Attachment;
-import org.hl7.fhir.instance.model.Choice;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Contact;
@@ -948,8 +947,6 @@ public class InstanceValidator extends BaseValidator {
 				checkAttachment(errors, path, focus, (Attachment) fixed);
 			else if (fixed instanceof Identifier)
 				checkIdentifier(errors, path, focus, (Identifier) fixed);
-			else if (fixed instanceof Choice)
-				checkChoice(errors, path, focus, (Choice) fixed);
 			else if (fixed instanceof Coding)
 				checkCoding(errors, path, focus, (Coding) fixed);
 			else if (fixed instanceof HumanName)
@@ -1025,18 +1022,6 @@ public class InstanceValidator extends BaseValidator {
 	  checkFixedValue(errors, path+".value", XMLUtil.getNamedChild(focus, "value"), fixed.getValue(), "value");
 	  checkFixedValue(errors, path+".period", XMLUtil.getNamedChild(focus, "period"), fixed.getPeriod(), "period");
 	  checkFixedValue(errors, path+".assigner", XMLUtil.getNamedChild(focus, "assigner"), fixed.getAssigner(), "assigner");
-  }
-
-	private void checkChoice(List<ValidationMessage> errors, String path, Element focus, Choice fixed) {
-	  checkFixedValue(errors, path+".code", XMLUtil.getNamedChild(focus, "code"), fixed.getCode(), "code");
-	  checkFixedValue(errors, path+".isOrdered", XMLUtil.getNamedChild(focus, "isOrdered"), fixed.getIsOrdered(), "isOrdered");
-	  
-		List<Element> options = new ArrayList<Element>();
-		XMLUtil.getNamedChildren(focus,  "option", options);
-		if (rule(errors, "value", path, options.size() == fixed.getOption().size(), "Expected "+Integer.toString(fixed.getOption().size())+" but found "+Integer.toString(options.size())+" option elements")) {
-			for (int i = 0; i < options.size(); i++) 
-				checkFixedValue(errors, path+".option", options.get(i), fixed.getOption().get(i), "option");			
-		}	  
   }
 
 	private void checkCoding(List<ValidationMessage> errors, String path, Element focus, Coding fixed) {
