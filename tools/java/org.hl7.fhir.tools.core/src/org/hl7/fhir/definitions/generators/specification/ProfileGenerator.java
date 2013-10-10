@@ -47,6 +47,7 @@ import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
+import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
@@ -54,12 +55,13 @@ import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.BindingConformance;
 import org.hl7.fhir.instance.model.Profile.ConstraintSeverity;
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
+import org.hl7.fhir.instance.model.Profile.ElementDefinitionBindingComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ExtensionContext;
-import org.hl7.fhir.instance.model.Profile.ProfileBindingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
+import org.hl7.fhir.instance.model.Profile.ResourceAggregationMode;
 import org.hl7.fhir.instance.model.Profile.ResourceSlicingRules;
 import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
 import org.hl7.fhir.instance.model.Type;
@@ -127,21 +129,21 @@ public class ProfileGenerator {
       defineElement(profile, p, c, elem, elem.getName(), addBase, containedSlices);
     }
 
-    for (String bn : bindings) {
-      if (!"!".equals(bn)) {
-        BindingSpecification bs = definitions.getBindingByName(bn);
-        if (bs == null)
-          System.out.println("no binding found for "+bn);
-        else
-          p.getBinding().add(generateBinding(bs, p));
-      }
-    }
+//    for (String bn : bindings) {
+//      if (!"!".equals(bn)) {
+//        BindingSpecification bs = definitions.getBindingByName(bn);
+//        if (bs == null)
+//          System.out.println("no binding found for "+bn);
+//        else
+//          p.getBinding().add(generateBinding(bs, p));
+//      }
+//    }
 
     for (ExtensionDefn ex : profile.getExtensions())
       p.getExtensionDefn().add(generateExtensionDefn(ex, p));
 
-    for (BindingSpecification b : profile.getBindings()) 
-      p.getBinding().add(generateBinding(b, p));
+//    for (BindingSpecification b : profile.getBindings()) 
+//      p.getBinding().add(generateBinding(b, p));
     XhtmlNode div = new XhtmlNode();
     div.setName("div");
     div.setNodeType(NodeType.Element);
@@ -152,8 +154,12 @@ public class ProfileGenerator {
     return p;
   }
 
-  private ProfileBindingComponent generateBinding(BindingSpecification src, Profile p) throws Exception {
-    ProfileBindingComponent dst = p.new ProfileBindingComponent();
+  private ElementDefinitionBindingComponent generateBinding(String bn, Profile p) throws Exception {
+    BindingSpecification src = definitions.getBindingByName(bn);
+    if (src == null)
+      return null;
+    
+    ElementDefinitionBindingComponent dst = p.new ElementDefinitionBindingComponent();
     dst.setName(Factory.newString_(src.getName()));
     dst.setConformanceSimple(convert(src.getBindingStrength()));
     dst.setIsExtensibleSimple(src.getExtensibility() == BindingExtensibility.Extensible);
@@ -231,20 +237,16 @@ public class ProfileGenerator {
       type.setCode(Factory.newCode(t.summary()));
       dDst.getType().add(type);
     }
-    if (dSrc.hasMapping(ElementDefn.RIM_MAPPING)) {
-      ElementDefinitionMappingComponent m = p.new ElementDefinitionMappingComponent();
-      m.setMap(Factory.newString_("RIM"));
-      m.setTarget(Factory.newUri(dSrc.getMapping(ElementDefn.RIM_MAPPING)));
-      dDst.getMapping().add(m);
-    }
-    if (dSrc.hasMapping(ElementDefn.CDA_MAPPING)) {
-      ElementDefinitionMappingComponent m = p.new ElementDefinitionMappingComponent();
-      m.setMap(Factory.newString_("CDA"));
-      m.setTarget(Factory.newUri(dSrc.getMapping(ElementDefn.CDA_MAPPING)));
-      dDst.getMapping().add(m);
+    for (String mu : ElementDefn.getAllMappingUris()) {
+      if (dSrc.hasMapping(mu)) {
+        ElementDefinitionMappingComponent m = p.new ElementDefinitionMappingComponent();
+        m.setTargetSimple(mu);
+        m.setMapSimple(dSrc.getMapping(mu));
+        dDst.getMapping().add(m);
+      }
     }
     if (!Utilities.noString(dSrc.getBindingName()))
-      dDst.setBindingSimple(dSrc.getBindingName());
+      dDst.setBinding(generateBinding(dSrc.getBindingName(), p));
     return dst;
   }
 
@@ -326,8 +328,8 @@ public class ProfileGenerator {
     }
     // we don't have anything to say about constraints on resources
 
-    if (!"".equals(e.getBindingName())) {
-      ce.getDefinition().setBindingSimple(e.getBindingName());
+    if (!Utilities.noString(e.getBindingName())) {
+      ce.getDefinition().setBinding(generateBinding(e.getBindingName(), p));
       bindings.add(e.getBindingName());
     }
 
@@ -336,7 +338,9 @@ public class ProfileGenerator {
       TypeRefComponent t = p.new TypeRefComponent();
       ce.getDefinition().getType().add(t);
       t.setProfile(Factory.newUri(e.getAggregation()));
-      t.setBundled(Factory.newBoolean(true));
+      Enumeration<ResourceAggregationMode> en = new Enumeration<ResourceAggregationMode>();
+      en.setValue(ResourceAggregationMode.bundled);
+      t.getAggregation().add(en);
     }
 
     Set<String> containedSlices = new HashSet<String>();
@@ -347,6 +351,7 @@ public class ProfileGenerator {
       ex.getSlicing().setDiscriminatorSimple("url");
       ex.getSlicing().setOrderedSimple(false);
       ex.getSlicing().setRulesSimple(ResourceSlicingRules.open);
+      ex.setDefinition(null);
       c.getElement().add(ex);
       containedSlices.add("extension");
       for (ElementDefn child : e.getElements()) {

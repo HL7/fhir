@@ -742,6 +742,20 @@ public class ElementDefn {
     return svgWidth;
   }
 
+  public static List<String> getAllMappingUris() {
+    List<String> results = new ArrayList<String>();
+    results.add(RIM_MAPPING);
+    results.add(CDA_MAPPING);
+    results.add(v2_MAPPING);
+    results.add(DICOM_MAPPING);
+    results.add(vCard_MAPPING);
+    results.add(XDS_MAPPING);
+    results.add(LOINC_MAPPING);
+    results.add(SNOMED_MAPPING);
+    results.add(PROV_MAPPING);
+    return results;
+  }
+
 	
 	
 }

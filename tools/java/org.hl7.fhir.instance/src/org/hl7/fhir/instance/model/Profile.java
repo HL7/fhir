@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
+// Generated on Thu, Oct 10, 2013 11:38+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -138,6 +138,56 @@ public class Profile extends Resource {
       }
     }
 
+    public enum ResourceAggregationMode {
+        contained, // The reference is a local reference to a contained resource.
+        referenced, // The reference to to a resource that has to be resolved externally to the resource that includes the reference.
+        bundled, // The resource the reference points to will be found in the same bundle as the resource that includes the reference.
+        Null; // added to help the parsers
+        public static ResourceAggregationMode fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("contained".equals(codeString))
+          return contained;
+        if ("referenced".equals(codeString))
+          return referenced;
+        if ("bundled".equals(codeString))
+          return bundled;
+        throw new Exception("Unknown ResourceAggregationMode code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case contained: return "contained";
+            case referenced: return "referenced";
+            case bundled: return "bundled";
+            default: return "?";
+          }
+        }
+    }
+
+  public class ResourceAggregationModeEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("contained".equals(codeString))
+          return ResourceAggregationMode.contained;
+        if ("referenced".equals(codeString))
+          return ResourceAggregationMode.referenced;
+        if ("bundled".equals(codeString))
+          return ResourceAggregationMode.bundled;
+        throw new Exception("Unknown ResourceAggregationMode code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == ResourceAggregationMode.contained)
+        return "contained";
+      if (code == ResourceAggregationMode.referenced)
+        return "referenced";
+      if (code == ResourceAggregationMode.bundled)
+        return "bundled";
+      return "?";
+      }
+    }
+
     public enum ConstraintSeverity {
         error, // If the constraint is violated, the resource is not conformant.
         warning, // If the constraint is violated, the resource is conformant, but it is not necessarily following best practice.
@@ -176,6 +226,56 @@ public class Profile extends Resource {
         return "error";
       if (code == ConstraintSeverity.warning)
         return "warning";
+      return "?";
+      }
+    }
+
+    public enum BindingConformance {
+        required, // Only codes in the specified set are allowed.  If the binding is extensible, other codes may be used for concepts not covered by the bound set of codes.
+        preferred, // For greater interoperability, implementers are strongly encouraged to use the bound set of codes, however alternate codes may be used in derived profiles and implementations if necessary without being considered non-conformant.
+        example, // The codes in the set are an example to illustrate the meaning of the field. There is no particular preference for its use nor any assertion that the provided values are sufficient to meet implementation needs.
+        Null; // added to help the parsers
+        public static BindingConformance fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("required".equals(codeString))
+          return required;
+        if ("preferred".equals(codeString))
+          return preferred;
+        if ("example".equals(codeString))
+          return example;
+        throw new Exception("Unknown BindingConformance code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case required: return "required";
+            case preferred: return "preferred";
+            case example: return "example";
+            default: return "?";
+          }
+        }
+    }
+
+  public class BindingConformanceEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("required".equals(codeString))
+          return BindingConformance.required;
+        if ("preferred".equals(codeString))
+          return BindingConformance.preferred;
+        if ("example".equals(codeString))
+          return BindingConformance.example;
+        throw new Exception("Unknown BindingConformance code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == BindingConformance.required)
+        return "required";
+      if (code == BindingConformance.preferred)
+        return "preferred";
+      if (code == BindingConformance.example)
+        return "example";
       return "?";
       }
     }
@@ -234,56 +334,6 @@ public class Profile extends Resource {
         return "mapping";
       if (code == ExtensionContext.extension)
         return "extension";
-      return "?";
-      }
-    }
-
-    public enum BindingConformance {
-        required, // Only codes in the specified set are allowed.  If the binding is extensible, other codes may be used for concepts not covered by the bound set of codes.
-        preferred, // For greater interoperability, implementers are strongly encouraged to use the bound set of codes, however alternate codes may be used in derived profiles and implementations if necessary without being considered non-conformant.
-        example, // The codes in the set are an example to illustrate the meaning of the field. There is no particular preference for its use nor any assertion that the provided values are sufficient to meet implementation needs.
-        Null; // added to help the parsers
-        public static BindingConformance fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("required".equals(codeString))
-          return required;
-        if ("preferred".equals(codeString))
-          return preferred;
-        if ("example".equals(codeString))
-          return example;
-        throw new Exception("Unknown BindingConformance code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case required: return "required";
-            case preferred: return "preferred";
-            case example: return "example";
-            default: return "?";
-          }
-        }
-    }
-
-  public class BindingConformanceEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("required".equals(codeString))
-          return BindingConformance.required;
-        if ("preferred".equals(codeString))
-          return BindingConformance.preferred;
-        if ("example".equals(codeString))
-          return BindingConformance.example;
-        throw new Exception("Unknown BindingConformance code '"+codeString+"'");
-        }
-    public String toCode(Enum<?> code) throws Exception {
-      if (code == BindingConformance.required)
-        return "required";
-      if (code == BindingConformance.preferred)
-        return "preferred";
-      if (code == BindingConformance.example)
-        return "example";
       return "?";
       }
     }
@@ -673,9 +723,9 @@ public class Profile extends Resource {
         protected Boolean isModifier;
 
         /**
-         * Identifies the set of codes that applies to this element if a data type supporting codes is used. The reference can be local - to a Profile.binding.name, or absolute, to a binding.name in another profile.
+         * Binds to a value set if this element is coded (code, Coding, CodeableConcept).
          */
-        protected Uri binding;
+        protected ElementDefinitionBindingComponent binding;
 
         /**
          * Identifies a concept from an external specification that roughly corresponds to this element.
@@ -956,26 +1006,12 @@ public class Profile extends Resource {
             this.isModifier.setValue(value);
         }
 
-        public Uri getBinding() { 
+        public ElementDefinitionBindingComponent getBinding() { 
           return this.binding;
         }
 
-        public void setBinding(Uri value) { 
+        public void setBinding(ElementDefinitionBindingComponent value) { 
           this.binding = value;
-        }
-
-        public String getBindingSimple() { 
-          return this.binding == null ? null : this.binding.getValue();
-        }
-
-        public void setBindingSimple(String value) { 
-          if (value == null)
-            this.binding = null;
-          else {
-            if (this.binding == null)
-              this.binding = new Uri();
-            this.binding.setValue(value);
-          }
         }
 
         public List<ElementDefinitionMappingComponent> getMapping() { 
@@ -1015,7 +1051,7 @@ public class Profile extends Resource {
           dst.constraint.add(i.copy(e));
         dst.mustSupport = mustSupport == null ? null : mustSupport.copy();
         dst.isModifier = isModifier == null ? null : isModifier.copy();
-        dst.binding = binding == null ? null : binding.copy();
+        dst.binding = binding == null ? null : binding.copy(e);
         dst.mapping = new ArrayList<ElementDefinitionMappingComponent>();
         for (ElementDefinitionMappingComponent i : mapping)
           dst.mapping.add(i.copy(e));
@@ -1026,7 +1062,7 @@ public class Profile extends Resource {
 
     public class TypeRefComponent extends Element {
         /**
-         * Data type or Resource.
+         * Name of Data type or Resource.
          */
         protected Code code;
 
@@ -1036,9 +1072,9 @@ public class Profile extends Resource {
         protected Uri profile;
 
         /**
-         * Whether the Resource that is the value for this element is included in the bundle, if the profile is specifying a bundle.
+         * If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.
          */
-        protected Boolean bundled;
+        protected List<Enumeration<ResourceAggregationMode>> aggregation = new ArrayList<Enumeration<ResourceAggregationMode>>();
 
         public Code getCode() { 
           return this.code;
@@ -1080,33 +1116,31 @@ public class Profile extends Resource {
           }
         }
 
-        public Boolean getBundled() { 
-          return this.bundled;
+        public List<Enumeration<ResourceAggregationMode>> getAggregation() { 
+          return this.aggregation;
         }
 
-        public void setBundled(Boolean value) { 
-          this.bundled = value;
+    // syntactic sugar
+        public Enumeration<ResourceAggregationMode> addAggregation() { 
+          Enumeration<ResourceAggregationMode> t = new Enumeration<ResourceAggregationMode>();
+          this.aggregation.add(t);
+          return t;
         }
 
-        public boolean getBundledSimple() { 
-          return this.bundled == null ? null : this.bundled.getValue();
-        }
-
-        public void setBundledSimple(boolean value) { 
-          if (value == false)
-            this.bundled = null;
-          else {
-            if (this.bundled == null)
-              this.bundled = new Boolean();
-            this.bundled.setValue(value);
-          }
+        public Enumeration<ResourceAggregationMode> addAggregationSimple(ResourceAggregationMode value) { 
+          Enumeration<ResourceAggregationMode> t = new Enumeration<ResourceAggregationMode>();
+          t.setValue(value);
+          this.aggregation.add(t);
+          return t;
         }
 
       public TypeRefComponent copy(Profile e) {
         TypeRefComponent dst = e.new TypeRefComponent();
         dst.code = code == null ? null : code.copy();
         dst.profile = profile == null ? null : profile.copy();
-        dst.bundled = bundled == null ? null : bundled.copy();
+        dst.aggregation = new ArrayList<Enumeration<ResourceAggregationMode>>();
+        for (Enumeration<ResourceAggregationMode> i : aggregation)
+          dst.aggregation.add(i.copy());
         return dst;
       }
 
@@ -1137,11 +1171,6 @@ public class Profile extends Resource {
          * XPath expression of constraint.
          */
         protected String_ xpath;
-
-        /**
-         * OCL expression of constraint.
-         */
-        protected String_ ocl;
 
         public Id getKey() { 
           return this.key;
@@ -1237,28 +1266,6 @@ public class Profile extends Resource {
             this.xpath.setValue(value);
         }
 
-        public String_ getOcl() { 
-          return this.ocl;
-        }
-
-        public void setOcl(String_ value) { 
-          this.ocl = value;
-        }
-
-        public String getOclSimple() { 
-          return this.ocl == null ? null : this.ocl.getValue();
-        }
-
-        public void setOclSimple(String value) { 
-          if (value == null)
-            this.ocl = null;
-          else {
-            if (this.ocl == null)
-              this.ocl = new String_();
-            this.ocl.setValue(value);
-          }
-        }
-
       public ElementDefinitionConstraintComponent copy(Profile e) {
         ElementDefinitionConstraintComponent dst = e.new ElementDefinitionConstraintComponent();
         dst.key = key == null ? null : key.copy();
@@ -1266,7 +1273,132 @@ public class Profile extends Resource {
         dst.severity = severity == null ? null : severity.copy();
         dst.human = human == null ? null : human.copy();
         dst.xpath = xpath == null ? null : xpath.copy();
-        dst.ocl = ocl == null ? null : ocl.copy();
+        return dst;
+      }
+
+  }
+
+    public class ElementDefinitionBindingComponent extends Element {
+        /**
+         * A descriptive name for this - can be useful for generating implementation artifacts.
+         */
+        protected String_ name;
+
+        /**
+         * If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.
+         */
+        protected Boolean isExtensible;
+
+        /**
+         * Indicates the degree of conformance expectations associated with this binding.
+         */
+        protected Enumeration<BindingConformance> conformance;
+
+        /**
+         * Describes the intended use of this particular set of codes.
+         */
+        protected String_ description;
+
+        /**
+         * Points to the value set or external definition that identifies the set of codes to be used.
+         */
+        protected Type reference;
+
+        public String_ getName() { 
+          return this.name;
+        }
+
+        public void setName(String_ value) { 
+          this.name = value;
+        }
+
+        public String getNameSimple() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        public void setNameSimple(String value) { 
+            if (this.name == null)
+              this.name = new String_();
+            this.name.setValue(value);
+        }
+
+        public Boolean getIsExtensible() { 
+          return this.isExtensible;
+        }
+
+        public void setIsExtensible(Boolean value) { 
+          this.isExtensible = value;
+        }
+
+        public boolean getIsExtensibleSimple() { 
+          return this.isExtensible == null ? null : this.isExtensible.getValue();
+        }
+
+        public void setIsExtensibleSimple(boolean value) { 
+            if (this.isExtensible == null)
+              this.isExtensible = new Boolean();
+            this.isExtensible.setValue(value);
+        }
+
+        public Enumeration<BindingConformance> getConformance() { 
+          return this.conformance;
+        }
+
+        public void setConformance(Enumeration<BindingConformance> value) { 
+          this.conformance = value;
+        }
+
+        public BindingConformance getConformanceSimple() { 
+          return this.conformance == null ? null : this.conformance.getValue();
+        }
+
+        public void setConformanceSimple(BindingConformance value) { 
+          if (value == null)
+            this.conformance = null;
+          else {
+            if (this.conformance == null)
+              this.conformance = new Enumeration<BindingConformance>();
+            this.conformance.setValue(value);
+          }
+        }
+
+        public String_ getDescription() { 
+          return this.description;
+        }
+
+        public void setDescription(String_ value) { 
+          this.description = value;
+        }
+
+        public String getDescriptionSimple() { 
+          return this.description == null ? null : this.description.getValue();
+        }
+
+        public void setDescriptionSimple(String value) { 
+          if (value == null)
+            this.description = null;
+          else {
+            if (this.description == null)
+              this.description = new String_();
+            this.description.setValue(value);
+          }
+        }
+
+        public Type getReference() { 
+          return this.reference;
+        }
+
+        public void setReference(Type value) { 
+          this.reference = value;
+        }
+
+      public ElementDefinitionBindingComponent copy(Profile e) {
+        ElementDefinitionBindingComponent dst = e.new ElementDefinitionBindingComponent();
+        dst.name = name == null ? null : name.copy();
+        dst.isExtensible = isExtensible == null ? null : isExtensible.copy();
+        dst.conformance = conformance == null ? null : conformance.copy();
+        dst.description = description == null ? null : description.copy();
+        dst.reference = reference == null ? null : reference.copy();
         return dst;
       }
 
@@ -1274,7 +1406,7 @@ public class Profile extends Resource {
 
     public class ElementDefinitionMappingComponent extends Element {
         /**
-         * The name of the specification is mapping is being expressed to.
+         * A URI that identifies the specification that this mapping is expressed to.
          */
         protected Uri target;
 
@@ -1456,136 +1588,6 @@ public class Profile extends Resource {
 
   }
 
-    public class ProfileBindingComponent extends Element {
-        /**
-         * The name to be associated with this set of codes.
-         */
-        protected String_ name;
-
-        /**
-         * If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.
-         */
-        protected Boolean isExtensible;
-
-        /**
-         * Indicates the degree of conformance expectations associated with this binding.
-         */
-        protected Enumeration<BindingConformance> conformance;
-
-        /**
-         * Describes the intended use of this particular set of codes.
-         */
-        protected String_ description;
-
-        /**
-         * Points to the value set or external definition that identifies the set of codes to be used.
-         */
-        protected Type reference;
-
-        public String_ getName() { 
-          return this.name;
-        }
-
-        public void setName(String_ value) { 
-          this.name = value;
-        }
-
-        public String getNameSimple() { 
-          return this.name == null ? null : this.name.getValue();
-        }
-
-        public void setNameSimple(String value) { 
-            if (this.name == null)
-              this.name = new String_();
-            this.name.setValue(value);
-        }
-
-        public Boolean getIsExtensible() { 
-          return this.isExtensible;
-        }
-
-        public void setIsExtensible(Boolean value) { 
-          this.isExtensible = value;
-        }
-
-        public boolean getIsExtensibleSimple() { 
-          return this.isExtensible == null ? null : this.isExtensible.getValue();
-        }
-
-        public void setIsExtensibleSimple(boolean value) { 
-          if (value == false)
-            this.isExtensible = null;
-          else {
-            if (this.isExtensible == null)
-              this.isExtensible = new Boolean();
-            this.isExtensible.setValue(value);
-          }
-        }
-
-        public Enumeration<BindingConformance> getConformance() { 
-          return this.conformance;
-        }
-
-        public void setConformance(Enumeration<BindingConformance> value) { 
-          this.conformance = value;
-        }
-
-        public BindingConformance getConformanceSimple() { 
-          return this.conformance == null ? null : this.conformance.getValue();
-        }
-
-        public void setConformanceSimple(BindingConformance value) { 
-          if (value == null)
-            this.conformance = null;
-          else {
-            if (this.conformance == null)
-              this.conformance = new Enumeration<BindingConformance>();
-            this.conformance.setValue(value);
-          }
-        }
-
-        public String_ getDescription() { 
-          return this.description;
-        }
-
-        public void setDescription(String_ value) { 
-          this.description = value;
-        }
-
-        public String getDescriptionSimple() { 
-          return this.description == null ? null : this.description.getValue();
-        }
-
-        public void setDescriptionSimple(String value) { 
-          if (value == null)
-            this.description = null;
-          else {
-            if (this.description == null)
-              this.description = new String_();
-            this.description.setValue(value);
-          }
-        }
-
-        public Type getReference() { 
-          return this.reference;
-        }
-
-        public void setReference(Type value) { 
-          this.reference = value;
-        }
-
-      public ProfileBindingComponent copy(Profile e) {
-        ProfileBindingComponent dst = e.new ProfileBindingComponent();
-        dst.name = name == null ? null : name.copy();
-        dst.isExtensible = isExtensible == null ? null : isExtensible.copy();
-        dst.conformance = conformance == null ? null : conformance.copy();
-        dst.description = description == null ? null : description.copy();
-        dst.reference = reference == null ? null : reference.copy();
-        return dst;
-      }
-
-  }
-
     /**
      * The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI).
      */
@@ -1650,11 +1652,6 @@ public class Profile extends Resource {
      * An extension defined as part of the profile.
      */
     protected List<ProfileExtensionDefnComponent> extensionDefn = new ArrayList<ProfileExtensionDefnComponent>();
-
-    /**
-     * Defines a linkage between a vocabulary binding name used in the profile (or expected to be used in profile importing this one) and a value set or code list.
-     */
-    protected List<ProfileBindingComponent> binding = new ArrayList<ProfileBindingComponent>();
 
     public String_ getIdentifier() { 
       return this.identifier;
@@ -1890,17 +1887,6 @@ public class Profile extends Resource {
       return t;
     }
 
-    public List<ProfileBindingComponent> getBinding() { 
-      return this.binding;
-    }
-
-    // syntactic sugar
-    public ProfileBindingComponent addBinding() { 
-      ProfileBindingComponent t = new ProfileBindingComponent();
-      this.binding.add(t);
-      return t;
-    }
-
       public Profile copy() {
         Profile dst = new Profile();
         dst.identifier = identifier == null ? null : identifier.copy();
@@ -1924,9 +1910,6 @@ public class Profile extends Resource {
         dst.extensionDefn = new ArrayList<ProfileExtensionDefnComponent>();
         for (ProfileExtensionDefnComponent i : extensionDefn)
           dst.extensionDefn.add(i.copy(dst));
-        dst.binding = new ArrayList<ProfileBindingComponent>();
-        for (ProfileBindingComponent i : binding)
-          dst.binding.add(i.copy(dst));
         return dst;
       }
 

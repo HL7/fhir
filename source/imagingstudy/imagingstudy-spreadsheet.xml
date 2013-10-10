@@ -337,8 +337,8 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Retrieve URI (0040,E010)</Data></Cell>
-    <Cell><Data ss:Type="String">0040,E010</Data></Cell>
+    <Cell><Data ss:Type="String">Retrieve URI (0008,1190)</Data></Cell>
+    <Cell><Data ss:Type="String">0008,1190</Data></Cell>
     <Cell><Data ss:Type="String">RetrieveURI</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">WADO-RS URI where Study is available</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -591,8 +591,8 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Retrieve URI (0040,E010)</Data></Cell>
-    <Cell><Data ss:Type="String">0040,E010</Data></Cell>
+    <Cell><Data ss:Type="String">Retrieve URI (0008,1115 &gt; 0008,1190)</Data></Cell>
+    <Cell><Data ss:Type="String">0008,1115 &gt; 0008,1190</Data></Cell>
     <Cell><Data ss:Type="String">RetrieveURI</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">WADO-RS URI where Series is available</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -861,8 +861,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">WADO-RS service where instance is available</Data></Cell>
-    <Cell ss:StyleID="s62"/>
+    <Cell><Data ss:Type="String">WADO-RS service where instance is available  (0008,1199 &gt; 0008,1190)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">0008,1199 &gt; 0008,1190</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">WADO-RS url where image is available</Data></Cell>
@@ -898,7 +898,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -911,10 +911,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>27</ActiveRow>
+     <ActiveRow>16</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>

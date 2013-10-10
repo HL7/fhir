@@ -32,6 +32,7 @@ import java.io.InputStream;
 import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
+import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Binary;
@@ -118,8 +119,8 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
     }
     if (json.has("category")) {
       JSONObject cat = json.getJSONArray("category").getJSONObject(0);
-      if (cat.has("term") && cat.has("scheme") && cat.getString("scheme").equals("http://hl7.org/fhir/tag"))
-        res.getTags().put(cat.getString("term"), cat.has("label") ? cat.getString("label") : null);
+      if (cat.has("term") && cat.has("scheme"))
+        res.getTags().add(new AtomCategory(cat.getString("scheme"), cat.getString("term"), cat.has("label") ? cat.getString("label") : null));
     }
     JSONArray array = json.getJSONArray("entry");
     for (int i = 0; i < array.length(); i++) {
@@ -158,8 +159,8 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
     }
     if (json.has("category")) {
       JSONObject cat = json.getJSONArray("category").getJSONObject(0);
-      if (cat.has("term") && cat.has("scheme") && cat.getString("scheme").equals("http://hl7.org/fhir/tag"))
-        res.getTags().put(cat.getString("term"), cat.has("label") ? cat.getString("label") : null);
+      if (cat.has("term") && cat.has("scheme"))
+        res.getTags().add(new AtomCategory(cat.getString("scheme"), cat.getString("term"), cat.has("label") ? cat.getString("label") : null));
     }
     if (json.has("summary"))
       res.setSummary(new XhtmlParser().parse(json.getString("summary"), "div").getChildNodes().get(0));

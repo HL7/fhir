@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
+// Generated on Thu, Oct 10, 2013 11:38+1100 for FHIR v0.12
 
 import java.util.*;
 
 /**
- * The root for a transmission either requesting or responding to an action.  The resource(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle of which the Message resource instance is the first resource in the bundle.
+ * The root for a transmission that is either requesting or responding to an action.  The resource(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle of which the Message resource instance is the first resource in the bundle.
  */
 public class Message extends Resource {
 

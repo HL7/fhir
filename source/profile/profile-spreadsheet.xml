@@ -122,10 +122,10 @@
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R72C18"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R71C18"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="72" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="71" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="297.75"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="32.25"/>
@@ -816,7 +816,7 @@
     <Cell><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">DataType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Data type or Resource</Data><NamedCell
+    <Cell ss:Index="9"><Data ss:Type="String">Name of Data type or Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -849,22 +849,21 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Profile.structure.element.definition.type.bundled</Data><NamedCell
+    <Cell><Data ss:Type="String">Profile.structure.element.definition.type.aggregation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="Number">9</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">boolean</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">If code is a Resource, is it in the bundle?</Data><NamedCell
+    <Cell><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">AggregationMode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Whether the Resource that is the value for this element is included in the bundle, if the profile is specifying a bundle</Data><NamedCell
+    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">If a reference, how it's aggregated</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">If context includes bundling</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.nameReference</Data><NamedCell
@@ -1075,7 +1074,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Profile.structure.element.definition.constraint.ocl</Data><NamedCell
+    <Cell><Data ss:Type="String">!Profile.structure.element.definition.constraint.ocl</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="4" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1130,24 +1129,87 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">Only the definition of an element can set IsModifier true - either the specification itself or where an extension is originally defined. Once set to false, it cannot be set to true in derived profiles. An element/extension that has isModifier=true SHOULD also have a minimum cardinality of 1, so that there is no lack of clarity about what to do if it is missing. If it can be missing, the definition SHALL make the meaning of a missing element clear</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.binding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="Number">7</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">uri</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Reference to a binding (local or absolute)</Data><NamedCell
+    <Cell><Data ss:Type="Number">12</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">right</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Identifies the set of codes that applies to this element if a data type supporting codes is used. The reference can be local - to a Profile.binding.name, or absolute, to a binding.name in another profile</Data><NamedCell
+    <Cell><Data ss:Type="String">up</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">ValueSet details if this is coded</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Binds to a value set if this element is coded (code, Coding, CodeableConcept)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="90">
+    <Cell><Data ss:Type="String">Profile.structure.element.definition.binding.name</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="Number">11</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">string</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Descriptive Name</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">A descriptive name for this - can be useful for generating implementation artifacts</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">SHALL be unique within the profile.  If the same name as an imported profile, will override the imported binding (and SHALL be a proper constraint on the imported binding)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="105">
+    <Cell><Data ss:Type="String">Profile.structure.element.definition.binding.isExtensible</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="Number">14</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">boolean</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Can additional codes be used?</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">When the binding use used for elements with a type of &quot;code&quot; (rather than Coding or CodableConcept), the binding is treated as non-extensible regardless of the value of this property</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">Profile.structure.element.definition.binding.conformance</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="Number">14</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">code</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">BindingConformance</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">required | preferred | example</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Indicates the degree of conformance expectations associated with this binding</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">Profile.structure.element.definition.binding.description</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="Number">3</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">string</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Human explanation of the value set</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Describes the intended use of this particular set of codes</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell><Data ss:Type="String">Profile.structure.element.definition.binding.reference[x]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="Number">3</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">uri | Resource(ValueSet)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Source of value set</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Points to the value set or external definition that identifies the set of codes to be used</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">For value sets,the referenceResource, the display can contain the value set description.  The reference may be version-specific or not</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Profile.structure.element.definition.mapping</Data><NamedCell
@@ -1181,7 +1243,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Which mapping this is (v2, CDA, openEHR, etc.)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">The name of the specification is mapping is being expressed to</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">A URI that identifies the specification that this mapping is expressed to</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1416,88 +1478,6 @@
     <Cell ss:Index="13" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">Profile.binding</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="Number">12</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">right</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">up</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Define code sets for coded elements</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Defines a linkage between a vocabulary binding name used in the profile (or expected to be used in profile importing this one) and a value set or code list</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell><Data ss:Type="String">Profile.binding.name</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="Number">11</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">string</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Binding name</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The name to be associated with this set of codes</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">SHALL be unique within the profile.  If the same name as an imported profile, will override the imported binding (and SHALL be a proper constraint on the imported binding)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell><Data ss:Type="String">Profile.binding.isExtensible</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="Number">14</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">boolean</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Can additional codes be used?</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">When the binding use used for elements with a type of &quot;code&quot; (rather than Coding or CodableConcept), the binding is treated as non-extensible regardless of the value of this property</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Profile.binding.conformance</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="Number">14</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">code</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">BindingConformance</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">required | preferred | example</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Indicates the degree of conformance expectations associated with this binding</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Profile.binding.description</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="Number">3</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">string</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Human explanation of the binding</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Describes the intended use of this particular set of codes</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">Profile.binding.reference[x]</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="Number">3</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">uri | Resource(ValueSet)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Source of binding content</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Points to the value set or external definition that identifies the set of codes to be used</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">For value sets,the referenceResource, the display can contain the value set description.  The reference may be version-specific or not</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1515,7 +1495,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>60</TopRowBottomPane>
+   <TopRowBottomPane>51</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1532,18 +1512,19 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>65</ActiveRow>
+     <ActiveRow>58</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R72C18"
+  <AutoFilter x:Range="R1C1:R71C18"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="25" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="25" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s75" ss:DefaultRowHeight="15">
    <Column ss:Index="3" ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="118.5"/>
    <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="309.75"/>
@@ -1570,10 +1551,9 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">Profile.binding</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">provide either a reference or a description</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">(exists(f:referenceUri) or exists(f:referenceResource)) or exists(f:description) or exists(f:name)</Data></Cell>
-    <Cell><Data ss:Type="String">remove or :name</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile.structure.element.definition.binding</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">provide either a reference or a description (or both)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">(exists(f:referenceUri) or exists(f:referenceResource)) or exists(f:description)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">5</Data></Cell>
@@ -1597,13 +1577,13 @@
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile</Data></Cell>
     <Cell><Data ss:Type="String">SHALL define at least one resource constraint, extension definition or binding</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">exists(f:structure) or exists(f:extensionDefn) or exists(f:binding)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">exists(f:structure) or exists(f:extensionDefn)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.element.definition.type</Data></Cell>
-    <Cell><Data ss:Type="String">Bundled may only be specified if one of the allowed types for the element is a resource</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:bundled)) or exists(f:code[starts-with(@value, 'Resource(')])</Data></Cell>
+    <Cell><Data ss:Type="String">Aggregation may only be specified if one of the allowed types for the element is a resource</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:aggregation)) or exists(f:code[starts-with(@value, 'Resource(')])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="Number">10</Data></Cell>
@@ -1611,11 +1591,11 @@
     <Cell><Data ss:Type="String">Value may only be specified if the type consists of a single repetition that has a type corresponding to one of the primitive data types.</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'value')])) or (count(f:type)=1 and f:type/f:code[substring(@value,1,1)=lower-case(substring(@value,1,1))])</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="Number">11</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">Profile.binding.name</Data></Cell>
-    <Cell><Data ss:Type="String">Binding name SHALL be unique in the context of a profile</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">count(ancestor::f:Profile/f:binding/f:name[@value=current()/@value])=1</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.element</Data></Cell>
+    <Cell><Data ss:Type="String">Must have either a slice or a definition, but not both</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">exists(f:slicing) != exists(f:definition)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">12</Data></Cell>
@@ -1625,21 +1605,21 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">13</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile.binding.referenceUri</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile.structure.element.definition.binding.referenceUri</Data></Cell>
     <Cell><Data ss:Type="String">uri SHALL start with http:// or https://</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">starts-with(@value, 'http:') or starts-with(@value, 'https:')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">14</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">Profile.binding</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile.structure.element.definition.binding</Data></Cell>
     <Cell><Data ss:Type="String">Example value sets are always extensible</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not(f:Conformance/value='example' and f:isExtensible.value='false')</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">15</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile</Data></Cell>
     <Cell><Data ss:Type="String">Structure names where multiple structures exist with the same type</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">count(f:structure[not(@name)]) = count(distinct-values(f:structure[not(@name)]/f:type/@value)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:structure[not(f:name)]) = count(distinct-values(f:structure[not(f:name)]/f:type/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">16</Data></Cell>
@@ -1647,7 +1627,7 @@
     <Cell><Data ss:Type="String">Extension definition codes must be unique</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">count(f:extensionDefn) = count(distinct-values(f:extensionDefn/f:code/@value))</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">17</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile</Data></Cell>
     <Cell><Data ss:Type="String">There can't be multiple structures with the same type and name</Data></Cell>
@@ -1656,32 +1636,32 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">18</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.structure</Data></Cell>
-    <Cell><Data ss:Type="String">Element paths must be unique</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">count(f:element) = count(distinct-values(f:element/f:path/@value))</Data></Cell>
+    <Cell><Data ss:Type="String">Element paths must be unique - or not (LM)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:element) &gt;= count(distinct-values(f:element/f:path/@value))</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">19</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.element.definition</Data></Cell>
     <Cell><Data ss:Type="String">Element names must be unique</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">count(f:element[f:name]) = count(distinct-values(f:element/f:name/@value))</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">20</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.element</Data></Cell>
     <Cell><Data ss:Type="String">An element must either be a definition or a slicing descriptor, never both.</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:slicing)!=exists(f:definition)</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">21</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.element</Data></Cell>
     <Cell><Data ss:Type="String">An element that's a slicing descriptor must not be preceded by an element that starts with the same path and must be followed by an element with exactly the same path.</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not(f:slicing) or (not(starts-with(preceding-sibling::f:element[1]/f:path/@value, current()/f:path/@value)) and following-sibling::f:element[1]/f:path/@value=current()/f:path/@value)</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">22</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.element.definition</Data></Cell>
     <Cell><Data ss:Type="String">If a definition has multiple types with the same code, each must specify a profile</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">count(f:type[not(f:profile)]) = count(distinct-value(f:type[not(f:profile)]/f:code/@value))</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:type[not(f:profile)]) = count(distinct-values(f:type[not(f:profile)]/f:code/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">23</Data></Cell>
@@ -1693,7 +1673,7 @@
     <Cell><Data ss:Type="Number">24</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.element.definition</Data></Cell>
     <Cell><Data ss:Type="String">Constraints must be unique by key</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">count(f:constraint) = count(distinct-values(f:constraint/f:id/@value))</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:constraint) = count(distinct-values(f:constraint/f:key/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">25</Data></Cell>
@@ -1713,13 +1693,13 @@
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
     <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>0</VerticalResolution>
+    <VerticalResolution>300</VerticalResolution>
    </Print>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>15</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>3</SplitVertical>
    <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1736,7 +1716,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>22</ActiveRow>
+     <ActiveRow>24</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
@@ -1745,7 +1725,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="12" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="12" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s77" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="70.5"/>
    <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="382.5"/>
@@ -1753,6 +1733,7 @@
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
+    <Cell><Data ss:Type="String">Path</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">name</Data></Cell>
@@ -1780,9 +1761,10 @@
     <Cell><Data ss:Type="String">token</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">binding</Data></Cell>
+    <Cell><Data ss:Type="String">valueset</Data></Cell>
     <Cell><Data ss:Type="String">A vocabulary binding code</Data></Cell>
-    <Cell><Data ss:Type="String">token</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Profile.structure.element.definition.binding.reference[x]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">status</Data></Cell>
@@ -1836,7 +1818,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
@@ -1890,8 +1872,10 @@
     <Cell><Data ss:Type="String">#resource-slicing-rules</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:Index="3" ss:StyleID="s79"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">AggregationMode</Data></Cell>
+    <Cell><Data ss:Type="String">How resource references can be aggregated</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">code list</Data></Cell>
+    <Cell><Data ss:Type="String">#resource-aggregation-mode</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1920,7 +1904,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2188,28 +2173,13 @@
     <Cell><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">CDISC1</Data></Cell>
-    <Cell><Data ss:Type="String">CDISC example1</Data></Cell>
-    <Cell><Data ss:Type="String">ad-4833pnfp-341</Data></Cell>
-    <Cell><Data ss:Type="String">profile-cdisc-example1.xml</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">CDISC2</Data></Cell>
-    <Cell><Data ss:Type="String">CDISC example2</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">048</Data></Cell>
-    <Cell><Data ss:Type="String">profile-cdisc-example2.xml</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">CDISC3</Data></Cell>
-    <Cell><Data ss:Type="String">CDISC example3</Data></Cell>
-    <Cell><Data ss:Type="String">efc10262</Data></Cell>
-    <Cell><Data ss:Type="String">profile-cdisc-example3.xml</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="Default"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -2222,8 +2192,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <RangeSelection>R5C1:R7C6</RangeSelection>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2231,7 +2201,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Profiles">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="2" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="1" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="108"/>
    <Column ss:AutoFitWidth="0" ss:Width="237"/>
@@ -2245,13 +2215,6 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">Type</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Example</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Study Profile</Data></Cell>
-    <Cell><Data ss:Type="String">General Profile for a picture as an observation</Data></Cell>
-    <Cell><Data ss:Type="String">profile-study-profile-spreadsheet.xml</Data></Cell>
-    <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
-    <Cell><Data ss:Type="String">profile-study-profile-example.xml</Data></Cell>
-   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -2263,8 +2226,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <RangeSelection>R2C1:R2C5</RangeSelection>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2318,8 +2281,57 @@
    <Panes>
     <Pane>
      <Number>3</Number>
+     <ActiveRow>42</ActiveRow>
+     <ActiveCol>3</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="resource-aggregation-mode">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="4" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="71.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="267"/>
+   <Column ss:AutoFitWidth="0" ss:Width="50.25"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s80">
+    <Cell><Data ss:Type="String">Id</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Parent</Data></Cell>
+    <Cell><Data ss:Type="String">Comments</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String"> contained</Data></Cell>
+    <Cell><Data ss:Type="String">The reference is a local reference to a contained resource</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">referenced</Data></Cell>
+    <Cell><Data ss:Type="String">The reference to to a resource that has to be resolved externally to the resource that includes the reference</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">bundled</Data></Cell>
+    <Cell><Data ss:Type="String">The resource the reference points to will be found in the same bundle as the resource that includes the reference</Data></Cell>
+    <Cell><Data ss:Type="String">#2</Data></Cell>
+    <Cell><Data ss:Type="String">This can only be used if the profile is specifying a bundle</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
      <ActiveRow>4</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

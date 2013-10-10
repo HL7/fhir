@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
+// Generated on Thu, Oct 10, 2013 11:38+1100 for FHIR v0.12
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -1007,8 +1007,12 @@ public class JsonComposer extends JsonComposerBase {
           composeConformanceConformanceRestResourceComponent(null, e);
         closeArray();
       };
-      composeBoolean("batch", element.getBatch());
-      composeBoolean("history", element.getHistory());
+      if (element.getOperation().size() > 0) {
+        openArray("operation");
+        for (Conformance.ConformanceRestOperationComponent e : element.getOperation()) 
+          composeConformanceConformanceRestOperationComponent(null, e);
+        closeArray();
+      };
       if (element.getQuery().size() > 0) {
         openArray("query");
         for (Conformance.ConformanceRestQueryComponent e : element.getQuery()) 
@@ -1085,7 +1089,7 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeElement(element);
       if (element.getCode() != null)
-        composeEnumeration("code", element.getCode(), new Conformance().new RestfulOperationEnumFactory());
+        composeEnumeration("code", element.getCode(), new Conformance().new TypeRestfulOperationEnumFactory());
       composeString("documentation", element.getDocumentation());
       close();
     }
@@ -1113,6 +1117,17 @@ public class JsonComposer extends JsonComposerBase {
           composeString(null, e);
         closeArray();
       };
+      close();
+    }
+  }
+
+  private void composeConformanceConformanceRestOperationComponent(String name, Conformance.ConformanceRestOperationComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      if (element.getCode() != null)
+        composeEnumeration("code", element.getCode(), new Conformance().new SystemRestfulOperationEnumFactory());
+      composeString("documentation", element.getDocumentation());
       close();
     }
   }
@@ -1512,7 +1527,7 @@ public class JsonComposer extends JsonComposerBase {
         closeArray();
       };
       composeCodeableConcept("serviceCategory", element.getServiceCategory());
-      composeDateTime("diagnosticTime", element.getDiagnosticTime());
+      composeType("diagnostic", element.getDiagnostic());
       composeDiagnosticReportResultGroupComponent("results", element.getResults());
       if (element.getImage().size() > 0) {
         openArray("image");
@@ -2284,6 +2299,7 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeResourceElements(element);
       composeCodeableConcept("code", element.getCode());
+      composeResourceReference("subject", element.getSubject());
       composeResourceReference("source", element.getSource());
       composeDateTime("date", element.getDate());
       composeBoolean("ordered", element.getOrdered());
@@ -3266,12 +3282,6 @@ public class JsonComposer extends JsonComposerBase {
           composeProfileProfileExtensionDefnComponent(null, e);
         closeArray();
       };
-      if (element.getBinding().size() > 0) {
-        openArray("binding");
-        for (Profile.ProfileBindingComponent e : element.getBinding()) 
-          composeProfileProfileBindingComponent(null, e);
-        closeArray();
-      };
       close();
     }
   }
@@ -3358,7 +3368,7 @@ public class JsonComposer extends JsonComposerBase {
       };
       composeBoolean("mustSupport", element.getMustSupport());
       composeBoolean("isModifier", element.getIsModifier());
-      composeUri("binding", element.getBinding());
+      composeProfileElementDefinitionBindingComponent("binding", element.getBinding());
       if (element.getMapping().size() > 0) {
         openArray("mapping");
         for (Profile.ElementDefinitionMappingComponent e : element.getMapping()) 
@@ -3375,7 +3385,12 @@ public class JsonComposer extends JsonComposerBase {
       composeElement(element);
       composeCode("code", element.getCode());
       composeUri("profile", element.getProfile());
-      composeBoolean("bundled", element.getBundled());
+      if (element.getAggregation().size() > 0) {
+        openArray("aggregation");
+        for (Enumeration<Profile.ResourceAggregationMode> e : element.getAggregation()) 
+          composeEnumeration(null, e, new Profile().new ResourceAggregationModeEnumFactory());
+        closeArray();
+      };
       close();
     }
   }
@@ -3390,7 +3405,20 @@ public class JsonComposer extends JsonComposerBase {
         composeEnumeration("severity", element.getSeverity(), new Profile().new ConstraintSeverityEnumFactory());
       composeString("human", element.getHuman());
       composeString("xpath", element.getXpath());
-      composeString("ocl", element.getOcl());
+      close();
+    }
+  }
+
+  private void composeProfileElementDefinitionBindingComponent(String name, Profile.ElementDefinitionBindingComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      composeString("name", element.getName());
+      composeBoolean("isExtensible", element.getIsExtensible());
+      if (element.getConformance() != null)
+        composeEnumeration("conformance", element.getConformance(), new Profile().new BindingConformanceEnumFactory());
+      composeString("description", element.getDescription());
+      composeType("reference", element.getReference());
       close();
     }
   }
@@ -3420,20 +3448,6 @@ public class JsonComposer extends JsonComposerBase {
         closeArray();
       };
       composeProfileElementDefinitionComponent("definition", element.getDefinition());
-      close();
-    }
-  }
-
-  private void composeProfileProfileBindingComponent(String name, Profile.ProfileBindingComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeElement(element);
-      composeString("name", element.getName());
-      composeBoolean("isExtensible", element.getIsExtensible());
-      if (element.getConformance() != null)
-        composeEnumeration("conformance", element.getConformance(), new Profile().new BindingConformanceEnumFactory());
-      composeString("description", element.getDescription());
-      composeType("reference", element.getReference());
       close();
     }
   }

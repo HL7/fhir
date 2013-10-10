@@ -4,6 +4,7 @@
 <h2>Interpretation Notes:</h2>
 
 <ul>
+
 <li>The name of a resource constraint (Profile.structure.name) is only used as a logical target for .element.type.profile. A reference may reference another resource 
   constraint in the same Resource Profile by Profile.resource.name as #[name] or a different resource constraint in another profile by an absolute uri. In the case of an absolute uri, it 
   SHALL resolve literally or logically to a <a href="profile.htm">Resource Profile</a> and specify a #[name] portion in the URI that references a particular constraint in the target profile by name.</li>

@@ -20,11 +20,13 @@
    -->
   <identifier value="68D043B5-9ECF-4559-A57A-396E0D452311"/>
   <version value="20130510"/>
+  <name value="ACME EHR Conformance statement"/>
   <publisher value="ACME Corporation"/>
   <telecom>
     <system value="email"/>
     <value value="wile@acme.org"/>
   </telecom>
+  <description value="This is the FHIR conformance statement for the main EHR at ACME for the private interface - it does not describe the public interface"/>
   <date value="2012-01-04"/>
   <software>
     <name value="EHR"/>
@@ -80,8 +82,12 @@
         <code value="history-type"/>
       </operation>
     </resource>
-    <batch value="true"/>
-    <history value="true"/>
+    <operation>
+      <code value="transaction"/>      
+    </operation>
+    <operation>
+      <code value="history-system"/>      
+    </operation>
   </rest>
 
   <!-- a messaging conformance statement. Applications are not required to make a conformance 

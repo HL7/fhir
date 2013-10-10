@@ -269,8 +269,8 @@ public boolean compile(String rootDir, List<String> errors) throws Exception {
     char sc = File.separatorChar;
     List<File> classes = new ArrayList<File>();
 
-    addSourceFiles(classes, rootDir + sc+"implementations"+sc+"java"+sc+"org.hl7.fhir.utilities");
-    addSourceFiles(classes, rootDir + sc+"implementations"+sc+"java"+sc+"org.hl7.fhir.instance");
+    addSourceFiles(classes, rootDir + "implementations"+sc+"java"+sc+"org.hl7.fhir.utilities");
+    addSourceFiles(classes, rootDir + "implementations"+sc+"java"+sc+"org.hl7.fhir.instance");
   
     
 //    classes.add(new File(javaParserDir+"XmlParser.java"));

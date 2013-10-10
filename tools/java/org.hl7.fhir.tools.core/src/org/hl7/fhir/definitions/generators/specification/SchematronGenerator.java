@@ -161,7 +161,7 @@ public class SchematronGenerator  extends TextStreamWriter {
 	      if (inv.getFixedName() == null || path.endsWith(inv.getFixedName())) {
 	        if (inv.getXpath().contains("&lt;") || inv.getXpath().contains("&gt;"))
 	          throw new Exception("error in xpath - do not escape xml characters in the xpath in the excel spreadsheet");
-	        ln("<sch:assert test=\""+Utilities.escapeXml(inv.getXpath().replace("\"", "'"))+"\">Inv-"+inv.getId()+": "+inv.getEnglish()+"</sch:assert>");
+	        ln("<sch:assert test=\""+Utilities.escapeXml(inv.getXpath().replace("\"", "'"))+"\">Inv-"+inv.getId()+": "+Utilities.escapeXml(inv.getEnglish())+"</sch:assert>");
 	      }
 	    }
       ln_o("</sch:rule>");

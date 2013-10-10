@@ -1,14 +1,16 @@
 package org.hl7.fhir.instance.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class AtomBase {
 
   private String id;
   private Map<String, String> links = new LinkedHashMap<String, String>();
-  private Map<String, String> tags = new HashMap<String, String>();
+  private List<AtomCategory> tags = new ArrayList<AtomCategory>();
   private java.util.Calendar updated;
   private String authorName;
   private String authorUri;
@@ -50,7 +52,7 @@ public class AtomBase {
   public void setUpdated(java.util.Calendar updated) {
     this.updated = updated;
   }
-	public Map<String, String> getTags() {
+	public List<AtomCategory> getTags() {
 		return tags;
 	}
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
+// Generated on Thu, Oct 10, 2013 11:38+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -130,20 +130,18 @@ public class Conformance extends Resource {
       }
     }
 
-    public enum RestfulOperation {
-        read, // Read the current state of the resource.
-        vread, // Read the state of a specific version of the resource.
-        update, // Update an existing resource by its id (or create it if it is new).
-        delete, // Delete a resource.
-        historyinstance, // Retrieve the update history for a resource instance.
-        validate, // Check that the content would be acceptable as an update.
-        historytype, // Get a list of updates to resources of this type.
-        create, // Create a new resource with a server assigned id.
-        search, // Supports search operations using the parameters described in the profile.
-        transaction, // Transaction performed on multiple resources.
-        historysystem, // Get a list of updates to all resources on the system.
+    public enum TypeRestfulOperation {
+        read, // 
+        vread, // 
+        update, // 
+        delete, // 
+        historyinstance, // 
+        validate, // 
+        historytype, // 
+        create, // 
+        searchtype, // 
         Null; // added to help the parsers
-        public static RestfulOperation fromCode(String codeString) throws Exception {
+        public static TypeRestfulOperation fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("read".equals(codeString))
@@ -162,13 +160,9 @@ public class Conformance extends Resource {
           return historytype;
         if ("create".equals(codeString))
           return create;
-        if ("search".equals(codeString))
-          return search;
-        if ("transaction".equals(codeString))
-          return transaction;
-        if ("history-system".equals(codeString))
-          return historysystem;
-        throw new Exception("Unknown RestfulOperation code '"+codeString+"'");
+        if ("search-type".equals(codeString))
+          return searchtype;
+        throw new Exception("Unknown TypeRestfulOperation code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -180,66 +174,56 @@ public class Conformance extends Resource {
             case validate: return "validate";
             case historytype: return "history-type";
             case create: return "create";
-            case search: return "search";
-            case transaction: return "transaction";
-            case historysystem: return "history-system";
+            case searchtype: return "search-type";
             default: return "?";
           }
         }
     }
 
-  public class RestfulOperationEnumFactory implements EnumFactory {
+  public class TypeRestfulOperationEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("read".equals(codeString))
-          return RestfulOperation.read;
+          return TypeRestfulOperation.read;
         if ("vread".equals(codeString))
-          return RestfulOperation.vread;
+          return TypeRestfulOperation.vread;
         if ("update".equals(codeString))
-          return RestfulOperation.update;
+          return TypeRestfulOperation.update;
         if ("delete".equals(codeString))
-          return RestfulOperation.delete;
+          return TypeRestfulOperation.delete;
         if ("history-instance".equals(codeString))
-          return RestfulOperation.historyinstance;
+          return TypeRestfulOperation.historyinstance;
         if ("validate".equals(codeString))
-          return RestfulOperation.validate;
+          return TypeRestfulOperation.validate;
         if ("history-type".equals(codeString))
-          return RestfulOperation.historytype;
+          return TypeRestfulOperation.historytype;
         if ("create".equals(codeString))
-          return RestfulOperation.create;
-        if ("search".equals(codeString))
-          return RestfulOperation.search;
-        if ("transaction".equals(codeString))
-          return RestfulOperation.transaction;
-        if ("history-system".equals(codeString))
-          return RestfulOperation.historysystem;
-        throw new Exception("Unknown RestfulOperation code '"+codeString+"'");
+          return TypeRestfulOperation.create;
+        if ("search-type".equals(codeString))
+          return TypeRestfulOperation.searchtype;
+        throw new Exception("Unknown TypeRestfulOperation code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == RestfulOperation.read)
+      if (code == TypeRestfulOperation.read)
         return "read";
-      if (code == RestfulOperation.vread)
+      if (code == TypeRestfulOperation.vread)
         return "vread";
-      if (code == RestfulOperation.update)
+      if (code == TypeRestfulOperation.update)
         return "update";
-      if (code == RestfulOperation.delete)
+      if (code == TypeRestfulOperation.delete)
         return "delete";
-      if (code == RestfulOperation.historyinstance)
+      if (code == TypeRestfulOperation.historyinstance)
         return "history-instance";
-      if (code == RestfulOperation.validate)
+      if (code == TypeRestfulOperation.validate)
         return "validate";
-      if (code == RestfulOperation.historytype)
+      if (code == TypeRestfulOperation.historytype)
         return "history-type";
-      if (code == RestfulOperation.create)
+      if (code == TypeRestfulOperation.create)
         return "create";
-      if (code == RestfulOperation.search)
-        return "search";
-      if (code == RestfulOperation.transaction)
-        return "transaction";
-      if (code == RestfulOperation.historysystem)
-        return "history-system";
+      if (code == TypeRestfulOperation.searchtype)
+        return "search-type";
       return "?";
       }
     }
@@ -322,6 +306,56 @@ public class Conformance extends Resource {
         return "reference";
       if (code == SearchParamType.composite)
         return "composite";
+      return "?";
+      }
+    }
+
+    public enum SystemRestfulOperation {
+        transaction, // 
+        searchsystem, // 
+        historysystem, // 
+        Null; // added to help the parsers
+        public static SystemRestfulOperation fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("transaction".equals(codeString))
+          return transaction;
+        if ("search-system".equals(codeString))
+          return searchsystem;
+        if ("history-system".equals(codeString))
+          return historysystem;
+        throw new Exception("Unknown SystemRestfulOperation code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case transaction: return "transaction";
+            case searchsystem: return "search-system";
+            case historysystem: return "history-system";
+            default: return "?";
+          }
+        }
+    }
+
+  public class SystemRestfulOperationEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("transaction".equals(codeString))
+          return SystemRestfulOperation.transaction;
+        if ("search-system".equals(codeString))
+          return SystemRestfulOperation.searchsystem;
+        if ("history-system".equals(codeString))
+          return SystemRestfulOperation.historysystem;
+        throw new Exception("Unknown SystemRestfulOperation code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == SystemRestfulOperation.transaction)
+        return "transaction";
+      if (code == SystemRestfulOperation.searchsystem)
+        return "search-system";
+      if (code == SystemRestfulOperation.historysystem)
+        return "history-system";
       return "?";
       }
     }
@@ -580,14 +614,9 @@ public class Conformance extends Resource {
         protected List<ConformanceRestResourceComponent> resource = new ArrayList<ConformanceRestResourceComponent>();
 
         /**
-         * If batches are supported.
+         * Identifies a restful operation supported by the solution.
          */
-        protected Boolean batch;
-
-        /**
-         * If a system wide history list is supported.
-         */
-        protected Boolean history;
+        protected List<ConformanceRestOperationComponent> operation = new ArrayList<ConformanceRestOperationComponent>();
 
         /**
          * Definition of a named query and its parameters and their meaning.
@@ -653,48 +682,15 @@ public class Conformance extends Resource {
           return t;
         }
 
-        public Boolean getBatch() { 
-          return this.batch;
+        public List<ConformanceRestOperationComponent> getOperation() { 
+          return this.operation;
         }
 
-        public void setBatch(Boolean value) { 
-          this.batch = value;
-        }
-
-        public boolean getBatchSimple() { 
-          return this.batch == null ? null : this.batch.getValue();
-        }
-
-        public void setBatchSimple(boolean value) { 
-          if (value == false)
-            this.batch = null;
-          else {
-            if (this.batch == null)
-              this.batch = new Boolean();
-            this.batch.setValue(value);
-          }
-        }
-
-        public Boolean getHistory() { 
-          return this.history;
-        }
-
-        public void setHistory(Boolean value) { 
-          this.history = value;
-        }
-
-        public boolean getHistorySimple() { 
-          return this.history == null ? null : this.history.getValue();
-        }
-
-        public void setHistorySimple(boolean value) { 
-          if (value == false)
-            this.history = null;
-          else {
-            if (this.history == null)
-              this.history = new Boolean();
-            this.history.setValue(value);
-          }
+    // syntactic sugar
+        public ConformanceRestOperationComponent addOperation() { 
+          ConformanceRestOperationComponent t = new ConformanceRestOperationComponent();
+          this.operation.add(t);
+          return t;
         }
 
         public List<ConformanceRestQueryComponent> getQuery() { 
@@ -716,8 +712,9 @@ public class Conformance extends Resource {
         dst.resource = new ArrayList<ConformanceRestResourceComponent>();
         for (ConformanceRestResourceComponent i : resource)
           dst.resource.add(i.copy(e));
-        dst.batch = batch == null ? null : batch.copy();
-        dst.history = history == null ? null : history.copy();
+        dst.operation = new ArrayList<ConformanceRestOperationComponent>();
+        for (ConformanceRestOperationComponent i : operation)
+          dst.operation.add(i.copy(e));
         dst.query = new ArrayList<ConformanceRestQueryComponent>();
         for (ConformanceRestQueryComponent i : query)
           dst.query.add(i.copy(e));
@@ -1034,28 +1031,28 @@ public class Conformance extends Resource {
         /**
          * Identifies which operation is supported.
          */
-        protected Enumeration<RestfulOperation> code;
+        protected Enumeration<TypeRestfulOperation> code;
 
         /**
          * Provides guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.
          */
         protected String_ documentation;
 
-        public Enumeration<RestfulOperation> getCode() { 
+        public Enumeration<TypeRestfulOperation> getCode() { 
           return this.code;
         }
 
-        public void setCode(Enumeration<RestfulOperation> value) { 
+        public void setCode(Enumeration<TypeRestfulOperation> value) { 
           this.code = value;
         }
 
-        public RestfulOperation getCodeSimple() { 
+        public TypeRestfulOperation getCodeSimple() { 
           return this.code == null ? null : this.code.getValue();
         }
 
-        public void setCodeSimple(RestfulOperation value) { 
+        public void setCodeSimple(TypeRestfulOperation value) { 
             if (this.code == null)
-              this.code = new Enumeration<RestfulOperation>();
+              this.code = new Enumeration<TypeRestfulOperation>();
             this.code.setValue(value);
         }
 
@@ -1273,6 +1270,66 @@ public class Conformance extends Resource {
         dst.chain = new ArrayList<String_>();
         for (String_ i : chain)
           dst.chain.add(i.copy());
+        return dst;
+      }
+
+  }
+
+    public class ConformanceRestOperationComponent extends Element {
+        /**
+         * Identifies which system operation is supported.
+         */
+        protected Enumeration<SystemRestfulOperation> code;
+
+        /**
+         * Provides guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.
+         */
+        protected String_ documentation;
+
+        public Enumeration<SystemRestfulOperation> getCode() { 
+          return this.code;
+        }
+
+        public void setCode(Enumeration<SystemRestfulOperation> value) { 
+          this.code = value;
+        }
+
+        public SystemRestfulOperation getCodeSimple() { 
+          return this.code == null ? null : this.code.getValue();
+        }
+
+        public void setCodeSimple(SystemRestfulOperation value) { 
+            if (this.code == null)
+              this.code = new Enumeration<SystemRestfulOperation>();
+            this.code.setValue(value);
+        }
+
+        public String_ getDocumentation() { 
+          return this.documentation;
+        }
+
+        public void setDocumentation(String_ value) { 
+          this.documentation = value;
+        }
+
+        public String getDocumentationSimple() { 
+          return this.documentation == null ? null : this.documentation.getValue();
+        }
+
+        public void setDocumentationSimple(String value) { 
+          if (value == null)
+            this.documentation = null;
+          else {
+            if (this.documentation == null)
+              this.documentation = new String_();
+            this.documentation.setValue(value);
+          }
+        }
+
+      public ConformanceRestOperationComponent copy(Conformance e) {
+        ConformanceRestOperationComponent dst = e.new ConformanceRestOperationComponent();
+        dst.code = code == null ? null : code.copy();
+        dst.documentation = documentation == null ? null : documentation.copy();
         return dst;
       }
 

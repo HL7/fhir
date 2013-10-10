@@ -49,7 +49,8 @@ Notes:
  <li>Any elements that have a <a href="datatypes.htm#primitive">primitive type</a> will have a value attribute to contain the actual value of the element</li>
  <li>Elements are assigned a cardinality that specifies how many times the element may or must appear. If the cardinality is shown in 
     <font color="deeppink">Pink</font> then there is an additional condition that impacts on the allowed cardinality. This is available as a mouse-over text, or in the formal definitions</li>
- <li>The elements are assigned one or more types. All of the types are defined in <a href="datatypes.htm">the data types</a> except for "Resource" and "Narrative" that are documented below. The type names are hyperlinked</li>
+ <li>Unless elements have children defined directly (as nameC does above) they are assigned one or more types. All of the types are defined in <a href="datatypes.htm">the data types</a> except for "Resource" and "Narrative" that are documented below. The type names are hyperlinked</li>
+ <li>Some data types that have children have the same set of children as some other element defined in the resource. In that case, the type of that element is represented as @[path] where [path] is the element that has the defined children</li>
  <li>When a logical element can have more than one type, its name takes the form nnn[x]. The "nnn" part of the name is constant, and 
    the [x] is replaced with the title-cased name of the type that is actually used. In XML, for example this would like:
    

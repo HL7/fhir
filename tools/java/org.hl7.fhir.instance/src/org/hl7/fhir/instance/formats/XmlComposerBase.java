@@ -32,6 +32,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 import java.io.OutputStream;
 
+import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Binary;
@@ -112,6 +113,14 @@ public abstract class XmlComposerBase extends XmlBase implements Composer {
         xml.element(ATOM_NS, "uri", feed.getAuthorUri());
       xml.close(ATOM_NS, "author");
     }
+		for (AtomCategory cat : feed.getTags()) {
+			xml.attribute("scheme", cat.getScheme());
+			xml.attribute("term", cat.getTerm());
+			if (!Utilities.noString(cat.getLabel()))
+				xml.attribute("label", cat.getLabel());
+	    xml.element("category", null);
+		}
+    
     for (AtomEntry<? extends Resource> e : feed.getEntryList())
       composeEntry(e);
     xml.close(ATOM_NS, "feed");
@@ -172,12 +181,11 @@ public abstract class XmlComposerBase extends XmlBase implements Composer {
 	        xml.element("uri", entry.getAuthorUri());
 	      xml.close("author");
 	    }
-			for (String uri : entry.getTags().keySet()) {
-				xml.attribute("scheme", "http://hl7.org/fhir/tag");
-				xml.attribute("term", uri);
-				String label = entry.getTags().get(uri);
-				if (!Utilities.noString(label))
-					xml.attribute("label", label);
+			for (AtomCategory cat : entry.getTags()) {
+				xml.attribute("scheme", cat.getScheme());
+				xml.attribute("term", cat.getTerm());
+				if (!Utilities.noString(cat.getLabel()))
+					xml.attribute("label", cat.getLabel());
 		    xml.element("category", null);
 			}
 	    

@@ -663,7 +663,14 @@
         </type>
         <mustSupport value="false"/>
         <isModifier value="false"/>
-        <binding value="LabReportStatus"/>
+        <binding>
+          <name value="LabReportStatus"/>
+          <isExtensible value="false"/>
+          <conformance value="required"/>
+          <referenceResource>
+            <reference value="ValueSet/ObservationStatus"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -793,7 +800,14 @@
         </type>
         <mustSupport value="false"/>
         <isModifier value="false"/>
-        <binding value="LabRequests"/>
+        <binding>
+          <name value="DiagnosticRequests"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="ValueSet/diagnostic-requests"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -837,7 +851,14 @@
         </type>
         <mustSupport value="false"/>
         <isModifier value="true"/>
-        <binding value="LabReportNames"/>
+        <binding>
+          <name value="DiagnosticReportNames"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="ValueSet/report-names"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -852,7 +873,14 @@
         </type>
         <mustSupport value="false"/>
         <isModifier value="false"/>
-        <binding value="LabServices"/>
+        <binding>
+          <name value="LabServices"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="ValueSet/diagnostic-service-sections"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -910,7 +938,14 @@
         </type>
         <mustSupport value="false"/>
         <isModifier value="true"/>
-        <binding value="LabResultGroupNames"/>
+        <binding>
+          <name value="DiagnosticReportNames"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="ValueSet/report-names"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -952,7 +987,14 @@
         </type>
         <mustSupport value="false"/>
         <isModifier value="true"/>
-        <binding value="LabResultNames"/>
+        <binding>
+          <name value="DiagnosticReportNames"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="ValueSet/report-names"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -981,7 +1023,6 @@
         </type>
         <mustSupport value="false"/>
         <isModifier value="true"/>
-        <binding value="LabResultFlag"/>
       </definition>
     </element>
     <element>
@@ -996,7 +1037,14 @@
         </type>
         <mustSupport value="false"/>
         <isModifier value="false"/>
-        <binding value="LabReportStatus"/>
+        <binding>
+          <name value="LabReportStatus"/>
+          <isExtensible value="false"/>
+          <conformance value="required"/>
+          <referenceResource>
+            <reference value="ValueSet/ObservationStatus"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1038,7 +1086,6 @@
         </type>
         <mustSupport value="false"/>
         <isModifier value="false"/>
-        <binding value="LabReferenceRanges"/>
       </definition>
     </element>
     <element>
@@ -1081,7 +1128,6 @@
         </type>
         <mustSupport value="false"/>
         <isModifier value="true"/>
-        <binding value="LabResultNames"/>
       </definition>
     </element>
     <element>
@@ -1110,7 +1156,6 @@
         </type>
         <mustSupport value="false"/>
         <isModifier value="true"/>
-        <binding value="LabResultFlag"/>
       </definition>
     </element>
     <element>
@@ -1152,7 +1197,6 @@
         </type>
         <mustSupport value="false"/>
         <isModifier value="false"/>
-        <binding value="LabReferenceRanges"/>
       </definition>
     </element>
     <element>
@@ -1195,7 +1239,6 @@
         </type>
         <mustSupport value="false"/>
         <isModifier value="true"/>
-        <binding value="LabResultNames"/>
       </definition>
     </element>
     <element>
@@ -1224,7 +1267,6 @@
         </type>
         <mustSupport value="false"/>
         <isModifier value="true"/>
-        <binding value="LabResultFlag"/>
       </definition>
     </element>
     <element>
@@ -1266,7 +1308,6 @@
         </type>
         <mustSupport value="false"/>
         <isModifier value="false"/>
-        <binding value="LabReferenceRanges"/>
       </definition>
     </element>
     <element>
@@ -1309,7 +1350,6 @@
         </type>
         <mustSupport value="false"/>
         <isModifier value="true"/>
-        <binding value="LOINC 35198-1 | LOINC 13457-7"/>
       </definition>
     </element>
     <element>
@@ -1338,7 +1378,6 @@
         </type>
         <mustSupport value="false"/>
         <isModifier value="true"/>
-        <binding value="LabResultFlag"/>
       </definition>
     </element>
     <element>
@@ -1380,7 +1419,6 @@
         </type>
         <mustSupport value="false"/>
         <isModifier value="false"/>
-        <binding value="LabReferenceRanges"/>
       </definition>
     </element>
     <element>
@@ -1425,7 +1463,6 @@
         </type>
         <mustSupport value="false"/>
         <isModifier value="false"/>
-        <binding value="LabDiagnosisCodes"/>
       </definition>
     </element>
     <element>

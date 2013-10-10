@@ -104,12 +104,14 @@ import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptMapComponent;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
+import org.hl7.fhir.instance.model.Conformance.ConformanceRestOperationComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceOperationComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceSearchParamComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceStatementStatus;
 import org.hl7.fhir.instance.model.Conformance.RestfulConformanceMode;
-import org.hl7.fhir.instance.model.Conformance.RestfulOperation;
+import org.hl7.fhir.instance.model.Conformance.SystemRestfulOperation;
+import org.hl7.fhir.instance.model.Conformance.TypeRestfulOperation;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Narrative;
@@ -434,25 +436,25 @@ public class Publisher {
     conf.getRest().add(rest);
     rest.setModeSimple(RestfulConformanceMode.server);
     rest.setDocumentationSimple("All the functionality defined in FHIR");
-    rest.setBatchSimple(true);
-    rest.setHistorySimple(true);
+    genConfOp(conf, rest, SystemRestfulOperation.transaction);
+    genConfOp(conf, rest, SystemRestfulOperation.historysystem);
+    genConfOp(conf, rest, SystemRestfulOperation.searchsystem);
+
     for (String rn : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn rd = page.getDefinitions().getResourceByName(rn);
       ConformanceRestResourceComponent res = conf.new ConformanceRestResourceComponent();
       rest.getResource().add(res);
       res.setTypeSimple(rn);
       res.setProfile(Factory.makeResourceReference("http://hl7.org/fhir/"+rn));
-      genConfOp(conf, res, RestfulOperation.read);
-      genConfOp(conf, res, RestfulOperation.vread);
-      genConfOp(conf, res, RestfulOperation.update);
-      genConfOp(conf, res, RestfulOperation.delete);
-      genConfOp(conf, res, RestfulOperation.historyinstance);
-      genConfOp(conf, res, RestfulOperation.validate);
-      genConfOp(conf, res, RestfulOperation.historytype);
-      genConfOp(conf, res, RestfulOperation.create);
-      genConfOp(conf, res, RestfulOperation.search);
-      genConfOp(conf, res, RestfulOperation.transaction);
-      genConfOp(conf, res, RestfulOperation.historysystem);
+      genConfOp(conf, res, TypeRestfulOperation.read);
+      genConfOp(conf, res, TypeRestfulOperation.vread);
+      genConfOp(conf, res, TypeRestfulOperation.update);
+      genConfOp(conf, res, TypeRestfulOperation.delete);
+      genConfOp(conf, res, TypeRestfulOperation.historyinstance);
+      genConfOp(conf, res, TypeRestfulOperation.validate);
+      genConfOp(conf, res, TypeRestfulOperation.historytype);
+      genConfOp(conf, res, TypeRestfulOperation.create);
+      genConfOp(conf, res, TypeRestfulOperation.searchtype);
 
       for (SearchParameter i : rd.getSearchParams().values()) {
         res.getSearchParam().add(makeSearchParam(conf, rn, i));
@@ -505,8 +507,14 @@ public class Publisher {
 
 
 
-  private void genConfOp(Conformance conf, ConformanceRestResourceComponent res, RestfulOperation op) {
+  private void genConfOp(Conformance conf, ConformanceRestResourceComponent res, TypeRestfulOperation op) {
     ConformanceRestResourceOperationComponent t = conf.new ConformanceRestResourceOperationComponent();
+    t.setCodeSimple(op);
+    res.getOperation().add(t);
+  }
+
+  private void genConfOp(Conformance conf, ConformanceRestComponent res, SystemRestfulOperation op) {
+    ConformanceRestOperationComponent t = conf.new ConformanceRestOperationComponent();
     t.setCodeSimple(op);
     res.getOperation().add(t);
   }
@@ -1216,21 +1224,21 @@ public class Publisher {
     
     List<String> parents = new ArrayList<String>();
     List<CodeInfo> children = new ArrayList<CodeInfo>();
-    public void write(int lvl, StringBuilder s, ValueSet vs, List<ValueSetDefineConceptComponent> list, ValueSetDefineConceptComponent owner, Set<String> handled) throws Exception {
+    public void write(int lvl, StringBuilder s, ValueSet vs, List<ValueSetDefineConceptComponent> list, ValueSetDefineConceptComponent owner, Map<String, ValueSetDefineConceptComponent> handled) throws Exception {
       if (!select && children.size() == 0) 
         return;
 
-      if (handled.contains(code)) {
+      if (handled.containsKey(code)) {
         if (owner == null)
           throw new Exception("Error handling poly-heirarchy - subsequent mention is on the root");
-        ToolingExtensions.addSubsumes(owner, code);
+        ToolingExtensions.addParentCode(handled.get(code), owner.getCodeSimple());
         s.append(" <tr><td>"+Integer.toString(lvl)+"</td><td>");
         for (int i = 1; i < lvl; i++) 
           s.append("&nbsp;&nbsp;");
         s.append("<a href=\"#"+Utilities.escapeXml(Utilities.nmtokenize(code))+"\">"+Utilities.escapeXml(code)+"</a></td><td></td><td></td></tr>\r\n");
       } else {
-        handled.add(code);
         ValueSetDefineConceptComponent concept = vs.new ValueSetDefineConceptComponent();
+        handled.put(code, concept);
         concept.setCodeSimple(code);
         concept.setDisplaySimple(display); 
         concept.setDefinitionSimple(textDefinition);
@@ -1333,7 +1341,7 @@ public class Publisher {
     
     s.append("<table class=\"grid\">\r\n");
     s.append(" <tr><td><b>Level</b></td><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr>\r\n");
-    Set<String> handled = new HashSet<String>();
+    Map<String, ValueSetDefineConceptComponent> handled = new HashMap<String, ValueSet.ValueSetDefineConceptComponent>();
     for (CodeInfo ci : codes) {
       if (ci.parents.size() == 0) {
         ci.write(1, s, vs, def.getConcept(), null, handled);

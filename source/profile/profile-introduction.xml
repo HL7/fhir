@@ -235,6 +235,10 @@ Note that in the case of a profile that defines an extension, and then uses it, 
 mean that there will be duplication between the definition of the extension, and the
 definitions in the structure where it is used.
 </p>
+<p>
+For further discussion of defining and using extensions, along with some examples, 
+see <a href="extensibility.htm">Extensibility</a>. 
+</p>
 
 <h3>Using Extensions in Structures</h3>
 <p>

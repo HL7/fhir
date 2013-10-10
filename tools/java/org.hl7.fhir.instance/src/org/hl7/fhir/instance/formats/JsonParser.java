@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
+// Generated on Thu, Oct 10, 2013 11:38+1100 for FHIR v0.12
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -1072,10 +1072,12 @@ public class JsonParser extends JsonParserBase {
         res.getResource().add(parseConformanceConformanceRestResourceComponent(array.getJSONObject(i), owner));
       }
     };
-    if (json.has("batch"))
-      res.setBatch(parseBoolean(json.getJSONObject("batch")));
-    if (json.has("history"))
-      res.setHistory(parseBoolean(json.getJSONObject("history")));
+    if (json.has("operation")) {
+      JSONArray array = json.getJSONArray("operation");
+      for (int i = 0; i < array.length(); i++) {
+        res.getOperation().add(parseConformanceConformanceRestOperationComponent(array.getJSONObject(i), owner));
+      }
+    };
     if (json.has("query")) {
       JSONArray array = json.getJSONArray("query");
       for (int i = 0; i < array.length(); i++) {
@@ -1151,7 +1153,7 @@ public class JsonParser extends JsonParserBase {
     Conformance.ConformanceRestResourceOperationComponent res = owner.new ConformanceRestResourceOperationComponent();
     parseElementProperties(json, res);
     if (json.has("code"))
-      res.setCode(parseEnumeration(json.getJSONObject("code"), Conformance.RestfulOperation.Null, new Conformance().new RestfulOperationEnumFactory()));
+      res.setCode(parseEnumeration(json.getJSONObject("code"), Conformance.TypeRestfulOperation.Null, new Conformance().new TypeRestfulOperationEnumFactory()));
     if (json.has("documentation"))
       res.setDocumentation(parseString(json.getJSONObject("documentation")));
     return res;
@@ -1182,6 +1184,16 @@ public class JsonParser extends JsonParserBase {
         res.getChain().add(parseString(array.getJSONObject(i)));
       }
     };
+    return res;
+  }
+
+  private Conformance.ConformanceRestOperationComponent parseConformanceConformanceRestOperationComponent(JSONObject json, Conformance owner) throws Exception {
+    Conformance.ConformanceRestOperationComponent res = owner.new ConformanceRestOperationComponent();
+    parseElementProperties(json, res);
+    if (json.has("code"))
+      res.setCode(parseEnumeration(json.getJSONObject("code"), Conformance.SystemRestfulOperation.Null, new Conformance().new SystemRestfulOperationEnumFactory()));
+    if (json.has("documentation"))
+      res.setDocumentation(parseString(json.getJSONObject("documentation")));
     return res;
   }
 
@@ -1606,8 +1618,9 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("serviceCategory"))
       res.setServiceCategory(parseCodeableConcept(json.getJSONObject("serviceCategory")));
-    if (json.has("diagnosticTime"))
-      res.setDiagnosticTime(parseDateTime(json.getJSONObject("diagnosticTime")));
+    Type diagnostic = parseType("diagnostic", json);
+    if (diagnostic != null)
+      res.setDiagnostic(diagnostic);
     if (json.has("results"))
       res.setResults(parseDiagnosticReportResultGroupComponent(json.getJSONObject("results"), res));
     if (json.has("image")) {
@@ -2486,6 +2499,8 @@ public class JsonParser extends JsonParserBase {
     parseResourceProperties(json, res);
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getJSONObject("code")));
+    if (json.has("subject"))
+      res.setSubject(parseResourceReference(json.getJSONObject("subject")));
     if (json.has("source"))
       res.setSource(parseResourceReference(json.getJSONObject("source")));
     if (json.has("date"))
@@ -3605,12 +3620,6 @@ public class JsonParser extends JsonParserBase {
         res.getExtensionDefn().add(parseProfileProfileExtensionDefnComponent(array.getJSONObject(i), res));
       }
     };
-    if (json.has("binding")) {
-      JSONArray array = json.getJSONArray("binding");
-      for (int i = 0; i < array.length(); i++) {
-        res.getBinding().add(parseProfileProfileBindingComponent(array.getJSONObject(i), res));
-      }
-    };
     return res;
   }
 
@@ -3714,7 +3723,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("isModifier"))
       res.setIsModifier(parseBoolean(json.getJSONObject("isModifier")));
     if (json.has("binding"))
-      res.setBinding(parseUri(json.getJSONObject("binding")));
+      res.setBinding(parseProfileElementDefinitionBindingComponent(json.getJSONObject("binding"), owner));
     if (json.has("mapping")) {
       JSONArray array = json.getJSONArray("mapping");
       for (int i = 0; i < array.length(); i++) {
@@ -3731,8 +3740,12 @@ public class JsonParser extends JsonParserBase {
       res.setCode(parseCode(json.getJSONObject("code")));
     if (json.has("profile"))
       res.setProfile(parseUri(json.getJSONObject("profile")));
-    if (json.has("bundled"))
-      res.setBundled(parseBoolean(json.getJSONObject("bundled")));
+    if (json.has("aggregation")) {
+      JSONArray array = json.getJSONArray("aggregation");
+      for (int i = 0; i < array.length(); i++) {
+        res.getAggregation().add(parseEnumeration(array.getJSONObject(i), Profile.ResourceAggregationMode.Null, new Profile().new ResourceAggregationModeEnumFactory()));
+      }
+    };
     return res;
   }
 
@@ -3749,8 +3762,23 @@ public class JsonParser extends JsonParserBase {
       res.setHuman(parseString(json.getJSONObject("human")));
     if (json.has("xpath"))
       res.setXpath(parseString(json.getJSONObject("xpath")));
-    if (json.has("ocl"))
-      res.setOcl(parseString(json.getJSONObject("ocl")));
+    return res;
+  }
+
+  private Profile.ElementDefinitionBindingComponent parseProfileElementDefinitionBindingComponent(JSONObject json, Profile owner) throws Exception {
+    Profile.ElementDefinitionBindingComponent res = owner.new ElementDefinitionBindingComponent();
+    parseElementProperties(json, res);
+    if (json.has("name"))
+      res.setName(parseString(json.getJSONObject("name")));
+    if (json.has("isExtensible"))
+      res.setIsExtensible(parseBoolean(json.getJSONObject("isExtensible")));
+    if (json.has("conformance"))
+      res.setConformance(parseEnumeration(json.getJSONObject("conformance"), Profile.BindingConformance.Null, new Profile().new BindingConformanceEnumFactory()));
+    if (json.has("description"))
+      res.setDescription(parseString(json.getJSONObject("description")));
+    Type reference = parseType("reference", json);
+    if (reference != null)
+      res.setReference(reference);
     return res;
   }
 
@@ -3781,23 +3809,6 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("definition"))
       res.setDefinition(parseProfileElementDefinitionComponent(json.getJSONObject("definition"), owner));
-    return res;
-  }
-
-  private Profile.ProfileBindingComponent parseProfileProfileBindingComponent(JSONObject json, Profile owner) throws Exception {
-    Profile.ProfileBindingComponent res = owner.new ProfileBindingComponent();
-    parseElementProperties(json, res);
-    if (json.has("name"))
-      res.setName(parseString(json.getJSONObject("name")));
-    if (json.has("isExtensible"))
-      res.setIsExtensible(parseBoolean(json.getJSONObject("isExtensible")));
-    if (json.has("conformance"))
-      res.setConformance(parseEnumeration(json.getJSONObject("conformance"), Profile.BindingConformance.Null, new Profile().new BindingConformanceEnumFactory()));
-    if (json.has("description"))
-      res.setDescription(parseString(json.getJSONObject("description")));
-    Type reference = parseType("reference", json);
-    if (reference != null)
-      res.setReference(reference);
     return res;
   }
 

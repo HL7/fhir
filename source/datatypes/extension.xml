@@ -182,7 +182,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">No Internal extensions</Data></Cell>
+    <Cell><Data ss:Type="String">No Internal extensions 2</Data></Cell>
     <Cell><Data ss:Type="String">Extension</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">No extensions on isModifier</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:isModifier/f:extension))</Data></Cell>
@@ -200,7 +200,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>3</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

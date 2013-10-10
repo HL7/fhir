@@ -16,9 +16,11 @@ import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptComponent;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptMapComponent;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
+import org.hl7.fhir.instance.model.Conformance.ConformanceRestOperationComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceOperationComponent;
-import org.hl7.fhir.instance.model.Conformance.RestfulOperation;
+import org.hl7.fhir.instance.model.Conformance.SystemRestfulOperation;
+import org.hl7.fhir.instance.model.Conformance.TypeRestfulOperation;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
@@ -596,8 +598,10 @@ public class NarrativeGenerator {
     XhtmlNode t = x.addTag("table");
     addTableRow(t, "Mode", rest.getModeSimple().toString());
     addTableRow(t, "Description", rest.getDocumentationSimple());
-    addTableRow(t, "Batch", showBoolean(rest.getBatch()));
-    addTableRow(t, "System History", showBoolean(rest.getHistory()));
+    
+    addTableRow(t, "Transaction", showOp(rest, SystemRestfulOperation.transaction));
+    addTableRow(t, "System History", showOp(rest, SystemRestfulOperation.historysystem));
+    addTableRow(t, "System Search", showOp(rest, SystemRestfulOperation.searchsystem));
     
     t = x.addTag("table");
     XhtmlNode tr = t.addTag("tr");
@@ -618,14 +622,14 @@ public class NarrativeGenerator {
       XhtmlNode a = tr.addTag("td").addTag("a");
       a.addText(r.getProfile().getReferenceSimple());
       a.setAttribute("href", prefix+r.getProfile().getReferenceSimple());
-      tr.addTag("td").addText(showOp(r, RestfulOperation.read));
-      tr.addTag("td").addText(showOp(r, RestfulOperation.vread));
-      tr.addTag("td").addText(showOp(r, RestfulOperation.search));
-      tr.addTag("td").addText(showOp(r, RestfulOperation.update));
-      tr.addTag("td").addText(showOp(r, RestfulOperation.historyinstance));
-      tr.addTag("td").addText(showOp(r, RestfulOperation.create));
-      tr.addTag("td").addText(showOp(r, RestfulOperation.delete));
-      tr.addTag("td").addText(showOp(r, RestfulOperation.historytype));
+      tr.addTag("td").addText(showOp(r, TypeRestfulOperation.read));
+      tr.addTag("td").addText(showOp(r, TypeRestfulOperation.vread));
+      tr.addTag("td").addText(showOp(r, TypeRestfulOperation.searchtype));
+      tr.addTag("td").addText(showOp(r, TypeRestfulOperation.update));
+      tr.addTag("td").addText(showOp(r, TypeRestfulOperation.historyinstance));
+      tr.addTag("td").addText(showOp(r, TypeRestfulOperation.create));
+      tr.addTag("td").addText(showOp(r, TypeRestfulOperation.delete));
+      tr.addTag("td").addText(showOp(r, TypeRestfulOperation.historytype));
     }
     
     conf.setText(new Narrative());
@@ -633,11 +637,19 @@ public class NarrativeGenerator {
     conf.getText().setStatusSimple(NarrativeStatus.generated);
   }
 
-  private String showOp(ConformanceRestResourceComponent r, RestfulOperation on) {
+  private String showOp(ConformanceRestResourceComponent r, TypeRestfulOperation on) {
     for (ConformanceRestResourceOperationComponent op : r.getOperation()) {
       if (op.getCodeSimple() == on)
         return "y";
     }
+    return "";
+  }
+
+  private String showOp(ConformanceRestComponent r, SystemRestfulOperation on) {
+    for (ConformanceRestOperationComponent op : r.getOperation()) {
+      if (op.getCodeSimple() == on)
+        return "y";
+    }	
     return "";
   }
 

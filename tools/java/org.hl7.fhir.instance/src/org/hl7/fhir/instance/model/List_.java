@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
+// Generated on Thu, Oct 10, 2013 11:38+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -191,6 +191,11 @@ public class List_ extends Resource {
     protected CodeableConcept code;
 
     /**
+     * The common subject (or patient) of the resources that are in the list, if there is one.
+     */
+    protected ResourceReference subject;
+
+    /**
      * The entity responsible for deciding what the contents of the list were.
      */
     protected ResourceReference source;
@@ -226,6 +231,14 @@ public class List_ extends Resource {
 
     public void setCode(CodeableConcept value) { 
       this.code = value;
+    }
+
+    public ResourceReference getSubject() { 
+      return this.subject;
+    }
+
+    public void setSubject(ResourceReference value) { 
+      this.subject = value;
     }
 
     public ResourceReference getSource() { 
@@ -320,6 +333,7 @@ public class List_ extends Resource {
       public List_ copy() {
         List_ dst = new List_();
         dst.code = code == null ? null : code.copy();
+        dst.subject = subject == null ? null : subject.copy();
         dst.source = source == null ? null : source.copy();
         dst.date = date == null ? null : date.copy();
         dst.ordered = ordered == null ? null : ordered.copy();

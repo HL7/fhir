@@ -26,7 +26,7 @@ Changes from the DSTU ballot (v0.11) to the DSTU final copy (0.20?):
  <li>CodeableConcept: move primary to Coding.primary</li>
  <li>Coding: add primary, valueset and version &amp; align code system version rules with core principles</li>
  <li>Choice: remove choice and add Coding.valueset</li>
- <li>ValueSet: add define.version, and a new constraint that codes must be unique in the definition space, and tighten up publication (maps and cross links, expansions, deal with poly-heirarchies &amp; deprecated codes, publish all v3 code systems, map the data types)</li>
+ <li>ValueSet: add define.version, and a new constraint that codes must be unique in the definition space, and tighten up publication (maps and cross links, expansions, deal with poly-heirarchies &amp; deprecated codes, publish all v3 code systems, map the data types), add more uniqueness variants</li>
  <li>The following pages have been rewritten (Editorial changes only): "Resource Definitions", "Using codes" and the overview page</li>
  <li>FamilyHistory: change the value set for relation type to use the v3 value set directly</li>
  <li>Remove Coverage resource</li>
@@ -42,6 +42,9 @@ Changes from the DSTU ballot (v0.11) to the DSTU final copy (0.20?):
  <li>Alert: improved the definitional documentation</li>
  <li>Message: make the event code a Coding (also in the conformance statement too)</li>
  <li>ImmunizationProfile - rename to ImmunizationRecommendation</li>
+ <li>Profile: Remove the concept of re-useable bindings, and collapse binding in line to element definition. Change definition.type.bundled to definition.type.aggregation, and add more invariants about uniqueness</li>
+ <li>Conformance: Add Conformance.profile. Move system operations to rest.operations from rest.resource.operations, &amp; add updateCreate flag</li>
+ <li>Add Informative ConceptMap resource</li>
 </ul>
 
 </div>

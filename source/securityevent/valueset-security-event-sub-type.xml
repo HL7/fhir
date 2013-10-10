@@ -44,16 +44,18 @@
     </include>
     <include>
       <system value="http://hl7.org/fhir/restful-operation"/>
-      <code value="110142"/>  
       <code value="read"/>
       <code value="vread"/>
       <code value="update"/>
       <code value="delete"/>
-      <code value="history-instance"/>
       <code value="validate"/>
-      <code value="history-type"/>
       <code value="create"/>
-      <code value="search"/>
+      <code value="history-instance"/>
+      <code value="history-type"/>
+      <code value="history-system"/>
+      <code value="search-type"/>
+      <code value="search-system"/>
+      <code value="transaction"/>
     </include>
   </compose>
 </ValueSet>

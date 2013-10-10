@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Oct 8, 2013 20:20+1100 for FHIR v0.12
+// Generated on Thu, Oct 10, 2013 11:38+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -347,9 +347,9 @@ public class DiagnosticReport extends Resource {
     protected CodeableConcept serviceCategory;
 
     /**
-     * The diagnostically relevant time for this report.
+     * The diagnostically relevant time for this report - that is, the point in time at which the observations that are reported in this diagnostic report relate to the patient.
      */
-    protected DateTime diagnosticTime;
+    protected Type diagnostic;
 
     /**
      * A group of results. Results may be grouped by specimen, or by some value in DiagnosticReport.resultGroup.name to describe what binds all the results together.
@@ -455,22 +455,12 @@ public class DiagnosticReport extends Resource {
       this.serviceCategory = value;
     }
 
-    public DateTime getDiagnosticTime() { 
-      return this.diagnosticTime;
+    public Type getDiagnostic() { 
+      return this.diagnostic;
     }
 
-    public void setDiagnosticTime(DateTime value) { 
-      this.diagnosticTime = value;
-    }
-
-    public String getDiagnosticTimeSimple() { 
-      return this.diagnosticTime == null ? null : this.diagnosticTime.getValue();
-    }
-
-    public void setDiagnosticTimeSimple(String value) { 
-        if (this.diagnosticTime == null)
-          this.diagnosticTime = new DateTime();
-        this.diagnosticTime.setValue(value);
+    public void setDiagnostic(Type value) { 
+      this.diagnostic = value;
     }
 
     public ResultGroupComponent getResults() { 
@@ -547,7 +537,7 @@ public class DiagnosticReport extends Resource {
         for (DiagnosticReportRequestDetailComponent i : requestDetail)
           dst.requestDetail.add(i.copy(dst));
         dst.serviceCategory = serviceCategory == null ? null : serviceCategory.copy();
-        dst.diagnosticTime = diagnosticTime == null ? null : diagnosticTime.copy();
+        dst.diagnostic = diagnostic == null ? null : diagnostic.copy();
         dst.results = results == null ? null : results.copy(dst);
         dst.image = new ArrayList<ResourceReference>();
         for (ResourceReference i : image)
