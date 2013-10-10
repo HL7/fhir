@@ -70,6 +70,7 @@ import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
 import org.hl7.fhir.definitions.generators.specification.SchematronGenerator;
 import org.hl7.fhir.definitions.generators.specification.SvgGenerator;
 import org.hl7.fhir.definitions.generators.specification.TerminologyNotesGenerator;
+import org.hl7.fhir.definitions.generators.specification.XPathQueryGenerator;
 import org.hl7.fhir.definitions.generators.specification.XmlSpecGenerator;
 import org.hl7.fhir.definitions.generators.xsd.SchemaGenerator;
 import org.hl7.fhir.definitions.model.BindingSpecification;
@@ -486,9 +487,7 @@ public class Publisher {
     result.setSourceSimple("http://hl7.org/fhir/"+rn+"/search#"+i.getCode());
     result.setTypeSimple(getSearchParamType(i.getType()));
     result.setDocumentation(Factory.newString_(i.getDescription()));
-    if (i.getPaths().size() == 1) {
-      result.setXpathSimple("f:"+i.getPaths().get(0).replace(".", "/f:"));
-    }
+    result.setXpathSimple(new XPathQueryGenerator(page.getDefinitions()).generateXpath(i.getPaths()));
     return result;
   }
 
