@@ -487,7 +487,7 @@ public class Publisher {
     result.setSourceSimple("http://hl7.org/fhir/"+rn+"/search#"+i.getCode());
     result.setTypeSimple(getSearchParamType(i.getType()));
     result.setDocumentation(Factory.newString_(i.getDescription()));
-    result.setXpathSimple(new XPathQueryGenerator(page.getDefinitions()).generateXpath(i.getPaths()));
+    result.setXpathSimple(new XPathQueryGenerator(page.getDefinitions(), page, page.getQa()).generateXpath(i.getPaths()));
     return result;
   }
 
