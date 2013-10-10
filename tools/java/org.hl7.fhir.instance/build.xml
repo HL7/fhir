@@ -60,6 +60,8 @@
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
+	    <include name="**"/>
+	    <exclude name="**/test/**/*Test.java"/>
             <classpath refid="org.hl7.fhir.implementation.classpath"/>
         </javac>
     </target>
