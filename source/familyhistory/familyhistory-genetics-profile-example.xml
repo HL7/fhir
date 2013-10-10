@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE FamilyHistory [
+  <!ENTITY pedigree "http://hl7.org/fhir/profile/familyhistory/geneticpedigree#">
+]>
+<FamilyHistory xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/familyhistory.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">To do</div>
+  </text>
+  <subject>
+    <reference value="Patient/example"/>
+    <display value="Peter Patient">
+      <!-- Should be 'Bob', but didn't make sense to define a new patient -->
+    </display>
+  </subject>
+  <relation id="1">
+    <extension>
+      <extension>
+        <url value="&pedigree;relationParent.type"/>
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/RoleCode"/>
+            <code value="FTH"/>
+            <display value="Father"/>
+          </coding>
+        </valueCodeableConcept>
+      </extension>
+      <extension>
+        <url value="&pedigree;relationParent.identifier"/>
+        <valueUri value="#2"/>
+      </extension>
+      <url value="&pedigree;relationParent"/>
+    </extension>
+    <name value="Dave"/>
+    <relationship>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/RoleCode"/>
+        <code value="FTH"/>
+        <display value="Father"/>
+      </coding>
+    </relationship>
+  </relation>
+  <relation id="2">
+    <relationship>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/RoleCode"/>
+        <code value="GRFTH"/>
+        <display value="Grandfather"/>
+      </coding>
+    </relationship>
+  </relation>
+  <relation id="3">
+    <extension>
+      <extension>
+        <url value="&pedigree;relationParent.type"/>
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/RoleCode"/>
+            <code value="FTH"/>
+            <display value="Father"/>
+          </coding>
+        </valueCodeableConcept>
+      </extension>
+      <extension>
+        <url value="&pedigree;relationParent.identifier"/>
+        <valueUri value="#2"/>
+      </extension>
+      <url value="&pedigree;relationParent"/>
+    </extension>
+    <relationship>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/RoleCode"/>
+        <code value="PUNCLE"/>
+        <display value="PaternalUncle"/>
+      </coding>
+    </relationship>
+  </relation>
+  <relation id="4">
+    <extension>
+      <extension>
+        <url value="&pedigree;relationParent.type"/>
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/RoleCode"/>
+            <code value="FTH"/>
+            <display value="Father"/>
+          </coding>
+        </valueCodeableConcept>
+      </extension>
+      <extension>
+        <url value="&pedigree;relationParent.identifier"/>
+        <valueUri value="#2"/>
+      </extension>
+      <url value="&pedigree;relationParent"/>
+    </extension>
+    <relationship>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/RoleCode"/>
+        <code value="PUNCLE"/>
+        <display value="PaternalUncle"/>
+      </coding>
+    </relationship>
+  </relation>
+  <relation id="5">
+    <extension>
+      <extension>
+        <url value="&pedigree;relationParent.type"/>
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/RoleCode"/>
+            <code value="FTH"/>
+            <display value="Father"/>
+          </coding>
+        </valueCodeableConcept>
+      </extension>
+      <extension>
+        <url value="&pedigree;relationParent.identifier"/>
+        <valueUri value="#2"/>
+      </extension>
+      <url value="&pedigree;relationParent"/>
+    </extension>
+    <name value="Eve"/>
+    <relationship>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/RoleCode"/>
+        <code value="PAUNT"/>
+        <display value="PaternalAunt"/>
+      </coding>
+    </relationship>
+  </relation>
+  <relation id="6">
+    <extension>
+      <extension>
+        <url value="&pedigree;relationParent.type"/>
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/RoleCode"/>
+            <code value="FTH"/>
+            <display value="Father"/>
+          </coding>
+        </valueCodeableConcept>
+      </extension>
+      <extension>
+        <url value="&pedigree;relationParent.identifier"/>
+        <valueUri value="#2"/>
+      </extension>
+      <url value="&pedigree;relationParent"/>
+    </extension>
+    <relationship>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/RoleCode"/>
+        <code value="PAUNT"/>
+        <display value="PaternalAunt"/>
+      </coding>
+    </relationship>
+  </relation>
+  <relation id="7">
+    <extension>
+      <extension>
+        <url value="&pedigree;relationParent.type"/>
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/RoleCode"/>
+            <code value="FTH"/>
+            <display value="Father"/>
+          </coding>
+        </valueCodeableConcept>
+      </extension>
+      <extension>
+        <url value="&pedigree;relationParent.identifier"/>
+        <valueUri value="#2"/>
+      </extension>
+      <url value="&pedigree;relationParent"/>
+    </extension>
+    <relationship>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/RoleCode"/>
+        <code value="PAUNT"/>
+        <display value="PaternalAunt"/>
+      </coding>
+    </relationship>
+  </relation>
+  <relation id="8">
+    <extension>
+      <extension>
+        <url value="&pedigree;relationParent.type"/>
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/RoleCode"/>
+            <code value="MTH"/>
+            <display value="Mother"/>
+          </coding>
+        </valueCodeableConcept>
+      </extension>
+      <extension>
+        <url value="&pedigree;relationParent.identifier"/>
+        <valueUri value="#5"/>
+      </extension>
+      <url value="&pedigree;relationParent"/>
+    </extension>
+    <name value="Alice"/>
+    <relationship>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/RoleCode"/>
+        <code value="PCOUSN"/>
+        <display value="PaternalCousin"/>
+      </coding>
+    </relationship>
+  </relation>
+</FamilyHistory>
