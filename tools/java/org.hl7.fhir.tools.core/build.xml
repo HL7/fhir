@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="org.hl7.fhir.tools">
+    <property environment="env"/>
+    <property name="org.hl7.fhir.definitions.ecore.location" value="../org.hl7.fhir.definitions.ecore"/>
+    <property name="org.hl7.fhir.utilities.location" value="../../../implementations/java/org.hl7.fhir.utilities"/>
+    <property name="org.hl7.fhir.implementation.location" value="../org.hl7.fhir.instance"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="org.hl7.fhir.utilities.classpath">
+        <pathelement location="${org.hl7.fhir.utilities.location}/bin"/>
+        <pathelement location="${org.hl7.fhir.utilities.location}/../../../tools/java/imports/xmlpull_1_1_3_4b.jar"/>
+        <pathelement location="${org.hl7.fhir.utilities.location}/../../../tools/java/imports/xpp3_min-1.1.3.4.O.jar"/>
+        <pathelement location="${org.hl7.fhir.utilities.location}/../../../tools/java/imports/xpp3_xpath-1.1.3.4.O.jar"/>
+        <pathelement location="${org.hl7.fhir.utilities.location}/../../../tools/java/imports/xpp3-1.1.3.4.O.jar"/>
+        <pathelement location="${org.hl7.fhir.utilities.location}/../../../tools/java/imports/saxon9he.jar"/>
+    </path>
+    <path id="org.hl7.fhir.implementation.classpath">
+        <pathelement location="${org.hl7.fhir.implementation.location}/bin"/>
+        <pathelement location="${org.hl7.fhir.implementation.location}/../imports/commons-codec-1.3.jar"/>
+        <pathelement location="${org.hl7.fhir.implementation.location}/../imports/xpp3_min-1.1.3.4.O.jar"/>
+        <pathelement location="${org.hl7.fhir.implementation.location}/../imports/xpp3_xpath-1.1.3.4.O.jar"/>
+        <pathelement location="${org.hl7.fhir.implementation.location}/../imports/xpp3-1.1.3.4.O.jar"/>
+        <path refid="org.hl7.fhir.utilities.classpath"/>
+        <pathelement location="${org.hl7.fhir.implementation.location}/../imports/commons-httpclient-3.0.1.jar"/>
+        <pathelement location="${org.hl7.fhir.implementation.location}/../imports/httpclient-4.2.3.jar"/>
+        <pathelement location="${org.hl7.fhir.implementation.location}/../imports/httpclient-cache-4.2.3.jar"/>
+        <pathelement location="${org.hl7.fhir.implementation.location}/../imports/httpcore-4.2.2.jar"/>
+        <pathelement location="${org.hl7.fhir.implementation.location}/../imports/httpmime-4.2.3.jar"/>
+        <pathelement location="${org.hl7.fhir.implementation.location}/../imports/commons-io-1.2.jar"/>
+        <pathelement location="${org.hl7.fhir.implementation.location}/../imports/commons-lang3-3.1.jar"/>
+        <pathelement location="${org.hl7.fhir.implementation.location}/../imports/gson-2.2.4.jar"/>
+    </path>
+    <path id="org.hl7.fhir.definitions.ecore.classpath">
+        <pathelement location="${org.hl7.fhir.definitions.ecore.location}/bin"/>
+        <pathelement location="${org.hl7.fhir.definitions.ecore.location}/../imports/org.eclipse.emf.common_2.7.0.v20120127-1122.jar"/>
+        <pathelement location="${org.hl7.fhir.definitions.ecore.location}/../imports/org.eclipse.emf.ecore.xmi_2.7.0.v20120127-1122.jar"/>
+        <pathelement location="${org.hl7.fhir.definitions.ecore.location}/../imports/org.eclipse.emf.ecore_2.7.0.v20120127-1122.jar"/>
+    </path>
+    <path id="org.hl7.fhir.tools.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="../imports/xmlpull_1_1_3_4b.jar"/>
+        <pathelement location="../imports/xpp3_min-1.1.3.4.O.jar"/>
+        <pathelement location="../imports/xpp3_xpath-1.1.3.4.O.jar"/>
+        <pathelement location="../imports/xpp3-1.1.3.4.O.jar"/>
+        <pathelement location="../imports/org.eclipse.emf.ecore_2.7.0.v20120127-1122.jar"/>
+        <pathelement location="../imports/org.eclipse.emf.common_2.7.0.v20120127-1122.jar"/>
+        <pathelement location="../imports/org.eclipse.emf.ecore.xmi_2.7.0.v20120127-1122.jar"/>
+        <pathelement location="../imports/plantuml.jar"/>
+        <path refid="org.hl7.fhir.implementation.classpath"/>
+        <path refid="org.hl7.fhir.utilities.classpath"/>
+        <path refid="org.hl7.fhir.definitions.ecore.classpath"/>
+        <pathelement location="../imports/saxon9.jar"/>
+        <pathelement location="../imports/saxon9-dom.jar"/>
+        <pathelement location="../imports/sequence-library-1.0.2.jar"/>
+        <pathelement location="../imports/sqljet-1.1.7.jar"/>
+        <pathelement location="../imports/trilead-ssh2-1.0.0-build216.jar"/>
+        <pathelement location="../imports/jna-3.4.0.jar"/>
+        <pathelement location="../imports/svnkit-cli-1.7.9.jar"/>
+        <pathelement location="../imports/svnkit-1.7.9.jar"/>
+        <pathelement location="../imports/svnkit-javahl16-1.7.9.jar"/>
+        <pathelement location="../imports/antlr-runtime-3.4.jar"/>
+        <pathelement location="../imports/gson-2.2.4.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall">
+        <ant antfile="build.xml" dir="${org.hl7.fhir.definitions.ecore.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.utilities.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.implementation.location}" inheritAll="false" target="clean"/>
+    </target>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects">
+        <ant antfile="build.xml" dir="${org.hl7.fhir.definitions.ecore.location}" inheritAll="false" target="build-project">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.utilities.location}" inheritAll="false" target="build-project">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.implementation.location}" inheritAll="false" target="build-project">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+    </target>
+    <target name="copy-instance-classes">
+	<delete>
+		<fileset dir="../org.hl7.fhir.instance/src/org/hl7/fhir/instance/formats" includes="*"/>
+		<fileset dir="../org.hl7.fhir.instance/src/org/hl7/fhir/instance/model" includes="*"/>
+	</delete>
+	<copy includeemptydirs="false" todir="../org.hl7.fhir.instance/src/org/hl7/fhir/instance/formats">
+		<fileset dir="../../../implementations/java/org.hl7.fhir.instance/src/org/hl7/fhir/instance/formats" includes="*.java"/>
+        </copy>
+	<copy includeemptydirs="false" todir="../org.hl7.fhir.instance/src/org/hl7/fhir/instance/model">
+		<fileset dir="../../../implementations/java/org.hl7.fhir.instance/src/org/hl7/fhir/instance/model" includes="*.java"/>
+        </copy>
+	<copy includeemptydirs="false" todir="../org.hl7.fhir.instance/src/org/hl7/fhir/instance/utils">
+		<fileset dir="../../../implementations/java/org.hl7.fhir.instance/src/org/hl7/fhir/instance/utils" includes="*.java"/>
+        </copy>
+	<copy includeemptydirs="false" todir="../org.hl7.fhir.instance/src/org/hl7/fhir/instance/validation">
+		<fileset dir="../../../implementations/java/org.hl7.fhir.instance/src/org/hl7/fhir/instance/validation" includes="*.java"/>
+        </copy>
+	<copy includeemptydirs="false" todir="../org.hl7.fhir.instance/src/org/hl7/fhir/instance/test">
+		<fileset dir="../../../implementations/java/org.hl7.fhir.instance/src/org/hl7/fhir/instance/test" includes="*.java"/>
+        </copy>
+	<copy includeemptydirs="false" todir="../org.hl7.fhir.instance/src/org/hl7/fhir/instance/client">
+		<fileset dir="../../../implementations/java/org.hl7.fhir.instance/src/org/hl7/fhir/instance/client" includes="*.java"/>
+        </copy>
+    </target>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="org.hl7.fhir.tools.classpath"/>
+        </javac>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="Publisher" depends="build">
+        <java classname="org.hl7.fhir.tools.publisher.Publisher" failonerror="true" fork="yes">
+	    <arg line="${args}"/>
+            <classpath refid="org.hl7.fhir.tools.classpath"/>
+        </java>
+    </target>
+
+    <target name="build-tools-jar" depends="build">
+	    <jar destfile="../../bin/org.hl7.fhir.tools.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="org.hl7.fhir.tools.publisher.Publisher"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+	    <fileset dir="../org.hl7.fhir.tools.core/bin"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/xmlpull_1_1_3_4b.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/xpp3_min-1.1.3.4.O.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/xpp3_xpath-1.1.3.4.O.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/xpp3-1.1.3.4.O.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/org.eclipse.emf.ecore_2.7.0.v20120127-1122.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/org.eclipse.emf.common_2.7.0.v20120127-1122.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/org.eclipse.emf.ecore.xmi_2.7.0.v20120127-1122.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/plantuml.jar"/>
+	    <fileset dir="../org.hl7.fhir.instance/bin"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/commons-codec-1.3.jar"/>
+	    <fileset dir="../../../implementations/java/org.hl7.fhir.utilities/bin"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/saxon9he.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/commons-httpclient-3.0.1.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/httpclient-4.2.3.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/httpclient-cache-4.2.3.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/httpcore-4.2.2.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/httpmime-4.2.3.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/commons-io-1.2.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/commons-lang3-3.1.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/gson-2.2.4.jar"/>
+	    <fileset dir="../org.hl7.fhir.definitions.ecore/bin"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/saxon9.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/saxon9-dom.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/sequence-library-1.0.2.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/sqljet-1.1.7.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/trilead-ssh2-1.0.0-build216.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/jna-3.4.0.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/svnkit-cli-1.7.9.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/svnkit-1.7.9.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/svnkit-javahl16-1.7.9.jar"/>
+	    <zipfileset excludes="META-INF/*.SF" src="../imports/antlr-runtime-3.4.jar"/>
+        </jar>
+    </target>
+</project>

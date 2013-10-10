@@ -481,7 +481,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 
   private String getIsSummaryFlag(ElementDefn elem) {
     if (elem.isSummaryItem())
-      return "<span title=\"This element is included in a summary view (See Search/Query)\" style=\"color: Navy\"> ง</span>";
+      return "<span title=\"This element is included in a summary view (See Search/Query)\" style=\"color: Navy\"> ยง</span>";
     else 
       return "";
   }
