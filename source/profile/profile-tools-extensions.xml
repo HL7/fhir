@@ -211,16 +211,15 @@
         <code value="code"/>      
       </type>
       <isModifier value="false"/>
-      <binding value="OperationOutcomeSource"/>
+      <binding>
+        <name value="OperationOutcomeSource"/>
+        <isExtensible value="true"/>
+        <conformance value="preferred"/>
+        <referenceResource>
+          <reference value="#v1"/>
+        </referenceResource>
+      </binding>
     </definition> 
   </extensionDefn>
 
-  <binding>
-    <name value="OperationOutcomeSource"/>
-    <isExtensible value="true"/>
-    <conformance value="preferred"/>
-    <referenceResource>
-      <reference value="#v1"/>
-    </referenceResource>
-  </binding>
 </Profile>
