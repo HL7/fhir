@@ -2624,6 +2624,15 @@ public class Publisher {
       log(" ...test " + "profiles-resources");
       validateRoundTrip(schema, "profiles-resources");
     }
+    for (String rn : page.getDefinitions().sortedResourceNames()) {
+      ResourceDefn r = page.getDefinitions().getResourceByName(rn);
+      for (SearchParameter sp : r.getSearchParams().values()) {
+        if (!sp.isWorks()) {
+          page.log("Search Parameter '"+rn+"."+sp.getCode()+"' had no fond values in any example. Consider reviewing the path ("+sp.getXPath()+")");
+          page.getQa().warning("Search Parameter '"+rn+"."+sp.getCode()+"' had no fond values in any example. Consider reviewing the path ("+sp.getXPath()+")");
+        }
+      }      
+    }
 	}
 
 	private void produceCoverageWarnings() throws Exception {
