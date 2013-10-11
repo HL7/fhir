@@ -52,11 +52,18 @@ import java.util.Set;
 
 import javax.print.attribute.standard.MediaSize.NA;
 import javax.xml.XMLConstants;
+import javax.xml.namespace.NamespaceContext;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
 
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMIResource;
@@ -148,6 +155,7 @@ import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlDocument;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
+import org.hl7.fhir.utilities.xml.NamespaceContextMap;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XhtmlGenerator;
 import org.hl7.fhir.utilities.xml.XmlGenerator;
@@ -487,7 +495,8 @@ public class Publisher {
     result.setSourceSimple("http://hl7.org/fhir/"+rn+"/search#"+i.getCode());
     result.setTypeSimple(getSearchParamType(i.getType()));
     result.setDocumentation(Factory.newString_(i.getDescription()));
-    result.setXpathSimple(new XPathQueryGenerator(page.getDefinitions(), page, page.getQa()).generateXpath(i.getPaths()));
+    i.setXPath(new XPathQueryGenerator(page.getDefinitions(), page, page.getQa()).generateXpath(i.getPaths()));
+    result.setXpathSimple(i.getXPath());
     return result;
   }
 
@@ -2701,12 +2710,59 @@ public class Publisher {
 		for (PlatformGenerator gen : page.getReferenceImplementations()) {
 			if (gen.doesTest()) {
 				gen.loadAndSave(page.getFolders().dstDir, page.getFolders().dstDir + n + ".xml", page.getFolders().tmpDir + n+"-tmp.xml");
+				testSearchParameters(page.getFolders().dstDir + n + ".xml");
 				compareXml(n, gen.getName(), page.getFolders().dstDir + n	+ ".xml", page.getFolders().tmpDir + n+"-tmp.xml");
 			}
 		}
 	}
 
-	private void compareXml(String t, String n, String fn1, String fn2)
+	private void testSearchParameters(String filename) throws Exception {
+    // load the xml
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    DocumentBuilder builder = factory.newDocumentBuilder();
+    Document xml = builder.parse(new CSFileInputStream(new CSFile(filename)));
+    
+    if (xml.getDocumentElement().getNodeName().equals("feed")) {
+      Element child = XMLUtil.getFirstChild(xml.getDocumentElement());
+      while (child != null) {
+        if (child.getNodeName().equals("entry")) {
+          Element grandchild = XMLUtil.getFirstChild(xml.getDocumentElement());
+          while (grandchild != null) {
+            if (grandchild.getNodeName().equals("content")) 
+              testSearchParameters(XMLUtil.getFirstChild(grandchild));
+            grandchild = XMLUtil.getNextSibling(grandchild);
+          }
+        }
+        child = XMLUtil.getNextSibling(child);
+      }
+    } else
+       testSearchParameters(xml.getDocumentElement());
+  }
+
+	private void testSearchParameters(Element e) throws Exception  {
+	  ResourceDefn r = page.getDefinitions().getResourceByName(e.getNodeName());
+	  for (SearchParameter sp : r.getSearchParams().values()) {
+
+	    if (sp.getXPath() != null) {
+	      try {
+	        NamespaceContext context = new NamespaceContextMap("f", "http://hl7.org/fhir", "h", "http://www.w3.org/1999/xhtml", "a", "http://www.w3.org/2005/Atom");
+
+	        XPathFactory factory = XPathFactory.newInstance();
+	        XPath xpath = factory.newXPath();
+	        xpath.setNamespaceContext(context);
+	        XPathExpression expression;
+	        expression = xpath.compile(sp.getXPath());
+	        NodeList resultNodes = (NodeList)expression.evaluate(e, XPathConstants.NODESET);
+	        if (resultNodes.getLength() > 0)
+	          sp.setWorks(true);
+	      } catch (Exception e1) {
+	        page.log("Xpath \""+sp.getXPath()+"\" execution failed: "+e1.getMessage());
+	      }
+	    }
+	  }
+	}
+
+  private void compareXml(String t, String n, String fn1, String fn2)
 			throws Exception {
 		char sc = File.separatorChar;
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();

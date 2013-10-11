@@ -49,6 +49,10 @@ public class SearchParameter {
   private List<String> paths = new ArrayList<String>();
   private List<String> composites = new ArrayList<String>();
   
+  // operational tracking
+  private String xPath;
+  private boolean works; // marked by the testing routines if this search parameter yields results for any of the examples
+  
   public String getCode() {
     return code;
   }
@@ -86,6 +90,22 @@ public class SearchParameter {
       b.append(", "+s);
     }
     return b.length() == 0 ? "" : b.toString().substring(2);
+  }
+
+  public boolean isWorks() {
+    return works;
+  }
+
+  public void setWorks(boolean works) {
+    this.works = works;
+  }
+
+  public String getXPath() {
+    return xPath;
+  }
+
+  public void setXPath(String xPath) {
+    this.xPath = xPath;
   }
   
   
