@@ -1,5 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="notes"> </a>
 <h2>
 Notes:
 </h2>
@@ -36,6 +37,7 @@ Notes:
    does not attempt to describe service based use of resources. The various service specifications will need to describe this usage in their own way</li>
 </ul>  
 
+<a name="profiles"> </a>
 <h3>Supporting Profiles</h3>
 
 <p>
@@ -77,25 +79,26 @@ made available by the producer system and deal only with the ones relevant
 to the use case. 
 </p>
 <p>
-As an example consider a laboratory system generating 1000x of reports 
-a day. 1% of those reports are a particular encdocrine report that a 
+As an example consider a laboratory system generating 1000s of reports 
+a day. 1% of those reports are a particular endocrine report that a 
 decision support system knows how to process. Both systems declare that 
 they support the particular endocrine profile, but how does the expert
-system get the endocrine reports to process? 
+system actually find the endocrine reports that it knows how to process? 
 </p>
 <p>
 One possible option is for the expert system to receive every single 
 report coming from the lab system, check whether it conforms to the 
 profile or not, and then decide whether to process it. Checking whether
 a resource conforms to a particular profile or not is a straight 
-forward operation (some tools for this are available from the <a href="downloads.htm">download page</a>),
-but this would be a very inefficient way to implement this. To help
-a consumer find the correct set of reports for a use-case, the producer 
-of the resources also SHALL:
+forward operation (on option is to use the <a href="downloads.htm">provided tools for this</a>),
+but this is very inefficient way - the expert system has to receive 
+and process 100 times many resources as it uses. To help a consumer 
+find the correct set of reports for a use-case, the producer of the 
+resources also SHALL:
 </p>
 <ol>
- <li><a href="extras.htm#tags">Mark resources</a> with the tag declaring profile(s) they conform to - this enables indexing by the profile</li>
- <li>(if a server) support searching by the _profile parameter for the declared profiles</li>
+ <li><a href="extras.htm#tags">Mark resources</a> with the tag declaring the profile(s) they conform to (this enables indexing by the profile)</li>
+ <li>(if a server) support searching by the <a href="query.htm#profile">_profile parameter</a> for the declared profiles</li>
 </ol>
 <p>
 Beyond these requirements, a producer of resources SHOULD ensure that any data that would reasonably be expected
@@ -104,7 +107,7 @@ to conform to the declared profiles SHOULD be published in this form.
 <p>
 DSTU note: there are many uninvestigated issues associated with system profiles. 
 HL7 is actively seeking feedback from users who experiment with system profiles, and users
-should be prepared for additional features and obligations in this are in the future.
+should be prepared for changes to features and obligations in this area in the future.
 </p>
 
 

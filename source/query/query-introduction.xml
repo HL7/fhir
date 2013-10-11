@@ -323,6 +323,7 @@ to only match on the left side of the target tags, or to search the label part o
 Searching by tag only includes tags with a scheme of "http://hl7.org/fhir/tag".
 </p>
 
+<a name="profile"> </a>
 <h3>Selecting resources by Profile</h3>
 
 <p>
