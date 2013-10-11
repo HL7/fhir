@@ -272,12 +272,6 @@ public boolean compile(String rootDir, List<String> errors) throws Exception {
     addSourceFiles(classes, rootDir + "implementations"+sc+"java"+sc+"org.hl7.fhir.utilities");
     addSourceFiles(classes, rootDir + "implementations"+sc+"java"+sc+"org.hl7.fhir.instance");
   
-    
-//    classes.add(new File(javaParserDir+"XmlParser.java"));
-//    classes.add(new File(javaParserDir+"XmlComposer.java"));
-//    classes.add(new File(javaParserDir+"JsonComposer.java"));
-//    classes.add(new File(javaDir+"ResourceFactory.java"));
-
     JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
     if (compiler == null)
       throw new Exception("Cannot continue build process as java compilation services are not available. Check that you are executing the build process using a jdk, not a jre");
@@ -288,13 +282,11 @@ public boolean compile(String rootDir, List<String> errors) throws Exception {
     DiagnosticCollector<JavaFileObject> diagnostics = new DiagnosticCollector<JavaFileObject>();
     List<String> options = new ArrayList<String>();
     StringBuilder path= new StringBuilder();
-    path.append(System.getProperty("java.class.path"));
     for (String n : new File(rootDir+sc+"tools"+sc+"java"+sc+"imports").list()) {
       path.append(File.pathSeparator+rootDir+"tools"+sc+"java"+sc+"imports"+sc+n);
     }
-  //  path.append(";"+rootDir+sc+"implementations"+sc+"java"+sc+"org.hl7.fhir.instance"+sc+"bin"+sc+"org"+sc+"hl7"+sc+"fhir"+sc+"instance"+sc+"model");
     options.addAll(Arrays.asList("-classpath",path.toString()));
-//    logger.log("Classpath: "+path.toString());
+    //logger.log("Classpath: "+path.toString());
     JavaCompiler.CompilationTask task = ToolProvider.getSystemJavaCompiler().getTask(null, null, diagnostics, options, null, units);
     Boolean result = task.call();
     if (!result) {
@@ -317,11 +309,9 @@ public boolean compile(String rootDir, List<String> errors) throws Exception {
     AddJarToJar(jar, rootDir+"tools"+sc+"java"+sc+"imports"+sc+"gson-2.2.4.jar", names);
     AddJarToJar(jar, rootDir+"tools"+sc+"java"+sc+"imports"+sc+"commons-codec-1.3.jar", names);
     
-//    AddToJar(jar, new File(rootDir+"implementations"+sc+"java"+sc+"org.hl7.fhir.utilities"+sc+"bin"), (rootDir+"implementations"+sc+"java"+sc+"org.hl7.fhir.utilities"+sc+"bin"+sc+"").length(), names);
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
     AddToJar(jar, new File(rootDir+"implementations"+sc+"java"+sc+"org.hl7.fhir.instance"+sc+"src"), (rootDir+"implementations"+sc+"java"+sc+"org.hl7.fhir.instance"+sc+"src"+sc).length(), names);
     AddToJar(jar, new File(rootDir+"implementations"+sc+"java"+sc+"org.hl7.fhir.utilities"+sc+"src"), (rootDir+"implementations"+sc+"java"+sc+"org.hl7.fhir.utilities"+sc+"src"+sc).length(), names);
-//    AddToJar(jar, new File(rootDir+"tools"+sc+"java"+sc+"org.hl7.fhir.instance"+sc+"bin"), (rootDir+"tools"+sc+"java"+sc+"org.hl7.fhir.instance"+sc+"bin"+sc+"").length(), names);
     jar.close();
     
     return result;
@@ -518,14 +508,8 @@ public String checkFragments(String rootDir, String fragments) throws Exception 
     builder.directory(new File(rootDir));
 
     final Process process = builder.start();
-    
-//    BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-//    String sl;
-//    while ((sl = stdError.readLine()) != null) {
-//      System.err.println(sl);
-//    }    
-
     process.waitFor();
+
     if (!filed.exists())
       return "Fragment processing failed completely";
     String s = TextFile.fileToString(filed.getAbsolutePath());
