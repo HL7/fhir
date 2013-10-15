@@ -98,9 +98,12 @@ public class XmlSpecGenerator extends OutputStreamWriter {
     }
 		if (hasXmlLang)
 		  write(" xml:lang?");
-		write(" xmlns=\"http://hl7.org/fhir\"&gt;\r\n");
+		if (resource)
+	    write(" xmlns=\"http://hl7.org/fhir\"&gt; <span style=\"float: right\"><a title=\"Documentation for this format\" href=\"formats.htm\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
+		else
+	    write(" xmlns=\"http://hl7.org/fhir\"&gt;\r\n");
     if (rn.equals(root.getName()) && resource) {
-      write(" &lt;!-- from <a href=\"resources.htm\">Resource</a>: <a href=\"extensibility.htm\">extension</a>, <a href=\"narrative.htm#Narrative\">narrative</a>, and <a href=\"references.htm#contained\">contained</a> -->\r\n");
+      write(" &lt;!-- from <a href=\"resources.htm\">Resource</a>: <a href=\"extensibility.htm\">extension</a>, language, <a href=\"narrative.htm#Narrative\">text</a>, and <a href=\"references.htm#contained\">contained</a> -->\r\n");
     } else {
       write(" &lt;!-- from Element: <a href=\"extensibility.htm\">extension</a> -->\r\n");
     }
@@ -115,7 +118,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 	}
 
 	public void generate(ProfileDefn profile) throws Exception {
-		write("<pre class=\"spec\">\r\n");
+		write("<pre class=\"spec\"> <span style=\"float: right\"><a title=\"Documentation for this format\" href=\"formats.htm\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
 
 		if (profile.getResources().size() > 0) {
 			write("<span style=\"color: Gray\">&lt;!-- <span style=\"color: Darkviolet\">Resources</span> --&gt;</span>\r\n");

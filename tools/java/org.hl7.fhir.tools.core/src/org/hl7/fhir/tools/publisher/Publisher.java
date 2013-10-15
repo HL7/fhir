@@ -1140,9 +1140,18 @@ public class Publisher {
       
       zip = new ZipGenerator(page.getFolders().dstDir + "validator.zip");
       zip.addFileName("readme.txt", Utilities.path(page.getFolders().srcDir, "tools", "readme.txt"));
-      zip.addFileName("org.hl7.fhir.validator.jar", Utilities.path(page.getFolders().rootDir, "tools", "bin", "org.hl7.fhir.validator.jar"));
+      zip.addFileName("org.hl7.fhir.validator.jar", Utilities.path(page.getFolders().dstDir, "org.hl7.fhir.validator.jar"));
       zip.addFileName("validation.zip", page.getFolders().dstDir + "validation.zip");
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".zip", null); // saxon too - always make this last
+      zip.close();
+      
+      zip = new ZipGenerator(page.getFolders().dstDir + "all-valuesets.zip");
+      zip.addFileName("valuesets.xml", page.getFolders().dstDir + "valuesets.xml");
+      zip.addFileName("valuesets.json", page.getFolders().dstDir + "valuesets.json");
+      zip.addFileName("v2-tables.xml", page.getFolders().dstDir + "v2-tables.xml");
+      zip.addFileName("v2-tables.json", page.getFolders().dstDir + "v2-tables.json");
+      zip.addFileName("v3-codesystems.xml", page.getFolders().dstDir + "v3-codesystems.xml");
+      zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json");
       zip.close();
       
 
@@ -2627,8 +2636,8 @@ public class Publisher {
     for (String rn : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResourceByName(rn);
       for (SearchParameter sp : r.getSearchParams().values()) {
-        if (!sp.isWorks()) {
-          page.log("Search Parameter '"+rn+"."+sp.getCode()+"' had no fond values in any example. Consider reviewing the path ("+sp.getXPath()+")");
+        if (!sp.isWorks() && !sp.getCode().equals("_id")) {
+          page.log("Search Parameter '"+rn+"."+sp.getCode()+"' had no found values in any example. Consider reviewing the path ("+sp.getXPath()+")");
           page.getQa().warning("Search Parameter '"+rn+"."+sp.getCode()+"' had no fond values in any example. Consider reviewing the path ("+sp.getXPath()+")");
         }
       }      
@@ -2760,7 +2769,7 @@ public class Publisher {
 	        XPath xpath = factory.newXPath();
 	        xpath.setNamespaceContext(context);
 	        XPathExpression expression;
-	        expression = xpath.compile(sp.getXPath());
+	        expression = xpath.compile("/"+sp.getXPath());
 	        NodeList resultNodes = (NodeList)expression.evaluate(e, XPathConstants.NODESET);
 	        if (resultNodes.getLength() > 0)
 	          sp.setWorks(true);

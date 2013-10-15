@@ -280,6 +280,7 @@ public class PageProcessor implements Logger  {
     String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(file)+"_Page";
     String workingTitle = null;
     int level = 0;
+    boolean even = false;
     
     while (src.contains("<%") || src.contains("[%"))
     {
@@ -323,11 +324,15 @@ public class PageProcessor implements Logger  {
         src = s1+onThisPage(s2.substring(com[0].length()+1))+s3;
       else if (com[0].equals("maponthispage"))
           src = s1+mapOnThisPage(null)+s3;
-      else if (com[0].equals("res-category"))
+      else if (com[0].equals("res-category")) {
+        even = false;
         src = s1+resCategory(s2.substring(com[0].length()+1))+s3;
-      else if (com[0].equals("res-item"))
-        src = s1+resItem(com[1])+s3;
-      else if (com[0].equals("sidebar"))
+      } else if (com[0].equals("res-item")) {
+        even = !even;
+        src = s1+resItem(com[1], even)+s3;
+      } else if (com[0].equals("resdesc")) {
+        src = s1+resDesc(com[1])+s3;
+      } else if (com[0].equals("sidebar"))
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("svg"))
         src = s1+svgs.get(com[1])+s3;
@@ -848,15 +853,25 @@ public class PageProcessor implements Logger  {
     return maps.getMappings();
   }
 
-  private String resItem(String name) throws Exception {
+  private String resItem(String name, boolean even) throws Exception {
+    String color = even ? "#EFEFEF" : "#FFFFFF";
     if (definitions.hasResource(name)) {
       ResourceDefn r = definitions.getResourceByName(name);
       return
-          "<tr><td><a href=\""+name.toLowerCase()+".htm\">"+name+"</a></td><td>"+aliases(r.getRoot().getAliases())+"</td><td>"+Utilities.escapeXml(r.getDefinition())+"</td></tr>\r\n";
+          "<tr bgcolor=\""+color+"\"><td><a href=\""+name.toLowerCase()+".htm\">"+name+"</a></td><td>"+aliases(r.getRoot().getAliases())+"</td><td>"+Utilities.escapeXml(r.getDefinition())+"</td></tr>\r\n";
 
     } else 
       return 
-          "<tr><td>"+name+"</td><td>(Not defined yet)</td><td></td><td></td></tr>\r\n";
+          "<tr bgcolor=\""+color+"\"><td>"+name+"</td><td>(Not defined yet)</td><td></td><td></td></tr>\r\n";
+
+  }
+
+  private String resDesc(String name) throws Exception {
+    if (definitions.hasResource(name)) {
+      ResourceDefn r = definitions.getResourceByName(name);
+      return Utilities.escapeXml(r.getDefinition());
+    } else 
+      return " ";
 
   }
 
@@ -1800,6 +1815,7 @@ public class PageProcessor implements Logger  {
 
   String processPageIncludesForPrinting(String file, String src) throws Exception {
     String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(file)+"_Page";
+    boolean even = false;
 
     while (src.contains("<%") || src.contains("[%"))
 	  {
@@ -1830,18 +1846,22 @@ public class PageProcessor implements Logger  {
         src = s1+resHeader(name, "Document", com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("codelist"))
         src = s1+codelist(name, com.length > 1 ? com[1] : null)+s3;
-      else if (com[0].equals("res-category"))
-          src = s1+resCategory(s2.substring(com[0].length()+1))+s3;
-        else if (com[0].equals("res-item"))
-          src = s1+resItem(com[1])+s3;
-        else if (com[0].equals("sidebar"))
-          src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
-        else if (com[0].equals("file"))
-          src = s1+TextFile.fileToString(folders.srcDir + com[1]+".htm")+s3;
-        else if (com[0].equals("setwiki")) {
-          wikilink = com[1];
-          src = s1+s3;
-        }
+      else if (com[0].equals("res-category")) {
+        src = s1+resCategory(s2.substring(com[0].length()+1))+s3;
+        even = false;
+      } else if (com[0].equals("res-item")) {
+        even = !even;
+        src = s1+resItem(com[1], even)+s3;
+      } else if (com[0].equals("resdesc")) {
+        src = s1+resDesc(com[1])+s3;
+      } else if (com[0].equals("sidebar"))
+        src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
+      else if (com[0].equals("file"))
+        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".htm")+s3;
+      else if (com[0].equals("setwiki")) {
+        wikilink = com[1];
+        src = s1+s3;
+      }
       else if (com[0].equals("dtmappings"))
         src = s1 + genDataTypeMappings(com[1]) + s3;
       else if (com.length != 1)
@@ -2054,7 +2074,8 @@ public class PageProcessor implements Logger  {
     String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(file)+"_Page";
     String workingTitle = null;
     int level = 0;
-    
+    boolean even = false;
+
     while (src.contains("<%") || src.contains("[%"))
 	  {
 		  int i1 = src.indexOf("<%");
@@ -2090,11 +2111,15 @@ public class PageProcessor implements Logger  {
           src = s1+s3;
       else if (com[0].equals("onthispage"))
           src = s1+s3;
-      else if (com[0].equals("res-category"))
+      else if (com[0].equals("res-category")) {
         src = s1+resCategory(s2.substring(com[0].length()+1))+s3;
-      else if (com[0].equals("res-item"))
-        src = s1+resItem(com[1])+s3;
-      else if (com[0].equals("sidebar"))
+        even = false;
+      } else if (com[0].equals("res-item")) {
+        even = !even;
+        src = s1+resItem(com[1], even)+s3;
+      } else if (com[0].equals("resdesc")) {
+        src = s1+resDesc(com[1])+s3;
+      } else if (com[0].equals("sidebar"))
         src = s1+s3;
       else if (com[0].equals("svg"))
         src = s1+svgs.get(com[1])+s3;

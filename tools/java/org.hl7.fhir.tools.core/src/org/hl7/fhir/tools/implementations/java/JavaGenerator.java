@@ -301,7 +301,7 @@ public boolean compile(String rootDir, List<String> errors) throws Exception {
     manifest.getMainAttributes().put(Attributes.Name.CLASS_PATH, ".");
     manifest.getMainAttributes().put(Attributes.Name.MAIN_CLASS, "org.hl7.fhir.instance.test.ToolsHelper");
     
-    JarOutputStream jar = new JarOutputStream(new FileOutputStream(rootDir+sc+"publish"+sc+"org.hl7.fhir.tools.jar"), manifest);
+    JarOutputStream jar = new JarOutputStream(new FileOutputStream(rootDir+sc+"publish"+sc+"org.hl7.fhir.validator.jar"), manifest);
     List<String> names = new ArrayList<String>();
     names.add("META-INF/");
     names.add("META-INF/MANIFEST.MF");
@@ -417,7 +417,7 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
     List<String> command = new ArrayList<String>();
     command.add("java");
     command.add("-jar");
-    command.add("org.hl7.fhir.tools.jar");
+    command.add("org.hl7.fhir.validator.jar");
     command.add("round");
     command.add(sourceFile);
     command.add(destFile);
@@ -454,7 +454,7 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
       List<String> command = new ArrayList<String>();
       command.add("java");
       command.add("-jar");
-      command.add("org.hl7.fhir.tools.jar");
+      command.add("org.hl7.fhir.validator.jar");
       command.add("json");
       command.add(sourceFile);
       command.add(destFile);
@@ -499,7 +499,7 @@ public String checkFragments(String rootDir, String fragments) throws Exception 
     List<String> command = new ArrayList<String>();
     command.add("java");
     command.add("-jar");
-    command.add("org.hl7.fhir.tools.jar");
+    command.add("org.hl7.fhir.validator.jar");
     command.add("fragments");
     command.add(file.getAbsolutePath());
     command.add(filed.getAbsolutePath());

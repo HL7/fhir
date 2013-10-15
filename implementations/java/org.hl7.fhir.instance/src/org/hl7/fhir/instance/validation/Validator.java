@@ -1,4 +1,4 @@
-package org.hl7.fhir.tools.validator;
+package org.hl7.fhir.instance.validation;
 /*
 Copyright (c) 2011-2013, HL7, Inc
 All rights reserved.
