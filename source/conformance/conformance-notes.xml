@@ -39,7 +39,7 @@ Notes:
 
 <a name="profiles"> </a>
 <h3>Supporting Profiles</h3>
-
+<a name="tags"> </a>
 <p>
 A conformance profile declares two different kinds of profiles that for the functionality it describes. 
 The first is at the path Conformance.rest.resource.profile - the resource profiles, and the other is 

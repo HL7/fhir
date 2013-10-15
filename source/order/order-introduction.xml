@@ -13,7 +13,7 @@ Note that there is a variety of processes associated with making and processing
 orders. Some orders may be handled immediately by automated systems but most require 
 real world actions by one or more humans. Some orders can only be processed when other real 
 world actions happen, such as a patient actually presenting themselves so that 
-the action to be performed. Often these real world dependencies are only 
+the action to be performed can actually be performed. Often these real world dependencies are only 
 implicit in the order details. 
 </p>
 
@@ -69,7 +69,7 @@ is sent back to the originating system, which also acknowledges receipt of these
 an acknowledgement message.
 </p>
 
-<h2>Using orders in a other contexts</h2>
+<h2>Using orders in other contexts</h2>
 
 <p>
 There are a wide variety of ways to implement Order/Order Response. The Order and Order Response 

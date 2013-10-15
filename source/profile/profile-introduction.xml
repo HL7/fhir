@@ -204,7 +204,7 @@ same path, each with a different name. All slices that are grouped together (no 
 in the elements between them) SHALL have the same discriminator element in the profile, and 
 each slice SHALL specify a distinct set of possible values for the element so that the different
 slice can be differentiated. The value of the discriminator is either a simple 
-name - the name of a child element, or an URI, which is identifies an extension that serves
+name - the name of a child element, or an URI, which identifies an extension that serves
 as the discriminator.
 </p>
 <p>
@@ -212,15 +212,10 @@ An additional reason to use slicing is when a single element has a choice of typ
 different types need different definitions, mappings, or constraints. 
 </p>
 
-<h3>Bundles</h3>
-<p>
-TODO: how are bundles managed in profiles? - This is a open question under investigation during the current connectathon parallel to the ballot.
-</p>
-
 <h2>Extension Definitions</h2>
 <p>
 A profile can also define extensions. Some profiles only define extensions, and others define 
-extensions as part of a defining one or more structures. For an extension definition, the 
+extensions as part of defining one or more structures. For an extension definition, the 
 profile defines the code that identifies the extension. The full URI that refers to the 
 extension when it is used in a resource is the identifier (from the metadata above) and 
 then # + the code. 
@@ -278,7 +273,7 @@ Bindings have two properties that define how the set of codes is used: <i>isExte
   <li><b>isExtensible</b><a name="extensibility"> </a>indicates whether additional codes are allowed beyond those in the defined set of codes.<br/>
     <table>
       <tr><td>false</td> <td>No additional codes are to be used beyond the list provided</td> </tr>
-      <tr><td>true</td>  <td>Supplemental codes or plain text may be needed (this is usually because it is reasonable to think that concepts will need to be used which won't be in the defined set of codes)</td></tr>
+      <tr><td>true</td>  <td>Supplemental codes or plain text may be needed (this is common because it is reasonable to think that concepts will need to be used which won't be in the defined set of codes)</td></tr>
     </table>
   </li>
   <li><b>Conformance</b><a name="conformance"> </a>indicates the expectations for implementers of the specification.  

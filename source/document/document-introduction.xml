@@ -22,7 +22,7 @@ and that has a <i>Document</i> resource (see below) as the first resource in the
 followed by a series of other resources referenced from the <i>Document</i> 
 resource that provides guidance on how they fit together. The bundle gathers all the content
 of the document into a single XML document which may be signed and managed as required. The resources
-include both human and computer readable portions.
+include both human readable and computer processable portions.
 </p>
 <p>
 The document resource identifies the document and its purpose, sets the context of the document and 

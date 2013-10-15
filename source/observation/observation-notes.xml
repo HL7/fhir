@@ -18,9 +18,9 @@
     Chest X-ray), this represent the start and end time of the observation process.
   </li>
   <li>
-    At its simplest, these resource instances can consist of only a type and a value.  
+    At its simplest, resource instances can consist of only a type and a value, with a reliability and status flag.  
     The relevance of other properties will vary based on the type of observation.  
-	Normal range may be useful for systolic blood pressure, but has little 
+	Normal range may be useful for lab tests and other measures like systolic blood pressure, but will have little 
 	relevance for something like "pregnancy status"
   </li>
   <li>

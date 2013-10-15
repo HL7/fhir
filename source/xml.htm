@@ -17,10 +17,10 @@
 <h2>XML</h2>
 
 <p>
-The XML syntax is closely based on XML notation:
+The XML syntax is closely based on the <a href="formats.htm">XML notation</a>:
 </p>
 <pre class="spec">
- &lt;<b>name</b> xmlns="http://hl7.org/fhir" (attrA="value")&gt; 
+ &lt;<b>name</b> xmlns="http://hl7.org/fhir" (attrA="value")&gt;   <span style="float: right"><a title="Documentation for this format" href="formats.htm"><img src="help.png" alt="doco"/></a></span>
    &lt;<u><b title="Formal Definition (must be supported or understood)">nameA</b></u>&gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="Darkgreen">type</font> <font color="Navy">description of content</font> <font color="Gray"> --&gt;</font>&lt;nameA&gt;
    &lt;<b title="Formal Definition">nameB[x]</b>&gt;<font color="Gray">&lt;!-- </font><font color="deeppink" title="Condition">0..1</font> <font color="darkgreen">type1</font>|<font color="darkgreen">type1</font> <font color="Navy">description</font> <font color="Gray"> --&gt;</font>&lt;/nameB&gt;
    &lt;<b>nameC</b>&gt; <font color="Brown"><font color="Gray">&lt;!-- </font> <b>1..*</b> --&gt;</font>
@@ -37,7 +37,7 @@ Notes:
  <li>Note that the only properties that are represented as attributes are those defined in underlying specifications such as <a href="#atom">Atom (see below)</a>, which is used as the XML representation for bundles</li>
  <li>Specifying the character encoding in the XML is optional but recommended.</li>
  <li>FHIR elements are always in the namespace <a href="http://hl7.org/fhir">http://hl7.org/fhir</a>.  This is usually specified as the default namespace on the root element. 
-   The only other namespaces that occur in FHIR resources are where some external content model is explicitly introduced into the resource content model. For example, XHTML is found in every resource - see below</li>
+   The only other namespaces that occur in FHIR resources are where some external content model is explicitly introduced into the resource content model. For example, <a href="narrative.htm">XHTML is found in every resource</a></li>
  <li>Any of the XML elements may have an id attribute to serve as <a href="references.htm#idref">the target of an internal reference</a>. The id attribute is not shown in this format</li>
  <li>FHIR elements are never empty. If an element is present in the resource, it SHALL have either a value attribute, child elements as defined for its type, an id attribute that is the <a href="references.htm#idref">link target</a> of <a href="narrative.htm#narrative">narrative</a>, or 1 or more <a href="extensibility.htm">extensions</a></li>
  <li>Attributes can never be empty. Either they are absent, or they are present with at least one character of non-whitespace content</li>
@@ -57,7 +57,7 @@ valid against this specification and the schema and Schematron).
 In XML <a href="extras.htm#bundle">bundles</a> are represented using an Atom format (<a href="http://tools.ietf.org/html/rfc4287" target="_blank">http://tools.ietf.org/html/rfc4287</a>), following this template:
 </p>
 <pre class="spec">
-&lt;feed xmlns="http://www.w3.org/2005/Atom">
+&lt;feed xmlns="http://www.w3.org/2005/Atom">  <span style="float: right"><a title="Documentation for this format" href="formats.htm"><img src="help.png" alt="doco"/></a></span>
   &lt;title&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.htm#string">string</a></span> <span style="color:navy;">Text statement of purpose</span><span style="color: Gray"> --&gt;</span>&lt;/title&gt;
   &lt;id&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.htm#uri">uri</a></span> <span style="color:navy;">Unique URI for this bundle</span><span style="color: Gray"> --&gt;</span>&lt;/id&gt;
   &lt;link rel="self" href="<span style="color:navy;">[building application url (Service base on REST)]</span>"/&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color: Gray"> --&gt;</span>
@@ -72,7 +72,7 @@ In XML <a href="extras.htm#bundle">bundles</a> are represented using an Atom for
       &lt;name&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.htm#string">string</a></span> <span style="color:navy;">Name of Human or Device that authored the resource</span><span style="color: Gray"> --&gt;</span>&lt;/name&gt;
       &lt;uri&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span> <span style="color:darkgreen;"><a href="datatypes.htm#uri">uri</a></span> <span style="color:navy;">Link to the resource for the author</span><span style="color: Gray"> --&gt;</span>&lt;/uri&gt;
   &lt;/author>
-  &lt;category term="<span style="color:navy;">[Tag URI]</span>" label="<span style="color:navy;">[Tag Label]</span>" scheme="[Tag Type]"/&gt; 
+ <a name="tags"> </a>&lt;category term="<span style="color:navy;">[Tag Term]</span>" label="<span style="color:navy;">[Tag Label]</span>" scheme="[Tag Scheme]"/&gt; 
   &lt;entry&gt;<span style="color:Gray;">&lt;!-- Zero+ --&gt;</span>
     &lt;title&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.htm#string">string</a></span> <span style="color:navy;">Text summary of resource content</span><span style="color: Gray"> --&gt;</span>&lt;/title&gt;
     &lt;id&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.htm#uri">uri</a></span> <span style="color:navy;">Logical Id (URI) for this resource</span><span style="color: Gray"> --&gt;</span>&lt;/id&gt;
@@ -128,7 +128,7 @@ When returning a set of resources or versions of a resource, an entry might indi
 in an atom feed as defined by <a href="http://www.rfc-editor.org/rfc/rfc6721.txt">rfc6721.txt</a>: 
 </p>
 <pre class="spec">
-&lt;feed xmlns="http://www.w3.org/2005/Atom">
+&lt;feed xmlns="http://www.w3.org/2005/Atom">  <span style="float: right"><a title="Documentation for this format" href="formats.htm"><img src="help.png" alt="doco"/></a></span>
   <span style="color:Gray;">... feed elements and other entries ...</span>
   &lt;at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0"
       ref="<span style="color:navy;">[Logical Id for deleted resource]</span>" when="<span style="color:navy;"><span style="color:darkgreen;"><a href="datatypes.htm#instant">instant</a></span> [when deleted]</span>"&gt;
@@ -141,7 +141,7 @@ A deleted resource returns a 410 error if it is accessed through the RESTful int
 </p>
 
 <a name="atom-impl"> </a>
-<h2>Implementation Notes</h2>
+<h3>Implementation Notes</h3>
 <a name="digsig"> </a>
 <ul>
 <li>Atom Feeds may be signed following the rules described in the Atom specification. One consequence of 
@@ -174,7 +174,7 @@ When a binary resource is represented as XML in an atom feed, it is represented 
 with a content-type, which is the mime-type as it would be specified in HTTP:
 </p>
 <pre class="spec">
- &lt;Binary xmlns="http://hl7.org/fhir" contentType="<span style="color:navy;">[mime type]</span>"&gt;
+ &lt;Binary xmlns="http://hl7.org/fhir" contentType="<span style="color:navy;">[mime type]</span>"&gt;  <span style="float: right"><a title="Documentation for this format" href="formats.htm"><img src="help.png" alt="doco"/></a></span>
    <span style="color:navy;">[Base64 Content]</span>
  &lt;/Binary&gt;
 </pre>
@@ -187,7 +187,7 @@ If there's a desire to capture metadata about a binary object, an appropriate re
 
 
 <a name="schema"> </a>
-<h2>XML Schema and Schematron</h2>
+<h3>XML Schema and Schematron</h3>
 <p>
 This specification provides schema definitions for all of the content models described here. 
 The base schema is called "<a href="fhir-base.xsd">fhir-base.xsd</a>" and defines all of the 

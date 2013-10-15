@@ -50,7 +50,7 @@ Basic definitions for this page:
 <a name="content"> </a>
 <h2>Contents of a Resource</h2>
 <p>
-All types of resources have the following aspects:
+All types of resources have the following optional or mandatory elements and properties:
 </p>
 <ul>
  <li>A base set of defined data elements specific to the type</li>
@@ -64,7 +64,7 @@ All types of resources have the following aspects:
 Every resource starts with a common set of elements (for documentation of this format, see <a href="formats.htm">Resource Definition Format</a>):
 </p>
 <pre class="spec">
-&lt;<a href="#content" title="A Resource Definition for FHIR" class="dict"><b>[Name]</b></a> xmlns="http://hl7.org/fhir"&gt;
+&lt;<a href="#content" title="A Resource Definition for FHIR" class="dict"><b>[Name]</b></a> xmlns="http://hl7.org/fhir"&gt;  <span style="float: right"><a title="Documentation for this format" href="formats.htm"><img src="help.png" alt="doco"/></a></span>
  &lt;<a href="extensibility.htm" title="See Extensions" class="dict"><b>extension</b></a>&gt;<font color="Gray">&lt;!-- <font color="brown"><b>0..*</b></font> </font> <font color="darkgreen"><a href="extensibility.htm">Extension</a></font>   <a href="extensibility.htm"><font color="navy">See Extensions</font></a> <font color="Gray"> --&gt;</font>&lt;/extension&gt;
  &lt;<a title="The base human language of the resource content. The value can be any valid value following BCP 47" class="dict" href="base-definitions.htm#Resource.language"><b>language</b></a> value="[<span style="color: darkgreen"><a href="datatypes.htm#code">code</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy">Human language of the content (BCP-47)</span><span style="color: Gray"> --&gt;</span>
  &lt;<a href="narrative.htm#Narrative" title="Text summary of resource content, for human interpretation" class="dict"><b>text</b></a>&gt;<font color="Gray">&lt;!--</font> <font color="brown"><b>1..1</b></font> <font color="darkgreen"><a href="narrative.htm#Narrative">Narrative</a></font> <font color="navy">Text summary of resource content, for human interpretation</font><font color="Gray"> --&gt;</font>&lt;/text&gt;

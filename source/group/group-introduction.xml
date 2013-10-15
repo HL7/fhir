@@ -8,6 +8,8 @@ There are 2 resources that provide for constructing collections of other resourc
  <li>This Group resource - defines a group of specific people, animals, devices, etc. by enumerating them, or by describing qualities that group members have. The group resource refers to other resources, possibly implicitly</li>
 </ul>
 
+<a name="use"> </a>
+<h3>Use Cases</h3>
 <p>The group resource is used in one of two ways:</p>
 <ol>
   <li>To define a group of specific people, animals, devices, etc. that is being tracked, examined or otherwise referenced as part of healthcare-related activities; and</li>

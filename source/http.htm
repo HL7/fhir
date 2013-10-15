@@ -436,13 +436,15 @@ The interaction is performed by an HTTP OPTIONS or a GET command as shown:
 <p>
 Applications SHALL return a <a href="conformance.htm">Conformance Resource</a> that specifies which resource types and interactions are supported
 for the GET command, and SHOULD do so for the OPTIONS command. If a 404 Unknown is returned from the GET, FHIR is not supported on the 
-nominated service url. The GET command is defined because not all client libraries are able to perform an OPTIONS command. Additional 
+nominated service url. The GET command is defined because not all client libraries are able to perform an OPTIONS command. 
+A Content-Location header should be returned with the conformance resource 
+Additional 
 parameters that are required to be returned with the OPTIONS command are defined in the <a href="#hdata">OMG hData RESTful Transport</a> 
-specification.
+specification. 
 </p>
 <p>
 In addition to this conformance operation, a server may also choose to provide the 
-standard set of interactions (read, search, create, update) defined here 
+standard set of interactions (read, search, create, update) defined on this page 
 for the <a href="conformance.htm">Conformance Resource</a> end-point. 
 This is different to the conformance operation:
 </p>
@@ -599,7 +601,7 @@ are not reflected in the history list.
 http header "Category" is used, following the method described for <a href="http://tools.ietf.org/html/draft-johnston-http-category-header-02">Web Categories</a>.
 </p>
 <pre>
-  Category: [Tag URI]; scheme="http://hl7.org/fhir/tag"; label="[Tag label]"(, ...)
+ <a name="tags"> </a> Category: [Tag Term]; scheme="[Tag Scheme]"; label="[Tag label]"(, ...)
 </pre>
 <p>
 The label portion is optional. Note that label may come before scheme. 
@@ -617,7 +619,7 @@ In the other interactions, the resources are wrapped in bundles, where tags are 
 and servers populate these completely or process these as part of a transaction submission.
 </p>
 <p>
-The following operations provide specific support for tags:
+The following operations provide specific support for tags: <a name="tag-ops"> </a>
 </p>
 <table class="grid">
  <tr><td><b>HTTP Command</b></td><td valign="center"><b>description</b></td></tr>
@@ -635,7 +637,7 @@ The tags of an old version can still be changed. Note that changing the tags on 
 is represented like this in XML and JSON:
 </p>
 <pre class="spec">
-&lt;taglist xmlns="http://hl7.org/fhir">
+&lt;taglist xmlns="http://hl7.org/fhir"> <span style="float: right"><a title="Documentation for this format" href="formats.htm"><img src="help.png" alt="doco"/></a></span>
     <span style="color:Gray;">&lt;!-- </span><span style="color:navy;">Tags in the list (<span style="color: brown;"><b>0..*</b></span>): </span> <span style="color: Gray"> --&gt; </span>
     &lt;category term="<span style="color:navy;">[Tag URI]</span>" label="<span style="color:navy;">[Tag Label]</span>" scheme="http://hl7.org/fhir/tag"&gt; 
 &lt;/taglist&gt;

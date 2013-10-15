@@ -27,7 +27,7 @@ The Diagnostic Report resources has the following aspects:
  <li>subject, diagnostic[x]: information about the subject of the report</li>
  <li>requestDetails.*: A set of request information to allow the report to connected to clinical work flows</li>
  <li>results.* &amp; specimen details: a heirachical tree of groups of results. The actual atomic result data are delegated to the <a href="observation.htm">common Observation
-    Resource</a> to make it easier to reuse them in a wider context</li>
+    resource</a> to make it easier to reuse them in a wider context</li>
  <li>conclusion, codedDiagnosic: support for structured reporting</li>
  <li>images, representation: image and media representations of the report and supporting images</li>
 </ul>

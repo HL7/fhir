@@ -52,7 +52,10 @@ establish a "derived from" relationship, where the derived content (whether text
 to the source content.  Note that this means some references may be forward references (references to 
 elements defined later in the instance).
 </p>
-
+<p>
+Note that internal references work exactly the same in way in JSON, based on the JSON property _id which is equivalent 
+to the XML attribute "id".
+</p>
 
 <a name="ResourceReference"> </a>
 <a name="Resource"> </a>
@@ -157,7 +160,15 @@ with it, the resource could never be the subject of a transaction outside the co
 refers to it.
 </p>
 <p>
-In these circumstances, the resource is placed directly in line in the reference. <b>This should never be 
+For example, consider a situation where an interface engine is creating a <a href="condition.htm">Condition</a>
+record on a patient from an HL7 v2 message, and the only information about the primary surgeon is her 
+first name and lastname (REL-7.2 &amp; RES-7.3). In the absence of a controlled practitioner directory, 
+this is not enough information to create an identified <a href="practitioner.htm">Practitioner</a> 
+resource - more than one practitioner might have the same name. 
+name. 
+</p>
+<p>
+In these circumstances, the resource is placed directly in line in the resource. <b>This SHOULD NOT be 
 done when the content can be identified properly, as once identification is lost, it is extremely difficult 
 (and context dependent) to restore it again.</b>
 </p>
@@ -207,24 +218,33 @@ The same example in JSON:
 </pre>
 </div>
 
+<div class="design-note">
 <p>
-The reference is always required, even though somewhat redundant in this case, to ensure that a
-single approach to resolving resource references can be used - simply by resolving the reference, and accessing
-accordingly.
+Design Note: Contained resources are still a reference rather than being inlined directly 
+into the element that is the reference (e.g. "custodian" above) to ensure that a
+single approach to resolving resource references can be used. Though direct containment
+would seem simpler, it would still be necessary to support internal references where the 
+same contained resource is referenced more than once. In the end, all that it would achieve
+is creating additional options in the syntax. For users using XPath to process the resource,
+the following XPath fragment resolves the internal reference: 
 </p>
+<pre>
+ancestor::f:*[not(parent::f:*)]/f:contained/*[@id=substring-after(<b>current()</b>/f:reference/@value, '#')]
+</pre>
+</div>
 <p>
 Some notes about use and interpretation of contained resources:
 </p>
 
 <ul>
   <li>Contained resources share the same internal id resolution space as the parent resource</li>
-  <li>Contained resources do not contain additional contained resources</li>
+  <li>Contained resources SHALL NOT not contain additional contained resources</li>
+  <li>Contained resources SHOULD not contain any narrative</li>
   <li>Resources that are contained inline also "inherit" context from their parent resource. For instance, if 
     the parent resource contains a "subject", and the contained resource also has a subject element defined, 
     but does not specify any subject, a processing application may infer that the subject is the same. Note,
     however, that such inferences are specific to a particular circumstance. There is no rule, for instance, 
 	that the meaning of the "subject" element is the same in both parent and contained resources</li>
-  <li>Contained resources do not need to contain any narrative</li>
 </ul>
 
 <a name="atom-refs"> </a>
@@ -278,6 +298,7 @@ the <i>id</i> element contains a direct reference to the location of the resourc
 </div>
 
 <p>
+
 If there is no resource in the atom feed with an appropriate URL, then 
 the application may try accessing the provided URL directly or use some 
 other implementation-specific method for resolving how to find the resource.

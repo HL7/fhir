@@ -112,13 +112,13 @@ of parameter.
 <p>Parameters are defined per resource, and their names may additionally specify a modifier as a suffix, 
 separated from the parameter name by a dot. Modifiers are:</p>
 <ul>
-<li>For all parameters (<i>except combination</i>): "missing". E.g. gender:missing=true (or false). 
+<li>For all parameters (<i>except combination</i>): ":missing". E.g. gender:missing=true (or false). 
   Searching for "gender:missing=true" will return all the resources that don't have any value for the gender parameter (which usually 
   equates to not having the relevant element in the resource). Searching for "gender:missing=false"
   will return all the resources that have a value for the "gender" parameter. </li>
 <li>For dates: ":before" and ":after". E.g. birthdate:before=1972-11-30. See below for how date searches are interpreted.</li>
 <li>For string: ":exact" (the match needs to be exact, no partial matches, case sensitive and accent-sensitive) and  ":partial" (the search may function on partial matches). It is at the discretion of the server whether to do a left-partial search</li>
-<li>For token: ":text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), ":code" (a match on code and system of the coding/codeable concept), and :anyns matches all codes irrespective of the namespace.</li>
+<li>For token: ":text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), ":code" (a match on code and system of the coding/codeable concept), and ":anyns" matches all codes irrespective of the namespace.</li>
 </ul>
 
 <h4>text</h4>
@@ -163,7 +163,7 @@ modifier, the search will work as follows:
  <li><b>name=/code</b> matches a code that has no specified namespace</li>
 </ul>
 <p>In the url of the code system, the “#” (fragment identifier) must be escaped, and in some implementations, the ":" does too.
-The modifier :anyns means that the code matches all codes irrespective of the namespace.</p>
+The modifier ":anyns" means that the code matches all codes irrespective of the namespace.</p>
 <p>
 Here are some example searches:
 </p>
@@ -190,9 +190,9 @@ ensuring consistent behavior.
      <li>Some user agents may escape the ":" characters in the URL, and servers SHALL handle this correctly</li>
    </ul>
  </li>
- <li>Date parameters have the :before and :after modifiers. [date]=[value] searches for resources where the date is within
-   the given date value. [date]:after=[value] searches for all resources where the specified date is after [value]. 
-   [date]:before=[value] searches for all resources where the specified date is before [value]. </li>
+ <li>Date parameters have the ":before" and ":after" modifiers. [date]=[value] searches for resources where the date is within
+   the given date value. "[date]:after=[value]" searches for all resources where the specified date is after [value]. 
+   "[date]:before=[value]" searches for all resources where the specified date is before [value]. </li>
  <li>The element the search refers to may be a date, a dateTime, a Period, or a Schedule. All of these time related 
    types actually specify an interval of time, as does the search parameter itself.
   <ul>
@@ -204,9 +204,9 @@ ensuring consistent behavior.
  <li>Date parameter searches are always matched based on the behavior of intervals, as follows:
    <ul>
      <li>For [date]=[value], the requirement is that the search interval fully contains the time of the target. i.e. 2013-01-14 includes 2013-01-14T00:00 (obviously) and also 2013-01-14T10:00 but not 2013-01-15T00:00</li>
-	 <li>For [date]:before=[value], the requirement is that the interval of the time before [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
+	 <li>For "[date]:before=[value]", the requirement is that the interval of the time before [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
 	    For instance, the resource time 2013-01-14 is included in the set of values that come before 2013-01-14T10:00, because it includes the part of 14-Jan 2013 before 10am </li>
-	 <li>For [date]:after=[value], the requirement is that the interval of the time after [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
+	 <li>For "[date]:after=[value]", the requirement is that the interval of the time after [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
 	    For instance, the resource time 2013-01-14 is included in the set of values that come after 2013-01-14T10:00, because it includes the part of 14-Jan 2013 after 10am </li>
    </ul>
    If the bounds of the interval are not known (i.e. a range with no start, or a schedule like "every two days" with neither start or end), 
@@ -282,12 +282,13 @@ Implementers defining their own names need to be sure that they do not create
 unprocessable combinations. 
 </p>
 
+<a name="combining" />
 <h3>Combining Search Parameters</h3>
 <p>
 The result of the search operation is the intersection of the resources that match the criteria specified by each 
 individual search parameter. If a parameter repeats, such as /patient?language=FR&amp;language=NL, then 
 this matches a patient who speaks both languages. If, instead, the search is to find patients that speak either 
-language, then this is a single parameter with multiple values, separated by a ',':  /patient?language=FR,NL. 
+language, then this is a single parameter with multiple values, separated by a ',': "/patient?language=FR,NL". 
 </p>
 <p>
 This allows for simple combinations of and/or values, but doesn't allow a search based on 
@@ -307,43 +308,38 @@ multiple matching state-on-date parameters can be specified as
 state-on-date=new$2013-05-04,active$2013-05-05.
 </p>
 
-<h3>Selecting resources by Tag</h3>
+<a name="tag" />
+<a name="tags" />
+<a name="profile" />
+<h3>Selecting resources by Tag/profile</h3>
 
 <p>
-Resources may have <a href="extras.htm#tag">tags</a> affixed to them. the _tag resource searches for a resource by URI.
-For example:
+Resources may have <a href="extras.htm#tag">tags</a> affixed to them, either general tags or profile tags. 
+The _tag parameter searches for any tagged resource by the term (URI) of the tag. For example:
 </p>
 <pre>
  condition/search?_tag=http://acme.org/fhir/tags/needs-review
 </pre>
 <p>
-This searches for all Condition resources with the tag "http://acme.org/fhir/tags/needs-review". 
-The _tag search parameter may have the modifiers :partial and :text, which mean 
-to only match on the left side of the target tags, or to search the label part of the tag respectively.
-Searching by tag only includes tags with a scheme of "http://hl7.org/fhir/tag".
+This searches for all Condition resources tagged with "http://acme.org/fhir/tags/needs-review". 
+The _tag search parameter may have the modifiers ":partial" and ":text", which mean 
+to only match on the left side of the target tag term, or to search the label part of the tag respectively.
+Searching by tag only includes tags with the general tag scheme of "http://hl7.org/fhir/tag".
 </p>
-
-<a name="profile"> </a>
-<h3>Selecting resources by Profile</h3>
-
 <p>
-To restrict the search to only resource that meet a particular profile, use the _profile tag.
-For example:
+To restrict the search to only resource that are tagged that they conform to a particular profile:
 </p>
 <pre>
- diagnosticreport/search?_profile=http://hl7.org/fhir/profile/lipid
- diagnosticreport/search?_profile=profile/lipid
+ diagnosticreport/search?_tag=http://hl7.org/fhir/profile/lipid
+ diagnosticreport/search?_tag=http://localhost/profile/lipid
 </pre>
 <p>
 This searches for all Diagnostic Report resources that conform to the profile found at the given location. 
-Either relative or absolute references are allowed. Note that determining which resources conform to a 
-given profile can be done by only considering the <a href="extras.htm#tags">profile tags</a> on a resource
-or by actually determining conformance to the profile.
+The reference to localhost refers to a local profile with the given logical id ("lipid") in this case.
 </p>
 <p>
-Note that determining conformance is a computationally intensive operation, and servers have no 
-obligation to perform this during the resolution of the search operation. For this reason, clients
-should not assume that servers can filter based on conformance to any profile. 
+Note that a recipient of a resource is free to determine which profiles a resource conforms to,
+and add additional profile tags as appropriate so that resources can be found by this operation.
 </p>
 
 
@@ -357,7 +353,7 @@ may generate some kind of ranking score to indicate which resources meet
 the specified criteria better than others. The server can return this 
 score using the OpenSearch Relevence extension:
 </p>
-<pre class="spec">
+<pre class="spec">  <span style="float: right"><a title="Documentation for this format" href="formats.htm"><img src="help.png" alt="doco"/></a></span>
   &lt;entry&gt;<span style="color:Gray;">&lt;!-- Zero+ --&gt;</span>
     &lt;os:score xmlns:os="http://a9.com/-/opensearch/extensions/relevance/1.0/"&gt;[score]&lt;/os:score&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>0..1</b></span><span style="color: Gray"> --&gt;</span>
     &lt;content type="text/xml"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span><span style="color: Gray"> --&gt;</span>
@@ -376,8 +372,8 @@ The _sort parameter can repeat to indicate sort order, with the repeats indicati
 a lower sort priority sequentially.
 </p>
 <p>
-The _sort parameter takes one of two qualifiers, :asc and :desc, which specify 
-ascending and descending sort order respectively. The default value is :asc. 
+The _sort parameter takes one of two qualifiers, ":asc" and ":desc", which specify 
+ascending and descending sort order respectively. The default value is ":asc". 
 </p>
 <p>
 Notes:
@@ -385,7 +381,7 @@ Notes:
 <ul>
  <li>When sorting, the actual sort value used is not returned explicitly 
 by the server for each resource, just the resource contents</li>
- <li>To sort by relevance, use _sort:asc=_score</li>
+ <li>To sort by relevance, use "_sort:asc=_score"</li>
  <li>The server returns the sort it performs as part of the returned search parameters (see <a href="#conformance">below</a>)</li>
  <li>A search parameter can refer to an element that repeat, and therefore
 there can be multiple values for a given search parameter for a single

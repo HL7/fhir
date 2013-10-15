@@ -15,22 +15,29 @@
 <%txheader systems%>
 
 <h2>Named Systems List</h2>
+<p>
+The URIs defined on this page are available as a value set (<a href="valueset-systems.xml.htm">XML</a> or <a href="valueset-systems.json.htm">JSON</a>).
+</p>
+
+<h3>Known Code Systems</h3>
 
 <p>
-The following names (URIs) may be used in the <i>system</i> element of the <a href="datatypes.htm#Identifier">Identifier</a>
-<a href="datatypes.htm#Coding">Coding</a> or <a href="datatypes.htm#CodeableConcept">CodeableConcept</a> data types.
-If a URI is defined here, it SHALL be used in preference to any other identifying mechanisms such as OIDs found in the
-HL7 OID registry or elsewhere. Other URIs may be used for concepts not listed in this table.
+The following names (URIs) may be used in the <i>system</i> element of the <a href="datatypes.htm#Coding">Coding</a> data type.
+If a URI is defined here, it SHALL be used in preference to any other identifying mechanisms. If a code system is not listed
+here, the correct URI may be determined by working through the following list, in order:
 </p>
+<ul>
+ <li>the HL7 OID Registry</li>
+ <li>the documentation associated with the code system</li>
+ <li>consulting the owner of the code system</li>
+ <li>asking on the HL7 vocabulary mailing list</li>
+</ul>
+
 <table class="grid">
  <tr>
    <th width="150">URI</th>
    <th>Source</th>
    <th>Comment</th>
- </tr>
-
- <tr style="background-color: #EEEEEE">
-   <td colspan="3">Code Systems</td>
  </tr>
 
  <tr>
@@ -94,22 +101,98 @@ HL7 OID registry or elsewhere. Other URIs may be used for concepts not listed in
    the meanings of codes defined in DICOM, either explicitly or by reference to another part of DICOM or an external reference document or standard</td>
    <td><br/>v2/Dicom code="DCM". OID=1.2.840.10008.2.16.4</td>
  </tr> 
+</table>
  
- <tr style="background-color: #EEEEEE">
-   <td colspan="3">Identifier Systems</td><a name="identifiersystems"></a>
+<h3>Known Identifier Systems</h3>
+
+<p>
+The following names (URIs) may be used in the <i>system</i> element of the <a href="datatypes.htm#Identifier">Identifier</a> data type.
+If a URI is defined here, it SHALL be used in preference to any other identifying mechanisms. If an identifier system is not listed
+here, the correct URI may be determined by working through the following list, in order:
+</p>
+<ul>
+ <li>the HL7 OID Registry</li>
+ <li>the documentation associated with the identifier</li>
+ <li>consulting the owner of the identfier</li>
+ <li>asking on the HL7 vocabulary mailing list</li>
+</ul>
+
+<table class="grid">
+ <tr>
+   <th>identifier</th>
+   <th width="150">URI</th>
+   <th>Comment</th>
  </tr>
 
  <tr>
+   <td>URIs (<a href="http://www.w3.org">W3C</a>): when the identifier is a URI</td>
    <td>urn:ietf:rfc:3986</td>
-   <td>URIs (<a href="http://www.w3.org">W3C</a>)</td>
    <td>As defined by <a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986</a> (with many schemes defined in many RFCs). 
    OIDs and UUIDs are represented in their URN form (<a href="http://www.ietf.org/rfc/rfc3001.txt">urn:oid:</a> and <a href="http://www.ietf.org/rfc/rfc4122.txt">urn:uuid:</a> 
    - plain <a href="http://tools.ietf.org/id/draft-larmouth-oid-iri-04.txt">oid:</a> and uuid: are not used). Note that UUIDs are always lowercase in a IRI<br/>No OID</td>
  </tr>
  <tr>
+   <td>SSN (<a href="http://www.ssa.gov/ssnumber/">US Government</a>)</td>
    <td>http://hl7.org/fhir/sid/us-ssn</td>
-   <td>SSN (<a href="http://www.w3.org">W3C</a>)</td>
-   <td>SSN for USA. Represented with dashes removed<br/>OID=2.16.840.1.113883.4.1</td>
+   <td>US SSN. Represented with dashes removed<br/>OID=2.16.840.1.113883.4.1</td>
+ </tr>
+ <tr>
+   <td>Driver's License</td>
+   <td>
+<b>USA</b><br/>   
+AK: urn:oid:2.16.840.1.113883.4.3.2	<!-- Alaska --> <br/>
+AL: urn:oid:2.16.840.1.113883.4.3.1	<!-- Alabama --> <br/>
+AR: urn:oid:2.16.840.1.113883.4.3.5	<!-- Arkansas --> <br/>
+AZ: urn:oid:2.16.840.1.113883.4.3.4	<!-- Arizona --> <br/>
+CA: urn:oid:2.16.840.1.113883.4.3.6	<!-- California --> <br/>
+CO: urn:oid:2.16.840.1.113883.4.3.8	<!-- Colorado --> <br/>
+CT: urn:oid:2.16.840.1.113883.4.3.9	<!-- Connecticut --> <br/>
+DC: urn:oid:2.16.840.1.113883.4.3.11	<!-- DC --> <br/>
+DE: urn:oid:2.16.840.1.113883.4.3.10	<!-- Delaware --> <br/>
+FL: urn:oid:2.16.840.1.113883.4.3.12	<!-- Florida --> <br/>
+GA: urn:oid:2.16.840.1.113883.4.3.13	<!-- Georgia --> <br/>
+HI: urn:oid:2.16.840.1.113883.4.3.15	<!-- Hawaii --> <br/>
+IA: urn:oid:2.16.840.1.113883.4.3.19	<!-- Iowa --> <br/>
+ID: urn:oid:2.16.840.1.113883.4.3.16	<!-- Idaho --> <br/>
+IL: urn:oid:2.16.840.1.113883.4.3.17	<!-- Illinois --> <br/>
+KS: urn:oid:2.16.840.1.113883.4.3.20	<!-- Kansas --> <br/>
+KY: urn:oid:2.16.840.1.113883.4.3.21	<!-- Kentucky --> <br/>
+LA: urn:oid:2.16.840.1.113883.4.3.22	<!-- Louisiana --> <br/>
+MA: urn:oid:2.16.840.1.113883.4.3.25	<!-- Massachusetts --> <br/>
+MD: urn:oid:2.16.840.1.113883.4.3.24	<!-- Maryland --> <br/>
+ME: urn:oid:2.16.840.1.113883.4.3.23	<!-- Maine --> <br/>
+MI: urn:oid:2.16.840.1.113883.4.3.26	<!-- Michigan --> <br/>
+MN: urn:oid:2.16.840.1.113883.4.3.27	<!-- Minnesota --> <br/>
+MO: urn:oid:2.16.840.1.113883.4.3.29	<!-- Missouri --> <br/>
+MS: urn:oid:2.16.840.1.113883.4.3.28	<!-- Mississippi --> <br/>
+MT: urn:oid:2.16.840.1.113883.4.3.30	<!-- Montana --> <br/>
+MY: urn:oid:2.16.840.1.113883.4.3.36	<!-- NewYork --> <br/>
+NC: urn:oid:2.16.840.1.113883.4.3.37	<!-- NorthCarolina --> <br/>
+ND: urn:oid:2.16.840.1.113883.4.3.38	<!-- NorthDakota --> <br/>
+NE: urn:oid:2.16.840.1.113883.4.3.31	<!-- Nebraska --> <br/>
+NH: urn:oid:2.16.840.1.113883.4.3.33	<!-- NewHampshire --> <br/>
+NJ: urn:oid:2.16.840.1.113883.4.3.34	<!-- NewJersey --> <br/>
+NM: urn:oid:2.16.840.1.113883.4.3.35	<!-- NewMexico --> <br/>
+NV: urn:oid:2.16.840.1.113883.4.3.32	<!-- Nevada --> <br/>
+OH: urn:oid:2.16.840.1.113883.4.3.39	<!-- Ohio --> <br/>
+OK: urn:oid:2.16.840.1.113883.4.3.40	<!-- Oklahoma --> <br/>
+OR: urn:oid:2.16.840.1.113883.4.3.41	<!-- Oregon --> <br/>
+PA: urn:oid:2.16.840.1.113883.4.3.42	<!-- Pennsylvania --> <br/>
+RI: urn:oid:2.16.840.1.113883.4.3.44	<!-- RhodeIsland --> <br/>
+SC: urn:oid:2.16.840.1.113883.4.3.45	<!-- SouthCarolina --> <br/>
+SD: urn:oid:2.16.840.1.113883.4.3.46	<!-- SouthDakota --> <br/>
+TN: urn:oid:2.16.840.1.113883.4.3.47	<!-- Tennessee --> <br/>
+TX: urn:oid:2.16.840.1.113883.4.3.48	<!-- Texas --> <br/>
+UT: urn:oid:2.16.840.1.113883.4.3.49	<!-- Utah --> <br/>
+VA: urn:oid:2.16.840.1.113883.4.3.51	<!-- Virginia --> <br/>
+VT: urn:oid:2.16.840.1.113883.4.3.50	<!-- Vermont --> <br/>
+WA: urn:oid:2.16.840.1.113883.4.3.53	<!-- Washington --> <br/>
+WI: urn:oid:2.16.840.1.113883.4.3.55	<!-- Wisconsin --> <br/>
+WV: urn:oid:2.16.840.1.113883.4.3.54	<!-- WestVirginia --> <br/>
+WY: urn:oid:2.16.840.1.113883.4.3.56	<!-- Wyoming --> <br/>
+   
+   </td>
+   <td>Driver's licenses are often recorded without recording which authority issued the license. In these cases, use the general identifier http://hl7.org/fhir/drivers-license</td>
  </tr>
  
 </table>

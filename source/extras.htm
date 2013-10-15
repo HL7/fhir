@@ -18,13 +18,12 @@
 <a name="tags"> </a>
 <h3>Tags</h3>
 <p>
-In addition to the basic contents of resources and their metadata, each resource can be labeled
+In addition to the basic contents of resources and their metadata, each resource can be labelled
 with one or more "Tags". These tags can be used to associate additional operational information 
 with the Resources, including <!-- defining security labels used to support access control policies, -->
-identifying bundles, workflow
-management and associating resources with profiles. Tags are attached to resources 
-and exchanged with the resource. Tags are never used to keep information that needs to be 
-understood when interpreting the content of a resource; their function is limited to finding 
+identifying bundles, workflow management and claiming that resources with <a href="profile.htm">profiles</a>. 
+Tags are attached to resources and exchanged with the resource. Tags are never used to keep information 
+that needs to be understood when interpreting the content of a resource; their function is limited to finding 
 and controlling access to the resource, and connecting resources to technical or clinical workflow.
 </p>
 <p>
@@ -32,23 +31,23 @@ Each tag has three properties:
 </p>
 <table class="grid">
  http://hl7.org/fhir/tag
- <tr><td>Type : uri</td><td>A uri that identifies the type of the tag</td></tr>
- <tr><td>URI : uri</td><td>An absolute URI which is a term that defines the meaning of the tag</td></tr>
+ <tr><td>Scheme : uri</td><td>A uri that identifies the type of the tag</td></tr>
+ <tr><td>Term : uri</td><td>An absolute URI which defines the meaning of the tag</td></tr>
  <tr><td>Label : string</td><td>(Optional) A human-readable label for the tag for use when displaying in end-user applications</td></tr>
 </table>
 <p>
-The following types of tags are defined:
+The following tag schemes are defined:
 </p>
 <table class="grid">
- <tr><td>http://hl7.org/fhir/tag</td><td>A standard tag</td></tr>
- <tr><td>http://hl7.org/fhir/profile</td><td>A profile tag</td></tr>
+ <tr><td>http://hl7.org/fhir/tag</td><td>A general tag</td></tr>
+ <tr><td>http://hl7.org/fhir/tag/profile</td><td>A profile tag - a claim that the Resource conforms to the profile identified in the term</td></tr>
 </table>
 
-<h4>Standard Tags</h4>
+<h4>General Tags</h4>
 <p>
-The URI may be a reference to a healthcare vocabulary, including ones defined in this specification,
+In a general tag, the term may be a reference to a healthcare vocabulary, including ones defined in this specification,
 such as the basic <a href="security.htm#labels">security label set</a>, or vocabularies such as 
-those defined by HL7 (v2 and v3/CDA), LOINC, or SNOMED CT. Alternatively, the URI may be one
+those defined by HL7 (v2 and v3/CDA), LOINC, or SNOMED CT. Alternatively, the term may be one
 defined by the implementation in the local context. Literal references that refer directly 
 to a description of the tag (typically just an HTML page) are preferred over symbolic references 
 but this is not required.
@@ -56,7 +55,7 @@ but this is not required.
 <p>
 If the end user application provides functionality to the user that allows the user to 
 affix arbitrary text tags to the resource for their own purpose, the application can 
-automatically construct a URI by appending the mime encoding of the Label to the base
+automatically construct a term by appending the mime encoding of the Label to the base
 URL "http://hl7.org/fhir/tag/text/". When applications processing resources see this
 base URL, they can automatically know that this is a pure text label with no formal
 meaning.
@@ -66,6 +65,7 @@ meaning.
 This table summarises the tags that are defined as part of this specification:
 </p>
 <table class="gric">
+ <tr> <td><b>Term</b></td> <td><b>Context</b></td> <td><b>Description</b></td></tr>
  <tr> <td>http://hl7.org/fhir/tag/document</td> <td>A bundle (feed.category)</td> <td>Identifies that this bundle represents <a href="document.htm">a document</a></td></tr>
  <tr> <td>http://hl7.org/fhir/tag/message</td> <td>A bundle (feed.category)</td> <td>Identifies that this bundle represents <a href="message.htm">a message</a></td></tr>
  <tr> <td></td> <td></td></tr>
@@ -75,8 +75,8 @@ This table summarises the tags that are defined as part of this specification:
 <p>
 A profile tag is an assertion that the resource conforms to a particular 
 <a href="profile.htm">Profile</a>, which are sets of rules about what 
-content is allowed to be in a resource. In a profile tag, the URI 
-is a URL that identifies a profile resource.
+content is allowed to be in a resource. In a profile tag, the term
+is a URL that references a profile resource.
 </p>
 <p>
 It's always possible to determine whether a resource conforms to a 
@@ -91,7 +91,7 @@ a resource conforms to a particular profile as needed is impractical:
 </ul>
 <p>
 In addition, a validation application (see <a href="http.htm#validation">RESTful validation</a>) needs
-a way for the client to inform it if it wants the resource tested against as a particular profile. 
+a way for the client to inform it that it wants the resource tested against as a particular profile. 
 </p>
 <p>
 Profile Tags serve these use cases - a client/creator of a resource can tag the 
@@ -105,9 +105,21 @@ a profile without ever being labelled that it does, or a resource may falsely cl
 to a profile. For this reason, applications resources SHOULD always 
 depend on the contents of the resource when processing them, and/or check resources
 against profiles directly rather than relying on profile tags.
-Profile Tags are provided as computational short cuts, not statements of meaning
-about the resource.
+Profile Tags are provided as a method of find resources that conform to 
+a particular profile, not statements of meaning about the resource.
 </p>
+<p>
+References to tags in other parts of the specification:
+</p>
+<ul>
+ <li>Bundle Representation in <a href="xml.htm#tags">XML</a> and <a href="json.htm#tags">JSON</a></li>
+ <li>Use on <a href="http.htm#tags">HTTP interface</a>, and <a href="http.htm#tag-ops">tag operations</a>, and the <a href="http.htm#validation">Validation operation</a> </li>
+ <li><a href="query.htm#tags">Finding Resources by tag</a></li>
+ <li>Declaration of Profiles in <a href="conformance.htm#tags">Conformance Statements</a></li>
+</ul>
+
+
+
 
 <a name="compartments"> </a>
 <a name="compartment"> </a>

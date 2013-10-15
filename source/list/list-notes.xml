@@ -10,7 +10,7 @@ There are several different kinds of use for a List resource:
 <%codelist ListMode%>
 
 <p>
-The final mode - a change list, may include deleted items. A typical case is a medication
+The final mode - a changes list, may include deleted items. A typical case is a medication
 list in a discharge summary, where the list includes items that have been both added and deleted.
 In order to ensure that the list is safe to process, any item where the flag implies that the 
 item has actually been deleted SHALL have the deleted element set to true. 
@@ -41,7 +41,7 @@ An HTML table is the recommended approach, though this is not required.
 There should be a representation in the narrative for each item in the 
 list, and vice versa, along with clear use of visual hints (borders, 
 lines, bullet marks, etc.) to ensure that human readers do not get 
-confused about which flags belongs with which item on space-poor displays.
+confused about which flags belongs with which item on space-poor displays (e.g. to prevent wrapping from separating the flags from the items).
 </p>
 
 <p>
