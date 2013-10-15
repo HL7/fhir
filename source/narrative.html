@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+      
+[%settitle Narrative%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+
+
+<a name="root"> </a>
+<a name="Narrative"> </a>
+<a name="narrative"> </a>
+<a name="xhtml"> </a>
+<h2>Narrative</h2>
+<p>
+Each resource may include a human-readable narrative that contains a summary of the resource, 
+and may be used to represent the content of the resource to a human. 
+If narrative is present, it SHALL reflect all content needed for a human to understand the 
+essential clinical and business information otherwise encoded within the resource. 
+Resource definitions may define what content should be represented in the narrative to ensure clinical safety.
+</p>
+<p>
+The narrative for a resource is allowed to contain additional information that is not in 
+the structured data, including human-edited content. Such additional information SHALL be 
+in the scope of the definition of the resource, though it is common for the narrative to
+include additional descriptional information extracted from other referenced resources.
+</p>
+<p>
+While resources SHOULD always contain narrative, so that to support human-consumption
+as a fallback, in a strictly managed trading systems where all systems share a common 
+data model, and additional text is unnecessary or even a clinical safety risk, the 
+narrative may be omitted. However implementers should consider carefully before 
+doing this, as it will mean that these resources can only be understood in the 
+limited trading environment, and closed trading partner environments are very likely 
+to open up during the lifetime of the resources they define.
+</p>
+<p>
+Note that <a href="references.html#contained">Contained</a> Resources SHALL NOT have a narrative 
+of their own.
+</p>
+<p>
+The narrative is an xhtml fragment that also includes images if appropriate:
+</p>
+[%dt Narrative%]
+<p>
+The contents of the <i>div</i> element are an XHTML fragment containing only the basic html formatting elements described in 
+chapters 7-11 (except section 4 of chapter 9) and 15 of the HTML 4.0 standard, &lt;a&gt; elements (either name or href),
+images and internally contained style attributes. The XHTML content SHALL not contain
+a head, a body element, external stylesheet references, scripts, forms, base/link/xlink, frames, iframes,
+and objects. The div element SHALL have some non-whitespace content.
+<!-- Todo: Formally encode these constraints in schematron -->
+</p>
+<div class="example">
+<pre class="xml" fragment="Narrative">
+  &lt;narrative&gt;
+    &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;This is a simple 
+          example with only plain text&lt;/div&gt;
+  &lt;/narrative&gt;
+   
+   &lt;narrative&gt;
+   &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;
+     &lt;p&gt;
+       This is an &lt;i&gt;example&lt;/i&gt; with some &lt;b&gt;xhtml&lt;/b&gt; formatting.
+     &lt;/p&gt;
+   &lt;/div&gt;
+  &lt;/narrative&gt;
+</pre>
+</div>
+<p>
+The inner portion of the div content is often used for the innerHTML property in a browser.
+In order to simplify processing, the narrative SHALL be encoded so that the character content
+between the first "&gt;" and the last "&lt;" characters is the content of the &lt;div&gt; element.
+</p>
+<p>
+Note that the XHTML is contained in general XML, and so there is no support for HTML entities
+like &amp;nbsp; or &amp;copy; etc. Unicode characters should be used instead. Note that 
+&amp;#160; substitutes for &amp;nbsp;. 
+</p>
+<p>
+The narrative content should be in the <a href="base-definitions.html#Resource.language">language of the resource</a>, but 
+there is no reason to expect that HTML type tooling would understand the resource <a href="resources.html#content">language</a> element. For this reason, 
+a lang attribute on the &lt;div&gt; should also be used (and see 
+<a href="http://www.w3.org/html/wg/drafts/html/master/dom.html#the-lang-and-xml:lang-attributes">the note in the HTML 5 specification about use of language</a>).
+</p>
+
+<p>
+The image source references may be a local reference within the resource:
+</p>
+<pre class="xml">
+  &lt;img src="#a5"/&gt;
+</pre>
+<p>
+This is an <a href="references.html#idref">internal reference</a> to an id attribute on an element in the same resource, 
+either an element of type "<a href="datatypes.html#Attachment">Attachment</a>", or a contained <a href="http.html#binary">Binary</a> resource.
+</p>
+<div class="example">
+<pre class="xml">
+&lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;text&gt;
+    &lt;status value=&quot;generated&quot;/&gt;
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;p&gt;... &lt;img src=&quot;#pic1&quot;/&gt;. ....&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/text&gt;
+  &lt;contained&gt;
+    &lt;Binary id=&quot;pic1&quot; contentType=&quot;image/gif&quot;&gt;MEKH....SD/Z&lt;/Binary&gt;
+  &lt;/contained&gt;
+</pre>
+</div>
+<p>
+Since the availability of images that are not contained in the resource is not guaranteed, 
+when the resource is presented to a user, the source for any images that are an essential 
+part of the narrative should always be embedded in an attachment or a contained resource.
+</p>
+
+<a name="css"></a>
+<h3>Styling the XHTML</h3>
+<p>
+The XHTML fragment in the narrative may be styled using CSS in the normal fashion, using a mix of classes, ids 
+and in-line style elements. Specific CSS stylesheets will be applied to the XHTML when it is extracted from
+the resource to be displayed to a human to create the presentation desired in the context of use. Authors
+may fix the following styling aspects of the content:
+</p>
+<ul>
+  <li>bold, italic, underline, strikethrough</li>
+  <li>font color, family, and size</li>
+  <li>background color, text alignment</li>
+  <li>whitespace interpretation</li>
+  <li>ordered list number format (since it may be referred to in text)</li>
+</ul>
+<p>
+These style properties are specified in-line using the style attribute. If an equivalent 
+html element exists, such as "i", or "pre", it may be used instead, but note that some of these 
+elements are deprecated in HTML 4 and SHALL not be used in Narrative XHTML (including "u", and "font").
+</p>
+<p>
+Rendering systems are required to respect any of these rendering styles when they are specified in 
+the XHTML, though appropriate interpretation is allowed (e.g. a low-contrast display for dark 
+room contexts or a high-contrast display for the visually impaired may adjust colors accordingly). 
+</p>
+<p>
+Authors are allowed to specify additional styles and style properties as specified in the CSS specification,
+but these are extensions to this specification and renderers are not required to honor them. Note, however,
+the additional rules around styling that apply in the context of <a href="document.html#css">documents</a>.
+</p>
+<p>
+Note: styles in resources can make use of the styles defined in the standard FHIR stylesheet, which
+lives here: <a href="http://hl7.org/implement/standards/fhir/fhir.css">http://hl7.org/implement/standards/fhir/fhir.css</a>.
+Since this stylesheet is not referred to directly, rendering systems may take their own copy if they wish. 
+Authoring systems should not depend on these styles being supported in order to render clinical content correctly without
+trading partner agreement. 
+</p>
+
+
+</div>
+[%onthispage Resource Definition#root|Narrative#Narrative|Internal References#idref|JSON#json|Atom (Bundle)#atom|JSON (Bundle)#json-bundles|Schema#schema%]
+
+[%file newfooter%]
+</body>
+</html>

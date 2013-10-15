@@ -10,7 +10,7 @@ Servers that provide support for Security Event resources should not generally a
 </p>
 <p>
 Security Events are created as events occur, to track and audit the events. Security Event resources are often (though not exclusively) created by the application responding to the read/query/create/update etc. event. 
-A <a href="provenance.htm">Provenance resource</a> contains overlapping information, but is a record-keeping assertion that gathers information about the context in which the information in a resource was obtained. 
+A <a href="provenance.html">Provenance resource</a> contains overlapping information, but is a record-keeping assertion that gathers information about the context in which the information in a resource was obtained. 
 Provenance resources are prepared by the application that initiates the create/update etc. of the resource.
 </p>
 

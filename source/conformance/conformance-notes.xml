@@ -10,7 +10,7 @@ Notes:
   but more than one may be described</li>
  <li>RESTful conformance rules:
   <ul class="dense">
-   <li>RESTful servers are required to provide <a href="http.htm#conformance">this resource on demand</a>. 
+   <li>RESTful servers are required to provide <a href="http.html#conformance">this resource on demand</a>. 
    Servers SHALL specify what resource types and operations are supported, and SHOULD also 
    specify profiles for each resource type.</li>
    <li>RESTful clients SHOULD publish a conformance statement</li>
@@ -90,15 +90,15 @@ One possible option is for the expert system to receive every single
 report coming from the lab system, check whether it conforms to the 
 profile or not, and then decide whether to process it. Checking whether
 a resource conforms to a particular profile or not is a straight 
-forward operation (on option is to use the <a href="downloads.htm">provided tools for this</a>),
+forward operation (on option is to use the <a href="downloads.html">provided tools for this</a>),
 but this is very inefficient way - the expert system has to receive 
 and process 100 times many resources as it uses. To help a consumer 
 find the correct set of reports for a use-case, the producer of the 
 resources also SHALL:
 </p>
 <ol>
- <li><a href="extras.htm#tags">Mark resources</a> with the tag declaring the profile(s) they conform to (this enables indexing by the profile)</li>
- <li>(if a server) support searching by the <a href="query.htm#profile">_profile parameter</a> for the declared profiles</li>
+ <li><a href="extras.html#tags">Mark resources</a> with the tag declaring the profile(s) they conform to (this enables indexing by the profile)</li>
+ <li>(if a server) support searching by the <a href="query.html#profile">_profile parameter</a> for the declared profiles</li>
 </ol>
 <p>
 Beyond these requirements, a producer of resources SHOULD ensure that any data that would reasonably be expected

@@ -2,7 +2,7 @@
 
 <p>
 A <i>Diagnostic Order</i> is a record of a request for a set of diagnostic investigations to be performed. 
-The investigation will lead to a <a href="diagnosticreport.htm">Diagnostic Report</a> that summarizes the 
+The investigation will lead to a <a href="diagnosticreport.html">Diagnostic Report</a> that summarizes the 
 outcome of the investigation, and includes any useful data and/or images that are relevant to the 
 treatment/management of the subject.
 </p>
@@ -23,7 +23,7 @@ issue a report that references the requests that it fulfills.
 <p>
 Note that the Diagnostic Order itself is not a request to perform the 
 investigation - it is just a record of the fact that a request was made. 
-The Diagnostic Request must be paired with an <a href="order.htm">Order</a>
+The Diagnostic Request must be paired with an <a href="order.html">Order</a>
 resource to convey the actual instruction, or part of an explicit messaging
 or service workflow that carries the instruction.
 </p>

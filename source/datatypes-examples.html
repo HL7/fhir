@@ -1,0 +1,854 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+      
+[%settitle Data Type Examples%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+
+<h2>Data Type Examples</h2>
+
+<p>This page includes additional examples of the data types, based on common usages and questions</p>
+
+[%diagram datatypes/alltypes.diagram%]
+
+<a name="primitive"></a>
+<h3>Primitive Types</h3>
+
+<div class="example">
+	<p>A boolean true value:</p><pre class="xml" fragment="boolean">&lt;active value="true" /&gt;</pre>
+	<p>A negative integer value:</p><pre class="xml" fragment="integer">&lt;score value="-14" /&gt;</pre>
+	<p>A high-precision decimal value:</p><pre class="xml" fragment="decimal">&lt;pi value="3.14159265358979323846264338327950288419716939937510" /&gt;</pre>
+	<p>A stream of bytes, base64 encoded:</p><pre class="xml" fragment="base64Binary">&lt;data value="/9j/4...KAP//Z" /&gt; &lt;!-- covers many lines --&gt;</pre>
+	<p>A unicode string:</p><pre class="xml" fragment="string">&lt;caption value="Noodles are called 面条 in Chinese" /&gt;</pre>
+	<p>A uri that points to a website:</p><pre class="xml" fragment="uri">&lt;reference value="http://www.hl7.org/fhir" /&gt;</pre>
+	<p>A uri that is a urn:</p><pre class="xml" fragment="uri">&lt;id value="urn:isbn:0451450523" /&gt;</pre>
+	<p>A date of birth:</p><pre class="xml" fragment="date">&lt;date value="1951-06-04" /&gt;</pre>
+	<p>An approximate date of birth:</p><pre class="xml" fragment="date">&lt;date value="1951-06" /&gt;</pre>
+	<p>The instant a document was created, including time zone:</p><pre class="xml" fragment="instant">&lt;instant value="2013-06-08T10:57:34+01" /&gt;</pre>
+	<p>The instant a document was created, expressed in UTC, with milliseconds:</p><pre class="xml" fragment="instant">&lt;instant value="2013-06-08T09:57:34.2112Z" /&gt;</pre>
+</div>
+
+<a name="strings"></a>
+<h3>String Patterns</h3>
+
+<div class="example">
+	<p>A uri that is the root oid of HL7:</p><pre class="xml" fragment="oid">&lt;root value="urn:oid:2.16.840.1.113883" /&gt;</pre>
+	<p>A uri that is a uuid:</p><pre class="xml" fragment="uuid">&lt;id value="urn:uuid:a5afddf4-e880-459b-876e-e4591b0acc11" /&gt;</pre>
+	<p>A code:</p><pre class="xml" fragment="code">&lt;code value="acq4+acq5" /&gt;</pre>
+	<p>A code with single internal space:</p><pre class="xml" fragment="code">&lt;code value="Question 4b" /&gt;</pre>
+	<p>A numeric id:</p><pre class="xml" fragment="code">&lt;id value="314" /&gt;</pre>
+	<p>An alphanumeric id:</p><pre class="xml" fragment="code">&lt;id value="alpha-gamma-14" /&gt;</pre>
+</div>
+
+<a name="Attachment"></a>
+<h3 style="margin-bottom: 1px">
+Attachment
+</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.html#Attachment">Base Definition</a>, <a href="datatypes-definitions.html#Attachment">Formal Definitions</a> and <a href="datatypes-mappings.html#Attachment">Mappings</a>.
+</p>
+<div class="example">
+<p>A PDF document:</p>
+<pre class="xml" fragment="Attachment">
+  &lt;document&gt;
+    &lt;contentType value="application/pdf" /&gt;
+    &lt;language value="en" /&gt;
+    &lt;data value="/9j/4...KAP//Z" /&gt; &lt;!-- covers many lines --&gt;
+    &lt;title value="Definition of Procedure" /&gt;
+  &lt;/document&gt;
+</pre>
+<pre class="json">
+  document : {
+    contentType :  { value : "application/pdf" },
+    language : { value : "en" },
+    data :  { value : "/9j/4...KAP//Z"},
+    title :  { value : "Definition of Procedure" }
+  }
+</pre>
+<p>
+Since the JSON examples have the same structure as the XML, only XML is shown for the rest of the examples.
+</p>
+<p>A reference to a DICOM image via WADO:</p>
+<pre class="xml" fragment="Attachment">
+  &lt;image&gt;
+    &lt;contentType value="application/dicom" /&gt;
+    &lt;reference value="http://10.1.2.3:1000/wado?requestType=WADO&amp;amp;wado_details..." /&gt;
+    &lt;hash value="EQH/..AgME" /&gt;
+  &lt;/image&gt;
+</pre>
+</div>
+
+<a name="Identifier"></a>
+<h3 style="margin-bottom: 1px">
+Identifier
+</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.html#Identifier">Base Definition</a>, <a href="datatypes-definitions.html#Identifier">Formal Definitions</a> and <a href="datatypes-mappings.html#Identifier">Mappings</a>.
+</p>
+<div class="example">
+<p><b>Examples</b></p>
+<p>A primary key from an application table (an OID in the space allocated by HL7
+to some organization to further sub-allocate):</p>
+<pre class="xml" fragment="Identifier">
+  &lt;identifier&gt;
+    &lt;use value="official" /&gt;
+    &lt;system value="urn:oid:2.16.840.1.113883.16.4.3.2.5" /&gt;
+    &lt;key value="123" /&gt;
+  &lt;/identifier&gt;
+</pre>
+
+<p>A patient identifier defined by a hospital:</p>
+<pre class="xml" fragment="Identifier">
+  &lt;identifier&gt;
+    &lt;use value="official" /&gt;
+    &lt;system value="http://www.acmehosp.com/patients" /&gt;
+    &lt;key value="44552" /&gt;
+    &lt;period&gt;
+      &lt;start value="2003-05-03" /&gt;
+    &lt;/period&gt;
+  &lt;/identifier&gt;
+</pre>
+<p>In this case, the period is used to track when the identifier was first assigned to the patient.</p>
+
+<p>An identifier that refers to a patient FHIR resource on a particular system:</p>
+<pre class="xml" fragment="Identifier">
+  &lt;identifier&gt;
+   &lt;system value="urn:ietf:rfc:3986" /&gt;
+   &lt;key value="http://pas-server/xxx/Patient/443556" /&gt;
+  &lt;/identifier&gt;
+</pre>
+<p>This is not a resource reference - it's a logical reference by the patient identifier.</p>
+
+<p>A UUID:</p>
+<pre class="xml" fragment="Identifier">
+  &lt;identifier&gt;
+    &lt;use value="temp" /&gt;
+    &lt;system value="urn:ietf:rfc:3986" /&gt;
+    &lt;key value="urn:uuid:a76d9bbf-f293-4fb7-ad4c-2851cac77162" /&gt;
+  &lt;/identifier&gt;
+</pre>
+<p>UUIDs are often used for temporary identifiers, though this is not necessary.</p>
+
+<p>A US SSN:</p>
+<pre class="xml" fragment="Identifier">
+  &lt;identifier&gt;
+    &lt;use value="usual" /&gt;
+    &lt;label value="SSN" /&gt;
+    &lt;system value="http://hl7.org/fhir/sid/us-ssn" /&gt;
+    &lt;key value="000111111" /&gt;
+  &lt;/identifier&gt;
+</pre>
+<p>Notes:</p> 
+<ul>
+ <li>US SSNs are often presented like this: 000-11-1111, the dashes are for presentation and should be removed, as specified in the <a href="terminologies-systems.html#identifiersystems">definition of ssn-us</a></li>
+ <li>The use of "usual" means that this institution prefers to use SSN when identifying the patient</li>
+</ul>
+
+<p>A medical record number assigned on 5-July 2009:</p>
+<pre class="xml" fragment="Identifier">
+  &lt;identifier&gt;
+    &lt;use value="usual" /&gt;
+    &lt;label value="MRN" /&gt;
+    &lt;system value="urn:oid:0.1.2.3.4.5.6.7" /&gt;
+    &lt;key value="2356" /&gt;
+    &lt;period&gt;
+      &lt;start value="2009-07-05" /&gt;
+    &lt;/period&gt;
+  &lt;/identifier&gt;
+</pre>
+</div>
+
+
+<a name="Coding"></a>
+<h3 style="margin-bottom: 1px">Coding</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.html#Coding">Base Definition</a>, <a href="datatypes-definitions.html#Coding">Formal Definitions</a> and <a href="datatypes-mappings.html#Coding">Mappings</a>.
+</p>
+<div class="example">
+<p><b>Examples</b></p>
+<p>A simple code for headache, in ICD-10:</p>
+<pre class="xml" fragment="Coding">
+  &lt;code&gt;
+    &lt;system value="http://hl7.org/fhir/sid/icd-10" /&gt;
+    &lt;code value="G44.1" /&gt;
+  &lt;/code&gt;
+</pre>
+<p>A SNOMED CT expression:</p>
+<pre class="xml" fragment="Coding">
+  &lt;problem&gt;
+    &lt;system value="http://snomed.info/id" /&gt;
+    &lt;code value="128045006:{363698007=56459004}" /&gt;
+  &lt;/problem&gt;
+</pre>
+</div>
+
+
+
+
+<a name="CodeableConcept"></a>
+<h3 style="margin-bottom: 1px">
+CodeableConcept
+</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.html#CodeableConcept">Base Definition</a>, <a href="datatypes-definitions.html#CodeableConcept">Formal Definitions</a> and <a href="datatypes-mappings.html#CodeableConcept">Mappings</a>.
+</p>
+
+<div class="example">
+<p><b>Examples</b></p>
+<p>A simple code for headache initially coded in SNOMED CT (by picking the SNOMED CT code from a picklist), and then translated to ICD-10:</p>
+<pre class="xml" fragment="CodeableConcept">
+  &lt;concept&gt;
+    &lt;coding&gt;
+      &lt;system value="http://hl7.org/fhir/sid/icd-10" /&gt;
+      &lt;code value="R51" /&gt;
+    &lt;/coding&gt;
+    &lt;coding&gt;
+      &lt;system value="http://snomed.info/id" /&gt;
+      &lt;code value="25064002" /&gt;
+      &lt;display value="Headache" /&gt;
+      &lt;primary value="true" /&gt;
+    &lt;/coding&gt;
+    &lt;text value="general headache" /&gt;
+  &lt;/concept&gt;
+</pre>
+<p>A concept represented in an institution's local coding systems for unit for which no UCUM equivalent exists:</p>
+<pre class="xml" fragment="CodeableConcept">
+  &lt;unit&gt;
+    &lt;coding&gt;
+      &lt;system value="urn:oid:2.16.840.1.113883.19.5.2" /&gt;
+      &lt;code value="tab" /&gt;
+      &lt;display value="Tablet" /&gt;
+    &lt;/coding&gt;
+    &lt;coding&gt;
+      &lt;system value="http://unitsofmeasure.org" /&gt;
+    &lt;/coding&gt;
+  &lt;/unit&gt;
+</pre>
+<p>A SNOMED CT expression:</p>
+<pre class="xml" fragment="CodeableConcept">
+  &lt;diagnosis&gt;
+    &lt;coding&gt;
+      &lt;system value="http://snomed.info/id" /&gt;
+      &lt;code value="128045006:{363698007=56459004}" /&gt;
+    &lt;/coding&gt;
+    &lt;text value="Cellulitis of the foot" /&gt;
+  &lt;/diagnosis&gt;
+</pre>
+<p>
+In this case, there is no display element, because no display is defined for SNOMED CT expressions.
+</p>
+
+<p>Using the valueset:</p>
+<p>The results on a urinalysis strip:</p>
+<pre class="xml" fragment="CodeableConcept">
+  &lt;valueCoding&gt;
+    &lt;system value="http://example.org/codes/simple-grades" /&gt;
+    &lt;code value="+" /&gt;
+    &lt;valueset&gt;
+      &lt;reference url="ValueSet/simple-grades" /&gt;
+    &lt;/valueset&gt;
+  &lt;/valueCoding&gt;
+</pre>
+<p>
+And where the value set would be something like this:
+</p>
+<pre>
+  &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+    &lt;text&gt;
+      &lt;status value=&quot;generated&quot;/&gt;
+      &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        &lt;p&gt;Possible Clinistix codes: neg, trace, +, ++, and +++&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/text&gt;
+    &lt;identifier value=&quot;http://hl7.org/fhir/vs/clinistix&quot;/&gt;
+    &lt;name value=&quot;Codes for Clinistix&quot;/&gt;
+    &lt;publisher value=&quot;HL7&quot;/&gt;
+    &lt;telecom&gt;
+      &lt;system value=&quot;url&quot;/&gt;
+      &lt;value value=&quot;http://hl7.org/fhir&quot;/&gt;
+    &lt;/telecom&gt;
+    &lt;description value=&quot;Clinistix Codes&quot;/&gt;
+    &lt;status value=&quot;draft&quot;/&gt;
+    &lt;experimental value=&quot;true&quot;/&gt;
+    &lt;date value=&quot;2013-10-01&quot;/&gt;
+    &lt;define&gt;
+      &lt;system value=&quot;http://hl7.org/fhir/clinistix&quot;/&gt;
+      &lt;caseSensitive value=&quot;false&quot;/&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;neg&quot;/&gt;     
+      &lt;/concept&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;trace&quot;/&gt;     
+      &lt;/concept&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;+&quot;/&gt;     
+      &lt;/concept&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;+&quot;/&gt;     
+      &lt;/concept&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;++&quot;/&gt;     
+      &lt;/concept&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;+++&quot;/&gt;     
+      &lt;/concept&gt;
+    &lt;/define&gt;
+  &lt;/ValueSet&gt;
+</pre>
+</div>
+<a name="Quantity"></a>
+<h3 style="margin-bottom: 1px">
+Quantity
+</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.html#Quantity">Base Definition</a>, <a href="datatypes-definitions.html#Quantity">Formal Definitions</a> and <a href="datatypes-mappings.html#Quantity">Mappings</a>.
+</p>
+
+<div class="example">
+<p><b>Examples</b></p>
+<p>A duration:</p>
+<pre class="xml" fragment="Quantity">
+  &lt;time&gt;
+    &lt;value value="25" /&gt;
+    &lt;units value="sec" /&gt;
+    &lt;system value="http://unitsofmeasure.org" /&gt;
+    &lt;code value="s" /&gt;
+  &lt;/time&gt;
+</pre>
+<p>A concentration where the value was out of range:</p>
+<pre class="xml" fragment="Quantity">
+  &lt;result&gt;
+    &lt;value value="40000" /&gt;
+    &lt;comparator value="&amp;gt;" /&gt;
+    &lt;units value="mcg/L" /&gt;
+    &lt;system value="http://unitsofmeasure.org" /&gt;
+    &lt;code value="ug" /&gt;
+  &lt;/result&gt;
+</pre>
+<p>An amount of prescribed medication:</p>
+<pre class="xml" fragment="Quantity">
+  &lt;dose&gt;
+    &lt;value value="3" /&gt;
+    &lt;units value="capsules" /&gt;
+    &lt;system value="http://snomed.info/id" /&gt;
+    &lt;code value="385049006" /&gt;
+  &lt;/dose&gt;
+</pre>
+<p>A price (coded using currency codes defined in ISO 4217):</p>
+<pre class="xml" fragment="Quantity">
+  &lt;cost&gt;
+    &lt;value value="25.45" /&gt;
+    &lt;units value="US$" /&gt;
+    &lt;system value="urn:std:iso:4217" /&gt;
+    &lt;code value="USD" /&gt;
+  &lt;/cost&gt;
+</pre>
+</div>
+
+<a name="Range"></a>
+<h3 style="margin-bottom: 1px">
+Range
+</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.html#Range">Base Definition</a>, <a href="datatypes-definitions.html#Range">Formal Definitions</a> and <a href="datatypes-mappings.html#Range">Mappings</a>.
+</p>
+<div class="example">
+<p><b>Examples</b></p>
+<p>Range of Quantity (distance):</p>
+<pre class="xml" fragment="Range">
+  &lt;estimate&gt;
+   &lt;low&gt;
+     &lt;value value="1.6" /&gt;
+     &lt;units value="m" /&gt;
+   &lt;/low&gt;
+   &lt;high&gt;
+     &lt;value value="1.9" /&gt;
+     &lt;units value="m" /&gt;
+   &lt;/high&gt;
+  &lt;/estimate&gt;
+</pre>
+</div>
+<a name="Ratio"></a>
+<h3 style="margin-bottom: 1px">
+Ratio
+</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.html#Ratio">Base Definition</a>, <a href="datatypes-definitions.html#Ratio">Formal Definitions</a> and <a href="datatypes-mappings.html#Ratio">Mappings</a>.
+</p>
+<div class="example">
+<p><b>Examples</b></p>
+<p>Titer (Ratio of integer:integer)</p>
+<pre class="xml" fragment="Ratio">
+  &lt;result&gt;
+   &lt;numerator&gt;
+     &lt;value value="1" /&gt;
+   &lt;/numerator&gt;
+   &lt;denominator&gt;
+     &lt;value value="128" /&gt;
+   &lt;/denominator&gt;
+  &lt;/result&gt;
+</pre>
+<p>Unit cost (Ratio of 
+:Quantity):</p>
+<pre class="xml" fragment="Ratio">
+  &lt;charge&gt;
+   &lt;numerator&gt;
+     &lt;value value="103.50" /&gt;
+     &lt;units value="US$" /&gt;
+     &lt;code value="USD" /&gt;
+     &lt;system value="urn:std:iso:4217" /&gt;
+   &lt;/numerator&gt;
+   &lt;denominator&gt;
+     &lt;value value="1" /&gt;
+     &lt;units value="day" /&gt;
+     &lt;code value="day" /&gt;
+     &lt;system value="http://unitsofmeasure.org" /&gt;
+   &lt;/denominator&gt;
+  &lt;/charge&gt;
+</pre>
+</div>
+<a name="Period"></a>
+<h3 style="margin-bottom: 1px">
+Period
+</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.html#Period">Base Definition</a>, <a href="datatypes-definitions.html#Period">Formal Definitions</a> and <a href="datatypes-mappings.html#Period">Mappings</a>.
+</p>
+
+<div class="example">
+<p><b>Examples</b></p>
+<p>23rd May 2011 to 27th May, including 27th May:</p>
+<pre class="xml" fragment="Period">
+  &lt;coverage&gt;
+   &lt;start value="2011-05-23" /&gt;
+   &lt;end value="2011-05-27" /&gt;
+  &lt;/coverage&gt;
+</pre>
+</div>
+
+<a name="SampledData"></a>
+<h3 style="margin-bottom: 1px">
+SampledData
+</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.html#SampledData">Base Definition</a>, <a href="datatypes-definitions.html#SampledData">Formal Definitions</a> and <a href="datatypes-mappings.html#SampledData">Mappings</a>.
+</p>
+<div class="example">
+<p><b>Example</b></p>
+<p>The output from an EKG device:</p>
+<pre class="xml" fragment="Period">
+ &lt;sampledData&gt;
+  &lt;origin&gt;
+   &lt;value value="0"/&gt;
+   &lt;units value="&mu;V"/&gt;
+   &lt;system value="http://unitsofmeasure.org"/&gt;
+   &lt;code value="uV"/&gt;   
+  &lt;/origin&gt;
+  &lt;period value="2"/&gt;
+  &lt;scale value="2.5"/&gt;
+  &lt;dimensions value="1"/&gt;
+  &lt;data value="-4 -13 -18 -18 -18 -17 -16 -16 -16 -16 -16 -17 -18 -18 -18 ...."/&gt;
+ &lt;/sampledData&gt;
+</pre>
+</div>
+<a name="HumanName"></a>
+<h3 style="margin-bottom: 1px">
+HumanName
+</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.html#HumanName">Base Definition</a>, <a href="datatypes-definitions.html#HumanName">Formal Definitions</a> and <a href="datatypes-mappings.html#HumanName">Mappings</a>.
+</p>
+
+<div class="example">
+<p>A Simple example</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;family value="Everyman" /&gt;
+  &lt;given value="Adam" /&gt;
+  &lt;given value="A." /&gt;
+&lt;/name&gt;
+</pre>
+
+<p>Composite names</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;family value="Contrata" /&gt;
+  &lt;given value="Mary Jane" /&gt;
+&lt;/name&gt;
+</pre>
+<p>
+These cases can be quite ambiguous - is "Mary Jane" one name, or two? Different systems, 
+and data enterers may treat this differently, and the person themselves may not know.
+Parts are allowed to contain spaces, but systems should consider how to treat
+these cases. Composite names separated by "-" should be treated as a single name part.
+</p>
+   
+<p>A common pattern: a person is called by a name other than that expected from their official name (first given name in most cultures).</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;use value="official" /&gt;
+  &lt;family value="Chalmers" /&gt;
+  &lt;given value="Peter" /&gt;
+  &lt;given value="James" /&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;use value="usual" /&gt;
+  &lt;given value="Jim" /&gt;
+&lt;/name&gt;
+</pre>
+
+<p>
+This same pattern is often encountered with immigrants, who retains their real name for official use, but adopt a localized name for everyday use:
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;use value="official" /&gt;
+  &lt;given value="Piotr" /&gt;
+  &lt;given value="Andre" /&gt;
+  &lt;family value="Sczypinski" /&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;use value="usual" /&gt;
+  &lt;family value="Skipper" /&gt;
+  &lt;given value="Jim" /&gt;
+&lt;/name&gt;
+</pre>
+</div>
+
+<div class="example">
+<p>
+Karen van Hentenryck is of Dutch origin, and the "van" is a voorvoegsel.
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;use value=&quot;official&quot; /&gt;  
+  &lt;family value=&quot;van&quot;&gt;
+    &lt;extension&gt;
+	   &lt;url value=&quot;http://hl7.org/fhir/Profileiso-21090#qualifier&quot; /&gt;
+	   &lt;valueCode value=&quot;VV&quot; /&gt;
+    &lt;/extension&gt;
+  &lt;/family&gt;
+  &lt;family value=&quot;Hentenryck&quot; /&gt;
+  &lt;given value=&quot;Karen&quot; /&gt;
+&lt;/name&gt;
+</pre>
+<p>See <a href="extensibility-examples.html">the Extensibility Example for more information</a></p>
+</div>
+
+
+<div class="example">
+<p>Complex example from Germany: Dr.phil. Regina Johanna Maria Gräfin Hochheim-Weilenfels, NCFSA. This example shows extensive use of 
+multiple given names, prefixes, suffixes, for academic degrees, nobility titles, and professional designations.
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;use value=&quot;official&quot; /&gt;  
+  &lt;family value=&quot;Hochheim-Weilenfels&quot; /&gt;
+  &lt;given value=&quot;Regina&quot; /&gt;
+  &lt;given value=&quot;Johanna&quot; /&gt;
+  &lt;given value=&quot;Maria&quot; /&gt;
+  &lt;prefix value=&quot;Gräfin&quot;&gt;
+    &lt;extension&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/Profileiso-21090#qualifier&quot; /&gt;
+      &lt;valueCoding&gt;
+         &lt;code value=&quot;NB&quot; /&gt;
+         &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
+      &lt;/valueCoding&gt;
+    &lt;/extension&gt;
+  &lt;/prefix&gt;
+  &lt;prefix value=&quot;Dr. phil.&quot;&gt;
+    &lt;extension&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/Profileiso-21090#qualifier&quot; /&gt;
+      &lt;valueCoding&gt;
+         &lt;code value=&quot;AC&quot; /&gt;
+         &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
+      &lt;/valueCoding&gt;
+    &lt;/extension&gt;
+  &lt;/prefix&gt;
+  &lt;suffix value=&quot;NCFSA&quot; /&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;use value=&quot;maiden&quot; /&gt;  
+  &lt;family value=&quot;Hochheim&quot; /&gt;
+&lt;/name&gt;
+</pre>
+<p>
+This example makes use of the ISO 21090 extensions to carry the rare ISO 21090 qualifier attributes "AC" and "NB".
+</p>
+</div>
+
+<div class="example">
+<p>Japanese example in the three forms: ideographic (Kanji), syllabic (Hiragana) and alphabetic (Romaji).</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;family value="木村" /&gt;
+  &lt;given value="通男" /&gt;
+  &lt;/name&gt;
+&lt;name&gt;
+ &lt;family value="きむら" /&gt; 
+ &lt;given value="みちお" /&gt; 
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;family value="KIMURA" /&gt;
+  &lt;given value="MICHIO" /&gt;
+&lt;/name&gt;
+</pre>
+<p>
+The three forms are differentiated by the character subset each contains.
+</p>
+</div>
+
+<div class="example">
+<p>Russian example in the two forms: cyrillic, and latin:</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;family value="ЕМЕЛИН" /&gt;
+  &lt;given value="ИВАН" /&gt;
+  &lt;given value="ВЛАДИМИРОВИЧ" /&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;family value="EMELIN" /&gt;
+  &lt;given value="IVAN" /&gt;
+  &lt;given value="VLADIMIROVICH" /&gt;
+&lt;/name&gt;
+</pre>
+<p>
+In  Russian  usage, these names are known as 
+the domestic and foreign names respectively. The two forms are differentiated by the character subset each contains.
+</p>
+</div>
+
+<div class="example">
+<p>
+Scandinavian example: Erikson is the family name. Jan Erik are the given names, and Östlund the family name of the mother, which is taken as a Mellannamn.
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;use value=&quot;official&quot; /&gt;  
+  &lt;family value=&quot;Erikson&quot; /&gt;
+  &lt;given value=&quot;Jan&quot; /&gt;
+  &lt;given value=&quot;Erik&quot; /&gt;
+  &lt;given value=&quot;Östlund&quot;&gt;
+    &lt;extension&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/Profileiso-20190#name-qualifier&quot; /&gt;
+      &lt;valueCoding&gt;
+         &lt;code value=&quot;MID&quot; /&gt;
+         &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
+      &lt;/valueCoding&gt;
+    &lt;/extension&gt;
+  &lt;/given&gt;
+&lt;/name&gt;
+</pre>
+<p>
+This example makes use of the ISO 21090 extension to carry the culture specific ISO 21090 qualifier attribute "MID" for the Mellannamn.
+</p>
+<p>
+Then Jan Erikson has a daughter, Karin, with his wife Margrete Hansen. The first communications of the new born 
+name is "Margrete Jente" (Margrete's Girl) and the mother's family name, not the given name (Karin). The 
+father's Family name is  not used at all. This is a known temporary name assigned directly after the birth of 
+the child.
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;use value="temp" /&gt;  
+  &lt;!-- use could be OR+OLD, depends how record keeping is done --&gt;
+  &lt;family value="Hansen" /&gt;
+  &lt;given value="Margrete Jente" /&gt;
+&lt;/name&gt;
+</pre>
+<p>
+The baby's name is subsequently changed to the fathers' family name, and to use the mother's name as 
+mellomnamn.
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;use value=&quot;official&quot; /&gt;  
+  &lt;family value=&quot;Erikson&quot; /&gt;
+  &lt;given value=&quot;Karin&quot; /&gt;
+  &lt;given value=&quot;Hansen&quot;&gt;
+    &lt;extension&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/Profileiso-20190#name-qualifier&quot; /&gt;
+      &lt;valueCoding&gt;
+         &lt;code value=&quot;MID&quot; /&gt;
+         &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
+      &lt;/valueCoding&gt;
+    &lt;/extension&gt;
+  &lt;/given&gt;
+&lt;/name&gt;
+</pre>
+<p>
+Later, Karin gets married to Per Berg, and decides to adopts Berg as her family name, and also decides to use 
+Erikson as the mellom navn. (Note: Karin could have chosen to use another mellom navn, e.g. the family name of 
+her mother, her father or other family names as specified by naming laws of the country in question).
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;use value=&quot;old&quot; /&gt;  
+  &lt;family value=&quot;Erikson&quot; /&gt;
+  &lt;given value=&quot;Karin&quot; /&gt;
+  &lt;given value=&quot;Hansen&quot;&gt;
+    &lt;extension&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/Profileiso-20190#name-qualifier&quot; /&gt;
+      &lt;valueCoding&gt;
+        &lt;code value=&quot;MID&quot; /&gt;
+        &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
+      &lt;/valueCoding&gt;
+    &lt;/extension&gt;
+  &lt;/given&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;use value=&quot;official&quot; /&gt;  
+  &lt;family value=&quot;Berg&quot; /&gt;
+  &lt;given value=&quot;Karin&quot; /&gt;
+  &lt;given value=&quot;Erikson&quot;&gt;
+    &lt;extension&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/Profileiso-20190#name-qualifier&quot; /&gt;
+      &lt;valueCoding&gt;
+        &lt;code value=&quot;MID&quot; /&gt;
+        &lt;system value=&quot;http://hl7.org/fhir/v3/EntityNamePartQualifier2&quot; /&gt;
+      &lt;/valueCoding&gt;
+    &lt;/extension&gt;
+  &lt;/given&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;use value=&quot;usual&quot; /&gt;  
+  &lt;family value=&quot;Berg&quot; /&gt;
+  &lt;given value=&quot;Karin&quot; /&gt;
+&lt;/name&gt;
+</pre>
+</div>
+
+<a name="Address"></a>
+<h3 style="margin-bottom: 1px">
+Address
+</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.html#Address">Base Definition</a>, <a href="datatypes-definitions.html#Address">Formal Definitions</a> and <a href="datatypes-mappings.html#Address">Mappings</a>.
+</p>
+
+<div class="example">
+<p><b>Example</b></p>
+<p>HL7 office's address.</p>
+<pre class="xml" fragment="Address">
+  &lt;address&gt;
+   &lt;use value="work" /&gt;
+   &lt;text value="1050 W Wishard Blvd&#13;&#10;RG 
+         5th floor&#13;&#10;Indianapolis, IN 46240" /&gt;
+   &lt;line value="1050 W Wishard Blvd" /&gt;
+   &lt;line value="RG 5th floor" /&gt;
+   &lt;city value="Indianapolis" /&gt;
+   &lt;state value="IN" /&gt;
+   &lt;zip value="46240" /&gt;
+  &lt;/address&gt;
+</pre>
+<p>A UK example address.</p>
+<pre class="xml" fragment="Address">
+  &lt;address&gt;
+    &lt;extension&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/Profileiso-21090/address-parts/county&quot; /&gt; &lt;!-- todo: review this --&gt;
+      &lt;valueString value=&quot;HUDDERSFIELD&quot;/&gt;
+    &lt;/extension&gt;
+    &lt;text value=&quot;1 Back Lane&amp;#13;&amp;#10;Holmfirth&amp;#13;&amp;#10;HUDDERSFIELD&amp;#13;&amp;#10;HD7 1HQ&quot;/&gt;
+    &lt;line value=&quot;1 Back Lane&quot;/&gt;
+    &lt;city value=&quot;Holmfirth&quot;/&gt;
+    &lt;zip value=&quot;HD7 1HQ&quot;/&gt;
+  &lt;/address&gt;
+</pre>
+</div>
+
+Holmfirth
+
+
+
+
+<a name="Contact"></a>
+<h3 style="margin-bottom: 1px">
+Contact
+</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.html#Contact">Base Definition</a>, <a href="datatypes-definitions.html#Contact">Formal Definitions</a> and <a href="datatypes-mappings.html#Contact">Mappings</a>.
+</p>
+
+<div class="example">
+<p><b>Example</b></p>
+<p>Home phone number:</p>
+<pre class="xml" fragment="Contact">
+  &lt;telecom&gt;
+   &lt;system value="phone" /&gt;
+   &lt;value value="+15556755745" /&gt;
+   &lt;use value="home" /&gt;
+  &lt;/telecom&gt;
+</pre>
+</div>
+
+
+<a name="Schedule"></a>
+<h3>
+Schedule
+</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.html#Schedule">Base Definition</a>, <a href="datatypes-definitions.html#Schedule">Formal Definitions</a> and <a href="datatypes-mappings.html#Schedule">Mappings</a>.
+</p>
+
+<div class="example">
+<p><b>Example</b></p>
+<p>A series of appointments for radiotherapy:</p>
+<pre class="xml" fragment="Schedule">
+  &lt;schedule&gt;
+    &lt;event&gt;
+      &lt;start value="2012-01-07T09:00" /&gt;
+      &lt;end value="2012-01-07T13:00" /&gt;
+    &lt;/event&gt;
+    &lt;event&gt;
+      &lt;start value="2012-01-14T09:00" /&gt;
+      &lt;end value="2012-01-14T13:00" /&gt;
+    &lt;/event&gt;
+    &lt;event&gt;
+      &lt;start value="2012-01-22T11:00" /&gt;
+      &lt;end value="2012-01-22T15:00" /&gt;
+    &lt;/event&gt;
+  &lt;/schedule&gt;
+</pre>
+<p>BID (twice a day) (no start or end specified):</p>
+<pre class="xml" fragment="Schedule">
+  &lt;schedule&gt;
+   &lt;repeat&gt;
+     &lt;frequency value="2" /&gt;
+     &lt;duration value="1" /&gt;
+     &lt;units value="d" /&gt;
+   &lt;/repeat&gt;
+  &lt;/schedule&gt;
+</pre>
+<p>1/2 an hour before breakfast for 10 days from 23-Dec 2011:</p>
+<pre class="xml" fragment="Schedule">
+  &lt;schedule&gt;
+    &lt;event&gt;
+      &lt;start value="2011-12-23" /&gt;
+    &lt;/event&gt;
+    &lt;repeat&gt;
+      &lt;when value="ACM" /&gt;
+      &lt;duration value="30" /&gt;
+      &lt;units value="min" /&gt;
+      &lt;end value="2012-01-02" /&gt;
+    &lt;/repeat&gt;
+  &lt;/schedule&gt;
+</pre>
+<p>
+Note that the end date is inclusive like the high date of a Period.
+</p>
+</div>
+
+
+</div>
+
+[%file newfooter%]
+</body>
+</html>

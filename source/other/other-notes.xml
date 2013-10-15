@@ -7,7 +7,7 @@ whatever data elements they wish.  However, doing so causes several issues:
 </p>
 <ul>
   <li>Custom resources don't have a discoverability mechanism in the same way custom codes and extensions
-  do using the <a href="valueset.htm">ValueSet</a> and <a href="profile.htm">Profile</a> resources.  As a 
+  do using the <a href="valueset.html">ValueSet</a> and <a href="profile.html">Profile</a> resources.  As a 
   result, any implementer that receives a custom resource would have no way of looking up what the meaning 
   of the resource or its elements were.  While they could get some sense of meaning from XML or JSON tag names, this often 
   isn't sufficient for safe healthcare interoperability.</li>
@@ -61,7 +61,7 @@ There are several good practices to follow when making use of the Other resource
   'official' resource in the event that a future release of FHIR formally defines a resource that encompasses
   your use-case.</li>
   
-  <li>Use a <a href="profile.htm">Profile</a> to define the extensions relevant to each type of other resource used.
+  <li>Use a <a href="profile.html">Profile</a> to define the extensions relevant to each type of other resource used.
   Profile can also be used to define additional search criteria appropriate for the resource.</li>
   <!-- Todo: Search criteria have been removed from Profile, but they need to come back -->
 </ol>

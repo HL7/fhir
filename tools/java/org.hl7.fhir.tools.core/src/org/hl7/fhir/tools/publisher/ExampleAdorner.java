@@ -153,7 +153,7 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
           return new ExampleAdornerState(State.Element, e, "", "");
       } else if (s.getState() == State.Reference) {
         if (node.getLocalName().equals("type"))
-          return new ExampleAdornerState(State.Reference, s.getDefinition(), "<a href=\""+node.getAttribute("value").toLowerCase()+".htm\">", "</a>");
+          return new ExampleAdornerState(State.Reference, s.getDefinition(), "<a href=\""+node.getAttribute("value").toLowerCase()+".html\">", "</a>");
         if (node.getLocalName().equals("reference"))
         {
           String type = extractType(node.getAttribute("value"));
@@ -165,7 +165,7 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
             throw new Exception("unable to find type "+type);
           for (Example e : r.getExamples()) {
             if (id.equals(e.getId()))
-              return new ExampleAdornerState(State.Reference, s.getDefinition(), "<a href=\""+e.getFileTitle()+".xml.htm\">", "</a>");
+              return new ExampleAdornerState(State.Reference, s.getDefinition(), "<a href=\""+e.getFileTitle()+".xml.html\">", "</a>");
             if (e.getXml() != null && e.getXml().getDocumentElement().getLocalName().equals("feed")) {
               List<Element> entries = new ArrayList<Element>();
               XMLUtil.getNamedChildren(e.getXml().getDocumentElement(), "entry", entries);
@@ -173,7 +173,7 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
               for (Element c : entries) {
                 String t = XMLUtil.getNamedChild(c, "id").getAttribute("value");
                 if (url.equals(t))
-                  return new ExampleAdornerState(State.Reference, s.getDefinition(), "<a href=\""+e.getFileTitle()+".xml.htm#"+id+"\">", "</a>");
+                  return new ExampleAdornerState(State.Reference, s.getDefinition(), "<a href=\""+e.getFileTitle()+".xml.html#"+id+"\">", "</a>");
               }
             }
           }

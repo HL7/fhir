@@ -5,7 +5,7 @@ Notes:
 </h2>
 <ul>
 <li>The Organization is used for collections of people that have come together to achieve an objective.  
-The <a href="group.htm">Group</a> resource is used to identify a collection of people (or animals, devices, etc.) 
+The <a href="group.html">Group</a> resource is used to identify a collection of people (or animals, devices, etc.) 
 that are gathered for the purpose of analysis or acting upon, but are not expected to act themselves.</li>
 <li>There are two places for contact information: one on Organization itself and zero or more using the ContactEntity construct.
 The first one is to be used for the generic, public organization point of contact. The ContactEntity is to be used for 

@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+      
+[%settitle Using Codes and Terminologies%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<%txheader%>
+
+<h1>Using Codes in Resources</h1>
+
+<a name="bindings"> </a>
+<p>
+Many elements in the FHIR resources have a <b>coded value</b>: some fixed string 
+(a sequence of characters) assigned elsewhere that identifies some defined "concept". The 
+sequence of characters and it's meaning may be defined in one of several places:
+</p>
+<ul>
+ <li>As one of a set of fixed values defined in this specification</li>
+ <li>In an internet RFC (e.g. mime type, language)</li>
+ <li>An HL7 defined source (v3 code system, or v2 table)</li>
+ <li>Some external terminology or ontology such as <a href="http://loinc.org">LOINC</a>, <a href="http://www.ihtsdo.org">SNOMED CT</a></li>
+ <li>A locally maintained dictionary, look up table or enumeration in an application</li>
+</ul>
+<p>
+All of these kinds of ways of defining codes are collectively called "code systems".
+This list is far from complete; there are many ways to define code systems, and they
+vary widely in sophistication and size. 
+</p>
+<p>
+Throughout this specification, coded values are always treated as a pair 
+composed of "system" and "code", where the system is a URL that identifies the 
+code system that defines the codes. 
+</p>
+<p>
+The FHIR framework for using coded values is based on the fundamental framework defined in section 5 of the  
+<a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a> document.
+</p>
+<p>
+When codes are carried in resources, one of 
+3 different data types is used:
+</p>
+<table class="grid">
+ <tr><td><a href="datatypes.html#code">code</a></td><td>The instance represents the <i>code</i> only. The <i>system</i> is defined as part of the definition of the element, and not carried in the instance. </td></tr>
+ <tr><td><a href="datatypes.html#Coding">Coding</a></td><td>A data type that has a <i>code</i> and a <i>system</i> element that identifies where the definition of the code comes from</td></tr>
+ <tr><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td><td>A type that represents a concept by plain text and/or one or more <i>Codings</i></td></tr>
+</table>
+
+
+<h2>Controlling the use of Coded Values</h2>
+<p>
+The set of coded values that is allowed to be used in an element of one of these
+3 data types is known as a "value set". Anywhere these data types are used, the
+specification "binds" a value set to the element. How this is done is different for 
+the simple <a href="datatypes.html#code">code</a> data type and the complex 
+data types (<a href="datatypes.html#Coding">Coding</a>/<a href="datatypes.html#CodeableConcept">CodeableConcept</a>).
+</p>
+
+<a name="simple"> </a>
+<a name="code"> </a>
+<h3>Simple Code Data Type</h3>
+<p>
+Simple elements with type <a href="datatypes.html#code">code</a> are either bound to a 
+value set that contains a list of distinct codes with a specified system (and version, where required), 
+or the element is bound to some external standard that defines the set of valid codes that can be 
+used (typical examples of references are <a href="http://www.rfc-editor.org/bcp/bcp13.txt">Mime Types</a>, 
+<a href="http://tools.ietf.org/html/bcp47">Language Codes</a>, <a href="http://unitsofmeasure.org">UCUM</a>, etc.).
+</p>
+<p>
+In all cases, the value of the element SHALL be one of the codes defined by value set or the referenced specification. 
+</p>
+<p>
+Note the following additional rules about these codes:
+</p>
+<ul>
+ <li>Where the value set is defined by FHIR, the list of allowed codes will be fixed in the XML schema</li>
+ <li>Comparison between codes is always case sensitive for codes unless the codes are defined by reference, and the referenced specification clearly states otherwise</li>
+ <li>The list of codes that can be used can only be extended in subsequent releases of the FHIR specification</li>
+ <li><a href="profile.html">Profiles</a> that define how a resource is used in some context may state rules on which codes can be used, but cannot define new or additional codes for these elements</li>
+</ul>
+
+<a name="complex"> </a>
+<a name="codeable"> </a>
+<h3>Complex Coded Data Types</h3>
+<p>
+Elements with type <a href="datatypes.html#CodeableConcept">CodeableConcept</a> or <a href="datatypes.html#Coding">Coding</a>, 
+are bound to a value set that defines a list of coded values that can be used. Because of the size and complexity of 
+these value sets, schemas are not used to enforce the correct use of valid coded values. Instead, 
+formal definitions of the value sets are provided using the <a href="valueset.html">Value Set</a> resource, and a cascading set of 
+rules is used to control how tightly the actual coded values that can be used are controlled by the value set.
+In the base FHIR specification, the binding may be called "incomplete" or "example". 
+</p>
+
+<a name="incomplete"> </a>
+<h4>Incomplete Bindings</h4>
+<p>
+Incomplete bindings are used when there is consensus at the specification level about the coded values 
+that should be used. For these bindings:
+</p>
+<ul>
+ <li><b>Coding</b>: the <i>system</i>/<i>code</i> values SHOULD be one of the codes in the value set. </li>
+ <li><b>CodeableConcept</b>: one of the <i>coding</i> elements SHOULD contain a <i>system</i>/<i>code</i> that is in the value set. </li>
+</ul>
+<p>
+When none of the coded values in the value set is correct, some other coded value MAY be used, or (for 
+a CodeableConcept), a text alternative MAY be provided. Implementers are able to choose other codes 
+than those specified in recognition of the fact that:
+</p>
+<ul>
+ <li>Licensing and Legal policy may dictate that particular coded values must or cannot be used</li>
+ <li>Even when the specified value set can be used, the specification cannot account for all known use cases in advance</li>
+</ul>
+
+<a name="example"> </a>
+<h4>Example Bindings</h4>
+<p>
+Example bindings are used when an element has a very broad meaning (such as <a href="list.html">List</a>.code), 
+or there is no consensus over the correct codes to be used. For these bindings:
+</p>
+<ul>
+ <li><b>Coding</b>: the <i>system</i>/<i>code</i> values MAY be one of the codes in the value set. </li>
+ <li><b>CodeableConcept</b>: one of the <i>coding</i> elements MAY  contain a <i>system</i>/<i>code</i> that is in the value set. </li>
+</ul>
+<p>
+Some other coded value MAY be used, or (for a CodeableConcept), a text alternative MAY be provided. 
+Example value sets are provided to assist implementers to understand the correct use of an element.
+Value sets based on code systems such as SNOMED CT that have restrictive license terms will only be used as example bindings.
+</p>
+
+<h4>Implementation Details</h4>
+<p>
+Irrespective of whether the binding is an incomplete or example binding, when a 
+<a href="profile.html">Profile</a> is used to describe local usage, it can 
+bind the element to a different value set. When a profile redefines a 
+binding, it can redefine the binding and is able to be much more precise about
+exactly which coded values can be used for these elements (see <a href="profile.html#binding">Binding 
+Control</a> for more detail).
+</p>
+<p>
+Generally it is expected that jurisdictions, projects and vendors 
+will work together to choose actual working value sets. Subsequent
+versions of FHIR may replace example value sets with full bindings
+if enough consensus emerges. 
+</p>
+<p>
+<i>System</i> values are always case sensitive. Different code systems make their own
+rules as to whether the codes they define are case sensitive or not. Note that all the 
+codes defined by FHIR itself are case sensitive and SHALL be used in the provided case 
+(usually, but not always, lowercase).
+</p>
+<p>
+Bindings to value sets provided as part of the specification are always specific
+to the version of the value set published with the specification. The value set 
+may be sealed by defining a simple list of enumerated codes, or it may include 
+codes by their properties, along with a non-version specific reference to an 
+underlying code system, in which case the list of valid concepts may grow
+or change over time.
+</p>
+
+</div>
+
+[%file newfooter%]
+    
+</body>
+</html>

@@ -45,8 +45,8 @@ using separate transactions (i.e. update operations), where later operations may
 patient resources in disagreement with each other</b></font>. Instead, systems should either:
 </p>
 <ul>
- <li>Use a <a href="http.htm#transaction">transaction</a> and update all the resources in a single transaction</li>
- <li>Use a <a href="message.htm#events">patient link/unlink</a> message</li>
+ <li>Use a <a href="http.html#transaction">transaction</a> and update all the resources in a single transaction</li>
+ <li>Use a <a href="message.html#events">patient link/unlink</a> message</li>
 </ul>
 
 </div>

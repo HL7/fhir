@@ -35,8 +35,8 @@ within.  If they need a resource and it doesn't yet exist, they should use Other
 
 <p>
 Other defines only a minimal set of data elements - those necessary to identify what kind of resource it
-represents and those necessary to support resource <a href="extras.htm#compartments">compartmenting</a>.  All other data elements
-are represented using the <a href="extensibility.htm">extension</a> mechanism.
+represents and those necessary to support resource <a href="extras.html#compartments">compartmenting</a>.  All other data elements
+are represented using the <a href="extensibility.html">extension</a> mechanism.
 </p>
 
 </div>

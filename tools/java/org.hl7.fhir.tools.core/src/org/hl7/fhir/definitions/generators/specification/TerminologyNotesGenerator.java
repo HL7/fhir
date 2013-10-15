@@ -149,21 +149,21 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
         write("<td>Unknown</td><td valign=\"top\">No details provided yet</td>");
       else {
         if (cd.isExample())
-          write("<td><a href=\"terminologies.htm#example\">Example</a></td>");
+          write("<td><a href=\"terminologies.html#example\">Example</a></td>");
         else if (cd.getBinding() == Binding.CodeList)
-          write("<td><a href=\"terminologies.htm#code\">Fixed</a></td>");
+          write("<td><a href=\"terminologies.html#code\">Fixed</a></td>");
         else
-          write("<td><a href=\"terminologies.htm#incomplete\">Incomplete</a></td>");
+          write("<td><a href=\"terminologies.html#incomplete\">Incomplete</a></td>");
         write("<td valign=\"top\">");
         if (cd.getBinding() == BindingSpecification.Binding.Special) {
           if (cd.getName().equals("MessageEvent"))
-            write("<a href=\"message-events.htm\">http://hl7.org/fhir/message-events</a>");
+            write("<a href=\"message-events.html\">http://hl7.org/fhir/message-events</a>");
           else if (cd.getName().equals("ResourceType"))
-            write("<a href=\"resource-types.htm\">http://hl7.org/fhir/resource-types</a>");
+            write("<a href=\"resource-types.html\">http://hl7.org/fhir/resource-types</a>");
           else if (cd.getName().equals("DataType"))
-            write("<a href=\"data-types.htm\">http://hl7.org/fhir/data-types</a>");
+            write("<a href=\"data-types.html\">http://hl7.org/fhir/data-types</a>");
           else if (cd.getName().equals("FHIRDefinedType"))
-            write("<a href=\"defined-types.htm\">http://hl7.org/fhir/defined-types</a>");
+            write("<a href=\"defined-types.html\">http://hl7.org/fhir/defined-types</a>");
           else 
             throw new Exception("Unknown special type "+cd.getName());
         } 
@@ -171,19 +171,19 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
           if (Utilities.noString(cd.getReference())) 
             write("??");
           else if (cd.getReference().startsWith("valueset-"))
-            write("<a href=\""+cd.getReference()+".htm\">http://hl7.org/fhir/vs/"+cd.getReference().substring(9)+"</a>");            
+            write("<a href=\""+cd.getReference()+".html\">http://hl7.org/fhir/vs/"+cd.getReference().substring(9)+"</a>");            
           else if (cd.getReference().startsWith("http://hl7.org/fhir")) {
             if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs/"))
-              write("<a href=\"v3/"+cd.getReference().substring(26)+"/index.htm\">"+cd.getReference()+"</a>");
+              write("<a href=\"v3/"+cd.getReference().substring(26)+"/index.html\">"+cd.getReference()+"</a>");
             else if (cd.getReference().startsWith("http://hl7.org/fhir/vs/"))
-              write("<a href=\""+cd.getReference().substring(23)+".htm\">"+cd.getReference()+"</a>");
+              write("<a href=\""+cd.getReference().substring(23)+".html\">"+cd.getReference()+"</a>");
             else
               throw new Exception("Internal reference "+cd.getReference()+" not handled yet");
           } else
-            write("<a href=\""+cd.getReference()+".htm\">http://hl7.org/fhir/"+cd.getReference()+"</a>");            
+            write("<a href=\""+cd.getReference()+".html\">http://hl7.org/fhir/"+cd.getReference()+"</a>");            
         }
         if (cd.getBinding() == BindingSpecification.Binding.CodeList) {
-          write("<a href=\""+cd.getReference().substring(1)+".htm\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a>");            
+          write("<a href=\""+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a>");            
         }
         if (cd.getBinding() == BindingSpecification.Binding.Reference) {
           write("<a href=\""+cd.getReference()+"\">"+cd.getDescription()+"</a>");
@@ -201,13 +201,13 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       return cd.getDefinition();
     if (cd.getBinding() == BindingSpecification.Binding.Special) {
       if (cd.getName().equals("MessageEvent"))
-        return "the <a href=\"message-events.htm\">Event List in the messaging framework</a>";
+        return "the <a href=\"message-events.html\">Event List in the messaging framework</a>";
       else if (cd.getName().equals("ResourceType"))
-        return "<a href=\"resource-types.htm\">Any defined Resource Type name</a>";
+        return "<a href=\"resource-types.html\">Any defined Resource Type name</a>";
       else if (cd.getName().equals("DataType"))
-        return "<a href=\"data-types.htm\">Any defined Data Type name</a>";
+        return "<a href=\"data-types.html\">Any defined Data Type name</a>";
       else if (cd.getName().equals("FHIRDefinedType"))
-        return "<a href=\"defined-types.htm\">Any defined Resource or Data Type name</a>";
+        return "<a href=\"defined-types.html\">Any defined Resource or Data Type name</a>";
       else 
         throw new Exception("Unknown special type "+cd.getName());
     } 
@@ -215,15 +215,15 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       if (Utilities.noString(cd.getReference())) 
         return cd.getDescription();
       else if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs/"))
-        return cd.getDefinition()+" (<a href=\"v3/"+cd.getReference().substring(26)+"/index.htm\">Value Set Definition</a>)";
+        return cd.getDefinition()+" (<a href=\"v3/"+cd.getReference().substring(26)+"/index.html\">Value Set Definition</a>)";
       else
-        return cd.getDescription()+" (<a href=\""+cd.getReference()+".htm\">Value Set Definition</a>)";
+        return cd.getDescription()+" (<a href=\""+cd.getReference()+".html\">Value Set Definition</a>)";
     }
     if (cd.getBinding() == BindingSpecification.Binding.CodeList) {
       if (Utilities.noString(cd.getReference())) 
         return cd.getDefinition()+" ("+cd.getDescription()+")";
       else
-        return cd.getDefinition()+" (see <a href=\""+cd.getReference().substring(1)+".htm\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a> for values)";
+        return cd.getDefinition()+" (see <a href=\""+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a> for values)";
     }
     if (cd.getBinding() == BindingSpecification.Binding.Reference) {
       return "see <a href=\""+cd.getReference()+"\">"+cd.getDescription()+"</a>";
@@ -239,7 +239,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     } else if (cd.getBinding() == BindingSpecification.Binding.CodeList) {
       String sid = "";
       if (!isCode) {
-        sid = "\"<a href=\""+cd.getReference().substring(1)+".htm\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"\"</a>";
+        sid = "\"<a href=\""+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"\"</a>";
         //					if (!sids.contains(sid))
         //						sids.put(sid, new DefinedCode())
         sid = " system "+sid+"";
@@ -284,13 +284,13 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     	
     } else if (cd.getBinding() == BindingSpecification.Binding.Special) {
       if (cd.getName().equals("MessageEvent"))
-        write("<li>"+path+" of the <a href=\"message.htm#Events\"> Event List in the messaging framework</a></li>\r\n");
+        write("<li>"+path+" of the <a href=\"message.html#Events\"> Event List in the messaging framework</a></li>\r\n");
       else if (cd.getName().equals("ResourceType"))
-        write("  <li>"+path+" of <a href=\"terminologies.htm#ResourceType\"> any defined Resource Type name</a></li>\r\n");
+        write("  <li>"+path+" of <a href=\"terminologies.html#ResourceType\"> any defined Resource Type name</a></li>\r\n");
       else if (cd.getName().equals("FHIRContentType"))
-        write("  <li>"+path+" of <a href=\"terminologies.htm#fhircontenttypes\"> any defined Resource or Data Type name</a></li>\r\n");
+        write("  <li>"+path+" of <a href=\"terminologies.html#fhircontenttypes\"> any defined Resource or Data Type name</a></li>\r\n");
       else 
-        write("  <li>"+path+" of <a href=\"datatypes.htm\"> any defined data Type name</a> (including <a href=\"resources.htm#Resource\">Resource</a>)</li>\r\n");
+        write("  <li>"+path+" of <a href=\"datatypes.html\"> any defined data Type name</a> (including <a href=\"resources.html#Resource\">Resource</a>)</li>\r\n");
       
     } else {
       if (cd.getBindingStrength() == BindingSpecification.BindingStrength.Required)
@@ -308,7 +308,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     if (!cd.hasReference())
       return Utilities.escapeXml(cd.getDescription());
     else if (cd.getReferredValueSet() != null)
-      return "<a href=\""+cd.getReference()+".htm\">"+Utilities.escapeXml(cd.getReferredValueSet().getNameSimple())+"</a>";      
+      return "<a href=\""+cd.getReference()+".html\">"+Utilities.escapeXml(cd.getReferredValueSet().getNameSimple())+"</a>";      
     else
       return "<a href=\""+cd.getReference()+"\">"+Utilities.escapeXml(cd.getDescription())+"</a>";
   }

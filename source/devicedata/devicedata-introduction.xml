@@ -10,7 +10,7 @@ at present, FHIR does not offer any solution designed for real-time analytics of
 There are 2 device related resources
 </p>
 <ul>
- <li><a href="device.htm">Device</a>  - An administrative resource that tracks individual devices of all kinds and their location. Primarily used for attribution of actions to devices</li>
+ <li><a href="device.html">Device</a>  - An administrative resource that tracks individual devices of all kinds and their location. Primarily used for attribution of actions to devices</li>
  <li>Device Data (this resource) - A record of a set of observations produced by a device</li>
 </ul>
 

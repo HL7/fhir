@@ -181,10 +181,10 @@ public class Navigation {
 
   public String getIndexPrefixForFile(String file) {
     for (Category c : getCategories()) {
-      if (c.getLink() != null && file.equals(c.getLink()+".htm"))
+      if (c.getLink() != null && file.equals(c.getLink()+".html"))
         return c.getIndex();
       for (Entry e : c.getEntries()) {
-        if (e.getLink() != null && file.equals(e.getLink()+".htm"))
+        if (e.getLink() != null && file.equals(e.getLink()+".html"))
           return e.getIndex();
       }
     }

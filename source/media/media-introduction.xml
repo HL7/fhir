@@ -4,11 +4,11 @@
 <ul>
  <li>Photos of patients and staff for identification purposes</li>
  <li>Photos and videos of diagnostic or care provision procedures for recording purposes </li>
- <li>Storing scans and faxes of paper documents where not enough metadata exists to create a <a href="documentreference.htm">DocumentReference</a></li>
+ <li>Storing scans and faxes of paper documents where not enough metadata exists to create a <a href="documentreference.html">DocumentReference</a></li>
  <li>Images on diagnostic reports</li> 
 </ul>
 <p>
-The Media resource may contain medical images in a DICOM format.  While such images may also be accessible through an <a href="imagingstudy.htm">ImagingStudy</a> resource, the Media 
+The Media resource may contain medical images in a DICOM format.  While such images may also be accessible through an <a href="imagingstudy.html">ImagingStudy</a> resource, the Media 
 resource enables "ready for presentation" access to a specific image. 
 
 Such images would preferentially be made available in a FHIR ecosystem by the 

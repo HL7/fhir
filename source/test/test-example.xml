@@ -31,5 +31,5 @@
   <uriCorr value="https://www.hl7.org/fhir:81?param=25"/>
   <uriCorr value="http://myUrl/%2E%2E/%2E%2E"/>
   <uriCorr value="ftp://ftp.student.vu.nl"/>
-  <uriCorr value="/new/index.htm"/>
+  <uriCorr value="/new/index.html"/>
 </Test>

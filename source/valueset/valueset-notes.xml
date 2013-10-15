@@ -20,7 +20,7 @@ be different.
 </p>
 <ul>
  <li><i>ValueSet.define.system</i> is the URI that identifies these codes 
-   when used in a <a href="datatypes.htm#Coding">Coding</a></li>
+   when used in a <a href="datatypes.html#Coding">Coding</a></li>
  <li>The usability of the codes is closely linked to the quality of the definitions. 
    Although a definition is not required for each concept, a good definition SHOULD be provided. In the absence of any definition, there is no formal meaning associated with the concept</li>
  <li>If concepts contain other concepts, then the contained concepts are "subsumed" by 
@@ -47,7 +47,7 @@ There is no particular format requirement for the version identifier, though HL7
 </p>
 <p>
 When the value set definition of a code system includes a version identifier, the version identifier SHOULD be 
-used in <a href="datatypes.htm#coding">Coding</a> instances that refer to the code system. 
+used in <a href="datatypes.html#coding">Coding</a> instances that refer to the code system. 
 </p>
 
 
@@ -109,7 +109,7 @@ all the children of a code or a set of codes by filter.
 </p>
 <p>
 The standard way to produce a value set expansion is to perform a 
-<a href="query.htm">query</a> on the value set with _query=expand:
+<a href="query.html">query</a> on the value set with _query=expand:
 </p>
 <pre>
   GET [service-url]/valueset/?_query=expand&amp;id=...

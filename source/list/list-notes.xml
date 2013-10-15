@@ -80,7 +80,7 @@ If the list is empty, there could be several different reasons why this is so. F
 <p>
 Given these possibilities, and the common and significant first case, source systems SHOULD 
 provide an empty reason if the list is empty. Because of the importance of this case, the 
-<a href="special-values.htm">special value "nil known"</a> should be used when 
+<a href="special-values.html">special value "nil known"</a> should be used when 
 there are no (significant) entries in this context of care. Note that this concept is 
 sometimes described differently, such as "patient denies taking medications", or 
 "patient was unable to identify any relevant medical history".

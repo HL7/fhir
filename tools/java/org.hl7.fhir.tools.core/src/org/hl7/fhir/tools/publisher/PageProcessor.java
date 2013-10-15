@@ -130,7 +130,7 @@ public class PageProcessor implements Logger  {
   public final static String PUB_NOTICE =
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+
           "This is the ballot reconciliation version, and will change frequently as ballot reconciliation is performed.\r\n"+ 
-          "There's also a <a href=\"http://www.healthintersections.com.au/fhir/index.htm\">stable version</a> for the <a href=\"http://www.ihic2013.org.au/\">IHIC Connectathon</a>, and a <a href=\"http://latest.fhir.me/\">Nightly Build</a> is also available.\r\n"+
+          "There's also a <a href=\"http://www.healthintersections.com.au/fhir/index.html\">stable version</a> for the <a href=\"http://www.ihic2013.org.au/\">IHIC Connectathon</a>, and a <a href=\"http://latest.fhir.me/\">Nightly Build</a> is also available.\r\n"+
           "</p>\r\n";
   
 //  private boolean notime;
@@ -182,7 +182,7 @@ public class PageProcessor implements Logger  {
   private String xmlForDt(String dt, String pn) throws Exception {
 	  File tmp = File.createTempFile("tmp", ".tmp");
 	  tmp.deleteOnExit();
-	  XmlSpecGenerator gen = new XmlSpecGenerator(new FileOutputStream(tmp), pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.htm", null, definitions);
+	  XmlSpecGenerator gen = new XmlSpecGenerator(new FileOutputStream(tmp), pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.html", null, definitions);
 	  TypeParser tp = new TypeParser();
 	  TypeRef t = tp.parse(dt).get(0);
 	  ElementDefn e = definitions.getElementDefn(t.getName());
@@ -212,7 +212,7 @@ public class PageProcessor implements Logger  {
     for (Navigation.Category c : navigation.getCategories()) {
       if (!"nosidebar".equals(c.getMode())) {
         if (c.getLink() != null) {
-          s.append("  <h2><a href=\""+prefix+c.getLink()+".htm\">"+c.getName()+"</a></h2>\r\n");
+          s.append("  <h2><a href=\""+prefix+c.getLink()+".html\">"+c.getName()+"</a></h2>\r\n");
           links.add(c.getLink());
         }
         else
@@ -221,7 +221,7 @@ public class PageProcessor implements Logger  {
         for (Navigation.Entry e : c.getEntries()) {
           if (e.getLink() != null) {
             links.add(e.getLink());
-            s.append("    <li><a href=\""+prefix+e.getLink()+".htm\">"+Utilities.escapeXml(e.getName())+"</a></li>\r\n");
+            s.append("    <li><a href=\""+prefix+e.getLink()+".html\">"+Utilities.escapeXml(e.getName())+"</a></li>\r\n");
           } else
             s.append("    <li>"+e.getName()+"</li>\r\n");
         }
@@ -234,7 +234,7 @@ public class PageProcessor implements Logger  {
           //  if (!links.contains(rn.toLowerCase())) {
               ResourceDefn r = definitions.getResourceByName(rn);
               orderedResources.add(r.getName());
-              s.append("    <li><a href=\""+prefix+rn.toLowerCase()+".htm\">"+Utilities.escapeXml(r.getName())+"</a></li>\r\n");
+              s.append("    <li><a href=\""+prefix+rn.toLowerCase()+".html\">"+Utilities.escapeXml(r.getName())+"</a></li>\r\n");
           //  }
           }
 
@@ -243,7 +243,7 @@ public class PageProcessor implements Logger  {
       }
     }
     // s.append(SIDEBAR_SPACER);
-    s.append("<p><a href=\"http://gforge.hl7.org/gf/project/fhir/\" title=\"SVN Link\">Build "+svnRevision+"</a> (<a href=\"qa.htm\">QA Page</a>)</p><p> <a href=\"http://hl7.org\"><img width=\"42\" height=\"50\" border=\"0\" src=\""+prefix+"hl7logo.png\"/></a></p>\r\n");
+    s.append("<p><a href=\"http://gforge.hl7.org/gf/project/fhir/\" title=\"SVN Link\">Build "+svnRevision+"</a> (<a href=\"qa.html\">QA Page</a>)</p><p> <a href=\"http://hl7.org\"><img width=\"42\" height=\"50\" border=\"0\" src=\""+prefix+"hl7logo.png\"/></a></p>\r\n");
 
     s.append("</div>\r\n");
     prevSidebars.put(prefix, s.toString());
@@ -339,7 +339,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("diagram"))
         src = s1+new SvgGenerator(definitions).generate(folders.srcDir+ com[1])+s3;
       else if (com[0].equals("file"))
-        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else if (com[0].equals("v2xref"))
         src = s1 + xreferencesForV2(name, com[1]) + s3;      
       else if (com[0].equals("setwiki")) {
@@ -360,21 +360,21 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("pageheader"))
         src = s1+pageHeader(name.toUpperCase().substring(0, 1)+name.substring(1))+s3;
       else if (com[0].equals("header"))
-        src = s1+TextFile.fileToString(folders.srcDir + "header.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "header.html")+s3;
       else if (com[0].equals("newheader"))
-        src = s1+TextFile.fileToString(folders.srcDir + "newheader.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "newheader.html")+s3;
       else if (com[0].equals("newheader1"))
-        src = s1+TextFile.fileToString(folders.srcDir + "newheader1.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "newheader1.html")+s3;
       else if (com[0].equals("footer"))
-        src = s1+TextFile.fileToString(folders.srcDir + "footer.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "footer.html")+s3;
       else if (com[0].equals("newfooter"))
-        src = s1+TextFile.fileToString(folders.srcDir + "newfooter.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "newfooter.html")+s3;
       else if (com[0].equals("footer1"))
-        src = s1+TextFile.fileToString(folders.srcDir + "footer1.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "footer1.html")+s3;
       else if (com[0].equals("footer2"))
-        src = s1+TextFile.fileToString(folders.srcDir + "footer2.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "footer2.html")+s3;
       else if (com[0].equals("footer3"))
-        src = s1+TextFile.fileToString(folders.srcDir + "footer3.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "footer3.html")+s3;
       else if (com[0].equals("title"))
         src = s1+(workingTitle == null ? Utilities.escapeXml(name.toUpperCase().substring(0, 1)+name.substring(1)) : workingTitle)+s3;
       else if (com[0].equals("xtitle"))
@@ -612,9 +612,9 @@ public class PageProcessor implements Logger  {
       ResourceDefn rd = definitions.getResourceByName(rn);
       String rules = map.get(rd);
       if (Utilities.noString(rules)) {
-        out.append(" <li><a href=\""+rd.getName().toLowerCase()+".htm\">"+rd.getName()+"</a></li>\r\n");
+        out.append(" <li><a href=\""+rd.getName().toLowerCase()+".html\">"+rd.getName()+"</a></li>\r\n");
       } else if (!rules.equals("{def}")) {
-        in.append(" <tr><td><a href=\""+rd.getName().toLowerCase()+".htm\">"+rd.getName()+"</a></td><td>"+rules.replace("|", "or")+"</td></tr>\r\n");
+        in.append(" <tr><td><a href=\""+rd.getName().toLowerCase()+".html\">"+rd.getName()+"</a></td><td>"+rules.replace("|", "or")+"</td></tr>\r\n");
       }
     }
     return "<p>\r\nThe following resources may be in this compartment:\r\n</p>\r\n" +
@@ -635,7 +635,7 @@ public class PageProcessor implements Logger  {
     b.append("<table class=\"grid\">\r\n");
     b.append(" <tr><td><b>Name</b></td><td><b>Title</b></td><td><b>Description</b></td><td><b>Identity</b></td><td><b>Membership</b></td></tr>\r\n");
     for (Compartment c : definitions.getCompartments()) {
-      b.append(" <tr><td><a href=\"compartment-"+c.getName()+".htm\">"+c.getName()+"</a></td><td>"+c.getTitle()+"</td><td>"+Utilities.escapeXml(c.getDescription())+"</td>"+
+      b.append(" <tr><td><a href=\"compartment-"+c.getName()+".html\">"+c.getName()+"</a></td><td>"+c.getTitle()+"</td><td>"+Utilities.escapeXml(c.getDescription())+"</td>"+
               "<td>"+Utilities.escapeXml(c.getIdentity())+"</td><td>"+Utilities.escapeXml(c.getMembership())+"</td></tr>\r\n");
     }
     b.append("</table>\r\n");
@@ -645,9 +645,9 @@ public class PageProcessor implements Logger  {
   private String genV3CodeSystem(String name) throws Exception {
     ValueSet vs = (ValueSet) codeSystems.get("http://hl7.org/fhir/v3/"+name).getResource();
     new XmlComposer().compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml"), vs, true);
-    cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false);
+    cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false);
     new JsonComposer().compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs, false);
-    jsonToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
+    jsonToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
 
     return new XhtmlComposer().compose(vs.getText().getDiv());
   }
@@ -656,10 +656,10 @@ public class PageProcessor implements Logger  {
     ValueSet vs = (ValueSet) valueSets.get("http://hl7.org/fhir/v3/vs/"+name).getResource();
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml"), vs, true);
-    cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false);
+    cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs, false);
-    jsonToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
+    jsonToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
 
     return new XhtmlComposer().compose(vs.getText().getDiv()).replace("href=\"v3/", "href=\"../");
   }
@@ -669,10 +669,10 @@ public class PageProcessor implements Logger  {
     ValueSet vs = (ValueSet) codeSystems.get("http://hl7.org/fhir/v2/"+n[0]+"/"+n[1]).getResource();
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml"), vs, true);
-    cloneToXhtml(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml", folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 3, false);
+    cloneToXhtml(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml", folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 3, false);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".json"), vs, false);
-    jsonToXhtml(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".json", folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".json.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 3, r2Json(vs));
+    jsonToXhtml(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".json", folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".json.html", vs.getNameSimple(), vs.getDescriptionSimple(), 3, r2Json(vs));
     addToValuesets(v2Valuesets, vs, vs.getIdentifierSimple());
 
     return new XhtmlComposer().compose(vs.getText().getDiv());
@@ -682,10 +682,10 @@ public class PageProcessor implements Logger  {
     ValueSet vs = (ValueSet) codeSystems.get("http://hl7.org/fhir/v2/"+name).getResource();
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml"), vs, true);
-    cloneToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false);
+    cloneToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".json"), vs, false);
-    jsonToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".json", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".json.htm", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
+    jsonToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".json", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".json.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
     addToValuesets(v2Valuesets, vs, vs.getIdentifierSimple());
     return new XhtmlComposer().compose(vs.getText().getDiv());
   }
@@ -764,10 +764,10 @@ public class PageProcessor implements Logger  {
             c = XMLUtil.getNextSibling(c);
           }
           for (String v : versions)
-            s.append(" <li><a href=\"v2/"+id+"/"+v+"/index.htm\">"+v+"</a></li>");            
+            s.append(" <li><a href=\"v2/"+id+"/"+v+"/index.html\">"+v+"</a></li>");            
           s.append("</ul></td></tr>\r\n");
         } else
-          s.append(" <tr><td><a href=\"v2/"+id+"/index.htm\">http://hl7.org/fhir/v2/"+id+"</a></td><td>"+name+"</td><td></td></tr>\r\n");
+          s.append(" <tr><td><a href=\"v2/"+id+"/index.html\">http://hl7.org/fhir/v2/"+id+"</a></td><td>"+name+"</td><td></td></tr>\r\n");
       }
       e = XMLUtil.getNextSibling(e);
     }
@@ -799,7 +799,7 @@ public class PageProcessor implements Logger  {
       ValueSet vs = (ValueSet)e.getResource();
       String id = tail(vs.getIdentifierSimple());
       String oid = e.getLinks().get("oid");
-      s.append(" <tr><td><a href=\"v3/"+id+"/index.htm\">"+Utilities.escapeXml(id)+"</a></td><td>"+Utilities.escapeXml(vs.getDescriptionSimple())+"</td><td>"+oid+"</td></tr>\r\n");
+      s.append(" <tr><td><a href=\"v3/"+id+"/index.html\">"+Utilities.escapeXml(id)+"</a></td><td>"+Utilities.escapeXml(vs.getDescriptionSimple())+"</td><td>"+oid+"</td></tr>\r\n");
     }
     
     s.append("</table>\r\n");
@@ -830,7 +830,7 @@ public class PageProcessor implements Logger  {
       String id = tail(vs.getIdentifierSimple());
       String oid = e.getLinks().get("oid");
       String[] desc = vs.getDescriptionSimple().split("\\(OID \\= ");
-      s.append(" <tr><td><a href=\"v3/"+id+"/index.htm\">"+vs.getIdentifierSimple()+"</a></td><td>"+desc[0]+"</td><td>"+oid+"</td></tr>\r\n");
+      s.append(" <tr><td><a href=\"v3/"+id+"/index.html\">"+vs.getIdentifierSimple()+"</a></td><td>"+desc[0]+"</td><td>"+oid+"</td></tr>\r\n");
     }
     
     s.append("</table>\r\n");
@@ -858,7 +858,7 @@ public class PageProcessor implements Logger  {
     if (definitions.hasResource(name)) {
       ResourceDefn r = definitions.getResourceByName(name);
       return
-          "<tr bgcolor=\""+color+"\"><td><a href=\""+name.toLowerCase()+".htm\">"+name+"</a></td><td>"+aliases(r.getRoot().getAliases())+"</td><td>"+Utilities.escapeXml(r.getDefinition())+"</td></tr>\r\n";
+          "<tr bgcolor=\""+color+"\"><td><a href=\""+name.toLowerCase()+".html\">"+name+"</a></td><td>"+aliases(r.getRoot().getAliases())+"</td><td>"+Utilities.escapeXml(r.getDefinition())+"</td></tr>\r\n";
 
     } else 
       return 
@@ -993,35 +993,35 @@ public class PageProcessor implements Logger  {
         vsn = cd.getReferredValueSet().getIdentifierSimple();
       }
       for (ResourceDefn r : definitions.getResources().values()) {
-        scanForUsage(b, cd, r.getRoot(), r.getName().toLowerCase()+".htm#def");
+        scanForUsage(b, cd, r.getRoot(), r.getName().toLowerCase()+".html#def");
         scanForProfileUsage(b, cd, r);
       }
       for (ElementDefn e : definitions.getInfrastructure().values()) {
         if (e.getName().equals("ResourceReference")) {
-          scanForUsage(b, cd, e, "references.htm#"+e.getName());
+          scanForUsage(b, cd, e, "references.html#"+e.getName());
         } else if (e.getName().equals("Extension")) {
-          scanForUsage(b, cd, e, "extensibility.htm#"+e.getName());
+          scanForUsage(b, cd, e, "extensibility.html#"+e.getName());
         } else if (e.getName().equals("Narrative")) {
-          scanForUsage(b, cd, e, "narrative.htm#"+e.getName());
+          scanForUsage(b, cd, e, "narrative.html#"+e.getName());
         } else {
-          scanForUsage(b, cd, e, "formats.htm#"+e.getName());
+          scanForUsage(b, cd, e, "formats.html#"+e.getName());
         }
       }
       for (ElementDefn e : definitions.getTypes().values())
         if (!definitions.dataTypeIsSharedInfo(e.getName())) {
           if (e.getName().equals("ResourceReference")) 
-            scanForUsage(b, cd, e, "references.htm#"+e.getName());
+            scanForUsage(b, cd, e, "references.html#"+e.getName());
           else
-            scanForUsage(b, cd, e, "datatypes.htm#"+e.getName());
+            scanForUsage(b, cd, e, "datatypes.html#"+e.getName());
         }
       for (ElementDefn e : definitions.getStructures().values())
         if (!e.getName().equals("DocumentInformation"))
           if (!definitions.dataTypeIsSharedInfo(e.getName()))
-            scanForUsage(b, cd, e, "datatypes.htm#"+e.getName());
+            scanForUsage(b, cd, e, "datatypes.html#"+e.getName());
 
     } else {
       for (AtomEntry ae : valueSets.values()) {
-        if ((name+".htm").equals(ae.getLinks().get("path"))) {
+        if ((name+".html").equals(ae.getLinks().get("path"))) {
           ValueSet vs = (ValueSet) ae.getResource();
             if (vs.getDefine() != null)
                 csn = vs.getDefine().getSystemSimple();
@@ -1057,7 +1057,7 @@ public class PageProcessor implements Logger  {
     for (RegisteredProfile p : r.getProfiles()) {
       for (ExtensionDefn ex : p.getProfile().getExtensions()) {
         if (ex.getDefinition().hasBinding() && ex.getDefinition().getBindingName() != null && ex.getDefinition().getBindingName().equals(cd.getName())) {
-          b.append(" <li><a href=\""+p.getFilename()+".htm#"+ex.getCode()+"\">Extension "+ex.getCode()+"</a> "+getBSTypeDesc(cd)+"</li>\r\n");
+          b.append(" <li><a href=\""+p.getFilename()+".html#"+ex.getCode()+"\">Extension "+ex.getCode()+"</a> "+getBSTypeDesc(cd)+"</li>\r\n");
         }
       }
     }
@@ -1080,9 +1080,9 @@ public class PageProcessor implements Logger  {
 
   private String getBSTypeDesc(BindingSpecification cd) {
     switch (cd.getBindingStrength()) {
-    case Required: return "(<a href=\"terminologies.htm#code\">Fixed</a>)";
-    case Preferred: return "(<a href=\"terminologies.htm#incomplete\">Incomplete</a>)";
-    case Example: return "(<a href=\"terminologies.htm#example\">Example</a>)";
+    case Required: return "(<a href=\"terminologies.html#code\">Fixed</a>)";
+    case Preferred: return "(<a href=\"terminologies.html#incomplete\">Incomplete</a>)";
+    case Example: return "(<a href=\"terminologies.html#example\">Example</a>)";
     default:
       return "Unknown";
     }
@@ -1267,19 +1267,19 @@ public class PageProcessor implements Logger  {
     if (mode == null || mode.equals("content"))
       b.append("<li class=\"selected\"><span>Content</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+".htm\">Content</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+n+".html\">Content</a></span></li>");
     if ("examples".equals(mode))
       b.append("<li class=\"selected\"><span>Examples</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.htm\">Examples</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.html\">Examples</a></span></li>");
     if ("definitions".equals(mode))
       b.append("<li class=\"selected\"><span>Formal Definitions</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.htm\">Formal Definitions</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.html\">Formal Definitions</a></span></li>");
     if ("mappings".equals(mode))
         b.append("<li class=\"selected\"><span>Mappings</span></li>");
       else
-        b.append("<li class=\"nselected\"><span><a href=\""+n+"-mappings.htm\">Mappings</a></span></li>");
+        b.append("<li class=\"nselected\"><span><a href=\""+n+"-mappings.html\">Mappings</a></span></li>");
     b.append("<li class=\"spacerright\" style=\"width: 270px\"><span>&nbsp;</span></li>");
     b.append("</ul></div>\r\n");
     return b.toString();
@@ -1294,11 +1294,11 @@ public class PageProcessor implements Logger  {
     if (mode == null || mode.equals("content"))
       b.append("<li class=\"selected\"><span>Content</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+".htm\">Content</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+n+".html\">Content</a></span></li>");
     if ("definitions".equals(mode))
       b.append("<li class=\"selected\"><span>Formal Definitions</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.htm\">Formal Definitions</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.html\">Formal Definitions</a></span></li>");
     b.append("<li class=\"spacerright\" style=\"width: 270px\"><span>&nbsp;</span></li>");
     b.append("</ul></div>\r\n");
     return b.toString();
@@ -1313,15 +1313,15 @@ public class PageProcessor implements Logger  {
     if (mode == null || mode.equals("content"))
       b.append("<li class=\"selected\"><span>Content</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+".htm\">Content</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+n+".html\">Content</a></span></li>");
     if ("examples".equals(mode))
       b.append("<li class=\"selected\"><span>Examples</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.htm\">Examples</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.html\">Examples</a></span></li>");
     if ("definitions".equals(mode))
       b.append("<li class=\"selected\"><span>Formal Definitions</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.htm\">Formal Definitions</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.html\">Formal Definitions</a></span></li>");
     b.append("<li class=\"spacerright\" style=\"width: 270px\"><span>&nbsp;</span></li>");
     b.append("</ul></div>\r\n");
     return b.toString();
@@ -1336,15 +1336,15 @@ public class PageProcessor implements Logger  {
     if (mode == null || mode.equals("content"))
       b.append("<li class=\"selected\"><span>Content</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+".htm\">Content</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+n+".html\">Content</a></span></li>");
     if ("examples".equals(mode))
       b.append("<li class=\"selected\"><span>Examples</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.htm\">Examples</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.html\">Examples</a></span></li>");
     if ("definitions".equals(mode))
       b.append("<li class=\"selected\"><span>Formal Definitions</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.htm\">Formal Definitions</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.html\">Formal Definitions</a></span></li>");
     b.append("<li class=\"spacerright\" style=\"width: 270px\"><span>&nbsp;</span></li>");
     b.append("</ul></div>\r\n");
     return b.toString();
@@ -1367,23 +1367,23 @@ public class PageProcessor implements Logger  {
     if (mode == null || mode.equals("content"))
       b.append("<li class=\"selected\"><span>Using Codes</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies.htm\">Using Codes</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies.html\">Using Codes</a></span></li>");
     if ("systems".equals(mode))
       b.append("<li class=\"selected\"><span>Systems</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies-systems.htm\">Systems</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies-systems.html\">Systems</a></span></li>");
     if ("valuesets".equals(mode))
       b.append("<li class=\"selected\"><span>Value Sets</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies-valuesets.htm\">Value Sets</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies-valuesets.html\">Value Sets</a></span></li>");
     if ("v2".equals(mode))
       b.append("<li class=\"selected\"><span>v2 Tables</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies-v2.htm\">v2 Tables</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies-v2.html\">v2 Tables</a></span></li>");
     if ("v3".equals(mode))
       b.append("<li class=\"selected\"><span>v3 Namespaces</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies-v3.htm\">v3 Namespaces</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies-v3.html\">v3 Namespaces</a></span></li>");
     b.append("<li class=\"spacerright\" style=\"width: 370px\"><span>&nbsp;</span></li>");
     b.append("</ul></div>\r\n");
     return b.toString();
@@ -1398,11 +1398,11 @@ public class PageProcessor implements Logger  {
     if (mode == null || mode.equals("content"))
       b.append("<li class=\"selected\"><span>Content</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+".htm\">Content</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+n+".html\">Content</a></span></li>");
     if ("examples".equals(mode))
       b.append("<li class=\"selected\"><span>Examples</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.htm\">Examples</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.html\">Examples</a></span></li>");
     b.append("<li class=\"spacerright\" style=\"width: 370px\"><span>&nbsp;</span></li>");
     b.append("</ul></div>\r\n");
     return b.toString();
@@ -1442,7 +1442,7 @@ public class PageProcessor implements Logger  {
     if (mode == null || mode.equals("content"))
       b.append("<li class=\"selected\"><span>Content</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+".htm\">Content</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+n+".html\">Content</a></span></li>");
     String pages = ini.getStringProperty("resource-pages", title.toLowerCase());
     if (!Utilities.noString(pages)) {
       for (String p : pages.split(",")) {
@@ -1456,26 +1456,26 @@ public class PageProcessor implements Logger  {
     if ("examples".equals(mode))
       b.append("<li class=\"selected\"><span>Examples</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.htm\">Examples</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.html\">Examples</a></span></li>");
     if ("definitions".equals(mode))
         b.append("<li class=\"selected\"><span>Formal Definitions</span></li>");
       else
-        b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.htm\">Formal Definitions</a></span></li>");
+        b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.html\">Formal Definitions</a></span></li>");
 
     if ("mappings".equals(mode))
         b.append("<li class=\"selected\"><span>Mappings</span></li>");
       else
-        b.append("<li class=\"nselected\"><span><a href=\""+n+"-mappings.htm\">Mappings</a></span></li>");
+        b.append("<li class=\"nselected\"><span><a href=\""+n+"-mappings.html\">Mappings</a></span></li>");
 
 //    if ("explanations".equals(mode))
 //      b.append("<li class=\"selected\"><span>Design Notes</span></li>");
 //    else
-//      b.append("<li class=\"nselected\"><span><a href=\""+n+"-explanations.htm\">Design Notes</a></span></li>");
+//      b.append("<li class=\"nselected\"><span><a href=\""+n+"-explanations.html\">Design Notes</a></span></li>");
     
     if ("profiles".equals(mode))
       b.append("<li class=\"selected\"><span>Profiles</span></li>");
     else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-profiles.htm\">Profiles</a></span></li>");
+      b.append("<li class=\"nselected\"><span><a href=\""+n+"-profiles.html\">Profiles</a></span></li>");
     
     b.append("<li class=\"spacerright\"><span>&nbsp;</span></li>");
     b.append("</ul></div>\r\n");
@@ -1496,7 +1496,7 @@ public class PageProcessor implements Logger  {
 //    }
 //
 ////  not this one      Logical Interactions (RESTful framework)  http://hl7.org/fhir/rest-operations 2.16.840.1.113883.6.308
-//    s.append(" <tr><td><a href=\""+cd.getReference().substring(1)+".htm\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a></td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td></tr>\r\n");
+//    s.append(" <tr><td><a href=\""+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a></td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td></tr>\r\n");
 //      
     Collections.sort(names);
     for (String n : names) {
@@ -1504,7 +1504,7 @@ public class PageProcessor implements Logger  {
         // BindingSpecification cd = definitions.getBindingByReference("#"+n);
         AtomEntry ae = codeSystems.get(n);
         if (ae == null)
-          s.append(" <tr><td><a href=\""+"??"+".htm\">"+n+"</a></td><td>"+"??"+"</td></tr>\r\n");
+          s.append(" <tr><td><a href=\""+"??"+".html\">"+n+"</a></td><td>"+"??"+"</td></tr>\r\n");
         else {
           ValueSet vs = (ValueSet) ae.getResource();
           s.append(" <tr><td><a href=\""+ae.getLinks().get("path")+"\">"+n+"</a></td><td>"+vs.getDescriptionSimple()+"</td></tr>\r\n");
@@ -1606,28 +1606,28 @@ public class PageProcessor implements Logger  {
           if (cd.getBinding() == Binding.Special) {
 
             if (cd.getName().equals("MessageEvent"))
-              s.append("</td><td><a href=\"message-events.htm\">http://hl7.org/fhir/message-events.htm</a></td></tr>\r\n");
+              s.append("</td><td><a href=\"message-events.html\">http://hl7.org/fhir/message-events.html</a></td></tr>\r\n");
             else if (cd.getName().equals("ResourceType"))
-              s.append("</td><td><a href=\"resource-types.htm\">http://hl7.org/fhir/resource-types.htm</a></td></tr>\r\n");
+              s.append("</td><td><a href=\"resource-types.html\">http://hl7.org/fhir/resource-types.html</a></td></tr>\r\n");
             else if (cd.getName().equals("DataType"))
-              s.append("</td><td><a href=\"data-types.htm\">http://hl7.org/fhir/data-types.htm</a></td></tr>\r\n");
+              s.append("</td><td><a href=\"data-types.html\">http://hl7.org/fhir/data-types.html</a></td></tr>\r\n");
             else if (cd.getName().equals("FHIRDefinedType"))
-              s.append("</td><td><a href=\"defined-types.htm\">http://hl7.org/fhir/defined-types.htm</a></td></tr>\r\n");
+              s.append("</td><td><a href=\"defined-types.html\">http://hl7.org/fhir/defined-types.html</a></td></tr>\r\n");
             else 
               s.append("</td><td>???</td></tr>\r\n");
 
           } else if (cd.getBinding() == Binding.CodeList)
-            s.append("</td><td><a href=\""+cd.getReference().substring(1)+".htm\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a></td></tr>\r\n");          
+            s.append("</td><td><a href=\""+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a></td></tr>\r\n");          
           else if (cd.getBinding() == Binding.ValueSet) { 
             if (cd.getReferredValueSet() != null) {
               if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs")) 
-                s.append("</td><td><a href=\"v3/"+cd.getReference().substring(26)+"/index.htm\">"+cd.getReference()+"</a></td></tr>\r\n");          
+                s.append("</td><td><a href=\"v3/"+cd.getReference().substring(26)+"/index.html\">"+cd.getReference()+"</a></td></tr>\r\n");          
               else if (cd.getReference().startsWith("http://hl7.org/fhir")) 
-                s.append("</td><td><a href=\""+cd.getReference().substring(23)+".htm\">"+cd.getReference()+"</a></td></tr>\r\n");          
+                s.append("</td><td><a href=\""+cd.getReference().substring(23)+".html\">"+cd.getReference()+"</a></td></tr>\r\n");          
               else
-                s.append("</td><td><a href=\""+cd.getReference()+".htm\">"+cd.getReferredValueSet().getIdentifierSimple()+"</a></td></tr>\r\n");          
+                s.append("</td><td><a href=\""+cd.getReference()+".html\">"+cd.getReferredValueSet().getIdentifierSimple()+"</a></td></tr>\r\n");          
             } else 
-              s.append("</td><td><a href=\""+cd.getReference()+".htm\">??</a></td></tr>\r\n");          
+              s.append("</td><td><a href=\""+cd.getReference()+".html\">??</a></td></tr>\r\n");          
           } else if (cd.hasReference())
             s.append("</td><td><a href=\""+cd.getReference()+"\">"+Utilities.escapeXml(cd.getDescription())+"</a></td></tr>\r\n");
           else if (Utilities.noString(cd.getDescription()))
@@ -1697,13 +1697,13 @@ public class PageProcessor implements Logger  {
             s.append("See <a href=\""+cd.getReference()+"\">"+cd.getReference()+"</a>");
         } else if (cd.getBinding() == Binding.Special) {
           if (cd.getName().equals("MessageEvent"))
-            s.append("See the <a href=\"message.htm#Events\"> Event List </a>in the messaging framework");
+            s.append("See the <a href=\"message.html#Events\"> Event List </a>in the messaging framework");
           else if (cd.getName().equals("ResourceType"))
-            s.append("See the <a href=\"terminologies.htm#ResourceType\"> list of defined Resource Types</a>");
+            s.append("See the <a href=\"terminologies.html#ResourceType\"> list of defined Resource Types</a>");
           else if (cd.getName().equals("FHIRContentType"))
-            s.append("See the <a href=\"terminologies.htm#fhircontenttypes\"> list of defined Resource and Data Types</a>");
+            s.append("See the <a href=\"terminologies.html#fhircontenttypes\"> list of defined Resource and Data Types</a>");
           else 
-            s.append("<a href=\"datatypes.htm\">Any defined data Type name</a> (including <a href=\"resources.htm#Resource\">Resource</a>)");
+            s.append("<a href=\"datatypes.html\">Any defined data Type name</a> (including <a href=\"resources.html#Resource\">Resource</a>)");
         }        
         s.append("</td></tr>\r\n");
       }
@@ -1758,9 +1758,9 @@ public class PageProcessor implements Logger  {
       if( definitions.getFutureResources().containsKey(c.getCode()) )
     	  htmlFilename = "resourcelist";
       
-      html.append("  <tr><td><a href=\""+htmlFilename+".htm\">"+c.getCode()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
+      html.append("  <tr><td><a href=\""+htmlFilename+".html\">"+c.getCode()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
     }       
-    html.append("  <tr><td><a href=\"http.htm#binary\">Binary</a></td><td>Pure binary content (special case)</td></tr>");
+    html.append("  <tr><td><a href=\"http.html#binary\">Binary</a></td><td>Pure binary content (special case)</td></tr>");
     return html.toString();
   }
 
@@ -1779,13 +1779,13 @@ public class PageProcessor implements Logger  {
         if (c == null)
           c = definitions.getInfrastructure().get(n);
         if (c.getName().equals("Extension"))
-          html.append("  <tr><td><a href=\"extensibility.htm\">"+c.getName()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
+          html.append("  <tr><td><a href=\"extensibility.html\">"+c.getName()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
         else if (c.getName().equals("Narrative"))
-          html.append("  <tr><td><a href=\"narrative.htm#"+c.getName()+"\">"+c.getName()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
+          html.append("  <tr><td><a href=\"narrative.html#"+c.getName()+"\">"+c.getName()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
         else if (c.getName().equals("ResourceReference") )
-          html.append("  <tr><td><a href=\"references.htm#"+c.getName()+"\">"+c.getName()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
+          html.append("  <tr><td><a href=\"references.html#"+c.getName()+"\">"+c.getName()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
         else
-          html.append("  <tr><td><a href=\"datatypes.htm#"+c.getName()+"\">"+c.getName()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
+          html.append("  <tr><td><a href=\"datatypes.html#"+c.getName()+"\">"+c.getName()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
       }       
     }
     return html.toString();
@@ -1857,7 +1857,7 @@ public class PageProcessor implements Logger  {
       } else if (com[0].equals("sidebar"))
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("file"))
-        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else if (com[0].equals("setwiki")) {
         wikilink = com[1];
         src = s1+s3;
@@ -1869,21 +1869,21 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("wiki"))
         src = s1+wikilink+s3;
       else if (com[0].equals("header"))
-        src = s1+TextFile.fileToString(folders.srcDir + "header.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "header.html")+s3;
       else if (com[0].equals("newheader"))
-        src = s1+TextFile.fileToString(folders.srcDir + "newheader.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "newheader.html")+s3;
       else if (com[0].equals("newheader1"))
-        src = s1+TextFile.fileToString(folders.srcDir + "newheader1.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "newheader1.html")+s3;
       else if (com[0].equals("footer"))
-        src = s1+TextFile.fileToString(folders.srcDir + "footer.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "footer.html")+s3;
       else if (com[0].equals("newfooter"))
-        src = s1+TextFile.fileToString(folders.srcDir + "newfooter.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "newfooter.html")+s3;
       else if (com[0].equals("footer1"))
-        src = s1+TextFile.fileToString(folders.srcDir + "footer1.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "footer1.html")+s3;
       else if (com[0].equals("footer2"))
-        src = s1+TextFile.fileToString(folders.srcDir + "footer2.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "footer2.html")+s3;
       else if (com[0].equals("footer3"))
-        src = s1+TextFile.fileToString(folders.srcDir + "footer3.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "footer3.html")+s3;
       else if (com[0].equals("title"))
         src = s1+Utilities.escapeXml(name.toUpperCase().substring(0, 1)+name.substring(1))+s3;
       else if (com[0].equals("name"))
@@ -2126,7 +2126,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("diagram"))
         src = s1+new SvgGenerator(definitions).generate(folders.srcDir+ com[1])+s3;
       else if (com[0].equals("file"))
-        src = s1+/*TextFile.fileToString(folders.srcDir + com[1]+".htm")+*/s3;
+        src = s1+/*TextFile.fileToString(folders.srcDir + com[1]+".html")+*/s3;
       else if (com[0].equals("setwiki")) {
         wikilink = com[1];
         src = s1+s3;
@@ -2300,7 +2300,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("sidebar"))
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("file"))
-        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else if (com[0].equals("setwiki")) {
         wikilink = com[1];
         src = s1+s3;
@@ -2318,21 +2318,21 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("maponthispage"))
           src = s1+mapOnThisPage(mappingsList)+s3;
       else if (com[0].equals("header"))
-        src = s1+TextFile.fileToString(folders.srcDir + "header.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "header.html")+s3;
       else if (com[0].equals("newheader"))
-        src = s1+TextFile.fileToString(folders.srcDir + "newheader.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "newheader.html")+s3;
       else if (com[0].equals("newheader1"))
-        src = s1+TextFile.fileToString(folders.srcDir + "newheader1.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "newheader1.html")+s3;
       else if (com[0].equals("footer"))
-        src = s1+TextFile.fileToString(folders.srcDir + "footer.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "footer.html")+s3;
       else if (com[0].equals("newfooter"))
-        src = s1+TextFile.fileToString(folders.srcDir + "newfooter.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "newfooter.html")+s3;
       else if (com[0].equals("footer1"))
-        src = s1+TextFile.fileToString(folders.srcDir + "footer1.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "footer1.html")+s3;
       else if (com[0].equals("footer2"))
-        src = s1+TextFile.fileToString(folders.srcDir + "footer2.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "footer2.html")+s3;
       else if (com[0].equals("footer3"))
-        src = s1+TextFile.fileToString(folders.srcDir + "footer3.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "footer3.html")+s3;
       else if (com[0].equals("title"))
         src = s1+workingTitle+s3;
       else if (com[0].equals("xtitle"))
@@ -2397,7 +2397,7 @@ public class PageProcessor implements Logger  {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
         else
-          src = s1+"<p>The resource name as it appears in a  RESTful URL is <a href=\"http.htm#root\">[root]</a>/"+name+"/</p>"+s3;
+          src = s1+"<p>The resource name as it appears in a  RESTful URL is <a href=\"http.html#root\">[root]</a>/"+name+"/</p>"+s3;
       } else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+name);
 
@@ -2420,7 +2420,7 @@ public class PageProcessor implements Logger  {
       if (resource.getName().equals("Query"))
         b.append("<p>Search Parameters for this resource. The standard parameters also apply as described above.</p>\r\n");
       else
-        b.append("<p>Search Parameters for this resource. The standard parameters also apply. See <a href=\"query.htm#base\">Searching</a> for more information about searching in REST, Messaging, and services.</p>\r\n");
+        b.append("<p>Search Parameters for this resource. The standard parameters also apply. See <a href=\"query.html#base\">Searching</a> for more information about searching in REST, Messaging, and services.</p>\r\n");
       b.append("<table class=\"list\">\r\n");
       b.append("<tr><td><b>Name / Type</b></td><td><b>Description</b></td><td><b>Paths</b></td></tr>\r\n");
       List<String> names = new ArrayList<String>();
@@ -2452,7 +2452,7 @@ public class PageProcessor implements Logger  {
   private String produceExamples(ResourceDefn resource) {
     StringBuilder s = new StringBuilder();
     for (Example e: resource.getExamples()) {
-        s.append("<tr><td>"+Utilities.escapeXml(e.getDescription())+"</td><td><a href=\""+e.getFileTitle()+".xml\">source</a></td><td><a href=\""+e.getFileTitle()+".xml.htm\">formatted</a></td></tr>");
+        s.append("<tr><td>"+Utilities.escapeXml(e.getDescription())+"</td><td><a href=\""+e.getFileTitle()+".xml\">source</a></td><td><a href=\""+e.getFileTitle()+".xml.html\">formatted</a></td></tr>");
     }
     return s.toString();
   }
@@ -2463,7 +2463,7 @@ public class PageProcessor implements Logger  {
       s.append("<tr><td colspan=\"2\">No Profiles defined for this resource</td></tr>");
     } else { 
       for (RegisteredProfile p: resource.getProfiles()) {
-        s.append("<tr><td><a href=\""+p.getFilename()+".htm\">"+Utilities.escapeXml(p.getName())+"</a></td><td>"+Utilities.escapeXml(p.getDescription())+"</td></tr>");
+        s.append("<tr><td><a href=\""+p.getFilename()+".html\">"+Utilities.escapeXml(p.getName())+"</a></td><td>"+Utilities.escapeXml(p.getDescription())+"</td></tr>");
       }
     }
     return s.toString();
@@ -2478,8 +2478,8 @@ public class PageProcessor implements Logger  {
           s.append("<p>Example Index:</p>\r\n<table class=\"list\">\r\n");
         started = true;
         s.append("<tr><td>"+Utilities.escapeXml(e.getDescription())+"</td>");
-        s.append("<td><a href=\""+e.getFileTitle()+".xml.htm\">XML</a></td>");
-        s.append("<td><a href=\""+e.getFileTitle()+".json.htm\">JSON</a></td>");
+        s.append("<td><a href=\""+e.getFileTitle()+".xml.html\">XML</a></td>");
+        s.append("<td><a href=\""+e.getFileTitle()+".json.html\">JSON</a></td>");
         s.append("</tr>");
       }
   //  }
@@ -2558,7 +2558,7 @@ public class PageProcessor implements Logger  {
       if (com[0].equals("sidebar"))
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("file"))
-        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else if (com[0].equals("setwiki")) {
         wikilink = com[1];
         src = s1+s3;
@@ -2570,21 +2570,21 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("pageheader"))
         src = s1+pageHeader(profile.getMetadata().get("name").get(0))+s3;
       else if (com[0].equals("header"))
-        src = s1+TextFile.fileToString(folders.srcDir + "header.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "header.html")+s3;
       else if (com[0].equals("newheader"))
-        src = s1+TextFile.fileToString(folders.srcDir + "newheader.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "newheader.html")+s3;
       else if (com[0].equals("newheader1"))
-        src = s1+TextFile.fileToString(folders.srcDir + "newheader1.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "newheader1.html")+s3;
       else if (com[0].equals("footer"))
-        src = s1+TextFile.fileToString(folders.srcDir + "footer.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "footer.html")+s3;
       else if (com[0].equals("newfooter"))
-        src = s1+TextFile.fileToString(folders.srcDir + "newfooter.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "newfooter.html")+s3;
       else if (com[0].equals("footer1"))
-        src = s1+TextFile.fileToString(folders.srcDir + "footer1.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "footer1.html")+s3;
       else if (com[0].equals("footer2"))
-        src = s1+TextFile.fileToString(folders.srcDir + "footer2.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "footer2.html")+s3;
       else if (com[0].equals("footer3"))
-        src = s1+TextFile.fileToString(folders.srcDir + "footer3.htm")+s3;
+        src = s1+TextFile.fileToString(folders.srcDir + "footer3.html")+s3;
       else if (com[0].equals("title"))
         src = s1+Utilities.escapeXml(profile.getMetadata().get("name").get(0))+s3;
       else if (com[0].equals("name"))
@@ -2626,7 +2626,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("plural"))
         src = s1+Utilities.pluralizeMe(filename)+s3;
       else if (com[0].equals("notes"))
-        src = s1+"todo" /*Utilities.fileToString(folders.srcDir + filename+File.separatorChar+filename+".htm")*/ +s3;
+        src = s1+"todo" /*Utilities.fileToString(folders.srcDir + filename+File.separatorChar+filename+".html")*/ +s3;
       else if (com[0].equals("dictionary"))
         src = s1+"todo"+s3;
       else if (com[0].equals("breadcrumb"))

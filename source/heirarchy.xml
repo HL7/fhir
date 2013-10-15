@@ -4,62 +4,62 @@
 todo: compartments
 -->
 <fhir>
-<page title="Home" note="(map + search) - focus on useful links" filename="index.htm">
-  <page title="Documentation" filename="documentation.htm">
-    <page title="Table of Contents" filename="toc.htm"/>
-    <page title="License and Legal Terms" filename="license.htm"/>
-    <page title="Community and Credits" filename="credits.htm"/>
-    <page title="Version History" filename="history.htm"/>
-    <page title="Outstanding Issues" filename="todo.htm"/>
-    <page title="Summary" filename="summary.htm"/>
-    <page title="Introduction" filename="overview.htm"/>
-    <page title="Coming Challenges" filename="change.htm"/>
-    <page title="EHR FM map" filename="ehr-fm.htm"/>
-    <page title="Resource Definitions" filename="resources.htm">
-      <page title="Tags, Bundles, Compartments" filename="extras.htm"/>
-      <page title="References" filename="references.htm"/>
-      <page title="Narrative" filename="narrative.htm"/>
-      <page title="Formats" filename="formats.htm">
-        <page title="XML" filename="xml.htm"/>
-        <page title="JSON" filename="json.htm"/>
+<page title="Home" note="(map + search) - focus on useful links" filename="index.html">
+  <page title="Documentation" filename="documentation.html">
+    <page title="Table of Contents" filename="toc.html"/>
+    <page title="License and Legal Terms" filename="license.html"/>
+    <page title="Community and Credits" filename="credits.html"/>
+    <page title="Version History" filename="history.html"/>
+    <page title="Outstanding Issues" filename="todo.html"/>
+    <page title="Summary" filename="summary.html"/>
+    <page title="Introduction" filename="overview.html"/>
+    <page title="Coming Challenges" filename="change.html"/>
+    <page title="EHR FM map" filename="ehr-fm.html"/>
+    <page title="Resource Definitions" filename="resources.html">
+      <page title="Tags, Bundles, Compartments" filename="extras.html"/>
+      <page title="References" filename="references.html"/>
+      <page title="Narrative" filename="narrative.html"/>
+      <page title="Formats" filename="formats.html">
+        <page title="XML" filename="xml.html"/>
+        <page title="JSON" filename="json.html"/>
       </page>
-      <page title="Extensibility" filename="extensibility.htm">
-        <page title="Examples" filename="extensibility-examples.htm"/>
+      <page title="Extensibility" filename="extensibility.html">
+        <page title="Examples" filename="extensibility-examples.html"/>
       </page>
-      <page title="Formal Definitions" filename="base-definitions.htm"/>
+      <page title="Formal Definitions" filename="base-definitions.html"/>
     </page>
-    <page title="Data Types" filename="datatypes.htm">
-      <page title="Examples" filename="datatypes-examples.htm"/>
-      <page title="Formal Definitions" filename="datatypes-definitions.htm"/>
-      <page title="Mappings" filename="datatypes-mappings.htm"/>
+    <page title="Data Types" filename="datatypes.html">
+      <page title="Examples" filename="datatypes-examples.html"/>
+      <page title="Formal Definitions" filename="datatypes-definitions.html"/>
+      <page title="Mappings" filename="datatypes-mappings.html"/>
     </page>
-    <page title="Using Codes" filename="terminologies.htm">
-      <page title="Systems" filename="terminologies-systems.htm"/>
-      <page title="Value Sets" filename="terminologies-valuesets.htm">
-        <pages type="valueset" filename="template-valueset.htm"/>
-        <pages type="codesystem" filename="template-codesystem.htm"/>
+    <page title="Using Codes" filename="terminologies.html">
+      <page title="Systems" filename="terminologies-systems.html"/>
+      <page title="Value Sets" filename="terminologies-valuesets.html">
+        <pages type="valueset" filename="template-valueset.html"/>
+        <pages type="codesystem" filename="template-codesystem.html"/>
       </page>
-      <page title="V2 Tables" filename="terminologies-v2.htm" source="v2/template.htm">
-        <pages type="v2-table" filename="template-v2.htm"/>
+      <page title="V2 Tables" filename="terminologies-v2.html" source="v2/template.html">
+        <pages type="v2-table" filename="template-v2.html"/>
       </page>
-      <page title="V3 Namespaces" filename="terminologies-v3.htm" source="v3/template.htm">
-        <pages type="v3-vocab" filename="template-v3.htm"/>
+      <page title="V3 Namespaces" filename="terminologies-v3.html" source="v3/template.html">
+        <pages type="v3-vocab" filename="template-v3.html"/>
       </page>
     </page>
-    <page title="Ballot Intro" filename="ballot-intro.htm"/>
+    <page title="Ballot Intro" filename="ballot-intro.html"/>
   </page>
   
-  <page title="Implementation" filename="implementation.htm">
-    <page title="RESTful API" filename="http.htm"/>
-    <page title="Downloads" filename="downloads.htm"/>
-    <page title="Using Resources" filename="use.htm"/>
-    <page title="Support" filename="support.htm"/>
-    <page title="Common Usages" filename="usecases.htm"/>
-    <page title="Security" filename="security.htm"/>
-    <page title="Integrated Examples" filename="integrated-examples.htm"/>
+  <page title="Implementation" filename="implementation.html">
+    <page title="RESTful API" filename="http.html"/>
+    <page title="Downloads" filename="downloads.html"/>
+    <page title="Using Resources" filename="use.html"/>
+    <page title="Support" filename="support.html"/>
+    <page title="Common Usages" filename="usecases.html"/>
+    <page title="Security" filename="security.html"/>
+    <page title="Integrated Examples" filename="integrated-examples.html"/>
   </page>
 
-  <page title="Resources" filename="resourcelist.htm"/>
+  <page title="Resources" filename="resourcelist.html"/>
 <!--    Every Resource below has structure:
       resource
       definitions
@@ -68,7 +68,7 @@ todo: compartments
        [- example]
       mappings
       -->
-  <page title="Clinical" filename="clinical.htm">
+  <page title="Clinical" filename="clinical.html">
     <page type="resource" resource="AdverseReaction"/>
     <page type="resource" resource="AllergyIntolerance"/>
     <page type="resource" resource="CarePlan"/>
@@ -90,7 +90,7 @@ todo: compartments
     <page type="resource" resource="Specimen"/>
     <page type="resource" resource="DeviceData"/>
   </page>
-  <page title="Administrative" filename="administration.htm">
+  <page title="Administrative" filename="administration.html">
     <page type="resource" resource="Patient"/>
     <page type="resource" resource="RelatedPerson"/>
     <page type="resource" resource="Practitioner"/>
@@ -105,7 +105,7 @@ todo: compartments
     <page type="resource" resource="Order"/>
     <page type="resource" resource="OrderResponse"/>
   </page>
-  <page title="Infrastructure" filename="infrastructure.htm">
+  <page title="Infrastructure" filename="infrastructure.html">
     <page type="resource" resource="List"/>
     <page type="resource" resource="Media"/>
     <page type="resource" resource="Other"/>

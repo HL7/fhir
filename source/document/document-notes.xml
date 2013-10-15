@@ -18,7 +18,7 @@ a logical document id or a version specific id to be provided, or both. This sup
 identification strategies. The following combinations are allowed:
 </p>
 <ul>
- <li>A fully specified (both <a href="datatypes.htm#Identifier">Identifier</a> system and id) element is present for both <i>id</i> and <i>versionId</i>. This is the 
+ <li>A fully specified (both <a href="datatypes.html#Identifier">Identifier</a> system and id) element is present for both <i>id</i> and <i>versionId</i>. This is the 
      preferred option: globally unique identifiers for both version and non-version specify the document</li>
  <li>A fully specified element for the <i>id</i> element and a local id (no system) for the version number. 
      This is equivalent to a document id and a version number. In this case the version number is assumed to be 
@@ -31,7 +31,7 @@ identification strategies. The following combinations are allowed:
 Any other combinations do not globally uniquely identity a document and are therefore not allowed.
 </p>
 <p>
-Note that there is an additional identifier - the bundle identifier itself (<a href="extras.htm#bundles">atom</a> feed.id). This SHALL be an absolute 
+Note that there is an additional identifier - the bundle identifier itself (<a href="extras.html#bundles">atom</a> feed.id). This SHALL be an absolute 
 URI - in effect globally unique - but has no other particular meaning anywhere else in the specification.
 For a document, it can be populated with some URI that is extracted from the <i>versionId</i> or <i>id</i>
 above, or it can be a new UUID that has no other associated use. Implementers should not rely on its 
@@ -56,7 +56,7 @@ right). To actually build the combined narrative, simply append all the narrativ
 <a name="css"></a>
 <h3>Styling Documents</h3>
 <p>
-In addition to the <a href="narrative.htm#css">basic style rules</a>, which must be followed, a document can 
+In addition to the <a href="narrative.html#css">basic style rules</a>, which must be followed, a document can 
 contain a style sheet that contains additional styles that apply to the collated narrative. Unless
 otherwise agreed in local trading partner agreements, applications displaying the collated narrative 
 should use the style sheet provided in the document. Parties entering into such a trading agreement
@@ -80,7 +80,7 @@ has the following responsibilities:
 </p>
 <ul>
  <li>Build a valid document header that conforms to the Document rules explained here and that only links to other valid resources</li>
- <li>Ensure that the content of the document and other resources conforms to any declared <a href="profile.htm">Profiles</a>.</li>
+ <li>Ensure that the content of the document and other resources conforms to any declared <a href="profile.html">Profiles</a>.</li>
  <li>Ensure that the attesters are properly aware of the presentation of the document to which they are attesting</li>
 </ul>
 

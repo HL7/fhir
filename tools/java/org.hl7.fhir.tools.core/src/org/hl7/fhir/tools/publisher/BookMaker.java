@@ -71,19 +71,19 @@ public class BookMaker {
     
     checkCrossLinks();
     
-    String src = TextFile.fileToString(page.getFolders().srcDir+"book.htm");
-    src = page.processPageIncludes(page.getFolders().srcDir+"book.htm", src, "book");
+    String src = TextFile.fileToString(page.getFolders().srcDir+"book.html");
+    src = page.processPageIncludes(page.getFolders().srcDir+"book.html", src, "book");
     XhtmlDocument doc = new XhtmlParser().parse(src, "html");
     XhtmlNode body = doc.getElement("html").getElement("body");
     addTOC(body);   
     addContent(body);
     addReferenceIds(body);
-    new XhtmlComposer().compose(new FileOutputStream(target+"fhir-book.htm"), doc); 
+    new XhtmlComposer().compose(new FileOutputStream(target+"fhir-book.html"), doc); 
   }
 
   private void checkCrossLinks() {
 	  for (String name : pages.keySet()) {
-		  if (!"toc.htm".equals(name)) {
+		  if (!"toc.html".equals(name)) {
 			  XhtmlDocument d = pages.get(name);
 			  checkCrossLinks(name, d);
 		  }
@@ -107,7 +107,7 @@ public class BookMaker {
 		  if (href != null) {
 			  if (!pages.containsKey(href)) {
 				  boolean found = false;
-				  if (href.endsWith(".xsd") || href.endsWith(".xml") || href.endsWith(".xml.htm") || href.endsWith(".json") || href.endsWith(".zip"))
+				  if (href.endsWith(".xsd") || href.endsWith(".xml") || href.endsWith(".xml.html") || href.endsWith(".json") || href.endsWith(".zip"))
 					  found = true;
 				  else if (pages.containsKey(href))
 					  found = true;
@@ -129,14 +129,14 @@ public class BookMaker {
 						  found = findTarget(pages.get(parts[0]), parts[1]);
 						  if (!found)
 							try {
-								if (new File("c:\\temp\\source.htm").exists())
-								  new XhtmlComposer().compose(new FileOutputStream("c:\\temp\\source.htm"), pages.get(parts[0]));
+								if (new File("c:\\temp\\source.html").exists())
+								  new XhtmlComposer().compose(new FileOutputStream("c:\\temp\\source.html"), pages.get(parts[0]));
 							} catch (Exception e) {
 								e.printStackTrace();
 							}
 					  }
 				  }
-				  if (!found && !new File(page.getFolders().dstDir+href).exists() && !href.equals("qa.htm")) {
+				  if (!found && !new File(page.getFolders().dstDir+href).exists() && !href.equals("qa.html")) {
 				    page.getQa().brokenlink("broken link in "+name+": <a href=\""+href+"\">"+node.allText()+"</a>");
 					  page.log("broken link in "+name+": <a href=\""+href+"\">"+node.allText()+"</a>");
 				  }
@@ -336,13 +336,13 @@ public class BookMaker {
     a.addText(" "); // work around for a browser bug
 
     boolean first = true;
-    XhtmlDocument page = pages.get(link+".htm");
+    XhtmlDocument page = pages.get(link+".html");
     if (page == null)
-      throw new Exception("No content found for "+link+".htm");
+      throw new Exception("No content found for "+link+".html");
     if (page.getElement("html") == null)
-      throw new Exception("No 'html' tag found in "+link+".htm");
+      throw new Exception("No 'html' tag found in "+link+".html");
     if (page.getElement("html").getElement("body") == null)
-      throw new Exception("No 'body' tag found in "+link+".htm");
+      throw new Exception("No 'body' tag found in "+link+".html");
     XhtmlNode pageBody = page.getElement("html").getElement("body");
     
     List<XhtmlNode> wantDelete = new ArrayList<XhtmlNode>();
@@ -422,7 +422,7 @@ public class BookMaker {
           if (s.contains("#")) {
             int j = s.indexOf('#');
             s = "#"+s.substring(0, i)+"."+s.substring(j+1);
-          } else if (s.endsWith(".htm")) {
+          } else if (s.endsWith(".html")) {
             s = "#"+s.substring(0, i);
           } else {
             if (!s.endsWith(".zip") && !s.endsWith(".xsd") && !s.endsWith(".json") && !s.endsWith(".png") && !s.endsWith(".xml") && !s.endsWith(".eap") && !s.endsWith(".xmi")) {

@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+However 
+applications may need to replace Service Root URLs. This may be needed 
+as application URLs may change or in uses of FHIR within internal 
+eco-systems, local configuration may dictate that the provider of 
+a resource is different to that claimed by any particular provider 
+or consumer. 
+-->
+
+<!--
+
+ A person or animal receiving care at multiple organisations will therefore have its information present in multiple Patient Resources.			
+ 
+ What are the explicit mechanisms that should be used to synchronize them? This dynamic behavior,  is not covered at any depth (that I can see), except to suggest that a message that emulates a V2 or V3 event be employed. The entire notion of dynamic behavior of a model employing resources is not covered well. If one happens to employ RESTful services (not required AFAICS) then, yes, we have CRUD verb mappings on resources, but no real discussion of the dynamic behavior of multiple resources involved in transactions/events, except to fall back on V2 and V3. Am I missing something? 
+ 
+-->
+      
+[%settitle How to Use Resources%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<h2>How to Use Resources</h2>
+
+<a name="SOA"> </a>
+<a name="soa"> </a>
+<h3>Service Orientated use of Resources</h3>
+<p>
+While the FHIR Resources are designed with a simple <a href="http.html">RESTful HTTP-based implementation</a> 
+in mind, it is not necessary to use this implementation framework. This specification also defines a 
+straight <a href="message.html">messaging based implementation framework</a> for FHIR resources and a <a href="document.html">document-based framework</a>.
+</p>
+<p>
+Alternatively, it is not necessary to use any of these approaches. Resources can be exchanged or persisted
+using any technical means that is appropriate to the context at hand. A common use of FHIR 
+resources or <a href="extras.html#bundle">bundles</a> is as parameters of service interfaces. FHIR itself does not define
+any particular service interface. Instead, other standards and implementations define their 
+own service interfaces and architecture that use FHIR resources and optionally build extra features on top of the base 
+repository-mediated exchange that the FHIR RESTful specification provides. As long as the resources that
+are used are conformant with this specification and the rules for authoring and
+reading applications are followed, then the implementation can claim conformance to
+"FHIR Resources". Such implementations will need to resolve several issues:
+</p>
+<ul>
+  <li>Resource identity (the "id" metadata property) must be maintained. Resources all have an identity, which is how other resources refer to them, and these references need to be able to be resolved. However
+     resources are exchanged, their identity - which is not included inside the resource - needs to be included with the resource</li>
+  <li>Resource references need to be resolvable. There are a variety of solutions to this, from ensuring that the all the relevant resources are bundled together or that all relevant 
+      resources are passed as parameters in a service call, through to having a resource repository in the background that provides access to all referenced resources. </li>
+  <li>The <a href="resources.html#metadata">Resource metadata</a> items "Version Id" and "Last Modified Date" are provided for use in resolving resource versioning and concurrency issues, both from a technical and human perspective. Most contexts of use will require at least one if not both of these attributes for some uses, and the implementation framework will need to resolve how and when they are exchanged.</li>
+  <li>The <a href="conformance.html">conformance statement</a> allows authoring and reading applications to describe their rules concerning the use and contents of a resource. 
+      The implementation will need to describe how this conformance statement or some other equivalent fits into the exchange/persistence context.</li>
+  <li>How transactional information such as data enterer, author(s), responsible party, consent and approvals is treated</li>
+</ul>
+<p>
+The resolution to these issues should be documented and published with the service specification.
+</p>
+
+<a name="identity"></a>
+<h3>Managing Resource Identity</h3>
+<p>
+Each resource has a known identity. The identity is not stored inside the resource, but must be tracked by 
+systems handling resources. For RESTful systems, the resource identity is the same as the URL by which it is found. 
+When a resource is packaged in a <a href="extras.html#bundle">bundle</a>, the id is included along with the resource. 
+Real-world use of FHIR resources creates the need to manage resource identification.
+</p>
+<p>
+Resources are used in a variety of circumstances. Generally, these can be categorized into 3 different scenarios:
+</p>
+<ol>
+ <li><b>Closed Trading System</b>: the resources are only ever exchanged between fixed systems in a tightly controlled 
+community, such as a hospital. There is only one master server for each resource type, and resources are managed
+by that server. In this context, the logical id of a resource is sufficient to fully identify the resource</li>
+ <li><b>World-wide RESTful system</b>: there are many peer servers, each managing a set of resources of different types. 
+In order to identify resources, a full URL reference to the origin server is required</li>
+ <li><b>Partially closed, inter-linked systems</b>: a mixture of both - trading communities that are tightly managed, but have managed 
+interactions with other closed trading systems, or with the world-wide RESTful system, or both. In fact, 
+this combination appears to be the most likely scenario for current real-world healthcare business solutions</li>
+</ol>
+<p>
+These combinations are why either relative (logical) or absolute references are allowed, and why 
+a logical id is always required, in order to enable seamless exchange amongst partially closed trading systems.
+</p>
+<h3>Copying Resources and re-identification</h3>
+<p>
+When resources are exchanged between systems, they may need to be re-identified (i.e. assigned a new resource).
+When a resource is re-identified, nothing in the resource changes, but any references that point to the resource
+need to be updated. Whether re-identification is required or not depends on the context, as does how resource
+references are updated.
+</p>
+<p>
+The normal case is that a client/receiving system accepts the server/sender's identification of a resource 
+at face value, whether it is a relative or absolute reference. When the client/receiver wants to follow
+resource references, they are done using the server id (typically either by http calls or locating them 
+in a <a href="extras.html#bundle">bundle</a>). In such cases, there is no need for re-identification. 
+</p>
+<p>
+Another scenario is for a client to retrieve a resource from a server, and make its own local persistent
+copy. If the local resource has a life-cycle of its own (i.e. is it not just a cached resource), then it 
+needs to have its own identity; i.e. the resource must be re-identified. The simplest case is that the
+client only is keeping local copies of resources from a single server. In these cases, the client can 
+simply replace the root URL and keep the logical id of the resource the same. In fact, if the server
+is using relative references, then this change doesn't involve any actual changes to the resources, only
+a re-interpretation of the references. 
+</p>
+<p>
+In some cases, however, the client may deal with multiple servers. In this case, the logical id of the 
+resource is not guaranteed to be unique (unless all resources have a UUID for the logical id, which is 
+allowed but not required). When the client cannot be sure that the resource identities are unique, it 
+will have to re-identify the resources. In practice this means that the client needs to keep an identity
+translation table, and update references to the resources it has copied locally when other resources 
+are received.
+</p>	
+<p>
+The case of a gateway system that migrates resources from one ecosystem to another is very similar.
+In some limited cases, it can leave the logical id of the resources unchanged as resources are copied
+from one closed system to another. However in more complicated cases, it will have to modify the 
+resource references as resources pass across the gateway. 
+</p>
+<a name="workflow"> </a>
+<h2>Workflow with resources</h2>
+<p>
+There are many ways to implement any particular workflow and there are many ways to use resources to build working systems:
+</p>
+<ul>
+<li>A RESTful paradigm where resources are exchanged separately using http transactions directly as defined in this specification. Implementations can use both push and pull or a mix of the two</li>
+<li>The resources can be exchanged in messages or some other SOA implementation where the resources form the contents/parameters that are exchanged</li>
+<li>The resources can be "bundled" into documents that are self-contained and complete collections of linked resources and then these documents can be exchanged and/or persisted</li>
+<li>The resources can be embedded in HTML pages or other web content such as content feeds</li>
+</ul>
+
+
+</div>
+
+<%onthispage Using SOA#soa|Managing Identity#identity|Workflow#workflow%>
+
+[%file newfooter%]
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+      
+[%settitle EHR Functional Model Map%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<a name="ehr-fm"> </a>
+<h2>HL7 EHR Functional Model</h2>
+
+<p>
+The HL7 EHR System Functional Model provides a reference list of functions that may be present in an Electronic Health Record System. 
+While FHIR is an implementation focused on exchange of information in healthcare, this often happens in the context of an EHR. 
+This table briefly describes one way that FHIR can be used to meet the requirements described in the EHR-FM and is provided to help
+readers of the FHIR specification understand how FHIR can be used. There are many other equally valid ways to implement the EHR-FM
+and to make use of FHIR. 
+</p>
+<table class="list">
+<tr><th colspan="2">EHR Function</th><th>FHIR Implementation Notes</th></tr>
+<tr><td>IN.1</td><td>Security</td><td>FHIR defines parts of the security infrastructure, and delegates others to standard web based security frameworks</td></tr>
+<tr><td>IN.1.1</td><td>Entity Authentication</td><td>FHIR assumes that the users are authenticated. OAuth is the preferred mechanism</td></tr>
+<tr><td>IN.1.2</td><td>Entity Authorization</td><td>FHIR doesn't currently provide any resources to describe or manage access-control permissions. 
+By default, underlying web frameworks such as SAML would be used. See <a href="security.html#binding">the security section</a> for a discussion of binding between FHIR and SAML</td></tr>
+<tr><td>IN.1.3</td><td>Entity Access Control</td><td>See above about SAML / OAuth</td></tr>
+<tr><td>IN.1.4</td><td>Patient Access Management</td><td>FHIR does not - yet? - include functionality related to this requirement</td></tr>
+<tr><td>IN.1.5</td><td>Non-Repudiation</td><td>The <a href="provenance.html">provenance resource</a> tracks the timestamps, actors, digital signatures associated with resources</td></tr>
+<tr><td>IN.1.6</td><td>Secure Data Exchange</td><td>TLS (https:) should be used for all production exchange of data. All conformant FHIR RESTful implementations SHALL be able to use https</td></tr>
+<tr><td>IN.1.7</td><td>Secure Data Routing</td><td>FHIR allows for brokers and various forms of messaging that support assured destinations and delivery (also see IN.2.2 below)</td></tr>
+<tr><td>IN.1.8</td><td>Information Attestation</td><td>See the <a href="provenance.html">provenance resource</a></td></tr>
+<tr><td>IN.1.9</td><td>Patient Privacy and Confidentiality</td><td>FHIR does not include functionality related to this requirement, though implementations would be expected to provide this</td></tr>
+<tr><td>IN.2</td><td>Health Record Information and Management</td><td>This is a core application of the FHIR capabilities</td></tr>
+<tr><td>IN.2.1</td><td>Data Retention, Availability and Destruction</td><td>A FHIR RESTful server gives precise and fine-grained control of retention, availability and destruction of resources, all clearly described by the conformance statement</td></tr>
+<tr><td>IN.2.2</td><td>Auditable Records</td><td>FHIR provides the <a href="securityevent.html">SecurityEvent</a> resource for auditable records.</td></tr>
+<tr><td>IN.2.3</td><td>Synchronization</td><td>FHIR supports synchronization using standard web publication/subscription methods via <a href="extras.html#bundle">Bundles</a> (i.e. Atom feeds). Atom-based pub/sub may be push or pull based, and can include all resources of a particular type, or selected subsets of the resources. In addition, groups of resources can be exchanged in bundles, keeping a set of related resources in synchronization</td></tr>
+<tr><td>IN.2.4</td><td>Extraction of Health Record Information</td><td>FHIR does not provide report formats (yet?), but does provide extensive search and retrieval functions to assist with building such reports</td></tr>
+<tr><td>IN.2.5</td><td>Store and Manage Health Record Information</td><td>A FHIR RESTful server can store and manage health information persistently - see below for further information. </td></tr>
+<tr><td>IN.2.5.1/2</td><td>Manage Structured and Unstructured Health Record Information</td><td>The dual contents of FHIR resources - structured data and XHTML narrative - provide seamless support for dealing with a mix of structured and unstructured information</td></tr>
+<tr><td>IN.3</td><td>Registry and Directory Services</td><td>The FHIR <a href="resourcelist.html#administrative">Administration resources</a> provide a registry based access to patients, providers, etc.</td></tr>
+<tr><td>IN.4</td><td>Standard Terminologies and Terminology Services</td><td>FHIR encourages the use of standard terminologies wherever possible, and provides full support for their use through a variety of terminology related <a href="datatypes.html">data types</a>. FHIR does not define a terminology infrastructure or service, but does define the <a href="profile.html">Profile</a> and <a href="valueset.html">ValueSet</a> resources to describe how terminology is used in a FHIR context</td></tr>
+<tr><td>IN.5</td><td>Standards-based Interoperability</td><td>FHIR is a definition of a standard on which to base interoperability</td></tr>
+<tr><td>IN.5.1</td><td>Interchange Standards</td><td>This is the core focus of FHIR. See below for discussion of interaction modes</td></tr>
+<tr><td>IN.5.2</td><td>Interchange Standards Versioning and Maintenance </td><td>FHIR version maintenance is <a href="resources.html#version">described here</a></td></tr>
+<tr><td>IN.5.3</td><td>Standards-based Application Integration</td><td>FHIR enables simple integration through use of an easy to understand, use and debug web based infrastructure. The same framework used within an EHR for persistence can also offer a simple way to implement exchange</td></tr>
+<tr><td>IN.5.4</td><td>Interchange Agreements</td><td>The FHIR Conformance Statement and Resource Profile resources provide a registry based infrastructure for individual trading partner agreements, as well as for community based ones</td></tr>
+<tr><td>IN.6</td><td>Business Rules Management</td><td>FHIR does not address this requirement at this time</td></tr>
+<tr><td>IN.7</td><td>Workflow Management</td><td>FHIR does not address this requirement at this time, though the resources and services exist to support this functionality</td></tr>
+</table>
+<p>
+The EHR functional model describes several modes for interaction between systems. Each of these can be implemented in several different ways using FHIR
+</p>
+<table class="list">
+<tr><th>Interaction Modes</th><th>FHIR Options</th></tr>
+<tr><td>Unsolicited Notifications<br/>e.g. a patient has arrived for a clinic appointment </td><td><ul><li>create/update new resource via http</li><li>push resources using atom</li><li>Send FHIR <a href="message.html">Message</a> (if appropriate event is defined)</li></ul></td></tr>
+<tr><td>Query/Response<br/>e.g., Is Adam Everyman known to the system? Yes, MRN is 12345678.</td><td><ul><li>search with parameters</li><li>A query message (though not defined yet)</li></ul></td></tr>
+<tr><td>Service Request and Response<br/>e.g., Laboratory Order for Fasting Blood Sugar and a response containing the results of the test.  </td><td>Could be supported either through Messaging or SOA solutions.  Request/Response support is not yet defined</td></tr>
+<tr><td>Information Interchange between organizations (e.g. in a RHIO, or in a National Health System)  </td><td><ul><li>pub/sub using atom (push or pull)</li><li>RESTful interface</li><li>FHIR messaging</li></ul></td></tr>
+<tr><td>Structured / Unstructured clinical document, e.g., dictated surgical note </td><td>See the <a href="document.html">Documents</a></td></tr>
+</table>
+<p>
+The combination of a properly secured and managed FHIR server, along with enforced use of the <a href="securityevent.html">SecurityEvent</a> and <a href="provenance.html">Provenance</a> resources
+ensures that the core record management functions defined in the EHR-FM are met:
+</p>
+<ul>
+ <li>Lifespan/Lifecycle tracking, including capturing source, origination and authorship information, along with tracking of views and exchanges</li>
+ <li>Attestation for accuracy and completeness, along with digital signature</li>
+ <li>A full version history with content retention</li>
+ <li>Retention and persistence</li>
+</ul>
+<p>
+Additional functionality not defined (yet?) in FHIR is required to ensure non-repudiation, access control, and consent tracking.
+</p>
+</div>
+
+[%onthispage Overview#root|Roadmap#roadmap|Community#community|EHR Functional Model#ehr-fm%]
+
+[%file newfooter%]
+    
+    
+</body>
+</html>

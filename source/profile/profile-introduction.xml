@@ -23,7 +23,7 @@ Profile resources have four main parts:
 </ol>
 <p>
 This page defines the profile resource, and describes how it is used. Note that 
-as part of the specification itself, a <a href="implementation.htm#profiles">full 
+as part of the specification itself, a <a href="implementation.html#profiles">full 
 set of profiles</a> for all resources and data types is published.
 </p>
 <p>
@@ -48,7 +48,7 @@ instance. Another way of saying this is that knowledge must be explicit in
 the instance, not implicit in the profile. 
 </p>
 <p>
-As an example, if a profile wished to describe that any <a href="allergyintolerance.htm">Allergy/Intolerance</a>
+As an example, if a profile wished to describe that any <a href="allergyintolerance.html">Allergy/Intolerance</a>
 resource was deemed extremely unlikely, it could not simply say that this is so; instead, it must 
 say that the resource must have an extension that represents this knowledge. 
 </p>
@@ -56,8 +56,8 @@ say that the resource must have an extension that represents this knowledge.
 
 <h2>Metadata</h2>
 <p>
-The profile resource has a set of metadata that is mostly shared with the <a href="valueset.htm">Value Set</a>
-and <a href="conformance.htm">Conformance</a> resources. The metadata describes the profile, and helps 
+The profile resource has a set of metadata that is mostly shared with the <a href="valueset.html">Value Set</a>
+and <a href="conformance.html">Conformance</a> resources. The metadata describes the profile, and helps 
 find the profile when registered in profile repositories. 
 </p>
 
@@ -70,7 +70,7 @@ find the profile when registered in profile repositories.
  <tr><td>telecom</td><td>Contact details to assist a user in finding and communicating with the publisher</td></tr>	
  <tr><td>description</td><td>A free text natural language description of the profile and its use</td></tr>	
  <tr><td>code</td><td>A set of terms from external terminologies that may be used to assist with indexing and searching of templates</td></tr>
- <tr><td>status</td><td>The status of the profile	allows filtering of profiles that are appropriate for use vs. not. See the <a href="resource-profile-status.htm">Status Codes</a></td></tr>
+ <tr><td>status</td><td>The status of the profile	allows filtering of profiles that are appropriate for use vs. not. See the <a href="resource-profile-status.html">Status Codes</a></td></tr>
  <tr><td>experimental</td><td>This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage</td></tr>
  <tr><td>date</td><td>The date that this version of the profile was published	</td></tr>
  <tr><td>fhirVersion</td><td>The version of the FHIR specification on which this profile is based. It is not necessary to specify the version, as most profiles are valid across multiple versions, and the validity of a profile against a particular version of FHIR can easily be checked by tooling.	</td></tr>
@@ -192,7 +192,7 @@ easy to use, particularly in the context of code generation tools that work with
 any time slicing is performed in a profile, the profile SHALL nominate a "discriminator" - a child
 element that is used to discriminate between the different slices. The child element SHALL be 
 associated with a fixed value in each of the definitions, or if the child element has a terminology
-binding, it SHALL be associated with a complete binding with a version specific <a href="valueset.htm">Value Set</a> reference 
+binding, it SHALL be associated with a complete binding with a version specific <a href="valueset.html">Value Set</a> reference 
 that enumerates the possible codes in the value set, and where there is no overlap between the codes in the value sets.
 </p>
 <p>
@@ -232,7 +232,7 @@ definitions in the structure where it is used.
 </p>
 <p>
 For further discussion of defining and using extensions, along with some examples, 
-see <a href="extensibility.htm">Extensibility</a>. 
+see <a href="extensibility.html">Extensibility</a>. 
 </p>
 
 <h3>Using Extensions in Structures</h3>

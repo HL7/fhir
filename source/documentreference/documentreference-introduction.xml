@@ -6,18 +6,18 @@ author etc), can be displayed to the user, and has defined update management. Th
 used with any document format that has a recognized mime type, and that conforms to this definition.
 </p>
 <p>
-Typically, Document Reference Resources are used in document indexing systems, such as IHE XDS (see the <a href="xds-profile.xml.htm">XDS specific profile</a>),
+Typically, Document Reference Resources are used in document indexing systems, such as IHE XDS (see the <a href="xds-profile.xml.html">XDS specific profile</a>),
 and are used to refer to:
 </p>
 <ul>
  <li><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA documents</a> in FHIR systems</li>
- <li><a href="document.htm">FHIR documents</a> stored elsewhere (i.e. registry/repository following the XDS model)</li>
+ <li><a href="document.html">FHIR documents</a> stored elsewhere (i.e. registry/repository following the XDS model)</li>
  <li><a href="http://en.wikipedia.org/wiki/Portable_Document_Format">PDF documents</a>, and even digital records of faxes where sufficient information is available</li>
  <li>Other kinds of documents, such as records of prescriptions.</li> 
 </ul>
 
 <p>
-FHIR defines both a <a href="document.htm">document format</a> and this document reference. FHIR documents are for documents 
+FHIR defines both a <a href="document.html">document format</a> and this document reference. FHIR documents are for documents 
 that are authored and assembled in FHIR. This resource is mainly intended for general references to other documents. 
 </p>
 <p>
@@ -26,7 +26,7 @@ that are authored and assembled in FHIR. This resource is mainly intended for ge
 
 <p>
 The document that is a target of the reference can be a reference to a FHIR document served by another server, or 
-the target can be stored in the special <a href="http.htm#binary">FHIR Binary Resource</a>, or the target can be 
+the target can be stored in the special <a href="http.html#binary">FHIR Binary Resource</a>, or the target can be 
 stored on some other server system. The document reference is also able to address documents that are retrieved 
 by a service call such as an XDS.b RetrieveDocumentSet, or a DICOM exchange, or a v2 message query, though 
 the way each of these service calls works must be specified in some external stanard or other documentation.

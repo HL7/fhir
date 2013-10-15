@@ -3,7 +3,7 @@
 <p>
 Observations are a central element in healthcare, used to support diagnosis, monitor progress, determine baselines and patterns 
 and even capture demographic characteristics.  Fundamentally, observations are simple name/value pair assertions with little structure, 
-though there are several resources such as <a href="diagnosticreport.htm">DiagnosticReport</a> to manage and represent rich aggregation
+though there are several resources such as <a href="diagnosticreport.html">DiagnosticReport</a> to manage and represent rich aggregation
 patterns for observations. Expected uses for this resource include:
 </p>
 <ul>

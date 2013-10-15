@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+      
+[%settitle v3 Value Set http://hl7.org/fhir/v3/{id}%]
+[%setlevel 2%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<%txheader l2%>
+
+<h1>v3 Value Set http://hl7.org/fhir/v3/vs/<%id%></h1>
+<p>
+This is a value set defined as part of HL7 v3<%v3xref%>
+</p>
+<p>
+Formal value Set definition: <a href="v3-<%id%>.xml.html">XML</a> or <a href="v3-<%id%>.json.html">JSON</a>
+</p>
+
+<%v3ValueSet%>
+
+<%v3expansion%>
+
+</div>
+
+[%file newfooter%]
+    
+</body>
+</html>

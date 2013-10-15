@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+      
+[%settitle Roadmap%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<a name="root"> </a>
+<h1>Resource Formats</h1>
+<p>
+This page documents how the content of the resources are described. 
+In actual exchange, resources can be represented in the following
+formats: <a href="xml.html">XML</a> and <a href="json.html">JSON</a>. 
+</p>
+
+<h2>Resource Definition</h2>
+<p>
+The resources are described in two different ways: a UML diagram that summarizes the content, and 
+an pseudo-XML syntax that provides a visual sense of what the end resource instances will look like in XML. 
+Note that although the description of the resources is based on their XML representation, other representations
+such as JSON are equally valid.
+</p>
+<a name="syntax"> </a>
+<h3>XML</h3>
+<p>
+The XML syntax uses the following notation:
+</p>
+<pre class="spec">
+ &lt;<b>name</b> xmlns="http://hl7.org/fhir" (attrA="value")&gt; 
+   &lt;<u><b title="Formal Definition (SHALL be supported or understood)">nameA</b></u>&gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="Darkgreen">type</font> <font color="Navy">description of content</font> <font color="Gray"> --&gt;</font>&lt;nameA&gt;
+   &lt;<b title="Formal Definition">nameB[x]</b>&gt;<font color="Gray">&lt;!-- </font><font color="deeppink" title="Condition">0..1</font> <font color="darkgreen">type1</font>|<font color="darkgreen">type1</font> <font color="Navy">description</font> <font color="Gray"> --&gt;</font>&lt;/nameB&gt;
+   &lt;<b>nameC</b>&gt; <font color="Brown"><font color="Gray">&lt;!-- </font> <b>1..*</b> --&gt;</font>
+     &lt;<b>nameD</b> &gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="darkgreen">type</font>&gt;<font color="navy">Relevant records</font> <font color="Gray"> --&gt;</font>&lt;/nameD&gt;
+   &lt;/nameC&gt;
+ &lt;name&gt;
+</pre>
+<p>
+Notes:
+</p>
+<ul>
+ <li>Resource and Element names are case-sensitive (though duplicates that differ only in case are never defined)</li>
+ <li>Any elements that have a <a href="datatypes.html#primitive">primitive type</a> will have a value attribute to contain the actual value of the element</li>
+ <li>Elements are assigned a cardinality that specifies how many times the element may or must appear. If the cardinality is shown in 
+    <font color="deeppink">Pink</font> then there is an additional condition that impacts on the allowed cardinality. This is available as a mouse-over text, or in the formal definitions</li>
+ <li>Unless elements have children defined directly (as nameC does above) they are assigned one or more types. All of the types are defined in <a href="datatypes.html">the data types</a> except for "Resource" and "Narrative" that are documented below. The type names are hyperlinked</li>
+ <li>Some data types that have children have the same set of children as some other element defined in the resource. In that case, the type of that element is represented as @[path] where [path] is the element that has the defined children</li>
+ <li>When a logical element can have more than one type, its name takes the form nnn[x]. The "nnn" part of the name is constant, and 
+   the [x] is replaced with the title-cased name of the type that is actually used. In XML, for example this would like:
+   
+   <div class="example">
+<pre class="xml">
+  &lt;name&gt;
+    &lt;nameBType1&gt;
+     ... contents for type1 ...
+    &lt;/nameBType1&gt;
+  &lt;/name&gt;
+</pre>
+   </div>
+   The types that are allowed on this element are listed with a "|" used to separate them. When one of the types is Resource([X]), the type name in the element name is simply "Resource". 
+   </li>
+ <li>Each element name in the pseudo-syntax is also a hyperlink to the formal definition of the element in the data dictionary that underlies the exchange formats. </li>
+ <li>If the element name is underlined, then applications are required to <a href="resources.html#mustSupport">support</a> and/or <a href="resources.html#isModifier">understand</a> it</li>
+ <li>The character set for a resource is always Unicode, encoded in UTF-8.</li>
+ <li>Any of the elements may have an id attribute to serve as <a href="references.html#idref">the target of an internal reference</a>. The id attribute is not shown in this format</li>
+ <li>FHIR elements are never empty. If an element is present in the resource, it SHALL have either a value attribute, child elements as defined for its type, an id attribute that is the <a href="references.html#idref">link target</a> of <a href="narrative.html#narrative">narrative</a>, or 1 or more <a href="extensibility.html">extensions</a></li>
+ <li>Attributes can never be empty. Either they are absent, or they are present with at least one character of non-whitespace content</li>
+ <li>In addition to this descriptive syntax, other definitional forms are available, including W3C schema and Schematron</li>
+</ul>
+
+<h3>UML</h3>
+<p>
+The UML diagrams represent the same content as a series of classes that represent
+the elements of a resource. 
+</p>
+<p style="text-alignment: left">
+<%svg uml-example%>
+</p>
+<p>
+Where an element can have a choice of data types, these are represented in the 
+choice using the same syntax as the xml syntax described above. Due to way UML works, the actual 
+order of the elements cannot be determined from the diagram, nor is it visible 
+whether a property is an element or an attribute. The elements and types are
+links to the formal definitions of the parts. The UML diagrams also show the 
+bindings, and these are hyperlinks to the details of the binding.
+</p>
+<p>
+These UML diagrams are intended to communicate the contents of the resource
+to a human. An alternate set of diagrams that is more suited to code 
+generation is available as part of the <a href="downloads.html#refimpl">UML
+reference platform</a>. 
+</p>
+
+
+
+
+</div>
+
+[%file newfooter%]
+</body>
+</html>

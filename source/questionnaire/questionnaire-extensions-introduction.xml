@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 <p>
-The core extensions provide HL7 provided extensions to the <a href="questionnaire.htm">Questionnaire</a> resource.</p>
+The core extensions provide HL7 provided extensions to the <a href="questionnaire.html">Questionnaire</a> resource.</p>
 
 <h2>Questionnaire structure and validation</h2>
 <p>There are two extensions to help with defining the structure of a Questionnaire, especially useful when sending an "empty form" Questionnaire, e.g. a Questionnaire where only the questions are provided.

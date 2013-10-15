@@ -9,9 +9,9 @@
         <tr><td>http://loinc.org</td><td>LOINC (http://loinc.org)</td></tr>
         <tr><td>http://unitsofmeasure.org</td><td>UCUM: (http://unitsofmeasure.org) Case Sensitive Codes)</td></tr>
         <tr><td>http://hl7.org/fhir/sid/icd-10</td><td>ICD-10 International (http://www.who.int/classifications/icd/en/)</td></tr>
-        <tr><td>http://hl7.org/fhir/sid/icd-9</td><td>ICD-9 USA (http://www.cdc.gov/nchs/icd/icd9.htm)</td></tr>
+        <tr><td>http://hl7.org/fhir/sid/icd-9</td><td>ICD-9 USA (http://www.cdc.gov/nchs/icd/icd9.html)</td></tr>
         <tr><td>http://www.whocc.no/atc</td><td>Anatomical Therapeutic Chemical Classification System (http://www.whocc.no/atc/structure_and_principles/)</td></tr>
-        <tr><td>urn:std:iso:11073:10101</td><td>Medical Device Codes defined in ISO 11073-10101 (http://hit-testing.nist.gov:13110/rtmms/index.htm#rosetta)</td></tr>
+        <tr><td>urn:std:iso:11073:10101</td><td>Medical Device Codes defined in ISO 11073-10101 (http://hit-testing.nist.gov:13110/rtmms/index.html#rosetta)</td></tr>
         <tr><td>http://nema.org/dicom/dicm</td><td>DICOM Code Definitions (http://nema.org/dicom/dicm)</td></tr>
         <tr><td>urn:ietf:rfc:3986</td><td>URIs (As defined by http://www.ietf.org/rfc/rfc3986.txt)</td></tr>
         <tr><td>http://hl7.org/fhir/sid/us-ssn</td><td>SSN (http://www.ssa.gov/ssnumber/)</td></tr>
@@ -117,7 +117,7 @@
       <code value="http://hl7.org/fhir/sid/icd-9">
         <extension>
           <url value="http://hl7.org/fhir/tools/extensions#display"/>
-          <valueString value="ICD-9 USA (http://www.cdc.gov/nchs/icd/icd9.htm)"/>
+          <valueString value="ICD-9 USA (http://www.cdc.gov/nchs/icd/icd9.html)"/>
         </extension>
       </code>
 
@@ -131,7 +131,7 @@
       <code value="urn:std:iso:11073:10101">
         <extension>
           <url value="http://hl7.org/fhir/tools/extensions#display"/>
-          <valueString value="Medical Device Codes defined in ISO 11073-10101 (http://hit-testing.nist.gov:13110/rtmms/index.htm#rosetta)"/>
+          <valueString value="Medical Device Codes defined in ISO 11073-10101 (http://hit-testing.nist.gov:13110/rtmms/index.html#rosetta)"/>
         </extension>
       </code>
 

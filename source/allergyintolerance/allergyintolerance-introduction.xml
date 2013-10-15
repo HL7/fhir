@@ -26,7 +26,7 @@ that are clinically observable.  An adverse sensitivity is defined as:
 This definition excludes clinically identical episodes that may be caused by 
 physical agents, such as heat, cold, sunlight, or vibration, by exercise activity, 
 or by infectious agents. Those conditions caused by physical agents or infectious 
-would be captured on the problem list (<a href="list.htm">List</a>/<a href="condition.htm">Condition</a> Resources). The allergy/intolerance list is a list of 
+would be captured on the problem list (<a href="list.html">List</a>/<a href="condition.html">Condition</a> Resources). The allergy/intolerance list is a list of 
 conditions that represent a propensity unique to this individual for 
 a reaction upon future exposure to a specified substance. 
 </p>
@@ -44,9 +44,9 @@ population.
 </p>
 <p>
 Most of the details of the sensitivity can be found in the set of 
-<a href="adversereaction.htm">reactions</a> that are associated with the resource,
+<a href="adversereaction.html">reactions</a> that are associated with the resource,
 though these may not be present when the patient has not provided enough
-information. <a href="adversereaction.htm">Adverse Reactions</a> do not 
+information. <a href="adversereaction.html">Adverse Reactions</a> do not 
 have to be always associated with an AllergyIntolerance which may appropriate 
 when an single reaction has not provided enough evidence for a meaningful 
 Allergy/Intolerance, or in specific views of events rather than in a general

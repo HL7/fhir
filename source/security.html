@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+      
+[%settitle Security%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<h1>FHIR Security</h1>
+
+<p>
+Fast Healthcare Interoperability Resources (FHIR) is not a security protocol, nor does it define any security
+related functionality. However FHIR does define exchange protocols and content models that need to be used
+with various security protocols defined elsewhere. This section gathers all information about security
+in one section. A summary:
+</p>
+<ul class="dense">
+ <li>Communications Security - all exchange of production data should be secured using TLS/SSL (e.g. https)</li>
+ <li>Authentication - Users/Clients may be authenticated in any way desired. For web-centric use, OAuth is recommended</li>
+ <li>Authorization/Access Control - FHIR defines a Security Label infrastructure to support access control management. FHIR may also define a set of resources to administer access control management, but does not do so at present</li>
+ <li>Audit - FHIR defines <a href="provenance.html">provenance</a> and <a href="securityevent.html">security event</a> resources suitable for tracking the origins, authorship, history, status and access of resources</li>
+ <li>Digital Signatures - FHIR includes several specifically reserved locations for digital signatures</li>
+ <li>Attachments - FHIR allows for binary resources and attachments. These have their own concerns</li>
+</ul>
+<p>
+Time critical concerns regarding security flaws in the FHIR specification should be addressed to 
+the <a href="http://wiki.hl7.org/index.php?title=FHIR_email_list_subscription_instructions">FHIR email 
+list</a> for prompt consideration. Alternatively, issues can be raised through the 
+<a href="http://wiki.hl7.org/index.php?title=FHIR_Security_Page">community input</a> mechanism.
+</p>
+
+<p>
+Implementers should track the developing IHE IUA Profile for additional security considerations.
+</p>
+
+<p>
+A production FHIR system will need some kind of security sub-system that administers 
+users, user authentication and user-authorization. Where this sub-system fits into the 
+deployment architecture is a matter for system design:
+</p>
+<table class="dense">
+ <tr>
+  <td valign="center">
+ <img  height="263" width="358" src="security-layout.png"/>
+</td>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td valign="center" style="border-left: 1px solid grey">
+<table class="dense">
+ <tr><td><img height="32" width="32" src="security-icon-user.png"/></td><td>The consumer that is using a healthcare related system</td></tr>
+ <tr><td><img height="32" width="32" src="security-icon-app.png"/></td><td>The client application the user is using (application, mobile app, website, etc.)</td></tr>
+ <tr><td><img height="32" width="32" src="security-icon-sec.png"/></td><td>The security system that authenticates and authorizes the user</td></tr>
+ <tr><td><img height="32" width="32" src="security-icon-fhir.png"/></td><td>The clinical/healthcare repository</td></tr>
+</table>
+</td></tr></table>
+
+<p>
+In this diagram, the red lines represent FHIR interfaces. From the perspective of the FHIR API, 
+the client (consumer of FHIR services) may either interact with a security system that manifests
+as a FHIR server, and which depends on a subsequent FHIR interface to provide the actual storage,
+or either the client or server interacts with the security system independently. In each of these
+3 scenarios, the different components may be assembled into applications or network components
+differently, but the same logical layout applies. 
+</p>
+<p>
+The FHIR specification assumes that a security system exists, and that it may be deployed 
+in front of or behind the FHIR API. Because there are a plethora of standards relating to 
+the administration and functionality of the security system, FHIR does not provide user,
+profile, or other such administration resources. Instead, the FHIR resources are the targets
+of the policies expressed in these other approaches. What FHIR does specify is a way to apply
+security labels to resources so that a security system may use these (along with the contents
+of the resources if appropriate) to determine whether a user is authorised to perform a 
+particular FHIR operation or not.
+</p>
+
+
+<!--
+These HTTP calls may be authenticated against a single user account (including 
+using <a href="http://www.oauth.org">OAuth</a>), but this arrangement doesn't cater for common transaction metadata such as multiple users, 
+responsible party, reasons, consents, etc. that are commonly encountered in healthcare. Instead, 
+use of this RESTful implementation assumes that appropriate security and logs are managed by the client (perhaps 
+through using <a href="http://wiki.ihe.net/index.php?title=Audit_Trail_and_Node_Authentication">ATNA</a>), and 
+that the server trusts the client to maintain these. One implication is that this RESTful framework is 
+only suitable for use where such trust relationships exist (e.g. in a single institution) and is not 
+suitable where such trust does not exist (e.g. state &amp; national EHR systems and health record 
+systems that support disparate systems). Similarly, this simple RESTful interface has no support for 
+explicit archiving and similar functions. Use-cases where these kind of features are required should 
+consider a <a href="message.html">messaging</a> or <a href="implementation.html#SOA">SOA-based approach</a> or 
+some other kind of profiled REST interface.
+-->
+
+
+<a name="http"> </a>
+<h2>
+Communications
+</h2>
+<p>
+For the <a href="http.html">RESTful API</a>, normal HTTP security rules apply. 
+The <a href="http.html#root">Service Root URL</a> will specify whether SSL is required. 
+Client authentication may be required by the server, possibly including the requirement for 
+client certificates.
+</p>
+<p>
+SSL SHOULD be used for all production data exchange.
+</p>
+<p>
+To support browser-based client applications, recommend that servers SHOULD implement <a href="http://enable-cors.org/">cross-origin resource sharing</a> for the <a href="http.html">REST operations</a>.  
+</p>
+
+<h2>Authentication</h2>
+<p>
+Other than testing systems, FHIR servers should authenticate the clients. 
+The server may choose to authenticate the client system and trust it, or to authenticate
+the individual user by a variety of techniques. For web-centric use, 
+<a href="http://oauth.net/">OAuth</a> may be used to authenticate and/or authorise 
+the users. 
+</p>
+
+<!-- note about using OAuth and delegating user authority -->
+
+<a name="binding"> </a>
+<h2>
+Authorization/Access Control
+</h2>
+
+
+<p>
+Correctly identifying people, devices, locations and organizations is one of the foundations that any security system is built on. 
+Most uses of security protocols, whether authentication, access control, digital signatures, etc. rely on the correct mapping between
+the relevant resources and the underlying systems. Note that this isn't necessary: there is nothing in FHIR that requires or relies 
+on any security being in place, or any particular implementation. But real world usage will generally require this. 
+</p>
+<p>
+
+Todo.. outline general considerations. Note: this is under active investigation through connectathons running 
+parallel to the ballot process, and further work is expected on this section. Interested parties should track 
+the joint security / FHIR work in this area.
+</p>
+<p>
+RBAC notes go here
+</p>
+
+<h2>
+Digital Signatures
+</h2>
+<p>This specification recommends the use of <a href="http://www.w3.org/TR/xmldsig-core/">W3C Digital Signatures</a> to sign resources and  
+provides an element in the <a href="provenance.html">Provenance</a> resource to carry 
+a detached digital signature for a resource. This does not prohibit other ways of using digital signatures.</p>
+
+<p>
+Additional work is anticipated in this area, including alignment with the <a href="http://wiki.ihe.net/index.php?title=Document_Digital_Signature">IHE DSG profile</a>.
+</p>
+
+
+<h2>Attachments</h2>
+<p>
+Several FHIR resources include attachments. Attachments can either be references to content found elsewhere, or included inline encoded in base64.
+Attachments represent security risks in a way that FHIR resources do not, since some attachments contain executable code. Implementers should 
+always use caution when handling resources.
+</p>
+
+<a name="labels"> </a>
+<h2>Security Labels</h2>
+
+</div>
+
+[%file newfooter%]
+    
+    
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+      
+[%settitle Common Scenarios%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+  
+<a name="root"> </a>
+<h1>Common Scenarios in FHIR</h1>
+
+<p>
+FHIR is a framework standard that defines a common way to solve healthcare problems, 
+and provides a set of resources that can be used in many different ways. 
+This page describes how certain common usage scenarios are implemented using the capabilities that 
+FHIR defines. 
+</p>
+
+<a name="phr"></a>
+<h2>Personal Health Record (PHR)</h2>
+<p>
+In the PHR scenario, an Electronic Medical Record system (EMR, though many other names and acronyms 
+are also used) provides a RESTful API that allows patients to access their own medical
+record via a common web portal or mobile application, usually provided by a third party. 
+In this scenario, the PHR provider:
+</p> 
+
+<ul>
+ <li>Provides the patient with a login that identifies them (or links the patient record to an external identity provided by OpenID, Facebook, Google, etc.)</li>
+ <li>Authenticates the client using an appropriate OAuth server for the login (possibly their own) and restricts the client to viewing records associated with the specific patient (or patients, where appropriate access has been arranged)</li>
+</ul>
+
+<p>
+The EMR exposes a FHIR server that supports the <a href="http.html#search">search</a> and <a href="http.html#read">read</a> operations on the following resources: 
+</p>
+<ol>
+ <li>the <a href="patient.html">patient</a> resource in order to provide demographics to the client. When a client searches patients with no search criteria, they get a list of all patients they have access too</li>
+ <li><a href="http.html#search">search</a> and <a href="http.html#read">read</a> on the <a href="documentreference.html">Document Reference</a> resource to provide access to general patient documents in the form of PDFs etc. (PDFs are preferred)</li>
+ <li><a href="http.html#search">search</a> and <a href="http.html#read">read</a> on a set of clinical resources potentially including Observation, DiagnosticReport, various Medication resources, AdverseReaction/AllergyIntolerance, 
+CarePlan, and Condition</li> 
+</ol>
+<p>
+Here is the conformance Statement for this scenario:
+ <a href="conformance-phr-example.xml.html">XML</a> or 
+ <a href="conformance-phr-example.json.html">JSON</a>.
+</p>
+
+<p>
+The EMR may also choose to provide additional functionality, such as shared access to patient 
+records by relatives/carers, to allow the patient to upload their own documents, medication statements, observations
+(e.g. from patient monitoring devices) and/or to allow the patient to make appointments. This 
+additional functionality will involve additional API capabilities to be implemented and 
+exposed. The EMR server may also choose to expose the <a href="http.html#search">search</a>, <a href="http.html#read">read</a> and <a href="http.html#history">history</a> operation on 
+the Security Event resource for the patient-specific records to allow patient review of record access. Note that all 
+usage of the RESTful API should be logged in SecurityEvent resources.
+</p>
+
+<a name="xds"></a>
+<h2>Document Sharing (XDS)</h2>
+
+<p>
+One common way to integrate healthcare information from a variety of sources is to build a 
+repository of documents around a patient record. Building a repository of documents 
+allows for less stringent alignment around policy, procedures, and record-keeping/informatics
+standards.
+</p>
+<p>
+The most widely adopted framework for sharing documents within institutions, regions, states
+or countries is IHE Cross-Enterprise Document Sharing (XDS). XDS allows for a federated 
+system of repositories with a registry to provide co-ordinated access to the documents. 
+</p>
+<p>
+FHIR provides equivalent functionality to XDS that can be used to implement XDS behind
+the existing XDS.b interface, to provide a simpler mobile-friendly interface to an 
+existing XDS ecosystem, or to link document sharing into other functionality provided
+through a FHIR interface. 
+</p>
+<p>
+The following FHIR Resources are involved in the XDS functionality:
+</p>
+<ul>
+ <li>The <a href="documentreference.html">DocumentReference</a> resource describes a document that is located elsewhere. A document registry is a system that maintains a set of Document References</li>
+ <li>The <a href="xds-profile.xml.html">XDS profile</a> provides specific XDS implementation detail for the more general DocumentReference resource</li>
+ <li>The <a href="http.html#binary">Binary</a> support can be used to store the actual documents on a FHIR server. A repository is a system that stores the binary document in addition to Document References (or sometimes without)</li>
+ <li><a href="patient.html">Patient</a>, <a href="practitioner.html">Practitioner</a> and <a href="organization.html">Organization</a> resources provide support for identifying people and organizations</li>
+ <li>The <a href="securityevent.html">SecurityEvent</a> resource tracks usage of the document registry and repository</li>
+</ul>
+<p>
+At present, IHE is working with the FHIR project team to use FHIR for Mobile Health Documents (MHD).
+</p>
+
+
+<a name="decision"></a>
+<h2>Decision Support</h2>
+
+<p>
+Still to be done.
+</p>
+
+</div>
+<%onthispage PHR#phr|Document Sharing (XDS)#xds|Decision Support#decision%>
+
+[%file newfooter%]
+    
+    
+</body>
+</html>

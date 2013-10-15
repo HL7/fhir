@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+      
+[%settitle JSON Format%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+
+<a name="json"> </a>
+<h2>Representing Resources in JSON</h2>
+<p>
+Though the representation of FHIR resources is described in XML, FHIR also defines
+a JSON representation of the resources. The JSON format for the resources follows 
+the standard XML format very closely to make interconversion easy, and so that 
+XPath queries can easily be mapped to query the JSON structures. The formal mime type
+for this format is application/fhir+json.
+</p>
+<p>
+Clients are free to choose whether to implement in XML or JSON. Servers SHALL support XML, and can 
+choose to support JSON. Note that systems SHALL declare which format(s) they 
+support. Also, the <a href="downloads.html#refimpl">reference implementations</a>
+include bi-direction conversion functionality between the two formats.
+</p>
+<p>
+The JSON representation is described relative to the XML representation:
+</p>
+<ul>
+ <li>The names for the JSON object members are the same as the names of the elements and attributes in XML, including for elements that may repeat. Property names are case sensitive</li>
+ <li>In the data types, the <a href="datatypes.html#primitive">primitive type</a> integer is represented using a native JSON int, while boolean is represented using JSON's "true" and "false" values. Other primitive types such as string, decimal, etc. are represented as a JSON string, using the same serialization as the XML form (including instant, which is represented as plain text, not in one of the proposed JSON custom date formats)</li>
+ <li>Just as in XML, JSON property attributes never have empty values; omit a value if it is empty</li>
+</ul>
+
+<p>There are differences too:</p>
+<ul>
+ <li>There are no namespaces in the JSON representation</li>
+ <li>The order of properties of an object not significant in the JSON representation, though order within an array SHALL be maintained</li>
+ <li>JSON does not have a notion of attributes versus elements, so attributes (xml:id, value) are treated as JSON object members (see below for more details)</li>
+ <li>JSON has a notation for arrays, which are used to represent repeating elements. Note that this is the case, even if they do not repeat in the actual instance</li>
+ <li>The XHTML &lt;div&gt; element in the Narrative datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content etc. The XHTML most still conform to the rules described above</li>
+</ul>
+<p>These differences - particularly the repeating element one, which cannot be avoided - mean that generic XML --&gt; JSON converters are not 
+able to perform correctly. The <a href="downloads.html#refimpl">reference platforms</a> provide XML &lt;--&gt; JSON conversion functionality that accommodates these FHIR-specific characteristics.</p>
+
+<h3>JSON representation of primitive elements</h3>
+<p>
+FHIR elements with primitive values are represented as a JSON object of the same name with a the value attribute of the element in a "value" property and  
+(optionally) "_id" for the id attribute.  JSON native types are used for boolean, integer and decimal, all other primitives are rendered as strings, and the 
+whitespace is always significant (i.e. no leading and trailing spaces for non-strings). The JSON value "null" is never used.</p>
+
+<pre class="xml">
+ &lt;<b>date</b> value="1972-11-30"/&gt;
+ &lt;<b>deceased</b> value="false" /&gt;
+ &lt;<b>count</b> value="23" /&gt;
+</pre>
+<p>is represented in JSON as</p>
+<pre class="json">
+ "date" : { value: "1972-11-30" }
+ "deceased" : { value: false }
+ "count" : { value: 23 }
+</pre>
+<p>
+ All XML elements can have an 'id' attribute, which is represented in JSON as a property of name "_id":
+</p>
+<pre class="xml">
+ &lt;<b>dob</b> id="314159" value="1972-11-30" /&gt;
+</pre>
+<p>is represented in JSON as:</p>
+<pre class="json">
+ "dob": { 
+   "_id": "314159", 
+   "value": "1972-11-30" 
+ }
+</pre>
+
+<h3>Repeating elements</h3>
+
+<p>Repeating elements are rendered within a JSON array with the name of the element, 
+so a repeating &lt;dob&gt; element in XML</p>
+<pre class="xml">
+ &lt;<b>dob</b> value="2011-11-30" /&gt;
+ &lt;<b>dob</b> id="314159" value="1972-11-30" /&gt;
+</pre>
+<p>is represented in JSON like so:</p>
+<pre class="json">
+"dob": [
+	{ "value": "2011-11-30" },
+	{ "_id": "314159", "value": "1972-11-30" }
+  ]
+</pre>
+
+<h3>JSON representation of Resources, Elements, and Data types</h3>
+
+<p>
+Resources, elements, and datatypes (types that contain named elements of other types) are represented using 
+a JSON object, containing a member for each element in the datatype. Composites can have id attributes, which are 
+converted to JSON members values, in the same manner as described for primitives. It comes before all other members. For example:</p>
+ <pre class="xml">
+&lt;Person&gt;
+  &lt;name&gt;
+    &lt;use value="official" /&gt;  
+    &lt;given value="Karen" /&gt;
+    &lt;family id=&quot;n1&quot; value="Van" /&gt;
+  &lt;/name&gt;
+  &lt;text&gt;
+    &lt;status value="generated" /&gt;
+    &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;...&lt;/div&gt;
+  &lt;/text&gt;
+&lt;/Person&gt;
+</pre>
+<p>is represented in JSON as:</p>
+<pre class="json">
+{
+  "Person" : {
+    "name" : [{
+      "use" : { "value" : "official" },
+      "given" : [{
+         "value" : "Karen" 
+        }],
+      "family" : [{
+         "_id" : "n1",
+         "value" : "van"
+        }]
+     }],
+    "text" : {
+      "status" : { "value" : "generated" },
+      "div" : "&lt;div xmlns='http://www.w3.org/1999/xhtml'&gt;...&lt;/div&gt;"
+    }
+}
+</pre>
+<p>Things to note here are:</p>
+<ul>
+<li>Both given and family are repeating XML elements, so they are serialised as an Array whether or not they repeat in this instance</li>
+<li>In the family part of 'name', the '_id' is added as the first member</li>
+<li>The XHTML content in the 'div' element which is in the Narrative element 'text' is represented 
+as an escaped string in the value property in JSON. The xhtml's root element needs to be a &lt;div&gt; in the xhtml namespace</li>
+</ul>
+
+<a name="bundle"> </a>
+<a name="atom"> </a>
+<a name="json-bundles"></a>
+<h3>JSON Bundle Representation</h3>
+
+<p>
+In JSON <a href="extras.html#bundle">bundles</a> are represented using a JSON format that is tailored to the specific needs for bundles. 
+Each element in the Xml feed definition has a JSON corresponding JSON object member with the same name. 
+Here is an example feed returning search results for a person query:
+</p>
+
+<pre class="json">
+{
+  &quot;feed&quot; : {
+    &quot;title&quot; : &quot;Search result&quot;,
+    &quot;updated&quot; : &quot;2012-09-20T12:04:45.6787909+00:00&quot;,
+    &quot;id&quot; : &quot;urn:uuid:50ea3e5e-b6a7-4f55-956c-caef491bbc08&quot;,
+    &quot;link&quot; : [{
+      &quot;rel&quot; : &quot;self&quot;,
+	  &quot;href&quot; : &quot;http://ip-0a7a5abe:16287/fhir/person?format=json&quot;
+    }],
+   <a name="tags"> </a>&quot;category&quot; : [{
+      &quot;term&quot; : &quot;[Tag Term]&quot;,
+      &quot;label&quot; : &quot;[Tag Label]&quot;,
+      &quot;scheme&quot; : &quot;[Tag Scheme]&quot;
+    }],
+    &quot;totalResults&quot; : 12,
+    &quot;entry&quot; : [{
+      &quot;title&quot; : &quot;Resource of type Person, with id = 1 and version = 1&quot;,
+      &quot;link&quot; : [{
+        &quot;rel&quot; : &quot;self&quot;,
+        &quot;href&quot; : &quot;http://fhir.furore.com/fhir/person/@1/history/1&quot;
+      }],
+      &quot;id&quot; : &quot;http://fhir.furore.com/fhir/person/@1&quot;,
+      &quot;updated&quot; : &quot;2012-05-29T23:45:32+00:00&quot;,
+      &quot;published&quot; : &quot;2012-09-20T12:04:47.3012429+00:00&quot;,
+      &quot;author&quot; : [{
+        &quot;name&quot; : &quot;Grahame Grieve / HL7 publishing committee&quot;
+      }],
+      &quot;category&quot; : [{
+        &quot;term&quot; : &quot;[Tag Uri]&quot;,
+        &quot;label&quot; : &quot;[Tag Label]&quot;,
+        &quot;scheme&quot; : &quot;[Tag Type]&quot;
+      }],
+      &quot;content&quot; : {
+        &quot;Person&quot; : { ...person content in JSON... }
+      },
+      &quot;summary&quot; : &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;(text summary)&lt;/div&gt;&quot;,
+    },
+    ... other entries ....
+    ]
+  }
+}
+</pre>
+
+<p>
+Note that property names for elements that can repeat are not pluralized for consistency of overall approach. The mime type for a json bundle is also application/fhir+json.
+</p>
+
+<a name="json-bundle-delete"> </a>
+<h4>Bundling versions - deletion</h4>
+<p>
+When returning a set of versions for a resource, a version might indicate a deletion. 
+While the XML format follows <a href="http://www.rfc-editor.org/rfc/rfc6721.txt">RFC 6721</a>,
+the JSON format needs to use an entry item to retain the logical order of entries:</p>
+<pre class="json">
+   .. feed ..
+   &quot;entry&quot; : [
+    ... other entries ....,    
+    {
+      &quot;deleted&quot; : &quot;2012-05-29T23:45:32+00:00&quot;,
+      &quot;id&quot; : &quot;http://fhir.furore.com/fhir/person/@1&quot;,
+      &quot;link&quot; : [{
+          &quot;rel&quot; : &quot;self&quot;,
+          &quot;href&quot; : &quot;http://fhir.furore.com/fhir/person/@1/history/1&quot;
+        }],
+    }, ... other entries ....
+  ]
+  ... feed ...
+</pre>
+<p>
+The entry is known to be deleted because a date of deletion is given. An id SHALL be provided, and a link may be provided.
+</p>
+
+<a name="binary"> </a>
+<h4>Binary Resources</h4>
+<p>
+There are situations where it is useful or required to handle pure binary content 
+as resources. Typically, this is when the binary content is referred to from other FHIR 
+Resources. The resource can contain any content, whether text, image, pdf, zip archive, etc. 
+These resources are <a href="http.html#binary">served in their native form on the rest interface</a>,
+but can also be represented in XML or JSON, such as when including these resources in a bundle
+(used when it is convenient to include these in the feed directly rather than leaving them by reference).
+</p>
+<p>
+In JSON, Binary resources are represented like this:
+</p>
+<pre class="json">
+  &quot;Binary&quot; : {
+    &quot;contentType&quot; : &quot;[mime type]&quot;,
+    &quot;content&quot; : &quot;[base64 of data]&quot;
+  }
+</pre>
+
+</div>
+[%onthispage Resource Definition#root|Narrative#Narrative|Internal References#idref|JSON#json|Atom (Bundle)#atom|JSON (Bundle)#json-bundles|Schema#schema%]
+
+[%file newfooter%]
+</body>
+</html>

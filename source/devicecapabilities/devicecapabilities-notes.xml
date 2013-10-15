@@ -9,7 +9,7 @@ More sophisticated machines may identify themselves as part of their capabilitie
 </li>
 <li>
 The device log resource specifies the key values on the metric and facet elements which are used to link a 
-piece of data in the device log to the metric and facet definitions in the this resource. See the <a href="devicelog.htm">Device Log</a> resource for more information.
+piece of data in the device log to the metric and facet definitions in the this resource. See the <a href="devicelog.html">Device Log</a> resource for more information.
 </li>
 </ul>
 

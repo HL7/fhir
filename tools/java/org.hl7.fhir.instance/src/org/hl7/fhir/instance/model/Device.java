@@ -69,7 +69,7 @@ public class Device extends Resource {
     protected Date expiry;
 
     /**
-     * FDA Mandated Unique Device Identifier - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.
+     * FDA Mandated Unique Device Identifier - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.html.
      */
     protected String_ udi;
 

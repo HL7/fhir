@@ -21,7 +21,7 @@ namespace Hl7.Fhir.Tests
             abs = new Uri("http://www.nu.nl");
             Assert.IsTrue(abs.IsAbsoluteUri);
             
-            var notabs = new Uri("server/index.htm", UriKind.RelativeOrAbsolute);
+            var notabs = new Uri("server/index.html", UriKind.RelativeOrAbsolute);
             Assert.IsFalse(notabs.IsAbsoluteUri);
         }
 

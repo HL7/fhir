@@ -15,14 +15,14 @@ The following kind of orders can be made:
   </tr>
   <tr>
     <td>Request for Diagnostic Investigation</td>
-	<td><a href="diagnosticorder.htm">DiagnosticOrder</a></td>
-	<td>0..* <a href="diagnosticreport.htm">DiagnosticReport</a></td>
+	<td><a href="diagnosticorder.html">DiagnosticOrder</a></td>
+	<td>0..* <a href="diagnosticreport.html">DiagnosticReport</a></td>
 	<td>Local work flow arrangements will determine whether the laboratory handles a request by waiting for a specimen, or for the patient, or by visiting the patient directly to obtain the specimen (i.e. phlebotomy ward round)</td>
   </tr>
   <tr>
     <td>Order to supply a prescription</td>
-	<td><a href="medicationprescription.htm">MedicationPrescription</a></td>
-	<td>0..* <a href="medicationadministration.htm">MedicationAdministration</a> or <a href="medicationdispense.htm">MedicationDispense</a></td>
+	<td><a href="medicationprescription.html">MedicationPrescription</a></td>
+	<td>0..* <a href="medicationadministration.html">MedicationAdministration</a> or <a href="medicationdispense.html">MedicationDispense</a></td>
 	<td></td>
   </tr>
   <tr>

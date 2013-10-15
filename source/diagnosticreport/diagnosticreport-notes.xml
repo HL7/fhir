@@ -31,7 +31,7 @@ Applications consuming diagnostic reports must take careful note of updated repo
 <li>
 For applications providing diagnostic reports, a report shouldn't be final until all the individual data items
 reported with it are final or amended. If a report is withdrawn, all the results should be withdrawn by replacing 
-every result value with the Concept "withdrawn" in the internal terminology <a href="terminologies.htm">"Special values"</a> 
+every result value with the Concept "withdrawn" in the internal terminology <a href="terminologies.html">"Special values"</a> 
 (url = "http://hl7.org/fhir/special-values"), and setting the conclusion (if provided) and the text narrative to some 
 text like "This report has been withdrawn" in the appropriate language. A reason for withdrawal may be provided in the 
 narrative. </li>

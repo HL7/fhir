@@ -700,7 +700,7 @@ public class SvgGenerator {
       xml.attribute("class", "diagram-class-title-link");
       xml.open("tspan");
       xml.text(" (");
-      xml.attribute("xlink:href", "resources.htm");
+      xml.attribute("xlink:href", "resources.html");
       xml.attribute("class", "diagram-class-reference");
       xml.element("a", "Resource");
       xml.text(")");
@@ -747,15 +747,15 @@ public class SvgGenerator {
   private String baseUrl(String path) throws Exception {
     String root = path.contains(".") ? path.substring(0, path.indexOf(".")) : path;
     if (definitions.hasResource(root))
-      return root.toLowerCase()+"-definitions.htm#";
+      return root.toLowerCase()+"-definitions.html#";
     else if ("Narrative".equals(root))
-      return "formats-definitions.htm#";
+      return "formats-definitions.html#";
     else if ("ResourceReference".equals(root))
-      return "resources-definitions.htm#";
+      return "resources-definitions.html#";
     else if ("Extension".equals(root))
-      return "extensibility-definitions.htm#";
+      return "extensibility-definitions.html#";
     else if (definitions.hasType(root))
-      return "datatypes-definitions.htm#";
+      return "datatypes-definitions.html#";
     else
       throw new Exception(root+" not handled yet");
   }
@@ -809,13 +809,13 @@ public class SvgGenerator {
     xml.attribute("fill", "black");
     xml.attribute("class", "diagram-class-detail");
     xml.open("text");
-    xml.attribute("xlink:href", "extensibility.htm");
+    xml.attribute("xlink:href", "extensibility.html");
     xml.open("a");
     xml.element("title", "Extensions - as described for all elements: additional information that is not part of the basic definition of the resource / type");
     xml.text("extension");
     xml.close("a");
     xml.text(" : ");
-    xml.attribute("xlink:href", "extensibility.htm");
+    xml.attribute("xlink:href", "extensibility.html");
     xml.element("a", "Extension");
     xml.text(" 0..*");
     xml.close("text");
@@ -849,30 +849,30 @@ public class SvgGenerator {
     if (bs.getBinding() == Binding.Reference)
       return bs.getReference();      
     else if (bs.getBinding() == Binding.CodeList)
-      return bs.getReference().substring(1)+".htm";
+      return bs.getReference().substring(1)+".html";
     else if (bs.getBinding() == Binding.ValueSet) {
       if (Utilities.noString(bs.getReference())) 
         return "??";
       else if (bs.getReference().startsWith("valueset-"))
-        return bs.getReference()+".htm";            
+        return bs.getReference()+".html";            
       else if (bs.getReference().startsWith("http://hl7.org/fhir")) {
         if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/"))
-          return "v3/"+bs.getReference().substring(26)+"/index.htm";
+          return "v3/"+bs.getReference().substring(26)+"/index.html";
         else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/"))
-          return bs.getReference().substring(23)+".htm";
+          return bs.getReference().substring(23)+".html";
         else
           throw new Exception("Internal reference "+bs.getReference()+" not handled yet");
       } else
-        return bs.getReference()+".htm";            
+        return bs.getReference()+".html";            
     } else if (bs.getBinding() == Binding.Special) {
       if (bs.getName().equals("MessageEvent"))
-        return "message-events.htm";
+        return "message-events.html";
       else if (bs.getName().equals("ResourceType"))
-        return "resource-types.htm";
+        return "resource-types.html";
       else if (bs.getName().equals("DataType"))
-        return "data-types.htm";
+        return "data-types.html";
       else if (bs.getName().equals("FHIRDefinedType"))
-        return "defined-types.htm";
+        return "defined-types.html";
       else 
         throw new Exception("Unknown special type "+bs.getName());
     } else 
@@ -886,11 +886,11 @@ public class SvgGenerator {
       if (!first)
         xml.text("|");
       if (tr.getName().equals("*"))
-        xml.attribute("xlink:href", "datatypes.htm#open");
+        xml.attribute("xlink:href", "datatypes.html#open");
       else if (tr.getName().startsWith("@")) 
         xml.attribute("title", "@"+tr.getName().substring(1));
       else
-        xml.attribute("xlink:href", GeneratorUtils.getSrcFile(tr.getName()) + ".htm#" + tr.getName());
+        xml.attribute("xlink:href", GeneratorUtils.getSrcFile(tr.getName()) + ".html#" + tr.getName());
       xml.element("a", tr.getName());
       if (tr.getParams().size() > 0) {
         xml.text("(");
@@ -901,7 +901,7 @@ public class SvgGenerator {
           if (definitions.getFutureResources().containsKey(t))
             xml.attribute("title", "This resource is not been defined yet");
           else
-            xml.attribute("xlink:href", GeneratorUtils.getSrcFile(t) + ".htm#" + t);
+            xml.attribute("xlink:href", GeneratorUtils.getSrcFile(t) + ".html#" + t);
           xml.element("a", t);
           firstP = false;
         }

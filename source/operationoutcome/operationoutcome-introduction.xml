@@ -9,8 +9,8 @@ They are provided as a direct system response, or component of one, where they p
 Specifically, OperationOutcomes are used in the following circumstances:
 </p>
 <ul>
- <li>When an <a href="http.htm#operations">RESTful operation</a> fails</li>
- <li>As the response on a <a href="http.htm#validate">validation operation</a>, to provide information about the outcomes</li>
+ <li>When an <a href="http.html#operations">RESTful operation</a> fails</li>
+ <li>As the response on a <a href="http.html#validate">validation operation</a>, to provide information about the outcomes</li>
  <li>As part of a message response, usually when the message has not been processed correctly</li>
 </ul>
 

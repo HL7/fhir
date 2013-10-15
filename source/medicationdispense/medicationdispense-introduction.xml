@@ -2,7 +2,7 @@
 
 <table border="1" cellpadding="1" cellspacing="2" frame="box">
     <tr>
-        <td><a href="medicationprescription.htm">MedicationPrescription</a></td>
+        <td><a href="medicationprescription.html">MedicationPrescription</a></td>
         <td>An order for both supply of the medication and the instructions for administration of the medicine to a patient.</td>
     </tr>
     <tr>
@@ -10,11 +10,11 @@
         <td>Provision of a supply of a medication with the intention that it is subsequently consumed by a patient (usually in response to a prescription).  </td>
     </tr>
     <tr>
-        <td><a href="medicationadministration.htm">MedicationAdministration</a></td>
+        <td><a href="medicationadministration.html">MedicationAdministration</a></td>
         <td>When a patient actually consumes a medicine, or it is otherwise administered to them</td>
     </tr>
     <tr>
-        <td><a href="medicationstatement.htm">MedicationStatement</a></td>
+        <td><a href="medicationstatement.html">MedicationStatement</a></td>
         <td>This is a record of medication being taken by a patient, or that the medication has been given to a patient where the record is the result of a report from the patient, or another clinician. 
           A medication statement is not a part of the prescribe->dispense->administer sequence but is a report that such a sequence (or at least a part of it) did take place resulting in a belief that the patient has received a particular medication.
         </td>

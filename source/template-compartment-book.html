@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+      
+[%settitle Roadmap%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Compartment <%comp-title%> - FHIR v<%version%></title>
+    <link rel="Stylesheet" href="fhir.css" type="text/css"/>
+    <link rel="Stylesheet" href="fhir-print.css" type="text/css" media="print" />
+</head>
+
+<body>
+
+<div class="content">
+<%pageheader%>
+<h1>Compartment <%comp-title%></h1>
+
+<table class="grid">
+ <tr><td>Description</td><td><%comp-desc%></td></tr>
+ <tr><td>Identity</td><td><%comp-identity%></td></tr>
+ <tr><td>Membership</td><td><%comp-membership%></td></tr>
+</table>
+
+<p>
+Resource based membership rules:
+</p>
+
+<%comp-resources%>
+
+<p>
+See <a href="extras.html#compartment"> information about compartments</a>.  
+</p>
+
+
+</div>
+
+[%file newfooter%]
+    
+</body>
+</html>

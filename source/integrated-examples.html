@@ -1,0 +1,521 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+      
+[%settitle Integrated Examples%]
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+
+<h2>Integrated Examples</h2>
+
+<p>
+These integrated examples are the result of choosing several real world 
+healthcare records from a Dutch healthcare institution and representing
+them using FHIR resources. They are made published here for several
+reasons:
+</p>
+<ul>
+ <li>To test that the resources are fit for purpose using real cases</li>
+ <li>So that the available resource examples include real cases</li>
+ <li>So that applications have real world clinical cases to use in development and prototyping</li>
+</ul>
+
+
+<h3>Patient case 1</h3>
+
+<p>
+The 69 year old Pieter van den Heuvel is charged with some serious diseases over the last few years. In the spring and summer of 2011, Pieter had complains of fatigue, dyspnea 
+and even fainting. After visiting his physician, Pieter was referred to the cardiologist for further examination. At the hospital a malfunction of the heart valve was diagnosed
+and eventually replaced. Pieter recovered well in the next 2 months, but probably needs a life time prescription on blood pressure reducing medication.
+In the summer of 2012, Pieter again visited his physician for a chest injury after he fell from the stairs. By coincidence, the doctor noticed a suspicious stain on the X-thorax
+and performed some additional tests on Pieter. After the results, Pieter was diagnosed with early stage non-small cell lung cancer. Fortunately, the tumor didn't spread to other
+parts of the body. Tumor type and location made it possible to perform a partial lobectomy in the right lung. After his recovery, Pieter was submitted to a high risk control 
+group for yearly screening.
+</p>
+<p>
+In 2013, Pieter was charged with an increasing neck swelling, a stiff neck and difficulty swallowing. Because of breathing problems, Pieter was urgently admitted 
+to the hospital. An upper respiratory infection caused a retropharyngeal abscess in the back of the throat. Surgery was needed to remove the abscess. The surgeons 
+recommended a tracheotomy during the surgery, so there was less change of complications during the abscess removal. A tracheotomy was intubated before the surgery.
+After the removal of the retropharyngeal abscess, the tracheotomy was extubated as the swelling was reduced and normal breathing became reinstated.
+</p>
+
+<h4>Patient contact information</h4>
+
+<pre>
+Patient name: <a href="patient-example-f001-pieter.xml.html">Pieter van den Heuvel</a>
+Patient number: 0108173
+Date of birth: 17-11-1944
+Gender: Male
+</pre>
+
+<h4>Patient contact information</h4>
+<pre>
+Address: van Egmondkade 23
+Zip code: 1024 RJ
+City: Amsterdam
+Phone: +31648352638
+email: p.heuvel@gmail.com
+</pre>
+<p>
+<table border="1">
+<caption>Intakes</caption>
+<tr>
+  <th>intake date</th>
+  <th>surgery date</th>
+  <th>practitioner</th>
+  <th>specialism</th>
+  <th>diagnose</th>
+  <th>procedure</th>
+  <th>care plan</th>
+  <th>surgery code</th>
+  <th>snomed CT code</th>
+  <th>related encounter</th>
+</tr>
+<tr>
+  <td>26-6-2011</td>
+  <td>27-6-2011</td>
+  <td><a href="practitioner-example-f002-pv.xml.html">P. Voigt</a></td>
+  <td><a href="organization-example-f002-burgers-card.xml.html">CTC (Cardio-thoracale Chirurgie)</a></td>
+  <td><a href="condition-example-f001-heart.xml.html">Heart valve disorder</a></td>
+  <td><a href="procedure-example-f001-heart.xml.html">Heart valve replacement</a></td>
+  <td><a href="careplan-example-f001-heart.xml.html">CP2903</a></td>
+  <td>1000263502</td>
+  <td>64915003</td>
+  <td><a href="encounter-example-f001-heart.xml.html">v1451</a></td>
+</tr>
+<tr>
+  <td>6-7-2012</td>
+  <td>7-7-2012</td>
+  <td><a href="practitioner-example-f003-mv.xml.html">M.I.M. Versteegh</a></td>
+  <td><a href="organization-example-f002-burgers-card.xml.html">CTC (Cardio-thoracale Chirurgie)</a></td>
+  <td><a href="condition-example-f002-lung.xml.html">NSCLC - Non-small cell lung cancer</a></td>
+  <td><a href="procedure-example-f002-lung.xml.html">partial lobectomy</a></td>
+  <td><a href="careplan-example-f002-lung.xml.html">CP2934</a></td>
+  <td>1000263813</td>
+  <td>173171007</td>
+  <td><a href="encounter-example-f002-lung.xml.html">v3251</a></td>
+</tr>
+<tr>
+  <td>22-3-2013</td>
+  <td>22-3-2013</td>
+  <td><a href="practitioner-example-f005-al.xml.html">A.P.M. Langeveld</a></td>
+  <td><a href="organization-example-f003-burgers-ENT.xml.html">ENT</a></td>
+  <td><a href="condition-example-f003-abcess.xml.html">Retropharyngeal abscess</a></td>
+  <td><a href="procedure-example-f003-abcess.xml.html">Trachea-tracheotomy</a></td>
+  <td>CP2938</td>
+  <td>1000050465</td>
+  <td>48387007</td>
+  <td><a href="encounter-example-f003-abcess.xml.html">v6751</a></td>
+</tr>
+<tr>
+  <td>24-3-2013</td>
+  <td>24-3-2013</td>
+  <td><a href="practitioner-example-f001-evdb.xml.html">E.M.J.M. van den broek</a></td>
+  <td><a href="organization-example-f003-burgers-ENT.xml.html">ENT</a></td>
+  <td><a href="condition-example-f003-abcess.xml.html">Retropharyngeal abscess</a></td>
+  <td><a href="procedure-example-f003-abcess.xml.html">retropharyngeal abscess</a></td>
+  <td><a href="careplan-example-f003-pharynx.xml.html">CP3953</a></td>
+  <td>1000049161</td>
+  <td>172960003</td>
+  <td><a href="encounter-example-f003-abcess.xml.html">v6751</a></td>
+</tr>
+<tr>
+  <td>27-3-2013</td>
+  <td>27-3-2013</td>
+  <td><a href="practitioner-example-f004-rb.xml.html">R.J.P. Briet</a></td>
+  <td><a href="organization-example-f003-burgers-ENT.xml.html">ENT</a></td>
+  <td><a href="condition-example-f003-abcess.xml.html">Retropharyngeal abscess</a></td>
+  <td>Trachea-extubatie</td>
+  <td>CP1283</td>
+  <td>1000050159</td>
+  <td>309812005</td>
+  <td><a href="encounter-example-f003-abcess.xml.html">v6751</a></td>
+</tr>
+</table>
+</p>
+<p>
+<table border="1">
+<caption>Active medication</caption>
+<tr>
+  <th>medication</th>
+  <th>hopital/home</th>
+  <th>dose</th>
+  <th>admission route</th>
+  <th>start date</th>
+  <th>presciber</th>
+  <th>SNOMED CT code</th> 
+  <th>prescription nu</th>
+</tr>
+<tr>
+  <td><a href="medication-example-f001-combivent.xml.html">Salbutamol+ipratropium bromide</a></td>
+  <td>hopital</td>
+  <td>3/4 times daily 1 flacon</td>
+  <td>inhaler</td>
+  <td>8-4-2013</td>
+  <td>R.A. van den Berk</td>
+  <td>320442002 </td>
+  <td><a href="medicationprescription-example-f001-copd.xml.html">2983</a></td>
+</tr>
+<tr>
+  <td><a href="medication-example-F002.xml.html">rosuvastatine</a></td>
+  <td>hopital</td>
+  <td>1 time daily 10 mg</td>
+  <td>oral</td>
+  <td>7-7-2011</td>
+  <td>R.A. van den Berk</td>
+  <td>408036003</td>
+  <td><a href="medicationprescription-example-F002.xml.html">1029</a></td>
+</tr>
+<tr>
+  <td><a href="medication-example-F003.xml.html">Tolbutamide</a></td>
+  <td>home</td>
+  <td>3 times daily 500 mg</td>
+  <td>oral</td>
+  <td>7-7-2011</td>
+  <td>S.M. Heps</td>
+  <td>325267004</td>
+  <td><a href="medicationprescription-example-F003.xml.html">8473</a></td>
+</tr>
+<tr>
+  <td><a href="medication-example-F004.xml.html">metoprolol</a></td>
+  <td>home</td>
+  <td>1 time daily 50 mg</td>
+  <td>oral</td>
+  <td>1-5-2011</td>
+  <td>S.M. Heps</td>
+  <td>318475005</td>
+  <td><a href="medicationprescription-example-F004.xml.html">9517</a></td>
+</tr>
+<tr>
+  <td><a href="medication-example-F005.xml.html">enalapril</a></td>
+  <td>home</td>
+  <td>1 time daily 5 mg</td> 
+  <td>oral</td>
+  <td>1-5-2011</td>
+  <td>S.M. Heps</td>
+  <td>318851002</td>
+  <td><a href="medicationprescription-example-F005.xml.html">7119</a></td>
+</tr>
+</table>
+</p>
+<p>
+<table border="1">
+<caption>Device</caption>
+<tr>
+  <th>device</th>
+  <th>hopital/home</th>
+  <th>dose</th>
+  <th>admission route</th>
+  <th>start date</th>
+  <th>presciber</th>
+  <th>SNOMED CT code</th>
+</tr>
+<tr>
+  <td><a href="device-example-f001-feedingtube.xml.html">Feeding tube</a></td>
+  <td>hopital</td>
+  <td>N.A.</td>
+  <td>tube</td>
+  <td>10-4-2013</td>
+  <td>R.A. van den Berk</td>
+  <td>61420007</td>
+</tr>
+</table>
+</p>
+<table border="1">
+<caption>Lab results</caption>
+<td><a href="diagnosticreport-example-f001-bloodexam.xml.html">diagnostic blood report</a></td>
+<tr>
+  <th>date</th>
+  <th>substance</th>
+  <th>value</th>
+  <th>status</th>
+</tr>
+<tr>
+  <td>2013-04-02</td>
+  <td><a href="observation-example-f001-glucose.xml.html">glucose</a></td>
+  <td>6,3 mmol/l</td>
+  <td>abnormal</td>
+</tr>
+<tr>
+  <td>2013-04-02</td>
+  <td><a href="observation-example-f001-glucose.xml.html">base excess</a></td>
+  <td>12,6 mmol/l</td>
+  <td>abnormal</td>
+</tr>
+<tr>
+  <td>2013-04-02</td>
+  <td><a href="observation-example-f001-glucose.xml.html">carbon dioxide</a></td>
+  <td>6,2 mm[Hg]</td>
+  <td>abnormal</td>
+</tr>
+<tr>
+  <td>2013-04-02</td>
+  <td><a href="observation-example-f001-glucose.xml.html">erytrocyten</a></td>
+  <td>18,7 g/dl</td>
+  <td>abnormal</td>
+</tr>
+<tr>
+  <td>2013-04-02</td>
+  <td><a href="observation-example-f001-glucose.xml.html">Hemoglobin</a></td>
+  <td>7,5 g/dl</td>
+  <td>abnormal</td>
+</tr>
+</table>
+
+<h4>Anamnese</h4>
+<i><b>date: 8-6-2012</b></i>
+Bronchoscopy; several biopsy specimen were taken from pathological mucosa, right main bronchus specimen send for pathologic analysis.
+Bronchoscopy because of atelectasis right.
+
+X-thorax; increase in atelectasis and pleural liquid.  
+
+
+Bronchoscopy;
+<br/>-fluids drained from right main bronchus
+<br/>-pathalogic mucous membrane right bronchus, easily bleeding
+<br/>-left bronchial system open
+
+
+<i><b>date: 18-3-2013</b></i>
+Antiobiotic policy with retropharyngeal abcess with prolapse to the mediatinum. No surgical possibility to fully drain the mediatinum.
+
+<h4>Physical investigation</h4>
+
+<i><b>date: 18-3-2013</b></i>
+Neck; swelling and redness pretracheal extending to chest. No fluctation, however induration is present.
+Swelling back pharynx, also present in postcricoid area. Light stridor sound when breathing. Overall
+condition is good. Scoop; little supraglottic swelling, vocal chords not judgable.
+
+<h4>Additional research</h4>
+CT thorax: no mediastinal/retropharyngal collering of the fluid collections. Diffuse edema retro/parapharyngeal and mediastinitis.
+Preoperative culture shows; S pyogenes, sensitivity for peneciline and E. cloacae, sensitivity for Salbutamol.
+
+
+<h4>Policy</h4>
+Stop Salbutamol prescription. Continue penicilin and start salbutamol supplementation. Total treatment time is approximatly 6 weeks.
+In consultation with the IC/anesthesia; intubation. Analyse lower respiratory tract.
+
+<h4>Conclusion</h4>
+Extubation on OR. Normal voice, no stridor. However, hypoxic at low respiratory tract obstruction with 84% O2 and rapid breathing.
+
+
+<h3>Patient case 2</h3>
+
+
+<pre>
+Patient name: <a href="patient/patient-example-f201-roel.xml.html">Roel Bor</a>
+Patient number: 123456789
+Date of birth: 1960-03-13
+Gender: Male
+</pre>
+
+<h4>Patient contact information</h4>
+<pre>
+Address: Bos en Lommerplein 280
+Zip code: 1055 RW
+City: Amsterdam
+Phone: +31612345678
+</pre>
+Roel Bor is in his mid-fifties, works for an IT-company and has two healthy children and a wife. His uncle unfortunately was less healthy and died of cancer. 
+At the end of 2012, Roel was also diagnosed with a tumor in the Erasmus Medical Center. His tumor is located in the head-neck area. The standard treatment 
+for that is TPF-chemotherapy. The tumor is not fully curable due to its position, but it was optimally minimized with the therapy in the AUMC. Two severe 
+complications followed the treatment, namely bacterial sepsis (streptococcus aureus) and renal failure. Both were stabilized within a short period through 
+medication (see care plan). Roel thereafter had his ups and downs with the last known condition of a severe fever, for which he received among other 
+treatment (paracetamol). On a side-note and as a final statement: the patient suffers from house dust allergy.
+
+<p>
+<table border="1">
+<caption>Intakes</caption>
+<tr>
+  <th>practitioner</th>
+  <th>organization</th>
+  <th>careplan</th>
+  <th>start date</th>
+  <th>substance</th>
+  <th>condition</th>
+  <th>other participant</th>
+  <th>procedure</th>
+  <th>encounter ID</th>
+  <th>surgery code</th>
+  <th>snomed CT code</th>
+</tr>
+<tr>
+  <td><a href="practitioner-example-f201-ab.xml.html">A. Bronsig</a></td>
+  <td><a href="organization-example-f201-aumc.xml.html">Artis University Medical Center</a></td>
+  <td><a href="careplan-example-f201-renal.xml.html">CP3928</a></td>
+  <td>2013-03-11</td>
+  <td><a href="substance-example-f203-potassium.xml.html">potassium</a></td>
+  <td><a href="condition-example-f201-fever.xml.html">fever</a></td>
+  <td><a href="practitioner-example-f204-ce.xml.html">Carla Espinosa</a></td>
+  <td></td>
+  <td><a href="encounter-example-f201-20130404.xml.html">20130404</a></td>
+  <td>100028475</td>
+  <td>64915003</td>
+</tr>
+<tr>
+  <td><a href="practitioner-example-f201-ab.xml.html">A. Bronsig</a></td>
+  <td><a href="organization-example-f201-aumc.xml.html">Artis University Medical Center</a></td>
+  <td><a href="careplan-example-f202-malignancy.xml.html">CP7364</a></td>
+  <td></td>
+  <td></td>
+  <td><a href="condition-example-f202-malignancy.xml.html">malignant tumor</a></td>
+  <td></td>
+  <td><a href="procedure-example-f201-tpf.xml.html">chemotherapy</a></td>
+  <td><a href="encounter-example-f202-20130128.xml.html">20130128</a></td>
+  <td>100028475</td>
+  <td>363346000</td>
+</tr>
+<tr>
+  <td><a href="practitioner-example-f201-ab.xml.html">A. Bronsig</a></td>
+  <td><a href="organization-example-f201-aumc.xml.html">Artis University Medical Center</a></td>
+  <td><a href="careplan-example-f203-sepsis.xml.html">CP8766</a></td>
+  <td>2013-03-11</td>
+  <td></td>
+  <td><a href="condition-example-f203-sepsis.xml.html">Bacterial sepsis</a></td>
+  <td><a href="practitioner-example-f202-lm.xml.html">Luigi Maas</a></td>
+  <td>observation</td>
+  <td><a href="encounter-example-f203-20130311.xml.html">20130311</a></td>
+  <td>100028475</td>
+  <td>363346000</td>
+</tr>
+</table>
+</p>
+<p>
+<table border="1">
+<caption>Diagnoses</caption>
+<tr>
+  <th>practitioner</th>
+  <th>date</th>
+  <th>encounter</th>
+  <th>reason</th>
+  <th>condition</th>
+  <th>medication</th>
+  <th>medication prescription</th>
+  <th>procedure</th>
+  <th>diagnostic report</th>
+  <th>issued by</th>
+</tr>
+<tr>
+  <td><a href="practitioner-example-f201-ab.xml.html">A. Bronsig</a></td>
+  <td>28-1-2013</td>
+  <td><a href="encounter-example-f202-20130128.xml.html">20130128</a></td>
+  <td>chemotherapy</td>
+  <td><a href="condition-example-f202-malignancy.xml.html">malignant tumor</a></td>
+  <td></td>
+  <td></td>
+  <td><a href="procedure-example-f201-tpf.xml.html">chemotherapy</a></td>
+  <td><a href="diagnosticreport-example-f201-brainct.xml.html">CT scan</a></td>
+  <td><a href="organization-example-f203-bumc.xml.html">BUMC</a></td>
+</tr>
+<tr>
+  <td><a href="practitioner-example-f201-ab.xml.html">A. Bronsig</a></td>
+  <td>4-3-2013</td>
+  <td><a href="encounter-example-f201-20130404.xml.html">20130404</a></td>
+  <td>fever</td>
+  <td><a href="condition-example-f201-fever.xml.html">fever</a></td>
+  <td><a href="medication-example-f203-paracetamol.xml.html">paracetamol</a></td>
+  <td><a href="medicationprescription-example-f203-paracetamol.xml.html">Paracetamol 500mg tablet</a></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td><a href="practitioner-example-f201-ab.xml.html">A. Bronsig</a></td>
+  <td>11-3-2013</td>
+  <td><a href="encounter-example-f203-20130311.xml.html">20130311</a></td>
+  <td>sepsis</td>
+  <td><a href="condition-example-f203-sepsis.xml.html">Bacterial sepsis</a></td>
+  <td><a href="medication-example-f201-salmeterol.xml.html">Flutacisone + Salmeterol</a></td>
+  <td><a href="medicationprescription-example-f201-salmeterol.xml.html">Salmeterol+fluticasone inhaler</a></td>
+  <td></td>
+  <td><a href="diagnosticreport-example-f202-bloodculture.xml.html">blood culture</a></td>
+  <td><a href="organization-example-f201-aumc.xml.html">AUMC</a></td>
+</tr>
+<tr>
+  <td><a href="practitioner-example-f201-ab.xml.html">A. Bronsig</a></td>
+  <td>11-3-2013</td>
+  <td><a href="encounter-example-f203-20130311.xml.html">20130311</a></td>
+  <td>renal</td>
+  <td><a href="condition-example-f204-renal.xml.html">Renal insufficiency</a></td>
+  <td><a href="medication-example-f202-flucloxacilline.xml.html">Flucloxacillin</a></td>
+  <td><a href="medicationprescription-example-f202-flucloxacilline.xml.html">Injected floxacillin</a></td>
+  <td></td>
+  <td><a href="diagnosticreport-example-f202-bloodculture.xml.html">blood culture</a></td>
+  <td><a href="organization-example-f201-aumc.xml.html">AUMC</a></td>
+</tr>
+</table>
+</p>
+<p>
+<table border="1">
+<caption>Observations</caption>
+<tr>
+  <th>practitioner</th>
+  <th>date</th>
+  <th>observation</th>
+  <th>value</th>
+  <th>status</th>
+  <th>snomed CT code</th>
+</tr>
+<tr>
+  <td><a href="practitioner-example-f202-lm.xml.html">Luigi Maas</a></td>
+  <td>11-3-2013</td>
+  <td><a href="observation-example-f206-staphylococcus.xml.html">Blood culture for bacteria</a></td>
+  <td>Gram-positive bacteria</td>
+  <td>positive</td>
+  <td>8745002</td>
+</tr>
+<tr>
+  <td><a href="practitioner-example-f201-ab.xml.html">A. Bronsig</a></td>
+  <td>4-4-2013</td>
+  <td><a href="observation-example-f201-bmi.xml.html">BMI</a></td>
+  <td>31.31</td>
+  <td>high</td>
+  <td>60621009</td>
+</tr>
+<tr>
+  <td><a href="practitioner-example-f201-ab.xml.html">A. Bronsig</a></td>
+  <td>4-4-2013</td>
+  <td><a href="observation-example-f202-temperature.xml.html">temperature taken</a></td>
+  <td>39 degrees Celsius1</td>
+  <td>high</td>
+  <td>89003005</td>
+</tr>
+<tr>
+  <td><a href="practitioner-example-f201-ab.xml.html">A. Bronsig</a></td>
+  <td>4-4-2013</td>
+  <td><a href="observation-example-f203-bicarbonate.xml.html">Serum bicarbonate measurement</a></td>
+  <td>28mmol/L</td>
+  <td>normal</td>
+  <td>271239003</td>
+</tr>
+<tr>
+  <td><a href="practitioner-example-f202-lm.xml.html">Luigi Maas</a></td>
+  <td>4-4-2013</td>
+  <td><a href="observation-example-f204-creatinine.xml.html">Serum creatinine raised</a></td>
+  <td>122 umol/L</td>
+  <td>high</td>
+  <td>166717003</td>
+</tr>
+<tr>
+  <td><a href="practitioner-example-f202-lm.xml.html">Luigi Maas</a></td>
+  <td>4-4-2013</td>
+  <td><a href="observation-example-f205-egfr.xml.html">Epidermal Growth Factor Receptor</a></td>
+  <td>Negative for EGF receptor expression (Non-small cell lung cancer)</td>
+  <td>negative</td>
+  <td>427038005</td>
+</tr>
+</table>
+</p>
+
+</div>
+[%file newfooter%]
+</body>
+</html>

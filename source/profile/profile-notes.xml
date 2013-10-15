@@ -7,7 +7,7 @@
 
 <li>The name of a resource constraint (Profile.structure.name) is only used as a logical target for .element.type.profile. A reference may reference another resource 
   constraint in the same Resource Profile by Profile.resource.name as #[name] or a different resource constraint in another profile by an absolute uri. In the case of an absolute uri, it 
-  SHALL resolve literally or logically to a <a href="profile.htm">Resource Profile</a> and specify a #[name] portion in the URI that references a particular constraint in the target profile by name.</li>
+  SHALL resolve literally or logically to a <a href="profile.html">Resource Profile</a> and specify a #[name] portion in the URI that references a particular constraint in the target profile by name.</li>
   
 <li>The constraint statement has a flat list of elements. The path element provides the overall structure and it SHALL match the structure and names in the resource structure exactly.</li>
 
@@ -62,7 +62,7 @@ though this object model can only be used with a sub-set of the possible resourc
 </p>
 <p>
 The tooling is also able to generate bi-directional transforms between the 
-<a href="formats.htm">normal XML format</a> and an XML representation of this 
+<a href="formats.html">normal XML format</a> and an XML representation of this 
 profiled object model and schema for this profiled XML representation. 
 This XML form has extensions promoted into the primary XML form by using the 
 extension code as the XML name and sliced lists are renamed to use the 

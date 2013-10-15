@@ -3,7 +3,7 @@
 <p>
 Adverse Reaction resources are used to provide information about specific 
 reactions to a substance.  These are normally associated with an 
-<a href="allergyintolerance.htm">AllergyIntolerance</a> resource,
+<a href="allergyintolerance.html">AllergyIntolerance</a> resource,
 but can be reported on their own when no assumption of further reactions 
 is being made, or when specific events are being described.
 </p>

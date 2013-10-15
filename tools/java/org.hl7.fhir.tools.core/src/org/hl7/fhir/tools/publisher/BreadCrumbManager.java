@@ -184,11 +184,11 @@ public class BreadCrumbManager {
   }
 
   public String make(String name) {
-    name = name + ".htm";
+    name = name + ".html";
     if (map.containsKey(name)) {
       String[] path = map.get(name).split("\\.");
       StringBuilder b = new StringBuilder();
-      b.append("<a class=\"breadcrumb\" href=\"index.htm\">FHIR</a>");
+      b.append("<a class=\"breadcrumb\" href=\"index.html\">FHIR</a>");
       Page focus = home;
       for (int i = 0; i < path.length; i++) {
         b.append(" / ");
@@ -207,7 +207,7 @@ public class BreadCrumbManager {
 
   public String navlist(String name, String prefix) {
     StringBuilder b = new StringBuilder();
-    b.append("              <li><a href=\""+prefix+"index.htm\">Home</a></li>\r\n");
+    b.append("              <li><a href=\""+prefix+"index.html\">Home</a></li>\r\n");
     for (Node n : home.getChildren()) {
       b.append("              <li><a href=\""+prefix+((Page) n).getFilename()+"\">"+((Page) n).getTitle()+"</a></li>\r\n");
     }
@@ -219,8 +219,8 @@ public class BreadCrumbManager {
     if (name.equals("index")) {
       b.append("        <li><b>Home</b></li>\r\n");      
     } else {
-      b.append("        <li><a href=\""+prefix+"index.htm\">Home</a></li>\r\n");
-      name = name + ".htm";
+      b.append("        <li><a href=\""+prefix+"index.html\">Home</a></li>\r\n");
+      name = name + ".html";
       if (map.containsKey(name)) {
         String[] path = map.get(name).split("\\.");
         Page focus = home;
@@ -249,7 +249,7 @@ public class BreadCrumbManager {
         if (type.equals("resource")) {
           b.append("        <li><b>"+focus.getResource()+"</b></li>");
         } else {
-          b.append("        <li><a href=\""+focus.getResource().toLowerCase()+".htm\">"+focus.getResource()+"</a></li>");
+          b.append("        <li><a href=\""+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
           b.append("        <li><b>"+type.substring(4)+"</b></li>");          
         }
       } else {
@@ -267,10 +267,10 @@ public class BreadCrumbManager {
 
   private void writePage(StringBuilder b, Page p, int level, String path) {
     if (p.getType() == PageType.resource) {
-      addLink(b, p.getResource().toLowerCase()+".htm", p.getResource(), path, level);
-      addLink(b, p.getResource().toLowerCase()+"-examples.htm", p.getResource()+" Examples", path+".1", level+1);
-      addLink(b, p.getResource().toLowerCase()+"-definitions.htm", p.getResource()+" Definitions", path+".2", level+1);
-      addLink(b, p.getResource().toLowerCase()+"-mappings.htm", p.getResource()+" Mappings", path+".3", level+1);
+      addLink(b, p.getResource().toLowerCase()+".html", p.getResource(), path, level);
+      addLink(b, p.getResource().toLowerCase()+"-examples.html", p.getResource()+" Examples", path+".1", level+1);
+      addLink(b, p.getResource().toLowerCase()+"-definitions.html", p.getResource()+" Definitions", path+".2", level+1);
+      addLink(b, p.getResource().toLowerCase()+"-mappings.html", p.getResource()+" Mappings", path+".3", level+1);
     } else {
       addLink(b, p.getFilename(), p.getTitle(), path, level);
       for (Node n : p.getChildren()) {
@@ -298,7 +298,7 @@ public class BreadCrumbManager {
       else
         return map.get(name);
     }
-    if (name.equals("index.htm"))
+    if (name.equals("index.html"))
       return "0";
     return "?.?";
   }
@@ -313,10 +313,10 @@ public class BreadCrumbManager {
   
   private void writePage(XhtmlNode node, Page p, int level, String path) {
     if (p.getType() == PageType.resource) {
-      addLink(node, p.getResource().toLowerCase()+".htm", p.getResource(), path, level);
-      addLink(node, p.getResource().toLowerCase()+"-examples.htm", p.getResource()+" Examples", path+".1", level+1);
-      addLink(node, p.getResource().toLowerCase()+"-definitions.htm", p.getResource()+" Definitions", path+".2", level+1);
-      addLink(node, p.getResource().toLowerCase()+"-mappings.htm", p.getResource()+" Mappings", path+".3", level+1);
+      addLink(node, p.getResource().toLowerCase()+".html", p.getResource(), path, level);
+      addLink(node, p.getResource().toLowerCase()+"-examples.html", p.getResource()+" Examples", path+".1", level+1);
+      addLink(node, p.getResource().toLowerCase()+"-definitions.html", p.getResource()+" Definitions", path+".2", level+1);
+      addLink(node, p.getResource().toLowerCase()+"-mappings.html", p.getResource()+" Mappings", path+".3", level+1);
     } else {
       addLink(node, p.getFilename(), p.getTitle(), path, level);
       for (Node n : p.getChildren()) {

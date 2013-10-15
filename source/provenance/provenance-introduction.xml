@@ -5,9 +5,9 @@ The provenance resource tracks information about activity that created a version
 This information can be used to form assessments about its quality, reliability or trustworthiness, or to provide pointers for where to go to further investigate the origins of the resource and the information in it. 
 </p>
 <p>
-<a href="provenance.htm">Provenance resources</a> are a record-keeping assertion that gathers information about the context in which the information in a resource was obtained. 
+<a href="provenance.html">Provenance resources</a> are a record-keeping assertion that gathers information about the context in which the information in a resource was obtained. 
 Provenance resources are prepared by the application that initiates the create/update etc. of the resource.
-A <a href="securityevent.htm">Security Event</a> resource contains overlapping information, but is created as events occur, to track and audit the events. 
+A <a href="securityevent.html">Security Event</a> resource contains overlapping information, but is created as events occur, to track and audit the events. 
 Security Event resources are often (though not exclusively) created by the application responding to the read/query/create/update etc. event. 
 </p>
 <p>

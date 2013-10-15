@@ -4,10 +4,10 @@
 There are 4 device related resources
 </p>
 <ul>
- <li><a href="device.htm">Device</a>  - An administrative resource that tracks individual devices and their location. Primarily used for attribution of actions to devices</li>
+ <li><a href="device.html">Device</a>  - An administrative resource that tracks individual devices and their location. Primarily used for attribution of actions to devices</li>
  <li>Device Capabilities (this resource) - Defines what observations a device will provide when another device connects to it</li>
- <li><a href="devicelog.htm">Device Log</a> - A raw report from a device at a point in time. Must be paired with the correct Device Capabilities resource in order to be processed</li>
- <li><a href="deviceobservation.htm">Device Observation</a> - A report of observations from a device</li>
+ <li><a href="devicelog.html">Device Log</a> - A raw report from a device at a point in time. Must be paired with the correct Device Capabilities resource in order to be processed</li>
+ <li><a href="deviceobservation.html">Device Observation</a> - A report of observations from a device</li>
 </ul>
 <p>
 The device capabilities and log resources are used when communicating with a device, either directly or indirectly. 
@@ -46,9 +46,9 @@ using the following main structure:
 Very simple devices may have only a single compartment with a single channel and one metric, while complex devices may have multiple items at every level. 
 </p>
 <p>
-When the <a href="devicelog.htm">data emitted by the device</a> is converted to a <a href="deviceobservation.htm">Device Observation</a>
+When the <a href="devicelog.html">data emitted by the device</a> is converted to a <a href="deviceobservation.html">Device Observation</a>
 based on the information in the capabilities, and known local context, the Metrics level usually corresponds to a 
-single <a href="observation.htm">Observation</a>, but this is not appropriate in all cases.
+single <a href="observation.html">Observation</a>, but this is not appropriate in all cases.
 </p>
  
 </div>

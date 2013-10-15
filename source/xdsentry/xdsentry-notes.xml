@@ -12,7 +12,7 @@ In addition, documents may be placed into folders that serve to support addition
 associated with documents. A document may be placed into multiple folders or none at all. 
 Each entry identifies the folders with which it is associated by listing the folder 
 references in the XdsEntry resource. There is a separate resource
-<a href="xdsfolder.htm">XdsFolder</a>, which details the folders that have been created for 
+<a href="xdsfolder.html">XdsFolder</a>, which details the folders that have been created for 
 a specific patient. 
 </p>
 <p>

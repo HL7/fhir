@@ -6,7 +6,7 @@ Notes about the Query resource:
 <ul>
  <li>The id is usually a UUID (urn:uuid:...). Its sole use is to match request and response logically</li>
  <li>The parameters defined for use with the query the resource are all those described above</li>
- <li>The <a href="extensibility.htm">extension</a> type is used for parameters. The namespace http://hl7.org/fhir/query is used in the uri value for all the named parameters. Other namespaces may be used for parameters that would/could not appear in the named parameter list in a query url.</li>
+ <li>The <a href="extensibility.html">extension</a> type is used for parameters. The namespace http://hl7.org/fhir/query is used in the uri value for all the named parameters. Other namespaces may be used for parameters that would/could not appear in the named parameter list in a query url.</li>
  <li>Parameter names are mandatory, and values are optional. Parameters with missing values are ignored when processing the query</li>
  <li>Parameter names do not need to be unique. The interpretation of multiple search parameters is as described above</li>
  <li>There SHALL be at least one parameter provided with a search - a search request without any request cannot be processed</li>
@@ -22,17 +22,17 @@ Notes about the Query resource:
 <h3>Messaging based Queries</h3>
 <p>
 In order to initiate a message-based query, a sender sends a message consisting
-of a <a href="message.htm">Message</a> resource, and a <i>Query</i> resource.
+of a <a href="message.html">Message</a> resource, and a <i>Query</i> resource.
 The message resource routes the message to the correct destination, and the 
 query contains the parameters of the search that is requested. See 
-<a href="query-examples.htm">the examples</a> for an example query request 
+<a href="query-examples.html">the examples</a> for an example query request 
 message.
 </p>
 <p>
 The receiver processes the message, and then returns a message with a message
 header, a query with a response details, and either an error in the query 
 response, or a set of resources that meet the 
-query criteria. See <a href="query-examples.htm">the examples</a> for an 
+query criteria. See <a href="query-examples.html">the examples</a> for an 
 example query response message.
 </p>
 <p>
@@ -59,17 +59,17 @@ Here's how this would work:
 </p>
 <ol>
  <li>The requester constructs a <i>Query</i> resource, and performs a create operation to the /query endpoint, and gets the id of the query resource on the server</li>
- <li>The requester constructs an <a href="order.htm">Order</a> resource that contains details as appropriate, and which has the query resource as its order detail, and creates that on the server</li>
+ <li>The requester constructs an <a href="order.html">Order</a> resource that contains details as appropriate, and which has the query resource as its order detail, and creates that on the server</li>
  <li>A responder picks up the existence of the order resource (either the server acting directly, or a client that is subscribed to the order feed on the server)</li>
  <li>The responder retrieves the query, and then processes it, generating a new query resource that is the response, and then creates that on the server</li>
- <li>The responder constructs an <a href="orderresponse.htm">Order Response</a> resource with a reference to the request from Step #2, a code of "complete", and a fulfillment that points to the query response from step #4</li>
+ <li>The responder constructs an <a href="orderresponse.html">Order Response</a> resource with a reference to the request from Step #2, a code of "complete", and a fulfillment that points to the query response from step #4</li>
  <li>The requester sees the existence of the order response (e.g. by subscribing - watching the updates to <i>Order Response</i> on the server), and retrieves the query response</li>
  <li>The requester retrieves the matching resources by iterating through the matching resources and retrieving them based on their reference.</li>
 </ol>
 <p>
 This pattern is more complex than the other uses, so will be used less. There are 
 several variations on this theme. For instance, the requester may choose to perform the
-first two operations as a <a href="http.htm#transaction">transaction</a>, or the responder may choose to 
+first two operations as a <a href="http.html#transaction">transaction</a>, or the responder may choose to 
 inform the requester that processing as commenced with an order response code of "accepted".
 </p>
 <p>

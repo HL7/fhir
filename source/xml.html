@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+      
+[%settitle XML Format%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+
+<a name="root"> </a>
+<h2>XML</h2>
+
+<p>
+The XML syntax is closely based on the <a href="formats.html">XML notation</a>:
+</p>
+<pre class="spec">
+ &lt;<b>name</b> xmlns="http://hl7.org/fhir" (attrA="value")&gt;   <span style="float: right"><a title="Documentation for this format" href="formats.html"><img src="help.png" alt="doco"/></a></span>
+   &lt;<u><b title="Formal Definition (must be supported or understood)">nameA</b></u>&gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="Darkgreen">type</font> <font color="Navy">description of content</font> <font color="Gray"> --&gt;</font>&lt;nameA&gt;
+   &lt;<b title="Formal Definition">nameB[x]</b>&gt;<font color="Gray">&lt;!-- </font><font color="deeppink" title="Condition">0..1</font> <font color="darkgreen">type1</font>|<font color="darkgreen">type1</font> <font color="Navy">description</font> <font color="Gray"> --&gt;</font>&lt;/nameB&gt;
+   &lt;<b>nameC</b>&gt; <font color="Brown"><font color="Gray">&lt;!-- </font> <b>1..*</b> --&gt;</font>
+     &lt;<b>nameD</b> &gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="darkgreen">type</font>&gt;<font color="navy">Relevant records</font> <font color="Gray"> --&gt;</font>&lt;/nameD&gt;
+   &lt;/nameC&gt;
+ &lt;name&gt;
+</pre>
+<p>
+Notes:
+</p>
+<ul>
+ <li>To build a valid XML instance of a resource, simply replace the contents of the elements and attributes with valid content as described by the cardinality, type rules and content description found in the comment in each element</li>
+ <li>Resource and Element names are case-sensitive (though duplicates that differ only in case are never defined)</li>
+ <li>Note that the only properties that are represented as attributes are those defined in underlying specifications such as <a href="#atom">Atom (see below)</a>, which is used as the XML representation for bundles</li>
+ <li>Specifying the character encoding in the XML is optional but recommended.</li>
+ <li>FHIR elements are always in the namespace <a href="http://hl7.org/fhir">http://hl7.org/fhir</a>.  This is usually specified as the default namespace on the root element. 
+   The only other namespaces that occur in FHIR resources are where some external content model is explicitly introduced into the resource content model. For example, <a href="narrative.html">XHTML is found in every resource</a></li>
+ <li>Any of the XML elements may have an id attribute to serve as <a href="references.html#idref">the target of an internal reference</a>. The id attribute is not shown in this format</li>
+ <li>FHIR elements are never empty. If an element is present in the resource, it SHALL have either a value attribute, child elements as defined for its type, an id attribute that is the <a href="references.html#idref">link target</a> of <a href="narrative.html#narrative">narrative</a>, or 1 or more <a href="extensibility.html">extensions</a></li>
+ <li>Attributes can never be empty. Either they are absent, or they are present with at least one character of non-whitespace content</li>
+ <li>The formal MIME-type for FHIR resources represented in XML is application/fhir+xml</li>
+</ul>
+<p>
+When represented as XML, resources may be validated by schema and schematron (see below), but 
+operational systems are not required to do so (though the XML SHALL always be 
+valid against this specification and the schema and Schematron).
+</p>
+
+
+<a name="bundle"> </a>
+<a name="atom"> </a>
+<h3>Atom Bundle Representation</h3>
+<p>
+In XML <a href="extras.html#bundle">bundles</a> are represented using an Atom format (<a href="http://tools.ietf.org/html/rfc4287" target="_blank">http://tools.ietf.org/html/rfc4287</a>), following this template:
+</p>
+<pre class="spec">
+&lt;feed xmlns="http://www.w3.org/2005/Atom">  <span style="float: right"><a title="Documentation for this format" href="formats.html"><img src="help.png" alt="doco"/></a></span>
+  &lt;title&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.html#string">string</a></span> <span style="color:navy;">Text statement of purpose</span><span style="color: Gray"> --&gt;</span>&lt;/title&gt;
+  &lt;id&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.html#uri">uri</a></span> <span style="color:navy;">Unique URI for this bundle</span><span style="color: Gray"> --&gt;</span>&lt;/id&gt;
+  &lt;link rel="self" href="<span style="color:navy;">[building application url (Service base on REST)]</span>"/&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color: Gray"> --&gt;</span>
+  &lt;link rel="first" href="<span style="color:navy;">[paging: url for first page of result]</span>"/&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color: Gray"> --&gt;</span>
+  &lt;link rel="previous" href="<span style="color:navy;">[paging: url for previous page of result]</span>"/&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color: Gray"> --&gt;</span>
+  &lt;link rel="next" href="<span style="color:navy;">[paging: url for next page of result]</span>"/&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color: Gray"> --&gt;</span>
+  &lt;link rel="last" href="<span style="color:navy;">[paging: url for last page of result]</span>"/&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color: Gray"> --&gt;</span>
+  &lt;os:totalResults xmlns:os="http://a9.com/-/spec/opensearch/1.1/"/&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>0..1</b></span> <span style="color:darkgreen;"><a href="datatypes.html#primitive">integer</a></span> <span style="color:navy;">
+              Paging: the total number of results</span><span style="color: Gray"> --&gt;</span>&lt;/os:totalResults&gt;
+  &lt;updated&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.html#instant">instant</a></span> <span style="color:navy;">When the bundle was built</span><span style="color: Gray"> --&gt;</span>&lt;/updated&gt;
+  &lt;author&gt;<span style="color:Gray;">&lt;!-- 0..1 Who created resource? --&gt;</span>
+      &lt;name&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.html#string">string</a></span> <span style="color:navy;">Name of Human or Device that authored the resource</span><span style="color: Gray"> --&gt;</span>&lt;/name&gt;
+      &lt;uri&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span> <span style="color:darkgreen;"><a href="datatypes.html#uri">uri</a></span> <span style="color:navy;">Link to the resource for the author</span><span style="color: Gray"> --&gt;</span>&lt;/uri&gt;
+  &lt;/author>
+ <a name="tags"> </a>&lt;category term="<span style="color:navy;">[Tag Term]</span>" label="<span style="color:navy;">[Tag Label]</span>" scheme="[Tag Scheme]"/&gt; 
+  &lt;entry&gt;<span style="color:Gray;">&lt;!-- Zero+ --&gt;</span>
+    &lt;title&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.html#string">string</a></span> <span style="color:navy;">Text summary of resource content</span><span style="color: Gray"> --&gt;</span>&lt;/title&gt;
+    &lt;id&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.html#uri">uri</a></span> <span style="color:navy;">Logical Id (URI) for this resource</span><span style="color: Gray"> --&gt;</span>&lt;/id&gt;
+    &lt;link rel="self" href="<span style="color:navy;">Version Specific reference to Resource</span>"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color: Gray"> --&gt;</span>&lt;/link&gt;
+    &lt;updated&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.html#instant">instant</a></span> <span style="color:navy;">Last Updated for resource</span><span style="color: Gray"> --&gt;</span>&lt;/updated&gt;
+    &lt;published&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span> <span style="color:darkgreen;"><a href="datatypes.html#instant">instant</a></span> <span style="color:navy;">Time resource copied into the feed</span><span style="color: Gray"> --&gt;</span>&lt;/published&gt;
+    &lt;author&gt;<span style="color:Gray;">&lt;!-- 0..1 Who created resource? --&gt;</span>
+      &lt;name&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.html#string">string</a></span> <span style="color:navy;">Name of Human or Device that authored the resource</span><span style="color: Gray"> --&gt;</span>&lt;/name&gt;
+      &lt;uri&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span> <span style="color:darkgreen;"><a href="datatypes.html#uri">uri</a></span> <span style="color:navy;">Link to the resource for the author</span><span style="color: Gray"> --&gt;</span>&lt;/uri&gt;
+    &lt;/author>  <!--    &lt;category term="<span style="color:navy;">[Resource Type]</span>" scheme="http://hl7.org/fhir/resource-types"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span><span style="color: Gray"> --&gt;</span>&lt;/category&gt;   -->
+    <span style="color:Gray;">&lt;!-- </span><span style="color:navy;">Tags affixed to the resource (<span style="color: brown;"><b>0..*</b></span>): </span> <span style="color: Gray"> --&gt; </span>
+    &lt;category term="<span style="color:navy;">[Tag URI]</span>" label="<span style="color:navy;">[Tag Label]</span>" scheme="[Tag Type]"/&gt; 
+    &lt;content type="text/xml"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>0..1</b></span><span style="color: Gray"> --&gt;</span>
+      &lt;<span style="color:navy;">[ResourceName]</span> xmlns="http://hl7.org/fhir">
+        <span style="color: Gray">&lt;!-- </span><span style="color: navy">Content for the resource</span><span style="color: Gray"> --&gt;</span>
+      &lt;/<span style="color:navy;">[ResourceName]</span>>
+    &lt;/content>
+    &lt;summary type="xhtml"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color: Gray"> --&gt;</span>
+      &lt;div xmlns="http://www.w3.org/1999/xhtml"><span style="color:Gray;">&lt;!-- </span><span style="color:navy;">Narrative from resource</span><span style="color:Gray;"> --&gt;</span>&lt;/div>
+    &lt;/summary>
+  &lt;/entry&gt;
+  &lt;Signature xmlns="http://www.w3.org/2000/09/xmldsig#"&gt;
+    <span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span> <span style="color:navy;">Enveloped Digital Signature (see Atom section 5.1)</span><span style="color:Gray;"> --&gt;</span>
+  &lt;/Signature&gt;
+&lt;/feed&gt;
+</pre>
+<a name="atom-notes"> </a>
+<h4>Notes</h4>
+<ul>
+ <li>Logically, a bundle is a set of resources that are prepared to send somewhere for consumption - a "feed". There is no implication that the feed is a standing arrangement (though this is not precluded)</li>
+ <li>The order of elements does not matter in an atom feed (but not entries: the order of the entries is important). The order of elements in the atom namespace as documented above does not need to be followed, though it is followed by the FHIR reference platforms</li>
+ <li>The title for the feed and the entry are arbitrary human-readable content and not to be used for any automated processing. Applications may populate these in any useful way</li> 
+ <li>Every bundle SHALL have a unique id and that id SHALL be a valid absolute <a href="datatypes.html#uri">uri</a>. UUIDs are recommended (urn:uuid:...)</li>
+ <li>The entry element carries the <a href="resources.html#metadata">three pieces of resource metadata</a>: Id (.id), Version Id (.link), Last Updated (.updated)</li>
+ <li>Each entry also carries all the Tags affixed to the resource in the category element. The category element can be used in other ways too</li>
+ <li>The entry.id SHALL be an absolute url, the tail element of which is the logical id of the resource. The id is a version independent reference</li>
+ <li>The entry.link to self is a version specific reference to the resource.</li>
+ <li>When used in a <a href="http.html">RESTful implementation</a>, the entry.link and entry.id are the URLs of the resource on the system; the version specific link can be used as the basis synchronizing pub/sub systems using the atom bundle with the <a href="http.html#history">updates operation</a>. In other contexts, the values should be literal references to a server if one is available</li>
+ <li>Note that the atom specification requires a known author for every entry. If an author is provided in the base feed element, a specific author is not needed on each entry</li>
+ <li>The author of a resource is not explicit in the FHIR resource model; instead it is delegated to the infrastructure. The name is the name of a human author or a device. The uri is a link to the author (possibly a Practitioner resource)</li> 
+ <li>xml:base elements SHOULD NOT be used and implementations do not need to support it</li>
+ <li>The entry.content is optional, but SHALL always be present except in the special case of a transaction response</li>
+ <li>The entire bundle can be signed with a single Enveloped Digital Signature as described in the Atom specification (section 5.1)</li>
+ <li>The mime type for a bundle when represented in XML is application/atom+xml</li>
+ <li>The feed.link element with relationship "self" is assigned no particular meaning the FHIR specification, except in the case of a search operation, but may be used to provide a reference to the source of the feed</li>
+ <li>The feed.link elements with relationship "first", "last", "previous" and "next" are used to implement paging in the RESTful interface and allow a client to browse through a multi-page result. See <a href="query.html">search/query</a></li>
+</ul>
+
+<a name="atom-deleted"> </a>
+<h4>Bundling versions - deletion</h4>
+<p>
+When returning a set of resources or versions of a resource, an entry might indicate that the entry has been <i>deleted</i>. Deleted resources are represented
+in an atom feed as defined by <a href="http://www.rfc-editor.org/rfc/rfc6721.txt">rfc6721.txt</a>: 
+</p>
+<pre class="spec">
+&lt;feed xmlns="http://www.w3.org/2005/Atom">  <span style="float: right"><a title="Documentation for this format" href="formats.html"><img src="help.png" alt="doco"/></a></span>
+  <span style="color:Gray;">... feed elements and other entries ...</span>
+  &lt;at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0"
+      ref="<span style="color:navy;">[Logical Id for deleted resource]</span>" when="<span style="color:navy;"><span style="color:darkgreen;"><a href="datatypes.html#instant">instant</a></span> [when deleted]</span>"&gt;
+    &lt;link rel="self" href="<span style="color:navy;">[Version Specific reference to Resource]</span>"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color:Gray;"> --&gt;</span>&lt;/link&gt;
+  &lt;/at:deleted-entry>
+  <span style="color:Gray;">... other entries ...</span>
+</pre>
+<p>
+A deleted resource returns a 410 error if it is accessed through the RESTful interface. 
+</p>
+
+<a name="atom-impl"> </a>
+<h3>Implementation Notes</h3>
+<a name="digsig"> </a>
+<ul>
+<li>Atom Feeds may be signed following the rules described in the Atom specification. One consequence of 
+signing the document is that URLs, Identifiers and internal references are frozen and cannot be changed.
+This might be a desired feature, but it may also cripple interoperability between closed ecosystems where
+<a href="use.html#identity">re-identification</a> frequently occurs. For this reason, it is recommended that only Document Bundles
+are signed and then only when all the related resources are found in the bundle.</li>
+<li>
+<a name="Ids"></a>
+FHIR resources make use of id attributes as targets for <a href="references.html#idref">internal references with resources</a>. 
+These id attributes are unique and resolved within the context of a single resource. When resources are 
+combined into a bundle, different resources may contain duplicate id attributes. Thus it is important to limit
+the scope of resolution of an id attribute to the resource in which the <i>id</i> attribute is declared.
+</li>
+</ul>
+
+
+<a name="binary"> </a>
+<h4>Binary Resources</h4>
+<p>
+There are situations where it is useful or required to handle pure binary content 
+as resources. Typically, this is when the binary content is referred to from other FHIR 
+Resources. The resource can contain any content, whether text, image, pdf, zip archive, etc. 
+These resources are <a href="http.html#binary">served in their native form on the rest interface</a>,
+but can also be represented in XML or JSON, such as when including these resources in a bundle
+(used when it is convenient to include these in the feed directly rather than leaving them by reference).
+</p>
+<p>
+When a binary resource is represented as XML in an atom feed, it is represented as base64 encoded content along 
+with a content-type, which is the mime-type as it would be specified in HTTP:
+</p>
+<pre class="spec">
+ &lt;Binary xmlns="http://hl7.org/fhir" contentType="<span style="color:navy;">[mime type]</span>"&gt;  <span style="float: right"><a title="Documentation for this format" href="formats.html"><img src="help.png" alt="doco"/></a></span>
+   <span style="color:navy;">[Base64 Content]</span>
+ &lt;/Binary&gt;
+</pre>
+<p>
+Binary resources can also be embedded as <a href="references.html#contained">contained resources</a>.  
+If there's a desire to capture metadata about a binary object, an appropriate resource type must be used such as
+<a href="documentreference.html">DocumentReference</a> or <a href="media.html">Media</a>.
+</p>
+
+
+
+<a name="schema"> </a>
+<h3>XML Schema and Schematron</h3>
+<p>
+This specification provides schema definitions for all of the content models described here. 
+The base schema is called "<a href="fhir-base.xsd">fhir-base.xsd</a>" and defines all of the 
+datatypes and also the base infrastructure types described on this page. In addition, there 
+is a schema for each resource and a common schema <a href="fhir-all.xsd">fhir-all.xsd</a> 
+that includes all the resource schemas.  A customized atom schema <a href="fhir-atom.xsd">fhir-atom.xsd</a>
+is provided for validating <a href="#atom">bundles</a>.
+</p>
+<p>
+In addition to the w3c schema files, this specification also provides Schematron files that
+enforce the various constraints defined for the datatypes and resources.  These are packaged
+as files for each resource as well as a combined fhir-atom.sch file
+that incorporates the rules for all resources.
+</p>
+<p>
+XML that is exchanged SHALL be valid against the w3c schema and Schematron, though being 
+valid against the schema and Schematron is not sufficient to be a conformant instance: 
+rhis specification makes several rules that cannot be checked by either mechanism. 
+Exchanged content SHALL not specify the schema or even the schema instance namespace in 
+the resource itself. 
+</p>
+
+<!-- Todo: Relax NG, RDF, eCore -->
+
+
+</div>
+[%onthispage Resource Definition#root|Internal References#idref|JSON#json|Atom (Bundle)#atom|JSON (Bundle)#json-bundles|Schema#schema%]
+
+[%file newfooter%]
+</body>
+</html>

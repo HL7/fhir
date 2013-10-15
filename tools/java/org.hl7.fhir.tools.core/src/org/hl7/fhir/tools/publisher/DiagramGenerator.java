@@ -83,13 +83,13 @@ public class DiagramGenerator {
         names.put(page.getDefinitions().getElementDefn(c), c);
         
         if (c.startsWith("Resource"))
-          defns.put(page.getDefinitions().getElementDefn(c), "resources-definitions.htm#"+c);
+          defns.put(page.getDefinitions().getElementDefn(c), "resources-definitions.html#"+c);
         else if (c.equals("Narrative")) 
-            defns.put(page.getDefinitions().getElementDefn(c), "formats-definitions.htm#"+c);
+            defns.put(page.getDefinitions().getElementDefn(c), "formats-definitions.html#"+c);
         else if (c.equals("Extension")) 
-            defns.put(page.getDefinitions().getElementDefn(c), "extensibility-definitions.htm#"+c);
+            defns.put(page.getDefinitions().getElementDefn(c), "extensibility-definitions.html#"+c);
         else
-          defns.put(page.getDefinitions().getElementDefn(c), "datatypes-definitions.htm#"+c);
+          defns.put(page.getDefinitions().getElementDefn(c), "datatypes-definitions.html#"+c);
         s.append("Element <|-"+ini.getStringProperty("directions", c)+"- "+c+" << (D, #FFA500) >> \r\n"+s2);
       }
       while (queue.size() > 0) {
@@ -148,7 +148,7 @@ public class DiagramGenerator {
     s.append("skinparam classBorderColor Gray\r\n\r\n");
     s.append("skinparam classArrowColor Navy\r\n\r\n");
 
-    String defn = resource.getName().toLowerCase()+"-definitions.htm#"+resource.getName();
+    String defn = resource.getName().toLowerCase()+"-definitions.html#"+resource.getName();
     
     List<org.hl7.fhir.definitions.model.ElementDefn> queue = new ArrayList<org.hl7.fhir.definitions.model.ElementDefn>();
     List<String> elementClasses = new ArrayList<String>();

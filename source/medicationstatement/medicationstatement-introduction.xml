@@ -3,15 +3,15 @@
 
 <table border="1" cellpadding="1" cellspacing="2" frame="box">
     <tr>
-        <td><a href="medicationprescription.htm">MedicationPrescription</a></td>
+        <td><a href="medicationprescription.html">MedicationPrescription</a></td>
         <td>An order for both supply of the medication and the instructions for administration of the medicine to a patient.</td>
     </tr>
     <tr>
-        <td><a href="medicationdispense.htm">MedicationDispense</a></td>
+        <td><a href="medicationdispense.html">MedicationDispense</a></td>
         <td>Provision of a supply of a medication with the intention that it is subsequently consumed by a patient (usually in response to a prescription).  </td>
     </tr>
     <tr>
-        <td><a href="medicationadministration.htm">MedicationAdministration</a></td>
+        <td><a href="medicationadministration.html">MedicationAdministration</a></td>
         <td>When a patient actually consumes a medicine, or it is otherwise administered to them</td>
     </tr>
     <tr>
@@ -23,8 +23,8 @@
 </table>
 
 <p>
-This resource is distinct from <a href="medicationprescription.htm">MedicationPrescription</a>, <a href="medicationdispense.htm">MedicationDispense</a> 
-and <a href="medicationadministration.htm">MedicationAdministration</a>.  Each of those resources refer to specific events - an individual 
+This resource is distinct from <a href="medicationprescription.html">MedicationPrescription</a>, <a href="medicationdispense.html">MedicationDispense</a> 
+and <a href="medicationadministration.html">MedicationAdministration</a>.  Each of those resources refer to specific events - an individual 
 order, an individual provisioning of medication or an individual dosing.  MedicationStatement is a broader assertion covering a wider 
 timespan and independent of specific events.  The existence of resource instances of any of the preceding three types may be used to infer 
 a Medication statement.  However, medication statements can also be captured on the basis of other information including an assertion by the 

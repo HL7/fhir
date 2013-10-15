@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+      
+[%settitle Resource Definitions%]
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+
+<a name="root"> </a>
+<h1>Resource Definitions</h1>
+
+<p>
+This specification defines a series of different types of resource that can be used to exchange and/or store data 
+in order to solve a wide range of healthcare related problems, both clinical and administrative. In addition,
+this specification defines several different ways of exchanging the resources.
+</p>
+<p>
+A resource is an entity that:
+</p>
+<ul>
+ <li>has a known identity (a url) by which it can be addressed</li>
+ <li>identifies itself as one of the types of resource defined in this specification</li>
+ <li>contains a set of structured data items as described by the definition of the resource type</li>
+ <li>contains a human-readable XHTML representation of the content of the resource</li>
+ <li>has an identified version that changes if the contents of the resource change</li>
+</ul>
+<p>
+Resources have multiple representations. A resource is valid if it meets the above rules, and is represented in 
+either <a href="xml.html">XML</a> or <a href="json.html">JSON</a> according to the rules defined in this specification. 
+Other representations are allowed, but are not described by this specification.
+</p>
+
+<h3>Definitions</h3>
+<p>
+Basic definitions for this page:
+</p>
+<table class="grid">
+ <tr> <td>Resource</td> <td>An instance of data that is stored or exchanged</td> </tr>
+ <tr> <td>Resource Definition</td> <td>Defines the data elements that are part of the resource</td> </tr>
+ <tr> <td>Profile</td> <td>Additional rules about the data elements for a particular context of use. There's a specific type of resource - the <a href="profile.html">Profile Resource</a> that is used to represent a profile</td> </tr>
+</table>
+
+<a name="content"> </a>
+<h2>Contents of a Resource</h2>
+<p>
+All types of resources have the following optional or mandatory elements and properties:
+</p>
+<ul>
+ <li>A base set of defined data elements specific to the type</li>
+ <li><a href="extensibility.html">Extensions</a> - additional data elements added by implementations</li>
+ <li>A <a href="narrative.html#Narrative">human-readable narrative</a> description of the contents of the resource</li>
+ <li><a href="references.html#contained">Contained resources</a> - additional resources that are part of the identification and transaction space of this resource</li>
+ <li><a href="#metadata">Metadata</a> - important information about the resource that is not part of the content model of the resource</li>
+ <li><a href="extras.html#tags">Tags</a> - labels affixed to the resources that may be used to define additional operational behavior such as security, workflow, etc.</li>
+</ul>
+<p>
+Every resource starts with a common set of elements (for documentation of this format, see <a href="formats.html">Resource Definition Format</a>):
+</p>
+<pre class="spec">
+&lt;<a href="#content" title="A Resource Definition for FHIR" class="dict"><b>[Name]</b></a> xmlns="http://hl7.org/fhir"&gt;  <span style="float: right"><a title="Documentation for this format" href="formats.html"><img src="help.png" alt="doco"/></a></span>
+ &lt;<a href="extensibility.html" title="See Extensions" class="dict"><b>extension</b></a>&gt;<font color="Gray">&lt;!-- <font color="brown"><b>0..*</b></font> </font> <font color="darkgreen"><a href="extensibility.html">Extension</a></font>   <a href="extensibility.html"><font color="navy">See Extensions</font></a> <font color="Gray"> --&gt;</font>&lt;/extension&gt;
+ &lt;<a title="The base human language of the resource content. The value can be any valid value following BCP 47" class="dict" href="base-definitions.html#Resource.language"><b>language</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#code">code</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy">Human language of the content (BCP-47)</span><span style="color: Gray"> --&gt;</span>
+ &lt;<a href="narrative.html#Narrative" title="Text summary of resource content, for human interpretation" class="dict"><b>text</b></a>&gt;<font color="Gray">&lt;!--</font> <font color="brown"><b>1..1</b></font> <font color="darkgreen"><a href="narrative.html#Narrative">Narrative</a></font> <font color="navy">Text summary of resource content, for human interpretation</font><font color="Gray"> --&gt;</font>&lt;/text&gt;
+ &lt;<a href="references.html#contained" title="See Contained Resources" class="dict"><b>contained</b></a>&gt;<font color="Gray">&lt;!-- <font color="brown"><b>0..*</b></font> </font> <font color="darkgreen"><a href="references.html#contained">Resource</a></font>   <a href="references.html#contained"><font color="navy">Contained Resources</font></a> <font color="Gray"> --&gt;</font>&lt;/contained&gt;
+ <font color="Gray">&lt;!-- Defined Data Elements for Resource --&gt;</font>
+&lt;/[Name]&gt;
+</pre>
+<p>
+These elements SHALL always appear in this order. These basic elements shared by all resources come first
+in order to support consistent definitions for schema and UML derived code. 
+</p>
+<p>
+The optional language element specifies the base language of the resource using the <a href="http://tools.ietf.org/html/bcp47">codes defined in BCP 47</a>.
+Note that not all the content of the resource has to be in the language. 
+If a language is specified, it should also be specified on the <a href="narrative.html#Narrative">Narrative Text</a>. 
+There is no default language, though one may be inferred from the context of use.
+</p>
+<p>
+The language element is provided to support indexing and accessibility (e.g. text-to-speech use the language tag). 
+The html language tag in the narrative is used when processing the narrative. The language tag on the resource is provided 
+for use to specify the language of alternate presentations generated from the data in the resource
+</p>
+
+<a name="metadata"> </a>
+<h2>Resource Metadata</h2>
+<p>
+The metadata properties are key aspects of a resource and how it behaves. For implementation reasons, these are represented outside the resource:
+</p>
+
+<table class="grid">
+  <tr><th>Metadata Item</th><th>Type</th><th>Usage</th></tr>
+  
+  <tr><td>Logical Id</td> <td><a href="datatypes.html#id">id</a></td> <td>The identity of the resource. 
+    Resources always have a known identity and it is constant for the entire lifetime of the resource. See <a href="references.html#Identification">Resource identification</a> for further discussion</td></tr>
+	
+  <tr><td>Version Id</td><td><a href="datatypes.html#id">id</a></td><td>Changes each time the content of the resource changes. 
+    Can be referenced in a <a href="references.html#Resource">resource reference</a>. Can be used to ensure that updates are based on the latest version of the resource. 
+  <br/>The version can be globally unique, or scoped by the Logical Id. Version identifiers are generally either a serially incrementing id 
+     scoped by the logical id, or a uuid, though neither of these approaches is required</td></tr>
+	 
+  <tr><td>Last Modified Date</td><td><a href="datatypes.html#instant">instant</a></td><td>Changes each time the content of the resource 
+    changes. Can be used by a system or a human to judge the currency of the resource content.   </td></tr>
+	
+</table>
+<p>
+Note that both the version id and the last modified date change any time the resource changes. The Version Id is more useful for managing
+concurrency issues and version specific references because of the inherent uncertainties and precision limits associated with date/times. 
+The Last Modified Date is useful for a human to ascertain the logical currency of the information in the resource.
+</p>
+<p>
+In any environment where the resources are used, the technical details of how these metadata elements 
+are represented during exchange will need to be resolved. For further details, see <a href="implementation.html">Implementation 
+Details</a>, which also contains a discussion of how resource identity is maintained.
+</p>
+<p>
+Resource and version ids are case sensitive. Ids are always opaque, and systems need not and should not attempt to determine their internal structure. 
+However the id is represented, it SHALL always be represented in the same way in resource references and URLs. Ids can be up to 36 characters 
+long, and contain any combination of ASCII letters, numerals, "-" and ".".
+</p>
+
+<hr/>
+<a name="conformance"> </a>
+<h2>Conformance</h2>
+<p>
+The contents of the resource and the formats used to represent it SHALL conform to the rules described in this specification.
+Because of its general nature and wide applicability, the rules made in this specification are generally loose compared 
+to the rules suitable for particular use cases. This specification provides a conformance layer that implementers and 
+national/regional programs can use to provide a computable statement about how the resources and their exchange 
+paradigms are used to solve particular use cases. The conformance layer itself is implemented using resources:
+</p>
+<table class="grid">
+ <tr> <td><a href="valueset.html">Value Set</a></td> <td>Defines a set of coded values (see "<a href="terminologes.html">Using Codes</a>" for more details)</td>  </tr>
+ <tr> <td><a href="profile.html">Profile</a></td> <td>Makes rules about how a resource and it's data elements are used in a particular context. A profile references value sets for the coded elements in a resource</td>  </tr>
+ <tr> <td><a href="conformance.html">Conformance</a></td> <td>A statement of the kinds of resources and operations provided and/or consumed by an application. The conformance resource references profiles to describe specific use of resources by the application</td>  </tr>
+</table>
+<p>
+The specification also provides a number of tools that can assist with enforcing technical conformance 
+to this base specification:
+</p>
+<ul>
+ <li><a href="fhir-all-xsd.zip">Schema &amp; Schematron</a></li>
+ <li><a href="validation.zip">Validator Package - use to check resources against profiles</a></li>
+ <li><a href="downloads.html#refimpl">Reference Platforms (conformant code in various languages)</a></li>
+</ul> 
+<p>
+Note that none of these are able to check complete conformance to this specification.
+</p>
+<p>
+The data elements defined in resources and data types have 3 properties that are 
+directly related to conformance: Cardinality, Is-Modifier, and Must-Support.
+These interact to place conformance requirements on implementations. 
+</p>
+
+<a name="cardinality"> </a>
+<h3>Cardinality</h3>
+<p>
+All elements defined in FHIR have a cardinality as part of their definition - a minimum number 
+of required appearances, and a maximum number. This number specifies the number of times
+the element may appear in any instance of the resource type. This specification
+only defines the following cardinalities: 0..1, 0..*, 1..1, and 1..*. Profiles 
+that describe specific use cases may use other values for cardinality within the limits 
+of the cardinality defined by the resource. 
+</p>
+<p>
+Note that when present, elements cannot be empty - they SHALL have either a value attribute, child elements, or extensions. 
+</p>
+<p>
+In this specification, very few elements have a minimum cardinality of 1. 
+Resources are used in many contexts, often quite removed from their primary
+use case, and sometimes even basic information is sometimes very incomplete. For this reason,
+the only elements that have a minimum cardinality of 1 are those where they
+are necessary to any understanding of the element that contains them. 
+The minimum cardinalities should not be taken as a guide to which elements
+are expected to be present in any particular use of the resource, including their normal/primary usage purpose.
+</p>
+<p>
+For elements that have cardinality &gt; 1, the order in which they appear may have meaning.
+Unless the element definition (either in this specification or the extension) defines a meaning 
+to the order explicitly, the meaning of the order is not defined, and implementations are allowed 
+to reorder the elements. Note that you cannot define a meaning for the order of the elements in 
+a profile. When there is no definition of the meaning of the order, implementations that need 
+to choose a single element from a list of elements for some use SHALL do so based on the semantics 
+of the content of the elements that repeats. Profiles and Implementation guides may often make 
+rules about this selection process.
+</p>
+
+
+<a name="mustUnderstand"> </a>
+<a name="ismodifier"> </a>
+<a name="isModifier"> </a>
+<h3>Is-modifier</h3>
+<p>
+Is-Modifier is a boolean property that is assigned when an element is defined, either as part of 
+the base resource contents in this specification, or when profiles declare extensions. 
+An element is labeled "Is-Modifier = true" if the value it contains may change the 
+interpretation of the element that contains it (including if the element is the resource as a whole). Typical examples of 
+elements that are labeled "Is-Modifier" are elements such as "status", "active", "refuted", or "certainty". 
+Whether and element is a Modifier cannot be changed when element usage is described in a 
+<a href="profile.html">Resource Profile</a>.
+When an element is labeled as Is-Modifier, the documentation must be clear about why 
+it is a modifier.
+</p>
+<p>
+A typical example of an modifier element is one that negates the element that contains it. For 
+instance, in the following element definition:
+</p>
+<pre class="spec">&lt;<a title="Specific reactions to a substance." class="dict" ><b>AdverseReaction</b></a> xmlns="http://hl7.org/fhir"&gt;
+ &lt;!-- Other information --&gt;
+ &lt;<a title="When the exposure occurred." class="dict" ><b>exposureDate</b></a> value="[<span style="color: darkgreen"><a >dateTime</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy">When the exposure occurred</span><span style="color: Gray"> --&gt;</span>
+ &lt;<a title="Substance(s) that is presumed to have caused the adverse reaction." class="dict" ><b>substance</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a >Resource</a>(<a >Substance</a>)</span> <span style="color: navy">Presumed to have caused the reaction</span><span style="color: Gray"> --&gt;</span>&lt;/substance&gt;
+ &lt;<a title="To say that a reaction to substance did not occur (this element modifies the meaning of other elements)" class="dict" ><span style="text-decoration: underline"><b>didNotOccurFlag</b></span></a> value="[<span style="color: darkgreen"><a >boolean</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>1..1</b></span> <span style="color: navy">To say that a reaction to substance did not occur</span><span style="color: Gray"> --&gt;</span>
+ &lt;!-- Other information --&gt;
+&lt;/AdverseReaction&gt;
+</pre>
+<p>
+the element "didNotOccurFlag" affects the entire meaning of the resource - if it is set to true, the whole resource must be understood differently, and so it is not safe for implementations to ignore it. 
+</p>
+<p>
+Generally, elements labeled "Is-Modifier = true" also have a minimum cardinality of 1, to introduce
+certainty in their handling. If the value of such an element is not explicit in the instance, or known 
+by the context, the resource cannot be safely understood. Irrespective of the minimum cardinality, 
+implementations producing resources SHALL ensure that appropriate values for isModifier 
+elements are provided. Is-Modifier elements SHALL be represented in the narrative summary 
+of the resource.
+</p>
+<p>
+Implementations processing the data in resources SHALL understand the impact of the element when using the data. 
+Implementations are not required to "support" the element in any meaningful way - they 
+may achieve this understanding by rejecting instances that contain values outside those they support (for instance,
+an application may refuse to accept observations with a reliability != "ok"). Alternatively,
+implementations may be able to be sure, due to their implementation environment, that such values 
+will never occur. However applications SHOULD always check the value irrespective of this.
+</p>
+<p>
+Note that processing the data of a resource typically means
+copying or filtering data out of a resource for use in another 
+context (display to a human, decision support, exchange in another 
+format where not all information is included, or storing it for this kind of use).
+Servers and background processes that simply move whole resources around unchanged 
+are not "processing the data of the resource", and therefore these applications 
+are not required to check Is-Modifier elements. 
+</p>
+
+<a name="mustSupport"> </a>
+<h3>Must-Support</h3>
+<p>
+Labelling an element Must-Support means that implementations that produce or consume resources SHALL 
+provide "support" for the element in some meaningful way. Exactly what this means is impossible
+to describe or clarify as part of the FHIR specification.
+</p>
+<p>
+For this reason, the specification itself never labels any elements as must-support. 
+This is done in <a href="profile.html">Resource Profiles</a>, where the profile 
+labels an element as mustSupport=true. When a profile does this, it SHALL also make clear
+exactly what kind of "support" is required, as this can mean many things.
+</p>
+
+<p>
+Note that an element that has the property IsModifier is not necessarily a "key" element (e.g. one of 
+the important elements to make use of the resource), nor is it automatically mustSupport - however both 
+of these things are more likely to be true for IsModifier elements than for other elements.
+</p>
+
+<a name="version"> </a>
+<h2>Inter-version Compatibility</h2>
+<blockquote>
+<p>
+The following rules will apply once the specification becomes a full normative 
+specification. These rules ensure that implementations may process the content 
+of the resources safely while exchanging data between applications using different
+versions of FHIR. However during the period of trial use of the specification, HL7
+may make changes outside the limitations described here in response to discovered 
+issues in the specification. Applications may wish to use <a href="extras.html#tags">resource tags</a> to help
+manage this during the period of trial use.
+</p>
+</blockquote>
+<p>
+There is no explicit version marker in the resource content. Once normative, subsequent versions of 
+this specification may introduce new elements and/or content at any point in the 
+resource contents, but the path and meaning of existing data elements will not be changed. Any value
+set or code list may be revised to include additional codes.
+</p>
+<p>
+Each binding to a value set or code system indicates whether the value list automatically 
+grows as new codes are defined, whether the list may be extended
+in future versions of the specification, or whether the list cannot be changed at all in future versions.
+</p>
+<p>
+The conformance layer (<a href="conformance.html">Conformance</a> and <a href="profile.html">Profile</a>)
+has mandatory properties declaring the FHIR specification version, and these may be used to determine
+which version of FHIR an implementation is using. 
+</p>
+<p>
+In a typical scenario, mixed versions may need to exist, so applications SHOULD ignore elements 
+that they do not recognize unless they are extensions with an isModifier element with value="true". 
+However, in a healthcare context, many application vendors are unwilling to 
+consider this approach because of concerns about clinical risk or 
+technical limitations in their software (i.e. schema based processing). 
+Applications are not required to ignore unknown elements, but SHALL
+declare whether they will do so in their <a href="conformance.html">conformance statements</a>.
+</p>
+<p>
+Additional discussion on inter-versioning issues can be found here: 
+<a href="http://wiki.hl7.org/index.php?title=FHIR_interversion_compatibility">http://wiki.hl7.org/index.php?title=FHIR_interversion_compatibility</a>.
+</p>
+<h3>Further Information</h3>
+<p>
+Additional documentation.
+</p>
+<ul>
+  <li><a href="resources.html">Resource Definitions</a></li>
+  <li><a href="extras.html">Tags, Bundles, Compartments</a></li>
+  <li><a href="references.html">References between Resources</a></li>
+  <li><a href="narrative.html">Narratives</a></li>
+  <li><a href="formats.html">Formats:</a> <a href="xml.html">XML</a>, <a href="json.html">JSON</a> </li>
+  <li><a href="extensibility.html">Extensibility</a> (<a href="extensibility-examples.html">Examples</a>)</li>
+  <li><a href="base-definitions.html">Formal Definitions</a></li>
+</ul>
+
+</div>
+
+[%file newfooter%]
+</body>
+</html>

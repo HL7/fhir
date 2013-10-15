@@ -5,7 +5,7 @@
 <p>
 A device log has little context, and does not have the full context to support integrating 
 the data into the patient record. The usual process for feeding the data from the device 
-log resource into the patient record is to convert it to a <a href="deviceobservation.htm">Device Observation</a>.
+log resource into the patient record is to convert it to a <a href="deviceobservation.html">Device Observation</a>.
 </p>
 <p>
 To convert the data from a Device Log to a Device Observation:
@@ -13,7 +13,7 @@ To convert the data from a Device Log to a Device Observation:
 <ul>
  <li>Locate the matching Device Capabilities resource (may be referred to explicitly in the log, but is also sent explicitly by the machine each time a system connects to it)</li>
  <li>Use the key values on the device log to identify the relevant metric or facet for each item</li>
- <li>Use the information for the metric or facet to build a set of <a href="observation.htm">observation</a> resources (see below)</li>
+ <li>Use the information for the metric or facet to build a set of <a href="observation.html">observation</a> resources (see below)</li>
  <li>Create a device observation that provides the device context for the observations</li>
  <li>Fill out the missing information (device identity, subject, etc.). This information may be 
    explicit in the device capabilities and device log resources, but the simpler the device, the more likely it must come from local context/configuration</li>
@@ -40,7 +40,7 @@ The following table describes how to convert from value to the correct data type
   <th>Template</th>
  </tr> 
  <tr>
-  <td><a href="datatypes.htm#Quantity">Quantity</a></td>
+  <td><a href="datatypes.html#Quantity">Quantity</a></td>
   <td>The common case. The device capabilities provides a units, and optionally a UCUM code</td>
   <td>
    <pre>
@@ -57,7 +57,7 @@ The following table describes how to convert from value to the correct data type
   </td>
  </tr> 
  <tr>
-  <td><a href="datatypes.htm#Coding">Coding</a></td>
+  <td><a href="datatypes.html#Coding">Coding</a></td>
   <td>When the output is a choice of one of a set of discrete values.<br/>The system should be a reference to some locatable definition of the values so that display names can be resolved</td>
   <td>
    <pre>
@@ -69,7 +69,7 @@ The following table describes how to convert from value to the correct data type
   </td>
  </tr> 
  <tr>
-  <td><a href="datatypes.htm#string">string</a></td>
+  <td><a href="datatypes.html#string">string</a></td>
   <td>The output should be treated as a simple string</td>
   <td>
    <pre>

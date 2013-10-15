@@ -5,7 +5,7 @@ There are 2 resources that provide for constructing collections of other resourc
 </p>
 <ul>
  <li>This List resource - enumerates a collection of resources that are in some list, and provides features for managing the list. The list resource references other resources</li>
- <li>The <a href="group.htm">Group resource</a> - defines a group of specific people, animals, devices, etc. by enumerating them, or by describing qualities that group members have. The group resource refers to other resources, possibly implicitly</li>
+ <li>The <a href="group.html">Group resource</a> - defines a group of specific people, animals, devices, etc. by enumerating them, or by describing qualities that group members have. The group resource refers to other resources, possibly implicitly</li>
 </ul>
 
 <p>

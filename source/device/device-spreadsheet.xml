@@ -166,7 +166,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">FDA Mandated Unique Device Identifier</Data></Cell>
-    <Cell><Data ss:Type="String">FDA Mandated Unique Device Identifier - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm</Data></Cell>
+    <Cell><Data ss:Type="String">FDA Mandated Unique Device Identifier - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.html</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">The unique identifier may identify an instance of a device uniquely, or it may just identify the type of the device. A portion of the UDI - the DI part - can be extracted from the UDI when required, and used to look up information about the device through the GUDID</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">

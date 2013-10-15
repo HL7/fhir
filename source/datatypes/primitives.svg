@@ -322,12 +322,12 @@
      y="80"
      x="144"
      id="text49"><a
-   xlink:href="extensibility.htm"
+   xlink:href="extensibility.html"
    id="a51"><title
    id="title53">Extensions - as described for all elements: additional information that is not part of the basic definition of the resource / type</title>
 extension</a>
  : <a
-   xlink:href="extensibility.htm"
+   xlink:href="extensibility.html"
    id="a55">Extension</a>
  0..*</text>
   <line

@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+      
+[%settitle Tags, Bundles, Compartments%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<h2>Tags, Bundles, Compartments</h2>
+
+<a name="root"> </a>
+<a name="tags"> </a>
+<h3>Tags</h3>
+<p>
+In addition to the basic contents of resources and their metadata, each resource can be labelled
+with one or more "Tags". These tags can be used to associate additional operational information 
+with the Resources, including <!-- defining security labels used to support access control policies, -->
+identifying bundles, workflow management and claiming that resources with <a href="profile.html">profiles</a>. 
+Tags are attached to resources and exchanged with the resource. Tags are never used to keep information 
+that needs to be understood when interpreting the content of a resource; their function is limited to finding 
+and controlling access to the resource, and connecting resources to technical or clinical workflow.
+</p>
+<p>
+Each tag has three properties:
+</p>
+<table class="grid">
+ http://hl7.org/fhir/tag
+ <tr><td>Scheme : uri</td><td>A uri that identifies the type of the tag</td></tr>
+ <tr><td>Term : uri</td><td>An absolute URI which defines the meaning of the tag</td></tr>
+ <tr><td>Label : string</td><td>(Optional) A human-readable label for the tag for use when displaying in end-user applications</td></tr>
+</table>
+<p>
+The following tag schemes are defined:
+</p>
+<table class="grid">
+ <tr><td>http://hl7.org/fhir/tag</td><td>A general tag</td></tr>
+ <tr><td>http://hl7.org/fhir/tag/profile</td><td>A profile tag - a claim that the Resource conforms to the profile identified in the term</td></tr>
+</table>
+
+<h4>General Tags</h4>
+<p>
+In a general tag, the term may be a reference to a healthcare vocabulary, including ones defined in this specification,
+such as the basic <a href="security.html#labels">security label set</a>, or vocabularies such as 
+those defined by HL7 (v2 and v3/CDA), LOINC, or SNOMED CT. Alternatively, the term may be one
+defined by the implementation in the local context. Literal references that refer directly 
+to a description of the tag (typically just an HTML page) are preferred over symbolic references 
+but this is not required.
+</p>
+<p>
+If the end user application provides functionality to the user that allows the user to 
+affix arbitrary text tags to the resource for their own purpose, the application can 
+automatically construct a term by appending the mime encoding of the Label to the base
+URL "http://hl7.org/fhir/tag/text/". When applications processing resources see this
+base URL, they can automatically know that this is a pure text label with no formal
+meaning.
+</p>
+<b>Known Tags</b>
+<p>
+This table summarises the tags that are defined as part of this specification:
+</p>
+<table class="gric">
+ <tr> <td><b>Term</b></td> <td><b>Context</b></td> <td><b>Description</b></td></tr>
+ <tr> <td>http://hl7.org/fhir/tag/document</td> <td>A bundle (feed.category)</td> <td>Identifies that this bundle represents <a href="document.html">a document</a></td></tr>
+ <tr> <td>http://hl7.org/fhir/tag/message</td> <td>A bundle (feed.category)</td> <td>Identifies that this bundle represents <a href="message.html">a message</a></td></tr>
+ <tr> <td></td> <td></td></tr>
+</table>
+
+<h4>Profile Tags</h4>
+<p>
+A profile tag is an assertion that the resource conforms to a particular 
+<a href="profile.html">Profile</a>, which are sets of rules about what 
+content is allowed to be in a resource. In a profile tag, the term
+is a URL that references a profile resource.
+</p>
+<p>
+It's always possible to determine whether a resource conforms to a 
+profile simply by testing it against the profile (the <a href="downloads.html">validation tools</a>
+provide the functionality to perform this test in a variety of contexts). 
+However there are several circumstances where simply examining whether 
+a resource conforms to a particular profile as needed is impractical:
+</p>
+<ul>
+ <li>A server searching a set of resources for ones that conform to a particular profile</li>
+ <li>A receiver that has many profiles to choose when validating resource</li>
+</ul>
+<p>
+In addition, a validation application (see <a href="http.html#validation">RESTful validation</a>) needs
+a way for the client to inform it that it wants the resource tested against as a particular profile. 
+</p>
+<p>
+Profile Tags serve these use cases - a client/creator of a resource can tag the 
+resource with an assertion that the resource conforms to a profile. The server/receiver
+of the resource can choose to take this assertion at face value, or to assist in locating
+the profile against which to validate the resource. 
+</p>
+<p>
+Note: resources can conform to multiple profiles at once. A resource can conform to 
+a profile without ever being labelled that it does, or a resource may falsely claim to conform 
+to a profile. For this reason, applications resources SHOULD always 
+depend on the contents of the resource when processing them, and/or check resources
+against profiles directly rather than relying on profile tags.
+Profile Tags are provided as a method of find resources that conform to 
+a particular profile, not statements of meaning about the resource.
+</p>
+<p>
+References to tags in other parts of the specification:
+</p>
+<ul>
+ <li>Bundle Representation in <a href="xml.html#tags">XML</a> and <a href="json.html#tags">JSON</a></li>
+ <li>Use on <a href="http.html#tags">HTTP interface</a>, and <a href="http.html#tag-ops">tag operations</a>, and the <a href="http.html#validation">Validation operation</a> </li>
+ <li><a href="query.html#tags">Finding Resources by tag</a></li>
+ <li>Declaration of Profiles in <a href="conformance.html#tags">Conformance Statements</a></li>
+</ul>
+
+
+
+
+<a name="compartments"> </a>
+<a name="compartment"> </a>
+<h3>Compartments</h3>
+<p>
+Each resource may belong to one or more logical compartments. A compartment is a logical 
+grouping of resources which share a common property. Compartments have two principal roles:
+</p>
+<ul>
+ <li>Function as an access mechanism for finding a set of related resources quickly</li>
+ <li>Provide a definitional basis for applying access control to resources quickly</li>
+</ul>
+<p>
+Compartments define how particular instances of the compartment are defined and identified,
+and how systems know whether resources are in the compartment or not. Here is a list of 
+the compartments defined by this specification:
+</p>
+<%compartmentlist%>
+<p>
+As an example of compartment usage, to retrieve a list of a patient's conditions, use the URL:
+</p>
+<pre>
+  GET [baseurl]/Patient/[id]/condition
+</pre>
+<p>
+The details of this usage are <a href="http.html#search">described under the search operation</a>.
+As a search related operation, the assignment of resources to compartments is only based on 
+the current version of any of the resources involved. Note that <a href="references.html#contained">contained</a>
+patient resources cannot create a patient compartment of their own. 
+</p>
+<p>
+Compartments may be used explicitly, like this, but can also be used implicitly. For instance,
+if a FHIR server is providing a patient view of a record, the authorised user associated
+with use of the FHIR RESTful api may be limited to accessing records from the
+compartment instance(s) logically associated with their identity. Irrespective of whether
+compartments are being used explicitly or implicitly, servers will need to make arrangements
+to make some resources with no direct link to a patient available to the client (medications, 
+substances, etc).
+</p>
+<p>
+Note that resources may cross between compartments, or interlink them. Examples of 
+this would be where a <a href="diagnosticreport.html">Diagnostic Report</a> identifies  
+a subject, but an <a href="observation.html">Observation</a> it references identifies
+a different subject, or where a <a href="list.html">List</a> resource references
+items that identify different subjects. Such cross-linking may arise for 
+many valid reasons, including:
+</p>
+<ul>
+ <li>Cases where subject records are inter-linked - Transplants, Perinatal care, family therapy etc.</li>
+ <li>Workflow management where action lists link multiple patients and/or practitioners</li>
+</ul>
+<p>
+Given the wide variety of use cases and contexts in which FHIR is used, compartments 
+do not define how cross-linking is handled. Systems may reject resources, remove them 
+from both compartments, or place them in both, or act in some other fashion.
+</p>
+
+<hr/>
+<a name="bundles"></a> 
+<a name="bundle"></a> 
+<h3>Resource Bundles</h3>
+<p>
+One common operation performed with resources is to gather a collection of resources into a single instance.
+In FHIR this is referred to as "bundling" the resources together. The resource bundle is not just a list of 
+references to resources, but includes their whole content. These resource bundles are useful for a variety of 
+different reasons, including:
+</p>
+<ul>
+  <li>Returning a set of resources that meet some criteria as part of a server operation (see <a href="http.html#search">RESTful Search</a>)</li>
+  <li>Returning a set of versions of resources as part of the history operation on a server  (see <a href="http.html#history">History</a>)</li>
+  <li>Exchanging a set of resources as part of a message transaction (see <a href="message.html">Messaging</a>)</li>
+  <li>Grouping a self-contained set of resources to act as an exchangeable and persistable group with clinical integrity - a clinical document (see <a href="document.html">Documents</a>)</li>
+  <li>Storing a collection of resources</li>
+</ul>
+<p>
+Conceptually, a bundle has an identifier (url) and a date updated, and a list of resources. 
+For each resource in the list, the bundle has the resource and also its metadata as listed above.
+Each entry in the bundle retains its original identifier. This means that applications reading
+the bundle should always look for a resource by its identity (after converting relative URLs
+absolute URL) in the bundle first before trying to access it by its URL.
+</p>
+
+
+</div>
+[%onthispage Resource Definitions#root|Resource Content#content|Bundles#bundles|Conformance#conformance|Resource References#references|Contained Resources#contained|Versioning#version%]
+
+[%file newfooter%]
+</body>
+</html>

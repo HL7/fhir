@@ -2,7 +2,7 @@
 
 <h2>Notes</h2>
 <ul>
- <li>The document information is whatever information can be extracted from the binary document. The definition is shared between this resource and the <a href="document.htm">document resource</a></li>
+ <li>The document information is whatever information can be extracted from the binary document. The definition is shared between this resource and the <a href="document.html">document resource</a></li>
  <li>The document information doesn't change once created - only the entry content, such as subject and availability, is updated</li>
  <li>In XDS, a full information.versionId is required</li>
 </ul> 
@@ -13,7 +13,7 @@
 </ul>
 
 <p>
-For further information, see the <a href="xdsentry.htm">XdsEntry resource</a>
+For further information, see the <a href="xdsentry.html">XdsEntry resource</a>
 </p>
 
 </div>

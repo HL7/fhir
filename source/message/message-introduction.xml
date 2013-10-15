@@ -8,8 +8,8 @@ conformant to "FHIR messaging".
 <p>
 In FHIR messaging, a "request message" is sent from a source application to a destination
 application when an event happens. Events mostly correspond to things that happen in the 
-real world. The request message consists of a <a href="extras.htm#bundle">bundle</a>
-<a href="extras.htm#tags">identified by the tag</a> "http://hl7.org/fhir/tag/message", 
+real world. The request message consists of a <a href="extras.html#bundle">bundle</a>
+<a href="extras.html#tags">identified by the tag</a> "http://hl7.org/fhir/tag/message", 
 with the first resource in the bundle being this <i>Message</i> resource. The 
 Message resource has a code - the message event - that identifies the nature of the 
 request message and carries additional request metadata. The other resources in the 
@@ -20,8 +20,8 @@ The events supported in FHIR, along with the resources that are included in them
 </p>
 <p>
 The destination application processes the request and returns one or more response messages 
-which are also a <a href="extras.htm#bundle">bundle</a> of resources
-<a href="extras.htm#tags">identified by the tag</a> "http://hl7.org/fhir/tag/message", with the first 
+which are also a <a href="extras.html#bundle">bundle</a> of resources
+<a href="extras.html#tags">identified by the tag</a> "http://hl7.org/fhir/tag/message", with the first 
 resource in the bundle being a <a href="#resource">Message</a> resource with a response
 section that reports the outcome of processing the message and any additional response 
 resources required. 
@@ -72,7 +72,7 @@ in both directions.
 <h3>Message Identifiers</h3>
 <p>
 An incoming message contains two identifiers: the envelope id 
-(<a href="extras.htm#bundles">feed</a>.id) and the <a href="message.htm">message</a>.identifier. 
+(<a href="extras.html#bundles">feed</a>.id) and the <a href="message.html">message</a>.identifier. 
 Each time a new message is created, it SHALL be assigned an identifier that is 
 unique within that message stream. Note that since message streams are often 
 merged with other streams, it is recommended that the identifier should be globally 
@@ -150,7 +150,7 @@ as sender or receiver) and for each event, a
 profile that states which resources are bundled (sender), or 
 are required to be bundled (receiver), and any rules about the 
 information content of the individual resources. The conformance 
-statement is a <a href="conformance.htm">resource with the name 
+statement is a <a href="conformance.html">resource with the name 
 "Conformance"</a>. 
 </p>
 
@@ -159,7 +159,7 @@ statement is a <a href="conformance.htm">resource with the name
 
 <p>
 As well as this messaging framework documented here, FHIR also defines a 
-<a href="http.htm">RESTful API</a>. The messaging and RESTful frameworks
+<a href="http.html">RESTful API</a>. The messaging and RESTful frameworks
 are related in that both share the same set of resources on which the operate.
 In fact, the basic <i>Message</i> resource (defined below) on which the 
 messaging framework is implemented is, itself, a resource that can treated 
@@ -196,7 +196,7 @@ any logic associated with the actual event.</b> It is just for managing a set of
 </p>
 <p>
 In, addition, this specification defines the a mailbox ([base-url]/mailbox). This
-is a standard named end-point to which messages as <a href="extras.htm#bundle">bundles</a>, 
+is a standard named end-point to which messages as <a href="extras.html#bundle">bundles</a>, 
 can be sent to a server to indicate that the event identified by the code has occurred - if
 that server is also running a REST API. In this case, the end-point returns an HTTP
 response with a message response as defined for the particular event, or an error 

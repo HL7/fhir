@@ -75,17 +75,17 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	private void writeEntry(String path, String cardinality, String type, String conceptDomain, ElementDefn e) throws Exception {
 		write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+path.replace("[", "_").replace("]", "_")+"\"></a><b>"+path+"</b></td></tr>\r\n");
 		tableRow("Definition", null, e.getDefinition());
-		tableRow("Control", "resources.htm#conformance", cardinality + (e.hasCondition() ? ": "+  e.getCondition(): ""));
-		tableRowNE("Binding", "terminologies.htm", describeBinding(e));
+		tableRow("Control", "resources.html#conformance", cardinality + (e.hasCondition() ? ": "+  e.getCondition(): ""));
+		tableRowNE("Binding", "terminologies.html", describeBinding(e));
 		if (!Utilities.noString(type) && type.startsWith("@"))
 		  tableRowNE("Type", null, "<a href=\"#"+type.substring(1)+"\">See "+type.substring(1)+"</a>");
 		else
-		  tableRowNE("Type", "datatypes.htm", type);
-		tableRow("Is Modifier", "resources.htm#ismodifier", displayBoolean(e.isModifier()));
+		  tableRowNE("Type", "datatypes.html", type);
+		tableRow("Is Modifier", "resources.html#ismodifier", displayBoolean(e.isModifier()));
 		tableRow("Requirements", null, e.getRequirements());
     tableRow("Aliases", null, toSeperatedString(e.getAliases()));
     if (e.isSummaryItem())
-      tableRow("Summary", "query.htm#summary", Boolean.toString(e.isSummaryItem()));
+      tableRow("Summary", "query.html#summary", Boolean.toString(e.isSummaryItem()));
     tableRow("Comments", null, e.getComments());
     tableRowNE("Invariants", null, invariants(e.getInvariants(), e.getStatedInvariants()));
     tableRow("LOINC Code", null, e.getMapping(ElementDefn.LOINC_MAPPING));
@@ -106,8 +106,8 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 //    if (cd.getBinding() == Binding.Unbound)
 //      b.append(" (Not Bound to any codes)");
 //    else
-//      b.append(" ("+(cd.getExtensibility() == null ? "--" : "<a href=\"terminologies.htm#extensibility\">"+cd.getExtensibility().toString().toLowerCase())+"</a>/"+
-//          "<a href=\"terminologies.htm#conformance\">"+(cd.getBindingStrength() == null ? "--" : cd.getBindingStrength().toString().toLowerCase())+"</a>)");
+//      b.append(" ("+(cd.getExtensibility() == null ? "--" : "<a href=\"terminologies.html#extensibility\">"+cd.getExtensibility().toString().toLowerCase())+"</a>/"+
+//          "<a href=\"terminologies.html#conformance\">"+(cd.getBindingStrength() == null ? "--" : cd.getBindingStrength().toString().toLowerCase())+"</a>)");
     return b.toString();
   }
 
@@ -198,7 +198,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		    if (!first)
 		      b.append("|");
 		    if (t.getName().equals("*"))
-		      b.append("<a href=\"datatypes.htm#open\">*</a>");
+		      b.append("<a href=\"datatypes.html#open\">*</a>");
 		    else
 		      b.append("<a href=\""+typeLink(t.getName())+"\">"+t.getName()+"</a>");
 		    if (t.hasParams()) {
@@ -221,7 +221,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	}
 
   private String typeLink(String name) throws Exception {
-    return GeneratorUtils.getSrcFile(name)+ ".htm#" + name;
+    return GeneratorUtils.getSrcFile(name)+ ".html#" + name;
   }
 	
 }

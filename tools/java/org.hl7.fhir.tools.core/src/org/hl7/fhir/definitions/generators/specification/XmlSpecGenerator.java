@@ -99,13 +99,13 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		if (hasXmlLang)
 		  write(" xml:lang?");
 		if (resource)
-	    write(" xmlns=\"http://hl7.org/fhir\"&gt; <span style=\"float: right\"><a title=\"Documentation for this format\" href=\"formats.htm\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
+	    write(" xmlns=\"http://hl7.org/fhir\"&gt; <span style=\"float: right\"><a title=\"Documentation for this format\" href=\"formats.html\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
 		else
 	    write(" xmlns=\"http://hl7.org/fhir\"&gt;\r\n");
     if (rn.equals(root.getName()) && resource) {
-      write(" &lt;!-- from <a href=\"resources.htm\">Resource</a>: <a href=\"extensibility.htm\">extension</a>, language, <a href=\"narrative.htm#Narrative\">text</a>, and <a href=\"references.htm#contained\">contained</a> -->\r\n");
+      write(" &lt;!-- from <a href=\"resources.html\">Resource</a>: <a href=\"extensibility.html\">extension</a>, language, <a href=\"narrative.html#Narrative\">text</a>, and <a href=\"references.html#contained\">contained</a> -->\r\n");
     } else {
-      write(" &lt;!-- from Element: <a href=\"extensibility.htm\">extension</a> -->\r\n");
+      write(" &lt;!-- from Element: <a href=\"extensibility.html\">extension</a> -->\r\n");
     }
 		for (ElementDefn elem : root.getElements()) {
 		  if (!elem.typeCode().equals("xml:lang"))
@@ -118,7 +118,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 	}
 
 	public void generate(ProfileDefn profile) throws Exception {
-		write("<pre class=\"spec\"> <span style=\"float: right\"><a title=\"Documentation for this format\" href=\"formats.htm\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
+		write("<pre class=\"spec\"> <span style=\"float: right\"><a title=\"Documentation for this format\" href=\"formats.html\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
 
 		if (profile.getResources().size() > 0) {
 			write("<span style=\"color: Gray\">&lt;!-- <span style=\"color: Darkviolet\">Resources</span> --&gt;</span>\r\n");
@@ -155,8 +155,8 @@ public class XmlSpecGenerator extends OutputStreamWriter {
     write("<span style=\"color: navy\">" + Utilities.escapeXml("Context: "+ex.getType().toString()+" = "+ex.getContext()) + "</span>");
 		write(" -->\r\n");
 		write(" &lt;<b>url</b> value=\"<span style=\"color: maroon\">"+ root + "#"+ex.getCode() + "</span>\"/&gt;\r\n");
-//		write(" &lt;<b>definition</b>><span style=\" color: Gray\">&lt;!-- </span> <span style=\"color: brown;\"><b>1..1</b></span> <span style=\"color: darkgreen;\"><a href=\"datatypes.htm#uri\">uri</a></span> <span style=\"color: navy\">where registered</span> <span style=\" color: Gray\">--&gt;</span>&lt;/definition>\r\n");
-//		write(" &lt;<b>ref</b>&gt; <span style=\"color: navy\"><span style=\"color: darkgreen;\"><a href=\"references.htm#idref\">Ref</a></span> to a "
+//		write(" &lt;<b>definition</b>><span style=\" color: Gray\">&lt;!-- </span> <span style=\"color: brown;\"><b>1..1</b></span> <span style=\"color: darkgreen;\"><a href=\"datatypes.html#uri\">uri</a></span> <span style=\"color: navy\">where registered</span> <span style=\" color: Gray\">--&gt;</span>&lt;/definition>\r\n");
+//		write(" &lt;<b>ref</b>&gt; <span style=\"color: navy\"><span style=\"color: darkgreen;\"><a href=\"references.html#idref\">Ref</a></span> to a "
 //				+ ex.getContext()
 //				+ " ("
 //				+ ex.getType().toString()
@@ -190,7 +190,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		    write(" <span style=\"color: navy\">"+Utilities.escapeXml(ex.getDefinition().getShortDefn())+"</span>");
 		    write(" <span style=\" color: Gray\">--&gt; </span>&lt;/" + vn + ">\r\n");
 		  } else if (ex.getDefinition().getTypes().size() == 1) {
-		    write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t)+ ".htm#" + t) + "\">" + t+ "</a></span>]\"/>");
+		    write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t)+ ".html#" + t) + "\">" + t+ "</a></span>]\"/>");
 		    write("<span style=\" color: Gray\">&lt;!-- </span>");
 		    write("<span style=\"color: navy\">"
 		        + Utilities.escapeXml(ex.getDefinition().getShortDefn())
@@ -328,9 +328,9 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			  doneType = true;
 			  TypeRef t = elem.getTypes().get(0);
 			  if (elem.typeCode().equals("idref"))
-          write(" value=\"[<span style=\"color: darkgreen\"><a href=\"references.htm#idref\">" + t.getName()+ "</a></span>]\"/");
+          write(" value=\"[<span style=\"color: darkgreen\"><a href=\"references.html#idref\">" + t.getName()+ "</a></span>]\"/");
 			  else
-  			  write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t.getName())+ ".htm#" + t.getName()).replace("[", "_").replace("]", "_") + "\">" + t.getName()+ "</a></span>]\"/");
+  			  write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t.getName())+ ".html#" + t.getName()).replace("[", "_").replace("]", "_") + "\">" + t.getName()+ "</a></span>]\"/");
 			}
 			write("&gt;");
 
@@ -343,7 +343,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			// if (elem.getConformance() != ElementDefn.Conformance.Unstated)
 			// {
 			// write(" ");
-			// write("<a href=\"xml.htm#Control\" class=\"cf\">" +
+			// write("<a href=\"xml.html#Control\" class=\"cf\">" +
 			// elem.getConformance().code() + "</a>");
 			// }
 
@@ -371,12 +371,12 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 				  writeTypeLinks(elem);
 				}
 			} else if (elem.getName().equals("extension")) {
-				write(" <a href=\"extensibility.htm\"><span style=\"color: navy\">See Extensions</span></a> ");
+				write(" <a href=\"extensibility.html\"><span style=\"color: navy\">See Extensions</span></a> ");
 			} else if (elem.getTypes().size() == 1
 					&& elem.getTypes().get(0).isWildcardType()) {
 				writeCardinality(elem);
 		    write(" <span style=\"color: darkgreen\">");
-        write("<a href=\"datatypes.htm#open\">*</a>");     
+        write("<a href=\"datatypes.html#open\">*</a>");     
 		    write("</span>");
 				listed = true;
 			}
@@ -387,7 +387,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			write(" ");
 			if (elem.getElements().isEmpty() && !sharedDT) {
 				if ("See Extensions".equals(elem.getShortDefn())) {
-					write(" <a href=\"extensibility.htm\"><span style=\"color: navy\">"
+					write(" <a href=\"extensibility.html\"><span style=\"color: navy\">"
 							+ Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem)
 							+ "</span></a> ");
 				} else {
@@ -397,16 +397,16 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 				  BindingSpecification bs = definitions.getBindingByName(elem.getBindingName());
 				  if (bs != null && bs.getBinding() != Binding.Unbound && !Utilities.noString(bs.getReference())) { 
 				    if (bs.getBinding() == Binding.CodeList || bs.getBinding() == Binding.Special)
-				      write("<span style=\"color: navy\"><a href=\""+bs.getReference().substring(1)+".htm\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a></span>");
+				      write("<span style=\"color: navy\"><a href=\""+bs.getReference().substring(1)+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a></span>");
 				    else if (bs.getReference().startsWith("http://hl7.org/fhir")) {
 				      if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/"))
-				        write("<a href=\"v3/"+bs.getReference().substring(26)+"/index.htm\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
+				        write("<a href=\"v3/"+bs.getReference().substring(26)+"/index.html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
 				      else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/"))
-				        write("<a href=\""+bs.getReference().substring(23)+".htm\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
+				        write("<a href=\""+bs.getReference().substring(23)+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
 				      else
 				        throw new Exception("Internal reference "+bs.getReference()+" not handled yet");
 				    } else
-				      write("<span style=\"color: navy\"><a href=\""+bs.getReference()+".htm\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a></span>");				  
+				      write("<span style=\"color: navy\"><a href=\""+bs.getReference()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a></span>");				  
 				  } else
 					  write("<span style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</span>");
           if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
@@ -504,7 +504,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
         write("<a href=\""+elem.getProfile()+"\"><span style=\"color: DarkViolet\">@"+elem.getProfile().substring(1)+"</span></a>");     
       else
         write("<a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t.getName())
-            + ".htm#" + t.getName() + "\">" + t.getName()).replace("[", "_").replace("]", "_")
+            + ".html#" + t.getName() + "\">" + t.getName()).replace("[", "_").replace("]", "_")
             + "</a>");
       if (t.hasParams()) {
         write("(");
@@ -521,19 +521,19 @@ public class XmlSpecGenerator extends OutputStreamWriter {
             // in the aggregation. For now it links to the
             // base resource.
             write("<a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(p)
-                + ".htm#" + p + "\">"
+                + ".html#" + p + "\">"
                 + elem.getAggregation()).replace("[", "_").replace("]", "_") + "</a>");
           } 
           else if( definitions.getFutureResources().containsKey(p)) 
               write("<a title=\"This resource has not been defined yet\">" + p + "</a>");                
           else if (p.equals("Any")) {
-            write("<a href=\"" + "resourcelist.htm" + "\">" + p + "</a>");								
+            write("<a href=\"" + "resourcelist.html" + "\">" + p + "</a>");								
           }
           else if (t.getName().equals("Resource") && t.getParams().size() == 1 && !Utilities.noString(elem.getProfile()))
             write("<a href=\""+elem.getProfile()+"\"><span style=\"color: DarkViolet\">@"+elem.getProfile().substring(1)+"</span></a>");     
           else
             write("<a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(p)
-                + ".htm#" + p).replace("[", "_").replace("]", "_") + "\">" + p + "</a>");
+                + ".html#" + p).replace("[", "_").replace("]", "_") + "\">" + p + "</a>");
 
           firstp = false;
         }

@@ -8,11 +8,11 @@ as a possibility.
 </p>
 <p>
 Through this work, we have identified two different candidate strategies for specifying
-the XDS interface - this one, and <a href="xdsentry2.htm">XdsEntry2</a>. Both approaches
+the XDS interface - this one, and <a href="xdsentry2.html">XdsEntry2</a>. Both approaches
 offer exactly the same functional interface - which is intended to be "all the useful 
 features from existing XDS registries and repositories". However they differ in the 
 resource granularity used. This approach is less granular. It offers less work, but less
-flexibility of deployment and integration with wider FHIR usage. The <a href="xdsentry2.htm">XdsEntry2</a>
+flexibility of deployment and integration with wider FHIR usage. The <a href="xdsentry2.html">XdsEntry2</a>
 approach is more granular, which creates slightly more work for bridge developers 
 (FHIR interfaces to full XDS repositories, or  XDS.b interfaces to full FHIR repositories),
 but offers more deployment flexibility and wider FHIR integration after that. 
@@ -31,7 +31,7 @@ Things to note about both approaches, as compared to the current MHD draft:
   <li>Because this is part of the FHIR framework, the technical details are different to the existing MHD proposal. e.g. the encoding differs a little, either XML or json is allowed, the url structure and parameter names differ etc. The 2nd approach differs by offering additional granularity</li>
   <li>The FHIR specification doesn't require the patientId parameter on the URL, but an MHD profile based on FHIR may still choose to require that for the same reasons it is already required</li>
   <li>It is not clear exactly how deprecated should work - the current MHD design says that a deprecated document should behave like a deleted resource (http status code 410) but this seems to be inconsistent with basic XDS rules in the general XDS. Further discussion required.</li>
-  <li>Note that as a RESTful specification, there is no "submission set" idea here - entries and folders are acted on directly. Note that a <a href="http.htm#transaction">multi-resource transaction</a> is possible by posting a <a href="extras.htm#bundle">bundle</a> with multiple resources.</li>
+  <li>Note that as a RESTful specification, there is no "submission set" idea here - entries and folders are acted on directly. Note that a <a href="http.html#transaction">multi-resource transaction</a> is possible by posting a <a href="extras.html#bundle">bundle</a> with multiple resources.</li>
   <li>Associations are not explicitly modeled. The XDS documentation is a little unclear quite how they are used in practice - the xdsEntry/xdsFolder structure appears to serve the known use cases</li>
   <li>Digital Signature Issues are still to be resolved.</li>
 </ul>

@@ -5,9 +5,9 @@
 There are 4 device related resources
 </p>
 <ul>
- <li><a href="device.htm">Device</a>  - an administrative resource that tracks individual devices and their location. Primarily used for attribution of actions to devices</li>
- <li><a href="devicecapabilities.htm">Device Capabilities</a>  - Defines what observations a device will provide when another device connects to it</li>
- <li><a href="devicelog.htm">Device Log</a> - A raw report from a device at a point in time. Must be paired with the correct Device Capabilities resource in order to be processed</li>
+ <li><a href="device.html">Device</a>  - an administrative resource that tracks individual devices and their location. Primarily used for attribution of actions to devices</li>
+ <li><a href="devicecapabilities.html">Device Capabilities</a>  - Defines what observations a device will provide when another device connects to it</li>
+ <li><a href="devicelog.html">Device Log</a> - A raw report from a device at a point in time. Must be paired with the correct Device Capabilities resource in order to be processed</li>
  <li>Device Observation (this resource) - A report of observations from a device</li>
 </ul>
 <p>

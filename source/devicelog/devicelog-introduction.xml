@@ -4,10 +4,10 @@
 There are 4 device related resources
 </p>
 <ul>
- <li><a href="device.htm">Device</a>  - an administrative resource that tracks individual devices and their location. Primarily used for attribution of actions to devices</li>
- <li><a href="devicecapabilities.htm">Device Capabilities</a> - Defines what observations a device will provide when another system connects to it</li>
+ <li><a href="device.html">Device</a>  - an administrative resource that tracks individual devices and their location. Primarily used for attribution of actions to devices</li>
+ <li><a href="devicecapabilities.html">Device Capabilities</a> - Defines what observations a device will provide when another system connects to it</li>
  <li>Device Log (this resource) - A raw report from a device at a point in time. Must be paired with the correct Device Capabilities resource in order to be processed</li>
- <li><a href="deviceobservation.htm">Device Observation</a> - A report of observations from a device</li>
+ <li><a href="deviceobservation.html">Device Observation</a> - A report of observations from a device</li>
 </ul>
 <p>
 The device capabilities and log resources are used when communicating with a device, either directly or indirectly. 
@@ -29,10 +29,10 @@ A medical device emits a series of these device log resources on a regular basis
 A device log is simply a list of items with a key, a value, and a set of flags.  
 The only way to understand the contents of the resource is to match the device log
 to the device capabilities that provides the context for interpreting the data
-in the device log. The device log can identify the appropriate <a href="devicecapabilities.htm">Device Capabilities</a> resource
+in the device log. The device log can identify the appropriate <a href="devicecapabilities.html">Device Capabilities</a> resource
 explicitly, but generally this is omitted, and the applicable resource is the 
 one that is sent prior to any device log resources being sent. The system receiving
-the data must keep track of the appropriate <a href="devicecapabilities.htm">Device Capabilities</a> resource.
+the data must keep track of the appropriate <a href="devicecapabilities.html">Device Capabilities</a> resource.
 </p>
 
 <p>
@@ -43,7 +43,7 @@ provided or completed by the recipient of the device logs based on local context
 </p>
 <p>
 The device log is a low level resource suitable for direct communication with devices.
-The data from the device is usually converted to a <a href="deviceobservation.htm">Device Observation</a> for 
+The data from the device is usually converted to a <a href="deviceobservation.html">Device Observation</a> for 
 general use in a patient care context. This process is described further below. 
 </p>
 

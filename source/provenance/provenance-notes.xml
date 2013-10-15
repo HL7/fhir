@@ -7,8 +7,8 @@ The provenance resource identifies information about another resource (the <i>re
 The provenance resource may be used in several different ways:
 </p>
 <ul>
- <li>As part of a <a href="document.htm#bundle">document bundle</a> where it identifies the provenance of part or all of the document</li>
- <li>On a <a href="http.htm">RESTful system</a> where it keeps track of provenance information relating to resources</li>
+ <li>As part of a <a href="document.html#bundle">document bundle</a> where it identifies the provenance of part or all of the document</li>
+ <li>On a <a href="http.html">RESTful system</a> where it keeps track of provenance information relating to resources</li>
 </ul>
 <p>
 When used in a document bundle, the <i>references</i> are often not explicitly versioned, but they always implicitly pertain to the version of the 
@@ -17,7 +17,7 @@ requires special care: For new resources that need to have a corresponding Prove
 reference is often not knowable until after the target resource has been updated. This can create an 
 integrity problem for the system - what if the provenance resource cannot be created after the target 
 resource has been updated? To avoid any such integrity problems, the target resource and the provenance resources should be submitted 
-as a pair using a <a href="http.htm#transaction">transaction</a>. 
+as a pair using a <a href="http.html#transaction">transaction</a>. 
 </p>
 
 <h3>Digital Signatures</h3>
@@ -43,7 +43,7 @@ to other resources, or they can refer to other entities that are not FHIR resour
 The code in the <i>.type</i> element is used to differentiate between the two: if the 
 code is in the system "http://hl7.org/fhir/resource-types", then the reference is to 
 a resource, and the element <i>reference</i> functions exactly the same as in 
-a <a href="references.htm#references">Resource Reference</a>. 
+a <a href="references.html#references">Resource Reference</a>. 
 </p>
 
 

@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <p>An order resource describes an order that an action be performed. An order is 
-expected to lead to one or more <a href="orderresponse.htm">responses</a> that describe 
+expected to lead to one or more <a href="orderresponse.html">responses</a> that describe 
 the outcome of processing/handling the order. The order resource is focused on
 the process of actually requesting an action be performed; the actual action to 
 be performed  is detailed in a separate resource that contains the details. 
@@ -31,7 +31,7 @@ ordered follow this same pattern.
 For this reason, the information about what is requested is separated from the 
 actual request for an action to be taken. The various workflows around the
 actual order/fulfillment process are associated with this resource and the 
-<a href="orderresponse.htm">Order Response</a> resource, while the details
+<a href="orderresponse.html">Order Response</a> resource, while the details
 of what is actually ordered are delegated to other resources.
 </p>
 
@@ -52,9 +52,9 @@ with no matching responses (see below)</p>
 <p>Two message types are defined for sending orders: synchronous and asynchronous.</p>
 
 <p>
-In a synchronous message, an order message (i.e. a <a href="extras.htm#bundle">bundle</a> with a
-<a href="message.htm">message</a> resource, an order resource and a details resource) 
-is sent to a system, and it responds with a message that includes the <a href="orderresponse.htm">response</a> 
+In a synchronous message, an order message (i.e. a <a href="extras.html#bundle">bundle</a> with a
+<a href="message.html">message</a> resource, an order resource and a details resource) 
+is sent to a system, and it responds with a message that includes the <a href="orderresponse.html">response</a> 
 (a message resource, and Order Response resource, along with additional details as appropriate). This 
 synchronous message exchange is simple, but only useful where there only needs to be one response, and where 
 the response can be made in a timely fashion.
