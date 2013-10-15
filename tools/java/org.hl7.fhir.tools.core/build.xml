@@ -54,8 +54,7 @@
         <path refid="org.hl7.fhir.implementation.classpath"/>
         <path refid="org.hl7.fhir.utilities.classpath"/>
         <path refid="org.hl7.fhir.definitions.ecore.classpath"/>
-        <pathelement location="../imports/saxon9.jar"/>
-        <pathelement location="../imports/saxon9-dom.jar"/>
+        <pathelement location="../imports/saxon9he.jar"/>
         <pathelement location="../imports/sequence-library-1.0.2.jar"/>
         <pathelement location="../imports/sqljet-1.1.7.jar"/>
         <pathelement location="../imports/trilead-ssh2-1.0.0-build216.jar"/>
@@ -170,8 +169,6 @@
 	    <zipfileset excludes="META-INF/*.SF" src="../imports/commons-lang3-3.1.jar"/>
 	    <zipfileset excludes="META-INF/*.SF" src="../imports/gson-2.2.4.jar"/>
 	    <fileset dir="../org.hl7.fhir.definitions.ecore/bin"/>
-	    <zipfileset excludes="META-INF/*.SF" src="../imports/saxon9.jar"/>
-	    <zipfileset excludes="META-INF/*.SF" src="../imports/saxon9-dom.jar"/>
 	    <zipfileset excludes="META-INF/*.SF" src="../imports/sequence-library-1.0.2.jar"/>
 	    <zipfileset excludes="META-INF/*.SF" src="../imports/sqljet-1.1.7.jar"/>
 	    <zipfileset excludes="META-INF/*.SF" src="../imports/trilead-ssh2-1.0.0-build216.jar"/>
