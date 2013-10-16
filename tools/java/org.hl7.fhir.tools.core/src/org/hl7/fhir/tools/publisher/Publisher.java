@@ -637,6 +637,7 @@ public class Publisher {
 
 			prsr = new SourceParser(page, folder,page.getDefinitions(), web);
 			prsr.checkConditions(errors, dates);
+			page.setRegistry(prsr.getRegistry());
 
 			Utilities.checkFolder(page.getFolders().xsdDir, errors);
 			for (PlatformGenerator gen : page.getReferenceImplementations())
@@ -1507,7 +1508,7 @@ public class Publisher {
     Utilities.createDirectory(page.getFolders().dstDir + "v3");
     Utilities.clearDirectory(page.getFolders().dstDir + "v3");
     String src = TextFile.fileToString(page.getFolders().srcDir+ "v3"+File.separator+"template.html");
-    TextFile.stringToFile(addSectionNumbers("terminologies-v3.html", "terminologies-v3", page.processPageIncludes("v3/template.html", src, "page")), page.getFolders().dstDir+"terminologies-v3.html");
+    TextFile.stringToFile(addSectionNumbers("terminologies-v3.html", "terminologies-v3", page.processPageIncludes("v3/template.html", src, "page"), null), page.getFolders().dstDir+"terminologies-v3.html");
     src = TextFile.fileToString(page.getFolders().srcDir+ "v3"+File.separator+"template.html");
     cachePage("terminologies-v3.html", page.processPageIncludesForBook("v3/template.html", src, "page"));
     IniFile ini = new IniFile(page.getFolders().srcDir + "v3"+File.separator+"valuesets.ini");
@@ -1522,7 +1523,9 @@ public class Publisher {
             Utilities.createDirectory(page.getFolders().dstDir + "v3"+File.separator+id);
             Utilities.clearDirectory(page.getFolders().dstDir + "v3"+File.separator+id);
             src = TextFile.fileToString(page.getFolders().srcDir+ "v3"+File.separator+"template-cs.html");
-            TextFile.stringToFile(page.processPageIncludes(id+".html", src, "v3Vocab"), page.getFolders().dstDir + "v3"+File.separator+id+File.separator+"index.html");
+            String sf = page.processPageIncludes(id+".html", src, "v3Vocab");
+            sf = addSectionNumbers("v3"+id+".html", "template-v3", sf, Utilities.oidTail(e.getAttribute("codeSystemId")));
+            TextFile.stringToFile(sf, page.getFolders().dstDir + "v3"+File.separator+id+File.separator+"index.html");
           }
         }
       }
@@ -1532,7 +1535,9 @@ public class Publisher {
           Utilities.createDirectory(page.getFolders().dstDir + "v3"+File.separator+id);
           Utilities.clearDirectory(page.getFolders().dstDir + "v3"+File.separator+id);
           src = TextFile.fileToString(page.getFolders().srcDir+ "v3"+File.separator+"template-vs.html");
-          TextFile.stringToFile(page.processPageIncludes(id+".html", src, "v3Vocab"), page.getFolders().dstDir + "v3"+File.separator+id+File.separator+"index.html");
+          String sf = page.processPageIncludes(id+".html", src, "v3Vocab");
+          sf = addSectionNumbers("v3"+id+".html", "template-v3", sf, Utilities.oidTail(e.getAttribute("id")));
+          TextFile.stringToFile(sf, page.getFolders().dstDir + "v3"+File.separator+id+File.separator+"index.html");
         }
       }
       e = XMLUtil.getNextSibling(e);
@@ -1745,7 +1750,7 @@ public class Publisher {
     Utilities.createDirectory(page.getFolders().dstDir + "v2");
     Utilities.clearDirectory(page.getFolders().dstDir + "v2");
     String src = TextFile.fileToString(page.getFolders().srcDir+ "v2"+File.separator+"template.html");
-    TextFile.stringToFile(addSectionNumbers("terminologies-v2.html", "terminologies-v2", page.processPageIncludes("v2/template.html", src, "v2Vocab")), page.getFolders().dstDir + "terminologies-v2.html");
+    TextFile.stringToFile(addSectionNumbers("terminologies-v2.html", "terminologies-v2", page.processPageIncludes("v2/template.html", src, "v2Vocab"), null), page.getFolders().dstDir + "terminologies-v2.html");
     src = TextFile.fileToString(page.getFolders().srcDir+ "v2"+File.separator+"template.html");
     cachePage("terminologies-v2.html", page.processPageIncludesForBook("v2/template.html", src, "v2Vocab"));
     
@@ -1754,12 +1759,20 @@ public class Publisher {
       String st = e.getAttribute("state");
       if ("include".equals(st)) {
         String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
+        String iid = id;
+        while (iid.startsWith("0"))
+          iid = iid.substring(1);
         Utilities.createDirectory(page.getFolders().dstDir + "v2"+File.separator+id);
         Utilities.clearDirectory(page.getFolders().dstDir + "v2"+File.separator+id);
         src = TextFile.fileToString(page.getFolders().srcDir+ "v2"+File.separator+"template-tbl.html");
-        TextFile.stringToFile(page.processPageIncludes(id+".html", src, "v2Vocab"), page.getFolders().dstDir + "v2"+File.separator+id+File.separator+"index.html");
+        String sf = page.processPageIncludes(id+".html", src, "v2Vocab");
+        sf = addSectionNumbers("v2"+id+".html", "template-v2", sf, iid);
+        TextFile.stringToFile(sf, page.getFolders().dstDir + "v2"+File.separator+id+File.separator+"index.html");
       } else if ("versioned".equals(st)) {
         String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
+        String iid = id;
+        while (iid.startsWith("0"))
+          iid = iid.substring(1);
         Utilities.createDirectory(page.getFolders().dstDir + "v2"+File.separator+id);
         Utilities.clearDirectory(page.getFolders().dstDir + "v2"+File.separator+id);
         List<String> versions = new ArrayList<String>();
@@ -1770,12 +1783,16 @@ public class Publisher {
           }
           c = XMLUtil.getNextSibling(c);
         }
+        int i = 0;
         for (String ver : versions) {
           if (!Utilities.noString(ver)) {
+            i++;
             Utilities.createDirectory(page.getFolders().dstDir + "v2"+File.separator+id+File.separator+ver);
             Utilities.clearDirectory(page.getFolders().dstDir + "v2"+File.separator+id+File.separator+ver);
             src = TextFile.fileToString(page.getFolders().srcDir+ "v2"+File.separator+"template-tbl-ver.html");
-            TextFile.stringToFile(page.processPageIncludes(id+"|"+ver+".html", src, "v2Vocab"), page.getFolders().dstDir + "v2"+File.separator+id+File.separator+ver+File.separator+"index.html");
+            String sf = page.processPageIncludes(id+"|"+ver+".html", src, "v2Vocab");
+            sf = addSectionNumbers("v2"+id+"."+ver+".html", "template-v2", sf, iid+"."+Integer.toString(i));
+            TextFile.stringToFile(sf, page.getFolders().dstDir + "v2"+File.separator+id+File.separator+ver+File.separator+"index.html");
           }
         }        
       }
@@ -2383,7 +2400,7 @@ public class Publisher {
 		  logicalName = Utilities.fileTitle(file);
 
     TextFile.stringToFile(src, page.getFolders().dstDir + file);    
-		src = addSectionNumbers(file, logicalName, src);
+		src = addSectionNumbers(file, logicalName, src, null);
 
 		TextFile.stringToFile(src, page.getFolders().dstDir + file);		
 
@@ -2392,7 +2409,7 @@ public class Publisher {
 		cachePage(file, src);
 	}
 
-  private String addSectionNumbers(String file, String logicalName, String src) throws Exception {
+  private String addSectionNumbers(String file, String logicalName, String src, String id) throws Exception {
     if (!page.getSectionTrackerCache().containsKey(logicalName)) {
 		  // String prefix = page.getNavigation().getIndexPrefixForFile(logicalName+".html");
 		  String prefix = page.getBreadCrumbManager().getIndexPrefixForFile(logicalName+".html");
@@ -2400,7 +2417,9 @@ public class Publisher {
 		    throw new Exception("No indexing home for logical place "+logicalName);
 		  page.getSectionTrackerCache().put(logicalName, new SectionTracker(prefix));
 		}
-		src = insertSectionNumbers(src, page.getSectionTrackerCache().get(logicalName), file);
+		SectionTracker st = page.getSectionTrackerCache().get(logicalName);
+    st.start(id);
+    src = insertSectionNumbers(src, st, file);
     return src;
   }
 
@@ -2873,22 +2892,26 @@ public class Publisher {
 
   private void generateValueSetsPart1() throws Exception {
     log(" ...value sets");
-    for (BindingSpecification bs : page.getDefinitions().getBindings().values())
+    for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
+      if (Utilities.noString(bs.getOid()))
+        bs.setOid(PageProcessor.OID_VS+ page.getRegistry().idForName(bs.getName()));
       if (bs.getBinding() == Binding.ValueSet && bs.getReferredValueSet() != null && !bs.getReference().startsWith("http://hl7.org/fhir"))
         generateValueSetPart1(bs.getReference(), bs);
+    }
     for (String n : page.getDefinitions().getExtraValuesets().keySet()) {
       ValueSet vs = page.getDefinitions().getExtraValuesets().get(n);
-      generateValueSetPart1(n, vs, n);
+      generateValueSetPart1(n, vs, n, page.getRegistry().idForName(n));
     }
   }
   
   private void generateValueSetsPart2() throws Exception {
     log(" ...value sets (2)");
-     for (BindingSpecification bs : page.getDefinitions().getBindings().values())
+     for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
       if (bs.getBinding() == Binding.ValueSet && bs.getReferredValueSet() != null && !bs.getReference().startsWith("http://hl7.org/fhir"))
-        generateValueSetPart2(bs.getReference(), bs.getName());
+        generateValueSetPart2(bs.getReference(), bs.getName(), bs.getOid());
+     }
      for (String n : page.getDefinitions().getExtraValuesets().keySet()) 
-       generateValueSetPart2(n, n);
+       generateValueSetPart2(n, n, page.getRegistry().idForName(n));
   }
   
   private void generateValueSetPart1(String name, BindingSpecification cd) throws Exception {
@@ -2899,10 +2922,10 @@ public class Publisher {
       n = name;
     cd.getReferredValueSet().setIdentifierSimple("http://hl7.org/fhir/vs/"+n);
     ValueSet vs = cd.getReferredValueSet();
-    generateValueSetPart1(n, vs, name);
+    generateValueSetPart1(n, vs, name, cd.getOid());
   }
   
-  private void generateValueSetPart1(String name, ValueSet vs, String path) throws Exception {
+  private void generateValueSetPart1(String name, ValueSet vs, String path, String oid) throws Exception {
     if (vs.getText() == null) {
       vs.setText(new Narrative());
       vs.getText().setStatusSimple(NarrativeStatus.empty);
@@ -2915,6 +2938,7 @@ public class Publisher {
     AtomEntry ae = new AtomEntry();
     ae.getLinks().put("self", "??");
     ae.getLinks().put("path", path+".html");
+    ae.getLinks().put("oid", oid);
     ae.setResource(vs);
     page.getValueSets().put(vs.getIdentifierSimple(), ae);
     page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
@@ -2924,7 +2948,7 @@ public class Publisher {
     }
   }
   
-  private void generateValueSetPart2(String name, String title) throws Exception {
+  private void generateValueSetPart2(String name, String title, String id) throws Exception {
     String n;
     if (name.startsWith("valueset-"))
       n = name.substring(9);
@@ -2941,10 +2965,14 @@ public class Publisher {
       addToResourceFeed(vs, n, valueSetsFeed);
 
       ae.getLinks().put("path", name+".html");
-      
-      TextFile.stringToFile(page.processPageIncludes(title+".html", TextFile.fileToString(page.getFolders().srcDir+"template-vs.html"), "valueSet"), page.getFolders().dstDir+name+".html");
+      page.setId(id);
+      String sf = page.processPageIncludes(title+".html", TextFile.fileToString(page.getFolders().srcDir+"template-vs.html"), "valueSet");
+      sf = addSectionNumbers(title+".html", "template-valueset", sf, Utilities.oidTail(id));
+
+      TextFile.stringToFile(sf, page.getFolders().dstDir+name+".html");
       String src = page.processPageIncludesForBook(title+".html", TextFile.fileToString(page.getFolders().srcDir+"template-vs-book.html"), "valueSet");
       cachePage(name+".html", src);
+      page.setId(null);
 
       JsonComposer json = new JsonComposer();
       json.compose(new FileOutputStream(page.getFolders().dstDir+name+".json"), vs, false);
@@ -2958,9 +2986,12 @@ public class Publisher {
  
   private void generateCodeSystemsPart1() throws Exception {
     log(" ...code lists");
-    for (BindingSpecification bs : page.getDefinitions().getBindings().values())
+    for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
+      if (Utilities.noString(bs.getOid()))
+          bs.setOid(page.getRegistry().idForName(bs.getName()));
       if (bs.getBinding() == Binding.CodeList || bs.getBinding() == Binding.Special)
         generateCodeSystemPart1(bs.getReference().substring(1)+".html", bs);
+    }
   }
   
   private void generateCodeSystemsPart2() throws Exception {
@@ -3028,6 +3059,7 @@ public class Publisher {
     e.setResource(vs);
     e.getLinks().put("self", Utilities.changeFileExt(filename, ".html"));
     e.getLinks().put("path", Utilities.changeFileExt(filename, ".html"));
+    e.getLinks().put("oid", cd.getOid());
     if (vs.getDefine() != null)
       page.getCodeSystems().put(vs.getDefine().getSystemSimple(), e);
     page.getValueSets().put(vs.getIdentifierSimple(), e);
@@ -3176,7 +3208,9 @@ public class Publisher {
     if (isGenerate) {
       addToResourceFeed(vs, Utilities.fileTitle(filename), valueSetsFeed);
 
-      TextFile.stringToFile(page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx.html"), "codeSystem"), page.getFolders().dstDir+filename);
+      String sf = page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx.html"), "codeSystem");
+      sf = addSectionNumbers(filename+".html", "template-valueset", sf, Utilities.oidTail(cd.getOid()));
+      TextFile.stringToFile(sf, page.getFolders().dstDir+filename);
       String src = page.processPageIncludesForBook(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx-book.html"), "codeSystem");
       cachePage(filename, src);
 

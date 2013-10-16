@@ -70,6 +70,7 @@ import org.hl7.fhir.definitions.model.RegisteredProfile;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameter;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.definitions.parsers.BindingNameRegistry;
 import org.hl7.fhir.definitions.parsers.TypeParser;
 import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.XmlComposer;
@@ -126,11 +127,13 @@ public class PageProcessor implements Logger  {
   private BreadCrumbManager breadCrumbManager = new BreadCrumbManager();
   private String publicationType = "Local Build ("+System.getenv("COMPUTERNAME")+")";
   private String publicationNotice = "";
+  private BindingNameRegistry registry;
+  private String id; // technical identifier associated with the page being built
   
   public final static String PUB_NOTICE =
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+
           "This is the ballot reconciliation version, and will change frequently as ballot reconciliation is performed.\r\n"+ 
-          "There's also a <a href=\"http://www.healthintersections.com.au/fhir/index.html\">stable version</a> for the <a href=\"http://www.ihic2013.org.au/\">IHIC Connectathon</a>, and a <a href=\"http://latest.fhir.me/\">Nightly Build</a> is also available.\r\n"+
+          "There's also a <a href=\"http://www.healthintersections.com.au/fhir/index.htm\">stable version</a> for the <a href=\"http://www.ihic2013.org.au/\">IHIC Connectathon</a>, and a <a href=\"http://latest.fhir.me/\">Nightly Build</a> is also available.\r\n"+
           "</p>\r\n";
   
 //  private boolean notime;
@@ -1518,7 +1521,7 @@ public class PageProcessor implements Logger  {
   private String genValueSetsTable() throws Exception {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"codes\">\r\n");
-    s.append(" <tr><td><b>Name</b> (in http://hl7.org/fhir/vs/)</td><td><b>Definition</b></td><td><b>Source</b></td></tr>\r\n");
+    s.append(" <tr><td><b>Name</b> (in http://hl7.org/fhir/vs/)</td><td><b>Definition</b></td><td><b>Source</b></td><td><b>Id</b></td></tr>\r\n");
     List<String> sorts = new ArrayList<String>();
     sorts.addAll(valueSets.keySet());
     Collections.sort(sorts);
@@ -1528,7 +1531,7 @@ public class PageProcessor implements Logger  {
           AtomEntry ae = valueSets.get(sn);
           String n = sn.substring(23);
           ValueSet vs = (ValueSet) ae.getResource();
-          s.append(" <tr><td><a href=\""+ae.getLinks().get("path")+"\">"+n+"</a></td><td>"+Utilities.escapeXml(vs.getDescriptionSimple())+"</td><td>"+sourceSummary(vs)+"</td></tr>\r\n");
+          s.append(" <tr><td><a href=\""+ae.getLinks().get("path")+"\">"+n+"</a></td><td>"+Utilities.escapeXml(vs.getDescriptionSimple())+"</td><td>"+sourceSummary(vs)+"</td><td>"+Utilities.oidTail(ae.getLinks().get("oid"))+"</td></tr>\r\n");
       }
     }
     s.append("</table>\r\n");
@@ -1954,14 +1957,14 @@ public class PageProcessor implements Logger  {
     return src;
   } 
 
-  private static final String OID_TX = "2.16.840.1.113883.4.642.1.";
-  private static final String OID_VS = "2.16.840.1.113883.4.642.2.";
+  public static final String OID_TX = "2.16.840.1.113883.4.642.1.";
+  public static final String OID_VS = "2.16.840.1.113883.4.642.2.";
   
   private String generateOID(String fileTitle, boolean vs) {
     BindingSpecification cd = definitions.getBindingByReference("#"+fileTitle);
     if (vs) {
       if (cd == null)
-        return OID_VS + "??";
+        return id != null ? OID_VS + id : OID_VS + "??";
       else
         return OID_VS + cd.getId();
     } else if (!Utilities.noString(cd.getOid()))    
@@ -2848,6 +2851,20 @@ public void log(String content) {
 
   public void setPublicationType(String publicationType) {
     this.publicationType = publicationType;
+  }
+
+  public void setRegistry(BindingNameRegistry registry) {
+    this.registry = registry;
+    
+  }
+
+  public BindingNameRegistry getRegistry() {
+    return registry;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+    
   }
 
 

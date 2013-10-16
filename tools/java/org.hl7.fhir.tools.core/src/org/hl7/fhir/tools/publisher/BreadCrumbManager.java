@@ -100,6 +100,7 @@ public class BreadCrumbManager {
   private Page home;
   private Map<String, String> map = new HashMap<String, String>();
   private Map<String, Page> pages = new HashMap<String, BreadCrumbManager.Page>();
+  private Map<String, Pages> pagesMap = new HashMap<String, BreadCrumbManager.Pages>();
   
   public void parse(String filename) throws Exception {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -134,7 +135,6 @@ public class BreadCrumbManager {
       } else if (node instanceof Pages) {
         Pages p = (Pages) node;
         map.put(p.getType().toString(), path);
-        
       }
     }    
   }
@@ -151,6 +151,7 @@ public class BreadCrumbManager {
       pages.setType(PagesType.v3Vocab);
     else if ("valueset".equals(s))
       pages.setType(PagesType.valueSet);
+    pagesMap.put(pages.getTemplate(), pages);
     return pages;
   }
   
@@ -291,6 +292,10 @@ public class BreadCrumbManager {
   }
 
   public String getIndexPrefixForFile(String name) {
+    if (pagesMap.containsKey(name)) {
+      name = pagesMap.get(name).getType().toString();
+      return map.get(name)+".X";
+    }
     if (map.containsKey(name)) {
       Page p = pages.get(name);
       if (p.getChildren().size() > 0)

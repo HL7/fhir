@@ -217,7 +217,7 @@ The same example in JSON:
 }}
 </pre>
 </div>
-
+<blockquote>
 <div class="design-note">
 <p>
 Design Note: Contained resources are still a reference rather than being inlined directly 
@@ -232,6 +232,7 @@ the following XPath fragment resolves the internal reference:
 ancestor::f:*[not(parent::f:*)]/f:contained/*[@id=substring-after(<b>current()</b>/f:reference/@value, '#')]
 </pre>
 </div>
+</blockquote>
 <p>
 Some notes about use and interpretation of contained resources:
 </p>

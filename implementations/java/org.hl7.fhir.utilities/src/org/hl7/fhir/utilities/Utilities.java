@@ -465,4 +465,11 @@ public class Utilities {
 	public static String stripBOM(String string) {
 	  return string.replace("\uFEFF", "");
   }
+
+
+  public static String oidTail(String id) {
+    if (id == null || !id.contains("."))
+      return id;
+    return id.substring(id.lastIndexOf(".")+1);
+  }
 }

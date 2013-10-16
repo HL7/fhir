@@ -99,13 +99,13 @@ https://server/path/Patient
 </pre>
 <p>
 All the logical interactions are defined relative to the service root
-URL. Note: If address of any one FHIR resource on a system 
+URL. This means that if the address of any one FHIR resource on a system 
 is known, the address of other resources may be determined. 
 </p>
 <p>
 Note: All URLs (and ids that form part of the URL) defined by this specification are case sensitive.</p>
 <p>
-Note that a server may use a path of the form http://server/...[xx]... where the xx is some variable 
+Note that a server may use a path of the form "http://server/...[xx]..." where the [xx] is some variable 
 portion that identifies a particular instantiation of the FHIR API. Typically, the variable id 
 identifies a patient or a user, and the underlying information is completely compartmented 
 by the logical identity associated with [xx]. In this case, the FHIR API presents a 
@@ -622,7 +622,7 @@ and servers populate these completely or process these as part of a transaction 
 The following operations provide specific support for tags: <a name="tag-ops"> </a>
 </p>
 <table class="grid">
- <tr><td><b>HTTP Command</b></td><td valign="center"><b>description</b></td></tr>
+ <tr><td width="50%"><b>HTTP Command</b></td><td valign="center"><b>description</b></td></tr>
  <tr><td><pre>GET [base]/_tags</pre></td><td valign="center">get a list of all tags</td></tr>
  <tr><td><pre>GET [base]/[type]/_tags</pre></td><td valign="center">get a list of all tags used for the nominated resource type</td></tr>
  <tr><td><pre>GET [base]/[type]/[id]/tags</pre></td><td valign="center">get a list of all tags affixed to the nominated resource. This duplicates the HTTP header entries</td></tr>
@@ -687,18 +687,19 @@ This example shows the third page of a search result:
 &lt;feed xmlns="http://www.w3.org/2005/Atom"&gt;
   &lt;title&gt;Search Page 3&lt;/title&gt;
   &lt;!-- This Search. url starts with base search, and adds the effective 
-    parameters, and additional parameters for search state. All searches SHALL return this value.    
+    parameters, and additional parameters for search state. All searches 
+    SHALL return this value.    
 	
-	In this case, the search continuation method is that the server maintains a state, with page
-	references into the stateful list.
+	  In this case, the search continuation method is that the server 
+    maintains a state, with page references into the stateful list.
 	--&gt;
-  &lt;link rel="self" href="http://example.org/patient/search?name=peter&amp;stateid=23423443&amp;page=3"/&gt;
+  &lt;link rel="self" href="http://example.org/Patient?name=peter&amp;stateid=23&amp;page=3"/&gt;
 
   &lt;!-- 4 links for navigation in the search. All of these are optional, but recommended --&gt;  
-  &lt;link rel="first" href="http://example.org/patient/search?name=peter&amp;stateid=23423443&amp;page=1"/&gt;
-  &lt;link rel="previous" href="http://example.org/patient/search?name=peter&amp;stateid=23423443&amp;page=2"/&gt;
-  &lt;link rel="next" href="http://example.org/patient/search?name=peter&amp;stateid=23423443&amp;page=4"/&gt;
-  &lt;link rel="last" href="http://example.org/patient/search?name=peter&amp;stateid=23423443&amp;page=26"/&gt;
+  &lt;link rel="first" href="http://example.org/Patient?name=peter&amp;stateid=23&amp;page=1"/&gt;
+  &lt;link rel="previous" href="http://example.org/Patient?name=peter&amp;stateid=23&amp;page=2"/&gt;
+  &lt;link rel="next" href="http://example.org/Patient?name=peter&amp;stateid=23&amp;page=4"/&gt;
+  &lt;link rel="last" href="http://example.org/Patient?name=peter&amp;stateid=23&amp;page=26"/&gt;
   &lt;updated&gt;2003-12-13T18:30:02Z&lt;/updated&gt;
 
   &lt;!-- the rest of the search results... --&gt;  

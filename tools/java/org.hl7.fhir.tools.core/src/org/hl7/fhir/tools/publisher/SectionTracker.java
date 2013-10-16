@@ -31,7 +31,9 @@ package org.hl7.fhir.tools.publisher;
  */
 
 public class SectionTracker {
+  String workingPrefix;
   String prefix;
+ 
   int[] count = {0, 0, 0, 0, 0, 0, 0}; // the first value is never used, but it makes the indexes effectively 1 based 
   int level = 0;
   int offset = -1;
@@ -49,7 +51,7 @@ public class SectionTracker {
       offset = h;
       level = offset;
       count[level]++;
-      return prefix;
+      return workingPrefix;
     }
     while (h < level) {
       count[level] = 0;
@@ -65,7 +67,15 @@ public class SectionTracker {
     String n = "";
     for (int i = offset+1; i <= level; i++) 
       n = n + "."+ Integer.toString(count[i]); 
-    return prefix + n;
+    return workingPrefix + n;
+  }
+
+  public void start(String id) {
+    if (prefix != null && prefix.endsWith(".X")) {
+      workingPrefix = prefix.substring(0, prefix.length()-2)+"."+id;
+    } else 
+      workingPrefix = prefix;
+    
   }
   
 }

@@ -20,7 +20,7 @@ In the simplest case, a search is executed by performing a GET operation
 in the RESTful framework:
 </p>
 <pre>
- GET .../[resourcetype]/(?parameters)
+ GET [base-url]/[resourcetype](?parameters)
 </pre>
 <p>
 For this RESTful search, the parameters are a series 
@@ -52,7 +52,7 @@ the results that are returned.
 The search parameter _id refers to the logical id of the resource, and can be used when the search context specifies a resource type:
 </p>
 <pre>
- GET .../patient?_id=23
+ GET [base-url]/patient?_id=23
 </pre>
 <p>
 This search finds the patient resource with the given id (there can only be one 
@@ -60,7 +60,7 @@ resource for a given id). Functionally, this is equivalent to a <a href="http.ht
 read operation</a>:
 </p>
 <pre>
- GET .../patient/23
+ GET [base-url]/Patient/23
 </pre>
 <p>
 except that it returns a bundle with the requested resource, rather than the 
@@ -168,11 +168,11 @@ The modifier ":anyns" means that the code matches all codes irrespective of the 
 Here are some example searches:
 </p>
 <table>
- <tr><td><b>Search</b></td><td><b>Description</b></td></tr>
- <tr><td><pre>  GET [base-url]/patient?identifier=http://acme.org/patient/2345</pre></td><td>Search for all the patients with an identifier with key = "2345" in the system "http://acme.org/patient"</td></tr>
- <tr><td><pre>  GET [base-url]/patient?gender=male</pre></td><td>Search for any gender that has a text or code "male". <i>Note that this will also match "female" since that also contains "male"</i></td></tr>
- <tr><td><pre>  GET [base-url]/patient?gender:code=http://hl7.org/fhir/v2/0001/M</pre></td><td>Search for any gender which is coded as "M" in the HL7 Administrative Gender table</td></tr>
- <tr><td><pre>  GET [base-url]/patient?gender:anyns=male</pre></td><td>Search for any gender where the code is "male". Note that searching any namespace for a particular code is mostly not very useful.</td></tr>
+ <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
+ <tr><td><pre> GET [base-url]/Patient?identifier=http://acme.org/patient/2345</pre></td><td>Search for all the patients with an identifier with key = "2345" in the system "http://acme.org/patient"</td></tr>
+ <tr><td><pre> GET [base-url]/Patient?gender=male</pre></td><td>Search for any gender that has a text or code "male". <i>Note that this will also match "female" since that also contains "male"</i></td></tr>
+ <tr><td><pre> GET [base-url]/Patient?gender:code=http://hl7.org/fhir/v2/0001/M</pre></td><td>Search for any gender which is coded as "M" in the HL7 Administrative Gender table</td></tr>
+ <tr><td><pre> GET [base-url]/Patient?gender:anyns=male</pre></td><td>Search for any gender where the code is "male". Note that searching any namespace for a particular code is mostly not very useful.</td></tr>
 </table>
 
 
@@ -233,7 +233,7 @@ ensuring consistent behavior.
 As an example, the following search searches for all the procedures in a patient compartment that occurred over a 2 year period:
 </p>
 <pre>
- GET [baseurl]/patient/23/procedure?date:after=2010-01-01&amp;date:before=2011-12-31
+ GET [base-url]/Patient/23/procedure?date:after=2010-01-01&amp;date:before=2011-12-31
 </pre>
 
 
@@ -262,7 +262,7 @@ the Patient resource includes a parameter <i>name</i> which
 searches on patient name, then the search
 </p>
 <pre>
- GET [baseurl]/diagnosticreport/search?subject.name="peter"
+ GET [base-url]/DiagnosticReport/search?subject.name="peter"
 </pre>
 <p>
 is a request to return all the lab reports that have a subject whose name includes "peter". Because 
@@ -270,7 +270,7 @@ the Diagnostic Report subject can be one of a set of different resources, it's p
 the search to a particular type:
 </p>
 <pre>
- GET [baseurl]/diagnosticreport/search?subject:patient.name="peter"
+ GET [base-url]/DiagnosticReport/search?subject:patient.name="peter"
 </pre>
 <p>
 Advanced Search Note: 
@@ -435,7 +435,7 @@ _include parameters.
 Each _include parameter specifies a path to a url (usually a resource reference):
 </p>
 <pre>
- GET .../medicationdispense/search?_include=MedicationDispense.prescription
+ GET [base-url]/MedicationDispense/search?_include=MedicationDispense.prescription
     &amp;_include=MedicationPrescription.prescriber&amp;criteria...
 </pre>
 <p>
@@ -482,7 +482,7 @@ The client can request the server to return a summary portion of the resources
 only using the parameter "_summary":
 </p>
 <pre>
-   GET [base-url]/valueset?_summary=true
+   GET [base-url]/Valueset?_summary=true
 </pre>
 <p>
 The <i>_summary</i> parameter requests the server to return only the elements marked 
@@ -545,7 +545,7 @@ More advanced search/query operations are specified by the
 _query parameter:
 </p>
 <pre>
-   GET .../patient?_query=name&amp;parameters...
+   GET [base-url]/Patient?_query=name&amp;parameters...
 </pre>
 <p>
 The _query parameter names a custom search profile that
