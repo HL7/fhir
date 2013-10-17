@@ -1668,7 +1668,7 @@ uncertainty  representation encounters a distribution type that it does not reco
 unknown (null) distribution-type.
 11404 syntax for the distributionType attribute
 type UncertaintyType = enumeration (U, N, LN, G, E, X2, T, F, B)
-7.8.2.3.5  uncertainRange : IVL(QTY): C:\Workspace\org.hl7.v3\dt\abstract\datatypes.html - dt-CE
+7.8.2.3.5  uncertainRange : IVL(QTY): C:\Workspace\org.hl7.v3\dt\abstract\datatypes.htm - dt-CE
 Indicates that the value comes from a range of possible values.
 uncertainRange is used where the actual value is unknown, but it is known that the value comes from a known 
 range of possible values. uncertainRange differs from uncertainty in that uncertainty is used to report a 

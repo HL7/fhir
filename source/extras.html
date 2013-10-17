@@ -182,10 +182,11 @@ from both compartments, or place them in both, or act in some other fashion.
 <a name="bundle"></a> 
 <h3>Resource Bundles</h3>
 <p>
-One common operation performed with resources is to gather a collection of resources into a single instance.
-In FHIR this is referred to as "bundling" the resources together. The resource bundle is not just a list of 
-references to resources, but includes their whole content. These resource bundles are useful for a variety of 
-different reasons, including:
+One common operation performed with resources is to gather a collection of resources into a single instance
+with containing context.
+In FHIR this is referred to as "bundling" the resources together. The resource bundle 
+mostly includes the whole content of a resource, not just their metadata and their reference. 
+These resource bundles are useful for a variety of different reasons, including:
 </p>
 <ul>
   <li>Returning a set of resources that meet some criteria as part of a server operation (see <a href="http.html#search">RESTful Search</a>)</li>
@@ -195,11 +196,17 @@ different reasons, including:
   <li>Storing a collection of resources</li>
 </ul>
 <p>
-Conceptually, a bundle has an identifier (url) and a date updated, and a list of resources. 
-For each resource in the list, the bundle has the resource and also its metadata as listed above.
-Each entry in the bundle retains its original identifier. This means that applications reading
-the bundle should always look for a resource by its identity (after converting relative URLs
-absolute URL) in the bundle first before trying to access it by its URL.
+The content of bundled resources SHALL always be present except in the special case of a transaction response.
+</p>
+<p>
+Conceptually, a bundle has an identifier (url) and a date updated, and a list of resources, each of 
+which  has its metadata as listed above. Also, both the bundle and each resource have a set of 
+named links. This means that applications reading
+the bundle <a href="references.html#atom-ref">should always look for a resource by its identity (after converting relative URLs
+absolute URL) in the bundle first</a> before trying to access it by its URL.
+</p>
+<p>
+In XML, a bundle is represented as an <a href="xml.html#atom">Atom Feed</a>, and in JSON, a <a href="json.html#bundle">custom format</a> is defined.
 </p>
 
 

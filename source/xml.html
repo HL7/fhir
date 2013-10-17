@@ -41,7 +41,7 @@ Notes:
  <li>Any of the XML elements may have an id attribute to serve as <a href="references.html#idref">the target of an internal reference</a>. The id attribute is not shown in this format</li>
  <li>FHIR elements are never empty. If an element is present in the resource, it SHALL have either a value attribute, child elements as defined for its type, an id attribute that is the <a href="references.html#idref">link target</a> of <a href="narrative.html#narrative">narrative</a>, or 1 or more <a href="extensibility.html">extensions</a></li>
  <li>Attributes can never be empty. Either they are absent, or they are present with at least one character of non-whitespace content</li>
- <li>The formal MIME-type for FHIR resources represented in XML is application/fhir+xml</li>
+ <li>The formal MIME-type for FHIR resources represented in XML is application/xml+fhir</li>
 </ul>
 <p>
 When represented as XML, resources may be validated by schema and schematron (see below), but 
@@ -68,6 +68,7 @@ In XML <a href="extras.html#bundle">bundles</a> are represented using an Atom fo
   &lt;os:totalResults xmlns:os="http://a9.com/-/spec/opensearch/1.1/"/&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>0..1</b></span> <span style="color:darkgreen;"><a href="datatypes.html#primitive">integer</a></span> <span style="color:navy;">
               Paging: the total number of results</span><span style="color: Gray"> --&gt;</span>&lt;/os:totalResults&gt;
   &lt;updated&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.html#instant">instant</a></span> <span style="color:navy;">When the bundle was built</span><span style="color: Gray"> --&gt;</span>&lt;/updated&gt;
+  &lt;category term="<span style="color:navy;">[Tag URI]</span>" label="<span style="color:navy;">[Tag Label]</span>" scheme="[Tag Type]"/&gt; 
   &lt;author&gt;<span style="color:Gray;">&lt;!-- 0..1 Who created resource? --&gt;</span>
       &lt;name&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.html#string">string</a></span> <span style="color:navy;">Name of Human or Device that authored the resource</span><span style="color: Gray"> --&gt;</span>&lt;/name&gt;
       &lt;uri&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span> <span style="color:darkgreen;"><a href="datatypes.html#uri">uri</a></span> <span style="color:navy;">Link to the resource for the author</span><span style="color: Gray"> --&gt;</span>&lt;/uri&gt;
@@ -103,7 +104,7 @@ In XML <a href="extras.html#bundle">bundles</a> are represented using an Atom fo
 <h4>Notes</h4>
 <ul>
  <li>Logically, a bundle is a set of resources that are prepared to send somewhere for consumption - a "feed". There is no implication that the feed is a standing arrangement (though this is not precluded)</li>
- <li>The order of elements does not matter in an atom feed (but not entries: the order of the entries is important). The order of elements in the atom namespace as documented above does not need to be followed, though it is followed by the FHIR reference platforms</li>
+ <li>The order of elements does not matter in an atom feed (but not entries: the order of the entries is important and may have some meaning associated with it). The order of elements in the atom namespace as documented above does not need to be followed, though it is followed by the FHIR reference platforms</li>
  <li>The title for the feed and the entry are arbitrary human-readable content and not to be used for any automated processing. Applications may populate these in any useful way</li> 
  <li>Every bundle SHALL have a unique id and that id SHALL be a valid absolute <a href="datatypes.html#uri">uri</a>. UUIDs are recommended (urn:uuid:...)</li>
  <li>The entry element carries the <a href="resources.html#metadata">three pieces of resource metadata</a>: Id (.id), Version Id (.link), Last Updated (.updated)</li>

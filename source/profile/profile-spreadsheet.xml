@@ -20,7 +20,7 @@
   <WindowWidth>27780</WindowWidth>
   <WindowTopX>-120</WindowTopX>
   <WindowTopY>75</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -318,7 +318,7 @@
     <Cell><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">ResourceProfileStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">draft | experimental | review | production | withdrawn | superseded</Data><NamedCell
+    <Cell ss:Index="9"><Data ss:Type="String">draft | active | retired</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The status of the profile</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1495,7 +1495,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>51</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1508,12 +1508,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>58</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1695,7 +1694,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -2034,14 +2032,16 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resource-profile-status">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:Width="60"/>
    <Column ss:Width="424.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="309"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s80">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Code</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -2056,7 +2056,8 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">retired</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">This profile has been withdrawn or superseded and should no longer be used</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">This profile has been deprecated, withdrawn or superseded and should no longer be used</Data></Cell>
+    <Cell><Data ss:Type="String">Marking a proile as &quot;retired&quot; is an assertion by the profile author/maintainer that a profile should not be used anymore (often because the author would prefer implementers use something else).  Implementers are permitted to continue to use the profile, but best practice would be to phase it's use out</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -2071,10 +2072,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <RangeSelection>R1:R1048576</RangeSelection>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

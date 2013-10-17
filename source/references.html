@@ -53,7 +53,7 @@ to the source content.  Note that this means some references may be forward refe
 elements defined later in the instance).
 </p>
 <p>
-Note that internal references work exactly the same in way in JSON, based on the JSON property _id which is equivalent 
+Note that internal references work exactly the same in way in JSON, based on the JSON property id which is equivalent 
 to the XML attribute "id".
 </p>
 
@@ -63,11 +63,14 @@ to the XML attribute "id".
 <a name="Identification"> </a>
 <h3>References between resources</h3>
 <p>
-The defined elements in a resource include many references to other resources. Using these
+Many of the defined elements in a resource are references to other resources. Using these
 references, the resources combine to build a web of information about healthcare. 
 </p>
 <p>
-References are always defined in one particular direction - from one resource (source) to another (target).
+References are always defined and represented in one particular direction - from one resource (source) to another (target).
+References are provided as a URL, which may either be absolute or relative. Resolving the references is discussed below.
+</p>
+<p>
 The corresponding reverse relationship from the target to the source exists in a logical sense, but is 
 not represented explicitly in the resource. Navigating these reverse relationships requires some 
 external infrastructure to track the relationship between resources (the <a href="http.html">REST API</a> provides one such 
@@ -91,8 +94,7 @@ the same patient for their subjects.
 <p>
 In a resource, references are represented with a reference and a text description. 
 The <i>reference</i> is the key element - resources are identified and addressed by their URL.
-The actual reference looks like this (see <a href="formats.html#syntax">"XML Format"</a>
-for details of the way resource contents are described):
+The actual reference looks like this:
 </p>
 
 [%dt ResourceReference%]
@@ -101,14 +103,19 @@ for details of the way resource contents are described):
 
 <p>Notes:</p>
 <ul>
- <li>The <i>reference</i> element contains a url that is either an absolute URL, or a relative URL that is relative to the <a href="http.html#root">Service Base URL</a>, or an internal fragment reference (see below)</li>
+ <li>The <i>reference</i> element contains a url that is either 
+   <ul>
+     <li>an absolute URL</li>
+     <li>a relative URL, which is relative to the <a href="http.html#root">Service Base URL</a>, or, in a bundle, <a href="atom-refs">the bundle context</a></li>
+     <li>an internal fragment reference (see "Contained Resources" below)</li>
+   </ul>
+ </li>
  <li>Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a 
    flexible approach suitable for use when trading across closed ecosystem boundaries. (see <a href="use.html#identity">implementation issues for further discussion</a>)</li>
- <li>Absolute URLs do not need to point to a <a href="http.html">FHIR RESTful server</a>, though this is the preferred approach. If the tail of the reference 
-   conforms to the structure "/[Type]/[id]" or "/[Type]/[id]/history/[vid]" then it should be assumed that the reference is to a <a href="http.html">FHIR RESTful server</a>. 
+ <li>Absolute URLs do not need to point to a <a href="http.html">FHIR RESTful server</a>, though this is the preferred approach.  
    Whether or not the reference is to a FHIR RESTful server, the reference SHALL point to a Resource as defined by this specification</li>
- <li>URLs are always considered to be case-sensitive and lowercase is preferred</li>
- <li>The <i>display</i> is generally not the same content as the Resource.text of the referenced resource.  The purpose is to 
+ <li>URLs are always considered to be case-sensitive</li>
+ <li>The <i>display</i>, if populated, does generally not have identical content to the Resource.text of the referenced resource.  The purpose is to 
    identify what's being referenced, not to more fully describe it</li>
 </ul>
 
@@ -203,7 +210,7 @@ The same example in JSON:
   "text" : { .. },
   "contained: [
     {"Organization" : {
-      "_id" : "org1",
+      "id" : "org1",
       .. whatever information is available ...
 	}}
   ]
@@ -249,26 +256,27 @@ Some notes about use and interpretation of contained resources:
 </ul>
 
 <a name="atom-refs"> </a>
-<h3>Resolving references to Resources</h3>
+<h3>Resolving references to Resources in Bundles</h3>
 <p>
-Readers of the resources bundles should always look through the resources in the 
-atom feed when a <a href="#Resource">resource reference</a> is encountered. 
-The resource reference may have a relative url, which is the id of the target, like this:
+When processing bundles, applications should always search the resources in the 
+bundle first when a <a href="#Resource">resource reference</a> is encountered. 
+</p>
+<p>
+If the resource reference is absolute:
 </p>
 <div class="example">
 <pre class="xml" fragment="ResourceReference">
   &lt;institution&gt;
-    &lt;reference value="Organization/23" /&gt;
+    &lt;reference value="http://example.org/Organization/23" /&gt;
+  &lt;/institution&gt;
+  &lt;institution&gt;
+    &lt;reference value="http://example.org/Organization/ex/history/2" /&gt;
   &lt;/institution&gt;
 </pre>
 </div>
 <p>
-A reader trying to find the resource this <i>institution</i> element identifies 
-should always look through the entries in the atom feed prior to looking 
-anywhere else for the institution. If the feed.id for the resource that contains
-the link above is http://example.org/, then the absolute 
-URL is http://example.org/Organization/23. If that organization is in the feed, 
-it would look like this:
+then the application should look for any entry in the bundle where either the 
+entry.id or the entry.link[self] matches the reference URL exactly:
 </p>
 <div class="example">
 <pre class="xml">
@@ -283,29 +291,104 @@ it would look like this:
          &lt;!-- Content for the resource --&gt;
       &lt;/Organization>
     &lt;/content>
-  ... feed ...
+
+  &lt;entry>
+    .. 
+    &lt;link rel="self" href="http://example.org/Organization/ex/history/2&lt;"/>
+    .. 
+
+    &lt;content type="text/xml">
+      &lt;Organization xmlns="http://hl7.org/fhir">
+         &lt;!-- Content for the resource --&gt;
+      &lt;/Organization>
+    &lt;/content>
+    ... feed ...
 </pre>
 </div>
 <p>
-It would also be possible to locate the resource by an absolute url. In this case, 
-the <i>id</i> element contains a direct reference to the location of the resource:
-</p>
-<div class="example">
-<pre class="xml" fragment="ResourceReference">
-  &lt;institution&gt;
-    &lt;reference value="http://example.org/Organization/23" /&gt;
-  &lt;/institution&gt;
-</pre>
-</div>
-
-<p>
-
-If there is no resource in the atom feed with an appropriate URL, then 
-the application may try accessing the provided URL directly or use some 
+In the second case, the match is based on a specific version of the 
+resource. Applications should check both the entry.id and the self link - only
+one of the two can be a match. If the resource reference cannot be resolved
+in the bundle, the application SHOULD be able to retrieve the resource by 
+following the provided URL directly. If it can't, it will have to use some 
 other implementation-specific method for resolving how to find the resource.
 </p>
+<p>
+Note that internal references are allowed to be URIs rather than literal
+URLs. A typical case is the use of <a href="http.htm#transaction">cid: URIs in a transaction</a>.
+</p>
+<a name="atom-rel"> </a>
+<h4>Relative References</h4>
+<p>
+If the resource reference is a relative URL, the same basic principle 
+applies: attempt to resolve the reference in the bundle first, and then
+look outside. However, before this can be done, the relative URL must 
+be converted to an absolute URL, and in order to do this, the logical
+Service Base URL must be known. This is represented in a link named
+"fhir-base" on the feed itself:
+</p>
+<div class="example">
+<pre class="xml">
+&lt;feed xmlns="http://www.w3.org/2005/Atom">
 
+  &lt;link rel="fhir-base" href="http://example.org"/>
 
+  &lt;entry>
+    &lt;id>http://example.org/Organization/23&lt;id>
+    .. 
+
+    &lt;content type="text/xml">
+      &lt;Organization xmlns="http://hl7.org/fhir">
+         &lt;!-- Content for the resource --&gt;
+      &lt;/Organization>
+    &lt;/content>
+
+  &lt;entry>
+    .. 
+    &lt;link rel="self" href="http://example.org/Practitioner/example"/>
+    .. 
+
+    &lt;content type="text/xml">
+      &lt;Practitioner xmlns="http://hl7.org/fhir">
+         &lt;!-- Content for the resource --&gt;
+           &lt;institution&gt;
+             &lt;reference value="Organization/23" /&gt;
+           &lt;/institution&gt;
+         &lt;!-- Content for the resource --&gt;
+
+      &lt;/Practitioner>
+    &lt;/content>
+    ... feed ...
+</pre>
+</div>
+<p>
+When the application encounters the reference "Organization/23",
+it looks up the "fhir-base" URL, which is http://example.org.
+The <a href="http.htm#root">base service URL is represented without a trailing slash</a>,
+so the application concatenates the two with a "/" between them, giving
+and absolute reference of "http://example.org/Organization/23", which 
+it can resolve in this bundle. Note: the method is the same for JSON bundles.
+</p>
+<p>
+In order to allow relative URLs to be processed properly, 
+there SHALL be a "fhir-base" link on the bundle links if
+there is any relative links in any of the resources in 
+the bundle.
+</p>
+<p>
+Note that the application SHOULD not assume that the base
+service root is actually resolvable. In some circumstances, it will. 
+If the bundle has just been received from a server as a result of 
+a search or a history operation, the service root URL SHOULD match
+the URL that that client used (it is allowed not to in order to 
+cater for proxies of various kinds). However in other 
+circumstances, where the bundle itself has been exchanged onwards
+from the point of origin, and/or stored as an entity in it's own 
+right (e.g. a <a href="document.htm">clinical document</a>) the 
+service root URL is merely a logical construct that holds within the 
+bundle when resolving resources, and will have no meaning outside 
+the bundle. 
+</p>
 
 </div>
 

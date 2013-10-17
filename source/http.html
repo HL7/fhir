@@ -457,13 +457,20 @@ All servers are required to support the conformance operation, but servers may c
 </p>
 
 <a name="transaction"> </a>
-<a name="transaction"> </a>
 <h3>transaction</h3>
 <p>
 The transaction interaction submits a set of resources to be updated, created or deleted on the server. 
-This interaction allows multiple resources to be updated/created in a single transaction. Multiple 
+This interaction allows multiple resources to be updated/created in a single transaction on a single server. Multiple 
 resources of the same or different types may be submitted, and they may be a mix of new and existing resources. 
-The interaction is performed by an HTTP POST command as shown:
+</p>
+<p>
+This is especially useful where one would otherwise need multiple interactions, possibly
+leading to loss of referential integrity (e.g. when storing a Provenance resource and its 
+corresponding target resource), or, on document repositories, a document index entry and its
+accompanying document.
+</p>
+<p>
+The transaction interaction is performed by an HTTP POST command as shown:
 </p>
 <pre>
   POST [base] {?_format=[mime-type]}
@@ -471,7 +478,7 @@ The interaction is performed by an HTTP POST command as shown:
 <p>
 The content of the post submission is a resource bundle. The resources in the bundle are each processed separately
 as if they were an individual <a href="#create">create</a>, <a href="#update">update</a> or 
-<a href="#delete">delete</a> as described below, along with the normal processing for each 
+<a href="#delete">delete</a>, along with the normal processing for each 
 (such as tracking tags, verification and version aware updates). Servers SHALL either accept all resources 
 and return a 200 OK, along with a response bundle, or reject all resources and return an 
 HTTP 400 or 500 type response. It is not an error if the submitted bundle has no resources in it.
@@ -486,12 +493,9 @@ in the bundle. If the identity of the resource matches an existing or possible r
 on the server, the server should treat this entry as an <a href="#update">update interaction</a> 
 (i.e. PUT to the given resource). If the identity is not one that the server recognizes as a resource location it can use, the 
 server should treat the interaction as a <a href="#create">create interaction</a> (i.e. POST to 
-the given resource type URL), and create a new identity for the submitted resource. For 
-clarity, when the client intends a resource to have a transient identity that the server
-SHALL replace, it should use a cid: url on the resource - that is, a url with the scheme 
-"cid:"<a href="http://tools.ietf.org/html/rfc2392">per RFC 2392</a>. Note that the client SHALL provide
+the given resource type URL), and create a new identity for the submitted resource. Note that the client SHALL provide
 an identity in the bundle entry.id, but may also provide a version specific identity the
-atom "self" link, and may refer to this for version specific references. Deleted resources are those marked clearly
+atom "self" link, and may refer to this for version specific references. Deleted resources are those marked 
 using the method described for <a href="xml.html#atom-deleted">XML</a> or 
 <a href="json.html#json-bundle-delete">JSON</a>.
 </p>
@@ -506,18 +510,24 @@ Servers SHALL be replace all matching links in the bundle, whether they are foun
 resource references, url elements, or &lt;a href="" &amp; &lt;img src="" in the narrative.
 </p>
 <p>
-Note that this allows clients to assign temporary (version-specific) ids to new resources and refer to
-them from within the bundle while the server will update these temporary ids after their creation. This
-is especially useful in RESTful scenario's where one would otherwise need multiple interactions, possibly
-leading to loss of referential integrity (e.g. when storing a Provenance resource and its 
-corresponding target resource), or, on document repositories, a document index entry and its
-accompanying document.
+A client may assign temporary ids to new resources and then refer to
+them from other places in the transaction. When the client intends a resource 
+to have a transient identity that the server must replace, it should use a cid: 
+url on the resource - that is, a url with the scheme 
+"cid:" <a href="http://tools.ietf.org/html/rfc2392">per RFC 2392</a>. 
+Servers SHALL replace these temporary ids when processing the transaction. 
 </p>
 <p>
 In order to allow the client to know how newly created resources are now identified for future 
-reference, the server SHALL return a bundle with the version-specific identities of the created 
-and updated resources, though without the content elements that would contain the resource contents.
+reference, the server SHALL return a bundle that contains one entry for each resource in the 
+transaction, with the following properties:
 </p>
+<ul>
+ <li>The server assigned id in entry.id</li>
+ <li>If <a href="#vread">vread</a> is supported, the specific version reference in a "self" link on the entry</li>
+ <li>The client assigned id in a "related" link on the entry</li>
+ <li>No entry.content or entry.summary</li>
+</ul>
 <p>
 The application constructing a bundle may not be sure whether a particular resource will already exist
 at the time that the transaction is executed; this is typically the case with reference resources such 
@@ -564,7 +574,9 @@ interaction are performed by HTTP Get command as shown:
 </pre>
 <p>
 The return content is a <a href="extras.html#bundle">Bundle</a> containing the specified version history, 
-sorted with oldest versions last, and including deleted resources. In addition to the standard _format
+sorted with oldest versions last, and including deleted resources, represented as described in bundles 
+using the method described for <a href="xml.html#atom-deleted">XML</a> or 
+<a href="json.html#json-bundle-delete">JSON</a>. In addition to the standard _format
 parameter, the parameters may also include:
 </p>
 <table class="list">

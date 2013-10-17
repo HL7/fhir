@@ -10,9 +10,9 @@ differentiated by their use, label, and system values.
 </p>
 <p>
 The most important of the identifiers is the 
-<a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.html">Unique Device Identifier</a>
+<a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm">Unique Device Identifier</a>
 (UDI), which most medical devices are required to carry and which can be used to access the 
-<a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/GlobalUDIDatabaseGUDID/ucm20038750.html">Global 
+<a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/GlobalUDIDatabaseGUDID/ucm20038750.htm">Global 
 Unique Device Identification Database</a> (GUDID). The UDI has it's own element (<i>udi</i>). The UDI may identify an instance of a device uniquely, or it may just identify the type of the device. 
 A portion of the UDI - the DI part - can be extracted from the UDI when required, and used 
 to look up information about the device through the GUDID.
