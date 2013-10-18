@@ -21,7 +21,6 @@
   <WindowTopX>15360</WindowTopX>
   <WindowTopY>4425</WindowTopY>
   <TabRatio>651</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -852,7 +851,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Conformance.messaging.event</Data></Cell>
     <Cell><Data ss:Type="String">1..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">up</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Declare support for this event</Data></Cell>
     <Cell><Data ss:Type="String">Describes the solution's support for an event at this end point.</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -983,10 +982,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>47</TopRowBottomPane>
+   <TopRowBottomPane>59</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1003,7 +1003,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>57</ActiveRow>
+     <ActiveRow>61</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1126,7 +1127,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
