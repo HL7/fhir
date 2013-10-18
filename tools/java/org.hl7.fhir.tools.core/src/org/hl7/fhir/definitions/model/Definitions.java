@@ -300,5 +300,9 @@ public class Definitions {
     return null;
   }
 
+  public boolean hasPrimitiveType(String name) {
+    return primitives.containsKey(name);
+  }
+
   
 }

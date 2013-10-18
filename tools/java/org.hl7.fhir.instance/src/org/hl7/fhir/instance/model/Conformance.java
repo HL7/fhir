@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 10, 2013 11:38+1100 for FHIR v0.12
+// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -911,6 +911,11 @@ public class Conformance extends Resource {
         protected Boolean readHistory;
 
         /**
+         * If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.
+         */
+        protected Boolean updateCreate;
+
+        /**
          * _include values supported by the server.
          */
         protected List<String_> searchInclude = new ArrayList<String_>();
@@ -979,6 +984,28 @@ public class Conformance extends Resource {
           }
         }
 
+        public Boolean getUpdateCreate() { 
+          return this.updateCreate;
+        }
+
+        public void setUpdateCreate(Boolean value) { 
+          this.updateCreate = value;
+        }
+
+        public boolean getUpdateCreateSimple() { 
+          return this.updateCreate == null ? null : this.updateCreate.getValue();
+        }
+
+        public void setUpdateCreateSimple(boolean value) { 
+          if (value == false)
+            this.updateCreate = null;
+          else {
+            if (this.updateCreate == null)
+              this.updateCreate = new Boolean();
+            this.updateCreate.setValue(value);
+          }
+        }
+
         public List<String_> getSearchInclude() { 
           return this.searchInclude;
         }
@@ -1016,6 +1043,7 @@ public class Conformance extends Resource {
         for (ConformanceRestResourceOperationComponent i : operation)
           dst.operation.add(i.copy(e));
         dst.readHistory = readHistory == null ? null : readHistory.copy();
+        dst.updateCreate = updateCreate == null ? null : updateCreate.copy();
         dst.searchInclude = new ArrayList<String_>();
         for (String_ i : searchInclude)
           dst.searchInclude.add(i.copy());
@@ -1811,6 +1839,11 @@ public class Conformance extends Resource {
     protected List<Code> format = new ArrayList<Code>();
 
     /**
+     * A list of profiles supported by the system. Supported by the system means for a server, that the system hosts/produces a set of resources that conform to a particular profile, that it allows clients to search by this profile, and that these will find the appropriate data. For a client, it means that the client will search by this profile, and process the data following the guidance implicit in the profile.
+     */
+    protected List<ResourceReference> profile = new ArrayList<ResourceReference>();
+
+    /**
      * Defines the restful capabilities of the solution, if any.
      */
     protected List<ConformanceRestComponent> rest = new ArrayList<ConformanceRestComponent>();
@@ -2074,6 +2107,17 @@ public class Conformance extends Resource {
       return t;
     }
 
+    public List<ResourceReference> getProfile() { 
+      return this.profile;
+    }
+
+    // syntactic sugar
+    public ResourceReference addProfile() { 
+      ResourceReference t = new ResourceReference();
+      this.profile.add(t);
+      return t;
+    }
+
     public List<ConformanceRestComponent> getRest() { 
       return this.rest;
     }
@@ -2127,6 +2171,9 @@ public class Conformance extends Resource {
         dst.format = new ArrayList<Code>();
         for (Code i : format)
           dst.format.add(i.copy());
+        dst.profile = new ArrayList<ResourceReference>();
+        for (ResourceReference i : profile)
+          dst.profile.add(i.copy());
         dst.rest = new ArrayList<ConformanceRestComponent>();
         for (ConformanceRestComponent i : rest)
           dst.rest.add(i.copy(dst));

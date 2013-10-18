@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 10, 2013 11:38+1100 for FHIR v0.12
+// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -41,7 +41,7 @@ public class Profile extends Resource {
     public enum ResourceProfileStatus {
         draft, // This profile is still under development.
         active, // This profile is ready for normal use.
-        retired, // This profile has been withdrawn or superseded and should no longer be used.
+        retired, // This profile has been deprecated, withdrawn or superseded and should no longer be used.
         Null; // added to help the parsers
         public static ResourceProfileStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))

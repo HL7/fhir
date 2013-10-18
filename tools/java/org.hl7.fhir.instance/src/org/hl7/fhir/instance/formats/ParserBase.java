@@ -66,7 +66,11 @@ public abstract class ParserBase extends XmlBase {
     return value;
   }
 
-  protected boolean parseBooleanPrimitive(String value) {
+  protected Boolean parseBooleanPrimitive(String value) {
+    return java.lang.Boolean.valueOf(value);
+  }
+  
+  protected Boolean parseBooleanPrimitive(Boolean value) {
     return java.lang.Boolean.valueOf(value);
   }
   

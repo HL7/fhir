@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Oct 10, 2013 11:38+1100 for FHIR v0.12
+// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -878,6 +878,8 @@ public class XmlComposer extends XmlComposerBase {
       composeBoolean("acceptUnknown", element.getAcceptUnknown());
       for (Code e : element.getFormat()) 
         composeCode("format", e);
+      for (ResourceReference e : element.getProfile()) 
+        composeResourceReference("profile", e);
       for (Conformance.ConformanceRestComponent e : element.getRest()) 
         composeConformanceConformanceRestComponent("rest", e);
       for (Conformance.ConformanceMessagingComponent e : element.getMessaging()) 
@@ -966,6 +968,7 @@ public class XmlComposer extends XmlComposerBase {
       for (Conformance.ConformanceRestResourceOperationComponent e : element.getOperation()) 
         composeConformanceConformanceRestResourceOperationComponent("operation", e);
       composeBoolean("readHistory", element.getReadHistory());
+      composeBoolean("updateCreate", element.getUpdateCreate());
       for (String_ e : element.getSearchInclude()) 
         composeString("searchInclude", e);
       for (Conformance.ConformanceRestResourceSearchParamComponent e : element.getSearchParam()) 

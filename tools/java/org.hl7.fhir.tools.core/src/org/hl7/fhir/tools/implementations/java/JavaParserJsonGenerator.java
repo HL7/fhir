@@ -121,9 +121,15 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     for (DefinedCode cd : definitions.getPrimitives().values()) {
       String n = upFirst(cd.getCode());
       String t = n;
-      regt.append("    else if (json.has(prefix+\""+n+"\"))\r\n      return parse"+t+"(json.getJSONObject(prefix+\""+n+"\"));\r\n");
-      regf.append("    else if (type.equals(\""+cd.getCode()+"\"))\r\n      return parse"+t+"(xpp);\r\n");
-      regn.append("    if (json.has(prefix+\""+n+"\"))\r\n      return true;\r\n");
+      regt.append("    else if (json.has(prefix+\""+n+"\") || json.has(\"_\"+prefix+\""+n+"\")) {\r\n");
+      regt.append("      Type t = parse"+t+"(json.get"+getJsonPrimitive(cd.getCode(), true)+"(prefix+\""+n+"\"));\r\n");
+      regt.append("      parseElementProperties(json.getJSONObject(\"_\"+prefix+\""+n+"\"), t);\r\n");
+      regt.append("      return t;\r\n");
+      regt.append("    }\r\n");
+      
+      regf.append("    else if (type.equals(\""+cd.getCode()+"\"))\r\n");
+      regf.append("      return parse"+t+"(xpp);\r\n");
+      regn.append("    if (json.has(prefix+\""+n+"\") || json.has(\"_\"+prefix+\""+n+"\"))\r\n      return true;\r\n");
     }
     
     finish();
@@ -132,7 +138,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   private void genElement() throws Exception {
     write("  protected void parseElementProperties(JSONObject json, Element element) throws Exception {\r\n");
     write("    super.parseElementProperties(json, element);\r\n");
-    write("    if (json.has(\"extension\")) {\r\n");
+    write("    if (json != null && json.has(\"extension\")) {\r\n");
     write("      JSONArray array = json.getJSONArray(\"extension\");\r\n");
     write("      for (int i = 0; i < array.length(); i++) {\r\n");
     write("        element.getExtensions().add(parseExtension(array.getJSONObject(i)));\r\n");
@@ -150,7 +156,9 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("  protected void parseResourceProperties(JSONObject json, Resource res) throws Exception {\r\n");
     write("    parseElementProperties(json, res); \r\n");
     write("    if (json.has(\"language\"))\r\n");
-    write("      res.setLanguage(parseCode(json.getJSONObject(\"language\")));\r\n");
+    write("      res.setLanguage(parseCode(json.getString(\"language\")));\r\n");
+    write("    if (json.has(\"_language\"))\r\n");
+    write("      parseElementProperties(json.getJSONObject(\"_language\"), res.getLanguage());\r\n");
     write("    if (json.has(\"text\"))\r\n");
     write("      res.setText(parseNarrative(json.getJSONObject(\"text\")));\r\n");
     write("    if (json.has(\"contained\")) {\r\n");
@@ -165,11 +173,11 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 
   private void generateEnumParser() throws Exception {
     write("  @SuppressWarnings(\"unchecked\")\r\n");
-    write("  private <E extends Enum<E>> Enumeration<E> parseEnumeration(JSONObject json, E item, EnumFactory e) throws Exception {\r\n");
+    write("  private <E extends Enum<E>> Enumeration<E> parseEnumeration(String s, E item, EnumFactory e) throws Exception {\r\n");
     write("    Enumeration<E> res = new Enumeration<E>();\r\n");
-    write("    parseElementProperties(json, res);\r\n");
-    write("    if (json.has(\"value\"))\r\n");
-    write("    res.setValue((E) e.fromCode(json.getString(\"value\")));\r\n");
+//    write("    parseElementProperties(json, res);\r\n");
+    write("    if (s != null)\r\n");
+    write("      res.setValue((E) e.fromCode(s));\r\n");
     write("    return res;\r\n");
     write("  }\r\n");
     write("\r\n");
@@ -183,17 +191,24 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 
   private void generatePrimitive(DefinedCode dc) throws Exception {
     String tn = getPrimitiveTypeModelName(dc.getCode());
-    write("  private "+tn+" parse"+upFirst(dc.getCode())+"(JSONObject json) throws Exception {\r\n");
+    String jpn = getJsonPrimitive(dc.getCode(), false);
+    write("  private "+tn+" parse"+upFirst(dc.getCode())+"("+jpn+" v) throws Exception {\r\n");
     write("    "+tn+" res = new "+tn+"();\r\n");
-    write("    parseElementProperties(json, res);\r\n");
-    write("    if (json.has(\"value\"))\r\n");
-    if (dc.getCode().equals("boolean"))
-      write("      res.setValue(json.getBoolean(\"value\"));\r\n");
-    else
-      write("      res.setValue(parse"+upFirst(dc.getCode())+"Primitive(json.getString(\"value\")));\r\n");
+    write("    if (v != null)\r\n");
+//    if (dc.getCode().equals("boolean"))
+//      write("      res.setValue(json.getBoolean(\"value\"));\r\n");
+//    else
+      write("      res.setValue(parse"+upFirst(dc.getCode())+"Primitive(v));\r\n");
     write("    return res;\r\n");
     write("  }\r\n");
     write("\r\n");
+  }
+
+  private String getJsonPrimitive(String code, boolean shrt) {
+    if ("boolean".equals(code))
+      return shrt ? "Boolean" : "java.lang.Boolean";
+    else         
+      return "String";
   }
 
   private String upFirst(String n) {
@@ -313,58 +328,92 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     } else {
         String prsr = null;
         String aprsr = null;
-      BindingSpecification cd = definitions.getBindingByName(e.getBindingName());
-      if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.Binding.CodeList) {
-        String en = typeNames.get(e); // getCodeListType(cd.getBinding());
-        prsr = "parseEnumeration(json.getJSONObject(\""+name+"\"), "+en+".Null, new "+en.substring(0, en.indexOf("."))+"().new "+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
-        aprsr = "parseEnumeration(array.getJSONObject(i), "+en+".Null, new "+en.substring(0, en.indexOf("."))+"().new "+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
-        // parseEnumeration(xpp, Narrative.NarrativeStatus.additional, new Narrative().new NarrativeStatusEnumFactory())
-      } else {   
-        String tn = typeName(root, e).replace(".", "");
-        if (name.equals("extension")) {
-          name = "extension";
-          tn = "Extension";
-        }
-        if (tn.equals("char[]")) {
+        String anprsr = null;
+        BindingSpecification cd = definitions.getBindingByName(e.getBindingName());
+        if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.Binding.CodeList) {
+          String en = typeNames.get(e); // getCodeListType(cd.getBinding());
+          prsr = "parseEnumeration(json.getString(\""+name+"\"), "+en+".Null, new "+en.substring(0, en.indexOf("."))+"().new "+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
+          aprsr = "parseEnumeration(array.getString(i), "+en+".Null, new "+en.substring(0, en.indexOf("."))+"().new "+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
+          anprsr = "parseEnumeration(null, "+en+".Null, new "+en.substring(0, en.indexOf("."))+"().new "+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
+          // parseEnumeration(xpp, Narrative.NarrativeStatus.additional, new Narrative().new NarrativeStatusEnumFactory())
+        } else {   
+          String tn = typeName(root, e).replace(".", "");
+          if (name.equals("extension")) {
+            name = "extension";
+            tn = "Extension";
+          }
+          if (tn.equals("char[]")) {
             prsr = "parseXhtml(json.getString(\""+name+"\"))";
-        } else if (tn.contains("Resource(")) {
+          } else if (tn.contains("Resource(")) {
             prsr = "parseResourceReference(json.getJSONObject(\""+name+"\"))";
             aprsr = "parseResourceReference(array.getJSONObject(i))";
-        } else if (tn.contains("(")) {
-            prsr = "parse"+PrepGenericName(tn)+"(json.getJSONObject(\""+name+"\"))";
-            aprsr = "parse"+PrepGenericName(tn)+"(array.getJSONObject(i))";
-        } else if (tn.startsWith(context) && !tn.equals(context) && !definitions.hasType(tn)) {
-          if (bUseOwner) {
+            anprsr = "parseResourceReference(null)";
+          } else if (tn.startsWith(context) && !tn.equals(context) && !definitions.hasType(tn)) {
+            if (bUseOwner) {
               prsr = "parse"+upFirst(tn)+"(json.getJSONObject(\""+name+"\"), owner)";
               aprsr = "parse"+upFirst(tn)+"(array.getJSONObject(i), owner)";
-          } else {
+              anprsr = "parse"+upFirst(tn)+"(null)";
+            } else {
               prsr = "parse"+upFirst(tn)+"(json.getJSONObject(\""+name+"\"), res)";
               aprsr = "parse"+upFirst(tn)+"(array.getJSONObject(i), res)";
-          }
-        } else if ("Uri".equalsIgnoreCase(tn)) {
-            prsr = "parseUri(json.getJSONObject(\""+name+"\"))";
-            aprsr = "parseUri(array.getJSONObject(i))";
-        } else if ("Instant".equals(tn)) {
-            prsr = "parseInstant(json.getJSONObject(\""+name+"\"))";
-            aprsr = "parseInstant(array.getJSONObject(i))";
-        } else {
+              anprsr = "parse"+upFirst(tn)+"(null)";
+            }
+          } else if ("Uri".equalsIgnoreCase(tn)) {
+            prsr = "parseUri(json.getString(\""+name+"\"))";
+            aprsr = "parseUri(array.getString(i))";
+            anprsr = "parse"+upFirst(tn)+"(null)";
+          } else if ("Instant".equals(tn)) {
+            prsr = "parseInstant(json.getString(\""+name+"\"))";
+            aprsr = "parseInstant(array.getString(i))";
+            anprsr = "parse"+upFirst(tn)+"(null)";
+          } else if (isPrimitive(e)){
+            prsr = "parse"+upFirst(tn)+"(json.get"+getJsonPrimitive(e.typeCode(), true)+"(\""+name+"\"))";
+            aprsr = "parse"+upFirst(tn)+"(array.get"+getJsonPrimitive(e.typeCode(), true)+"(i))";
+            anprsr = "parse"+upFirst(tn)+"(null)";
+          } else {
             prsr = "parse"+upFirst(tn)+"(json.getJSONObject(\""+name+"\"))";
             aprsr = "parse"+upFirst(tn)+"(array.getJSONObject(i))";
+            anprsr = "parse"+upFirst(tn)+"(null)";
+          }
         }
-      }
-      
-      if (e.unbounded()) {
-   	    write("    if (json.has(\""+name+"\")) {\r\n");
-    	write("      JSONArray array = json.getJSONArray(\""+name+"\");\r\n");
-    	write("      for (int i = 0; i < array.length(); i++) {\r\n");
-    	write("        res.get"+upFirst(name)+"().add("+aprsr+");\r\n");
-    	write("      }\r\n");
-    	write("    };\r\n");
-      } else {
-  	    write("    if (json.has(\""+name+"\"))\r\n");
-        write("      res.set"+upFirst(getElementName(name, false))+"("+prsr+");\r\n");
-      }
+
+        if (e.unbounded()) {
+          if (isPrimitive(e)) {
+            write("    if (json.has(\""+name+"\")) {\r\n");
+            write("      JSONArray array = json.getJSONArray(\""+name+"\");\r\n");
+            write("      for (int i = 0; i < array.length(); i++) {\r\n");
+            write("        res.get"+upFirst(name)+"().add("+aprsr+");\r\n");
+            write("      }\r\n");
+            write("    };\r\n");          
+            write("    if (json.has(\"_"+name+"\")) {\r\n");
+            write("      JSONArray array = json.getJSONArray(\"_"+name+"\");\r\n");
+            write("      for (int i = 0; i < array.length(); i++) {\r\n");
+            write("        if (i == res.get"+upFirst(name)+"().size())\r\n");
+            write("          res.get"+upFirst(name)+"().add("+anprsr+");\r\n");
+            write("        parseElementProperties(array.getJSONObject(i), res.get"+upFirst(name)+"().get(i));\r\n");
+            write("      }\r\n");
+            write("    };\r\n");          
+          } else {
+            write("    if (json.has(\""+name+"\")) {\r\n");
+            write("      JSONArray array = json.getJSONArray(\""+name+"\");\r\n");
+            write("      for (int i = 0; i < array.length(); i++) {\r\n");
+            write("        res.get"+upFirst(name)+"().add("+aprsr+");\r\n");
+            write("      }\r\n");
+            write("    };\r\n");
+          }
+        } else {
+          write("    if (json.has(\""+name+"\"))\r\n");
+          write("      res.set"+upFirst(getElementName(name, false))+"("+prsr+");\r\n");
+          if (isPrimitive(e)) {
+            write("    if (json.has(\"_"+name+"\"))\r\n");
+            write("      parseElementProperties(json.getJSONObject(\"_"+name+"\"), res.get"+upFirst(getElementName(name, false))+"());\r\n");
+          }
+        }
     }
+  }
+
+  private boolean isPrimitive(ElementDefn e) {
+    return definitions.hasPrimitiveType(e.typeCode()) || "idref".equals(e.typeCode());
   }
 
   private String PrepGenericName(String tn) {

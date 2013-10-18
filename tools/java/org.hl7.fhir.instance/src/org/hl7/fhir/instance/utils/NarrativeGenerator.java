@@ -134,7 +134,7 @@ public class NarrativeGenerator {
     }
     addMapHeaders(addTableHeaderRowStandard(t, commentS, deprecated), mymaps);
     for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
-      addDefineRowToTable(t, c, 0, commentS, deprecated, mymaps, vs.getDefine().getConcept());
+      addDefineRowToTable(t, c, 0, commentS, deprecated, mymaps);
     }    
   }
 
@@ -247,7 +247,7 @@ public class NarrativeGenerator {
     }    
   }
 
-  private void addDefineRowToTable(XhtmlNode t, ValueSetDefineConceptComponent c, int i, boolean comment, boolean deprecated, Map<ConceptMap, String> maps, List<ValueSetDefineConceptComponent> list) {
+  private void addDefineRowToTable(XhtmlNode t, ValueSetDefineConceptComponent c, int i, boolean comment, boolean deprecated, Map<ConceptMap, String> maps) {
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
     String s = Utilities.padLeft("", '.', i*2);
@@ -292,7 +292,7 @@ public class NarrativeGenerator {
           td.addTag("i").addText("("+mapping.getCommentsSimple()+")");
       }
     }
-    for (Code e : getAllChildren(c.getCodeSimple(), list)) {
+    for (Code e : ToolingExtensions.getSubsumes(c)) {
       tr = t.addTag("tr");
       td = tr.addTag("td");
       s = Utilities.padLeft("", '.', i*2);
@@ -302,27 +302,10 @@ public class NarrativeGenerator {
       a.addText(c.getCodeSimple());
     }
     for (ValueSetDefineConceptComponent cc : c.getConcept()) {
-      addDefineRowToTable(t, cc, i+1, comment, deprecated, maps, list);
+      addDefineRowToTable(t, cc, i+1, comment, deprecated, maps);
     }    
   }
 
-
-  private List<Code> getAllChildren(String code, List<ValueSetDefineConceptComponent> list) {
-    List<Code> results = new ArrayList<Code>();
-    checkAllChildren(results, code, list);
-    return results;
-  }
-
-  private void checkAllChildren(List<Code> results, String code, List<ValueSetDefineConceptComponent> list) {
-    for (ValueSetDefineConceptComponent c : list) {
-      List<Code> ex = ToolingExtensions.getParents(c);
-      for (Code e : ex) {
-        if (e.getValue().equals(code)) 
-          results.add(c.getCode());
-      }
-      checkAllChildren(results, code, c.getConcept());
-    }
-  }
 
   private String getCharForEquivalence(ConceptMapConceptMapComponent mapping) {
 	  switch (mapping.getEquivalenceSimple()) {

@@ -75,7 +75,7 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
   }
 
   protected void parseElementProperties(JSONObject json, Element e) throws Exception {
-    if (json.has("_id"))
+    if (json != null && json.has("_id"))
       e.setXmlId(json.getString("_id"));
     if (!Utilities.noString(e.getXmlId()))
       idMap.put(e.getXmlId(), e);

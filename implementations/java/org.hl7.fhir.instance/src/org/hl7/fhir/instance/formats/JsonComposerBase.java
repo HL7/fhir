@@ -32,12 +32,15 @@ POSSIBILITY OF SUCH DAMAGE.
 
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.util.List;
 
 import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Binary;
+import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.String_;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -199,6 +202,9 @@ public abstract class JsonComposerBase extends XmlBase implements Composer {
 //			prop("_id", element.getXmlId());
 //	}
 //
+	protected void writeNull(String name) throws Exception {
+		json.nullValue();
+	}
 	protected void prop(String name, String value) throws Exception {
 		if (name != null)
 			json.name(name);
@@ -517,5 +523,13 @@ public abstract class JsonComposerBase extends XmlBase implements Composer {
     }    
     
   }
-  
+
+  protected boolean anyHasExtras(List<? extends Element> list) {
+	  for (Element e : list) {
+	  	if (e.hasExtensions() || !Utilities.noString(e.getXmlId()))
+	  		return true;
+	  }
+	  return false;
+  }
+
 }

@@ -1249,7 +1249,8 @@ public class Publisher {
       if (handled.containsKey(code)) {
         if (owner == null)
           throw new Exception("Error handling poly-heirarchy - subsequent mention is on the root");
-        ToolingExtensions.addParentCode(handled.get(code), owner.getCodeSimple());
+        //ToolingExtensions.addParentCode(handled.get(code), owner.getCodeSimple());
+        ToolingExtensions.addSubsumes(owner, code);
         s.append(" <tr><td>"+Integer.toString(lvl)+"</td><td>");
         for (int i = 1; i < lvl; i++) 
           s.append("&nbsp;&nbsp;");

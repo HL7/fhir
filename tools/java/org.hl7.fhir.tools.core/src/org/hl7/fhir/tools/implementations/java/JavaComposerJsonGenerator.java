@@ -93,18 +93,15 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
         regt.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\"Resource\", ("+n.getName()+") type);\r\n");
       else
         regt.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
-      //        regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
 
     for (DefinedCode n : definitions.getConstraints().values()) {
       generateConstraint(n);
       regt.append("    else if (type instanceof "+n.getCode()+")\r\n       compose"+n.getCode()+"(prefix+\""+n.getCode()+"\", ("+n.getCode()+") type);\r\n");
-//      regn.append("    if (xpp.getName().equals(prefix+\""+n.getCode()+"\"))\r\n      return true;\r\n");
     }
     for (ElementDefn n : definitions.getStructures().values()) {
       generate(n, JavaGenClass.Structure);
       regt.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
-//      regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
     
     genResource();
@@ -115,7 +112,6 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
       String nn = javaClassName(n.getName());
       reg.append("    else if (resource instanceof "+nn+")\r\n      compose"+nn+"(\""+n.getName()+"\", ("+nn+")resource);\r\n");
       regn.append("    else if (resource instanceof "+nn+")\r\n      compose"+nn+"(name, ("+nn+")resource);\r\n");
-//      regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
     
     for (DefinedCode cd : definitions.getPrimitives().values()) {
@@ -123,11 +119,10 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
       String t = n;
       if (n.equals("String")) 
         t = "String_";
-      
-//      if (n.equals("Uri"))
-//        t = "Uri";
-      regt.append("    else if (type instanceof "+t+")\r\n       compose"+upFirst(n)+"(prefix+\""+n+"\", ("+t+") type);\r\n");
-//      regn.append("    if (xpp.getName().equals(prefix+\""+n+"\"))\r\n      return true;\r\n");
+      regt.append("    else if (type instanceof "+t+") {\r\n");
+      regt.append("      compose"+upFirst(n)+"Core(prefix+\""+n+"\", ("+t+") type, false);\r\n");
+      regt.append("      compose"+upFirst(n)+"Extras(prefix+\""+n+"\", ("+t+") type, false);\r\n");
+      regt.append("    }\r\n");
     }
     
     finish();
@@ -137,7 +132,7 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     
     write("  private void composeElement(Element element) throws Exception {\r\n");
     write("    if (element.getXmlId() != null)\r\n");
-    write("      prop(\"_id\", element.getXmlId());\r\n");
+    write("      prop(\"id\", element.getXmlId());\r\n");
     write("    if (element.getExtensions().size() > 0) {\r\n");
     write("      openArray(\"extension\");\r\n");
     write("      for (Extension ex : element.getExtensions())\r\n");
@@ -197,14 +192,20 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
 
 
   private void generateEnumComposer() throws Exception {
-    write("  private <E extends Enum<E>> void composeEnumeration(String name, Enumeration<E> value, EnumFactory e) throws Exception {\r\n");
-    write("    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || value.getValue() != null)) {\r\n");
-    write("      open(name);\r\n");
+    write("  private <E extends Enum<E>> void composeEnumerationCore(String name, Enumeration<E> value, EnumFactory e, boolean inArray) throws Exception {\r\n");
+    write("    if (value != null && value.getValue() != null) {\r\n");
+    write("      prop(name, e.toCode(value.getValue()));\r\n");
+    write("    } else if (inArray)   \r\n");
+    write("      writeNull(name);\r\n");
+    write("  }    \r\n");
+    write("\r\n");
+    write("  private <E extends Enum<E>> void composeEnumerationExtras(String name, Enumeration<E> value, EnumFactory e, boolean inArray) throws Exception {\r\n");
+    write("    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {\r\n");
+    write("      open(inArray ? null : \"_\"+name);\r\n");
     write("      composeElement(value);\r\n");
-    write("      if (value.getValue() != null) \r\n");
-    write("        prop(\"value\", e.toCode(value.getValue()));\r\n");
     write("      close();\r\n");
-    write("    }    \r\n");
+    write("    } else if (inArray)   \r\n");
+    write("      writeNull(name);\r\n");
     write("  }    \r\n");
     write("\r\n");
   }
@@ -218,26 +219,35 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
   private void generatePrimitive(DefinedCode dc) throws Exception {
     String tn = getPrimitiveTypeModelName(dc.getCode());
 
-    write("  private void compose"+upFirst(dc.getCode())+"(String name, "+tn+" value) throws Exception {\r\n");
+    write("  private void compose"+upFirst(dc.getCode())+"Core(String name, "+tn+" value, boolean inArray) throws Exception {\r\n");
     if (dc.getCode().equals("integer")  || dc.getCode().equals("boolean"))
       write("    if (value != null) {\r\n");
     else if (dc.getCode().equals("decimal") || dc.getCode().equals("uri") || dc.getCode().equals("base64Binary") || dc.getCode().equals("instant"))
-      write("    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || value.getValue() != null)) {\r\n");
+      write("    if (value != null && value.getValue() != null) {\r\n");
     else
-      write("    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || !Utilities.noString(value.getValue()))) {\r\n");
-    write("      open(name);\r\n");
-    write("      composeElement(value);\r\n");
+      write("    if (value != null && !Utilities.noString(value.getValue())) {\r\n");
     if (dc.getCode().equals("integer"))
-      write("        prop(\"value\", java.lang.Integer.valueOf(value.getValue()));\r\n");
+      write("        prop(name, java.lang.Integer.valueOf(value.getValue()));\r\n");
     else  if (dc.getCode().equals("boolean")) 
-      write("        prop(\"value\", value.getValue());\r\n");
+      write("        prop(name, value.getValue());\r\n");
     else {
-      write("      if (value.getValue() != null) \r\n");
-      write("        prop(\"value\", toString(value.getValue()));\r\n");
+      write("        prop(name, toString(value.getValue()));\r\n");
     }
-    write("      close();\r\n");
     write("    }    \r\n");
+    write("    else if (inArray) \r\n");
+    write("      writeNull(name); \r\n");
     write("  }    \r\n");
+    write("\r\n");
+    
+    write("  private void compose"+upFirst(dc.getCode())+"Extras(String name, "+tn+" value, boolean inArray) throws Exception {\r\n");
+    write("    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {\r\n");
+    write("      open(inArray ? null : \"_\"+name);\r\n");
+    write("      composeElement(value);\r\n");
+    write("      close();\r\n");
+    write("    }\r\n");
+    write("    else if (inArray) \r\n");
+    write("      writeNull(name); \r\n");
+    write("  }\r\n");
     write("\r\n");
   }
 
@@ -363,27 +373,57 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
           tn = "ResourceReference";
         }
         write("      if (element.get"+upFirst(name)+"().size() > 0) {\r\n");
-        write("        openArray(\""+name+"\");\r\n");
   	    if (en == null) {
           if (tn.equals("String"))
               tn = "String_";
-          write("        for ("+(tn.contains("(") ? PrepGenericTypeName(tn) : upFirst(tn))+" e : element.get"+upFirst(getElementName(name, false))+"()) \r\n");
-          write("          "+comp+"(null, e);\r\n");
+          if (isPrimitive(e) || "idref".equals(e.typeCode())) {
+            write("        openArray(\""+name+"\");\r\n");
+            write("        for ("+(tn.contains("(") ? PrepGenericTypeName(tn) : upFirst(tn))+" e : element.get"+upFirst(getElementName(name, false))+"()) \r\n");
+            write("          "+comp+"Core(null, e, true);\r\n");
+            write("        closeArray();\r\n");
+            write("        if (anyHasExtras(element.get"+upFirst(getElementName(name, false))+"())) {\r\n");
+            write("          openArray(\"_"+name+"\");\r\n");
+            write("          for ("+(tn.contains("(") ? PrepGenericTypeName(tn) : upFirst(tn))+" e : element.get"+upFirst(getElementName(name, false))+"()) \r\n");
+            write("            "+comp+"Extras(null, e, true);\r\n");
+            write("          closeArray();\r\n");
+            write("        }\r\n");
+          } else {
+            write("        openArray(\""+name+"\");\r\n");
+            write("        for ("+(tn.contains("(") ? PrepGenericTypeName(tn) : upFirst(tn))+" e : element.get"+upFirst(getElementName(name, false))+"()) \r\n");
+            write("          "+comp+"(null, e);\r\n");
+            write("        closeArray();\r\n");
+          }
   	    } else {
+            write("        openArray(\""+name+"\");\r\n");
             write("        for (Enumeration<"+prepEnumName(en)+"> e : element.get"+upFirst(getElementName(name, false))+"()) \r\n");
-            write("          composeEnumeration(null, e, new "+context+"().new "+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory());\r\n");
+            write("          composeEnumerationCore(null, e, new "+context+"().new "+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory(), true);\r\n");
+            write("        closeArray();\r\n");
+            write("        if (anyHasExtras(element.get"+upFirst(getElementName(name, false))+"())) {\r\n");
+            write("          openArray(\"_"+name+"\");\r\n");
+            write("          for (Enumeration<"+prepEnumName(en)+"> e : element.get"+upFirst(getElementName(name, false))+"()) \r\n");
+            write("            composeEnumerationExtras(null, e, new "+context+"().new "+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory(), true);\r\n");
+            write("          closeArray();\r\n");
+            write("        }\r\n");
   	    }
-  	  write("        closeArray();\r\n");
         write("      };\r\n");
       } else if (en != null) {
-        write("      if (element.get"+upFirst(name)+"() != null)\r\n");
-        write("        composeEnumeration(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"(), new "+context+"().new "+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory());\r\n");
+        write("      if (element.get"+upFirst(name)+"() != null) {\r\n");
+        write("        composeEnumerationCore(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"(), new "+context+"().new "+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory(), false);\r\n");
+        write("        composeEnumerationExtras(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"(), new "+context+"().new "+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory(), false);\r\n");
+        write("      }\r\n");
         //write("        composeString(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"().toCode());\r\n");        
-      } else {
+      } else if (isPrimitive(e)) {
+        write("      "+comp+"Core(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"(), false);\r\n");
+        write("      "+comp+"Extras(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"(), false);\r\n");
+      } else  
         write("      "+comp+"(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"());\r\n");
       }
     }
+
+  private boolean isPrimitive(ElementDefn e) {
+    return definitions.hasPrimitiveType(e.typeCode());
   }
+
 
   private String prepEnumName(String en) {
 	String[] parts = en.split("\\.");

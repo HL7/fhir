@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 10, 2013 11:38+1100 for FHIR v0.12
+// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -161,7 +161,7 @@ public class FamilyHistory extends Resource {
         protected CodeableConcept outcome;
 
         /**
-         * Either the age of onset, range of approximate age or descriptive string can be recorded.
+         * Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence.
          */
         protected Type onset;
 

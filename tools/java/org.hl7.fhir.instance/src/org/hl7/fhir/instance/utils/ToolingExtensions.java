@@ -21,7 +21,7 @@ public class ToolingExtensions {
   public static final String EXT_DEFINITION = "http://hl7.org/fhir/tools/extensions#definition";
   public static final String EXT_DEPRECATED = "http://hl7.org/fhir/tools/extensions#deprecated";
   public static final String EXT_ISSUE_SOURCE = "http://hl7.org/fhir/tools/extensions#issue-source";
-  public static final String EXT_PARENTCODE = "http://hl7.org/fhir/tools/extensions#parentCode";
+  public static final String EXT_SUBSUMES = "http://hl7.org/fhir/tools/extensions#subsumes";
 
   public static Extension makeIssueSource(Source source) {
     Extension ex = new Extension();
@@ -42,8 +42,8 @@ public class ToolingExtensions {
     nc.getExtensions().add(Factory.newExtension(EXT_DEPRECATED, Factory.newBoolean(true), true));   
   }
 
-  public static void addParentCode(ValueSetDefineConceptComponent nc, String code) throws Exception {
-    nc.getExtensions().add(Factory.newExtension(EXT_PARENTCODE, Factory.newCode(code), true));   
+  public static void addSubsumes(ValueSetDefineConceptComponent nc, String code) throws Exception {
+    nc.getExtensions().add(Factory.newExtension(EXT_SUBSUMES, Factory.newCode(code), true));   
   }
 
   public static void addDefinition(Code nc, String definition) throws Exception {
@@ -103,11 +103,11 @@ public class ToolingExtensions {
     return findBooleanExtension(c, EXT_DEPRECATED);    
   }
 
-  public static List<Code> getParents(ValueSetDefineConceptComponent c) {
+  public static List<Code> getSubsumes(ValueSetDefineConceptComponent c) {
     List<Code> res = new ArrayList<Code>();
 
     for (Extension e : c.getExtensions()) {
-      if (EXT_PARENTCODE.equals(e.getUrlSimple()))
+      if (EXT_SUBSUMES.equals(e.getUrlSimple()))
         res.add((Code) e.getValue());
     }
     return res;
