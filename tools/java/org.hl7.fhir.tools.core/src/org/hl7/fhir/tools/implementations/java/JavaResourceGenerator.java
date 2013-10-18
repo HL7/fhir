@@ -46,7 +46,7 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class JavaResourceGenerator extends JavaBaseGenerator {
 
-	public enum JavaGenClass { Structure, Type, Resource, Constraint }
+	public enum JavaGenClass { Structure, Type, Resource, BackboneElement, Constraint }
 	private JavaGenClass clss;
 
 	private Definitions definitions;
@@ -101,8 +101,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		classname = upFirst(name);
 		if (clss == JavaGenClass.Resource)
 			write("public class "+upFirst(name)+" extends Resource {\r\n");
-		else if (clss == JavaGenClass.Structure)
-			write("public class "+upFirst(name)+" extends Element {\r\n");
+    else if (clss == JavaGenClass.Structure)
+      write("public class "+upFirst(name)+" extends Element {\r\n");
+    else if (clss == JavaGenClass.BackboneElement)
+      write("public class "+upFirst(name)+" extends BackboneElement {\r\n");
 		else if (clss == JavaGenClass.Constraint)
 			write("public class "+upFirst(cd.getCode())+" extends "+upFirst(root.getName())+" {\r\n");
 	  else if (root.getName().equals("Quantity"))
@@ -120,7 +122,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 				generateEnum(e, conceptDomains);
 			}
 			for (ElementDefn e : strucs) {
-				generateType(e);
+				generateType(e, clss == JavaGenClass.Resource ? JavaGenClass.BackboneElement : JavaGenClass.Structure);
 			}
 
 			for (ElementDefn e : root.getElements()) {
@@ -404,10 +406,13 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     return true;
   }
 
-  private void generateType(ElementDefn e) throws Exception {
+  private void generateType(ElementDefn e, JavaGenClass clss) throws Exception {
 		String tn = typeNames.get(e);
 
-		write("    public class "+tn+" extends Element {\r\n");
+		if (clss == JavaGenClass.BackboneElement)
+	    write("    public class "+tn+" extends BackboneElement {\r\n");
+		else
+		  write("    public class "+tn+" extends Element {\r\n");
 		for (ElementDefn c : e.getElements()) {
 			generateField(e, c, "        ");
 		}

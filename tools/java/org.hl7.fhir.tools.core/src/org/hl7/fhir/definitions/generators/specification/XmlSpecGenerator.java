@@ -103,13 +103,13 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		else
 	    write(" xmlns=\"http://hl7.org/fhir\"&gt;\r\n");
     if (rn.equals(root.getName()) && resource) {
-      write(" &lt;!-- from <a href=\"resources.html\">Resource</a>: <a href=\"extensibility.html\">extension</a>, language, <a href=\"narrative.html#Narrative\">text</a>, and <a href=\"references.html#contained\">contained</a> -->\r\n");
+      write(" &lt;!-- from <a href=\"resources.html\">Resource</a>: <a href=\"extensibility.html\">extension</a>, <a href=\"extensibility.html#modifierExtension\">modifierExtension</a>, language, <a href=\"narrative.html#Narrative\">text</a>, and <a href=\"references.html#contained\">contained</a> -->\r\n");
     } else {
       write(" &lt;!-- from Element: <a href=\"extensibility.html\">extension</a> -->\r\n");
     }
 		for (ElementDefn elem : root.getElements()) {
 		  if (!elem.typeCode().equals("xml:lang"))
-		    generateCoreElem(elem, 1, rn, root.getName());
+		    generateCoreElem(elem, 1, rn, root.getName(), rn.equals(root.getName()) && resource);
 		}
 
 		write("&lt;/");
@@ -251,8 +251,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 	// write("&lt;/"+Utilities.pluralizeMe(elem.getName())+"&gt;\r\n");
 	// }
 
-	private void generateCoreElem(ElementDefn elem, int indent,
-			String rootName, String pathName) throws Exception {
+	private void generateCoreElem(ElementDefn elem, int indent,	String rootName, String pathName, boolean backbone) throws Exception {
 		// if (elem.getConformance() == ElementDefn.Conformance.Prohibited)
 		// return;
 
@@ -450,15 +449,21 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 				write("\r\n");
 
 				if (elem.getMaxCardinality() == null || elem.getMaxCardinality() > 0) {
+				  // if we want extension/modifierExtension shown explicitly
+//				  if (backbone) {
+//			      for (int i = 0; i < indent; i++)
+//			        write(" ");
+//				    write(" &lt;!-- <a href=\"extensibility.html\">extension</a>, <a href=\"extensibility.html#modifierExtension\">modifierExtension</a> -->\r\n");
+//				  }
 				  if (sharedDT) {
 				    ElementDefn sdt = definitions.getElementDefn(elem
 				        .typeCode());
 				    for (ElementDefn child : sdt.getElements()) {
-				      generateCoreElem(child, indent + 1, rootName, pathName+ "." + en); //sdt.getName());
+				      generateCoreElem(child, indent + 1, rootName, pathName+ "." + en, backbone); //sdt.getName());
 				    }
 				  } else {
 				    for (ElementDefn child : elem.getElements()) {
-				      generateCoreElem(child, indent + 1, rootName, pathName + "." + en);
+				      generateCoreElem(child, indent + 1, rootName, pathName + "." + en, backbone);
 				    }
 				  }
 				}

@@ -20,7 +20,6 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -58,14 +57,6 @@
     ss:WrapText="1"/>
    <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s67">
-   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
   <Style ss:ID="s68">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
@@ -75,9 +66,25 @@
   <Style ss:ID="s70">
    <Alignment ss:Vertical="Top"/>
   </Style>
+  <Style ss:ID="s73">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s74">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="6" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="7" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="150.75"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
@@ -129,10 +136,25 @@
     <Cell><Data ss:Type="String">Extension</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Additional Content defined by implementations</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">extensions, user content</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">extensions, user content</Data></Cell>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone</Data></Cell>
+    <Cell><Data ss:Type="String">N/A</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="210">
+    <Cell><Data ss:Type="String">Resource.modifierExtension</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">there can be no stigma&#10;associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Extensions that cannot be ignored</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">extensions, user content</Data></Cell>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="210">
@@ -190,6 +212,7 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -209,8 +232,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -556,7 +579,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

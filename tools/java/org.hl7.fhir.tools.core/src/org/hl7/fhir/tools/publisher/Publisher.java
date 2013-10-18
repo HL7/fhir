@@ -79,6 +79,7 @@ import org.hl7.fhir.definitions.generators.specification.SvgGenerator;
 import org.hl7.fhir.definitions.generators.specification.TerminologyNotesGenerator;
 import org.hl7.fhir.definitions.generators.specification.XPathQueryGenerator;
 import org.hl7.fhir.definitions.generators.specification.XmlSpecGenerator;
+import org.hl7.fhir.definitions.generators.specification.ProfileGenerator.GenerationMode;
 import org.hl7.fhir.definitions.generators.xsd.SchemaGenerator;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
@@ -1826,7 +1827,7 @@ public class Publisher {
     p.getElements().add(type);
     ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
     String fn = "type-"+c.getCode()+".profile.xml";
-    Profile rp = pgen.generate(p, "<div>Type definition for "+type.getName()+" from <a href=\"http://hl7.org/fhir/datatypes.html#"+type.getName()+"\">FHIR Specification</a></div>", false);
+    Profile rp = pgen.generate(p, "<div>Type definition for "+type.getName()+" from <a href=\"http://hl7.org/fhir/datatypes.html#"+type.getName()+"\">FHIR Specification</a></div>", GenerationMode.Element);
     rp.getStructure().get(0).setNameSimple(c.getCode());
     
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + fn), rp, true, false);
@@ -1850,7 +1851,7 @@ public class Publisher {
     p.getElements().add(type);
     ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
     String fn = "type-"+type.getName()+".profile.xml";
-    Profile rp = pgen.generate(p, "<div>Type definition for "+type.getName()+" from <a href=\"http://hl7.org/fhir/datatypes.html#"+type.getName()+"\">FHIR Specification</a></div>", false);
+    Profile rp = pgen.generate(p, "<div>Type definition for "+type.getName()+" from <a href=\"http://hl7.org/fhir/datatypes.html#"+type.getName()+"\">FHIR Specification</a></div>", GenerationMode.Element);
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + fn), rp, true, false);
     new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json")), rp, false);
 
@@ -1955,7 +1956,7 @@ public class Publisher {
     String xml = TextFile.fileToString(tmp.getAbsolutePath());
 
     xmls.put(n, xml);
-    generateProfile(resource, n, xml, true);
+    generateProfile(resource, n, xml, GenerationMode.Resource);
   }
   
   private void produceResource2(ResourceDefn resource) throws Exception {
@@ -2147,7 +2148,7 @@ public class Publisher {
 		
 	}
 
-	private void generateProfile(ResourceDefn root, String n, String xmlSpec, boolean addBase)	throws Exception, FileNotFoundException {
+	private void generateProfile(ResourceDefn root, String n, String xmlSpec, GenerationMode mode)	throws Exception, FileNotFoundException {
 		ProfileDefn p = new ProfileDefn();
 		p.putMetadata("id", root.getName().toLowerCase());
 		p.putMetadata("name", n);
@@ -2158,7 +2159,7 @@ public class Publisher {
 		p.putMetadata("date", new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "US")).format(new Date()));
 		p.getResources().add(root);
 		ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
-		Profile rp = pgen.generate(p, xmlSpec, addBase);
+		Profile rp = pgen.generate(p, xmlSpec, mode);
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.xml"), rp, true, false);
     new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.json"), rp, false);
 
@@ -2254,7 +2255,7 @@ public class Publisher {
 
 		ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
     XmlComposer comp = new XmlComposer();
-    Profile p = pgen.generate(profile, xml, true);
+    Profile p = pgen.generate(profile, xml, GenerationMode.Resource);
     comp.compose(new FileOutputStream(page.getFolders().dstDir + filename + ".profile.xml"), p, true, false);
 		Utilities.copyFile(new CSFile(page.getFolders().dstDir + filename + ".profile.xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + filename + ".profile.xml"));
 

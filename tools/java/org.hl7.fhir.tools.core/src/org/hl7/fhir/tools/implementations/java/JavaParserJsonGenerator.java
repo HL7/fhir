@@ -45,7 +45,7 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 
 public class JavaParserJsonGenerator extends JavaBaseGenerator {
-  public enum JavaGenClass { Structure, Type, Resource, Constraint }
+  public enum JavaGenClass { Structure, Type, Resource, Constraint, Backbone }
 
   private Definitions definitions;
   private Map<ElementDefn, String> typeNames = new HashMap<ElementDefn, String>();
@@ -146,6 +146,16 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("    };\r\n");    
     write("  }\r\n");
     write("\r\n");
+    write("  protected void parseBackboneProperties(JSONObject json, BackboneElement element) throws Exception {\r\n");
+    write("    parseElementProperties(json, element);\r\n");
+    write("    if (json != null && json.has(\"modifierExtension\")) {\r\n");
+    write("      JSONArray array = json.getJSONArray(\"modifierExtension\");\r\n");
+    write("      for (int i = 0; i < array.length(); i++) {\r\n");
+    write("        element.getModifierExtensions().add(parseExtension(array.getJSONObject(i)));\r\n");
+    write("      }\r\n");
+    write("    };\r\n");    
+    write("  }\r\n");
+    write("\r\n");
     write("  protected void parseTypeProperties(JSONObject json, Element element) throws Exception {\r\n");
     write("    parseElementProperties(json, element);\r\n");
     write("  }\r\n");
@@ -154,7 +164,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 
   private void genResource() throws Exception {
     write("  protected void parseResourceProperties(JSONObject json, Resource res) throws Exception {\r\n");
-    write("    parseElementProperties(json, res); \r\n");
+    write("    parseBackboneProperties(json, res); \r\n");
     write("    if (json.has(\"language\"))\r\n");
     write("      res.setLanguage(parseCode(json.getString(\"language\")));\r\n");
     write("    if (json.has(\"_language\"))\r\n");
@@ -246,7 +256,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     genInner(n, clss);
     
     for (ElementDefn e : strucs) {
-      genInner(e, JavaGenClass.Structure);
+      genInner(e, clss == JavaGenClass.Resource ? JavaGenClass.Backbone : JavaGenClass.Structure);
     }
 
   }
@@ -296,6 +306,8 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     }
     if (clss == JavaGenClass.Resource)
       write("    parseResourceProperties(json, res);\r\n");
+    else if (clss == JavaGenClass.Backbone)
+      write("    parseBackboneProperties(json, res);\r\n");
     else if (clss == JavaGenClass.Type && !tn.contains("."))
       write("    parseTypeProperties(json, res);\r\n");
     else

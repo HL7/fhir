@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
       
@@ -47,15 +47,15 @@ simplicity for everyone.
 <p>
 In order to make the use of extensions safe and manageable, there is a
 strict governance applied to the definition and use of extensions. Though
-any implementer is allowed to define an extension, there is a set of requirements
-that must be met as part of the definition of the extension.
+any implementer is allowed to define and use extensions, there is a set of requirements
+that must be met as part of theie use and definition.
 </p>
 <a name="Extension"></a>
-<h2>Extensibility Element</h2>
+<h2>Extension Element</h2>
 <p>
-Every element in a resource includes an optional "extension" element that may 
-be present any number of times in the element. The extension element appears as 
-the first child, prior to any other defined child elements. 
+Every element in a resource includes an optional "extension" child element that may 
+be present any number of times. The extension elements appears as 
+the first set of children, prior to any other defined child elements. 
 This is the content model of the extension as it appears in each resource:
 </p>
 <%dt Extension%>
@@ -64,14 +64,14 @@ Notes:
 </p>
 <ul>
  <li>The <i>url</i> is a mandatory field, and identifies an extension definition in a <a href="profile.html">resource profile</a> that defines the content and meaning of the extension.</li>
- <li><i>isModifier</i> is used to indicate that this value influences the interpretation, meaning or understanding of other elements. Its use is further discussed below</li>
- <li>The actual content of the extension consists of either a single value in the <i>value[x]</i> element, or it can be extended itself with other extensions, each with their own defining url and content</li>
- <li>The <i>url</i> and <i>isModifier</i> elements cannot have extensions themselves</li>
- <li>An extension SHALL have either a value (i.e. a value[x] element) or child extensions. The value element SHALL have content, and/or an id attribute that is the target of a reference from the Narrative</li>
+ <li>The actual content of the extension consists of either a single value in the <i>value[x]</i> element, or it can can contain additional extensions, each with their own defining url and content</li>
+ <li>The <i>url</i> element cannot have extensions themselves</li>
+ <li>An extension SHALL have either a value (i.e. a value[x] element) or child extensions. The value[x] element SHALL have content, and/or an id attribute that is the target of a reference from the Narrative</li>
  <li>When an extension is the target of an internal reference, the reference is always to the value of the extension. An extension is only allowed to be the target of a reference when it has no value[x]</li>
+ <li>It must be safe for an application processing the content of the resource to ignore an extension. Specifically, this should be understand to mean that the content of the extension does not alter the meaning of the element that contains it. See below for further discussion</li>
 </ul>
 <p>
-The <i>value[x]</i> element has the [x] replaced with the title-cased name of one of the defined types, and the contents as defined for that type, or another extension. The value type may be one of the following:
+The <i>value[x]</i> element has the [x] replaced with the title-cased name of one of the defined types, and the contents as defined for that type. The value type may be one of the following:
 </p>
 <ul class="dense">
  <li><a href="datatypes.html#integer">integer</a></li>
@@ -82,7 +82,7 @@ The <i>value[x]</i> element has the [x] replaced with the title-cased name of on
  <li><a href="datatypes.html#string">string</a></li>
  <li><a href="datatypes.html#uri">uri</a></li>
  <li><a href="datatypes.html#boolean">boolean</a></li>
- <li><a href="datatypes.html#code">code</a> - if the extension definition provides a binding to a suitable set of codes</li>
+ <li><a href="datatypes.html#code">code</a> (only if the extension definition provides a <a href="terminologies.tml#complete">complete</a> binding to a suitable set of codes)</li>
  <li><a href="datatypes.html#base64Binary">base64Binary</a></li>
  <li><a href="datatypes.html#Coding">Coding</a></li>
  <li><a href="datatypes.html#CodeableConcept">CodeableConcept</a></li>
@@ -99,10 +99,10 @@ The <i>value[x]</i> element has the [x] replaced with the title-cased name of on
  <li><a href="references.html#ResourceReference">Resource</a> - a reference to another resource</li>
 </ul>
 
-
 <p>
-Nested extensions are used where the original definition of the extension defines complex content (i.e. multiple parts of the extension, not a simple data type).
-If the value of the extension themselves need extending, these extensions go in the content of the value[x] element.
+An extension would contain other extensions instead of a value where the original definition of the extension defines 
+complex content (i.e. the extension ahs multiple parts, not a simple data type). If the value of the extension itself 
+needs extending, those extensions go in the content of the value[x] element.
 </p>
 <div class="example">
 <p>
@@ -155,79 +155,45 @@ Note that extensions come first in the extension, prior to the <i>url</i> elemen
 
 <a name="mustUnderstand"> </a>
 <a name="ismodifier"> </a>
-<h2>isModifier</h2>
+<a name="modifierExtension"> </a>
+<h2>Modifier Extensions</h2>
 <p>
-As well as providing additional information, extensions may be used to modify the meaning of
-other existing elements or even to negate their meanings. As an example, an implementation
-may wish to add a "certainty" extension to the AllergyIntolerance to indicate that some allergies
-are only suspected. If the extension had a value of "highly doubtful", then it would change
-the understanding of the allergy/intolerance, and implementations should not ignore this.
-Modifying the meaning of other elements makes these particular extensions unsafe to ignore, 
-and so this SHALL be explicitly labeled in the instance.
+There are some cases where the information provided in extensions modifies the meaning 
+of the element that contains it. Typically, this means information that qualifies or 
+negates the primary meaning of the element that contains it. Some examples:
+</p>
+<ul>
+ <li>Adding a certainty extension to an <a href="adversereaction.html">Adverse Reaction</a> that includes a value "highly doubtful"</li>
+ <li>Asserting an additional subsumption relationship on a concept in a <a href="valueset.html">value set</a></li>
+ <li>An anti-prescription: recording an instruction <b>not</b> to take a medication</li>
+ <li>Using the <a href="condition.html">Condition</a> resource to record an assertion that a patient <b>doesn't</b> have a particular diagnosis</li>
+ <li>Asserting that a performer was <b>not</b> actually involved in a <a href="procedure.html">Procedure</a></li>
+ <li>Recording that a <a href="supply.html">Supply</a> was <b>not</b> provided (i.e. refusal to fill)</li>
+</ul>
+<p>
+Implementers are encouraged not to use modifier extensions, and any use should be 
+carefully considered against it's possible downstream consequences. However implementers
+are often forced into these kind of arrangements by the business arrangements around
+the use of resources, so this specification creates a framework for handling these.
 </p>
 <p>
-If the application processing the content of a resource does not recognize an  
-extension that is labeled "IsModifier", and the data from element it extends is processed 
-by the application, the application SHALL either refuse to process the data, or carry a 
-warning concerning the data along with any action or output that results 
-from processing the data.
-</p>
-
-<p>
-Note that it SHALL always be safe to show the narrative to humans; any extension that is
-labeled as "IsModifier" SHALL be represented in the narrative. Applications SHOULD
-ignore extensions that they do not recognize if their "isModifier" element is
-missing or set to false.
-</p>
-
-<div class="example">
-<p>
-Example: Because of a lack of clinical consensus, there's no element on <a href="allergyintolerance.html">AllergyIntolerance</a> 
-for any expression of certaintly around the expression of the Allergy/Intolerance. Some systems mark their entries 
-as "unlikely" or "refuted". Applications are allowed to extend a resource with data like this: 
-</p>
-<pre class="xml" fragment="HumanName">
-&lt;AllergyIntolerance&gt;
-  &lt;extension&gt;
-    &lt;url value=&quot;http://example.org/fhir/extensions#certainty&quot; /&gt;
-    &lt;isModifier value=&quot;true&quot; /&gt;
-    &lt;valueCoding&gt;
-      &lt;system value="http://example.org/codes/certainty"/&gt;
-      &lt;code value="2"/&gt;
-      &lt;display value="Unlikely"/&gt;
-    &lt;/valueCoding&gt;
-  &lt;/extension&gt;
-&lt;/AllergyIntolerance&gt;
-</pre>
-<p>
-Applications processing the data of this resource SHALL check to see this value.
-If they do not recognise the extension, they SHALL warn the user about the fact 
-that the system does not fully understand the resource. Note that the narrative
-of the resource SHALL contain this qualifying information, so it is safe to 
-show this to the user as an expression of the resource's content.
+In these cases an application cannot safely process the resource unless it knows
+what the extension means for it's own use of the data. This specification allows for 
+such modifier elements to be included at the base of a resource, or in any elements
+that do not have a data type (e.g. the elements that correspond to classes in the UML
+diagrams), using an element named "modifierExtension", which has same content as the 
+<i>extension</i> element documented above. 
 </p>
 <p>
-Here is an Australian example where for cultural reasons, certain names that have been used previously must never be mentioned again:
+Implementations processing the data in resources SHALL understand the impact 
+of the extension when using the data. If an application processing the content 
+of a resource does not recognize a modifierExtension, and the data from the 
+element it extends is processed by the application, the application SHALL 
+either refuse to process the data, or carry a warning concerning the data 
+along with any action or output that results from processing the data to 
+inform users that it has not fully understood the source information.
 </p>
-<pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;extension&gt;
-    &lt;url value=&quot;http://hl7.org/fhir/Profileiso-21090#name-use&quot; /&gt;
-    &lt;isModifier value=&quot;true&quot; /&gt;
-    &lt;valueCode value=&quot;DN&quot; /&gt;
-  &lt;/extension&gt;
-  &lt;text value=&quot;Arinyoo&quot;/&gt;
-&lt;/name&gt;
-</pre>
 <p>
-Because the intent of the name use code is that this name should not actually be used as 
-if it were the patient's name, the extension is labeled "isModifier" = it is not safe 
-to use this name unless you understand the extension.
-</p>
-</div>
-
-<p>
-Implementations processing the data in resources SHALL understand the impact of the extension when using the data. 
 Implementations are not required to "support" the extension in any meaningful way - they 
 may achieve this understanding by rejecting instances that contain this extension. Alternatively,
 implementations may be able to be sure, due to their implementation environment, that such extensions
@@ -242,6 +208,93 @@ Servers and background processes that simply move whole resources around unchang
 are not "processing the data of the resource", and therefore these applications 
 are not required to check for unknown extensions. 
 </p>
+
+<h3>Summary: Conformance Rules for Modifier Extensions</h3>
+<ul>
+ <li>A modifierExtension SHALL only modify the element which it contains, and it's children</li>
+ <li>It SHALL always be safe to show the narrative to humans; any modifier extension SHALL be represented in the narrative.</li>
+ <li>Applications SHALL always check for modifierExtensions when processing the data from any element that may carry one. If a modifierExtension they do not understand is found, the application SHALL either refuse to process the resource, or provide an appropriate warning to it's users</li>
+</ul>
+
+<h3>Example</h3>
+ 
+<div class="example">
+<p>
+Example: Because of a lack of clinical consensus, there's no element on <a href="allergyintolerance.html">AllergyIntolerance</a> 
+for any expression of certaintly around the expression of the Allergy/Intolerance. Some systems mark their entries 
+as "unlikely" or "refuted". Applications are allowed to extend a resource with data like this: 
+</p>
+<pre class="xml">
+&lt;AllergyIntolerance&gt;
+  &lt;modifierExtension&gt;
+    &lt;url value=&quot;http://example.org/fhir/extensions#certainty&quot; /&gt;
+    &lt;valueCoding&gt;
+      &lt;system value="http://example.org/codes/certainty"/&gt;
+      &lt;code value="2"/&gt;
+      &lt;display value="Unlikely"/&gt;
+    &lt;/valueCoding&gt;
+  &lt;/modifierExtension&gt;
+  &lt;!-- .. text etc... --&gt;
+&lt;/AllergyIntolerance&gt;
+</pre>
+</div>
+<p>
+When an application understands this extension, it means that some developer
+has provided appropriate instructions for what to do with the data contained 
+in it. Note that there is no obligation that the application do anything at
+all with the data - it can ignore it if that is safe in it's own context,
+though this would not usually be the case.
+</p>
+<p>
+Whan an application that doesn't understand this extension tries
+to process this resource, it is required to either refuse to process 
+the resource, or provide an appropriate warning to it's users. Either
+of these courses of action is potentially difficult. One option is to 
+download the profile that defines the extension (from the given URL), 
+find the name of the extension, and then use the name to display
+the extension to the user. An error message could look something like
+this:
+</p>
+<img src="modifier-extension-warning.png"/>
+<p>
+Note that the narrative of the resource SHALL contain this qualifying 
+information, so it is safe to show this to the user as an expression 
+of the resource's content. A warning dialog box could be extended to
+offer the user the choice to see the original narrative. 
+</p>
+<div class="example">
+<p>
+Here is an example showing a statement that a particular surgeon did
+not perform an operation:
+</p>
+<pre class="xml">
+&lt;Procedure xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;text&gt;
+    &lt;status value=&quot;generated&quot;/&gt;
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;Routine appendicectomy for Fred Smith performed By Susan Taylor. Note: This operation was not performed by Dr Lakin&lt;/div&gt;
+  &lt;/text&gt;
+  &lt;!-- ...data... --&gt;
+  &lt;performer&gt;
+    &lt;modifierExtension&gt;
+      &lt;url value=&quot;http://example.org/fhir/extensions#didNotPerform&quot;/&gt;
+      &lt;valueBoolean value=&quot;true&quot;/&gt;
+    &lt;/modifierExtension&gt;
+    &lt;person&gt;
+      &lt;reference value=&quot;Practitioner/example&quot;/&gt;
+      &lt;display value=&quot;Dr Lakin&quot;/&gt;
+    &lt;/person&gt;
+  &lt;/performer&gt;
+  &lt;!-- ...data... --&gt;
+&lt;/Procedure&gt;
+</pre>
+</div>
+<p>
+In this case, if an application is not reading the performers of the operation at all,
+the fact that one of the performers has a modifierExtension is irrelevant, and the 
+application is free to ignore it. 
+</p>
+
+
 
 <h2>Exchanging Extensions</h2>
 
@@ -264,7 +317,7 @@ For this reason, local requirements that manifest as extensions are an obstacle 
 integration. The more the requirements are shared (i.e. regional or national scale),
 the less impact they will have. The consistent representation, definition and registration of 
 extensions that this specifiation defines cannot resolve that problem - it only provides a framework 
-within which such extensions can be handled. 
+within which such local variations can be handled more easily. 
 </p>
 <p>
 When it comes to deploying applications that support local requirements, situations
@@ -274,12 +327,14 @@ This specification makes some basic rules that are intended to make management
 of these situations easier, but they cannot resolve it.
 </p>
 <ul>
- <li>When exchanging resources, systems SHOULD retain unknown extensions when they are capable of doing so (just as they SHOULD retain core elements when they are capable of doing so). </li>
- <li>Systems that do not accept unknown extensions SHALL declare so in their Conformance resource instances.  </li>
+ <li>When exchanging resources, systems SHOULD retain unknown extensions when they are capable of doing so (just as they SHOULD retain core elements when they are capable of doing so)</li>
  <li>If a system modifies a resource it SHALL remove any extensions that it does not understand from the 
 modified element and its descendants, because it cannot know whether the modifications it has made 
-might invalidate the value of the unknown extension.</li>
+might invalidate the value of the unknown extension</li>
+ <li>Systems that drop existing elements are considered to be "processing the resource"</li>
  <li>A system SHALL not modify a resource that contains must-understand resource it doesn't understand</li>
+ <li>Applications SHOULD ignore extensions that they do not recognize if their "isModifier" element is missing or set to false</li>
+ <li>Systems that do not accept unknown extensions SHALL declare so in their Conformance resource instances</li>
 </ul>
 <p>
 The degree to which an system can retain unknown extensions is a function of the type of system
@@ -289,7 +344,16 @@ interface can only retain extensions to the degree that their information is par
 set managed by the user. Other applications will fall somewhere between these two extremes.
 </p>
 
- 
+<h3>Summary: Handling extensions</h3>
+<p>
+Use the following rules as a guideline for handling resources:
+</p>
+<ul>
+ <li>When writing extensions, make sure they are defined and published</li>
+ <li>When reading elements that can have modifier extensions, check whether they are any</li>
+ <li>When reading elements ignore other extensions, unless you want to read a particular extension</li>
+ <li>Retain extensions when ever you can</li>
+</ul> 
  
 <a name="define"></a>
 <h2>Defining Extensions</h2>
@@ -325,8 +389,8 @@ Each extension is defined using the following fields:
  <tr><td>Cardinality</td><td>Required</td><td>The cardinality of this extension.<br/> Specifying a minimum cardinality of 1 means that if the source system declares that it conforms to an extension that declares a type including this extension, this extension must be included in the resource.  Cardinality can be constrained but not loosened in profiles that reference this extension</td></tr>
  <tr><td>Type</td><td>Required</td><td>The type(s) of the extension. This SHALL be a valid FHIR data type as described above, or "Extension: x,y,z" which indicates that the extension codes x,y, and z will be contained in the extension</td></tr>
  <tr><td>XPaths</td><td>Optional</td><td>One or more XPath statements that SHALL evaluate to true when the extension is used</td></tr>
- <tr><td>Is Modifier</td><td>Required</td><td>Whether the extension changes the meaning or interpretation of the element containing the extension (or any descendant of that element).  Systems SHALL NOT process any element (or its descendants) that contains an extension with isModifier="true" unless the system understands the impact of that extension on the elements</td></tr>
- <tr><td>RIM Mapping</td><td>Conditional</td><td>The formal mapping from this extension to the RIM. Required for HL7-defined extensions that apply to resources with RIM mappings, but may be optional in other contexts</td></tr>
+ <tr><td>Is Modifier</td><td>Required</td><td>Whether the extension changes the meaning or interpretation of the element containing the extension (or any descendant of that element). Extensions defined as IsModifier=true are always represented in <i>modifierExtension</i> elements, and extensions defined as IsModifier=false are always represented in <i>Extension</i> elements</td></tr>
+ <tr><td>RIM Mapping</td><td>Conditional</td><td>The formal mapping from this extension to the RIM. Required for HL7-defined extensions that apply to resources with RIM mappings, but optional in other contexts</td></tr>
  <tr><td>v2 Mapping</td><td>Optional</td><td>Mapping to a v2 segment/field/etc., if desired and appropriate. </td></tr>
  <tr><td>Binding</td><td>Conditional</td><td>For the types CodeableConcept and Coding. See <a href="terminologies.html">Terminologies</a></td></tr>
 </table>

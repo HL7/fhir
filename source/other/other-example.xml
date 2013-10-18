@@ -6,35 +6,11 @@ Note: Referral is likely to be incorporated as an official resource in a future 
 -->
 <Other xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/other.xsd">
   <extension>
-    <url value="http://example.org/do-not-use/fhir-extensions/referral#referredForService"/>
-    <isModifier value="true"/>
-    <valueCodeableConcept>
-      <coding>
-        <system value="http://snomed.info/id"/>
-        <code value="11429006"/>
-        <display value="Consultation"/>
-      </coding>
-    </valueCodeableConcept>
-  </extension>
-  <extension>
     <url value="http://example.org/do-not-use/fhir-extensions/referral#requestingPractitioner"/>
     <valueResource>
       <reference value="Practitioner/f201"/>
       <display value="Dokter Bronsig"/>
     </valueResource>
-  </extension>
-  <extension>
-    <url value="http://example.org/do-not-use/fhir-extensions/referral#targetDate"/>
-    <isModifier value="true"/>
-    <valuePeriod>
-      <start value="2013-04-01"/>
-      <end value="2013-04-15"/>
-    </valuePeriod>
-  </extension>
-  <extension>
-    <url value="http://example.org/do-not-use/fhir-extensions/referral#status"/>
-    <isModifier value="true"/>
-    <valueCode value="complete"/>
   </extension>
   <extension>
     <url value="http://example.org/do-not-use/fhir-extensions/referral#notes"/>
@@ -46,6 +22,27 @@ Note: Referral is likely to be incorporated as an official resource in a future 
       <reference value="Encounter/f201"/>
     </valueResource>
   </extension>
+  <modifierExtension>
+    <url value="http://example.org/do-not-use/fhir-extensions/referral#referredForService"/>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/id"/>
+        <code value="11429006"/>
+        <display value="Consultation"/>
+      </coding>
+    </valueCodeableConcept>
+  </modifierExtension>
+  <modifierExtension>
+    <url value="http://example.org/do-not-use/fhir-extensions/referral#targetDate"/>
+    <valuePeriod>
+      <start value="2013-04-01"/>
+      <end value="2013-04-15"/>
+    </valuePeriod>
+  </modifierExtension>
+  <modifierExtension>
+    <url value="http://example.org/do-not-use/fhir-extensions/referral#status"/>
+    <valueCode value="complete"/>
+  </modifierExtension>
   <text>
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">

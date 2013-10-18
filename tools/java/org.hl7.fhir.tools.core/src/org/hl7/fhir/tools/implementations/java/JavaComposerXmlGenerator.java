@@ -45,7 +45,7 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 
 public class JavaComposerXmlGenerator extends JavaBaseGenerator {
-  public enum JavaGenClass { Structure, Type, Resource, Constraint }
+  public enum JavaGenClass { Structure, Type, Resource, Constraint, Backbone }
 
   private Definitions definitions;
   private Map<ElementDefn, String> typeNames = new HashMap<ElementDefn, String>();
@@ -153,6 +153,13 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
     write("    }\r\n");
     write("  }\r\n");
     write("\r\n");
+    write("  private void composeBackboneElements(BackboneElement element) throws Exception {\r\n");
+    write("    composeElementElements(element);\r\n");    
+    write("    for (Extension e : element.getModifierExtensions()) {\r\n");
+    write("      composeExtension(\"modifierExtension\", e);\r\n");
+    write("    }\r\n");
+    write("  }\r\n");
+    write("\r\n");
   }
 
   private void genResource() throws Exception {
@@ -161,7 +168,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
     write("  }\r\n\r\n");
 
     write("  private void composeResourceElements(Resource element) throws Exception {\r\n");
-    write("    composeElementElements(element);\r\n");
+    write("    composeBackboneElements(element);\r\n");
     write("    composeCode(\"language\", element.getLanguage());\r\n");
     write("    composeNarrative(\"text\", element.getText());\r\n");
     write("    for (Resource r : element.getContained()) {\r\n");
@@ -277,7 +284,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
     genInner(n, type);
     
     for (ElementDefn e : strucs) {
-      genInner(e, JavaGenClass.Structure);
+      genInner(e, type == JavaGenClass.Resource ?  JavaGenClass.Backbone : JavaGenClass.Structure);
     }
 
   }
@@ -334,6 +341,8 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
     write("      xml.open(FHIR_NS, name);\r\n");
     if (type == JavaGenClass.Resource) 
       write("      composeResourceElements(element);\r\n");
+    else if (type == JavaGenClass.Backbone) 
+      write("      composeBackboneElements(element);\r\n");
     else
       write("      composeElementElements(element);\r\n");
     

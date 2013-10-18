@@ -47,7 +47,7 @@ import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 
 public class JavaComposerJsonGenerator extends OutputStreamWriter {
-  public enum JavaGenClass { Structure, Type, Resource, Constraint }
+  public enum JavaGenClass { Structure, Type, Resource, Constraint, Backbone }
 
   private Definitions definitions;
   private Map<ElementDefn, String> typeNames = new HashMap<ElementDefn, String>();
@@ -141,11 +141,21 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     write("    }\r\n");
     write("  }\r\n");
     write("\r\n");
+    write("  private void composeBackbone(BackboneElement element) throws Exception {\r\n");
+    write("    composeElement(element);\r\n");
+    write("    if (element.getModifierExtensions().size() > 0) {\r\n");
+    write("      openArray(\"modifierExtension\");\r\n");
+    write("      for (Extension ex : element.getModifierExtensions())\r\n");
+    write("        composeExtension(null, ex);\r\n");
+    write("      closeArray();\r\n");
+    write("    }\r\n");
+    write("  }\r\n");
+    write("\r\n");
   }
 
   private void genResource() throws Exception {    
     write("  private void composeResourceElements(Resource element) throws Exception {\r\n");
-    write("    composeElement(element);\r\n");
+    write("    composeBackbone(element);\r\n");
     write("    if (element.getText() != null)\r\n");
     write("      composeNarrative(\"text\", element.getText());\r\n");
     write("    if (element.getContained().size() > 0) {\r\n");
@@ -267,7 +277,7 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     genInner(n, clss);
     
     for (ElementDefn e : strucs) {
-      genInner(e, JavaGenClass.Structure);
+      genInner(e, clss == JavaGenClass.Resource ? JavaGenClass.Backbone : JavaGenClass.Structure);
     }
 
   }
@@ -302,6 +312,8 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     write("      open(name);\r\n");
     if (clss == JavaGenClass.Resource) 
       write("      composeResourceElements(element);\r\n");
+    else if (clss == JavaGenClass.Backbone) 
+      write("      composeBackbone(element);\r\n");
     else
       write("      composeElement(element);\r\n");
     for (ElementDefn e : n.getElements()) 

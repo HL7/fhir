@@ -145,7 +145,7 @@ public class XSDGenerator  {
 		if (isResource)
 			write("      <xs:extension base=\"Resource\">\r\n");
 		else
-			write("      <xs:extension base=\"Element\">\r\n");
+			write("      <xs:extension base=\"BackboneElement\">\r\n");
 		write("        <xs:sequence>\r\n");
 
 		for (ElementDefn e : struc.getElements()) {

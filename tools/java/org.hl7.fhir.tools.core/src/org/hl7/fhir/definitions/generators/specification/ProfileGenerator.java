@@ -73,6 +73,8 @@ import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 
 public class ProfileGenerator {
 
+  public enum GenerationMode { Element, Backbone, Resource  }
+
   private Definitions definitions;
   private Set<String> bindings = new HashSet<String>();
 
@@ -82,7 +84,7 @@ public class ProfileGenerator {
     this.definitions = definitions;
   }
 
-  public Profile generate(ProfileDefn profile, String html, boolean addBase) throws Exception {
+  public Profile generate(ProfileDefn profile, String html, GenerationMode mode) throws Exception {
     Profile p = new Profile();
     p.setName(Factory.newString_(profile.metadata("name")));
     p.setPublisher(Factory.newString_(profile.metadata("author.name")));
@@ -115,7 +117,7 @@ public class ProfileGenerator {
       if (!"".equals(resource.getRoot().getProfileName()))
         c.setName(Factory.newString_(resource.getRoot().getProfileName()));
       // no purpose element here
-      defineElement(profile, p, c, resource.getRoot(), resource.getName(), addBase, containedSlices);
+      defineElement(profile, p, c, resource.getRoot(), resource.getName(), mode, containedSlices);
     }
     containedSlices.clear();
     for (ElementDefn elem : profile.getElements()) {
@@ -126,7 +128,7 @@ public class ProfileGenerator {
       if (!"".equals(elem.getProfileName()))
         c.setName(Factory.newString_(elem.getProfileName()));
       // no purpose element here
-      defineElement(profile, p, c, elem, elem.getName(), addBase, containedSlices);
+      defineElement(profile, p, c, elem, elem.getName(), mode, containedSlices);
     }
 
 //    for (String bn : bindings) {
@@ -264,7 +266,7 @@ public class ProfileGenerator {
     throw new Exception("unknown value ContextType."+type.toString());
   }
 
-  private Profile.ElementComponent defineElement(ProfileDefn pd, Profile p, Profile.ProfileStructureComponent c, ElementDefn e, String path, boolean addBase, Set<String> slices) throws Exception {
+  private Profile.ElementComponent defineElement(ProfileDefn pd, Profile p, Profile.ProfileStructureComponent c, ElementDefn e, String path, GenerationMode mode, Set<String> slices) throws Exception {
     Profile.ElementComponent ce = p.new ElementComponent();
     c.getElement().add(ce);
     ce.setPath(Factory.newString_(path));
@@ -357,21 +359,44 @@ public class ProfileGenerator {
       for (ElementDefn child : e.getElements()) {
         if (child.getName().equals("extension")) {
           String t = child.getProfile();
-          ElementComponent elem = defineElement(pd, p, c, child, path+"."+child.getName(), false, containedSlices);
+          ElementComponent elem = defineElement(pd, p, c, child, path+"."+child.getName(), GenerationMode.Element, containedSlices);
           elem.getDefinition().getType().get(0).setProfileSimple(t);
           }
       }
-    } else if (addBase) {
+    } else if (mode != GenerationMode.Element && e.getTypes().size() > 0) {
       c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("extension")));
     }
       
-    if (addBase) {
+    if ((mode == GenerationMode.Resource) || (mode == GenerationMode.Backbone && e.getTypes().size() == 0)) {
+      if (e.getElementByName("modifierExtension") != null) {
+        ElementComponent ex = createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("modifierExtension"));
+        ex.setNameSimple("base modifier extension");
+        ex.setSlicing(p.new ElementSlicingComponent());
+        ex.getSlicing().setDiscriminatorSimple("url");
+        ex.getSlicing().setOrderedSimple(false);
+        ex.getSlicing().setRulesSimple(ResourceSlicingRules.open);
+        ex.setDefinition(null);
+        c.getElement().add(ex);
+        containedSlices.add("modifierExtension");
+        for (ElementDefn child : e.getElements()) {
+          if (child.getName().equals("modifierExtension")) {
+            String t = child.getProfile();
+            ElementComponent elem = defineElement(pd, p, c, child, path+"."+child.getName(), GenerationMode.Element, containedSlices);
+            elem.getDefinition().getType().get(0).setProfileSimple(t);
+          }
+        }
+      } else {
+        c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("modifierExtension")));
+      }
+    }
+    
+    if (mode == GenerationMode.Resource) {
       c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("text")));
       c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("contained")));
     }
     for (ElementDefn child : e.getElements()) {
       if (!child.getName().equals("extension"))
-        defineElement(pd, p, c, child, path+"."+child.getName(), false, containedSlices);
+        defineElement(pd, p, c, child, path+"."+child.getName(), mode != GenerationMode.Element ? GenerationMode.Backbone : GenerationMode.Element, containedSlices);
     }
     return ce;
   }

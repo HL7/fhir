@@ -45,7 +45,7 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 
 public class JavaParserXmlGenerator extends JavaBaseGenerator {
-  public enum JavaGenClass { Structure, Type, Resource, Constraint }
+  public enum JavaGenClass { Structure, Type, Resource, BackboneElement, Constraint }
 
   private Definitions definitions;
   private Map<ElementDefn, String> typeNames = new HashMap<ElementDefn, String>();
@@ -143,13 +143,20 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("    return true;\r\n");    
     write("  }\r\n");
     write("\r\n");
+    write("  private boolean parseBackboneContent(int eventType, XmlPullParser xpp, BackboneElement res) throws Exception {\r\n");
+    write("    if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"modifierExtension\")) \r\n");
+    write("      res.getModifierExtensions().add(parseExtension(xpp));\r\n");
+    write("    else\r\n");
+    write("      return parseElementContent(eventType, xpp, res);\r\n");
+    write("      \r\n");
+    write("    return true;\r\n");    
+    write("  }\r\n");
+    write("\r\n");
   }
 
   private void genResource() throws Exception {
     write("  private boolean parseResourceContent(int eventType, XmlPullParser xpp, Resource res) throws Exception {\r\n");
-    write("    if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"extension\")) { \r\n");
-    write("      res.getExtensions().add(parseExtension(xpp));\r\n");
-    write("    } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"language\")) { \r\n");
+    write("    if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"language\")) { \r\n");
     write("      res.setLanguage(parseCode(xpp));\r\n");
     write("    } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"text\")) {\r\n"); 
     write("      res.setText(parseNarrative(xpp));\r\n");
@@ -165,7 +172,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("      };\r\n");
     write("      nextNoWhitespace(xpp);\r\n");
     write("    } else\r\n");
-    write("      return false;\r\n");
+    write("      return parseBackboneContent(eventType, xpp, res);\r\n");
     write("      \r\n");
     write("    return true;\r\n");    
     write("  }\r\n");
@@ -257,7 +264,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     genInner(n, clss);
     
     for (ElementDefn e : strucs) {
-      genInner(e, JavaGenClass.Structure);
+      genInner(e, clss == JavaGenClass.Resource ? JavaGenClass.BackboneElement : JavaGenClass.Structure);
     }
 
   }
@@ -307,6 +314,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     }
     if (clss == JavaGenClass.Resource)
       write("    parseResourceAttributes(xpp, res);\r\n");
+    else if (clss == JavaGenClass.BackboneElement)
+      write("    parseBackboneAttributes(xpp, res);\r\n");
     else if (clss == JavaGenClass.Type && !tn.contains("."))
       write("    parseTypeAttributes(xpp, res);\r\n");
     else
@@ -329,7 +338,9 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     }
     if (clss == JavaGenClass.Resource)
       write("      } else if (!parseResourceContent(eventType, xpp, res))\r\n");
-    else
+    else if (clss == JavaGenClass.BackboneElement)
+        write("      } else if (!parseBackboneContent(eventType, xpp, res))\r\n");
+      else
       write("      } else if (!parseElementContent(eventType, xpp, res))\r\n");
     write("        unknownContent(xpp);\r\n");
     write("      eventType = nextNoWhitespace(xpp);\r\n");
