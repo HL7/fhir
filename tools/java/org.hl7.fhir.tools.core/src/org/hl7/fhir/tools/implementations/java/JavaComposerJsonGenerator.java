@@ -309,7 +309,10 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     
     write("  private void compose"+upFirst(tn).replace(".", "").replace("<", "_").replace(">", "")+"(String name, "+tn+" element) throws Exception {\r\n");
     write("    if (element != null) {\r\n");
-    write("      open(name);\r\n");
+    if (clss == JavaGenClass.Resource) 
+      write("      prop(\"resourceType\", name);\r\n");
+    else
+      write("      open(name);\r\n");
     if (clss == JavaGenClass.Resource) 
       write("      composeResourceElements(element);\r\n");
     else if (clss == JavaGenClass.Backbone) 
@@ -318,6 +321,7 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
       write("      composeElement(element);\r\n");
     for (ElementDefn e : n.getElements()) 
       genElement(n, e, clss);
+    if (clss != JavaGenClass.Resource) 
     write("      close();\r\n");
     write("    }\r\n");    
     write("  }\r\n\r\n");    

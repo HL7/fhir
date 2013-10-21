@@ -225,9 +225,19 @@ parser which resource type this is:
 }
 </pre>
 <p>
-Note that parsers cannot assume that the resourceType property will come first - many JSON frameworks do not give the author 
-control over the order in which properties are written. 
+Note that parsers cannot assume that the resourceType property will come first. 
 </p>
+<blockquote>
+<p>
+<b>Design Note</b>: This is a problem for several JSON -&gt; Object serialisers that assume that the 
+resourceType property does come first, including <a href="http://james.newtonking.com/json">Json.NET</a>. 
+However some JSON generators do not give the authoring application control of the order of the 
+property values, and so these implementations cannot inter-operate with implementations that make
+assumptions about order. Given that JSON says that the property values are an unordered map of name/value
+pairs, this specification cannot require that properties come in any particular order, though implementers
+may choose to fix the property order if they are able.
+</p>
+</blockquote>
 
 <a name="bundle"> </a>
 <a name="atom"> </a>

@@ -14,7 +14,9 @@
     <reference value="Encounter/f203"/>
     <display value="Roel's encounter on March eleventh 2013"/>
  </encounter>
- <reasonForPrescribingString value="condtition/@f203"/>
+ <reasonForPrescribing>
+   <text value="condtition/@f203"/>
+ </reasonForPrescribing>
  <medication>
     <reference value="Medication/f202"/>
     <display value="Flucloxacilline"/>

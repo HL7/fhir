@@ -687,7 +687,8 @@ resources: they are always represented using their original content type.
 <a name="paging"> </a>
 <h3>Paging</h3>
 <p> 
-If servers provide paging, they SHALL conform to the method described in <a href="https://tools.ietf.org/html/rfc5005">RFC 5005 (Feed 
+If servers provide paging for the results of a <a href="#search">search</a> or <a href="#history">history</a> interaction,
+they SHALL conform to the method described in <a href="https://tools.ietf.org/html/rfc5005">RFC 5005 (Feed 
 Paging and Archiving)</a> for sending continuation links to the client when returning a bundle
 (e.g. with history and search). If the server does not do this, there is no way to continue paging.
 </p>
@@ -726,16 +727,16 @@ is to use version specific references to the records on the boundaries, but this
 subject to continuity failures when records are updated.
 </p>
 <p>
-A server MAY inform the client of the total number of resources returned by the interaction using 
-the totalResults element from the <a href="http://www.opensearch.org/Specifications/OpenSearch/1.1">
+A server MAY inform the client of the total number of resources returned by the interaction for which the results are paged
+using  the totalResults element from the <a href="http://www.opensearch.org/Specifications/OpenSearch/1.1">
 OpenSearch specification</a>:
 </p>
 <pre class="xml">
 &lt;feed xmlns="http://www.w3.org/2005/Atom"&gt;
-  &lt;title&gt;Search Page 3&lt;/title&gt;
+  &lt;title&gt;e.g. Search Page 3&lt;/title&gt;
   &lt;os:totalResults xmlns:os="http://a9.com/-/spec/opensearch/1.1/"&gt;1432&lt;/os:totalResults&gt;
   
-  &lt;!-- the rest of the search results... --&gt;  
+  &lt;!-- the rest of the search/history results... --&gt;  
 &lt;/feed&gt;
 </pre>
 

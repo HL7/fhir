@@ -209,9 +209,8 @@ ensuring consistent behavior.
 	 <li>For "[date]:after=[value]", the requirement is that the interval of the time after [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
 	    For instance, the resource time 2013-01-14 is included in the set of values that come after 2013-01-14T10:00, because it includes the part of 14-Jan 2013 after 10am </li>
    </ul>
-   If the bounds of the interval are not known (i.e. a range with no start, or a schedule like "every two days" with neither start or end), 
-   then the boundaries are implicitly considered above or below calculable time, and so these count as intersections. For instance, the
-   period from 21-Jan 2013 onwards is included in matches for date-after=2013-03-14 because it may include times after 14-Mar 2013.
+   Implicitly, a missing lower boundary is 'less than' any actual date).  A missing upper boundary is 'greater than' any actual date).
+   For instance, the period from 21-Jan 2013 onwards is included in matches for date-after=2013-03-14 because it may include times after 14-Mar 2013.
  </li>
  <li>Similarly, when the date parameter is not fully specified, matches against it are based on the behavior of intervals, where:
 	<ul>

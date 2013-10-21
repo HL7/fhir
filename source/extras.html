@@ -68,7 +68,6 @@ This table summarises the tags that are defined as part of this specification:
  <tr> <td><b>Term</b></td> <td><b>Context</b></td> <td><b>Description</b></td></tr>
  <tr> <td>http://hl7.org/fhir/tag/document</td> <td>A bundle (feed.category)</td> <td>Identifies that this bundle represents <a href="document.html">a document</a></td></tr>
  <tr> <td>http://hl7.org/fhir/tag/message</td> <td>A bundle (feed.category)</td> <td>Identifies that this bundle represents <a href="message.html">a message</a></td></tr>
- <tr> <td></td> <td></td></tr>
 </table>
 
 <h4>Profile Tags</h4>
@@ -201,7 +200,11 @@ The content of bundled resources SHALL always be present except in the special c
 <p>
 Conceptually, a bundle has an identifier (url) and a date updated, and a list of resources, each of 
 which  has its metadata as listed above. Also, both the bundle and each resource have a set of 
-named links. This means that applications reading
+named links, and may have additional <a href="#tags">Tags</a> that indicate what use the bundle 
+has. 
+</p>
+<p>
+Applications reading
 the bundle <a href="references.html#atom-ref">should always look for a resource by its identity (after converting relative URLs
 absolute URL) in the bundle first</a> before trying to access it by its URL.
 </p>

@@ -15,17 +15,17 @@
         <reference value="Practitioner/F006"/>
         <display value="R.A. van den Berk"/>
     </prescriber>
-    <visit> <!-- Linked to a resource Visit between patient and practitioner-->
-        <reference value="Encounter/@F001"/>
+    <encounter> <!-- Linked to a resource Visit between patient and practitioner-->
+        <reference value="Encounter/F001"/>
         <display value="visit who leads to this priscription"/>
-    </visit>
-    <reasonForPrescribingCodeableConcept>
+    </encounter>
+    <reasonForPrescribing>
         <coding>
             <system value="http://snomed.info/id"/>
             <code value="28036006"/>
             <display value="High density lipoprotein cholesterol level"/>
         </coding>
-    </reasonForPrescribingCodeableConcept>
+    </reasonForPrescribing>
     <medication> <!-- Linked to a RESOURCE Medication -->
         <reference value="Medication/F002"/>
         <display value="prescribed medication"/>

@@ -400,7 +400,9 @@
                     <display value="Peter Practitioner"/>
                 </prescriber>
 
-                <reasonForPrescribingString value="Management of Asthma"/>
+                <reasonForPrescribing>
+                  <text value="Management of Asthma"/>
+                </reasonForPrescribing>
 
                 <!-- a reference to the medication being prescribed. As described earlier, this could be contained (as is the example here), separately
         within the document bundle or simply a reference to a remote server. See comment in the contained resource-->
@@ -410,7 +412,9 @@
                 </medication>
 
                 <dosageInstruction>
-                    <additionalInstructionsString value="Take with Food"/>
+                    <additionalInstructions>
+                      <text  value="Take with Food"/>
+                    </additionalInstructions>
                     <!-- twice a day -->
                     <timingSchedule>
                         <repeat>

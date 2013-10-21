@@ -31,13 +31,13 @@
         <system value="http://unitsofmeasure.org"/>
         <code value="min"/>
     </length>
-    <reasonCodeableConcept>
+    <reason>
         <coding>
             <system value="http://snomed.info/id"/>
             <code value="34068001"/>
             <display value="Partial lobectomy of lung"/>
         </coding>
-    </reasonCodeableConcept>
+    </reason>
     <priority>
         <coding>
             <system value="http://snomed.info/id"/>

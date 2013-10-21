@@ -20,7 +20,6 @@
   <WindowWidth>17490</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -33,7 +32,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s57" ss:Name="Normal 2">
+  <Style ss:ID="s62" ss:Name="Normal 2">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -41,17 +40,17 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s58">
+  <Style ss:ID="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s59">
+  <Style ss:ID="s64">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s60">
+  <Style ss:ID="s65">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -61,12 +60,12 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s61">
+  <Style ss:ID="s66">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s62">
+  <Style ss:ID="s67">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
@@ -75,7 +74,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s63">
+  <Style ss:ID="s68">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -83,7 +82,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s64" ss:Parent="s57">
+  <Style ss:ID="s70" ss:Parent="s62">
    <Alignment ss:Vertical="Top"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -91,21 +90,21 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s66">
+  <Style ss:ID="s72">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s67">
+  <Style ss:ID="s73">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s68">
+  <Style ss:ID="s74">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s69">
+  <Style ss:ID="s75">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s70">
+  <Style ss:ID="s76">
    <Alignment ss:Vertical="Top"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
@@ -117,23 +116,23 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="19" ss:ExpandedRowCount="27" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s58" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s59" ss:AutoFitWidth="0" ss:Width="196.5"/>
-   <Column ss:StyleID="s58" ss:AutoFitWidth="0" ss:Width="30"/>
-   <Column ss:StyleID="s58" ss:AutoFitWidth="0" ss:Width="25.5"/>
-   <Column ss:StyleID="s58" ss:AutoFitWidth="0" ss:Width="36.75" ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s58" ss:AutoFitWidth="0" ss:Width="98.25"/>
-   <Column ss:StyleID="s58" ss:AutoFitWidth="0" ss:Width="82.5"/>
-   <Column ss:StyleID="s58" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="2"/>
-   <Column ss:Index="11" ss:StyleID="s58" ss:AutoFitWidth="0" ss:Width="54.75"/>
-   <Column ss:StyleID="s58" ss:AutoFitWidth="0" ss:Width="161.25"/>
-   <Column ss:StyleID="s58" ss:AutoFitWidth="0" ss:Width="290.25"/>
-   <Column ss:StyleID="s58" ss:AutoFitWidth="0" ss:Width="279"/>
-   <Column ss:StyleID="s58" ss:AutoFitWidth="0" ss:Width="666.75"/>
-   <Column ss:StyleID="s58" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="18" ss:StyleID="s58" ss:AutoFitWidth="0" ss:Width="164.25"/>
-   <Column ss:StyleID="s58" ss:AutoFitWidth="0" ss:Width="722.25"/>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s60">
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="196.5"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="30"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="25.5"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="36.75" ss:Span="1"/>
+   <Column ss:Index="6" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="98.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="82.5"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="2"/>
+   <Column ss:Index="11" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="54.75"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="290.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="279"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="666.75"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Column ss:Index="18" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="164.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="722.25"/>
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Card.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Inv.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -166,10 +165,10 @@
    <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell><Data ss:Type="String">DiagnosticReport</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s61"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s61"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s61"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s61"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A Diagnostic report - a combination of request information, atomic results, images, interpretation, and formatted reports</Data><NamedCell
@@ -188,7 +187,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">It's not clear how to handle cumulative reports</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s62"><ss:Data ss:Type="String"
+    <Cell ss:StyleID="s67"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">isNormalAct</Font></B><Font
        html:Color="#000000"> is a short-cut meaning:&#10;not(actionNegationInd=&quot;true&quot; or isCriterionInd=&quot;true&quot;)</Font></ss:Data></Cell>
    </Row>
@@ -212,9 +211,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications need to take appropriate action if a report is withdrawn</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">statusCode&#10;&#10;Note: final and amended are distinguished by whether observation is the subject of a ControlAct event of type &quot;revise&quot;</Data><NamedCell
+    <Cell ss:StyleID="s68"><Data ss:Type="String">statusCode&#10;&#10;Note: final and amended are distinguished by whether observation is the subject of a ControlAct event of type &quot;revise&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s62"><ss:Data ss:Type="String"
+    <Cell ss:StyleID="s67"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">registered: </Font></B><Font
        html:Color="#000000">./statusCode[isNormalDatatype()]=&quot;new&quot;;&#10;&#10;</Font><B><Font
         html:Color="#000000">interim:</Font></B><Font html:Color="#000000"> ./statusCode[isNormalDatatype()]=&quot;active&quot;;&#10;&#10;</Font><B><Font
@@ -225,7 +224,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">OBR-25-Result Status (not 1:1 mapping)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="19" ss:StyleID="s62"><ss:Data ss:Type="String"
+    <Cell ss:Index="19" ss:StyleID="s67"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">isNormalActRelationship</Font></B><Font
        html:Color="#000000"> is a short-cut meaning:&#10;not(inversionInd=&quot;true&quot; or negationInd=&quot;true&quot; or subsetCode[not(nullFlavor=&quot;NA&quot;)])</Font></ss:Data></Cell>
    </Row>
@@ -250,9 +249,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">firstOf(unique(./participation[isHighest(priorityCode) and typeCode=&quot;VRF&quot; and isNormalParticipation()]/time[type=&quot;TS&quot;]), &#10;unique(./participation[isHighest(priorityCode) and typeCode=&quot;AUT&quot; and isNormalParticipation()]/time[type=&quot;TS&quot;]))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">OBR-22-Results Rpt/Status Chng - Date/Time</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OBR-22-Results Rpt/Status Chng - Date/Time</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="19" ss:StyleID="s59"><ss:Data ss:Type="String"
+    <Cell ss:Index="19" ss:StyleID="s64"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">isHighest</Font></B><Font
        html:Color="#000000"> is a short-cut that indicates that, in the event there are multiple occurrences that match the remaining constraints, the data element is the one with the highest non-null value for the indicated property.&#10;&#10;</Font><B><Font
         html:Color="#000000">isNormalParticipation</Font></B><Font
@@ -278,9 +277,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">unique(./participation[isHighest(priorityCode) and typeCode=&quot;SBJ&quot; and isNormalParticipation()]/role[classCode=&quot;PAT&quot;])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">PID-3-Patient ID List (no V2 mapping for Group or Device)</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">PID-3-Patient ID List (no V2 mapping for Group or Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="19" ss:StyleID="s62"><ss:Data ss:Type="String"
+    <Cell ss:Index="19" ss:StyleID="s67"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">Question: </Font></B><Font
        html:Color="#000000">Said this should be highest priority.  Is that appropriate?</Font></ss:Data></Cell>
    </Row>
@@ -305,9 +304,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">unique(./participation[isHighest(priorityCode) and typeCode=&quot;AUT&quot; and isNormalParticipation()]/role[subsumesCode(&quot;RoleClass#ASSIGN&quot;, classCode)]/scoper[subsumesCode(&quot;EntityClass#ORG&quot;, classCode) and determinerCode=&quot;INSTANCE&quot;])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">PRT-8-Participation Organization (where this PRT-4-Participation = &quot;PO&quot;)</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">PRT-8-Participation Organization (where this PRT-4-Participation = &quot;PO&quot;)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="19" ss:StyleID="s62"><ss:Data ss:Type="String"
+    <Cell ss:Index="19" ss:StyleID="s67"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">Question: </Font></B><Font
        html:Color="#000000">Said this should be highest priority.  Is that appropriate?</Font></ss:Data></Cell>
    </Row>
@@ -330,7 +329,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">unique(./id[displayable=&quot;true&quot; and scope=&quot;OBJ&quot;])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">OBR-51-Observation Group ID (todo: check semantic intent of OBR-51 with OOWG)</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OBR-51-Observation Group ID (todo: check semantic intent of OBR-51 with OOWG)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
@@ -351,7 +350,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">unique(./outboundRelationship[typeCode=&quot;FLFS&quot; and isNormalActRelationship()]/target[subsumesCode(&quot;ActClass#OBS&quot;, classCode) and subsumes(&quot;ActMood#PRMS&quot;, moodCode) and isNormalAct()])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="19" ss:StyleID="s62"><ss:Data ss:Type="String"
+    <Cell ss:Index="19" ss:StyleID="s67"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">Question: </Font></B><Font
        html:Color="#000000">Should this be by priorityCode too?</Font></ss:Data></Cell>
    </Row>
@@ -373,11 +372,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">unique(./inboundRelationship[isHighest(priorityCode) and typeCode=&quot;SUBJ&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#ENC&quot;, code) and moodCode=&quot;EVN&quot; and isNormalAct()])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">PV1-19-Visit Number</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">PV1-19-Visit Number</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Question whether this is 80%</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="19" ss:StyleID="s62"><ss:Data ss:Type="String"
+    <Cell ss:Index="19" ss:StyleID="s67"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">Question: </Font></B><Font
        html:Color="#000000">Said this should be highest priority.  Is that appropriate?</Font></ss:Data></Cell>
    </Row>
@@ -401,11 +400,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">unique(./outboundRelationship[typeCode=&quot;FLFS&quot; and isNormalActRelationship()]/target[subsumesCode(&quot;ActClass#OBS&quot;, classCode) and subsumes(&quot;ActMood#RQO&quot;, moodCode) and isNormalAct()]/id[scope=&quot;OBJ&quot; and displayable=&quot;true&quot;])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">OBR-2-Placer Order Number</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OBR-2-Placer Order Number</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Reckon this is not 80%</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="19" ss:StyleID="s62"><ss:Data ss:Type="String"
+    <Cell ss:Index="19" ss:StyleID="s67"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">Question: </Font></B><Font
        html:Color="#000000">Should this be by priorityCode too?</Font></ss:Data></Cell>
    </Row>
@@ -428,7 +427,7 @@
     <Cell><Data ss:Type="String">id</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">unique(./id[scope=&quot;OBJ&quot; and displayable=&quot;true&quot;])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">OBR-3-Filler Order Number</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OBR-3-Filler Order Number</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Reckon this is not 80%</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -453,7 +452,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">./code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">OBR-4-Universal Service ID</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OBR-4-Universal Service ID</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -474,7 +473,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">targetSiteCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16" ss:StyleID="s64"><Data ss:Type="String">OBX-20-Observation Site (need to distinguish requested site from site actually performed at)</Data><NamedCell
+    <Cell ss:Index="16" ss:StyleID="s70"><Data ss:Type="String">OBX-20-Observation Site (need to distinguish requested site from site actually performed at)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
@@ -491,14 +490,14 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">The requesting clinician may need to be contacted concerning the method or interpretation of the diagnostic service, and is frequently used for billing purposes too</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s63"><Data ss:Type="String">participation[typeCode=AUT]</Data><NamedCell
+    <Cell ss:Index="14" ss:StyleID="s68"><Data ss:Type="String">participation[typeCode=AUT]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s62"><ss:Data ss:Type="String"
+    <Cell ss:StyleID="s67"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">Practitioner: </Font></B><Font
        html:Color="#000000">unique(./participation[isHighest(priorityCode) and typeCode=&quot;AUT&quot; and isNormalParticipation()]/role[subsumesCode(&quot;RoleClass#ASSIGN&quot;, classCode)]&#10;&#10;</Font><B><Font
         html:Color="#000000">Organization:</Font></B><Font html:Color="#000000"> unique(./participation[isHighest(priorityCode) and typeCode=&quot;AUT&quot; and isNormalParticipation()]/role[subsumesCode(&quot;RoleClass#ASSIGN&quot;, classCode)]/scoper[subsumesCode(&quot;EntityClass#ORG&quot;, classCode) and determinerCode=&quot;INSTANCE&quot; and code[isNormalDatatype]])&#10;</Font></ss:Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">OBR-16-Ordering Provider</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OBR-16-Ordering Provider</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -517,7 +516,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">./outboundRelationship[typeCode=&quot;PERT&quot; and isNormalActRelationship()]/target.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">OBR-13-Relevant Clinical Information (could also be in NTE-3 or OBR-18, 19, 20, 21)</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OBR-13-Relevant Clinical Information (could also be in NTE-3 or OBR-18, 19, 20, 21)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -541,7 +540,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">unique(./inboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#LIST&quot;, classCode) and moodCode=&quot;EVN&quot; and inDomain(code,&quot;Lab Service&quot;) and isNormalAct()]/code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">OBR-24-Diagnostic Service Section ID</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OBR-24-Diagnostic Service Section ID</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="19"><Data ss:Type="String">Could also model this via observation</Data></Cell>
    </Row>
@@ -566,7 +565,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">./effectiveTime[type=&quot;TS&quot;]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">OBR-7-Observation Date/Time</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OBR-7-Observation Date/Time</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -587,7 +586,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">unique(./participation[typeCode=&quot;SUBJ&quot; and isNormalParticipation()]/role[subsumesCode(&quot;RoleClass#SPEC&quot;, classCode)])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">SPM</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">SPM</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -626,7 +625,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">./code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">OBR-4-Universal Service ID (V2 doesn't provide an easy way to indicate both the ordered test and the performed panel)</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OBR-4-Universal Service ID (V2 doesn't provide an easy way to indicate both the ordered test and the performed panel)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -645,7 +644,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation()]/role[subsumesCode(&quot;RoleClass#SPEC&quot;, classCode)])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">SPM</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">SPM</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -683,7 +682,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[subsumesCode(&quot;ActClass#OBS&quot;, classCode) and moodCode=&quot;EVN&quot; and isNormalAct() and fromDomain(code, &quot;LabObservationResult&quot;)]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">OBX</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OBX</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -702,7 +701,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">outboundRelationship[typeCode=COMP].target</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16" ss:StyleID="s64"><Data ss:Type="String">OBX?</Data><NamedCell
+    <Cell ss:Index="16" ss:StyleID="s70"><Data ss:Type="String">OBX?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -724,7 +723,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">unique(./inboundRelationship[typeCode=&quot;SPRT&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#OBS&quot;, classCode) and moodCode=&quot;EVN&quot; and mapsTo(code, &quot;LOINC#&#10;48767-8&quot;) and isNormalAct()]/value[type=&quot;ST&quot;])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">OBX</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OBX</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -733,7 +732,7 @@
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">DiagnosisCodes</Data><NamedCell
+    <Cell ss:StyleID="s73"><Data ss:Type="String">AdjunctDiagnosis</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Codes for the conclusion</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -741,7 +740,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">unique(./inboundRelationship[typeCode=&quot;SPRT&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#OBS&quot;, classCode) and moodCode=&quot;EVN&quot; and subsumesCode(code, &quot;LOINC#&#10;54531-9&quot;) and isNormalAct()]/value[type=&quot;CD&quot;])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">OBX</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OBX</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
@@ -762,7 +761,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">./text[type=&quot;ED&quot;]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">OBX</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OBX</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
   </Table>
@@ -778,10 +777,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>19</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -798,8 +798,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>25</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -808,10 +808,10 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s66" ss:DefaultRowHeight="15">
-   <Column ss:Index="4" ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="143.25"/>
-   <Column ss:Index="6" ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="179.25"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s60">
+   x:FullRows="1" ss:StyleID="s72" ss:DefaultRowHeight="15">
+   <Column ss:Index="4" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="143.25"/>
+   <Column ss:Index="6" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="179.25"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Context</Data></Cell>
@@ -820,7 +820,7 @@
     <Cell><Data ss:Type="String">XPath</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s67"/>
+    <Cell ss:Index="3" ss:StyleID="s73"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -849,14 +849,14 @@
  </Worksheet>
  <Worksheet ss:Name="Events">
   <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="2" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="73.5"/>
-   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="130.5"/>
-   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="118.5"/>
-   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="156.75" ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="125.25"
+   x:FullRows="1" ss:StyleID="s74" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="73.5"/>
+   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="130.5"/>
+   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="118.5"/>
+   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="156.75" ss:Span="1"/>
+   <Column ss:Index="6" ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="125.25"
     ss:Span="1"/>
-   <Column ss:Index="8" ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="102"/>
+   <Column ss:Index="8" ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="102"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Event Code</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
@@ -904,7 +904,7 @@
    <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="230.25"/>
-   <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s60">
+   <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
@@ -1002,7 +1002,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1016,62 +1015,62 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="7" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="149.25"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="336.75"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="52.5" ss:Span="1"/>
-   <Column ss:Index="5" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="126.75"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="346.5"/>
+   x:FullRows="1" ss:StyleID="s75" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="149.25"/>
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="336.75"/>
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="52.5" ss:Span="1"/>
+   <Column ss:Index="5" ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="126.75"/>
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="346.5"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s60"><Data ss:Type="String">Binding Name</Data></Cell>
-    <Cell ss:StyleID="s60"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s60"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s60"><Data ss:Type="String">Example</Data></Cell>
-    <Cell ss:StyleID="s60"><Data ss:Type="String">Reference</Data></Cell>
-    <Cell ss:StyleID="s60"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Example</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Reference</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s59"><Data ss:Type="String">DiagnosisCodes</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Diagnoses codes provided as adjuncts to the report</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">AdjunctDiagnosis</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Diagnoses codes provided as adjuncts to the report</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">valueset-clinical-findings</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">SNOMED CT Clinical Findings</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">SNOMED CT Clinical Findings</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s59"><Data ss:Type="String">DiagnosticReportNames</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Codes that describe Diagnostic Reports</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">DiagnosticReportNames</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Codes that describe Diagnostic Reports</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s74"/>
     <Cell><Data ss:Type="String">valueset-report-names</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">LOINC Codes for Diagnostic Reports</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">LOINC Codes for Diagnostic Reports</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s59"><Data ss:Type="String">DiagnosticRequests</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Codes for tests/services that can be performed by diagnostic services</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
+   <Row>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">DiagnosticRequests</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Codes for tests/services that can be performed by diagnostic services</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">valueset-diagnostic-requests</Data></Cell>
     <Cell><Data ss:Type="String">LOINC Order Codes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s59"><Data ss:Type="String">DiagnosticResultGroupNames</Data></Cell>
-    <Cell ss:StyleID="s58"><Data ss:Type="String">Codes used to identify individual and panel diagnostic items</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">DiagnosticResultGroupNames</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Codes used to identify individual and panel diagnostic items</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s74"/>
     <Cell><Data ss:Type="String">valueset-report-names</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">LOINC Codes for Diagnostic Reports</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">LOINC Codes for Diagnostic Reports</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s59"><Data ss:Type="String">DiagnosticServiceSection</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Codes for diagnostic service sections</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">DiagnosticServiceSection</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Codes for diagnostic service sections</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s74"/>
     <Cell><Data ss:Type="String">valueset-diagnostic-service-sections</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">HL7 v2 table 0074</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">HL7 v2 table 0074</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">BodySite</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">BodySite</Data></Cell>
     <Cell><Data ss:Type="String">Codes describing anatomical locations. May include laterality</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
@@ -1095,8 +1094,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>1</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1112,12 +1110,12 @@
    <Column ss:AutoFitWidth="0" ss:Width="228"/>
    <Column ss:AutoFitWidth="0" ss:Width="68.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s60"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s60"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s60"><Data ss:Type="String">Identity</Data></Cell>
-    <Cell ss:StyleID="s60"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s60"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s60"><Data ss:Type="String">In Book</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">General</Data></Cell>
@@ -1187,11 +1185,11 @@
    <Column ss:AutoFitWidth="0" ss:Width="75"/>
    <Column ss:AutoFitWidth="0" ss:Width="297.75"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s60"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s60"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s60"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s60"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s60"><Data ss:Type="String">Example</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Example</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Example Lipid Profile</Data></Cell>

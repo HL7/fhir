@@ -23,8 +23,10 @@
          <reference value="Practitioner/f201"/>
     </practitioner>
  </participant>
- <reasonString value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>
- <!--No indication, because no referral took place-->
+ <reason>
+   <text value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>
+ </reason> 
+<!--No indication, because no referral took place-->
  <priority><!--High priority-->
     <coding>
        <system value="http://snomed.info/id"/>

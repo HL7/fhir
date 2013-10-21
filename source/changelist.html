@@ -45,8 +45,9 @@ Changes from the DSTU ballot (v0.11) to the DSTU final copy (0.20?):
  <li>Message: make the event code a Coding (also in the conformance statement too)</li>
  <li>ImmunizationProfile - rename to ImmunizationRecommendation</li>
  <li>Profile: Remove the concept of re-useable bindings, and collapse binding in line to element definition. Change definition.type.bundled to definition.type.aggregation, and add more invariants about uniqueness</li>
- <li>Conformance: Add Conformance.profile. Move system operations to rest.operations from rest.resource.operations, &amp; add updateCreate flag</li>
+ <li>Conformance: Add Conformance.profile. Move system operations to rest.operations from rest.resource.operations, &amp; add updateCreate and versionSpecificUpdates flags</li>
  <li>Add Informative ConceptMap resource</li>
+ <li>Change the following fields from string|CodeableConcept to just CodeableConcept: Encounter.reason, MedicationDispense.dispense.dosage.additionalInstructions, MedicationPrescription.reasonForPrescribing, MedicationPrescription.dosageInstruction.additionalInstructions</li>
 </ul>
 
 </div>

@@ -20,7 +20,6 @@
   <WindowWidth>27885</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -208,9 +207,12 @@
    <Interior/>
   </Style>
   <Style ss:ID="s98">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s99">
    <Alignment ss:Horizontal="Center" ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s99" ss:Parent="s62">
+  <Style ss:ID="s100" ss:Parent="s62">
    <Alignment ss:Vertical="Top"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -218,12 +220,9 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s100">
+  <Style ss:ID="s101">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Color="#000000"/>
-  </Style>
-  <Style ss:ID="s103">
-   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -579,10 +578,10 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">MedicationDispense.dispense.dosage.additionalInstructions[x]</Data><NamedCell
+    <Cell><Data ss:Type="String">MedicationDispense.dispense.dosage.additionalInstructions</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">string | CodeableConcept</Data><NamedCell
+    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Additional dosage instructions</Data><NamedCell
@@ -788,6 +787,8 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
+   <Selected/>
+   <TopRowVisible>10</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
@@ -799,8 +800,8 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>19</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1169,7 +1170,7 @@
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/ActPharmacySupplyType</Data></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">ActPharmacySupplyType&#160;</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">ActPharmacySupplyType&#160;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s64"><Data ss:Type="String">MedicationDispenseStatus</Data></Cell>
@@ -1192,7 +1193,6 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1217,33 +1217,33 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">RIM Equivalent</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s98"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">active</Data></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">The dispense has started but has not yet completed.</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">The dispense has started but has not yet completed.</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Active</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s98"><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">suspended</Data></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called &quot;held&quot;.</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called &quot;held&quot;.</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Suspended</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s98"><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">All actions that are implied by the dispense have occurred.</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">All actions that are implied by the dispense have occurred.</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Completed</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s98"><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">entered in error</Data></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">The dispense was entered in error and therefore nullified.</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">entered in error</Data></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">The dispense was entered in error and therefore nullified.</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Nullified</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s98"><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">stopped</Data></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Actions implied by the dispense have been permanently halted, before all of them occurred.</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">stopped</Data></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">Actions implied by the dispense have been permanently halted, before all of them occurred.</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Aborted</Data></Cell>
    </Row>
   </Table>

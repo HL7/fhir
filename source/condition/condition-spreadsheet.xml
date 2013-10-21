@@ -17,9 +17,10 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>2340</WindowHeight>
-  <WindowWidth>-27286</WindowWidth>
+  <WindowWidth>10005</WindowWidth>
   <WindowTopX>120</WindowTopX>
   <WindowTopY>8940</WindowTopY>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -206,7 +207,7 @@
     <Cell><Data ss:Type="String">Condition.code</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell><Data ss:Type="String">ConditionCode</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">ConditionKind</Data></Cell>
     <Cell><Data ss:Type="String">Identification of the condition, problem or diagnosis</Data></Cell>
     <Cell><Data ss:Type="String">Identification of the condition, problem or diagnosis. </Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s72"><Data ss:Type="String">PRB-3</Data></Cell>
@@ -398,13 +399,11 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
-   <TopRowVisible>2</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -783,7 +782,7 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">ConditionCode</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">ConditionKind</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Identification of the Condition or diagnosis. </Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">value set</Data></Cell>
@@ -841,11 +840,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

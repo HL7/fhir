@@ -19,13 +19,13 @@
         <reference value="Encounter/f002"/>
         <display value="encounter who leads to this priscription"/>
     </encounter>
-    <reasonForPrescribingCodeableConcept>
+    <reasonForPrescribing>
         <coding>
             <system value="http://snomed.info/id"/>
             <code value="444780001"/>
             <display value="High glucose level in blood"/>
         </coding>
-    </reasonForPrescribingCodeableConcept>
+    </reasonForPrescribing>
     <medication> <!-- Linked to a RESOURCE Medication -->
         <reference value="Medication/f003"/>
         <display value="prescribed medication"/>

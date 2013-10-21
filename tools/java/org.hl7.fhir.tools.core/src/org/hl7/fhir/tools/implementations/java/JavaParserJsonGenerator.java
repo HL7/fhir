@@ -113,7 +113,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     for (String s : definitions.sortedResourceNames()) {
       ResourceDefn n = definitions.getResources().get(s);
       generate(n.getRoot(), JavaGenClass.Resource);
-      reg.append("    else if (json.has(\""+n.getName()+"\"))\r\n      return parse"+javaClassName(n.getName())+"(json.getJSONObject(\""+n.getName()+"\"));\r\n");
+      reg.append("    else if (t.equals(\""+n.getName()+"\"))\r\n      return parse"+javaClassName(n.getName())+"(json);\r\n");
       regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+javaClassName(n.getName())+"(xpp);\r\n");
       regn.append("    if (json.has(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
@@ -232,6 +232,8 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     for (DefinedCode dc : definitions.getPrimitives().values()) 
       write("import org.hl7.fhir.instance.model."+getPrimitiveTypeModelName(dc.getCode())+";\r\n");
     write("import org.hl7.fhir.instance.model.*;\r\n");
+    write("import org.hl7.fhir.utilities.Utilities;\r\n");
+
     write("import org.json.JSONObject;\r\n");
     write("import org.json.JSONArray;\r\n");
   //  write("import java.util.*;\r\n");
@@ -451,6 +453,9 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   private void finish() throws Exception {
     write("  @Override\r\n");
     write("  protected Resource parseResource(JSONObject json) throws Exception {\r\n");
+    write("    String t = json.getString(\"resourceType\");\r\n");
+    write("    if (Utilities.noString(t))\r\n");
+    write("      throw new Exception(\"Unable to find resource type - maybe not a FHIR resource?\");\r\n");
     write("    "+reg.toString().substring(9));
     write("    else if (json.has(\"Binary\"))\r\n");
     write("      return parseBinary(json.getJSONObject(\"Binary\"));\r\n");

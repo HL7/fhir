@@ -20,20 +20,22 @@
         <reference value="Encounter/f201"/>
         <display value="visit who leads to this priscription"/>
     </encounter>
-    <reasonForPrescribingCodeableConcept>
+    <reasonForPrescribing>
         <coding>
             <system value="http://snomed.info/id"/>
             <code value="13645005"/>
             <display value="Chronic obstructive pulmonary disease"/>
         </coding>
-    </reasonForPrescribingCodeableConcept>
+    </reasonForPrescribing>
     <medication> <!-- Linked to a RESOURCE Medication -->
         <reference value="Medication/f001"/>
         <display value="prescribed medication"/>
     </medication> 
     <dosageInstruction>
         <dosageInstructionsText value="3 tot 4 maal daags 1 flacon"/>
-        <additionalInstructionsString value="for use during pregnancy, contact physician"/>
+        <additionalInstructions>
+          <text value="for use during pregnancy, contact physician"/>
+        </additionalInstructions>
         <timingSchedule>
             <event>
                 <start value="2013-08-04"/>

@@ -29,7 +29,9 @@
     <system value="http://snomed.info/id"/>
     <code value="258701004"/>
  </length>
- <reasonString value="The patient is treated for a tumor."/>
+ <reason>
+   <text value="The patient is treated for a tumor."/>
+ </reason>
  <indication>
      <reference value="Procedure/f201"/>
      <display value="Roel's TPF chemotherapy on January 28th, 2013"/>

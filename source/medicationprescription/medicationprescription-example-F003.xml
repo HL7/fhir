@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicationPrescription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:/C:/SVN/schema/medicationprescription.xsd">
+<MedicationPrescription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationprescription.xsd">
     <identifier>
         <use value="official"/>
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <value value="order9845343"/>
     </identifier>
     <dateWritten value="2011-05-01"/>
-    <status>
-        <coding>
-            <system value="urn:oid:2.16.840.1.113883.4.642.1.107"/> <!-- A code specifying the state of the prescribing event -->
-            <code value="active"/>
-            <display value="the medication is actively described"/>
-        </coding>
-    </status>
+    <status value="active"/>
     <patient> <!-- Linked to the resource patient who needs the medication -->
         <reference value="patient/patient-example-F001.xml"/>
         <display value="P. van den Heuvel"/>         

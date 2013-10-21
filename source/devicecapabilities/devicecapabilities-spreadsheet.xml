@@ -209,7 +209,7 @@
     <Cell><Data ss:Type="String">DeviceCapabilities.virtualDevice.channel.metric.code</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell><Data ss:Type="String">DeviceMetricsCode</Data></Cell>
+    <Cell><Data ss:Type="String">DeviceMetricsKind</Data></Cell>
     <Cell><Data ss:Type="String">Describes the metrics</Data></Cell>
     <Cell><Data ss:Type="String">Describes the metrics</Data></Cell>
    </Row>
@@ -281,7 +281,7 @@
     <Cell><Data ss:Type="String">DeviceCapabilities.virtualDevice.channel.metric.facet.code</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell><Data ss:Type="String">DeviceFacetCode</Data></Cell>
+    <Cell><Data ss:Type="String">DeviceFacetKind</Data></Cell>
     <Cell><Data ss:Type="String">Describes the facet</Data></Cell>
     <Cell><Data ss:Type="String">Describes the facet</Data></Cell>
    </Row>
@@ -325,8 +325,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>21</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -557,11 +557,11 @@
     <Cell ss:StyleID="s63"><Data ss:Type="String">Describes the channel</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">DeviceMetricsCode</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">DeviceMetricsKind</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Describes the metrics</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">DeviceFacetCode</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">DeviceFacetKind</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Describes the facet</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s76" ss:HRef="http://loinc.org/"><Data ss:Type="String">http://loinc.org</Data></Cell>
@@ -593,8 +593,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>5</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

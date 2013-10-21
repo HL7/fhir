@@ -23,7 +23,9 @@
          <reference value="Practitioner/f201"/>
     </practitioner>
  </participant>
- <reasonString value="The patient had fever peaks over the last couple of days. He is worried about these peaks."/>
+ <reason>
+   <text value="The patient had fever peaks over the last couple of days. He is worried about these peaks."/>
+ </reason>
  <!--No indication, because no referral took place-->
  <priority><!--Normal priority-->
     <coding>

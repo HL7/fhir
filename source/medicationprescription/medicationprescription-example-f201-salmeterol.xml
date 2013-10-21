@@ -15,7 +15,9 @@
     <reference value="Encounter/f203"/>
     <display value="Roel's encounter on March eleventh 2013"/>
  </encounter>
- <reasonForPrescribingString value="Condition/f203"/><!--TODO Why isn't this Resource (any)?-->
+ <reasonForPrescribing>
+   <text value="Condition/f203"/><!--TODO Why isn't this Resource (any)?-->
+ </reasonForPrescribing>
  <medication>
     <reference value="Medication/f201"/>
     <display value="Flutacisone + Salmeterol"/>

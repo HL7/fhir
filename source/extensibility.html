@@ -118,6 +118,19 @@ Here is an example of a name with a simple extension for a tribal name:
 &lt;/name&gt;
 </pre>
 <p>
+or in JSON:
+</p>
+<pre class="json">
+"name" : {
+  "extension: [
+    {
+      "url" : "http://hl7.org/fhir/Profileiso-21090#name-use",
+      "valueCode" : "I"
+     }]
+  "text": "Chief Red Cloud"/>
+}
+</pre>
+<p>
 The proper use of the URL value is discussed below.
 </p>
 <p>
@@ -138,7 +151,6 @@ Extending a patient with an opt-in status for a clinical trial, with
     &lt;extension&gt;
       &lt;url value=&quot;http://acme.org/fhir/profiles/@main#trial-status-who&quot; /&gt;	  
       &lt;valueResource&gt;	  
-        &lt;type value=&quot;Practitioner&quot; /&gt;	  
         &lt;reference value=&quot;Practitioner/example&quot; /&gt;	  	    
       &lt;/valueResource&gt;	  
     &lt;/extension&gt;
@@ -146,6 +158,36 @@ Extending a patient with an opt-in status for a clinical trial, with
   &lt;/extension&gt;
   &lt;!-- other data for patient --&gt;
 &lt;/Patient&gt;
+</pre>
+<p>
+or in JSON:
+</p>
+<pre class="json">
+{
+  "resource-type" : "Patient",
+  "extension" : [
+    {
+      "url" : "http://acme.org/fhir/profiles/@main#trial-status",
+      "extension" : [
+        {
+          "url" : "http://acme.org/fhir/profiles/@main#trial-status-code",
+          "valueCode" : "unsure"
+        }, 
+        {
+          "url" : "http://acme.org/fhir/profiles/@main#trial-status-date",
+          "valueDate" : "2009-03-14"
+        }, 
+        {
+          "url" : "http://acme.org/fhir/profiles/@main#trial-status-who",
+          "valueResource" : {
+            "reference" : "Practitioner/example"
+          }
+        }
+     ]
+   }
+  ], 
+  ... other data for patient... 
+}
 </pre>
 <p>
 Note that extensions come first in the extension, prior to the <i>url</i> element.

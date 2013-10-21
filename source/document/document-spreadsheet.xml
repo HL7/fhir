@@ -21,7 +21,6 @@
   <WindowTopX>7605</WindowTopX>
   <WindowTopY>-19635</WindowTopY>
   <TabRatio>666</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -551,7 +550,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell><Data ss:Type="String">DocumentEventCode</Data></Cell>
+    <Cell><Data ss:Type="String">DocumentEventType</Data></Cell>
     <Cell><Data ss:Type="String">Code(s) that apply to the event being documented</Data></Cell>
     <Cell><Data ss:Type="String">This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a &quot;History and Physical Report&quot; in which the procedure being documented is necessarily a &quot;History and Physical&quot; act.</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
@@ -692,7 +691,7 @@
     <Cell><Data ss:Type="String">Document.section.code</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell><Data ss:Type="String">DocumentSectionCode</Data></Cell>
+    <Cell><Data ss:Type="String">DocumentSectionType</Data></Cell>
     <Cell><Data ss:Type="String">Classification of section (recommended)</Data></Cell>
     <Cell><Data ss:Type="String">A code identifying the kind of content contained within the section</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">./code</Data></Cell>
@@ -784,12 +783,13 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>25</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -805,8 +805,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>18</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>32</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -981,7 +981,7 @@
     <Cell><Data ss:Type="String">v3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="18">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">DocumentSectionCode</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">DocumentSectionType</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Classification of a clinical document section</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s72"/>
@@ -1020,7 +1020,7 @@
     <Cell ss:Index="7" ss:StyleID="s72"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/ActStatus</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">DocumentEventCode</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">DocumentEventType</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">This list of codes represents the main clinical acts being documented</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
@@ -1127,12 +1127,10 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>7</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1232,40 +1230,40 @@
    <Column ss:StyleID="s81" ss:Width="55.5"/>
    <Column ss:StyleID="s81" ss:Width="346.5"/>
    <Column ss:StyleID="s81" ss:Width="526.5"/>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s82"><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">Code</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">Definition</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">Comments</Data></Cell>
     <Cell><Data ss:Type="String">v3</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">preliminary</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">This is an preliminary document (also known as initial or interim). The content may be incomplete or unverified</Data></Cell>
     <Cell><Data ss:Type="String">Documents are sometimes shared prior to being finalised</Data></Cell>
     <Cell><Data ss:Type="String">~ActStatus.active</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">final</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">The document is complete and verified by an appropriate person, and no further work is planned</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">&lt;ActStatus.complete</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">amended</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">The document has been modified subsequent to being released as &quot;final&quot;, and is complete and verified by an authorised person</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">&lt;ActStatus.complete</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">appended</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">The document has been modified subsequent to being released as &quot;final&quot;, and is complete and verified by an authorised person. The modifications added new information to the document, but did not revise existing content</Data></Cell>
     <Cell><Data ss:Type="String">If systems are not able to be sure whether existing information has changed or not, they should use the status &quot;amended&quot;</Data></Cell>
     <Cell><Data ss:Type="String">&lt;ActStatus.complete</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">retracted</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">The document has been withdrawn on the basis that it was original issued in error</Data></Cell>
@@ -1279,6 +1277,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Panes>
     <Pane>
      <Number>3</Number>

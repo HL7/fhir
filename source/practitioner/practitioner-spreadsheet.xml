@@ -20,6 +20,7 @@
   <WindowWidth>19440</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>90</WindowTopY>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -347,7 +348,7 @@
     <Cell><Data ss:Type="String">Coded representation of the qualification</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s74"/>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Practitioner.qualification.period</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Period</Data></Cell>
@@ -393,14 +394,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
-   <TopRowVisible>8</TopRowVisible>
-   <LeftColumnVisible>2</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>15</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -599,16 +596,16 @@
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">HL7</Data></Cell>
-    <Cell><Data ss:Type="String">HL7 Defined Practitioner Examples</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">practitioner-examples.xml</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">cda author</Data></Cell>
     <Cell><Data ss:Type="String">CDA Example Author</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">xcda-author</Data></Cell>
     <Cell><Data ss:Type="String">practitioner-example-xcda-author.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">HL7</Data></Cell>
+    <Cell><Data ss:Type="String">HL7 Defined Practitioner Examples</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">practitioner-examples.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -696,11 +693,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

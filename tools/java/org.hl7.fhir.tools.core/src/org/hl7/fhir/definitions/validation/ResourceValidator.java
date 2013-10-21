@@ -201,6 +201,7 @@ public class ResourceValidator extends BaseValidator {
 // this isn't a real hint, just a way to gather information   hint(errors, path, !e.isModifier(), "isModifier, minimum cardinality = "+e.getMinCardinality().toString());
     rule(errors, "structure", path, !e.getDefinition().toLowerCase().startsWith("this is"), "Definition should not start with 'this is'");
     rule(errors, "structure", path, e.getDefinition().endsWith("."), "Definition should end with '.', but is '"+e.getDefinition()+"'");
+    rule(errors, "structure", path, !"string|CodeableConcept".equals(e.typeCode()) && !"CodeableConcept|string".equals(e.typeCode()), "Element type cannot be string and CodeableConcept - use just CodeableConcept");
     
 //    if (needsRimMapping)
 //      warning(errors, "required", path, !Utilities.noString(e.getMapping(ElementDefn.RIM_MAPPING)), "RIM Mapping is required");
@@ -233,6 +234,7 @@ public class ResourceValidator extends BaseValidator {
 		if (e.hasBinding()) {
 		  rule(errors, "structure", path, e.typeCode().equals("code") || e.typeCode().contains("Coding") 
 				  || e.typeCode().contains("CodeableConcept"), "Can only specify bindings for coded data types");
+      rule(errors, "structure", path, !e.getBindingName().toLowerCase().contains("code"), "Binding name " + e.getBindingName()+" is invalid - contains 'code'");
 			BindingSpecification cd = definitions.getBindingByName(e.getBindingName());
 			rule(errors, "structure", path, cd != null, "Unable to resolve binding name " + e.getBindingName());
 			

@@ -30,13 +30,13 @@
         <system value="http://unitsofmeasure.org" />
         <code value="min" />
     </length>
-    <reasonCodeableConcept>
+    <reason>
         <coding>
             <system value="http://snomed.info/id"/>
             <code value="18099001"/>
             <display value="Retropharyngeal abscess"/>
         </coding>
-    </reasonCodeableConcept>
+    </reason>
     <priority>
         <coding>
             <system value="http://snomed.info/id"/>

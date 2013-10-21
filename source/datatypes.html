@@ -328,17 +328,29 @@ particular context by <a href="terminologies.html">binding</a> the element to a 
 </p>
 </div>
 
-<h3>Choosing Coding vs. CodeableConcept</h3>
+<blockquote>
 <p>
-A <b>Coding</b> is a simple direct reference to a code in a code system. In practice, such a simple 
-reference is very difficult to use - if a system is using text when the correct codes can't be found, or if two different systems are using different terminologies or
-a different mix of codes and text, the <b>Coding</b> type doesn't provide enough information to make this work. Since
-such situations are quite a common case, the type <b>CodeableConcept</b> is defined, which allows for 
-multiple <b>Coding</b> elements and/or a text representation. The <b>CodeableConcept</b> 
-is used in resources in preference to the simpler <b>Coding</b> except for a few special cases. 
-<b>Coding</b> is defined separately mainly for use in profiles, where the context of an explicit use 
-case means that the profile can define a better structure than the general case CodeableConcept.
+<b>Design Note</b>: This specification defines two types for representing coded values:
 </p>
+<ul>
+ <li><b>Coding</b>: a simple direct reference to a code defined by a code system</li>
+ <li><b>CodeableConcept</b>: a text description and/or a list of Codings (i.e.g a list of references to codes defned by codes systems)</li>
+</ul>
+<p>
+The <i>Coding</i> data type corresponds to the simple case of picking 
+a single code from a code list. However this type is rarely used in the 
+FHIR specifications; long experience with exchanging coded values in
+HL7 shows that in the general case, systems need to able to exchange
+multiple translation codes, and/or an original text. 
+</p>
+<p>
+The Coding data type is used directly  when there is certainty that the value 
+must be picked directly from one of the available codes, and the list of 
+possible codes is agreed by all participants. This is not usually the case
+in the context of FHIR - general interoperabiity - so Coding is mostly used
+in extensions, which are usually defined for a well-controlled context of use.
+</p>
+</blockquote>
 
 <a name="CodeableConcept"></a>
 <a name="codeableconcept"></a>
