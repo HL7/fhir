@@ -39,10 +39,12 @@ namespace Hl7.Fhir.Support
 {
     public static class ContentType
     {
+        public const string JSON_CONTENT_HEADER3 = "application/fhir json";  // The formal FHIR mime type (still to be registered).
         public const string JSON_CONTENT_HEADER = "application/fhir+json";  // The formal FHIR mime type (still to be registered).
         public const string JSON_CONTENT_HEADER2 = "application/json";      // Also accepted, but never sent
         
         public const string XML_CONTENT_HEADER = "application/fhir+xml";           // The formal FHIR mime type (still to be registered).
+        public const string XML_CONTENT_HEADER4 = "application/fhir xml";           // The formal FHIR mime type (still to be registered).
         public const string XML_CONTENT_HEADER2 = "text/xml";               // Also accepted, but never sent
         public const string XML_CONTENT_HEADER3 = "application/xml";        // Also accepted, but never sent
         
@@ -73,11 +75,13 @@ namespace Hl7.Fhir.Support
                 case FORMAT_PARAM_JSON:
                 case JSON_CONTENT_HEADER:
                 case JSON_CONTENT_HEADER2:
+                case JSON_CONTENT_HEADER3:
                     return ResourceFormat.Json;
                 case FORMAT_PARAM_XML:
                 case XML_CONTENT_HEADER:
                 case XML_CONTENT_HEADER2:
                 case XML_CONTENT_HEADER3:
+                case XML_CONTENT_HEADER4:
                     return ResourceFormat.Xml;
                 default:
                     return ResourceFormat.Unknown;

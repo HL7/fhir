@@ -15,7 +15,7 @@ using Hl7.Fhir.Parsers;
 
 namespace Hl7.Fhir.Tests
 {
-//    [TestClass]
+ //  [TestClass]
     public class FhirClientTests
     {
         //Uri testEndpoint = new Uri("http://fhir.furore.com/fhir");
@@ -34,6 +34,15 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual(Conformance.RestfulConformanceMode.Server, c.Rest[0].Mode.Value);
             Assert.AreEqual(ContentType.XML_CONTENT_HEADER, client.LastResponseDetails.ContentType.ToLower());
             Assert.AreEqual(HttpStatusCode.OK, client.LastResponseDetails.Result);
+        }
+
+
+        [TestMethod]
+        public void TryParse()
+        {
+            var client = new FhirClient(new Uri("http://spark.furore.com/fhir"));
+
+            var history = client.History<Patient>("15");
         }
 
 

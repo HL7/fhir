@@ -49,7 +49,10 @@
   </provider>
 
   <link>
-    <reference value="Patient/pat1"/>
+    <other>
+      <reference value="Patient/pat1"/>
+    </other>
+    <type value="seealso" />
   </link>
 
   <active value="true"/>
