@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <p>
-A Questionnaire is a structured set of questions and their answers. The Questionnaire may be a flat list, or can be hierarchically organized in 
+The Questionnaire may be a flat list, or can be hierarchically organized in 
 groups and sub-groups, each containing questions. Questions may contain and single answer, which can take the form of simple text, 
 numbers, dates or a set of coded choices.</p>
 
