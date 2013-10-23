@@ -506,7 +506,7 @@ these cases. Composite names separated by "-" should be treated as a single name
 </pre>
 
 <p>
-This same pattern is often encountered with immigrants, who retains their real name for official use, but adopt a localized name for everyday use:
+This same pattern is often encountered with immigrants, who retain their real name for official use, but adopt a localized name for everyday use:
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
@@ -540,7 +540,12 @@ Karen van Hentenryck is of Dutch origin, and the "van" is a voorvoegsel.
   &lt;given value=&quot;Karen&quot; /&gt;
 &lt;/name&gt;
 </pre>
-<p>See <a href="extensibility-examples.html">the Extensibility Example for more information</a></p>
+<p>
+See <a href="extensibility-examples.html">the Extensibility Example for more information</a>. 
+Note that this names has multiple family name parts. Systems that do not support as many name parts 
+as are provided in an instance they are processing may wish to append parts together using spaces,
+so that this becomes "van Hentenryck".
+</p>
 </div>
 
 

@@ -113,6 +113,7 @@ public class CCDAConverter {
 			Encounter visit = new Encounter();
 			for (Element e : cda.getChildren(ee, "id"))
 				visit.getIdentifier().add(convert.makeIdentifierFromII(e));
+			visit.setHospitalization(visit.new EncounterHospitalizationComponent());
 			visit.getHospitalization().setPeriod(convert.makePeriodFromIVL(cda.getChild(ee, "effectiveTime")));
 			document.setEvent(document.new DocumentEventComponent());
 			document.getEvent().getCode().add(convert.makeCodeableConceptFromCD(cda.getChild(ee, "code")));

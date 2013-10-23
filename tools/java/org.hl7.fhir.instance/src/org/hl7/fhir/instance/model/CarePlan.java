@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -302,7 +302,7 @@ public class CarePlan extends Resource {
       }
     }
 
-    public class CarePlanParticipantComponent extends Element {
+    public class CarePlanParticipantComponent extends BackboneElement {
         /**
          * Indicates specific responsibility of an individual within the care plan.  E.g. "Primary physician", "Team coordinator", "Caregiver", etc.
          */
@@ -338,7 +338,7 @@ public class CarePlan extends Resource {
 
   }
 
-    public class CarePlanGoalComponent extends Element {
+    public class CarePlanGoalComponent extends BackboneElement {
         /**
          * Human-readable description of a specific desired objective of the care plan.
          */
@@ -445,7 +445,7 @@ public class CarePlan extends Resource {
 
   }
 
-    public class CarePlanActivityComponent extends Element {
+    public class CarePlanActivityComponent extends BackboneElement {
         /**
          * Internal reference that identifies the goals that this activity is intended to contribute towards meeting.
          */
@@ -606,7 +606,7 @@ public class CarePlan extends Resource {
 
   }
 
-    public class CarePlanActivitySimpleComponent extends Element {
+    public class CarePlanActivitySimpleComponent extends BackboneElement {
         /**
          * High-level categorization of the type of activity in a care plan.
          */

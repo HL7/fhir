@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -80,7 +80,7 @@ public class Specimen extends Resource {
       }
     }
 
-    public class SpecimenSourceComponent extends Element {
+    public class SpecimenSourceComponent extends BackboneElement {
         /**
          * Whether this relationship is to a parent or to a child.
          */
@@ -131,7 +131,7 @@ public class Specimen extends Resource {
 
   }
 
-    public class SpecimenCollectionComponent extends Element {
+    public class SpecimenCollectionComponent extends BackboneElement {
         /**
          * Person who collected the specimen.
          */
@@ -245,7 +245,7 @@ public class Specimen extends Resource {
 
   }
 
-    public class SpecimenTreatmentComponent extends Element {
+    public class SpecimenTreatmentComponent extends BackboneElement {
         /**
          * Textual description of procedure.
          */
@@ -314,7 +314,7 @@ public class Specimen extends Resource {
 
   }
 
-    public class SpecimenContainerComponent extends Element {
+    public class SpecimenContainerComponent extends BackboneElement {
         /**
          * Id for container. There may be muliple; a manufacturer's bar code, lab assigned identifier, etc.
          */

@@ -33,6 +33,7 @@ The JSON representation is described relative to the XML representation:
 <ul>
  <li>The names for the JSON object members are the same as the names of the elements and attributes in XML, including for elements that may repeat. Property names are case sensitive</li>
  <li>Just as in XML, JSON property attributes never have empty values; omit a value if it is empty</li>
+ <li>JSON whitespace is not part of the contents of a resource. Applications MAY preserve the whitespace when handling resources, but are not required to do so. Note that digital signatures may depend on the whitespace</li>
 </ul>
 
 <p>There are differences too:</p>

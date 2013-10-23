@@ -503,9 +503,8 @@ public class Publisher {
 
   private Conformance.SearchParamType getSearchParamType(SearchType type) {
     switch (type) {
-    case integer: return Conformance.SearchParamType.integer;
+    case number: return Conformance.SearchParamType.number;
     case string: return Conformance.SearchParamType.string;
-    case text: return Conformance.SearchParamType.text;
     case date: return Conformance.SearchParamType.date;
     case reference: return Conformance.SearchParamType.reference;
     case token: return Conformance.SearchParamType.token;
@@ -698,7 +697,7 @@ public class Publisher {
       ResourceDefn r = page.getDefinitions().getResources().get(rname); 
       checkExampleLinks(errors, r);
    }
-		
+	 val.report();
    // val.dumpParams();
    int hintCount = 0;
    int warningCount = 0;

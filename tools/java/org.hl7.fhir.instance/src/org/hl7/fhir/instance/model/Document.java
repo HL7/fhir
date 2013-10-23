@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -162,7 +162,7 @@ public class Document extends Resource {
       }
     }
 
-    public class DocumentAttesterComponent extends Element {
+    public class DocumentAttesterComponent extends BackboneElement {
         /**
          * The type of attestation the authenticator offers.
          */
@@ -236,7 +236,7 @@ public class Document extends Resource {
 
   }
 
-    public class DocumentEventComponent extends Element {
+    public class DocumentEventComponent extends BackboneElement {
         /**
          * This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a "History and Physical Report" in which the procedure being documented is necessarily a "History and Physical" act.
          */
@@ -296,7 +296,7 @@ public class Document extends Resource {
 
   }
 
-    public class SectionComponent extends Element {
+    public class SectionComponent extends BackboneElement {
         /**
          * A code identifying the kind of content contained within the section.
          */

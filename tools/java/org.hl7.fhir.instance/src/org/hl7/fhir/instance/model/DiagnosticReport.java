@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -112,7 +112,7 @@ public class DiagnosticReport extends Resource {
       }
     }
 
-    public class DiagnosticReportRequestDetailComponent extends Element {
+    public class DiagnosticReportRequestDetailComponent extends BackboneElement {
         /**
          * The encounter that this diagnostic investigation is associated with.
          */
@@ -237,7 +237,7 @@ public class DiagnosticReport extends Resource {
 
   }
 
-    public class ResultGroupComponent extends Element {
+    public class ResultGroupComponent extends BackboneElement {
         /**
          * A code or name that describes this group of results. For the base group, this is the report name.
          */

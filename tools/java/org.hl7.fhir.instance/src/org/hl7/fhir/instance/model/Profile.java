@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -338,7 +338,7 @@ public class Profile extends Resource {
       }
     }
 
-    public class ProfileStructureComponent extends Element {
+    public class ProfileStructureComponent extends BackboneElement {
         /**
          * The Resource or Data type being described.
          */
@@ -473,7 +473,7 @@ public class Profile extends Resource {
 
   }
 
-    public class ElementComponent extends Element {
+    public class ElementComponent extends BackboneElement {
         /**
          * The path identifies the element and is expressed as a "."-separated list of ancestor elements, beginning with the name of the resource.
          */
@@ -561,7 +561,7 @@ public class Profile extends Resource {
 
   }
 
-    public class ElementSlicingComponent extends Element {
+    public class ElementSlicingComponent extends BackboneElement {
         /**
          * Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance SHALL completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices.
          */
@@ -641,7 +641,7 @@ public class Profile extends Resource {
 
   }
 
-    public class ElementDefinitionComponent extends Element {
+    public class ElementDefinitionComponent extends BackboneElement {
         /**
          * A concise definition that  is shown in the concise XML format that summarizes profiles.
          */
@@ -1060,7 +1060,7 @@ public class Profile extends Resource {
 
   }
 
-    public class TypeRefComponent extends Element {
+    public class TypeRefComponent extends BackboneElement {
         /**
          * Name of Data type or Resource.
          */
@@ -1146,7 +1146,7 @@ public class Profile extends Resource {
 
   }
 
-    public class ElementDefinitionConstraintComponent extends Element {
+    public class ElementDefinitionConstraintComponent extends BackboneElement {
         /**
          * Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality.
          */
@@ -1278,7 +1278,7 @@ public class Profile extends Resource {
 
   }
 
-    public class ElementDefinitionBindingComponent extends Element {
+    public class ElementDefinitionBindingComponent extends BackboneElement {
         /**
          * A descriptive name for this - can be useful for generating implementation artifacts.
          */
@@ -1404,7 +1404,7 @@ public class Profile extends Resource {
 
   }
 
-    public class ElementDefinitionMappingComponent extends Element {
+    public class ElementDefinitionMappingComponent extends BackboneElement {
         /**
          * A URI that identifies the specification that this mapping is expressed to.
          */
@@ -1464,7 +1464,7 @@ public class Profile extends Resource {
 
   }
 
-    public class ProfileExtensionDefnComponent extends Element {
+    public class ProfileExtensionDefnComponent extends BackboneElement {
         /**
          * A unique code (within the profile) used to identify the extension.
          */

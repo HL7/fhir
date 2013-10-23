@@ -34,9 +34,8 @@ POSSIBILITY OF SUCH DAMAGE.
 public class SearchParameter {
   public enum SearchType {
     composite, // search parameter is a composite of others
-    integer,  // search parameter must be a simple name 
+    number,  // search parameter must be a simple name 
     string,   // search parameter is a simple string, like a name part
-    text,     // search parameter is into a long string - text filter
     date,     // search parameter is onto a date
     quantity, // search parameter is onto a quantity (= token + -lower & -upper, and canonical)
     reference,// search parameter refers to a resource reference

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -38,7 +38,7 @@ import java.util.*;
  */
 public class Supply extends Resource {
 
-    public class SupplyDispenseComponent extends Element {
+    public class SupplyDispenseComponent extends BackboneElement {
         /**
          * Identifier assigned by the dispensing facility.   This is an identifier assigned outside FHIR.
          */

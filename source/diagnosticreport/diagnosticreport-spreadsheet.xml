@@ -20,6 +20,7 @@
   <WindowWidth>17490</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -91,12 +92,12 @@
    <Protection/>
   </Style>
   <Style ss:ID="s72">
-   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s73">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s73">
+   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s74">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
@@ -732,7 +733,7 @@
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">AdjunctDiagnosis</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">AdjunctDiagnosis</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Codes for the conclusion</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -777,11 +778,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>19</TopRowBottomPane>
+   <TopRowBottomPane>20</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -798,8 +798,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>25</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>44</ActiveRow>
+     <RangeSelection>R44C2:R45C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -808,9 +808,9 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s72" ss:DefaultRowHeight="15">
-   <Column ss:Index="4" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="143.25"/>
-   <Column ss:Index="6" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="179.25"/>
+   x:FullRows="1" ss:StyleID="s73" ss:DefaultRowHeight="15">
+   <Column ss:Index="4" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="143.25"/>
+   <Column ss:Index="6" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="179.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -820,7 +820,7 @@
     <Cell><Data ss:Type="String">XPath</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s73"/>
+    <Cell ss:Index="3" ss:StyleID="s72"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -918,79 +918,79 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">issued</Data></Cell>
-    <Cell><Data ss:Type="String">when the report was issued</Data></Cell>
+    <Cell><Data ss:Type="String">When the report was issued</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.issued</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">the subject of the report</Data></Cell>
+    <Cell><Data ss:Type="String">The subject of the report</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">performer</Data></Cell>
-    <Cell><Data ss:Type="String">who was the source of the report (organization)</Data></Cell>
+    <Cell><Data ss:Type="String">Who was the source of the report (organization)</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">identifier</Data></Cell>
-    <Cell><Data ss:Type="String">an identifier for the report</Data></Cell>
+    <Cell><Data ss:Type="String">An identifier for the report</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.reportId</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">test</Data></Cell>
-    <Cell><Data ss:Type="String">a test requested that the report is in response to</Data></Cell>
+    <Cell><Data ss:Type="String">A test requested that the report is in response to</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.requestDetail.requestTest</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">requester</Data></Cell>
-    <Cell><Data ss:Type="String">who made a request that lead to the report</Data></Cell>
+    <Cell><Data ss:Type="String">Who made a request that lead to the report</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.requestDetail.requester</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">service</Data></Cell>
-    <Cell><Data ss:Type="String">which diagnostic discipline/department created the report</Data></Cell>
+    <Cell><Data ss:Type="String">Which diagnostic discipline/department created the report</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.serviceCategory</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell><Data ss:Type="String">the clinically relevant time of the report</Data></Cell>
+    <Cell><Data ss:Type="String">The clinically relevant time of the report</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.diagnostic[x]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">specimen</Data></Cell>
-    <Cell><Data ss:Type="String">the specimen details</Data></Cell>
+    <Cell><Data ss:Type="String">The specimen details</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.results.specimen | DiagnosticReport.results.group.specimen</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">name</Data></Cell>
-    <Cell><Data ss:Type="String">the name/code of the report</Data></Cell>
+    <Cell><Data ss:Type="String">The name/code of the report</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.results.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">group</Data></Cell>
-    <Cell><Data ss:Type="String">name /code of a group in the report</Data></Cell>
+    <Cell><Data ss:Type="String">Name /code of a group in the report</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">!DiagnosticReport.results.group.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">result</Data></Cell>
-    <Cell><Data ss:Type="String">link to an atomic result (observation resource)</Data></Cell>
+    <Cell><Data ss:Type="String">Link to an atomic result (observation resource)</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.results.result | DiagnosticReport.results.group.result</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">code</Data></Cell>
-    <Cell><Data ss:Type="String">a coded diagnosis on the report</Data></Cell>
+    <Cell><Data ss:Type="String">A coded diagnosis on the report</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.codedDiagnosis</Data></Cell>
    </Row>
@@ -1002,11 +1002,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1045,7 +1046,7 @@
     <Cell><Data ss:Type="String">valueset-report-names</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">LOINC Codes for Diagnostic Reports</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">DiagnosticRequests</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Codes for tests/services that can be performed by diagnostic services</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">value set</Data></Cell>

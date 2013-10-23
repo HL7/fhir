@@ -84,7 +84,7 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
    * @generated
    * @ordered
    */
-	protected static final SearchType TYPE_EDEFAULT = SearchType.INTEGER;
+	protected static final SearchType TYPE_EDEFAULT = SearchType.NUMBER;
 
 	/**
    * The cached value of the '{@link #getType() <em>Type</em>}' attribute.

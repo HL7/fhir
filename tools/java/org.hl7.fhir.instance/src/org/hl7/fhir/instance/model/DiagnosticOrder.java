@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -186,7 +186,7 @@ public class DiagnosticOrder extends Resource {
       }
     }
 
-    public class DiagnosticOrderEventComponent extends Element {
+    public class DiagnosticOrderEventComponent extends BackboneElement {
         /**
          * The status for the event.
          */
@@ -256,7 +256,7 @@ public class DiagnosticOrder extends Resource {
 
   }
 
-    public class DiagnosticOrderItemComponent extends Element {
+    public class DiagnosticOrderItemComponent extends BackboneElement {
         /**
          * A code that identifies a particular diagnostic investigation that has been requested.
          */

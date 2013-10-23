@@ -371,12 +371,10 @@ public class SpreadsheetParser {
 	}
 
 	private SearchType readSearchType(String s, int row) throws Exception {
-		if ("integer".equals(s))
-			return SearchType.integer;
+		if ("number".equals(s))
+			return SearchType.number;
 		if ("string".equals(s))
 			return SearchType.string;
-		if ("text".equals(s))
-			return SearchType.text;
 		if ("date".equals(s))
 			return SearchType.date;
 		if ("reference".equals(s))

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -38,7 +38,7 @@ import java.util.*;
  */
 public class Immunization extends Resource {
 
-    public class ImmunizationExplanationComponent extends Element {
+    public class ImmunizationExplanationComponent extends BackboneElement {
         /**
          * Reasons why a vaccine was administered.
          */
@@ -84,7 +84,7 @@ public class Immunization extends Resource {
 
   }
 
-    public class ImmunizationReactionComponent extends Element {
+    public class ImmunizationReactionComponent extends BackboneElement {
         /**
          * Date of reaction to the immunization.
          */
@@ -162,7 +162,7 @@ public class Immunization extends Resource {
 
   }
 
-    public class ImmunizationVaccinationProtocolComponent extends Element {
+    public class ImmunizationVaccinationProtocolComponent extends BackboneElement {
         /**
          * Nominal position in a series.
          */

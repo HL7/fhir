@@ -526,7 +526,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">text</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">DocumentManifest.description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -551,8 +551,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

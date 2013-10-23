@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -38,7 +38,7 @@ import java.util.*;
  */
 public class FamilyHistory extends Resource {
 
-    public class FamilyHistoryRelationComponent extends Element {
+    public class FamilyHistoryRelationComponent extends BackboneElement {
         /**
          * This will either be a name or a description.  E.g. "Aunt Susan", "my cousin with the red hair".
          */
@@ -149,7 +149,7 @@ public class FamilyHistory extends Resource {
 
   }
 
-    public class FamilyHistoryRelationConditionComponent extends Element {
+    public class FamilyHistoryRelationConditionComponent extends BackboneElement {
         /**
          * The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like 'cancer' depending on how much is known about the condition and the capabilities of the creating system.
          */

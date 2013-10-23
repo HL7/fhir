@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -38,7 +38,7 @@ import java.util.*;
  */
 public class Patient extends Resource {
 
-    public class ContactComponent extends Element {
+    public class ContactComponent extends BackboneElement {
         /**
          * The nature of the relationship between the patient and the contact person.
          */
@@ -140,7 +140,7 @@ public class Patient extends Resource {
 
   }
 
-    public class AnimalComponent extends Element {
+    public class AnimalComponent extends BackboneElement {
         /**
          * Identifies the high level categorization of the kind of animal.
          */

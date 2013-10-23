@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -112,7 +112,7 @@ public class MedicationPrescription extends Resource {
       }
     }
 
-    public class MedicationPrescriptionDosageInstructionComponent extends Element {
+    public class MedicationPrescriptionDosageInstructionComponent extends BackboneElement {
         /**
          * Free text dosage instructions for cases where the instructions are too complex to code.
          */
@@ -121,7 +121,7 @@ public class MedicationPrescription extends Resource {
         /**
          * Additional instructions such as "Swallow with plenty of water" which may or may not be coded.
          */
-        protected Type additionalInstructions;
+        protected CodeableConcept additionalInstructions;
 
         /**
          * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
@@ -182,11 +182,11 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           }
         }
 
-        public Type getAdditionalInstructions() { 
+        public CodeableConcept getAdditionalInstructions() { 
           return this.additionalInstructions;
         }
 
-        public void setAdditionalInstructions(Type value) { 
+        public void setAdditionalInstructions(CodeableConcept value) { 
           this.additionalInstructions = value;
         }
 
@@ -262,7 +262,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
   }
 
-    public class MedicationPrescriptionDispenseComponent extends Element {
+    public class MedicationPrescriptionDispenseComponent extends BackboneElement {
         /**
          * Identifies the medication that is to be dispensed.  This may be a more specifically defined than the medicationPrescription.medication . This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
          */
@@ -358,7 +358,7 @@ In some situations, this attribute may be used instead of quantity to identify t
 
   }
 
-    public class MedicationPrescriptionSubstitutionComponent extends Element {
+    public class MedicationPrescriptionSubstitutionComponent extends BackboneElement {
         /**
          * A code signifying whether a different drug should be dispensed from what was prescribed.
          */
@@ -427,7 +427,7 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * Can be the reason or the indication for writing the prescription.
      */
-    protected Type reasonForPrescribing;
+    protected CodeableConcept reasonForPrescribing;
 
     /**
      * Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
@@ -528,11 +528,11 @@ In some situations, this attribute may be used instead of quantity to identify t
       this.encounter = value;
     }
 
-    public Type getReasonForPrescribing() { 
+    public CodeableConcept getReasonForPrescribing() { 
       return this.reasonForPrescribing;
     }
 
-    public void setReasonForPrescribing(Type value) { 
+    public void setReasonForPrescribing(CodeableConcept value) { 
       this.reasonForPrescribing = value;
     }
 

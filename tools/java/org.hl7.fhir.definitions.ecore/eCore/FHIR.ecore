@@ -308,9 +308,8 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SearchType">
-    <eLiterals name="integer" value="1"/>
+    <eLiterals name="number" value="1"/>
     <eLiterals name="string" value="2"/>
-    <eLiterals name="text" value="3"/>
     <eLiterals name="date" value="4"/>
     <eLiterals name="token" value="7"/>
     <eLiterals name="reference" value="6" literal="reference"/>

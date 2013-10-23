@@ -632,6 +632,12 @@ world varies widely.
 </p>
 [%dt HumanName%]
 <p>
+The parts of a name SHOULD NOT contain whitespace. For family name, hyphenated 
+names such as "Smith-Jones" are a single name, but names with spaces such as 
+"Smith Jones" are broken into multiple parts. For given names, initials may 
+be used in place of the full name if that is all that is recorded. 
+</p>
+<p>
 The <i>text</i> element specifies the entire name as it should be represented. This
 may be provided instead of or as well as specific parts. Applications updating a name
 SHALL ensure either that the text and the parts are in agreement, or that only one
@@ -642,6 +648,7 @@ Note that the order of the  parts within a given part type has
 significance and SHALL be observed. The appropriate order between 
 family name and given names depends on culture and context of use. 
 </p>
+
 <!--<div class="use">
 <p><b>Constraints</b></p>
 [%dt.constraints HumanName%]

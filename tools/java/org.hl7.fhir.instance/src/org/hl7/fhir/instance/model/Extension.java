@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 /**
  * Optional Extensions Element - found in all resources.
@@ -40,11 +40,6 @@ public class Extension extends Element {
      * Source of the definition for the extension code - a logical name or a URL.
      */
     protected Uri url;
-
-    /**
-     * This value should be set to true if the value of the extension qualifies or negates data in other content.
-     */
-    protected Boolean isModifier;
 
     /**
      * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
@@ -69,28 +64,6 @@ public class Extension extends Element {
         this.url.setValue(value);
     }
 
-    public Boolean getIsModifier() { 
-      return this.isModifier;
-    }
-
-    public void setIsModifier(Boolean value) { 
-      this.isModifier = value;
-    }
-
-    public boolean getIsModifierSimple() { 
-      return this.isModifier == null ? null : this.isModifier.getValue();
-    }
-
-    public void setIsModifierSimple(boolean value) { 
-      if (value == false)
-        this.isModifier = null;
-      else {
-        if (this.isModifier == null)
-          this.isModifier = new Boolean();
-        this.isModifier.setValue(value);
-      }
-    }
-
     public org.hl7.fhir.instance.model.Type getValue() { 
       return this.value;
     }
@@ -102,7 +75,6 @@ public class Extension extends Element {
       public Extension copy() {
         Extension dst = new Extension();
         dst.url = url == null ? null : url.copy();
-        dst.isModifier = isModifier == null ? null : isModifier.copy();
         dst.value = value == null ? null : value.copy();
         return dst;
       }

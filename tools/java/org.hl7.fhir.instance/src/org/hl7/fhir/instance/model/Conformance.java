@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -229,23 +229,20 @@ public class Conformance extends Resource {
     }
 
     public enum SearchParamType {
-        integer, // Search parameter SHALL be a simple whole number.
-        string, // Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces and are delineated by double quotes, e.g. "van Zanten".
-        text, // Search parameter is on a long string. Used for text filter type search: it functions on searches within a body of text and may contain spaces to separate words. May match even if the separate words are found out of order. Text parameters are delineated by double quotes.
+        number, // Search parameter SHALL be a number (an whole number, or a decimal).
+        string, // Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.
         date, // Search parameter is on a date (and should support :before and :after modifiers). The date format is the standard XML format, though other formats may be supported.
         token, // Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "/", depending on the modifier used.
-        reference, // A pair of resource type and resource id, separated by "/". Matches when the resource reference resolves to a resource of the given type and id. The resource type may be omitted to search all types if used with the modifier :any.
-        composite, // A composite search parameter that combines other search parameters together.
+        reference, // A reference to another resource.
+        composite, // A composite search parameter that combines a search on two values together.
         Null; // added to help the parsers
         public static SearchParamType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("integer".equals(codeString))
-          return integer;
+        if ("number".equals(codeString))
+          return number;
         if ("string".equals(codeString))
           return string;
-        if ("text".equals(codeString))
-          return text;
         if ("date".equals(codeString))
           return date;
         if ("token".equals(codeString))
@@ -258,9 +255,8 @@ public class Conformance extends Resource {
         }
         public String toCode() {
           switch (this) {
-            case integer: return "integer";
+            case number: return "number";
             case string: return "string";
-            case text: return "text";
             case date: return "date";
             case token: return "token";
             case reference: return "reference";
@@ -275,12 +271,10 @@ public class Conformance extends Resource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("integer".equals(codeString))
-          return SearchParamType.integer;
+        if ("number".equals(codeString))
+          return SearchParamType.number;
         if ("string".equals(codeString))
           return SearchParamType.string;
-        if ("text".equals(codeString))
-          return SearchParamType.text;
         if ("date".equals(codeString))
           return SearchParamType.date;
         if ("token".equals(codeString))
@@ -292,12 +286,10 @@ public class Conformance extends Resource {
         throw new Exception("Unknown SearchParamType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == SearchParamType.integer)
-        return "integer";
+      if (code == SearchParamType.number)
+        return "number";
       if (code == SearchParamType.string)
         return "string";
-      if (code == SearchParamType.text)
-        return "text";
       if (code == SearchParamType.date)
         return "date";
       if (code == SearchParamType.token)
@@ -444,7 +436,7 @@ public class Conformance extends Resource {
       }
     }
 
-    public class ConformanceSoftwareComponent extends Element {
+    public class ConformanceSoftwareComponent extends BackboneElement {
         /**
          * Name software is known by.
          */
@@ -532,7 +524,7 @@ public class Conformance extends Resource {
 
   }
 
-    public class ConformanceImplementationComponent extends Element {
+    public class ConformanceImplementationComponent extends BackboneElement {
         /**
          * Information about the specific installation that this conformance statement relates to.
          */
@@ -592,7 +584,7 @@ public class Conformance extends Resource {
 
   }
 
-    public class ConformanceRestComponent extends Element {
+    public class ConformanceRestComponent extends BackboneElement {
         /**
          * Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.
          */
@@ -723,7 +715,7 @@ public class Conformance extends Resource {
 
   }
 
-    public class ConformanceRestSecurityComponent extends Element {
+    public class ConformanceRestSecurityComponent extends BackboneElement {
         /**
          * Server adds CORS headers when responding to reuqests - this enables javascript applications to yuse the server.
          */
@@ -825,7 +817,7 @@ public class Conformance extends Resource {
 
   }
 
-    public class ConformanceRestSecurityCertificateComponent extends Element {
+    public class ConformanceRestSecurityCertificateComponent extends BackboneElement {
         /**
          * Mime type for certificate.
          */
@@ -889,7 +881,7 @@ public class Conformance extends Resource {
 
   }
 
-    public class ConformanceRestResourceComponent extends Element {
+    public class ConformanceRestResourceComponent extends BackboneElement {
         /**
          * Identifies the resource exposed via the restful interface.
          */
@@ -1055,7 +1047,7 @@ public class Conformance extends Resource {
 
   }
 
-    public class ConformanceRestResourceOperationComponent extends Element {
+    public class ConformanceRestResourceOperationComponent extends BackboneElement {
         /**
          * Identifies which operation is supported.
          */
@@ -1115,7 +1107,7 @@ public class Conformance extends Resource {
 
   }
 
-    public class ConformanceRestResourceSearchParamComponent extends Element {
+    public class ConformanceRestResourceSearchParamComponent extends BackboneElement {
         /**
          * Corresponds to the name of the standard or custom search parameter.
          */
@@ -1303,7 +1295,7 @@ public class Conformance extends Resource {
 
   }
 
-    public class ConformanceRestOperationComponent extends Element {
+    public class ConformanceRestOperationComponent extends BackboneElement {
         /**
          * Identifies which system operation is supported.
          */
@@ -1363,7 +1355,7 @@ public class Conformance extends Resource {
 
   }
 
-    public class ConformanceRestQueryComponent extends Element {
+    public class ConformanceRestQueryComponent extends BackboneElement {
         /**
          * The name of this query, which is used in the _query parameter when the query is used.
          */
@@ -1438,7 +1430,7 @@ public class Conformance extends Resource {
 
   }
 
-    public class ConformanceMessagingComponent extends Element {
+    public class ConformanceMessagingComponent extends BackboneElement {
         /**
          * The address to which messages and/or replies are to be sent.
          */
@@ -1549,7 +1541,7 @@ public class Conformance extends Resource {
 
   }
 
-    public class ConformanceMessagingEventComponent extends Element {
+    public class ConformanceMessagingEventComponent extends BackboneElement {
         /**
          * Identifies the supported messaging event.
          */
@@ -1694,7 +1686,7 @@ public class Conformance extends Resource {
 
   }
 
-    public class ConformanceDocumentComponent extends Element {
+    public class ConformanceDocumentComponent extends BackboneElement {
         /**
          * The mode of this event declaration - whether application is sender or receiver.
          */

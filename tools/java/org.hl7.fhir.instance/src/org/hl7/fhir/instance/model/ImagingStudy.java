@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -860,7 +860,7 @@ public class ImagingStudy extends Resource {
       }
     }
 
-    public class ImagingStudySeriesComponent extends Element {
+    public class ImagingStudySeriesComponent extends BackboneElement {
         /**
          * The number of this series in the overall sequence.
          */
@@ -1113,7 +1113,7 @@ public class ImagingStudy extends Resource {
 
   }
 
-    public class ImagingStudySeriesInstanceComponent extends Element {
+    public class ImagingStudySeriesInstanceComponent extends BackboneElement {
         /**
          * The number of this image in the series.
          */

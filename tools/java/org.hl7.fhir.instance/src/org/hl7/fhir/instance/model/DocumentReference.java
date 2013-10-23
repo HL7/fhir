@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -88,7 +88,7 @@ public class DocumentReference extends Resource {
       }
     }
 
-    public class DocumentReferenceServiceComponent extends Element {
+    public class DocumentReferenceServiceComponent extends BackboneElement {
         /**
          * The type of the service that can be used to access the documents.
          */
@@ -157,7 +157,7 @@ public class DocumentReference extends Resource {
 
   }
 
-    public class DocumentReferenceServiceParameterComponent extends Element {
+    public class DocumentReferenceServiceParameterComponent extends BackboneElement {
         /**
          * The name of a parameter.
          */
@@ -217,7 +217,7 @@ public class DocumentReference extends Resource {
 
   }
 
-    public class DocumentReferenceContextComponent extends Element {
+    public class DocumentReferenceContextComponent extends BackboneElement {
         /**
          * The type of clinical context, such as a kind of surgery, or a kind of speciality, or a clinical type.
          */

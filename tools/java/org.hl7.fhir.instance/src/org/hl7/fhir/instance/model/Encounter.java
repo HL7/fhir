@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -268,7 +268,7 @@ public class Encounter extends Resource {
       }
     }
 
-    public class EncounterParticipantComponent extends Element {
+    public class EncounterParticipantComponent extends BackboneElement {
         /**
          * Role of participant in encounter.
          */
@@ -316,7 +316,7 @@ public class Encounter extends Resource {
 
   }
 
-    public class EncounterHospitalizationComponent extends Element {
+    public class EncounterHospitalizationComponent extends BackboneElement {
         /**
          * Pre-admission identifier.
          */
@@ -507,7 +507,7 @@ public class Encounter extends Resource {
 
   }
 
-    public class EncounterHospitalizationAccomodationComponent extends Element {
+    public class EncounterHospitalizationAccomodationComponent extends BackboneElement {
         /**
          * Bed.
          */
@@ -543,7 +543,7 @@ public class Encounter extends Resource {
 
   }
 
-    public class EncounterLocationComponent extends Element {
+    public class EncounterLocationComponent extends BackboneElement {
         /**
          * The location the encounter takes place.
          */
@@ -627,7 +627,7 @@ public class Encounter extends Resource {
     /**
      * Reason the encounter takes place.
      */
-    protected Type reason;
+    protected CodeableConcept reason;
 
     /**
      * Reason the encounter takes place.
@@ -774,11 +774,11 @@ public class Encounter extends Resource {
       this.length = value;
     }
 
-    public Type getReason() { 
+    public CodeableConcept getReason() { 
       return this.reason;
     }
 
-    public void setReason(Type value) { 
+    public void setReason(CodeableConcept value) { 
       this.reason = value;
     }
 

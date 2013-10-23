@@ -108,27 +108,6 @@ entry or validation. This is most useful when a value set includes
 all the children of a code or a set of codes by filter.
 </p>
 <p>
-The standard way to produce a value set expansion is to perform a 
-<a href="query.html">query</a> on the value set with _query=expand:
-</p>
-<pre>
-  GET [service-url]/valueset/?_query=expand&amp;id=...
-</pre>
-<p>
-This is a request to produce a value set expansion for the value set
-with the provided id. The value set can be identified by other means,
-such as identifier and version. Servers can define their own additional
-parameters that influence the expansion process, such as to what 
-degree heirarchy from the source code system is reflected in the 
-expanded value sets.
-</p>
-<p>
-The value set expansion returned by this query should be treated 
-as a transient result that will change over time (whether it does or
-not depends on how the value set is specified), so applications 
-should repeat the query each time the value set is used.
-</p>
-<p>
 A resource that represents a value set expansion includes the same
 identification details as the definition of the value set, and MAY
 include the definition of the value set (<i>define</i> and <i>compose</i>
@@ -138,6 +117,49 @@ expansion is heirachical (codes contain other concepts), there
 is no implication about the logical relationship between them; this 
 is guidance for helping human user navigate the choice of codes that 
 may or may not relate to the logical definitions of the codes or concepts.
+</p>
+<p>
+Conceptually, the following process should be followed when 
+expanding a value set:
+</p>
+<ul>
+ <li>for each <i>compose.import</i>, find the referenced value set, expand that, and add it to the result set</li>
+ <li>for each <i>compose.include</i>, identify the correct version of the code system, and then:
+  <ul>
+   <li>if there is no codes or filters, add every code in the code system to the result set</li>
+   <li>if codes are listed, add them to the result set</li>
+   <li>if any filters are present, process them in order (as explained above), and add the intersection of their results to the result set</li>
+  </ul>
+ </li>
+ <li>for each <i>compose.exclude</i>, follow the same process as for <i>compose.include</i>, but remove any codes from the result set, instead of adding them</li>
+ <li>add any codes in the <i>define</i> to the result set</li>
+</ul>
+<p>
+The "result set" is then represented in <i>expansion</i>. Note that the expansion structure is inherently ordered, and 
+also provides support for a hierarchical tree of codes. This specification does not fix the meaning of use of either
+of these, and the conceptual approach described should not be understood to prohibit any implementation approach in
+these regards.
+</p>
+<p>
+An application MAY offer to expand value sets for other applications. In this 
+case, the standard way to produce a value set expansion is to perform a 
+<a href="query.html">query</a> on the value set with _query=expand:
+</p>
+<pre>
+  GET [service-url]/valueset/?_query=expand&amp;id=:url&amp;...
+</pre>
+<p>
+This is a request to produce a value set expansion for the value set
+with the provided id (either a logical id, or an absolute reference to a value set). 
+The value set can be identified by other means, such as identifier and version. 
+Servers can define their own additional parameters that influence the expansion 
+process, such in relation to order and hierarchy.
+</p>
+<p>
+The value set expansion returned by this query should be treated 
+as a transient result that will change over time (whether it does or
+not depends on how the value set is specified), so applications 
+should repeat the query each time the value set is used.
 </p>
 
 

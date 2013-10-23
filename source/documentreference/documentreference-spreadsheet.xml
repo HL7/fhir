@@ -21,7 +21,7 @@
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6315</WindowTopY>
   <TabRatio>1000</TabRatio>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -883,7 +883,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">text</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">DocumentReference.description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -903,7 +903,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">size</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">integer</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">number</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">DocumentReference.size</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -934,11 +934,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1098,7 +1099,6 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

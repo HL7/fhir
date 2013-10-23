@@ -49,6 +49,7 @@ import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.Factory;
+import org.hl7.fhir.instance.model.Id;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.Profile;
@@ -304,8 +305,11 @@ public class ProfileGenerator {
       ce.getDefinition().getType().add(type);
     }
     // ce.setConformance(getType(e.getConformance()));
-    if (!"".equals(e.getCondition()))
-      ce.getDefinition().getCondition().add(Factory.newId(e.getCondition()));
+    if (!"".equals(e.getCondition())) {
+      Id cond = Factory.newId(e.getCondition());
+      if (cond != null)
+        ce.getDefinition().getCondition().add(cond);
+    }
     // we don't know mustSupport here
     ce.getDefinition().setIsModifier(Factory.newBoolean(e.isModifier()));
     addMapping(p, ce.getDefinition(), "http://loinc.org", e.getMapping(ElementDefn.LOINC_MAPPING));

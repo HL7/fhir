@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -194,7 +194,7 @@ public class Observation extends Resource {
       }
     }
 
-    public class ObservationReferenceRangeComponent extends Element {
+    public class ObservationReferenceRangeComponent extends BackboneElement {
         /**
          * Code for the meaning of the reference range.
          */
@@ -230,7 +230,7 @@ public class Observation extends Resource {
 
   }
 
-    public class ObservationComponentComponent extends Element {
+    public class ObservationComponentComponent extends BackboneElement {
         /**
          * Identifies what type of sub-observation was performed.
          */

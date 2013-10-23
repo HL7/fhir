@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -168,7 +168,7 @@ public class DeviceLog extends Resource {
       }
     }
 
-    public class DeviceLogItemComponent extends Element {
+    public class DeviceLogItemComponent extends BackboneElement {
         /**
          * Reference to a device capabilities declaration.
          */

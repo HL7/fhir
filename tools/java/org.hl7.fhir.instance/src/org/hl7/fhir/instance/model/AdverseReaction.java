@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -204,7 +204,7 @@ public class AdverseReaction extends Resource {
       }
     }
 
-    public class AdverseReactionSymptomComponent extends Element {
+    public class AdverseReactionSymptomComponent extends BackboneElement {
         /**
          * Indicates the specific sign or symptom that was observed.
          */
@@ -254,7 +254,7 @@ public class AdverseReaction extends Resource {
 
   }
 
-    public class AdverseReactionExposureComponent extends Element {
+    public class AdverseReactionExposureComponent extends BackboneElement {
         /**
          * When the exposure occurred.
          */

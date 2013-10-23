@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -72,7 +72,7 @@ public class ImmunizationRecommendation extends Resource {
       }
     }
 
-    public class ImmunizationRecommendationRecommendationComponent extends Element {
+    public class ImmunizationRecommendationRecommendationComponent extends BackboneElement {
         /**
          * The date of the immunization recommendation.
          */
@@ -260,7 +260,7 @@ public class ImmunizationRecommendation extends Resource {
 
   }
 
-    public class ImmunizationRecommendationRecommendationDateCriterionComponent extends Element {
+    public class ImmunizationRecommendationRecommendationDateCriterionComponent extends BackboneElement {
         /**
          * Date classification of recommendation - e.g. earliest date to give, latest date to give, etc.
          */
@@ -306,7 +306,7 @@ public class ImmunizationRecommendation extends Resource {
 
   }
 
-    public class ImmunizationRecommendationRecommendationProtocolComponent extends Element {
+    public class ImmunizationRecommendationRecommendationProtocolComponent extends BackboneElement {
         /**
          * Nominal position in a series.
          */
@@ -412,7 +412,7 @@ public class ImmunizationRecommendation extends Resource {
 
   }
 
-    public class ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent extends Element {
+    public class ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent extends BackboneElement {
         /**
          * Unique identifier of the adverse event report.
          */

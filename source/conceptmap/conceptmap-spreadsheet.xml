@@ -9,17 +9,18 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:19:17Z</Created>
-  <LastSaved>2013-09-26T12:26:16Z</LastSaved>
+  <LastSaved>2013-10-22T09:07:08Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6045</WindowHeight>
-  <WindowWidth>27120</WindowWidth>
-  <WindowTopX>960</WindowTopX>
-  <WindowTopY>2835</WindowTopY>
+  <WindowHeight>9825</WindowHeight>
+  <WindowWidth>18555</WindowWidth>
+  <WindowTopX>19455</WindowTopX>
+  <WindowTopY>8775</WindowTopY>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -102,13 +103,31 @@
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s75">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s76">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s77">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s78">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s79">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s77">
+  <Style ss:ID="s80">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -383,7 +402,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -469,124 +487,136 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="41" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="43" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s74" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="71.25"/>
    <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="383.25"/>
    <Column ss:Index="4" ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="301.5"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s65">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
     <Cell><Data ss:Type="String">Path</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">name</Data></Cell>
-    <Cell><Data ss:Type="String">a portion of the name of the concept map</Data></Cell>
-    <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ConceptMap.name</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">identifier</Data></Cell>
-    <Cell><Data ss:Type="String">the identifier of the concept map</Data></Cell>
+    <Cell><Data ss:Type="String">The identifier of the concept map</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ConceptMap.identifier</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">ConceptMap.identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">version</Data></Cell>
-    <Cell><Data ss:Type="String">the version identifier of the concept map</Data></Cell>
+    <Cell><Data ss:Type="String">The version identifier of the concept map</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ConceptMap.version</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">ConceptMap.version</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">name</Data></Cell>
+    <Cell><Data ss:Type="String">Name of the concept map</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">ConceptMap.name</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">publisher</Data></Cell>
+    <Cell><Data ss:Type="String">Name of the publisher of the concept map</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="String">ConceptMap.publisher</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">description</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Text search in the description of the concept map</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">ConceptMap.description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">status</Data></Cell>
-    <Cell><Data ss:Type="String">the status of the concept map</Data></Cell>
+    <Cell><Data ss:Type="String">Status of the concept map</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ConceptMap.status</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">ConceptMap.status</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">date</Data></Cell>
+    <Cell><Data ss:Type="String">The concept map publication date</Data></Cell>
+    <Cell><Data ss:Type="String">date</Data></Cell>
+    <Cell><Data ss:Type="String">ConceptMap.date</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">source</Data></Cell>
-    <Cell><Data ss:Type="String">the system for any concepts mapped by this concept map</Data></Cell>
+    <Cell><Data ss:Type="String">The system for any concepts mapped by this concept map</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ConceptMap.source</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">ConceptMap.source</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">target</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ConceptMap.target</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">ConceptMap.target</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">system</Data></Cell>
-    <Cell><Data ss:Type="String">the system for any destination concepts mapped by this map</Data></Cell>
+    <Cell><Data ss:Type="String">The system for any destination concepts mapped by this map</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ConceptMap.concept.map.system</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">ConceptMap.concept.map.system</Data></Cell>
+   </Row>
+   <Row ss:Index="24" ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Human language description of the concept map</Data></Cell>
-    <Cell><Data ss:Type="String">text</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">ConceptMap.description</Data></Cell>
-   </Row>
-   <Row ss:Index="22" ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s64"/>
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -602,12 +632,12 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>3</ActiveCol>
-     <RangeSelection>R6C4:R9C4</RangeSelection>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -617,13 +647,13 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="3" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s76" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s79" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="113.25"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="209.25"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="78.75"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="140.25"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="113.25"/>
+   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="209.25"/>
+   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="78.75"/>
+   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="140.25"/>
+   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
@@ -743,12 +773,12 @@
    <Column ss:Width="166.5"/>
    <Column ss:Width="183"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Identity</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">In Book</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"/>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -650,7 +650,7 @@ public class SecurityEvent extends Resource {
       }
     }
 
-    public class SecurityEventEventComponent extends Element {
+    public class SecurityEventEventComponent extends BackboneElement {
         /**
          * Identifier for a family of the event.
          */
@@ -799,7 +799,7 @@ public class SecurityEvent extends Resource {
 
   }
 
-    public class SecurityEventParticipantComponent extends Element {
+    public class SecurityEventParticipantComponent extends BackboneElement {
         /**
          * Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context.
          */
@@ -976,7 +976,7 @@ public class SecurityEvent extends Resource {
 
   }
 
-    public class SecurityEventParticipantNetworkComponent extends Element {
+    public class SecurityEventParticipantNetworkComponent extends BackboneElement {
         /**
          * An identifier for the network access point of the user device for the audit event.
          */
@@ -1040,7 +1040,7 @@ public class SecurityEvent extends Resource {
 
   }
 
-    public class SecurityEventSourceComponent extends Element {
+    public class SecurityEventSourceComponent extends BackboneElement {
         /**
          * Logical source location within the healthcare enterprise network.
          */
@@ -1119,7 +1119,7 @@ public class SecurityEvent extends Resource {
 
   }
 
-    public class SecurityEventObjectComponent extends Element {
+    public class SecurityEventObjectComponent extends BackboneElement {
         /**
          * Identifies a specific instance of the participant object. The reference should always be version specific.
          */
@@ -1328,7 +1328,7 @@ public class SecurityEvent extends Resource {
 
   }
 
-    public class SecurityEventObjectDetailComponent extends Element {
+    public class SecurityEventObjectDetailComponent extends BackboneElement {
         /**
          * Name of the property.
          */

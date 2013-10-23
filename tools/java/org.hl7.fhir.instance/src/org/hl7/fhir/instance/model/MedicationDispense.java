@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -104,7 +104,7 @@ public class MedicationDispense extends Resource {
       }
     }
 
-    public class MedicationDispenseDispenseComponent extends Element {
+    public class MedicationDispenseDispenseComponent extends BackboneElement {
         /**
          * Identifier assigned by the dispensing facility.   This is an identifier assigned outside FHIR.
          */
@@ -276,11 +276,11 @@ public class MedicationDispense extends Resource {
 
   }
 
-    public class MedicationDispenseDispenseDosageComponent extends Element {
+    public class MedicationDispenseDispenseDosageComponent extends BackboneElement {
         /**
          * Additional instructions such as "Swallow with plenty of water" which may or may not be coded.
          */
-        protected Type additionalInstructions;
+        protected CodeableConcept additionalInstructions;
 
         /**
          * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
@@ -319,11 +319,11 @@ Terminologies used often pre-coordinate this term with the route and or form of 
          */
         protected Ratio maxDosePerPeriod;
 
-        public Type getAdditionalInstructions() { 
+        public CodeableConcept getAdditionalInstructions() { 
           return this.additionalInstructions;
         }
 
-        public void setAdditionalInstructions(Type value) { 
+        public void setAdditionalInstructions(CodeableConcept value) { 
           this.additionalInstructions = value;
         }
 
@@ -398,7 +398,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
   }
 
-    public class MedicationDispenseSubstitutionComponent extends Element {
+    public class MedicationDispenseSubstitutionComponent extends BackboneElement {
         /**
          * A code signifying whether a different drug was dispensed from what was prescribed.
          */

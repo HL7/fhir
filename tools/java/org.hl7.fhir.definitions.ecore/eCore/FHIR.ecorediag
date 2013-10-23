@@ -570,16 +570,12 @@
     <children xmi:type="notation:Node" xmi:id="_CMbUja_CEeGrAaDwyEdjfA" type="4010"/>
     <children xmi:type="notation:Node" xmi:id="_CMbUjq_CEeGrAaDwyEdjfA" type="5008">
       <children xmi:type="notation:Node" xmi:id="_CMbUkq_CEeGrAaDwyEdjfA" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="FHIR.ecore#//SearchType/integer"/>
+        <element xmi:type="ecore:EEnumLiteral" href="FHIR.ecore#//SearchType/number"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_CMbUk6_CEeGrAaDwyEdjfA"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_CMbUlK_CEeGrAaDwyEdjfA" type="2006">
         <element xmi:type="ecore:EEnumLiteral" href="FHIR.ecore#//SearchType/string"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_CMbUla_CEeGrAaDwyEdjfA"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_CMbUlq_CEeGrAaDwyEdjfA" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="FHIR.ecore#//SearchType/text"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_CMbUl6_CEeGrAaDwyEdjfA"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_ri_XQbomEeGRTPO1UC5gIg" type="2006">
         <element xmi:type="ecore:EEnumLiteral" href="FHIR.ecore#//SearchType/date"/>

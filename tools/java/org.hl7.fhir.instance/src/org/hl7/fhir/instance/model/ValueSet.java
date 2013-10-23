@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -146,7 +146,7 @@ public class ValueSet extends Resource {
       }
     }
 
-    public class ValueSetDefineComponent extends Element {
+    public class ValueSetDefineComponent extends BackboneElement {
         /**
          * URI to identify the code system.
          */
@@ -253,7 +253,7 @@ public class ValueSet extends Resource {
 
   }
 
-    public class ValueSetDefineConceptComponent extends Element {
+    public class ValueSetDefineConceptComponent extends BackboneElement {
         /**
          * Code that identifies concept.
          */
@@ -388,7 +388,7 @@ public class ValueSet extends Resource {
 
   }
 
-    public class ValueSetComposeComponent extends Element {
+    public class ValueSetComposeComponent extends BackboneElement {
         /**
          * Includes the contents of the referenced value set as part of the contents of this value set.
          */
@@ -460,7 +460,7 @@ public class ValueSet extends Resource {
 
   }
 
-    public class ConceptSetComponent extends Element {
+    public class ConceptSetComponent extends BackboneElement {
         /**
          * The code system from which the selected codes come from.
          */
@@ -565,7 +565,7 @@ public class ValueSet extends Resource {
 
   }
 
-    public class ConceptSetFilterComponent extends Element {
+    public class ConceptSetFilterComponent extends BackboneElement {
         /**
          * A code that identifies a property defined in the code system.
          */
@@ -645,7 +645,7 @@ public class ValueSet extends Resource {
 
   }
 
-    public class ValueSetExpansionComponent extends Element {
+    public class ValueSetExpansionComponent extends BackboneElement {
         /**
          * An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.
          */
@@ -710,7 +710,7 @@ public class ValueSet extends Resource {
 
   }
 
-    public class ValueSetExpansionContainsComponent extends Element {
+    public class ValueSetExpansionContainsComponent extends BackboneElement {
         /**
          * System value for the code.
          */

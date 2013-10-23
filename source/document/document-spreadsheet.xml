@@ -21,6 +21,7 @@
   <WindowTopX>7605</WindowTopX>
   <WindowTopY>-19635</WindowTopY>
   <TabRatio>666</TabRatio>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -783,7 +784,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -886,49 +886,49 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">type</Data></Cell>
-    <Cell><Data ss:Type="String">the type of the document</Data></Cell>
+    <Cell><Data ss:Type="String">The type of the document</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">Document.type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell><Data ss:Type="String">the document creation time</Data></Cell>
+    <Cell><Data ss:Type="String">The document creation time</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
     <Cell><Data ss:Type="String">Document.created</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">subject of the document</Data></Cell>
+    <Cell><Data ss:Type="String">Subject of the document</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">Document.subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">author</Data></Cell>
-    <Cell><Data ss:Type="String">author of the document</Data></Cell>
+    <Cell><Data ss:Type="String">Author of the document</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">Document.author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">attester</Data></Cell>
-    <Cell><Data ss:Type="String">attester of the document</Data></Cell>
+    <Cell><Data ss:Type="String">Attester of the document</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">Document.attester.party</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">context</Data></Cell>
-    <Cell><Data ss:Type="String">context of the document</Data></Cell>
+    <Cell><Data ss:Type="String">Context of the document</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">Document.event.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">section-type</Data></Cell>
-    <Cell><Data ss:Type="String">code of the document</Data></Cell>
+    <Cell><Data ss:Type="String">Code of the document</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">Document.section.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">section-content</Data></Cell>
-    <Cell><Data ss:Type="String">content resource of the section</Data></Cell>
+    <Cell><Data ss:Type="String">Content resource of the section</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">Document.section.content</Data></Cell>
    </Row>
@@ -950,10 +950,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>7</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>

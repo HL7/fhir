@@ -526,7 +526,7 @@ public abstract class JsonComposerBase extends XmlBase implements Composer {
 
   protected boolean anyHasExtras(List<? extends Element> list) {
 	  for (Element e : list) {
-	  	if (e != null && (e.hasExtensions() || !Utilities.noString(e.getXmlId())))
+	  	if (e.hasExtensions() || !Utilities.noString(e.getXmlId()))
 	  		return true;
 	  }
 	  return false;

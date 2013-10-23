@@ -116,66 +116,101 @@ separated from the parameter name by a dot. Modifiers are:</p>
   Searching for "gender:missing=true" will return all the resources that don't have any value for the gender parameter (which usually 
   equates to not having the relevant element in the resource). Searching for "gender:missing=false"
   will return all the resources that have a value for the "gender" parameter. </li>
+<li>For string: ":exact" (the match needs to be exact, no partial matches, case sensitive and accent-sensitive), instead of the default behaviour, which is that the search does partial matches. It is at the discretion of the server whether to do a left-partial search</li>
 <li>For dates: ":before" and ":after". E.g. birthdate:before=1972-11-30. See below for how date searches are interpreted.</li>
-<li>For string: ":exact" (the match needs to be exact, no partial matches, case sensitive and accent-sensitive) and  ":partial" (the search may function on partial matches). It is at the discretion of the server whether to do a left-partial search</li>
-<li>For token: ":text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), ":code" (a match on code and system of the coding/codeable concept), and ":anyns" matches all codes irrespective of the namespace.</li>
+<li>For token: ":text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), instead of the default search which uses codes</li>
+<li>For reference: ":[type]" where [type] is the name of a type of resource</li>
 </ul>
 
-<h4>text</h4>
+<a name="string" />
+<h4>string</h4>
 <p>
-The type "text" is used for general text type content where non-determinstic search 
-functionality of the type offered by typical text indexing services is appropriate. 
-The value of the search parameter is a text based query, which may involve searching
-more multiple words with thesaurus and proximity considerations, and logical operations such as AND, OR etc. 
-This specification does not proscribe any particular functionality with respect to 
-the exact functionality of these search parameters.
+The string parameter refer to simple string searches against sequences of characters. 
+Matches are case- and accent- insensitive. By default, a match exists if a portion of 
+the parameter value contains the specified string. It is at the discretion of the 
+server whether to do a left-partial search. The modifier :exact can be used to indicate
+that the match needs to be exact - e.g. the whole string. For example:
+</p>
+<pre>
+ GET [base-url]/Patient?name="eve"
+ GET [base-url]/Patient?name:exact="eve"
+</pre>
+<p>
+The first is a request to find any patients with "eve" in any part of the name. This would 
+include patients with the name "Eve", "Severine", etc. The second search would only return
+patients with the name "Eve".
 </p>
 
-<h4>integer</h4>
+<p>
+An additional modifier :text
+can be used to specify a search with advanced text handling (see <a href="#text">below</a>)
+though only a few servers are expected to offer this facility.
+</p>
+<p>
+It as at the discretion of the server whether to pre-process names, addresses, 
+and contact details to remove separator characters prior to matching. For example,
+a server might remove all spaces and "-" characters from phone numbers. What is 
+most appropriate varies depending on culture and context.
+</p>
+
+<a name="number" />
+<h4>number</h4>
 <p>
 The prefixes &gt;, &gt;=, &lt;=, and &lt; may be used on the parameter value, 
-and has the usual meaning. Note that '=" must be escaped in the 
-value in a URL.
+and have the usual meaning. Note that '=" must be escaped in the 
+value in a URL. Examples:
+</p>
+<table class="grid">
+ <tr><td>value=100</td><td>Values that equal 100, to 2 decimal places precision</td></tr>
+ <tr><td>value=100.00</td><td>Values that equal 100, to 4 decimal places precision. Whole numbers also equal 100.00, but not 100.01</td></tr>
+ <tr><td>value=&lt;100</td><td>Values that are less than 100</td></tr>
+ <tr><td>value=&lt;=100</td><td>Values that are less or equal to 100</td></tr>
+ <tr><td>value=&gt;100</td><td>Values that are greater than 100</td></tr>
+ <tr><td>value=&gt;=100</td><td>Values that are greater or equal to 100</td></tr>
+</table>
+<p>
+For comparisons involving &lt; or &gt;, uncertainty does not factor, and the precision of the numbers is considered arbitrarily high.
+Note that the way these search parameters operate here is not the same as whether two numbers are equal to each other in a mathematical sense.
 </p>
 
+<a name="token" />
 <h4>token</h4>
 <p>
-A token type is a parameter that searches on a code or identifier 
-value where the value may have a URI that scopes its meaning
-(from a <a href="datatypes.html#Coding">Coding</a> or an 
-<a href="datatypes.html#Identifier">Identifier</a> type, and also 
-from a <a href="datatypes.html#code">code</a> where the URI is 
-implicit).
+A token type is a parameter that searches on a code or identifier value 
+where the value may have a URI that scopes its meaning (from a <a href="datatypes.html#Coding">Coding</a>, 
+a <a href="datatypes.html#CodeableConcept">CodeableConcept</a> or an <a href="datatypes.html#Identifier">Identifier</a> type, and also 
+from a <a href="datatypes.html#code">code</a> where the URI is implicit). 
 </p>
 <p>
-If the parameter has no modifier, or the modifier ":text", the 
-search parameter is a string; if the modifier is ":code" the 
-parameter is a pair of fixed value strings, namespace and 
-value, separated by a "/"; if the modifier is :anyns, the 
-parameter is a single value fixed string. Without modifier, the search will 
-use the textual parameter to do a partial match on code, 
-text or display. With modifier ":text" the search will do 
-a partial match on text or display. With the ":code"
-modifier, the search will work as follows:
+If the parameter has no modifier, the search is performed against
+the URI/value from a Coding or an Identifier. The syntax for the
+value is one of the following:
 </p>
 <ul>
- <li><b>name=namespace/code</b> specifies matches on both the namespace and the code (or, for identifiers, key)</li>
- <li><b>name=/code</b> matches a code that has no specified namespace</li>
+ <li><b>name=code</b> matches a code/value irrespective of it's system namespace</li>
+ <li><b>name=namespace|code</b> matches a code/value in the given system namespace </li>
+ <li><b>name=|code</b> matches a code/value that has no system namespace</li>
 </ul>
-<p>In the url of the code system, the “#” (fragment identifier) must be escaped, and in some implementations, the ":" does too.
-The modifier ":anyns" means that the code matches all codes irrespective of the namespace.</p>
+<p>
+Note that the namespace URI and code both must be <a hef="#escapes">escaped</a>.
+</p>
+<p>
+If the the modifier ":text", is used, the search parameter is processed as a 
+string that searches text associated with the code/value - either <i>CodeableConcept.text</i>,
+<i>Coding.display</i>, or <i>Identifier.label</i>.
+</p>
 <p>
 Here are some example searches:
 </p>
 <table>
  <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
- <tr><td><pre> GET [base-url]/Patient?identifier=http://acme.org/patient/2345</pre></td><td>Search for all the patients with an identifier with key = "2345" in the system "http://acme.org/patient"</td></tr>
- <tr><td><pre> GET [base-url]/Patient?gender=male</pre></td><td>Search for any gender that has a text or code "male". <i>Note that this will also match "female" since that also contains "male"</i></td></tr>
- <tr><td><pre> GET [base-url]/Patient?gender:code=http://hl7.org/fhir/v2/0001/M</pre></td><td>Search for any gender which is coded as "M" in the HL7 Administrative Gender table</td></tr>
- <tr><td><pre> GET [base-url]/Patient?gender:anyns=male</pre></td><td>Search for any gender where the code is "male". Note that searching any namespace for a particular code is mostly not very useful.</td></tr>
+ <tr><td><pre> GET [base-url]/Patient?identifier=http://acme.org/patient|2345</pre></td><td>Search for all the patients with an identifier with key = "2345" in the system "http://acme.org/patient"</td></tr>
+ <tr><td><pre> GET [base-url]/Patient?gender=male</pre></td><td>Search for any patient with a gender that has a code "male", irrespective of the system. Note that this usually isn't very useful - systems generally define symbols where overlap is coincidental and not informative</td></tr>
+ <tr><td><pre> GET [base-url]/Patient?gender=http://hl7.org/fhir/v2/0001|M</pre></td><td>Search for any patient with a gender which is coded as "M" in the HL7 Administrative Gender table</td></tr>
+ <tr><td><pre> GET [base-url]/Patient?gender:text=male</pre></td><td>Search for any patient with a gender that has a text "male" associated with it (note: this will include "female")</td></tr>
 </table>
 
-
+<a name="date" />
 <h4>date</h4>
 <p>
 A date parameter searches on a date/time or period. As is usual for date/time related functionality, while the 
@@ -237,20 +272,41 @@ As an example, the following search searches for all the procedures in a patient
 
 
 <a name="chaining" />
+<a name="reference" />
 <h4>reference</h4>
 <p>
-A reference parameter refers to references between resources, e.g. find all 
-Conditions where the subject reference is a particular patient by the patient id.
+A reference parameter refers to <a href="references.html">references between resources</a>, e.g. find all 
+Conditions where the subject reference is a particular patient, where the patient is selected by name or identifier.
 The interpretation of a <i>reference</i> parameter is either:
 </p>
 <ul>
- <li><b>name=id</b> the id of a resource</li>
- <li><b>name=type/id</b> matches an id of a resource with a specific target type. This is useful if the resource reference can refer to multiple different resource types.</li>
+ <li><b>name=:id</b> the logical id of a resource using a local reference (i.e. a relative reference)</li>
+ <li><b>name=:url</b> where the url is an absolute URL - a reference to a a resource by it's absolute location</li>
 </ul>
+<p>
+Note that if a relative reference resolves to the same value as a specified absolute URL, or vice versa, this is a match too.
+</p>
+<p>
+Some references are allowed to point to more than one type of resource. e.g. subject : Resource(Patient|Group|Device|..).
+In these cases, multiple different resources may have the same logical identifier. In this case, the client can specify 
+a type modifier after the name of the parameter to be explicit about the intended type:
+</p>
+<pre>
+ GET [base-url]/condition?subject:Patient=23
+</pre>
+<p>
+This searches for any conditions where the subject refers to the patient resource with the 
+logical identifier "23". The server SHOULD reject a query where the logical id refers to 
+more than one matching resource across different types. Note that the :[type] modifier 
+can't be used with a reference to a resource found on another server, since the server 
+would not usually know what type that resource has (but since these are absolute
+references, there can be no ambiguity about the type).
+</p>
+
 <p>
 In order to save a client from doing a series of search operations, 
 reference parameters may be "chained" by appending them with 
-a period (.) followed by the name of a search parameters defined for the target 
+a period (.) followed by the name of a search parameter defined for the target 
 resource. This can be done recursively, following a logical path 
 through a graph of related resources, separated by ".".
 For instance, given that 
@@ -261,7 +317,7 @@ the Patient resource includes a parameter <i>name</i> which
 searches on patient name, then the search
 </p>
 <pre>
- GET [base-url]/DiagnosticReport/search?subject.name="peter"
+ GET [base-url]/DiagnosticReport?subject.name="peter"
 </pre>
 <p>
 is a request to return all the lab reports that have a subject whose name includes "peter". Because 
@@ -269,8 +325,12 @@ the Diagnostic Report subject can be one of a set of different resources, it's p
 the search to a particular type:
 </p>
 <pre>
- GET [base-url]/DiagnosticReport/search?subject:patient.name="peter"
+ GET [base-url]/DiagnosticReport?subject:Patient.name="peter"
 </pre>
+<p>
+Which is a request to return all the lab reports that have a subject which is a patient, whose name includes "peter". 
+</p>
+
 <p>
 Advanced Search Note: 
 Where a chained parameter searches a resource reference that may have more than one 
@@ -278,11 +338,14 @@ different type of resource as its target, the parameter chain may end up referri
 to search parameters with the same name on more than one kind of resource at once. 
 The parameter names defined in FHIR have consistent types wherever they are used. 
 Implementers defining their own names need to be sure that they do not create 
-unprocessable combinations. 
+unprocessable combinations. Servers SHOULD reject queries chained queries
+that lead to disjoint types along the path (e.g. the client has to specify
+the type explicitly using the syntax in the second example above).
 </p>
 
+<a name="composite" />
 <a name="combining" />
-<h3>Combining Search Parameters</h3>
+<h3>Composite Search Parameters</h3>
 <p>
 The result of the search operation is the intersection of the resources that match the criteria specified by each 
 individual search parameter. If a parameter repeats, such as /patient?language=FR&amp;language=NL, then 
@@ -297,7 +360,7 @@ find a combination of key/value, not an intersection of separate matches on key 
 Another example is spatial coordinates when doing geographical searches. 
 </p>
 <p>
-To allow these searches, a resource may also specify <i>combination</i> parameters 
+To allow these searches, a resource may also specify <i>composite</i> parameters 
 that take sequences of single values that match other defined parameters as an 
 argument. The matching parameter of each component in such a sequence 
 is documented in the definition of the parameter. These sequences are formed by 
@@ -306,6 +369,49 @@ value and itself can be composed into a set of values, so that, for example,
 multiple matching state-on-date parameters can be specified as 
 state-on-date=new$2013-05-04,active$2013-05-05.
 </p>
+
+<a name="escaping" />
+<h3>Escaping Search Parameters</h3>
+<p>
+In the rules above, special rules are defined for the characters "$", ",", and "|". 
+As a consequence, if these characters appear in an actual parameter value,
+they must be differentiated from their use as separator characters. When 
+any of these characters appear in an actual parameter value, they must be 
+prepended by the character "\" (which also must be used to prepend itself).
+So param=xxx$xxx means a composite parameter, while param=xx\$xx means that
+the parameter has the literal value xx$xx. The parameter value xx\xx is illegal.
+</p>
+
+
+<a name="text" />
+<h3>Text Search Parameters</h3>
+<p>
+There are two special text search parameters, _text and _content, which search 
+on the narrative of the resource, and the entire content of the resource respectively. 
+These parameters SHOULD support non-deterministic search functionality of the type 
+offered by typical text indexing services is appropriate. 
+The value of the parameter is a text based query, which may involve searching
+multiple words with thesaurus and proximity considerations, and logical operations 
+such as AND, OR etc. For example:
+</p>
+<pre>
+ condition?_text=(bone OR liver) and metastases
+</pre>
+<p>
+This searches for all Condition resources with the word "metastases" and either 
+"bone" or "liver" in the narrative. The server MAY choose to search 
+for related words as well. 
+</p>
+<blockquote>
+<p><b>DSTU Note</b>: The issues around standardizing text search are not fully resolved. 
+During the trial use period for this specification, we recommend that systems use 
+the rules specified by <a href="http://docs.oasis-open.org/odata/odata/v4.0/cs01/part1-protocol/odata-v4.0-cs01-part1-protocol.html#_The_$search_System">
+a forth coming release of the odata specification for the $search parameter</a>.
+Typical implementations would use Lucene, an sql-based full text search, 
+or some indexing service. Feedback about consistent implementation in this area
+is welcome.
+</p>z 
+</blockquote>
 
 <a name="tag" />
 <a name="tags" />
@@ -317,7 +423,7 @@ Resources may have <a href="extras.html#tag">tags</a> affixed to them, either ge
 The _tag parameter searches for any tagged resource by the term (URI) of the tag. For example:
 </p>
 <pre>
- condition/search?_tag=http://acme.org/fhir/tags/needs-review
+ condition?_tag=http://acme.org/fhir/tags/needs-review
 </pre>
 <p>
 This searches for all Condition resources tagged with "http://acme.org/fhir/tags/needs-review". 
@@ -329,8 +435,8 @@ Searching by tag only includes tags with the general tag scheme of "http://hl7.o
 To restrict the search to only resource that are tagged that they conform to a particular profile:
 </p>
 <pre>
- diagnosticreport/search?_tag=http://hl7.org/fhir/profile/lipid
- diagnosticreport/search?_tag=http://localhost/profile/lipid
+ diagnosticreport?_tag=http://hl7.org/fhir/profile/lipid
+ diagnosticreport?_tag=http://localhost/profile/lipid
 </pre>
 <p>
 This searches for all Diagnostic Report resources that conform to the profile found at the given location. 
@@ -434,7 +540,7 @@ _include parameters.
 Each _include parameter specifies a path to a url (usually a resource reference):
 </p>
 <pre>
- GET [base-url]/MedicationDispense/search?_include=MedicationDispense.prescription
+ GET [base-url]/MedicationDispense?_include=MedicationDispense.prescription
     &amp;_include=MedicationPrescription.prescriber&amp;criteria...
 </pre>
 <p>
@@ -513,7 +619,7 @@ In the case of a RESTful search, these parameters are encoded in the
 self link in the atom feed that is returned:
 </p>
 <pre class="xml">
-  &lt;link rel="self" href="http://example.org/patient/search?name=peter"/&gt;
+  &lt;link rel="self" href="http://example.org/Patient?name=peter"/&gt;
 </pre>
 <p>
 In other respects, servers have considerable discretion with regards 

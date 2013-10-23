@@ -30,7 +30,7 @@ public enum SearchType implements Enumerator {
    * @generated
    * @ordered
    */
-	INTEGER(1, "integer", "integer"),
+	NUMBER(1, "number", "number"),
 
 	/**
    * The '<em><b>String</b></em>' literal object.
@@ -41,15 +41,6 @@ public enum SearchType implements Enumerator {
    * @ordered
    */
 	STRING(2, "string", "string"), /**
-   * The '<em><b>Text</b></em>' literal object.
-   * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-   * @see #TEXT_VALUE
-   * @generated
-   * @ordered
-   */
-	TEXT(3, "text", "text"),
-
 	/**
    * The '<em><b>Date</b></em>' literal object.
    * <!-- begin-user-doc -->
@@ -58,7 +49,7 @@ public enum SearchType implements Enumerator {
    * @generated
    * @ordered
    */
-	DATE(4, "date", "date"), /**
+	DATE(3, "date", "date"), /**
    * The '<em><b>Token</b></em>' literal object.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,7 +57,7 @@ public enum SearchType implements Enumerator {
    * @generated
    * @ordered
    */
-	TOKEN(7, "token", "token"), /**
+	TOKEN(4, "token", "token"), /**
    * The '<em><b>Reference</b></em>' literal object.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,7 +65,7 @@ public enum SearchType implements Enumerator {
    * @generated
    * @ordered
    */
-	REFERENCE(6, "reference", "reference"),
+	REFERENCE(5, "reference", "reference"),
 
 	/**
    * The '<em><b>Composite</b></em>' literal object.
@@ -99,7 +90,7 @@ public enum SearchType implements Enumerator {
    * @generated
    * @ordered
    */
-	public static final int INTEGER_VALUE = 1;
+	public static final int NUMBER_VALUE = 1;
 
 	/**
    * The '<em><b>String</b></em>' literal value.
@@ -117,21 +108,6 @@ public enum SearchType implements Enumerator {
 	public static final int STRING_VALUE = 2;
 
 	/**
-   * The '<em><b>Text</b></em>' literal value.
-   * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Text</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-   * @see #TEXT
-   * @model name="text"
-   * @generated
-   * @ordered
-   */
-	public static final int TEXT_VALUE = 3;
-
-	/**
    * The '<em><b>Date</b></em>' literal value.
    * <!-- begin-user-doc -->
 	 * <p>
@@ -144,7 +120,7 @@ public enum SearchType implements Enumerator {
    * @generated
    * @ordered
    */
-	public static final int DATE_VALUE = 4;
+	public static final int DATE_VALUE = 3;
 
 	/**
    * The '<em><b>Token</b></em>' literal value.
@@ -159,7 +135,7 @@ public enum SearchType implements Enumerator {
    * @generated
    * @ordered
    */
-	public static final int TOKEN_VALUE = 7;
+	public static final int TOKEN_VALUE = 4;
 
 	/**
    * The '<em><b>Reference</b></em>' literal value.
@@ -174,7 +150,7 @@ public enum SearchType implements Enumerator {
    * @generated
    * @ordered
    */
-	public static final int REFERENCE_VALUE = 6;
+	public static final int REFERENCE_VALUE = 5;
 
 	/**
    * The '<em><b>Composite</b></em>' literal value.
@@ -199,9 +175,8 @@ public enum SearchType implements Enumerator {
    */
 	private static final SearchType[] VALUES_ARRAY =
 		new SearchType[] {
-      INTEGER,
+      NUMBER,
       STRING,
-      TEXT,
       DATE,
       TOKEN,
       REFERENCE,
@@ -256,9 +231,8 @@ public enum SearchType implements Enumerator {
    */
 	public static SearchType get(int value) {
     switch (value) {
-      case INTEGER_VALUE: return INTEGER;
+      case NUMBER_VALUE: return NUMBER;
       case STRING_VALUE: return STRING;
-      case TEXT_VALUE: return TEXT;
       case DATE_VALUE: return DATE;
       case TOKEN_VALUE: return TOKEN;
       case REFERENCE_VALUE: return REFERENCE;

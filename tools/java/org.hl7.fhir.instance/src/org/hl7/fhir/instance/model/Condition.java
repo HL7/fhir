@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -138,7 +138,7 @@ public class Condition extends Resource {
       }
     }
 
-    public class ConditionStageComponent extends Element {
+    public class ConditionStageComponent extends BackboneElement {
         /**
          * A simple summary of the stage such as "Stage 3". The determination of the stage is disease-specific.
          */
@@ -179,7 +179,7 @@ public class Condition extends Resource {
 
   }
 
-    public class ConditionEvidenceComponent extends Element {
+    public class ConditionEvidenceComponent extends BackboneElement {
         /**
          * A manifestation or symptom that led to the recording of this condition.
          */
@@ -220,7 +220,7 @@ public class Condition extends Resource {
 
   }
 
-    public class ConditionLocationComponent extends Element {
+    public class ConditionLocationComponent extends BackboneElement {
         /**
          * Code that identifies the structural location.
          */
@@ -270,7 +270,7 @@ public class Condition extends Resource {
 
   }
 
-    public class ConditionRelatedItemComponent extends Element {
+    public class ConditionRelatedItemComponent extends BackboneElement {
         /**
          * The type of relationship that this condition has to the related item.
          */

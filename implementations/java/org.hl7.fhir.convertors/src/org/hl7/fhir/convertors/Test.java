@@ -10,7 +10,7 @@ import org.hl7.fhir.instance.model.AtomFeed;
 
 public class Test {
 
-	public static final String DEF_PATH = "c:\\work\\org.hl7.fhir\\implementations\\java\\org.hl7.fhir.convertors\\samples\\";
+	public static final String DEF_PATH = "c:\\work\\org.hl7.fhir\\build\\implementations\\java\\org.hl7.fhir.convertors\\samples\\";
 	public static void main(String[] args) {
 		CCDAConverter c = new CCDAConverter();
 		try {

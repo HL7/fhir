@@ -20,7 +20,7 @@
   <WindowWidth>19440</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>90</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -451,43 +451,43 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">name</Data></Cell>
-    <Cell><Data ss:Type="String">a portion of either family or given name</Data></Cell>
+    <Cell><Data ss:Type="String">A portion of either family or given name</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">Practitioner.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">family</Data></Cell>
-    <Cell><Data ss:Type="String">a portion of the family name</Data></Cell>
+    <Cell><Data ss:Type="String">A portion of the family name</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">Practitioner.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">given</Data></Cell>
-    <Cell><Data ss:Type="String">a portion of the given name</Data></Cell>
+    <Cell><Data ss:Type="String">A portion of the given name</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">Practitioner.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">phonetic</Data></Cell>
-    <Cell><Data ss:Type="String">a portion of either family or given name using some kind of phonetic matching algorithm</Data></Cell>
+    <Cell><Data ss:Type="String">A portion of either family or given name using some kind of phonetic matching algorithm</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">Practitioner.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">telecom</Data></Cell>
-    <Cell><Data ss:Type="String">the value in any kind of contact</Data></Cell>
+    <Cell><Data ss:Type="String">The value in any kind of contact</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">Practitioner.telecom</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">address</Data></Cell>
-    <Cell><Data ss:Type="String">an address in any kind of address/part</Data></Cell>
+    <Cell><Data ss:Type="String">An address in any kind of address/part</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">Practitioner.address</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">gender</Data></Cell>
-    <Cell><Data ss:Type="String">gender of the practitioner</Data></Cell>
+    <Cell><Data ss:Type="String">Gender of the practitioner</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">Practitioner.gender</Data></Cell>
    </Row>
@@ -505,10 +505,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>23</ActiveRow>
+     <ActiveRow>9</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
@@ -693,7 +694,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -112,7 +112,7 @@ public class Questionnaire extends Resource {
       }
     }
 
-    public class QuestionComponent extends Element {
+    public class QuestionComponent extends BackboneElement {
         /**
          * Structured name for the question.
          */
@@ -251,7 +251,7 @@ public class Questionnaire extends Resource {
 
   }
 
-    public class GroupComponent extends Element {
+    public class GroupComponent extends BackboneElement {
         /**
          * Structured name for a section of a predefined list of questions this questionnaire is responding to.
          */

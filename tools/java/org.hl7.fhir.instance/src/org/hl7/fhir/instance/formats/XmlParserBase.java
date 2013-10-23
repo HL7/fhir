@@ -68,6 +68,10 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     }
   }
 
+  protected void parseBackboneAttributes(XmlPullParser xpp, Element e) throws Exception {
+  	parseElementAttributes(xpp, e);
+  }
+
   protected void parseResourceAttributes(XmlPullParser xpp, Resource r) throws Exception {
     parseElementAttributes(xpp, r);
   }

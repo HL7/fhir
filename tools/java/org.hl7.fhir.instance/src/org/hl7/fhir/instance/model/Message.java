@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -88,7 +88,7 @@ public class Message extends Resource {
       }
     }
 
-    public class MessageResponseComponent extends Element {
+    public class MessageResponseComponent extends BackboneElement {
         /**
          * The id of the message that this a response to.
          */
@@ -158,7 +158,7 @@ public class Message extends Resource {
 
   }
 
-    public class MessageSourceComponent extends Element {
+    public class MessageSourceComponent extends BackboneElement {
         /**
          * Human-readable name for the target system.
          */
@@ -284,7 +284,7 @@ public class Message extends Resource {
 
   }
 
-    public class MessageDestinationComponent extends Element {
+    public class MessageDestinationComponent extends BackboneElement {
         /**
          * Human-readable name for the source system.
          */

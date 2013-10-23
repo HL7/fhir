@@ -46,6 +46,7 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameter;
+import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.Resource;
@@ -65,7 +66,8 @@ import org.w3c.dom.Element;
  *
  */
 public class ResourceValidator extends BaseValidator {
-
+  
+  
   public class Usage {
     public Set<SearchParameter.SearchType> usage= new HashSet<SearchParameter.SearchType>();
   }
@@ -76,6 +78,7 @@ public class ResourceValidator extends BaseValidator {
 	private Map<String, Usage> usages = new HashMap<String, Usage>();
   private Element translations;
   private Map<String, AtomEntry<ValueSet>> codeSystems = new HashMap<String, AtomEntry<ValueSet>>();
+  private Map<String, Integer> typeCounter = new HashMap<String, Integer>();
   
   
 
@@ -151,8 +154,8 @@ public class ResourceValidator extends BaseValidator {
       rule(errors, "structure", parent.getName(), !p.getCode().contains("."), "Search Parameter Names cannot contain a '.' (\""+p.getCode()+"\")");
       rule(errors, "structure", parent.getName(), !p.getCode().equalsIgnoreCase("id"), "Search Parameter Names cannot be named 'id' (\""+p.getCode()+"\")");
       rule(errors, "structure", parent.getName(), p.getCode().equals(p.getCode().toLowerCase()), "Search Parameter Names should be all lowercase (\""+p.getCode()+"\")");
+      rule(errors, "structure", parent.getName(), Character.isUpperCase(p.getDescription().charAt(0)) || p.getDescription().contains("|"), "Search Parameter descriptions should start with uppercase (\""+p.getDescription()+"\")");
     }
-//    rule(errors, parent.getName(), !parent.getSearchParams().containsKey("id"), "A resource cannot have a search parameter 'id'");
     for (Compartment c : definitions.getCompartments()) 
       rule(errors, "structure", parent.getName(), c.getResources().containsKey(parent), "Resource not entered in resource map for compartment '"+c.getTitle()+"' (compartments.xml)");
 	}
@@ -188,7 +191,14 @@ public class ResourceValidator extends BaseValidator {
 	//todo: check that primitives *in datatypes* don't repeat
 	
 	private void checkElement(List<ValidationMessage> errors, String path, ElementDefn e, ResourceDefn parent, String parentName, boolean needsRimMapping) {
-		rule(errors, "structure", path, e.unbounded() || e.getMaxCardinality() == 1,	"Max Cardinality must be 1 or unbounded");
+	  for (TypeRef t : e.getTypes()) {
+  	  if (!typeCounter.containsKey(t.getName()))
+	      typeCounter.put(t.getName(), 1);
+  	  else
+  	    typeCounter.put(t.getName(), typeCounter.get(t.getName())+1);
+	  }
+	  
+	  rule(errors, "structure", path, e.unbounded() || e.getMaxCardinality() == 1,	"Max Cardinality must be 1 or unbounded");
 		rule(errors, "structure", path, e.getMinCardinality() == 0 || e.getMinCardinality() == 1, "Min Cardinality must be 0 or 1");
 		hint(errors, "structure", path, !nameOverlaps(e.getName(), parentName), "Name of child ("+e.getName()+") overlaps with name of parent ("+parentName+")");
     checkDefinitions(errors, path, e);
@@ -421,6 +431,13 @@ public class ResourceValidator extends BaseValidator {
   public void dumpParams() {
     for (String s : usages.keySet()) {
       System.out.println(s+": "+usages.get(s).usage.toString());
+    }
+  }
+
+  public void report() {
+    // for dumping of ad-hoc summaries from the checking phase
+    for (String t : typeCounter.keySet()) {
+      System.out.println(t+": "+typeCounter.get(t).toString());
     }
   }
 }

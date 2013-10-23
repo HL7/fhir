@@ -277,6 +277,10 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
  <li><b>409/412</b> - version conflict management - see above</li> 
  <li><b>422 Unprocessable Entity</b> - the proposed resource violated applicable FHIR profiles or server business rules. This should be accompanied by an <a href="operationoutcome.html">OperationOutcome</a> resource providing additional detail</li>
 </ul>
+<p>
+Note: Servers MAY choose to preserve XML comments, instructions, and formatting or JSON whitespace when accepting updates, but are not required to do so. The impact of this on digital signatures may need to be considered.
+</p>
+
 <a name="delete"> </a>
 <h3>delete</h3>
 <p>
@@ -340,6 +344,9 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
  <li><b>404 Not Found</b> - resource type not supported, or not a FHIR end point</li>
  <li><b>422 Unprocessable Entity</b> - the proposed resource violated applicable FHIR profiles or server business rules. This should be accompanied by an <a href="operationoutcome.html">OperationOutcome</a> resource providing additional detail</li>
 </ul>
+<p>
+Note: Servers MAY choose to preserve XML comments, instructions, and formatting or JSON whitespace when accepting creates, but are not required to do so. The impact of this on digital signatures may need to be considered.
+</p>
 
 <a name="search"> </a>
 <h3>search</h3>

@@ -18,13 +18,14 @@
 Changes from the DSTU ballot (v0.11) to the DSTU final copy (0.20?):
 </p>
 <ul>
+ <li>All resources: make a rule that any contained resources must be explicitly referred to from other content in the resource</li>
  <li>ResourceReference: remove "type" element - it had no actual function</li>
  <li>Bundle - add the "fhir-base" link that SHALL be present if relative references are found in the bundle</li>
  <li>JSON - rename "_id" to "id", and change the way that primitive types are represented (split id and extension out into _[name])</li>
  <li>Documents &amp; Messages: document that these are marked with tags to identify them</li>
  <li>Extensions: make rules around obligations for exchange</li>
  <li>REST API: The syntax of the URLs has changed (remove @ from the ids). resources are no longer returned on create/update/transaction, and rules around the transction response have changed. <a href="http://enable-cors.org/">CORS</a> is now recommended (and in the conformance resource).</li>
- <li>Searching: clarify that searching is not just for rest. Extend _sort parameter. Add relevance score, and sorting by that. Add _profile parameter</li>
+ <li>Searching: clarify that searching is not just for rest. Extend _sort parameter. Add relevance score, and sorting by that. Add _profile parameter. Change "integer" type to "number"</li>
  <li>Choice: remove choice and add Coding.valueset</li>
  <li>CodeableConcept: move primary to Coding.primary</li>
  <li>Coding: add primary, valueset and version &amp; align code system version rules with core principles</li>
@@ -49,6 +50,7 @@ Changes from the DSTU ballot (v0.11) to the DSTU final copy (0.20?):
  <li>Profile: Remove the concept of re-useable bindings, and collapse binding in line to element definition. Change definition.type.bundled to definition.type.aggregation, and add more invariants about uniqueness</li>
  <li>Add Informative ConceptMap resource</li>
  <li>Change the following fields from string|CodeableConcept to just CodeableConcept: Encounter.reason, MedicationDispense.dispense.dosage.additionalInstructions, MedicationPrescription.reasonForPrescribing, MedicationPrescription.dosageInstruction.additionalInstructions</li>
+ <li>Harmonize the search parameters for the metadata parts of Conformance, Profile, ValueSet, and ConceptMap. Remove the text parameter type, and add search parameters _text and _content. Remove token modifiers :code and :anyns, and update documentation</li>
 </ul>
 
 </div>

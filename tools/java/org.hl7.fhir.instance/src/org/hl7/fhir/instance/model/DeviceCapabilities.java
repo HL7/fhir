@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 18, 2013 12:16+1100 for FHIR v0.12
+// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -105,7 +105,7 @@ public class DeviceCapabilities extends Resource {
       }
     }
 
-    public class DeviceCapabilitiesVirtualDeviceComponent extends Element {
+    public class DeviceCapabilitiesVirtualDeviceComponent extends BackboneElement {
         /**
          * Describes the compartment.
          */
@@ -146,7 +146,7 @@ public class DeviceCapabilities extends Resource {
 
   }
 
-    public class DeviceCapabilitiesVirtualDeviceChannelComponent extends Element {
+    public class DeviceCapabilitiesVirtualDeviceChannelComponent extends BackboneElement {
         /**
          * Describes the channel.
          */
@@ -187,7 +187,7 @@ public class DeviceCapabilities extends Resource {
 
   }
 
-    public class DeviceCapabilitiesVirtualDeviceChannelMetricComponent extends Element {
+    public class DeviceCapabilitiesVirtualDeviceChannelMetricComponent extends BackboneElement {
         /**
          * Describes the metrics.
          */
@@ -266,7 +266,7 @@ public class DeviceCapabilities extends Resource {
 
   }
 
-    public class DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent extends Element {
+    public class DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent extends BackboneElement {
         /**
          * Type of data for this metric.
          */
@@ -396,7 +396,7 @@ public class DeviceCapabilities extends Resource {
 
   }
 
-    public class DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent extends Element {
+    public class DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent extends BackboneElement {
         /**
          * Describes the facet.
          */

@@ -20,6 +20,7 @@
   <WindowWidth>28815</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>45</WindowTopY>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -894,7 +895,6 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Zoom>110</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1099,40 +1099,40 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell><Data ss:Type="String">the date the study was done was taken</Data></Cell>
+    <Cell><Data ss:Type="String">The date the study was done was taken</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">ImagingStudy.dateTime</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">accession</Data></Cell>
-    <Cell><Data ss:Type="String">the accession id for the image</Data></Cell>
+    <Cell><Data ss:Type="String">The accession id for the image</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">ImagingStudy.accessionNo</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">study</Data></Cell>
-    <Cell><Data ss:Type="String">the study id for the image</Data></Cell>
+    <Cell><Data ss:Type="String">The study id for the image</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">ImagingStudy.uid</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">series</Data></Cell>
-    <Cell><Data ss:Type="String">the series id for the image</Data></Cell>
+    <Cell><Data ss:Type="String">The series id for the image</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">ImagingStudy.series.uid</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">modality</Data></Cell>
-    <Cell><Data ss:Type="String">the modality of the image</Data></Cell>
+    <Cell><Data ss:Type="String">The modality of the image</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">ImagingStudy.series.modality</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">size</Data></Cell>
-    <Cell><Data ss:Type="String">the size of the image in MB - may include &gt; or &lt; in the value</Data></Cell>
-    <Cell><Data ss:Type="String">integer</Data></Cell>
+    <Cell><Data ss:Type="String">The size of the image in MB - may include &gt; or &lt; in the value</Data></Cell>
+    <Cell><Data ss:Type="String">number</Data></Cell>
     <Cell ss:StyleID="s77"/>
     <Cell ss:Index="8" ss:StyleID="s68"/>
    </Row>
@@ -1303,6 +1303,7 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1322,8 +1323,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>8</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

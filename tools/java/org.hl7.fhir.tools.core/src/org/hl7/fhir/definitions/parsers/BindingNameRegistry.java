@@ -46,8 +46,9 @@ public class BindingNameRegistry {
   }
 
   public void commit() {
-    if (forPublication)
+    if (forPublication) {
       ini.save();
+    }
   }
 
   public String idForQName(String q, String name) {
