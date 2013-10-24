@@ -112,15 +112,97 @@ of parameter.
 <p>Parameters are defined per resource, and their names may additionally specify a modifier as a suffix, 
 separated from the parameter name by a dot. Modifiers are:</p>
 <ul>
-<li>For all parameters (<i>except combination</i>): ":missing". E.g. gender:missing=true (or false). 
+ <li>For all parameters (except combination): ":missing". E.g. gender:missing=true (or false). 
   Searching for "gender:missing=true" will return all the resources that don't have any value for the gender parameter (which usually 
   equates to not having the relevant element in the resource). Searching for "gender:missing=false"
   will return all the resources that have a value for the "gender" parameter. </li>
-<li>For string: ":exact" (the match needs to be exact, no partial matches, case sensitive and accent-sensitive), instead of the default behaviour, which is that the search does partial matches. It is at the discretion of the server whether to do a left-partial search</li>
-<li>For dates: ":before" and ":after". E.g. birthdate:before=1972-11-30. See below for how date searches are interpreted.</li>
-<li>For token: ":text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), instead of the default search which uses codes</li>
-<li>For reference: ":[type]" where [type] is the name of a type of resource</li>
+ <li>For string: ":exact" (the match needs to be exact, no partial matches, case sensitive and accent-sensitive), instead of the default behaviour, which is that the search does partial matches. It is at the discretion of the server whether to do a left-partial search</li>
+ <li>For token: ":text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), instead of the default search which uses codes</li>
+ <li>For reference: ":[type]" where [type] is the name of a type of resource</li>
 </ul>
+
+<a name="number" />
+<h4>number</h4>
+<p>
+The prefixes &gt;, &gt;=, &lt;=, and &lt; may be used on the parameter value, 
+and have the usual meaning. Note that '=" must be escaped in the 
+value in a URL. Examples:
+</p>
+<table class="grid">
+ <tr><td>value=100</td><td>Values that equal 100, to 2 decimal places precision</td></tr>
+ <tr><td>value=100.00</td><td>Values that equal 100, to 4 decimal places precision. Whole numbers also equal 100.00, but not 100.01</td></tr>
+ <tr><td>value=&lt;100</td><td>Values that are less than 100</td></tr>
+ <tr><td>value=&lt;=100</td><td>Values that are less or equal to 100</td></tr>
+ <tr><td>value=&gt;100</td><td>Values that are greater than 100</td></tr>
+ <tr><td>value=&gt;=100</td><td>Values that are greater or equal to 100</td></tr>
+</table>
+<p>
+For comparisons involving &lt; or &gt;, uncertainty does not factor, and the precision of the numbers is considered arbitrarily high.
+Note that the way these search parameters operate here is not the same as whether two numbers are equal to each other in a mathematical sense.
+</p>
+
+<a name="date" />
+<h4>date</h4>
+<p>
+A date parameter searches on a date/time or period. The prefixes &gt;, &gt;=, &lt;=, and &lt; may be used on the parameter value, 
+and have the usual meaning. However, as is usual for date/time related functionality, while the 
+concepts are relatively straight-forward, there are a number of subtleties involved in ensuring consistent behavior.
+</p>
+<ul>
+ <li>The date parameter format is yyyy-mm-ddThh:nn:ss(TZ) (the standard XML format). 
+   <ul>
+     <li>Technically, this is any of the <a href="datatypes.html#date">date</a>, <a href="datatypes.html#dateTime">dateTime</a>, and <a href="datatypes.html#instant">instant</a> data types</li>
+     <li>e.g. Any degree of precision can be provided, but it SHALL be populated from the left (e.g. can't specify a month without a year), except that the minutes SHALL be present if an hour is present, and you SHOULD provide a time zone if the time part is present</li>
+     <li>Some user agents may escape the ":" characters in the URL, and servers SHALL handle this correctly</li>
+   </ul>
+ </li>
+ <li>[date]=[value] searches for resources where the date is within
+   the given date value. "[date]=&gt;[value]" searches for all resources where the specified date is after [value]. 
+   "[date]=&lt;=[value]" searches for all resources where the specified date is in or before [value], etc. </li>
+ <li>The element the search refers to may have a datatype of <a href="datatypes.html#date">date</a>, 
+ <a href="datatypes.html#dateTime">dateTime</a>, <a href="datatypes.html#instant">instant</a>, 
+ <a href="datatypes.html#Period">Period</a>, or <a href="datatypes.html#Schedule">Schedule</a>. 
+ All of these time related types actually specify an interval of time, as does the search parameter itself.
+  <ul>
+    <li>For Period and Schedule, the fact that they refer to an interval of time is explicit (though the upper or lower bound may not actually be specified in resources)</li>
+ 	<li>For a date or a dateTime (and the search parameter), the interval is implicit. For example, the date 2013-01-10 specifies all the time from 00:00 on 10-Jan 2013 to immediately before 00:00 on 11-Jan 2013.</li>
+    <li>An instant (which is the same as a fully specified dateTime with milliseconds) is considered a fixed point in time with an interval smaller than the precision of the system, i.e. an interval with an effective width of 0.</li>
+   </ul>
+ </li>
+ <li>Date parameter searches are always matched based on the behavior of intervals, as follows:
+   <ul>
+     <li>For [date]=[value], the requirement is that the search interval fully contains the time of the target. i.e. 2013-01-14 includes 2013-01-14T00:00 (obviously) and also 2013-01-14T10:00 but not 2013-01-15T00:00</li>
+	 <li>For "[date]=&lt;[value]", the requirement is that the interval of the time before [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
+	    For instance, the resource time 2013-01-14 is included in the set of values that come before 2013-01-14T10:00, because it includes the part of 14-Jan 2013 before 10am </li>
+	 <li>For "[date]=&gt;[value]", the requirement is that the interval of the time after [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
+	    For instance, the resource time 2013-01-14 is included in the set of values that come after 2013-01-14T10:00, because it includes the part of 14-Jan 2013 after 10am </li>
+   </ul>
+   Implicitly, a missing lower boundary is 'less than' any actual date).  A missing upper boundary is 'greater than' any actual date).
+   For instance, the period from 21-Jan 2013 onwards is included in matches for date-after=2013-03-14 because it may include times after 14-Mar 2013.
+ </li>
+ <li>Similarly, when the date parameter is not fully specified, matches against it are based on the behavior of intervals, where:
+	<ul>
+		<li>Dates with just the year specified are equivalent to an interval that starts at the first instant of January 1st to the last instant of December 31st, e.g. 2000 is equivalent to an interval of [2000-01-01T00:00, 2000-12-31T23:59]</li>
+		<li>Dates with the year and month are equivalent to an interval that starts at the first instant of the first day of the month and ends on the last instant of the last day of the month, e.g. 2000-04 is equivalent to an interval of [2000-04-01T00:00, 2000-04-30T23:59]</li>
+	</ul>
+ </li>
+ <li>Where possible, the system should correct for timezones when performing queries. Dates do not have time zones, and time zones 
+   should not be considered. Where both search parameters and resource element date times do not have time zones, the servers local
+   time zone should be assumed.
+ </li>
+ <li>
+   Note that for a Schedule data type, the specified scheduling details are ignored and only the outer limits matter. For instance, a schedule that specifies every second day between
+   31-Jan 2013 and 24-Mar 2013 includes 1-Feb 2013, even though that is on an odd day that is not specified by the period. This is 
+   to keep the server load processing queries reasonable.
+ </li>
+</ul>
+<p>
+As an example, the following search searches for all the procedures in a patient compartment that occurred over a 2 year period:
+</p>
+<pre>
+ GET [base-url]/Patient/23/procedure?date=&gt;2010-01-01&amp;date=&lt;2011-12-31
+</pre>
+
 
 <a name="string" />
 <h4>string</h4>
@@ -148,29 +230,10 @@ though only a few servers are expected to offer this facility.
 </p>
 <p>
 It as at the discretion of the server whether to pre-process names, addresses, 
-and contact details to remove separator characters prior to matching. For example,
-a server might remove all spaces and "-" characters from phone numbers. What is 
-most appropriate varies depending on culture and context.
-</p>
-
-<a name="number" />
-<h4>number</h4>
-<p>
-The prefixes &gt;, &gt;=, &lt;=, and &lt; may be used on the parameter value, 
-and have the usual meaning. Note that '=" must be escaped in the 
-value in a URL. Examples:
-</p>
-<table class="grid">
- <tr><td>value=100</td><td>Values that equal 100, to 2 decimal places precision</td></tr>
- <tr><td>value=100.00</td><td>Values that equal 100, to 4 decimal places precision. Whole numbers also equal 100.00, but not 100.01</td></tr>
- <tr><td>value=&lt;100</td><td>Values that are less than 100</td></tr>
- <tr><td>value=&lt;=100</td><td>Values that are less or equal to 100</td></tr>
- <tr><td>value=&gt;100</td><td>Values that are greater than 100</td></tr>
- <tr><td>value=&gt;=100</td><td>Values that are greater or equal to 100</td></tr>
-</table>
-<p>
-For comparisons involving &lt; or &gt;, uncertainty does not factor, and the precision of the numbers is considered arbitrarily high.
-Note that the way these search parameters operate here is not the same as whether two numbers are equal to each other in a mathematical sense.
+and contact details to remove separator characters prior to matching in order
+to ensure more consistent behaviour. For example, a server might remove all 
+spaces and "-" characters from phone numbers. What is most appropriate varies 
+depending on culture and context.
 </p>
 
 <a name="token" />
@@ -192,7 +255,7 @@ value is one of the following:
  <li><b>name=|code</b> matches a code/value that has no system namespace</li>
 </ul>
 <p>
-Note that the namespace URI and code both must be <a hef="#escapes">escaped</a>.
+Note that the namespace URI and code both must be <a hef="#escaping">escaped</a>.
 </p>
 <p>
 If the the modifier ":text", is used, the search parameter is processed as a 
@@ -209,66 +272,6 @@ Here are some example searches:
  <tr><td><pre> GET [base-url]/Patient?gender=http://hl7.org/fhir/v2/0001|M</pre></td><td>Search for any patient with a gender which is coded as "M" in the HL7 Administrative Gender table</td></tr>
  <tr><td><pre> GET [base-url]/Patient?gender:text=male</pre></td><td>Search for any patient with a gender that has a text "male" associated with it (note: this will include "female")</td></tr>
 </table>
-
-<a name="date" />
-<h4>date</h4>
-<p>
-A date parameter searches on a date/time or period. As is usual for date/time related functionality, while the 
-concepts are relatively straight-forward, there are a number of subtleties involved in 
-ensuring consistent behavior.
-</p>
-<ul>
- <li>The date parameter format is yyyy-mm-ddThh:nn:ss(TZ) (the standard XML format). 
-   <ul>
-     <li>Technically, this is any of the <a href="datatypes.html#date">date</a>, <a href="datatypes.html#dateTime">dateTime</a>, and <a href="datatypes.html#instant">instant</a> data types</li>
-     <li>e.g. Any degree of precision can be provided, but it SHALL be populated from the left (e.g. can't specify a month without a year), except that the minutes SHALL be present if an hour is present, and you SHOULD provide a time zone if the time part is present</li>
-     <li>Some user agents may escape the ":" characters in the URL, and servers SHALL handle this correctly</li>
-   </ul>
- </li>
- <li>Date parameters have the ":before" and ":after" modifiers. [date]=[value] searches for resources where the date is within
-   the given date value. "[date]:after=[value]" searches for all resources where the specified date is after [value]. 
-   "[date]:before=[value]" searches for all resources where the specified date is before [value]. </li>
- <li>The element the search refers to may be a date, a dateTime, a Period, or a Schedule. All of these time related 
-   types actually specify an interval of time, as does the search parameter itself.
-  <ul>
-    <li>For Period and Schedule, the interval of time is explicit (though the upper or lower bound may not actually be specified in resources)</li>
- 	<li>For a date or a dateTime (and the search parameter), the interval is implicit. For example, the date 2013-01-10 specifies all the time from 00:00 on 10-Jan 2013 to immediately before 00:00 on 11-Jan 2013.</li>
-    <li>An instant (which is the same as a fully specified dateTime with milliseconds) is considered a fixed point in time with an interval smaller than the precision of the system, i.e. an interval with an effective width of 0.</li>
-   </ul>
- </li>
- <li>Date parameter searches are always matched based on the behavior of intervals, as follows:
-   <ul>
-     <li>For [date]=[value], the requirement is that the search interval fully contains the time of the target. i.e. 2013-01-14 includes 2013-01-14T00:00 (obviously) and also 2013-01-14T10:00 but not 2013-01-15T00:00</li>
-	 <li>For "[date]:before=[value]", the requirement is that the interval of the time before [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
-	    For instance, the resource time 2013-01-14 is included in the set of values that come before 2013-01-14T10:00, because it includes the part of 14-Jan 2013 before 10am </li>
-	 <li>For "[date]:after=[value]", the requirement is that the interval of the time after [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
-	    For instance, the resource time 2013-01-14 is included in the set of values that come after 2013-01-14T10:00, because it includes the part of 14-Jan 2013 after 10am </li>
-   </ul>
-   Implicitly, a missing lower boundary is 'less than' any actual date).  A missing upper boundary is 'greater than' any actual date).
-   For instance, the period from 21-Jan 2013 onwards is included in matches for date-after=2013-03-14 because it may include times after 14-Mar 2013.
- </li>
- <li>Similarly, when the date parameter is not fully specified, matches against it are based on the behavior of intervals, where:
-	<ul>
-		<li>Dates with just the year specified are equivalent to an interval that starts at the first instant of January 1st to the last instant of December 31st, e.g. 2000 is equivalent to an interval of [2000-01-01T00:00, 2000-12-31T23:59]</li>
-		<li>Dates with the year and month are equivalent to an interval that starts at the first instant of the first day of the month and ends on the last instant of the last day of the month, e.g. 2000-04 is equivalent to an interval of [2000-04-01T00:00, 2000-04-30T23:59]</li>
-	</ul>
- </li>
- <li>Where possible, the system should correct for timezones when performing queries. Dates do not have time zones, and time zones 
-   should not be considered. Where both search parameters and resource element date times do not have time zones, the servers local
-   time zone should be assumed.
- </li>
- <li>
-   Note that for a Schedule data type, the specified scheduling details are ignored and only the outer limits matter. For instance, a schedule that specifies every second day between
-   31-Jan 2013 and 24-Mar 2013 includes 1-Feb 2013, even though that is on an odd day that is not specified by the period. This is 
-   to keep the server load processing queries reasonable.
- </li>
-</ul>
-<p>
-As an example, the following search searches for all the procedures in a patient compartment that occurred over a 2 year period:
-</p>
-<pre>
- GET [base-url]/Patient/23/procedure?date:after=2010-01-01&amp;date:before=2011-12-31
-</pre>
 
 
 <a name="chaining" />
@@ -369,6 +372,14 @@ value and itself can be composed into a set of values, so that, for example,
 multiple matching state-on-date parameters can be specified as 
 state-on-date=new$2013-05-04,active$2013-05-05.
 </p>
+<p>
+Modifiers are not used on composite parameters.
+<!--
+Future note: use \p and \m in query values? if we add a double = to parameter value for text, that would get rid of :exact. 
+Won't try to get rid of type modifier - that's the real use for modifiers because it has to be in a chaining line. 
+Other modifier is :text on token - use "~"? or ""?
+-->
+</p>
 
 <a name="escaping" />
 <h3>Escaping Search Parameters</h3>
@@ -378,8 +389,9 @@ As a consequence, if these characters appear in an actual parameter value,
 they must be differentiated from their use as separator characters. When 
 any of these characters appear in an actual parameter value, they must be 
 prepended by the character "\" (which also must be used to prepend itself).
-So param=xxx$xxx means a composite parameter, while param=xx\$xx means that
-the parameter has the literal value xx$xx. The parameter value xx\xx is illegal.
+So "param=xxx$xxx" means a composite parameter, while "param=xx\$xx" means that
+the parameter has the literal value 'xx$xx'. The parameter value "xx\xx" is illegal,
+and the parameter value "param=xx\\xx" means a literal value of 'xx\xx'.
 </p>
 
 

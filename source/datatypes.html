@@ -220,13 +220,20 @@ A Coding is a representation of a defined concept using a symbol from a defined 
 [%dt Coding%]
 
 <p>
+The meaning of the Coding is defined by the code. The <i>system</i> provides
+the source of the definition of the code, along with an optional version reference.
+The display is a human display for the text defined by the system - it adds no other 
+value. The Value Set reference provides context information about the selection of the 
+code. 
+</p>
+<p>
 The <i>system</i> is a URI that references the code system defines the <i>code</i>. 
 The URI may be: 
 </p>
 <ul>
  <li>a URI defined in the <a href="terminologies-systems.html">the named systems list</a></li>
  <li>an OID (urn:oid:) or a UUID (urn:uuid:). OIDs and UUIDs may be registered in the <a href="http://hl7.org/oid">HL7 OID registry</a></li>
- <li>a url that references a definition of the system directly, which may be a reference to a code system defined as part of <a href="valueset.html">ValueSet</a> resource</li>
+ <li>a url that references a definition of the system directly, which may be a reference to a code system defined as part of <a href="valueset.html">ValueSet</a> resource (i.e. the value in <i>ValueSet.define.system</i>)</li>
  <li>or any other URI that uniquely identifies the code system definition</li>
 </ul>
 <p>
@@ -290,7 +297,16 @@ A coding may be marked as a "primary" if a user picked the particular coded valu
 explicitly in a user interface (e.g., the user picks an item in a picklist). A primary
 would the preferred choice for performing translations etc. 
 </p>
-
+<p>
+A reference to a <a href="valueset.html">value set</a> may be provided to help a user or system processing the code
+to understand the context in which the code arose - in some contexts, the possible
+set of codes from which the code was chosen from influences how the code should be 
+interpreted. A value set reference is not an acceptable substitute for a logical
+URI in the system, and the system URI SHALL not contain a reference to a value set. 
+(If the value set defines it's own codes, then the correct value for the 
+system is <i>ValueSet.define.system</i>, and the value set contains a direct reference
+to the value set resource.
+</p>
 
 <!--<h3>Version Management</h3>
 <p>
@@ -322,6 +338,9 @@ and it should contain a <i>display</i> if it contains a <i>code</i>.
 <i>version</i> element if it contains a <i>system</i> element.-!->
 </p>
 -->
+<p>
+If a valueSet is provided, a system URI SHALL also be provided.
+</p>
 <p>
 The context of use (as defined in the resource or applicable profile) usually makes rules about what codes and systems are allowed or required in a 
 particular context by <a href="terminologies.html">binding</a> the element to a value set.

@@ -19,14 +19,18 @@
     <type>
       <text value="gender"/>
     </type>
-    <valueString value="mixed"/>
+    <valueCodeableConcept>
+      <text value="mixed"/>
+    </valueCodeableConcept>
     <exclude value="false"/>
   </characteristic>
   <characteristic>
     <type>
       <text value="owner"/>
     </type>
-    <valueString value="John Smith"/>
+    <valueCodeableConcept>
+      <text value="John Smith"/>
+    </valueCodeableConcept>
     <exclude value="false"/>
   </characteristic>
 </Group>

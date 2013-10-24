@@ -31,6 +31,19 @@
     information relevant in certain circumstances.  As with other resources, 
 	extensions can be used to introduce this additional complexity.
  </li>
+ <li>
+   Although the search parameter value is labelled as a token, it can be used 
+   to search against multiple different parameter types:
+   <table class="grid">
+    <tr> <td>CodeableConcept</td> <td>Use normal token based matching</td> </tr>
+    <tr> <td>string</td> <td>Interpreted as a code with no system namespace</td> </tr>
+    <tr> <td>Quantity</td> <td>If the value of the parameter is a number (potentially with &lt; etc), it is a search on the value (todo: units, canonical?)</td> </tr>
+    <tr> <td>Attachment</td> <td>Not included in search results</td> </tr>
+    <tr> <td>Ratio</td> <td>Not included in search results</td> </tr>
+    <tr> <td>Period</td> <td>Not included in search results</td> </tr>
+    <tr> <td>SampledData</td> <td>Not included in search results</td> </tr>
+   </table>
+ </li>
 </ul>
 
 </div>

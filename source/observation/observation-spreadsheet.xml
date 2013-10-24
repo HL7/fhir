@@ -20,7 +20,6 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>30</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -286,7 +285,7 @@
     <Cell><Data ss:Type="String">Actual result</Data></Cell>
     <Cell><Data ss:Type="String">The information determined as a result of making the observation</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s69"><Data ss:Type="String">A result with no value isn't much use.  (Though an exceptional value such as 'unknown' may still be useful.)</Data></Cell>
-    <Cell><Data ss:Type="String">The datatype for this element should be determined by Observation.name</Data></Cell>
+    <Cell><Data ss:Type="String">The datatype for this element should be determined by Observation.name. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.name </Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">value</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">./value</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">OBX.2, OBX.5, OBX.6</Data></Cell>
@@ -865,7 +864,7 @@
     <Cell><Data ss:Type="String">Actual component result</Data></Cell>
     <Cell><Data ss:Type="String">The information determined as a result of making the sub-observation</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s69"><Data ss:Type="String">A result with no value isn't much use.  (Though an exceptional value such as 'unknown' may still be useful.)</Data></Cell>
-    <Cell><Data ss:Type="String">The datatype for this element should be determined by Observation.component.name</Data></Cell>
+    <Cell><Data ss:Type="String">The datatype for this element should be determined by Observation.component.name. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.name </Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">value</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">./value</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">OBX.2, OBX.5, OBX.6</Data></Cell>
@@ -903,10 +902,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -919,12 +919,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1231,7 +1230,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1251,7 +1249,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>7</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

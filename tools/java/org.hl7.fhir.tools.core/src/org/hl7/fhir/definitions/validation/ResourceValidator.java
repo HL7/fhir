@@ -211,7 +211,8 @@ public class ResourceValidator extends BaseValidator {
 // this isn't a real hint, just a way to gather information   hint(errors, path, !e.isModifier(), "isModifier, minimum cardinality = "+e.getMinCardinality().toString());
     rule(errors, "structure", path, !e.getDefinition().toLowerCase().startsWith("this is"), "Definition should not start with 'this is'");
     rule(errors, "structure", path, e.getDefinition().endsWith("."), "Definition should end with '.', but is '"+e.getDefinition()+"'");
-    rule(errors, "structure", path, !"string|CodeableConcept".equals(e.typeCode()) && !"CodeableConcept|string".equals(e.typeCode()), "Element type cannot be string and CodeableConcept - use just CodeableConcept");
+    if (e.usesType("string") && e.usesType("CodeableConcept"))
+      rule(errors, "structure", path, e.getComments().contains("string") && e.getComments().contains("CodeableConcept"), "Element type cannot have both string and CodeableConcept unless the difference between their usage is explained in the comments");
     
 //    if (needsRimMapping)
 //      warning(errors, "required", path, !Utilities.noString(e.getMapping(ElementDefn.RIM_MAPPING)), "RIM Mapping is required");

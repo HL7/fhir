@@ -46,11 +46,11 @@ Changes from the DSTU ballot (v0.11) to the DSTU final copy (0.20?):
  <li>CarePlan: made patient optional, and reworked to link activites to goals and goals to concerns, and allow other resource kinds for activities</li>
  <li>Alert: improved the definitional documentation</li>
  <li>Message: make the event code a Coding (also in the conformance statement too)</li> 
- <li>Patient: Add Link structure to support typed, unidirectional links between Patient records
+ <li>Patient: Add Link structure to support typed, unidirectional links between Patient records</li>
  <li>Profile: Remove the concept of re-useable bindings, and collapse binding in line to element definition. Change definition.type.bundled to definition.type.aggregation, and add more invariants about uniqueness</li>
  <li>Add Informative ConceptMap resource</li>
  <li>Change the following fields from string|CodeableConcept to just CodeableConcept: Encounter.reason, MedicationDispense.dispense.dosage.additionalInstructions, MedicationPrescription.reasonForPrescribing, MedicationPrescription.dosageInstruction.additionalInstructions</li>
- <li>Harmonize the search parameters for the metadata parts of Conformance, Profile, ValueSet, and ConceptMap. Remove the text parameter type, and add search parameters _text and _content. Remove token modifiers :code and :anyns, and update documentation</li>
+ <li>Harmonize the search parameters for the metadata parts of Conformance, Profile, ValueSet, and ConceptMap. Remove the text parameter type, and add search parameters _text and _content. Remove token modifiers :code and :anyns, and update documentation. Remove date modifiers and use &lt; etc. Define escaping for search parameters</li>
 </ul>
 
 </div>

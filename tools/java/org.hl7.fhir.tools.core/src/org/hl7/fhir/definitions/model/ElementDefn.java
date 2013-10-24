@@ -756,6 +756,14 @@ public class ElementDefn {
     return results;
   }
 
+  public boolean usesType(String name) {
+    for (TypeRef t : getTypes()) {
+      if (t.summary().equals(name))
+        return true;
+    }
+    return false;
+  }
+
 	
 	
 }
