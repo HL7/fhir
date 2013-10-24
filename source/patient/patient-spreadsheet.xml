@@ -20,7 +20,7 @@
   <WindowWidth>30060</WindowWidth>
   <WindowTopX>8265</WindowTopX>
   <WindowTopY>6420</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -761,8 +761,7 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
-   <TopRowVisible>21</TopRowVisible>
+   <TopRowVisible>27</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
@@ -774,8 +773,8 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>32</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -996,22 +995,22 @@
    <Column ss:AutoFitWidth="0" ss:Width="36"/>
    <Column ss:AutoFitWidth="0" ss:Width="86.25"/>
    <Column ss:Width="320.25"/>
-   <Row ss:StyleID="s82">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s82">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Code</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
    </Row>
-   <Row ss:Height="45" ss:StyleID="s82">
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s82">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">replace</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains the link.</Data></Cell>
    </Row>
-   <Row ss:Height="60" ss:StyleID="s82">
+   <Row ss:AutoFitHeight="0" ss:Height="60" ss:StyleID="s82">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">refer</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">The patient resource containing this link is in use and valid but not considered the main source of information about a patient. The link points forward to another patient resource that should be consulted to retrieve additional patient information</Data></Cell>
    </Row>
-   <Row ss:Height="90" ss:StyleID="s82">
+   <Row ss:AutoFitHeight="0" ss:Height="90" ss:StyleID="s82">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">seealso</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">The patient resource containing this link is in use and valid, but points to another patient resource that is known to contain data about the same person. Data in this resource might overlap or contradict information found in the other patient resource. This link does not indicate any relative importance of the resources concerned, and both should be regarded as equally valid.</Data></Cell>
@@ -1023,6 +1022,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1082,7 +1082,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s81"><Data ss:Type="String">LinkType</Data></Cell>
-    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">The type of link between this patient resource and another patient resource.</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">#link-type</Data></Cell>
@@ -1129,11 +1129,12 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
