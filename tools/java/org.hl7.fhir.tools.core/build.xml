@@ -135,7 +135,7 @@
         <antcall target="build"/>
     </target>
     <target name="Publisher" depends="build">
-        <java classname="org.hl7.fhir.tools.publisher.Publisher" failonerror="true" fork="yes">
+        <java classname="org.hl7.fhir.tools.publisher.Publisher" failonerror="true" fork="yes" maxmemory="1024m">
 	    <arg line="${args}"/>
             <classpath refid="org.hl7.fhir.tools.classpath"/>
         </java>
