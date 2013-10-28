@@ -113,9 +113,9 @@ public class CCDAConverter {
 			Encounter visit = new Encounter();
 			for (Element e : cda.getChildren(ee, "id"))
 				visit.getIdentifier().add(convert.makeIdentifierFromII(e));
-			visit.setHospitalization(visit.new EncounterHospitalizationComponent());
+			visit.setHospitalization(new Encounter.EncounterHospitalizationComponent());
 			visit.getHospitalization().setPeriod(convert.makePeriodFromIVL(cda.getChild(ee, "effectiveTime")));
-			document.setEvent(document.new DocumentEventComponent());
+			document.setEvent(new Document.DocumentEventComponent());
 			document.getEvent().getCode().add(convert.makeCodeableConceptFromCD(cda.getChild(ee, "code")));
 			document.getEvent().setPeriod(visit.getHospitalization().getPeriod());
 			document.getEvent().getDetail().add(Factory.makeResourceReference(addResource(visit, "Encounter", UUID.randomUUID().toString())));			
@@ -147,7 +147,7 @@ public class CCDAConverter {
 		pat.getExtensions().add(Factory.newExtension(CcdaExtensions.NAME_ETHNICITY, convert.makeCodeableConceptFromCD(cda.getChild(p, "ethnicGroupCode")), false));
 		pat.getExtensions().add(Factory.newExtension(CcdaExtensions.NAME_BIRTHPLACE, convert.makeAddressFromAD(cda.getChild(p, new String[] {"birthplace", "place", "addr"})), false));
 		
-		Patient.ContactComponent guardian = pat.new ContactComponent();
+		Patient.ContactComponent guardian = new Patient.ContactComponent();
 		pat.getContact().add(guardian);
 		guardian.getRelationship().add(Factory.newCodeableConcept("GUARD", "urn:oid:2.16.840.1.113883.5.110", "guardian"));
 		Element g = cda.getChild(p, "guardian");
@@ -226,7 +226,7 @@ public class CCDAConverter {
   			pr.setName(convert.makeNameFromEN(e));
 		
 
-		DocumentAttesterComponent att = document.new DocumentAttesterComponent();
+		DocumentAttesterComponent att = new Document.DocumentAttesterComponent();
 		att.setModeSimple(mode);
 		att.setTime(convert.makeDateTimeFromTS(cda.getChild(a1,"time")));
 	  att.setParty(Factory.makeResourceReference(addResource(pr, title, UUID.randomUUID().toString())));
@@ -262,7 +262,7 @@ public class CCDAConverter {
 			AllergyIntolerance ai = new AllergyIntolerance();
 			list.getContained().add(ai); 
 			ai.setXmlId("a"+i.toString());
-			ListEntryComponent item = list.new ListEntryComponent();
+			ListEntryComponent item = new List_.ListEntryComponent();
 			list.getEntry().add(item);
 			item.setItem(Factory.makeResourceReference("#a"+i.toString()));
 			for (Element e : cda.getChildren(concern, "id"))
@@ -304,7 +304,7 @@ public class CCDAConverter {
 		
 		
 		// todo: text
-		SectionComponent s = document.new SectionComponent();
+		SectionComponent s = new Document.SectionComponent();
 		s.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section,  "code")));
 		// todo: check subject
 		s.setContent(Factory.makeResourceReference(addResource(list, "Allergies, Adverse Reactions, Alerts", UUID.randomUUID().toString())));

@@ -34,12 +34,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
 public class ZipGenerator {
 
+  private Set<String> names = new HashSet<String>();
 	FileOutputStream dest;
 	ZipOutputStream out;
 
@@ -66,6 +69,7 @@ public class ZipGenerator {
 			while (entry != null) {
 				String name = entry.getName();
 
+				names.add(name);
 				// Add ZIP entry to output stream.
 				out.putNextEntry(new ZipEntry(name));
 				// Transfer bytes from the ZIP file to the output file
@@ -81,15 +85,15 @@ public class ZipGenerator {
 		}
 	}
 
-	public void addFolder(String actualDir, String statedDir) throws Exception {
+	public void addFolder(String actualDir, String statedDir, boolean omitIfExists) throws Exception {
 		File fd = new CSFile(actualDir);
 		String files[] = fd.list();
 		for (String f : files) {
 			if (new CSFile(actualDir + f).isDirectory()) {
 				addFolder(actualDir + f + File.separator, statedDir + f
-						+ File.separator);
+						+ File.separator, omitIfExists);
 			} else
-				addFileName(statedDir + f, actualDir + f);
+				addFileName(statedDir + f, actualDir + f, omitIfExists);
 		}
 	}
 
@@ -105,6 +109,7 @@ public class ZipGenerator {
 				FileInputStream fi = new FileInputStream(actualDir + files[i]);
 				BufferedInputStream origin = new BufferedInputStream(fi, BUFFER);
 				ZipEntry entry = new ZipEntry(statedDir + files[i]);
+				names.add(statedDir + files[i]);
 				out.putNextEntry(entry);
 				int count;
 				while ((count = origin.read(data, 0, BUFFER)) != -1) {
@@ -115,26 +120,28 @@ public class ZipGenerator {
 		}
 	}
 
-	public void addFileSource(String path, String cnt) throws Exception {
+	public void addFileSource(String path, String cnt, boolean omitIfExists) throws Exception {
 		File tmp = File.createTempFile("tmp", ".tmp");
 		tmp.deleteOnExit();
 		TextFile.stringToFile(cnt, tmp.getAbsolutePath());
-		addFileName(path, tmp.getAbsolutePath());
+		addFileName(path, tmp.getAbsolutePath(), omitIfExists);
 		tmp.delete();
 	}
 
-	public void addFileName(String statedPath, String actualPath)
-			throws Exception {
-		byte data[] = new byte[BUFFER];
-		FileInputStream fi = new FileInputStream(actualPath);
-		BufferedInputStream origin = new BufferedInputStream(fi, BUFFER);
-		ZipEntry entry = new ZipEntry(statedPath);
-		out.putNextEntry(entry);
-		int count;
-		while ((count = origin.read(data, 0, BUFFER)) != -1) {
-			out.write(data, 0, count);
-		}
-		origin.close();
+	public void addFileName(String statedPath, String actualPath, boolean omitIfExists) throws Exception {
+	  if (!omitIfExists || !names.contains(statedPath)) {
+	    byte data[] = new byte[BUFFER];
+	    FileInputStream fi = new FileInputStream(actualPath);
+	    BufferedInputStream origin = new BufferedInputStream(fi, BUFFER);
+	    ZipEntry entry = new ZipEntry(statedPath);
+	    names.add(statedPath);
+	    out.putNextEntry(entry);
+	    int count;
+	    while ((count = origin.read(data, 0, BUFFER)) != -1) {
+	      out.write(data, 0, count);
+	    }
+	    origin.close();
+	  }
 	}
 
 }

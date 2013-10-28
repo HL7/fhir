@@ -458,8 +458,12 @@ public class XhtmlParser {
       s.append((char) 174);
     else if (c.equals("sect"))
       s.append((char) 0xA7);
-    else if (c.charAt(0) == '#' && isInteger(c.substring(1)))
-      s.append((char) Integer.parseInt(c.substring(1)));
+    else if (c.charAt(0) == '#') {
+    	if (isInteger(c.substring(1), 10))
+    		s.append((char) Integer.parseInt(c.substring(1)));
+    	else if (isInteger(c.substring(1), 16))
+    		s.append((char) Integer.parseInt(c.substring(1), 16));
+    }
     else if (c.equals("fnof"))
       s.append((char)402); // latin small f with hook = function = florin, U+0192 ISOtech -->
     else if (c.equals("Alpha"))
@@ -712,9 +716,9 @@ public class XhtmlParser {
       throw new Exception("unable to parse character reference '" + c + "'' (last text = '"+lastText+"'"+descLoc());
 }
 
-  private boolean isInteger(String s) {
+  private boolean isInteger(String s, int base) {
     try {
-      Integer.parseInt(s);
+      Integer.parseInt(s, base);
       return true;
     } catch (Exception e) {
       return false;

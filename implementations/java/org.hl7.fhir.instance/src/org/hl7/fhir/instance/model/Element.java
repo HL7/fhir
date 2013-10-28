@@ -1,6 +1,7 @@
 package org.hl7.fhir.instance.model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /*
 Copyright (c) 2011-2013, HL7, Inc
@@ -71,5 +72,17 @@ public abstract class Element {
     }
     return null;
   }
+  
+  public List<Property> children() {
+  	List<Property> result = new ArrayList<Property>();
+  	listChildren(result);
+  	return result;
+  }
+
+	protected void listChildren(List<Property> result) {
+	// not an element  result.add(new Property("xml:id", "XML Identifier - target for an id ref", 0, 1, )))
+		result.add(new Property("extension", "Extension", "XML Identifier - target for an id ref", 0, java.lang.Integer.MAX_VALUE, extensions));	  
+  }  
+  
   
 }
