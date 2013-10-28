@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -38,7 +38,7 @@ import java.util.*;
  */
 public class FamilyHistory extends Resource {
 
-    public class FamilyHistoryRelationComponent extends BackboneElement {
+    public static class FamilyHistoryRelationComponent extends BackboneElement {
         /**
          * This will either be a name or a description.  E.g. "Aunt Susan", "my cousin with the red hair".
          */
@@ -64,19 +64,29 @@ public class FamilyHistory extends Resource {
          */
         protected List<FamilyHistoryRelationConditionComponent> condition = new ArrayList<FamilyHistoryRelationConditionComponent>();
 
+      public FamilyHistoryRelationComponent() {
+        super();
+      }
+
+      public FamilyHistoryRelationComponent(CodeableConcept relationship) {
+        super();
+        this.relationship = relationship;
+      }
+
         public String_ getName() { 
           return this.name;
         }
 
-        public void setName(String_ value) { 
+        public FamilyHistoryRelationComponent setName(String_ value) { 
           this.name = value;
+          return this;
         }
 
         public String getNameSimple() { 
           return this.name == null ? null : this.name.getValue();
         }
 
-        public void setNameSimple(String value) { 
+        public FamilyHistoryRelationComponent setNameSimple(String value) { 
           if (value == null)
             this.name = null;
           else {
@@ -84,37 +94,41 @@ public class FamilyHistory extends Resource {
               this.name = new String_();
             this.name.setValue(value);
           }
+          return this;
         }
 
         public CodeableConcept getRelationship() { 
           return this.relationship;
         }
 
-        public void setRelationship(CodeableConcept value) { 
+        public FamilyHistoryRelationComponent setRelationship(CodeableConcept value) { 
           this.relationship = value;
+          return this;
         }
 
         public Type getDeceased() { 
           return this.deceased;
         }
 
-        public void setDeceased(Type value) { 
+        public FamilyHistoryRelationComponent setDeceased(Type value) { 
           this.deceased = value;
+          return this;
         }
 
         public String_ getNote() { 
           return this.note;
         }
 
-        public void setNote(String_ value) { 
+        public FamilyHistoryRelationComponent setNote(String_ value) { 
           this.note = value;
+          return this;
         }
 
         public String getNoteSimple() { 
           return this.note == null ? null : this.note.getValue();
         }
 
-        public void setNoteSimple(String value) { 
+        public FamilyHistoryRelationComponent setNoteSimple(String value) { 
           if (value == null)
             this.note = null;
           else {
@@ -122,6 +136,7 @@ public class FamilyHistory extends Resource {
               this.note = new String_();
             this.note.setValue(value);
           }
+          return this;
         }
 
         public List<FamilyHistoryRelationConditionComponent> getCondition() { 
@@ -135,8 +150,17 @@ public class FamilyHistory extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "string", "This will either be a name or a description.  E.g. 'Aunt Susan', 'my cousin with the red hair'.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("relationship", "CodeableConcept", "The type of relationship this person has to the patient (father, mother, brother etc.).", 0, java.lang.Integer.MAX_VALUE, relationship));
+          childrenList.add(new Property("deceased[x]", "boolean|Age|Range|string", "If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set.", 0, java.lang.Integer.MAX_VALUE, deceased));
+          childrenList.add(new Property("note", "string", "This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.", 0, java.lang.Integer.MAX_VALUE, note));
+          childrenList.add(new Property("condition", "", "The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.", 0, java.lang.Integer.MAX_VALUE, condition));
+        }
+
       public FamilyHistoryRelationComponent copy(FamilyHistory e) {
-        FamilyHistoryRelationComponent dst = e.new FamilyHistoryRelationComponent();
+        FamilyHistoryRelationComponent dst = new FamilyHistoryRelationComponent();
         dst.name = name == null ? null : name.copy();
         dst.relationship = relationship == null ? null : relationship.copy();
         dst.deceased = deceased == null ? null : deceased.copy();
@@ -149,7 +173,7 @@ public class FamilyHistory extends Resource {
 
   }
 
-    public class FamilyHistoryRelationConditionComponent extends BackboneElement {
+    public static class FamilyHistoryRelationConditionComponent extends BackboneElement {
         /**
          * The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like 'cancer' depending on how much is known about the condition and the capabilities of the creating system.
          */
@@ -170,43 +194,56 @@ public class FamilyHistory extends Resource {
          */
         protected String_ note;
 
+      public FamilyHistoryRelationConditionComponent() {
+        super();
+      }
+
+      public FamilyHistoryRelationConditionComponent(CodeableConcept type) {
+        super();
+        this.type = type;
+      }
+
         public CodeableConcept getType() { 
           return this.type;
         }
 
-        public void setType(CodeableConcept value) { 
+        public FamilyHistoryRelationConditionComponent setType(CodeableConcept value) { 
           this.type = value;
+          return this;
         }
 
         public CodeableConcept getOutcome() { 
           return this.outcome;
         }
 
-        public void setOutcome(CodeableConcept value) { 
+        public FamilyHistoryRelationConditionComponent setOutcome(CodeableConcept value) { 
           this.outcome = value;
+          return this;
         }
 
         public Type getOnset() { 
           return this.onset;
         }
 
-        public void setOnset(Type value) { 
+        public FamilyHistoryRelationConditionComponent setOnset(Type value) { 
           this.onset = value;
+          return this;
         }
 
         public String_ getNote() { 
           return this.note;
         }
 
-        public void setNote(String_ value) { 
+        public FamilyHistoryRelationConditionComponent setNote(String_ value) { 
           this.note = value;
+          return this;
         }
 
         public String getNoteSimple() { 
           return this.note == null ? null : this.note.getValue();
         }
 
-        public void setNoteSimple(String value) { 
+        public FamilyHistoryRelationConditionComponent setNoteSimple(String value) { 
           if (value == null)
             this.note = null;
           else {
@@ -214,10 +251,19 @@ public class FamilyHistory extends Resource {
               this.note = new String_();
             this.note.setValue(value);
           }
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("type", "CodeableConcept", "The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like 'cancer' depending on how much is known about the condition and the capabilities of the creating system.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("outcome", "CodeableConcept", "Indicates what happened as a result of this condition.  If the condition resulted in death, deceased date is captured on the relation.", 0, java.lang.Integer.MAX_VALUE, outcome));
+          childrenList.add(new Property("onset[x]", "Age|Range|string", "Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence.", 0, java.lang.Integer.MAX_VALUE, onset));
+          childrenList.add(new Property("note", "string", "An area where general notes can be placed about this specific condition.", 0, java.lang.Integer.MAX_VALUE, note));
         }
 
       public FamilyHistoryRelationConditionComponent copy(FamilyHistory e) {
-        FamilyHistoryRelationConditionComponent dst = e.new FamilyHistoryRelationConditionComponent();
+        FamilyHistoryRelationConditionComponent dst = new FamilyHistoryRelationConditionComponent();
         dst.type = type == null ? null : type.copy();
         dst.outcome = outcome == null ? null : outcome.copy();
         dst.onset = onset == null ? null : onset.copy();
@@ -247,6 +293,15 @@ public class FamilyHistory extends Resource {
      */
     protected List<FamilyHistoryRelationComponent> relation = new ArrayList<FamilyHistoryRelationComponent>();
 
+    public FamilyHistory() {
+      super();
+    }
+
+    public FamilyHistory(ResourceReference subject) {
+      super();
+      this.subject = subject;
+    }
+
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
@@ -262,23 +317,25 @@ public class FamilyHistory extends Resource {
       return this.subject;
     }
 
-    public void setSubject(ResourceReference value) { 
+    public FamilyHistory setSubject(ResourceReference value) { 
       this.subject = value;
+      return this;
     }
 
     public String_ getNote() { 
       return this.note;
     }
 
-    public void setNote(String_ value) { 
+    public FamilyHistory setNote(String_ value) { 
       this.note = value;
+      return this;
     }
 
     public String getNoteSimple() { 
       return this.note == null ? null : this.note.getValue();
     }
 
-    public void setNoteSimple(String value) { 
+    public FamilyHistory setNoteSimple(String value) { 
       if (value == null)
         this.note = null;
       else {
@@ -286,6 +343,7 @@ public class FamilyHistory extends Resource {
           this.note = new String_();
         this.note.setValue(value);
       }
+      return this;
     }
 
     public List<FamilyHistoryRelationComponent> getRelation() { 
@@ -298,6 +356,14 @@ public class FamilyHistory extends Resource {
       this.relation.add(t);
       return t;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this family history record that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("subject", "Resource(Patient)", "The person who this history concerns.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("note", "string", "Conveys information about family history not specific to individual relations.", 0, java.lang.Integer.MAX_VALUE, note));
+        childrenList.add(new Property("relation", "", "The related person. Each FamilyHistory resource contains the entire family history for a single person.", 0, java.lang.Integer.MAX_VALUE, relation));
+      }
 
       public FamilyHistory copy() {
         FamilyHistory dst = new FamilyHistory();

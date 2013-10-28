@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -78,6 +78,15 @@ public class RelatedPerson extends Resource {
      */
     protected List<Attachment> photo = new ArrayList<Attachment>();
 
+    public RelatedPerson() {
+      super();
+    }
+
+    public RelatedPerson(ResourceReference patient) {
+      super();
+      this.patient = patient;
+    }
+
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
@@ -93,24 +102,27 @@ public class RelatedPerson extends Resource {
       return this.patient;
     }
 
-    public void setPatient(ResourceReference value) { 
+    public RelatedPerson setPatient(ResourceReference value) { 
       this.patient = value;
+      return this;
     }
 
     public CodeableConcept getRelationship() { 
       return this.relationship;
     }
 
-    public void setRelationship(CodeableConcept value) { 
+    public RelatedPerson setRelationship(CodeableConcept value) { 
       this.relationship = value;
+      return this;
     }
 
     public HumanName getName() { 
       return this.name;
     }
 
-    public void setName(HumanName value) { 
+    public RelatedPerson setName(HumanName value) { 
       this.name = value;
+      return this;
     }
 
     public List<Contact> getTelecom() { 
@@ -128,16 +140,18 @@ public class RelatedPerson extends Resource {
       return this.gender;
     }
 
-    public void setGender(CodeableConcept value) { 
+    public RelatedPerson setGender(CodeableConcept value) { 
       this.gender = value;
+      return this;
     }
 
     public Address getAddress() { 
       return this.address;
     }
 
-    public void setAddress(Address value) { 
+    public RelatedPerson setAddress(Address value) { 
       this.address = value;
+      return this;
     }
 
     public List<Attachment> getPhoto() { 
@@ -150,6 +164,18 @@ public class RelatedPerson extends Resource {
       this.photo.add(t);
       return t;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "Identifier for a person within a particular scope.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("patient", "Resource(Patient)", "The patient this person is related to.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("relationship", "CodeableConcept", "The nature of the relationship between a patient and the related person.", 0, java.lang.Integer.MAX_VALUE, relationship));
+        childrenList.add(new Property("name", "HumanName", "A name associated with the person.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("telecom", "Contact", "A contact detail for the person, e.g. a telephone number or an email address.", 0, java.lang.Integer.MAX_VALUE, telecom));
+        childrenList.add(new Property("gender", "CodeableConcept", "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
+        childrenList.add(new Property("address", "Address", "Address where the related person can be contacted or visited.", 0, java.lang.Integer.MAX_VALUE, address));
+        childrenList.add(new Property("photo", "Attachment", "Image of the person.", 0, java.lang.Integer.MAX_VALUE, photo));
+      }
 
       public RelatedPerson copy() {
         RelatedPerson dst = new RelatedPerson();

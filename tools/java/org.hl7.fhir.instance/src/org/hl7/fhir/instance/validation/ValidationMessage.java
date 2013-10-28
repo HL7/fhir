@@ -81,7 +81,7 @@ public class ValidationMessage
   }
 
   public OperationOutcomeIssueComponent asIssue(OperationOutcome op) throws Exception {
-    OperationOutcomeIssueComponent issue = op.new OperationOutcomeIssueComponent();
+    OperationOutcomeIssueComponent issue = new OperationOutcome.OperationOutcomeIssueComponent();
     if (type != null) {
       issue.setType(new Coding());
       issue.getType().setSystemSimple("http://hl7.org/fhir/issue-type");

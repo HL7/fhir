@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -64,7 +64,7 @@ public class CarePlan extends Resource {
         }
     }
 
-  public class CarePlanStatusEnumFactory implements EnumFactory {
+  public static class CarePlanStatusEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -118,7 +118,7 @@ public class CarePlan extends Resource {
         }
     }
 
-  public class CarePlanGoalStatusEnumFactory implements EnumFactory {
+  public static class CarePlanGoalStatusEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -184,7 +184,7 @@ public class CarePlan extends Resource {
         }
     }
 
-  public class CarePlanActivityStatusEnumFactory implements EnumFactory {
+  public static class CarePlanActivityStatusEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -262,7 +262,7 @@ public class CarePlan extends Resource {
         }
     }
 
-  public class CarePlanActivityCategoryEnumFactory implements EnumFactory {
+  public static class CarePlanActivityCategoryEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -302,7 +302,7 @@ public class CarePlan extends Resource {
       }
     }
 
-    public class CarePlanParticipantComponent extends BackboneElement {
+    public static class CarePlanParticipantComponent extends BackboneElement {
         /**
          * Indicates specific responsibility of an individual within the care plan.  E.g. "Primary physician", "Team coordinator", "Caregiver", etc.
          */
@@ -313,24 +313,41 @@ public class CarePlan extends Resource {
          */
         protected ResourceReference member;
 
+      public CarePlanParticipantComponent() {
+        super();
+      }
+
+      public CarePlanParticipantComponent(ResourceReference member) {
+        super();
+        this.member = member;
+      }
+
         public CodeableConcept getRole() { 
           return this.role;
         }
 
-        public void setRole(CodeableConcept value) { 
+        public CarePlanParticipantComponent setRole(CodeableConcept value) { 
           this.role = value;
+          return this;
         }
 
         public ResourceReference getMember() { 
           return this.member;
         }
 
-        public void setMember(ResourceReference value) { 
+        public CarePlanParticipantComponent setMember(ResourceReference value) { 
           this.member = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("role", "CodeableConcept", "Indicates specific responsibility of an individual within the care plan.  E.g. 'Primary physician', 'Team coordinator', 'Caregiver', etc.", 0, java.lang.Integer.MAX_VALUE, role));
+          childrenList.add(new Property("member", "Resource(Practitioner|RelatedPerson|Patient|Organization)", "The specific person or organization who is participating/expected to participate in the care plan.", 0, java.lang.Integer.MAX_VALUE, member));
         }
 
       public CarePlanParticipantComponent copy(CarePlan e) {
-        CarePlanParticipantComponent dst = e.new CarePlanParticipantComponent();
+        CarePlanParticipantComponent dst = new CarePlanParticipantComponent();
         dst.role = role == null ? null : role.copy();
         dst.member = member == null ? null : member.copy();
         return dst;
@@ -338,7 +355,7 @@ public class CarePlan extends Resource {
 
   }
 
-    public class CarePlanGoalComponent extends BackboneElement {
+    public static class CarePlanGoalComponent extends BackboneElement {
         /**
          * Human-readable description of a specific desired objective of the care plan.
          */
@@ -359,37 +376,49 @@ public class CarePlan extends Resource {
          */
         protected List<ResourceReference> concern = new ArrayList<ResourceReference>();
 
+      public CarePlanGoalComponent() {
+        super();
+      }
+
+      public CarePlanGoalComponent(String_ description) {
+        super();
+        this.description = description;
+      }
+
         public String_ getDescription() { 
           return this.description;
         }
 
-        public void setDescription(String_ value) { 
+        public CarePlanGoalComponent setDescription(String_ value) { 
           this.description = value;
+          return this;
         }
 
         public String getDescriptionSimple() { 
           return this.description == null ? null : this.description.getValue();
         }
 
-        public void setDescriptionSimple(String value) { 
+        public CarePlanGoalComponent setDescriptionSimple(String value) { 
             if (this.description == null)
               this.description = new String_();
             this.description.setValue(value);
+          return this;
         }
 
         public Enumeration<CarePlanGoalStatus> getStatus() { 
           return this.status;
         }
 
-        public void setStatus(Enumeration<CarePlanGoalStatus> value) { 
+        public CarePlanGoalComponent setStatus(Enumeration<CarePlanGoalStatus> value) { 
           this.status = value;
+          return this;
         }
 
         public CarePlanGoalStatus getStatusSimple() { 
           return this.status == null ? null : this.status.getValue();
         }
 
-        public void setStatusSimple(CarePlanGoalStatus value) { 
+        public CarePlanGoalComponent setStatusSimple(CarePlanGoalStatus value) { 
           if (value == null)
             this.status = null;
           else {
@@ -397,21 +426,23 @@ public class CarePlan extends Resource {
               this.status = new Enumeration<CarePlanGoalStatus>();
             this.status.setValue(value);
           }
+          return this;
         }
 
         public String_ getNotes() { 
           return this.notes;
         }
 
-        public void setNotes(String_ value) { 
+        public CarePlanGoalComponent setNotes(String_ value) { 
           this.notes = value;
+          return this;
         }
 
         public String getNotesSimple() { 
           return this.notes == null ? null : this.notes.getValue();
         }
 
-        public void setNotesSimple(String value) { 
+        public CarePlanGoalComponent setNotesSimple(String value) { 
           if (value == null)
             this.notes = null;
           else {
@@ -419,6 +450,7 @@ public class CarePlan extends Resource {
               this.notes = new String_();
             this.notes.setValue(value);
           }
+          return this;
         }
 
         public List<ResourceReference> getConcern() { 
@@ -432,8 +464,16 @@ public class CarePlan extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("description", "string", "Human-readable description of a specific desired objective of the care plan.", 0, java.lang.Integer.MAX_VALUE, description));
+          childrenList.add(new Property("status", "code", "Indicates whether the goal has been reached and is still considered relevant.", 0, java.lang.Integer.MAX_VALUE, status));
+          childrenList.add(new Property("notes", "string", "Any comments related to the goal.", 0, java.lang.Integer.MAX_VALUE, notes));
+          childrenList.add(new Property("concern", "Resource(Condition)", "The identified conditions that this goal relates to - the condition that caused it to be created, or that it is intended to address.", 0, java.lang.Integer.MAX_VALUE, concern));
+        }
+
       public CarePlanGoalComponent copy(CarePlan e) {
-        CarePlanGoalComponent dst = e.new CarePlanGoalComponent();
+        CarePlanGoalComponent dst = new CarePlanGoalComponent();
         dst.description = description == null ? null : description.copy();
         dst.status = status == null ? null : status.copy();
         dst.notes = notes == null ? null : notes.copy();
@@ -445,7 +485,7 @@ public class CarePlan extends Resource {
 
   }
 
-    public class CarePlanActivityComponent extends BackboneElement {
+    public static class CarePlanActivityComponent extends BackboneElement {
         /**
          * Internal reference that identifies the goals that this activity is intended to contribute towards meeting.
          */
@@ -481,6 +521,15 @@ public class CarePlan extends Resource {
          */
         protected CarePlanActivitySimpleComponent simple;
 
+      public CarePlanActivityComponent() {
+        super();
+      }
+
+      public CarePlanActivityComponent(Boolean prohibited) {
+        super();
+        this.prohibited = prohibited;
+      }
+
         public List<String_> getGoal() { 
           return this.goal;
         }
@@ -503,15 +552,16 @@ public class CarePlan extends Resource {
           return this.status;
         }
 
-        public void setStatus(Enumeration<CarePlanActivityStatus> value) { 
+        public CarePlanActivityComponent setStatus(Enumeration<CarePlanActivityStatus> value) { 
           this.status = value;
+          return this;
         }
 
         public CarePlanActivityStatus getStatusSimple() { 
           return this.status == null ? null : this.status.getValue();
         }
 
-        public void setStatusSimple(CarePlanActivityStatus value) { 
+        public CarePlanActivityComponent setStatusSimple(CarePlanActivityStatus value) { 
           if (value == null)
             this.status = null;
           else {
@@ -519,24 +569,27 @@ public class CarePlan extends Resource {
               this.status = new Enumeration<CarePlanActivityStatus>();
             this.status.setValue(value);
           }
+          return this;
         }
 
         public Boolean getProhibited() { 
           return this.prohibited;
         }
 
-        public void setProhibited(Boolean value) { 
+        public CarePlanActivityComponent setProhibited(Boolean value) { 
           this.prohibited = value;
+          return this;
         }
 
         public boolean getProhibitedSimple() { 
           return this.prohibited == null ? null : this.prohibited.getValue();
         }
 
-        public void setProhibitedSimple(boolean value) { 
+        public CarePlanActivityComponent setProhibitedSimple(boolean value) { 
             if (this.prohibited == null)
               this.prohibited = new Boolean();
             this.prohibited.setValue(value);
+          return this;
         }
 
         public List<ResourceReference> getActionResulting() { 
@@ -554,15 +607,16 @@ public class CarePlan extends Resource {
           return this.notes;
         }
 
-        public void setNotes(String_ value) { 
+        public CarePlanActivityComponent setNotes(String_ value) { 
           this.notes = value;
+          return this;
         }
 
         public String getNotesSimple() { 
           return this.notes == null ? null : this.notes.getValue();
         }
 
-        public void setNotesSimple(String value) { 
+        public CarePlanActivityComponent setNotesSimple(String value) { 
           if (value == null)
             this.notes = null;
           else {
@@ -570,26 +624,40 @@ public class CarePlan extends Resource {
               this.notes = new String_();
             this.notes.setValue(value);
           }
+          return this;
         }
 
         public ResourceReference getDetail() { 
           return this.detail;
         }
 
-        public void setDetail(ResourceReference value) { 
+        public CarePlanActivityComponent setDetail(ResourceReference value) { 
           this.detail = value;
+          return this;
         }
 
         public CarePlanActivitySimpleComponent getSimple() { 
           return this.simple;
         }
 
-        public void setSimple(CarePlanActivitySimpleComponent value) { 
+        public CarePlanActivityComponent setSimple(CarePlanActivitySimpleComponent value) { 
           this.simple = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("goal", "idref", "Internal reference that identifies the goals that this activity is intended to contribute towards meeting.", 0, java.lang.Integer.MAX_VALUE, goal));
+          childrenList.add(new Property("status", "code", "Identifies what progress is being made for the specific activity.", 0, java.lang.Integer.MAX_VALUE, status));
+          childrenList.add(new Property("prohibited", "boolean", "If true, indicates that the described activity is one that must NOT be engaged in when following the plan.", 0, java.lang.Integer.MAX_VALUE, prohibited));
+          childrenList.add(new Property("actionResulting", "Resource(Any)", "Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.", 0, java.lang.Integer.MAX_VALUE, actionResulting));
+          childrenList.add(new Property("notes", "string", "Notes about the execution of the activity.", 0, java.lang.Integer.MAX_VALUE, notes));
+          childrenList.add(new Property("detail", "Resource(Procedure|MedicationPrescription|DiagnosticOrder|Encounter)", "The details of the proposed activity represented in a specific resource.", 0, java.lang.Integer.MAX_VALUE, detail));
+          childrenList.add(new Property("simple", "", "A simple summary of details suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc.", 0, java.lang.Integer.MAX_VALUE, simple));
         }
 
       public CarePlanActivityComponent copy(CarePlan e) {
-        CarePlanActivityComponent dst = e.new CarePlanActivityComponent();
+        CarePlanActivityComponent dst = new CarePlanActivityComponent();
         dst.goal = new ArrayList<String_>();
         for (String_ i : goal)
           dst.goal.add(i.copy());
@@ -606,7 +674,7 @@ public class CarePlan extends Resource {
 
   }
 
-    public class CarePlanActivitySimpleComponent extends BackboneElement {
+    public static class CarePlanActivitySimpleComponent extends BackboneElement {
         /**
          * High-level categorization of the type of activity in a care plan.
          */
@@ -652,46 +720,60 @@ public class CarePlan extends Resource {
          */
         protected String_ details;
 
+      public CarePlanActivitySimpleComponent() {
+        super();
+      }
+
+      public CarePlanActivitySimpleComponent(Enumeration<CarePlanActivityCategory> category) {
+        super();
+        this.category = category;
+      }
+
         public Enumeration<CarePlanActivityCategory> getCategory() { 
           return this.category;
         }
 
-        public void setCategory(Enumeration<CarePlanActivityCategory> value) { 
+        public CarePlanActivitySimpleComponent setCategory(Enumeration<CarePlanActivityCategory> value) { 
           this.category = value;
+          return this;
         }
 
         public CarePlanActivityCategory getCategorySimple() { 
           return this.category == null ? null : this.category.getValue();
         }
 
-        public void setCategorySimple(CarePlanActivityCategory value) { 
+        public CarePlanActivitySimpleComponent setCategorySimple(CarePlanActivityCategory value) { 
             if (this.category == null)
               this.category = new Enumeration<CarePlanActivityCategory>();
             this.category.setValue(value);
+          return this;
         }
 
         public CodeableConcept getCode() { 
           return this.code;
         }
 
-        public void setCode(CodeableConcept value) { 
+        public CarePlanActivitySimpleComponent setCode(CodeableConcept value) { 
           this.code = value;
+          return this;
         }
 
         public Type getTiming() { 
           return this.timing;
         }
 
-        public void setTiming(Type value) { 
+        public CarePlanActivitySimpleComponent setTiming(Type value) { 
           this.timing = value;
+          return this;
         }
 
         public ResourceReference getLocation() { 
           return this.location;
         }
 
-        public void setLocation(ResourceReference value) { 
+        public CarePlanActivitySimpleComponent setLocation(ResourceReference value) { 
           this.location = value;
+          return this;
         }
 
         public List<ResourceReference> getPerformer() { 
@@ -709,39 +791,43 @@ public class CarePlan extends Resource {
           return this.product;
         }
 
-        public void setProduct(ResourceReference value) { 
+        public CarePlanActivitySimpleComponent setProduct(ResourceReference value) { 
           this.product = value;
+          return this;
         }
 
         public Quantity getDailyAmount() { 
           return this.dailyAmount;
         }
 
-        public void setDailyAmount(Quantity value) { 
+        public CarePlanActivitySimpleComponent setDailyAmount(Quantity value) { 
           this.dailyAmount = value;
+          return this;
         }
 
         public Quantity getQuantity() { 
           return this.quantity;
         }
 
-        public void setQuantity(Quantity value) { 
+        public CarePlanActivitySimpleComponent setQuantity(Quantity value) { 
           this.quantity = value;
+          return this;
         }
 
         public String_ getDetails() { 
           return this.details;
         }
 
-        public void setDetails(String_ value) { 
+        public CarePlanActivitySimpleComponent setDetails(String_ value) { 
           this.details = value;
+          return this;
         }
 
         public String getDetailsSimple() { 
           return this.details == null ? null : this.details.getValue();
         }
 
-        public void setDetailsSimple(String value) { 
+        public CarePlanActivitySimpleComponent setDetailsSimple(String value) { 
           if (value == null)
             this.details = null;
           else {
@@ -749,10 +835,24 @@ public class CarePlan extends Resource {
               this.details = new String_();
             this.details.setValue(value);
           }
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("category", "code", "High-level categorization of the type of activity in a care plan.", 0, java.lang.Integer.MAX_VALUE, category));
+          childrenList.add(new Property("code", "CodeableConcept", "Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of encounter.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("timing[x]", "Schedule|Period|string", "The period, timing or frequency upon which the described activity is to occur.", 0, java.lang.Integer.MAX_VALUE, timing));
+          childrenList.add(new Property("location", "Resource(Location)", "Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.", 0, java.lang.Integer.MAX_VALUE, location));
+          childrenList.add(new Property("performer", "Resource(Practitioner|Organization|RelatedPerson|Patient)", "Identifies who's expected to be involved in the activity.", 0, java.lang.Integer.MAX_VALUE, performer));
+          childrenList.add(new Property("product", "Resource(Medication|Substance)", "Identifies the food, drug or other product being consumed or supplied in the activity.", 0, java.lang.Integer.MAX_VALUE, product));
+          childrenList.add(new Property("dailyAmount", "Quantity", "Identifies the quantity expected to be consumed in a given day.", 0, java.lang.Integer.MAX_VALUE, dailyAmount));
+          childrenList.add(new Property("quantity", "Quantity", "Identifies the quantity expected to be supplied.", 0, java.lang.Integer.MAX_VALUE, quantity));
+          childrenList.add(new Property("details", "string", "This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.", 0, java.lang.Integer.MAX_VALUE, details));
         }
 
       public CarePlanActivitySimpleComponent copy(CarePlan e) {
-        CarePlanActivitySimpleComponent dst = e.new CarePlanActivitySimpleComponent();
+        CarePlanActivitySimpleComponent dst = new CarePlanActivitySimpleComponent();
         dst.category = category == null ? null : category.copy();
         dst.code = code == null ? null : code.copy();
         dst.timing = timing == null ? null : timing.copy();
@@ -819,6 +919,15 @@ public class CarePlan extends Resource {
      */
     protected String_ notes;
 
+    public CarePlan() {
+      super();
+    }
+
+    public CarePlan(Enumeration<CarePlanStatus> status) {
+      super();
+      this.status = status;
+    }
+
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
@@ -834,49 +943,54 @@ public class CarePlan extends Resource {
       return this.patient;
     }
 
-    public void setPatient(ResourceReference value) { 
+    public CarePlan setPatient(ResourceReference value) { 
       this.patient = value;
+      return this;
     }
 
     public Enumeration<CarePlanStatus> getStatus() { 
       return this.status;
     }
 
-    public void setStatus(Enumeration<CarePlanStatus> value) { 
+    public CarePlan setStatus(Enumeration<CarePlanStatus> value) { 
       this.status = value;
+      return this;
     }
 
     public CarePlanStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
-    public void setStatusSimple(CarePlanStatus value) { 
+    public CarePlan setStatusSimple(CarePlanStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<CarePlanStatus>();
         this.status.setValue(value);
+      return this;
     }
 
     public Period getPeriod() { 
       return this.period;
     }
 
-    public void setPeriod(Period value) { 
+    public CarePlan setPeriod(Period value) { 
       this.period = value;
+      return this;
     }
 
     public DateTime getModified() { 
       return this.modified;
     }
 
-    public void setModified(DateTime value) { 
+    public CarePlan setModified(DateTime value) { 
       this.modified = value;
+      return this;
     }
 
     public String getModifiedSimple() { 
       return this.modified == null ? null : this.modified.getValue();
     }
 
-    public void setModifiedSimple(String value) { 
+    public CarePlan setModifiedSimple(String value) { 
       if (value == null)
         this.modified = null;
       else {
@@ -884,6 +998,7 @@ public class CarePlan extends Resource {
           this.modified = new DateTime();
         this.modified.setValue(value);
       }
+      return this;
     }
 
     public List<ResourceReference> getConcern() { 
@@ -934,15 +1049,16 @@ public class CarePlan extends Resource {
       return this.notes;
     }
 
-    public void setNotes(String_ value) { 
+    public CarePlan setNotes(String_ value) { 
       this.notes = value;
+      return this;
     }
 
     public String getNotesSimple() { 
       return this.notes == null ? null : this.notes.getValue();
     }
 
-    public void setNotesSimple(String value) { 
+    public CarePlan setNotesSimple(String value) { 
       if (value == null)
         this.notes = null;
       else {
@@ -950,7 +1066,22 @@ public class CarePlan extends Resource {
           this.notes = new String_();
         this.notes.setValue(value);
       }
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this care plan that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("patient", "Resource(Patient)", "Identifies the patient/subject whose intended care is described by the plan.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("status", "code", "Indicates whether the plan is currently being acted upon, represents future intentions or is now just historical record.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("period", "Period", "Indicates when the plan did (or is intended to) come into effect and end.", 0, java.lang.Integer.MAX_VALUE, period));
+        childrenList.add(new Property("modified", "dateTime", "Identifies the most recent date on which the plan has been revised.", 0, java.lang.Integer.MAX_VALUE, modified));
+        childrenList.add(new Property("concern", "Resource(Condition)", "Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.", 0, java.lang.Integer.MAX_VALUE, concern));
+        childrenList.add(new Property("participant", "", "Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.", 0, java.lang.Integer.MAX_VALUE, participant));
+        childrenList.add(new Property("goal", "", "Describes the intended objective(s) of carrying out the Care Plan.", 0, java.lang.Integer.MAX_VALUE, goal));
+        childrenList.add(new Property("activity", "", "Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.", 0, java.lang.Integer.MAX_VALUE, activity));
+        childrenList.add(new Property("notes", "string", "General notes about the care plan not covered elsewhere.", 0, java.lang.Integer.MAX_VALUE, notes));
+      }
 
       public CarePlan copy() {
         CarePlan dst = new CarePlan();

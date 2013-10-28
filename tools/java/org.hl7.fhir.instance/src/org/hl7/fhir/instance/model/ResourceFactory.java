@@ -29,9 +29,9 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
-public class ResourceFactory {
+public class ResourceFactory extends Factory {
 
     public static Resource createResource(String name) throws Exception {
         if ("Condition".equals(name))

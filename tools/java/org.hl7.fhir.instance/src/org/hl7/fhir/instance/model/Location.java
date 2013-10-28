@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -39,7 +39,7 @@ import java.math.*;
  */
 public class Location extends Resource {
 
-    public class LocationPositionComponent extends BackboneElement {
+    public static class LocationPositionComponent extends BackboneElement {
         /**
          * Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).
          */
@@ -55,55 +55,70 @@ public class Location extends Resource {
          */
         protected Decimal altitude;
 
+      public LocationPositionComponent() {
+        super();
+      }
+
+      public LocationPositionComponent(Decimal longitude, Decimal latitude) {
+        super();
+        this.longitude = longitude;
+        this.latitude = latitude;
+      }
+
         public Decimal getLongitude() { 
           return this.longitude;
         }
 
-        public void setLongitude(Decimal value) { 
+        public LocationPositionComponent setLongitude(Decimal value) { 
           this.longitude = value;
+          return this;
         }
 
         public BigDecimal getLongitudeSimple() { 
           return this.longitude == null ? null : this.longitude.getValue();
         }
 
-        public void setLongitudeSimple(BigDecimal value) { 
+        public LocationPositionComponent setLongitudeSimple(BigDecimal value) { 
             if (this.longitude == null)
               this.longitude = new Decimal();
             this.longitude.setValue(value);
+          return this;
         }
 
         public Decimal getLatitude() { 
           return this.latitude;
         }
 
-        public void setLatitude(Decimal value) { 
+        public LocationPositionComponent setLatitude(Decimal value) { 
           this.latitude = value;
+          return this;
         }
 
         public BigDecimal getLatitudeSimple() { 
           return this.latitude == null ? null : this.latitude.getValue();
         }
 
-        public void setLatitudeSimple(BigDecimal value) { 
+        public LocationPositionComponent setLatitudeSimple(BigDecimal value) { 
             if (this.latitude == null)
               this.latitude = new Decimal();
             this.latitude.setValue(value);
+          return this;
         }
 
         public Decimal getAltitude() { 
           return this.altitude;
         }
 
-        public void setAltitude(Decimal value) { 
+        public LocationPositionComponent setAltitude(Decimal value) { 
           this.altitude = value;
+          return this;
         }
 
         public BigDecimal getAltitudeSimple() { 
           return this.altitude == null ? null : this.altitude.getValue();
         }
 
-        public void setAltitudeSimple(BigDecimal value) { 
+        public LocationPositionComponent setAltitudeSimple(BigDecimal value) { 
           if (value == null)
             this.altitude = null;
           else {
@@ -111,10 +126,18 @@ public class Location extends Resource {
               this.altitude = new Decimal();
             this.altitude.setValue(value);
           }
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("longitude", "decimal", "Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).", 0, java.lang.Integer.MAX_VALUE, longitude));
+          childrenList.add(new Property("latitude", "decimal", "Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).", 0, java.lang.Integer.MAX_VALUE, latitude));
+          childrenList.add(new Property("altitude", "decimal", "Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).", 0, java.lang.Integer.MAX_VALUE, altitude));
         }
 
       public LocationPositionComponent copy(Location e) {
-        LocationPositionComponent dst = e.new LocationPositionComponent();
+        LocationPositionComponent dst = new LocationPositionComponent();
         dst.longitude = longitude == null ? null : longitude.copy();
         dst.latitude = latitude == null ? null : latitude.copy();
         dst.altitude = altitude == null ? null : altitude.copy();
@@ -168,37 +191,49 @@ public class Location extends Resource {
      */
     protected ResourceReference partOf;
 
+    public Location() {
+      super();
+    }
+
+    public Location(String_ name) {
+      super();
+      this.name = name;
+    }
+
     public String_ getName() { 
       return this.name;
     }
 
-    public void setName(String_ value) { 
+    public Location setName(String_ value) { 
       this.name = value;
+      return this;
     }
 
     public String getNameSimple() { 
       return this.name == null ? null : this.name.getValue();
     }
 
-    public void setNameSimple(String value) { 
+    public Location setNameSimple(String value) { 
         if (this.name == null)
           this.name = new String_();
         this.name.setValue(value);
+      return this;
     }
 
     public String_ getDescription() { 
       return this.description;
     }
 
-    public void setDescription(String_ value) { 
+    public Location setDescription(String_ value) { 
       this.description = value;
+      return this;
     }
 
     public String getDescriptionSimple() { 
       return this.description == null ? null : this.description.getValue();
     }
 
-    public void setDescriptionSimple(String value) { 
+    public Location setDescriptionSimple(String value) { 
       if (value == null)
         this.description = null;
       else {
@@ -206,6 +241,7 @@ public class Location extends Resource {
           this.description = new String_();
         this.description.setValue(value);
       }
+      return this;
     }
 
     public List<CodeableConcept> getType() { 
@@ -223,47 +259,52 @@ public class Location extends Resource {
       return this.telecom;
     }
 
-    public void setTelecom(Contact value) { 
+    public Location setTelecom(Contact value) { 
       this.telecom = value;
+      return this;
     }
 
     public Address getAddress() { 
       return this.address;
     }
 
-    public void setAddress(Address value) { 
+    public Location setAddress(Address value) { 
       this.address = value;
+      return this;
     }
 
     public LocationPositionComponent getPosition() { 
       return this.position;
     }
 
-    public void setPosition(LocationPositionComponent value) { 
+    public Location setPosition(LocationPositionComponent value) { 
       this.position = value;
+      return this;
     }
 
     public ResourceReference getProvider() { 
       return this.provider;
     }
 
-    public void setProvider(ResourceReference value) { 
+    public Location setProvider(ResourceReference value) { 
       this.provider = value;
+      return this;
     }
 
     public Boolean getActive() { 
       return this.active;
     }
 
-    public void setActive(Boolean value) { 
+    public Location setActive(Boolean value) { 
       this.active = value;
+      return this;
     }
 
     public boolean getActiveSimple() { 
       return this.active == null ? null : this.active.getValue();
     }
 
-    public void setActiveSimple(boolean value) { 
+    public Location setActiveSimple(boolean value) { 
       if (value == false)
         this.active = null;
       else {
@@ -271,15 +312,30 @@ public class Location extends Resource {
           this.active = new Boolean();
         this.active.setValue(value);
       }
+      return this;
     }
 
     public ResourceReference getPartOf() { 
       return this.partOf;
     }
 
-    public void setPartOf(ResourceReference value) { 
+    public Location setPartOf(ResourceReference value) { 
       this.partOf = value;
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("name", "string", "Name of the location which identifies it to its users.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("description", "string", "Description of the Location, which helps in finding or referencing the place.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("type", "CodeableConcept", "Classification of the location.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("telecom", "Contact", "The contact details of the main communication devices present at the location.", 0, java.lang.Integer.MAX_VALUE, telecom));
+        childrenList.add(new Property("address", "Address", "Physical location.", 0, java.lang.Integer.MAX_VALUE, address));
+        childrenList.add(new Property("position", "", "The absolute geographic location of the Location, expressed in a KML compatible manner (see notes below for KML).", 0, java.lang.Integer.MAX_VALUE, position));
+        childrenList.add(new Property("provider", "Resource(Organization)", "The organization that provides services at the location.", 0, java.lang.Integer.MAX_VALUE, provider));
+        childrenList.add(new Property("active", "boolean", "Whether the location is still used to provide services.", 0, java.lang.Integer.MAX_VALUE, active));
+        childrenList.add(new Property("partOf", "Resource(Location)", "Another Location which this Location is physically inside of.", 0, java.lang.Integer.MAX_VALUE, partOf));
+      }
 
       public Location copy() {
         Location dst = new Location();

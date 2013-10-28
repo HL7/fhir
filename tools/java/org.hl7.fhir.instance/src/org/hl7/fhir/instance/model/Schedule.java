@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -93,7 +93,7 @@ public class Schedule extends Type {
         }
     }
 
-  public class EventTimingEnumFactory implements EnumFactory {
+  public static class EventTimingEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -187,7 +187,7 @@ public class Schedule extends Type {
         }
     }
 
-  public class UnitsOfTimeEnumFactory implements EnumFactory {
+  public static class UnitsOfTimeEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -227,7 +227,7 @@ public class Schedule extends Type {
       }
     }
 
-    public class ScheduleRepeatComponent extends Element {
+    public static class ScheduleRepeatComponent extends Element {
         /**
          * Indicates how often the event should occur.
          */
@@ -258,19 +258,30 @@ public class Schedule extends Type {
          */
         protected DateTime end;
 
+      public ScheduleRepeatComponent() {
+        super();
+      }
+
+      public ScheduleRepeatComponent(Decimal duration, Enumeration<UnitsOfTime> units) {
+        super();
+        this.duration = duration;
+        this.units = units;
+      }
+
         public Integer getFrequency() { 
           return this.frequency;
         }
 
-        public void setFrequency(Integer value) { 
+        public ScheduleRepeatComponent setFrequency(Integer value) { 
           this.frequency = value;
+          return this;
         }
 
         public int getFrequencySimple() { 
           return this.frequency == null ? null : this.frequency.getValue();
         }
 
-        public void setFrequencySimple(int value) { 
+        public ScheduleRepeatComponent setFrequencySimple(int value) { 
           if (value == -1)
             this.frequency = null;
           else {
@@ -278,21 +289,23 @@ public class Schedule extends Type {
               this.frequency = new Integer();
             this.frequency.setValue(value);
           }
+          return this;
         }
 
         public Enumeration<EventTiming> getWhen() { 
           return this.when;
         }
 
-        public void setWhen(Enumeration<EventTiming> value) { 
+        public ScheduleRepeatComponent setWhen(Enumeration<EventTiming> value) { 
           this.when = value;
+          return this;
         }
 
         public EventTiming getWhenSimple() { 
           return this.when == null ? null : this.when.getValue();
         }
 
-        public void setWhenSimple(EventTiming value) { 
+        public ScheduleRepeatComponent setWhenSimple(EventTiming value) { 
           if (value == null)
             this.when = null;
           else {
@@ -300,57 +313,63 @@ public class Schedule extends Type {
               this.when = new Enumeration<EventTiming>();
             this.when.setValue(value);
           }
+          return this;
         }
 
         public Decimal getDuration() { 
           return this.duration;
         }
 
-        public void setDuration(Decimal value) { 
+        public ScheduleRepeatComponent setDuration(Decimal value) { 
           this.duration = value;
+          return this;
         }
 
         public BigDecimal getDurationSimple() { 
           return this.duration == null ? null : this.duration.getValue();
         }
 
-        public void setDurationSimple(BigDecimal value) { 
+        public ScheduleRepeatComponent setDurationSimple(BigDecimal value) { 
             if (this.duration == null)
               this.duration = new Decimal();
             this.duration.setValue(value);
+          return this;
         }
 
         public Enumeration<UnitsOfTime> getUnits() { 
           return this.units;
         }
 
-        public void setUnits(Enumeration<UnitsOfTime> value) { 
+        public ScheduleRepeatComponent setUnits(Enumeration<UnitsOfTime> value) { 
           this.units = value;
+          return this;
         }
 
         public UnitsOfTime getUnitsSimple() { 
           return this.units == null ? null : this.units.getValue();
         }
 
-        public void setUnitsSimple(UnitsOfTime value) { 
+        public ScheduleRepeatComponent setUnitsSimple(UnitsOfTime value) { 
             if (this.units == null)
               this.units = new Enumeration<UnitsOfTime>();
             this.units.setValue(value);
+          return this;
         }
 
         public Integer getCount() { 
           return this.count;
         }
 
-        public void setCount(Integer value) { 
+        public ScheduleRepeatComponent setCount(Integer value) { 
           this.count = value;
+          return this;
         }
 
         public int getCountSimple() { 
           return this.count == null ? null : this.count.getValue();
         }
 
-        public void setCountSimple(int value) { 
+        public ScheduleRepeatComponent setCountSimple(int value) { 
           if (value == -1)
             this.count = null;
           else {
@@ -358,21 +377,23 @@ public class Schedule extends Type {
               this.count = new Integer();
             this.count.setValue(value);
           }
+          return this;
         }
 
         public DateTime getEnd() { 
           return this.end;
         }
 
-        public void setEnd(DateTime value) { 
+        public ScheduleRepeatComponent setEnd(DateTime value) { 
           this.end = value;
+          return this;
         }
 
         public String getEndSimple() { 
           return this.end == null ? null : this.end.getValue();
         }
 
-        public void setEndSimple(String value) { 
+        public ScheduleRepeatComponent setEndSimple(String value) { 
           if (value == null)
             this.end = null;
           else {
@@ -380,10 +401,21 @@ public class Schedule extends Type {
               this.end = new DateTime();
             this.end.setValue(value);
           }
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("frequency", "integer", "Indicates how often the event should occur.", 0, java.lang.Integer.MAX_VALUE, frequency));
+          childrenList.add(new Property("when", "code", "Identifies the occurrence of daily life that determine timing.", 0, java.lang.Integer.MAX_VALUE, when));
+          childrenList.add(new Property("duration", "decimal", "How long each repetition should last.", 0, java.lang.Integer.MAX_VALUE, duration));
+          childrenList.add(new Property("units", "code", "The units of time for the duration.", 0, java.lang.Integer.MAX_VALUE, units));
+          childrenList.add(new Property("count", "integer", "A total count of the desired number of repetitions.", 0, java.lang.Integer.MAX_VALUE, count));
+          childrenList.add(new Property("end", "dateTime", "When to stop repeats.", 0, java.lang.Integer.MAX_VALUE, end));
         }
 
       public ScheduleRepeatComponent copy(Schedule e) {
-        ScheduleRepeatComponent dst = e.new ScheduleRepeatComponent();
+        ScheduleRepeatComponent dst = new ScheduleRepeatComponent();
         dst.frequency = frequency == null ? null : frequency.copy();
         dst.when = when == null ? null : when.copy();
         dst.duration = duration == null ? null : duration.copy();
@@ -405,6 +437,10 @@ public class Schedule extends Type {
      */
     protected ScheduleRepeatComponent repeat;
 
+    public Schedule() {
+      super();
+    }
+
     public List<Period> getEvent() { 
       return this.event;
     }
@@ -420,9 +456,16 @@ public class Schedule extends Type {
       return this.repeat;
     }
 
-    public void setRepeat(ScheduleRepeatComponent value) { 
+    public Schedule setRepeat(ScheduleRepeatComponent value) { 
       this.repeat = value;
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("event", "Period", "Identifies specific time periods when the event should occur.", 0, java.lang.Integer.MAX_VALUE, event));
+        childrenList.add(new Property("repeat", "", "Identifies a repeating pattern to the intended time periods.", 0, java.lang.Integer.MAX_VALUE, repeat));
+      }
 
       public Schedule copy() {
         Schedule dst = new Schedule();

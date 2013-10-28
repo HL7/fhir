@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -38,7 +38,7 @@ import java.util.*;
  */
 public class Organization extends Resource {
 
-    public class OrganizationContactComponent extends BackboneElement {
+    public static class OrganizationContactComponent extends BackboneElement {
         /**
          * Indicates a purpose for which the contact can be reached.
          */
@@ -64,20 +64,26 @@ public class Organization extends Resource {
          */
         protected CodeableConcept gender;
 
+      public OrganizationContactComponent() {
+        super();
+      }
+
         public CodeableConcept getPurpose() { 
           return this.purpose;
         }
 
-        public void setPurpose(CodeableConcept value) { 
+        public OrganizationContactComponent setPurpose(CodeableConcept value) { 
           this.purpose = value;
+          return this;
         }
 
         public HumanName getName() { 
           return this.name;
         }
 
-        public void setName(HumanName value) { 
+        public OrganizationContactComponent setName(HumanName value) { 
           this.name = value;
+          return this;
         }
 
         public List<Contact> getTelecom() { 
@@ -95,20 +101,31 @@ public class Organization extends Resource {
           return this.address;
         }
 
-        public void setAddress(Address value) { 
+        public OrganizationContactComponent setAddress(Address value) { 
           this.address = value;
+          return this;
         }
 
         public CodeableConcept getGender() { 
           return this.gender;
         }
 
-        public void setGender(CodeableConcept value) { 
+        public OrganizationContactComponent setGender(CodeableConcept value) { 
           this.gender = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("purpose", "CodeableConcept", "Indicates a purpose for which the contact can be reached.", 0, java.lang.Integer.MAX_VALUE, purpose));
+          childrenList.add(new Property("name", "HumanName", "A name associated with the contact.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("telecom", "Contact", "A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.", 0, java.lang.Integer.MAX_VALUE, telecom));
+          childrenList.add(new Property("address", "Address", "Visiting or postal addresses for the contact.", 0, java.lang.Integer.MAX_VALUE, address));
+          childrenList.add(new Property("gender", "CodeableConcept", "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
         }
 
       public OrganizationContactComponent copy(Organization e) {
-        OrganizationContactComponent dst = e.new OrganizationContactComponent();
+        OrganizationContactComponent dst = new OrganizationContactComponent();
         dst.purpose = purpose == null ? null : purpose.copy();
         dst.name = name == null ? null : name.copy();
         dst.telecom = new ArrayList<Contact>();
@@ -161,6 +178,10 @@ public class Organization extends Resource {
      */
     protected Boolean active;
 
+    public Organization() {
+      super();
+    }
+
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
@@ -176,15 +197,16 @@ public class Organization extends Resource {
       return this.name;
     }
 
-    public void setName(String_ value) { 
+    public Organization setName(String_ value) { 
       this.name = value;
+      return this;
     }
 
     public String getNameSimple() { 
       return this.name == null ? null : this.name.getValue();
     }
 
-    public void setNameSimple(String value) { 
+    public Organization setNameSimple(String value) { 
       if (value == null)
         this.name = null;
       else {
@@ -192,14 +214,16 @@ public class Organization extends Resource {
           this.name = new String_();
         this.name.setValue(value);
       }
+      return this;
     }
 
     public CodeableConcept getType() { 
       return this.type;
     }
 
-    public void setType(CodeableConcept value) { 
+    public Organization setType(CodeableConcept value) { 
       this.type = value;
+      return this;
     }
 
     public List<Contact> getTelecom() { 
@@ -228,8 +252,9 @@ public class Organization extends Resource {
       return this.partOf;
     }
 
-    public void setPartOf(ResourceReference value) { 
+    public Organization setPartOf(ResourceReference value) { 
       this.partOf = value;
+      return this;
     }
 
     public List<OrganizationContactComponent> getContact() { 
@@ -247,15 +272,16 @@ public class Organization extends Resource {
       return this.active;
     }
 
-    public void setActive(Boolean value) { 
+    public Organization setActive(Boolean value) { 
       this.active = value;
+      return this;
     }
 
     public boolean getActiveSimple() { 
       return this.active == null ? null : this.active.getValue();
     }
 
-    public void setActiveSimple(boolean value) { 
+    public Organization setActiveSimple(boolean value) { 
       if (value == false)
         this.active = null;
       else {
@@ -263,7 +289,20 @@ public class Organization extends Resource {
           this.active = new Boolean();
         this.active.setValue(value);
       }
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "Identifier for the organization that is used to identify the organization across multiple disparate systems.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("name", "string", "A name associated with the organization.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("type", "CodeableConcept", "The kind of organization that this is.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("telecom", "Contact", "A contact detail for the organization.", 0, java.lang.Integer.MAX_VALUE, telecom));
+        childrenList.add(new Property("address", "Address", "An address for the organization.", 0, java.lang.Integer.MAX_VALUE, address));
+        childrenList.add(new Property("partOf", "Resource(Organization)", "The organization of which this organization forms a part.", 0, java.lang.Integer.MAX_VALUE, partOf));
+        childrenList.add(new Property("contact", "", "Contact for the organization for a certain purpose.", 0, java.lang.Integer.MAX_VALUE, contact));
+        childrenList.add(new Property("active", "boolean", "Whether the organization's record is still in active use.", 0, java.lang.Integer.MAX_VALUE, active));
+      }
 
       public Organization copy() {
         Organization dst = new Organization();

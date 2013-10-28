@@ -29,7 +29,9 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+
+import java.util.*;
 
 /**
  * A reference to a code defined by a terminology system.
@@ -66,19 +68,24 @@ public class Coding extends Type {
      */
     protected ResourceReference valueSet;
 
+    public Coding() {
+      super();
+    }
+
     public Uri getSystem() { 
       return this.system;
     }
 
-    public void setSystem(Uri value) { 
+    public Coding setSystem(Uri value) { 
       this.system = value;
+      return this;
     }
 
     public String getSystemSimple() { 
       return this.system == null ? null : this.system.getValue();
     }
 
-    public void setSystemSimple(String value) { 
+    public Coding setSystemSimple(String value) { 
       if (value == null)
         this.system = null;
       else {
@@ -86,21 +93,23 @@ public class Coding extends Type {
           this.system = new Uri();
         this.system.setValue(value);
       }
+      return this;
     }
 
     public String_ getVersion() { 
       return this.version;
     }
 
-    public void setVersion(String_ value) { 
+    public Coding setVersion(String_ value) { 
       this.version = value;
+      return this;
     }
 
     public String getVersionSimple() { 
       return this.version == null ? null : this.version.getValue();
     }
 
-    public void setVersionSimple(String value) { 
+    public Coding setVersionSimple(String value) { 
       if (value == null)
         this.version = null;
       else {
@@ -108,21 +117,23 @@ public class Coding extends Type {
           this.version = new String_();
         this.version.setValue(value);
       }
+      return this;
     }
 
     public Code getCode() { 
       return this.code;
     }
 
-    public void setCode(Code value) { 
+    public Coding setCode(Code value) { 
       this.code = value;
+      return this;
     }
 
     public String getCodeSimple() { 
       return this.code == null ? null : this.code.getValue();
     }
 
-    public void setCodeSimple(String value) { 
+    public Coding setCodeSimple(String value) { 
       if (value == null)
         this.code = null;
       else {
@@ -130,21 +141,23 @@ public class Coding extends Type {
           this.code = new Code();
         this.code.setValue(value);
       }
+      return this;
     }
 
     public String_ getDisplay() { 
       return this.display;
     }
 
-    public void setDisplay(String_ value) { 
+    public Coding setDisplay(String_ value) { 
       this.display = value;
+      return this;
     }
 
     public String getDisplaySimple() { 
       return this.display == null ? null : this.display.getValue();
     }
 
-    public void setDisplaySimple(String value) { 
+    public Coding setDisplaySimple(String value) { 
       if (value == null)
         this.display = null;
       else {
@@ -152,21 +165,23 @@ public class Coding extends Type {
           this.display = new String_();
         this.display.setValue(value);
       }
+      return this;
     }
 
     public Boolean getPrimary() { 
       return this.primary;
     }
 
-    public void setPrimary(Boolean value) { 
+    public Coding setPrimary(Boolean value) { 
       this.primary = value;
+      return this;
     }
 
     public boolean getPrimarySimple() { 
       return this.primary == null ? null : this.primary.getValue();
     }
 
-    public void setPrimarySimple(boolean value) { 
+    public Coding setPrimarySimple(boolean value) { 
       if (value == false)
         this.primary = null;
       else {
@@ -174,15 +189,27 @@ public class Coding extends Type {
           this.primary = new Boolean();
         this.primary.setValue(value);
       }
+      return this;
     }
 
     public ResourceReference getValueSet() { 
       return this.valueSet;
     }
 
-    public void setValueSet(ResourceReference value) { 
+    public Coding setValueSet(ResourceReference value) { 
       this.valueSet = value;
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("system", "uri", "The identification of the code system that defines the meaning of the symbol in the code.", 0, java.lang.Integer.MAX_VALUE, system));
+        childrenList.add(new Property("version", "string", "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when it is not, the version SHOULD be exchanged.", 0, java.lang.Integer.MAX_VALUE, version));
+        childrenList.add(new Property("code", "code", "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 0, java.lang.Integer.MAX_VALUE, code));
+        childrenList.add(new Property("display", "string", "A representation of the meaning of the code in the system, following the rules laid out by the system.", 0, java.lang.Integer.MAX_VALUE, display));
+        childrenList.add(new Property("primary", "boolean", "Indicates that this code was chosen by a user directly - i.e. off a pick list of available codes.", 0, java.lang.Integer.MAX_VALUE, primary));
+        childrenList.add(new Property("valueSet", "Resource(ValueSet)", "The set of possible coded values this coding was chosen from or constrained by.", 0, java.lang.Integer.MAX_VALUE, valueSet));
+      }
 
       public Coding copy() {
         Coding dst = new Coding();

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -83,53 +83,67 @@ public class Substance extends Resource {
      */
     protected CodeableConcept quantityMode;
 
+    public Substance() {
+      super();
+    }
+
+    public Substance(String_ name) {
+      super();
+      this.name = name;
+    }
+
     public Identifier getIdentifier() { 
       return this.identifier;
     }
 
-    public void setIdentifier(Identifier value) { 
+    public Substance setIdentifier(Identifier value) { 
       this.identifier = value;
+      return this;
     }
 
     public String_ getName() { 
       return this.name;
     }
 
-    public void setName(String_ value) { 
+    public Substance setName(String_ value) { 
       this.name = value;
+      return this;
     }
 
     public String getNameSimple() { 
       return this.name == null ? null : this.name.getValue();
     }
 
-    public void setNameSimple(String value) { 
+    public Substance setNameSimple(String value) { 
         if (this.name == null)
           this.name = new String_();
         this.name.setValue(value);
+      return this;
     }
 
     public CodeableConcept getType() { 
       return this.type;
     }
 
-    public void setType(CodeableConcept value) { 
+    public Substance setType(CodeableConcept value) { 
       this.type = value;
+      return this;
     }
 
     public String_ getDescription() { 
       return this.description;
     }
 
-    public void setDescription(String_ value) { 
+    public Substance setDescription(String_ value) { 
       this.description = value;
+      return this;
     }
 
     public String getDescriptionSimple() { 
       return this.description == null ? null : this.description.getValue();
     }
 
-    public void setDescriptionSimple(String value) { 
+    public Substance setDescriptionSimple(String value) { 
       if (value == null)
         this.description = null;
       else {
@@ -137,30 +151,34 @@ public class Substance extends Resource {
           this.description = new String_();
         this.description.setValue(value);
       }
+      return this;
     }
 
     public CodeableConcept getStatus() { 
       return this.status;
     }
 
-    public void setStatus(CodeableConcept value) { 
+    public Substance setStatus(CodeableConcept value) { 
       this.status = value;
+      return this;
     }
 
     public Period getEffectiveTime() { 
       return this.effectiveTime;
     }
 
-    public void setEffectiveTime(Period value) { 
+    public Substance setEffectiveTime(Period value) { 
       this.effectiveTime = value;
+      return this;
     }
 
     public Quantity getQuantity() { 
       return this.quantity;
     }
 
-    public void setQuantity(Quantity value) { 
+    public Substance setQuantity(Quantity value) { 
       this.quantity = value;
+      return this;
     }
 
     public List<ResourceReference> getIngredient() { 
@@ -178,9 +196,23 @@ public class Substance extends Resource {
       return this.quantityMode;
     }
 
-    public void setQuantityMode(CodeableConcept value) { 
+    public Substance setQuantityMode(CodeableConcept value) { 
       this.quantityMode = value;
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "Identifier of the substance.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("name", "string", "Name of the substance.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("type", "CodeableConcept", "Type of the substance.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("description", "string", "Description of the substance.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("status", "CodeableConcept", "Substance status.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("effectiveTime", "Period", "When the substance is active or effective.", 0, java.lang.Integer.MAX_VALUE, effectiveTime));
+        childrenList.add(new Property("quantity", "Quantity", "The amount of the substance.", 0, java.lang.Integer.MAX_VALUE, quantity));
+        childrenList.add(new Property("ingredient", "Resource(Substance)", "A substance can be composed of other substances.", 0, java.lang.Integer.MAX_VALUE, ingredient));
+        childrenList.add(new Property("quantityMode", "CodeableConcept", "Indicates whether the substance quantity (used for ingredients) are absolute values or values relative to each other (percentages).", 0, java.lang.Integer.MAX_VALUE, quantityMode));
+      }
 
       public Substance copy() {
         Substance dst = new Substance();

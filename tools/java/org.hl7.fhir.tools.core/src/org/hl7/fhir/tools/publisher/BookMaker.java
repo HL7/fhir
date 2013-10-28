@@ -425,7 +425,7 @@ public class BookMaker {
           } else if (s.endsWith(".html")) {
             s = "#"+s.substring(0, i);
           } else {
-            if (!s.endsWith(".zip") && !s.endsWith(".xsd") && !s.endsWith(".json") && !s.endsWith(".png") && !s.endsWith(".xml") && !s.endsWith(".eap") && !s.endsWith(".xmi")) {
+            if (!s.endsWith(".zip") && !s.endsWith(".xsd") && !s.endsWith(".xml") && !s.endsWith(".json") && !s.endsWith(".png") && !s.endsWith(".xml") && !s.endsWith(".eap") && !s.endsWith(".xmi")) {
               System.out.println("odd ref: "+s+" in "+node.allText());
               //s = s;
             } else {

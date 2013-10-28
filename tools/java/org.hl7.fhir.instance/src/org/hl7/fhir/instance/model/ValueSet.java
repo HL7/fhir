@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -64,7 +64,7 @@ public class ValueSet extends Resource {
         }
     }
 
-  public class ValuesetStatusEnumFactory implements EnumFactory {
+  public static class ValuesetStatusEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -118,7 +118,7 @@ public class ValueSet extends Resource {
         }
     }
 
-  public class FilterOperatorEnumFactory implements EnumFactory {
+  public static class FilterOperatorEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -146,7 +146,7 @@ public class ValueSet extends Resource {
       }
     }
 
-    public class ValueSetDefineComponent extends BackboneElement {
+    public static class ValueSetDefineComponent extends BackboneElement {
         /**
          * URI to identify the code system.
          */
@@ -167,37 +167,49 @@ public class ValueSet extends Resource {
          */
         protected List<ValueSetDefineConceptComponent> concept = new ArrayList<ValueSetDefineConceptComponent>();
 
+      public ValueSetDefineComponent() {
+        super();
+      }
+
+      public ValueSetDefineComponent(Uri system) {
+        super();
+        this.system = system;
+      }
+
         public Uri getSystem() { 
           return this.system;
         }
 
-        public void setSystem(Uri value) { 
+        public ValueSetDefineComponent setSystem(Uri value) { 
           this.system = value;
+          return this;
         }
 
         public String getSystemSimple() { 
           return this.system == null ? null : this.system.getValue();
         }
 
-        public void setSystemSimple(String value) { 
+        public ValueSetDefineComponent setSystemSimple(String value) { 
             if (this.system == null)
               this.system = new Uri();
             this.system.setValue(value);
+          return this;
         }
 
         public String_ getVersion() { 
           return this.version;
         }
 
-        public void setVersion(String_ value) { 
+        public ValueSetDefineComponent setVersion(String_ value) { 
           this.version = value;
+          return this;
         }
 
         public String getVersionSimple() { 
           return this.version == null ? null : this.version.getValue();
         }
 
-        public void setVersionSimple(String value) { 
+        public ValueSetDefineComponent setVersionSimple(String value) { 
           if (value == null)
             this.version = null;
           else {
@@ -205,21 +217,23 @@ public class ValueSet extends Resource {
               this.version = new String_();
             this.version.setValue(value);
           }
+          return this;
         }
 
         public Boolean getCaseSensitive() { 
           return this.caseSensitive;
         }
 
-        public void setCaseSensitive(Boolean value) { 
+        public ValueSetDefineComponent setCaseSensitive(Boolean value) { 
           this.caseSensitive = value;
+          return this;
         }
 
         public boolean getCaseSensitiveSimple() { 
           return this.caseSensitive == null ? null : this.caseSensitive.getValue();
         }
 
-        public void setCaseSensitiveSimple(boolean value) { 
+        public ValueSetDefineComponent setCaseSensitiveSimple(boolean value) { 
           if (value == false)
             this.caseSensitive = null;
           else {
@@ -227,6 +241,7 @@ public class ValueSet extends Resource {
               this.caseSensitive = new Boolean();
             this.caseSensitive.setValue(value);
           }
+          return this;
         }
 
         public List<ValueSetDefineConceptComponent> getConcept() { 
@@ -240,8 +255,16 @@ public class ValueSet extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("system", "uri", "URI to identify the code system.", 0, java.lang.Integer.MAX_VALUE, system));
+          childrenList.add(new Property("version", "string", "The version of this code system that the defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need t obe maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.", 0, java.lang.Integer.MAX_VALUE, version));
+          childrenList.add(new Property("caseSensitive", "boolean", "If code comparison is case sensitive when codes within this systemare compared to each other.", 0, java.lang.Integer.MAX_VALUE, caseSensitive));
+          childrenList.add(new Property("concept", "", "Concepts in the code system.", 0, java.lang.Integer.MAX_VALUE, concept));
+        }
+
       public ValueSetDefineComponent copy(ValueSet e) {
-        ValueSetDefineComponent dst = e.new ValueSetDefineComponent();
+        ValueSetDefineComponent dst = new ValueSetDefineComponent();
         dst.system = system == null ? null : system.copy();
         dst.version = version == null ? null : version.copy();
         dst.caseSensitive = caseSensitive == null ? null : caseSensitive.copy();
@@ -253,7 +276,7 @@ public class ValueSet extends Resource {
 
   }
 
-    public class ValueSetDefineConceptComponent extends BackboneElement {
+    public static class ValueSetDefineConceptComponent extends BackboneElement {
         /**
          * Code that identifies concept.
          */
@@ -279,37 +302,49 @@ public class ValueSet extends Resource {
          */
         protected List<ValueSetDefineConceptComponent> concept = new ArrayList<ValueSetDefineConceptComponent>();
 
+      public ValueSetDefineConceptComponent() {
+        super();
+      }
+
+      public ValueSetDefineConceptComponent(Code code) {
+        super();
+        this.code = code;
+      }
+
         public Code getCode() { 
           return this.code;
         }
 
-        public void setCode(Code value) { 
+        public ValueSetDefineConceptComponent setCode(Code value) { 
           this.code = value;
+          return this;
         }
 
         public String getCodeSimple() { 
           return this.code == null ? null : this.code.getValue();
         }
 
-        public void setCodeSimple(String value) { 
+        public ValueSetDefineConceptComponent setCodeSimple(String value) { 
             if (this.code == null)
               this.code = new Code();
             this.code.setValue(value);
+          return this;
         }
 
         public Boolean getAbstract() { 
           return this.abstract_;
         }
 
-        public void setAbstract(Boolean value) { 
+        public ValueSetDefineConceptComponent setAbstract(Boolean value) { 
           this.abstract_ = value;
+          return this;
         }
 
         public boolean getAbstractSimple() { 
           return this.abstract_ == null ? null : this.abstract_.getValue();
         }
 
-        public void setAbstractSimple(boolean value) { 
+        public ValueSetDefineConceptComponent setAbstractSimple(boolean value) { 
           if (value == false)
             this.abstract_ = null;
           else {
@@ -317,21 +352,23 @@ public class ValueSet extends Resource {
               this.abstract_ = new Boolean();
             this.abstract_.setValue(value);
           }
+          return this;
         }
 
         public String_ getDisplay() { 
           return this.display;
         }
 
-        public void setDisplay(String_ value) { 
+        public ValueSetDefineConceptComponent setDisplay(String_ value) { 
           this.display = value;
+          return this;
         }
 
         public String getDisplaySimple() { 
           return this.display == null ? null : this.display.getValue();
         }
 
-        public void setDisplaySimple(String value) { 
+        public ValueSetDefineConceptComponent setDisplaySimple(String value) { 
           if (value == null)
             this.display = null;
           else {
@@ -339,21 +376,23 @@ public class ValueSet extends Resource {
               this.display = new String_();
             this.display.setValue(value);
           }
+          return this;
         }
 
         public String_ getDefinition() { 
           return this.definition;
         }
 
-        public void setDefinition(String_ value) { 
+        public ValueSetDefineConceptComponent setDefinition(String_ value) { 
           this.definition = value;
+          return this;
         }
 
         public String getDefinitionSimple() { 
           return this.definition == null ? null : this.definition.getValue();
         }
 
-        public void setDefinitionSimple(String value) { 
+        public ValueSetDefineConceptComponent setDefinitionSimple(String value) { 
           if (value == null)
             this.definition = null;
           else {
@@ -361,6 +400,7 @@ public class ValueSet extends Resource {
               this.definition = new String_();
             this.definition.setValue(value);
           }
+          return this;
         }
 
         public List<ValueSetDefineConceptComponent> getConcept() { 
@@ -374,8 +414,17 @@ public class ValueSet extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("code", "code", "Code that identifies concept.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("abstract", "boolean", "If this code is not for use as a real concept.", 0, java.lang.Integer.MAX_VALUE, abstract_));
+          childrenList.add(new Property("display", "string", "Text to Display to the user.", 0, java.lang.Integer.MAX_VALUE, display));
+          childrenList.add(new Property("definition", "string", "The formal definition of the concept. Formal definitions are not required, because of the prevalence of legacy systems without them, but they are highly recommended, as without them there is no formal meaning associated with the concept.", 0, java.lang.Integer.MAX_VALUE, definition));
+          childrenList.add(new Property("concept", "@ValueSet.define.concept", "Child Concepts (is-a / contains).", 0, java.lang.Integer.MAX_VALUE, concept));
+        }
+
       public ValueSetDefineConceptComponent copy(ValueSet e) {
-        ValueSetDefineConceptComponent dst = e.new ValueSetDefineConceptComponent();
+        ValueSetDefineConceptComponent dst = new ValueSetDefineConceptComponent();
         dst.code = code == null ? null : code.copy();
         dst.abstract_ = abstract_ == null ? null : abstract_.copy();
         dst.display = display == null ? null : display.copy();
@@ -388,7 +437,7 @@ public class ValueSet extends Resource {
 
   }
 
-    public class ValueSetComposeComponent extends BackboneElement {
+    public static class ValueSetComposeComponent extends BackboneElement {
         /**
          * Includes the contents of the referenced value set as part of the contents of this value set.
          */
@@ -403,6 +452,10 @@ public class ValueSet extends Resource {
          * Exclude one or more codes from the value set.
          */
         protected List<ConceptSetComponent> exclude = new ArrayList<ConceptSetComponent>();
+
+      public ValueSetComposeComponent() {
+        super();
+      }
 
         public List<Uri> getImport() { 
           return this.import_;
@@ -444,8 +497,15 @@ public class ValueSet extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("import", "uri", "Includes the contents of the referenced value set as part of the contents of this value set.", 0, java.lang.Integer.MAX_VALUE, import_));
+          childrenList.add(new Property("include", "", "Include one or more codes from a code system.", 0, java.lang.Integer.MAX_VALUE, include));
+          childrenList.add(new Property("exclude", "@ValueSet.compose.include", "Exclude one or more codes from the value set.", 0, java.lang.Integer.MAX_VALUE, exclude));
+        }
+
       public ValueSetComposeComponent copy(ValueSet e) {
-        ValueSetComposeComponent dst = e.new ValueSetComposeComponent();
+        ValueSetComposeComponent dst = new ValueSetComposeComponent();
         dst.import_ = new ArrayList<Uri>();
         for (Uri i : import_)
           dst.import_.add(i.copy());
@@ -460,7 +520,7 @@ public class ValueSet extends Resource {
 
   }
 
-    public class ConceptSetComponent extends BackboneElement {
+    public static class ConceptSetComponent extends BackboneElement {
         /**
          * The code system from which the selected codes come from.
          */
@@ -481,37 +541,49 @@ public class ValueSet extends Resource {
          */
         protected List<ConceptSetFilterComponent> filter = new ArrayList<ConceptSetFilterComponent>();
 
+      public ConceptSetComponent() {
+        super();
+      }
+
+      public ConceptSetComponent(Uri system) {
+        super();
+        this.system = system;
+      }
+
         public Uri getSystem() { 
           return this.system;
         }
 
-        public void setSystem(Uri value) { 
+        public ConceptSetComponent setSystem(Uri value) { 
           this.system = value;
+          return this;
         }
 
         public String getSystemSimple() { 
           return this.system == null ? null : this.system.getValue();
         }
 
-        public void setSystemSimple(String value) { 
+        public ConceptSetComponent setSystemSimple(String value) { 
             if (this.system == null)
               this.system = new Uri();
             this.system.setValue(value);
+          return this;
         }
 
         public String_ getVersion() { 
           return this.version;
         }
 
-        public void setVersion(String_ value) { 
+        public ConceptSetComponent setVersion(String_ value) { 
           this.version = value;
+          return this;
         }
 
         public String getVersionSimple() { 
           return this.version == null ? null : this.version.getValue();
         }
 
-        public void setVersionSimple(String value) { 
+        public ConceptSetComponent setVersionSimple(String value) { 
           if (value == null)
             this.version = null;
           else {
@@ -519,6 +591,7 @@ public class ValueSet extends Resource {
               this.version = new String_();
             this.version.setValue(value);
           }
+          return this;
         }
 
         public List<Code> getCode() { 
@@ -550,8 +623,16 @@ public class ValueSet extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("system", "uri", "The code system from which the selected codes come from.", 0, java.lang.Integer.MAX_VALUE, system));
+          childrenList.add(new Property("version", "string", "The version of the code system that the codes are selected from.", 0, java.lang.Integer.MAX_VALUE, version));
+          childrenList.add(new Property("code", "code", "Specifies a code or concept to be included or excluded.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("filter", "", "Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.", 0, java.lang.Integer.MAX_VALUE, filter));
+        }
+
       public ConceptSetComponent copy(ValueSet e) {
-        ConceptSetComponent dst = e.new ConceptSetComponent();
+        ConceptSetComponent dst = new ConceptSetComponent();
         dst.system = system == null ? null : system.copy();
         dst.version = version == null ? null : version.copy();
         dst.code = new ArrayList<Code>();
@@ -565,7 +646,7 @@ public class ValueSet extends Resource {
 
   }
 
-    public class ConceptSetFilterComponent extends BackboneElement {
+    public static class ConceptSetFilterComponent extends BackboneElement {
         /**
          * A code that identifies a property defined in the code system.
          */
@@ -581,62 +662,86 @@ public class ValueSet extends Resource {
          */
         protected Code value;
 
+      public ConceptSetFilterComponent() {
+        super();
+      }
+
+      public ConceptSetFilterComponent(Code property, Enumeration<FilterOperator> op, Code value) {
+        super();
+        this.property = property;
+        this.op = op;
+        this.value = value;
+      }
+
         public Code getProperty() { 
           return this.property;
         }
 
-        public void setProperty(Code value) { 
+        public ConceptSetFilterComponent setProperty(Code value) { 
           this.property = value;
+          return this;
         }
 
         public String getPropertySimple() { 
           return this.property == null ? null : this.property.getValue();
         }
 
-        public void setPropertySimple(String value) { 
+        public ConceptSetFilterComponent setPropertySimple(String value) { 
             if (this.property == null)
               this.property = new Code();
             this.property.setValue(value);
+          return this;
         }
 
         public Enumeration<FilterOperator> getOp() { 
           return this.op;
         }
 
-        public void setOp(Enumeration<FilterOperator> value) { 
+        public ConceptSetFilterComponent setOp(Enumeration<FilterOperator> value) { 
           this.op = value;
+          return this;
         }
 
         public FilterOperator getOpSimple() { 
           return this.op == null ? null : this.op.getValue();
         }
 
-        public void setOpSimple(FilterOperator value) { 
+        public ConceptSetFilterComponent setOpSimple(FilterOperator value) { 
             if (this.op == null)
               this.op = new Enumeration<FilterOperator>();
             this.op.setValue(value);
+          return this;
         }
 
         public Code getValue() { 
           return this.value;
         }
 
-        public void setValue(Code value) { 
+        public ConceptSetFilterComponent setValue(Code value) { 
           this.value = value;
+          return this;
         }
 
         public String getValueSimple() { 
           return this.value == null ? null : this.value.getValue();
         }
 
-        public void setValueSimple(String value) { 
+        public ConceptSetFilterComponent setValueSimple(String value) { 
             if (this.value == null)
               this.value = new Code();
             this.value.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("property", "code", "A code that identifies a property defined in the code system.", 0, java.lang.Integer.MAX_VALUE, property));
+          childrenList.add(new Property("op", "code", "The kind of operation to perform as part of the filter criteria.", 0, java.lang.Integer.MAX_VALUE, op));
+          childrenList.add(new Property("value", "code", "The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       public ConceptSetFilterComponent copy(ValueSet e) {
-        ConceptSetFilterComponent dst = e.new ConceptSetFilterComponent();
+        ConceptSetFilterComponent dst = new ConceptSetFilterComponent();
         dst.property = property == null ? null : property.copy();
         dst.op = op == null ? null : op.copy();
         dst.value = value == null ? null : value.copy();
@@ -645,7 +750,7 @@ public class ValueSet extends Resource {
 
   }
 
-    public class ValueSetExpansionComponent extends BackboneElement {
+    public static class ValueSetExpansionComponent extends BackboneElement {
         /**
          * An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.
          */
@@ -661,30 +766,42 @@ public class ValueSet extends Resource {
          */
         protected List<ValueSetExpansionContainsComponent> contains = new ArrayList<ValueSetExpansionContainsComponent>();
 
+      public ValueSetExpansionComponent() {
+        super();
+      }
+
+      public ValueSetExpansionComponent(Instant timestamp) {
+        super();
+        this.timestamp = timestamp;
+      }
+
         public Identifier getIdentifier() { 
           return this.identifier;
         }
 
-        public void setIdentifier(Identifier value) { 
+        public ValueSetExpansionComponent setIdentifier(Identifier value) { 
           this.identifier = value;
+          return this;
         }
 
         public Instant getTimestamp() { 
           return this.timestamp;
         }
 
-        public void setTimestamp(Instant value) { 
+        public ValueSetExpansionComponent setTimestamp(Instant value) { 
           this.timestamp = value;
+          return this;
         }
 
         public Calendar getTimestampSimple() { 
           return this.timestamp == null ? null : this.timestamp.getValue();
         }
 
-        public void setTimestampSimple(Calendar value) { 
+        public ValueSetExpansionComponent setTimestampSimple(Calendar value) { 
             if (this.timestamp == null)
               this.timestamp = new Instant();
             this.timestamp.setValue(value);
+          return this;
         }
 
         public List<ValueSetExpansionContainsComponent> getContains() { 
@@ -698,8 +815,15 @@ public class ValueSet extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("identifier", "Identifier", "An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.", 0, java.lang.Integer.MAX_VALUE, identifier));
+          childrenList.add(new Property("timestamp", "instant", "Time valueset expansion happened.", 0, java.lang.Integer.MAX_VALUE, timestamp));
+          childrenList.add(new Property("contains", "", "Codes in the value set.", 0, java.lang.Integer.MAX_VALUE, contains));
+        }
+
       public ValueSetExpansionComponent copy(ValueSet e) {
-        ValueSetExpansionComponent dst = e.new ValueSetExpansionComponent();
+        ValueSetExpansionComponent dst = new ValueSetExpansionComponent();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.timestamp = timestamp == null ? null : timestamp.copy();
         dst.contains = new ArrayList<ValueSetExpansionContainsComponent>();
@@ -710,7 +834,7 @@ public class ValueSet extends Resource {
 
   }
 
-    public class ValueSetExpansionContainsComponent extends BackboneElement {
+    public static class ValueSetExpansionContainsComponent extends BackboneElement {
         /**
          * System value for the code.
          */
@@ -731,19 +855,24 @@ public class ValueSet extends Resource {
          */
         protected List<ValueSetExpansionContainsComponent> contains = new ArrayList<ValueSetExpansionContainsComponent>();
 
+      public ValueSetExpansionContainsComponent() {
+        super();
+      }
+
         public Uri getSystem() { 
           return this.system;
         }
 
-        public void setSystem(Uri value) { 
+        public ValueSetExpansionContainsComponent setSystem(Uri value) { 
           this.system = value;
+          return this;
         }
 
         public String getSystemSimple() { 
           return this.system == null ? null : this.system.getValue();
         }
 
-        public void setSystemSimple(String value) { 
+        public ValueSetExpansionContainsComponent setSystemSimple(String value) { 
           if (value == null)
             this.system = null;
           else {
@@ -751,21 +880,23 @@ public class ValueSet extends Resource {
               this.system = new Uri();
             this.system.setValue(value);
           }
+          return this;
         }
 
         public Code getCode() { 
           return this.code;
         }
 
-        public void setCode(Code value) { 
+        public ValueSetExpansionContainsComponent setCode(Code value) { 
           this.code = value;
+          return this;
         }
 
         public String getCodeSimple() { 
           return this.code == null ? null : this.code.getValue();
         }
 
-        public void setCodeSimple(String value) { 
+        public ValueSetExpansionContainsComponent setCodeSimple(String value) { 
           if (value == null)
             this.code = null;
           else {
@@ -773,21 +904,23 @@ public class ValueSet extends Resource {
               this.code = new Code();
             this.code.setValue(value);
           }
+          return this;
         }
 
         public String_ getDisplay() { 
           return this.display;
         }
 
-        public void setDisplay(String_ value) { 
+        public ValueSetExpansionContainsComponent setDisplay(String_ value) { 
           this.display = value;
+          return this;
         }
 
         public String getDisplaySimple() { 
           return this.display == null ? null : this.display.getValue();
         }
 
-        public void setDisplaySimple(String value) { 
+        public ValueSetExpansionContainsComponent setDisplaySimple(String value) { 
           if (value == null)
             this.display = null;
           else {
@@ -795,6 +928,7 @@ public class ValueSet extends Resource {
               this.display = new String_();
             this.display.setValue(value);
           }
+          return this;
         }
 
         public List<ValueSetExpansionContainsComponent> getContains() { 
@@ -808,8 +942,16 @@ public class ValueSet extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("system", "uri", "System value for the code.", 0, java.lang.Integer.MAX_VALUE, system));
+          childrenList.add(new Property("code", "code", "Code - if blank, this is not a choosable code.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("display", "string", "User display for the concept.", 0, java.lang.Integer.MAX_VALUE, display));
+          childrenList.add(new Property("contains", "@ValueSet.expansion.contains", "Codes contained in this concept.", 0, java.lang.Integer.MAX_VALUE, contains));
+        }
+
       public ValueSetExpansionContainsComponent copy(ValueSet e) {
-        ValueSetExpansionContainsComponent dst = e.new ValueSetExpansionContainsComponent();
+        ValueSetExpansionContainsComponent dst = new ValueSetExpansionContainsComponent();
         dst.system = system == null ? null : system.copy();
         dst.code = code == null ? null : code.copy();
         dst.display = display == null ? null : display.copy();
@@ -891,19 +1033,31 @@ public class ValueSet extends Resource {
      */
     protected ValueSetExpansionComponent expansion;
 
+    public ValueSet() {
+      super();
+    }
+
+    public ValueSet(String_ name, String_ description, Enumeration<ValuesetStatus> status) {
+      super();
+      this.name = name;
+      this.description = description;
+      this.status = status;
+    }
+
     public String_ getIdentifier() { 
       return this.identifier;
     }
 
-    public void setIdentifier(String_ value) { 
+    public ValueSet setIdentifier(String_ value) { 
       this.identifier = value;
+      return this;
     }
 
     public String getIdentifierSimple() { 
       return this.identifier == null ? null : this.identifier.getValue();
     }
 
-    public void setIdentifierSimple(String value) { 
+    public ValueSet setIdentifierSimple(String value) { 
       if (value == null)
         this.identifier = null;
       else {
@@ -911,21 +1065,23 @@ public class ValueSet extends Resource {
           this.identifier = new String_();
         this.identifier.setValue(value);
       }
+      return this;
     }
 
     public String_ getVersion() { 
       return this.version;
     }
 
-    public void setVersion(String_ value) { 
+    public ValueSet setVersion(String_ value) { 
       this.version = value;
+      return this;
     }
 
     public String getVersionSimple() { 
       return this.version == null ? null : this.version.getValue();
     }
 
-    public void setVersionSimple(String value) { 
+    public ValueSet setVersionSimple(String value) { 
       if (value == null)
         this.version = null;
       else {
@@ -933,39 +1089,43 @@ public class ValueSet extends Resource {
           this.version = new String_();
         this.version.setValue(value);
       }
+      return this;
     }
 
     public String_ getName() { 
       return this.name;
     }
 
-    public void setName(String_ value) { 
+    public ValueSet setName(String_ value) { 
       this.name = value;
+      return this;
     }
 
     public String getNameSimple() { 
       return this.name == null ? null : this.name.getValue();
     }
 
-    public void setNameSimple(String value) { 
+    public ValueSet setNameSimple(String value) { 
         if (this.name == null)
           this.name = new String_();
         this.name.setValue(value);
+      return this;
     }
 
     public String_ getPublisher() { 
       return this.publisher;
     }
 
-    public void setPublisher(String_ value) { 
+    public ValueSet setPublisher(String_ value) { 
       this.publisher = value;
+      return this;
     }
 
     public String getPublisherSimple() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
-    public void setPublisherSimple(String value) { 
+    public ValueSet setPublisherSimple(String value) { 
       if (value == null)
         this.publisher = null;
       else {
@@ -973,6 +1133,7 @@ public class ValueSet extends Resource {
           this.publisher = new String_();
         this.publisher.setValue(value);
       }
+      return this;
     }
 
     public List<Contact> getTelecom() { 
@@ -990,33 +1151,36 @@ public class ValueSet extends Resource {
       return this.description;
     }
 
-    public void setDescription(String_ value) { 
+    public ValueSet setDescription(String_ value) { 
       this.description = value;
+      return this;
     }
 
     public String getDescriptionSimple() { 
       return this.description == null ? null : this.description.getValue();
     }
 
-    public void setDescriptionSimple(String value) { 
+    public ValueSet setDescriptionSimple(String value) { 
         if (this.description == null)
           this.description = new String_();
         this.description.setValue(value);
+      return this;
     }
 
     public String_ getCopyright() { 
       return this.copyright;
     }
 
-    public void setCopyright(String_ value) { 
+    public ValueSet setCopyright(String_ value) { 
       this.copyright = value;
+      return this;
     }
 
     public String getCopyrightSimple() { 
       return this.copyright == null ? null : this.copyright.getValue();
     }
 
-    public void setCopyrightSimple(String value) { 
+    public ValueSet setCopyrightSimple(String value) { 
       if (value == null)
         this.copyright = null;
       else {
@@ -1024,39 +1188,43 @@ public class ValueSet extends Resource {
           this.copyright = new String_();
         this.copyright.setValue(value);
       }
+      return this;
     }
 
     public Enumeration<ValuesetStatus> getStatus() { 
       return this.status;
     }
 
-    public void setStatus(Enumeration<ValuesetStatus> value) { 
+    public ValueSet setStatus(Enumeration<ValuesetStatus> value) { 
       this.status = value;
+      return this;
     }
 
     public ValuesetStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
-    public void setStatusSimple(ValuesetStatus value) { 
+    public ValueSet setStatusSimple(ValuesetStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ValuesetStatus>();
         this.status.setValue(value);
+      return this;
     }
 
     public Boolean getExperimental() { 
       return this.experimental;
     }
 
-    public void setExperimental(Boolean value) { 
+    public ValueSet setExperimental(Boolean value) { 
       this.experimental = value;
+      return this;
     }
 
     public boolean getExperimentalSimple() { 
       return this.experimental == null ? null : this.experimental.getValue();
     }
 
-    public void setExperimentalSimple(boolean value) { 
+    public ValueSet setExperimentalSimple(boolean value) { 
       if (value == false)
         this.experimental = null;
       else {
@@ -1064,21 +1232,23 @@ public class ValueSet extends Resource {
           this.experimental = new Boolean();
         this.experimental.setValue(value);
       }
+      return this;
     }
 
     public Boolean getExtensible() { 
       return this.extensible;
     }
 
-    public void setExtensible(Boolean value) { 
+    public ValueSet setExtensible(Boolean value) { 
       this.extensible = value;
+      return this;
     }
 
     public boolean getExtensibleSimple() { 
       return this.extensible == null ? null : this.extensible.getValue();
     }
 
-    public void setExtensibleSimple(boolean value) { 
+    public ValueSet setExtensibleSimple(boolean value) { 
       if (value == false)
         this.extensible = null;
       else {
@@ -1086,21 +1256,23 @@ public class ValueSet extends Resource {
           this.extensible = new Boolean();
         this.extensible.setValue(value);
       }
+      return this;
     }
 
     public DateTime getDate() { 
       return this.date;
     }
 
-    public void setDate(DateTime value) { 
+    public ValueSet setDate(DateTime value) { 
       this.date = value;
+      return this;
     }
 
     public String getDateSimple() { 
       return this.date == null ? null : this.date.getValue();
     }
 
-    public void setDateSimple(String value) { 
+    public ValueSet setDateSimple(String value) { 
       if (value == null)
         this.date = null;
       else {
@@ -1108,31 +1280,53 @@ public class ValueSet extends Resource {
           this.date = new DateTime();
         this.date.setValue(value);
       }
+      return this;
     }
 
     public ValueSetDefineComponent getDefine() { 
       return this.define;
     }
 
-    public void setDefine(ValueSetDefineComponent value) { 
+    public ValueSet setDefine(ValueSetDefineComponent value) { 
       this.define = value;
+      return this;
     }
 
     public ValueSetComposeComponent getCompose() { 
       return this.compose;
     }
 
-    public void setCompose(ValueSetComposeComponent value) { 
+    public ValueSet setCompose(ValueSetComposeComponent value) { 
       this.compose = value;
+      return this;
     }
 
     public ValueSetExpansionComponent getExpansion() { 
       return this.expansion;
     }
 
-    public void setExpansion(ValueSetExpansionComponent value) { 
+    public ValueSet setExpansion(ValueSetExpansionComponent value) { 
       this.expansion = value;
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "string", "The identifier that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
+        childrenList.add(new Property("name", "string", "A free text natural language name describing the value set.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the value set.", 0, java.lang.Integer.MAX_VALUE, publisher));
+        childrenList.add(new Property("telecom", "Contact", "Contacts of the publisher to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
+        childrenList.add(new Property("description", "string", "A free text natural language description of the use of the value set - reason for definition, conditions of use, etc.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("copyright", "string", "A copyright statement relating to the value set and/or its contents.", 0, java.lang.Integer.MAX_VALUE, copyright));
+        childrenList.add(new Property("status", "code", "The status of the value set.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("experimental", "boolean", "This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
+        childrenList.add(new Property("extensible", "boolean", "Whether this is intended to be used with an extensible binding or not.", 0, java.lang.Integer.MAX_VALUE, extensible));
+        childrenList.add(new Property("date", "dateTime", "The date that the value set status was last changed.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("define", "", "When value set defines its own codes.", 0, java.lang.Integer.MAX_VALUE, define));
+        childrenList.add(new Property("compose", "", "When value set includes codes from elsewhere.", 0, java.lang.Integer.MAX_VALUE, compose));
+        childrenList.add(new Property("expansion", "", "When value set is an expansion.", 0, java.lang.Integer.MAX_VALUE, expansion));
+      }
 
       public ValueSet copy() {
         ValueSet dst = new ValueSet();

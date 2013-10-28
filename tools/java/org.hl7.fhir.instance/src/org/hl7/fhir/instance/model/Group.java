@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -72,7 +72,7 @@ public class Group extends Resource {
         }
     }
 
-  public class GroupTypeEnumFactory implements EnumFactory {
+  public static class GroupTypeEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -104,7 +104,7 @@ public class Group extends Resource {
       }
     }
 
-    public class GroupCharacteristicComponent extends BackboneElement {
+    public static class GroupCharacteristicComponent extends BackboneElement {
         /**
          * Identifies the kind of trait being asserted.
          */
@@ -120,42 +120,64 @@ public class Group extends Resource {
          */
         protected Boolean exclude;
 
+      public GroupCharacteristicComponent() {
+        super();
+      }
+
+      public GroupCharacteristicComponent(CodeableConcept type, Type value, Boolean exclude) {
+        super();
+        this.type = type;
+        this.value = value;
+        this.exclude = exclude;
+      }
+
         public CodeableConcept getType() { 
           return this.type;
         }
 
-        public void setType(CodeableConcept value) { 
+        public GroupCharacteristicComponent setType(CodeableConcept value) { 
           this.type = value;
+          return this;
         }
 
         public Type getValue() { 
           return this.value;
         }
 
-        public void setValue(Type value) { 
+        public GroupCharacteristicComponent setValue(Type value) { 
           this.value = value;
+          return this;
         }
 
         public Boolean getExclude() { 
           return this.exclude;
         }
 
-        public void setExclude(Boolean value) { 
+        public GroupCharacteristicComponent setExclude(Boolean value) { 
           this.exclude = value;
+          return this;
         }
 
         public boolean getExcludeSimple() { 
           return this.exclude == null ? null : this.exclude.getValue();
         }
 
-        public void setExcludeSimple(boolean value) { 
+        public GroupCharacteristicComponent setExcludeSimple(boolean value) { 
             if (this.exclude == null)
               this.exclude = new Boolean();
             this.exclude.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("type", "CodeableConcept", "Identifies the kind of trait being asserted.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("value[x]", "CodeableConcept|boolean|Quantity|Range", "The value of the trait that holds (or does not hold - see 'exclude') for members of the group.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("exclude", "boolean", "If true, indicates the characteristic is one that is NOT held by members of the group.", 0, java.lang.Integer.MAX_VALUE, exclude));
         }
 
       public GroupCharacteristicComponent copy(Group e) {
-        GroupCharacteristicComponent dst = e.new GroupCharacteristicComponent();
+        GroupCharacteristicComponent dst = new GroupCharacteristicComponent();
         dst.type = type == null ? null : type.copy();
         dst.value = value == null ? null : value.copy();
         dst.exclude = exclude == null ? null : exclude.copy();
@@ -204,71 +226,88 @@ public class Group extends Resource {
      */
     protected List<ResourceReference> member = new ArrayList<ResourceReference>();
 
+    public Group() {
+      super();
+    }
+
+    public Group(Enumeration<GroupType> type, Boolean actual) {
+      super();
+      this.type = type;
+      this.actual = actual;
+    }
+
     public Identifier getIdentifier() { 
       return this.identifier;
     }
 
-    public void setIdentifier(Identifier value) { 
+    public Group setIdentifier(Identifier value) { 
       this.identifier = value;
+      return this;
     }
 
     public Enumeration<GroupType> getType() { 
       return this.type;
     }
 
-    public void setType(Enumeration<GroupType> value) { 
+    public Group setType(Enumeration<GroupType> value) { 
       this.type = value;
+      return this;
     }
 
     public GroupType getTypeSimple() { 
       return this.type == null ? null : this.type.getValue();
     }
 
-    public void setTypeSimple(GroupType value) { 
+    public Group setTypeSimple(GroupType value) { 
         if (this.type == null)
           this.type = new Enumeration<GroupType>();
         this.type.setValue(value);
+      return this;
     }
 
     public Boolean getActual() { 
       return this.actual;
     }
 
-    public void setActual(Boolean value) { 
+    public Group setActual(Boolean value) { 
       this.actual = value;
+      return this;
     }
 
     public boolean getActualSimple() { 
       return this.actual == null ? null : this.actual.getValue();
     }
 
-    public void setActualSimple(boolean value) { 
+    public Group setActualSimple(boolean value) { 
         if (this.actual == null)
           this.actual = new Boolean();
         this.actual.setValue(value);
+      return this;
     }
 
     public CodeableConcept getCode() { 
       return this.code;
     }
 
-    public void setCode(CodeableConcept value) { 
+    public Group setCode(CodeableConcept value) { 
       this.code = value;
+      return this;
     }
 
     public String_ getName() { 
       return this.name;
     }
 
-    public void setName(String_ value) { 
+    public Group setName(String_ value) { 
       this.name = value;
+      return this;
     }
 
     public String getNameSimple() { 
       return this.name == null ? null : this.name.getValue();
     }
 
-    public void setNameSimple(String value) { 
+    public Group setNameSimple(String value) { 
       if (value == null)
         this.name = null;
       else {
@@ -276,21 +315,23 @@ public class Group extends Resource {
           this.name = new String_();
         this.name.setValue(value);
       }
+      return this;
     }
 
     public Integer getQuantity() { 
       return this.quantity;
     }
 
-    public void setQuantity(Integer value) { 
+    public Group setQuantity(Integer value) { 
       this.quantity = value;
+      return this;
     }
 
     public int getQuantitySimple() { 
       return this.quantity == null ? null : this.quantity.getValue();
     }
 
-    public void setQuantitySimple(int value) { 
+    public Group setQuantitySimple(int value) { 
       if (value == -1)
         this.quantity = null;
       else {
@@ -298,6 +339,7 @@ public class Group extends Resource {
           this.quantity = new Integer();
         this.quantity.setValue(value);
       }
+      return this;
     }
 
     public List<GroupCharacteristicComponent> getCharacteristic() { 
@@ -321,6 +363,18 @@ public class Group extends Resource {
       this.member.add(t);
       return t;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "A unique business identifier for this group.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("type", "code", "Identifies the broad classification of the kind of resources the group includes.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("actual", "boolean", "If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.", 0, java.lang.Integer.MAX_VALUE, actual));
+        childrenList.add(new Property("code", "CodeableConcept", "Provides a specific type of resource the group includes.  E.g. 'cow', 'syringe', etc.", 0, java.lang.Integer.MAX_VALUE, code));
+        childrenList.add(new Property("name", "string", "A label assigned to the group for human identification and communication.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("quantity", "integer", "A count of the number of resource instances that are part of the group.", 0, java.lang.Integer.MAX_VALUE, quantity));
+        childrenList.add(new Property("characteristic", "", "Identifies the traits shared by members of the group.", 0, java.lang.Integer.MAX_VALUE, characteristic));
+        childrenList.add(new Property("member", "Resource(Patient|Practitioner|Device|Medication)", "Identifies the resource instances that are members of the group.", 0, java.lang.Integer.MAX_VALUE, member));
+      }
 
       public Group copy() {
         Group dst = new Group();

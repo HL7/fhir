@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -64,7 +64,7 @@ public class Message extends Resource {
         }
     }
 
-  public class ResponseCodeEnumFactory implements EnumFactory {
+  public static class ResponseCodeEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -88,7 +88,7 @@ public class Message extends Resource {
       }
     }
 
-    public class MessageResponseComponent extends BackboneElement {
+    public static class MessageResponseComponent extends BackboneElement {
         /**
          * The id of the message that this a response to.
          */
@@ -104,52 +104,74 @@ public class Message extends Resource {
          */
         protected ResourceReference details;
 
+      public MessageResponseComponent() {
+        super();
+      }
+
+      public MessageResponseComponent(Id identifier, Enumeration<ResponseCode> code) {
+        super();
+        this.identifier = identifier;
+        this.code = code;
+      }
+
         public Id getIdentifier() { 
           return this.identifier;
         }
 
-        public void setIdentifier(Id value) { 
+        public MessageResponseComponent setIdentifier(Id value) { 
           this.identifier = value;
+          return this;
         }
 
         public String getIdentifierSimple() { 
           return this.identifier == null ? null : this.identifier.getValue();
         }
 
-        public void setIdentifierSimple(String value) { 
+        public MessageResponseComponent setIdentifierSimple(String value) { 
             if (this.identifier == null)
               this.identifier = new Id();
             this.identifier.setValue(value);
+          return this;
         }
 
         public Enumeration<ResponseCode> getCode() { 
           return this.code;
         }
 
-        public void setCode(Enumeration<ResponseCode> value) { 
+        public MessageResponseComponent setCode(Enumeration<ResponseCode> value) { 
           this.code = value;
+          return this;
         }
 
         public ResponseCode getCodeSimple() { 
           return this.code == null ? null : this.code.getValue();
         }
 
-        public void setCodeSimple(ResponseCode value) { 
+        public MessageResponseComponent setCodeSimple(ResponseCode value) { 
             if (this.code == null)
               this.code = new Enumeration<ResponseCode>();
             this.code.setValue(value);
+          return this;
         }
 
         public ResourceReference getDetails() { 
           return this.details;
         }
 
-        public void setDetails(ResourceReference value) { 
+        public MessageResponseComponent setDetails(ResourceReference value) { 
           this.details = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("identifier", "id", "The id of the message that this a response to.", 0, java.lang.Integer.MAX_VALUE, identifier));
+          childrenList.add(new Property("code", "code", "Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("details", "Resource(OperationOutcome)", "Full details of any issues found in the message.", 0, java.lang.Integer.MAX_VALUE, details));
         }
 
       public MessageResponseComponent copy(Message e) {
-        MessageResponseComponent dst = e.new MessageResponseComponent();
+        MessageResponseComponent dst = new MessageResponseComponent();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.code = code == null ? null : code.copy();
         dst.details = details == null ? null : details.copy();
@@ -158,7 +180,7 @@ public class Message extends Resource {
 
   }
 
-    public class MessageSourceComponent extends BackboneElement {
+    public static class MessageSourceComponent extends BackboneElement {
         /**
          * Human-readable name for the target system.
          */
@@ -184,19 +206,30 @@ public class Message extends Resource {
          */
         protected Uri endpoint;
 
+      public MessageSourceComponent() {
+        super();
+      }
+
+      public MessageSourceComponent(String_ software, Uri endpoint) {
+        super();
+        this.software = software;
+        this.endpoint = endpoint;
+      }
+
         public String_ getName() { 
           return this.name;
         }
 
-        public void setName(String_ value) { 
+        public MessageSourceComponent setName(String_ value) { 
           this.name = value;
+          return this;
         }
 
         public String getNameSimple() { 
           return this.name == null ? null : this.name.getValue();
         }
 
-        public void setNameSimple(String value) { 
+        public MessageSourceComponent setNameSimple(String value) { 
           if (value == null)
             this.name = null;
           else {
@@ -204,39 +237,43 @@ public class Message extends Resource {
               this.name = new String_();
             this.name.setValue(value);
           }
+          return this;
         }
 
         public String_ getSoftware() { 
           return this.software;
         }
 
-        public void setSoftware(String_ value) { 
+        public MessageSourceComponent setSoftware(String_ value) { 
           this.software = value;
+          return this;
         }
 
         public String getSoftwareSimple() { 
           return this.software == null ? null : this.software.getValue();
         }
 
-        public void setSoftwareSimple(String value) { 
+        public MessageSourceComponent setSoftwareSimple(String value) { 
             if (this.software == null)
               this.software = new String_();
             this.software.setValue(value);
+          return this;
         }
 
         public String_ getVersion() { 
           return this.version;
         }
 
-        public void setVersion(String_ value) { 
+        public MessageSourceComponent setVersion(String_ value) { 
           this.version = value;
+          return this;
         }
 
         public String getVersionSimple() { 
           return this.version == null ? null : this.version.getValue();
         }
 
-        public void setVersionSimple(String value) { 
+        public MessageSourceComponent setVersionSimple(String value) { 
           if (value == null)
             this.version = null;
           else {
@@ -244,36 +281,49 @@ public class Message extends Resource {
               this.version = new String_();
             this.version.setValue(value);
           }
+          return this;
         }
 
         public Contact getContact() { 
           return this.contact;
         }
 
-        public void setContact(Contact value) { 
+        public MessageSourceComponent setContact(Contact value) { 
           this.contact = value;
+          return this;
         }
 
         public Uri getEndpoint() { 
           return this.endpoint;
         }
 
-        public void setEndpoint(Uri value) { 
+        public MessageSourceComponent setEndpoint(Uri value) { 
           this.endpoint = value;
+          return this;
         }
 
         public String getEndpointSimple() { 
           return this.endpoint == null ? null : this.endpoint.getValue();
         }
 
-        public void setEndpointSimple(String value) { 
+        public MessageSourceComponent setEndpointSimple(String value) { 
             if (this.endpoint == null)
               this.endpoint = new Uri();
             this.endpoint.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "string", "Human-readable name for the target system.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("software", "string", "May include configuration or other information useful in debugging.", 0, java.lang.Integer.MAX_VALUE, software));
+          childrenList.add(new Property("version", "string", "Can convey versions of multiple systems in situations where a message passes through multiple hands.", 0, java.lang.Integer.MAX_VALUE, version));
+          childrenList.add(new Property("contact", "Contact", "An e-mail, phone, website or other contact point to use to resolve issues with message communications.", 0, java.lang.Integer.MAX_VALUE, contact));
+          childrenList.add(new Property("endpoint", "uri", "Identifies the routing target to send acknowledgements to.", 0, java.lang.Integer.MAX_VALUE, endpoint));
         }
 
       public MessageSourceComponent copy(Message e) {
-        MessageSourceComponent dst = e.new MessageSourceComponent();
+        MessageSourceComponent dst = new MessageSourceComponent();
         dst.name = name == null ? null : name.copy();
         dst.software = software == null ? null : software.copy();
         dst.version = version == null ? null : version.copy();
@@ -284,7 +334,7 @@ public class Message extends Resource {
 
   }
 
-    public class MessageDestinationComponent extends BackboneElement {
+    public static class MessageDestinationComponent extends BackboneElement {
         /**
          * Human-readable name for the source system.
          */
@@ -300,19 +350,29 @@ public class Message extends Resource {
          */
         protected Uri endpoint;
 
+      public MessageDestinationComponent() {
+        super();
+      }
+
+      public MessageDestinationComponent(Uri endpoint) {
+        super();
+        this.endpoint = endpoint;
+      }
+
         public String_ getName() { 
           return this.name;
         }
 
-        public void setName(String_ value) { 
+        public MessageDestinationComponent setName(String_ value) { 
           this.name = value;
+          return this;
         }
 
         public String getNameSimple() { 
           return this.name == null ? null : this.name.getValue();
         }
 
-        public void setNameSimple(String value) { 
+        public MessageDestinationComponent setNameSimple(String value) { 
           if (value == null)
             this.name = null;
           else {
@@ -320,36 +380,47 @@ public class Message extends Resource {
               this.name = new String_();
             this.name.setValue(value);
           }
+          return this;
         }
 
         public ResourceReference getTarget() { 
           return this.target;
         }
 
-        public void setTarget(ResourceReference value) { 
+        public MessageDestinationComponent setTarget(ResourceReference value) { 
           this.target = value;
+          return this;
         }
 
         public Uri getEndpoint() { 
           return this.endpoint;
         }
 
-        public void setEndpoint(Uri value) { 
+        public MessageDestinationComponent setEndpoint(Uri value) { 
           this.endpoint = value;
+          return this;
         }
 
         public String getEndpointSimple() { 
           return this.endpoint == null ? null : this.endpoint.getValue();
         }
 
-        public void setEndpointSimple(String value) { 
+        public MessageDestinationComponent setEndpointSimple(String value) { 
             if (this.endpoint == null)
               this.endpoint = new Uri();
             this.endpoint.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "string", "Human-readable name for the source system.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("target", "Resource(Device)", "Identifies the target end system in situations where the initial message transmission is to an intermediary system.", 0, java.lang.Integer.MAX_VALUE, target));
+          childrenList.add(new Property("endpoint", "uri", "Indicates where the message should be routed to.", 0, java.lang.Integer.MAX_VALUE, endpoint));
         }
 
       public MessageDestinationComponent copy(Message e) {
-        MessageDestinationComponent dst = e.new MessageDestinationComponent();
+        MessageDestinationComponent dst = new MessageDestinationComponent();
         dst.name = name == null ? null : name.copy();
         dst.target = target == null ? null : target.copy();
         dst.endpoint = endpoint == null ? null : endpoint.copy();
@@ -418,64 +489,83 @@ public class Message extends Resource {
      */
     protected List<ResourceReference> data = new ArrayList<ResourceReference>();
 
+    public Message() {
+      super();
+    }
+
+    public Message(Id identifier, Instant timestamp, Coding event, MessageSourceComponent source) {
+      super();
+      this.identifier = identifier;
+      this.timestamp = timestamp;
+      this.event = event;
+      this.source = source;
+    }
+
     public Id getIdentifier() { 
       return this.identifier;
     }
 
-    public void setIdentifier(Id value) { 
+    public Message setIdentifier(Id value) { 
       this.identifier = value;
+      return this;
     }
 
     public String getIdentifierSimple() { 
       return this.identifier == null ? null : this.identifier.getValue();
     }
 
-    public void setIdentifierSimple(String value) { 
+    public Message setIdentifierSimple(String value) { 
         if (this.identifier == null)
           this.identifier = new Id();
         this.identifier.setValue(value);
+      return this;
     }
 
     public Instant getTimestamp() { 
       return this.timestamp;
     }
 
-    public void setTimestamp(Instant value) { 
+    public Message setTimestamp(Instant value) { 
       this.timestamp = value;
+      return this;
     }
 
     public Calendar getTimestampSimple() { 
       return this.timestamp == null ? null : this.timestamp.getValue();
     }
 
-    public void setTimestampSimple(Calendar value) { 
+    public Message setTimestampSimple(Calendar value) { 
         if (this.timestamp == null)
           this.timestamp = new Instant();
         this.timestamp.setValue(value);
+      return this;
     }
 
     public Coding getEvent() { 
       return this.event;
     }
 
-    public void setEvent(Coding value) { 
+    public Message setEvent(Coding value) { 
       this.event = value;
+      return this;
     }
 
     public MessageResponseComponent getResponse() { 
       return this.response;
     }
 
-    public void setResponse(MessageResponseComponent value) { 
+    public Message setResponse(MessageResponseComponent value) { 
       this.response = value;
+      return this;
     }
 
     public MessageSourceComponent getSource() { 
       return this.source;
     }
 
-    public void setSource(MessageSourceComponent value) { 
+    public Message setSource(MessageSourceComponent value) { 
       this.source = value;
+      return this;
     }
 
     public List<MessageDestinationComponent> getDestination() { 
@@ -493,40 +583,45 @@ public class Message extends Resource {
       return this.enterer;
     }
 
-    public void setEnterer(ResourceReference value) { 
+    public Message setEnterer(ResourceReference value) { 
       this.enterer = value;
+      return this;
     }
 
     public ResourceReference getAuthor() { 
       return this.author;
     }
 
-    public void setAuthor(ResourceReference value) { 
+    public Message setAuthor(ResourceReference value) { 
       this.author = value;
+      return this;
     }
 
     public ResourceReference getReceiver() { 
       return this.receiver;
     }
 
-    public void setReceiver(ResourceReference value) { 
+    public Message setReceiver(ResourceReference value) { 
       this.receiver = value;
+      return this;
     }
 
     public ResourceReference getResponsible() { 
       return this.responsible;
     }
 
-    public void setResponsible(ResourceReference value) { 
+    public Message setResponsible(ResourceReference value) { 
       this.responsible = value;
+      return this;
     }
 
     public CodeableConcept getReason() { 
       return this.reason;
     }
 
-    public void setReason(CodeableConcept value) { 
+    public Message setReason(CodeableConcept value) { 
       this.reason = value;
+      return this;
     }
 
     public List<ResourceReference> getData() { 
@@ -539,6 +634,22 @@ public class Message extends Resource {
       this.data.add(t);
       return t;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "id", "The identifier of this message.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("timestamp", "instant", "The time that the message was sent.", 0, java.lang.Integer.MAX_VALUE, timestamp));
+        childrenList.add(new Property("event", "Coding", "Code that identifies the event this message represents and connects it with it's definition. Events defined as part of the FHIR specification have the system value 'http://hl7.org/fhir/message-type'.", 0, java.lang.Integer.MAX_VALUE, event));
+        childrenList.add(new Property("response", "", "Information about the message that this message is a response to.  Only present if this message is a response.", 0, java.lang.Integer.MAX_VALUE, response));
+        childrenList.add(new Property("source", "", "The source application from which this message originated.", 0, java.lang.Integer.MAX_VALUE, source));
+        childrenList.add(new Property("destination", "", "The destination application which the message is intended for.", 0, java.lang.Integer.MAX_VALUE, destination));
+        childrenList.add(new Property("enterer", "Resource(Practitioner)", "The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.", 0, java.lang.Integer.MAX_VALUE, enterer));
+        childrenList.add(new Property("author", "Resource(Practitioner)", "The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the Message. Can provide other authors in extensions.", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("receiver", "Resource(Practitioner|Organization)", "Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.", 0, java.lang.Integer.MAX_VALUE, receiver));
+        childrenList.add(new Property("responsible", "Resource(Practitioner|Organization)", "The person or organization that accepts overall responsibility for the contents of the Message. The implication is that the message event happened under the policies of the responsible party.", 0, java.lang.Integer.MAX_VALUE, responsible));
+        childrenList.add(new Property("reason", "CodeableConcept", "Coded indication of the cause for the event - indicates  a reason for the occurance of the event that is a focus of this message.", 0, java.lang.Integer.MAX_VALUE, reason));
+        childrenList.add(new Property("data", "Resource(Any)", "The actual data of the message - a reference to the root/focus class of the event.", 0, java.lang.Integer.MAX_VALUE, data));
+      }
 
       public Message copy() {
         Message dst = new Message();

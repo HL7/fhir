@@ -417,12 +417,12 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
           write("        "+comp+"(\""+name+"\", e);\r\n");
   	    } else {
             write("        for (Enumeration<"+prepEnumName(en)+"> e : element.get"+upFirst(getElementName(name, false))+"()) \r\n");
-            write("          composeEnumeration(\""+name+"\", e, new "+context+"().new "+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory());\r\n");
+            write("          composeEnumeration(\""+name+"\", e, new "+context+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory());\r\n");
   	    
   	    }
       } else if (en != null) {
         write("      if (element.get"+upFirst(getElementName(name, false))+"() != null)\r\n");
-        write("        composeEnumeration(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"(), new "+mainName+"().new "+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory());\r\n");
+        write("        composeEnumeration(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"(), new "+mainName+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory());\r\n");
 //        write("        composeString(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"().toCode());\r\n");        
       } else {
         write("      "+comp+"(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"());\r\n");

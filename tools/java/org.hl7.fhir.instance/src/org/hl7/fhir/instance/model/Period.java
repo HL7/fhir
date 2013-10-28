@@ -29,7 +29,9 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+
+import java.util.*;
 
 /**
  * A time period defined by a start and end time.
@@ -46,19 +48,24 @@ public class Period extends Type {
      */
     protected DateTime end;
 
+    public Period() {
+      super();
+    }
+
     public DateTime getStart() { 
       return this.start;
     }
 
-    public void setStart(DateTime value) { 
+    public Period setStart(DateTime value) { 
       this.start = value;
+      return this;
     }
 
     public String getStartSimple() { 
       return this.start == null ? null : this.start.getValue();
     }
 
-    public void setStartSimple(String value) { 
+    public Period setStartSimple(String value) { 
       if (value == null)
         this.start = null;
       else {
@@ -66,21 +73,23 @@ public class Period extends Type {
           this.start = new DateTime();
         this.start.setValue(value);
       }
+      return this;
     }
 
     public DateTime getEnd() { 
       return this.end;
     }
 
-    public void setEnd(DateTime value) { 
+    public Period setEnd(DateTime value) { 
       this.end = value;
+      return this;
     }
 
     public String getEndSimple() { 
       return this.end == null ? null : this.end.getValue();
     }
 
-    public void setEndSimple(String value) { 
+    public Period setEndSimple(String value) { 
       if (value == null)
         this.end = null;
       else {
@@ -88,7 +97,14 @@ public class Period extends Type {
           this.end = new DateTime();
         this.end.setValue(value);
       }
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("start", "dateTime", "The start of the period. The boundary is inclusive.", 0, java.lang.Integer.MAX_VALUE, start));
+        childrenList.add(new Property("end", "dateTime", "The end of the period. If the high is missing, it means that the period is ongoing.", 0, java.lang.Integer.MAX_VALUE, end));
+      }
 
       public Period copy() {
         Period dst = new Period();

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -72,7 +72,7 @@ public class Document extends Resource {
         }
     }
 
-  public class DocumentStatusEnumFactory implements EnumFactory {
+  public static class DocumentStatusEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -134,7 +134,7 @@ public class Document extends Resource {
         }
     }
 
-  public class DocumentAttestationModeEnumFactory implements EnumFactory {
+  public static class DocumentAttestationModeEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -162,7 +162,7 @@ public class Document extends Resource {
       }
     }
 
-    public class DocumentAttesterComponent extends BackboneElement {
+    public static class DocumentAttesterComponent extends BackboneElement {
         /**
          * The type of attestation the authenticator offers.
          */
@@ -178,37 +178,49 @@ public class Document extends Resource {
          */
         protected ResourceReference party;
 
+      public DocumentAttesterComponent() {
+        super();
+      }
+
+      public DocumentAttesterComponent(Enumeration<DocumentAttestationMode> mode) {
+        super();
+        this.mode = mode;
+      }
+
         public Enumeration<DocumentAttestationMode> getMode() { 
           return this.mode;
         }
 
-        public void setMode(Enumeration<DocumentAttestationMode> value) { 
+        public DocumentAttesterComponent setMode(Enumeration<DocumentAttestationMode> value) { 
           this.mode = value;
+          return this;
         }
 
         public DocumentAttestationMode getModeSimple() { 
           return this.mode == null ? null : this.mode.getValue();
         }
 
-        public void setModeSimple(DocumentAttestationMode value) { 
+        public DocumentAttesterComponent setModeSimple(DocumentAttestationMode value) { 
             if (this.mode == null)
               this.mode = new Enumeration<DocumentAttestationMode>();
             this.mode.setValue(value);
+          return this;
         }
 
         public DateTime getTime() { 
           return this.time;
         }
 
-        public void setTime(DateTime value) { 
+        public DocumentAttesterComponent setTime(DateTime value) { 
           this.time = value;
+          return this;
         }
 
         public String getTimeSimple() { 
           return this.time == null ? null : this.time.getValue();
         }
 
-        public void setTimeSimple(String value) { 
+        public DocumentAttesterComponent setTimeSimple(String value) { 
           if (value == null)
             this.time = null;
           else {
@@ -216,18 +228,27 @@ public class Document extends Resource {
               this.time = new DateTime();
             this.time.setValue(value);
           }
+          return this;
         }
 
         public ResourceReference getParty() { 
           return this.party;
         }
 
-        public void setParty(ResourceReference value) { 
+        public DocumentAttesterComponent setParty(ResourceReference value) { 
           this.party = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("mode", "code", "The type of attestation the authenticator offers.", 0, java.lang.Integer.MAX_VALUE, mode));
+          childrenList.add(new Property("time", "dateTime", "When document was attested by the party.", 0, java.lang.Integer.MAX_VALUE, time));
+          childrenList.add(new Property("party", "Resource(Patient|Practitioner|Organization)", "Who attested the document in the specified way.", 0, java.lang.Integer.MAX_VALUE, party));
         }
 
       public DocumentAttesterComponent copy(Document e) {
-        DocumentAttesterComponent dst = e.new DocumentAttesterComponent();
+        DocumentAttesterComponent dst = new DocumentAttesterComponent();
         dst.mode = mode == null ? null : mode.copy();
         dst.time = time == null ? null : time.copy();
         dst.party = party == null ? null : party.copy();
@@ -236,7 +257,7 @@ public class Document extends Resource {
 
   }
 
-    public class DocumentEventComponent extends BackboneElement {
+    public static class DocumentEventComponent extends BackboneElement {
         /**
          * This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a "History and Physical Report" in which the procedure being documented is necessarily a "History and Physical" act.
          */
@@ -251,6 +272,10 @@ public class Document extends Resource {
          * Full details for the event(s) the document concents.
          */
         protected List<ResourceReference> detail = new ArrayList<ResourceReference>();
+
+      public DocumentEventComponent() {
+        super();
+      }
 
         public List<CodeableConcept> getCode() { 
           return this.code;
@@ -267,8 +292,9 @@ public class Document extends Resource {
           return this.period;
         }
 
-        public void setPeriod(Period value) { 
+        public DocumentEventComponent setPeriod(Period value) { 
           this.period = value;
+          return this;
         }
 
         public List<ResourceReference> getDetail() { 
@@ -282,8 +308,15 @@ public class Document extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("code", "CodeableConcept", "This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a 'History and Physical Report' in which the procedure being documented is necessarily a 'History and Physical' act.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("period", "Period", "The period of time covered by the document. There is no assertion that the document is a complete representation for this period, only that it documents events during this time.", 0, java.lang.Integer.MAX_VALUE, period));
+          childrenList.add(new Property("detail", "Resource(Any)", "Full details for the event(s) the document concents.", 0, java.lang.Integer.MAX_VALUE, detail));
+        }
+
       public DocumentEventComponent copy(Document e) {
-        DocumentEventComponent dst = e.new DocumentEventComponent();
+        DocumentEventComponent dst = new DocumentEventComponent();
         dst.code = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : code)
           dst.code.add(i.copy());
@@ -296,7 +329,7 @@ public class Document extends Resource {
 
   }
 
-    public class SectionComponent extends BackboneElement {
+    public static class SectionComponent extends BackboneElement {
         /**
          * A code identifying the kind of content contained within the section.
          */
@@ -317,28 +350,35 @@ public class Document extends Resource {
          */
         protected List<SectionComponent> section = new ArrayList<SectionComponent>();
 
+      public SectionComponent() {
+        super();
+      }
+
         public CodeableConcept getCode() { 
           return this.code;
         }
 
-        public void setCode(CodeableConcept value) { 
+        public SectionComponent setCode(CodeableConcept value) { 
           this.code = value;
+          return this;
         }
 
         public ResourceReference getSubject() { 
           return this.subject;
         }
 
-        public void setSubject(ResourceReference value) { 
+        public SectionComponent setSubject(ResourceReference value) { 
           this.subject = value;
+          return this;
         }
 
         public ResourceReference getContent() { 
           return this.content;
         }
 
-        public void setContent(ResourceReference value) { 
+        public SectionComponent setContent(ResourceReference value) { 
           this.content = value;
+          return this;
         }
 
         public List<SectionComponent> getSection() { 
@@ -352,8 +392,16 @@ public class Document extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("code", "CodeableConcept", "A code identifying the kind of content contained within the section.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("subject", "Resource(Patient|Group|Device)", "Identifies the primary subject of the section.", 0, java.lang.Integer.MAX_VALUE, subject));
+          childrenList.add(new Property("content", "Resource(Any)", "Identifies the discrete data that provides the content for the section.", 0, java.lang.Integer.MAX_VALUE, content));
+          childrenList.add(new Property("section", "@Document.section", "Identifies a subtopic within the section as part of the document's table of contents.", 0, java.lang.Integer.MAX_VALUE, section));
+        }
+
       public SectionComponent copy(Document e) {
-        SectionComponent dst = e.new SectionComponent();
+        SectionComponent dst = new SectionComponent();
         dst.code = code == null ? null : code.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.content = content == null ? null : content.copy();
@@ -460,69 +508,89 @@ public class Document extends Resource {
      */
     protected List<SectionComponent> section = new ArrayList<SectionComponent>();
 
+    public Document() {
+      super();
+    }
+
+    public Document(Instant created, CodeableConcept type, Enumeration<DocumentStatus> status, Coding confidentiality, ResourceReference subject) {
+      super();
+      this.created = created;
+      this.type = type;
+      this.status = status;
+      this.confidentiality = confidentiality;
+      this.subject = subject;
+    }
+
     public Identifier getIdentifier() { 
       return this.identifier;
     }
 
-    public void setIdentifier(Identifier value) { 
+    public Document setIdentifier(Identifier value) { 
       this.identifier = value;
+      return this;
     }
 
     public Identifier getVersionIdentifier() { 
       return this.versionIdentifier;
     }
 
-    public void setVersionIdentifier(Identifier value) { 
+    public Document setVersionIdentifier(Identifier value) { 
       this.versionIdentifier = value;
+      return this;
     }
 
     public Instant getCreated() { 
       return this.created;
     }
 
-    public void setCreated(Instant value) { 
+    public Document setCreated(Instant value) { 
       this.created = value;
+      return this;
     }
 
     public Calendar getCreatedSimple() { 
       return this.created == null ? null : this.created.getValue();
     }
 
-    public void setCreatedSimple(Calendar value) { 
+    public Document setCreatedSimple(Calendar value) { 
         if (this.created == null)
           this.created = new Instant();
         this.created.setValue(value);
+      return this;
     }
 
     public CodeableConcept getType() { 
       return this.type;
     }
 
-    public void setType(CodeableConcept value) { 
+    public Document setType(CodeableConcept value) { 
       this.type = value;
+      return this;
     }
 
     public CodeableConcept getSubtype() { 
       return this.subtype;
     }
 
-    public void setSubtype(CodeableConcept value) { 
+    public Document setSubtype(CodeableConcept value) { 
       this.subtype = value;
+      return this;
     }
 
     public String_ getTitle() { 
       return this.title;
     }
 
-    public void setTitle(String_ value) { 
+    public Document setTitle(String_ value) { 
       this.title = value;
+      return this;
     }
 
     public String getTitleSimple() { 
       return this.title == null ? null : this.title.getValue();
     }
 
-    public void setTitleSimple(String value) { 
+    public Document setTitleSimple(String value) { 
       if (value == null)
         this.title = null;
       else {
@@ -530,40 +598,45 @@ public class Document extends Resource {
           this.title = new String_();
         this.title.setValue(value);
       }
+      return this;
     }
 
     public Enumeration<DocumentStatus> getStatus() { 
       return this.status;
     }
 
-    public void setStatus(Enumeration<DocumentStatus> value) { 
+    public Document setStatus(Enumeration<DocumentStatus> value) { 
       this.status = value;
+      return this;
     }
 
     public DocumentStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
-    public void setStatusSimple(DocumentStatus value) { 
+    public Document setStatusSimple(DocumentStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<DocumentStatus>();
         this.status.setValue(value);
+      return this;
     }
 
     public Coding getConfidentiality() { 
       return this.confidentiality;
     }
 
-    public void setConfidentiality(Coding value) { 
+    public Document setConfidentiality(Coding value) { 
       this.confidentiality = value;
+      return this;
     }
 
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
-    public void setSubject(ResourceReference value) { 
+    public Document setSubject(ResourceReference value) { 
       this.subject = value;
+      return this;
     }
 
     public List<ResourceReference> getAuthor() { 
@@ -592,39 +665,43 @@ public class Document extends Resource {
       return this.custodian;
     }
 
-    public void setCustodian(ResourceReference value) { 
+    public Document setCustodian(ResourceReference value) { 
       this.custodian = value;
+      return this;
     }
 
     public DocumentEventComponent getEvent() { 
       return this.event;
     }
 
-    public void setEvent(DocumentEventComponent value) { 
+    public Document setEvent(DocumentEventComponent value) { 
       this.event = value;
+      return this;
     }
 
     public ResourceReference getEncounter() { 
       return this.encounter;
     }
 
-    public void setEncounter(ResourceReference value) { 
+    public Document setEncounter(ResourceReference value) { 
       this.encounter = value;
+      return this;
     }
 
     public Id getReplaces() { 
       return this.replaces;
     }
 
-    public void setReplaces(Id value) { 
+    public Document setReplaces(Id value) { 
       this.replaces = value;
+      return this;
     }
 
     public String getReplacesSimple() { 
       return this.replaces == null ? null : this.replaces.getValue();
     }
 
-    public void setReplacesSimple(String value) { 
+    public Document setReplacesSimple(String value) { 
       if (value == null)
         this.replaces = null;
       else {
@@ -632,6 +709,7 @@ public class Document extends Resource {
           this.replaces = new Id();
         this.replaces.setValue(value);
       }
+      return this;
     }
 
     public List<ResourceReference> getProvenance() { 
@@ -649,16 +727,18 @@ public class Document extends Resource {
       return this.stylesheet;
     }
 
-    public void setStylesheet(Attachment value) { 
+    public Document setStylesheet(Attachment value) { 
       this.stylesheet = value;
+      return this;
     }
 
     public Attachment getRepresentation() { 
       return this.representation;
     }
 
-    public void setRepresentation(Attachment value) { 
+    public Document setRepresentation(Attachment value) { 
       this.representation = value;
+      return this;
     }
 
     public List<SectionComponent> getSection() { 
@@ -671,6 +751,29 @@ public class Document extends Resource {
       this.section.add(t);
       return t;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "Logical Identifier for the document, assigned when created. This identifier stays constant when subsequent versions of the document are created.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("versionIdentifier", "Identifier", "Version specific identifier for the document, assigned when created. This identifier changes when subsequent versions of the document are created.", 0, java.lang.Integer.MAX_VALUE, versionIdentifier));
+        childrenList.add(new Property("created", "instant", "The document creation time, when the document first came into being. Where the document is a transform from an original document in some other format, the ClinicalDocument.effectiveTime is the time the original document is created.", 0, java.lang.Integer.MAX_VALUE, created));
+        childrenList.add(new Property("type", "CodeableConcept", "Specifies the particular kind of document (e.g. History and Physical, Discharge Summary, Progress Note).", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("subtype", "CodeableConcept", "Additional detailed type for the document.", 0, java.lang.Integer.MAX_VALUE, subtype));
+        childrenList.add(new Property("title", "string", "Official human-readable label for the document.", 0, java.lang.Integer.MAX_VALUE, title));
+        childrenList.add(new Property("status", "code", "The workflow/clinical status of this document. The status is a rough guide to the clinical standing of the document.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("confidentiality", "Coding", "The code specifying the level of confidentiality of the XDS Document. These codes are specific to an XDS Affinity Domain.", 0, java.lang.Integer.MAX_VALUE, confidentiality));
+        childrenList.add(new Property("subject", "Resource(Patient|Practitioner|Group|Device)", "Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("author", "Resource(Practitioner|Device)", "Identifies who is responsible for the information in the document.  (Not necessarily who typed it in.).", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("attester", "", "A participant who has attested to the accuracy of the document.", 0, java.lang.Integer.MAX_VALUE, attester));
+        childrenList.add(new Property("custodian", "Resource(Organization)", "Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.", 0, java.lang.Integer.MAX_VALUE, custodian));
+        childrenList.add(new Property("event", "", "The main event/act/item, such as a colonoscopy or an appendectomy, being documented.", 0, java.lang.Integer.MAX_VALUE, event));
+        childrenList.add(new Property("encounter", "Resource(Encounter|InterestOfCare)", "Describes the clinical encounter or type of care this document is associated with.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("replaces", "id", "Identifies the document this document supersedes, if any.", 0, java.lang.Integer.MAX_VALUE, replaces));
+        childrenList.add(new Property("provenance", "Resource(Provenance)", "Additional provenance about the document and the resources that are the sections.", 0, java.lang.Integer.MAX_VALUE, provenance));
+        childrenList.add(new Property("stylesheet", "Attachment", "A fixed CSS stylesheet to use when rendering the documents.", 0, java.lang.Integer.MAX_VALUE, stylesheet));
+        childrenList.add(new Property("representation", "Attachment", "An alternative representation of the document that can be used in place of the html based rendering.", 0, java.lang.Integer.MAX_VALUE, representation));
+        childrenList.add(new Property("section", "", "Identifies a main topic within the document's table of contents.", 0, java.lang.Integer.MAX_VALUE, section));
+      }
 
       public Document copy() {
         Document dst = new Document();

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -64,7 +64,7 @@ public class List_ extends Resource {
         }
     }
 
-  public class ListModeEnumFactory implements EnumFactory {
+  public static class ListModeEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -88,7 +88,7 @@ public class List_ extends Resource {
       }
     }
 
-    public class ListEntryComponent extends BackboneElement {
+    public static class ListEntryComponent extends BackboneElement {
         /**
          * The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list.
          */
@@ -109,6 +109,15 @@ public class List_ extends Resource {
          */
         protected ResourceReference item;
 
+      public ListEntryComponent() {
+        super();
+      }
+
+      public ListEntryComponent(ResourceReference item) {
+        super();
+        this.item = item;
+      }
+
         public List<CodeableConcept> getFlag() { 
           return this.flag;
         }
@@ -124,15 +133,16 @@ public class List_ extends Resource {
           return this.deleted;
         }
 
-        public void setDeleted(Boolean value) { 
+        public ListEntryComponent setDeleted(Boolean value) { 
           this.deleted = value;
+          return this;
         }
 
         public boolean getDeletedSimple() { 
           return this.deleted == null ? null : this.deleted.getValue();
         }
 
-        public void setDeletedSimple(boolean value) { 
+        public ListEntryComponent setDeletedSimple(boolean value) { 
           if (value == false)
             this.deleted = null;
           else {
@@ -140,21 +150,23 @@ public class List_ extends Resource {
               this.deleted = new Boolean();
             this.deleted.setValue(value);
           }
+          return this;
         }
 
         public DateTime getDate() { 
           return this.date;
         }
 
-        public void setDate(DateTime value) { 
+        public ListEntryComponent setDate(DateTime value) { 
           this.date = value;
+          return this;
         }
 
         public String getDateSimple() { 
           return this.date == null ? null : this.date.getValue();
         }
 
-        public void setDateSimple(String value) { 
+        public ListEntryComponent setDateSimple(String value) { 
           if (value == null)
             this.date = null;
           else {
@@ -162,18 +174,28 @@ public class List_ extends Resource {
               this.date = new DateTime();
             this.date.setValue(value);
           }
+          return this;
         }
 
         public ResourceReference getItem() { 
           return this.item;
         }
 
-        public void setItem(ResourceReference value) { 
+        public ListEntryComponent setItem(ResourceReference value) { 
           this.item = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("flag", "CodeableConcept", "The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list.", 0, java.lang.Integer.MAX_VALUE, flag));
+          childrenList.add(new Property("deleted", "boolean", "True if this item is marked as deleted in the list.", 0, java.lang.Integer.MAX_VALUE, deleted));
+          childrenList.add(new Property("date", "dateTime", "When this item was added to the list.", 0, java.lang.Integer.MAX_VALUE, date));
+          childrenList.add(new Property("item", "Resource(Any)", "A reference to the actual resource from which data was derived.", 0, java.lang.Integer.MAX_VALUE, item));
         }
 
       public ListEntryComponent copy(List_ e) {
-        ListEntryComponent dst = e.new ListEntryComponent();
+        ListEntryComponent dst = new ListEntryComponent();
         dst.flag = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : flag)
           dst.flag.add(i.copy());
@@ -225,43 +247,56 @@ public class List_ extends Resource {
      */
     protected CodeableConcept emptyReason;
 
+    public List_() {
+      super();
+    }
+
+    public List_(Enumeration<ListMode> mode) {
+      super();
+      this.mode = mode;
+    }
+
     public CodeableConcept getCode() { 
       return this.code;
     }
 
-    public void setCode(CodeableConcept value) { 
+    public List_ setCode(CodeableConcept value) { 
       this.code = value;
+      return this;
     }
 
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
-    public void setSubject(ResourceReference value) { 
+    public List_ setSubject(ResourceReference value) { 
       this.subject = value;
+      return this;
     }
 
     public ResourceReference getSource() { 
       return this.source;
     }
 
-    public void setSource(ResourceReference value) { 
+    public List_ setSource(ResourceReference value) { 
       this.source = value;
+      return this;
     }
 
     public DateTime getDate() { 
       return this.date;
     }
 
-    public void setDate(DateTime value) { 
+    public List_ setDate(DateTime value) { 
       this.date = value;
+      return this;
     }
 
     public String getDateSimple() { 
       return this.date == null ? null : this.date.getValue();
     }
 
-    public void setDateSimple(String value) { 
+    public List_ setDateSimple(String value) { 
       if (value == null)
         this.date = null;
       else {
@@ -269,21 +304,23 @@ public class List_ extends Resource {
           this.date = new DateTime();
         this.date.setValue(value);
       }
+      return this;
     }
 
     public Boolean getOrdered() { 
       return this.ordered;
     }
 
-    public void setOrdered(Boolean value) { 
+    public List_ setOrdered(Boolean value) { 
       this.ordered = value;
+      return this;
     }
 
     public boolean getOrderedSimple() { 
       return this.ordered == null ? null : this.ordered.getValue();
     }
 
-    public void setOrderedSimple(boolean value) { 
+    public List_ setOrderedSimple(boolean value) { 
       if (value == false)
         this.ordered = null;
       else {
@@ -291,24 +328,27 @@ public class List_ extends Resource {
           this.ordered = new Boolean();
         this.ordered.setValue(value);
       }
+      return this;
     }
 
     public Enumeration<ListMode> getMode() { 
       return this.mode;
     }
 
-    public void setMode(Enumeration<ListMode> value) { 
+    public List_ setMode(Enumeration<ListMode> value) { 
       this.mode = value;
+      return this;
     }
 
     public ListMode getModeSimple() { 
       return this.mode == null ? null : this.mode.getValue();
     }
 
-    public void setModeSimple(ListMode value) { 
+    public List_ setModeSimple(ListMode value) { 
         if (this.mode == null)
           this.mode = new Enumeration<ListMode>();
         this.mode.setValue(value);
+      return this;
     }
 
     public List<ListEntryComponent> getEntry() { 
@@ -326,9 +366,22 @@ public class List_ extends Resource {
       return this.emptyReason;
     }
 
-    public void setEmptyReason(CodeableConcept value) { 
+    public List_ setEmptyReason(CodeableConcept value) { 
       this.emptyReason = value;
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("code", "CodeableConcept", "This code defines the purpose of the list - why it was created.", 0, java.lang.Integer.MAX_VALUE, code));
+        childrenList.add(new Property("subject", "Resource(Patient|Group|Device|Location)", "The common subject (or patient) of the resources that are in the list, if there is one.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("source", "Resource(Practitioner|Patient|Device)", "The entity responsible for deciding what the contents of the list were.", 0, java.lang.Integer.MAX_VALUE, source));
+        childrenList.add(new Property("date", "dateTime", "The date that the list was prepared.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("ordered", "boolean", "Whether items in the list have a meaningful order.", 0, java.lang.Integer.MAX_VALUE, ordered));
+        childrenList.add(new Property("mode", "code", "How this list was prepared - whether it is a working list that is suitable for being maintained in an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.", 0, java.lang.Integer.MAX_VALUE, mode));
+        childrenList.add(new Property("entry", "", "Entries in this list.", 0, java.lang.Integer.MAX_VALUE, entry));
+        childrenList.add(new Property("emptyReason", "CodeableConcept", "If the list is empty, why the list is empty.", 0, java.lang.Integer.MAX_VALUE, emptyReason));
+      }
 
       public List_ copy() {
         List_ dst = new List_();

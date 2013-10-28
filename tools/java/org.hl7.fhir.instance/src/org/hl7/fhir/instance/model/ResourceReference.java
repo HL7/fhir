@@ -29,7 +29,9 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+
+import java.util.*;
 
 /**
  * A reference from one resource to another.
@@ -46,19 +48,24 @@ public class ResourceReference extends Type {
      */
     protected String_ display;
 
+    public ResourceReference() {
+      super();
+    }
+
     public String_ getReference() { 
       return this.reference;
     }
 
-    public void setReference(String_ value) { 
+    public ResourceReference setReference(String_ value) { 
       this.reference = value;
+      return this;
     }
 
     public String getReferenceSimple() { 
       return this.reference == null ? null : this.reference.getValue();
     }
 
-    public void setReferenceSimple(String value) { 
+    public ResourceReference setReferenceSimple(String value) { 
       if (value == null)
         this.reference = null;
       else {
@@ -66,21 +73,23 @@ public class ResourceReference extends Type {
           this.reference = new String_();
         this.reference.setValue(value);
       }
+      return this;
     }
 
     public String_ getDisplay() { 
       return this.display;
     }
 
-    public void setDisplay(String_ value) { 
+    public ResourceReference setDisplay(String_ value) { 
       this.display = value;
+      return this;
     }
 
     public String getDisplaySimple() { 
       return this.display == null ? null : this.display.getValue();
     }
 
-    public void setDisplaySimple(String value) { 
+    public ResourceReference setDisplaySimple(String value) { 
       if (value == null)
         this.display = null;
       else {
@@ -88,7 +97,14 @@ public class ResourceReference extends Type {
           this.display = new String_();
         this.display.setValue(value);
       }
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("reference", "string", "A reference to a location at which the other resource is found. The reference may a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 0, java.lang.Integer.MAX_VALUE, reference));
+        childrenList.add(new Property("display", "string", "Plain text narrative that identifies the resource in addition to the resource reference.", 0, java.lang.Integer.MAX_VALUE, display));
+      }
 
       public ResourceReference copy() {
         ResourceReference dst = new ResourceReference();

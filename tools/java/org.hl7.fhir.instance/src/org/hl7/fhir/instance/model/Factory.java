@@ -2,6 +2,7 @@ package org.hl7.fhir.instance.model;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Calendar;
 
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
@@ -39,7 +40,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 
 
-public class Factory {
+public class Factory extends GeneratedFactory {
 
   public static Id newId(String value) {
     if (value == null)
@@ -152,6 +153,12 @@ public class Factory {
     n.setStatusSimple(status);
     n.setDiv(new XhtmlParser().parseFragment("<div>"+Utilities.escapeXml(html)+"</div>"));
     return n;
-  }
-  
+ }
+
+ public Instant nowInstant() {
+	 Instant instant = new Instant();
+	 instant.setValue(Calendar.getInstance());
+	 return instant;
+ }
+ 
 }

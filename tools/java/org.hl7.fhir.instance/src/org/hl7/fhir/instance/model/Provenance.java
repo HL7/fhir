@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -68,7 +68,7 @@ public class Provenance extends Resource {
         }
     }
 
-  public class ProvenanceEntityRoleEnumFactory implements EnumFactory {
+  public static class ProvenanceEntityRoleEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -96,7 +96,7 @@ public class Provenance extends Resource {
       }
     }
 
-    public class ProvenanceAgentComponent extends BackboneElement {
+    public static class ProvenanceAgentComponent extends BackboneElement {
         /**
          * The role that the participant played.
          */
@@ -117,53 +117,69 @@ public class Provenance extends Resource {
          */
         protected String_ display;
 
+      public ProvenanceAgentComponent() {
+        super();
+      }
+
+      public ProvenanceAgentComponent(Coding role, Coding type, Uri reference) {
+        super();
+        this.role = role;
+        this.type = type;
+        this.reference = reference;
+      }
+
         public Coding getRole() { 
           return this.role;
         }
 
-        public void setRole(Coding value) { 
+        public ProvenanceAgentComponent setRole(Coding value) { 
           this.role = value;
+          return this;
         }
 
         public Coding getType() { 
           return this.type;
         }
 
-        public void setType(Coding value) { 
+        public ProvenanceAgentComponent setType(Coding value) { 
           this.type = value;
+          return this;
         }
 
         public Uri getReference() { 
           return this.reference;
         }
 
-        public void setReference(Uri value) { 
+        public ProvenanceAgentComponent setReference(Uri value) { 
           this.reference = value;
+          return this;
         }
 
         public String getReferenceSimple() { 
           return this.reference == null ? null : this.reference.getValue();
         }
 
-        public void setReferenceSimple(String value) { 
+        public ProvenanceAgentComponent setReferenceSimple(String value) { 
             if (this.reference == null)
               this.reference = new Uri();
             this.reference.setValue(value);
+          return this;
         }
 
         public String_ getDisplay() { 
           return this.display;
         }
 
-        public void setDisplay(String_ value) { 
+        public ProvenanceAgentComponent setDisplay(String_ value) { 
           this.display = value;
+          return this;
         }
 
         public String getDisplaySimple() { 
           return this.display == null ? null : this.display.getValue();
         }
 
-        public void setDisplaySimple(String value) { 
+        public ProvenanceAgentComponent setDisplaySimple(String value) { 
           if (value == null)
             this.display = null;
           else {
@@ -171,10 +187,19 @@ public class Provenance extends Resource {
               this.display = new String_();
             this.display.setValue(value);
           }
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("role", "Coding", "The role that the participant played.", 0, java.lang.Integer.MAX_VALUE, role));
+          childrenList.add(new Property("type", "Coding", "The type of the participant.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("reference", "uri", "Identity of participant. May be a logical or physical uri and maybe absolute or relative.", 0, java.lang.Integer.MAX_VALUE, reference));
+          childrenList.add(new Property("display", "string", "Human-readable description of the participant.", 0, java.lang.Integer.MAX_VALUE, display));
         }
 
       public ProvenanceAgentComponent copy(Provenance e) {
-        ProvenanceAgentComponent dst = e.new ProvenanceAgentComponent();
+        ProvenanceAgentComponent dst = new ProvenanceAgentComponent();
         dst.role = role == null ? null : role.copy();
         dst.type = type == null ? null : type.copy();
         dst.reference = reference == null ? null : reference.copy();
@@ -184,7 +209,7 @@ public class Provenance extends Resource {
 
   }
 
-    public class ProvenanceEntityComponent extends BackboneElement {
+    public static class ProvenanceEntityComponent extends BackboneElement {
         /**
          * How the entity was used during the activity.
          */
@@ -210,63 +235,80 @@ public class Provenance extends Resource {
          */
         protected ProvenanceAgentComponent agent;
 
+      public ProvenanceEntityComponent() {
+        super();
+      }
+
+      public ProvenanceEntityComponent(Enumeration<ProvenanceEntityRole> role, Coding type, Uri reference) {
+        super();
+        this.role = role;
+        this.type = type;
+        this.reference = reference;
+      }
+
         public Enumeration<ProvenanceEntityRole> getRole() { 
           return this.role;
         }
 
-        public void setRole(Enumeration<ProvenanceEntityRole> value) { 
+        public ProvenanceEntityComponent setRole(Enumeration<ProvenanceEntityRole> value) { 
           this.role = value;
+          return this;
         }
 
         public ProvenanceEntityRole getRoleSimple() { 
           return this.role == null ? null : this.role.getValue();
         }
 
-        public void setRoleSimple(ProvenanceEntityRole value) { 
+        public ProvenanceEntityComponent setRoleSimple(ProvenanceEntityRole value) { 
             if (this.role == null)
               this.role = new Enumeration<ProvenanceEntityRole>();
             this.role.setValue(value);
+          return this;
         }
 
         public Coding getType() { 
           return this.type;
         }
 
-        public void setType(Coding value) { 
+        public ProvenanceEntityComponent setType(Coding value) { 
           this.type = value;
+          return this;
         }
 
         public Uri getReference() { 
           return this.reference;
         }
 
-        public void setReference(Uri value) { 
+        public ProvenanceEntityComponent setReference(Uri value) { 
           this.reference = value;
+          return this;
         }
 
         public String getReferenceSimple() { 
           return this.reference == null ? null : this.reference.getValue();
         }
 
-        public void setReferenceSimple(String value) { 
+        public ProvenanceEntityComponent setReferenceSimple(String value) { 
             if (this.reference == null)
               this.reference = new Uri();
             this.reference.setValue(value);
+          return this;
         }
 
         public String_ getDisplay() { 
           return this.display;
         }
 
-        public void setDisplay(String_ value) { 
+        public ProvenanceEntityComponent setDisplay(String_ value) { 
           this.display = value;
+          return this;
         }
 
         public String getDisplaySimple() { 
           return this.display == null ? null : this.display.getValue();
         }
 
-        public void setDisplaySimple(String value) { 
+        public ProvenanceEntityComponent setDisplaySimple(String value) { 
           if (value == null)
             this.display = null;
           else {
@@ -274,18 +316,29 @@ public class Provenance extends Resource {
               this.display = new String_();
             this.display.setValue(value);
           }
+          return this;
         }
 
         public ProvenanceAgentComponent getAgent() { 
           return this.agent;
         }
 
-        public void setAgent(ProvenanceAgentComponent value) { 
+        public ProvenanceEntityComponent setAgent(ProvenanceAgentComponent value) { 
           this.agent = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("role", "code", "How the entity was used during the activity.", 0, java.lang.Integer.MAX_VALUE, role));
+          childrenList.add(new Property("type", "Coding", "The type of the entity. If the entity is a resource, then this is a resource type.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("reference", "uri", "Identity of participant. May be a logical or physical uri and maybe absolute or relative.", 0, java.lang.Integer.MAX_VALUE, reference));
+          childrenList.add(new Property("display", "string", "Human-readable description of the entity.", 0, java.lang.Integer.MAX_VALUE, display));
+          childrenList.add(new Property("agent", "@Provenance.agent", "The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as a shorthand for saying that the agent was responsible for the activity which generated the entity.", 0, java.lang.Integer.MAX_VALUE, agent));
         }
 
       public ProvenanceEntityComponent copy(Provenance e) {
-        ProvenanceEntityComponent dst = e.new ProvenanceEntityComponent();
+        ProvenanceEntityComponent dst = new ProvenanceEntityComponent();
         dst.role = role == null ? null : role.copy();
         dst.type = type == null ? null : type.copy();
         dst.reference = reference == null ? null : reference.copy();
@@ -341,6 +394,15 @@ public class Provenance extends Resource {
      */
     protected String_ signature;
 
+    public Provenance() {
+      super();
+    }
+
+    public Provenance(Instant recorded) {
+      super();
+      this.recorded = recorded;
+    }
+
     public List<ResourceReference> getTarget() { 
       return this.target;
     }
@@ -356,42 +418,47 @@ public class Provenance extends Resource {
       return this.period;
     }
 
-    public void setPeriod(Period value) { 
+    public Provenance setPeriod(Period value) { 
       this.period = value;
+      return this;
     }
 
     public Instant getRecorded() { 
       return this.recorded;
     }
 
-    public void setRecorded(Instant value) { 
+    public Provenance setRecorded(Instant value) { 
       this.recorded = value;
+      return this;
     }
 
     public Calendar getRecordedSimple() { 
       return this.recorded == null ? null : this.recorded.getValue();
     }
 
-    public void setRecordedSimple(Calendar value) { 
+    public Provenance setRecordedSimple(Calendar value) { 
         if (this.recorded == null)
           this.recorded = new Instant();
         this.recorded.setValue(value);
+      return this;
     }
 
     public CodeableConcept getReason() { 
       return this.reason;
     }
 
-    public void setReason(CodeableConcept value) { 
+    public Provenance setReason(CodeableConcept value) { 
       this.reason = value;
+      return this;
     }
 
     public ResourceReference getLocation() { 
       return this.location;
     }
 
-    public void setLocation(ResourceReference value) { 
+    public Provenance setLocation(ResourceReference value) { 
       this.location = value;
+      return this;
     }
 
     public List<Uri> getPolicy() { 
@@ -438,15 +505,16 @@ public class Provenance extends Resource {
       return this.signature;
     }
 
-    public void setSignature(String_ value) { 
+    public Provenance setSignature(String_ value) { 
       this.signature = value;
+      return this;
     }
 
     public String getSignatureSimple() { 
       return this.signature == null ? null : this.signature.getValue();
     }
 
-    public void setSignatureSimple(String value) { 
+    public Provenance setSignatureSimple(String value) { 
       if (value == null)
         this.signature = null;
       else {
@@ -454,7 +522,21 @@ public class Provenance extends Resource {
           this.signature = new String_();
         this.signature.setValue(value);
       }
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("target", "Resource(Any)", "The resource(s) that were generated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.", 0, java.lang.Integer.MAX_VALUE, target));
+        childrenList.add(new Property("period", "Period", "The period during which the activity occurred.", 0, java.lang.Integer.MAX_VALUE, period));
+        childrenList.add(new Property("recorded", "instant", "The instant of time at which the activity was recorded.", 0, java.lang.Integer.MAX_VALUE, recorded));
+        childrenList.add(new Property("reason", "CodeableConcept", "The reason that the activity was taking place.", 0, java.lang.Integer.MAX_VALUE, reason));
+        childrenList.add(new Property("location", "Resource(Location)", "Where the activity occurred, if relevant.", 0, java.lang.Integer.MAX_VALUE, location));
+        childrenList.add(new Property("policy", "uri", "Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.", 0, java.lang.Integer.MAX_VALUE, policy));
+        childrenList.add(new Property("agent", "", "An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, a piece of software, an inanimate object, an organization, or other entities that may be ascribed responsibility.", 0, java.lang.Integer.MAX_VALUE, agent));
+        childrenList.add(new Property("entity", "", "An entity used in this activity.", 0, java.lang.Integer.MAX_VALUE, entity));
+        childrenList.add(new Property("signature", "string", "A digital signature on the target resource. The signature should reference a participant by xml:id. The signature is only added to support checking cryptographic integrity of the provenance, and not to represent workflow and clinical aspects of the signing process.", 0, java.lang.Integer.MAX_VALUE, signature));
+      }
 
       public Provenance copy() {
         Provenance dst = new Provenance();

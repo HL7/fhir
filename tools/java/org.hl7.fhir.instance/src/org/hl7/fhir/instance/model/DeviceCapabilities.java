@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -73,7 +73,7 @@ public class DeviceCapabilities extends Resource {
         }
     }
 
-  public class DeviceDataTypeEnumFactory implements EnumFactory {
+  public static class DeviceDataTypeEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -105,7 +105,7 @@ public class DeviceCapabilities extends Resource {
       }
     }
 
-    public class DeviceCapabilitiesVirtualDeviceComponent extends BackboneElement {
+    public static class DeviceCapabilitiesVirtualDeviceComponent extends BackboneElement {
         /**
          * Describes the compartment.
          */
@@ -116,12 +116,17 @@ public class DeviceCapabilities extends Resource {
          */
         protected List<DeviceCapabilitiesVirtualDeviceChannelComponent> channel = new ArrayList<DeviceCapabilitiesVirtualDeviceChannelComponent>();
 
+      public DeviceCapabilitiesVirtualDeviceComponent() {
+        super();
+      }
+
         public CodeableConcept getCode() { 
           return this.code;
         }
 
-        public void setCode(CodeableConcept value) { 
+        public DeviceCapabilitiesVirtualDeviceComponent setCode(CodeableConcept value) { 
           this.code = value;
+          return this;
         }
 
         public List<DeviceCapabilitiesVirtualDeviceChannelComponent> getChannel() { 
@@ -135,8 +140,14 @@ public class DeviceCapabilities extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("code", "CodeableConcept", "Describes the compartment.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("channel", "", "Groups together physiological measurement data and derived data.", 0, java.lang.Integer.MAX_VALUE, channel));
+        }
+
       public DeviceCapabilitiesVirtualDeviceComponent copy(DeviceCapabilities e) {
-        DeviceCapabilitiesVirtualDeviceComponent dst = e.new DeviceCapabilitiesVirtualDeviceComponent();
+        DeviceCapabilitiesVirtualDeviceComponent dst = new DeviceCapabilitiesVirtualDeviceComponent();
         dst.code = code == null ? null : code.copy();
         dst.channel = new ArrayList<DeviceCapabilitiesVirtualDeviceChannelComponent>();
         for (DeviceCapabilitiesVirtualDeviceChannelComponent i : channel)
@@ -146,7 +157,7 @@ public class DeviceCapabilities extends Resource {
 
   }
 
-    public class DeviceCapabilitiesVirtualDeviceChannelComponent extends BackboneElement {
+    public static class DeviceCapabilitiesVirtualDeviceChannelComponent extends BackboneElement {
         /**
          * Describes the channel.
          */
@@ -157,12 +168,17 @@ public class DeviceCapabilities extends Resource {
          */
         protected List<DeviceCapabilitiesVirtualDeviceChannelMetricComponent> metric = new ArrayList<DeviceCapabilitiesVirtualDeviceChannelMetricComponent>();
 
+      public DeviceCapabilitiesVirtualDeviceChannelComponent() {
+        super();
+      }
+
         public CodeableConcept getCode() { 
           return this.code;
         }
 
-        public void setCode(CodeableConcept value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelComponent setCode(CodeableConcept value) { 
           this.code = value;
+          return this;
         }
 
         public List<DeviceCapabilitiesVirtualDeviceChannelMetricComponent> getMetric() { 
@@ -176,8 +192,14 @@ public class DeviceCapabilities extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("code", "CodeableConcept", "Describes the channel.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("metric", "", "A piece of measured or derived data that will be reported by the machine.", 0, java.lang.Integer.MAX_VALUE, metric));
+        }
+
       public DeviceCapabilitiesVirtualDeviceChannelComponent copy(DeviceCapabilities e) {
-        DeviceCapabilitiesVirtualDeviceChannelComponent dst = e.new DeviceCapabilitiesVirtualDeviceChannelComponent();
+        DeviceCapabilitiesVirtualDeviceChannelComponent dst = new DeviceCapabilitiesVirtualDeviceChannelComponent();
         dst.code = code == null ? null : code.copy();
         dst.metric = new ArrayList<DeviceCapabilitiesVirtualDeviceChannelMetricComponent>();
         for (DeviceCapabilitiesVirtualDeviceChannelMetricComponent i : metric)
@@ -187,7 +209,7 @@ public class DeviceCapabilities extends Resource {
 
   }
 
-    public class DeviceCapabilitiesVirtualDeviceChannelMetricComponent extends BackboneElement {
+    public static class DeviceCapabilitiesVirtualDeviceChannelMetricComponent extends BackboneElement {
         /**
          * Describes the metrics.
          */
@@ -208,38 +230,53 @@ public class DeviceCapabilities extends Resource {
          */
         protected List<DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent> facet = new ArrayList<DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent>();
 
+      public DeviceCapabilitiesVirtualDeviceChannelMetricComponent() {
+        super();
+      }
+
+      public DeviceCapabilitiesVirtualDeviceChannelMetricComponent(CodeableConcept code, String_ key, DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent info) {
+        super();
+        this.code = code;
+        this.key = key;
+        this.info = info;
+      }
+
         public CodeableConcept getCode() { 
           return this.code;
         }
 
-        public void setCode(CodeableConcept value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelMetricComponent setCode(CodeableConcept value) { 
           this.code = value;
+          return this;
         }
 
         public String_ getKey() { 
           return this.key;
         }
 
-        public void setKey(String_ value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelMetricComponent setKey(String_ value) { 
           this.key = value;
+          return this;
         }
 
         public String getKeySimple() { 
           return this.key == null ? null : this.key.getValue();
         }
 
-        public void setKeySimple(String value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelMetricComponent setKeySimple(String value) { 
             if (this.key == null)
               this.key = new String_();
             this.key.setValue(value);
+          return this;
         }
 
         public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent getInfo() { 
           return this.info;
         }
 
-        public void setInfo(DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelMetricComponent setInfo(DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent value) { 
           this.info = value;
+          return this;
         }
 
         public List<DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent> getFacet() { 
@@ -253,8 +290,16 @@ public class DeviceCapabilities extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("code", "CodeableConcept", "Describes the metrics.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("key", "string", "Used to link to data in device log.", 0, java.lang.Integer.MAX_VALUE, key));
+          childrenList.add(new Property("info", "", "How to interpret this metric value.", 0, java.lang.Integer.MAX_VALUE, info));
+          childrenList.add(new Property("facet", "", "Additional data that qualifies the metric, or contributes to its assessment.", 0, java.lang.Integer.MAX_VALUE, facet));
+        }
+
       public DeviceCapabilitiesVirtualDeviceChannelMetricComponent copy(DeviceCapabilities e) {
-        DeviceCapabilitiesVirtualDeviceChannelMetricComponent dst = e.new DeviceCapabilitiesVirtualDeviceChannelMetricComponent();
+        DeviceCapabilitiesVirtualDeviceChannelMetricComponent dst = new DeviceCapabilitiesVirtualDeviceChannelMetricComponent();
         dst.code = code == null ? null : code.copy();
         dst.key = key == null ? null : key.copy();
         dst.info = info == null ? null : info.copy(e);
@@ -266,7 +311,7 @@ public class DeviceCapabilities extends Resource {
 
   }
 
-    public class DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent extends BackboneElement {
+    public static class DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent extends BackboneElement {
         /**
          * Type of data for this metric.
          */
@@ -292,37 +337,49 @@ public class DeviceCapabilities extends Resource {
          */
         protected Uri system;
 
+      public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent() {
+        super();
+      }
+
+      public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent(Enumeration<DeviceDataType> type) {
+        super();
+        this.type = type;
+      }
+
         public Enumeration<DeviceDataType> getType() { 
           return this.type;
         }
 
-        public void setType(Enumeration<DeviceDataType> value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent setType(Enumeration<DeviceDataType> value) { 
           this.type = value;
+          return this;
         }
 
         public DeviceDataType getTypeSimple() { 
           return this.type == null ? null : this.type.getValue();
         }
 
-        public void setTypeSimple(DeviceDataType value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent setTypeSimple(DeviceDataType value) { 
             if (this.type == null)
               this.type = new Enumeration<DeviceDataType>();
             this.type.setValue(value);
+          return this;
         }
 
         public String_ getUnits() { 
           return this.units;
         }
 
-        public void setUnits(String_ value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent setUnits(String_ value) { 
           this.units = value;
+          return this;
         }
 
         public String getUnitsSimple() { 
           return this.units == null ? null : this.units.getValue();
         }
 
-        public void setUnitsSimple(String value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent setUnitsSimple(String value) { 
           if (value == null)
             this.units = null;
           else {
@@ -330,21 +387,23 @@ public class DeviceCapabilities extends Resource {
               this.units = new String_();
             this.units.setValue(value);
           }
+          return this;
         }
 
         public Code getUcum() { 
           return this.ucum;
         }
 
-        public void setUcum(Code value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent setUcum(Code value) { 
           this.ucum = value;
+          return this;
         }
 
         public String getUcumSimple() { 
           return this.ucum == null ? null : this.ucum.getValue();
         }
 
-        public void setUcumSimple(String value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent setUcumSimple(String value) { 
           if (value == null)
             this.ucum = null;
           else {
@@ -352,29 +411,32 @@ public class DeviceCapabilities extends Resource {
               this.ucum = new Code();
             this.ucum.setValue(value);
           }
+          return this;
         }
 
         public SampledData getTemplate() { 
           return this.template;
         }
 
-        public void setTemplate(SampledData value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent setTemplate(SampledData value) { 
           this.template = value;
+          return this;
         }
 
         public Uri getSystem() { 
           return this.system;
         }
 
-        public void setSystem(Uri value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent setSystem(Uri value) { 
           this.system = value;
+          return this;
         }
 
         public String getSystemSimple() { 
           return this.system == null ? null : this.system.getValue();
         }
 
-        public void setSystemSimple(String value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent setSystemSimple(String value) { 
           if (value == null)
             this.system = null;
           else {
@@ -382,10 +444,20 @@ public class DeviceCapabilities extends Resource {
               this.system = new Uri();
             this.system.setValue(value);
           }
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("type", "code", "Type of data for this metric.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("units", "string", "Units for this data item (if a quantity or a range).", 0, java.lang.Integer.MAX_VALUE, units));
+          childrenList.add(new Property("ucum", "code", "UCUM units (if a quantity or a range).", 0, java.lang.Integer.MAX_VALUE, ucum));
+          childrenList.add(new Property("template", "SampledData", "A template containing the fixed values for an array output (all the values but the data).", 0, java.lang.Integer.MAX_VALUE, template));
+          childrenList.add(new Property("system", "uri", "System of the codes, if the type is a Coding.", 0, java.lang.Integer.MAX_VALUE, system));
         }
 
       public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent copy(DeviceCapabilities e) {
-        DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent dst = e.new DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent();
+        DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent dst = new DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent();
         dst.type = type == null ? null : type.copy();
         dst.units = units == null ? null : units.copy();
         dst.ucum = ucum == null ? null : ucum.copy();
@@ -396,7 +468,7 @@ public class DeviceCapabilities extends Resource {
 
   }
 
-    public class DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent extends BackboneElement {
+    public static class DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent extends BackboneElement {
         /**
          * Describes the facet.
          */
@@ -417,27 +489,40 @@ public class DeviceCapabilities extends Resource {
          */
         protected DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent info;
 
+      public DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent() {
+        super();
+      }
+
+      public DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent(CodeableConcept code, String_ key, DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent info) {
+        super();
+        this.code = code;
+        this.key = key;
+        this.info = info;
+      }
+
         public CodeableConcept getCode() { 
           return this.code;
         }
 
-        public void setCode(CodeableConcept value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent setCode(CodeableConcept value) { 
           this.code = value;
+          return this;
         }
 
         public Decimal getScale() { 
           return this.scale;
         }
 
-        public void setScale(Decimal value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent setScale(Decimal value) { 
           this.scale = value;
+          return this;
         }
 
         public BigDecimal getScaleSimple() { 
           return this.scale == null ? null : this.scale.getValue();
         }
 
-        public void setScaleSimple(BigDecimal value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent setScaleSimple(BigDecimal value) { 
           if (value == null)
             this.scale = null;
           else {
@@ -445,36 +530,48 @@ public class DeviceCapabilities extends Resource {
               this.scale = new Decimal();
             this.scale.setValue(value);
           }
+          return this;
         }
 
         public String_ getKey() { 
           return this.key;
         }
 
-        public void setKey(String_ value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent setKey(String_ value) { 
           this.key = value;
+          return this;
         }
 
         public String getKeySimple() { 
           return this.key == null ? null : this.key.getValue();
         }
 
-        public void setKeySimple(String value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent setKeySimple(String value) { 
             if (this.key == null)
               this.key = new String_();
             this.key.setValue(value);
+          return this;
         }
 
         public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent getInfo() { 
           return this.info;
         }
 
-        public void setInfo(DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent value) { 
+        public DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent setInfo(DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent value) { 
           this.info = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("code", "CodeableConcept", "Describes the facet.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("scale", "decimal", "The factor to apply to the raw values to get the correct value.", 0, java.lang.Integer.MAX_VALUE, scale));
+          childrenList.add(new Property("key", "string", "Used to link to data in device log.", 0, java.lang.Integer.MAX_VALUE, key));
+          childrenList.add(new Property("info", "@DeviceCapabilities.virtualDevice.channel.metric.info", "How to interpret this facet value.", 0, java.lang.Integer.MAX_VALUE, info));
         }
 
       public DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent copy(DeviceCapabilities e) {
-        DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent dst = e.new DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent();
+        DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent dst = new DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent();
         dst.code = code == null ? null : code.copy();
         dst.scale = scale == null ? null : scale.copy();
         dst.key = key == null ? null : key.copy();
@@ -509,19 +606,24 @@ public class DeviceCapabilities extends Resource {
      */
     protected List<DeviceCapabilitiesVirtualDeviceComponent> virtualDevice = new ArrayList<DeviceCapabilitiesVirtualDeviceComponent>();
 
+    public DeviceCapabilities() {
+      super();
+    }
+
     public String_ getName() { 
       return this.name;
     }
 
-    public void setName(String_ value) { 
+    public DeviceCapabilities setName(String_ value) { 
       this.name = value;
+      return this;
     }
 
     public String getNameSimple() { 
       return this.name == null ? null : this.name.getValue();
     }
 
-    public void setNameSimple(String value) { 
+    public DeviceCapabilities setNameSimple(String value) { 
       if (value == null)
         this.name = null;
       else {
@@ -529,29 +631,32 @@ public class DeviceCapabilities extends Resource {
           this.name = new String_();
         this.name.setValue(value);
       }
+      return this;
     }
 
     public CodeableConcept getType() { 
       return this.type;
     }
 
-    public void setType(CodeableConcept value) { 
+    public DeviceCapabilities setType(CodeableConcept value) { 
       this.type = value;
+      return this;
     }
 
     public String_ getManufacturer() { 
       return this.manufacturer;
     }
 
-    public void setManufacturer(String_ value) { 
+    public DeviceCapabilities setManufacturer(String_ value) { 
       this.manufacturer = value;
+      return this;
     }
 
     public String getManufacturerSimple() { 
       return this.manufacturer == null ? null : this.manufacturer.getValue();
     }
 
-    public void setManufacturerSimple(String value) { 
+    public DeviceCapabilities setManufacturerSimple(String value) { 
       if (value == null)
         this.manufacturer = null;
       else {
@@ -559,14 +664,16 @@ public class DeviceCapabilities extends Resource {
           this.manufacturer = new String_();
         this.manufacturer.setValue(value);
       }
+      return this;
     }
 
     public ResourceReference getIdentity() { 
       return this.identity;
     }
 
-    public void setIdentity(ResourceReference value) { 
+    public DeviceCapabilities setIdentity(ResourceReference value) { 
       this.identity = value;
+      return this;
     }
 
     public List<DeviceCapabilitiesVirtualDeviceComponent> getVirtualDevice() { 
@@ -579,6 +686,15 @@ public class DeviceCapabilities extends Resource {
       this.virtualDevice.add(t);
       return t;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("name", "string", "The name of this device.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("type", "CodeableConcept", "The kind of device - what kind of functionality it provides.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("manufacturer", "string", "The company that built this device.", 0, java.lang.Integer.MAX_VALUE, manufacturer));
+        childrenList.add(new Property("identity", "Resource(Device)", "Identifies this particular device uniquely.", 0, java.lang.Integer.MAX_VALUE, identity));
+        childrenList.add(new Property("virtualDevice", "", "A medical-related subsystem of a medical device.", 0, java.lang.Integer.MAX_VALUE, virtualDevice));
+      }
 
       public DeviceCapabilities copy() {
         DeviceCapabilities dst = new DeviceCapabilities();

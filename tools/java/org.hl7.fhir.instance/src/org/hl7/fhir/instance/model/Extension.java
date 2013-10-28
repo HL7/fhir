@@ -29,7 +29,9 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+
+import java.util.*;
 
 /**
  * Optional Extensions Element - found in all resources.
@@ -46,31 +48,49 @@ public class Extension extends Element {
      */
     protected org.hl7.fhir.instance.model.Type value;
 
+    public Extension() {
+      super();
+    }
+
+    public Extension(Uri url) {
+      super();
+      this.url = url;
+    }
+
     public Uri getUrl() { 
       return this.url;
     }
 
-    public void setUrl(Uri value) { 
+    public Extension setUrl(Uri value) { 
       this.url = value;
+      return this;
     }
 
     public String getUrlSimple() { 
       return this.url == null ? null : this.url.getValue();
     }
 
-    public void setUrlSimple(String value) { 
+    public Extension setUrlSimple(String value) { 
         if (this.url == null)
           this.url = new Uri();
         this.url.setValue(value);
+      return this;
     }
 
     public org.hl7.fhir.instance.model.Type getValue() { 
       return this.value;
     }
 
-    public void setValue(org.hl7.fhir.instance.model.Type value) { 
+    public Extension setValue(org.hl7.fhir.instance.model.Type value) { 
       this.value = value;
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("url", "uri", "Source of the definition for the extension code - a logical name or a URL.", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, java.lang.Integer.MAX_VALUE, value));
+      }
 
       public Extension copy() {
         Extension dst = new Extension();

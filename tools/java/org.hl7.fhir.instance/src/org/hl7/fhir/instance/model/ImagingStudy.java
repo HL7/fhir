@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -196,7 +196,7 @@ public class ImagingStudy extends Resource {
         }
     }
 
-  public class ImagingModalityEnumFactory implements EnumFactory {
+  public static class ImagingModalityEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -382,7 +382,7 @@ public class ImagingStudy extends Resource {
         }
     }
 
-  public class InstanceAvailabilityEnumFactory implements EnumFactory {
+  public static class InstanceAvailabilityEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -636,7 +636,7 @@ public class ImagingStudy extends Resource {
         }
     }
 
-  public class ModalityEnumFactory implements EnumFactory {
+  public static class ModalityEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -860,7 +860,7 @@ public class ImagingStudy extends Resource {
       }
     }
 
-    public class ImagingStudySeriesComponent extends BackboneElement {
+    public static class ImagingStudySeriesComponent extends BackboneElement {
         /**
          * The number of this series in the overall sequence.
          */
@@ -911,19 +911,31 @@ public class ImagingStudy extends Resource {
          */
         protected List<ImagingStudySeriesInstanceComponent> instance = new ArrayList<ImagingStudySeriesInstanceComponent>();
 
+      public ImagingStudySeriesComponent() {
+        super();
+      }
+
+      public ImagingStudySeriesComponent(Enumeration<Modality> modality, Oid uid, Integer numberOfInstances) {
+        super();
+        this.modality = modality;
+        this.uid = uid;
+        this.numberOfInstances = numberOfInstances;
+      }
+
         public Integer getNumber() { 
           return this.number;
         }
 
-        public void setNumber(Integer value) { 
+        public ImagingStudySeriesComponent setNumber(Integer value) { 
           this.number = value;
+          return this;
         }
 
         public int getNumberSimple() { 
           return this.number == null ? null : this.number.getValue();
         }
 
-        public void setNumberSimple(int value) { 
+        public ImagingStudySeriesComponent setNumberSimple(int value) { 
           if (value == -1)
             this.number = null;
           else {
@@ -931,57 +943,63 @@ public class ImagingStudy extends Resource {
               this.number = new Integer();
             this.number.setValue(value);
           }
+          return this;
         }
 
         public Enumeration<Modality> getModality() { 
           return this.modality;
         }
 
-        public void setModality(Enumeration<Modality> value) { 
+        public ImagingStudySeriesComponent setModality(Enumeration<Modality> value) { 
           this.modality = value;
+          return this;
         }
 
         public Modality getModalitySimple() { 
           return this.modality == null ? null : this.modality.getValue();
         }
 
-        public void setModalitySimple(Modality value) { 
+        public ImagingStudySeriesComponent setModalitySimple(Modality value) { 
             if (this.modality == null)
               this.modality = new Enumeration<Modality>();
             this.modality.setValue(value);
+          return this;
         }
 
         public Oid getUid() { 
           return this.uid;
         }
 
-        public void setUid(Oid value) { 
+        public ImagingStudySeriesComponent setUid(Oid value) { 
           this.uid = value;
+          return this;
         }
 
         public String getUidSimple() { 
           return this.uid == null ? null : this.uid.getValue();
         }
 
-        public void setUidSimple(String value) { 
+        public ImagingStudySeriesComponent setUidSimple(String value) { 
             if (this.uid == null)
               this.uid = new Oid();
             this.uid.setValue(value);
+          return this;
         }
 
         public String_ getDescription() { 
           return this.description;
         }
 
-        public void setDescription(String_ value) { 
+        public ImagingStudySeriesComponent setDescription(String_ value) { 
           this.description = value;
+          return this;
         }
 
         public String getDescriptionSimple() { 
           return this.description == null ? null : this.description.getValue();
         }
 
-        public void setDescriptionSimple(String value) { 
+        public ImagingStudySeriesComponent setDescriptionSimple(String value) { 
           if (value == null)
             this.description = null;
           else {
@@ -989,39 +1007,43 @@ public class ImagingStudy extends Resource {
               this.description = new String_();
             this.description.setValue(value);
           }
+          return this;
         }
 
         public Integer getNumberOfInstances() { 
           return this.numberOfInstances;
         }
 
-        public void setNumberOfInstances(Integer value) { 
+        public ImagingStudySeriesComponent setNumberOfInstances(Integer value) { 
           this.numberOfInstances = value;
+          return this;
         }
 
         public int getNumberOfInstancesSimple() { 
           return this.numberOfInstances == null ? null : this.numberOfInstances.getValue();
         }
 
-        public void setNumberOfInstancesSimple(int value) { 
+        public ImagingStudySeriesComponent setNumberOfInstancesSimple(int value) { 
             if (this.numberOfInstances == null)
               this.numberOfInstances = new Integer();
             this.numberOfInstances.setValue(value);
+          return this;
         }
 
         public Enumeration<InstanceAvailability> getAvailability() { 
           return this.availability;
         }
 
-        public void setAvailability(Enumeration<InstanceAvailability> value) { 
+        public ImagingStudySeriesComponent setAvailability(Enumeration<InstanceAvailability> value) { 
           this.availability = value;
+          return this;
         }
 
         public InstanceAvailability getAvailabilitySimple() { 
           return this.availability == null ? null : this.availability.getValue();
         }
 
-        public void setAvailabilitySimple(InstanceAvailability value) { 
+        public ImagingStudySeriesComponent setAvailabilitySimple(InstanceAvailability value) { 
           if (value == null)
             this.availability = null;
           else {
@@ -1029,21 +1051,23 @@ public class ImagingStudy extends Resource {
               this.availability = new Enumeration<InstanceAvailability>();
             this.availability.setValue(value);
           }
+          return this;
         }
 
         public Uri getUrl() { 
           return this.url;
         }
 
-        public void setUrl(Uri value) { 
+        public ImagingStudySeriesComponent setUrl(Uri value) { 
           this.url = value;
+          return this;
         }
 
         public String getUrlSimple() { 
           return this.url == null ? null : this.url.getValue();
         }
 
-        public void setUrlSimple(String value) { 
+        public ImagingStudySeriesComponent setUrlSimple(String value) { 
           if (value == null)
             this.url = null;
           else {
@@ -1051,29 +1075,32 @@ public class ImagingStudy extends Resource {
               this.url = new Uri();
             this.url.setValue(value);
           }
+          return this;
         }
 
         public Coding getBodySite() { 
           return this.bodySite;
         }
 
-        public void setBodySite(Coding value) { 
+        public ImagingStudySeriesComponent setBodySite(Coding value) { 
           this.bodySite = value;
+          return this;
         }
 
         public DateTime getDateTime() { 
           return this.dateTime;
         }
 
-        public void setDateTime(DateTime value) { 
+        public ImagingStudySeriesComponent setDateTime(DateTime value) { 
           this.dateTime = value;
+          return this;
         }
 
         public String getDateTimeSimple() { 
           return this.dateTime == null ? null : this.dateTime.getValue();
         }
 
-        public void setDateTimeSimple(String value) { 
+        public ImagingStudySeriesComponent setDateTimeSimple(String value) { 
           if (value == null)
             this.dateTime = null;
           else {
@@ -1081,6 +1108,7 @@ public class ImagingStudy extends Resource {
               this.dateTime = new DateTime();
             this.dateTime.setValue(value);
           }
+          return this;
         }
 
         public List<ImagingStudySeriesInstanceComponent> getInstance() { 
@@ -1094,8 +1122,22 @@ public class ImagingStudy extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("number", "integer", "The number of this series in the overall sequence.", 0, java.lang.Integer.MAX_VALUE, number));
+          childrenList.add(new Property("modality", "code", "The modality of this series sequence.", 0, java.lang.Integer.MAX_VALUE, modality));
+          childrenList.add(new Property("uid", "oid", "Formal identifier for this series.", 0, java.lang.Integer.MAX_VALUE, uid));
+          childrenList.add(new Property("description", "string", "A description of the series.", 0, java.lang.Integer.MAX_VALUE, description));
+          childrenList.add(new Property("numberOfInstances", "integer", "Sequence that contains attributes from the.", 0, java.lang.Integer.MAX_VALUE, numberOfInstances));
+          childrenList.add(new Property("availability", "code", "Availability of series (online, offline or nearlnie).", 0, java.lang.Integer.MAX_VALUE, availability));
+          childrenList.add(new Property("url", "uri", "WADO-RS URI where Series is available.", 0, java.lang.Integer.MAX_VALUE, url));
+          childrenList.add(new Property("bodySite", "Coding", "Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed.", 0, java.lang.Integer.MAX_VALUE, bodySite));
+          childrenList.add(new Property("dateTime", "dateTime", "When the series started.", 0, java.lang.Integer.MAX_VALUE, dateTime));
+          childrenList.add(new Property("instance", "", "A single image taken from a patient.", 0, java.lang.Integer.MAX_VALUE, instance));
+        }
+
       public ImagingStudySeriesComponent copy(ImagingStudy e) {
-        ImagingStudySeriesComponent dst = e.new ImagingStudySeriesComponent();
+        ImagingStudySeriesComponent dst = new ImagingStudySeriesComponent();
         dst.number = number == null ? null : number.copy();
         dst.modality = modality == null ? null : modality.copy();
         dst.uid = uid == null ? null : uid.copy();
@@ -1113,7 +1155,7 @@ public class ImagingStudy extends Resource {
 
   }
 
-    public class ImagingStudySeriesInstanceComponent extends BackboneElement {
+    public static class ImagingStudySeriesInstanceComponent extends BackboneElement {
         /**
          * The number of this image in the series.
          */
@@ -1149,19 +1191,30 @@ public class ImagingStudy extends Resource {
          */
         protected ResourceReference attachment;
 
+      public ImagingStudySeriesInstanceComponent() {
+        super();
+      }
+
+      public ImagingStudySeriesInstanceComponent(Oid uid, Oid sopclass) {
+        super();
+        this.uid = uid;
+        this.sopclass = sopclass;
+      }
+
         public Integer getNumber() { 
           return this.number;
         }
 
-        public void setNumber(Integer value) { 
+        public ImagingStudySeriesInstanceComponent setNumber(Integer value) { 
           this.number = value;
+          return this;
         }
 
         public int getNumberSimple() { 
           return this.number == null ? null : this.number.getValue();
         }
 
-        public void setNumberSimple(int value) { 
+        public ImagingStudySeriesInstanceComponent setNumberSimple(int value) { 
           if (value == -1)
             this.number = null;
           else {
@@ -1169,57 +1222,63 @@ public class ImagingStudy extends Resource {
               this.number = new Integer();
             this.number.setValue(value);
           }
+          return this;
         }
 
         public Oid getUid() { 
           return this.uid;
         }
 
-        public void setUid(Oid value) { 
+        public ImagingStudySeriesInstanceComponent setUid(Oid value) { 
           this.uid = value;
+          return this;
         }
 
         public String getUidSimple() { 
           return this.uid == null ? null : this.uid.getValue();
         }
 
-        public void setUidSimple(String value) { 
+        public ImagingStudySeriesInstanceComponent setUidSimple(String value) { 
             if (this.uid == null)
               this.uid = new Oid();
             this.uid.setValue(value);
+          return this;
         }
 
         public Oid getSopclass() { 
           return this.sopclass;
         }
 
-        public void setSopclass(Oid value) { 
+        public ImagingStudySeriesInstanceComponent setSopclass(Oid value) { 
           this.sopclass = value;
+          return this;
         }
 
         public String getSopclassSimple() { 
           return this.sopclass == null ? null : this.sopclass.getValue();
         }
 
-        public void setSopclassSimple(String value) { 
+        public ImagingStudySeriesInstanceComponent setSopclassSimple(String value) { 
             if (this.sopclass == null)
               this.sopclass = new Oid();
             this.sopclass.setValue(value);
+          return this;
         }
 
         public String_ getType() { 
           return this.type;
         }
 
-        public void setType(String_ value) { 
+        public ImagingStudySeriesInstanceComponent setType(String_ value) { 
           this.type = value;
+          return this;
         }
 
         public String getTypeSimple() { 
           return this.type == null ? null : this.type.getValue();
         }
 
-        public void setTypeSimple(String value) { 
+        public ImagingStudySeriesInstanceComponent setTypeSimple(String value) { 
           if (value == null)
             this.type = null;
           else {
@@ -1227,21 +1286,23 @@ public class ImagingStudy extends Resource {
               this.type = new String_();
             this.type.setValue(value);
           }
+          return this;
         }
 
         public String_ getTitle() { 
           return this.title;
         }
 
-        public void setTitle(String_ value) { 
+        public ImagingStudySeriesInstanceComponent setTitle(String_ value) { 
           this.title = value;
+          return this;
         }
 
         public String getTitleSimple() { 
           return this.title == null ? null : this.title.getValue();
         }
 
-        public void setTitleSimple(String value) { 
+        public ImagingStudySeriesInstanceComponent setTitleSimple(String value) { 
           if (value == null)
             this.title = null;
           else {
@@ -1249,21 +1310,23 @@ public class ImagingStudy extends Resource {
               this.title = new String_();
             this.title.setValue(value);
           }
+          return this;
         }
 
         public Uri getUrl() { 
           return this.url;
         }
 
-        public void setUrl(Uri value) { 
+        public ImagingStudySeriesInstanceComponent setUrl(Uri value) { 
           this.url = value;
+          return this;
         }
 
         public String getUrlSimple() { 
           return this.url == null ? null : this.url.getValue();
         }
 
-        public void setUrlSimple(String value) { 
+        public ImagingStudySeriesInstanceComponent setUrlSimple(String value) { 
           if (value == null)
             this.url = null;
           else {
@@ -1271,18 +1334,31 @@ public class ImagingStudy extends Resource {
               this.url = new Uri();
             this.url.setValue(value);
           }
+          return this;
         }
 
         public ResourceReference getAttachment() { 
           return this.attachment;
         }
 
-        public void setAttachment(ResourceReference value) { 
+        public ImagingStudySeriesInstanceComponent setAttachment(ResourceReference value) { 
           this.attachment = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("number", "integer", "The number of this image in the series.", 0, java.lang.Integer.MAX_VALUE, number));
+          childrenList.add(new Property("uid", "oid", "Formal identifier for this image.", 0, java.lang.Integer.MAX_VALUE, uid));
+          childrenList.add(new Property("sopclass", "oid", "DICOM Image type.", 0, java.lang.Integer.MAX_VALUE, sopclass));
+          childrenList.add(new Property("type", "string", "Type of instance (0004,1430).", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("title", "string", "Description (0070,0080 | 0040,A043 > 0008,0104 | 0042,0010 | 0008,0008).", 0, java.lang.Integer.MAX_VALUE, title));
+          childrenList.add(new Property("url", "uri", "WADO-RS url where image is available.", 0, java.lang.Integer.MAX_VALUE, url));
+          childrenList.add(new Property("attachment", "Resource(Any)", "A FHIR resource with content for this instance.", 0, java.lang.Integer.MAX_VALUE, attachment));
         }
 
       public ImagingStudySeriesInstanceComponent copy(ImagingStudy e) {
-        ImagingStudySeriesInstanceComponent dst = e.new ImagingStudySeriesInstanceComponent();
+        ImagingStudySeriesInstanceComponent dst = new ImagingStudySeriesInstanceComponent();
         dst.number = number == null ? null : number.copy();
         dst.uid = uid == null ? null : uid.copy();
         dst.sopclass = sopclass == null ? null : sopclass.copy();
@@ -1380,19 +1456,32 @@ public class ImagingStudy extends Resource {
      */
     protected List<ImagingStudySeriesComponent> series = new ArrayList<ImagingStudySeriesComponent>();
 
+    public ImagingStudy() {
+      super();
+    }
+
+    public ImagingStudy(ResourceReference subject, Oid uid, Integer numberOfSeries, Integer numberOfInstances) {
+      super();
+      this.subject = subject;
+      this.uid = uid;
+      this.numberOfSeries = numberOfSeries;
+      this.numberOfInstances = numberOfInstances;
+    }
+
     public DateTime getDateTime() { 
       return this.dateTime;
     }
 
-    public void setDateTime(DateTime value) { 
+    public ImagingStudy setDateTime(DateTime value) { 
       this.dateTime = value;
+      return this;
     }
 
     public String getDateTimeSimple() { 
       return this.dateTime == null ? null : this.dateTime.getValue();
     }
 
-    public void setDateTimeSimple(String value) { 
+    public ImagingStudy setDateTimeSimple(String value) { 
       if (value == null)
         this.dateTime = null;
       else {
@@ -1400,40 +1489,45 @@ public class ImagingStudy extends Resource {
           this.dateTime = new DateTime();
         this.dateTime.setValue(value);
       }
+      return this;
     }
 
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
-    public void setSubject(ResourceReference value) { 
+    public ImagingStudy setSubject(ResourceReference value) { 
       this.subject = value;
+      return this;
     }
 
     public Oid getUid() { 
       return this.uid;
     }
 
-    public void setUid(Oid value) { 
+    public ImagingStudy setUid(Oid value) { 
       this.uid = value;
+      return this;
     }
 
     public String getUidSimple() { 
       return this.uid == null ? null : this.uid.getValue();
     }
 
-    public void setUidSimple(String value) { 
+    public ImagingStudy setUidSimple(String value) { 
         if (this.uid == null)
           this.uid = new Oid();
         this.uid.setValue(value);
+      return this;
     }
 
     public Identifier getAccessionNo() { 
       return this.accessionNo;
     }
 
-    public void setAccessionNo(Identifier value) { 
+    public ImagingStudy setAccessionNo(Identifier value) { 
       this.accessionNo = value;
+      return this;
     }
 
     public List<Identifier> getIdentifier() { 
@@ -1480,23 +1574,25 @@ public class ImagingStudy extends Resource {
       return this.referrer;
     }
 
-    public void setReferrer(ResourceReference value) { 
+    public ImagingStudy setReferrer(ResourceReference value) { 
       this.referrer = value;
+      return this;
     }
 
     public Enumeration<InstanceAvailability> getAvailability() { 
       return this.availability;
     }
 
-    public void setAvailability(Enumeration<InstanceAvailability> value) { 
+    public ImagingStudy setAvailability(Enumeration<InstanceAvailability> value) { 
       this.availability = value;
+      return this;
     }
 
     public InstanceAvailability getAvailabilitySimple() { 
       return this.availability == null ? null : this.availability.getValue();
     }
 
-    public void setAvailabilitySimple(InstanceAvailability value) { 
+    public ImagingStudy setAvailabilitySimple(InstanceAvailability value) { 
       if (value == null)
         this.availability = null;
       else {
@@ -1504,21 +1600,23 @@ public class ImagingStudy extends Resource {
           this.availability = new Enumeration<InstanceAvailability>();
         this.availability.setValue(value);
       }
+      return this;
     }
 
     public Uri getUrl() { 
       return this.url;
     }
 
-    public void setUrl(Uri value) { 
+    public ImagingStudy setUrl(Uri value) { 
       this.url = value;
+      return this;
     }
 
     public String getUrlSimple() { 
       return this.url == null ? null : this.url.getValue();
     }
 
-    public void setUrlSimple(String value) { 
+    public ImagingStudy setUrlSimple(String value) { 
       if (value == null)
         this.url = null;
       else {
@@ -1526,57 +1624,63 @@ public class ImagingStudy extends Resource {
           this.url = new Uri();
         this.url.setValue(value);
       }
+      return this;
     }
 
     public Integer getNumberOfSeries() { 
       return this.numberOfSeries;
     }
 
-    public void setNumberOfSeries(Integer value) { 
+    public ImagingStudy setNumberOfSeries(Integer value) { 
       this.numberOfSeries = value;
+      return this;
     }
 
     public int getNumberOfSeriesSimple() { 
       return this.numberOfSeries == null ? null : this.numberOfSeries.getValue();
     }
 
-    public void setNumberOfSeriesSimple(int value) { 
+    public ImagingStudy setNumberOfSeriesSimple(int value) { 
         if (this.numberOfSeries == null)
           this.numberOfSeries = new Integer();
         this.numberOfSeries.setValue(value);
+      return this;
     }
 
     public Integer getNumberOfInstances() { 
       return this.numberOfInstances;
     }
 
-    public void setNumberOfInstances(Integer value) { 
+    public ImagingStudy setNumberOfInstances(Integer value) { 
       this.numberOfInstances = value;
+      return this;
     }
 
     public int getNumberOfInstancesSimple() { 
       return this.numberOfInstances == null ? null : this.numberOfInstances.getValue();
     }
 
-    public void setNumberOfInstancesSimple(int value) { 
+    public ImagingStudy setNumberOfInstancesSimple(int value) { 
         if (this.numberOfInstances == null)
           this.numberOfInstances = new Integer();
         this.numberOfInstances.setValue(value);
+      return this;
     }
 
     public String_ getClinicalInformation() { 
       return this.clinicalInformation;
     }
 
-    public void setClinicalInformation(String_ value) { 
+    public ImagingStudy setClinicalInformation(String_ value) { 
       this.clinicalInformation = value;
+      return this;
     }
 
     public String getClinicalInformationSimple() { 
       return this.clinicalInformation == null ? null : this.clinicalInformation.getValue();
     }
 
-    public void setClinicalInformationSimple(String value) { 
+    public ImagingStudy setClinicalInformationSimple(String value) { 
       if (value == null)
         this.clinicalInformation = null;
       else {
@@ -1584,6 +1688,7 @@ public class ImagingStudy extends Resource {
           this.clinicalInformation = new String_();
         this.clinicalInformation.setValue(value);
       }
+      return this;
     }
 
     public List<Coding> getProcedure() { 
@@ -1601,23 +1706,25 @@ public class ImagingStudy extends Resource {
       return this.interpreter;
     }
 
-    public void setInterpreter(ResourceReference value) { 
+    public ImagingStudy setInterpreter(ResourceReference value) { 
       this.interpreter = value;
+      return this;
     }
 
     public String_ getDescription() { 
       return this.description;
     }
 
-    public void setDescription(String_ value) { 
+    public ImagingStudy setDescription(String_ value) { 
       this.description = value;
+      return this;
     }
 
     public String getDescriptionSimple() { 
       return this.description == null ? null : this.description.getValue();
     }
 
-    public void setDescriptionSimple(String value) { 
+    public ImagingStudy setDescriptionSimple(String value) { 
       if (value == null)
         this.description = null;
       else {
@@ -1625,6 +1732,7 @@ public class ImagingStudy extends Resource {
           this.description = new String_();
         this.description.setValue(value);
       }
+      return this;
     }
 
     public List<ImagingStudySeriesComponent> getSeries() { 
@@ -1637,6 +1745,27 @@ public class ImagingStudy extends Resource {
       this.series.add(t);
       return t;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("dateTime", "dateTime", "Date and Time the study took place.", 0, java.lang.Integer.MAX_VALUE, dateTime));
+        childrenList.add(new Property("subject", "Resource(Patient)", "Who the images are of.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("uid", "oid", "Formal identifier for the study.", 0, java.lang.Integer.MAX_VALUE, uid));
+        childrenList.add(new Property("accessionNo", "Identifier", "Accession Number.", 0, java.lang.Integer.MAX_VALUE, accessionNo));
+        childrenList.add(new Property("identifier", "Identifier", "Other identifiers for the study.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("order", "Resource(DiagnosticOrder)", "A list of the diagnostic orders that resulted in this imaging study being performed.", 0, java.lang.Integer.MAX_VALUE, order));
+        childrenList.add(new Property("modality", "code", "A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).", 0, java.lang.Integer.MAX_VALUE, modality));
+        childrenList.add(new Property("referrer", "Resource(Practitioner)", "The requesting/referring physician.", 0, java.lang.Integer.MAX_VALUE, referrer));
+        childrenList.add(new Property("availability", "code", "Availability of study (online, offline or nearlnie).", 0, java.lang.Integer.MAX_VALUE, availability));
+        childrenList.add(new Property("url", "uri", "WADO-RS URI where Study is available.", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("numberOfSeries", "integer", "Number of Series in Study.", 0, java.lang.Integer.MAX_VALUE, numberOfSeries));
+        childrenList.add(new Property("numberOfInstances", "integer", "Number of SOP Instances in Study.", 0, java.lang.Integer.MAX_VALUE, numberOfInstances));
+        childrenList.add(new Property("clinicalInformation", "string", "Diagnoses etc provided with request.", 0, java.lang.Integer.MAX_VALUE, clinicalInformation));
+        childrenList.add(new Property("procedure", "Coding", "Type of procedure performed.", 0, java.lang.Integer.MAX_VALUE, procedure));
+        childrenList.add(new Property("interpreter", "Resource(Practitioner)", "Who read study and interpreted the images.", 0, java.lang.Integer.MAX_VALUE, interpreter));
+        childrenList.add(new Property("description", "string", "Institution-generated description or classification of the Study (component) performed.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("series", "", "Each study has one or more series of image instances.", 0, java.lang.Integer.MAX_VALUE, series));
+      }
 
       public ImagingStudy copy() {
         ImagingStudy dst = new ImagingStudy();

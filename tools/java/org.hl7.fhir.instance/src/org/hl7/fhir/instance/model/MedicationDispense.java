@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -72,7 +72,7 @@ public class MedicationDispense extends Resource {
         }
     }
 
-  public class MedicationDispenseStatusEnumFactory implements EnumFactory {
+  public static class MedicationDispenseStatusEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -104,7 +104,7 @@ public class MedicationDispense extends Resource {
       }
     }
 
-    public class MedicationDispenseDispenseComponent extends BackboneElement {
+    public static class MedicationDispenseDispenseComponent extends BackboneElement {
         /**
          * Identifier assigned by the dispensing facility.   This is an identifier assigned outside FHIR.
          */
@@ -155,27 +155,33 @@ public class MedicationDispense extends Resource {
          */
         protected List<MedicationDispenseDispenseDosageComponent> dosage = new ArrayList<MedicationDispenseDispenseDosageComponent>();
 
+      public MedicationDispenseDispenseComponent() {
+        super();
+      }
+
         public Identifier getIdentifier() { 
           return this.identifier;
         }
 
-        public void setIdentifier(Identifier value) { 
+        public MedicationDispenseDispenseComponent setIdentifier(Identifier value) { 
           this.identifier = value;
+          return this;
         }
 
         public Enumeration<MedicationDispenseStatus> getStatus() { 
           return this.status;
         }
 
-        public void setStatus(Enumeration<MedicationDispenseStatus> value) { 
+        public MedicationDispenseDispenseComponent setStatus(Enumeration<MedicationDispenseStatus> value) { 
           this.status = value;
+          return this;
         }
 
         public MedicationDispenseStatus getStatusSimple() { 
           return this.status == null ? null : this.status.getValue();
         }
 
-        public void setStatusSimple(MedicationDispenseStatus value) { 
+        public MedicationDispenseDispenseComponent setStatusSimple(MedicationDispenseStatus value) { 
           if (value == null)
             this.status = null;
           else {
@@ -183,54 +189,61 @@ public class MedicationDispense extends Resource {
               this.status = new Enumeration<MedicationDispenseStatus>();
             this.status.setValue(value);
           }
+          return this;
         }
 
         public CodeableConcept getType() { 
           return this.type;
         }
 
-        public void setType(CodeableConcept value) { 
+        public MedicationDispenseDispenseComponent setType(CodeableConcept value) { 
           this.type = value;
+          return this;
         }
 
         public Quantity getQuantity() { 
           return this.quantity;
         }
 
-        public void setQuantity(Quantity value) { 
+        public MedicationDispenseDispenseComponent setQuantity(Quantity value) { 
           this.quantity = value;
+          return this;
         }
 
         public ResourceReference getMedication() { 
           return this.medication;
         }
 
-        public void setMedication(ResourceReference value) { 
+        public MedicationDispenseDispenseComponent setMedication(ResourceReference value) { 
           this.medication = value;
+          return this;
         }
 
         public Period getWhenPrepared() { 
           return this.whenPrepared;
         }
 
-        public void setWhenPrepared(Period value) { 
+        public MedicationDispenseDispenseComponent setWhenPrepared(Period value) { 
           this.whenPrepared = value;
+          return this;
         }
 
         public Period getWhenHandedOver() { 
           return this.whenHandedOver;
         }
 
-        public void setWhenHandedOver(Period value) { 
+        public MedicationDispenseDispenseComponent setWhenHandedOver(Period value) { 
           this.whenHandedOver = value;
+          return this;
         }
 
         public ResourceReference getDestination() { 
           return this.destination;
         }
 
-        public void setDestination(ResourceReference value) { 
+        public MedicationDispenseDispenseComponent setDestination(ResourceReference value) { 
           this.destination = value;
+          return this;
         }
 
         public List<ResourceReference> getReceiver() { 
@@ -255,8 +268,22 @@ public class MedicationDispense extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("identifier", "Identifier", "Identifier assigned by the dispensing facility.   This is an identifier assigned outside FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));
+          childrenList.add(new Property("status", "code", "A code specifying the state of the dispense event.", 0, java.lang.Integer.MAX_VALUE, status));
+          childrenList.add(new Property("type", "CodeableConcept", "Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("quantity", "Quantity", "The amount of medication that has been dispensed. Includes unit of measure.", 0, java.lang.Integer.MAX_VALUE, quantity));
+          childrenList.add(new Property("medication", "Resource(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
+          childrenList.add(new Property("whenPrepared", "Period", "The time the dispense event occurred.", 0, java.lang.Integer.MAX_VALUE, whenPrepared));
+          childrenList.add(new Property("whenHandedOver", "Period", "The time the dispense event occurred.", 0, java.lang.Integer.MAX_VALUE, whenHandedOver));
+          childrenList.add(new Property("destination", "Resource(Location)", "Identification of the facility/location where the medication was shipped to, as part of the dispense event.", 0, java.lang.Integer.MAX_VALUE, destination));
+          childrenList.add(new Property("receiver", "Resource(Practitioner)", "Identifies the person who picked up the medication.", 0, java.lang.Integer.MAX_VALUE, receiver));
+          childrenList.add(new Property("dosage", "", "Indicates how the medication is to be used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosage));
+        }
+
       public MedicationDispenseDispenseComponent copy(MedicationDispense e) {
-        MedicationDispenseDispenseComponent dst = e.new MedicationDispenseDispenseComponent();
+        MedicationDispenseDispenseComponent dst = new MedicationDispenseDispenseComponent();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.status = status == null ? null : status.copy();
         dst.type = type == null ? null : type.copy();
@@ -276,7 +303,7 @@ public class MedicationDispense extends Resource {
 
   }
 
-    public class MedicationDispenseDispenseDosageComponent extends BackboneElement {
+    public static class MedicationDispenseDispenseDosageComponent extends BackboneElement {
         /**
          * Additional instructions such as "Swallow with plenty of water" which may or may not be coded.
          */
@@ -319,72 +346,96 @@ Terminologies used often pre-coordinate this term with the route and or form of 
          */
         protected Ratio maxDosePerPeriod;
 
+      public MedicationDispenseDispenseDosageComponent() {
+        super();
+      }
+
         public CodeableConcept getAdditionalInstructions() { 
           return this.additionalInstructions;
         }
 
-        public void setAdditionalInstructions(CodeableConcept value) { 
+        public MedicationDispenseDispenseDosageComponent setAdditionalInstructions(CodeableConcept value) { 
           this.additionalInstructions = value;
+          return this;
         }
 
         public Type getTiming() { 
           return this.timing;
         }
 
-        public void setTiming(Type value) { 
+        public MedicationDispenseDispenseDosageComponent setTiming(Type value) { 
           this.timing = value;
+          return this;
         }
 
         public CodeableConcept getSite() { 
           return this.site;
         }
 
-        public void setSite(CodeableConcept value) { 
+        public MedicationDispenseDispenseDosageComponent setSite(CodeableConcept value) { 
           this.site = value;
+          return this;
         }
 
         public CodeableConcept getRoute() { 
           return this.route;
         }
 
-        public void setRoute(CodeableConcept value) { 
+        public MedicationDispenseDispenseDosageComponent setRoute(CodeableConcept value) { 
           this.route = value;
+          return this;
         }
 
         public CodeableConcept getMethod() { 
           return this.method;
         }
 
-        public void setMethod(CodeableConcept value) { 
+        public MedicationDispenseDispenseDosageComponent setMethod(CodeableConcept value) { 
           this.method = value;
+          return this;
         }
 
         public Quantity getQuantity() { 
           return this.quantity;
         }
 
-        public void setQuantity(Quantity value) { 
+        public MedicationDispenseDispenseDosageComponent setQuantity(Quantity value) { 
           this.quantity = value;
+          return this;
         }
 
         public Ratio getRate() { 
           return this.rate;
         }
 
-        public void setRate(Ratio value) { 
+        public MedicationDispenseDispenseDosageComponent setRate(Ratio value) { 
           this.rate = value;
+          return this;
         }
 
         public Ratio getMaxDosePerPeriod() { 
           return this.maxDosePerPeriod;
         }
 
-        public void setMaxDosePerPeriod(Ratio value) { 
+        public MedicationDispenseDispenseDosageComponent setMaxDosePerPeriod(Ratio value) { 
           this.maxDosePerPeriod = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("additionalInstructions", "CodeableConcept", "Additional instructions such as 'Swallow with plenty of water' which may or may not be coded.", 0, java.lang.Integer.MAX_VALUE, additionalInstructions));
+          childrenList.add(new Property("timing[x]", "dateTime|Period|Schedule", "The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  'Every  8 hours'; 'Three times a day'; '1/2 an hour before breakfast for 10 days from 23-Dec 2011:';  '15 Oct 2013, 17 Oct 2013 and 1 Nov 2013'.", 0, java.lang.Integer.MAX_VALUE, timing));
+          childrenList.add(new Property("site", "CodeableConcept", "A coded specification of the anatomic site where the medication first enters the body.", 0, java.lang.Integer.MAX_VALUE, site));
+          childrenList.add(new Property("route", "CodeableConcept", "A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.", 0, java.lang.Integer.MAX_VALUE, route));
+          childrenList.add(new Property("method", "CodeableConcept", "A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.\n\nTerminologies used often pre-coordinate this term with the route and or form of administration.", 0, java.lang.Integer.MAX_VALUE, method));
+          childrenList.add(new Property("quantity", "Quantity", "The amount of the therapeutic or other substance given at one administration event.", 0, java.lang.Integer.MAX_VALUE, quantity));
+          childrenList.add(new Property("rate", "Ratio", "Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.", 0, java.lang.Integer.MAX_VALUE, rate));
+          childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
         }
 
       public MedicationDispenseDispenseDosageComponent copy(MedicationDispense e) {
-        MedicationDispenseDispenseDosageComponent dst = e.new MedicationDispenseDispenseDosageComponent();
+        MedicationDispenseDispenseDosageComponent dst = new MedicationDispenseDispenseDosageComponent();
         dst.additionalInstructions = additionalInstructions == null ? null : additionalInstructions.copy();
         dst.timing = timing == null ? null : timing.copy();
         dst.site = site == null ? null : site.copy();
@@ -398,7 +449,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
   }
 
-    public class MedicationDispenseSubstitutionComponent extends BackboneElement {
+    public static class MedicationDispenseSubstitutionComponent extends BackboneElement {
         /**
          * A code signifying whether a different drug was dispensed from what was prescribed.
          */
@@ -414,12 +465,22 @@ Terminologies used often pre-coordinate this term with the route and or form of 
          */
         protected List<ResourceReference> responsibleParty = new ArrayList<ResourceReference>();
 
+      public MedicationDispenseSubstitutionComponent() {
+        super();
+      }
+
+      public MedicationDispenseSubstitutionComponent(CodeableConcept type) {
+        super();
+        this.type = type;
+      }
+
         public CodeableConcept getType() { 
           return this.type;
         }
 
-        public void setType(CodeableConcept value) { 
+        public MedicationDispenseSubstitutionComponent setType(CodeableConcept value) { 
           this.type = value;
+          return this;
         }
 
         public List<CodeableConcept> getReason() { 
@@ -444,8 +505,15 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("type", "CodeableConcept", "A code signifying whether a different drug was dispensed from what was prescribed.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("reason", "CodeableConcept", "Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.", 0, java.lang.Integer.MAX_VALUE, reason));
+          childrenList.add(new Property("responsibleParty", "Resource(Practitioner)", "The person or organization that has primary responsibility for the substitution.", 0, java.lang.Integer.MAX_VALUE, responsibleParty));
+        }
+
       public MedicationDispenseSubstitutionComponent copy(MedicationDispense e) {
-        MedicationDispenseSubstitutionComponent dst = e.new MedicationDispenseSubstitutionComponent();
+        MedicationDispenseSubstitutionComponent dst = new MedicationDispenseSubstitutionComponent();
         dst.type = type == null ? null : type.copy();
         dst.reason = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : reason)
@@ -493,27 +561,33 @@ Terminologies used often pre-coordinate this term with the route and or form of 
      */
     protected MedicationDispenseSubstitutionComponent substitution;
 
+    public MedicationDispense() {
+      super();
+    }
+
     public Identifier getIdentifier() { 
       return this.identifier;
     }
 
-    public void setIdentifier(Identifier value) { 
+    public MedicationDispense setIdentifier(Identifier value) { 
       this.identifier = value;
+      return this;
     }
 
     public Enumeration<MedicationDispenseStatus> getStatus() { 
       return this.status;
     }
 
-    public void setStatus(Enumeration<MedicationDispenseStatus> value) { 
+    public MedicationDispense setStatus(Enumeration<MedicationDispenseStatus> value) { 
       this.status = value;
+      return this;
     }
 
     public MedicationDispenseStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
-    public void setStatusSimple(MedicationDispenseStatus value) { 
+    public MedicationDispense setStatusSimple(MedicationDispenseStatus value) { 
       if (value == null)
         this.status = null;
       else {
@@ -521,22 +595,25 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           this.status = new Enumeration<MedicationDispenseStatus>();
         this.status.setValue(value);
       }
+      return this;
     }
 
     public ResourceReference getPatient() { 
       return this.patient;
     }
 
-    public void setPatient(ResourceReference value) { 
+    public MedicationDispense setPatient(ResourceReference value) { 
       this.patient = value;
+      return this;
     }
 
     public ResourceReference getDispenser() { 
       return this.dispenser;
     }
 
-    public void setDispenser(ResourceReference value) { 
+    public MedicationDispense setDispenser(ResourceReference value) { 
       this.dispenser = value;
+      return this;
     }
 
     public List<ResourceReference> getAuthorizingPrescription() { 
@@ -565,9 +642,21 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       return this.substitution;
     }
 
-    public void setSubstitution(MedicationDispenseSubstitutionComponent value) { 
+    public MedicationDispense setSubstitution(MedicationDispenseSubstitutionComponent value) { 
       this.substitution = value;
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("status", "code", "A code specifying the state of the set of dispense events.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("patient", "Resource(Patient)", "A link to a resource representing the person to whom the medication will be given.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("dispenser", "Resource(Practitioner)", "The individual reponsible for dispensing the medication.", 0, java.lang.Integer.MAX_VALUE, dispenser));
+        childrenList.add(new Property("authorizingPrescription", "Resource(MedicationPrescription)", "Indicates the medication order that is being dispensed against.", 0, java.lang.Integer.MAX_VALUE, authorizingPrescription));
+        childrenList.add(new Property("dispense", "", "Indicates the details of the dispense event such as the days supply and quantity of medication dispensed.", 0, java.lang.Integer.MAX_VALUE, dispense));
+        childrenList.add(new Property("substitution", "", "Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but doesn't happen, in other cases substitution is not expected but does happen.  This block explains what substitition did or did not happen and why.", 0, java.lang.Integer.MAX_VALUE, substitution));
+      }
 
       public MedicationDispense copy() {
         MedicationDispense dst = new MedicationDispense();

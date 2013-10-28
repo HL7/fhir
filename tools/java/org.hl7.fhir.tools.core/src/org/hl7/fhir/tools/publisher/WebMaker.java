@@ -152,9 +152,9 @@ public class WebMaker {
     for (String v : past)
       zip.addFiles(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"v"+v+File.separator, "v"+v+File.separator, null, null);
     for (String n : folderList) 
-      zip.addFolder(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+n+File.separator, n+File.separator);
-    zip.addFolder(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"v2"+File.separator, "v2"+File.separator); 
-    zip.addFolder(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"v3"+File.separator, "v3"+File.separator); 
+      zip.addFolder(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+n+File.separator, n+File.separator, false);
+    zip.addFolder(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"v2"+File.separator, "v2"+File.separator, false); 
+    zip.addFolder(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"v3"+File.separator, "v3"+File.separator, false); 
     ZipGenerator zipd = new ZipGenerator(fd.getAbsolutePath());
     zipd.addFiles(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"dload"+File.separator, "", null, null);
     zipd.close();    
@@ -278,7 +278,7 @@ public class WebMaker {
   }
 
   public void addPage(String filename) throws Exception {
-    zip.addFileName(filename, folders.dstDir+filename);
+    zip.addFileName(filename, folders.dstDir+filename, false);
     zip.close();  
     
   }

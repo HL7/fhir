@@ -764,6 +764,9 @@ public class ElementDefn {
     return false;
   }
 
+  public boolean isMandatory() {
+    return (minCardinality != null && maxCardinality != null && minCardinality == 1 && maxCardinality == 1);    
+  }
 	
 	
 }

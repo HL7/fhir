@@ -552,8 +552,8 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 
 	private void writeCardinality(ElementDefn elem) throws IOException {
 		if (elem.getStatedInvariants().size() > 0)
-			write(" <span style=\"color: deeppink\" title=\""
-					+ Utilities.escapeXml(getInvariants(elem)) + "\"><b>"
+			write(" <span style=\"color: brown\" title=\""
+					+ Utilities.escapeXml(getInvariants(elem)) + "\"><b><img alt=\"??\" src=\"lock.png\"/> "
 					+ elem.describeCardinality() + "</b></span>");
 		else
 			write(" <span style=\"color: brown\"><b>"

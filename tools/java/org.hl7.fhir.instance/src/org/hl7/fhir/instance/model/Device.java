@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -69,7 +69,7 @@ public class Device extends Resource {
     protected Date expiry;
 
     /**
-     * FDA Mandated Unique Device Identifier - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.
+     * FDA Mandated Unique Device Identifier. Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.
      */
     protected String_ udi;
 
@@ -103,6 +103,15 @@ public class Device extends Resource {
      */
     protected Uri url;
 
+    public Device() {
+      super();
+    }
+
+    public Device(CodeableConcept type) {
+      super();
+      this.type = type;
+    }
+
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
@@ -118,23 +127,25 @@ public class Device extends Resource {
       return this.type;
     }
 
-    public void setType(CodeableConcept value) { 
+    public Device setType(CodeableConcept value) { 
       this.type = value;
+      return this;
     }
 
     public String_ getManufacturer() { 
       return this.manufacturer;
     }
 
-    public void setManufacturer(String_ value) { 
+    public Device setManufacturer(String_ value) { 
       this.manufacturer = value;
+      return this;
     }
 
     public String getManufacturerSimple() { 
       return this.manufacturer == null ? null : this.manufacturer.getValue();
     }
 
-    public void setManufacturerSimple(String value) { 
+    public Device setManufacturerSimple(String value) { 
       if (value == null)
         this.manufacturer = null;
       else {
@@ -142,21 +153,23 @@ public class Device extends Resource {
           this.manufacturer = new String_();
         this.manufacturer.setValue(value);
       }
+      return this;
     }
 
     public String_ getModel() { 
       return this.model;
     }
 
-    public void setModel(String_ value) { 
+    public Device setModel(String_ value) { 
       this.model = value;
+      return this;
     }
 
     public String getModelSimple() { 
       return this.model == null ? null : this.model.getValue();
     }
 
-    public void setModelSimple(String value) { 
+    public Device setModelSimple(String value) { 
       if (value == null)
         this.model = null;
       else {
@@ -164,21 +177,23 @@ public class Device extends Resource {
           this.model = new String_();
         this.model.setValue(value);
       }
+      return this;
     }
 
     public String_ getVersion() { 
       return this.version;
     }
 
-    public void setVersion(String_ value) { 
+    public Device setVersion(String_ value) { 
       this.version = value;
+      return this;
     }
 
     public String getVersionSimple() { 
       return this.version == null ? null : this.version.getValue();
     }
 
-    public void setVersionSimple(String value) { 
+    public Device setVersionSimple(String value) { 
       if (value == null)
         this.version = null;
       else {
@@ -186,21 +201,23 @@ public class Device extends Resource {
           this.version = new String_();
         this.version.setValue(value);
       }
+      return this;
     }
 
     public Date getExpiry() { 
       return this.expiry;
     }
 
-    public void setExpiry(Date value) { 
+    public Device setExpiry(Date value) { 
       this.expiry = value;
+      return this;
     }
 
     public String getExpirySimple() { 
       return this.expiry == null ? null : this.expiry.getValue();
     }
 
-    public void setExpirySimple(String value) { 
+    public Device setExpirySimple(String value) { 
       if (value == null)
         this.expiry = null;
       else {
@@ -208,21 +225,23 @@ public class Device extends Resource {
           this.expiry = new Date();
         this.expiry.setValue(value);
       }
+      return this;
     }
 
     public String_ getUdi() { 
       return this.udi;
     }
 
-    public void setUdi(String_ value) { 
+    public Device setUdi(String_ value) { 
       this.udi = value;
+      return this;
     }
 
     public String getUdiSimple() { 
       return this.udi == null ? null : this.udi.getValue();
     }
 
-    public void setUdiSimple(String value) { 
+    public Device setUdiSimple(String value) { 
       if (value == null)
         this.udi = null;
       else {
@@ -230,21 +249,23 @@ public class Device extends Resource {
           this.udi = new String_();
         this.udi.setValue(value);
       }
+      return this;
     }
 
     public String_ getLotNumber() { 
       return this.lotNumber;
     }
 
-    public void setLotNumber(String_ value) { 
+    public Device setLotNumber(String_ value) { 
       this.lotNumber = value;
+      return this;
     }
 
     public String getLotNumberSimple() { 
       return this.lotNumber == null ? null : this.lotNumber.getValue();
     }
 
-    public void setLotNumberSimple(String value) { 
+    public Device setLotNumberSimple(String value) { 
       if (value == null)
         this.lotNumber = null;
       else {
@@ -252,30 +273,34 @@ public class Device extends Resource {
           this.lotNumber = new String_();
         this.lotNumber.setValue(value);
       }
+      return this;
     }
 
     public ResourceReference getOwner() { 
       return this.owner;
     }
 
-    public void setOwner(ResourceReference value) { 
+    public Device setOwner(ResourceReference value) { 
       this.owner = value;
+      return this;
     }
 
     public ResourceReference getLocation() { 
       return this.location;
     }
 
-    public void setLocation(ResourceReference value) { 
+    public Device setLocation(ResourceReference value) { 
       this.location = value;
+      return this;
     }
 
     public ResourceReference getPatient() { 
       return this.patient;
     }
 
-    public void setPatient(ResourceReference value) { 
+    public Device setPatient(ResourceReference value) { 
       this.patient = value;
+      return this;
     }
 
     public List<Contact> getContact() { 
@@ -293,15 +318,16 @@ public class Device extends Resource {
       return this.url;
     }
 
-    public void setUrl(Uri value) { 
+    public Device setUrl(Uri value) { 
       this.url = value;
+      return this;
     }
 
     public String getUrlSimple() { 
       return this.url == null ? null : this.url.getValue();
     }
 
-    public void setUrlSimple(String value) { 
+    public Device setUrlSimple(String value) { 
       if (value == null)
         this.url = null;
       else {
@@ -309,7 +335,25 @@ public class Device extends Resource {
           this.url = new Uri();
         this.url.setValue(value);
       }
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this device by various organizations. The most likely organizations to assign identifiers are the manufacturer and the owner, though regulatory agencies may also assign an identifier. The identifiers identify the particular device, not the kind of device.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("type", "CodeableConcept", "Describes what kind of device that this.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("manufacturer", "string", "The name of the manufacturer.", 0, java.lang.Integer.MAX_VALUE, manufacturer));
+        childrenList.add(new Property("model", "string", "The 'model' - an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.", 0, java.lang.Integer.MAX_VALUE, model));
+        childrenList.add(new Property("version", "string", "The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware.", 0, java.lang.Integer.MAX_VALUE, version));
+        childrenList.add(new Property("expiry", "date", "Date of expiry of this device (if applicable).", 0, java.lang.Integer.MAX_VALUE, expiry));
+        childrenList.add(new Property("udi", "string", "FDA Mandated Unique Device Identifier. Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.", 0, java.lang.Integer.MAX_VALUE, udi));
+        childrenList.add(new Property("lotNumber", "string", "Lot number of manufacture.", 0, java.lang.Integer.MAX_VALUE, lotNumber));
+        childrenList.add(new Property("owner", "Resource(Organization)", "The organization that is responsible for the provision and ongoing maintenance of the device.", 0, java.lang.Integer.MAX_VALUE, owner));
+        childrenList.add(new Property("location", "Resource(Location)", "The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. 'in/with the patient'), or a coded location.", 0, java.lang.Integer.MAX_VALUE, location));
+        childrenList.add(new Property("patient", "Resource(Patient)", "If the resource is affixed to a person.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("contact", "Contact", "Contact details for an organization or a particular human that is responsible for the device.", 0, java.lang.Integer.MAX_VALUE, contact));
+        childrenList.add(new Property("url", "uri", "A network address on which the device may be contacted directly.", 0, java.lang.Integer.MAX_VALUE, url));
+      }
 
       public Device copy() {
         Device dst = new Device();

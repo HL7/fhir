@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -327,8 +327,8 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeElement(element);
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new Narrative().new NarrativeStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new Narrative().new NarrativeStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new Narrative.NarrativeStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new Narrative.NarrativeStatusEnumFactory(), false);
       }
       composeXhtml("div", element.getDiv());
       close();
@@ -383,8 +383,8 @@ public class JsonComposer extends JsonComposerBase {
       composeDecimalCore("value", element.getValue(), false);
       composeDecimalExtras("value", element.getValue(), false);
       if (element.getComparator() != null) {
-        composeEnumerationCore("comparator", element.getComparator(), new Quantity().new QuantityComparatorEnumFactory(), false);
-        composeEnumerationExtras("comparator", element.getComparator(), new Quantity().new QuantityComparatorEnumFactory(), false);
+        composeEnumerationCore("comparator", element.getComparator(), new Quantity.QuantityComparatorEnumFactory(), false);
+        composeEnumerationExtras("comparator", element.getComparator(), new Quantity.QuantityComparatorEnumFactory(), false);
       }
       composeStringCore("units", element.getUnits(), false);
       composeStringExtras("units", element.getUnits(), false);
@@ -482,8 +482,8 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeElement(element);
       if (element.getUse() != null) {
-        composeEnumerationCore("use", element.getUse(), new Identifier().new IdentifierUseEnumFactory(), false);
-        composeEnumerationExtras("use", element.getUse(), new Identifier().new IdentifierUseEnumFactory(), false);
+        composeEnumerationCore("use", element.getUse(), new Identifier.IdentifierUseEnumFactory(), false);
+        composeEnumerationExtras("use", element.getUse(), new Identifier.IdentifierUseEnumFactory(), false);
       }
       composeStringCore("label", element.getLabel(), false);
       composeStringExtras("label", element.getLabel(), false);
@@ -504,8 +504,8 @@ public class JsonComposer extends JsonComposerBase {
       composeDecimalCore("value", element.getValue(), false);
       composeDecimalExtras("value", element.getValue(), false);
       if (element.getComparator() != null) {
-        composeEnumerationCore("comparator", element.getComparator(), new Age().new QuantityComparatorEnumFactory(), false);
-        composeEnumerationExtras("comparator", element.getComparator(), new Age().new QuantityComparatorEnumFactory(), false);
+        composeEnumerationCore("comparator", element.getComparator(), new Age.QuantityComparatorEnumFactory(), false);
+        composeEnumerationExtras("comparator", element.getComparator(), new Age.QuantityComparatorEnumFactory(), false);
       }
       composeStringCore("units", element.getUnits(), false);
       composeStringExtras("units", element.getUnits(), false);
@@ -524,8 +524,8 @@ public class JsonComposer extends JsonComposerBase {
       composeDecimalCore("value", element.getValue(), false);
       composeDecimalExtras("value", element.getValue(), false);
       if (element.getComparator() != null) {
-        composeEnumerationCore("comparator", element.getComparator(), new Count().new QuantityComparatorEnumFactory(), false);
-        composeEnumerationExtras("comparator", element.getComparator(), new Count().new QuantityComparatorEnumFactory(), false);
+        composeEnumerationCore("comparator", element.getComparator(), new Count.QuantityComparatorEnumFactory(), false);
+        composeEnumerationExtras("comparator", element.getComparator(), new Count.QuantityComparatorEnumFactory(), false);
       }
       composeStringCore("units", element.getUnits(), false);
       composeStringExtras("units", element.getUnits(), false);
@@ -544,8 +544,8 @@ public class JsonComposer extends JsonComposerBase {
       composeDecimalCore("value", element.getValue(), false);
       composeDecimalExtras("value", element.getValue(), false);
       if (element.getComparator() != null) {
-        composeEnumerationCore("comparator", element.getComparator(), new Money().new QuantityComparatorEnumFactory(), false);
-        composeEnumerationExtras("comparator", element.getComparator(), new Money().new QuantityComparatorEnumFactory(), false);
+        composeEnumerationCore("comparator", element.getComparator(), new Money.QuantityComparatorEnumFactory(), false);
+        composeEnumerationExtras("comparator", element.getComparator(), new Money.QuantityComparatorEnumFactory(), false);
       }
       composeStringCore("units", element.getUnits(), false);
       composeStringExtras("units", element.getUnits(), false);
@@ -564,8 +564,8 @@ public class JsonComposer extends JsonComposerBase {
       composeDecimalCore("value", element.getValue(), false);
       composeDecimalExtras("value", element.getValue(), false);
       if (element.getComparator() != null) {
-        composeEnumerationCore("comparator", element.getComparator(), new Distance().new QuantityComparatorEnumFactory(), false);
-        composeEnumerationExtras("comparator", element.getComparator(), new Distance().new QuantityComparatorEnumFactory(), false);
+        composeEnumerationCore("comparator", element.getComparator(), new Distance.QuantityComparatorEnumFactory(), false);
+        composeEnumerationExtras("comparator", element.getComparator(), new Distance.QuantityComparatorEnumFactory(), false);
       }
       composeStringCore("units", element.getUnits(), false);
       composeStringExtras("units", element.getUnits(), false);
@@ -584,8 +584,8 @@ public class JsonComposer extends JsonComposerBase {
       composeDecimalCore("value", element.getValue(), false);
       composeDecimalExtras("value", element.getValue(), false);
       if (element.getComparator() != null) {
-        composeEnumerationCore("comparator", element.getComparator(), new Duration().new QuantityComparatorEnumFactory(), false);
-        composeEnumerationExtras("comparator", element.getComparator(), new Duration().new QuantityComparatorEnumFactory(), false);
+        composeEnumerationCore("comparator", element.getComparator(), new Duration.QuantityComparatorEnumFactory(), false);
+        composeEnumerationExtras("comparator", element.getComparator(), new Duration.QuantityComparatorEnumFactory(), false);
       }
       composeStringCore("units", element.getUnits(), false);
       composeStringExtras("units", element.getUnits(), false);
@@ -619,14 +619,14 @@ public class JsonComposer extends JsonComposerBase {
       composeIntegerCore("frequency", element.getFrequency(), false);
       composeIntegerExtras("frequency", element.getFrequency(), false);
       if (element.getWhen() != null) {
-        composeEnumerationCore("when", element.getWhen(), new Schedule().new EventTimingEnumFactory(), false);
-        composeEnumerationExtras("when", element.getWhen(), new Schedule().new EventTimingEnumFactory(), false);
+        composeEnumerationCore("when", element.getWhen(), new Schedule.EventTimingEnumFactory(), false);
+        composeEnumerationExtras("when", element.getWhen(), new Schedule.EventTimingEnumFactory(), false);
       }
       composeDecimalCore("duration", element.getDuration(), false);
       composeDecimalExtras("duration", element.getDuration(), false);
       if (element.getUnits() != null) {
-        composeEnumerationCore("units", element.getUnits(), new Schedule().new UnitsOfTimeEnumFactory(), false);
-        composeEnumerationExtras("units", element.getUnits(), new Schedule().new UnitsOfTimeEnumFactory(), false);
+        composeEnumerationCore("units", element.getUnits(), new Schedule.UnitsOfTimeEnumFactory(), false);
+        composeEnumerationExtras("units", element.getUnits(), new Schedule.UnitsOfTimeEnumFactory(), false);
       }
       composeIntegerCore("count", element.getCount(), false);
       composeIntegerExtras("count", element.getCount(), false);
@@ -641,14 +641,14 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeElement(element);
       if (element.getSystem() != null) {
-        composeEnumerationCore("system", element.getSystem(), new Contact().new ContactSystemEnumFactory(), false);
-        composeEnumerationExtras("system", element.getSystem(), new Contact().new ContactSystemEnumFactory(), false);
+        composeEnumerationCore("system", element.getSystem(), new Contact.ContactSystemEnumFactory(), false);
+        composeEnumerationExtras("system", element.getSystem(), new Contact.ContactSystemEnumFactory(), false);
       }
       composeStringCore("value", element.getValue(), false);
       composeStringExtras("value", element.getValue(), false);
       if (element.getUse() != null) {
-        composeEnumerationCore("use", element.getUse(), new Contact().new ContactUseEnumFactory(), false);
-        composeEnumerationExtras("use", element.getUse(), new Contact().new ContactUseEnumFactory(), false);
+        composeEnumerationCore("use", element.getUse(), new Contact.ContactUseEnumFactory(), false);
+        composeEnumerationExtras("use", element.getUse(), new Contact.ContactUseEnumFactory(), false);
       }
       composePeriod("period", element.getPeriod());
       close();
@@ -660,8 +660,8 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeElement(element);
       if (element.getUse() != null) {
-        composeEnumerationCore("use", element.getUse(), new Address().new AddressUseEnumFactory(), false);
-        composeEnumerationExtras("use", element.getUse(), new Address().new AddressUseEnumFactory(), false);
+        composeEnumerationCore("use", element.getUse(), new Address.AddressUseEnumFactory(), false);
+        composeEnumerationExtras("use", element.getUse(), new Address.AddressUseEnumFactory(), false);
       }
       composeStringCore("text", element.getText(), false);
       composeStringExtras("text", element.getText(), false);
@@ -695,8 +695,8 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeElement(element);
       if (element.getUse() != null) {
-        composeEnumerationCore("use", element.getUse(), new HumanName().new NameUseEnumFactory(), false);
-        composeEnumerationExtras("use", element.getUse(), new HumanName().new NameUseEnumFactory(), false);
+        composeEnumerationCore("use", element.getUse(), new HumanName.NameUseEnumFactory(), false);
+        composeEnumerationExtras("use", element.getUse(), new HumanName.NameUseEnumFactory(), false);
       }
       composeStringCore("text", element.getText(), false);
       composeStringExtras("text", element.getText(), false);
@@ -807,8 +807,8 @@ public class JsonComposer extends JsonComposerBase {
       composeBackbone(element);
       composeCodeableConcept("code", element.getCode());
       if (element.getSeverity() != null) {
-        composeEnumerationCore("severity", element.getSeverity(), new AdverseReaction().new ReactionSeverityEnumFactory(), false);
-        composeEnumerationExtras("severity", element.getSeverity(), new AdverseReaction().new ReactionSeverityEnumFactory(), false);
+        composeEnumerationCore("severity", element.getSeverity(), new AdverseReaction.ReactionSeverityEnumFactory(), false);
+        composeEnumerationExtras("severity", element.getSeverity(), new AdverseReaction.ReactionSeverityEnumFactory(), false);
       }
       close();
     }
@@ -821,12 +821,12 @@ public class JsonComposer extends JsonComposerBase {
       composeDateTimeCore("exposureDate", element.getExposureDate(), false);
       composeDateTimeExtras("exposureDate", element.getExposureDate(), false);
       if (element.getExposureType() != null) {
-        composeEnumerationCore("exposureType", element.getExposureType(), new AdverseReaction().new ExposureTypeEnumFactory(), false);
-        composeEnumerationExtras("exposureType", element.getExposureType(), new AdverseReaction().new ExposureTypeEnumFactory(), false);
+        composeEnumerationCore("exposureType", element.getExposureType(), new AdverseReaction.ExposureTypeEnumFactory(), false);
+        composeEnumerationExtras("exposureType", element.getExposureType(), new AdverseReaction.ExposureTypeEnumFactory(), false);
       }
       if (element.getCausalityExpectation() != null) {
-        composeEnumerationCore("causalityExpectation", element.getCausalityExpectation(), new AdverseReaction().new CausalityExpectationEnumFactory(), false);
-        composeEnumerationExtras("causalityExpectation", element.getCausalityExpectation(), new AdverseReaction().new CausalityExpectationEnumFactory(), false);
+        composeEnumerationCore("causalityExpectation", element.getCausalityExpectation(), new AdverseReaction.CausalityExpectationEnumFactory(), false);
+        composeEnumerationExtras("causalityExpectation", element.getCausalityExpectation(), new AdverseReaction.CausalityExpectationEnumFactory(), false);
       }
       composeResourceReference("substance", element.getSubstance());
       close();
@@ -839,8 +839,8 @@ public class JsonComposer extends JsonComposerBase {
       composeResourceElements(element);
       composeCodeableConcept("category", element.getCategory());
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new Alert().new AlertStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new Alert().new AlertStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new Alert.AlertStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new Alert.AlertStatusEnumFactory(), false);
       }
       composeResourceReference("subject", element.getSubject());
       composeResourceReference("author", element.getAuthor());
@@ -860,18 +860,18 @@ public class JsonComposer extends JsonComposerBase {
         closeArray();
       };
       if (element.getCriticality() != null) {
-        composeEnumerationCore("criticality", element.getCriticality(), new AllergyIntolerance().new CriticalityEnumFactory(), false);
-        composeEnumerationExtras("criticality", element.getCriticality(), new AllergyIntolerance().new CriticalityEnumFactory(), false);
+        composeEnumerationCore("criticality", element.getCriticality(), new AllergyIntolerance.CriticalityEnumFactory(), false);
+        composeEnumerationExtras("criticality", element.getCriticality(), new AllergyIntolerance.CriticalityEnumFactory(), false);
       }
       if (element.getSensitivityType() != null) {
-        composeEnumerationCore("sensitivityType", element.getSensitivityType(), new AllergyIntolerance().new SensitivitytypeEnumFactory(), false);
-        composeEnumerationExtras("sensitivityType", element.getSensitivityType(), new AllergyIntolerance().new SensitivitytypeEnumFactory(), false);
+        composeEnumerationCore("sensitivityType", element.getSensitivityType(), new AllergyIntolerance.SensitivitytypeEnumFactory(), false);
+        composeEnumerationExtras("sensitivityType", element.getSensitivityType(), new AllergyIntolerance.SensitivitytypeEnumFactory(), false);
       }
       composeDateTimeCore("recordedDate", element.getRecordedDate(), false);
       composeDateTimeExtras("recordedDate", element.getRecordedDate(), false);
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new AllergyIntolerance().new SensitivitystatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new AllergyIntolerance().new SensitivitystatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new AllergyIntolerance.SensitivitystatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new AllergyIntolerance.SensitivitystatusEnumFactory(), false);
       }
       composeResourceReference("subject", element.getSubject());
       composeResourceReference("recorder", element.getRecorder());
@@ -903,8 +903,8 @@ public class JsonComposer extends JsonComposerBase {
       };
       composeResourceReference("patient", element.getPatient());
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new CarePlan().new CarePlanStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new CarePlan().new CarePlanStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new CarePlan.CarePlanStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new CarePlan.CarePlanStatusEnumFactory(), false);
       }
       composePeriod("period", element.getPeriod());
       composeDateTimeCore("modified", element.getModified(), false);
@@ -955,8 +955,8 @@ public class JsonComposer extends JsonComposerBase {
       composeStringCore("description", element.getDescription(), false);
       composeStringExtras("description", element.getDescription(), false);
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new CarePlan().new CarePlanGoalStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new CarePlan().new CarePlanGoalStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new CarePlan.CarePlanGoalStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new CarePlan.CarePlanGoalStatusEnumFactory(), false);
       }
       composeStringCore("notes", element.getNotes(), false);
       composeStringExtras("notes", element.getNotes(), false);
@@ -987,8 +987,8 @@ public class JsonComposer extends JsonComposerBase {
         }
       };
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new CarePlan().new CarePlanActivityStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new CarePlan().new CarePlanActivityStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new CarePlan.CarePlanActivityStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new CarePlan.CarePlanActivityStatusEnumFactory(), false);
       }
       composeBooleanCore("prohibited", element.getProhibited(), false);
       composeBooleanExtras("prohibited", element.getProhibited(), false);
@@ -1011,8 +1011,8 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeBackbone(element);
       if (element.getCategory() != null) {
-        composeEnumerationCore("category", element.getCategory(), new CarePlan().new CarePlanActivityCategoryEnumFactory(), false);
-        composeEnumerationExtras("category", element.getCategory(), new CarePlan().new CarePlanActivityCategoryEnumFactory(), false);
+        composeEnumerationCore("category", element.getCategory(), new CarePlan.CarePlanActivityCategoryEnumFactory(), false);
+        composeEnumerationExtras("category", element.getCategory(), new CarePlan.CarePlanActivityCategoryEnumFactory(), false);
       }
       composeCodeableConcept("code", element.getCode());
       composeType("timing", element.getTiming());
@@ -1055,8 +1055,8 @@ public class JsonComposer extends JsonComposerBase {
       composeStringCore("copyright", element.getCopyright(), false);
       composeStringExtras("copyright", element.getCopyright(), false);
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new ConceptMap().new ValuesetStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new ConceptMap().new ValuesetStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new ConceptMap.ValuesetStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new ConceptMap.ValuesetStatusEnumFactory(), false);
       }
       composeBooleanCore("experimental", element.getExperimental(), false);
       composeBooleanExtras("experimental", element.getExperimental(), false);
@@ -1108,8 +1108,8 @@ public class JsonComposer extends JsonComposerBase {
       composeStringCore("code", element.getCode(), false);
       composeStringExtras("code", element.getCode(), false);
       if (element.getEquivalence() != null) {
-        composeEnumerationCore("equivalence", element.getEquivalence(), new ConceptMap().new ConceptEquivalenceEnumFactory(), false);
-        composeEnumerationExtras("equivalence", element.getEquivalence(), new ConceptMap().new ConceptEquivalenceEnumFactory(), false);
+        composeEnumerationCore("equivalence", element.getEquivalence(), new ConceptMap.ConceptEquivalenceEnumFactory(), false);
+        composeEnumerationExtras("equivalence", element.getEquivalence(), new ConceptMap.ConceptEquivalenceEnumFactory(), false);
       }
       composeStringCore("comments", element.getComments(), false);
       composeStringExtras("comments", element.getComments(), false);
@@ -1135,8 +1135,8 @@ public class JsonComposer extends JsonComposerBase {
       composeCodeableConcept("code", element.getCode());
       composeCodeableConcept("category", element.getCategory());
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new Condition().new ConditionStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new Condition().new ConditionStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new Condition.ConditionStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new Condition.ConditionStatusEnumFactory(), false);
       }
       composeCodeableConcept("certainty", element.getCertainty());
       composeCodeableConcept("severity", element.getSeverity());
@@ -1212,8 +1212,8 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeBackbone(element);
       if (element.getType() != null) {
-        composeEnumerationCore("type", element.getType(), new Condition().new ConditionRelationshipTypeEnumFactory(), false);
-        composeEnumerationExtras("type", element.getType(), new Condition().new ConditionRelationshipTypeEnumFactory(), false);
+        composeEnumerationCore("type", element.getType(), new Condition.ConditionRelationshipTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getType(), new Condition.ConditionRelationshipTypeEnumFactory(), false);
       }
       composeCodeableConcept("code", element.getCode());
       composeResourceReference("target", element.getTarget());
@@ -1242,8 +1242,8 @@ public class JsonComposer extends JsonComposerBase {
       composeStringCore("description", element.getDescription(), false);
       composeStringExtras("description", element.getDescription(), false);
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new Conformance().new ConformanceStatementStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new Conformance().new ConformanceStatementStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new Conformance.ConformanceStatementStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new Conformance.ConformanceStatementStatusEnumFactory(), false);
       }
       composeBooleanCore("experimental", element.getExperimental(), false);
       composeBooleanExtras("experimental", element.getExperimental(), false);
@@ -1325,8 +1325,8 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeBackbone(element);
       if (element.getMode() != null) {
-        composeEnumerationCore("mode", element.getMode(), new Conformance().new RestfulConformanceModeEnumFactory(), false);
-        composeEnumerationExtras("mode", element.getMode(), new Conformance().new RestfulConformanceModeEnumFactory(), false);
+        composeEnumerationCore("mode", element.getMode(), new Conformance.RestfulConformanceModeEnumFactory(), false);
+        composeEnumerationExtras("mode", element.getMode(), new Conformance.RestfulConformanceModeEnumFactory(), false);
       }
       composeStringCore("documentation", element.getDocumentation(), false);
       composeStringExtras("documentation", element.getDocumentation(), false);
@@ -1433,8 +1433,8 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeBackbone(element);
       if (element.getCode() != null) {
-        composeEnumerationCore("code", element.getCode(), new Conformance().new TypeRestfulOperationEnumFactory(), false);
-        composeEnumerationExtras("code", element.getCode(), new Conformance().new TypeRestfulOperationEnumFactory(), false);
+        composeEnumerationCore("code", element.getCode(), new Conformance.TypeRestfulOperationEnumFactory(), false);
+        composeEnumerationExtras("code", element.getCode(), new Conformance.TypeRestfulOperationEnumFactory(), false);
       }
       composeStringCore("documentation", element.getDocumentation(), false);
       composeStringExtras("documentation", element.getDocumentation(), false);
@@ -1451,8 +1451,8 @@ public class JsonComposer extends JsonComposerBase {
       composeUriCore("source", element.getSource(), false);
       composeUriExtras("source", element.getSource(), false);
       if (element.getType() != null) {
-        composeEnumerationCore("type", element.getType(), new Conformance().new SearchParamTypeEnumFactory(), false);
-        composeEnumerationExtras("type", element.getType(), new Conformance().new SearchParamTypeEnumFactory(), false);
+        composeEnumerationCore("type", element.getType(), new Conformance.SearchParamTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getType(), new Conformance.SearchParamTypeEnumFactory(), false);
       }
       composeStringCore("documentation", element.getDocumentation(), false);
       composeStringExtras("documentation", element.getDocumentation(), false);
@@ -1491,8 +1491,8 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeBackbone(element);
       if (element.getCode() != null) {
-        composeEnumerationCore("code", element.getCode(), new Conformance().new SystemRestfulOperationEnumFactory(), false);
-        composeEnumerationExtras("code", element.getCode(), new Conformance().new SystemRestfulOperationEnumFactory(), false);
+        composeEnumerationCore("code", element.getCode(), new Conformance.SystemRestfulOperationEnumFactory(), false);
+        composeEnumerationExtras("code", element.getCode(), new Conformance.SystemRestfulOperationEnumFactory(), false);
       }
       composeStringCore("documentation", element.getDocumentation(), false);
       composeStringExtras("documentation", element.getDocumentation(), false);
@@ -1544,8 +1544,8 @@ public class JsonComposer extends JsonComposerBase {
       composeBackbone(element);
       composeCoding("code", element.getCode());
       if (element.getMode() != null) {
-        composeEnumerationCore("mode", element.getMode(), new Conformance().new MessageConformanceEventModeEnumFactory(), false);
-        composeEnumerationExtras("mode", element.getMode(), new Conformance().new MessageConformanceEventModeEnumFactory(), false);
+        composeEnumerationCore("mode", element.getMode(), new Conformance.MessageConformanceEventModeEnumFactory(), false);
+        composeEnumerationExtras("mode", element.getMode(), new Conformance.MessageConformanceEventModeEnumFactory(), false);
       }
       if (element.getProtocol().size() > 0) {
         openArray("protocol");
@@ -1568,8 +1568,8 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeBackbone(element);
       if (element.getMode() != null) {
-        composeEnumerationCore("mode", element.getMode(), new Conformance().new DocumentModeEnumFactory(), false);
-        composeEnumerationExtras("mode", element.getMode(), new Conformance().new DocumentModeEnumFactory(), false);
+        composeEnumerationCore("mode", element.getMode(), new Conformance.DocumentModeEnumFactory(), false);
+        composeEnumerationExtras("mode", element.getMode(), new Conformance.DocumentModeEnumFactory(), false);
       }
       composeStringCore("documentation", element.getDocumentation(), false);
       composeStringExtras("documentation", element.getDocumentation(), false);
@@ -1687,8 +1687,8 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeBackbone(element);
       if (element.getType() != null) {
-        composeEnumerationCore("type", element.getType(), new DeviceCapabilities().new DeviceDataTypeEnumFactory(), false);
-        composeEnumerationExtras("type", element.getType(), new DeviceCapabilities().new DeviceDataTypeEnumFactory(), false);
+        composeEnumerationCore("type", element.getType(), new DeviceCapabilities.DeviceDataTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getType(), new DeviceCapabilities.DeviceDataTypeEnumFactory(), false);
       }
       composeStringCore("units", element.getUnits(), false);
       composeStringExtras("units", element.getUnits(), false);
@@ -1800,12 +1800,12 @@ public class JsonComposer extends JsonComposerBase {
       if (element.getFlag().size() > 0) {
         openArray("flag");
         for (Enumeration<DeviceLog.DeviceValueFlag> e : element.getFlag()) 
-          composeEnumerationCore(null, e, new DeviceLog().new DeviceValueFlagEnumFactory(), true);
+          composeEnumerationCore(null, e, new DeviceLog.DeviceValueFlagEnumFactory(), true);
         closeArray();
         if (anyHasExtras(element.getFlag())) {
           openArray("_flag");
           for (Enumeration<DeviceLog.DeviceValueFlag> e : element.getFlag()) 
-            composeEnumerationExtras(null, e, new DeviceLog().new DeviceValueFlagEnumFactory(), true);
+            composeEnumerationExtras(null, e, new DeviceLog.DeviceValueFlagEnumFactory(), true);
           closeArray();
         }
       };
@@ -1859,12 +1859,12 @@ public class JsonComposer extends JsonComposerBase {
         closeArray();
       };
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new DiagnosticOrder().new DiagnosticOrderStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new DiagnosticOrder().new DiagnosticOrderStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new DiagnosticOrder.DiagnosticOrderStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new DiagnosticOrder.DiagnosticOrderStatusEnumFactory(), false);
       }
       if (element.getPriority() != null) {
-        composeEnumerationCore("priority", element.getPriority(), new DiagnosticOrder().new DiagnosticOrderPriorityEnumFactory(), false);
-        composeEnumerationExtras("priority", element.getPriority(), new DiagnosticOrder().new DiagnosticOrderPriorityEnumFactory(), false);
+        composeEnumerationCore("priority", element.getPriority(), new DiagnosticOrder.DiagnosticOrderPriorityEnumFactory(), false);
+        composeEnumerationExtras("priority", element.getPriority(), new DiagnosticOrder.DiagnosticOrderPriorityEnumFactory(), false);
       }
       if (element.getEvent().size() > 0) {
         openArray("event");
@@ -1886,8 +1886,8 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeBackbone(element);
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new DiagnosticOrder().new DiagnosticOrderStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new DiagnosticOrder().new DiagnosticOrderStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new DiagnosticOrder.DiagnosticOrderStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new DiagnosticOrder.DiagnosticOrderStatusEnumFactory(), false);
       }
       composeDateTimeCore("date", element.getDate(), false);
       composeDateTimeExtras("date", element.getDate(), false);
@@ -1909,8 +1909,8 @@ public class JsonComposer extends JsonComposerBase {
       };
       composeCodeableConcept("bodySite", element.getBodySite());
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new DiagnosticOrder().new DiagnosticOrderStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new DiagnosticOrder().new DiagnosticOrderStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new DiagnosticOrder.DiagnosticOrderStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new DiagnosticOrder.DiagnosticOrderStatusEnumFactory(), false);
       }
       if (element.getEvent().size() > 0) {
         openArray("event");
@@ -1927,8 +1927,8 @@ public class JsonComposer extends JsonComposerBase {
       prop("resourceType", name);
       composeResourceElements(element);
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new DiagnosticReport().new ObservationStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new DiagnosticReport().new ObservationStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new DiagnosticReport.ObservationStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new DiagnosticReport.ObservationStatusEnumFactory(), false);
       }
       composeDateTimeCore("issued", element.getIssued(), false);
       composeDateTimeExtras("issued", element.getIssued(), false);
@@ -2023,8 +2023,8 @@ public class JsonComposer extends JsonComposerBase {
       composeStringCore("title", element.getTitle(), false);
       composeStringExtras("title", element.getTitle(), false);
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new Document().new DocumentStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new Document().new DocumentStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new Document.DocumentStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new Document.DocumentStatusEnumFactory(), false);
       }
       composeCoding("confidentiality", element.getConfidentiality());
       composeResourceReference("subject", element.getSubject());
@@ -2067,8 +2067,8 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeBackbone(element);
       if (element.getMode() != null) {
-        composeEnumerationCore("mode", element.getMode(), new Document().new DocumentAttestationModeEnumFactory(), false);
-        composeEnumerationExtras("mode", element.getMode(), new Document().new DocumentAttestationModeEnumFactory(), false);
+        composeEnumerationCore("mode", element.getMode(), new Document.DocumentAttestationModeEnumFactory(), false);
+        composeEnumerationExtras("mode", element.getMode(), new Document.DocumentAttestationModeEnumFactory(), false);
       }
       composeDateTimeCore("time", element.getTime(), false);
       composeDateTimeExtras("time", element.getTime(), false);
@@ -2144,8 +2144,8 @@ public class JsonComposer extends JsonComposerBase {
       composeUriCore("source", element.getSource(), false);
       composeUriExtras("source", element.getSource(), false);
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new DocumentManifest().new DocumentReferenceStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new DocumentManifest().new DocumentReferenceStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new DocumentManifest.DocumentReferenceStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new DocumentManifest.DocumentReferenceStatusEnumFactory(), false);
       }
       composeResourceReference("supercedes", element.getSupercedes());
       composeStringCore("description", element.getDescription(), false);
@@ -2189,8 +2189,8 @@ public class JsonComposer extends JsonComposerBase {
       composeInstantCore("indexed", element.getIndexed(), false);
       composeInstantExtras("indexed", element.getIndexed(), false);
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new DocumentReference().new DocumentReferenceStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new DocumentReference().new DocumentReferenceStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new DocumentReference.DocumentReferenceStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new DocumentReference.DocumentReferenceStatusEnumFactory(), false);
       }
       composeCodeableConcept("docStatus", element.getDocStatus());
       composeResourceReference("supercedes", element.getSupercedes());
@@ -2274,12 +2274,12 @@ public class JsonComposer extends JsonComposerBase {
         closeArray();
       };
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new Encounter().new EncounterStateEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new Encounter().new EncounterStateEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new Encounter.EncounterStateEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new Encounter.EncounterStateEnumFactory(), false);
       }
       if (element.getClass() != null) {
-        composeEnumerationCore("class", element.getClass_(), new Encounter().new EncounterClassEnumFactory(), false);
-        composeEnumerationExtras("class", element.getClass_(), new Encounter().new EncounterClassEnumFactory(), false);
+        composeEnumerationCore("class", element.getClass_(), new Encounter.EncounterClassEnumFactory(), false);
+        composeEnumerationExtras("class", element.getClass_(), new Encounter.EncounterClassEnumFactory(), false);
       }
       if (element.getType().size() > 0) {
         openArray("type");
@@ -2320,12 +2320,12 @@ public class JsonComposer extends JsonComposerBase {
       if (element.getType().size() > 0) {
         openArray("type");
         for (Enumeration<Encounter.ParticipantType> e : element.getType()) 
-          composeEnumerationCore(null, e, new Encounter().new ParticipantTypeEnumFactory(), true);
+          composeEnumerationCore(null, e, new Encounter.ParticipantTypeEnumFactory(), true);
         closeArray();
         if (anyHasExtras(element.getType())) {
           openArray("_type");
           for (Enumeration<Encounter.ParticipantType> e : element.getType()) 
-            composeEnumerationExtras(null, e, new Encounter().new ParticipantTypeEnumFactory(), true);
+            composeEnumerationExtras(null, e, new Encounter.ParticipantTypeEnumFactory(), true);
           closeArray();
         }
       };
@@ -2450,8 +2450,8 @@ public class JsonComposer extends JsonComposerBase {
       composeResourceElements(element);
       composeIdentifier("identifier", element.getIdentifier());
       if (element.getType() != null) {
-        composeEnumerationCore("type", element.getType(), new Group().new GroupTypeEnumFactory(), false);
-        composeEnumerationExtras("type", element.getType(), new Group().new GroupTypeEnumFactory(), false);
+        composeEnumerationCore("type", element.getType(), new Group.GroupTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getType(), new Group.GroupTypeEnumFactory(), false);
       }
       composeBooleanCore("actual", element.getActual(), false);
       composeBooleanExtras("actual", element.getActual(), false);
@@ -2512,19 +2512,19 @@ public class JsonComposer extends JsonComposerBase {
       if (element.getModality().size() > 0) {
         openArray("modality");
         for (Enumeration<ImagingStudy.ImagingModality> e : element.getModality()) 
-          composeEnumerationCore(null, e, new ImagingStudy().new ImagingModalityEnumFactory(), true);
+          composeEnumerationCore(null, e, new ImagingStudy.ImagingModalityEnumFactory(), true);
         closeArray();
         if (anyHasExtras(element.getModality())) {
           openArray("_modality");
           for (Enumeration<ImagingStudy.ImagingModality> e : element.getModality()) 
-            composeEnumerationExtras(null, e, new ImagingStudy().new ImagingModalityEnumFactory(), true);
+            composeEnumerationExtras(null, e, new ImagingStudy.ImagingModalityEnumFactory(), true);
           closeArray();
         }
       };
       composeResourceReference("referrer", element.getReferrer());
       if (element.getAvailability() != null) {
-        composeEnumerationCore("availability", element.getAvailability(), new ImagingStudy().new InstanceAvailabilityEnumFactory(), false);
-        composeEnumerationExtras("availability", element.getAvailability(), new ImagingStudy().new InstanceAvailabilityEnumFactory(), false);
+        composeEnumerationCore("availability", element.getAvailability(), new ImagingStudy.InstanceAvailabilityEnumFactory(), false);
+        composeEnumerationExtras("availability", element.getAvailability(), new ImagingStudy.InstanceAvailabilityEnumFactory(), false);
       }
       composeUriCore("url", element.getUrl(), false);
       composeUriExtras("url", element.getUrl(), false);
@@ -2559,8 +2559,8 @@ public class JsonComposer extends JsonComposerBase {
       composeIntegerCore("number", element.getNumber(), false);
       composeIntegerExtras("number", element.getNumber(), false);
       if (element.getModality() != null) {
-        composeEnumerationCore("modality", element.getModality(), new ImagingStudy().new ModalityEnumFactory(), false);
-        composeEnumerationExtras("modality", element.getModality(), new ImagingStudy().new ModalityEnumFactory(), false);
+        composeEnumerationCore("modality", element.getModality(), new ImagingStudy.ModalityEnumFactory(), false);
+        composeEnumerationExtras("modality", element.getModality(), new ImagingStudy.ModalityEnumFactory(), false);
       }
       composeOidCore("uid", element.getUid(), false);
       composeOidExtras("uid", element.getUid(), false);
@@ -2569,8 +2569,8 @@ public class JsonComposer extends JsonComposerBase {
       composeIntegerCore("numberOfInstances", element.getNumberOfInstances(), false);
       composeIntegerExtras("numberOfInstances", element.getNumberOfInstances(), false);
       if (element.getAvailability() != null) {
-        composeEnumerationCore("availability", element.getAvailability(), new ImagingStudy().new InstanceAvailabilityEnumFactory(), false);
-        composeEnumerationExtras("availability", element.getAvailability(), new ImagingStudy().new InstanceAvailabilityEnumFactory(), false);
+        composeEnumerationCore("availability", element.getAvailability(), new ImagingStudy.InstanceAvailabilityEnumFactory(), false);
+        composeEnumerationExtras("availability", element.getAvailability(), new ImagingStudy.InstanceAvailabilityEnumFactory(), false);
       }
       composeUriCore("url", element.getUrl(), false);
       composeUriExtras("url", element.getUrl(), false);
@@ -2719,8 +2719,8 @@ public class JsonComposer extends JsonComposerBase {
       composeIntegerCore("doseNumber", element.getDoseNumber(), false);
       composeIntegerExtras("doseNumber", element.getDoseNumber(), false);
       if (element.getForecastStatus() != null) {
-        composeEnumerationCore("forecastStatus", element.getForecastStatus(), new ImmunizationRecommendation().new ImmunizationForecastStatusEnumFactory(), false);
-        composeEnumerationExtras("forecastStatus", element.getForecastStatus(), new ImmunizationRecommendation().new ImmunizationForecastStatusEnumFactory(), false);
+        composeEnumerationCore("forecastStatus", element.getForecastStatus(), new ImmunizationRecommendation.ImmunizationForecastStatusEnumFactory(), false);
+        composeEnumerationExtras("forecastStatus", element.getForecastStatus(), new ImmunizationRecommendation.ImmunizationForecastStatusEnumFactory(), false);
       }
       if (element.getDateCriterion().size() > 0) {
         openArray("dateCriterion");
@@ -2820,8 +2820,8 @@ public class JsonComposer extends JsonComposerBase {
       composeBooleanCore("ordered", element.getOrdered(), false);
       composeBooleanExtras("ordered", element.getOrdered(), false);
       if (element.getMode() != null) {
-        composeEnumerationCore("mode", element.getMode(), new List_().new ListModeEnumFactory(), false);
-        composeEnumerationExtras("mode", element.getMode(), new List_().new ListModeEnumFactory(), false);
+        composeEnumerationCore("mode", element.getMode(), new List_.ListModeEnumFactory(), false);
+        composeEnumerationExtras("mode", element.getMode(), new List_.ListModeEnumFactory(), false);
       }
       if (element.getEntry().size() > 0) {
         openArray("entry");
@@ -2895,8 +2895,8 @@ public class JsonComposer extends JsonComposerBase {
       prop("resourceType", name);
       composeResourceElements(element);
       if (element.getType() != null) {
-        composeEnumerationCore("type", element.getType(), new Media().new MediaTypeEnumFactory(), false);
-        composeEnumerationExtras("type", element.getType(), new Media().new MediaTypeEnumFactory(), false);
+        composeEnumerationCore("type", element.getType(), new Media.MediaTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getType(), new Media.MediaTypeEnumFactory(), false);
       }
       composeCodeableConcept("subtype", element.getSubtype());
       if (element.getIdentifier().size() > 0) {
@@ -2935,8 +2935,8 @@ public class JsonComposer extends JsonComposerBase {
       composeBooleanExtras("isBrand", element.getIsBrand(), false);
       composeResourceReference("manufacturer", element.getManufacturer());
       if (element.getKind() != null) {
-        composeEnumerationCore("kind", element.getKind(), new Medication().new MedicationKindEnumFactory(), false);
-        composeEnumerationExtras("kind", element.getKind(), new Medication().new MedicationKindEnumFactory(), false);
+        composeEnumerationCore("kind", element.getKind(), new Medication.MedicationKindEnumFactory(), false);
+        composeEnumerationExtras("kind", element.getKind(), new Medication.MedicationKindEnumFactory(), false);
       }
       composeMedicationMedicationProductComponent("product", element.getProduct());
       composeMedicationMedicationPackageComponent("package", element.getPackage());
@@ -3004,8 +3004,8 @@ public class JsonComposer extends JsonComposerBase {
         closeArray();
       };
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new MedicationAdministration().new MedicationAdminStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new MedicationAdministration().new MedicationAdminStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new MedicationAdministration.MedicationAdminStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new MedicationAdministration.MedicationAdminStatusEnumFactory(), false);
       }
       composeResourceReference("patient", element.getPatient());
       composeResourceReference("practitioner", element.getPractitioner());
@@ -3057,8 +3057,8 @@ public class JsonComposer extends JsonComposerBase {
       composeResourceElements(element);
       composeIdentifier("identifier", element.getIdentifier());
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new MedicationDispense().new MedicationDispenseStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new MedicationDispense().new MedicationDispenseStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new MedicationDispense.MedicationDispenseStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new MedicationDispense.MedicationDispenseStatusEnumFactory(), false);
       }
       composeResourceReference("patient", element.getPatient());
       composeResourceReference("dispenser", element.getDispenser());
@@ -3084,8 +3084,8 @@ public class JsonComposer extends JsonComposerBase {
       composeBackbone(element);
       composeIdentifier("identifier", element.getIdentifier());
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new MedicationDispense().new MedicationDispenseStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new MedicationDispense().new MedicationDispenseStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new MedicationDispense.MedicationDispenseStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new MedicationDispense.MedicationDispenseStatusEnumFactory(), false);
       }
       composeCodeableConcept("type", element.getType());
       composeQuantity("quantity", element.getQuantity());
@@ -3159,8 +3159,8 @@ public class JsonComposer extends JsonComposerBase {
       composeDateTimeCore("dateWritten", element.getDateWritten(), false);
       composeDateTimeExtras("dateWritten", element.getDateWritten(), false);
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new MedicationPrescription().new MedicationPrescriptionStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new MedicationPrescription().new MedicationPrescriptionStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new MedicationPrescription.MedicationPrescriptionStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new MedicationPrescription.MedicationPrescriptionStatusEnumFactory(), false);
       }
       composeResourceReference("patient", element.getPatient());
       composeResourceReference("prescriber", element.getPrescriber());
@@ -3309,8 +3309,8 @@ public class JsonComposer extends JsonComposerBase {
       composeIdCore("identifier", element.getIdentifier(), false);
       composeIdExtras("identifier", element.getIdentifier(), false);
       if (element.getCode() != null) {
-        composeEnumerationCore("code", element.getCode(), new Message().new ResponseCodeEnumFactory(), false);
-        composeEnumerationExtras("code", element.getCode(), new Message().new ResponseCodeEnumFactory(), false);
+        composeEnumerationCore("code", element.getCode(), new Message.ResponseCodeEnumFactory(), false);
+        composeEnumerationExtras("code", element.getCode(), new Message.ResponseCodeEnumFactory(), false);
       }
       composeResourceReference("details", element.getDetails());
       close();
@@ -3360,12 +3360,12 @@ public class JsonComposer extends JsonComposerBase {
       composeInstantCore("issued", element.getIssued(), false);
       composeInstantExtras("issued", element.getIssued(), false);
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new Observation().new ObservationStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new Observation().new ObservationStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new Observation.ObservationStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new Observation.ObservationStatusEnumFactory(), false);
       }
       if (element.getReliability() != null) {
-        composeEnumerationCore("reliability", element.getReliability(), new Observation().new ObservationReliabilityEnumFactory(), false);
-        composeEnumerationExtras("reliability", element.getReliability(), new Observation().new ObservationReliabilityEnumFactory(), false);
+        composeEnumerationCore("reliability", element.getReliability(), new Observation.ObservationReliabilityEnumFactory(), false);
+        composeEnumerationExtras("reliability", element.getReliability(), new Observation.ObservationReliabilityEnumFactory(), false);
       }
       composeCodeableConcept("bodySite", element.getBodySite());
       composeCodeableConcept("method", element.getMethod());
@@ -3425,8 +3425,8 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeBackbone(element);
       if (element.getSeverity() != null) {
-        composeEnumerationCore("severity", element.getSeverity(), new OperationOutcome().new IssueSeverityEnumFactory(), false);
-        composeEnumerationExtras("severity", element.getSeverity(), new OperationOutcome().new IssueSeverityEnumFactory(), false);
+        composeEnumerationCore("severity", element.getSeverity(), new OperationOutcome.IssueSeverityEnumFactory(), false);
+        composeEnumerationExtras("severity", element.getSeverity(), new OperationOutcome.IssueSeverityEnumFactory(), false);
       }
       composeCoding("type", element.getType());
       composeStringCore("details", element.getDetails(), false);
@@ -3490,8 +3490,8 @@ public class JsonComposer extends JsonComposerBase {
       composeResourceReference("authority", element.getAuthority());
       composeMoney("cost", element.getCost());
       if (element.getCode() != null) {
-        composeEnumerationCore("code", element.getCode(), new OrderResponse().new OrderOutcomeCodeEnumFactory(), false);
-        composeEnumerationExtras("code", element.getCode(), new OrderResponse().new OrderOutcomeCodeEnumFactory(), false);
+        composeEnumerationCore("code", element.getCode(), new OrderResponse.OrderOutcomeCodeEnumFactory(), false);
+        composeEnumerationExtras("code", element.getCode(), new OrderResponse.OrderOutcomeCodeEnumFactory(), false);
       }
       composeStringCore("description", element.getDescription(), false);
       composeStringExtras("description", element.getDescription(), false);
@@ -3627,8 +3627,8 @@ public class JsonComposer extends JsonComposerBase {
       composeResourceReference("provider", element.getProvider());
       if (element.getLink().size() > 0) {
         openArray("link");
-        for (ResourceReference e : element.getLink()) 
-          composeResourceReference(null, e);
+        for (Patient.PatientLinkComponent e : element.getLink()) 
+          composePatientPatientLinkComponent(null, e);
         closeArray();
       };
       composeBooleanCore("active", element.getActive(), false);
@@ -3667,6 +3667,19 @@ public class JsonComposer extends JsonComposerBase {
       composeCodeableConcept("species", element.getSpecies());
       composeCodeableConcept("breed", element.getBreed());
       composeCodeableConcept("genderStatus", element.getGenderStatus());
+      close();
+    }
+  }
+
+  private void composePatientPatientLinkComponent(String name, Patient.PatientLinkComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      composeResourceReference("other", element.getOther());
+      if (element.getType() != null) {
+        composeEnumerationCore("type", element.getType(), new Patient.LinkTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getType(), new Patient.LinkTypeEnumFactory(), false);
+      }
       close();
     }
   }
@@ -3812,8 +3825,8 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeBackbone(element);
       if (element.getType() != null) {
-        composeEnumerationCore("type", element.getType(), new Procedure().new ProcedureRelationshipTypeEnumFactory(), false);
-        composeEnumerationExtras("type", element.getType(), new Procedure().new ProcedureRelationshipTypeEnumFactory(), false);
+        composeEnumerationCore("type", element.getType(), new Procedure.ProcedureRelationshipTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getType(), new Procedure.ProcedureRelationshipTypeEnumFactory(), false);
       }
       composeResourceReference("target", element.getTarget());
       close();
@@ -3847,8 +3860,8 @@ public class JsonComposer extends JsonComposerBase {
         closeArray();
       };
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new Profile().new ResourceProfileStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new Profile().new ResourceProfileStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new Profile.ResourceProfileStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new Profile.ResourceProfileStatusEnumFactory(), false);
       }
       composeBooleanCore("experimental", element.getExperimental(), false);
       composeBooleanExtras("experimental", element.getExperimental(), false);
@@ -3916,8 +3929,8 @@ public class JsonComposer extends JsonComposerBase {
       composeBooleanCore("ordered", element.getOrdered(), false);
       composeBooleanExtras("ordered", element.getOrdered(), false);
       if (element.getRules() != null) {
-        composeEnumerationCore("rules", element.getRules(), new Profile().new ResourceSlicingRulesEnumFactory(), false);
-        composeEnumerationExtras("rules", element.getRules(), new Profile().new ResourceSlicingRulesEnumFactory(), false);
+        composeEnumerationCore("rules", element.getRules(), new Profile.ResourceSlicingRulesEnumFactory(), false);
+        composeEnumerationExtras("rules", element.getRules(), new Profile.ResourceSlicingRulesEnumFactory(), false);
       }
       close();
     }
@@ -4007,12 +4020,12 @@ public class JsonComposer extends JsonComposerBase {
       if (element.getAggregation().size() > 0) {
         openArray("aggregation");
         for (Enumeration<Profile.ResourceAggregationMode> e : element.getAggregation()) 
-          composeEnumerationCore(null, e, new Profile().new ResourceAggregationModeEnumFactory(), true);
+          composeEnumerationCore(null, e, new Profile.ResourceAggregationModeEnumFactory(), true);
         closeArray();
         if (anyHasExtras(element.getAggregation())) {
           openArray("_aggregation");
           for (Enumeration<Profile.ResourceAggregationMode> e : element.getAggregation()) 
-            composeEnumerationExtras(null, e, new Profile().new ResourceAggregationModeEnumFactory(), true);
+            composeEnumerationExtras(null, e, new Profile.ResourceAggregationModeEnumFactory(), true);
           closeArray();
         }
       };
@@ -4029,8 +4042,8 @@ public class JsonComposer extends JsonComposerBase {
       composeStringCore("name", element.getName(), false);
       composeStringExtras("name", element.getName(), false);
       if (element.getSeverity() != null) {
-        composeEnumerationCore("severity", element.getSeverity(), new Profile().new ConstraintSeverityEnumFactory(), false);
-        composeEnumerationExtras("severity", element.getSeverity(), new Profile().new ConstraintSeverityEnumFactory(), false);
+        composeEnumerationCore("severity", element.getSeverity(), new Profile.ConstraintSeverityEnumFactory(), false);
+        composeEnumerationExtras("severity", element.getSeverity(), new Profile.ConstraintSeverityEnumFactory(), false);
       }
       composeStringCore("human", element.getHuman(), false);
       composeStringExtras("human", element.getHuman(), false);
@@ -4049,8 +4062,8 @@ public class JsonComposer extends JsonComposerBase {
       composeBooleanCore("isExtensible", element.getIsExtensible(), false);
       composeBooleanExtras("isExtensible", element.getIsExtensible(), false);
       if (element.getConformance() != null) {
-        composeEnumerationCore("conformance", element.getConformance(), new Profile().new BindingConformanceEnumFactory(), false);
-        composeEnumerationExtras("conformance", element.getConformance(), new Profile().new BindingConformanceEnumFactory(), false);
+        composeEnumerationCore("conformance", element.getConformance(), new Profile.BindingConformanceEnumFactory(), false);
+        composeEnumerationExtras("conformance", element.getConformance(), new Profile.BindingConformanceEnumFactory(), false);
       }
       composeStringCore("description", element.getDescription(), false);
       composeStringExtras("description", element.getDescription(), false);
@@ -4080,8 +4093,8 @@ public class JsonComposer extends JsonComposerBase {
       composeStringCore("display", element.getDisplay(), false);
       composeStringExtras("display", element.getDisplay(), false);
       if (element.getContextType() != null) {
-        composeEnumerationCore("contextType", element.getContextType(), new Profile().new ExtensionContextEnumFactory(), false);
-        composeEnumerationExtras("contextType", element.getContextType(), new Profile().new ExtensionContextEnumFactory(), false);
+        composeEnumerationCore("contextType", element.getContextType(), new Profile.ExtensionContextEnumFactory(), false);
+        composeEnumerationExtras("contextType", element.getContextType(), new Profile.ExtensionContextEnumFactory(), false);
       }
       if (element.getContext().size() > 0) {
         openArray("context");
@@ -4163,8 +4176,8 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeBackbone(element);
       if (element.getRole() != null) {
-        composeEnumerationCore("role", element.getRole(), new Provenance().new ProvenanceEntityRoleEnumFactory(), false);
-        composeEnumerationExtras("role", element.getRole(), new Provenance().new ProvenanceEntityRoleEnumFactory(), false);
+        composeEnumerationCore("role", element.getRole(), new Provenance.ProvenanceEntityRoleEnumFactory(), false);
+        composeEnumerationExtras("role", element.getRole(), new Provenance.ProvenanceEntityRoleEnumFactory(), false);
       }
       composeCoding("type", element.getType());
       composeUriCore("reference", element.getReference(), false);
@@ -4199,8 +4212,8 @@ public class JsonComposer extends JsonComposerBase {
       composeUriCore("identifier", element.getIdentifier(), false);
       composeUriExtras("identifier", element.getIdentifier(), false);
       if (element.getOutcome() != null) {
-        composeEnumerationCore("outcome", element.getOutcome(), new Query().new QueryOutcomeEnumFactory(), false);
-        composeEnumerationExtras("outcome", element.getOutcome(), new Query().new QueryOutcomeEnumFactory(), false);
+        composeEnumerationCore("outcome", element.getOutcome(), new Query.QueryOutcomeEnumFactory(), false);
+        composeEnumerationExtras("outcome", element.getOutcome(), new Query.QueryOutcomeEnumFactory(), false);
       }
       composeIntegerCore("total", element.getTotal(), false);
       composeIntegerExtras("total", element.getTotal(), false);
@@ -4249,8 +4262,8 @@ public class JsonComposer extends JsonComposerBase {
       prop("resourceType", name);
       composeResourceElements(element);
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new Questionnaire().new ObservationStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new Questionnaire().new ObservationStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new Questionnaire.ObservationStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new Questionnaire.ObservationStatusEnumFactory(), false);
       }
       composeDateTimeCore("authored", element.getAuthored(), false);
       composeDateTimeExtras("authored", element.getAuthored(), false);
@@ -4391,14 +4404,14 @@ public class JsonComposer extends JsonComposerBase {
         closeArray();
       };
       if (element.getAction() != null) {
-        composeEnumerationCore("action", element.getAction(), new SecurityEvent().new SecurityEventActionEnumFactory(), false);
-        composeEnumerationExtras("action", element.getAction(), new SecurityEvent().new SecurityEventActionEnumFactory(), false);
+        composeEnumerationCore("action", element.getAction(), new SecurityEvent.SecurityEventActionEnumFactory(), false);
+        composeEnumerationExtras("action", element.getAction(), new SecurityEvent.SecurityEventActionEnumFactory(), false);
       }
       composeInstantCore("dateTime", element.getDateTime(), false);
       composeInstantExtras("dateTime", element.getDateTime(), false);
       if (element.getOutcome() != null) {
-        composeEnumerationCore("outcome", element.getOutcome(), new SecurityEvent().new SecurityEventOutcomeEnumFactory(), false);
-        composeEnumerationExtras("outcome", element.getOutcome(), new SecurityEvent().new SecurityEventOutcomeEnumFactory(), false);
+        composeEnumerationCore("outcome", element.getOutcome(), new SecurityEvent.SecurityEventOutcomeEnumFactory(), false);
+        composeEnumerationExtras("outcome", element.getOutcome(), new SecurityEvent.SecurityEventOutcomeEnumFactory(), false);
       }
       composeStringCore("outcomeDesc", element.getOutcomeDesc(), false);
       composeStringExtras("outcomeDesc", element.getOutcomeDesc(), false);
@@ -4438,8 +4451,8 @@ public class JsonComposer extends JsonComposerBase {
       composeStringCore("identifier", element.getIdentifier(), false);
       composeStringExtras("identifier", element.getIdentifier(), false);
       if (element.getType() != null) {
-        composeEnumerationCore("type", element.getType(), new SecurityEvent().new NetworkTypeEnumFactory(), false);
-        composeEnumerationExtras("type", element.getType(), new SecurityEvent().new NetworkTypeEnumFactory(), false);
+        composeEnumerationCore("type", element.getType(), new SecurityEvent.NetworkTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getType(), new SecurityEvent.NetworkTypeEnumFactory(), false);
       }
       close();
     }
@@ -4470,16 +4483,16 @@ public class JsonComposer extends JsonComposerBase {
       composeIdentifier("identifier", element.getIdentifier());
       composeResourceReference("reference", element.getReference());
       if (element.getType() != null) {
-        composeEnumerationCore("type", element.getType(), new SecurityEvent().new ObjectTypeEnumFactory(), false);
-        composeEnumerationExtras("type", element.getType(), new SecurityEvent().new ObjectTypeEnumFactory(), false);
+        composeEnumerationCore("type", element.getType(), new SecurityEvent.ObjectTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getType(), new SecurityEvent.ObjectTypeEnumFactory(), false);
       }
       if (element.getRole() != null) {
-        composeEnumerationCore("role", element.getRole(), new SecurityEvent().new ObjectRoleEnumFactory(), false);
-        composeEnumerationExtras("role", element.getRole(), new SecurityEvent().new ObjectRoleEnumFactory(), false);
+        composeEnumerationCore("role", element.getRole(), new SecurityEvent.ObjectRoleEnumFactory(), false);
+        composeEnumerationExtras("role", element.getRole(), new SecurityEvent.ObjectRoleEnumFactory(), false);
       }
       if (element.getLifecycle() != null) {
-        composeEnumerationCore("lifecycle", element.getLifecycle(), new SecurityEvent().new ObjectLifecycleEnumFactory(), false);
-        composeEnumerationExtras("lifecycle", element.getLifecycle(), new SecurityEvent().new ObjectLifecycleEnumFactory(), false);
+        composeEnumerationCore("lifecycle", element.getLifecycle(), new SecurityEvent.ObjectLifecycleEnumFactory(), false);
+        composeEnumerationExtras("lifecycle", element.getLifecycle(), new SecurityEvent.ObjectLifecycleEnumFactory(), false);
       }
       composeCodeableConcept("sensitivity", element.getSensitivity());
       composeStringCore("name", element.getName(), false);
@@ -4550,8 +4563,8 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeBackbone(element);
       if (element.getRelationship() != null) {
-        composeEnumerationCore("relationship", element.getRelationship(), new Specimen().new HierarchicalRelationshipTypeEnumFactory(), false);
-        composeEnumerationExtras("relationship", element.getRelationship(), new Specimen().new HierarchicalRelationshipTypeEnumFactory(), false);
+        composeEnumerationCore("relationship", element.getRelationship(), new Specimen.HierarchicalRelationshipTypeEnumFactory(), false);
+        composeEnumerationExtras("relationship", element.getRelationship(), new Specimen.HierarchicalRelationshipTypeEnumFactory(), false);
       }
       if (element.getTarget().size() > 0) {
         openArray("target");
@@ -4715,8 +4728,8 @@ public class JsonComposer extends JsonComposerBase {
       composeStringCore("copyright", element.getCopyright(), false);
       composeStringExtras("copyright", element.getCopyright(), false);
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new ValueSet().new ValuesetStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new ValueSet().new ValuesetStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new ValueSet.ValuesetStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new ValueSet.ValuesetStatusEnumFactory(), false);
       }
       composeBooleanCore("experimental", element.getExperimental(), false);
       composeBooleanExtras("experimental", element.getExperimental(), false);
@@ -4841,8 +4854,8 @@ public class JsonComposer extends JsonComposerBase {
       composeCodeCore("property", element.getProperty(), false);
       composeCodeExtras("property", element.getProperty(), false);
       if (element.getOp() != null) {
-        composeEnumerationCore("op", element.getOp(), new ValueSet().new FilterOperatorEnumFactory(), false);
-        composeEnumerationExtras("op", element.getOp(), new ValueSet().new FilterOperatorEnumFactory(), false);
+        composeEnumerationCore("op", element.getOp(), new ValueSet.FilterOperatorEnumFactory(), false);
+        composeEnumerationExtras("op", element.getOp(), new ValueSet.FilterOperatorEnumFactory(), false);
       }
       composeCodeCore("value", element.getValue(), false);
       composeCodeExtras("value", element.getValue(), false);

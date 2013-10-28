@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -104,7 +104,7 @@ public class DeviceLog extends Resource {
         }
     }
 
-  public class DeviceValueFlagEnumFactory implements EnumFactory {
+  public static class DeviceValueFlagEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -168,7 +168,7 @@ public class DeviceLog extends Resource {
       }
     }
 
-    public class DeviceLogItemComponent extends BackboneElement {
+    public static class DeviceLogItemComponent extends BackboneElement {
         /**
          * Reference to a device capabilities declaration.
          */
@@ -184,37 +184,49 @@ public class DeviceLog extends Resource {
          */
         protected List<Enumeration<DeviceValueFlag>> flag = new ArrayList<Enumeration<DeviceValueFlag>>();
 
+      public DeviceLogItemComponent() {
+        super();
+      }
+
+      public DeviceLogItemComponent(String_ key) {
+        super();
+        this.key = key;
+      }
+
         public String_ getKey() { 
           return this.key;
         }
 
-        public void setKey(String_ value) { 
+        public DeviceLogItemComponent setKey(String_ value) { 
           this.key = value;
+          return this;
         }
 
         public String getKeySimple() { 
           return this.key == null ? null : this.key.getValue();
         }
 
-        public void setKeySimple(String value) { 
+        public DeviceLogItemComponent setKeySimple(String value) { 
             if (this.key == null)
               this.key = new String_();
             this.key.setValue(value);
+          return this;
         }
 
         public String_ getValue() { 
           return this.value;
         }
 
-        public void setValue(String_ value) { 
+        public DeviceLogItemComponent setValue(String_ value) { 
           this.value = value;
+          return this;
         }
 
         public String getValueSimple() { 
           return this.value == null ? null : this.value.getValue();
         }
 
-        public void setValueSimple(String value) { 
+        public DeviceLogItemComponent setValueSimple(String value) { 
           if (value == null)
             this.value = null;
           else {
@@ -222,6 +234,7 @@ public class DeviceLog extends Resource {
               this.value = new String_();
             this.value.setValue(value);
           }
+          return this;
         }
 
         public List<Enumeration<DeviceValueFlag>> getFlag() { 
@@ -242,8 +255,15 @@ public class DeviceLog extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("key", "string", "Reference to a device capabilities declaration.", 0, java.lang.Integer.MAX_VALUE, key));
+          childrenList.add(new Property("value", "string", "The value of the data item, if available. Irrespective of the logical format of the data item, the value is always represented as a string.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("flag", "code", "Information about the quality of the data etc.", 0, java.lang.Integer.MAX_VALUE, flag));
+        }
+
       public DeviceLogItemComponent copy(DeviceLog e) {
-        DeviceLogItemComponent dst = e.new DeviceLogItemComponent();
+        DeviceLogItemComponent dst = new DeviceLogItemComponent();
         dst.key = key == null ? null : key.copy();
         dst.value = value == null ? null : value.copy();
         dst.flag = new ArrayList<Enumeration<DeviceValueFlag>>();
@@ -274,19 +294,24 @@ public class DeviceLog extends Resource {
      */
     protected List<DeviceLogItemComponent> item = new ArrayList<DeviceLogItemComponent>();
 
+    public DeviceLog() {
+      super();
+    }
+
     public Instant getInstant() { 
       return this.instant;
     }
 
-    public void setInstant(Instant value) { 
+    public DeviceLog setInstant(Instant value) { 
       this.instant = value;
+      return this;
     }
 
     public Calendar getInstantSimple() { 
       return this.instant == null ? null : this.instant.getValue();
     }
 
-    public void setInstantSimple(Calendar value) { 
+    public DeviceLog setInstantSimple(Calendar value) { 
       if (value == null)
         this.instant = null;
       else {
@@ -294,22 +319,25 @@ public class DeviceLog extends Resource {
           this.instant = new Instant();
         this.instant.setValue(value);
       }
+      return this;
     }
 
     public ResourceReference getCapabilities() { 
       return this.capabilities;
     }
 
-    public void setCapabilities(ResourceReference value) { 
+    public DeviceLog setCapabilities(ResourceReference value) { 
       this.capabilities = value;
+      return this;
     }
 
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
-    public void setSubject(ResourceReference value) { 
+    public DeviceLog setSubject(ResourceReference value) { 
       this.subject = value;
+      return this;
     }
 
     public List<DeviceLogItemComponent> getItem() { 
@@ -322,6 +350,14 @@ public class DeviceLog extends Resource {
       this.item.add(t);
       return t;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("instant", "instant", "The point in time that the values are reported.", 0, java.lang.Integer.MAX_VALUE, instant));
+        childrenList.add(new Property("capabilities", "Resource(DeviceCapabilities)", "An explicit reference  to the capabilities.", 0, java.lang.Integer.MAX_VALUE, capabilities));
+        childrenList.add(new Property("subject", "Resource(Patient|Group|Device)", "The subject of the measurement.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("item", "", "An item of data that the device produces.", 0, java.lang.Integer.MAX_VALUE, item));
+      }
 
       public DeviceLog copy() {
         DeviceLog dst = new DeviceLog();

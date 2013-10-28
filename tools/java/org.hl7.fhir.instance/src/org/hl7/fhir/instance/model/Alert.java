@@ -29,7 +29,9 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+
+import java.util.*;
 
 /**
  * Prospective warnings of potential issues when providing care to the patient.
@@ -62,7 +64,7 @@ public class Alert extends Resource {
         }
     }
 
-  public class AlertStatusEnumFactory implements EnumFactory {
+  public static class AlertStatusEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -111,65 +113,92 @@ public class Alert extends Resource {
      */
     protected String_ note;
 
+    public Alert() {
+      super();
+    }
+
+    public Alert(Enumeration<AlertStatus> status, ResourceReference subject, String_ note) {
+      super();
+      this.status = status;
+      this.subject = subject;
+      this.note = note;
+    }
+
     public CodeableConcept getCategory() { 
       return this.category;
     }
 
-    public void setCategory(CodeableConcept value) { 
+    public Alert setCategory(CodeableConcept value) { 
       this.category = value;
+      return this;
     }
 
     public Enumeration<AlertStatus> getStatus() { 
       return this.status;
     }
 
-    public void setStatus(Enumeration<AlertStatus> value) { 
+    public Alert setStatus(Enumeration<AlertStatus> value) { 
       this.status = value;
+      return this;
     }
 
     public AlertStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
-    public void setStatusSimple(AlertStatus value) { 
+    public Alert setStatusSimple(AlertStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<AlertStatus>();
         this.status.setValue(value);
+      return this;
     }
 
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
-    public void setSubject(ResourceReference value) { 
+    public Alert setSubject(ResourceReference value) { 
       this.subject = value;
+      return this;
     }
 
     public ResourceReference getAuthor() { 
       return this.author;
     }
 
-    public void setAuthor(ResourceReference value) { 
+    public Alert setAuthor(ResourceReference value) { 
       this.author = value;
+      return this;
     }
 
     public String_ getNote() { 
       return this.note;
     }
 
-    public void setNote(String_ value) { 
+    public Alert setNote(String_ value) { 
       this.note = value;
+      return this;
     }
 
     public String getNoteSimple() { 
       return this.note == null ? null : this.note.getValue();
     }
 
-    public void setNoteSimple(String value) { 
+    public Alert setNoteSimple(String value) { 
         if (this.note == null)
           this.note = new String_();
         this.note.setValue(value);
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("category", "CodeableConcept", "Allows an alert to be divided into different categories like clinical, administrative etc.", 0, java.lang.Integer.MAX_VALUE, category));
+        childrenList.add(new Property("status", "code", "Supports basic workflow.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("subject", "Resource(Patient)", "The person who this alert concerns.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("author", "Resource(Practitioner|Patient|Device)", "The person or device that created the alert.", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("note", "string", "The textual component of the alert to display to the user.", 0, java.lang.Integer.MAX_VALUE, note));
+      }
 
       public Alert copy() {
         Alert dst = new Alert();

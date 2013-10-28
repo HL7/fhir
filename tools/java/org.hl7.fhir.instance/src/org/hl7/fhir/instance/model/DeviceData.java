@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -38,7 +38,7 @@ import java.util.*;
  */
 public class DeviceData extends Resource {
 
-    public class DeviceDataVirtualDeviceComponent extends BackboneElement {
+    public static class DeviceDataVirtualDeviceComponent extends BackboneElement {
         /**
          * Describes the compartment.
          */
@@ -49,12 +49,17 @@ public class DeviceData extends Resource {
          */
         protected List<DeviceDataVirtualDeviceChannelComponent> channel = new ArrayList<DeviceDataVirtualDeviceChannelComponent>();
 
+      public DeviceDataVirtualDeviceComponent() {
+        super();
+      }
+
         public CodeableConcept getCode() { 
           return this.code;
         }
 
-        public void setCode(CodeableConcept value) { 
+        public DeviceDataVirtualDeviceComponent setCode(CodeableConcept value) { 
           this.code = value;
+          return this;
         }
 
         public List<DeviceDataVirtualDeviceChannelComponent> getChannel() { 
@@ -68,8 +73,14 @@ public class DeviceData extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("code", "CodeableConcept", "Describes the compartment.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("channel", "", "Groups together physiological measurement data and derived data.", 0, java.lang.Integer.MAX_VALUE, channel));
+        }
+
       public DeviceDataVirtualDeviceComponent copy(DeviceData e) {
-        DeviceDataVirtualDeviceComponent dst = e.new DeviceDataVirtualDeviceComponent();
+        DeviceDataVirtualDeviceComponent dst = new DeviceDataVirtualDeviceComponent();
         dst.code = code == null ? null : code.copy();
         dst.channel = new ArrayList<DeviceDataVirtualDeviceChannelComponent>();
         for (DeviceDataVirtualDeviceChannelComponent i : channel)
@@ -79,7 +90,7 @@ public class DeviceData extends Resource {
 
   }
 
-    public class DeviceDataVirtualDeviceChannelComponent extends BackboneElement {
+    public static class DeviceDataVirtualDeviceChannelComponent extends BackboneElement {
         /**
          * Describes the channel.
          */
@@ -90,12 +101,17 @@ public class DeviceData extends Resource {
          */
         protected List<DeviceDataVirtualDeviceChannelMetricComponent> metric = new ArrayList<DeviceDataVirtualDeviceChannelMetricComponent>();
 
+      public DeviceDataVirtualDeviceChannelComponent() {
+        super();
+      }
+
         public CodeableConcept getCode() { 
           return this.code;
         }
 
-        public void setCode(CodeableConcept value) { 
+        public DeviceDataVirtualDeviceChannelComponent setCode(CodeableConcept value) { 
           this.code = value;
+          return this;
         }
 
         public List<DeviceDataVirtualDeviceChannelMetricComponent> getMetric() { 
@@ -109,8 +125,14 @@ public class DeviceData extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("code", "CodeableConcept", "Describes the channel.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("metric", "", "A piece of measured or derived data that is reported by the machine.", 0, java.lang.Integer.MAX_VALUE, metric));
+        }
+
       public DeviceDataVirtualDeviceChannelComponent copy(DeviceData e) {
-        DeviceDataVirtualDeviceChannelComponent dst = e.new DeviceDataVirtualDeviceChannelComponent();
+        DeviceDataVirtualDeviceChannelComponent dst = new DeviceDataVirtualDeviceChannelComponent();
         dst.code = code == null ? null : code.copy();
         dst.metric = new ArrayList<DeviceDataVirtualDeviceChannelMetricComponent>();
         for (DeviceDataVirtualDeviceChannelMetricComponent i : metric)
@@ -120,22 +142,32 @@ public class DeviceData extends Resource {
 
   }
 
-    public class DeviceDataVirtualDeviceChannelMetricComponent extends BackboneElement {
+    public static class DeviceDataVirtualDeviceChannelMetricComponent extends BackboneElement {
         /**
          * The data for the metric.
          */
         protected ResourceReference observation;
 
+      public DeviceDataVirtualDeviceChannelMetricComponent() {
+        super();
+      }
+
         public ResourceReference getObservation() { 
           return this.observation;
         }
 
-        public void setObservation(ResourceReference value) { 
+        public DeviceDataVirtualDeviceChannelMetricComponent setObservation(ResourceReference value) { 
           this.observation = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("observation", "Resource(Observation)", "The data for the metric.", 0, java.lang.Integer.MAX_VALUE, observation));
         }
 
       public DeviceDataVirtualDeviceChannelMetricComponent copy(DeviceData e) {
-        DeviceDataVirtualDeviceChannelMetricComponent dst = e.new DeviceDataVirtualDeviceChannelMetricComponent();
+        DeviceDataVirtualDeviceChannelMetricComponent dst = new DeviceDataVirtualDeviceChannelMetricComponent();
         dst.observation = observation == null ? null : observation.copy();
         return dst;
       }
@@ -167,46 +199,61 @@ public class DeviceData extends Resource {
      */
     protected List<DeviceDataVirtualDeviceComponent> virtualDevice = new ArrayList<DeviceDataVirtualDeviceComponent>();
 
+    public DeviceData() {
+      super();
+    }
+
+    public DeviceData(Instant instant, ResourceReference source) {
+      super();
+      this.instant = instant;
+      this.source = source;
+    }
+
     public Instant getInstant() { 
       return this.instant;
     }
 
-    public void setInstant(Instant value) { 
+    public DeviceData setInstant(Instant value) { 
       this.instant = value;
+      return this;
     }
 
     public Calendar getInstantSimple() { 
       return this.instant == null ? null : this.instant.getValue();
     }
 
-    public void setInstantSimple(Calendar value) { 
+    public DeviceData setInstantSimple(Calendar value) { 
         if (this.instant == null)
           this.instant = new Instant();
         this.instant.setValue(value);
+      return this;
     }
 
     public Identifier getIdentifier() { 
       return this.identifier;
     }
 
-    public void setIdentifier(Identifier value) { 
+    public DeviceData setIdentifier(Identifier value) { 
       this.identifier = value;
+      return this;
     }
 
     public ResourceReference getSource() { 
       return this.source;
     }
 
-    public void setSource(ResourceReference value) { 
+    public DeviceData setSource(ResourceReference value) { 
       this.source = value;
+      return this;
     }
 
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
-    public void setSubject(ResourceReference value) { 
+    public DeviceData setSubject(ResourceReference value) { 
       this.subject = value;
+      return this;
     }
 
     public List<DeviceDataVirtualDeviceComponent> getVirtualDevice() { 
@@ -219,6 +266,15 @@ public class DeviceData extends Resource {
       this.virtualDevice.add(t);
       return t;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("instant", "instant", "The point in time that the values are reported.", 0, java.lang.Integer.MAX_VALUE, instant));
+        childrenList.add(new Property("identifier", "Identifier", "An identifier assigned to this observation bu the source device that made the observation.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("source", "Resource(Device)", "Identification information for the device that is the source of the data.", 0, java.lang.Integer.MAX_VALUE, source));
+        childrenList.add(new Property("subject", "Resource(Patient|Device|Location)", "The subject of the measurement.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("virtualDevice", "", "A medical-related subsystem of a medical device.", 0, java.lang.Integer.MAX_VALUE, virtualDevice));
+      }
 
       public DeviceData copy() {
         DeviceData dst = new DeviceData();

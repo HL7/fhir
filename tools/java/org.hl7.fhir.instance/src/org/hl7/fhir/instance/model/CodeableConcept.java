@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -48,6 +48,10 @@ public class CodeableConcept extends Type {
      */
     protected String_ text;
 
+    public CodeableConcept() {
+      super();
+    }
+
     public List<Coding> getCoding() { 
       return this.coding;
     }
@@ -63,15 +67,16 @@ public class CodeableConcept extends Type {
       return this.text;
     }
 
-    public void setText(String_ value) { 
+    public CodeableConcept setText(String_ value) { 
       this.text = value;
+      return this;
     }
 
     public String getTextSimple() { 
       return this.text == null ? null : this.text.getValue();
     }
 
-    public void setTextSimple(String value) { 
+    public CodeableConcept setTextSimple(String value) { 
       if (value == null)
         this.text = null;
       else {
@@ -79,7 +84,14 @@ public class CodeableConcept extends Type {
           this.text = new String_();
         this.text.setValue(value);
       }
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("coding", "Coding", "A reference to a code defined by a terminology system.", 0, java.lang.Integer.MAX_VALUE, coding));
+        childrenList.add(new Property("text", "string", "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user or concept.", 0, java.lang.Integer.MAX_VALUE, text));
+      }
 
       public CodeableConcept copy() {
         CodeableConcept dst = new CodeableConcept();

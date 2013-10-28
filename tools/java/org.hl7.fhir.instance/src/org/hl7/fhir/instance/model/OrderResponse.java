@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -84,7 +84,7 @@ public class OrderResponse extends Resource {
         }
     }
 
-  public class OrderOutcomeCodeEnumFactory implements EnumFactory {
+  public static class OrderOutcomeCodeEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -168,27 +168,39 @@ public class OrderResponse extends Resource {
      */
     protected List<ResourceReference> fulfillment = new ArrayList<ResourceReference>();
 
+    public OrderResponse() {
+      super();
+    }
+
+    public OrderResponse(ResourceReference request, Enumeration<OrderOutcomeCode> code) {
+      super();
+      this.request = request;
+      this.code = code;
+    }
+
     public ResourceReference getRequest() { 
       return this.request;
     }
 
-    public void setRequest(ResourceReference value) { 
+    public OrderResponse setRequest(ResourceReference value) { 
       this.request = value;
+      return this;
     }
 
     public DateTime getDate() { 
       return this.date;
     }
 
-    public void setDate(DateTime value) { 
+    public OrderResponse setDate(DateTime value) { 
       this.date = value;
+      return this;
     }
 
     public String getDateSimple() { 
       return this.date == null ? null : this.date.getValue();
     }
 
-    public void setDateSimple(String value) { 
+    public OrderResponse setDateSimple(String value) { 
       if (value == null)
         this.date = null;
       else {
@@ -196,63 +208,70 @@ public class OrderResponse extends Resource {
           this.date = new DateTime();
         this.date.setValue(value);
       }
+      return this;
     }
 
     public ResourceReference getWho() { 
       return this.who;
     }
 
-    public void setWho(ResourceReference value) { 
+    public OrderResponse setWho(ResourceReference value) { 
       this.who = value;
+      return this;
     }
 
     public ResourceReference getAuthority() { 
       return this.authority;
     }
 
-    public void setAuthority(ResourceReference value) { 
+    public OrderResponse setAuthority(ResourceReference value) { 
       this.authority = value;
+      return this;
     }
 
     public Money getCost() { 
       return this.cost;
     }
 
-    public void setCost(Money value) { 
+    public OrderResponse setCost(Money value) { 
       this.cost = value;
+      return this;
     }
 
     public Enumeration<OrderOutcomeCode> getCode() { 
       return this.code;
     }
 
-    public void setCode(Enumeration<OrderOutcomeCode> value) { 
+    public OrderResponse setCode(Enumeration<OrderOutcomeCode> value) { 
       this.code = value;
+      return this;
     }
 
     public OrderOutcomeCode getCodeSimple() { 
       return this.code == null ? null : this.code.getValue();
     }
 
-    public void setCodeSimple(OrderOutcomeCode value) { 
+    public OrderResponse setCodeSimple(OrderOutcomeCode value) { 
         if (this.code == null)
           this.code = new Enumeration<OrderOutcomeCode>();
         this.code.setValue(value);
+      return this;
     }
 
     public String_ getDescription() { 
       return this.description;
     }
 
-    public void setDescription(String_ value) { 
+    public OrderResponse setDescription(String_ value) { 
       this.description = value;
+      return this;
     }
 
     public String getDescriptionSimple() { 
       return this.description == null ? null : this.description.getValue();
     }
 
-    public void setDescriptionSimple(String value) { 
+    public OrderResponse setDescriptionSimple(String value) { 
       if (value == null)
         this.description = null;
       else {
@@ -260,6 +279,7 @@ public class OrderResponse extends Resource {
           this.description = new String_();
         this.description.setValue(value);
       }
+      return this;
     }
 
     public List<ResourceReference> getFulfillment() { 
@@ -272,6 +292,18 @@ public class OrderResponse extends Resource {
       this.fulfillment.add(t);
       return t;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("request", "Resource(Order)", "The order that this is a response to.", 0, java.lang.Integer.MAX_VALUE, request));
+        childrenList.add(new Property("date", "dateTime", "When the response was made.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("who", "Resource(Practitioner|Organization)", "Who made the response.", 0, java.lang.Integer.MAX_VALUE, who));
+        childrenList.add(new Property("authority", "Resource(Any)", "If required by policy.", 0, java.lang.Integer.MAX_VALUE, authority));
+        childrenList.add(new Property("cost", "Money", "How much the request will/did cost.", 0, java.lang.Integer.MAX_VALUE, cost));
+        childrenList.add(new Property("code", "code", "The status of the response.", 0, java.lang.Integer.MAX_VALUE, code));
+        childrenList.add(new Property("description", "string", "Additional description of the response.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("fulfillment", "Resource(Any)", "Details of the outcome of performing the order.", 0, java.lang.Integer.MAX_VALUE, fulfillment));
+      }
 
       public OrderResponse copy() {
         OrderResponse dst = new OrderResponse();

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -88,7 +88,7 @@ public class DiagnosticOrder extends Resource {
         }
     }
 
-  public class DiagnosticOrderStatusEnumFactory implements EnumFactory {
+  public static class DiagnosticOrderStatusEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -162,7 +162,7 @@ public class DiagnosticOrder extends Resource {
         }
     }
 
-  public class DiagnosticOrderPriorityEnumFactory implements EnumFactory {
+  public static class DiagnosticOrderPriorityEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -186,7 +186,7 @@ public class DiagnosticOrder extends Resource {
       }
     }
 
-    public class DiagnosticOrderEventComponent extends BackboneElement {
+    public static class DiagnosticOrderEventComponent extends BackboneElement {
         /**
          * The status for the event.
          */
@@ -202,52 +202,74 @@ public class DiagnosticOrder extends Resource {
          */
         protected ResourceReference actor;
 
+      public DiagnosticOrderEventComponent() {
+        super();
+      }
+
+      public DiagnosticOrderEventComponent(Enumeration<DiagnosticOrderStatus> status, DateTime date) {
+        super();
+        this.status = status;
+        this.date = date;
+      }
+
         public Enumeration<DiagnosticOrderStatus> getStatus() { 
           return this.status;
         }
 
-        public void setStatus(Enumeration<DiagnosticOrderStatus> value) { 
+        public DiagnosticOrderEventComponent setStatus(Enumeration<DiagnosticOrderStatus> value) { 
           this.status = value;
+          return this;
         }
 
         public DiagnosticOrderStatus getStatusSimple() { 
           return this.status == null ? null : this.status.getValue();
         }
 
-        public void setStatusSimple(DiagnosticOrderStatus value) { 
+        public DiagnosticOrderEventComponent setStatusSimple(DiagnosticOrderStatus value) { 
             if (this.status == null)
               this.status = new Enumeration<DiagnosticOrderStatus>();
             this.status.setValue(value);
+          return this;
         }
 
         public DateTime getDate() { 
           return this.date;
         }
 
-        public void setDate(DateTime value) { 
+        public DiagnosticOrderEventComponent setDate(DateTime value) { 
           this.date = value;
+          return this;
         }
 
         public String getDateSimple() { 
           return this.date == null ? null : this.date.getValue();
         }
 
-        public void setDateSimple(String value) { 
+        public DiagnosticOrderEventComponent setDateSimple(String value) { 
             if (this.date == null)
               this.date = new DateTime();
             this.date.setValue(value);
+          return this;
         }
 
         public ResourceReference getActor() { 
           return this.actor;
         }
 
-        public void setActor(ResourceReference value) { 
+        public DiagnosticOrderEventComponent setActor(ResourceReference value) { 
           this.actor = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("status", "code", "The status for the event.", 0, java.lang.Integer.MAX_VALUE, status));
+          childrenList.add(new Property("date", "dateTime", "The date/time at which the event occurred.", 0, java.lang.Integer.MAX_VALUE, date));
+          childrenList.add(new Property("actor", "Resource(Practitioner|Device)", "The person who was responsible for performing or recording the action.", 0, java.lang.Integer.MAX_VALUE, actor));
         }
 
       public DiagnosticOrderEventComponent copy(DiagnosticOrder e) {
-        DiagnosticOrderEventComponent dst = e.new DiagnosticOrderEventComponent();
+        DiagnosticOrderEventComponent dst = new DiagnosticOrderEventComponent();
         dst.status = status == null ? null : status.copy();
         dst.date = date == null ? null : date.copy();
         dst.actor = actor == null ? null : actor.copy();
@@ -256,7 +278,7 @@ public class DiagnosticOrder extends Resource {
 
   }
 
-    public class DiagnosticOrderItemComponent extends BackboneElement {
+    public static class DiagnosticOrderItemComponent extends BackboneElement {
         /**
          * A code that identifies a particular diagnostic investigation that has been requested.
          */
@@ -282,12 +304,22 @@ public class DiagnosticOrder extends Resource {
          */
         protected List<DiagnosticOrderEventComponent> event = new ArrayList<DiagnosticOrderEventComponent>();
 
+      public DiagnosticOrderItemComponent() {
+        super();
+      }
+
+      public DiagnosticOrderItemComponent(CodeableConcept code) {
+        super();
+        this.code = code;
+      }
+
         public CodeableConcept getCode() { 
           return this.code;
         }
 
-        public void setCode(CodeableConcept value) { 
+        public DiagnosticOrderItemComponent setCode(CodeableConcept value) { 
           this.code = value;
+          return this;
         }
 
         public List<ResourceReference> getSpecimen() { 
@@ -305,23 +337,25 @@ public class DiagnosticOrder extends Resource {
           return this.bodySite;
         }
 
-        public void setBodySite(CodeableConcept value) { 
+        public DiagnosticOrderItemComponent setBodySite(CodeableConcept value) { 
           this.bodySite = value;
+          return this;
         }
 
         public Enumeration<DiagnosticOrderStatus> getStatus() { 
           return this.status;
         }
 
-        public void setStatus(Enumeration<DiagnosticOrderStatus> value) { 
+        public DiagnosticOrderItemComponent setStatus(Enumeration<DiagnosticOrderStatus> value) { 
           this.status = value;
+          return this;
         }
 
         public DiagnosticOrderStatus getStatusSimple() { 
           return this.status == null ? null : this.status.getValue();
         }
 
-        public void setStatusSimple(DiagnosticOrderStatus value) { 
+        public DiagnosticOrderItemComponent setStatusSimple(DiagnosticOrderStatus value) { 
           if (value == null)
             this.status = null;
           else {
@@ -329,6 +363,7 @@ public class DiagnosticOrder extends Resource {
               this.status = new Enumeration<DiagnosticOrderStatus>();
             this.status.setValue(value);
           }
+          return this;
         }
 
         public List<DiagnosticOrderEventComponent> getEvent() { 
@@ -342,8 +377,17 @@ public class DiagnosticOrder extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("code", "CodeableConcept", "A code that identifies a particular diagnostic investigation that has been requested.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("specimen", "Resource(Specimen)", "If the item is related to a specific speciment.", 0, java.lang.Integer.MAX_VALUE, specimen));
+          childrenList.add(new Property("bodySite", "CodeableConcept", "Anatomical location where the request test should be performed.", 0, java.lang.Integer.MAX_VALUE, bodySite));
+          childrenList.add(new Property("status", "code", "The status of this individual item within the order.", 0, java.lang.Integer.MAX_VALUE, status));
+          childrenList.add(new Property("event", "@DiagnosticOrder.event", "A summary of the events of interest that have occurred as this item of the request is processed.", 0, java.lang.Integer.MAX_VALUE, event));
+        }
+
       public DiagnosticOrderItemComponent copy(DiagnosticOrder e) {
-        DiagnosticOrderItemComponent dst = e.new DiagnosticOrderItemComponent();
+        DiagnosticOrderItemComponent dst = new DiagnosticOrderItemComponent();
         dst.code = code == null ? null : code.copy();
         dst.specimen = new ArrayList<ResourceReference>();
         for (ResourceReference i : specimen)
@@ -408,20 +452,31 @@ public class DiagnosticOrder extends Resource {
      */
     protected List<DiagnosticOrderItemComponent> item = new ArrayList<DiagnosticOrderItemComponent>();
 
+    public DiagnosticOrder() {
+      super();
+    }
+
+    public DiagnosticOrder(ResourceReference subject) {
+      super();
+      this.subject = subject;
+    }
+
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
-    public void setSubject(ResourceReference value) { 
+    public DiagnosticOrder setSubject(ResourceReference value) { 
       this.subject = value;
+      return this;
     }
 
     public ResourceReference getOrderer() { 
       return this.orderer;
     }
 
-    public void setOrderer(ResourceReference value) { 
+    public DiagnosticOrder setOrderer(ResourceReference value) { 
       this.orderer = value;
+      return this;
     }
 
     public List<Identifier> getIdentifier() { 
@@ -439,23 +494,25 @@ public class DiagnosticOrder extends Resource {
       return this.encounter;
     }
 
-    public void setEncounter(ResourceReference value) { 
+    public DiagnosticOrder setEncounter(ResourceReference value) { 
       this.encounter = value;
+      return this;
     }
 
     public String_ getClinicalNotes() { 
       return this.clinicalNotes;
     }
 
-    public void setClinicalNotes(String_ value) { 
+    public DiagnosticOrder setClinicalNotes(String_ value) { 
       this.clinicalNotes = value;
+      return this;
     }
 
     public String getClinicalNotesSimple() { 
       return this.clinicalNotes == null ? null : this.clinicalNotes.getValue();
     }
 
-    public void setClinicalNotesSimple(String value) { 
+    public DiagnosticOrder setClinicalNotesSimple(String value) { 
       if (value == null)
         this.clinicalNotes = null;
       else {
@@ -463,6 +520,7 @@ public class DiagnosticOrder extends Resource {
           this.clinicalNotes = new String_();
         this.clinicalNotes.setValue(value);
       }
+      return this;
     }
 
     public List<ResourceReference> getSpecimen() { 
@@ -480,15 +538,16 @@ public class DiagnosticOrder extends Resource {
       return this.status;
     }
 
-    public void setStatus(Enumeration<DiagnosticOrderStatus> value) { 
+    public DiagnosticOrder setStatus(Enumeration<DiagnosticOrderStatus> value) { 
       this.status = value;
+      return this;
     }
 
     public DiagnosticOrderStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
-    public void setStatusSimple(DiagnosticOrderStatus value) { 
+    public DiagnosticOrder setStatusSimple(DiagnosticOrderStatus value) { 
       if (value == null)
         this.status = null;
       else {
@@ -496,21 +555,23 @@ public class DiagnosticOrder extends Resource {
           this.status = new Enumeration<DiagnosticOrderStatus>();
         this.status.setValue(value);
       }
+      return this;
     }
 
     public Enumeration<DiagnosticOrderPriority> getPriority() { 
       return this.priority;
     }
 
-    public void setPriority(Enumeration<DiagnosticOrderPriority> value) { 
+    public DiagnosticOrder setPriority(Enumeration<DiagnosticOrderPriority> value) { 
       this.priority = value;
+      return this;
     }
 
     public DiagnosticOrderPriority getPrioritySimple() { 
       return this.priority == null ? null : this.priority.getValue();
     }
 
-    public void setPrioritySimple(DiagnosticOrderPriority value) { 
+    public DiagnosticOrder setPrioritySimple(DiagnosticOrderPriority value) { 
       if (value == null)
         this.priority = null;
       else {
@@ -518,6 +579,7 @@ public class DiagnosticOrder extends Resource {
           this.priority = new Enumeration<DiagnosticOrderPriority>();
         this.priority.setValue(value);
       }
+      return this;
     }
 
     public List<DiagnosticOrderEventComponent> getEvent() { 
@@ -541,6 +603,20 @@ public class DiagnosticOrder extends Resource {
       this.item.add(t);
       return t;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("subject", "Resource(Patient|Group|Location|Device)", "Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("orderer", "Resource(Practitioner)", "The practitioner that holds legal responsibility for ordering the investigation.", 0, java.lang.Integer.MAX_VALUE, orderer));
+        childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order by the order or by the receiver.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("encounter", "Resource(Encounter)", "An encounter that provides additional informaton about the healthcare context in which this request is made.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("clinicalNotes", "string", "An explanation or justification for why this diagnostic investigation is being requested.", 0, java.lang.Integer.MAX_VALUE, clinicalNotes));
+        childrenList.add(new Property("specimen", "Resource(Specimen)", "One or more specimens that the diagnostic investigation is about.", 0, java.lang.Integer.MAX_VALUE, specimen));
+        childrenList.add(new Property("status", "code", "The status of the order.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("priority", "code", "The clinical priority associated with this order.", 0, java.lang.Integer.MAX_VALUE, priority));
+        childrenList.add(new Property("event", "", "A summary of the events of interest that have occurred as the request is processed.", 0, java.lang.Integer.MAX_VALUE, event));
+        childrenList.add(new Property("item", "", "The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested.", 0, java.lang.Integer.MAX_VALUE, item));
+      }
 
       public DiagnosticOrder copy() {
         DiagnosticOrder dst = new DiagnosticOrder();

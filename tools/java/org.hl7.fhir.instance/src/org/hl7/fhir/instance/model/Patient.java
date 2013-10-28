@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -38,7 +38,57 @@ import java.util.*;
  */
 public class Patient extends Resource {
 
-    public class ContactComponent extends BackboneElement {
+    public enum LinkType {
+        replace, // The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains the link.
+        refer, // The patient resource containing this link is in use and valid but not considered the main source of information about a patient. The link points forward to another patient resource that should be consulted to retrieve additional patient information.
+        seealso, // The patient resource containing this link is in use and valid, but points to another patient resource that is known to contain data about the same person. Data in this resource might overlap or contradict information found in the other patient resource. This link does not indicate any relative importance of the resources concerned, and both should be regarded as equally valid.
+        Null; // added to help the parsers
+        public static LinkType fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("replace".equals(codeString))
+          return replace;
+        if ("refer".equals(codeString))
+          return refer;
+        if ("seealso".equals(codeString))
+          return seealso;
+        throw new Exception("Unknown LinkType code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case replace: return "replace";
+            case refer: return "refer";
+            case seealso: return "seealso";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class LinkTypeEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("replace".equals(codeString))
+          return LinkType.replace;
+        if ("refer".equals(codeString))
+          return LinkType.refer;
+        if ("seealso".equals(codeString))
+          return LinkType.seealso;
+        throw new Exception("Unknown LinkType code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == LinkType.replace)
+        return "replace";
+      if (code == LinkType.refer)
+        return "refer";
+      if (code == LinkType.seealso)
+        return "seealso";
+      return "?";
+      }
+    }
+
+    public static class ContactComponent extends BackboneElement {
         /**
          * The nature of the relationship between the patient and the contact person.
          */
@@ -69,6 +119,10 @@ public class Patient extends Resource {
          */
         protected ResourceReference organization;
 
+      public ContactComponent() {
+        super();
+      }
+
         public List<CodeableConcept> getRelationship() { 
           return this.relationship;
         }
@@ -84,8 +138,9 @@ public class Patient extends Resource {
           return this.name;
         }
 
-        public void setName(HumanName value) { 
+        public ContactComponent setName(HumanName value) { 
           this.name = value;
+          return this;
         }
 
         public List<Contact> getTelecom() { 
@@ -103,28 +158,41 @@ public class Patient extends Resource {
           return this.address;
         }
 
-        public void setAddress(Address value) { 
+        public ContactComponent setAddress(Address value) { 
           this.address = value;
+          return this;
         }
 
         public CodeableConcept getGender() { 
           return this.gender;
         }
 
-        public void setGender(CodeableConcept value) { 
+        public ContactComponent setGender(CodeableConcept value) { 
           this.gender = value;
+          return this;
         }
 
         public ResourceReference getOrganization() { 
           return this.organization;
         }
 
-        public void setOrganization(ResourceReference value) { 
+        public ContactComponent setOrganization(ResourceReference value) { 
           this.organization = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("relationship", "CodeableConcept", "The nature of the relationship between the patient and the contact person.", 0, java.lang.Integer.MAX_VALUE, relationship));
+          childrenList.add(new Property("name", "HumanName", "A name associated with the person.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("telecom", "Contact", "A contact detail for the person, e.g. a telephone number or an email address.", 0, java.lang.Integer.MAX_VALUE, telecom));
+          childrenList.add(new Property("address", "Address", "Address for the contact person.", 0, java.lang.Integer.MAX_VALUE, address));
+          childrenList.add(new Property("gender", "CodeableConcept", "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
+          childrenList.add(new Property("organization", "Resource(Organization)", "Organization on behalf of which the contact is acting or for which the contact is working.", 0, java.lang.Integer.MAX_VALUE, organization));
         }
 
       public ContactComponent copy(Patient e) {
-        ContactComponent dst = e.new ContactComponent();
+        ContactComponent dst = new ContactComponent();
         dst.relationship = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : relationship)
           dst.relationship.add(i.copy());
@@ -140,7 +208,7 @@ public class Patient extends Resource {
 
   }
 
-    public class AnimalComponent extends BackboneElement {
+    public static class AnimalComponent extends BackboneElement {
         /**
          * Identifies the high level categorization of the kind of animal.
          */
@@ -156,35 +224,119 @@ public class Patient extends Resource {
          */
         protected CodeableConcept genderStatus;
 
+      public AnimalComponent() {
+        super();
+      }
+
+      public AnimalComponent(CodeableConcept species) {
+        super();
+        this.species = species;
+      }
+
         public CodeableConcept getSpecies() { 
           return this.species;
         }
 
-        public void setSpecies(CodeableConcept value) { 
+        public AnimalComponent setSpecies(CodeableConcept value) { 
           this.species = value;
+          return this;
         }
 
         public CodeableConcept getBreed() { 
           return this.breed;
         }
 
-        public void setBreed(CodeableConcept value) { 
+        public AnimalComponent setBreed(CodeableConcept value) { 
           this.breed = value;
+          return this;
         }
 
         public CodeableConcept getGenderStatus() { 
           return this.genderStatus;
         }
 
-        public void setGenderStatus(CodeableConcept value) { 
+        public AnimalComponent setGenderStatus(CodeableConcept value) { 
           this.genderStatus = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("species", "CodeableConcept", "Identifies the high level categorization of the kind of animal.", 0, java.lang.Integer.MAX_VALUE, species));
+          childrenList.add(new Property("breed", "CodeableConcept", "Identifies the detailed categorization of the kind of animal.", 0, java.lang.Integer.MAX_VALUE, breed));
+          childrenList.add(new Property("genderStatus", "CodeableConcept", "Indicates the current state of the animal's reproductive organs.", 0, java.lang.Integer.MAX_VALUE, genderStatus));
         }
 
       public AnimalComponent copy(Patient e) {
-        AnimalComponent dst = e.new AnimalComponent();
+        AnimalComponent dst = new AnimalComponent();
         dst.species = species == null ? null : species.copy();
         dst.breed = breed == null ? null : breed.copy();
         dst.genderStatus = genderStatus == null ? null : genderStatus.copy();
+        return dst;
+      }
+
+  }
+
+    public static class PatientLinkComponent extends BackboneElement {
+        /**
+         * The other patient resource that the link refers to.
+         */
+        protected ResourceReference other;
+
+        /**
+         * The type of link between this patient resource and another patient resource.
+         */
+        protected Enumeration<LinkType> type;
+
+      public PatientLinkComponent() {
+        super();
+      }
+
+      public PatientLinkComponent(ResourceReference other, Enumeration<LinkType> type) {
+        super();
+        this.other = other;
+        this.type = type;
+      }
+
+        public ResourceReference getOther() { 
+          return this.other;
+        }
+
+        public PatientLinkComponent setOther(ResourceReference value) { 
+          this.other = value;
+          return this;
+        }
+
+        public Enumeration<LinkType> getType() { 
+          return this.type;
+        }
+
+        public PatientLinkComponent setType(Enumeration<LinkType> value) { 
+          this.type = value;
+          return this;
+        }
+
+        public LinkType getTypeSimple() { 
+          return this.type == null ? null : this.type.getValue();
+        }
+
+        public PatientLinkComponent setTypeSimple(LinkType value) { 
+            if (this.type == null)
+              this.type = new Enumeration<LinkType>();
+            this.type.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("other", "Resource(Patient)", "The other patient resource that the link refers to.", 0, java.lang.Integer.MAX_VALUE, other));
+          childrenList.add(new Property("type", "code", "The type of link between this patient resource and another patient resource.", 0, java.lang.Integer.MAX_VALUE, type));
+        }
+
+      public PatientLinkComponent copy(Patient e) {
+        PatientLinkComponent dst = new PatientLinkComponent();
+        dst.other = other == null ? null : other.copy();
+        dst.type = type == null ? null : type.copy();
         return dst;
       }
 
@@ -261,14 +413,18 @@ public class Patient extends Resource {
     protected ResourceReference provider;
 
     /**
-     * A linked patient resource is a resource that concerns the same patient. Resources are linked after it is realized that at least one was created in error.
+     * Link to another patient resource that concerns the same actual person.
      */
-    protected List<ResourceReference> link = new ArrayList<ResourceReference>();
+    protected List<PatientLinkComponent> link = new ArrayList<PatientLinkComponent>();
 
     /**
      * Whether this patient record is in active use.
      */
     protected Boolean active;
+
+    public Patient() {
+      super();
+    }
 
     public List<Identifier> getIdentifier() { 
       return this.identifier;
@@ -307,23 +463,25 @@ public class Patient extends Resource {
       return this.gender;
     }
 
-    public void setGender(CodeableConcept value) { 
+    public Patient setGender(CodeableConcept value) { 
       this.gender = value;
+      return this;
     }
 
     public DateTime getBirthDate() { 
       return this.birthDate;
     }
 
-    public void setBirthDate(DateTime value) { 
+    public Patient setBirthDate(DateTime value) { 
       this.birthDate = value;
+      return this;
     }
 
     public String getBirthDateSimple() { 
       return this.birthDate == null ? null : this.birthDate.getValue();
     }
 
-    public void setBirthDateSimple(String value) { 
+    public Patient setBirthDateSimple(String value) { 
       if (value == null)
         this.birthDate = null;
       else {
@@ -331,14 +489,16 @@ public class Patient extends Resource {
           this.birthDate = new DateTime();
         this.birthDate.setValue(value);
       }
+      return this;
     }
 
     public Type getDeceased() { 
       return this.deceased;
     }
 
-    public void setDeceased(Type value) { 
+    public Patient setDeceased(Type value) { 
       this.deceased = value;
+      return this;
     }
 
     public List<Address> getAddress() { 
@@ -356,16 +516,18 @@ public class Patient extends Resource {
       return this.maritalStatus;
     }
 
-    public void setMaritalStatus(CodeableConcept value) { 
+    public Patient setMaritalStatus(CodeableConcept value) { 
       this.maritalStatus = value;
+      return this;
     }
 
     public Type getMultipleBirth() { 
       return this.multipleBirth;
     }
 
-    public void setMultipleBirth(Type value) { 
+    public Patient setMultipleBirth(Type value) { 
       this.multipleBirth = value;
+      return this;
     }
 
     public List<Attachment> getPhoto() { 
@@ -394,8 +556,9 @@ public class Patient extends Resource {
       return this.animal;
     }
 
-    public void setAnimal(AnimalComponent value) { 
+    public Patient setAnimal(AnimalComponent value) { 
       this.animal = value;
+      return this;
     }
 
     public List<CodeableConcept> getCommunication() { 
@@ -413,17 +576,18 @@ public class Patient extends Resource {
       return this.provider;
     }
 
-    public void setProvider(ResourceReference value) { 
+    public Patient setProvider(ResourceReference value) { 
       this.provider = value;
+      return this;
     }
 
-    public List<ResourceReference> getLink() { 
+    public List<PatientLinkComponent> getLink() { 
       return this.link;
     }
 
     // syntactic sugar
-    public ResourceReference addLink() { 
-      ResourceReference t = new ResourceReference();
+    public PatientLinkComponent addLink() { 
+      PatientLinkComponent t = new PatientLinkComponent();
       this.link.add(t);
       return t;
     }
@@ -432,15 +596,16 @@ public class Patient extends Resource {
       return this.active;
     }
 
-    public void setActive(Boolean value) { 
+    public Patient setActive(Boolean value) { 
       this.active = value;
+      return this;
     }
 
     public boolean getActiveSimple() { 
       return this.active == null ? null : this.active.getValue();
     }
 
-    public void setActiveSimple(boolean value) { 
+    public Patient setActiveSimple(boolean value) { 
       if (value == false)
         this.active = null;
       else {
@@ -448,7 +613,28 @@ public class Patient extends Resource {
           this.active = new Boolean();
         this.active.setValue(value);
       }
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "An identifier that applies to this person as a patient.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("name", "HumanName", "A name associated with the individual.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("telecom", "Contact", "A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.", 0, java.lang.Integer.MAX_VALUE, telecom));
+        childrenList.add(new Property("gender", "CodeableConcept", "Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
+        childrenList.add(new Property("birthDate", "dateTime", "The date and time of birth for the individual.", 0, java.lang.Integer.MAX_VALUE, birthDate));
+        childrenList.add(new Property("deceased[x]", "boolean|dateTime", "Indicates if the individual is deceased or not.", 0, java.lang.Integer.MAX_VALUE, deceased));
+        childrenList.add(new Property("address", "Address", "Addresses for the individual.", 0, java.lang.Integer.MAX_VALUE, address));
+        childrenList.add(new Property("maritalStatus", "CodeableConcept", "This field contains a patient's most recent marital (civil) status.", 0, java.lang.Integer.MAX_VALUE, maritalStatus));
+        childrenList.add(new Property("multipleBirth[x]", "boolean|integer", "Indicates whether the patient is part of a multiple or indicates the actual birth order.", 0, java.lang.Integer.MAX_VALUE, multipleBirth));
+        childrenList.add(new Property("photo", "Attachment", "Image of the person.", 0, java.lang.Integer.MAX_VALUE, photo));
+        childrenList.add(new Property("contact", "", "A contact party (e.g. guardian, partner, friend) for the patient.", 0, java.lang.Integer.MAX_VALUE, contact));
+        childrenList.add(new Property("animal", "", "This element has a value if the patient is an animal.", 0, java.lang.Integer.MAX_VALUE, animal));
+        childrenList.add(new Property("communication", "CodeableConcept", "Languages which may be used to communicate with the patient.", 0, java.lang.Integer.MAX_VALUE, communication));
+        childrenList.add(new Property("provider", "Resource(Organization)", "The provider for whom this is a patient record.", 0, java.lang.Integer.MAX_VALUE, provider));
+        childrenList.add(new Property("link", "", "Link to another patient resource that concerns the same actual person.", 0, java.lang.Integer.MAX_VALUE, link));
+        childrenList.add(new Property("active", "boolean", "Whether this patient record is in active use.", 0, java.lang.Integer.MAX_VALUE, active));
+      }
 
       public Patient copy() {
         Patient dst = new Patient();
@@ -480,9 +666,9 @@ public class Patient extends Resource {
         for (CodeableConcept i : communication)
           dst.communication.add(i.copy());
         dst.provider = provider == null ? null : provider.copy();
-        dst.link = new ArrayList<ResourceReference>();
-        for (ResourceReference i : link)
-          dst.link.add(i.copy());
+        dst.link = new ArrayList<PatientLinkComponent>();
+        for (PatientLinkComponent i : link)
+          dst.link.add(i.copy(dst));
         dst.active = active == null ? null : active.copy();
         return dst;
       }

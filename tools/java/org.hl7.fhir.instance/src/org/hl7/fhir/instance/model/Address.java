@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -68,7 +68,7 @@ public class Address extends Type {
         }
     }
 
-  public class AddressUseEnumFactory implements EnumFactory {
+  public static class AddressUseEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -137,19 +137,24 @@ P.O. Box number, delivery hints, and similar address information.
      */
     protected Period period;
 
+    public Address() {
+      super();
+    }
+
     public Enumeration<AddressUse> getUse() { 
       return this.use;
     }
 
-    public void setUse(Enumeration<AddressUse> value) { 
+    public Address setUse(Enumeration<AddressUse> value) { 
       this.use = value;
+      return this;
     }
 
     public AddressUse getUseSimple() { 
       return this.use == null ? null : this.use.getValue();
     }
 
-    public void setUseSimple(AddressUse value) { 
+    public Address setUseSimple(AddressUse value) { 
       if (value == null)
         this.use = null;
       else {
@@ -157,21 +162,23 @@ P.O. Box number, delivery hints, and similar address information.
           this.use = new Enumeration<AddressUse>();
         this.use.setValue(value);
       }
+      return this;
     }
 
     public String_ getText() { 
       return this.text;
     }
 
-    public void setText(String_ value) { 
+    public Address setText(String_ value) { 
       this.text = value;
+      return this;
     }
 
     public String getTextSimple() { 
       return this.text == null ? null : this.text.getValue();
     }
 
-    public void setTextSimple(String value) { 
+    public Address setTextSimple(String value) { 
       if (value == null)
         this.text = null;
       else {
@@ -179,6 +186,7 @@ P.O. Box number, delivery hints, and similar address information.
           this.text = new String_();
         this.text.setValue(value);
       }
+      return this;
     }
 
     public List<String_> getLine() { 
@@ -203,15 +211,16 @@ P.O. Box number, delivery hints, and similar address information.
       return this.city;
     }
 
-    public void setCity(String_ value) { 
+    public Address setCity(String_ value) { 
       this.city = value;
+      return this;
     }
 
     public String getCitySimple() { 
       return this.city == null ? null : this.city.getValue();
     }
 
-    public void setCitySimple(String value) { 
+    public Address setCitySimple(String value) { 
       if (value == null)
         this.city = null;
       else {
@@ -219,21 +228,23 @@ P.O. Box number, delivery hints, and similar address information.
           this.city = new String_();
         this.city.setValue(value);
       }
+      return this;
     }
 
     public String_ getState() { 
       return this.state;
     }
 
-    public void setState(String_ value) { 
+    public Address setState(String_ value) { 
       this.state = value;
+      return this;
     }
 
     public String getStateSimple() { 
       return this.state == null ? null : this.state.getValue();
     }
 
-    public void setStateSimple(String value) { 
+    public Address setStateSimple(String value) { 
       if (value == null)
         this.state = null;
       else {
@@ -241,21 +252,23 @@ P.O. Box number, delivery hints, and similar address information.
           this.state = new String_();
         this.state.setValue(value);
       }
+      return this;
     }
 
     public String_ getZip() { 
       return this.zip;
     }
 
-    public void setZip(String_ value) { 
+    public Address setZip(String_ value) { 
       this.zip = value;
+      return this;
     }
 
     public String getZipSimple() { 
       return this.zip == null ? null : this.zip.getValue();
     }
 
-    public void setZipSimple(String value) { 
+    public Address setZipSimple(String value) { 
       if (value == null)
         this.zip = null;
       else {
@@ -263,21 +276,23 @@ P.O. Box number, delivery hints, and similar address information.
           this.zip = new String_();
         this.zip.setValue(value);
       }
+      return this;
     }
 
     public String_ getCountry() { 
       return this.country;
     }
 
-    public void setCountry(String_ value) { 
+    public Address setCountry(String_ value) { 
       this.country = value;
+      return this;
     }
 
     public String getCountrySimple() { 
       return this.country == null ? null : this.country.getValue();
     }
 
-    public void setCountrySimple(String value) { 
+    public Address setCountrySimple(String value) { 
       if (value == null)
         this.country = null;
       else {
@@ -285,15 +300,29 @@ P.O. Box number, delivery hints, and similar address information.
           this.country = new String_();
         this.country.setValue(value);
       }
+      return this;
     }
 
     public Period getPeriod() { 
       return this.period;
     }
 
-    public void setPeriod(Period value) { 
+    public Address setPeriod(Period value) { 
       this.period = value;
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("use", "code", "Identifies the intended purpose of this address.", 0, java.lang.Integer.MAX_VALUE, use));
+        childrenList.add(new Property("text", "string", "A full text representation of the address.", 0, java.lang.Integer.MAX_VALUE, text));
+        childrenList.add(new Property("line", "string", "This component contains the house number, apartment number, street name, street direction, \nP.O. Box number, delivery hints, and similar address information.", 0, java.lang.Integer.MAX_VALUE, line));
+        childrenList.add(new Property("city", "string", "The name of the city, town, village or other community or delivery center.", 0, java.lang.Integer.MAX_VALUE, city));
+        childrenList.add(new Property("state", "string", "Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).", 0, java.lang.Integer.MAX_VALUE, state));
+        childrenList.add(new Property("zip", "string", "A postal code designating a region defined by the postal service.", 0, java.lang.Integer.MAX_VALUE, zip));
+        childrenList.add(new Property("country", "string", "Country. ISO 3166 3 letter codes can be used in place of a full country name.", 0, java.lang.Integer.MAX_VALUE, country));
+        childrenList.add(new Property("period", "Period", "Time period when address was/is in use.", 0, java.lang.Integer.MAX_VALUE, period));
+      }
 
       public Address copy() {
         Address dst = new Address();

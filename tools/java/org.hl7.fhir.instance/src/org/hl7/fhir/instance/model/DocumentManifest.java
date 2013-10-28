@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -64,7 +64,7 @@ public class DocumentManifest extends Resource {
         }
     }
 
-  public class DocumentReferenceStatusEnumFactory implements EnumFactory {
+  public static class DocumentReferenceStatusEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -148,12 +148,23 @@ public class DocumentManifest extends Resource {
      */
     protected List<ResourceReference> content = new ArrayList<ResourceReference>();
 
+    public DocumentManifest() {
+      super();
+    }
+
+    public DocumentManifest(Identifier identifier, Enumeration<DocumentReferenceStatus> status) {
+      super();
+      this.identifier = identifier;
+      this.status = status;
+    }
+
     public Identifier getIdentifier() { 
       return this.identifier;
     }
 
-    public void setIdentifier(Identifier value) { 
+    public DocumentManifest setIdentifier(Identifier value) { 
       this.identifier = value;
+      return this;
     }
 
     public List<ResourceReference> getSubject() { 
@@ -182,8 +193,9 @@ public class DocumentManifest extends Resource {
       return this.type;
     }
 
-    public void setType(CodeableConcept value) { 
+    public DocumentManifest setType(CodeableConcept value) { 
       this.type = value;
+      return this;
     }
 
     public List<ResourceReference> getAuthor() { 
@@ -201,15 +213,16 @@ public class DocumentManifest extends Resource {
       return this.created;
     }
 
-    public void setCreated(DateTime value) { 
+    public DocumentManifest setCreated(DateTime value) { 
       this.created = value;
+      return this;
     }
 
     public String getCreatedSimple() { 
       return this.created == null ? null : this.created.getValue();
     }
 
-    public void setCreatedSimple(String value) { 
+    public DocumentManifest setCreatedSimple(String value) { 
       if (value == null)
         this.created = null;
       else {
@@ -217,21 +230,23 @@ public class DocumentManifest extends Resource {
           this.created = new DateTime();
         this.created.setValue(value);
       }
+      return this;
     }
 
     public Uri getSource() { 
       return this.source;
     }
 
-    public void setSource(Uri value) { 
+    public DocumentManifest setSource(Uri value) { 
       this.source = value;
+      return this;
     }
 
     public String getSourceSimple() { 
       return this.source == null ? null : this.source.getValue();
     }
 
-    public void setSourceSimple(String value) { 
+    public DocumentManifest setSourceSimple(String value) { 
       if (value == null)
         this.source = null;
       else {
@@ -239,47 +254,52 @@ public class DocumentManifest extends Resource {
           this.source = new Uri();
         this.source.setValue(value);
       }
+      return this;
     }
 
     public Enumeration<DocumentReferenceStatus> getStatus() { 
       return this.status;
     }
 
-    public void setStatus(Enumeration<DocumentReferenceStatus> value) { 
+    public DocumentManifest setStatus(Enumeration<DocumentReferenceStatus> value) { 
       this.status = value;
+      return this;
     }
 
     public DocumentReferenceStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
-    public void setStatusSimple(DocumentReferenceStatus value) { 
+    public DocumentManifest setStatusSimple(DocumentReferenceStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<DocumentReferenceStatus>();
         this.status.setValue(value);
+      return this;
     }
 
     public ResourceReference getSupercedes() { 
       return this.supercedes;
     }
 
-    public void setSupercedes(ResourceReference value) { 
+    public DocumentManifest setSupercedes(ResourceReference value) { 
       this.supercedes = value;
+      return this;
     }
 
     public String_ getDescription() { 
       return this.description;
     }
 
-    public void setDescription(String_ value) { 
+    public DocumentManifest setDescription(String_ value) { 
       this.description = value;
+      return this;
     }
 
     public String getDescriptionSimple() { 
       return this.description == null ? null : this.description.getValue();
     }
 
-    public void setDescriptionSimple(String value) { 
+    public DocumentManifest setDescriptionSimple(String value) { 
       if (value == null)
         this.description = null;
       else {
@@ -287,14 +307,16 @@ public class DocumentManifest extends Resource {
           this.description = new String_();
         this.description.setValue(value);
       }
+      return this;
     }
 
     public CodeableConcept getConfidentiality() { 
       return this.confidentiality;
     }
 
-    public void setConfidentiality(CodeableConcept value) { 
+    public DocumentManifest setConfidentiality(CodeableConcept value) { 
       this.confidentiality = value;
+      return this;
     }
 
     public List<ResourceReference> getContent() { 
@@ -307,6 +329,22 @@ public class DocumentManifest extends Resource {
       this.content.add(t);
       return t;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "A single identifier that identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("subject", "Resource(Patient|Practitioner|Group|Device)", "Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subjecti allowed here (unusual use case).", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("recipient", "Resource(Patient|Practitioner|Organization)", "A patient, practitioner, or organization that this set of documents is intended for.", 0, java.lang.Integer.MAX_VALUE, recipient));
+        childrenList.add(new Property("type", "CodeableConcept", "Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there's only one - but it may be wider.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("author", "Resource(Practitioner|Device)", "Identifies who is responsible for adding the information to the document.", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("created", "dateTime", "When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).", 0, java.lang.Integer.MAX_VALUE, created));
+        childrenList.add(new Property("source", "uri", "Identifies the source system, application, or software that produced the document manifest.", 0, java.lang.Integer.MAX_VALUE, source));
+        childrenList.add(new Property("status", "code", "The status of this document manifest.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("supercedes", "Resource(DocumentManifest)", "If this document manifest replaces another.", 0, java.lang.Integer.MAX_VALUE, supercedes));
+        childrenList.add(new Property("description", "string", "Human-readable description of the source document. This is sometimes known as the 'title'.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("confidentiality", "CodeableConcept", "A code specifying the level of confidentiality of this set of Documents.", 0, java.lang.Integer.MAX_VALUE, confidentiality));
+        childrenList.add(new Property("content", "Resource(DocumentReference|Binary|Media)", "The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed.", 0, java.lang.Integer.MAX_VALUE, content));
+      }
 
       public DocumentManifest copy() {
         DocumentManifest dst = new DocumentManifest();

@@ -78,7 +78,7 @@ public class ResourceValidator extends BaseValidator {
 	private Map<String, Usage> usages = new HashMap<String, Usage>();
   private Element translations;
   private Map<String, AtomEntry<ValueSet>> codeSystems = new HashMap<String, AtomEntry<ValueSet>>();
-  private Map<String, Integer> typeCounter = new HashMap<String, Integer>();
+//  private Map<String, Integer> typeCounter = new HashMap<String, Integer>();
   
   
 
@@ -191,12 +191,12 @@ public class ResourceValidator extends BaseValidator {
 	//todo: check that primitives *in datatypes* don't repeat
 	
 	private void checkElement(List<ValidationMessage> errors, String path, ElementDefn e, ResourceDefn parent, String parentName, boolean needsRimMapping) {
-	  for (TypeRef t : e.getTypes()) {
-  	  if (!typeCounter.containsKey(t.getName()))
-	      typeCounter.put(t.getName(), 1);
-  	  else
-  	    typeCounter.put(t.getName(), typeCounter.get(t.getName())+1);
-	  }
+//	  for (TypeRef t : e.getTypes()) {
+//  	  if (!typeCounter.containsKey(t.getName()))
+//	      typeCounter.put(t.getName(), 1);
+//  	  else
+//  	    typeCounter.put(t.getName(), typeCounter.get(t.getName())+1);
+//	  }
 	  
 	  rule(errors, "structure", path, e.unbounded() || e.getMaxCardinality() == 1,	"Max Cardinality must be 1 or unbounded");
 		rule(errors, "structure", path, e.getMinCardinality() == 0 || e.getMinCardinality() == 1, "Min Cardinality must be 0 or 1");
@@ -437,8 +437,8 @@ public class ResourceValidator extends BaseValidator {
 
   public void report() {
     // for dumping of ad-hoc summaries from the checking phase
-    for (String t : typeCounter.keySet()) {
-      System.out.println(t+": "+typeCounter.get(t).toString());
-    }
+//    for (String t : typeCounter.keySet()) {
+//      System.out.println(t+": "+typeCounter.get(t).toString());
+//    }
   }
 }

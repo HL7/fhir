@@ -442,7 +442,7 @@ public class Publisher {
     conf.setAcceptUnknownSimple(false);
     conf.getFormat().add(Factory.newCode("xml"));
     conf.getFormat().add(Factory.newCode("json"));
-    ConformanceRestComponent rest = conf.new ConformanceRestComponent();
+    ConformanceRestComponent rest = new Conformance.ConformanceRestComponent();
     conf.getRest().add(rest);
     rest.setModeSimple(RestfulConformanceMode.server);
     rest.setDocumentationSimple("All the functionality defined in FHIR");
@@ -452,7 +452,7 @@ public class Publisher {
 
     for (String rn : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn rd = page.getDefinitions().getResourceByName(rn);
-      ConformanceRestResourceComponent res = conf.new ConformanceRestResourceComponent();
+      ConformanceRestResourceComponent res = new Conformance.ConformanceRestResourceComponent();
       rest.getResource().add(res);
       res.setTypeSimple(rn);
       res.setProfile(Factory.makeResourceReference("http://hl7.org/fhir/"+rn));
@@ -491,7 +491,7 @@ public class Publisher {
   }
 
   private ConformanceRestResourceSearchParamComponent makeSearchParam(Conformance p, String rn, SearchParameter i) {
-    ConformanceRestResourceSearchParamComponent result = p.new ConformanceRestResourceSearchParamComponent();
+    ConformanceRestResourceSearchParamComponent result = new Conformance.ConformanceRestResourceSearchParamComponent();
     result.setNameSimple(i.getCode());
     result.setSourceSimple("http://hl7.org/fhir/"+rn+"/search#"+i.getCode());
     result.setTypeSimple(getSearchParamType(i.getType()));
@@ -516,13 +516,13 @@ public class Publisher {
 
 
   private void genConfOp(Conformance conf, ConformanceRestResourceComponent res, TypeRestfulOperation op) {
-    ConformanceRestResourceOperationComponent t = conf.new ConformanceRestResourceOperationComponent();
+    ConformanceRestResourceOperationComponent t = new Conformance.ConformanceRestResourceOperationComponent();
     t.setCodeSimple(op);
     res.getOperation().add(t);
   }
 
   private void genConfOp(Conformance conf, ConformanceRestComponent res, SystemRestfulOperation op) {
-    ConformanceRestOperationComponent t = conf.new ConformanceRestOperationComponent();
+    ConformanceRestOperationComponent t = new Conformance.ConformanceRestOperationComponent();
     t.setCodeSimple(op);
     res.getOperation().add(t);
   }
@@ -994,15 +994,15 @@ public class Publisher {
 							"<body><div class=\"watermark\"/>").replace(
 							"<body class=\"book\">",
 							"<body class=\"book\"><div class=\"watermark\"/>");
-					zip.addFileSource(f, srcn);
+					zip.addFileSource(f, srcn, false);
 					// Utilities.stringToFile(srcn, target+File.separator+f);
 				} else if (f.endsWith(".css")) {
 					String src = TextFile.fileToString(fn.getAbsolutePath());
 					src = src.replace("#fff", "lightcyan");
-					zip.addFileSource(f, src);
+					zip.addFileSource(f, src, false);
 					// Utilities.stringToFile(srcn, target+File.separator+f);
 				} else
-					zip.addFileName(f, fn.getAbsolutePath());
+					zip.addFileName(f, fn.getAbsolutePath(), false);
 			} else if (!fn.getAbsolutePath().endsWith("v2") && !fn.getAbsolutePath().endsWith("v3") ) {
 				// used to put stuff in sub-directories. clean them out if they
 				// still exist
@@ -1123,16 +1123,16 @@ public class Publisher {
 
       log("....validator");
       ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "validation.zip");
-      zip.addFileName("profiles-types.xml", page.getFolders().dstDir + "profiles-types.xml");
-      zip.addFileName("profiles-types.json", page.getFolders().dstDir + "profiles-types.json");
-      zip.addFileName("profiles-resources.xml", page.getFolders().dstDir + "profiles-resources.xml");
-      zip.addFileName("profiles-resources.json", page.getFolders().dstDir + "profiles-resources.json");
-      zip.addFileName("valuesets.xml", page.getFolders().dstDir + "valuesets.xml");
-      zip.addFileName("valuesets.json", page.getFolders().dstDir + "valuesets.json");
-      zip.addFileName("v2-tables.xml", page.getFolders().dstDir + "v2-tables.xml");
-      zip.addFileName("v2-tables.json", page.getFolders().dstDir + "v2-tables.json");
-      zip.addFileName("v3-codesystems.xml", page.getFolders().dstDir + "v3-codesystems.xml");
-      zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json");
+      zip.addFileName("profiles-types.xml", page.getFolders().dstDir + "profiles-types.xml", false);
+      zip.addFileName("profiles-types.json", page.getFolders().dstDir + "profiles-types.json", false);
+      zip.addFileName("profiles-resources.xml", page.getFolders().dstDir + "profiles-resources.xml", false);
+      zip.addFileName("profiles-resources.json", page.getFolders().dstDir + "profiles-resources.json", false);
+      zip.addFileName("valuesets.xml", page.getFolders().dstDir + "valuesets.xml", false);
+      zip.addFileName("valuesets.json", page.getFolders().dstDir + "valuesets.json", false);
+      zip.addFileName("v2-tables.xml", page.getFolders().dstDir + "v2-tables.xml", false);
+      zip.addFileName("v2-tables.json", page.getFolders().dstDir + "v2-tables.json", false);
+      zip.addFileName("v3-codesystems.xml", page.getFolders().dstDir + "v3-codesystems.xml", false);
+      zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json", false);
       zip.addFiles(page.getFolders().dstDir, "", ".xsd", null);
       zip.addFiles(page.getFolders().dstDir, "", ".sch", null);
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xsl", null);
@@ -1140,19 +1140,19 @@ public class Publisher {
       zip.close();
       
       zip = new ZipGenerator(page.getFolders().dstDir + "validator.zip");
-      zip.addFileName("readme.txt", Utilities.path(page.getFolders().srcDir, "tools", "readme.txt"));
-      zip.addFileName("org.hl7.fhir.validator.jar", Utilities.path(page.getFolders().dstDir, "org.hl7.fhir.validator.jar"));
-      zip.addFileName("validation.zip", page.getFolders().dstDir + "validation.zip");
+      zip.addFileName("readme.txt", Utilities.path(page.getFolders().srcDir, "tools", "readme.txt"), false);
+      zip.addFileName("org.hl7.fhir.validator.jar", Utilities.path(page.getFolders().dstDir, "org.hl7.fhir.validator.jar"), false);
+      zip.addFileName("validation.zip", page.getFolders().dstDir + "validation.zip", false);
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".zip", null); // saxon too - always make this last
       zip.close();
       
       zip = new ZipGenerator(page.getFolders().dstDir + "all-valuesets.zip");
-      zip.addFileName("valuesets.xml", page.getFolders().dstDir + "valuesets.xml");
-      zip.addFileName("valuesets.json", page.getFolders().dstDir + "valuesets.json");
-      zip.addFileName("v2-tables.xml", page.getFolders().dstDir + "v2-tables.xml");
-      zip.addFileName("v2-tables.json", page.getFolders().dstDir + "v2-tables.json");
-      zip.addFileName("v3-codesystems.xml", page.getFolders().dstDir + "v3-codesystems.xml");
-      zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json");
+      zip.addFileName("valuesets.xml", page.getFolders().dstDir + "valuesets.xml", false);
+      zip.addFileName("valuesets.json", page.getFolders().dstDir + "valuesets.json", false);
+      zip.addFileName("v2-tables.xml", page.getFolders().dstDir + "v2-tables.xml", false);
+      zip.addFileName("v2-tables.json", page.getFolders().dstDir + "v2-tables.json", false);
+      zip.addFileName("v3-codesystems.xml", page.getFolders().dstDir + "v3-codesystems.xml", false);
+      zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json", false);
       zip.close();
       
 
@@ -1256,7 +1256,7 @@ public class Publisher {
           s.append("&nbsp;&nbsp;");
         s.append("<a href=\"#"+Utilities.escapeXml(Utilities.nmtokenize(code))+"\">"+Utilities.escapeXml(code)+"</a></td><td></td><td></td></tr>\r\n");
       } else {
-        ValueSetDefineConceptComponent concept = vs.new ValueSetDefineConceptComponent();
+        ValueSetDefineConceptComponent concept = new ValueSet.ValueSetDefineConceptComponent();
         handled.put(code, concept);
         concept.setCodeSimple(code);
         concept.setDisplaySimple(display); 
@@ -1296,7 +1296,7 @@ public class Publisher {
     vs.setPublisherSimple("HL7, Inc");
     vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org"));
     vs.setStatusSimple(ValuesetStatus.active);
-    ValueSetDefineComponent def = vs.new ValueSetDefineComponent();
+    ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
     vs.setDefine(def);
     def.setCaseSensitiveSimple(true);
     def.setSystemSimple("http://hl7.org/fhir/v3/"+id);
@@ -1472,9 +1472,9 @@ public class Publisher {
       if (cs == null)
         throw new Exception("Error Processing ValueSet "+id+", unable to resolve code system '"+XMLUtil.getNamedChild(e, "supportedCodeSystem").getTextContent()+"'");
       // ok, now the content
-      ValueSetComposeComponent compose = vs.new ValueSetComposeComponent();
+      ValueSetComposeComponent compose = new ValueSet.ValueSetComposeComponent();
       vs.setCompose(compose);
-      ConceptSetComponent imp = vs.new ConceptSetComponent();
+      ConceptSetComponent imp = new ValueSet.ConceptSetComponent();
       compose.getInclude().add(imp);
       imp.setSystemSimple(cs.getDefine().getSystemSimple());
       Element content = XMLUtil.getNamedChild(r, "content");
@@ -1486,7 +1486,7 @@ public class Publisher {
       while (cnt != null) {
         if (cnt.getNodeName().equals("codeBasedContent") && (XMLUtil.getNamedChild(cnt, "includeRelatedCodes") != null)) {
           // common case: include a child and all or some of it's descendants
-          ConceptSetFilterComponent f = vs.new ConceptSetFilterComponent();
+          ConceptSetFilterComponent f = new ValueSet.ConceptSetFilterComponent();
           f.setOpSimple(FilterOperator.isa);
           f.setPropertySimple("concept");
           f.setValueSimple(cnt.getAttribute("code"));
@@ -1558,7 +1558,7 @@ public class Publisher {
     vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org"));
     vs.setStatusSimple(ValuesetStatus.active);
     vs.setDateSimple("2011-01-28"); // v2.7 version
-    ValueSetDefineComponent def = vs.new ValueSetDefineComponent();
+    ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
     vs.setDefine(def);
     def.setCaseSensitiveSimple(true);
     def.setSystemSimple("http://hl7.org/fhir/v2/"+id);
@@ -1603,7 +1603,7 @@ public class Publisher {
         c = XMLUtil.getNextSibling(c);
       }
       String ver = ("2.1".equals(min) ? "from v2.1" : "added v"+min) + ("2.7".equals(max) ? "" : ", removed after v"+max);
-      ValueSetDefineConceptComponent concept = vs.new ValueSetDefineConceptComponent();
+      ValueSetDefineConceptComponent concept = new ValueSet.ValueSetDefineConceptComponent();
       concept.setCodeSimple(cd);
       concept.setDisplaySimple(codes.get(cd)); // we deem the v2 description to be display name, not definition. Open for consideration
       if (!("2.7".equals(max)))
@@ -1632,7 +1632,7 @@ public class Publisher {
     vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org"));
     vs.setStatusSimple(ValuesetStatus.active);
     vs.setDateSimple("2011-01-28"); // v2.7 version
-    ValueSetDefineComponent def = vs.new ValueSetDefineComponent();
+    ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
     vs.setDefine(def);
     def.setCaseSensitiveSimple(true);
     def.setSystemSimple("http://hl7.org/fhir/v2/"+id+"/"+version);
@@ -1686,7 +1686,7 @@ public class Publisher {
             c = XMLUtil.getNextSibling(c);
           }
           String ver = (minlim.equals(min) ? "from v"+minlim : "added v"+min) + (maxlim.equals(max) ? "" : ", removed after v"+max);
-          ValueSetDefineConceptComponent concept = vs.new ValueSetDefineConceptComponent();
+          ValueSetDefineConceptComponent concept = new ValueSet.ValueSetDefineConceptComponent();
           concept.setCodeSimple(cd);
           concept.setDisplaySimple(codes.get(cd)); // we deem the v2 description to be display name, not definition. Open for consideration
           def.getConcept().add(concept);
@@ -1924,7 +1924,8 @@ public class Publisher {
 		ZipGenerator zip = new ZipGenerator(page.getFolders().tmpResDir
 				+ "fhir-spec.zip");
 		zip.addFiles(page.getFolders().dstDir, "site\\", null, ".zip");
-    zip.addFileName("index.html", page.getFolders().srcDir+"redirect.html");
+		zip.addFolder(Utilities.path(page.getFolders().rootDir, "tools", "html", ""), "site\\", true);
+    zip.addFileName("index.html", page.getFolders().srcDir+"redirect.html", false);
 		zip.close();
 		Utilities.copyFile(new CSFile(page.getFolders().tmpResDir
 				+ "fhir-spec.zip"), f);
@@ -3023,7 +3024,7 @@ public class Publisher {
     for (String n : cd.getVSSources()) {
       if (Utilities.noString(n)) {
         if (vs.getDefine() == null) {
-          vs.setDefine(vs.new ValueSetDefineComponent());
+          vs.setDefine(new ValueSet.ValueSetDefineComponent());
           vs.getDefine().setCaseSensitiveSimple(true);
           vs.getDefine().setSystemSimple("http://hl7.org/fhir/"+Utilities.fileTitle(filename));
         }
@@ -3033,8 +3034,8 @@ public class Publisher {
         }
       } else {
         if (vs.getCompose() == null)
-          vs.setCompose(vs.new ValueSetComposeComponent());
-        ConceptSetComponent cc = vs.new ConceptSetComponent();
+          vs.setCompose(new ValueSet.ValueSetComposeComponent());
+        ConceptSetComponent cc = new ValueSet.ConceptSetComponent();
         vs.getCompose().getInclude().add(cc);
         cc.setSystemSimple(n);
         for (DefinedCode c : cd.getCodes()) {
@@ -3088,10 +3089,10 @@ public class Publisher {
     for (DefinedCode c : cd.getCodes()) {
       if (!Utilities.noString(c.getV2Map())) {
         for (String m : c.getV2Map().split(",")) {
-          ConceptMapConceptComponent cc = cm.new ConceptMapConceptComponent();
+          ConceptMapConceptComponent cc = new ConceptMap.ConceptMapConceptComponent();
           cc.setSystemSimple(srcCS);
           cc.setCodeSimple(c.getCode());
-          ConceptMapConceptMapComponent map = cm.new ConceptMapConceptMapComponent();
+          ConceptMapConceptMapComponent map = new ConceptMap.ConceptMapConceptMapComponent();
           cc.getMap().add(map);
           cm.getConcept().add(cc);
           String[] n = m.split("\\(");
@@ -3151,10 +3152,10 @@ public class Publisher {
     for (DefinedCode c : cd.getCodes()) {
       if (!Utilities.noString(c.getV3Map())) {
         for (String m : c.getV3Map().split(",")) {
-          ConceptMapConceptComponent cc = cm.new ConceptMapConceptComponent();
+          ConceptMapConceptComponent cc = new ConceptMap.ConceptMapConceptComponent();
           cc.setSystemSimple(srcCS);
           cc.setCodeSimple(c.getCode());
-          ConceptMapConceptMapComponent map = cm.new ConceptMapConceptMapComponent();
+          ConceptMapConceptMapComponent map = new ConceptMap.ConceptMapConceptMapComponent();
           cc.getMap().add(map);
           cm.getConcept().add(cc);
           String[] n = m.split("\\(");
@@ -3226,7 +3227,7 @@ public class Publisher {
   }
 
   private void addCode(ValueSet vs, List<ValueSetDefineConceptComponent> list, DefinedCode c) {
-    ValueSetDefineConceptComponent d = vs.new ValueSetDefineConceptComponent();
+    ValueSetDefineConceptComponent d = new ValueSet.ValueSetDefineConceptComponent();
     list.add(d);
     d.setCodeSimple(c.getCode());
     if (!Utilities.noString(c.getDisplay()))

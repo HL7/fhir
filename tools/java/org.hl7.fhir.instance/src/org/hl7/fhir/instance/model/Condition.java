@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -68,7 +68,7 @@ public class Condition extends Resource {
         }
     }
 
-  public class ConditionStatusEnumFactory implements EnumFactory {
+  public static class ConditionStatusEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -118,7 +118,7 @@ public class Condition extends Resource {
         }
     }
 
-  public class ConditionRelationshipTypeEnumFactory implements EnumFactory {
+  public static class ConditionRelationshipTypeEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -138,7 +138,7 @@ public class Condition extends Resource {
       }
     }
 
-    public class ConditionStageComponent extends BackboneElement {
+    public static class ConditionStageComponent extends BackboneElement {
         /**
          * A simple summary of the stage such as "Stage 3". The determination of the stage is disease-specific.
          */
@@ -149,12 +149,17 @@ public class Condition extends Resource {
          */
         protected List<ResourceReference> assessment = new ArrayList<ResourceReference>();
 
+      public ConditionStageComponent() {
+        super();
+      }
+
         public CodeableConcept getSummary() { 
           return this.summary;
         }
 
-        public void setSummary(CodeableConcept value) { 
+        public ConditionStageComponent setSummary(CodeableConcept value) { 
           this.summary = value;
+          return this;
         }
 
         public List<ResourceReference> getAssessment() { 
@@ -168,8 +173,14 @@ public class Condition extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("summary", "CodeableConcept", "A simple summary of the stage such as 'Stage 3'. The determination of the stage is disease-specific.", 0, java.lang.Integer.MAX_VALUE, summary));
+          childrenList.add(new Property("assessment", "Resource(Any)", "Reference to a formal record of the evidence on which the staging assessment is based.", 0, java.lang.Integer.MAX_VALUE, assessment));
+        }
+
       public ConditionStageComponent copy(Condition e) {
-        ConditionStageComponent dst = e.new ConditionStageComponent();
+        ConditionStageComponent dst = new ConditionStageComponent();
         dst.summary = summary == null ? null : summary.copy();
         dst.assessment = new ArrayList<ResourceReference>();
         for (ResourceReference i : assessment)
@@ -179,7 +190,7 @@ public class Condition extends Resource {
 
   }
 
-    public class ConditionEvidenceComponent extends BackboneElement {
+    public static class ConditionEvidenceComponent extends BackboneElement {
         /**
          * A manifestation or symptom that led to the recording of this condition.
          */
@@ -190,12 +201,17 @@ public class Condition extends Resource {
          */
         protected List<ResourceReference> detail = new ArrayList<ResourceReference>();
 
+      public ConditionEvidenceComponent() {
+        super();
+      }
+
         public CodeableConcept getCode() { 
           return this.code;
         }
 
-        public void setCode(CodeableConcept value) { 
+        public ConditionEvidenceComponent setCode(CodeableConcept value) { 
           this.code = value;
+          return this;
         }
 
         public List<ResourceReference> getDetail() { 
@@ -209,8 +225,14 @@ public class Condition extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("code", "CodeableConcept", "A manifestation or symptom that led to the recording of this condition.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("detail", "Resource(Any)", "Links to other relevant information, including pathology reports.", 0, java.lang.Integer.MAX_VALUE, detail));
+        }
+
       public ConditionEvidenceComponent copy(Condition e) {
-        ConditionEvidenceComponent dst = e.new ConditionEvidenceComponent();
+        ConditionEvidenceComponent dst = new ConditionEvidenceComponent();
         dst.code = code == null ? null : code.copy();
         dst.detail = new ArrayList<ResourceReference>();
         for (ResourceReference i : detail)
@@ -220,7 +242,7 @@ public class Condition extends Resource {
 
   }
 
-    public class ConditionLocationComponent extends BackboneElement {
+    public static class ConditionLocationComponent extends BackboneElement {
         /**
          * Code that identifies the structural location.
          */
@@ -231,27 +253,33 @@ public class Condition extends Resource {
          */
         protected String_ detail;
 
+      public ConditionLocationComponent() {
+        super();
+      }
+
         public CodeableConcept getCode() { 
           return this.code;
         }
 
-        public void setCode(CodeableConcept value) { 
+        public ConditionLocationComponent setCode(CodeableConcept value) { 
           this.code = value;
+          return this;
         }
 
         public String_ getDetail() { 
           return this.detail;
         }
 
-        public void setDetail(String_ value) { 
+        public ConditionLocationComponent setDetail(String_ value) { 
           this.detail = value;
+          return this;
         }
 
         public String getDetailSimple() { 
           return this.detail == null ? null : this.detail.getValue();
         }
 
-        public void setDetailSimple(String value) { 
+        public ConditionLocationComponent setDetailSimple(String value) { 
           if (value == null)
             this.detail = null;
           else {
@@ -259,10 +287,17 @@ public class Condition extends Resource {
               this.detail = new String_();
             this.detail.setValue(value);
           }
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("code", "CodeableConcept", "Code that identifies the structural location.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("detail", "string", "Detailed anatomical location information.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
 
       public ConditionLocationComponent copy(Condition e) {
-        ConditionLocationComponent dst = e.new ConditionLocationComponent();
+        ConditionLocationComponent dst = new ConditionLocationComponent();
         dst.code = code == null ? null : code.copy();
         dst.detail = detail == null ? null : detail.copy();
         return dst;
@@ -270,7 +305,7 @@ public class Condition extends Resource {
 
   }
 
-    public class ConditionRelatedItemComponent extends BackboneElement {
+    public static class ConditionRelatedItemComponent extends BackboneElement {
         /**
          * The type of relationship that this condition has to the related item.
          */
@@ -286,42 +321,62 @@ public class Condition extends Resource {
          */
         protected ResourceReference target;
 
+      public ConditionRelatedItemComponent() {
+        super();
+      }
+
+      public ConditionRelatedItemComponent(Enumeration<ConditionRelationshipType> type) {
+        super();
+        this.type = type;
+      }
+
         public Enumeration<ConditionRelationshipType> getType() { 
           return this.type;
         }
 
-        public void setType(Enumeration<ConditionRelationshipType> value) { 
+        public ConditionRelatedItemComponent setType(Enumeration<ConditionRelationshipType> value) { 
           this.type = value;
+          return this;
         }
 
         public ConditionRelationshipType getTypeSimple() { 
           return this.type == null ? null : this.type.getValue();
         }
 
-        public void setTypeSimple(ConditionRelationshipType value) { 
+        public ConditionRelatedItemComponent setTypeSimple(ConditionRelationshipType value) { 
             if (this.type == null)
               this.type = new Enumeration<ConditionRelationshipType>();
             this.type.setValue(value);
+          return this;
         }
 
         public CodeableConcept getCode() { 
           return this.code;
         }
 
-        public void setCode(CodeableConcept value) { 
+        public ConditionRelatedItemComponent setCode(CodeableConcept value) { 
           this.code = value;
+          return this;
         }
 
         public ResourceReference getTarget() { 
           return this.target;
         }
 
-        public void setTarget(ResourceReference value) { 
+        public ConditionRelatedItemComponent setTarget(ResourceReference value) { 
           this.target = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("type", "code", "The type of relationship that this condition has to the related item.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("code", "CodeableConcept", "Code that identifies the target of this relationship. The code takes the place of a detailed instance target.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("target", "Resource(Condition|Procedure|MedicationAdministration|Immunization|MedicationStatement)", "Target of the relationship.", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
       public ConditionRelatedItemComponent copy(Condition e) {
-        ConditionRelatedItemComponent dst = e.new ConditionRelatedItemComponent();
+        ConditionRelatedItemComponent dst = new ConditionRelatedItemComponent();
         dst.type = type == null ? null : type.copy();
         dst.code = code == null ? null : code.copy();
         dst.target = target == null ? null : target.copy();
@@ -415,6 +470,17 @@ public class Condition extends Resource {
      */
     protected String_ notes;
 
+    public Condition() {
+      super();
+    }
+
+    public Condition(ResourceReference subject, CodeableConcept code, Enumeration<ConditionStatus> status) {
+      super();
+      this.subject = subject;
+      this.code = code;
+      this.status = status;
+    }
+
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
@@ -430,39 +496,43 @@ public class Condition extends Resource {
       return this.subject;
     }
 
-    public void setSubject(ResourceReference value) { 
+    public Condition setSubject(ResourceReference value) { 
       this.subject = value;
+      return this;
     }
 
     public ResourceReference getEncounter() { 
       return this.encounter;
     }
 
-    public void setEncounter(ResourceReference value) { 
+    public Condition setEncounter(ResourceReference value) { 
       this.encounter = value;
+      return this;
     }
 
     public ResourceReference getAsserter() { 
       return this.asserter;
     }
 
-    public void setAsserter(ResourceReference value) { 
+    public Condition setAsserter(ResourceReference value) { 
       this.asserter = value;
+      return this;
     }
 
     public Date getDateAsserted() { 
       return this.dateAsserted;
     }
 
-    public void setDateAsserted(Date value) { 
+    public Condition setDateAsserted(Date value) { 
       this.dateAsserted = value;
+      return this;
     }
 
     public String getDateAssertedSimple() { 
       return this.dateAsserted == null ? null : this.dateAsserted.getValue();
     }
 
-    public void setDateAssertedSimple(String value) { 
+    public Condition setDateAssertedSimple(String value) { 
       if (value == null)
         this.dateAsserted = null;
       else {
@@ -470,80 +540,90 @@ public class Condition extends Resource {
           this.dateAsserted = new Date();
         this.dateAsserted.setValue(value);
       }
+      return this;
     }
 
     public CodeableConcept getCode() { 
       return this.code;
     }
 
-    public void setCode(CodeableConcept value) { 
+    public Condition setCode(CodeableConcept value) { 
       this.code = value;
+      return this;
     }
 
     public CodeableConcept getCategory() { 
       return this.category;
     }
 
-    public void setCategory(CodeableConcept value) { 
+    public Condition setCategory(CodeableConcept value) { 
       this.category = value;
+      return this;
     }
 
     public Enumeration<ConditionStatus> getStatus() { 
       return this.status;
     }
 
-    public void setStatus(Enumeration<ConditionStatus> value) { 
+    public Condition setStatus(Enumeration<ConditionStatus> value) { 
       this.status = value;
+      return this;
     }
 
     public ConditionStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
-    public void setStatusSimple(ConditionStatus value) { 
+    public Condition setStatusSimple(ConditionStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ConditionStatus>();
         this.status.setValue(value);
+      return this;
     }
 
     public CodeableConcept getCertainty() { 
       return this.certainty;
     }
 
-    public void setCertainty(CodeableConcept value) { 
+    public Condition setCertainty(CodeableConcept value) { 
       this.certainty = value;
+      return this;
     }
 
     public CodeableConcept getSeverity() { 
       return this.severity;
     }
 
-    public void setSeverity(CodeableConcept value) { 
+    public Condition setSeverity(CodeableConcept value) { 
       this.severity = value;
+      return this;
     }
 
     public Type getOnset() { 
       return this.onset;
     }
 
-    public void setOnset(Type value) { 
+    public Condition setOnset(Type value) { 
       this.onset = value;
+      return this;
     }
 
     public Type getAbatement() { 
       return this.abatement;
     }
 
-    public void setAbatement(Type value) { 
+    public Condition setAbatement(Type value) { 
       this.abatement = value;
+      return this;
     }
 
     public ConditionStageComponent getStage() { 
       return this.stage;
     }
 
-    public void setStage(ConditionStageComponent value) { 
+    public Condition setStage(ConditionStageComponent value) { 
       this.stage = value;
+      return this;
     }
 
     public List<ConditionEvidenceComponent> getEvidence() { 
@@ -583,15 +663,16 @@ public class Condition extends Resource {
       return this.notes;
     }
 
-    public void setNotes(String_ value) { 
+    public Condition setNotes(String_ value) { 
       this.notes = value;
+      return this;
     }
 
     public String getNotesSimple() { 
       return this.notes == null ? null : this.notes.getValue();
     }
 
-    public void setNotesSimple(String value) { 
+    public Condition setNotesSimple(String value) { 
       if (value == null)
         this.notes = null;
       else {
@@ -599,7 +680,29 @@ public class Condition extends Resource {
           this.notes = new String_();
         this.notes.setValue(value);
       }
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("subject", "Resource(Patient)", "Subject of this condition.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("encounter", "Resource(Encounter)", "Encounter during which the condition was first asserted.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("asserter", "Resource(Practitioner|Patient)", "Person who takes responsibility for asserting the existence of the condition as part of the electronic record.", 0, java.lang.Integer.MAX_VALUE, asserter));
+        childrenList.add(new Property("dateAsserted", "date", "Estimated or actual date the condition/problem/diagnosis was first detected/suspected.", 0, java.lang.Integer.MAX_VALUE, dateAsserted));
+        childrenList.add(new Property("code", "CodeableConcept", "Identification of the condition, problem or diagnosis.", 0, java.lang.Integer.MAX_VALUE, code));
+        childrenList.add(new Property("category", "CodeableConcept", "A category assigned to the condition. E.g. finding | Condition | diagnosis | concern | condition.", 0, java.lang.Integer.MAX_VALUE, category));
+        childrenList.add(new Property("status", "code", "The clinical status of the condition.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("certainty", "CodeableConcept", "The degree of confidence that this condition is correct.", 0, java.lang.Integer.MAX_VALUE, certainty));
+        childrenList.add(new Property("severity", "CodeableConcept", "A subjective assessment of the severity of the condition as evaluated by the clinician.", 0, java.lang.Integer.MAX_VALUE, severity));
+        childrenList.add(new Property("onset[x]", "date|Age", "Estimated or actual date the condition began, in the opinion of the clinician.", 0, java.lang.Integer.MAX_VALUE, onset));
+        childrenList.add(new Property("abatement[x]", "date|Age|boolean", "The date or estimated date that the condition resolved or went into remission. This is called 'abatement' because of the many overloaded connotations associated with 'remission' or 'resolution' - Conditions are never really resolved, but they can abate.", 0, java.lang.Integer.MAX_VALUE, abatement));
+        childrenList.add(new Property("stage", "", "Clinical stage or grade of a condition. May include formal severity assessments.", 0, java.lang.Integer.MAX_VALUE, stage));
+        childrenList.add(new Property("evidence", "", "Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.", 0, java.lang.Integer.MAX_VALUE, evidence));
+        childrenList.add(new Property("location", "", "The anatomical location where this condition manifests itself.", 0, java.lang.Integer.MAX_VALUE, location));
+        childrenList.add(new Property("relatedItem", "", "Further conditions, problems, diagnoses, procedures or events that are related in some way to this condition, or the substance that caused/triggered this Condition.", 0, java.lang.Integer.MAX_VALUE, relatedItem));
+        childrenList.add(new Property("notes", "string", "Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.", 0, java.lang.Integer.MAX_VALUE, notes));
+      }
 
       public Condition copy() {
         Condition dst = new Condition();

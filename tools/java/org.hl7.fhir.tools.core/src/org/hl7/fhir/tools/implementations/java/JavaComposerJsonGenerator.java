@@ -412,20 +412,20 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
   	    } else {
             write("        openArray(\""+name+"\");\r\n");
             write("        for (Enumeration<"+prepEnumName(en)+"> e : element.get"+upFirst(getElementName(name, false))+"()) \r\n");
-            write("          composeEnumerationCore(null, e, new "+context+"().new "+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory(), true);\r\n");
+            write("          composeEnumerationCore(null, e, new "+context+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory(), true);\r\n");
             write("        closeArray();\r\n");
             write("        if (anyHasExtras(element.get"+upFirst(getElementName(name, false))+"())) {\r\n");
             write("          openArray(\"_"+name+"\");\r\n");
             write("          for (Enumeration<"+prepEnumName(en)+"> e : element.get"+upFirst(getElementName(name, false))+"()) \r\n");
-            write("            composeEnumerationExtras(null, e, new "+context+"().new "+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory(), true);\r\n");
+            write("            composeEnumerationExtras(null, e, new "+context+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory(), true);\r\n");
             write("          closeArray();\r\n");
             write("        }\r\n");
   	    }
         write("      };\r\n");
       } else if (en != null) {
         write("      if (element.get"+upFirst(name)+"() != null) {\r\n");
-        write("        composeEnumerationCore(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"(), new "+context+"().new "+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory(), false);\r\n");
-        write("        composeEnumerationExtras(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"(), new "+context+"().new "+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory(), false);\r\n");
+        write("        composeEnumerationCore(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"(), new "+context+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory(), false);\r\n");
+        write("        composeEnumerationExtras(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"(), new "+context+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory(), false);\r\n");
         write("      }\r\n");
         //write("        composeString(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"().toCode());\r\n");        
       } else if (isPrimitive(e)) {

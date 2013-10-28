@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -68,7 +68,7 @@ public class AllergyIntolerance extends Resource {
         }
     }
 
-  public class CriticalityEnumFactory implements EnumFactory {
+  public static class CriticalityEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -122,7 +122,7 @@ public class AllergyIntolerance extends Resource {
         }
     }
 
-  public class SensitivitytypeEnumFactory implements EnumFactory {
+  public static class SensitivitytypeEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -176,7 +176,7 @@ public class AllergyIntolerance extends Resource {
         }
     }
 
-  public class SensitivitystatusEnumFactory implements EnumFactory {
+  public static class SensitivitystatusEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -254,6 +254,18 @@ public class AllergyIntolerance extends Resource {
      */
     protected List<ResourceReference> sensitivityTest = new ArrayList<ResourceReference>();
 
+    public AllergyIntolerance() {
+      super();
+    }
+
+    public AllergyIntolerance(Enumeration<Sensitivitytype> sensitivityType, Enumeration<Sensitivitystatus> status, ResourceReference subject, ResourceReference substance) {
+      super();
+      this.sensitivityType = sensitivityType;
+      this.status = status;
+      this.subject = subject;
+      this.substance = substance;
+    }
+
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
@@ -269,15 +281,16 @@ public class AllergyIntolerance extends Resource {
       return this.criticality;
     }
 
-    public void setCriticality(Enumeration<Criticality> value) { 
+    public AllergyIntolerance setCriticality(Enumeration<Criticality> value) { 
       this.criticality = value;
+      return this;
     }
 
     public Criticality getCriticalitySimple() { 
       return this.criticality == null ? null : this.criticality.getValue();
     }
 
-    public void setCriticalitySimple(Criticality value) { 
+    public AllergyIntolerance setCriticalitySimple(Criticality value) { 
       if (value == null)
         this.criticality = null;
       else {
@@ -285,39 +298,43 @@ public class AllergyIntolerance extends Resource {
           this.criticality = new Enumeration<Criticality>();
         this.criticality.setValue(value);
       }
+      return this;
     }
 
     public Enumeration<Sensitivitytype> getSensitivityType() { 
       return this.sensitivityType;
     }
 
-    public void setSensitivityType(Enumeration<Sensitivitytype> value) { 
+    public AllergyIntolerance setSensitivityType(Enumeration<Sensitivitytype> value) { 
       this.sensitivityType = value;
+      return this;
     }
 
     public Sensitivitytype getSensitivityTypeSimple() { 
       return this.sensitivityType == null ? null : this.sensitivityType.getValue();
     }
 
-    public void setSensitivityTypeSimple(Sensitivitytype value) { 
+    public AllergyIntolerance setSensitivityTypeSimple(Sensitivitytype value) { 
         if (this.sensitivityType == null)
           this.sensitivityType = new Enumeration<Sensitivitytype>();
         this.sensitivityType.setValue(value);
+      return this;
     }
 
     public DateTime getRecordedDate() { 
       return this.recordedDate;
     }
 
-    public void setRecordedDate(DateTime value) { 
+    public AllergyIntolerance setRecordedDate(DateTime value) { 
       this.recordedDate = value;
+      return this;
     }
 
     public String getRecordedDateSimple() { 
       return this.recordedDate == null ? null : this.recordedDate.getValue();
     }
 
-    public void setRecordedDateSimple(String value) { 
+    public AllergyIntolerance setRecordedDateSimple(String value) { 
       if (value == null)
         this.recordedDate = null;
       else {
@@ -325,48 +342,54 @@ public class AllergyIntolerance extends Resource {
           this.recordedDate = new DateTime();
         this.recordedDate.setValue(value);
       }
+      return this;
     }
 
     public Enumeration<Sensitivitystatus> getStatus() { 
       return this.status;
     }
 
-    public void setStatus(Enumeration<Sensitivitystatus> value) { 
+    public AllergyIntolerance setStatus(Enumeration<Sensitivitystatus> value) { 
       this.status = value;
+      return this;
     }
 
     public Sensitivitystatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
-    public void setStatusSimple(Sensitivitystatus value) { 
+    public AllergyIntolerance setStatusSimple(Sensitivitystatus value) { 
         if (this.status == null)
           this.status = new Enumeration<Sensitivitystatus>();
         this.status.setValue(value);
+      return this;
     }
 
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
-    public void setSubject(ResourceReference value) { 
+    public AllergyIntolerance setSubject(ResourceReference value) { 
       this.subject = value;
+      return this;
     }
 
     public ResourceReference getRecorder() { 
       return this.recorder;
     }
 
-    public void setRecorder(ResourceReference value) { 
+    public AllergyIntolerance setRecorder(ResourceReference value) { 
       this.recorder = value;
+      return this;
     }
 
     public ResourceReference getSubstance() { 
       return this.substance;
     }
 
-    public void setSubstance(ResourceReference value) { 
+    public AllergyIntolerance setSubstance(ResourceReference value) { 
       this.substance = value;
+      return this;
     }
 
     public List<ResourceReference> getReaction() { 
@@ -390,6 +413,20 @@ public class AllergyIntolerance extends Resource {
       this.sensitivityTest.add(t);
       return t;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this allergy/intolerance concern that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("criticality", "code", "Criticality of the sensitivity.", 0, java.lang.Integer.MAX_VALUE, criticality));
+        childrenList.add(new Property("sensitivityType", "code", "Type of the sensitivity.", 0, java.lang.Integer.MAX_VALUE, sensitivityType));
+        childrenList.add(new Property("recordedDate", "dateTime", "Date when the sensitivity was recorded.", 0, java.lang.Integer.MAX_VALUE, recordedDate));
+        childrenList.add(new Property("status", "code", "Suspected, Confirmed, Refuted, Resolved.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("subject", "Resource(Patient)", "Who the sensitivity is for.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("recorder", "Resource(Practitioner|Patient)", "Who recorded the sensitivity.", 0, java.lang.Integer.MAX_VALUE, recorder));
+        childrenList.add(new Property("substance", "Resource(Substance)", "The substance that causes the sensitivity.", 0, java.lang.Integer.MAX_VALUE, substance));
+        childrenList.add(new Property("reaction", "Resource(AdverseReaction)", "Reactions associated with the sensitivity.", 0, java.lang.Integer.MAX_VALUE, reaction));
+        childrenList.add(new Property("sensitivityTest", "Resource(Observation)", "Observations that confirm or refute the sensitivity.", 0, java.lang.Integer.MAX_VALUE, sensitivityTest));
+      }
 
       public AllergyIntolerance copy() {
         AllergyIntolerance dst = new AllergyIntolerance();

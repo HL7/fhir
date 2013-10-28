@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -68,7 +68,7 @@ public class Query extends Resource {
         }
     }
 
-  public class QueryOutcomeEnumFactory implements EnumFactory {
+  public static class QueryOutcomeEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -96,7 +96,7 @@ public class Query extends Resource {
       }
     }
 
-    public class QueryResponseComponent extends BackboneElement {
+    public static class QueryResponseComponent extends BackboneElement {
         /**
          * Links response to source query.
          */
@@ -142,55 +142,70 @@ public class Query extends Resource {
          */
         protected List<ResourceReference> reference = new ArrayList<ResourceReference>();
 
+      public QueryResponseComponent() {
+        super();
+      }
+
+      public QueryResponseComponent(Uri identifier, Enumeration<QueryOutcome> outcome) {
+        super();
+        this.identifier = identifier;
+        this.outcome = outcome;
+      }
+
         public Uri getIdentifier() { 
           return this.identifier;
         }
 
-        public void setIdentifier(Uri value) { 
+        public QueryResponseComponent setIdentifier(Uri value) { 
           this.identifier = value;
+          return this;
         }
 
         public String getIdentifierSimple() { 
           return this.identifier == null ? null : this.identifier.getValue();
         }
 
-        public void setIdentifierSimple(String value) { 
+        public QueryResponseComponent setIdentifierSimple(String value) { 
             if (this.identifier == null)
               this.identifier = new Uri();
             this.identifier.setValue(value);
+          return this;
         }
 
         public Enumeration<QueryOutcome> getOutcome() { 
           return this.outcome;
         }
 
-        public void setOutcome(Enumeration<QueryOutcome> value) { 
+        public QueryResponseComponent setOutcome(Enumeration<QueryOutcome> value) { 
           this.outcome = value;
+          return this;
         }
 
         public QueryOutcome getOutcomeSimple() { 
           return this.outcome == null ? null : this.outcome.getValue();
         }
 
-        public void setOutcomeSimple(QueryOutcome value) { 
+        public QueryResponseComponent setOutcomeSimple(QueryOutcome value) { 
             if (this.outcome == null)
               this.outcome = new Enumeration<QueryOutcome>();
             this.outcome.setValue(value);
+          return this;
         }
 
         public Integer getTotal() { 
           return this.total;
         }
 
-        public void setTotal(Integer value) { 
+        public QueryResponseComponent setTotal(Integer value) { 
           this.total = value;
+          return this;
         }
 
         public int getTotalSimple() { 
           return this.total == null ? null : this.total.getValue();
         }
 
-        public void setTotalSimple(int value) { 
+        public QueryResponseComponent setTotalSimple(int value) { 
           if (value == -1)
             this.total = null;
           else {
@@ -198,6 +213,7 @@ public class Query extends Resource {
               this.total = new Integer();
             this.total.setValue(value);
           }
+          return this;
         }
 
         public List<Extension> getParameter() { 
@@ -266,8 +282,21 @@ public class Query extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("identifier", "uri", "Links response to source query.", 0, java.lang.Integer.MAX_VALUE, identifier));
+          childrenList.add(new Property("outcome", "code", "Outcome of processing the query.", 0, java.lang.Integer.MAX_VALUE, outcome));
+          childrenList.add(new Property("total", "integer", "Total number of matching records.", 0, java.lang.Integer.MAX_VALUE, total));
+          childrenList.add(new Property("parameter", "Extension", "Parameters server used.", 0, java.lang.Integer.MAX_VALUE, parameter));
+          childrenList.add(new Property("first", "Extension", "To get first page (if paged).", 0, java.lang.Integer.MAX_VALUE, first));
+          childrenList.add(new Property("previous", "Extension", "To get previous page (if paged).", 0, java.lang.Integer.MAX_VALUE, previous));
+          childrenList.add(new Property("next", "Extension", "To get next page (if paged).", 0, java.lang.Integer.MAX_VALUE, next));
+          childrenList.add(new Property("last", "Extension", "To get last page (if paged).", 0, java.lang.Integer.MAX_VALUE, last));
+          childrenList.add(new Property("reference", "Resource(Any)", "Resources that are the results of the search.", 0, java.lang.Integer.MAX_VALUE, reference));
+        }
+
       public QueryResponseComponent copy(Query e) {
-        QueryResponseComponent dst = e.new QueryResponseComponent();
+        QueryResponseComponent dst = new QueryResponseComponent();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.outcome = outcome == null ? null : outcome.copy();
         dst.total = total == null ? null : total.copy();
@@ -309,22 +338,33 @@ public class Query extends Resource {
      */
     protected QueryResponseComponent response;
 
+    public Query() {
+      super();
+    }
+
+    public Query(Uri identifier) {
+      super();
+      this.identifier = identifier;
+    }
+
     public Uri getIdentifier() { 
       return this.identifier;
     }
 
-    public void setIdentifier(Uri value) { 
+    public Query setIdentifier(Uri value) { 
       this.identifier = value;
+      return this;
     }
 
     public String getIdentifierSimple() { 
       return this.identifier == null ? null : this.identifier.getValue();
     }
 
-    public void setIdentifierSimple(String value) { 
+    public Query setIdentifierSimple(String value) { 
         if (this.identifier == null)
           this.identifier = new Uri();
         this.identifier.setValue(value);
+      return this;
     }
 
     public List<Extension> getParameter() { 
@@ -342,9 +382,17 @@ public class Query extends Resource {
       return this.response;
     }
 
-    public void setResponse(QueryResponseComponent value) { 
+    public Query setResponse(QueryResponseComponent value) { 
       this.response = value;
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "uri", "Links query and its response(s).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("parameter", "Extension", "Set of query parameters with values.", 0, java.lang.Integer.MAX_VALUE, parameter));
+        childrenList.add(new Property("response", "", "If this is a response to a query.", 0, java.lang.Integer.MAX_VALUE, response));
+      }
 
       public Query copy() {
         Query dst = new Query();

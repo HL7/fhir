@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -74,7 +74,7 @@ public class MedicationAdministration extends Resource {
         }
     }
 
-  public class MedicationAdminStatusEnumFactory implements EnumFactory {
+  public static class MedicationAdminStatusEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -106,7 +106,7 @@ public class MedicationAdministration extends Resource {
       }
     }
 
-    public class MedicationAdministrationDosageComponent extends BackboneElement {
+    public static class MedicationAdministrationDosageComponent extends BackboneElement {
         /**
          * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
          */
@@ -144,64 +144,86 @@ Terminologies used often pre-coordinate this term with the route and or form of 
          */
         protected Ratio maxDosePerPeriod;
 
+      public MedicationAdministrationDosageComponent() {
+        super();
+      }
+
         public Schedule getTiming() { 
           return this.timing;
         }
 
-        public void setTiming(Schedule value) { 
+        public MedicationAdministrationDosageComponent setTiming(Schedule value) { 
           this.timing = value;
+          return this;
         }
 
         public CodeableConcept getSite() { 
           return this.site;
         }
 
-        public void setSite(CodeableConcept value) { 
+        public MedicationAdministrationDosageComponent setSite(CodeableConcept value) { 
           this.site = value;
+          return this;
         }
 
         public CodeableConcept getRoute() { 
           return this.route;
         }
 
-        public void setRoute(CodeableConcept value) { 
+        public MedicationAdministrationDosageComponent setRoute(CodeableConcept value) { 
           this.route = value;
+          return this;
         }
 
         public CodeableConcept getMethod() { 
           return this.method;
         }
 
-        public void setMethod(CodeableConcept value) { 
+        public MedicationAdministrationDosageComponent setMethod(CodeableConcept value) { 
           this.method = value;
+          return this;
         }
 
         public Quantity getQuantity() { 
           return this.quantity;
         }
 
-        public void setQuantity(Quantity value) { 
+        public MedicationAdministrationDosageComponent setQuantity(Quantity value) { 
           this.quantity = value;
+          return this;
         }
 
         public Ratio getRate() { 
           return this.rate;
         }
 
-        public void setRate(Ratio value) { 
+        public MedicationAdministrationDosageComponent setRate(Ratio value) { 
           this.rate = value;
+          return this;
         }
 
         public Ratio getMaxDosePerPeriod() { 
           return this.maxDosePerPeriod;
         }
 
-        public void setMaxDosePerPeriod(Ratio value) { 
+        public MedicationAdministrationDosageComponent setMaxDosePerPeriod(Ratio value) { 
           this.maxDosePerPeriod = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("timing", "Schedule", "The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  'Every  8 hours'; 'Three times a day'; '1/2 an hour before breakfast for 10 days from 23-Dec 2011:';  '15 Oct 2013, 17 Oct 2013 and 1 Nov 2013'.", 0, java.lang.Integer.MAX_VALUE, timing));
+          childrenList.add(new Property("site", "CodeableConcept", "A coded specification of the anatomic site where the medication first enters the body.", 0, java.lang.Integer.MAX_VALUE, site));
+          childrenList.add(new Property("route", "CodeableConcept", "A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.", 0, java.lang.Integer.MAX_VALUE, route));
+          childrenList.add(new Property("method", "CodeableConcept", "A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.\n\nTerminologies used often pre-coordinate this term with the route and or form of administration.", 0, java.lang.Integer.MAX_VALUE, method));
+          childrenList.add(new Property("quantity", "Quantity", "The amount of themedication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.", 0, java.lang.Integer.MAX_VALUE, quantity));
+          childrenList.add(new Property("rate", "Ratio", "Identifies the speed with which the medication is introduced into the patient. Typically the rate for an infusion e.g. 200ml in 2 hours.  May also expressed as a rate per unit of time such as 100ml per hour - the duration is then not specified, or is specified in the quantity.", 0, java.lang.Integer.MAX_VALUE, rate));
+          childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
         }
 
       public MedicationAdministrationDosageComponent copy(MedicationAdministration e) {
-        MedicationAdministrationDosageComponent dst = e.new MedicationAdministrationDosageComponent();
+        MedicationAdministrationDosageComponent dst = new MedicationAdministrationDosageComponent();
         dst.timing = timing == null ? null : timing.copy();
         dst.site = site == null ? null : site.copy();
         dst.route = route == null ? null : route.copy();
@@ -276,6 +298,19 @@ Use only if isNegated is set to TRUE.
      */
     protected List<MedicationAdministrationDosageComponent> dosage = new ArrayList<MedicationAdministrationDosageComponent>();
 
+    public MedicationAdministration() {
+      super();
+    }
+
+    public MedicationAdministration(Enumeration<MedicationAdminStatus> status, ResourceReference patient, ResourceReference practitioner, ResourceReference prescription, Period whenGiven) {
+      super();
+      this.status = status;
+      this.patient = patient;
+      this.practitioner = practitioner;
+      this.prescription = prescription;
+      this.whenGiven = whenGiven;
+    }
+
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
@@ -291,65 +326,72 @@ Use only if isNegated is set to TRUE.
       return this.status;
     }
 
-    public void setStatus(Enumeration<MedicationAdminStatus> value) { 
+    public MedicationAdministration setStatus(Enumeration<MedicationAdminStatus> value) { 
       this.status = value;
+      return this;
     }
 
     public MedicationAdminStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
-    public void setStatusSimple(MedicationAdminStatus value) { 
+    public MedicationAdministration setStatusSimple(MedicationAdminStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<MedicationAdminStatus>();
         this.status.setValue(value);
+      return this;
     }
 
     public ResourceReference getPatient() { 
       return this.patient;
     }
 
-    public void setPatient(ResourceReference value) { 
+    public MedicationAdministration setPatient(ResourceReference value) { 
       this.patient = value;
+      return this;
     }
 
     public ResourceReference getPractitioner() { 
       return this.practitioner;
     }
 
-    public void setPractitioner(ResourceReference value) { 
+    public MedicationAdministration setPractitioner(ResourceReference value) { 
       this.practitioner = value;
+      return this;
     }
 
     public ResourceReference getEncounter() { 
       return this.encounter;
     }
 
-    public void setEncounter(ResourceReference value) { 
+    public MedicationAdministration setEncounter(ResourceReference value) { 
       this.encounter = value;
+      return this;
     }
 
     public ResourceReference getPrescription() { 
       return this.prescription;
     }
 
-    public void setPrescription(ResourceReference value) { 
+    public MedicationAdministration setPrescription(ResourceReference value) { 
       this.prescription = value;
+      return this;
     }
 
     public Boolean getWasNotGiven() { 
       return this.wasNotGiven;
     }
 
-    public void setWasNotGiven(Boolean value) { 
+    public MedicationAdministration setWasNotGiven(Boolean value) { 
       this.wasNotGiven = value;
+      return this;
     }
 
     public boolean getWasNotGivenSimple() { 
       return this.wasNotGiven == null ? null : this.wasNotGiven.getValue();
     }
 
-    public void setWasNotGivenSimple(boolean value) { 
+    public MedicationAdministration setWasNotGivenSimple(boolean value) { 
       if (value == false)
         this.wasNotGiven = null;
       else {
@@ -357,6 +399,7 @@ Use only if isNegated is set to TRUE.
           this.wasNotGiven = new Boolean();
         this.wasNotGiven.setValue(value);
       }
+      return this;
     }
 
     public List<CodeableConcept> getReasonNotGiven() { 
@@ -374,16 +417,18 @@ Use only if isNegated is set to TRUE.
       return this.whenGiven;
     }
 
-    public void setWhenGiven(Period value) { 
+    public MedicationAdministration setWhenGiven(Period value) { 
       this.whenGiven = value;
+      return this;
     }
 
     public ResourceReference getMedication() { 
       return this.medication;
     }
 
-    public void setMedication(ResourceReference value) { 
+    public MedicationAdministration setMedication(ResourceReference value) { 
       this.medication = value;
+      return this;
     }
 
     public List<ResourceReference> getAdministrationDevice() { 
@@ -407,6 +452,22 @@ Use only if isNegated is set to TRUE.
       this.dosage.add(t);
       return t;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("status", "code", "Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("patient", "Resource(Patient)", "A link to a resource representing the person to whom the medication was given.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("practitioner", "Resource(Practitioner)", "The individual who is responsible for giving the medication to the patient.", 0, java.lang.Integer.MAX_VALUE, practitioner));
+        childrenList.add(new Property("encounter", "Resource(Encounter)", "An link to a resource that identifies the particular occurrence of contact between patient and health care provider.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("prescription", "Resource(MedicationPrescription)", "A link to a resource that provides the original request, instruction and authority to perform the administration.", 0, java.lang.Integer.MAX_VALUE, prescription));
+        childrenList.add(new Property("wasNotGiven", "boolean", "Set this to true if the record is saying that the medication was NOT administered.", 0, java.lang.Integer.MAX_VALUE, wasNotGiven));
+        childrenList.add(new Property("reasonNotGiven", "CodeableConcept", "A code indicating why the administration has been negated.\n\nUse only if isNegated is set to TRUE.", 0, java.lang.Integer.MAX_VALUE, reasonNotGiven));
+        childrenList.add(new Property("whenGiven", "Period", "An interval of time during which the administration takes place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.", 0, java.lang.Integer.MAX_VALUE, whenGiven));
+        childrenList.add(new Property("medication", "Resource(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
+        childrenList.add(new Property("administrationDevice", "Resource(Device)", "An identifier or a link to a resource that identifies a device used in administering the medication to the patient.", 0, java.lang.Integer.MAX_VALUE, administrationDevice));
+        childrenList.add(new Property("dosage", "", "Indicates how the medication is to be used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosage));
+      }
 
       public MedicationAdministration copy() {
         MedicationAdministration dst = new MedicationAdministration();

@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
 /**
- * A set of answers to predefined lists of questions. The questions may be ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
+ * A structured set of questions and their answers. The Questionnaire may contain questions, answers or both. The questions may be ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
  */
 public class Questionnaire extends Resource {
 
@@ -76,7 +76,7 @@ public class Questionnaire extends Resource {
         }
     }
 
-  public class ObservationStatusEnumFactory implements EnumFactory {
+  public static class ObservationStatusEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -112,7 +112,7 @@ public class Questionnaire extends Resource {
       }
     }
 
-    public class QuestionComponent extends BackboneElement {
+    public static class QuestionComponent extends BackboneElement {
         /**
          * Structured name for the question.
          */
@@ -148,27 +148,33 @@ public class Questionnaire extends Resource {
          */
         protected String_ remarks;
 
+      public QuestionComponent() {
+        super();
+      }
+
         public CodeableConcept getName() { 
           return this.name;
         }
 
-        public void setName(CodeableConcept value) { 
+        public QuestionComponent setName(CodeableConcept value) { 
           this.name = value;
+          return this;
         }
 
         public String_ getText() { 
           return this.text;
         }
 
-        public void setText(String_ value) { 
+        public QuestionComponent setText(String_ value) { 
           this.text = value;
+          return this;
         }
 
         public String getTextSimple() { 
           return this.text == null ? null : this.text.getValue();
         }
 
-        public void setTextSimple(String value) { 
+        public QuestionComponent setTextSimple(String value) { 
           if (value == null)
             this.text = null;
           else {
@@ -176,14 +182,16 @@ public class Questionnaire extends Resource {
               this.text = new String_();
             this.text.setValue(value);
           }
+          return this;
         }
 
         public Type getAnswer() { 
           return this.answer;
         }
 
-        public void setAnswer(Type value) { 
+        public QuestionComponent setAnswer(Type value) { 
           this.answer = value;
+          return this;
         }
 
         public List<Coding> getChoice() { 
@@ -201,31 +209,34 @@ public class Questionnaire extends Resource {
           return this.options;
         }
 
-        public void setOptions(Type value) { 
+        public QuestionComponent setOptions(Type value) { 
           this.options = value;
+          return this;
         }
 
         public org.hl7.fhir.instance.model.Type getData() { 
           return this.data;
         }
 
-        public void setData(org.hl7.fhir.instance.model.Type value) { 
+        public QuestionComponent setData(org.hl7.fhir.instance.model.Type value) { 
           this.data = value;
+          return this;
         }
 
         public String_ getRemarks() { 
           return this.remarks;
         }
 
-        public void setRemarks(String_ value) { 
+        public QuestionComponent setRemarks(String_ value) { 
           this.remarks = value;
+          return this;
         }
 
         public String getRemarksSimple() { 
           return this.remarks == null ? null : this.remarks.getValue();
         }
 
-        public void setRemarksSimple(String value) { 
+        public QuestionComponent setRemarksSimple(String value) { 
           if (value == null)
             this.remarks = null;
           else {
@@ -233,10 +244,22 @@ public class Questionnaire extends Resource {
               this.remarks = new String_();
             this.remarks.setValue(value);
           }
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "CodeableConcept", "Structured name for the question.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("text", "string", "Text of the question as it may appear on screen or on a form.", 0, java.lang.Integer.MAX_VALUE, text));
+          childrenList.add(new Property("answer[x]", "decimal|integer|boolean|date|string|dateTime|instant", "Single-valued answer to the question.", 0, java.lang.Integer.MAX_VALUE, answer));
+          childrenList.add(new Property("choice", "Coding", "One of more selections from the list of options.", 0, java.lang.Integer.MAX_VALUE, choice));
+          childrenList.add(new Property("options[x]", "uri|Resource(ValueSet)", "Reference to a valueset containing the possible options.", 0, java.lang.Integer.MAX_VALUE, options));
+          childrenList.add(new Property("data[x]", "*", "Structured answer in the form of a FHIR Resource or datatype.", 0, java.lang.Integer.MAX_VALUE, data));
+          childrenList.add(new Property("remarks", "string", "The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.", 0, java.lang.Integer.MAX_VALUE, remarks));
         }
 
       public QuestionComponent copy(Questionnaire e) {
-        QuestionComponent dst = e.new QuestionComponent();
+        QuestionComponent dst = new QuestionComponent();
         dst.name = name == null ? null : name.copy();
         dst.text = text == null ? null : text.copy();
         dst.answer = answer == null ? null : answer.copy();
@@ -251,7 +274,7 @@ public class Questionnaire extends Resource {
 
   }
 
-    public class GroupComponent extends BackboneElement {
+    public static class GroupComponent extends BackboneElement {
         /**
          * Structured name for a section of a predefined list of questions this questionnaire is responding to.
          */
@@ -282,27 +305,33 @@ public class Questionnaire extends Resource {
          */
         protected List<GroupComponent> group = new ArrayList<GroupComponent>();
 
+      public GroupComponent() {
+        super();
+      }
+
         public CodeableConcept getName() { 
           return this.name;
         }
 
-        public void setName(CodeableConcept value) { 
+        public GroupComponent setName(CodeableConcept value) { 
           this.name = value;
+          return this;
         }
 
         public String_ getHeader() { 
           return this.header;
         }
 
-        public void setHeader(String_ value) { 
+        public GroupComponent setHeader(String_ value) { 
           this.header = value;
+          return this;
         }
 
         public String getHeaderSimple() { 
           return this.header == null ? null : this.header.getValue();
         }
 
-        public void setHeaderSimple(String value) { 
+        public GroupComponent setHeaderSimple(String value) { 
           if (value == null)
             this.header = null;
           else {
@@ -310,21 +339,23 @@ public class Questionnaire extends Resource {
               this.header = new String_();
             this.header.setValue(value);
           }
+          return this;
         }
 
         public String_ getText() { 
           return this.text;
         }
 
-        public void setText(String_ value) { 
+        public GroupComponent setText(String_ value) { 
           this.text = value;
+          return this;
         }
 
         public String getTextSimple() { 
           return this.text == null ? null : this.text.getValue();
         }
 
-        public void setTextSimple(String value) { 
+        public GroupComponent setTextSimple(String value) { 
           if (value == null)
             this.text = null;
           else {
@@ -332,14 +363,16 @@ public class Questionnaire extends Resource {
               this.text = new String_();
             this.text.setValue(value);
           }
+          return this;
         }
 
         public ResourceReference getSubject() { 
           return this.subject;
         }
 
-        public void setSubject(ResourceReference value) { 
+        public GroupComponent setSubject(ResourceReference value) { 
           this.subject = value;
+          return this;
         }
 
         public List<QuestionComponent> getQuestion() { 
@@ -364,8 +397,18 @@ public class Questionnaire extends Resource {
           return t;
         }
 
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "CodeableConcept", "Structured name for a section of a predefined list of questions this questionnaire is responding to.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("header", "string", "Header for the group, used for display purposes.", 0, java.lang.Integer.MAX_VALUE, header));
+          childrenList.add(new Property("text", "string", "Additional text for the group, used for display purposes.", 0, java.lang.Integer.MAX_VALUE, text));
+          childrenList.add(new Property("subject", "Resource(Any)", "More specific subject this section's answers are about, details the subject given in Questionnaire.", 0, java.lang.Integer.MAX_VALUE, subject));
+          childrenList.add(new Property("question", "@Questionnaire.question", "Set of questions within this group.", 0, java.lang.Integer.MAX_VALUE, question));
+          childrenList.add(new Property("group", "@Questionnaire.group", "A sub-group within a group.", 0, java.lang.Integer.MAX_VALUE, group));
+        }
+
       public GroupComponent copy(Questionnaire e) {
-        GroupComponent dst = e.new GroupComponent();
+        GroupComponent dst = new GroupComponent();
         dst.name = name == null ? null : name.copy();
         dst.header = header == null ? null : header.copy();
         dst.text = text == null ? null : text.copy();
@@ -431,72 +474,90 @@ public class Questionnaire extends Resource {
      */
     protected List<GroupComponent> group = new ArrayList<GroupComponent>();
 
+    public Questionnaire() {
+      super();
+    }
+
+    public Questionnaire(Enumeration<ObservationStatus> status, DateTime authored) {
+      super();
+      this.status = status;
+      this.authored = authored;
+    }
+
     public Enumeration<ObservationStatus> getStatus() { 
       return this.status;
     }
 
-    public void setStatus(Enumeration<ObservationStatus> value) { 
+    public Questionnaire setStatus(Enumeration<ObservationStatus> value) { 
       this.status = value;
+      return this;
     }
 
     public ObservationStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
-    public void setStatusSimple(ObservationStatus value) { 
+    public Questionnaire setStatusSimple(ObservationStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ObservationStatus>();
         this.status.setValue(value);
+      return this;
     }
 
     public DateTime getAuthored() { 
       return this.authored;
     }
 
-    public void setAuthored(DateTime value) { 
+    public Questionnaire setAuthored(DateTime value) { 
       this.authored = value;
+      return this;
     }
 
     public String getAuthoredSimple() { 
       return this.authored == null ? null : this.authored.getValue();
     }
 
-    public void setAuthoredSimple(String value) { 
+    public Questionnaire setAuthoredSimple(String value) { 
         if (this.authored == null)
           this.authored = new DateTime();
         this.authored.setValue(value);
+      return this;
     }
 
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
-    public void setSubject(ResourceReference value) { 
+    public Questionnaire setSubject(ResourceReference value) { 
       this.subject = value;
+      return this;
     }
 
     public ResourceReference getAuthor() { 
       return this.author;
     }
 
-    public void setAuthor(ResourceReference value) { 
+    public Questionnaire setAuthor(ResourceReference value) { 
       this.author = value;
+      return this;
     }
 
     public ResourceReference getSource() { 
       return this.source;
     }
 
-    public void setSource(ResourceReference value) { 
+    public Questionnaire setSource(ResourceReference value) { 
       this.source = value;
+      return this;
     }
 
     public CodeableConcept getName() { 
       return this.name;
     }
 
-    public void setName(CodeableConcept value) { 
+    public Questionnaire setName(CodeableConcept value) { 
       this.name = value;
+      return this;
     }
 
     public List<Identifier> getIdentifier() { 
@@ -514,8 +575,9 @@ public class Questionnaire extends Resource {
       return this.encounter;
     }
 
-    public void setEncounter(ResourceReference value) { 
+    public Questionnaire setEncounter(ResourceReference value) { 
       this.encounter = value;
+      return this;
     }
 
     public List<QuestionComponent> getQuestion() { 
@@ -539,6 +601,20 @@ public class Questionnaire extends Resource {
       this.group.add(t);
       return t;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("status", "code", "The status of the questionnaire as a whole.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("authored", "dateTime", "The date and/or time that this version of the questionnaire was authored.", 0, java.lang.Integer.MAX_VALUE, authored));
+        childrenList.add(new Property("subject", "Resource(Patient|RelatedPerson)", "The subject of the questionnaires: this is the patient that the answers apply to, but this person is not necessarily the source of information.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("author", "Resource(Practitioner|Patient|RelatedPerson)", "Person that collected the answers to the questions in the Questionnaire.", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("source", "Resource(Patient|Practitioner|RelatedPerson)", "The person that answered the questions about the subject. Only used when this is not the subject him/herself.", 0, java.lang.Integer.MAX_VALUE, source));
+        childrenList.add(new Property("name", "CodeableConcept", "Structured name for a predefined list of questions this questionnaire is responding to.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this question/answer set that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("encounter", "Resource(Encounter)", "Encounter during which this questionnaireanswers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("question", "", "Answers to questions on a questionnaire.", 0, java.lang.Integer.MAX_VALUE, question));
+        childrenList.add(new Property("group", "", "A group of questions to a possibly similarly grouped set of question in the questionnaire.", 0, java.lang.Integer.MAX_VALUE, group));
+      }
 
       public Questionnaire copy() {
         Questionnaire dst = new Questionnaire();

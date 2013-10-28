@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -80,7 +80,7 @@ public class HumanName extends Type {
         }
     }
 
-  public class NameUseEnumFactory implements EnumFactory {
+  public static class NameUseEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -155,19 +155,24 @@ public class HumanName extends Type {
      */
     protected Period period;
 
+    public HumanName() {
+      super();
+    }
+
     public Enumeration<NameUse> getUse() { 
       return this.use;
     }
 
-    public void setUse(Enumeration<NameUse> value) { 
+    public HumanName setUse(Enumeration<NameUse> value) { 
       this.use = value;
+      return this;
     }
 
     public NameUse getUseSimple() { 
       return this.use == null ? null : this.use.getValue();
     }
 
-    public void setUseSimple(NameUse value) { 
+    public HumanName setUseSimple(NameUse value) { 
       if (value == null)
         this.use = null;
       else {
@@ -175,21 +180,23 @@ public class HumanName extends Type {
           this.use = new Enumeration<NameUse>();
         this.use.setValue(value);
       }
+      return this;
     }
 
     public String_ getText() { 
       return this.text;
     }
 
-    public void setText(String_ value) { 
+    public HumanName setText(String_ value) { 
       this.text = value;
+      return this;
     }
 
     public String getTextSimple() { 
       return this.text == null ? null : this.text.getValue();
     }
 
-    public void setTextSimple(String value) { 
+    public HumanName setTextSimple(String value) { 
       if (value == null)
         this.text = null;
       else {
@@ -197,6 +204,7 @@ public class HumanName extends Type {
           this.text = new String_();
         this.text.setValue(value);
       }
+      return this;
     }
 
     public List<String_> getFamily() { 
@@ -275,9 +283,21 @@ public class HumanName extends Type {
       return this.period;
     }
 
-    public void setPeriod(Period value) { 
+    public HumanName setPeriod(Period value) { 
       this.period = value;
+      return this;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("use", "code", "Identifies the purpose for this name.", 0, java.lang.Integer.MAX_VALUE, use));
+        childrenList.add(new Property("text", "string", "A full text representation of the name.", 0, java.lang.Integer.MAX_VALUE, text));
+        childrenList.add(new Property("family", "string", "Family name, this is the name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.", 0, java.lang.Integer.MAX_VALUE, family));
+        childrenList.add(new Property("given", "string", "Given name. NOTE: Not to be called 'first name' since given names do not always come first.", 0, java.lang.Integer.MAX_VALUE, given));
+        childrenList.add(new Property("prefix", "string", "Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the start of the name.", 0, java.lang.Integer.MAX_VALUE, prefix));
+        childrenList.add(new Property("suffix", "string", "Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the end of the name.", 0, java.lang.Integer.MAX_VALUE, suffix));
+        childrenList.add(new Property("period", "Period", "Indicates the period of time when this name was valid for the named person.", 0, java.lang.Integer.MAX_VALUE, period));
+      }
 
       public HumanName copy() {
         HumanName dst = new HumanName();

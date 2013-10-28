@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -38,7 +38,7 @@ import java.util.*;
  */
 public class Order extends Resource {
 
-    public class OrderWhenComponent extends BackboneElement {
+    public static class OrderWhenComponent extends BackboneElement {
         /**
          * Code specifies when request should be done. The code may simply be a priority code.
          */
@@ -49,24 +49,36 @@ public class Order extends Resource {
          */
         protected Schedule schedule;
 
+      public OrderWhenComponent() {
+        super();
+      }
+
         public CodeableConcept getCode() { 
           return this.code;
         }
 
-        public void setCode(CodeableConcept value) { 
+        public OrderWhenComponent setCode(CodeableConcept value) { 
           this.code = value;
+          return this;
         }
 
         public Schedule getSchedule() { 
           return this.schedule;
         }
 
-        public void setSchedule(Schedule value) { 
+        public OrderWhenComponent setSchedule(Schedule value) { 
           this.schedule = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("code", "CodeableConcept", "Code specifies when request should be done. The code may simply be a priority code.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("schedule", "Schedule", "A formal schedule.", 0, java.lang.Integer.MAX_VALUE, schedule));
         }
 
       public OrderWhenComponent copy(Order e) {
-        OrderWhenComponent dst = e.new OrderWhenComponent();
+        OrderWhenComponent dst = new OrderWhenComponent();
         dst.code = code == null ? null : code.copy();
         dst.schedule = schedule == null ? null : schedule.copy();
         return dst;
@@ -114,19 +126,24 @@ public class Order extends Resource {
      */
     protected List<ResourceReference> detail = new ArrayList<ResourceReference>();
 
+    public Order() {
+      super();
+    }
+
     public DateTime getDate() { 
       return this.date;
     }
 
-    public void setDate(DateTime value) { 
+    public Order setDate(DateTime value) { 
       this.date = value;
+      return this;
     }
 
     public String getDateSimple() { 
       return this.date == null ? null : this.date.getValue();
     }
 
-    public void setDateSimple(String value) { 
+    public Order setDateSimple(String value) { 
       if (value == null)
         this.date = null;
       else {
@@ -134,45 +151,50 @@ public class Order extends Resource {
           this.date = new DateTime();
         this.date.setValue(value);
       }
+      return this;
     }
 
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
-    public void setSubject(ResourceReference value) { 
+    public Order setSubject(ResourceReference value) { 
       this.subject = value;
+      return this;
     }
 
     public ResourceReference getSource() { 
       return this.source;
     }
 
-    public void setSource(ResourceReference value) { 
+    public Order setSource(ResourceReference value) { 
       this.source = value;
+      return this;
     }
 
     public ResourceReference getTarget() { 
       return this.target;
     }
 
-    public void setTarget(ResourceReference value) { 
+    public Order setTarget(ResourceReference value) { 
       this.target = value;
+      return this;
     }
 
     public String_ getReason() { 
       return this.reason;
     }
 
-    public void setReason(String_ value) { 
+    public Order setReason(String_ value) { 
       this.reason = value;
+      return this;
     }
 
     public String getReasonSimple() { 
       return this.reason == null ? null : this.reason.getValue();
     }
 
-    public void setReasonSimple(String value) { 
+    public Order setReasonSimple(String value) { 
       if (value == null)
         this.reason = null;
       else {
@@ -180,22 +202,25 @@ public class Order extends Resource {
           this.reason = new String_();
         this.reason.setValue(value);
       }
+      return this;
     }
 
     public ResourceReference getAuthority() { 
       return this.authority;
     }
 
-    public void setAuthority(ResourceReference value) { 
+    public Order setAuthority(ResourceReference value) { 
       this.authority = value;
+      return this;
     }
 
     public OrderWhenComponent getWhen() { 
       return this.when;
     }
 
-    public void setWhen(OrderWhenComponent value) { 
+    public Order setWhen(OrderWhenComponent value) { 
       this.when = value;
+      return this;
     }
 
     public List<ResourceReference> getDetail() { 
@@ -208,6 +233,18 @@ public class Order extends Resource {
       this.detail.add(t);
       return t;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("date", "dateTime", "When the order was made.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("subject", "Resource(Patient)", "Patient this order is about.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("source", "Resource(Practitioner)", "Who initiated the order.", 0, java.lang.Integer.MAX_VALUE, source));
+        childrenList.add(new Property("target", "Resource(Organization|Device)", "Who is intended to fulfill the order.", 0, java.lang.Integer.MAX_VALUE, target));
+        childrenList.add(new Property("reason", "string", "Text - why the order was made.", 0, java.lang.Integer.MAX_VALUE, reason));
+        childrenList.add(new Property("authority", "Resource(Any)", "If required by policy.", 0, java.lang.Integer.MAX_VALUE, authority));
+        childrenList.add(new Property("when", "", "When order should be fulfilled.", 0, java.lang.Integer.MAX_VALUE, when));
+        childrenList.add(new Property("detail", "Resource(Any)", "What action is being ordered.", 0, java.lang.Integer.MAX_VALUE, detail));
+      }
 
       public Order copy() {
         Order dst = new Order();

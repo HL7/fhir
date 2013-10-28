@@ -2394,8 +2394,12 @@ public class PageProcessor implements Logger  {
         src = s1 + genlevel(0) + s3;  
       else if (com[0].equals("pub-type"))
         src = s1 + publicationType + s3;      
+      else if (com[0].equals("example-header"))
+        src = s1 + loadXmlNotesFromFile(Utilities.path(folders.srcDir, name.toLowerCase(), name+"-examples-header.xml"))+s3;
       else if (com[0].equals("pub-notice"))
         src = s1 + publicationNotice + s3;      
+      else if (com[0].equals("resref"))
+        src = s1 + getReferences(resource.getName()) + s3;      
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
@@ -2406,6 +2410,58 @@ public class PageProcessor implements Logger  {
 
     }
     return src;
+  }
+
+  private String getReferences(String name) throws Exception {
+    List<String> refs = new ArrayList<String>();
+    for (String rn : definitions.sortedResourceNames()) {
+      if (!rn.equals(name)) {
+        ResourceDefn r = definitions.getResourceByName(rn);
+        if (usesResource(r.getRoot(), name)) {
+          refs.add(rn);
+        }
+      }
+    }
+    if (refs.size() == 1)
+      return "<p>This resource is used by <a href=\""+refs.get(0).toLowerCase()+".html\">"+refs+"</a></p>\r\n";
+    else if (refs.size() > 1)
+      return "<p>This resource is used by "+asLinks(refs)+"</p>\r\n";
+    else
+      return "";
+  }
+
+  private String asLinks(List<String> refs) {
+    StringBuilder b = new StringBuilder();
+    for (int i = 0; i < refs.size(); i++) {
+      if (i == refs.size() - 1)
+        b.append(" and ");
+      else if (i > 0)
+        b.append(", ");
+      b.append("<a href=\""+refs.get(i).toLowerCase()+".html\">"+refs.get(i)+"</a>");
+    }
+      return b.toString();
+  }
+
+  private boolean usesResource(ElementDefn e, String name) {
+    if (usesResource(e.getTypes(), name))
+      return true;
+    for (ElementDefn c : e.getElements()) {
+      if (usesResource(c, name))
+        return true;
+    }
+    return false;
+  }
+
+  private boolean usesResource(List<TypeRef> types, String name) {
+    for (TypeRef t : types) {
+      if (t.getName().equals("Resource")) {
+        for (String p : t.getParams()) {
+          if (p.equals(name))
+            return true;
+        }
+      }
+    }
+    return false;
   }
 
   private String prepWikiName(String name) {

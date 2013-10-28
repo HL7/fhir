@@ -204,12 +204,12 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 		zip.addFiles(implDir+modelDir, modelDir, ".cs", null);
 		zip.addFiles(implDir+parsersDir, parsersDir, ".cs", null);
 		zip.addFiles(implDir+serializersDir, serializersDir, ".cs", null);
-		zip.addFolder(implDir+modelSupportDir, modelSupportDir);
-		zip.addFolder(implDir+parsersSupportDir, parsersSupportDir);
-		zip.addFolder(implDir+serializersSupportDir, serializersSupportDir);
-		zip.addFolder(implDir+supportDir, supportDir);
+		zip.addFolder(implDir+modelSupportDir, modelSupportDir, false);
+		zip.addFolder(implDir+parsersSupportDir, parsersSupportDir, false);
+		zip.addFolder(implDir+serializersSupportDir, serializersSupportDir, false);
+		zip.addFolder(implDir+supportDir, supportDir, false);
 		//zip.addFiles(implDir+supportSearchDir,supportSearchDir, ".cs", null);
-		zip.addFolder(implDir+"Client"+sl, "Client"+sl);
+		zip.addFolder(implDir+"Client"+sl, "Client"+sl, false);
 		zip.addFiles(implDir+"Properties" + sl, "Properties"+sl, ".cs", null);
 		zip.addFiles(implDir, "", ".csproj", null);
 		zip.addFiles(implDir, "", ".sln", null);
@@ -279,7 +279,7 @@ public boolean doesCompile() {
       char sl = File.separatorChar;
       ZipGenerator zip = new ZipGenerator(csharpZip);
       zip.addFromZip(tempZip);
-      zip.addFolder( assemblyDirectory + sl, "bin" + sl);
+      zip.addFolder( assemblyDirectory + sl, "bin" + sl, false);
       zip.close();
     }
     catch( Exception e)

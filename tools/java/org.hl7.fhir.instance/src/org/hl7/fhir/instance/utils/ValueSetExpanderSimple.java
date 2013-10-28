@@ -37,7 +37,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
   
   public ValueSet expand(ValueSet source) throws Exception {
     focus = source.copy();
-    focus.setExpansion(focus.new ValueSetExpansionComponent());
+    focus.setExpansion(new ValueSet.ValueSetExpansionComponent());
     focus.getExpansion().setTimestampSimple(Calendar.getInstance());
     
   	
@@ -181,7 +181,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
   }
 
 	private void addCode(String system, String code, String display) {
-		ValueSetExpansionContainsComponent n = focus.new ValueSetExpansionContainsComponent();
+		ValueSetExpansionContainsComponent n = new ValueSet.ValueSetExpansionContainsComponent();
 		n.setSystemSimple(system);
 	  n.setCodeSimple(code);
 	  n.setDisplaySimple(display);

@@ -61,4 +61,11 @@ public class BackboneElement extends Element {
     return null;
   }
   
+  @Override
+	protected void listChildren(List<Property> result) {
+    super.listChildren(result);
+		result.add(new Property("modifierExtension", "Extension", "XML Identifier - target for an id ref", 0, java.lang.Integer.MAX_VALUE, modifierExtensions));	  
+  }  
+  
+
 }

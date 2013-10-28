@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 23, 2013 23:11+1100 for FHIR v0.12
+// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -68,7 +68,7 @@ public class AdverseReaction extends Resource {
         }
     }
 
-  public class ReactionSeverityEnumFactory implements EnumFactory {
+  public static class ReactionSeverityEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -122,7 +122,7 @@ public class AdverseReaction extends Resource {
         }
     }
 
-  public class ExposureTypeEnumFactory implements EnumFactory {
+  public static class ExposureTypeEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -176,7 +176,7 @@ public class AdverseReaction extends Resource {
         }
     }
 
-  public class CausalityExpectationEnumFactory implements EnumFactory {
+  public static class CausalityExpectationEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -204,7 +204,7 @@ public class AdverseReaction extends Resource {
       }
     }
 
-    public class AdverseReactionSymptomComponent extends BackboneElement {
+    public static class AdverseReactionSymptomComponent extends BackboneElement {
         /**
          * Indicates the specific sign or symptom that was observed.
          */
@@ -215,27 +215,38 @@ public class AdverseReaction extends Resource {
          */
         protected Enumeration<ReactionSeverity> severity;
 
+      public AdverseReactionSymptomComponent() {
+        super();
+      }
+
+      public AdverseReactionSymptomComponent(CodeableConcept code) {
+        super();
+        this.code = code;
+      }
+
         public CodeableConcept getCode() { 
           return this.code;
         }
 
-        public void setCode(CodeableConcept value) { 
+        public AdverseReactionSymptomComponent setCode(CodeableConcept value) { 
           this.code = value;
+          return this;
         }
 
         public Enumeration<ReactionSeverity> getSeverity() { 
           return this.severity;
         }
 
-        public void setSeverity(Enumeration<ReactionSeverity> value) { 
+        public AdverseReactionSymptomComponent setSeverity(Enumeration<ReactionSeverity> value) { 
           this.severity = value;
+          return this;
         }
 
         public ReactionSeverity getSeveritySimple() { 
           return this.severity == null ? null : this.severity.getValue();
         }
 
-        public void setSeveritySimple(ReactionSeverity value) { 
+        public AdverseReactionSymptomComponent setSeveritySimple(ReactionSeverity value) { 
           if (value == null)
             this.severity = null;
           else {
@@ -243,10 +254,17 @@ public class AdverseReaction extends Resource {
               this.severity = new Enumeration<ReactionSeverity>();
             this.severity.setValue(value);
           }
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("code", "CodeableConcept", "Indicates the specific sign or symptom that was observed.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("severity", "code", "The severity of the sign or symptom.", 0, java.lang.Integer.MAX_VALUE, severity));
         }
 
       public AdverseReactionSymptomComponent copy(AdverseReaction e) {
-        AdverseReactionSymptomComponent dst = e.new AdverseReactionSymptomComponent();
+        AdverseReactionSymptomComponent dst = new AdverseReactionSymptomComponent();
         dst.code = code == null ? null : code.copy();
         dst.severity = severity == null ? null : severity.copy();
         return dst;
@@ -254,7 +272,7 @@ public class AdverseReaction extends Resource {
 
   }
 
-    public class AdverseReactionExposureComponent extends BackboneElement {
+    public static class AdverseReactionExposureComponent extends BackboneElement {
         /**
          * When the exposure occurred.
          */
@@ -275,19 +293,24 @@ public class AdverseReaction extends Resource {
          */
         protected ResourceReference substance;
 
+      public AdverseReactionExposureComponent() {
+        super();
+      }
+
         public DateTime getExposureDate() { 
           return this.exposureDate;
         }
 
-        public void setExposureDate(DateTime value) { 
+        public AdverseReactionExposureComponent setExposureDate(DateTime value) { 
           this.exposureDate = value;
+          return this;
         }
 
         public String getExposureDateSimple() { 
           return this.exposureDate == null ? null : this.exposureDate.getValue();
         }
 
-        public void setExposureDateSimple(String value) { 
+        public AdverseReactionExposureComponent setExposureDateSimple(String value) { 
           if (value == null)
             this.exposureDate = null;
           else {
@@ -295,21 +318,23 @@ public class AdverseReaction extends Resource {
               this.exposureDate = new DateTime();
             this.exposureDate.setValue(value);
           }
+          return this;
         }
 
         public Enumeration<ExposureType> getExposureType() { 
           return this.exposureType;
         }
 
-        public void setExposureType(Enumeration<ExposureType> value) { 
+        public AdverseReactionExposureComponent setExposureType(Enumeration<ExposureType> value) { 
           this.exposureType = value;
+          return this;
         }
 
         public ExposureType getExposureTypeSimple() { 
           return this.exposureType == null ? null : this.exposureType.getValue();
         }
 
-        public void setExposureTypeSimple(ExposureType value) { 
+        public AdverseReactionExposureComponent setExposureTypeSimple(ExposureType value) { 
           if (value == null)
             this.exposureType = null;
           else {
@@ -317,21 +342,23 @@ public class AdverseReaction extends Resource {
               this.exposureType = new Enumeration<ExposureType>();
             this.exposureType.setValue(value);
           }
+          return this;
         }
 
         public Enumeration<CausalityExpectation> getCausalityExpectation() { 
           return this.causalityExpectation;
         }
 
-        public void setCausalityExpectation(Enumeration<CausalityExpectation> value) { 
+        public AdverseReactionExposureComponent setCausalityExpectation(Enumeration<CausalityExpectation> value) { 
           this.causalityExpectation = value;
+          return this;
         }
 
         public CausalityExpectation getCausalityExpectationSimple() { 
           return this.causalityExpectation == null ? null : this.causalityExpectation.getValue();
         }
 
-        public void setCausalityExpectationSimple(CausalityExpectation value) { 
+        public AdverseReactionExposureComponent setCausalityExpectationSimple(CausalityExpectation value) { 
           if (value == null)
             this.causalityExpectation = null;
           else {
@@ -339,18 +366,28 @@ public class AdverseReaction extends Resource {
               this.causalityExpectation = new Enumeration<CausalityExpectation>();
             this.causalityExpectation.setValue(value);
           }
+          return this;
         }
 
         public ResourceReference getSubstance() { 
           return this.substance;
         }
 
-        public void setSubstance(ResourceReference value) { 
+        public AdverseReactionExposureComponent setSubstance(ResourceReference value) { 
           this.substance = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("exposureDate", "dateTime", "When the exposure occurred.", 0, java.lang.Integer.MAX_VALUE, exposureDate));
+          childrenList.add(new Property("exposureType", "code", "Drug Administration, Immunization, Coincidental.", 0, java.lang.Integer.MAX_VALUE, exposureType));
+          childrenList.add(new Property("causalityExpectation", "code", "A statement of how confident that the recorder was that this exposure caused the reaction.", 0, java.lang.Integer.MAX_VALUE, causalityExpectation));
+          childrenList.add(new Property("substance", "Resource(Substance)", "Substance(s) that is presumed to have caused the adverse reaction.", 0, java.lang.Integer.MAX_VALUE, substance));
         }
 
       public AdverseReactionExposureComponent copy(AdverseReaction e) {
-        AdverseReactionExposureComponent dst = e.new AdverseReactionExposureComponent();
+        AdverseReactionExposureComponent dst = new AdverseReactionExposureComponent();
         dst.exposureDate = exposureDate == null ? null : exposureDate.copy();
         dst.exposureType = exposureType == null ? null : exposureType.copy();
         dst.causalityExpectation = causalityExpectation == null ? null : causalityExpectation.copy();
@@ -395,6 +432,16 @@ public class AdverseReaction extends Resource {
      */
     protected List<AdverseReactionExposureComponent> exposure = new ArrayList<AdverseReactionExposureComponent>();
 
+    public AdverseReaction() {
+      super();
+    }
+
+    public AdverseReaction(ResourceReference subject, Boolean didNotOccurFlag) {
+      super();
+      this.subject = subject;
+      this.didNotOccurFlag = didNotOccurFlag;
+    }
+
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
@@ -410,15 +457,16 @@ public class AdverseReaction extends Resource {
       return this.reactionDate;
     }
 
-    public void setReactionDate(DateTime value) { 
+    public AdverseReaction setReactionDate(DateTime value) { 
       this.reactionDate = value;
+      return this;
     }
 
     public String getReactionDateSimple() { 
       return this.reactionDate == null ? null : this.reactionDate.getValue();
     }
 
-    public void setReactionDateSimple(String value) { 
+    public AdverseReaction setReactionDateSimple(String value) { 
       if (value == null)
         this.reactionDate = null;
       else {
@@ -426,40 +474,45 @@ public class AdverseReaction extends Resource {
           this.reactionDate = new DateTime();
         this.reactionDate.setValue(value);
       }
+      return this;
     }
 
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
-    public void setSubject(ResourceReference value) { 
+    public AdverseReaction setSubject(ResourceReference value) { 
       this.subject = value;
+      return this;
     }
 
     public Boolean getDidNotOccurFlag() { 
       return this.didNotOccurFlag;
     }
 
-    public void setDidNotOccurFlag(Boolean value) { 
+    public AdverseReaction setDidNotOccurFlag(Boolean value) { 
       this.didNotOccurFlag = value;
+      return this;
     }
 
     public boolean getDidNotOccurFlagSimple() { 
       return this.didNotOccurFlag == null ? null : this.didNotOccurFlag.getValue();
     }
 
-    public void setDidNotOccurFlagSimple(boolean value) { 
+    public AdverseReaction setDidNotOccurFlagSimple(boolean value) { 
         if (this.didNotOccurFlag == null)
           this.didNotOccurFlag = new Boolean();
         this.didNotOccurFlag.setValue(value);
+      return this;
     }
 
     public ResourceReference getRecorder() { 
       return this.recorder;
     }
 
-    public void setRecorder(ResourceReference value) { 
+    public AdverseReaction setRecorder(ResourceReference value) { 
       this.recorder = value;
+      return this;
     }
 
     public List<AdverseReactionSymptomComponent> getSymptom() { 
@@ -483,6 +536,17 @@ public class AdverseReaction extends Resource {
       this.exposure.add(t);
       return t;
     }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this reaction that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("reactionDate", "dateTime", "When the reaction occurred.", 0, java.lang.Integer.MAX_VALUE, reactionDate));
+        childrenList.add(new Property("subject", "Resource(Patient)", "The subject of the adverse reaction.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("didNotOccurFlag", "boolean", "To say that a reaction to substance did not occur.", 0, java.lang.Integer.MAX_VALUE, didNotOccurFlag));
+        childrenList.add(new Property("recorder", "Resource(Practitioner|Patient)", "Who recorded the reaction.", 0, java.lang.Integer.MAX_VALUE, recorder));
+        childrenList.add(new Property("symptom", "", "The signs and symptoms that were observed as part of the reaction.", 0, java.lang.Integer.MAX_VALUE, symptom));
+        childrenList.add(new Property("exposure", "", "An exposure to a substance that preceded a reaction occurrence.", 0, java.lang.Integer.MAX_VALUE, exposure));
+      }
 
       public AdverseReaction copy() {
         AdverseReaction dst = new AdverseReaction();

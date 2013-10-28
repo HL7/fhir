@@ -306,7 +306,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     
     if (tn.contains(".")) {
       write("  private "+tn+" parse"+upFirst(tn).replace(".", "").replace("<", "_").replace(">", "")+"(XmlPullParser xpp, "+pathClass(tn)+" owner) throws Exception {\r\n");
-      write("    "+tn+" res = owner.new "+pathNode(tn)+"("+pn+");\r\n");
+      write("    "+tn+" res = new "+tn+"("+pn+");\r\n");
       bUseOwner = true;
     } else {
       write("  private "+tn+" parse"+upFirst(tn).replace(".", "").replace("<", "_").replace(">", "")+"(XmlPullParser xpp) throws Exception {\r\n");
@@ -370,8 +370,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
       BindingSpecification cd = definitions.getBindingByName(e.getBindingName());
       if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.Binding.CodeList) {
         String en = typeNames.get(e); // getCodeListType(cd.getBinding());
-        prsr = "parseEnumeration(xpp, "+en+".Null, new "+en.substring(0, en.indexOf("."))+"().new "+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
-        // parseEnumeration(xpp, Narrative.NarrativeStatus.additional, new Narrative().new NarrativeStatusEnumFactory())
+        prsr = "parseEnumeration(xpp, "+en+".Null, new "+en.substring(0, en.indexOf("."))+"."+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
+        // parseEnumeration(xpp, Narrative.NarrativeStatus.additional, new Narrative.NarrativeStatusEnumFactory())
       } else {   
         String tn = typeName(root, e).replace(".", "");
         if (name.equals("extension")) {
