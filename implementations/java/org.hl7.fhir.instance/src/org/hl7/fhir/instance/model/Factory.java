@@ -40,7 +40,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 
 
-public class Factory extends GeneratedFactory {
+public class Factory {
 
   public static Id newId(String value) {
     if (value == null)
