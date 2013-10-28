@@ -89,9 +89,9 @@ How filters are used with various code systems:
 </p>
 <table class="grid">
  <tr><th>System</th>    <th>Property</th> <th>Expression</th> <th>Value</th>        <th>Definition</th></tr>
- <tr><td>SNOMED CT</td> <td>"concept"</td><td>is-a</td>       <td>[concept]</td>    <td>Includes all codes that have a transitive is-a relationship with the concept Id provided as the value</td> </tr>
+ <tr><td>SNOMED CT</td> <td>"concept"</td><td>is-a</td>       <td>[concept]</td>    <td>Includes all codes that have a transitive is-a relationship with the concept Id provided as the value <br/>The formal expression for this is DescendentsAndSelf([concept])</td> </tr>
  <tr><td></td>          <td>"expression"</td><td>=</td>       <td>[expression]</td> <td>The result of the filter is the result of executing the given snomed expression 
- (see <a href="http://www.ihtsdo.org/fileadmin/user_upload/Docs_01/News/SNOMED_CT_Query_Specification_-__v0.08_-_20121213.doc"> SNOMED CT Query Language</a>)</td> </tr>
+ (see the draft <a href="http://www.ihtsdo.org/fileadmin/user_upload/Docs_01/News/SNOMED_CT_Query_Specification_-__v0.08_-_20121213.doc"> SNOMED CT Query Language</a>)</td> </tr>
  <tr><td colspan="4"><hr/></td></tr>
  <tr><td>Loinc</td> <td>SCALE_TYP</td><td>=</td>       <td>[concept]</td>    <td>Includes all codes where the named property has the given value</td> </tr>
  <tr><td></td>      <td>Type</td>        <td>=</td>       <td>Method</td>       <td>All the LOINC codes for particular methods defined in LOINC</td> </tr>
@@ -160,6 +160,28 @@ The value set expansion returned by this query should be treated
 as a transient result that will change over time (whether it does or
 not depends on how the value set is specified), so applications 
 should repeat the query each time the value set is used.
+</p>
+<h2>Value Set Validation</h2>
+<p>
+An application may offer to provide code validation services for other 
+applications. In this case, the standard way for an application to 
+ask for validation is to perform a 
+<a href="query.html">query</a> on the value set with _query=validate:
+</p>
+<pre>
+  GET [service-url]/valueset/?_query=validate&amp;id=:url&amp;system=:url&amp;version=:string&amp;code=:string&amp;...
+</pre>
+<p>
+The values for system, version, and code are those from the <a href="datatypes.html#Coding">Coding</a> data type.
+Version is optional, and code and system are mandatory. Additionally, the parameter "coding" or "codeableconcept" 
+can be used - the value of these parameters is a URL encoded XML or JSON representation of the two data types
+respectively. An additional boolean parameter "extensible" can be provided to specify whether the
+applicable binding is extensible or not.
+</p>
+<p>
+The result of this query is an <a href="operationoutcome.html">Operation Outcome</a>.
+If there are no errors in the outcome (OperationOutcome.issue.severity), then the code is considered
+to be valid.
 </p>
 
 

@@ -110,7 +110,7 @@ of parameter.
 <a name="modifiers" />
 <h4>Modifiers</h4>
 <p>Parameters are defined per resource, and their names may additionally specify a modifier as a suffix, 
-separated from the parameter name by a dot. Modifiers are:</p>
+separated from the parameter name by a colon. Modifiers are:</p>
 <ul>
  <li>For all parameters (except combination): ":missing". E.g. gender:missing=true (or false). 
   Searching for "gender:missing=true" will return all the resources that don't have any value for the gender parameter (which usually 

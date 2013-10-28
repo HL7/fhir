@@ -327,15 +327,9 @@ The entry is known to be deleted because a date of deletion is given. An id SHAL
 <a name="binary"> </a>
 <h4>Binary Resources</h4>
 <p>
-There are situations where it is useful or required to handle pure binary content 
-as resources. Typically, this is when the binary content is referred to from other FHIR 
-Resources. The resource can contain any content, whether text, image, pdf, zip archive, etc. 
-These resources are <a href="http.html#binary">served in their native form on the rest interface</a>,
-but can also be represented in XML or JSON, such as when including these resources in a bundle
-(used when it is convenient to include these in the feed directly rather than leaving them by reference).
-</p>
-<p>
-In JSON, Binary resources are represented like this:
+When a <a href="extras.html#binary">binary resource</a> is represented in an JSON bundle, 
+it is represented as base64 encoded content along with a content-type, which is the mime-type 
+as it would be specified in HTTP, like this:
 </p>
 <pre class="json">
   &quot;Binary&quot; : {

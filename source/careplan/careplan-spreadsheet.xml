@@ -404,7 +404,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Concern)</Data></Cell>
+    <Cell><Data ss:Type="String">Resource(Condition)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Health issues this goal addresses</Data></Cell>
     <Cell><Data ss:Type="String">The identified conditions that this goal relates to - the condition that caused it to be created, or that it is intended to address</Data></Cell>

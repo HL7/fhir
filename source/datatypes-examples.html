@@ -767,6 +767,19 @@ See also <a href="datatypes.html#Address">Base Definition</a>, <a href="datatype
     &lt;zip value=&quot;HD7 1HQ&quot;/&gt;
   &lt;/address&gt;
 </pre>
+
+<p>A Postal address - i.e. an address that it doesn't make sense to try and visit.</p>
+<pre class="xml" fragment="Address">
+  &lt;address&gt;
+    &lt;extension&gt;
+      &lt;url value=&quot;http://hl7.org/fhir/Profileiso-21090/address-use&quot; /&gt; &lt;!-- todo: review this --&gt;
+      &lt;valueCode value=&quot;PST&quot;/&gt;
+    &lt;/extension&gt;
+    &lt;line value=&quot;PO Box 31445&quot;/&gt;
+    &lt;city value=&quot;Erewhon&quot;/&gt;
+    &lt;zip value=&quot;0001&quot;/&gt;
+  &lt;/address&gt;
+</pre>
 </div>
 
 Holmfirth

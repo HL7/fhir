@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+However 
+applications may need to replace Service Root URLs. This may be needed 
+as application URLs may change or in uses of FHIR within internal 
+eco-systems, local configuration may dictate that the provider of 
+a resource is different to that claimed by any particular provider 
+or consumer. 
+-->
+
+<!--
+
+ A person or animal receiving care at multiple organisations will therefore have its information present in multiple Patient Resources.			
+ 
+ What are the explicit mechanisms that should be used to synchronize them? This dynamic behavior,  is not covered at any depth (that I can see), except to suggest that a message that emulates a V2 or V3 event be employed. The entire notion of dynamic behavior of a model employing resources is not covered well. If one happens to employ RESTful services (not required AFAICS) then, yes, we have CRUD verb mappings on resources, but no real discussion of the dynamic behavior of multiple resources involved in transactions/events, except to fall back on V2 and V3. Am I missing something? 
+ 
+-->
+      
+[%settitle Managing Resource Identity%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<a name="identity"></a>
+<h2>Managing Resource Identity</h2>
+
+<p>
+Each resource has a known identity, which is a URL. The identity is not stored 
+inside the resource, but must be tracked by systems handling resources. For 
+RESTful systems, the resource identity is the same as the URL by which it is found. 
+When a resource is packaged in a <a href="extras.html#bundle">bundle</a> (e.g. for 
+<a href="message.html">messages</a> or <a href="documents.html">documents</a>, or 
+<a href="services.html">exchanged in a service </a>, the id is included along 
+with the resource. Real-world use of FHIR resources creates the need to 
+manage the way resources are identified with URLs.
+</p>
+<p>
+Note that many resources also have an identifier element, which may repeat. This identifier
+is a logical identifier for the concept that the resource describes, and is different to
+the identity discussed in this section, which is the literal identity of the resource.
+Note that there may be more than one resource that describes the same concept - usually
+on different systems, though due to various record keeping issues, these may exist
+on the same system (i.e. <a href="patient.html#duplicates">patient duplicates</a>).
+</p>
+
+<h3>Using Resources</h3>
+
+<p>
+Resources are used in a variety of circumstances. Generally, these can be categorized into 3 different scenarios:
+</p>
+<ol>
+ <li><b>Closed Trading System</b>: the resources are only ever exchanged between fixed systems in a tightly controlled 
+community, such as a single hospital. There is only one master server for each resource type, and resources are managed
+by that server. In this context, the <a href="resources.html#metadata">logical id</a> of a resource is sufficient 
+to fully identify the resource</li>
+
+ <li><b>Open system</b>: there are many peer servers, each managing a set of resources of different types. 
+In order to identify resources, a full URL reference to the origin server is required. The grand example of 
+an open system is the World Wide Web</li>
+
+ <li><b>Partially closed, inter-linked systems</b>: a mixture of both closed and open systems - trading communities that are tightly managed, but have managed 
+interactions with other closed trading systems, or with the world-wide RESTful system, or both. In fact, 
+this combination appears to be the most likely scenario for current real-world healthcare business solutions</li>
+</ol>
+<p>
+These combinations are why either relative (logical) or absolute references are allowed, and why 
+a logical id is always required, in order to enable seamless exchange amongst partially closed trading systems.
+</p>
+<h3>Copying Resources and Re-identification</h3>
+<p>
+When resources are exchanged between systems, they may need to be re-identified (i.e. assigned a new resource).
+When a resource is re-identified, nothing in the resource changes, but any references that point to the resource
+need to be updated. Whether re-identification is required or not depends on the context, as does how resource
+references are updated.
+</p>
+<p>
+The normal case is that a client/receiving system accepts the server/sender's identification of a resource 
+at face value, whether it is a relative or absolute reference. When the client/receiver wants to follow
+resource references, they are done using the server id (typically either by http calls or locating them 
+in a <a href="extras.html#bundle">bundle</a>), but other arrangements are possible. In such cases, there is no need for re-identification. 
+</p>
+<p>
+Another scenario is for a client to retrieve a resource from a server, and make its own local persistent
+copy. If the local resource has a life-cycle of its own (i.e. is it not just a cached resource), then it 
+needs to have its own identity; i.e. the resource must be re-identified. The simplest case is that the
+client only is keeping local copies of resources from a single server. In these cases, the client can 
+simply replace the root URL and keep the logical id of the resource the same. In fact, if the server
+is using relative references, then this change doesn't involve any actual changes to the resources, it only
+means a re-interpretation of the references. 
+</p>
+<p>
+In some cases, however, the client may deal with multiple servers. In this case, the logical id of the 
+resource is not guaranteed to be unique (unless all resources have a UUID for the logical id, which is 
+allowed but not required). When the client cannot be sure that the resource identities are unique, it 
+will have to re-identify the resources. In practice this means that the client needs to keep some kind of
+identity translation table, and update references to the resources it has copied locally when other resources 
+are received.
+</p>	
+<p>
+The case of a gateway system that migrates resources from one ecosystem to another is very similar.
+In some limited cases, it can leave the logical id of the resources unchanged as resources are copied
+from one closed system to another. However in more complicated cases, it will have to modify the 
+resource references as resources pass across the gateway. 
+</p>
+
+
+</div>
+
+
+[%file newfooter%]
+</body>
+</html>

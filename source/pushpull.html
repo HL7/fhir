@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+However 
+applications may need to replace Service Root URLs. This may be needed 
+as application URLs may change or in uses of FHIR within internal 
+eco-systems, local configuration may dictate that the provider of 
+a resource is different to that claimed by any particular provider 
+or consumer. 
+-->
+
+<!--
+
+ A person or animal receiving care at multiple organisations will therefore have its information present in multiple Patient Resources.			
+ 
+ What are the explicit mechanisms that should be used to synchronize them? This dynamic behavior,  is not covered at any depth (that I can see), except to suggest that a message that emulates a V2 or V3 event be employed. The entire notion of dynamic behavior of a model employing resources is not covered well. If one happens to employ RESTful services (not required AFAICS) then, yes, we have CRUD verb mappings on resources, but no real discussion of the dynamic behavior of multiple resources involved in transactions/events, except to fall back on V2 and V3. Am I missing something? 
+ 
+-->
+      
+[%settitle Managing Push and Pull%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<h2>Managing Push and Pull</h2>
+<p>
+The primary focus of FHIR is exchanging healthcare data between systems. Whenever one system has information that 
+another needs or wants, one question that automatically arises is whether the source system will push the data, or 
+whether the destination system will pull the data.
+</p>
+<table class="grid">
+  <tr> <td>Push</td> <td>As new information becomes available, the source system send the information to the 
+    destination. It expects the destination system to maintain and index it as it receives it. 
+    The source system must trust the destination system to manage access/security appropriately</td> </tr>
+  <tr> <td>Pull</td> <td>The source system maintains and indexes data. When the destination system
+    wants or needs the information, it must retrieve it form the source system. Either the 
+    source or the destination (or both) manages access/security</td> </tr>
+</table>
+<p>
+Note that it is possible to mix these modes by adding an interface repository into the mix. 
+For example, to connect a push-based source with a pull-based destination, simply have the 
+source push information at the repository, and the destination can pull data from it as 
+required. If the source is pull based, the interface repository can query it for new data 
+on a regular basis, and when it finds any, it can push it at the destination.
+</p>
+<p>
+Which combination of push, pull and interface repositories is appropriate for any given 
+context depends on a host of factors around deployment architecture, network and business 
+topology, security policies etc. However it is often constrained by the capabilities of 
+the various systems and the standards used in the exchange.
+</p>
+<p>
+The FHIR specification supports and enables both push and pull:
+</p>
+<ul>
+ <li><b>REST</b>: The REST API can be used in either fashion - this is discussed in more depth below</li>
+ <li><b>Messages</b>: FHIR defines message events for both push and pull</li>
+ <li><b>Services</b>: Services may be defined to support either model</li>
+ <li><b>Documents</b>: This question doesn't apply, because documents are bundles that are exchanged using one of the other 3 methods</li>
+</ul>
+
+<h3>Push and Pull on a RESTful interface</h3>
+
+<ul>
+ <li>Push: The source is a client, and when new data is available, it uses <a href="http.html#create">create</a>, <a href="http.html#update">update</a>, and <a href="http.html#transaction">transaction</a> to push data to the destination, which is a server</li>
+ <li>Pull: The server is a server, and the destination is a client. When the client wants to use the data, it uses a combination of <a href="http.html#search">search</a> and <a href="http.html#read">read</a> so the users can find the data they neeed</li>
+ <li>Push/Pull: The source is server, and the destination is a client. On a regular basis, the destination queries the server for it's <a href="http.html#history">history</a>, and replicates the changes in it's own copy of the database</li>
+</ul>
+
+
+</div>
+
+
+[%file newfooter%]
+</body>
+</html>

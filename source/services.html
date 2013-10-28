@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+However 
+applications may need to replace Service Root URLs. This may be needed 
+as application URLs may change or in uses of FHIR within internal 
+eco-systems, local configuration may dictate that the provider of 
+a resource is different to that claimed by any particular provider 
+or consumer. 
+-->
+
+<!--
+
+ A person or animal receiving care at multiple organisations will therefore have its information present in multiple Patient Resources.			
+ 
+ What are the explicit mechanisms that should be used to synchronize them? This dynamic behavior,  is not covered at any depth (that I can see), except to suggest that a message that emulates a V2 or V3 event be employed. The entire notion of dynamic behavior of a model employing resources is not covered well. If one happens to employ RESTful services (not required AFAICS) then, yes, we have CRUD verb mappings on resources, but no real discussion of the dynamic behavior of multiple resources involved in transactions/events, except to fall back on V2 and V3. Am I missing something? 
+ 
+-->
+      
+[%settitle Using Resources with Services%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+
+<a name="SOA"> </a>
+<a name="soa"> </a>
+<h2>Using Resources with Services</h2>
+<p>
+Though FHIR Resources are primarily designed with for the <a href="http.html">RESTful HTTP-based implementation</a>,
+it is not necessary to use a RESTful interface when exchanging the resources; one way that they can be exchanged 
+is in the context of services. [Bo: two sentences or so about what a SOA is].
+</p>
+<p>
+FHIR resources or <a href="extras.html#bundle">bundles</a> may be used as as parameters of service interfaces,
+using webservices, or some other technical approach.
+</p>
+<p>
+Generally, the definition of particular services is a domain or context specific task, and it is anticipated
+that this would be done as separate specifications that make use of the underlying facilities defined
+in this specification. Services defined like this are able to build on the common underlying platform
+features defined in this specification such as REST or messaging, and add specific interactions where
+appropriate. Alternatively, the service interfaces can build an entirely separate implementation. 
+At this time, FHIR does not define any specific service interfaces as part of the specification, 
+though defining common services would be considered if there was sufficient interest in this.
+</p>
+<blockquote>
+<p>
+<b>DSTU Notice</b>: The RESTful interface is a profile on the existing <a href="http://hssp-rlus.wikispaces.com/RLUS_FAQ">HL7/OMG HSSP 
+RLUS specification</a> (see <a href="http.html#hdata">comments on the RESTful specification</a>). 
+If there is interest, HL7 could define a webservices (SOAP) equivalent to this. The main interest
+in this would be to provide a common technical base for other webservices extensions. 
+</p>
+</blockquote>
+<p>
+When implementing exchange of resources using a service-based approach, there is two 
+aspects to keep in mind:
+</p>
+<ul>
+ <li>Technical requirements when exchanging resources</li>
+ <li>FHIR architectural issues to consider when using services</li>
+</ul>
+<p>
+Both these impact on how services should manage exchanging resources in their design
+and implementation.
+</p>
+
+<a name="tech"> </a>
+<h2>Technical Requirements</h2>
+<p>
+Resources are designed so the package that is "the resource" consists of data - the content inside the resource,
+and the metadata - additional fields that are actually stored and exchanged outside the resource. In the 
+RESTful context, these fields are part of the HTTP header, and their functionality is integrated into the 
+the HTTP exchange. When the resources are used with a service, this data must either be exchanged with
+the resource, or the functionality they provide replaced in some way.
+</p>
+<p>
+A key question in this regard is whether the resources that are exchanged across a service interface 
+need to also be handled in a RESTful context around the service. For example, a decision support
+service where both the decision support consumer acquires the resources to be passed to the service from a
+RESTful based EHR system, and the decision support provider keeps it's own internal RESTful EHR that uses
+the resources - and perhaps also interacts with the same EHR as the consumer. If resources are also to
+be exchanged with REST, the metadata will be required.
+</p>
+<p><b>Resource Identity</b></p>
+<p>
+All resources have a single identity (the full URL, and a logical id which may be maintained
+as the resource moves from server to server (see <a href="managing.html">"Managing Resource Identity"</a> for further 
+discussion). Since this identity is used by any reference to the resource, it must be exchanged 
+with the resource so that references from other resources to the one being exchanged can 
+still be resolved.
+</p>
+<p>
+Related to this, resources are modular units that refer to each other. Although 
+resources stand-alone and are each processed independently, it's rarely possible 
+to use a resource to achieve some clinical or business goal without retrieving the 
+other referenced resources. Any use of resources in a service environment needs to 
+address how these references can be resolved. This can be achieved by delegating 
+the reference resolution to a RESTful framework, by ensuring that all the relevant 
+resources are contained in the service call, or by making some service based arrangement
+by which additional resources can be retrieved.
+</p>
+<p>
+Services that exchange resources SHALL maintain resource identity.
+</p>
+
+<p><b>Resource Version</b></p>
+<p>
+Resources have two metadata elements relating to versioning: "Version Id" and "Last Modified Date".
+Because of data/time resolution issues, systems implementing concurrency solutions are 
+strongly recommended to depend on the version id; the Last Modified Date is provided to
+inform human users about information currency. 
+</p>
+<p>
+Services typically assume that the information in the service calls is the latest 
+information. As a consequence, explicit version tracking is often not part of a 
+service call. However if the resources in the service call then need to be used
+in a RESTful fashion, explicitly tracking the version and last modified date 
+will make this subsequent usage much more efficient.
+</p>
+<p>
+Services that exchange resources SHOULD include version information when the resources are exchanged.
+</p>
+
+<p><b>Capability Statement</b></p>
+<p>
+When using <a href="http.html">RESTful exchange</a>, <a href="message.html">messaging</a>, and <a href="document.html">document based</a> 
+exchange, the the <a href="conformance.html">conformance statement</a> allows authoring and reading 
+applications to describe how they use a resource. The conformance statement supports trading partner
+negotation from specification time through to run-time discovery. The conformance statement doesn't
+provide any equivalent way to make declarations about services, though this might be added in 
+the future if common requirements emerge. Services are expected to make appropriate arrangements
+around discovery and compatibility, though it is expected that these will vary considerably. 
+</p>
+<p>
+Services that exchange resources MAY choose to provide support for describing and 
+echanging descriptions of service implementations.
+</p>
+
+<a name="architecture"> </a>
+<h2>Architectural Considerations</h2>
+<p>
+FHIR Resources are designed to make use in a wide variety of contexts. In particular,
+FHIR resources are required to be suitable for use in a REST environment. This means
+that there are number of design requirements and choices that impact on how suitable
+resources are for use with services. 
+</p>
+<p>
+If service use was the only consideration, different decisions would be made, and 
+resources would be more suitable for use with services. However this would curtail
+their usefulness and reusability in other contexts. 
+</p>
+
+<p><b>Resource References</b></p>
+<p>
+The most obvious impact is that resources <a href="references.html">refer to each other using full URL
+based references</a>, and there are a number of rules around how these references are 
+resolved. In the context of a service, this means that the references between modules 
+carry this extra weight of choice and obligation, even when it might not be necessary.
+</p>
+
+<p><b>Explicit State</b></p>
+<p>
+All resources represent the various states of the record and real world entities involved
+in a transaction explicitly. This is necessary for use in RESTful and document contexts,
+where the is no explicit transaction. Service interactions are typically associated with
+implicit semantics - a request to change the status of a particular resource to something
+else, for example. The fact that resources carry this state explicitly as well as the 
+transaction fixing state implicitly creates duplication between the two, and this will
+need to be managed.
+</p>
+
+<p><b>Modularity</b></p>
+<p>
+The modularity of resources - which resources are defined, and why - is driven by 
+a wide set of considerations around how they are used. Resources are a platform on 
+which a set of services of various kinds are provided. Accordingly, the resources
+are defined for general use, and they can be expected to be less suitable for a 
+particular service than custom defined structures. The pay back is wider re-use 
+of the information that the service deals with.
+</p>
+
+
+
+
+</div>
+
+[%file newfooter%]
+</body>
+</html>

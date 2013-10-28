@@ -2,7 +2,7 @@
 
 <!-- A statement of relationships from one set of concepts to one or more other concept systems -->
 <p>
-A concept map defines a mapping from a concept defined in <a href="terminologies.html#system">one system</a> to one or more concepts defined in other systems. 
+A concept map defines a mapping from a concept defined in <a href="terminologies.html">one system</a> to one or more concepts defined in other systems. 
 A concept map maps many concepts from the same source system in a hierarchical tree. The hierarchy is purely for presentation convenience - it can be used to match the hierarchy of the concepts defined in 
 the source system, or can also be used to group mappings into similar groups for ease of management purposes. The hierarchy has no meaning for mapping purposes. 
 </p>

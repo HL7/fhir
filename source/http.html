@@ -171,8 +171,10 @@ as described in <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec12.html#
 of the HTTP specification.
 </p>
 <p>
-However in order to support various implementation limitations, servers SHOULD support 
+However in order to support various implementation limitations, servers SHOULD 
 support the optional "_format" parameter to specify alternative response formats by their MIME-types.
+This parameter allows a client to override the header value when it is unable to set it correctly 
+due to internal limitations.
 For the _format parameter, the values "xml", "text/xml", "application/xml", and "application/xml+fhir" SHALL be interpreted to mean
 the normative XML format defined by FHIR and "json", "application/json" and "application/json+fhir" SHALL be interpreted to mean the
 informative JSON format.
@@ -407,7 +409,7 @@ and update logic (including version control) are applied as well.
 <p>
 The client can ask the server to validate against a particular resource by attaching
 a <a href="extras.html#tags">profile tag</a> to the resource. This is an assertion that 
-the resource conforms to the specified profile(s), and the server can cehck this. 
+the resource conforms to the specified profile(s), and the server can check this. 
 </p>
 <p>
 How much checking to perform as part of the validation operation is at the 
@@ -444,10 +446,10 @@ The interaction is performed by an HTTP OPTIONS or a GET command as shown:
 Applications SHALL return a <a href="conformance.html">Conformance Resource</a> that specifies which resource types and interactions are supported
 for the GET command, and SHOULD do so for the OPTIONS command. If a 404 Unknown is returned from the GET, FHIR is not supported on the 
 nominated service url. The GET command is defined because not all client libraries are able to perform an OPTIONS command. 
-A Content-Location header should be returned with the conformance resource 
-Additional 
-parameters that are required to be returned with the OPTIONS command are defined in the <a href="#hdata">OMG hData RESTful Transport</a> 
-specification. 
+A Content-Location header SHALL be returned with the conformance resource. The value of the header SHALL change if the 
+conformance statement itself changes. The URI provided in the header MAY be a literal location where this version of the
+conformance statement is (and will continue to be) available. Additional parameters that are required to be returned with 
+the OPTIONS command are defined in the <a href="#hdata">OMG hData RESTful Transport</a> specification. 
 </p>
 <p>
 In addition to this conformance operation, a server may also choose to provide the 
@@ -678,7 +680,7 @@ is represented like this in XML and JSON:
 <a name="binary"> </a>
 <h3>Binary Support</h3>
 <p>
-FHIR servers can choose to offer support for purely binary resources
+FHIR servers can choose to support <a href="extras.html#binary">Binary Resources</a>
 at the end point [base]/binary. The binary end-point accepts
 any kind of content, such as images and other media, documents (CDA, 
 PDF, Word etc.), plain text, XML or anything else, and stores the 
@@ -690,6 +692,37 @@ above, except that there is no support for the search interaction.
 The _format  parameter has no meaning when used with binary 
 resources: they are always represented using their original content type.
 </p>
+<p>
+Note that on GET, POST, and PUT operations, the http content-type
+header is the mime type of the binary resource, and the HTTP body is
+the resource in it's binary form. (The <a href="xml.html#binary">XML</a> 
+and <a href="json.html#binary">JSON</a> Bundle Representations for binary 
+resources are only used in bundles). 
+</p>
+<div class="example">
+<p>
+Here is the request and response to a read operation on a CDA document:
+</p>
+<pre>
+GET /[path]/binary/@4 HTTP/1.1
+Host: [server]
+Accept: */*
+
+HTTP/1.1 200 OK
+Content-Type: text/xml
+Access-Control-Allow-Origin: *
+Last-Modified: Thu, 24 Oct 2013 00:41:55 +0000
+Content-Location: http://[server]/[path]/binary/@4/history/@1
+
+&lt;ClinicalDocument xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
+  xmlns=&quot;urn:hl7-org:v3&quot;xmlns:cda=&quot;urn:hl7-org:v3&quot;&gt;
+...  [snip] ...
+&lt;/ClinicalDocument&gt;
+</pre>
+
+
+</div>
+
 
 <a name="paging"> </a>
 <h3>Paging</h3>

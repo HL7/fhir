@@ -29,8 +29,8 @@ Changes from the DSTU ballot (v0.11) to the DSTU final copy (0.20?):
  <li>Choice: remove choice and add Coding.valueset</li>
  <li>CodeableConcept: move primary to Coding.primary</li>
  <li>Coding: add primary, valueset and version &amp; align code system version rules with core principles</li>
- <li>Conformance: Add Conformance.profile. Move system operations to rest.operations from rest.resource.operations, &amp; add updateCreate and versionSpecificUpdates flags</li>
- <li>ValueSet: add define.version, and a new constraint that codes must be unique in the definition space, and tighten up publication (maps and cross links, expansions, deal with poly-heirarchies &amp; deprecated codes, publish all v3 code systems, map the data types), add more uniqueness variants</li>
+ <li>Conformance: Add Conformance.profile. Move system operations to rest.operations from rest.resource.operations, &amp; add updateCreate and versionSpecificUpdates flags. Add note about Content-Location header</li>
+ <li>ValueSet: add define.version, and a new constraint that codes must be unique in the definition space, and tighten up publication (maps and cross links, expansions, deal with poly-heirarchies &amp; deprecated codes, publish all v3 code systems, map the data types), add more uniqueness variants, and tighten notes around imported value sets</li>
  <li>The following pages have been rewritten (Editorial changes only): "Resource Definitions", "Using codes" and the overview page</li>
  <li>FamilyHistory: change the value set for relation type to use the v3 value set directly</li>
  <li>Remove Coverage resource</li>
@@ -43,7 +43,7 @@ Changes from the DSTU ballot (v0.11) to the DSTU final copy (0.20?):
  <li>Standardised identifiers: AdverseReaction, AllergyIntolerance, CarePlan, Condition, FamilyHistory, Procedure, Questionnaire all have identifier 0..*</li> 
  <li>Condition &amp; Procedure: several changes around relatedItem</li>
  <li>Procedure: made type a required element, changed type and cardinality for indications and complications, and updated definition of procedure</li>
- <li>CarePlan: made patient optional, and reworked to link activites to goals and goals to concerns, and allow other resource kinds for activities</li>
+ <li>CarePlan: made patient optional, and reworked to link activities to goals and goals to concerns, and allow other resource kinds for activities</li>
  <li>Alert: improved the definitional documentation</li>
  <li>Message: make the event code a Coding (also in the conformance statement too)</li> 
  <li>Patient: Add Link structure to support typed, unidirectional links between Patient records</li>
