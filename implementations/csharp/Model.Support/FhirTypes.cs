@@ -44,6 +44,15 @@ namespace Hl7.Fhir.Model
         }
     }
 
+    public partial class PrimitiveElement : Element
+    {
+        // subclasses will define Value property typed to the primitive
+    }
+
+    public partial class ComplexElement : Element
+    {
+        // containing elements will be generated for each specific datatype
+    }
 
     // Resource is not a subclass of Composite, since it
     // cannot be used in places where you can use composites.

@@ -56,10 +56,10 @@
     </organization>
   </contact>
 
-  <provider>
+  <managingOrganization>
     <reference value="Organization/1"/>
     <display value="ACME Healthcare, Inc"/>
-  </provider>
+  </managingOrganization>
 
   <link>
     <other>

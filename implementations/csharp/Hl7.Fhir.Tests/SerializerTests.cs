@@ -70,11 +70,11 @@ namespace Hl7.Fhir.Tests
                     LocalId = "3141",
                     Use = Identifier.IdentifierUse.Official,
                     Label = "SSN",
-                    System = new Uri("http://hl7.org/fhir/sid/us-ssn"),
-                    Key = "000111111",
+                    System = new Uri("http://hl7.org/fhir/sid/us-ssn"),                    
+                    Value = "000111111",
                     Period = new Period() { StartElement = new FhirDateTime(2001, 1, 2), 
                         EndElement = new FhirDateTime(2010, 3, 4) },
-                    Assigner = new ResourceReference { Type = "Organization", 
+                    Assigner = new ResourceReference { 
                                     Reference = "organization/@123",
                                         Display = "HL7, Inc" }
                 };
@@ -85,16 +85,16 @@ namespace Hl7.Fhir.Tests
                         @"<use value=""official"" />" +
                         @"<label value=""SSN"" />" +
                         @"<system value=""http://hl7.org/fhir/sid/us-ssn"" />" +
-                        @"<key value=""000111111"" />" +
+                        @"<value value=""000111111"" />" +
                         @"<period><start value=""2001-01-02"" /><end value=""2010-03-04"" /></period>" +
-                        @"<assigner><type value=""Organization"" /><reference value=""organization/@123"" /><display value=""HL7, Inc"" /></assigner>" +
+                        @"<assigner><reference value=""organization/@123"" /><display value=""HL7, Inc"" /></assigner>" +
                      @"</element>", FhirSerializer.SerializeElementAsXml(id));
 
             Assert.AreEqual(
                 @"{""_id"":""3141"",""use"":{""value"":""official""},""label"":{""value"":""SSN""}," +
                 @"""system"":{""value"":""http://hl7.org/fhir/sid/us-ssn""},""key"":{""value"":""000111111""}," +
                 @"""period"":{""start"":{""value"":""2001-01-02""},""end"":{""value"":""2010-03-04""}}," +
-                @"""assigner"":{""type"":{""value"":""Organization""},""reference"":{""value"":""organization/@123""}," +
+                @"""assigner"":{""reference"":{""value"":""organization/@123""}," +
                 @"""display"":{""value"":""HL7, Inc""}}}", FhirSerializer.SerializeElementAsJson(id));
         }
 
@@ -208,7 +208,7 @@ namespace Hl7.Fhir.Tests
             Patient p = new Patient()
             {
                 LocalId = "Ab4",
-                Identifier = new List<Identifier> { new Identifier { Key = "3141" } },
+                Identifier = new List<Identifier> { new Identifier { Value = "3141" } },
                 BirthDateElement = new FhirDateTime(1972, 11, 30),
                 Name = new List<HumanName> { name },
                 Text = new Narrative()
@@ -225,7 +225,7 @@ namespace Hl7.Fhir.Tests
                 @"<Patient id=""Ab4"" xmlns=""http://hl7.org/fhir"">" +
                 @"<text><status value=""generated"" /><div xmlns='http://www.w3.org/1999/xhtml'>Patient 3141 - Wouter Gert, nov. 30th, 1972</div></text>" +
                 @"<contained><List><mode value=""snapshot"" /></List></contained>" +
-                @"<identifier><key value=""3141"" /></identifier>" +
+                @"<identifier><value value=""3141"" /></identifier>" +
                 @"<name>" +
                     @"<family value=""van der"">" +
                         @"<extension><url value=""http://hl7.org/fhir/profile/@iso-21090#name-qualifier"" /><valueCode value=""VV"" /></extension>" +
@@ -237,7 +237,7 @@ namespace Hl7.Fhir.Tests
                  @"""text"":{""status"":{""value"":""generated""},""div"":""<div xmlns='http://www.w3.org/1999/xhtml'>" +
                     @"Patient 3141 - Wouter Gert, nov. 30th, 1972</div>""},"+
                  @"""contained"":[{""List"":{""mode"":{""value"":""snapshot""}}}],"+
-                @"""identifier"":[{""key"":{""value"":""3141""}}]," +
+                @"""identifier"":[{""value"":{""value"":""3141""}}]," +
                 @"""name"":[{""family"":[{""value"":""van der""," +
                     @"""extension"":[{""url"":{""value"":""http://hl7.org/fhir/profile/@iso-21090#name-qualifier""},""valueCode"":{""value"":""VV""}}]}," +
                     @"{""value"":""Vlies""}],""given"":[{""value"":""Wouter""},{""value"":""Gert""}]}],""birthDate"":{""value"":""1972-11-30""}" +

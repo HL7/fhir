@@ -100,9 +100,9 @@
     </genderStatus>
   </animal>
 
-  <provider>
+  <managingOrganization>
     <display value="Pete's Vetinary Services"/>
-  </provider>
+  </managingOrganization>
 
   <active value="true"/>
 </Patient>

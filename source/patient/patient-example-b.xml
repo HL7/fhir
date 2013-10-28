@@ -43,10 +43,10 @@
             DxQoUFZC9IiCBh6wEHGz6IbNuwQoSpWxEgyLCXL8O/gAnylNlW6AUEBRIL7Og3KwQIiCXb9HsZQoIEUzUjNEiaNMKAAAA7"/>
   </photo>
 
-  <provider>
+  <managingOrganization>
     <reference value="Organization/1"/>
     <display value="ACME Healthcare, Inc"/>
-  </provider>
+  </managingOrganization>
 
   <link>
     <other>

@@ -111,10 +111,10 @@
                 <display value="Dutch"/>
             </coding>
     </communication>
-    <provider>
+    <managingOrganization>
         <reference value="Organization/f201"/>
         <display value="AUMC"/>
-    </provider>
+    </managingOrganization>
 
     <!--Indicates that the patient is not part of a multiple birth -->
     <active value="true"/>

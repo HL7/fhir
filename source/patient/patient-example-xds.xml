@@ -31,8 +31,8 @@
       <zip value="44130"/>
       <country value="USA"/>
   </address>
-  <provider>
+  <managingOrganization>
     <reference value="Organization/2"/>
-  </provider>
+  </managingOrganization>
   <active value="true"/>
 </Patient>

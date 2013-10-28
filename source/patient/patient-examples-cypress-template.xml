@@ -38,9 +38,9 @@
           </coding>
         </gender>
         <birthDate value="[%birthdate%]"/>
-        <provider>
+        <managingOrganization>
           <reference value="Organization/[%organization%]"/>
-        </provider>
+        </managingOrganization>
         <active value="true"/>
       </Patient>
     </content>

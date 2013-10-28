@@ -101,7 +101,7 @@ public class CSharpModelGenerator extends GenBlock
 			ln("/// <summary>");
 			ln("/// " +  constrained.getAnnotations().getShortDefinition());
 			ln("/// </summary>");
-			ln("[FhirComposite("); nl("\"" + constrained.getName() + "\""); nl(")]");
+			ln("[FhirComplexType("); nl("\"" + constrained.getName() + "\""); nl(")]");
 			ln("[Serializable]");
 			ln("public partial class " +  GeneratorUtils.generateCSharpTypeName(constrained.getName()) );
 				nl(" : ");
@@ -354,8 +354,15 @@ public class CSharpModelGenerator extends GenBlock
 	
 	private void compositeClassHeader(CompositeTypeDefn composite) throws Exception
 	{
+	  boolean representsPrimitive = hasPrimitiveValueElement(composite);
+	  
 		if( composite.isComposite() )
-			ln("[FhirComposite(");
+		{
+		  if(!representsPrimitive)
+		    ln("[FhirComplexType(");
+		  else
+		    ln("[FhirPrimitiveType(");
+		}
 		else if( composite.isResource() )
 			ln("[FhirResource(");
 		nl("\"" + composite.getName() + "\""); nl(")]");
@@ -368,7 +375,16 @@ public class CSharpModelGenerator extends GenBlock
 		if( composite.getBaseType() != null ) 
 		{
 			nl( " : " ); 
-			nl(GeneratorUtils.buildFullyScopedTypeName(composite.getBaseType()));
+						
+			if(composite.isComposite())
+			{
+			  if(!representsPrimitive)
+			    nl("ComplexElement");
+			  else
+			    nl("PrimitiveElement");
+			}
+			else
+			  nl(GeneratorUtils.buildFullyScopedTypeName(composite.getBaseType()));
 		}
 	}
 	
@@ -487,6 +503,7 @@ public class CSharpModelGenerator extends GenBlock
 		ln("/// <summary>");
 		ln("/// " + binding.getDefinition() );
 		ln("/// </summary>");
+		ln("[FhirEnumeration(\"" + binding.getName() + "\")]");
 		ln("public enum " + 
 				GeneratorUtils.generateCSharpTypeName(binding.getName()));
 		bs("{");

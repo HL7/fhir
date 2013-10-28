@@ -35,8 +35,8 @@ using System.Text;
 
 namespace Hl7.Fhir.Support
 {
-    [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
-    sealed class FhirResourceAttribute : Attribute
+    [AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = false)]
+    public sealed class FhirResourceAttribute : Attribute
     {
         readonly string name;
 
@@ -51,17 +51,19 @@ namespace Hl7.Fhir.Support
             get { return name; }
         }
 
+        public string Profile { get; set; }
+
         // This is a named argument
         //public int NamedInt { get; set; }
     }
 
-    [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
-    sealed class FhirCompositeAttribute : Attribute
+    [AttributeUsage(AttributeTargets.Class, Inherited=true, AllowMultiple = false)]
+    public sealed class FhirComplexTypeAttribute : Attribute
     {
         readonly string name;
 
         // This is a positional argument
-        public FhirCompositeAttribute(string name)
+        public FhirComplexTypeAttribute(string name)
         {
             this.name = name;
         }
@@ -71,4 +73,40 @@ namespace Hl7.Fhir.Support
             get { return name; }
         }
     }
+
+    [AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = false)]
+    public sealed class FhirPrimitiveTypeAttribute : Attribute
+    {
+        readonly string name;
+
+        // This is a positional argument
+        public FhirPrimitiveTypeAttribute(string name)
+        {
+            this.name = name;
+        }
+
+        public string Name
+        {
+            get { return name; }
+        }
+    }
+
+
+    [AttributeUsage(AttributeTargets.Enum, Inherited = false, AllowMultiple = false)]
+    public sealed class FhirEnumerationAttribute : Attribute
+    {
+        readonly string bindingName;
+
+        // This is a positional argument
+        public FhirEnumerationAttribute(string bindingName)
+        {
+            this.bindingName = bindingName;
+        }
+
+        public string BindingName
+        {
+            get { return bindingName; }
+        }
+    }
+
 }

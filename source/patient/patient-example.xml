@@ -108,9 +108,9 @@
     </telecom>
   </contact>
 
-  <provider>
+  <managingOrganization>
     <reference value="Organization/1"/>
-  </provider>
+  </managingOrganization>
 
   <active value="true"/>
 

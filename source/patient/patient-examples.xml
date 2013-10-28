@@ -49,9 +49,9 @@
             <line value="2222 Home Street"/>
           </address>
 
-        <provider>
+        <managingOrganization>
           <reference value="Organization/hl7"/>
-        </provider>
+        </managingOrganization>
         <active value="true"/>
       </Patient>
     </content>
@@ -102,9 +102,9 @@
             <line value="2222 Home Street"/>
           </address>
 
-        <provider>
+        <managingOrganization>
           <reference value="Organization/hl7"/>
-        </provider>
+        </managingOrganization>
         <active value="true"/>
       </Patient>
     </content>
@@ -155,9 +155,9 @@
             <line value="2222 Home Street"/>
           </address>
 
-        <provider>
+        <managingOrganization>
           <reference value="Organization/hl7"/>
-        </provider>
+        </managingOrganization>
         <active value="true"/>
       </Patient>
     </content>
@@ -207,9 +207,9 @@
             <line value="6666 Home Street"/>
           </address>
 
-        <provider>
+        <managingOrganization>
           <reference value="Organization/hl7"/>
-        </provider>
+        </managingOrganization>
         <active value="true"/>
       </Patient>
     </content>
@@ -260,9 +260,9 @@
             <line value="6666 Home Street"/>
           </address>
 
-        <provider>
+        <managingOrganization>
           <reference value="Organization/hl7"/>
-        </provider>
+        </managingOrganization>
         <active value="true"/>
       </Patient>
     </content>
@@ -313,9 +313,9 @@
             <line value="6666 Home Street"/>
           </address>
 
-        <provider>
+        <managingOrganization>
           <reference value="Organization/hl7"/>
-        </provider>
+        </managingOrganization>
         <active value="true"/>
       </Patient>
     </content>
@@ -365,9 +365,9 @@
             <line value="6666 Home Street"/>
           </address>
 
-        <provider>
+        <managingOrganization>
           <reference value="Organization/hl7"/>
-        </provider>
+        </managingOrganization>
         <active value="true"/>
       </Patient>
     </content>
@@ -418,9 +418,9 @@
             <line value="4444 Home Street"/>
           </address>
 
-        <provider>
+        <managingOrganization>
           <reference value="Organization/hl7"/>
-        </provider>
+        </managingOrganization>
         <active value="true"/>
       </Patient>
     </content>
@@ -471,9 +471,9 @@
             <line value="4444 Home Street"/>
           </address>
 
-        <provider>
+        <managingOrganization>
           <reference value="Organization/hl7"/>
-        </provider>
+        </managingOrganization>
 
         <active value="true"/>
       </Patient>
@@ -524,9 +524,9 @@
             <line value="2222 Home Street"/>
           </address>
 
-        <provider>
+        <managingOrganization>
           <reference value="Organization/hl7"/>
-        </provider>
+        </managingOrganization>
         <active value="true"/>
       </Patient>
     </content>
@@ -577,9 +577,9 @@
             <line value="4444 Home Street"/>
           </address>
 
-        <provider>
+        <managingOrganization>
           <reference value="Organization/hl7"/>
-        </provider>
+        </managingOrganization>
         <active value="true"/>
       </Patient>
     </content>
@@ -630,9 +630,9 @@
             <line value="5555 Home Street"/>
           </address>
 
-        <provider>
+        <managingOrganization>
           <reference value="Organization/hl7"/>
-        </provider>
+        </managingOrganization>
         <active value="true"/>
       </Patient>
     </content>

@@ -124,16 +124,22 @@ namespace Hl7.Fhir.Tests
         public void ParseJsonNativeTypes()
         {
             string json = "{ testExtension: { url: { value : \"http://bla.com\" }," +  
-                        "isModifier: { value: true }, valueInteger: { value: 14 } } }";
+                        "valueInteger: { value: 14 } } }";
+            string json2 = "{ testExtension: { url: { value : \"http://bla.com\" }," +
+                        "valueBoolean: { value: true } } }";
 
             var errors = new ErrorList();
             var result = (Extension)FhirParser.ParseElementFromJson(json, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
-            Assert.IsTrue(result.IsModifier.Value);
             Assert.AreEqual(14, ((Integer)result.Value).Value.Value);
 
+            errors.Clear();
+            result = (Extension)FhirParser.ParseElementFromJson(json2, errors);
+            Assert.IsTrue(errors.Count() == 0, errors.ToString());
+            Assert.AreEqual(true, ((FhirBoolean)result.Value).Value.Value);
+
             string jsonWrong = "{ testExtension: { url: { value : \"http://bla.com\" }," +
-                        "isModifier: { value: \"true\" }, valueInteger: { value: \"14\" } } }";
+                        "valueInteger: { value: \"14\" } } }";
             errors.Clear();
             result = (Extension)FhirParser.ParseElementFromJson(jsonWrong, errors);
             Assert.IsTrue(errors.Count() > 0);
@@ -312,7 +318,7 @@ namespace Hl7.Fhir.Tests
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.IsNotNull(rep);
 
-            Assert.AreEqual("2011-03-04T08:30:00+11:00", rep.DiagnosticTime.ToString());
+            Assert.AreEqual("2011-03-04T08:30:00+11:00", rep.Issued.ToString());
             Assert.AreEqual(17, rep.Contained.Count);
             Assert.AreEqual(17, rep.Results.Result.Count);
 

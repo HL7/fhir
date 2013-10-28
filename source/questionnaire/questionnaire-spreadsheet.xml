@@ -171,7 +171,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A structured set of questions and their answers</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A structured set of questions and their answers. The Questionnaire may contain questions, answers or both. The questions may be ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.</Data><NamedCell
+    <Cell><Data ss:Type="String">A structured set of questions and their answers. The Questionnaire may contain questions, answers or both. The questions may be ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Form</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -581,8 +581,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -590,11 +590,11 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="162.75"
     ss:Span="1"/>
-   <Column ss:Index="4" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="267.75"/>
+   <Column ss:Index="4" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="339"/>
    <Column ss:Index="6" ss:StyleID="s69" ss:Width="249"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
@@ -610,6 +610,13 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.question</Data></Cell>
     <Cell><Data ss:Type="String">Must supply either a simple answer, a choice, data or nothing</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s71"><Data ss:Type="String">count(f:data) + count(f:choice) + count(f:value) &lt;= 1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">MustHaveNameOrText</Data></Cell>
+    <Cell><Data ss:Type="String">Questionnaire.question</Data></Cell>
+    <Cell><Data ss:Type="String">Must supply a name, a question's text or both</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:name) + count(f:text) &gt;= 1</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -628,8 +635,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -80,10 +80,10 @@
     </coding>
     <text value="Nederlands"/>
   </communication>
-  <provider>
+  <managingOrganization>
     <reference value="Organization/f001"/>
     <display value="Burgers University Medical Centre"/>
-  </provider>
+  </managingOrganization>
 
   <active value="true"/>
 </Patient>
