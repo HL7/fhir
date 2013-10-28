@@ -20,7 +20,6 @@
   <WindowWidth>30060</WindowWidth>
   <WindowTopX>8265</WindowTopX>
   <WindowTopY>6420</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -291,7 +290,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">If there's no value in the instance it means there is no statement on whether or not the individual is deceased. Most systems will interpret the absence of a value as a sign of the person being alive.</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">player[classCode=PSN|ANM and determinerCode=INSTANCE]/deceasedInd,&#13;player[classCode=PSN|ANM and determinerCode=INSTANCE]/deceasedTime</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">PID-30&#13;</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">PID-30&#13; (bool) and PID-29 (datetime)</Data></Cell>
     <Cell ss:Index="17" ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -344,7 +343,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">player[classCode=PSN|ANM and determinerCode=INSTANCE]/multipleBirthInd, &#13;player[classCode=PSN|ANM and determinerCode=INSTANCE]/multipleBirthOrderNumber</Data></Cell>
-    <Cell><Data ss:Type="String">PID-24, PID-25</Data></Cell>
+    <Cell><Data ss:Type="String">PID-24 (bool), PID-25 (integer)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -779,11 +778,11 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <TopRowVisible>27</TopRowVisible>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>1</ActivePane>
    <Panes>
     <Pane>
@@ -791,7 +790,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>30</ActiveRow>
+     <ActiveRow>7</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -1001,7 +1000,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

@@ -49,8 +49,9 @@ Changes from the DSTU ballot (v0.11) to the DSTU final copy (0.20?):
  <li>Patient: Add Link structure to support typed, unidirectional links between Patient records</li>
  <li>Patient: Added careProvider 0..* to express the nominated care providers</li>
  <li>Patient: renamed "provider" to "managingOrganization"</li>
- <li>Patient: Added a Patient link and unlink message</li>
-  <li>Profile: Remove the concept of re-useable bindings, and collapse binding in line to element definition. Change definition.type.bundled to definition.type.aggregation, and add more invariants about uniqueness</li>
+ <li>Patient: Added a Patient link and unlink messages</li>
+ <li>Patient: Corrections to the v2 mappings</li>
+ <li>Profile: Remove the concept of re-useable bindings, and collapse binding in line to element definition. Change definition.type.bundled to definition.type.aggregation, and add more invariants about uniqueness</li>
  <li>Add Informative ConceptMap resource</li>
  <li>Change the following fields from string|CodeableConcept to just CodeableConcept: Encounter.reason, MedicationDispense.dispense.dosage.additionalInstructions, MedicationPrescription.reasonForPrescribing, MedicationPrescription.dosageInstruction.additionalInstructions</li>
  <li>Harmonize the search parameters for the metadata parts of Conformance, Profile, ValueSet, and ConceptMap. Remove the text parameter type, and add search parameters _text and _content. Remove token modifiers :code and :anyns, and update documentation. Remove date modifiers and use &lt; etc. Define escaping for search parameters</li>
