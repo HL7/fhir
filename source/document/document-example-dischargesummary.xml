@@ -582,7 +582,6 @@
                     <status value="generated"/>
                     <div xmlns="http://www.w3.org/1999/xhtml">Doxycycline</div>
                 </text>
-                <name value="Doxycycline"/>
                 <type>
                   <coding>
                     <system value="codesys"/>
