@@ -405,7 +405,8 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
             write("      for (int i = 0; i < array.length(); i++) {\r\n");
             write("        if (i == res.get"+upFirst(name)+"().size())\r\n");
             write("          res.get"+upFirst(name)+"().add("+anprsr+");\r\n");
-            write("        parseElementProperties(array.getJSONObject(i), res.get"+upFirst(name)+"().get(i));\r\n");
+            write("        if (array.get(i) instanceof JSONObject) \r\n");
+            write("          parseElementProperties(array.getJSONObject(i), res.get"+upFirst(name)+"().get(i));\r\n");
             write("      }\r\n");
             write("    };\r\n");          
           } else {
