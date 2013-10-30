@@ -140,13 +140,14 @@
   <!-- define Maven coordinates -->
   <property name="dist" value="mvn-stage" />
   <property name="groupId" value="me.fhir" />
-  <property name="artifactId" value="fhir"/>
-  <property name="version" value="0.12.0-SNAPSHOT"/>
+  <property name="artifactId" value="fhir-0.12"/>
+  <property name="version" value="0.2"/>
 
   <!-- define artifacts' name, which follows the convention of Maven -->
-  <property name="maven-jar" value="${dist}/lib/${artifactId}-${version}.jar" />
-  <property name="maven-javadoc-jar" value="${dist}/lib/${artifactId}-${version}-javadoc.jar" />
-  <property name="maven-sources-jar" value="${dist}/lib/${artifactId}-${version}-sources.jar" />
+  <property name="maven-pom" location="${dist}/pom.xml" />
+  <property name="maven-jar" location="${dist}/lib/${artifactId}-${version}.jar" />
+  <property name="maven-javadoc-jar" location="${dist}/lib/${artifactId}-${version}-javadoc.jar" />
+  <property name="maven-sources-jar" location="${dist}/lib/${artifactId}-${version}-sources.jar" />
 
   <!-- defined maven snapshots and staging repository id and url -->
   <property name="maven-snapshots-repository-id" value="sonatype-nexus-snapshots" />
@@ -156,7 +157,7 @@
 
   <target name="fhir-jar" depends="build">
     <jar destfile="${maven-jar}" filesetmanifest="mergewithoutmain">
-      <zipfileset includes="org/hl7/fhir/**/*.class org/json/**/*.class" src="../../../publish/org.hl7.fhir.validator.jar"/>
+      <zipfileset includes="org/hl7/fhir/**/*.class" src="../../../publish/org.hl7.fhir.validator.jar"/>
     </jar>
   </target>
   <target name="fhir-sources-jar" depends="build">
@@ -172,7 +173,7 @@
   </target>
 
   <target name="fhir-pom">
-    <copy file="pom.xml.template" tofile="${dist}/pom.xml" filtering="true">
+      <copy file="pom.xml.template" tofile="${maven-pom}" filtering="true">
       <filterset>
         <filter token="ARTIFACT" value="${artifactId}"/>
         <filter token="VERSION" value="${version}"/>
@@ -180,8 +181,13 @@
     </copy>
   </target>
 
+  <target name="clean-dist">
+	  <delete dir="mvn-stage"></delete>
+  </target>
+
+
   <target name="dist"
-    depends="fhir-jar,fhir-sources-jar,fhir-javadoc-jar,fhir-pom"></target>
+    depends="clean-dist,fhir-jar,fhir-sources-jar,fhir-javadoc-jar,fhir-pom"></target>
 
   <target name="deploy"
     depends="dist"
@@ -191,7 +197,7 @@
       <arg value="org.apache.maven.plugins:maven-deploy-plugin:2.6:deploy-file" />
       <arg value="-Durl=${maven-snapshots-repository-url}" />
       <arg value="-DrepositoryId=${maven-snapshots-repository-id}" />
-      <arg value="-DpomFile=${dist}/pom.xml" />
+      <arg value="-DpomFile=${maven-pom}" />
       <arg value="-Dfile=${maven-jar}" />
     </artifact:mvn>
   </target>
@@ -204,7 +210,7 @@
       <arg value="org.apache.maven.plugins:maven-gpg-plugin:1.3:sign-and-deploy-file" />
       <arg value="-Durl=${maven-staging-repository-url}" />
       <arg value="-DrepositoryId=${maven-staging-repository-id}" />
-      <arg value="-DpomFile=${dist}/pom.xml" />
+      <arg value="-DpomFile=${maven-pom}" />
       <arg value="-Dfile=${maven-jar}" />
       <arg value="-Pgpg" />
     </artifact:mvn>
@@ -214,7 +220,7 @@
       <arg value="org.apache.maven.plugins:maven-gpg-plugin:1.3:sign-and-deploy-file" />
       <arg value="-Durl=${maven-staging-repository-url}" />
       <arg value="-DrepositoryId=${maven-staging-repository-id}" />
-      <arg value="-DpomFile=${dist}/pom.xml" />
+      <arg value="-DpomFile=${maven-pom}" />
       <arg value="-Dfile=${maven-sources-jar}" />
       <arg value="-Dclassifier=sources" />
       <arg value="-Pgpg" />
@@ -225,7 +231,7 @@
       <arg value="org.apache.maven.plugins:maven-gpg-plugin:1.3:sign-and-deploy-file" />
       <arg value="-Durl=${maven-staging-repository-url}" />
       <arg value="-DrepositoryId=${maven-staging-repository-id}" />
-      <arg value="-DpomFile=${dist}/pom.xml" />
+      <arg value="-DpomFile=${maven-pom}" />
       <arg value="-Dfile=${maven-javadoc-jar}" />
       <arg value="-Dclassifier=javadoc" />
       <arg value="-Pgpg" />
