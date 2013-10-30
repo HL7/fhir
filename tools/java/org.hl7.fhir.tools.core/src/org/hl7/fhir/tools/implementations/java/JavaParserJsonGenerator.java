@@ -122,8 +122,9 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       String n = upFirst(cd.getCode());
       String t = n;
       regt.append("    else if (json.has(prefix+\""+n+"\") || json.has(\"_\"+prefix+\""+n+"\")) {\r\n");
-      regt.append("      Type t = parse"+t+"(json.get"+getJsonPrimitive(cd.getCode(), true)+"(prefix+\""+n+"\"));\r\n");
-      regt.append("      parseElementProperties(json.getJSONObject(\"_\"+prefix+\""+n+"\"), t);\r\n");
+      regt.append("      Type t = json.has(prefix+\""+n+"\") ? parse"+t+"(json.get"+getJsonPrimitive(cd.getCode(), true)+"(prefix+\""+n+"\")) : new "+getPrimitiveTypeModelName(cd.getCode())+"();\r\n");
+      regt.append("      if (json.has(\"_\"+prefix+\""+n+"\"))\r\n");
+      regt.append("        parseElementProperties(json.getJSONObject(\"_\"+prefix+\""+n+"\"), t);\r\n");
       regt.append("      return t;\r\n");
       regt.append("    }\r\n");
       

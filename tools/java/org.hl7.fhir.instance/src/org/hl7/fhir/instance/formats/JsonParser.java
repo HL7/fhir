@@ -5862,7 +5862,7 @@ public class JsonParser extends JsonParserBase {
       return t;
     }
     else if (json.has(prefix+"Boolean") || json.has("_"+prefix+"Boolean")) {
-      Type t = parseBoolean(json.getBoolean(prefix+"Boolean"));
+      Type t =  parseBoolean(json.getBoolean(prefix+"Boolean"));
       parseElementProperties(json.getJSONObject("_"+prefix+"Boolean"), t);
       return t;
     }
