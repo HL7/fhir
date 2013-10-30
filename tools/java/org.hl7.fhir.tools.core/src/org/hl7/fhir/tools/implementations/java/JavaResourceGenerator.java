@@ -95,9 +95,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           write("import java.math.*;\r\n");
       }
     }
-		write("/**\r\n");
-		write(" * "+root.getDefinition()+"\r\n");
-		write(" */\r\n");
+		jdoc("", root.getDefinition());
 		classname = upFirst(name);
 		if (clss == JavaGenClass.Resource)
 			write("public class "+upFirst(name)+" extends Resource {\r\n");
@@ -162,6 +160,12 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		flush();
 
 	}
+
+  private void jdoc(String indent, String text) throws IOException {
+    write(indent+"/**\r\n");
+		write(indent+" * "+text+"\r\n");
+		write(indent+" */\r\n");
+  }
 
 	private void generateChildrenRegister(ElementDefn p, String indent) throws IOException {
 	  write(indent+"  protected void listChildren(List<Property> childrenList) {\r\n");
@@ -640,18 +644,14 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		String tn = typeNames.get(e);
 
 		if (e.unbounded()) {
-			write(indent+"/**\r\n");
-			write(indent+" * "+e.getDefinition()+"\r\n");
-			write(indent+" */\r\n");
+		  jdoc(indent, e.getDefinition());
 			if (tn == null && e.usesCompositeType())
-				write(indent+"/*1*/protected List<"+root.getName()+"> "+getElementName(e.getName(), true)+" = new ArrayList<"+root.getName()+">();\r\n");
+				write(indent+"protected List<"+root.getName()+"> "+getElementName(e.getName(), true)+" = new ArrayList<"+root.getName()+">();\r\n");
 			else
 				write(indent+"protected List<"+tn+"> "+getElementName(e.getName(), true)+" = new ArrayList<"+tn+">();\r\n");
 			write("\r\n");
 		} else {
-			write(indent+"/**\r\n");
-			write(indent+" * "+e.getDefinition()+"\r\n");
-			write(indent+" */\r\n");
+      jdoc(indent, e.getDefinition());
 			write(indent+"protected "+tn+" "+getElementName(e.getName(), true)+";\r\n");
 			write("\r\n");
 		}
@@ -700,14 +700,16 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		String tn = typeNames.get(e);
 
 		if (e.unbounded()) {
+		  jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
 			if (tn == null && e.usesCompositeType())
-				write(indent+"/*2*/public List<"+root.getName()+"> get"+getTitle(getElementName(e.getName(), false))+"() { \r\n");
+				write(indent+"public List<"+root.getName()+"> get"+getTitle(getElementName(e.getName(), false))+"() { \r\n");
 			else
 				write(indent+"public List<"+tn+"> get"+getTitle(getElementName(e.getName(), false))+"() { \r\n");
 			write(indent+"  return this."+getElementName(e.getName(), true)+";\r\n");
 			write(indent+"}\r\n");
       write("\r\n");
       write("    // syntactic sugar\r\n");
+      jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
 			write(indent+"public "+tn+" add"+getTitle(getElementName(e.getName(), false))+"() { \r\n");
       write(indent+"  "+tn+" t = new "+tn+"();\r\n");
       write(indent+"  this."+getElementName(e.getName(), true)+".add(t);\r\n");
@@ -715,6 +717,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 			write(indent+"}\r\n");
 			write("\r\n");
       if (e.getTypes().size() == 1 && (definitions.getPrimitives().containsKey(e.typeCode()) || e.getTypes().get(0).isIdRef() || e.typeCode().equals("xml:lang"))) {
+        jdoc(indent, "@param value {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
         write(indent+"public "+tn+" add"+getTitle(getElementName(e.getName(), false))+"Simple("+getSimpleType(tn)+" value) { \r\n");
         write(indent+"  "+tn+" t = new "+tn+"();\r\n");
         write(indent+"  t.setValue(value);\r\n");
@@ -724,20 +727,24 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write("\r\n");
       }
 		} else {
+      jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
 			write(indent+"public "+tn+" get"+getTitle(getElementName(e.getName(), false))+"() { \r\n");
 			write(indent+"  return this."+getElementName(e.getName(), true)+";\r\n");
 			write(indent+"}\r\n");
 			write("\r\n");
+      jdoc(indent, "@param value {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
 			write(indent+"public "+className+" set"+getTitle(getElementName(e.getName(), false))+"("+tn+" value) { \r\n");
       write(indent+"  this."+getElementName(e.getName(), true)+" = value;\r\n");
       write(indent+"  return this;\r\n");
 			write(indent+"}\r\n");
 			write("\r\n");
 			if (e.getTypes().size() == 1 && (definitions.getPrimitives().containsKey(e.typeCode()) || e.getTypes().get(0).isIdRef() || e.typeCode().equals("xml:lang"))) {
+	      jdoc(indent, "@return "+e.getDefinition());
 	      write(indent+"public "+getSimpleType(tn)+" get"+getTitle(getElementName(e.getName(), false))+"Simple() { \r\n");
 	      write(indent+"  return this."+getElementName(e.getName(), true)+" == null ? null : this."+getElementName(e.getName(), true)+".getValue();\r\n");
 	      write(indent+"}\r\n");
 	      write("\r\n");
+	      jdoc(indent, "@param value "+e.getDefinition());
 	      write(indent+"public "+className+" set"+getTitle(getElementName(e.getName(), false))+"Simple("+getSimpleType(tn)+" value) { \r\n");
 	      if (e.getMinCardinality() == 0) {
 	        if (tn.equals("Integer"))

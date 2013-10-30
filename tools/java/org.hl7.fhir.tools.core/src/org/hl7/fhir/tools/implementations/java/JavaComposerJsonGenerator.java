@@ -240,6 +240,8 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
       write("        prop(name, java.lang.Integer.valueOf(value.getValue()));\r\n");
     else  if (dc.getCode().equals("boolean")) 
       write("        prop(name, value.getValue());\r\n");
+    else  if (dc.getCode().equals("decimal")) 
+      write("        prop(name, value.getValue());\r\n");
     else {
       write("        prop(name, toString(value.getValue()));\r\n");
     }

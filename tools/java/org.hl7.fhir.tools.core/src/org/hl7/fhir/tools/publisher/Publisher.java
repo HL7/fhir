@@ -425,69 +425,77 @@ public class Publisher {
     }
     generateCodeSystemsPart2();
     generateValueSetsPart2();
-    generateConformanceStatement();
-  }
+    generateConformanceStatement(true, "base");
+    generateConformanceStatement(false, "base2");
+	}
 
-  private void generateConformanceStatement() throws Exception {
-    Conformance conf = new Conformance();
-    conf.setIdentifierSimple("http://hl7.org/fhir/conformance/base");
-    conf.setVersionSimple(page.getVersion()+"-"+page.getSvnRevision());
-    conf.setNameSimple("Base FHIR Conformance Statement");
-    conf.setPublisherSimple("FHIR Project Team");
-    conf.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org/fhir"));
-    conf.setDescriptionSimple("This is the base conformance statement for FHIR. It represents a server that provides the full set of functionality defined by FHIR. It is provided to use as a template for system designers to build their own conformance statements from");
-    conf.setStatusSimple(ConformanceStatementStatus.draft);
-    conf.setDateSimple(new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "US")).format(page.getGenDate().getTime()));
-    conf.setFhirVersionSimple(page.getVersion());
-    conf.setAcceptUnknownSimple(false);
-    conf.getFormat().add(Factory.newCode("xml"));
-    conf.getFormat().add(Factory.newCode("json"));
-    ConformanceRestComponent rest = new Conformance.ConformanceRestComponent();
-    conf.getRest().add(rest);
-    rest.setModeSimple(RestfulConformanceMode.server);
-    rest.setDocumentationSimple("All the functionality defined in FHIR");
-    genConfOp(conf, rest, SystemRestfulOperation.transaction);
-    genConfOp(conf, rest, SystemRestfulOperation.historysystem);
-    genConfOp(conf, rest, SystemRestfulOperation.searchsystem);
+	private void generateConformanceStatement(boolean full, String name) throws Exception {
+	  Conformance conf = new Conformance();
+	  conf.setIdentifierSimple("http://hl7.org/fhir/conformance-"+name);
+	  conf.setVersionSimple(page.getVersion()+"-"+page.getSvnRevision());
+	  conf.setNameSimple("Base FHIR Conformance Statement "+(full ? "(Full)" : "(Empty)"));
+	  conf.setPublisherSimple("FHIR Project Team");
+	  conf.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org/fhir"));
+	  conf.setStatusSimple(ConformanceStatementStatus.draft);
+	  conf.setDateSimple(new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "US")).format(page.getGenDate().getTime()));
+	  conf.setFhirVersionSimple(page.getVersion());
+	  conf.setAcceptUnknownSimple(false);
+	  conf.getFormat().add(Factory.newCode("xml"));
+	  conf.getFormat().add(Factory.newCode("json"));
+	  ConformanceRestComponent rest = new Conformance.ConformanceRestComponent();
+	  conf.getRest().add(rest);
+	  rest.setModeSimple(RestfulConformanceMode.server);
+	  if (full) {
+	    rest.setDocumentationSimple("All the functionality defined in FHIR");
+	    conf.setDescriptionSimple("This is the base conformance statement for FHIR. It represents a server that provides the full set of functionality defined by FHIR. It is provided to use as a template for system designers to build their own conformance statements from");
+	  } else {
+	    rest.setDocumentationSimple("An empty conformance statement");
+	    conf.setDescriptionSimple("This is the base conformance statement for FHIR. It represents a server that provides the none of the functionality defined by FHIR. It is provided to use as a template for system designers to build their own conformance statements from");
+	  }
+	  if (full) {
+	    genConfOp(conf, rest, SystemRestfulOperation.transaction);
+	    genConfOp(conf, rest, SystemRestfulOperation.historysystem);
+	    genConfOp(conf, rest, SystemRestfulOperation.searchsystem);
 
-    for (String rn : page.getDefinitions().sortedResourceNames()) {
-      ResourceDefn rd = page.getDefinitions().getResourceByName(rn);
-      ConformanceRestResourceComponent res = new Conformance.ConformanceRestResourceComponent();
-      rest.getResource().add(res);
-      res.setTypeSimple(rn);
-      res.setProfile(Factory.makeResourceReference("http://hl7.org/fhir/"+rn));
-      genConfOp(conf, res, TypeRestfulOperation.read);
-      genConfOp(conf, res, TypeRestfulOperation.vread);
-      genConfOp(conf, res, TypeRestfulOperation.update);
-      genConfOp(conf, res, TypeRestfulOperation.delete);
-      genConfOp(conf, res, TypeRestfulOperation.historyinstance);
-      genConfOp(conf, res, TypeRestfulOperation.validate);
-      genConfOp(conf, res, TypeRestfulOperation.historytype);
-      genConfOp(conf, res, TypeRestfulOperation.create);
-      genConfOp(conf, res, TypeRestfulOperation.searchtype);
+	    for (String rn : page.getDefinitions().sortedResourceNames()) {
+	      ResourceDefn rd = page.getDefinitions().getResourceByName(rn);
+	      ConformanceRestResourceComponent res = new Conformance.ConformanceRestResourceComponent();
+	      rest.getResource().add(res);
+	      res.setTypeSimple(rn);
+	      res.setProfile(Factory.makeResourceReference("http://hl7.org/fhir/"+rn));
+	      genConfOp(conf, res, TypeRestfulOperation.read);
+	      genConfOp(conf, res, TypeRestfulOperation.vread);
+	      genConfOp(conf, res, TypeRestfulOperation.update);
+	      genConfOp(conf, res, TypeRestfulOperation.delete);
+	      genConfOp(conf, res, TypeRestfulOperation.historyinstance);
+	      genConfOp(conf, res, TypeRestfulOperation.validate);
+	      genConfOp(conf, res, TypeRestfulOperation.historytype);
+	      genConfOp(conf, res, TypeRestfulOperation.create);
+	      genConfOp(conf, res, TypeRestfulOperation.searchtype);
 
-      for (SearchParameter i : rd.getSearchParams().values()) {
-        res.getSearchParam().add(makeSearchParam(conf, rn, i));
-      }
-    }
+	      for (SearchParameter i : rd.getSearchParams().values()) {
+	        res.getSearchParam().add(makeSearchParam(conf, rn, i));
+	      }
+	    }
+	  }
     NarrativeGenerator gen = new NarrativeGenerator("");
     gen.generate(conf);    
-    new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir +"conformance-base.xml"), conf, true, true);
-    cloneToXhtml("conformance-base", "Basic Conformance Statement", true);
-    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir +"conformance-base.json"), conf, false);
+    new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir +"conformance-"+name+".xml"), conf, true, true);
+    cloneToXhtml("conformance-"+name+"", "Basic Conformance Statement", true);
+    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir +"conformance-"+name+".json"), conf, false);
     ByteArrayOutputStream b = new ByteArrayOutputStream();
     new JsonComposer().compose(b, conf, true);
     String json = new String(b.toByteArray());
     
     String head = 
     "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>Base Conformance Statement</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
-    "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<div class=\"example\">\r\n<p>Base Conformance Statement</p>\r\n<p><a href=\"conformance-base.json\">Raw JSON</a></p>\r\n<pre class=\"json\">\r\n";
+    "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<div class=\"example\">\r\n<p>Base Conformance Statement</p>\r\n<p><a href=\"conformance-"+name+".json\">Raw JSON</a></p>\r\n<pre class=\"json\">\r\n";
     String tail = "\r\n</pre>\r\n</div>\r\n</body>\r\n</html>\r\n";
-    TextFile.stringToFile(head+Utilities.escapeXml(json)+tail, page.getFolders().dstDir + "conformance-base.json.html");
+    TextFile.stringToFile(head+Utilities.escapeXml(json)+tail, page.getFolders().dstDir + "conformance-"+name+".json.html");
     
-    Utilities.copyFile(new CSFile(page.getFolders().dstDir + "conformance-base.xml"), new CSFile(page.getFolders().dstDir+ "examples" + File.separator + "conformance-base.xml"));
+    Utilities.copyFile(new CSFile(page.getFolders().dstDir + "conformance-"+name+".xml"), new CSFile(page.getFolders().dstDir+ "examples" + File.separator + "conformance-"+name+".xml"));
     if (buildFlags.get("all"))
-      addToResourceFeed(conf, "conformance-base", profileFeed);
+      addToResourceFeed(conf, "conformance-"+name+"", profileFeed);
   }
 
   private ConformanceRestResourceSearchParamComponent makeSearchParam(Conformance p, String rn, SearchParameter i) {
