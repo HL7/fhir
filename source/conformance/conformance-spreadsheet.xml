@@ -21,8 +21,7 @@
   <WindowTopX>19305</WindowTopX>
   <WindowTopY>15</WindowTopY>
   <TabRatio>651</TabRatio>
-  <ActiveSheet>13</ActiveSheet>
-  <FirstVisibleSheet>8</FirstVisibleSheet>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -177,17 +176,17 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s88">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
-  </Style>
-  <Style ss:ID="s89" ss:Parent="s62">
+  <Style ss:ID="s88" ss:Parent="s62">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
+  </Style>
+  <Style ss:ID="s89">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
   </Style>
   <Style ss:ID="s90">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
@@ -1397,7 +1396,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="58.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="186"/>
@@ -1428,9 +1427,17 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Base</Data></Cell>
-    <Cell><Data ss:Type="String">Base Conformance Statement</Data></Cell>
+    <Cell><Data ss:Type="String">Complete Conformance Statement</Data></Cell>
     <Cell><Data ss:Type="String">conformance-base</Data></Cell>
     <Cell><Data ss:Type="String">conformance-base.xml</Data></Cell>
+    <Cell><Data ss:Type="String">tool</Data></Cell>
+    <Cell><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Base2</Data></Cell>
+    <Cell><Data ss:Type="String">EmptyConformanceStatement</Data></Cell>
+    <Cell><Data ss:Type="String">conformance-base2</Data></Cell>
+    <Cell><Data ss:Type="String">conformance-base2.xml</Data></Cell>
     <Cell><Data ss:Type="String">tool</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
    </Row>
@@ -1442,11 +1449,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1913,26 +1921,26 @@
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Search parameter is on a date (and should support :before and :after modifiers). The date format is the standard XML format, though other formats may be supported</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Search parameter is on a date (and should support :before and :after modifiers). The date format is the standard XML format, though other formats may be supported</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="33.75">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a &quot;/&quot;, depending on the modifier used</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a &quot;/&quot;, depending on the modifier used</Data></Cell>
     <Cell><Data ss:Type="String"> </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="24" ss:StyleID="s90">
     <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A reference to another resource</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A reference to another resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">7</Data></Cell>
@@ -1953,7 +1961,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

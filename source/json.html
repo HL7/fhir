@@ -125,10 +125,10 @@ If the value has an id attribute, or extensions, then this is represented as fol
  "dob": "1972-11-30",
  "_dob": { 
    "id": "314159", 
-   "extension": {
+   "extension": [{
       "url" : "http://example.org/fhir/extensions#text",
       "valueString" : "Easter 1970"
-   }
+   }]
  }
 </pre>
 <p>
@@ -149,12 +149,13 @@ the first array, as demonstrated in this example:
 <p>is represented in JSON as:</p>
 <pre class="json">
  "code": [ "au", "nz" ],
- "_code": [
+ "_code": [ 
    null, 
-   { "extension": {
+   { "extension": [{
       "url" : "http://example.org/fhir/extensions#text",
       "valueString" : "New Zealand a.k.a Kiwiland"
-   } ]
+   }] }
+  ]
  }
 </pre>
 <blockquote>

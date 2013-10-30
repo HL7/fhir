@@ -649,7 +649,7 @@ The following operations provide specific support for tags: <a name="tag-ops"> <
  <tr><td><pre>GET [base]/[type]/[id]/tags</pre></td><td valign="center">get a list of all tags affixed to the nominated resource. This duplicates the HTTP header entries</td></tr>
  <tr><td><pre>GET [base]/[type]/[id]/_history/[vid]/_tags</pre></td><td valign="center">get a list of all tags affixed to the nominated version of the resource. This duplicates the HTTP header entries</td></tr>
  <tr><td><pre>POST [base]/[type]/[id]/_tags</pre></td><td valign="center">Affix tags in the list to the nominated resource</td></tr>
- <tr><td><pre>POST [base]/[type]/[id]/history/[vid]/_tags</pre></td><td valign="center">Affix tags in the list to the nominated version of the resource</td></tr>
+ <tr><td><pre>POST [base]/[type]/[id]/_history/[vid]/_tags</pre></td><td valign="center">Affix tags in the list to the nominated version of the resource</td></tr>
  <tr><td><pre>DELETE [base]/[type]/[id]/_tags</pre></td><td valign="center">Remove all tags in the provided list from the list of tags for the nominated resource</td></tr>
  <tr><td><pre>DELETE [base]/[type]/[id]/_history/[vid]/_tags</pre></td><td valign="center">Remove tags in the provided list from the list of tags for the nominated version of the resource</td></tr>
 </table>  
@@ -704,7 +704,7 @@ resources are only used in bundles).
 Here is the request and response to a read operation on a CDA document:
 </p>
 <pre>
-GET /[path]/binary/@4 HTTP/1.1
+GET /[path]/binary/4 HTTP/1.1
 Host: [server]
 Accept: */*
 
@@ -712,7 +712,7 @@ HTTP/1.1 200 OK
 Content-Type: text/xml
 Access-Control-Allow-Origin: *
 Last-Modified: Thu, 24 Oct 2013 00:41:55 +0000
-Content-Location: http://[server]/[path]/binary/@4/history/@1
+Content-Location: http://[server]/[path]/binary/4/_history/1
 
 &lt;ClinicalDocument xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
   xmlns=&quot;urn:hl7-org:v3&quot;xmlns:cda=&quot;urn:hl7-org:v3&quot;&gt;
@@ -824,7 +824,6 @@ In this regard, FHIR functions as a Record Format Profile as described in that s
 </p>
 <ul>
  <li>FHIR maps the hData sections to resource types, and hData documents to resource instances. There are no subsections, and client systems are not able to create new sections, though <a href="extras.html#compartments">compartments</a> behave somewhat like sections</li>
- <li>The FHIR resource id maps to the hData document name by prepending "@"</li>
  <li>Because clients cannot submit new sections (POST to service URL), POST to the service URL has been re-used for <a href="#transaction">the transaction interaction</a> (difference under review)</li>
  <li>FHIR does not (yet) define a root document. When defined, it will contain information about what the FHIR server has done (as opposed to a conformance statement, which describes what it is capable of doing)</li>
  <li>Note that this specification does not repeat the rules in the hData RESTful Transport concerning the OPTIONS command on the service URL, but these rules (extra headers etc.) still apply</li>
@@ -839,25 +838,25 @@ These tables present a summary of the interactions described here.
 <table class="grid">
 <tr><th>Interaction</th><th>Path</th><th colspan="5">Request</th></tr>
 <tr><th colspan="2"></th>                                     <th>Verb</th>         <th>Content-Type</th> <th>Body</th>     <th>Accept</th> <th>Content-Location</th></tr>
-<tr><td>read</td>       <td>/[type]/@[id]</td>                <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
-<tr><td>vread</td>      <td>/[type]/@[id]/history/[vid]</td> <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
+<tr><td>read</td>       <td>/[type]/[id]</td>                <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
+<tr><td>vread</td>      <td>/[type]/[id]/_history/[vid]</td> <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
 <tr><td>conformance</td><td>/ or /metadata</td>               <td>OPTIONS / GET</td><td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
-<tr><td>update</td>     <td>/[type]/@[id]</td>                <td>PUT</td>          <td>R</td>            <td>Resource</td> <td>O</td>      <td>O or R</td></tr>
+<tr><td>update</td>     <td>/[type]/[id]</td>                <td>PUT</td>          <td>R</td>            <td>Resource</td> <td>O</td>      <td>O or R</td></tr>
 <tr><td>create</td>     <td>/[type]</td>           		      <td>POST</td>         <td>R</td>            <td>Resource</td> <td>O</td>      <td>N/A</td></tr>
 <tr><td>transaction</td><td>/</td>                            <td>POST</td>         <td>R</td>            <td>Bundle</td>   <td>O</td>      <td>N/A</td></tr>
-<tr><td>delete</td>     <td>/[type]/@[id]</td>                <td>DELETE</td>       <td>N/A</td>          <td>N/A</td>      <td>N/A</td>    <td>N/A</td></tr>
-<tr><td>search</td>     <td>/[type]/search or /[type]</td>               <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
+<tr><td>delete</td>     <td>/[type]/[id]</td>                <td>DELETE</td>       <td>N/A</td>          <td>N/A</td>      <td>N/A</td>    <td>N/A</td></tr>
+<tr><td>search</td>     <td>/[type]/_search? or /[type]?</td>               <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
 <tr><td>search-all</td>	<td>/</td>                   		  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
-<tr><td>validate</td>   <td>/[type]/validate/@[id]</td>       <td>POST</td>         <td>R</td>            <td>Resource</td> <td>O</td>      <td>N/A</td></tr>
-<tr><td>history</td>	<td>/[type]/@[id]/history</td> 		  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
+<tr><td>validate</td>   <td>/[type]/_validate{/[id]}</td>       <td>POST</td>         <td>R</td>            <td>Resource</td> <td>O</td>      <td>N/A</td></tr>
+<tr><td>history</td>	<td>/[type]/[id]/_history</td> 		  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
 <tr><td>history-type</td><td>/[type]/history</td> 		  	  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
 <tr><td>history-all</td><td>/history</td> 		  			  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
 <tr><td>tags-all</td><td>/tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
 <tr><td>tags-type</td><td>/[type]/tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
-<tr><td rowspan="3">tags</td><td rowspan="3">/[type]/@[id]/tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
+<tr><td rowspan="3">tags</td><td rowspan="3">/[type]/[id]/_tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
 <tr><td>POST</td><td>R</td><td>TagList</td><td>N/A</td><td>N/A</td></tr>
 <tr><td>DELETE</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
-<tr><td rowspan="3">tags-version</td><td rowspan="3">/[type]/@[id]/history/[vid]/tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
+<tr><td rowspan="3">tags-version</td><td rowspan="3">/[type]/[id]/_history/[vid]/tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
 <tr><td>POST</td><td>R</td><td>TagList</td><td>N/A</td><td>N/A</td></tr>
 <tr><td>DELETE</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
 </table>
