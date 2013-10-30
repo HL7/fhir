@@ -290,7 +290,8 @@ public class CSharpModelGenerator extends GenBlock
 
 	  if( isList )
 	    csType = "IEnumerable<" + csType + ">";
-	  
+
+	  ln("[NotMapped]");
 	  ln("public " + csType + " " + simpleMemberName);
 	  bs("{");
 	    ln("get { return " + memberName + " != null ? ");
@@ -355,17 +356,20 @@ public class CSharpModelGenerator extends GenBlock
 	private void compositeClassHeader(CompositeTypeDefn composite) throws Exception
 	{
 	  boolean representsPrimitive = hasPrimitiveValueElement(composite);
-	  
-		if( composite.isComposite() )
+
+	  // Avoid generating type attributes with names for the abstract baseclasses Element and Resource
+		if( composite.isComposite() && !composite.isAbstract() )
 		{
 		  if(!representsPrimitive)
-		    ln("[FhirComplexType(");
+		    ln("[FhirComplexType(\"" + composite.getName() + "\")]" );
 		  else
-		    ln("[FhirPrimitiveType(");
+		    ln("[FhirPrimitiveType(\"" + composite.getName() + "\")]" );
 		}
-		else if( composite.isResource() )
-			ln("[FhirResource(");
-		nl("\"" + composite.getName() + "\""); nl(")]");
+		else if( composite.isResource() && !composite.isAbstract() )
+		{
+			ln("[FhirResource(\"" + composite.getName() + "\")]" );
+		}
+		
 		ln("[Serializable]");
 		ln( "public ");
 			if( composite.isAbstract() ) nl("abstract ");

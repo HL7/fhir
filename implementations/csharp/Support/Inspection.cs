@@ -35,6 +35,16 @@ using System.Text;
 
 namespace Hl7.Fhir.Support
 {
+    [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
+    public sealed class NotMappedAttribute : Attribute
+    {
+        // This is a positional argument
+        public NotMappedAttribute()
+        {
+            // This attribute is just a marker, no functionality or data
+        }
+    }
+
     [AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = false)]
     public sealed class FhirResourceAttribute : Attribute
     {

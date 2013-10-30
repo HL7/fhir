@@ -90,7 +90,7 @@ namespace Hl7.Fhir.Model
 
 
     [Serializable]
-    public class Code<T> : Element  where T : struct
+    public class Code<T> : ComplexElement  where T : struct
     {
         // Primitive value of element
         public T? Value { get; set; }
