@@ -13,8 +13,6 @@ import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Boolean;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
-import org.hl7.fhir.instance.model.Demographics;
-import org.hl7.fhir.instance.model.Demographics.DemographicsLanguageComponent;
 import org.hl7.fhir.instance.model.Document;
 import org.hl7.fhir.instance.model.Document.DocumentAttestationMode;
 import org.hl7.fhir.instance.model.Document.DocumentAttesterComponent;

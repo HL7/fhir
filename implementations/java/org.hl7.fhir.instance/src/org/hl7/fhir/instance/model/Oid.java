@@ -28,7 +28,10 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.instance.model;
 
-public class Oid extends Id {
+/**
+ * Primitive type "oid" in FHIR: an OID represented as urn:oid:0.1.2.3.4...
+ */
+public class Oid extends Uri {
 
 	protected Type typedCopy() {
 		return copy();

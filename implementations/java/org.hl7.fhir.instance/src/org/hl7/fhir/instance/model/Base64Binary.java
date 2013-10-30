@@ -30,14 +30,26 @@ package org.hl7.fhir.instance.model;
 
 import org.hl7.fhir.instance.formats.XmlBase;
 
+/**
+ * Primitive type "base64Binary" in FHIR: a sequence of bytes represented in base64
+ */
 public class Base64Binary extends Type {
 
+	/**
+	 * The byte content in the base64Binary
+	 */
 	private byte[] value;
 
+	/**
+	 * @return The byte content in the base64Binary
+	 */
 	public byte[] getValue() {
 		return value;
 	}
 
+	/**
+	 * @param value The byte content in the base64Binary
+	 */
 	public void setValue(byte[] value) {
 		this.value = value;
 	}

@@ -30,34 +30,80 @@ POSSIBILITY OF SUCH DAMAGE.
 
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
+/**
+ * A resource in a bundle
+ */
 public class AtomEntry<T extends Resource> extends AtomBase {
-  private boolean deleted;
+	
+  /**
+   * If this is marked as a deleted resource (in history feeds)
+   */
+	private boolean deleted;
+	
+	/**
+	 * Date this resource was published (no particular use in the FHIR specification)
+	 */
   private java.util.Calendar published;
+  
+  /**
+   * The resource itself
+   */
   private T resource;
+  
+  /**
+   * A summary of the resource - usually extracted from the narrative in the resource
+   */
   private XhtmlNode summary;
   
-  
+  /**
+   * @return Date this resource was published (no particular use in the FHIR specification)
+   */
   public java.util.Calendar getPublished() {
     return published;
   }
+  
+  /**
+   * @param published Date this resource was published (no particular use in the FHIR specification)
+   */
   public void setPublished(java.util.Calendar published) {
     this.published = published;
   }
+  
+  /**
+   * @return  The resource itself
+   */
   public T getResource() {
     return resource;
   }
+  /**
+   * @param resource The resource itself
+   */
   public void setResource(T resource) {
     this.resource = resource;
   }
+  
+  /**
+   * @return A summary of the resource - usually extracted from the narrative in the resource
+   */
   public XhtmlNode getSummary() {
     return summary;
   }
+  /**
+   * @param summary A summary of the resource - usually extracted from the narrative in the resource
+   */
   public void setSummary(XhtmlNode summary) {
     this.summary = summary;
   }
+  
+  /**
+   * @return If this is marked as a deleted resource (in history feeds)
+   */
 	public boolean isDeleted() {
 		return deleted;
 	}
+	/**
+	 * @param deleted  If this is marked as a deleted resource (in history feeds)
+	 */
 	public void setDeleted(boolean deleted) {
 		this.deleted = deleted;
 	}

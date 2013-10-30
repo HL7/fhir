@@ -36,17 +36,27 @@ import java.util.Calendar;
 import org.hl7.fhir.instance.formats.XmlBase;
 
 /**
+ * Primitive type "instant" in FHIR: a value date time with a known timezone
  * @author Grahame
  *
  */
 public class Instant extends Type {
 
+	/**
+	 * The value for the instant
+	 */
 	private Calendar value;
 
+	/**
+	 * @return the instant
+	 */
 	public Calendar getValue() {
 		return value;
 	}
 
+	/**
+	 * @param value the instant
+	 */
 	public void setValue(Calendar value) {
 		this.value = value;
 	} 

@@ -40,7 +40,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-public class XmlBase {
+public abstract class XmlBase {
   protected static final String FHIR_NS = "http://hl7.org/fhir";
   protected static final String ATOM_NS = "http://www.w3.org/2005/Atom";
   protected static final String GDATA_NS = "http://schemas.google.com/g/2005";

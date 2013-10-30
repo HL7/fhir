@@ -29,15 +29,26 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.hl7.fhir.instance.model;
 
-
+/**
+ * Primitive type "date" in FHIR: any day in a gregorian calendar
+ */
 public class Date extends Type {
 
+	/**
+	 * The value of the date
+	 */
 	private String value;
 
+	/**
+	 * @return The value of the date
+	 */
 	public String getValue() {
 		return value;
 	}
 
+	/**
+	 * @param value The value of the date
+	 */
 	public void setValue(String value) {
 		this.value = value;
 	}

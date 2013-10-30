@@ -45,6 +45,12 @@ import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+/**
+ * General parser for JSON content. You instantiate an JsonParser of these, but you 
+ * actually use parse or parseGeneral defined on this class
+ * 
+ * The two classes are separated to keep generated and manually maintained code apart.
+ */
 public abstract class JsonParserBase extends ParserBase implements Parser {
 
   abstract protected Resource parseResource(JSONObject json) throws Exception;
@@ -53,6 +59,9 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
     return new JSONObject(TextFile.streamToString(input));
   }
   
+  /**
+   * Parse content that may be either a resource or a bundle
+   */
   public ResourceOrFeed parseGeneral(InputStream input) throws Exception {
     JSONObject json = loadJson(input);
     ResourceOrFeed r = new ResourceOrFeed();
@@ -64,12 +73,18 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
     return r;    
   }
 
+  /**
+   * Parse content that is known to be a resource
+   */
   public Resource parse(InputStream input) throws Exception {
     JSONObject json = loadJson(input);
   
     return parseResource(json);
   }
 
+  /**
+   * parse xml that is known to be a resource, and that has already been read into a JSON object  
+   */
   public Resource parse(JSONObject json) throws Exception {
     return parseResource(json);
   }

@@ -28,14 +28,27 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.instance.model;
 
+/**
+ * Primitive type "string" in FHIR - any sequence of unicode characters less than 1MB in length
+ */
+
 public class String_ extends Type {
 
+	/**
+	 * The string value
+	 */
 	private String value;
 
+	/**
+	 * @return the string value
+	 */
 	public String getValue() {
 		return value;
 	}
 
+	/**
+	 * @param value the value of the string
+	 */
 	public void setValue(String value) {
 		this.value = value;
 	}

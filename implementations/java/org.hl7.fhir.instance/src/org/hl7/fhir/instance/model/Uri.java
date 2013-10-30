@@ -30,14 +30,26 @@ package org.hl7.fhir.instance.model;
 
 import java.net.URI;
 
+/**
+ * Primitive type "uri" in FHIR: any valid URI. Sometimes constrained to be only an absolute URI, and sometimes constrained to be a literal reference
+ */
 public class Uri extends Type {
 	
-	private String value;
+	/**
+	 * any valid URI
+	 */
+	protected String value;
 
+	/**
+	 * @return - the URI value
+	 */
 	public String getValue() {
 		return value;
 	}
 
+	/**
+	 * @param value any valid URI
+	 */
 	public void setValue(String value) {
 		this.value = value;
 	}

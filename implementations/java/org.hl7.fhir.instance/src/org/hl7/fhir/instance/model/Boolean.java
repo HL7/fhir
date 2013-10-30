@@ -32,31 +32,29 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.hl7.fhir.instance.model;
 
 /**
- * @author Grahame
- *
+ * Primitive type "boolean" in FHIR "true" or "false"
  */
 public class Boolean extends Type {
 
+	/**
+	 * The value of the boolean
+	 */
 	private java.lang.Boolean value;
-	private String original;
 	
+	/**
+	 * @return The value of the boolean
+	 */
 	public java.lang.Boolean getValue() {
 		return value;
 	}
 
+	/**
+	 * @param value The value of the boolean
+	 */
 	public void setValue(java.lang.Boolean value) {
 	  this.value = value;
-	  this.original = null;
 	}
 
-  public String getOriginal() {
-    return original;
-  }
-
-  public void setOriginal(String original) {
-    this.original = original;
-  } 
-	
 	public Boolean copy() {
 		Boolean dst = new Boolean();
 		dst.value = value;

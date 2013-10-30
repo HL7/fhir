@@ -43,12 +43,28 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.xmlpull.v1.XmlPullParser;
 
+/**
+ * General parser for XML content. You instantiate an XmlParser of these, but you 
+ * actually use parse or parseGeneral defined on this class
+ * 
+ * The two classes are separated to keep generated and manually maintained code apart.
+ */
 public abstract class XmlParserBase extends ParserBase implements Parser {
 
+	/**
+	 * Whether to throw an exception if unknown content is found (or just skip it)
+	 */
   private boolean allowUnknownContent;
+  
+  /**
+   * @return Whether to throw an exception if unknown content is found (or just skip it) 
+   */
   public boolean isAllowUnknownContent() {
     return allowUnknownContent;
   }
+  /**
+   * @param allowUnknownContent Whether to throw an exception if unknown content is found (or just skip it)
+   */
   public void setAllowUnknownContent(boolean allowUnknownContent) {
     this.allowUnknownContent = allowUnknownContent;
   }
@@ -82,6 +98,9 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
   }
   
 
+  /**
+   * Parse content that may be either a resource or a bundle
+   */
   public ResourceOrFeed parseGeneral(InputStream input) throws Exception {
     XmlPullParser xpp = loadXml(input);
     ResourceOrFeed r = new ResourceOrFeed();
@@ -95,6 +114,9 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     return r;    
   }
 
+  /**
+   * Parse content that is known to be a resource
+   */
   public Resource parse(InputStream input) throws Exception {
     XmlPullParser xpp = loadXml(input);
   
@@ -103,6 +125,9 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     return parseResource(xpp);
   }
 
+  /**
+   * parse xml that is known to be a resource, and that is already being read by an XML Pull Parser  
+   */
   public Resource parse(XmlPullParser xpp) throws Exception {
     if (!xpp.getNamespace().equals(FHIR_NS))
       throw new Exception("This does not appear to be a FHIR resource (wrong namespace '"+xpp.getNamespace()+"') (@ /)");
