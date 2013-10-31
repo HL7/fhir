@@ -14,7 +14,7 @@ will be missing most classes, all the generated ones.
 As for /tools, the publishing tool itself uses the generated code. 
 You can get yourself in a real mess generating the source code of 
 the application that generates the source code. A real mess. So the
-publication tool has it's own copy of the source code. We copy it over 
+publication tool has its own copy of the source code. We copy it over 
 into the trunk/tools when
  (a) We know that we need to update the code that 
      the publishing tool itself uses (profile resource changes) and 

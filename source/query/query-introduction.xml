@@ -70,7 +70,7 @@ additional functionality on top of this base read equivalence.
 <h3>Parameters for each resource</h3>
 <p>
 In addition to the _id parameter which exists for all resources, each 
-FHIR resource type defines it's own set of search parameters with 
+FHIR resource type defines its own set of search parameters with 
 their names, types, and meanings. These search parameters are on the 
 same page as the resource definitions, and are also published as part
 of the standard conformance statement (<a href="conformance-base.xml.html">XML</a> or <a href="conformance-base.json.html">JSON</a>).

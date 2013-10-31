@@ -220,7 +220,7 @@ the use of resources, so this specification creates a framework for handling the
 </p>
 <p>
 In these cases an application cannot safely process the resource unless it knows
-what the extension means for it's own use of the data. This specification allows for 
+what the extension means for its own use of the data. This specification allows for 
 such modifier elements to be included at the base of a resource, or in any elements
 that do not have a data type (e.g. the elements that correspond to classes in the UML
 diagrams), using an element named "modifierExtension", which has same content as the 
@@ -253,9 +253,9 @@ are not required to check for unknown extensions.
 
 <h3>Summary: Conformance Rules for Modifier Extensions</h3>
 <ul>
- <li>A modifierExtension SHALL only modify the element which it contains, and it's children</li>
+ <li>A modifierExtension SHALL only modify the element which it contains, and its children</li>
  <li>It SHALL always be safe to show the narrative to humans; any modifier extension SHALL be represented in the narrative.</li>
- <li>Applications SHALL always check for modifierExtensions when processing the data from any element that may carry one. If a modifierExtension they do not understand is found, the application SHALL either refuse to process the resource, or provide an appropriate warning to it's users</li>
+ <li>Applications SHALL always check for modifierExtensions when processing the data from any element that may carry one. If a modifierExtension they do not understand is found, the application SHALL either refuse to process the resource, or provide an appropriate warning to its users</li>
 </ul>
 
 <h3>Example</h3>
@@ -284,13 +284,13 @@ as "unlikely" or "refuted". Applications are allowed to extend a resource with d
 When an application understands this extension, it means that some developer
 has provided appropriate instructions for what to do with the data contained 
 in it. Note that there is no obligation that the application do anything at
-all with the data - it can ignore it if that is safe in it's own context,
+all with the data - it can ignore it if that is safe in its own context,
 though this would not usually be the case.
 </p>
 <p>
 Whan an application that doesn't understand this extension tries
 to process this resource, it is required to either refuse to process 
-the resource, or provide an appropriate warning to it's users. Either
+the resource, or provide an appropriate warning to its users. Either
 of these courses of action is potentially difficult. One option is to 
 download the profile that defines the extension (from the given URL), 
 find the name of the extension, and then use the name to display

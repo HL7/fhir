@@ -124,7 +124,7 @@ public class NarrativeGenerator {
     if (vs.getCopyright() != null)
       generateCopyright(x, vs);
     p = x.addTag("p");
-    p.addText("This value set defines it's own terms in the system "+vs.getDefine().getSystemSimple());
+    p.addText("This value set defines its own terms in the system "+vs.getDefine().getSystemSimple());
     XhtmlNode t = x.addTag("table");
     boolean commentS = false;
     boolean deprecated = false;

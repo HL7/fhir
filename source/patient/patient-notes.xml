@@ -48,7 +48,7 @@ record referred to does not point back to the referring record.</p>
 <h3>Distributed Patient record</h3>
 <p>In a distributed architecture, multiple systems keep separate patient records concerning the same person. These
 records are not considered duplicates, but contain a distributed, potentially overlapping view of the patient's data.
-Each such record may have it's own focus or maintaining organization and there need not be a sense of one record
+Each such record may have its own focus or maintaining organization and there need not be a sense of one record
 being more complete or more authorative than another. In such cases, links of type 'seealso' can be used to point to
 other patient records. It is not a requirement that such links are bilateral. 
 </p>

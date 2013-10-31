@@ -275,7 +275,7 @@ public class ResourceValidator extends BaseValidator {
     if (!e.hasShortDefn()) 
       return;
     
-    warning(errors, "structure", path, !e.getShortDefn().equals(e.getDefinition()), "Element needs a definition of it's own");
+    warning(errors, "structure", path, !e.getShortDefn().equals(e.getDefinition()), "Element needs a definition of its own");
     warning(errors, "structure", path, !e.getShortDefn().equals(e.getName()), "Short description can't be the same as the name");
     Set<String> defn = new HashSet<String>();
     for (String w : splitByCamelCase(e.getName()).toLowerCase().split(" ")) 
